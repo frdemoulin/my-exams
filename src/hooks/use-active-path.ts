@@ -11,5 +11,5 @@ export function useActivePath(): (path: string) => boolean {
         return pathname.startsWith(path);
     }
 
-    return isActivePath
+    return isActivePath;
 }

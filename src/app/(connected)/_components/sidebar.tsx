@@ -4,11 +4,11 @@ import Link from "next/link";
 import {
   FaArrowsTurnToDots,
   FaBarsProgress,
+  FaCity,
   FaCompactDisc,
   FaFileAudio,
   FaGears,
   FaHouse,
-  FaMicrophone,
   FaMusic,
   FaRightToBracket,
   FaSliders,
@@ -24,12 +24,12 @@ export const Sidebar = () => {
 
   const menuItems = [
     {
-      title: 'Discographie',
+      title: 'Examens',
       list: [
         {
-          title: 'Artistes',
-          path: '/artists',
-          icon: <FaMicrophone className="mr-3" size={16} />
+          title: "Centres d'examens",
+          path: '/admin/examination-centers',
+          icon: <FaCity className="mr-3" size={16} />
         },
         {
           title: 'Sorties',
@@ -93,12 +93,12 @@ export const Sidebar = () => {
       list: [
         {
           title: 'Journal de connexion',
-          path: '/log-users',
+          path: '/admin/log-users',
           icon: <FaRightToBracket className="mr-3" size={16} />
         },
         {
           title: 'Utilisateurs',
-          path: '/users',
+          path: '/admin/users',
           icon: <FaUsers className="mr-3" size={16} />
         },
       ]
@@ -106,16 +106,16 @@ export const Sidebar = () => {
   ];
 
   return (
-    <div className="h-full w-64 sticky bg-primary font-medium text-sm text-textlight p-4 mb-1">
-      <div className="py-2">
+    <div className="h-full w-64 sticky bg-slate-50 font-medium text-sm text-textlight p-4 mb-1 overflow-hidden">
+      <div className="py-2 h-screen overflow-y-auto">
         <ul>
           <Link
             href="/"
           >
             <li
               className={cn(
-                "p-2 flex items-center hover:bg-blue-500/60 transition no-underline hover:no-underline rounded-sm",
-                isActivePath("/") && "font-bold bg-blue-500/60"
+                "px-2 py-1 my-2 flex items-center transition no-underline hover:no-underline border-l-2 border-slate-50 hover:border-l-2 hover:border-blue-700",
+                isActivePath("/") && "font-bold text-blue-700 border-l-2 border-blue-700"
               )}
               key="home"
             >
@@ -128,7 +128,7 @@ export const Sidebar = () => {
           </Link>
           {menuItems.map((cat) => (
             <li className="pt-2" key={cat.title}>
-              <div className="pt-1 pb-1 uppercase font-bold text-gray-400">{cat.title}</div>
+              <div className="pt-1 pb-1 uppercase">{cat.title}</div>
               <ul>
                 {cat.list.map((item, index, array) => (
                   <Link
@@ -137,8 +137,8 @@ export const Sidebar = () => {
                   >
                     <li
                       className={cn(
-                        "p-2 flex items-center hover:bg-blue-500/60 transition no-underline hover:no-underline rounded-sm",
-                        isActivePath(item.path) && "font-bold bg-blue-500/60"
+                        "px-2 py-1 my-2 flex items-center text-slate-500 border-slate-50 border-l-2 hover:border-l-2 hover:text-black transition no-underline hover:no-underline hover:border-blue-700",
+                        isActivePath(item.path) && "font-bold text-blue-700 border-l-2 border-blue-700"
                       )}
                       key={item.title}
                     >

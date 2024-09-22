@@ -13,6 +13,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model ExaminationCenter {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([description])
+}
+
 enum Role {
   USER
   ADMIN

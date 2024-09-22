@@ -17,7 +17,6 @@ const DashboardPage = async () => {
     return (
         <div className="p-4">
             Page d&apos;accueil connecté
-            Bouton se déconnecter
         </div>
     )
 }

@@ -14,7 +14,7 @@ export function TableTitle({
 }) {
     return (
         <div className="w-full flex justify-between items-center">
-            <h1>{title}</h1>
+            <h1 className="text-2xl font-bold text-blue-700">{title}</h1>
             <Button
                 asChild
                 variant="add"

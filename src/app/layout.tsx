@@ -1,25 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-});
+import { Toaster } from "react-hot-toast";
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | My app",
-    default: "My app",
+    template: "%s | My exams",
+    default: "My exams",
   },
-  description: "My app",
+  description: "My exams",
 };
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function RootLayout({
   children,
@@ -27,10 +24,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="fr">
+      <body className={inter.className} suppressHydrationWarning={true}>
         {/* Récupère la session côté client après le chargement des pages */}
         <SessionProvider>
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              className: "text-sm",
+              duration: 3000,
+            }}
+          />
+          <NextTopLoader
+            color="#3266BF"
+            height={4}
+            showSpinner={false}
+          />
           {children}
         </SessionProvider>
       </body>

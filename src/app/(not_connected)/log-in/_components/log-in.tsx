@@ -18,7 +18,7 @@ export async function LogIn() {
           <div className="flex justify-center">
             <Image src="next.svg" width={100} height={100} alt="logo" />
           </div>
-          <CardTitle className="flex justify-center">Connexion</CardTitle>
+          <CardTitle className="flex justify-center">Connexion à l&apos;application</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex justify-center items-center">
@@ -55,7 +55,6 @@ export async function LogIn() {
                         {provider.name === "GitHub" && <Image src={gitHubIcon} width={25} alt="GitHub logo" />}
                         {provider.name === "Facebook" && <Image src={facebookIcon} width={20} alt="Facebook logo" />}
                         {provider.name === "Google" && <Image src={googleIcon} width={20} alt="Google logo" />}
-                        {provider.name === "Spotify" && <Image src={spotifyIcon} width={20} alt="Spotify logo" />}
                       </button>
                     </TooltipTrigger>
                     <TooltipContent>
@@ -93,13 +92,13 @@ export async function LogIn() {
             >
               <input type="email" name="email" placeholder="mail@example.com" className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 dark:bg-neutral-700 dark:border-neutral-600 dark:focus:ring-blue-500 text-sm" />
               <button type="submit" className="w-full px-4 py-2 mt-2 text-sm font-medium text-center text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700">
-                Connexion
+                Envoyer l&apos;email
               </button>
             </form>
           </div>
           {/* signup link */}
           <div className="text-center text-sm mt-4">
-            Pas de compte ? <a className="text-blue-500" href="/signup">Créer un compte</a>
+            Pas de compte ? <a className="text-blue-700" href="/signup">Créer un compte</a>
           </div>
         </CardContent>
       </Card>
