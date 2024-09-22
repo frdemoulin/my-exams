@@ -4,8 +4,8 @@ import Link from "next/link";
 import {
   FaArrowsTurnToDots,
   FaBarsProgress,
+  FaBook,
   FaCity,
-  FaCompactDisc,
   FaFileAudio,
   FaGears,
   FaHouse,
@@ -32,9 +32,9 @@ export const Sidebar = () => {
           icon: <FaCity className="mr-3" size={16} />
         },
         {
-          title: 'Sorties',
-          path: '/releases',
-          icon: <FaCompactDisc className="mr-3" size={16} />
+          title: 'Diplômes',
+          path: '/admin/diplomas',
+          icon: <FaBook className="mr-3" size={16} />
         },
         {
           title: 'Chansons',

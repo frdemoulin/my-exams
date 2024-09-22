@@ -7,7 +7,7 @@ import Resend from "next-auth/providers/resend";
 import type { Provider } from "next-auth/providers";
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { db } from "./lib/db";
+import prisma from "./lib/db";
 import { sendVerificationRequest } from "@/lib/auth-send-request";
 
 // définition des providers
@@ -53,7 +53,7 @@ export const providerMap = providers.map((provider) => {
 
 // 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-    adapter: PrismaAdapter(db),
+    adapter: PrismaAdapter(prisma),
     // à chaque ouverture de session, on sette le rôle de l'utilisateur sur sa session
     callbacks: {
         session({ session, user }) {

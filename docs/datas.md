@@ -1,4 +1,4 @@
-# Liste des entités
+# Liste des données statiques
 
 ## Examens
 

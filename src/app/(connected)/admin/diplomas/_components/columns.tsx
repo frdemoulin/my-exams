@@ -11,30 +11,44 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ExaminationCenter } from "@prisma/client";
+import { Diploma } from "@prisma/client";
 import { formatDate } from "@/lib/utils";
 import toast from "react-hot-toast";
-import { deleteExaminationCenter } from "@/actions/examination-center/delete-examination-center";
+import { deleteDiploma } from "@/actions/diploma/delete-diploma";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
-    await deleteExaminationCenter(id);
-    toast.success("Centre d'examen supprimé");
+    await deleteDiploma(id);
+    toast.success("Diplôme supprimé");
   } catch (error) {
-    toast.error("Erreur dans la suppression du centre d'examen");
+    toast.error("Erreur dans la suppression du diplôme");
   }
 }
 
-export const columns: ColumnDef<ExaminationCenter>[] = [
+export const columns: ColumnDef<Diploma>[] = [
   {
-    accessorKey: "description",
+    accessorKey: "shortDescription",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Description
+          Description courte
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
+    accessorKey: "longDescription",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Description longue
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -78,7 +92,7 @@ export const columns: ColumnDef<ExaminationCenter>[] = [
     header: "Actions",
     id: "actions",
     cell: ({ row }) => {
-      const examinationCenter = row.original;
+      const diploma = row.original;
 
       return (
         <DropdownMenu>
@@ -91,7 +105,7 @@ export const columns: ColumnDef<ExaminationCenter>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuItem>
               <Link
-                href={`/admin/examination-centers/${examinationCenter.id}`}
+                href={`/admin/diplomas/${diploma.id}`}
               >
                 Voir
               </Link>
@@ -99,12 +113,12 @@ export const columns: ColumnDef<ExaminationCenter>[] = [
             <DropdownMenuItem>
               <Link
                 className="hover:cursor-pointer"
-                href={`/admin/examination-centers/${examinationCenter.id}/edit`}
+                href={`/admin/diplomas/${diploma.id}/edit`}
               >
                 Éditer
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="hover:cursor-pointer" onClick={() => handleOnClickDeleteButton(examinationCenter.id)}>
+            <DropdownMenuItem className="hover:cursor-pointer" onClick={() => handleOnClickDeleteButton(diploma.id)}>
               Supprimer
             </DropdownMenuItem>
           </DropdownMenuContent>

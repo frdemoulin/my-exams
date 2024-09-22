@@ -4,14 +4,14 @@ import { redirect } from "next/navigation";
 import { TableTitle } from "@/components/table-title";
 import { DataTable } from "./_components/data-table";
 import { columns } from "./_components/columns";
-import { fetchExaminationCenters } from "@/db/queries/examination-center";
+import { fetchDiplomas } from "@/db/queries/diploma";
 import getSession from "@/lib/get-session";
 
 export const metadata: Metadata = {
-    title: "Liste des centres d'examens",
+    title: "Liste des diplômes",
 }
 
-const ExaminationCentersPage = async () => {
+const DiplomasPage = async () => {
     const session = await getSession();
     const user = session?.user;
 
@@ -19,24 +19,24 @@ const ExaminationCentersPage = async () => {
         redirect("/api/auth/signin?callbackUrl=/users");
     }
 
-    const examinationCenters = await fetchExaminationCenters();
+    const diplomas = await fetchDiplomas();
 
     return (
         <div className="w-full p-6">
             <TableTitle
-                title="Liste des centres d'examens"
-                buttonId="addExaminationCenterButton"
-                buttonLabel="Ajouter un centre d'examen"
-                buttonPath="examination-centers/add"
+                title="Liste des diplômes"
+                buttonId="addDiplomaButton"
+                buttonLabel="Ajouter un diplôme"
+                buttonPath="diplomas/add"
             />
             <div className="container mx-auto py-10">
                 <DataTable
                     columns={columns}
-                    data={examinationCenters}
+                    data={diplomas}
                 />
             </div>
         </div>
     )
 }
 
-export default ExaminationCentersPage;
+export default DiplomasPage;
