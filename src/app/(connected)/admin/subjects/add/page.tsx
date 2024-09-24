@@ -1,21 +1,21 @@
 import { Metadata } from "next";
-import { DivisionForm } from "../_components/division-form";
-import { createDivision } from "@/actions/division/create-division";
+import { SubjectForm } from "../_components/subject-form";
+import { createSubject } from "@/actions/subject/create-subject";
 
 export const metadata: Metadata = {
-    title: "Ajout d'une filière",
+    title: "Ajout d'une matière",
 }
 
-const AddDivisionPage = () => {
+const AddSubjectPage = () => {
     return (
         <div className="w-full p-6">
             <div>
-                <h1 className="text-2xl font-bold text-blue-700 my-4">Ajout d&apos;une filière</h1>
+                <h1 className="text-2xl font-bold text-blue-700 my-4">Ajout d&apos;une matière</h1>
             </div>
             <div>
-                <DivisionForm
+                <SubjectForm
                     crudMode="add"
-                    formAction={createDivision}
+                    formAction={createSubject}
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
@@ -26,4 +26,4 @@ const AddDivisionPage = () => {
     )
 }
 
-export default AddDivisionPage;
+export default AddSubjectPage;

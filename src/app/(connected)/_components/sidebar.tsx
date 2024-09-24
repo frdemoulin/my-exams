@@ -25,7 +25,7 @@ export const Sidebar = () => {
 
   const menuItems = [
     {
-      title: 'Examens',
+      title: 'Scolarité',
       list: [
         {
           title: "Centres d'examens",
@@ -38,14 +38,19 @@ export const Sidebar = () => {
           icon: <FaBook className="mr-3" size={16} />
         },
         {
-          title: 'Niveaux scolaires',
-          path: '/admin/grades',
-          icon: <FaStairs className="mr-3" size={16} />
-        },
-        {
           title: "Filières",
           path: '/admin/divisions',
           icon: <FaChartPie className="mr-3" size={16} />
+        },
+        {
+          title: 'Matières',
+          path: '/admin/subjects',
+          icon: <FaBook className="mr-3" size={16} />
+        },
+        {
+          title: 'Niveaux scolaires',
+          path: '/admin/grades',
+          icon: <FaStairs className="mr-3" size={16} />
         },
       ]
     },

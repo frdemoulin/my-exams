@@ -19,6 +19,11 @@
   - Baccalauréat technologique
   - Diplôme national du Brevet
   - Brevet de technicien supérieur
+- Matières :
+  - Chimie
+  - Mathématiques
+  - Physique
+  - Sciences physiques
 - Niveaux scolaires :
   - 3e
   - 1e
