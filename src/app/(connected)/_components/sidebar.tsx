@@ -5,13 +5,14 @@ import {
   FaArrowsTurnToDots,
   FaBarsProgress,
   FaBook,
+  FaChartPie,
   FaCity,
   FaFileAudio,
   FaGears,
   FaHouse,
-  FaMusic,
   FaRightToBracket,
   FaSliders,
+  FaStairs,
   FaUsers,
   FaVolumeLow
 } from "react-icons/fa6";
@@ -37,14 +38,14 @@ export const Sidebar = () => {
           icon: <FaBook className="mr-3" size={16} />
         },
         {
-          title: 'Chansons',
-          path: '/songs',
-          icon: <FaMusic className="mr-3" size={16} />
+          title: 'Niveaux scolaires',
+          path: '/admin/grades',
+          icon: <FaStairs className="mr-3" size={16} />
         },
         {
-          title: "Types de sorties",
-          path: '/release-types',
-          icon: <FaGears className="mr-3" size={16} />
+          title: "Filières",
+          path: '/admin/divisions',
+          icon: <FaChartPie className="mr-3" size={16} />
         },
       ]
     },

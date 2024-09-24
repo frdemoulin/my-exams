@@ -15,7 +15,7 @@ export const createDiploma = async (formData: FormData) => {
     if (result.success) {
         const { longDescription, shortDescription } = result.data;
 
-        // create artist in database
+        // create diploma in database
         await prisma.diploma.create({
             data: {
                 longDescription,
@@ -30,7 +30,7 @@ export const createDiploma = async (formData: FormData) => {
         throw errors;
     }
 
-    // on redirige vers la liste des artistes
+    // on redirige vers la liste des diplômes
     revalidatePath("/admin/diplomas");
     redirect("/admin/diplomas");
 }

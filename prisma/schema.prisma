@@ -23,6 +23,16 @@ model Diploma {
   @@unique([longDescription])
 }
 
+model Division {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([longDescription])
+}
+
 model ExaminationCenter {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   description String
@@ -30,6 +40,16 @@ model ExaminationCenter {
   updatedAt   DateTime @updatedAt
 
   @@unique([description])
+}
+
+model Grade {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([longDescription])
 }
 
 enum Role {

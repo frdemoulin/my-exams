@@ -15,15 +15,15 @@ interface DiplomaDetailPageProps {
 const DiplomaDetailPage = async ({ params }: DiplomaDetailPageProps) => {
     const { id } = params;
 
-    const artist = await fetchDiplomaById(id);
+    const diploma = await fetchDiplomaById(id);
     
     return (
         <div>
             <h1>Détails du diplôme</h1>
-            <p>Description courte : {diploma.shortDescription}</p>
-            <p>Description longue : {diploma.longDescription}</p>
+            <p>Description courte : {diploma?.shortDescription}</p>
+            <p>Description longue : {diploma?.longDescription}</p>
         </div>
     )
 }
 
-export default ArtistDetailPage;
+export default DiplomaDetailPage;

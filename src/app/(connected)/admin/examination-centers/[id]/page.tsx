@@ -1,37 +1,28 @@
 import { Metadata } from "next";
 
-import { fetchArtistById } from "@/db/queries/artist";
-import { Release } from "@prisma/client";
-import { ArtistWithReleases } from "@/types/artist";
+import { fetchExaminationCenterById } from "@/db/queries/examination-center";
 
 export const metadata: Metadata = {
-    title: "Détails de l'artiste"
+    title: "Détails du centre d'examen"
 }
 
-interface ArtistDetailPageProps {
+interface ExaminationCenterDetailPageProps {
     params: {
         id: string;
     }
 }
 
-const ArtistDetailPage = async ({ params }: ArtistDetailPageProps) => {
+const ExaminationCenterDetailPage = async ({ params }: ExaminationCenterDetailPageProps) => {
     const { id } = params;
 
-    const artist = await fetchArtistById(id);
+    const exminationCenter = await fetchExaminationCenterById(id);
     
     return (
         <div>
-            <h1>Détails de l'artiste</h1>
-            <p>Nom : {artist?.name}</p>
-            <p>Nom court : {artist?.shortName}</p>
-            {artist && artist.releases.map((release: Release) => (
-                <ul key={release.id}>
-                    <li>Titre de la sortie : {release.title}</li>
-                    <li>Année de sortie : {release.releaseDate.getFullYear()}</li>
-                </ul>
-            ))}
+            <h1>Détails du centre d&apos;examen</h1>
+            <p>Description : {exminationCenter?.description}</p>
         </div>
     )
 }
 
-export default ArtistDetailPage;
+export default ExaminationCenterDetailPage;

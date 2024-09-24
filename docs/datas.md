@@ -19,14 +19,14 @@
   - Baccalauréat technologique
   - Diplôme national du Brevet
   - Brevet de technicien supérieur
-- Niveau :
+- Niveaux scolaires :
   - 3e
   - 1e
-  - terminale
+  - tale
   - BEP
   - CAP
   - BTS
-- Séries :
+- Filières :
   - S
   - L
   - ES

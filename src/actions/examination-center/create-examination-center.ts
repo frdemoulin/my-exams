@@ -15,7 +15,7 @@ export const createExaminationCenter = async (formData: FormData) => {
     if (result.success) {
         const { description } = result.data;
 
-        // create artist in database
+        // create examination center in database
         await prisma.examinationCenter.create({
             data: {
                 description
@@ -29,7 +29,7 @@ export const createExaminationCenter = async (formData: FormData) => {
         throw errors;
     }
 
-    // on redirige vers la liste des artistes
+    // on redirige vers la liste des centres d'examens
     revalidatePath("/admin/examination-centers");
     redirect("/admin/examination-centers");
 }
