@@ -10,6 +10,7 @@ import {
   FaFileAudio,
   FaGears,
   FaHouse,
+  FaList,
   FaRightToBracket,
   FaSliders,
   FaStairs,
@@ -51,6 +52,11 @@ export const Sidebar = () => {
           title: 'Niveaux scolaires',
           path: '/admin/grades',
           icon: <FaStairs className="mr-3" size={16} />
+        },
+        {
+          title: 'Thèmes',
+          path: '/admin/topics',
+          icon: <FaList className="mr-3" size={16} />
         },
       ]
     },
