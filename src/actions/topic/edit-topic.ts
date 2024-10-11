@@ -4,18 +4,18 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 import prisma from '@/lib/db';
-import { createDivisionSchema } from '@/lib/validation';
+import { createTopicSchema } from '@/lib/validation';
 
-export const updateDivision = async (id: string | undefined, formData: FormData) => {
+export const updateTopic = async (id: string | undefined, formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
-    const result = createDivisionSchema.safeParse(values);
+    const result = createTopicSchema.safeParse(values);
 
     if (result.success) {
         const { longDescription, shortDescription } = result.data;
 
         try {
-            await prisma.division.update({
+            await prisma.topic.update({
                 where: {
                     id
                 },
@@ -25,15 +25,15 @@ export const updateDivision = async (id: string | undefined, formData: FormData)
                 }
             });
 
-            revalidatePath('/admin/divisions');
-            redirect('/admin/divisions');
+            revalidatePath('/admin/topics');
+            redirect('/admin/topics');
         } catch (error) {
-            console.error('Error updating division: ', error);
+            console.error('Error updating topic: ', error);
             throw error;
         }
     } else {
         const errors = result.error.format();
-        console.error('Invalid division data: ', errors);
+        console.error('Invalid topic data: ', errors);
         throw errors;
     }
 }

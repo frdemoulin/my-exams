@@ -4,33 +4,33 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db";
-import { createDivisionSchema } from "@/lib/validation";
-import { CreateDivisionErrors } from "@/types/division";
+import { createTopicSchema } from "@/lib/validation";
+import { CreateTopicErrors } from "@/types/topic";
 
-export const createDivision = async (formData: FormData) => {
+export const createTopic = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
-    const result = createDivisionSchema.safeParse(values);
+    const result = createTopicSchema.safeParse(values);
 
     if (result.success) {
         const { longDescription, shortDescription } = result.data;
 
-        // create division in database
-        await prisma.division.create({
+        // create topic in database
+        await prisma.topic.create({
             data: {
                 longDescription,
                 shortDescription
             }
         });
     } else {
-        const errors: CreateDivisionErrors = result.error.format();
+        const errors: CreateTopicErrors = result.error.format();
 
-        console.error('Error creating division: ', errors);
+        console.error('Error creating topic: ', errors);
 
         throw errors;
     }
 
     // on redirige vers la liste des filières
-    revalidatePath("/admin/divisions");
-    redirect("/admin/divisions");
+    revalidatePath("/admin/topics");
+    redirect("/admin/topics");
 }

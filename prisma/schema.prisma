@@ -61,6 +61,16 @@ model Subject {
   @@unique([longDescription, shortDescription])
 }
 
+model Topic {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([longDescription, shortDescription])
+}
+
 model User {
   id            String          @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
