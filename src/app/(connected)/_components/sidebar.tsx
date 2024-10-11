@@ -118,30 +118,13 @@ export const Sidebar = () => {
   ];
 
   return (
-    <div className="h-full w-64 sticky bg-slate-50 font-medium text-sm text-textlight p-4 mb-1 overflow-hidden">
-      <div className="py-2 h-screen overflow-y-auto">
+    <div className="h-full w-64 sticky font-medium text-sm text-textlight p-4 mb-1 overflow-hidden">
+      <div className="h-screen overflow-y-auto">
         <ul>
-          <Link
-            href="/"
-          >
-            <li
-              className={cn(
-                "px-2 py-1 my-2 flex items-center transition no-underline hover:no-underline border-l-2 border-slate-50 hover:border-l-2 hover:border-blue-700",
-                isActivePath("/") && "font-bold text-blue-700 border-l-2 border-blue-700"
-              )}
-              key="home"
-            >
-              <FaHouse
-                className="mr-3"
-                size={16}
-              />
-              Accueil
-            </li>
-          </Link>
           {menuItems.map((cat) => (
-            <li className="pt-2" key={cat.title}>
+            <li key={cat.title}>
               <div className="pt-1 pb-1 uppercase">{cat.title}</div>
-              <ul>
+              <ul className="border-l border-slate-300 dark:border-slate-800">
                 {cat.list.map((item, index, array) => (
                   <Link
                     href={item.path}
@@ -149,8 +132,8 @@ export const Sidebar = () => {
                   >
                     <li
                       className={cn(
-                        "px-2 py-1 my-2 flex items-center text-slate-500 border-slate-50 border-l-2 hover:border-l-2 hover:text-black transition no-underline hover:no-underline hover:border-blue-700",
-                        isActivePath(item.path) && "font-bold text-blue-700 border-l-2 border-blue-700"
+                        "px-2 py-1 my-2 flex items-center border-l -ml-px border-transparent transition no-underline hover:no-underline hover:border-slate-500 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300",
+                        isActivePath(item.path) && "text-primary dark:text-primary border-l hover:text-primary dark:hover:text-primary border-primary hover:border-primary dark:hover:border-primary"
                       )}
                       key={item.title}
                     >

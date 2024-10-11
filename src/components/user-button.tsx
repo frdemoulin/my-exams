@@ -3,6 +3,7 @@ import { LogOut, Settings } from "lucide-react";
 import { User } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import {
     DropdownMenu,
@@ -10,16 +11,23 @@ import {
     DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
+    DropdownMenuPortal,
     DropdownMenuSeparator,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { signOut } from "next-auth/react";
+import { FaCheck, FaDesktop, FaMoon, FaRegSun } from "react-icons/fa6";
 
 interface UserButtonProps {
     user: User;
 }
 
 export default function UserButton({ user }: UserButtonProps) {
+    const { theme, setTheme } = useTheme();
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -34,16 +42,53 @@ export default function UserButton({ user }: UserButtonProps) {
                     />
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
+            <DropdownMenuContent className="w-56 bg-background text-foreground">
                 <DropdownMenuLabel>{user.name || "User"}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
+                        <FaDesktop className="mr-2 size-4" />
+                        Thème
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                        <DropdownMenuSubContent>
+                            <DropdownMenuItem onClick={() => setTheme("system")} className="flex justify-between">
+                                <div className="flex justify-start">
+                                    <FaRegSun className="mr-2 size-4" />
+                                    Défaut
+                                </div>
+                                <div>
+                                    {theme === "system" && <FaCheck className="ms-2 size-4 text-green-600" />}
+                                </div>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => setTheme("light")} className="flex justify-between">
+                                <div className="flex justify-start">
+                                    <FaRegSun className="mr-2 size-4" />
+                                    Clair
+                                </div>
+                                <div>
+                                    {theme === "light" && <FaCheck className="ms-2 size-4 text-green-600" />}
+                                </div>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => setTheme("dark")} className="flex justify-between">
+                                <div className="flex justify-start">
+                                    <FaMoon className="mr-2 size-4" />
+                                    Sombre
+                                </div>
+                                <div>
+                                    {theme === "dark" && <FaCheck className="ms-2 size-4 text-green-600" />}
+                                </div>
+                            </DropdownMenuItem>
+                        </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                </DropdownMenuSub>
                 <DropdownMenuGroup>
-                    <DropdownMenuItem asChild>
-                        <Link href="/settings">
+                    <Link href="/settings">
+                        <DropdownMenuItem>
                             <Settings className="mr-2 h-4 w-4" />
                             <span>Paramètres</span>
-                        </Link>
-                    </DropdownMenuItem>
+                        </DropdownMenuItem>
+                    </Link>
                     {/* <DropdownMenuItem asChild>
                         <Link href="/">
                             <Lock className="mr-2 h-4 w-4" />

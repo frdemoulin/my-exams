@@ -13,8 +13,8 @@ export function TableTitle({
     buttonPath: string,
 }) {
     return (
-        <div className="w-full flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-blue-700">{title}</h1>
+        <div className="w-full flex justify-between items-baseline">
+            <h1 className="text-2xl font-bold text-primary">{title}</h1>
             <Button
                 asChild
                 variant="add"

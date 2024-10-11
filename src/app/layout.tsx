@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { Inter } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
-import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import NextTopLoader from 'nextjs-toploader';
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body className={`${inter.className} antialiased text-slate-700 dark:text-slate-400 dark:bg-slate-900`} suppressHydrationWarning={true}>
         {/* Récupère la session côté client après le chargement des pages */}
         <SessionProvider>
           <Toaster
@@ -40,7 +41,14 @@ export default function RootLayout({
             height={4}
             showSpinner={false}
           />
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
         </SessionProvider>
       </body>
     </html>
