@@ -8,3 +8,15 @@ export function cn(...inputs: ClassValue[]) {
 export function formatDate(date: Date) {
   return date.toLocaleDateString("fr-FR")
 }
+
+export function formatDateTime(date: Date) {
+  // retourne la date au format dd/mm/yyyy hh:mm:ss
+  return date.toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+}

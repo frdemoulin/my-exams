@@ -1,12 +1,15 @@
 import { Metadata } from "next";
 import { TopicForm } from "../_components/topic-form";
 import { createTopic } from "@/actions/topic/create-topic";
+import { fetchSubjectsOptions } from "@/db/queries/subject";
 
 export const metadata: Metadata = {
     title: "Ajout d'un thème",
 }
 
-const AddTopicPage = () => {
+const AddTopicPage = async () => {
+    const subjectsOptions = await fetchSubjectsOptions();
+
     return (
         <div className="w-full p-6">
             <div>
@@ -19,7 +22,9 @@ const AddTopicPage = () => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
+                        subjects: undefined,
                     }}
+                    options={subjectsOptions}
                 />
             </div>
         </div>

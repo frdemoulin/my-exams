@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { TableTitle } from "@/components/table-title";
 import { DataTable } from "./_components/data-table";
 import { columns } from "./_components/columns";
-import { fetchTopics } from "@/db/queries/topic";
+import { fetchTopics, fetchTopicsWithIncludes } from "@/db/queries/topic";
 import getSession from "@/lib/get-session";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ const TopicsPage = async () => {
         redirect("/api/auth/signin?callbackUrl=/users");
     }
 
-    const topics = await fetchTopics();
+    const topics = await fetchTopicsWithIncludes();
 
     return (
         <div className="w-full p-6">

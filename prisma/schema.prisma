@@ -55,6 +55,8 @@ model Subject {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
   longDescription  String
   shortDescription String
+  topicIDs         String[] @db.ObjectId
+  topics           Topic[]  @relation(fields: [topicIDs], references: [id])
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
@@ -62,11 +64,13 @@ model Subject {
 }
 
 model Topic {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
   longDescription  String
   shortDescription String?
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  subjectIDs       String[]  @db.ObjectId
+  subjects         Subject[] @relation(fields: [subjectIDs], references: [id])
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 
   @@unique([longDescription, shortDescription])
 }

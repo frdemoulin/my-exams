@@ -12,9 +12,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Topic } from "@prisma/client";
-import { formatDate } from "@/lib/utils";
+import { formatDateTime } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { deleteTopic } from "@/actions/topic/delete-topic";
+import { TopicData } from "@/types/topic";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
@@ -25,7 +26,7 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 }
 
-export const columns: ColumnDef<Topic>[] = [
+export const columns: ColumnDef<TopicData>[] = [
   {
     accessorKey: "shortDescription",
     header: ({ column }) => {
@@ -55,6 +56,31 @@ export const columns: ColumnDef<Topic>[] = [
     },
   },
   {
+    accessorKey: "subjects",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Thèmes
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({ row }) => {
+      return <div>
+        <ul>
+        {
+          row.original.subjects.map((subject: any) => {
+            return <li key={subject.id}>{subject.longDescription}</li>
+          })
+        }
+        </ul>
+</div>
+    },
+  },
+  {
     accessorKey: "createdAt",
     header: ({ column }) => {
       return (
@@ -68,24 +94,7 @@ export const columns: ColumnDef<Topic>[] = [
       )
     },
     cell: ({ row }) => {
-      return <div className="text-center">{formatDate(row.original.createdAt)}</div>
-    },
-  },
-  {
-    accessorKey: "updatedAt",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Date de dernière mise à jour
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => {
-      return <div className="text-center">{formatDate(row.original.updatedAt)}</div>
+      return <div className="text-center">{formatDateTime(row.original.createdAt)}</div>
     },
   },
   {

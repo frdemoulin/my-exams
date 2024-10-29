@@ -79,6 +79,11 @@ export const createSubjectSchema = z.object({
         .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
 });
 
+const optionSchema = z.object({
+    label: z.string(),
+    value: z.string()
+});
+
 export const createTopicSchema = z.object({
     longDescription: z.string({
         required_error: "Champ requis",
@@ -94,4 +99,5 @@ export const createTopicSchema = z.object({
         .trim()
         .min(1, { message: "Champ requis" })
         .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
+    subjects: z.array(optionSchema)
 });

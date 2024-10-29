@@ -14,6 +14,8 @@ import { CreateTopicValues } from "@/types/topic";
 import { createTopicSchema } from "@/lib/validation";
 import { updateTopic } from "@/actions/topic/edit-topic";
 import FormSubmitButton from "@/components/ui/form-submit-button";
+import MultipleSelector from "@/components/ui/multiple-selector";
+import { Option } from "@/types/option";
 
 interface TopicFormProps {
     crudMode: "add" | "edit";
@@ -22,13 +24,16 @@ interface TopicFormProps {
         id?: string,
         longDescription: string,
         shortDescription: string,
+        subjects: Option[] | undefined,
     }
+    options: Option[];
 }
 
 export const TopicForm = ({
     crudMode,
     formAction,
-    initialData
+    initialData,
+    options
 }: TopicFormProps) => {
     const form = useForm<CreateTopicValues>({
         defaultValues: initialData,
@@ -36,17 +41,9 @@ export const TopicForm = ({
     });
 
     const onSubmit = async (values: CreateTopicValues) => {
-        const formData = new FormData();
-
-        Object.entries(values).forEach(([key, value]) => {
-            if (value) {
-                formData.append(key, value as string);
-            }
-        });
-        
         if (!initialData.id) {
             try {
-                await createTopic(formData);
+                await createTopic(values);
                 toast.success("Thème enregistré");
                 // // Reset the form after successful submission
                 // form.reset();
@@ -56,7 +53,7 @@ export const TopicForm = ({
             }
         } else {
             try {
-                await updateTopic(initialData.id, formData);
+                // await updateTopic(initialData.id, values);
                 toast.success("Thème mis à jour");
             } catch (error) {
                 toast.error("Erreur lors de la modification du thème");
@@ -114,6 +111,27 @@ export const TopicForm = ({
                                 />
                             </FormControl>
                             <FormMessage />
+                        </FormItem>
+                    }}
+                />
+                <FormField
+                    name="subjects"
+                    control={control}
+                    render={({ field }) => {
+                        return <FormItem>
+                            <FormLabel required>Matière(s)</FormLabel>
+                            <MultipleSelector
+                                {...field}
+                                defaultOptions={options}
+                                // options={options}
+                                hidePlaceholderWhenSelected
+                                placeholder="Choisir la(les) matière(s) associée(s)"
+                                emptyIndicator={
+                                    <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
+                                        Aucun résultat
+                                    </p>
+                                }
+                            />
                         </FormItem>
                     }}
                 />
