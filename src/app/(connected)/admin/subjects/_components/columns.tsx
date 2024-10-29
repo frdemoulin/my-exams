@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Subject } from "@prisma/client";
-import { formatDate } from "@/lib/utils";
+import { formatDateTime } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { deleteSubject } from "@/actions/subject/delete-subject";
 
@@ -68,24 +68,7 @@ export const columns: ColumnDef<Subject>[] = [
       )
     },
     cell: ({ row }) => {
-      return <div className="text-center">{formatDate(row.original.createdAt)}</div>
-    },
-  },
-  {
-    accessorKey: "updatedAt",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Date de dernière mise à jour
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => {
-      return <div className="text-center">{formatDate(row.original.updatedAt)}</div>
+      return <div className="text-center">{formatDateTime(row.original.createdAt)}</div>
     },
   },
   {

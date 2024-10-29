@@ -24,7 +24,7 @@ interface TopicFormProps {
         id?: string,
         longDescription: string,
         shortDescription: string,
-        subjects: Option[] | undefined,
+        subjectsSelectedOptions: Option[] | undefined,
     }
     options: Option[];
 }
@@ -122,15 +122,11 @@ export const TopicForm = ({
                             <FormLabel required>Matière(s)</FormLabel>
                             <MultipleSelector
                                 {...field}
-                                defaultOptions={options}
-                                // options={options}
+                                options={options}
+                                value={initialData.subjectsSelectedOptions}
                                 hidePlaceholderWhenSelected
                                 placeholder="Choisir la(les) matière(s) associée(s)"
-                                emptyIndicator={
-                                    <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
-                                        Aucun résultat
-                                    </p>
-                                }
+                                emptyIndicator="Aucun résultat"
                             />
                         </FormItem>
                     }}

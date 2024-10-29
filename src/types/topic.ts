@@ -9,6 +9,7 @@ export type CreateTopicErrors = z.inferFormattedError<typeof createTopicSchema>;
 export const topicDataInclude = {
     subjects: {
         select: {
+            id: true,
             longDescription: true,
         }
     }

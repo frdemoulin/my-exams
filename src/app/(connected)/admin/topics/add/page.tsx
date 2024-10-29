@@ -22,7 +22,7 @@ const AddTopicPage = async () => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
-                        subjects: undefined,
+                        subjectsSelectedOptions: undefined,
                     }}
                     options={subjectsOptions}
                 />

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { TopicForm } from "../../_components/topic-form";
 import { fetchTopicById } from "@/db/queries/topic";
 import { updateTopic } from "@/actions/topic/edit-topic";
+import { fetchSubjectsOptions } from "@/db/queries/subject";
 
 export const metadata: Metadata = {
     title: "Édition d'un thème",
@@ -19,6 +20,13 @@ const EditTopicPage = async ({ params }: TopicEditProps) => {
 
     const topic = await fetchTopicById(id);
 
+    const subjectsSelectedOptions = topic?.subjects.map((subject) => ({
+        label: subject.longDescription,
+        value: subject.id,
+    }));
+    
+    const subjectsOptions = await fetchSubjectsOptions();
+
     const updateTopicAction = updateTopic.bind(null, id);
 
     return (
@@ -33,7 +41,9 @@ const EditTopicPage = async ({ params }: TopicEditProps) => {
                         id,
                         longDescription: topic?.longDescription ?? "",
                         shortDescription: topic?.shortDescription ?? "",
+                        subjectsSelectedOptions: subjectsSelectedOptions,
                     }}
+                    options={subjectsOptions}
                     formAction={updateTopicAction}
                 />
             </div>

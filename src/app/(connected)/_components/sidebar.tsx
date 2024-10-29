@@ -71,36 +71,6 @@ export const Sidebar = () => {
       ]
     },
     {
-      title: 'Reprises',
-      list: [
-        {
-          title: 'Blocs',
-          path: '/blocks',
-          icon: <FaBarsProgress className="mr-3" size={16} />
-        },
-        {
-          title: 'Fichiers audio',
-          path: '/audio-files',
-          icon: <FaFileAudio className="mr-3" size={16} />
-        },
-        {
-          title: 'Intros / outros',
-          path: '/intro-outros',
-          icon: <FaArrowsTurnToDots className="mr-3" size={16} />
-        },
-        {
-          title: 'Reprises',
-          path: '/covers',
-          icon: <FaVolumeLow className="mr-3" size={16} />
-        },
-        {
-          title: 'Types de fichier audio',
-          path: '/backing-track-kinds',
-          icon: <FaGears className="mr-3" size={16} />
-        },
-      ]
-    },
-    {
       title: 'Utilisateurs',
       list: [
         {
