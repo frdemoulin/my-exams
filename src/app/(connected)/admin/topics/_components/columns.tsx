@@ -22,6 +22,9 @@ const handleOnClickDeleteButton = async (id: string) => {
     await deleteTopic(id);
     toast.success("Thème supprimé");
   } catch (error) {
+    if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+      throw error;
+    }
     toast.error("Erreur dans la suppression du thème");
   }
 }

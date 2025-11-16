@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 }
 
 interface SubjectEditProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 const EditSubjectPage = async ({ params }: SubjectEditProps) => {
-    const { id } = params;
+    const { id } = await params;
 
     const subject = await fetchSubjectById(id);
 

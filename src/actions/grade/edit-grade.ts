@@ -26,11 +26,13 @@ export const updateGrade = async (id: string | undefined, formData: FormData) =>
             });
 
             revalidatePath('/admin/grades');
-            redirect('/admin/grades');
         } catch (error) {
             console.error('Error updating grade: ', error);
             throw error;
         }
+        
+        // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        redirect('/admin/grades');
     } else {
         const errors = result.error.format();
         console.error('Invalid grade data: ', errors);

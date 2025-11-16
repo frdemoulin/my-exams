@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 }
 
 interface TopicDetailPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    }
+    }>;
 }
 
 const TopicDetailPage = async ({ params }: TopicDetailPageProps) => {
-    const { id } = params;
+    const { id } = await params;
 
     const topic = await fetchTopicById(id);
     

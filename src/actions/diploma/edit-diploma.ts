@@ -26,11 +26,13 @@ export const updateDiploma = async (id: string | undefined, formData: FormData) 
             });
 
             revalidatePath('/admin/diplomas');
-            redirect('/admin/diplomas');
         } catch (error) {
             console.error('Error updating diploma: ', error);
             throw error;
         }
+        
+        // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        redirect('/admin/diplomas');
     } else {
         const errors = result.error.format();
         console.error('Invalid diploma data: ', errors);

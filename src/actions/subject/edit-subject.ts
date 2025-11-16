@@ -26,11 +26,13 @@ export const updateSubject = async (id: string | undefined, formData: FormData) 
             });
 
             revalidatePath('/admin/subjects');
-            redirect('/admin/subjects');
         } catch (error) {
             console.error('Error updating subject: ', error);
             throw error;
         }
+        
+        // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        redirect('/admin/subjects');
     } else {
         const errors = result.error.format();
         console.error('Invalid subject data: ', errors);
