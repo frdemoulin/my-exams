@@ -53,11 +53,9 @@ export const providerMap = providers.map((provider) => {
 
 // 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-    adapter: PrismaAdapter(prisma),
-    // à chaque ouverture de session, on sette le rôle de l'utilisateur sur sa session
+    adapter: PrismaAdapter(prisma) as any,
     callbacks: {
         session({ session, user }) {
-            // session.user.role = user.role;
             return session;
         }
     },

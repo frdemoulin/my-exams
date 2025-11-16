@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { GradeForm } from "../../_components/grade-form";
 import { fetchGradeById } from "@/db/queries/grade";
@@ -18,6 +19,10 @@ const EditGradePage = async ({ params }: GradeEditProps) => {
     const { id } = params;
 
     const grade = await fetchGradeById(id);
+
+    if (!grade) {
+        notFound();
+    }
 
     const updateGradeAction = updateGrade.bind(null, id);
 

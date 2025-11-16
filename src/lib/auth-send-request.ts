@@ -21,6 +21,11 @@ export async function sendVerificationRequest(params: any) {
         throw new Error("Resend error: " + JSON.stringify(await res.json()))
 }
 
+interface Theme {
+    brandColor?: string;
+    buttonText?: string;
+}
+
 function html(params: { url: string; host: string; theme: Theme }) {
     const { url, host, theme } = params
 

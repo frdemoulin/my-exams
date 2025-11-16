@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { DiplomaForm } from "../../_components/diploma-form";
 import { fetchDiplomaById } from "@/db/queries/diploma";
@@ -18,6 +19,10 @@ const EditDiplomaPage = async ({ params }: DiplomaEditProps) => {
     const { id } = params;
 
     const diploma = await fetchDiplomaById(id);
+
+    if (!diploma) {
+        notFound();
+    }
 
     const updateDiplomaAction = updateDiploma.bind(null, id);
 
