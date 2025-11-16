@@ -16,12 +16,19 @@ export const createDiploma = async (formData: FormData) => {
         const { longDescription, shortDescription } = result.data;
 
         // create diploma in database
-        await prisma.diploma.create({
-            data: {
-                longDescription,
-                shortDescription
+        try {
+            await prisma.diploma.create({
+                data: {
+                    longDescription,
+                    shortDescription
+                }
+            });
+        } catch (error: any) {
+            if (error.code === 'P2002') {
+                throw new Error('Un diplôme avec ces descriptions existe déjà');
             }
-        });
+            throw error;
+        }
     } else {
         const errors: CreateDiplomaErrors = result.error.format();
 

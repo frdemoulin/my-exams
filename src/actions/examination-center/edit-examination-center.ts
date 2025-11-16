@@ -25,11 +25,13 @@ export const updateExaminationCenter = async (id: string | undefined, formData: 
             });
 
             revalidatePath('/admin/examination-centers');
-            redirect('/admin/examination-centers');
         } catch (error) {
             console.error('Error updating examination center: ', error);
             throw error;
         }
+        
+        // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        redirect('/admin/examination-centers');
     } else {
         const errors = result.error.format();
         console.error('Invalid examination center data: ', errors);

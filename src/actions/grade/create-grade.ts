@@ -16,12 +16,19 @@ export const createGrade = async (formData: FormData) => {
         const { longDescription, shortDescription } = result.data;
 
         // create grade in database
-        await prisma.grade.create({
-            data: {
-                longDescription,
-                shortDescription
+        try {
+            await prisma.grade.create({
+                data: {
+                    longDescription,
+                    shortDescription
+                }
+            });
+        } catch (error: any) {
+            if (error.code === 'P2002') {
+                throw new Error('Un niveau avec ces descriptions existe déjà');
             }
-        });
+            throw error;
+        }
     } else {
         const errors: CreateGradeErrors = result.error.format();
 

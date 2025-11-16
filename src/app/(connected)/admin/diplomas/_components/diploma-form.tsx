@@ -51,7 +51,11 @@ export const DiplomaForm = ({
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
-                toast.error("Erreur lors de l'enregistrement du diplôme");
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
+                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement du diplôme";
+                toast.error(errorMessage);
                 console.error("Error creating diploma:", error);
             }
         } else {
@@ -59,6 +63,9 @@ export const DiplomaForm = ({
                 await updateDiploma(initialData.id, formData);
                 toast.success("Diplôme mis à jour");
             } catch (error) {
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
                 toast.error("Erreur lors de la modification du diplôme");
                 console.error("Error updating diploma: ", error);
             }

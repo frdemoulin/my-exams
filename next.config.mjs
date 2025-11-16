@@ -1,15 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: [
-        "platform-lookaside.fbsbx.com", // facebook
-        "firebasestorage.googleapis.com", //firebase-storage
-        "scontent-atl3-2.xx.fbcdn.net", // facebook
-        "pbs.twimg.com", // twitter
-        "avatars.githubusercontent.com", // gitHub
-      ],
       remotePatterns: [
         {
+          protocol: "https",
+          hostname: "platform-lookaside.fbsbx.com",
+        },
+        {
+          protocol: "https",
+          hostname: "firebasestorage.googleapis.com",
+        },
+        {
+          protocol: "https",
+          hostname: "scontent-atl3-2.xx.fbcdn.net",
+        },
+        {
+          protocol: "https",
+          hostname: "pbs.twimg.com",
+        },
+        {
+          protocol: "https",
+          hostname: "avatars.githubusercontent.com",
+        },
+        {
+          protocol: "https",
           hostname: "lh3.googleusercontent.com",
         },
       ],

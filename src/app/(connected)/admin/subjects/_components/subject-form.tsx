@@ -51,7 +51,11 @@ export const SubjectForm = ({
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
-                toast.error("Erreur lors de l'enregistrement de la matière");
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
+                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement de la matière";
+                toast.error(errorMessage);
                 console.error("Error creating subject:", error);
             }
         } else {
@@ -59,6 +63,9 @@ export const SubjectForm = ({
                 await updateSubject(initialData.id, formData);
                 toast.success("Matière mise à jour");
             } catch (error) {
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
                 toast.error("Erreur lors de la modification de la matière");
                 console.error("Error updating subject: ", error);
             }

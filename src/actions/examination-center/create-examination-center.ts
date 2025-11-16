@@ -16,11 +16,18 @@ export const createExaminationCenter = async (formData: FormData) => {
         const { description } = result.data;
 
         // create examination center in database
-        await prisma.examinationCenter.create({
-            data: {
-                description
+        try {
+            await prisma.examinationCenter.create({
+                data: {
+                    description
+                }
+            });
+        } catch (error: any) {
+            if (error.code === 'P2002') {
+                throw new Error('Un centre d\'examen avec cette description existe déjà');
             }
-        });
+            throw error;
+        }
     } else {
         const errors: CreateExaminationCenterErrors = result.error.format();
 
