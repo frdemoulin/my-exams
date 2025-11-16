@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 }
 
 interface GradeEditProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 const EditGradePage = async ({ params }: GradeEditProps) => {
-    const { id } = params;
+    const { id } = await params;
 
     const grade = await fetchGradeById(id);
 

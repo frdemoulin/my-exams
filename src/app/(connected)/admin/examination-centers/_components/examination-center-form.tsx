@@ -50,7 +50,11 @@ export const ExaminationCenterForm = ({
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
-                toast.error("Erreur lors de l'enregistrement du centre d'examen");
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
+                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement du centre d'examen";
+                toast.error(errorMessage);
                 console.error("Error creating examination center:", error);
             }
         } else {
@@ -58,6 +62,10 @@ export const ExaminationCenterForm = ({
                 await updateExaminationCenter(initialData.id, formData);
                 toast.success("Centre d'examen mis à jour");
             } catch (error) {
+                // Ne pas afficher d'erreur si c'est une redirection Next.js
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error; // Laisser Next.js gérer la redirection
+                }
                 toast.error("Erreur lors de la modification du centre d'examen");
                 console.error("Error updating examination center: ", error);
             }

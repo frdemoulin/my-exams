@@ -16,12 +16,19 @@ export const createSubject = async (formData: FormData) => {
         const { longDescription, shortDescription } = result.data;
 
         // create subject in database
-        await prisma.subject.create({
-            data: {
-                longDescription,
-                shortDescription
+        try {
+            await prisma.subject.create({
+                data: {
+                    longDescription,
+                    shortDescription
+                }
+            });
+        } catch (error: any) {
+            if (error.code === 'P2002') {
+                throw new Error('Une matière avec ces descriptions existe déjà');
             }
-        });
+            throw error;
+        }
     } else {
         const errors: CreateSubjectErrors = result.error.format();
 

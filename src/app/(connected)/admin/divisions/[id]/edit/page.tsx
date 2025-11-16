@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 }
 
 interface DivisionEditProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 const EditDivisionPage = async ({ params }: DivisionEditProps) => {
-    const { id } = params;
+    const { id } = await params;
 
     const division = await fetchDivisionById(id);
 

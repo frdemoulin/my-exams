@@ -26,11 +26,13 @@ export const updateTopic = async (id: string | undefined, formData: FormData) =>
             });
 
             revalidatePath('/admin/topics');
-            redirect('/admin/topics');
         } catch (error) {
             console.error('Error updating topic: ', error);
             throw error;
         }
+        
+        // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        redirect('/admin/topics');
     } else {
         const errors = result.error.format();
         console.error('Invalid topic data: ', errors);

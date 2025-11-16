@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings=0"
+    "lint": "eslint . --max-warnings=0",
+    "prisma:test": "ts-node scripts/test-prisma.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.4.2",
@@ -26,7 +27,7 @@
     "lucide-react": "^0.439.0",
     "mongodb": "^6.8.1",
     "next": "16.0.3",
-    "next-auth": "^5.0.0-beta.20",
+    "next-auth": "^5.0.0-beta.30",
     "next-themes": "^0.3.0",
     "nextjs-toploader": "^3.6.15",
     "react": "19.0.0",
@@ -40,12 +41,14 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "19.2.5",
+    "dotenv": "^17.2.3",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "postcss": "^8",
     "prisma": "^5.20.0",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

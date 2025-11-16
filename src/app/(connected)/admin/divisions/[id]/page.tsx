@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 }
 
 interface DivisionDetailPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    }
+    }>;
 }
 
 const DivisionDetailPage = async ({ params }: DivisionDetailPageProps) => {
-    const { id } = params;
+    const { id } = await params;
 
     const division = await fetchDivisionById(id);
     

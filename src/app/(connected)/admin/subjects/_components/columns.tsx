@@ -21,6 +21,9 @@ const handleOnClickDeleteButton = async (id: string) => {
     await deleteSubject(id);
     toast.success("Matière supprimée");
   } catch (error) {
+    if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+      throw error;
+    }
     toast.error("Erreur dans la suppression de la matière");
   }
 }

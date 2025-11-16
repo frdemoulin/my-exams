@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 }
 
 interface ExaminationCenterDetailPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    }
+    }>;
 }
 
 const ExaminationCenterDetailPage = async ({ params }: ExaminationCenterDetailPageProps) => {
-    const { id } = params;
+    const { id } = await params;
 
     const exminationCenter = await fetchExaminationCenterById(id);
     

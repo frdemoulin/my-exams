@@ -14,15 +14,22 @@ export const createTopic = async (values: CreateTopicValues) => {
         const { longDescription, shortDescription, subjects } = result.data;
 
         // create topic in database
-        await prisma.topic.create({
-            data: {
-                longDescription,
-                shortDescription,
-                subjects: {
-                    connect: subjects.map((subject) => ({ id: subject.value }))
+        try {
+            await prisma.topic.create({
+                data: {
+                    longDescription,
+                    shortDescription,
+                    subjects: {
+                        connect: subjects.map((subject) => ({ id: subject.value }))
+                    }
                 }
+            });
+        } catch (error: any) {
+            if (error.code === 'P2002') {
+                throw new Error('Un thème avec ces descriptions existe déjà');
             }
-        });
+            throw error;
+        }
     } else {
         const errors: CreateTopicErrors = result.error.format();
 

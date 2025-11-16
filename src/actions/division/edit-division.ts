@@ -26,11 +26,13 @@ export const updateDivision = async (id: string | undefined, formData: FormData)
             });
 
             revalidatePath('/admin/divisions');
-            redirect('/admin/divisions');
         } catch (error) {
             console.error('Error updating division: ', error);
             throw error;
         }
+        
+        // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        redirect('/admin/divisions');
     } else {
         const errors = result.error.format();
         console.error('Invalid division data: ', errors);

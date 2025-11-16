@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 }
 
 interface DiplomaEditProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 const EditDiplomaPage = async ({ params }: DiplomaEditProps) => {
-    const { id } = params;
+    const { id } = await params;
 
     const diploma = await fetchDiplomaById(id);
 

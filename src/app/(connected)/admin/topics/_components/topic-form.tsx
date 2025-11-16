@@ -48,7 +48,11 @@ export const TopicForm = ({
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
-                toast.error("Erreur lors de l'enregistrement du thème");
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
+                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement du thème";
+                toast.error(errorMessage);
                 console.error("Error creating topic:", error);
             }
         } else {
@@ -56,6 +60,9 @@ export const TopicForm = ({
                 // await updateTopic(initialData.id, values);
                 toast.success("Thème mis à jour");
             } catch (error) {
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
                 toast.error("Erreur lors de la modification du thème");
                 console.error("Error updating topic: ", error);
             }

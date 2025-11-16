@@ -51,7 +51,11 @@ export const DivisionForm = ({
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
-                toast.error("Erreur lors de l'enregistrement de la filière");
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
+                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement de la filière";
+                toast.error(errorMessage);
                 console.error("Error creating division:", error);
             }
         } else {
@@ -59,6 +63,9 @@ export const DivisionForm = ({
                 await updateDivision(initialData.id, formData);
                 toast.success("Filière mise à jour");
             } catch (error) {
+                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+                    throw error;
+                }
                 toast.error("Erreur lors de la modification de la filière");
                 console.error("Error updating division: ", error);
             }

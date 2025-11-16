@@ -16,12 +16,19 @@ export const createDivision = async (formData: FormData) => {
         const { longDescription, shortDescription } = result.data;
 
         // create division in database
-        await prisma.division.create({
-            data: {
-                longDescription,
-                shortDescription
+        try {
+            await prisma.division.create({
+                data: {
+                    longDescription,
+                    shortDescription
+                }
+            });
+        } catch (error: any) {
+            if (error.code === 'P2002') {
+                throw new Error('Une filière avec ces descriptions existe déjà');
             }
-        });
+            throw error;
+        }
     } else {
         const errors: CreateDivisionErrors = result.error.format();
 
