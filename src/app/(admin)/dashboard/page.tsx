@@ -11,7 +11,7 @@ const DashboardPage = async () => {
     const user = session?.user;
 
     if (!user) {
-        redirect("/log-in?callbackUrl=/");
+        redirect("/log-in?callbackUrl=/dashboard");
     }
 
     return (

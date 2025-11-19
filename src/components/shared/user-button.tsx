@@ -4,7 +4,7 @@ import { User } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -17,7 +17,7 @@ import {
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
 import { FaCheck, FaDesktop, FaMoon, FaRegSun } from "react-icons/fa6";
 

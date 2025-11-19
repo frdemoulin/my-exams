@@ -20,7 +20,7 @@ const EditTopicPage = async ({ params }: TopicEditProps) => {
 
     const topic = await fetchTopicById(id);
 
-    const subjectsSelectedOptions = topic?.subjects.map((subject) => ({
+    const subjectsSelectedOptions = topic?.subjects.map((subject: any) => ({
         label: subject.longDescription,
         value: subject.id,
     }));

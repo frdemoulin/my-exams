@@ -1,6 +1,6 @@
 import prisma from "@/lib/db/prisma";
 import { Option } from "@/types/option";
-import { TopicData } from "@/types/topic";
+import { TopicData } from "./topic.types";
 import { Topic } from "@prisma/client";
 
 export async function fetchTopics(): Promise<Topic[]> {

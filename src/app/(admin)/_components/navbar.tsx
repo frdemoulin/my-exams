@@ -18,7 +18,7 @@ export const Navbar = () => {
 
     return (
         <div className="fixed text-sm z-50 top-0 px-4 h-14 w-full shadow-sm border-b flex bg-white dark:bg-background justify-between items-center navbar-text">
-            <Link className="font-bold text-primary uppercase text-xl" href="/">
+            <Link className="font-bold text-primary uppercase text-xl" href="/dashboard">
                 My exams
             </Link>
             {/* Logged user infos */}
