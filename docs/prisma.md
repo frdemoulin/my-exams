@@ -2,6 +2,8 @@
 
 Ce document explique comment Prisma fonctionne avec MongoDB dans **my-exams**, comment appliquer les changements de schéma, tester, vérifier les index et bonnes pratiques (développement / production).
 
+> Voir aussi: `docs/prisma-composite-uniques.md` pour une explication détaillée des clés uniques composites et de la notation `longDescription_shortDescription` utilisée dans les requêtes Prisma (upsert, findUnique, etc.).
+
 ---
 ## 1. Principe général avec MongoDB
 Contrairement aux bases SQL (PostgreSQL, MySQL), **MongoDB n’utilise pas le moteur de migrations SQL de Prisma**. Il n’y a pas de fichiers migrations à versionner. Prisma se charge uniquement de :

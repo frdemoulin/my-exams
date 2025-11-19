@@ -124,6 +124,40 @@ main()
   });
 ```
 
+    ### 1.1 Ordre de chargement et dépendances
+
+    - L'ordre d'exécution des seeders est **géré manuellement** dans `prisma/seed.ts`.
+    - Prisma ne résout pas les dépendances entre entités : c'est au seeder principal d'appeler les seeders dans le bon ordre.
+    - Règle générique utilisée dans ce projet :
+      - 1) Entités sans dépendances (Diploma, Division, ExaminationCenter, Grade)
+      - 2) Topics (pas de dépendances)
+      - 3) Subjects (dépend de Topics via `topicIDs`)
+      - 4) Users (indépendant fonctionnellement ici)
+
+    Extrait simplifié (reflète `prisma/seed.ts`) :
+
+    ```typescript
+    // 1. Entités sans dépendances
+    await seedDiplomas(prisma);
+    await seedDivisions(prisma);
+    await seedExaminationCenters(prisma);
+    await seedGrades(prisma);
+
+    // 2. Topics
+    await seedTopics(prisma);
+
+    // 3. Subjects (dépend de Topics)
+    await seedSubjects(prisma);
+
+    // 4. Users
+    await seedUsers(prisma);
+    ```
+
+    Bonnes pratiques :
+    - Rendre chaque seeder **idempotent** avec `upsert` et/ou `createMany({ skipDuplicates: true })`.
+    - Documenter les dépendances en tête de chaque fichier `*.seed.ts`.
+    - Si une entité A dépend de B, toujours chercher les IDs de B depuis la base avant d'insérer A.
+
 ### 2. Seeders Individuels
 
 #### Exemple : `prisma/seeds/diploma.seed.ts`
@@ -170,7 +204,7 @@ export async function seedDiplomas(prisma: PrismaClient) {
     });
   }
 
-  console.log(`   ✓ ${diplomas.length} diplômes créés`);
+  console.log(`✓ ${diplomas.length} diplômes créés`);
 }
 ```
 
@@ -739,6 +773,8 @@ Attention aux contraintes d'unicité dans le schéma :
 - `Diploma`, `Division`, `Grade`, `Subject`, `Topic` : `longDescription + shortDescription` unique
 
 Utiliser `upsert` pour éviter les conflits.
+
+Pour la notation Prisma côté code (ex: `where: { longDescription_shortDescription: { ... } }`) et les bonnes pratiques associées, consulte `docs/prisma-composite-uniques.md`.
 
 ### Performance
 

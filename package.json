@@ -7,7 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
-    "prisma:test": "ts-node scripts/test-prisma.ts"
+    "prisma:test": "ts-node scripts/test-prisma.ts",
+    "db:seed": "ts-node prisma/seed.ts",
+    "db:seed:dev": "ts-node scripts/seed-dev.ts",
+    "db:clear": "ts-node scripts/clear-database.ts",
+    "db:reset": "npm run db:clear && npm run db:seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.4.2",
