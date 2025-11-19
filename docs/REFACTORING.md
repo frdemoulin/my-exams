@@ -1,15 +1,12 @@
-# Refactoring de l'arborescence - My Exams
-
-## Date de refactoring
-19 novembre 2025
+# Arborescence - My Exams
 
 ## Objectif
-Réorganiser l'arborescence du projet pour adopter une architecture **Option A** (un seul repo full-stack Next.js) qui soit:
-- ✅ Plus maintenable et évolutive
+Architecture avec un seul repo full-stack Next.js qui soit :
+- ✅ Maintenable et évolutive
 - ✅ Prête pour une future extension mobile (React Native/Expo)
 - ✅ Séparation claire entre frontend public, backoffice admin et logique métier
 
-## Nouvelle structure
+## Structure
 
 ### 📁 `src/core/` - Logique métier (backend interne)
 Regroupe toute la logique métier par domaine. Chaque domaine contient:
@@ -168,12 +165,5 @@ La structure `core/` peut être:
 
 ## Notes importantes
 
-- ✅ Aucune erreur TypeScript après refactoring
-- ✅ Tous les imports ont été mis à jour
-- ✅ Git history préservé via `git mv`
 - ✅ Structure compatible Next.js 16 App Router
 - ✅ Prêt pour déploiement
-
----
-
-**Référence:** Conversation ChatGPT - Architecture full-stack Next.js pour site d'annales
