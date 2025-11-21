@@ -42,5 +42,5 @@ export async function seedSubjects(prisma: PrismaClient) {
     });
   }
 
-  console.log(`   ✓ ${subjects.length} matières créées`);
+  console.log(`✓ ${subjects.length} matières créées`);
 }

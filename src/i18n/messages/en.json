@@ -1,0 +1,151 @@
+{
+  "entities": {
+    "diploma": {
+      "singular": "Diploma",
+      "plural": "Diplomas",
+      "article": {
+        "definite": "the",
+        "indefinite": "a"
+      },
+      "actions": {
+        "add": "Add a diploma",
+        "edit": "Edit the diploma",
+        "delete": "Delete the diploma",
+        "view": "View the diploma",
+        "list": "List of diplomas"
+      }
+    },
+    "division": {
+      "singular": "Division",
+      "plural": "Divisions",
+      "article": {
+        "definite": "the",
+        "indefinite": "a"
+      },
+      "actions": {
+        "add": "Add a division",
+        "edit": "Edit the division",
+        "delete": "Delete the division",
+        "view": "View the division",
+        "list": "List of divisions"
+      }
+    },
+    "examinationCenter": {
+      "singular": "Examination Center",
+      "plural": "Examination Centers",
+      "article": {
+        "definite": "the",
+        "indefinite": "an"
+      },
+      "actions": {
+        "add": "Add an examination center",
+        "edit": "Edit the examination center",
+        "delete": "Delete the examination center",
+        "view": "View the examination center",
+        "list": "List of examination centers"
+      }
+    },
+    "grade": {
+      "singular": "Grade Level",
+      "plural": "Grade Levels",
+      "article": {
+        "definite": "the",
+        "indefinite": "a"
+      },
+      "actions": {
+        "add": "Add a grade level",
+        "edit": "Edit the grade level",
+        "delete": "Delete the grade level",
+        "view": "View the grade level",
+        "list": "List of grade levels"
+      }
+    },
+    "subject": {
+      "singular": "Subject",
+      "plural": "Subjects",
+      "article": {
+        "definite": "the",
+        "indefinite": "a"
+      },
+      "actions": {
+        "add": "Add a subject",
+        "edit": "Edit the subject",
+        "delete": "Delete the subject",
+        "view": "View the subject",
+        "list": "List of subjects"
+      }
+    },
+    "topic": {
+      "singular": "Topic",
+      "plural": "Topics",
+      "article": {
+        "definite": "the",
+        "indefinite": "a"
+      },
+      "actions": {
+        "add": "Add a topic",
+        "edit": "Edit the topic",
+        "delete": "Delete the topic",
+        "view": "View the topic",
+        "list": "List of topics"
+      }
+    },
+    "user": {
+      "singular": "User",
+      "plural": "Users",
+      "article": {
+        "definite": "the",
+        "indefinite": "a"
+      },
+      "actions": {
+        "add": "Add a user",
+        "edit": "Edit the user",
+        "delete": "Delete the user",
+        "view": "View the user",
+        "list": "List of users"
+      }
+    }
+  },
+  "common": {
+    "welcome": "Welcome",
+    "login": "Login",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "loading": "Loading...",
+    "noResults": "No results",
+    "actions": "Actions",
+    "confirm": "Confirm",
+    "back": "Back"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signInWith": "Sign in with {provider}",
+    "welcomeBack": "Welcome back!",
+    "loginPrompt": "Sign in to access your space"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "admin": "Administration",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "messages": {
+    "success": {
+      "created": "{entity} created successfully",
+      "updated": "{entity} updated successfully",
+      "deleted": "{entity} deleted successfully"
+    },
+    "error": {
+      "generic": "An error occurred",
+      "notFound": "{entity} not found",
+      "unauthorized": "You are not authorized to perform this action",
+      "validation": "Please check the entered data"
+    }
+  }
+}

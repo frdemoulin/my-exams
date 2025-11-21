@@ -5,23 +5,27 @@ export async function seedDiplomas(prisma: PrismaClient) {
 
     const diplomas = [
         {
-            longDescription: 'Baccalauréat Général',
-            shortDescription: 'Bac Général',
+            longDescription: 'Baccalauréat général',
+            shortDescription: 'Bac général',
         },
         {
-            longDescription: 'Baccalauréat Technologique',
-            shortDescription: 'Bac Techno',
+            longDescription: 'Baccalauréat professionnel',
+            shortDescription: 'Bac pro',
         },
         {
-            longDescription: 'Baccalauréat Professionnel',
-            shortDescription: 'Bac Pro',
+            longDescription: 'Baccalauréat technologique',
+            shortDescription: 'Bac techno',
         },
         {
-            longDescription: 'Brevet des Collèges',
+            longDescription: 'Brevet des collèges',
             shortDescription: 'DNB',
         },
         {
-            longDescription: 'Certificat d\'Aptitude Professionnelle',
+            longDescription: 'Brevet de technicien supérieur',
+            shortDescription: 'BTS',
+        },
+        {
+            longDescription: 'Certificat d\'aptitude professionnelle',
             shortDescription: 'CAP',
         },
     ];

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import { TableTitle } from "@/components/shared/table-title";
 import { DataTable } from "./_components/data-table";
@@ -7,8 +8,9 @@ import { columns } from "./_components/columns";
 import { fetchTopics, fetchTopicsWithIncludes } from "@/core/topic";
 import getSession from "@/lib/auth/get-session";
 
-export const metadata: Metadata = {
-    title: "Liste des thèmes",
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('entities.topic');
+    return { title: t('actions.list') };
 }
 
 const TopicsPage = async () => {
@@ -20,13 +22,14 @@ const TopicsPage = async () => {
     }
 
     const topics = await fetchTopicsWithIncludes();
+    const t = await getTranslations('entities.topic');
 
     return (
         <div className="w-full p-6">
             <TableTitle
-                title="Liste des thèmes"
+                title={t('actions.list')}
                 buttonId="addTopicButton"
-                buttonLabel="Ajouter un thème"
+                buttonLabel={t('actions.add')}
                 buttonPath="topics/add"
             />
             <div className="container mx-auto py-10">

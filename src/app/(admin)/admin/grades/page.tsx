@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import { TableTitle } from "@/components/shared/table-title";
 import { DataTable } from "./_components/data-table";
@@ -7,8 +8,9 @@ import { columns } from "./_components/columns";
 import { fetchGrades } from "@/core/grade";
 import getSession from "@/lib/auth/get-session";
 
-export const metadata: Metadata = {
-    title: "Liste des niveaux scolaires",
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('entities.grade');
+    return { title: t('actions.list') };
 }
 
 const GradesPage = async () => {
@@ -20,13 +22,14 @@ const GradesPage = async () => {
     }
 
     const grades = await fetchGrades();
+    const t = await getTranslations('entities.grade');
 
     return (
         <div className="w-full p-6">
             <TableTitle
-                title="Liste des niveaux scolaires"
+                title={t('actions.list')}
                 buttonId="addGradeButton"
-                buttonLabel="Ajouter un niveau"
+                buttonLabel={t('actions.add')}
                 buttonPath="grades/add"
             />
             <div className="container mx-auto py-10">

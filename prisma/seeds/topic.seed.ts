@@ -25,5 +25,5 @@ export async function seedTopics(prisma: PrismaClient) {
     });
   }
 
-  console.log(`   ✓ ${topics.length} thèmes créés`);
+  console.log(`✓ ${topics.length} thèmes créés`);
 }

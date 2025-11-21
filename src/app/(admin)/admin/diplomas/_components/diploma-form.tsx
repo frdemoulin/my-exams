@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -14,6 +15,7 @@ import { CreateDiplomaValues } from "@/core/diploma";
 import { createDiplomaSchema } from "@/lib/validation";
 import { updateDiploma } from "@/core/diploma";
 import FormSubmitButton from "@/components/ui/form-submit-button";
+import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
 
 interface DiplomaFormProps {
     crudMode: "add" | "edit";
@@ -30,6 +32,10 @@ export const DiplomaForm = ({
     formAction,
     initialData
 }: DiplomaFormProps) => {
+    const entity = useEntityTranslation('diploma');
+    const common = useCommonTranslations();
+    const messages = useMessageTranslations();
+    
     const form = useForm<CreateDiplomaValues>({
         defaultValues: initialData,
         resolver: zodResolver(createDiplomaSchema)
@@ -47,26 +53,26 @@ export const DiplomaForm = ({
         if (!initialData.id) {
             try {
                 await createDiploma(formData);
-                toast.success("Diplôme enregistré");
+                toast.success(messages.success.created(entity.singular));
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement du diplôme";
+                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
                 toast.error(errorMessage);
                 console.error("Error creating diploma:", error);
             }
         } else {
             try {
                 await updateDiploma(initialData.id, formData);
-                toast.success("Diplôme mis à jour");
+                toast.success(messages.success.updated(entity.singular));
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                toast.error("Erreur lors de la modification du diplôme");
+                toast.error(messages.error.generic);
                 console.error("Error updating diploma: ", error);
             }
         }
@@ -130,7 +136,7 @@ export const DiplomaForm = ({
                         variant="outline"
                         className="mr-4"
                     >
-                        <Link href="/admin/diplomas">Annuler</Link>
+                        <Link href="/admin/diplomas">{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}

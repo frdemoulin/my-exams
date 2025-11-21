@@ -35,6 +35,7 @@
     "mongodb": "^6.8.1",
     "next": "16.0.3",
     "next-auth": "^5.0.0-beta.30",
+    "next-intl": "^4.5.5",
     "next-themes": "^0.3.0",
     "nextjs-toploader": "^3.6.15",
     "react": "19.0.0",

@@ -14,6 +14,7 @@ import { CreateGradeValues } from "@/core/grade";
 import { createGradeSchema } from "@/lib/validation";
 import { updateGrade } from "@/core/grade";
 import FormSubmitButton from "@/components/ui/form-submit-button";
+import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
 
 interface GradeFormProps {
     crudMode: "add" | "edit";
@@ -30,6 +31,10 @@ export const GradeForm = ({
     formAction,
     initialData
 }: GradeFormProps) => {
+    const entity = useEntityTranslation('grade');
+    const common = useCommonTranslations();
+    const messages = useMessageTranslations();
+    
     const form = useForm<CreateGradeValues>({
         defaultValues: initialData,
         resolver: zodResolver(createGradeSchema)
@@ -47,26 +52,26 @@ export const GradeForm = ({
         if (!initialData.id) {
             try {
                 await createGrade(formData);
-                toast.success("Niveau enregistré");
+                toast.success(messages.success.created(entity.singular));
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement du niveau";
+                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
                 toast.error(errorMessage);
                 console.error("Error creating grade:", error);
             }
         } else {
             try {
                 await updateGrade(initialData.id, formData);
-                toast.success("Niveau mis à jour");
+                toast.success(messages.success.updated(entity.singular));
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                toast.error("Erreur lors de la modification du niveau");
+                toast.error(messages.error.generic);
                 console.error("Error updating grade: ", error);
             }
         }
@@ -130,7 +135,7 @@ export const GradeForm = ({
                         variant="outline"
                         className="mr-4"
                     >
-                        <Link href="/admin/grades">Annuler</Link>
+                        <Link href="/admin/grades">{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}

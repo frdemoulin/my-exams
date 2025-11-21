@@ -14,6 +14,7 @@ import { CreateSubjectValues } from "@/core/subject";
 import { createSubjectSchema } from "@/lib/validation";
 import { updateSubject } from "@/core/subject";
 import FormSubmitButton from "@/components/ui/form-submit-button";
+import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
 
 interface SubjectFormProps {
     crudMode: "add" | "edit";
@@ -30,6 +31,10 @@ export const SubjectForm = ({
     formAction,
     initialData
 }: SubjectFormProps) => {
+    const entity = useEntityTranslation('subject');
+    const common = useCommonTranslations();
+    const messages = useMessageTranslations();
+    
     const form = useForm<CreateSubjectValues>({
         defaultValues: initialData,
         resolver: zodResolver(createSubjectSchema)
@@ -47,26 +52,26 @@ export const SubjectForm = ({
         if (!initialData.id) {
             try {
                 await createSubject(formData);
-                toast.success("Matière enregistrée");
+                toast.success(messages.success.created(entity.singular));
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement de la matière";
+                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
                 toast.error(errorMessage);
                 console.error("Error creating subject:", error);
             }
         } else {
             try {
                 await updateSubject(initialData.id, formData);
-                toast.success("Matière mise à jour");
+                toast.success(messages.success.updated(entity.singular));
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                toast.error("Erreur lors de la modification de la matière");
+                toast.error(messages.error.generic);
                 console.error("Error updating subject: ", error);
             }
         }
@@ -130,7 +135,7 @@ export const SubjectForm = ({
                         variant="outline"
                         className="mr-4"
                     >
-                        <Link href="/admin/subjects">Annuler</Link>
+                        <Link href="/admin/subjects">{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}

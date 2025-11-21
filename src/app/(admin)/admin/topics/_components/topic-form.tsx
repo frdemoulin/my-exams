@@ -16,6 +16,7 @@ import { updateTopic } from "@/core/topic";
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import MultipleSelector from "@/components/ui/multiple-selector";
 import { Option } from "@/types/option";
+import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
 
 interface TopicFormProps {
     crudMode: "add" | "edit";
@@ -35,6 +36,10 @@ export const TopicForm = ({
     initialData,
     options
 }: TopicFormProps) => {
+    const entity = useEntityTranslation('topic');
+    const common = useCommonTranslations();
+    const messages = useMessageTranslations();
+    
     const form = useForm<CreateTopicValues>({
         defaultValues: initialData,
         resolver: zodResolver(createTopicSchema)
@@ -44,26 +49,26 @@ export const TopicForm = ({
         if (!initialData.id) {
             try {
                 await createTopic(values);
-                toast.success("Thème enregistré");
+                toast.success(messages.success.created(entity.singular));
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement du thème";
+                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
                 toast.error(errorMessage);
                 console.error("Error creating topic:", error);
             }
         } else {
             try {
                 // await updateTopic(initialData.id, values);
-                toast.success("Thème mis à jour");
+                toast.success(messages.success.updated(entity.singular));
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                toast.error("Erreur lors de la modification du thème");
+                toast.error(messages.error.generic);
                 console.error("Error updating topic: ", error);
             }
         }
@@ -144,7 +149,7 @@ export const TopicForm = ({
                         variant="outline"
                         className="mr-4"
                     >
-                        <Link href="/admin/topics">Annuler</Link>
+                        <Link href="/admin/topics">{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}

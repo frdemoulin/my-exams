@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
+import { LocaleSwitcher } from "@/components/shared/locale-switcher";
 
 export const Navbar = () => {
     // on récupère les infos de l'utilisateur connecté
@@ -34,7 +35,8 @@ export const Navbar = () => {
             }
 
             {user && (
-                <div className="flex">
+                <div className="flex items-center gap-2">
+                    <LocaleSwitcher />
                     <UserButton user={user} />
                 </div>
             )}

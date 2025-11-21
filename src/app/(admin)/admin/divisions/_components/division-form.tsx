@@ -14,6 +14,7 @@ import { CreateDivisionValues } from "@/core/division";
 import { createDivisionSchema } from "@/lib/validation";
 import { updateDivision } from "@/core/division";
 import FormSubmitButton from "@/components/ui/form-submit-button";
+import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
 
 interface DivisionFormProps {
     crudMode: "add" | "edit";
@@ -30,6 +31,10 @@ export const DivisionForm = ({
     formAction,
     initialData
 }: DivisionFormProps) => {
+    const entity = useEntityTranslation('division');
+    const common = useCommonTranslations();
+    const messages = useMessageTranslations();
+    
     const form = useForm<CreateDivisionValues>({
         defaultValues: initialData,
         resolver: zodResolver(createDivisionSchema)
@@ -47,26 +52,26 @@ export const DivisionForm = ({
         if (!initialData.id) {
             try {
                 await createDivision(formData);
-                toast.success("Filière enregistrée");
+                toast.success(messages.success.created(entity.singular));
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement de la filière";
+                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
                 toast.error(errorMessage);
                 console.error("Error creating division:", error);
             }
         } else {
             try {
                 await updateDivision(initialData.id, formData);
-                toast.success("Filière mise à jour");
+                toast.success(messages.success.updated(entity.singular));
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                toast.error("Erreur lors de la modification de la filière");
+                toast.error(messages.error.generic);
                 console.error("Error updating division: ", error);
             }
         }
@@ -130,7 +135,7 @@ export const DivisionForm = ({
                         variant="outline"
                         className="mr-4"
                     >
-                        <Link href="/admin/divisions">Annuler</Link>
+                        <Link href="/admin/divisions">{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}

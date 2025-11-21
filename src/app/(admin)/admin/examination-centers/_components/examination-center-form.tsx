@@ -14,6 +14,7 @@ import { CreateExaminationCenterValues } from "@/core/examination-center";
 import { createExaminationCenterSchema } from "@/lib/validation";
 import { updateExaminationCenter } from "@/core/examination-center";
 import FormSubmitButton from "@/components/ui/form-submit-button";
+import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
 
 interface ExaminationCenterFormProps {
     crudMode: "add" | "edit";
@@ -29,6 +30,10 @@ export const ExaminationCenterForm = ({
     formAction,
     initialData
 }: ExaminationCenterFormProps) => {
+    const entity = useEntityTranslation('examinationCenter');
+    const common = useCommonTranslations();
+    const messages = useMessageTranslations();
+    
     const form = useForm<CreateExaminationCenterValues>({
         defaultValues: initialData,
         resolver: zodResolver(createExaminationCenterSchema)
@@ -46,27 +51,27 @@ export const ExaminationCenterForm = ({
         if (!initialData.id) {
             try {
                 await createExaminationCenter(formData);
-                toast.success("Centre d'examen enregistré");
+                toast.success(messages.success.created(entity.singular));
                 // // Reset the form after successful submission
                 // form.reset();
             } catch (error) {
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error;
                 }
-                const errorMessage = error instanceof Error ? error.message : "Erreur lors de l'enregistrement du centre d'examen";
+                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
                 toast.error(errorMessage);
                 console.error("Error creating examination center:", error);
             }
         } else {
             try {
                 await updateExaminationCenter(initialData.id, formData);
-                toast.success("Centre d'examen mis à jour");
+                toast.success(messages.success.updated(entity.singular));
             } catch (error) {
                 // Ne pas afficher d'erreur si c'est une redirection Next.js
                 if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
                     throw error; // Laisser Next.js gérer la redirection
                 }
-                toast.error("Erreur lors de la modification du centre d'examen");
+                toast.error(messages.error.generic);
                 console.error("Error updating examination center: ", error);
             }
         }
@@ -113,7 +118,7 @@ export const ExaminationCenterForm = ({
                         variant="outline"
                         className="mr-4"
                     >
-                        <Link href="/admin/examination-centers">Annuler</Link>
+                        <Link href="/admin/examination-centers">{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}
