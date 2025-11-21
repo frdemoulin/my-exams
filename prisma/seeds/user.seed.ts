@@ -5,7 +5,7 @@ export async function seedUsers(prisma: PrismaClient) {
 
   const users = [
     { name: 'Admin', email: 'admin@example.com', image: null },
-    { name: 'Utilisateur Démo', email: 'demo@example.com', image: null },
+    { name: 'Utilisateur démo', email: 'demo@example.com', image: null },
   ];
 
   for (const u of users) {
@@ -16,5 +16,5 @@ export async function seedUsers(prisma: PrismaClient) {
     });
   }
 
-  console.log(`   ✓ ${users.length} utilisateurs créés/mis à jour`);
+  console.log(`✓ ${users.length} utilisateurs créés/mis à jour`);
 }

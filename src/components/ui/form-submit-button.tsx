@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "./button";
+import { useCommonTranslations } from "@/hooks/use-translations";
 
 interface FormSubmitButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     crudMode: "add" | "edit";
@@ -12,6 +13,8 @@ export default function FormSubmitButton({
     loading,
     ...props
 }: FormSubmitButtonProps) {
+    const common = useCommonTranslations();
+    
     return (
         <Button
             type="submit"
@@ -20,9 +23,9 @@ export default function FormSubmitButton({
             variant={crudMode}
         >
             {crudMode === "add" ? (
-                loading ? "Enregistrement..." : "Enregistrer"
+                loading ? `${common.loading}` : common.save
             ) : (
-                loading ? "Édition..." : "Éditer"
+                loading ? `${common.loading}` : common.edit
             )}
         </Button>
     );
