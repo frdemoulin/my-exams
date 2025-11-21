@@ -1,0 +1,151 @@
+{
+  "entities": {
+    "diploma": {
+      "singular": "Diplôme",
+      "plural": "Diplômes",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un diplôme",
+        "edit": "Éditer le diplôme",
+        "delete": "Supprimer le diplôme",
+        "view": "Voir le diplôme",
+        "list": "Liste des diplômes"
+      }
+    },
+    "division": {
+      "singular": "Filière",
+      "plural": "Filières",
+      "article": {
+        "definite": "la",
+        "indefinite": "une"
+      },
+      "actions": {
+        "add": "Ajouter une filière",
+        "edit": "Éditer la filière",
+        "delete": "Supprimer la filière",
+        "view": "Voir la filière",
+        "list": "Liste des filières"
+      }
+    },
+    "examinationCenter": {
+      "singular": "Centre d'examen",
+      "plural": "Centres d'examen",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un centre d'examen",
+        "edit": "Éditer le centre d'examen",
+        "delete": "Supprimer le centre d'examen",
+        "view": "Voir le centre d'examen",
+        "list": "Liste des centres d'examen"
+      }
+    },
+    "grade": {
+      "singular": "Niveau scolaire",
+      "plural": "Niveaux scolaires",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un niveau scolaire",
+        "edit": "Éditer le niveau scolaire",
+        "delete": "Supprimer le niveau scolaire",
+        "view": "Voir le niveau scolaire",
+        "list": "Liste des niveaux scolaires"
+      }
+    },
+    "subject": {
+      "singular": "Matière",
+      "plural": "Matières",
+      "article": {
+        "definite": "la",
+        "indefinite": "une"
+      },
+      "actions": {
+        "add": "Ajouter une matière",
+        "edit": "Éditer la matière",
+        "delete": "Supprimer la matière",
+        "view": "Voir la matière",
+        "list": "Liste des matières"
+      }
+    },
+    "topic": {
+      "singular": "Thème",
+      "plural": "Thèmes",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un thème",
+        "edit": "Éditer le thème",
+        "delete": "Supprimer le thème",
+        "view": "Voir le thème",
+        "list": "Liste des thèmes"
+      }
+    },
+    "user": {
+      "singular": "Utilisateur",
+      "plural": "Utilisateurs",
+      "article": {
+        "definite": "l'",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un utilisateur",
+        "edit": "Éditer l'utilisateur",
+        "delete": "Supprimer l'utilisateur",
+        "view": "Voir l'utilisateur",
+        "list": "Liste des utilisateurs"
+      }
+    }
+  },
+  "common": {
+    "welcome": "Bienvenue",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Éditer",
+    "add": "Ajouter",
+    "search": "Rechercher",
+    "loading": "Chargement...",
+    "noResults": "Aucun résultat",
+    "actions": "Actions",
+    "confirm": "Confirmer",
+    "back": "Retour"
+  },
+  "auth": {
+    "signIn": "Connexion",
+    "signOut": "Déconnexion",
+    "signInWith": "Se connecter avec {provider}",
+    "welcomeBack": "Bon retour !",
+    "loginPrompt": "Connectez-vous pour accéder à votre espace"
+  },
+  "navigation": {
+    "dashboard": "Tableau de bord",
+    "admin": "Administration",
+    "profile": "Profil",
+    "settings": "Paramètres"
+  },
+  "messages": {
+    "success": {
+      "created": "{entity} créé(e) avec succès",
+      "updated": "{entity} mis(e) à jour avec succès",
+      "deleted": "{entity} supprimé(e) avec succès"
+    },
+    "error": {
+      "generic": "Une erreur est survenue",
+      "notFound": "{entity} introuvable",
+      "unauthorized": "Vous n'êtes pas autorisé à effectuer cette action",
+      "validation": "Veuillez vérifier les données saisies"
+    }
+  }
+}
