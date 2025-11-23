@@ -84,7 +84,7 @@ const optionSchema = z.object({
     value: z.string()
 });
 
-export const createTopicSchema = z.object({
+export const createThemeSchema = z.object({
     longDescription: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
@@ -99,5 +99,8 @@ export const createTopicSchema = z.object({
         .trim()
         .min(1, { message: "Champ requis" })
         .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
-    subjects: z.array(optionSchema)
+    chapterId: z.string({
+        required_error: "Champ requis",
+    })
+        .min(1, { message: "Champ requis" })
 });

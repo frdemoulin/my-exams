@@ -14,8 +14,12 @@ async function clearDatabase() {
     await prisma.authenticator.deleteMany({});
 
     // Données applicatives (ordre inverse des dépendances)
+    await prisma.examPaper.deleteMany({});
+    await prisma.theme.deleteMany({});
+    await prisma.chapter.deleteMany({});
+    await prisma.curriculum.deleteMany({});
+    await prisma.course.deleteMany({});
     await prisma.subject.deleteMany({});
-    await prisma.topic.deleteMany({});
     await prisma.grade.deleteMany({});
     await prisma.examinationCenter.deleteMany({});
     await prisma.division.deleteMany({});

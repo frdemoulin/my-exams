@@ -55,7 +55,7 @@ export const Sidebar = () => {
         },
         {
           title: 'Thèmes',
-          path: '/admin/topics',
+          path: '/admin/themes',
           icon: <FaList className="mr-3" size={16} />
         },
       ]
