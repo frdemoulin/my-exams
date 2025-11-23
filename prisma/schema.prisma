@@ -65,7 +65,7 @@ model Chapter {
   @@unique([longDescription, subjectId])
 }
 
-model Course {
+model Teaching {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String // ex: "Spécialité Mathématiques", "Tronc Commun Sciences"
   shortName String? // ex: "Spé Maths", "TC Sciences"
@@ -84,6 +84,14 @@ model Course {
   @@unique([name, gradeId])
 }
 
+enum TeachingType {
+  SPECIALITE
+  TRONC_COMMUN
+  OPTION
+  COMPLEMENTAIRE
+  EXPERT
+}
+
 // Programme scolaire (ex: Programmes 2019, Réforme 2020, etc.)
 model Curriculum {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
@@ -99,8 +107,8 @@ model Curriculum {
   endMonth   Int? // Mois de fin (1-12), optionnel
 
   // Applicabilité (MongoDB: liste d'IDs pour many-to-many)
-  // Un programme peut concerner plusieurs cours (ex: réforme 2020 pour toutes les spés)
-  courseIds String[] @db.ObjectId
+  // Un programme peut concerner plusieurs enseignements (ex: réforme 2020 pour toutes les spés)
+  teachingIds String[] @db.ObjectId
 
   // Métadonnées
   isActive Boolean @default(true) // Programme actuellement en vigueur
@@ -171,9 +179,9 @@ model ExamPaper {
   gradeId String @db.ObjectId
   grade   Grade  @relation(fields: [gradeId], references: [id])
 
-  // Le Course est le point d'ancrage principal (ex: "Spé Maths Terminale")
-  courseId String @db.ObjectId
-  course   Course @relation(fields: [courseId], references: [id])
+  // Le Teaching est le point d'ancrage principal (ex: "Spé Maths Terminale")
+  teachingId String   @db.ObjectId
+  teaching   Teaching @relation(fields: [teachingId], references: [id])
 
   // Association au programme scolaire
   // OBLIGATOIRE : permet de savoir quel programme est évalué dans cette annale
@@ -202,7 +210,7 @@ model Grade {
   updatedAt        DateTime @updatedAt
 
   // Relations
-  courses    Course[]
+  teachings  Teaching[]
   examPapers ExamPaper[]
 
   @@unique([longDescription, shortDescription])
@@ -231,8 +239,8 @@ model Subject {
   updatedAt        DateTime @updatedAt
 
   // Relations
-  courses  Course[]
-  chapters Chapter[]
+  teachings Teaching[]
+  chapters  Chapter[]
 
   @@unique([longDescription, shortDescription])
 }

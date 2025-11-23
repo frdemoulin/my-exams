@@ -5,10 +5,12 @@ import {
   FaArrowsTurnToDots,
   FaBarsProgress,
   FaBook,
+  FaCalendar,
   FaChartPie,
   FaCity,
   FaFileAudio,
   FaGears,
+  FaGraduationCap,
   FaHouse,
   FaList,
   FaRightToBracket,
@@ -34,6 +36,11 @@ export const Sidebar = () => {
           icon: <FaCity className="mr-3" size={16} />
         },
         {
+          title: 'Enseignements',
+          path: '/admin/teachings',
+          icon: <FaGraduationCap className="mr-3" size={16} />
+        },
+        {
           title: 'Diplômes',
           path: '/admin/diplomas',
           icon: <FaBook className="mr-3" size={16} />
@@ -52,6 +59,11 @@ export const Sidebar = () => {
           title: 'Niveaux scolaires',
           path: '/admin/grades',
           icon: <FaStairs className="mr-3" size={16} />
+        },
+        {
+          title: 'Programmes',
+          path: '/admin/curriculums',
+          icon: <FaCalendar className="mr-3" size={16} />
         },
         {
           title: 'Thèmes',

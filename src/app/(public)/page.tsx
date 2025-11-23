@@ -1,4 +1,4 @@
-import { fetchSpecialties } from '@/core/course';
+import { fetchSpecialties } from '@/core/teaching';
 import { fetchSubjects } from '@/core/subject';
 import HomePage from '@/components/pages/HomePage';
 

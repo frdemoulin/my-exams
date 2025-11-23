@@ -3,7 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
-import type { CourseWithRelations } from '@/core/course';
+import type { TeachingWithRelations } from '@/core/teaching';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -23,7 +23,7 @@ import { getRecentYears } from '@/lib/utils';
 
 interface HomePageProps {
   initialSubjects: Subject[];
-  specialties: CourseWithRelations[];
+  specialties: TeachingWithRelations[];
 }
 
 export default function HomePage({ initialSubjects, specialties }: HomePageProps) {
@@ -238,7 +238,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               {/* SPÉCIALITÉS POPULAIRES */}
               <div className="space-y-2">
                 <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                  Spécialités & Cours populaires
+                  Spécialités & Enseignements populaires
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {specialties.slice(0, 8).map((course) => (

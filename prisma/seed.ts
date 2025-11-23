@@ -5,7 +5,7 @@ import { seedDivisions } from "./seeds/division.seed";
 import { seedExaminationCenters } from "./seeds/examination-center.seed";
 import { seedGrades } from "./seeds/grade.seed";
 import { seedSubjects } from "./seeds/subject.seed";
-import { seedCourses } from "./seeds/course.seed";
+import { seedTeachings } from "./seeds/teaching.seed";
 import { seedCurriculums } from "./seeds/curriculum.seed";
 import { seedChapters } from "./seeds/chapter.seed";
 import { seedThemes } from "./seeds/theme.seed";
@@ -26,10 +26,10 @@ async function main() {
         // 2. Subjects (base de la hiérarchie pédagogique)
         await seedSubjects(prisma);
 
-        // 3. Courses (dépend de Grades et Subjects)
-        await seedCourses();
+        // 3. Teachings (dépend de Grades et Subjects)
+        await seedTeachings();
 
-        // 4. Curriculums/Programmes scolaires (dépend de Courses)
+        // 4. Curriculums/Programmes scolaires (dépend de Teachings)
         await seedCurriculums();
 
         // 5. Chapters (dépend de Subjects)

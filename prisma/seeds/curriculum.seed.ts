@@ -6,19 +6,19 @@ export async function seedCurriculums() {
   console.log('📚 Seeding Curriculums...');
 
   // Récupérer les cours pour assigner les IDs
-  const secondeCourses = await prisma.course.findMany({
+  const secondeCourses = await prisma.teaching.findMany({
     where: { grade: { shortDescription: '2de' } },
   });
   
-  const premiereCourses = await prisma.course.findMany({
+  const premiereCourses = await prisma.teaching.findMany({
     where: { grade: { shortDescription: '1re' } },
   });
   
-  const terminaleCourses = await prisma.course.findMany({
+  const terminaleCourses = await prisma.teaching.findMany({
     where: { grade: { shortDescription: 'Tle' } },
   });
 
-  const mathsCourses = await prisma.course.findMany({
+  const mathsCourses = await prisma.teaching.findMany({
     where: { 
       subject: { shortDescription: 'Maths' },
       grade: { shortDescription: { in: ['1re', 'Tle'] } }
@@ -36,7 +36,7 @@ export async function seedCurriculums() {
       endMonth: null,
       isActive: true,
       notes: 'Cycle 3 (6e) et Cycle 4 (5e, 4e, 3e)',
-      courseIds: [] as string[],
+      teachingIds: [] as string[],
     },
 
     // Programmes lycée - Réforme du bac 2021 (mise en place progressive 2019-2021)
@@ -49,7 +49,7 @@ export async function seedCurriculums() {
       endMonth: null,
       isActive: true,
       notes: 'Applicable aux élèves entrant en Seconde à partir de septembre 2019',
-      courseIds: secondeCourses.map(c => c.id),
+      teachingIds: secondeCourses.map(c => c.id),
     },
     {
       name: 'Réforme Bac 2021 - Première',
@@ -60,7 +60,7 @@ export async function seedCurriculums() {
       endMonth: null,
       isActive: true,
       notes: 'Applicable aux élèves entrant en Première à partir de septembre 2019. Première session du nouveau bac en 2021.',
-      courseIds: premiereCourses.map(c => c.id),
+      teachingIds: premiereCourses.map(c => c.id),
     },
     {
       name: 'Réforme Bac 2021 - Terminale',
@@ -71,7 +71,7 @@ export async function seedCurriculums() {
       endMonth: null,
       isActive: true,
       notes: 'Applicable aux élèves entrant en Terminale à partir de septembre 2020. Première session du nouveau bac en juin 2021.',
-      courseIds: terminaleCourses.map(c => c.id),
+      teachingIds: terminaleCourses.map(c => c.id),
     },
 
     // Anciens programmes (avant réforme)
@@ -84,7 +84,7 @@ export async function seedCurriculums() {
       endMonth: 6,
       isActive: false,
       notes: 'Dernière session en juin 2020. Concerne les anciennes séries S, ES, L.',
-      courseIds: [] as string[],
+      teachingIds: [] as string[],
     },
     {
       name: 'Programme Lycée 2010 - Série ES',
@@ -95,7 +95,7 @@ export async function seedCurriculums() {
       endMonth: 6,
       isActive: false,
       notes: 'Dernière session en juin 2020.',
-      courseIds: [] as string[],
+      teachingIds: [] as string[],
     },
     {
       name: 'Programme Lycée 2010 - Série L',
@@ -106,7 +106,7 @@ export async function seedCurriculums() {
       endMonth: 6,
       isActive: false,
       notes: 'Dernière session en juin 2020.',
-      courseIds: [] as string[],
+      teachingIds: [] as string[],
     },
 
     // Programme 2023 pour certaines matières
@@ -119,7 +119,7 @@ export async function seedCurriculums() {
       endMonth: null,
       isActive: true,
       notes: 'Modifications mineures apportées au programme de mathématiques de Première et Terminale',
-      courseIds: mathsCourses.map(c => c.id),
+      teachingIds: mathsCourses.map(c => c.id),
     },
   ];
 

@@ -42,19 +42,19 @@ async function validateCurriculumModel() {
 
   console.log(`   → ${inactivePrograms.length} programmes inactifs validés\n`);
 
-  // 3. Vérifier les courseIds
+  // 3. Vérifier les teachingIds
   console.log('✓ Vérification des cours associés...');
   const allPrograms = await prisma.curriculum.findMany();
 
   for (const program of allPrograms) {
-    if (program.courseIds.length > 0) {
+    if (program.teachingIds.length > 0) {
       // Vérifier que tous les IDs existent
-      const courses = await prisma.course.findMany({
-        where: { id: { in: program.courseIds } },
+      const courses = await prisma.teaching.findMany({
+        where: { id: { in: program.teachingIds } },
       });
 
-      if (courses.length !== program.courseIds.length) {
-        console.error(`   ❌ ${program.name}: ${program.courseIds.length - courses.length} cours introuvables`);
+      if (courses.length !== program.teachingIds.length) {
+        console.error(`   ❌ ${program.name}: ${program.teachingIds.length - courses.length} cours introuvables`);
         errors++;
       }
     } else if (program.isActive && !program.name.includes('Collège')) {
@@ -63,7 +63,7 @@ async function validateCurriculumModel() {
     }
   }
 
-  console.log(`   → Tous les courseIds validés\n`);
+  console.log(`   → Tous les teachingIds validés\n`);
 
   // 4. Vérifier les chevauchements temporels
   console.log('✓ Vérification des chevauchements...');
@@ -105,8 +105,8 @@ async function validateCurriculumModel() {
   console.log(`   Programmes actifs: ${activePrograms.length}`);
   console.log(`   Programmes inactifs: ${inactivePrograms.length}`);
   
-  const totalCourses = allPrograms.reduce((sum, p) => sum + p.courseIds.length, 0);
-  const uniqueCourses = new Set(allPrograms.flatMap(p => p.courseIds));
+  const totalCourses = allPrograms.reduce((sum, p) => sum + p.teachingIds.length, 0);
+  const uniqueCourses = new Set(allPrograms.flatMap(p => p.teachingIds));
   
   console.log(`   Total associations cours: ${totalCourses}`);
   console.log(`   Cours uniques associés: ${uniqueCourses.size}`);

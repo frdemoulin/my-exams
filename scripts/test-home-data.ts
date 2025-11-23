@@ -6,7 +6,7 @@ async function testHomeData() {
   console.log('🏠 Test des données pour la page d\'accueil\n');
 
   // Tester fetchSpecialties
-  const specialties = await prisma.course.findMany({
+  const specialties = await prisma.teaching.findMany({
     where: {
       name: {
         startsWith: 'Spécialité',
@@ -52,7 +52,7 @@ async function testHomeData() {
   });
 
   // Compter les cours par niveau
-  const coursesByGrade = await prisma.course.groupBy({
+  const coursesByGrade = await prisma.teaching.groupBy({
     by: ['gradeId'],
     _count: true,
   });

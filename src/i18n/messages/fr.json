@@ -75,6 +75,36 @@
         "list": "Liste des matières"
       }
     },
+    "teaching": {
+      "singular": "Enseignement",
+      "plural": "Enseignements",
+      "article": {
+        "definite": "l'",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un enseignement",
+        "edit": "Éditer l'enseignement",
+        "delete": "Supprimer l'enseignement",
+        "view": "Voir l'enseignement",
+        "list": "Liste des enseignements"
+      }
+    },
+    "curriculum": {
+      "singular": "Programme",
+      "plural": "Programmes",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un programme",
+        "edit": "Éditer le programme",
+        "delete": "Supprimer le programme",
+        "view": "Voir le programme",
+        "list": "Liste des programmes"
+      }
+    },
     "theme": {
       "singular": "Thème",
       "plural": "Thèmes",

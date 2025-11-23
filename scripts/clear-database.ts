@@ -18,7 +18,7 @@ async function clearDatabase() {
     await prisma.theme.deleteMany({});
     await prisma.chapter.deleteMany({});
     await prisma.curriculum.deleteMany({});
-    await prisma.course.deleteMany({});
+    await prisma.teaching.deleteMany({});
     await prisma.subject.deleteMany({});
     await prisma.grade.deleteMany({});
     await prisma.examinationCenter.deleteMany({});

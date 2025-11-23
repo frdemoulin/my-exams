@@ -2,8 +2,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function seedCourses() {
-  console.log('📚 Seeding Courses...');
+export async function seedTeachings() {
+  console.log('📚 Seeding Teachings...');
 
   // Récupérer les IDs des grades
   const grades = await prisma.grade.findMany();
@@ -212,7 +212,7 @@ export async function seedCourses() {
     }
 
     // Chercher si le cours existe déjà
-    const existingCourse = await prisma.course.findFirst({
+    const existingCourse = await prisma.teaching.findFirst({
       where: {
         name: course.name,
         gradeId: course.gradeId,
@@ -221,7 +221,7 @@ export async function seedCourses() {
 
     if (existingCourse) {
       // Mettre à jour si existe
-      await prisma.course.update({
+      await prisma.teaching.update({
         where: { id: existingCourse.id },
         data: {
           shortName: course.shortName,
@@ -230,7 +230,7 @@ export async function seedCourses() {
       });
     } else {
       // Créer si n'existe pas
-      await prisma.course.create({
+      await prisma.teaching.create({
         data: course,
       });
     }

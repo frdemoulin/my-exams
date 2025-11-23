@@ -27,7 +27,7 @@ async function testCurriculums() {
     if (curriculum.endYear) {
       console.log(`   📅 Fin: ${curriculum.endYear}/${curriculum.endMonth || '?'}`);
     }
-    console.log(`   🎯 ${curriculum.courseIds.length} cours associés`);
+    console.log(`   🎯 ${curriculum.teachingIds.length} cours associés`);
     if (curriculum.notes) {
       console.log(`   💡 ${curriculum.notes}`);
     }
@@ -44,9 +44,9 @@ async function testCurriculums() {
   });
 
   if (reformeTerminale) {
-    const courses = await prisma.course.findMany({
+    const courses = await prisma.teaching.findMany({
       where: {
-        id: { in: reformeTerminale.courseIds },
+        id: { in: reformeTerminale.teachingIds },
       },
       include: {
         grade: true,
@@ -80,7 +80,7 @@ async function testCurriculums() {
 
   activePrograms.forEach((program) => {
     console.log(`   ${program.name} (depuis ${program.startYear})`);
-    console.log(`      → ${program.courseIds.length} cours`);
+    console.log(`      → ${program.teachingIds.length} cours`);
   });
 
   // 4. Timeline des programmes

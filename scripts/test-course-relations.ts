@@ -6,7 +6,7 @@ async function testCourseRelations() {
   console.log('🔍 Test des relations Course...\n');
 
   // 1. Compter les cours par niveau
-  const coursesByGrade = await prisma.course.groupBy({
+  const coursesByGrade = await prisma.teaching.groupBy({
     by: ['gradeId'],
     _count: true,
   });
@@ -21,7 +21,7 @@ async function testCourseRelations() {
 
   // 2. Exemple de cours avec relations
   console.log('\n📘 Exemple: Spécialité Mathématiques Terminale:');
-  const speMathesTle = await prisma.course.findFirst({
+  const speMathesTle = await prisma.teaching.findFirst({
     where: {
       name: 'Spécialité Mathématiques',
       grade: { shortDescription: 'Tle' },
@@ -40,7 +40,7 @@ async function testCourseRelations() {
 
   // 3. Lister les spécialités de Première
   console.log('\n🎯 Spécialités de Première:');
-  const spesPremiere = await prisma.course.findMany({
+  const spesPremiere = await prisma.teaching.findMany({
     where: {
       grade: { shortDescription: '1re' },
       name: { startsWith: 'Spécialité' },
@@ -57,7 +57,7 @@ async function testCourseRelations() {
 
   // 4. Options de Terminale
   console.log('\n🎨 Options de Terminale:');
-  const optionsTerminale = await prisma.course.findMany({
+  const optionsTerminale = await prisma.teaching.findMany({
     where: {
       grade: { shortDescription: 'Tle' },
       name: { startsWith: 'Option' },
