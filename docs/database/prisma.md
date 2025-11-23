@@ -269,7 +269,7 @@ R: Non, avec MongoDB ce sont des collections dynamiques. Seul `prisma db push` e
 R: Ajouter le nouveau champ → migrer les données (script) → retirer l’ancien → `db push`.
 
 **Q: Pourquoi ma contrainte unique ne fonctionne pas immédiatement ?**  
-R: Index non créé ou en cours de construction. Vérifie via `getIndexes()`, relance `db push`, éventuellement redémarre MongoDB.
+R: Index non créé ou en enseignement de construction. Vérifie via `getIndexes()`, relance `db push`, éventuellement redémarre MongoDB.
 
 **Q: Puis-je revenir en arrière après un `db push` ?**  
 R: Pas automatiquement. Sauvegarde avant les changements critiques (mongodump).

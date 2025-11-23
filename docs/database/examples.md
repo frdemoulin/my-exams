@@ -29,7 +29,7 @@ Ce document illustre la hiérarchie des données avec des exemples concrets de s
          ▼             ▼                 ▼             ▼              ▼
 ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
 │  Spé Maths   │ │   Spé PC     │ │  Spé Maths   │ │   Spé PC     │ │ Maths Comp   │
-│   (Course)   │ │   (Course)   │ │   (Course)   │ │   (Course)   │ │   (Course)   │
+│   (Teaching)   │ │   (Teaching)   │ │   (Teaching)   │ │   (Teaching)   │ │   (Teaching)   │
 └──────┬───────┘ └──────┬───────┘ └──────┬───────┘ └──────┬───────┘ └──────┬───────┘
        │                │                 │                │                │
        ▼                ▼                 ▼                ▼                ▼
@@ -82,7 +82,7 @@ Bac Général
     "diplomaId": "ObjectId(Bac Général)",
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Terminale)",
-    "courseId": "ObjectId(Spécialité Mathématiques Terminale)",
+    "teachingId": "ObjectId(Spécialité Mathématiques Terminale)",
     "examinationCenterId": "ObjectId(Métropole)",
     "chapterIds": [
       "ObjectId(Algèbre et analyse)",
@@ -107,7 +107,7 @@ const examPaper = await prisma.examPaper.findUnique({
     diploma: true,
     division: true,
     grade: true,
-    course: {
+    teaching: {
       include: {
         subject: true
       }
@@ -165,7 +165,7 @@ Bac Général
     "diplomaId": "ObjectId(Bac Général)",
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Première)",
-    "courseId": "ObjectId(Spécialité Physique-Chimie Première)",
+    "teachingId": "ObjectId(Spécialité Physique-Chimie Première)",
     "examinationCenterId": "ObjectId(Polynésie)",
     "chapterIds": [
       "ObjectId(Constitution et transformations de la matière)",
@@ -225,7 +225,7 @@ Bac Général
     "diplomaId": "ObjectId(Bac Général)",
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Terminale)",
-    "courseId": "ObjectId(Option Mathématiques Complémentaires)",
+    "teachingId": "ObjectId(Option Mathématiques Complémentaires)",
     "chapterIds": [
       "ObjectId(Analyse)",
       "ObjectId(Probabilités et statistiques)"
@@ -275,7 +275,7 @@ Bac Général
     "diplomaId": "ObjectId(Bac Général)",
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Première)",
-    "courseId": "ObjectId(Tronc Commun - Enseignement Scientifique)",
+    "teachingId": "ObjectId(Tronc Commun - Enseignement Scientifique)",
     "chapterIds": [
       "ObjectId(Une longue histoire de la matière)",
       "ObjectId(Le Soleil, notre source d'énergie)"
@@ -322,7 +322,7 @@ Un sujet d'annales couvre souvent **plusieurs chapitres et thèmes**.
     "diplomaId": "ObjectId(Bac Général)",
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Terminale)",
-    "courseId": "ObjectId(Spécialité Mathématiques Terminale)",
+    "teachingId": "ObjectId(Spécialité Mathématiques Terminale)",
     "examinationCenterId": "ObjectId(Métropole)",
     "chapterIds": [
       "ObjectId(Algèbre et analyse)",
@@ -351,7 +351,7 @@ Un sujet d'annales couvre souvent **plusieurs chapitres et thèmes**.
 ```typescript
 const examPapers = await prisma.examPaper.findMany({
   where: {
-    course: {
+    teaching: {
       name: "Spécialité Mathématiques",
       grade: {
         shortDescription: "Tle"
@@ -359,7 +359,7 @@ const examPapers = await prisma.examPaper.findMany({
     }
   },
   include: {
-    course: {
+    teaching: {
       include: {
         grade: true,
         subject: true
@@ -391,7 +391,7 @@ const examPapers = await prisma.examPaper.findMany({
     }
   },
   include: {
-    course: {
+    teaching: {
       include: {
         grade: true,
         subject: true
@@ -401,10 +401,10 @@ const examPapers = await prisma.examPaper.findMany({
 });
 ```
 
-### Cas d'usage 3 : Lister tous les Courses de Terminale
+### Cas d'usage 3 : Lister tous les Teachings de Terminale
 
 ```typescript
-const terminaleCourses = await prisma.course.findMany({
+const terminaleTeachings = await prisma.teaching.findMany({
   where: {
     grade: {
       shortDescription: "Tle"
@@ -442,7 +442,7 @@ const terminaleCourses = await prisma.course.findMany({
 └──────────────────┬──────────────────────────┘
                    ▼
 ┌─────────────────────────────────────────────┐
-│  4. Sélectionner le Course ⭐               │
+│  4. Sélectionner le Teaching ⭐               │
 │     (ex: Spécialité Mathématiques)          │
 │     → Détermine automatiquement le Subject  │
 └──────────────────┬──────────────────────────┘
@@ -450,7 +450,7 @@ const terminaleCourses = await prisma.course.findMany({
 ┌─────────────────────────────────────────────┐
 │  5. Sélectionner les Chapters               │
 │     (ex: Algèbre, Probabilités)             │
-│     → Basés sur le Subject du Course        │
+│     → Basés sur le Subject du Teaching        │
 └──────────────────┬──────────────────────────┘
                    ▼
 ┌─────────────────────────────────────────────┐
@@ -474,9 +474,9 @@ const terminaleCourses = await prisma.course.findMany({
 
 ## Points clés à retenir
 
-1. **Course est le pivot** : C'est le niveau où s'attache l'ExamPaper
+1. **Teaching est le pivot** : C'est le niveau où s'attache l'ExamPaper
 2. **Subject est la référence** : Il contient les Chapters et Themes réutilisables
-3. **Flexibilité** : Même Subject peut être dans plusieurs Courses (Spé Maths, Maths Comp, etc.)
+3. **Flexibilité** : Même Subject peut être dans plusieurs Teachings (Spé Maths, Maths Comp, etc.)
 4. **Hiérarchie administrative** : Diploma → Division → Grade
-5. **Hiérarchie pédagogique** : Course → Subject → Chapter → Theme
+5. **Hiérarchie pédagogique** : Teaching → Subject → Chapter → Theme
 6. **Tagging multiple** : Un ExamPaper peut couvrir plusieurs Chapters et Themes

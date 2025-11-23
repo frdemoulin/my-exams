@@ -424,7 +424,7 @@ brew services start mongodb-community@8.0
 ## Ressources
 
 - [Documentation officielle MongoDB](https://docs.mongodb.com/)
-- [MongoDB University (cours gratuits)](https://university.mongodb.com/)
+- [MongoDB University (enseignement gratuits)](https://university.mongodb.com/)
 - [Prisma + MongoDB](https://www.prisma.io/docs/concepts/database-connectors/mongodb)
 - [MongoDB Compass Guide](https://docs.mongodb.com/compass/current/)
 

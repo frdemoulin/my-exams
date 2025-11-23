@@ -290,7 +290,7 @@ alias pm='npx prisma migrate dev'
 
 | Raccourci | Action |
 |-----------|--------|
-| `Ctrl + C` | Interrompre la commande en cours |
+| `Ctrl + C` | Interrompre la commande en enseignement |
 | `Ctrl + D` | Fermer le terminal |
 | `Ctrl + L` | Effacer l'écran |
 | `Ctrl + A` | Aller au début de la ligne |

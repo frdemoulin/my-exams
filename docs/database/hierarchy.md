@@ -13,7 +13,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
     │
     └── Grade (Première, Terminale, etc.)
         │
-        └── Course (SPE Maths, SPE Physique, HGGSP, Tronc Commun)
+        └── Teaching (SPE Maths, SPE Physique, HGGSP, Tronc Commun)
             │
             └── Subject (Mathématiques, Physique-Chimie, Histoire-Géo)
                 │
@@ -37,9 +37,9 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 ### 3. Grade
 - **Description** : Niveau scolaire
 - **Exemples** : Première, Terminale, 3ème, 4ème
-- **Relations** : Course, ExamPaper
+- **Relations** : Teaching, ExamPaper
 
-### 4. Course ⭐ **NOUVEAU**
+### 4. Teaching ⭐ **NOUVEAU**
 - **Description** : Enseignement spécifique (spécialité ou tronc commun)
 - **Exemples** :
   - Spécialité Mathématiques (Terminale)
@@ -57,7 +57,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 ### 5. Subject
 - **Description** : Matière disciplinaire
 - **Exemples** : Mathématiques, Physique-Chimie, Histoire-Géographie, SVT
-- **Relations** : Course, Chapter
+- **Relations** : Teaching, Chapter
 
 ### 6. Chapter
 - **Description** : Chapitre du programme (grandes parties)
@@ -83,7 +83,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 
 ## ExamPaper (Sujet d'annales)
 
-Le sujet d'annales est **rattaché au niveau Course**, pas directement au Subject.
+Le sujet d'annales est **rattaché au niveau Teaching**, pas directement au Subject.
 
 ### Structure
 ```typescript
@@ -98,7 +98,7 @@ ExamPaper {
   gradeId: ObjectId         // ex: Terminale
   
   // Point d'ancrage principal ⭐
-  courseId: ObjectId        // ex: Spé Maths Terminale
+  teachingId: ObjectId        // ex: Spé Maths Terminale
   
   // Tagging pédagogique
   chapterIds: ObjectId[]    // Chapitres traités
@@ -118,7 +118,7 @@ ExamPaper {
 Bac Général
 └── Générale
     └── Terminale
-        └── Spécialité Mathématiques (Course)
+        └── Spécialité Mathématiques (Teaching)
             └── Mathématiques (Subject)
                 ├── Algèbre et analyse (Chapter)
                 │   ├── Suites (Theme)
@@ -135,7 +135,7 @@ Bac Général
 Bac Général
 └── Générale
     └── Première
-        └── Tronc Commun Sciences (Course)
+        └── Tronc Commun Sciences (Teaching)
             └── Physique-Chimie (Subject)
                 ├── Constitution et transformations de la matière (Chapter)
                 └── ...
@@ -147,7 +147,7 @@ Bac Général
 Bac Général
 └── Générale
     └── Terminale
-        └── Spécialité Physique-Chimie (Course)
+        └── Spécialité Physique-Chimie (Teaching)
             └── Physique-Chimie (Subject)
                 ├── Mouvement et interactions (Chapter)
                 ├── Ondes et signaux (Chapter)
@@ -158,9 +158,9 @@ Bac Général
 ## Avantages de cette structure
 
 1. **Flexibilité** : Gère les spécialités, options et tronc commun
-2. **Précision** : Le Course permet de distinguer "Spé Maths" du "Tronc Commun Maths"
+2. **Précision** : Le Teaching permet de distinguer "Spé Maths" du "Tronc Commun Maths"
 3. **Évolutivité** : Peut s'adapter aux futures réformes
-4. **Réutilisation** : Les Subjects, Chapters et Themes sont partagés entre plusieurs Courses
+4. **Réutilisation** : Les Subjects, Chapters et Themes sont partagés entre plusieurs Teachings
 5. **Recherche** : Facilite la recherche de sujets par spécialité, niveau, etc.
 
 ## Migration depuis l'ancien modèle
@@ -174,14 +174,14 @@ Diploma → Division → Grade → Subject → Chapter → Theme
 
 ### Nouveau modèle
 ```
-Diploma → Division → Grade → Course → Subject → Chapter → Theme
+Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
                               ↓
                          ExamPaper
 ```
 
 ### Changements principaux
 
-1. **Ajout du niveau Course** entre Grade et Subject
-2. **ExamPaper rattaché à Course** au lieu de Subject
-3. **Course définit l'enseignement** (Spé, Tronc Commun, Option)
+1. **Ajout du niveau Teaching** entre Grade et Subject
+2. **ExamPaper rattaché à Teaching** au lieu de Subject
+3. **Teaching définit l'enseignement** (Spé, Tronc Commun, Option)
 4. **Subject reste la référence disciplinaire** pour les Chapters

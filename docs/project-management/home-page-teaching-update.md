@@ -5,12 +5,12 @@
 
 ## Changements apportés
 
-### 1. Nouveau module `Course`
+### 1. Nouveau module `Teaching`
 
-Création du module `/src/core/course/` avec:
+Création du module `/src/core/teaching/` avec:
 
-- **course.types.ts** - Types TypeScript pour les cours avec relations
-- **course.queries.ts** - Requêtes Prisma pour récupérer les cours
+- **teaching.types.ts** - Types TypeScript pour les enseignements avec relations
+- **teaching.queries.ts** - Requêtes Prisma pour récupérer les enseignements
 - **index.ts** - Exports du module
 
 ### 2. Queries disponibles
@@ -21,17 +21,17 @@ Récupère toutes les spécialités de Première et Terminale (14 au total):
 - Spé HGGSP, Spé HLP, Spé SES, Spé NSI
 - Pour 1re et Tle
 
-#### `fetchCourses()`
-Récupère tous les cours avec leurs relations Grade et Subject.
+#### `fetchTeachings()`
+Récupère tous les enseignement avec leurs relations Grade et Subject.
 
-#### `fetchCoursesByGrade()`
-Récupère les cours groupés par niveau (Grade).
+#### `fetchTeachingsByGrade()`
+Récupère les enseignement groupés par niveau (Grade).
 
-#### `fetchLyceeCourses()`
-Récupère uniquement les cours de lycée (2de, 1re, Tle).
+#### `fetchLyceeTeachings()`
+Récupère uniquement les enseignement de lycée (2de, 1re, Tle).
 
-#### `fetchCourseById(id)`
-Récupère un cours spécifique par son ID.
+#### `fetchTeachingById(id)`
+Récupère un enseignement spécifique par son ID.
 
 ### 3. Mise à jour de la page d'accueil
 
@@ -45,18 +45,18 @@ Récupère un cours spécifique par son ID.
 ```typescript
 interface HomePageProps {
   initialSubjects: Subject[];
-  specialties: CourseWithRelations[]; // ✨ Nouveau
+  specialties: TeachingWithRelations[]; // ✨ Nouveau
 }
 ```
 
-**Section "Spécialités & Cours populaires":**
+**Section "Spécialités & Enseignements populaires":**
 - Remplace l'ancienne section "Matières populaires"
 - Affiche les 8 premières spécialités avec leur niveau
 - Format: `Spé Maths • Tle`, `Spé PC • 1re`, etc.
 
 **Section "Annales populaires":**
 - Mise à jour des exemples pour refléter la nouvelle hiérarchie
-- Structure: Grade → Course → Subject
+- Structure: Grade → Teaching → Subject
 - Exemples:
   - Terminale → Spécialité Mathématiques
   - Première → Spécialité Physique-Chimie
@@ -67,33 +67,33 @@ interface HomePageProps {
 L'accueil utilise maintenant la hiérarchie complète:
 
 ```
-Diploma → Division → Grade → Course → Subject → Chapter → Theme
+Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
                               ^^^^^^
                            Nouveau niveau
 ```
 
-Les **ExamPapers** sont attachés au niveau **Course** (pas Subject).
+Les **ExamPapers** sont attachés au niveau **Teaching** (pas Subject).
 
 ## Avantages
 
 1. **Plus précis** - Les élèves cherchent par spécialité, pas par matière générique
-2. **Meilleure UX** - Affichage direct des cours disponibles (Spé Maths Tle, Spé PC 1re)
-3. **Évolutif** - Facile d'ajouter des filtres par niveau ou type de cours
+2. **Meilleure UX** - Affichage direct des enseignement disponibles (Spé Maths Tle, Spé PC 1re)
+3. **Évolutif** - Facile d'ajouter des filtres par niveau ou type de enseignement
 4. **Conforme** - Reflète la réforme du bac 2020 (spécialités, tronc commun, options)
 
 ## Données en base
 
-- **28 cours** créés (11 en 1re, 12 en Tle, 5 en 2de)
+- **28 enseignement** créés (11 en 1re, 12 en Tle, 5 en 2de)
 - **14 spécialités** (7 pour 1re + 7 pour Tle)
 - **8 matières** (Maths, PC, SVT, Français, Histoire-Géo, SES, Informatique, Philo)
 - **7 niveaux** (6e à Tle)
 
 ## Prochaines étapes suggérées
 
-1. **Page /annales** - Créer la page de recherche d'annales avec filtres par Course
+1. **Page /annales** - Créer la page de recherche d'annales avec filtres par Teaching
 2. **Filtres avancés** - Ajouter filtres par type (Spécialité/Tronc Commun/Option)
-3. **Breadcrumb** - Afficher la hiérarchie complète: Grade > Course > Subject > Chapter
-4. **Admin Course** - Créer l'interface admin pour gérer les cours
+3. **Breadcrumb** - Afficher la hiérarchie complète: Grade > Teaching > Subject > Chapter
+4. **Admin Teaching** - Créer l'interface admin pour gérer les enseignement
 
 ## Tests
 
