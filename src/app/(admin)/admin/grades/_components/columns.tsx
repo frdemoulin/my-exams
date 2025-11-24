@@ -15,6 +15,7 @@ import { Grade } from "@prisma/client";
 import { formatDateTime } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { deleteGrade } from "@/core/grade";
+import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
@@ -58,20 +59,20 @@ export const columns: ColumnDef<Grade>[] = [
     },
   },
   {
-    accessorKey: "createdAt",
+    accessorKey: "updatedAt",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Date de création
+          Date de dernière modification
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
     },
     cell: ({ row }) => {
-      return <div className="text-center">{formatDateTime(row.original.createdAt)}</div>
+      return <div className="text-center">{formatDateTime(row.original.updatedAt)}</div>
     },
   },
   {
@@ -98,15 +99,22 @@ export const columns: ColumnDef<Grade>[] = [
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link
-                className="hover:cursor-pointer"
                 href={`/admin/grades/${grade.id}/edit`}
               >
                 Éditer
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="hover:cursor-pointer" onClick={() => handleOnClickDeleteButton(grade.id)}>
-              Supprimer
-            </DropdownMenuItem>
+            <ConfirmDeleteDialog
+              onConfirm={() => handleOnClickDeleteButton(grade.id)}
+              trigger={
+                <DropdownMenuItem
+                  className="hover:cursor-pointer"
+                  onSelect={(event) => event.preventDefault()}
+                >
+                  Supprimer
+                </DropdownMenuItem>
+              }
+            />
           </DropdownMenuContent>
         </DropdownMenu>
       )

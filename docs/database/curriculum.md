@@ -17,9 +17,9 @@ L'année d'un sujet d'annales ne suffit pas à l'associer à un programme scolai
 
 ```prisma
 model Curriculum {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  name        String   // "Programme 2019", "Réforme Bac 2021"
-  description String?
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String   // "Programme 2019", "Réforme Bac 2021"
+  shortDescription String?
   
   // Période de validité
   startYear  Int      // Année de mise en vigueur
@@ -37,7 +37,7 @@ model Curriculum {
   // Relations
   examPapers ExamPaper[]
   
-  @@unique([name, startYear])
+  @@unique([longDescription, startYear])
 }
 ```
 
@@ -135,7 +135,7 @@ const oldExamPaper = {
 const papers = await prisma.examPaper.findMany({
   where: {
     curriculum: {
-      name: "Réforme Bac 2021 - Terminale"
+      longDescription: "Réforme Bac 2021 - Terminale"
     }
   },
   include: {
@@ -156,7 +156,7 @@ function findCurriculum(sessionYear: number, teachingId: string) {
   if (sessionYear >= 2021) {
     return prisma.curriculum.findFirst({
       where: {
-        name: { startsWith: "Réforme Bac 2021" },
+        longDescription: { startsWith: "Réforme Bac 2021" },
         teachingIds: { has: teachingId }
       }
     });

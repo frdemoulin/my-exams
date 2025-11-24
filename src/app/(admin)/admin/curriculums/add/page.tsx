@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { createCurriculum } from "@/core/curriculum";
 import CurriculumForm from "../_components/curriculum-form";
 import getSession from "@/lib/auth/get-session";
 import { fetchTeachingsOptions } from "@/core/teaching/teaching.queries";
@@ -24,8 +23,8 @@ const AddCurriculumPage = async () => {
         <div className="w-full p-6">
             <h1 className="text-2xl font-semibold mb-6">Ajouter un programme</h1>
             <CurriculumForm
-                crudMode="create"
-                formAction={createCurriculum}
+                crudMode="add"
+                initialData={{}}
                 teachings={teachings}
             />
         </div>

@@ -6,7 +6,7 @@ export async function fetchCurriculums(): Promise<Curriculum[]> {
     return await prisma.curriculum.findMany({
         orderBy: [
             { isActive: "desc" },
-            { startYear: "desc" },
+            { startDate: "desc" },
         ],
     });
 }
@@ -15,7 +15,7 @@ export async function fetchCurriculumsWithCourseCount(): Promise<CurriculumWithT
     const curriculums = await prisma.curriculum.findMany({
         orderBy: [
             { isActive: "desc" },
-            { startYear: "desc" },
+            { startDate: "desc" },
         ],
     });
 
@@ -73,6 +73,6 @@ export async function fetchCurriculumById(id: string): Promise<CurriculumWithTea
 export async function fetchActiveCurriculums(): Promise<Curriculum[]> {
     return await prisma.curriculum.findMany({
         where: { isActive: true },
-        orderBy: { startYear: "desc" },
+        orderBy: { startDate: "desc" },
     });
 }

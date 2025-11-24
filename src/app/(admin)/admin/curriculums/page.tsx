@@ -1,17 +1,17 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-import { fetchCurriculumsWithCourseCount } from "@/core/curriculum";
-import { columns } from "./_components/columns";
-import { DataTable } from "./_components/data-table";
-import getSession from "@/lib/auth/get-session";
-import { Button } from "@/components/ui/button";
 import { TableTitle } from "@/components/shared/table-title";
+import { DataTable } from "./_components/data-table";
+import { columns } from "./_components/columns";
+import { fetchCurriculumsWithCourseCount } from "@/core/curriculum";
+import getSession from "@/lib/auth/get-session";
 
-export const metadata: Metadata = {
-    title: "Programmes",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('entities.curriculum');
+    return { title: t('actions.list') };
+}
 
 const CurriculumsPage = async () => {
     const session = await getSession();
@@ -22,16 +22,22 @@ const CurriculumsPage = async () => {
     }
 
     const curriculums = await fetchCurriculumsWithCourseCount();
+    const t = await getTranslations('entities.curriculum');
 
     return (
         <div className="w-full p-6">
             <TableTitle
-                title="Programmes scolaires"
-                buttonId="add-curriculum"
-                buttonLabel="Ajouter un programme"
-                buttonPath="/admin/curriculums/add"
+                title={t('actions.list')}
+                buttonId="addCurriculumButton"
+                buttonLabel={t('actions.add')}
+                buttonPath="curriculums/add"
             />
-            <DataTable columns={columns} data={curriculums} />
+            <div className="container mx-auto py-10">
+                <DataTable
+                    columns={columns}
+                    data={curriculums}
+                />
+            </div>
         </div>
     );
 };

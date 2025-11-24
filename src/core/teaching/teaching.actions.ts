@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { createTeachingSchema, CreateTeachingErrors } from "./teaching.types";
 
 export const createTeaching = async (formData: FormData) => {
@@ -12,13 +13,13 @@ export const createTeaching = async (formData: FormData) => {
     const result = createTeachingSchema.safeParse(values);
 
     if (result.success) {
-        const { name, shortName, gradeId, subjectId } = result.data;
+        const { longDescription, shortDescription, gradeId, subjectId } = result.data;
 
         try {
             await prisma.teaching.create({
                 data: {
-                    name,
-                    shortName: shortName || null,
+                    longDescription,
+                    shortDescription: shortName || null,
                     gradeId,
                     subjectId,
                 }
@@ -36,6 +37,7 @@ export const createTeaching = async (formData: FormData) => {
     }
 
     revalidatePath("/admin/teachings");
+    await setCrudSuccessToast("teaching", "created");
     redirect("/admin/teachings");
 }
 
@@ -45,14 +47,14 @@ export const updateTeaching = async (id: string | undefined, formData: FormData)
     const result = createTeachingSchema.safeParse(values);
 
     if (result.success) {
-        const { name, shortName, gradeId, subjectId } = result.data;
+        const { longDescription, shortDescription, gradeId, subjectId } = result.data;
 
         try {
             await prisma.teaching.update({
                 where: { id },
                 data: {
-                    name,
-                    shortName: shortName || null,
+                    longDescription,
+                    shortDescription: shortName || null,
                     gradeId,
                     subjectId,
                 }
@@ -64,6 +66,7 @@ export const updateTeaching = async (id: string | undefined, formData: FormData)
             throw error;
         }
         
+        await setCrudSuccessToast("teaching", "updated");
         redirect('/admin/teachings');
     } else {
         const errors = result.error.flatten();
@@ -83,5 +86,6 @@ export const deleteTeaching = async (id: string) => {
     }
 
     revalidatePath("/admin/teachings");
+    await setCrudSuccessToast("teaching", "deleted");
     redirect("/admin/teachings");
 }

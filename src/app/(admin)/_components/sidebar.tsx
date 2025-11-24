@@ -31,19 +31,14 @@ export const Sidebar = () => {
       title: 'Scolarité',
       list: [
         {
-          title: "Centres d'examens",
-          path: '/admin/examination-centers',
-          icon: <FaCity className="mr-3" size={16} />
+          title: 'Diplômes',
+          path: '/admin/diplomas',
+          icon: <FaBook className="mr-3" size={16} />
         },
         {
           title: 'Enseignements',
           path: '/admin/teachings',
           icon: <FaGraduationCap className="mr-3" size={16} />
-        },
-        {
-          title: 'Diplômes',
-          path: '/admin/diplomas',
-          icon: <FaBook className="mr-3" size={16} />
         },
         {
           title: "Filières",
@@ -73,6 +68,21 @@ export const Sidebar = () => {
       ]
     },
     {
+      title: 'Annales',
+      list: [
+        {
+          title: "Centres d'examen",
+          path: '/admin/examination-centers',
+          icon: <FaCity className="mr-3" size={16} />
+        },
+        {
+          title: "Sujets d'examen",
+          path: '/admin/exam-papers',
+          icon: <FaFileAudio className="mr-3" size={16} />
+        },
+      ]
+    },
+    {
       title: 'Paramétrage',
       list: [
         {
@@ -86,14 +96,14 @@ export const Sidebar = () => {
       title: 'Utilisateurs',
       list: [
         {
-          title: 'Journal de connexion',
-          path: '/admin/log-users',
-          icon: <FaRightToBracket className="mr-3" size={16} />
-        },
-        {
           title: 'Utilisateurs',
           path: '/admin/users',
           icon: <FaUsers className="mr-3" size={16} />
+        },
+        {
+          title: 'Journal de connexion',
+          path: '/admin/log-users',
+          icon: <FaRightToBracket className="mr-3" size={16} />
         },
       ]
     }

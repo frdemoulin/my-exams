@@ -1,7 +1,7 @@
 "use client";
 
 import type { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal, Pencil, Trash, Eye } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -16,29 +16,28 @@ import { Badge } from "@/components/ui/badge";
 import { deleteCurriculum } from "@/core/curriculum";
 import toast from "react-hot-toast";
 import type { CurriculumWithTeachingCount } from "@/core/curriculum";
+import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 
 export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
-        accessorKey: "name",
+        accessorKey: "longDescription",
         header: "Nom",
     },
     {
-        accessorKey: "startYear",
-        header: "Début",
+        accessorKey: "startDate",
+        header: "Date de début",
         cell: ({ row }) => {
-            const startYear = row.original.startYear;
-            const startMonth = row.original.startMonth;
-            return startMonth ? `${startMonth}/${startYear}` : startYear;
+            const startDate = row.original.startDate;
+            return new Date(startDate).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
         },
     },
     {
-        accessorKey: "endYear",
+        accessorKey: "endDate",
         header: "Fin",
         cell: ({ row }) => {
-            const endYear = row.original.endYear;
-            const endMonth = row.original.endMonth;
-            if (!endYear) return "—";
-            return endMonth ? `${endMonth}/${endYear}` : endYear;
+            const endDate = row.original.endDate;
+            if (!endDate) return "—";
+            return new Date(endDate).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
         },
     },
     {
@@ -97,20 +96,25 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem asChild>
                             <Link href={`/admin/curriculums/${curriculum.id}`}>
-                                <Eye className="mr-2 h-4 w-4" />
                                 Voir
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
                             <Link href={`/admin/curriculums/${curriculum.id}/edit`}>
-                                <Pencil className="mr-2 h-4 w-4" />
                                 Éditer
                             </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={handleDelete}>
-                            <Trash className="mr-2 h-4 w-4" />
-                            Supprimer
-                        </DropdownMenuItem>
+                        <ConfirmDeleteDialog
+                            onConfirm={handleDelete}
+                            trigger={
+                                <DropdownMenuItem
+                                    className="hover:cursor-pointer"
+                                    onSelect={(event) => event.preventDefault()}
+                                >
+                                    Supprimer
+                                </DropdownMenuItem>
+                            }
+                        />
                     </DropdownMenuContent>
                 </DropdownMenu>
             );

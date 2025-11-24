@@ -249,10 +249,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                       size="sm"
                       className="rounded-full border-slate-700 bg-slate-900/70 text-xs text-slate-200 hover:border-blue-500 hover:text-blue-200"
                       onClick={() => setSearch((prev) =>
-                        prev ? `${prev} ${course.shortName || ''}` : course.shortName || ''
+                        prev ? `${prev} ${course.shortDescription || ''}` : course.shortDescription || ''
                       )}
                     >
-                      {course.shortName} • {course.grade.shortDescription}
+                      {course.shortDescription} • {course.grade.shortDescription}
                     </Button>
                   ))}
                 </div>

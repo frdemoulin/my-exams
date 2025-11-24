@@ -23,70 +23,70 @@ export async function seedTeachings() {
     // === PREMIÈRE GÉNÉRALE ===
     // Spécialités Première
     {
-      name: 'Spécialité Mathématiques',
-      shortName: 'Spé Maths',
+      longDescription: 'Spécialité Mathématiques',
+      shortDescription: 'Spé Maths',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Maths'],
     },
     {
-      name: 'Spécialité Physique-Chimie',
-      shortName: 'Spé PC',
+      longDescription: 'Spécialité Physique-Chimie',
+      shortDescription: 'Spé PC',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Sciences physiques'],
     },
     {
-      name: 'Spécialité Sciences de la Vie et de la Terre',
-      shortName: 'Spé SVT',
+      longDescription: 'Spécialité Sciences de la Vie et de la Terre',
+      shortDescription: 'Spé SVT',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['SVT'],
     },
     {
-      name: 'Spécialité Histoire-Géographie, Géopolitique et Sciences Politiques',
-      shortName: 'Spé HGGSP',
+      longDescription: 'Spécialité Histoire-Géographie, Géopolitique et Sciences Politiques',
+      shortDescription: 'Spé HGGSP',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Histoire-Géo'],
     },
     {
-      name: 'Spécialité Humanités, Littérature et Philosophie',
-      shortName: 'Spé HLP',
+      longDescription: 'Spécialité Humanités, Littérature et Philosophie',
+      shortDescription: 'Spé HLP',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Français'],
     },
     {
-      name: 'Spécialité Sciences Économiques et Sociales',
-      shortName: 'Spé SES',
+      longDescription: 'Spécialité Sciences Économiques et Sociales',
+      shortDescription: 'Spé SES',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['SES'],
     },
     {
-      name: 'Spécialité Numérique et Sciences Informatiques',
-      shortName: 'Spé NSI',
+      longDescription: 'Spécialité Numérique et Sciences Informatiques',
+      shortDescription: 'Spé NSI',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Informatique'],
     },
 
     // Tronc Commun Première
     {
-      name: 'Tronc Commun - Mathématiques',
-      shortName: 'TC Maths',
+      longDescription: 'Tronc Commun - Mathématiques',
+      shortDescription: 'TC Maths',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Maths'],
     },
     {
-      name: 'Tronc Commun - Enseignement Scientifique',
-      shortName: 'TC Sciences',
+      longDescription: 'Tronc Commun - Enseignement Scientifique',
+      shortDescription: 'TC Sciences',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Sciences physiques'],
     },
     {
-      name: 'Tronc Commun - Histoire-Géographie',
-      shortName: 'TC Hist-Géo',
+      longDescription: 'Tronc Commun - Histoire-Géographie',
+      shortDescription: 'TC Hist-Géo',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Histoire-Géo'],
     },
     {
-      name: 'Tronc Commun - Français',
-      shortName: 'TC Français',
+      longDescription: 'Tronc Commun - Français',
+      shortDescription: 'TC Français',
       gradeId: gradeByName['1re'],
       subjectId: subjectByName['Français'],
     },
@@ -94,110 +94,110 @@ export async function seedTeachings() {
     // === TERMINALE GÉNÉRALE ===
     // Spécialités Terminale
     {
-      name: 'Spécialité Mathématiques',
-      shortName: 'Spé Maths',
+      longDescription: 'Spécialité Mathématiques',
+      shortDescription: 'Spé Maths',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Maths'],
     },
     {
-      name: 'Spécialité Physique-Chimie',
-      shortName: 'Spé PC',
+      longDescription: 'Spécialité Physique-Chimie',
+      shortDescription: 'Spé PC',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Sciences physiques'],
     },
     {
-      name: 'Spécialité Sciences de la Vie et de la Terre',
-      shortName: 'Spé SVT',
+      longDescription: 'Spécialité Sciences de la Vie et de la Terre',
+      shortDescription: 'Spé SVT',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['SVT'],
     },
     {
-      name: 'Spécialité Histoire-Géographie, Géopolitique et Sciences Politiques',
-      shortName: 'Spé HGGSP',
+      longDescription: 'Spécialité Histoire-Géographie, Géopolitique et Sciences Politiques',
+      shortDescription: 'Spé HGGSP',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Histoire-Géo'],
     },
     {
-      name: 'Spécialité Humanités, Littérature et Philosophie',
-      shortName: 'Spé HLP',
+      longDescription: 'Spécialité Humanités, Littérature et Philosophie',
+      shortDescription: 'Spé HLP',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Français'],
     },
     {
-      name: 'Spécialité Sciences Économiques et Sociales',
-      shortName: 'Spé SES',
+      longDescription: 'Spécialité Sciences Économiques et Sociales',
+      shortDescription: 'Spé SES',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['SES'],
     },
     {
-      name: 'Spécialité Numérique et Sciences Informatiques',
-      shortName: 'Spé NSI',
+      longDescription: 'Spécialité Numérique et Sciences Informatiques',
+      shortDescription: 'Spé NSI',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Informatique'],
     },
 
     // Tronc Commun Terminale
     {
-      name: 'Tronc Commun - Enseignement Scientifique',
-      shortName: 'TC Sciences',
+      longDescription: 'Tronc Commun - Enseignement Scientifique',
+      shortDescription: 'TC Sciences',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Sciences physiques'],
     },
     {
-      name: 'Tronc Commun - Histoire-Géographie',
-      shortName: 'TC Hist-Géo',
+      longDescription: 'Tronc Commun - Histoire-Géographie',
+      shortDescription: 'TC Hist-Géo',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Histoire-Géo'],
     },
     {
-      name: 'Tronc Commun - Philosophie',
-      shortName: 'TC Philo',
+      longDescription: 'Tronc Commun - Philosophie',
+      shortDescription: 'TC Philo',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Philosophie'],
     },
 
     // Options Terminale
     {
-      name: 'Option Mathématiques Complémentaires',
-      shortName: 'Maths Comp',
+      longDescription: 'Option Mathématiques Complémentaires',
+      shortDescription: 'Maths Comp',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Maths'],
     },
     {
-      name: 'Option Mathématiques Expertes',
-      shortName: 'Maths Expertes',
+      longDescription: 'Option Mathématiques Expertes',
+      shortDescription: 'Maths Expertes',
       gradeId: gradeByName['Tle'],
       subjectId: subjectByName['Maths'],
     },
 
     // === SECONDE GÉNÉRALE ===
     {
-      name: 'Mathématiques',
-      shortName: 'Maths',
+      longDescription: 'Mathématiques',
+      shortDescription: 'Maths',
       gradeId: gradeByName['2de'],
       subjectId: subjectByName['Maths'],
     },
     {
-      name: 'Physique-Chimie',
-      shortName: 'PC',
+      longDescription: 'Physique-Chimie',
+      shortDescription: 'PC',
       gradeId: gradeByName['2de'],
       subjectId: subjectByName['Sciences physiques'],
     },
     {
-      name: 'Sciences de la Vie et de la Terre',
-      shortName: 'SVT',
+      longDescription: 'Sciences de la Vie et de la Terre',
+      shortDescription: 'SVT',
       gradeId: gradeByName['2de'],
       subjectId: subjectByName['SVT'],
     },
     {
-      name: 'Histoire-Géographie',
-      shortName: 'Hist-Géo',
+      longDescription: 'Histoire-Géographie',
+      shortDescription: 'Hist-Géo',
       gradeId: gradeByName['2de'],
       subjectId: subjectByName['Histoire-Géo'],
     },
     {
-      name: 'Français',
-      shortName: 'Français',
+      longDescription: 'Français',
+      shortDescription: 'Français',
       gradeId: gradeByName['2de'],
       subjectId: subjectByName['Français'],
     },
@@ -207,14 +207,14 @@ export async function seedTeachings() {
 
   for (const course of courses) {
     if (!course.gradeId || !course.subjectId) {
-      console.warn(`   ⚠️  Grade ou Subject non trouvé pour le cours: ${course.name}`);
+      console.warn(`   ⚠️  Grade ou Subject non trouvé pour le cours: ${course.longDescription}`);
       continue;
     }
 
     // Chercher si le cours existe déjà
     const existingCourse = await prisma.teaching.findFirst({
       where: {
-        name: course.name,
+        longDescription: course.longDescription,
         gradeId: course.gradeId,
       },
     });
@@ -224,7 +224,7 @@ export async function seedTeachings() {
       await prisma.teaching.update({
         where: { id: existingCourse.id },
         data: {
-          shortName: course.shortName,
+          shortDescription: course.shortDescription,
           subjectId: course.subjectId,
         },
       });

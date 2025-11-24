@@ -48,8 +48,8 @@ export async function fetchRecentCurriculums() {
         orderBy: { createdAt: "desc" },
         select: {
             id: true,
-            name: true,
-            startYear: true,
+            longDescription: true,
+            startDate: true,
             isActive: true,
             createdAt: true,
         },

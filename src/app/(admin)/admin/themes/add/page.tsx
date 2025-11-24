@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ThemeForm } from "../_components/theme-form";
-import { createTheme } from "@/core/theme";
 import { fetchChaptersOptions } from "@/core/chapter";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -21,7 +20,6 @@ const AddThemePage = async () => {
             <div>
                 <ThemeForm
                     crudMode="add"
-                    formAction={createTheme}
                     initialData={{
                         shortDescription: "",
                         longDescription: "",

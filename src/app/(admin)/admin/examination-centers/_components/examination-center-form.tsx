@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import toast from "react-hot-toast";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -14,11 +13,10 @@ import { CreateExaminationCenterValues } from "@/core/examination-center";
 import { createExaminationCenterSchema } from "@/lib/validation";
 import { updateExaminationCenter } from "@/core/examination-center";
 import FormSubmitButton from "@/components/ui/form-submit-button";
-import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
+import { useEntityTranslation, useCommonTranslations } from "@/hooks/use-translations";
 
 interface ExaminationCenterFormProps {
     crudMode: "add" | "edit";
-    formAction: any;
     initialData: {
         id?: string,
         description: string,
@@ -27,12 +25,10 @@ interface ExaminationCenterFormProps {
 
 export const ExaminationCenterForm = ({
     crudMode,
-    formAction,
     initialData
 }: ExaminationCenterFormProps) => {
     const entity = useEntityTranslation('examinationCenter');
     const common = useCommonTranslations();
-    const messages = useMessageTranslations();
     
     const form = useForm<CreateExaminationCenterValues>({
         defaultValues: initialData,
@@ -49,31 +45,9 @@ export const ExaminationCenterForm = ({
         });
         
         if (!initialData.id) {
-            try {
-                await createExaminationCenter(formData);
-                toast.success(messages.success.created(entity.singular));
-                // // Reset the form after successful submission
-                // form.reset();
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
-                toast.error(errorMessage);
-                console.error("Error creating examination center:", error);
-            }
+            await createExaminationCenter(formData);
         } else {
-            try {
-                await updateExaminationCenter(initialData.id, formData);
-                toast.success(messages.success.updated(entity.singular));
-            } catch (error) {
-                // Ne pas afficher d'erreur si c'est une redirection Next.js
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error; // Laisser Next.js gérer la redirection
-                }
-                toast.error(messages.error.generic);
-                console.error("Error updating examination center: ", error);
-            }
+            await updateExaminationCenter(initialData.id, formData);
         }
     }
 
@@ -90,7 +64,6 @@ export const ExaminationCenterForm = ({
     return (
         <Form {...form}>
             <form
-                action={formAction}
                 className="w-full space-y-2"
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}

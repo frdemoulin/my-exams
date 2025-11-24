@@ -3,8 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import toast from "react-hot-toast";
-import { useTranslations } from "next-intl";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -19,7 +17,6 @@ import { useEntityTranslation, useCommonTranslations, useMessageTranslations } f
 
 interface DiplomaFormProps {
     crudMode: "add" | "edit";
-    formAction: any;
     initialData: {
         id?: string,
         longDescription: string,
@@ -29,12 +26,10 @@ interface DiplomaFormProps {
 
 export const DiplomaForm = ({
     crudMode,
-    formAction,
     initialData
 }: DiplomaFormProps) => {
     const entity = useEntityTranslation('diploma');
     const common = useCommonTranslations();
-    const messages = useMessageTranslations();
     
     const form = useForm<CreateDiplomaValues>({
         defaultValues: initialData,
@@ -51,30 +46,9 @@ export const DiplomaForm = ({
         });
         
         if (!initialData.id) {
-            try {
-                await createDiploma(formData);
-                toast.success(messages.success.created(entity.singular));
-                // // Reset the form after successful submission
-                // form.reset();
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
-                toast.error(errorMessage);
-                console.error("Error creating diploma:", error);
-            }
+            await createDiploma(formData);
         } else {
-            try {
-                await updateDiploma(initialData.id, formData);
-                toast.success(messages.success.updated(entity.singular));
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                toast.error(messages.error.generic);
-                console.error("Error updating diploma: ", error);
-            }
+            await updateDiploma(initialData.id, formData);
         }
     }
 

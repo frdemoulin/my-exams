@@ -146,7 +146,7 @@ const DashboardPage = async () => {
                                 >
                                     <div className="flex-1">
                                         <p className="font-medium text-sm">
-                                            {curriculum.name}
+                                            {curriculum.longDescription}
                                         </p>
                                         <p className="text-xs text-muted-foreground">
                                             {formatDateTime(curriculum.createdAt)}
@@ -181,7 +181,7 @@ const DashboardPage = async () => {
                                     className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors"
                                 >
                                     <div className="flex-1">
-                                        <p className="font-medium text-sm">{teaching.name}</p>
+                                        <p className="font-medium text-sm">{teaching.longDescription}</p>
                                         <p className="text-xs text-muted-foreground">
                                             {teaching.grade.shortDescription} •{" "}
                                             {teaching.subject.shortDescription}

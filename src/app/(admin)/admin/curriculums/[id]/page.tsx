@@ -1,16 +1,17 @@
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-
 import { fetchCurriculumById } from "@/core/curriculum";
 import getSession from "@/lib/auth/get-session";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { formatDateTime } from "@/lib/utils";
 
-export const metadata: Metadata = {
-    title: "Détails du programme",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('entities.curriculum');
+    return { title: t('actions.view') };
+}
 
 interface CurriculumPageProps {
     params: Promise<{
@@ -33,25 +34,32 @@ const CurriculumPage = async ({ params }: CurriculumPageProps) => {
         redirect("/admin/curriculums");
     }
 
-    const startPeriod = curriculum.startMonth
-        ? `${curriculum.startMonth}/${curriculum.startYear}`
-        : curriculum.startYear;
-    const endPeriod = curriculum.endYear
-        ? curriculum.endMonth
-            ? `${curriculum.endMonth}/${curriculum.endYear}`
-            : curriculum.endYear
+    const t = await getTranslations('entities.curriculum');
+    const common = await getTranslations('common');
+
+    const startPeriod = new Date(curriculum.startDate).toLocaleDateString('fr-FR', { 
+        month: 'long', 
+        year: 'numeric' 
+    });
+    const endPeriod = curriculum.endDate
+        ? new Date(curriculum.endDate).toLocaleDateString('fr-FR', { 
+            month: 'long', 
+            year: 'numeric' 
+          })
         : "—";
 
     return (
         <div className="w-full p-6">
-            <div className="mb-6 flex items-center justify-between">
-                <h1 className="text-2xl font-semibold">Détails du programme</h1>
+            <div>
+                <h1 className="my-4 text-2xl font-bold text-blue-700">{t('actions.view')}</h1>
+            </div>
+            <div className="mb-6 flex items-center justify-end">
                 <div className="flex gap-2">
                     <Button asChild>
-                        <Link href={`/admin/curriculums/${curriculum.id}/edit`}>Éditer</Link>
+                        <Link href={`/admin/curriculums/${curriculum.id}/edit`}>{common('edit')}</Link>
                     </Button>
                     <Button asChild variant="outline">
-                        <Link href="/admin/curriculums">Retour</Link>
+                        <Link href="/admin/curriculums">{common('back')}</Link>
                     </Button>
                 </div>
             </div>
@@ -61,7 +69,7 @@ const CurriculumPage = async ({ params }: CurriculumPageProps) => {
                 <div className="flex items-start justify-between">
                     <div>
                         <p className="text-sm text-muted-foreground">Nom</p>
-                        <p className="text-lg font-semibold">{curriculum.name}</p>
+                        <p className="text-lg font-semibold">{curriculum.longDescription}</p>
                     </div>
                     <Badge variant={curriculum.isActive ? "default" : "secondary"}>
                         {curriculum.isActive ? "Actif" : "Inactif"}
@@ -69,10 +77,10 @@ const CurriculumPage = async ({ params }: CurriculumPageProps) => {
                 </div>
 
                 {/* Description */}
-                {curriculum.description && (
+                {curriculum.shortDescription && (
                     <div>
                         <p className="text-sm text-muted-foreground">Description</p>
-                        <p className="mt-1">{curriculum.description}</p>
+                        <p className="mt-1">{curriculum.shortDescription}</p>
                     </div>
                 )}
 
@@ -100,7 +108,7 @@ const CurriculumPage = async ({ params }: CurriculumPageProps) => {
                                 className="flex items-center gap-2 p-2 bg-muted rounded"
                             >
                                 <Badge variant="outline">{teaching.grade.shortDescription}</Badge>
-                                <span className="font-medium">{teaching.name}</span>
+                                <span className="font-medium">{teaching.longDescription}</span>
                                 <span className="text-sm text-muted-foreground">
                                     ({teaching.subject.shortDescription})
                                 </span>

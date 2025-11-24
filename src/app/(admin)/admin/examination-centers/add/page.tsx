@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ExaminationCenterForm } from "../_components/examination-center-form";
-import { createExaminationCenter } from "@/core/examination-center";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.examinationCenter');
@@ -19,7 +18,6 @@ const AddExaminationCenterPage = async () => {
             <div>
                 <ExaminationCenterForm
                     crudMode="add"
-                    formAction={createExaminationCenter}
                     initialData={{
                         description: "",
                     }}

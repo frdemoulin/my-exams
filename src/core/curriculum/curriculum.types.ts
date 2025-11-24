@@ -3,34 +3,30 @@ import type { Curriculum } from "@prisma/client";
 
 // Zod schema for creating a curriculum
 export const createCurriculumSchema = z.object({
-    name: z.string().min(3, "Le nom doit contenir au moins 3 caractères"),
-    description: z.string().optional(),
-    startYear: z.number().int().min(2000).max(2100),
-    endYear: z.number().int().min(2000).max(2100).optional(),
-    startMonth: z.number().int().min(1).max(12).optional(),
-    endMonth: z.number().int().min(1).max(12).optional(),
+    longDescription: z.string().min(3, "La description longue doit contenir au moins 3 caractères"),
+    shortDescription: z.string().optional(),
+    startDate: z.date({ required_error: "La date de début est requise" }),
+    endDate: z.date().optional(),
     teachingIds: z.array(z.string()).min(1, "Sélectionnez au moins un enseignement"),
     isActive: z.boolean().default(true),
 }).refine((data) => {
-    // If endYear is provided, it should be >= startYear
-    if (data.endYear !== undefined && data.endYear < data.startYear) {
+    // If endDate is provided, it should be >= startDate
+    if (data.endDate !== undefined && data.endDate < data.startDate) {
         return false;
     }
     return true;
 }, {
-    message: "L'année de fin doit être supérieure ou égale à l'année de début",
-    path: ["endYear"],
+    message: "La date de fin doit être supérieure ou égale à la date de début",
+    path: ["endDate"],
 });
 
 export type CreateCurriculumInput = z.infer<typeof createCurriculumSchema>;
 
 export type CreateCurriculumErrors = {
-    name?: string[];
-    description?: string[];
-    startYear?: string[];
-    endYear?: string[];
-    startMonth?: string[];
-    endMonth?: string[];
+    longDescription?: string[];
+    shortDescription?: string[];
+    startDate?: string[];
+    endDate?: string[];
     teachingIds?: string[];
     isActive?: string[];
     _form?: string[];
@@ -47,8 +43,8 @@ export type CurriculumWithTeachingCount = Curriculum & {
 export type CurriculumWithTeachings = Curriculum & {
     teachings: Array<{
         id: string;
-        name: string;
-        shortName: string | null;
+        longDescription: string;
+        shortDescription: string | null;
         grade: {
             id: string;
             shortDescription: string;

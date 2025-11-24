@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import toast from "react-hot-toast";
 import { z } from "zod";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -20,15 +19,15 @@ import {
 import { createTeaching, updateTeaching, createTeachingSchema } from "@/core/teaching";
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import { Option } from "@/types/option";
+import { useEntityTranslation, useCommonTranslations } from "@/hooks/use-translations";
 
 type CreateTeachingValues = z.infer<typeof createTeachingSchema>;
 
 interface TeachingFormProps {
     crudMode: "add" | "edit";
-    formAction: any;
     initialData: {
         id?: string,
-        name: string,
+        longDescription: string,
         shortName?: string | null,
         gradeId: string,
         subjectId: string,
@@ -39,15 +38,17 @@ interface TeachingFormProps {
 
 export const TeachingForm = ({
     crudMode,
-    formAction,
     initialData,
     grades,
     subjects,
 }: TeachingFormProps) => {
+    const entity = useEntityTranslation('teaching');
+    const common = useCommonTranslations();
+    
     const form = useForm<CreateTeachingValues>({
         defaultValues: {
-            name: initialData.name,
-            shortName: initialData.shortName || undefined,
+            longDescription: initialData.longDescription,
+            shortDescription: initialData.shortDescription || undefined,
             gradeId: initialData.gradeId,
             subjectId: initialData.subjectId,
         },
@@ -64,28 +65,9 @@ export const TeachingForm = ({
         });
         
         if (!initialData.id) {
-            try {
-                await createTeaching(formData);
-                toast.success("Enseignement créé avec succès");
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                const errorMessage = error instanceof Error ? error.message : "Erreur lors de la création";
-                toast.error(errorMessage);
-                console.error("Error creating course:", error);
-            }
+            await createTeaching(formData);
         } else {
-            try {
-                await updateTeaching(initialData.id, formData);
-                toast.success("Enseignement mis à jour avec succès");
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                toast.error("Erreur lors de la mise à jour");
-                console.error("Error updating course:", error);
-            }
+            await updateTeaching(initialData.id, formData);
         }
     }
 
@@ -98,7 +80,6 @@ export const TeachingForm = ({
     return (
         <Form {...form}>
             <form
-                action={formAction}
                 className="w-full space-y-4"
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}
@@ -191,7 +172,7 @@ export const TeachingForm = ({
                         variant="outline"
                         className="mr-4"
                     >
-                        <Link href="/admin/teachings">Annuler</Link>
+                        <Link href="/admin/teachings">{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}

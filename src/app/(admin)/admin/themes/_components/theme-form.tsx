@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import toast from "react-hot-toast";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -26,7 +25,6 @@ import {
 
 interface ThemeFormProps {
     crudMode: "add" | "edit";
-    formAction: any;
     initialData: {
         id?: string,
         longDescription: string,
@@ -38,13 +36,11 @@ interface ThemeFormProps {
 
 export const ThemeForm = ({
     crudMode,
-    formAction,
     initialData,
     options
 }: ThemeFormProps) => {
     const entity = useEntityTranslation('theme');
     const common = useCommonTranslations();
-    const messages = useMessageTranslations();
     
     const form = useForm<CreateThemeValues>({
         defaultValues: initialData,
@@ -52,29 +48,15 @@ export const ThemeForm = ({
     });
 
     const onSubmit = async (values: CreateThemeValues) => {
+        const formData = new FormData();
+        formData.append('longDescription', values.longDescription);
+        formData.append('shortDescription', values.shortDescription || '');
+        formData.append('chapterId', values.chapterId);
+        
         if (!initialData.id) {
-            try {
-                await createTheme(values);
-                toast.success(messages.success.created(entity.singular));
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
-                toast.error(errorMessage);
-                console.error("Error creating theme:", error);
-            }
+            await createTheme(formData);
         } else {
-            try {
-                // await updateTheme(initialData.id, values);
-                toast.success(messages.success.updated(entity.singular));
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                toast.error(messages.error.generic);
-                console.error("Error updating theme: ", error);
-            }
+            await updateTheme(initialData.id, formData);
         }
     }
 
@@ -91,7 +73,6 @@ export const ThemeForm = ({
     return (
         <Form {...form}>
             <form
-                action={formAction}
                 className="w-full space-y-2"
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}

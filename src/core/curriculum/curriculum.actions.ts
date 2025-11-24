@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { ObjectId } from "mongodb";
 
 import prisma from "@/lib/db/prisma";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { createCurriculumSchema, CreateCurriculumErrors } from "./curriculum.types";
 
 export async function createCurriculum(
@@ -13,13 +14,15 @@ export async function createCurriculum(
 ): Promise<CreateCurriculumErrors> {
     try {
         // Parse form data
-        const name = formData.get("name") as string;
-        const description = formData.get("description") as string;
-        const startYear = parseInt(formData.get("startYear") as string);
-        const endYear = formData.get("endYear") ? parseInt(formData.get("endYear") as string) : undefined;
-        const startMonth = formData.get("startMonth") ? parseInt(formData.get("startMonth") as string) : undefined;
-        const endMonth = formData.get("endMonth") ? parseInt(formData.get("endMonth") as string) : undefined;
+        const longDescription = formData.get("longDescription") as string;
+        const shortDescription = formData.get("shortDescription") as string;
+        const startDateStr = formData.get("startDate") as string;
+        const endDateStr = formData.get("endDate") as string;
         const isActive = formData.get("isActive") === "true";
+        
+        // Parse dates
+        const startDate = startDateStr ? new Date(startDateStr) : undefined;
+        const endDate = endDateStr ? new Date(endDateStr) : undefined;
         
         // Parse teachingIds (can be multiple)
         const teachingIds: string[] = [];
@@ -31,12 +34,10 @@ export async function createCurriculum(
 
         // Validate with Zod
         const validatedData = createCurriculumSchema.parse({
-            name,
-            description,
-            startYear,
-            endYear,
-            startMonth,
-            endMonth,
+            longDescription,
+            shortDescription,
+            startDate,
+            endDate,
             teachingIds,
             isActive,
         });
@@ -44,12 +45,10 @@ export async function createCurriculum(
         // Create curriculum
         await prisma.curriculum.create({
             data: {
-                name: validatedData.name,
-                description: validatedData.description,
-                startYear: validatedData.startYear,
-                endYear: validatedData.endYear,
-                startMonth: validatedData.startMonth,
-                endMonth: validatedData.endMonth,
+                longDescription: validatedData.longDescription,
+                shortDescription: validatedData.shortDescription,
+                startDate: validatedData.startDate,
+                endDate: validatedData.endDate,
                 teachingIds: validatedData.teachingIds,
                 isActive: validatedData.isActive,
             },
@@ -85,6 +84,7 @@ export async function createCurriculum(
         };
     }
 
+    await setCrudSuccessToast("curriculum", "created");
     redirect("/admin/curriculums");
 }
 
@@ -94,13 +94,15 @@ export async function updateCurriculum(
 ): Promise<CreateCurriculumErrors> {
     try {
         const id = formData.get("id") as string;
-        const name = formData.get("name") as string;
-        const description = formData.get("description") as string;
-        const startYear = parseInt(formData.get("startYear") as string);
-        const endYear = formData.get("endYear") ? parseInt(formData.get("endYear") as string) : undefined;
-        const startMonth = formData.get("startMonth") ? parseInt(formData.get("startMonth") as string) : undefined;
-        const endMonth = formData.get("endMonth") ? parseInt(formData.get("endMonth") as string) : undefined;
+        const longDescription = formData.get("longDescription") as string;
+        const shortDescription = formData.get("shortDescription") as string;
+        const startDateStr = formData.get("startDate") as string;
+        const endDateStr = formData.get("endDate") as string;
         const isActive = formData.get("isActive") === "true";
+
+        // Parse dates
+        const startDate = startDateStr ? new Date(startDateStr) : undefined;
+        const endDate = endDateStr ? new Date(endDateStr) : undefined;
 
         // Parse teachingIds
         const teachingIds: string[] = [];
@@ -112,12 +114,10 @@ export async function updateCurriculum(
 
         // Validate
         const validatedData = createCurriculumSchema.parse({
-            name,
-            description,
-            startYear,
-            endYear,
-            startMonth,
-            endMonth,
+            longDescription,
+            shortDescription,
+            startDate,
+            endDate,
             teachingIds,
             isActive,
         });
@@ -126,12 +126,10 @@ export async function updateCurriculum(
         await prisma.curriculum.update({
             where: { id },
             data: {
-                name: validatedData.name,
-                description: validatedData.description,
-                startYear: validatedData.startYear,
-                endYear: validatedData.endYear,
-                startMonth: validatedData.startMonth,
-                endMonth: validatedData.endMonth,
+                longDescription: validatedData.longDescription,
+                shortDescription: validatedData.shortDescription,
+                startDate: validatedData.startDate,
+                endDate: validatedData.endDate,
                 teachingIds: validatedData.teachingIds,
                 isActive: validatedData.isActive,
             },
@@ -168,6 +166,7 @@ export async function updateCurriculum(
         };
     }
 
+    await setCrudSuccessToast("curriculum", "updated");
     redirect("/admin/curriculums");
 }
 
@@ -188,6 +187,7 @@ export async function deleteCurriculum(id: string): Promise<void> {
             where: { id },
         });
 
+        await setCrudSuccessToast("curriculum", "deleted");
         revalidatePath("/admin/curriculums");
     } catch (error: unknown) {
         if (error instanceof Error) {

@@ -49,13 +49,13 @@ const TeachingPage = async ({ params }: TeachingPageProps) => {
             <div className="bg-card rounded-lg border p-6 space-y-4">
                 <div>
                     <label className="text-sm font-medium text-muted-foreground">Nom de l'enseignement</label>
-                    <p className="text-lg">{teaching.name}</p>
+                    <p className="text-lg">{teaching.longDescription}</p>
                 </div>
 
-                {teaching.shortName && (
+                {teaching.shortDescription && (
                     <div>
                         <label className="text-sm font-medium text-muted-foreground">Nom court</label>
-                        <p className="text-lg">{teaching.shortName}</p>
+                        <p className="text-lg">{teaching.shortDescription}</p>
                     </div>
                 )}
 

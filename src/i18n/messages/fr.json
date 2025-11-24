@@ -45,6 +45,21 @@
         "list": "Liste des centres d'examen"
       }
     },
+    "examPaper": {
+      "singular": "Sujet d'examen",
+      "plural": "Sujets d'examen",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un sujet d'examen",
+        "edit": "Éditer le sujet d'examen",
+        "delete": "Supprimer le sujet d'examen",
+        "view": "Voir le sujet d'examen",
+        "list": "Liste des sujets d'examen"
+      }
+    },
     "grade": {
       "singular": "Niveau scolaire",
       "plural": "Niveaux scolaires",

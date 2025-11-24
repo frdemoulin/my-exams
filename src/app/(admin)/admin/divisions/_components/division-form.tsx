@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import toast from "react-hot-toast";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -14,11 +13,10 @@ import { CreateDivisionValues } from "@/core/division";
 import { createDivisionSchema } from "@/lib/validation";
 import { updateDivision } from "@/core/division";
 import FormSubmitButton from "@/components/ui/form-submit-button";
-import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
+import { useEntityTranslation, useCommonTranslations } from "@/hooks/use-translations";
 
 interface DivisionFormProps {
     crudMode: "add" | "edit";
-    formAction: any;
     initialData: {
         id?: string,
         longDescription: string,
@@ -28,12 +26,10 @@ interface DivisionFormProps {
 
 export const DivisionForm = ({
     crudMode,
-    formAction,
     initialData
 }: DivisionFormProps) => {
     const entity = useEntityTranslation('division');
     const common = useCommonTranslations();
-    const messages = useMessageTranslations();
     
     const form = useForm<CreateDivisionValues>({
         defaultValues: initialData,
@@ -50,30 +46,9 @@ export const DivisionForm = ({
         });
         
         if (!initialData.id) {
-            try {
-                await createDivision(formData);
-                toast.success(messages.success.created(entity.singular));
-                // // Reset the form after successful submission
-                // form.reset();
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                const errorMessage = error instanceof Error ? error.message : messages.error.generic;
-                toast.error(errorMessage);
-                console.error("Error creating division:", error);
-            }
+            await createDivision(formData);
         } else {
-            try {
-                await updateDivision(initialData.id, formData);
-                toast.success(messages.success.updated(entity.singular));
-            } catch (error) {
-                if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-                    throw error;
-                }
-                toast.error(messages.error.generic);
-                console.error("Error updating division: ", error);
-            }
+            await updateDivision(initialData.id, formData);
         }
     }
 
@@ -90,7 +65,6 @@ export const DivisionForm = ({
     return (
         <Form {...form}>
             <form
-                action={formAction}
                 className="w-full space-y-2"
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}

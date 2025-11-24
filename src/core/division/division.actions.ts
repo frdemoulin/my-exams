@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
 import { createDivisionSchema } from "@/lib/validation";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateDivisionErrors } from "./division.types";
 
 export const createDivision = async (formData: FormData) => {
@@ -39,6 +40,7 @@ export const createDivision = async (formData: FormData) => {
 
     // on redirige vers la liste des filières
     revalidatePath("/admin/divisions");
+    await setCrudSuccessToast("division", "created");
     redirect("/admin/divisions");
 }
 
@@ -68,6 +70,7 @@ export const updateDivision = async (id: string | undefined, formData: FormData)
         }
         
         // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        await setCrudSuccessToast("division", "updated");
         redirect('/admin/divisions');
     } else {
         const errors = result.error.format();
@@ -90,5 +93,6 @@ export const deleteDivision = async (id: string) => {
     }
 
     revalidatePath("/admin/divisions");
+    await setCrudSuccessToast("division", "deleted");
     redirect("/admin/divisions");
 }

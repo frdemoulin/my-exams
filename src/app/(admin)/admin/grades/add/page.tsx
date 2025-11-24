@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { GradeForm } from "../_components/grade-form";
-import { createGrade } from "@/core/grade";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.grade');
@@ -19,7 +18,6 @@ const AddGradePage = async () => {
             <div>
                 <GradeForm
                     crudMode="add"
-                    formAction={createGrade}
                     initialData={{
                         shortDescription: "",
                         longDescription: "",

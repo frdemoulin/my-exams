@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { createTeaching } from "@/core/teaching";
 import { TeachingForm } from "../_components/teaching-form";
 import getSession from "@/lib/auth/get-session";
 import { fetchGradesOptions } from "@/core/grade";
@@ -27,7 +26,6 @@ const AddCoursePage = async () => {
             <h1 className="text-2xl font-semibold mb-6">Ajouter un enseignement</h1>
             <TeachingForm
                 crudMode="add"
-                formAction={createTeaching}
                 initialData={{
                     name: "",
                     shortName: "",

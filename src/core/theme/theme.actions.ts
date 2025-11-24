@@ -5,9 +5,12 @@ import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
 import { createThemeSchema } from "@/lib/validation";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateThemeErrors, CreateThemeValues } from "./theme.types";
 
-export const createTheme = async (values: CreateThemeValues) => {
+export const createTheme = async (formData: FormData) => {
+    const values = Object.fromEntries(formData.entries());
+    
     const result = createThemeSchema.safeParse(values);
 
     if (result.success) {
@@ -37,6 +40,7 @@ export const createTheme = async (values: CreateThemeValues) => {
     }
 
     revalidatePath("/admin/themes");
+    await setCrudSuccessToast("theme", "created");
     redirect("/admin/themes");
 }
 
@@ -61,12 +65,12 @@ export const updateTheme = async (id: string | undefined, formData: FormData) =>
             });
 
             revalidatePath('/admin/themes');
+            await setCrudSuccessToast("theme", "updated");
+            redirect('/admin/themes');
         } catch (error) {
             console.error('Error updating theme: ', error);
             throw error;
         }
-        
-        redirect('/admin/themes');
     } else {
         const errors = result.error.format();
         console.error('Invalid theme data: ', errors);
@@ -88,5 +92,6 @@ export const deleteTheme = async (id: string) => {
     }
 
     revalidatePath("/admin/themes");
+    await setCrudSuccessToast("theme", "deleted");
     redirect("/admin/themes");
 }

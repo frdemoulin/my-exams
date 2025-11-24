@@ -1,14 +1,16 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { updateCurriculum, fetchCurriculumById } from "@/core/curriculum";
+import { fetchCurriculumById } from "@/core/curriculum";
 import CurriculumForm from "../../_components/curriculum-form";
 import getSession from "@/lib/auth/get-session";
 import { fetchTeachingsOptions } from "@/core/teaching/teaching.queries";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-    title: "Éditer un programme",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('entities.curriculum');
+    return { title: t('actions.edit') };
+}
 
 interface EditCurriculumPageProps {
     params: Promise<{
@@ -32,26 +34,28 @@ const EditCurriculumPage = async ({ params }: EditCurriculumPageProps) => {
     }
 
     const teachings = await fetchTeachingsOptions();
+    const t = await getTranslations('entities.curriculum');
 
     return (
         <div className="w-full p-6">
-            <h1 className="text-2xl font-semibold mb-6">Éditer le programme</h1>
-            <CurriculumForm
-                crudMode="edit"
-                formAction={updateCurriculum}
-                initialData={{
-                    id: curriculum.id,
-                    name: curriculum.name,
-                    description: curriculum.description ?? undefined,
-                    startYear: curriculum.startYear,
-                    endYear: curriculum.endYear ?? undefined,
-                    startMonth: curriculum.startMonth ?? undefined,
-                    endMonth: curriculum.endMonth ?? undefined,
-                    teachingIds: curriculum.teachingIds,
-                    isActive: curriculum.isActive,
-                }}
-                teachings={teachings}
-            />
+            <div>
+                <h1 className="my-4 text-2xl font-bold text-blue-700">{t('actions.edit')}</h1>
+            </div>
+            <div>
+                <CurriculumForm
+                    crudMode="edit"
+                    initialData={{
+                        id: curriculum.id,
+                        longDescription: curriculum.longDescription,
+                        shortDescription: curriculum.shortDescription ?? undefined,
+                        startDate: curriculum.startDate,
+                        endDate: curriculum.endDate ?? undefined,
+                        teachingIds: curriculum.teachingIds,
+                        isActive: curriculum.isActive,
+                    }}
+                    teachings={teachings}
+                />
+            </div>
         </div>
     );
 };

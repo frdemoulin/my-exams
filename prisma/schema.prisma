@@ -66,11 +66,11 @@ model Chapter {
 }
 
 model Teaching {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String // ex: "Spécialité Mathématiques", "Tronc Commun Sciences"
-  shortName String? // ex: "Spé Maths", "TC Sciences"
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String // ex: "Spécialité Mathématiques", "Tronc Commun Sciences"
+  shortDescription String? // ex: "Spé Maths", "TC Sciences"
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   // Relations
   gradeId String @db.ObjectId
@@ -81,7 +81,7 @@ model Teaching {
 
   examPapers ExamPaper[]
 
-  @@unique([name, gradeId])
+  @@unique([longDescription, gradeId])
 }
 
 enum TeachingType {
@@ -94,17 +94,13 @@ enum TeachingType {
 
 // Programme scolaire (ex: Programmes 2019, Réforme 2020, etc.)
 model Curriculum {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  name        String // ex: "Programme 2019", "Réforme Bac 2020", "Programme 2010"
-  description String? // Description détaillée du programme
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String // ex: "Programme 2019", "Réforme Bac 2020", "Programme 2010"
+  shortDescription String? // Description détaillée du programme
 
-  // Période de validité du programme
-  startYear Int // Année de mise en vigueur (ex: 2020)
-  endYear   Int? // Année de fin (null si toujours en vigueur)
-
-  // Précisions sur la période d'application
-  startMonth Int? // Mois de début (1-12), optionnel
-  endMonth   Int? // Mois de fin (1-12), optionnel
+  // Période de validité du programme (mois/année)
+  startDate DateTime // Date de mise en vigueur (ex: 2020-09-01 pour septembre 2020)
+  endDate   DateTime? // Date de fin (null si toujours en vigueur)
 
   // Applicabilité (MongoDB: liste d'IDs pour many-to-many)
   // Un programme peut concerner plusieurs enseignements (ex: réforme 2020 pour toutes les spés)
@@ -120,7 +116,7 @@ model Curriculum {
   // Relations
   examPapers ExamPaper[]
 
-  @@unique([name, startYear])
+  @@unique([longDescription, startDate])
 }
 
 model Diploma {
@@ -155,9 +151,6 @@ model ExaminationCenter {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  // Relations
-  examPapers ExamPaper[]
-
   @@unique([description])
 }
 
@@ -166,8 +159,8 @@ model ExamPaper {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   // Métadonnées "administratives"
-  label       String? // ex : "Métropole Sujet 1"
-  sessionYear Int? // ex : 2024
+  label       String // ex : "Métropole Sujet 1"
+  sessionYear Int // ex : 2024
 
   // Références pédagogiques (hiérarchie complète)
   diplomaId String  @db.ObjectId
@@ -188,15 +181,16 @@ model ExamPaper {
   curriculumId String     @db.ObjectId
   curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
 
-  examinationCenterId String?            @db.ObjectId
-  examinationCenter   ExaminationCenter? @relation(fields: [examinationCenterId], references: [id])
+  // Centres d'examen (many-to-many via array d'IDs)
+  examinationCenterIds String[] @db.ObjectId @default([])
 
   // Tagging pédagogique (chapitres et thèmes couverts dans le sujet)
   chapterIds String[] @db.ObjectId // chapitres ciblés
   themeIds   String[] @db.ObjectId // thèmes ciblés
 
-  // Fichier PDF
-  pdfUrl String?
+  // URLs des fichiers
+  subjectUrl    String? // URL du sujet
+  correctionUrl String? // URL du corrigé
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

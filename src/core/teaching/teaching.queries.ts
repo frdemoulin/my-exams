@@ -19,7 +19,7 @@ export async function fetchTeachings(): Promise<TeachingWithRelations[]> {
         },
       },
       {
-        name: 'asc',
+        longDescription: 'asc',
       },
     ],
   });
@@ -49,14 +49,14 @@ export async function fetchTeachingsOptions(): Promise<Option[]> {
         },
       },
       {
-        name: 'asc',
+        longDescription: 'asc',
       },
     ],
   });
 
   return teachings.map((teaching) => ({
     value: teaching.id,
-    label: `${teaching.grade.shortDescription} - ${teaching.name}`,
+    label: `${teaching.grade.shortDescription} - ${teaching.longDescription}`,
   }));
 }
 
@@ -74,7 +74,7 @@ export async function fetchTeachingsByGrade(): Promise<TeachingsByGrade[]> {
           grade: true,
         },
         orderBy: {
-          name: 'asc',
+          longDescription: 'asc',
         },
       },
     },
@@ -112,7 +112,7 @@ export async function fetchTeachingsByGradeId(
       subject: true,
     },
     orderBy: {
-      name: 'asc',
+      longDescription: 'asc',
     },
   });
 }
@@ -135,7 +135,7 @@ export async function fetchLyceeTeachings(): Promise<TeachingsByGrade[]> {
           grade: true,
         },
         orderBy: {
-          name: 'asc',
+          longDescription: 'asc',
         },
       },
     },
@@ -181,7 +181,7 @@ export async function fetchTeachingById(
 export async function fetchSpecialties(): Promise<TeachingWithRelations[]> {
   return await prisma.teaching.findMany({
     where: {
-      name: {
+      longDescription: {
         startsWith: 'Spécialité',
       },
       grade: {
@@ -201,7 +201,7 @@ export async function fetchSpecialties(): Promise<TeachingWithRelations[]> {
         },
       },
       {
-        name: 'asc',
+        longDescription: 'asc',
       },
     ],
   });
