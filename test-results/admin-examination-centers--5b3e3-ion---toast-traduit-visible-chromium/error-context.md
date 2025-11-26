@@ -1,0 +1,132 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "My exams" [ref=e4] [cursor=pointer]:
+        - /url: /dashboard
+      - generic [ref=e6]: Connecté en tant que E2E Admin
+      - generic [ref=e7]:
+        - button "Français" [ref=e8] [cursor=pointer]:
+          - img [ref=e9]
+          - generic [ref=e13]: Français
+        - button "User profile picture" [ref=e14] [cursor=pointer]:
+          - img "User profile picture" [ref=e15]
+    - main [ref=e16]:
+      - generic [ref=e17]:
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - generic [ref=e23]: Scolarité
+            - list [ref=e24]:
+              - link "Diplômes" [ref=e25] [cursor=pointer]:
+                - /url: /admin/diplomas
+                - listitem [ref=e26]:
+                  - img [ref=e27]
+                  - text: Diplômes
+              - link "Enseignements" [ref=e29] [cursor=pointer]:
+                - /url: /admin/teachings
+                - listitem [ref=e30]:
+                  - img [ref=e31]
+                  - text: Enseignements
+              - link "Filières" [ref=e33] [cursor=pointer]:
+                - /url: /admin/divisions
+                - listitem [ref=e34]:
+                  - img [ref=e35]
+                  - text: Filières
+              - link "Matières" [ref=e37] [cursor=pointer]:
+                - /url: /admin/subjects
+                - listitem [ref=e38]:
+                  - img [ref=e39]
+                  - text: Matières
+              - link "Niveaux scolaires" [ref=e41] [cursor=pointer]:
+                - /url: /admin/grades
+                - listitem [ref=e42]:
+                  - img [ref=e43]
+                  - text: Niveaux scolaires
+              - link "Programmes" [ref=e45] [cursor=pointer]:
+                - /url: /admin/curriculums
+                - listitem [ref=e46]:
+                  - img [ref=e47]
+                  - text: Programmes
+              - link "Thèmes" [ref=e49] [cursor=pointer]:
+                - /url: /admin/themes
+                - listitem [ref=e50]:
+                  - img [ref=e51]
+                  - text: Thèmes
+          - listitem [ref=e53]:
+            - generic [ref=e54]: Annales
+            - list [ref=e55]:
+              - link "Centres d'examen" [ref=e56] [cursor=pointer]:
+                - /url: /admin/examination-centers
+                - listitem [ref=e57]:
+                  - img [ref=e58]
+                  - text: Centres d'examen
+              - link "Sujets d'examen" [ref=e60] [cursor=pointer]:
+                - /url: /admin/exam-papers
+                - listitem [ref=e61]:
+                  - img [ref=e62]
+                  - text: Sujets d'examen
+          - listitem [ref=e64]:
+            - generic [ref=e65]: Paramétrage
+            - list [ref=e66]:
+              - link "Accordages" [ref=e67] [cursor=pointer]:
+                - /url: /tunings
+                - listitem [ref=e68]:
+                  - img [ref=e69]
+                  - text: Accordages
+          - listitem [ref=e71]:
+            - generic [ref=e72]: Utilisateurs
+            - list [ref=e73]:
+              - link "Utilisateurs" [ref=e74] [cursor=pointer]:
+                - /url: /admin/users
+                - listitem [ref=e75]:
+                  - img [ref=e76]
+                  - text: Utilisateurs
+              - link "Journal de connexion" [ref=e78] [cursor=pointer]:
+                - /url: /admin/log-users
+                - listitem [ref=e79]:
+                  - img [ref=e80]
+                  - text: Journal de connexion
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - heading "Liste des centres d'examen" [level=1] [ref=e84]
+            - link "Ajouter un centre d'examen" [ref=e85] [cursor=pointer]:
+              - /url: examination-centers/add
+          - generic [ref=e87]:
+            - table [ref=e90]:
+              - rowgroup [ref=e91]:
+                - row "Description Date de dernière modification Actions" [ref=e92]:
+                  - cell "Description" [ref=e93]:
+                    - button "Description" [ref=e94] [cursor=pointer]:
+                      - text: Description
+                      - img [ref=e95]
+                  - cell "Date de dernière modification" [ref=e98]:
+                    - button "Date de dernière modification" [ref=e99] [cursor=pointer]:
+                      - text: Date de dernière modification
+                      - img [ref=e100]
+                  - cell "Actions" [ref=e103]
+              - rowgroup [ref=e104]:
+                - row "Polynésie 24/11/2025 21:31:44 Open menu" [ref=e105]:
+                  - cell "Polynésie" [ref=e106]
+                  - cell "24/11/2025 21:31:44" [ref=e107]:
+                    - generic [ref=e108]: 24/11/2025 21:31:44
+                  - cell "Open menu" [ref=e109]:
+                    - button "Open menu" [ref=e110] [cursor=pointer]:
+                      - generic [ref=e111]: Open menu
+                      - img [ref=e112]
+                - row "Réunion 24/11/2025 21:31:44 Open menu" [ref=e116]:
+                  - cell "Réunion" [ref=e117]
+                  - cell "24/11/2025 21:31:44" [ref=e118]:
+                    - generic [ref=e119]: 24/11/2025 21:31:44
+                  - cell "Open menu" [ref=e120]:
+                    - button "Open menu" [ref=e121] [cursor=pointer]:
+                      - generic [ref=e122]: Open menu
+                      - img [ref=e123]
+            - generic [ref=e127]:
+              - button "Précédent" [disabled]
+              - button "Suivant" [disabled]
+  - button "Open Next.js Dev Tools" [ref=e133] [cursor=pointer]:
+    - img [ref=e134]
+  - alert [ref=e137]
+```

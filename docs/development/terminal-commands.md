@@ -49,6 +49,15 @@ npm start            # Lance l'application en production
 
 # Linting
 npm run lint         # Vérifie le code avec ESLint
+
+# Tests
+npm run test:e2e                     # Tests end-to-end Playwright (démarre npm run dev sauf E2E_SKIP_SERVER=true)
+E2E_RESET_DB=true npm run test:e2e   # Reset + seed auto avant les E2E
+npm run prisma:test                  # Script de validation Prisma / connexion Mongo
+
+### Deux terminaux (workflow rapide)
+- **Terminal A** : `npm run dev` (démarre Next.js sur le port 3000 ou `E2E_PORT`)
+- **Terminal B** : lancer vos commandes (ex. `npm run test:e2e` avec `E2E_SKIP_SERVER=true` si le serveur tourne déjà, ou `npm run prisma:test`)
 ```
 
 ## 🗄️ Prisma / Base de données

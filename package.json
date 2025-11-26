@@ -11,7 +11,8 @@
     "db:seed": "ts-node prisma/seed.ts",
     "db:seed:dev": "ts-node scripts/seed-dev.ts",
     "db:clear": "ts-node scripts/clear-database.ts",
-    "db:reset": "npm run db:clear && npm run db:seed"
+    "db:reset": "npm run db:clear && npm run db:seed",
+    "test:e2e": "playwright test"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -56,6 +57,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^10.1.0",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^20",
     "@types/react": "19.2.5",
     "dotenv": "^17.2.3",
