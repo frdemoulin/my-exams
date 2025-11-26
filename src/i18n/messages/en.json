@@ -75,19 +75,19 @@
         "list": "List of subjects"
       }
     },
-    "topic": {
-      "singular": "Topic",
-      "plural": "Topics",
+    "theme": {
+      "singular": "Theme",
+      "plural": "Themes",
       "article": {
         "definite": "the",
         "indefinite": "a"
       },
       "actions": {
-        "add": "Add a topic",
-        "edit": "Edit the topic",
-        "delete": "Delete the topic",
-        "view": "View the topic",
-        "list": "List of topics"
+        "add": "Add a theme",
+        "edit": "Edit the theme",
+        "delete": "Delete the theme",
+        "view": "View the theme",
+        "list": "List of themes"
       }
     },
     "user": {

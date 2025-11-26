@@ -20,3 +20,8 @@ export function formatDateTime(date: Date) {
     second: "2-digit",
   });
 }
+
+export function getRecentYears(count: number = 4): string[] {
+  const currentYear = new Date().getFullYear();
+  return Array.from({ length: count }, (_, i) => String(currentYear - i));
+};

@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { DivisionForm } from "../_components/division-form";
-import { createDivision } from "@/core/division";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.division');
@@ -19,7 +18,6 @@ const AddDivisionPage = async () => {
             <div>
                 <DivisionForm
                     crudMode="add"
-                    formAction={createDivision}
                     initialData={{
                         shortDescription: "",
                         longDescription: "",

@@ -3,27 +3,38 @@ import type { PrismaClient } from '@prisma/client';
 export async function seedSubjects(prisma: PrismaClient) {
   console.log('📖 Seeding Subjects...');
 
-  // Récupérer quelques topics par leurs longDescription
-  const needTopics = ['Algèbre', 'Géométrie', 'Analyse', 'Probabilités'];
-  const topicRecords = await prisma.topic.findMany({
-    where: { longDescription: { in: needTopics } },
-    select: { id: true, longDescription: true },
-  });
-
-  const byName: Record<string, string> = Object.fromEntries(
-    topicRecords.map((t) => [t.longDescription, t.id])
-  );
-
   const subjects = [
     {
       longDescription: 'Mathématiques',
       shortDescription: 'Maths',
-      topicIDs: [byName['Algèbre'], byName['Géométrie'], byName['Analyse'], byName['Probabilités']].filter(Boolean) as string[],
+    },
+    {
+      longDescription: 'Sciences physiques',
+      shortDescription: 'Sciences physiques',
     },
     {
       longDescription: 'Français',
-      shortDescription: 'Franç.',
-      topicIDs: [],
+      shortDescription: 'Français',
+    },
+    {
+      longDescription: 'Sciences de la Vie et de la Terre',
+      shortDescription: 'SVT',
+    },
+    {
+      longDescription: 'Histoire-Géographie',
+      shortDescription: 'Histoire-Géo',
+    },
+    {
+      longDescription: 'Sciences Économiques et Sociales',
+      shortDescription: 'SES',
+    },
+    {
+      longDescription: 'Informatique',
+      shortDescription: 'Informatique',
+    },
+    {
+      longDescription: 'Philosophie',
+      shortDescription: 'Philosophie',
     },
   ];
 
@@ -35,12 +46,10 @@ export async function seedSubjects(prisma: PrismaClient) {
           shortDescription: subject.shortDescription,
         },
       },
-      update: {
-        topicIDs: subject.topicIDs,
-      },
+      update: {},
       create: subject,
     });
   }
 
-  console.log(`✓ ${subjects.length} matières créées`);
+  console.log(`   ✓ ${subjects.length} matières créées`);
 }

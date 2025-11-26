@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { SubjectForm } from "../_components/subject-form";
-import { createSubject } from "@/core/subject";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.subject');
@@ -19,7 +18,6 @@ const AddSubjectPage = async () => {
             <div>
                 <SubjectForm
                     crudMode="add"
-                    formAction={createSubject}
                     initialData={{
                         shortDescription: "",
                         longDescription: "",

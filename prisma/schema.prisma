@@ -5,89 +5,9 @@ generator client {
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
-}
-
-model Diploma {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  longDescription  String
-  shortDescription String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-
-  @@unique([longDescription, shortDescription])
-}
-
-model Division {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  longDescription  String
-  shortDescription String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-
-  @@unique([longDescription, shortDescription])
-}
-
-model ExaminationCenter {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  description String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@unique([description])
-}
-
-model Grade {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  longDescription  String
-  shortDescription String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-
-  @@unique([longDescription, shortDescription])
-}
-
-enum Role {
-  USER
-  ADMIN
-}
-
-model Subject {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  longDescription  String
-  shortDescription String
-  topicIDs         String[] @db.ObjectId
-  topics           Topic[]  @relation(fields: [topicIDs], references: [id])
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-
-  @@unique([longDescription, shortDescription])
-}
-
-model Topic {
-  id               String    @id @default(auto()) @map("_id") @db.ObjectId
-  longDescription  String
-  shortDescription String?
-  subjectIDs       String[]  @db.ObjectId
-  subjects         Subject[] @relation(fields: [subjectIDs], references: [id])
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
-
-  @@unique([longDescription, shortDescription])
-}
-
-model User {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?         @unique
-  emailVerified DateTime?       @map("email_verified")
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  roles         Role            @default(ADMIN)
-  // Optional for WebAuthn support
-  Authenticator Authenticator[]
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
+  // Note: Prisma 6 requiert cette ligne `url` dans le schema.prisma
+  // Avec Prisma 7+, la configuration sera déplacée dans prisma.config.ts
+  // Le fichier prisma.config.ts est déjà prêt pour la migration future
 }
 
 model Account {
@@ -111,25 +31,6 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Session {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  sessionToken String   @unique @map("session_token")
-  userId       String   @db.ObjectId
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt    DateTime @default(now()) @map("created_at")
-  updatedAt    DateTime @updatedAt @map("updated_at")
-}
-
-model VerificationToken {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  identifier String
-  token      String
-  expires    DateTime
-
-  @@unique([identifier, token])
-}
-
 // Optional for WebAuthn support
 model Authenticator {
   credentialID         String  @id @map("_id")
@@ -144,4 +45,232 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, credentialID])
+}
+
+model Chapter {
+  id               String @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String
+  order            Int? // Ordre dans le programme
+
+  // Relations
+  subjectId String  @db.ObjectId
+  subject   Subject @relation(fields: [subjectId], references: [id])
+
+  themes Theme[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([longDescription, subjectId])
+}
+
+model Teaching {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String // ex: "Spécialité Mathématiques", "Tronc Commun Sciences"
+  shortDescription String? // ex: "Spé Maths", "TC Sciences"
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  gradeId String @db.ObjectId
+  grade   Grade  @relation(fields: [gradeId], references: [id])
+
+  subjectId String  @db.ObjectId
+  subject   Subject @relation(fields: [subjectId], references: [id])
+
+  examPapers ExamPaper[]
+
+  @@unique([longDescription, gradeId])
+}
+
+enum TeachingType {
+  SPECIALITE
+  TRONC_COMMUN
+  OPTION
+  COMPLEMENTAIRE
+  EXPERT
+}
+
+// Programme scolaire (ex: Programmes 2019, Réforme 2020, etc.)
+model Curriculum {
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String // ex: "Programme 2019", "Réforme Bac 2020", "Programme 2010"
+  shortDescription String? // Description détaillée du programme
+
+  // Période de validité du programme (mois/année)
+  startDate DateTime // Date de mise en vigueur (ex: 2020-09-01 pour septembre 2020)
+  endDate   DateTime? // Date de fin (null si toujours en vigueur)
+
+  // Applicabilité (MongoDB: liste d'IDs pour many-to-many)
+  // Un programme peut concerner plusieurs enseignements (ex: réforme 2020 pour toutes les spés)
+  teachingIds String[] @db.ObjectId
+
+  // Métadonnées
+  isActive Boolean @default(true) // Programme actuellement en vigueur
+  notes    String? // Notes complémentaires
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  examPapers ExamPaper[]
+
+  @@unique([longDescription, startDate])
+}
+
+model Diploma {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  examPapers ExamPaper[]
+
+  @@unique([longDescription, shortDescription])
+}
+
+model Division {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  examPapers ExamPaper[]
+
+  @@unique([longDescription, shortDescription])
+}
+
+model ExaminationCenter {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([description])
+}
+
+// Sujet d'annales
+model ExamPaper {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  // Métadonnées "administratives"
+  label       String // ex : "Métropole Sujet 1"
+  sessionYear Int // ex : 2024
+
+  // Références pédagogiques (hiérarchie complète)
+  diplomaId String  @db.ObjectId
+  diploma   Diploma @relation(fields: [diplomaId], references: [id])
+
+  divisionId String   @db.ObjectId
+  division   Division @relation(fields: [divisionId], references: [id])
+
+  gradeId String @db.ObjectId
+  grade   Grade  @relation(fields: [gradeId], references: [id])
+
+  // Le Teaching est le point d'ancrage principal (ex: "Spé Maths Terminale")
+  teachingId String   @db.ObjectId
+  teaching   Teaching @relation(fields: [teachingId], references: [id])
+
+  // Association au programme scolaire
+  // OBLIGATOIRE : permet de savoir quel programme est évalué dans cette annale
+  curriculumId String     @db.ObjectId
+  curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
+
+  // Centres d'examen (many-to-many via array d'IDs)
+  examinationCenterIds String[] @db.ObjectId @default([])
+
+  // Tagging pédagogique (chapitres et thèmes couverts dans le sujet)
+  chapterIds String[] @db.ObjectId // chapitres ciblés
+  themeIds   String[] @db.ObjectId // thèmes ciblés
+
+  // URLs des fichiers
+  subjectUrl    String? // URL du sujet
+  correctionUrl String? // URL du corrigé
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Grade {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  teachings  Teaching[]
+  examPapers ExamPaper[]
+
+  @@unique([longDescription, shortDescription])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique @map("session_token")
+  userId       String   @db.ObjectId
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+}
+
+model Subject {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  teachings Teaching[]
+  chapters  Chapter[]
+
+  @@unique([longDescription, shortDescription])
+}
+
+model Theme {
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  longDescription  String
+  shortDescription String?
+
+  chapterId String  @db.ObjectId
+  chapter   Chapter @relation(fields: [chapterId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?         @unique
+  emailVerified DateTime?       @map("email_verified")
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  roles         Role            @default(ADMIN)
+  // Optional for WebAuthn support
+  Authenticator Authenticator[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
 }

@@ -9,7 +9,7 @@ export type EntityKey =
   | 'examinationCenter' 
   | 'grade' 
   | 'subject' 
-  | 'topic' 
+  | 'theme' 
   | 'user';
 
 export interface EntityTranslation {
@@ -107,7 +107,7 @@ export const entityTranslations: Record<EntityKey, EntityTranslation> = {
       list: 'Liste des matières',
     },
   },
-  topic: {
+  theme: {
     singular: 'Thème',
     plural: 'Thèmes',
     article: {

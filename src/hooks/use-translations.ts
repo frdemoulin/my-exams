@@ -6,12 +6,14 @@
 import { useTranslations } from 'next-intl';
 
 export type EntityKey = 
+  | 'curriculum'
   | 'diploma' 
   | 'division' 
+  | 'examPaper'
   | 'examinationCenter' 
   | 'grade' 
   | 'subject' 
-  | 'topic' 
+  | 'theme' 
   | 'user';
 
 /**

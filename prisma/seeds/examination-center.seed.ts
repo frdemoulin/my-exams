@@ -4,11 +4,17 @@ export async function seedExaminationCenters(prisma: PrismaClient) {
   console.log('🏫 Seeding Examination Centers...');
 
   const centers = [
-    'Lycée Victor Hugo - Paris',
-    'Collège Jean Moulin - Lyon',
-    'Lycée Marie Curie - Marseille',
-    'Collège Jules Ferry - Toulouse',
-    'Lycée Louis Pasteur - Strasbourg',
+    'Amérique du Nord',
+    'Amérique du Sud',
+    'Antilles',
+    'Asie',
+    'Centres étrangers',
+    'France métropolitaine',
+    'Guyane',
+    'Inde',
+    'Nouvelle-Calédonie',
+    'Polynésie',
+    'Réunion',
   ];
 
   for (const description of centers) {
@@ -19,5 +25,5 @@ export async function seedExaminationCenters(prisma: PrismaClient) {
     });
   }
 
-  console.log(`   ✓ ${centers.length} centres d'examen créés`);
+  console.log(`✓ ${centers.length} centres d'examen créés`);
 }

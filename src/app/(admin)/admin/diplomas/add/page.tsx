@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { DiplomaForm } from "../_components/diploma-form";
-import { createDiploma } from "@/core/diploma";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.diploma');
@@ -21,7 +20,6 @@ const AddDiplomaPage = async () => {
             <div>
                 <DiplomaForm
                     crudMode="add"
-                    formAction={createDiploma}
                     initialData={{
                         shortDescription: "",
                         longDescription: "",

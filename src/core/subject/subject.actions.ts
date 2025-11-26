@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
 import { createSubjectSchema } from "@/lib/validation";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateSubjectErrors } from "./subject.types";
 
 export const createSubject = async (formData: FormData) => {
@@ -39,6 +40,7 @@ export const createSubject = async (formData: FormData) => {
 
     // on redirige vers la liste des matières
     revalidatePath("/admin/subjects");
+    await setCrudSuccessToast("subject", "created");
     redirect("/admin/subjects");
 }
 
@@ -68,6 +70,7 @@ export const updateSubject = async (id: string | undefined, formData: FormData) 
         }
         
         // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        await setCrudSuccessToast("subject", "updated");
         redirect('/admin/subjects');
     } else {
         const errors = result.error.format();
@@ -90,5 +93,6 @@ export const deleteSubject = async (id: string) => {
     }
 
     revalidatePath("/admin/subjects");
+    await setCrudSuccessToast("subject", "deleted");
     redirect("/admin/subjects");
 }
