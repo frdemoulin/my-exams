@@ -45,6 +45,10 @@ body {
     --chart-5: 27 87% 67%;
   }
 
+  a[href] {
+    cursor: pointer;
+  }
+
   .dark {
     --background: 222.22 47.37% 11.18%;
     --foreground: 215 20.22% 65.1%;

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
 import { createExaminationCenterSchema } from "@/lib/validation";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateExaminationCenterErrors } from "./examination-center.types";
 
 export const createExaminationCenter = async (formData: FormData) => {
@@ -38,6 +39,7 @@ export const createExaminationCenter = async (formData: FormData) => {
 
     // on redirige vers la liste des centres d'examens
     revalidatePath("/admin/examination-centers");
+    await setCrudSuccessToast("examinationCenter", "created");
     redirect("/admin/examination-centers");
 }
 
@@ -66,6 +68,7 @@ export const updateExaminationCenter = async (id: string | undefined, formData: 
         }
         
         // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        await setCrudSuccessToast("examinationCenter", "updated");
         redirect('/admin/examination-centers');
     } else {
         const errors = result.error.format();
@@ -88,5 +91,6 @@ export const deleteExaminationCenter = async (id: string) => {
     }
 
     revalidatePath("/admin/examination-centers");
+    await setCrudSuccessToast("examinationCenter", "deleted");
     redirect("/admin/examination-centers");
 }

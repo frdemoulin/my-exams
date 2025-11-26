@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
 import { createDiplomaSchema } from "@/lib/validation";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateDiplomaErrors } from "./diploma.types";
 
 export const createDiploma = async (formData: FormData) => {
@@ -39,6 +40,7 @@ export const createDiploma = async (formData: FormData) => {
 
     // on redirige vers la liste des diplômes
     revalidatePath("/admin/diplomas");
+    await setCrudSuccessToast("diploma", "created");
     redirect("/admin/diplomas");
 }
 
@@ -68,6 +70,7 @@ export const updateDiploma = async (id: string | undefined, formData: FormData) 
         }
         
         // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        await setCrudSuccessToast("diploma", "updated");
         redirect('/admin/diplomas');
     } else {
         const errors = result.error.format();
@@ -90,5 +93,6 @@ export const deleteDiploma = async (id: string) => {
     }
 
     revalidatePath("/admin/diplomas");
+    await setCrudSuccessToast("diploma", "deleted");
     redirect("/admin/diplomas");
 }

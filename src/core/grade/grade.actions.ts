@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
 import { createGradeSchema } from "@/lib/validation";
+import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateGradeErrors } from "./grade.types";
 
 export const createGrade = async (formData: FormData) => {
@@ -39,6 +40,7 @@ export const createGrade = async (formData: FormData) => {
 
     // on redirige vers la liste des niveaux scolaires
     revalidatePath("/admin/grades");
+    await setCrudSuccessToast("grade", "created");
     redirect("/admin/grades");
 }
 
@@ -68,6 +70,7 @@ export const updateGrade = async (id: string | undefined, formData: FormData) =>
         }
         
         // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
+        await setCrudSuccessToast("grade", "updated");
         redirect('/admin/grades');
     } else {
         const errors = result.error.format();
@@ -90,5 +93,6 @@ export const deleteGrade = async (id: string) => {
     }
 
     revalidatePath("/admin/grades");
+    await setCrudSuccessToast("grade", "deleted");
     redirect("/admin/grades");
 }

@@ -5,10 +5,12 @@ import {
   FaArrowsTurnToDots,
   FaBarsProgress,
   FaBook,
+  FaCalendar,
   FaChartPie,
   FaCity,
   FaFileAudio,
   FaGears,
+  FaGraduationCap,
   FaHouse,
   FaList,
   FaRightToBracket,
@@ -29,14 +31,14 @@ export const Sidebar = () => {
       title: 'Scolarité',
       list: [
         {
-          title: "Centres d'examens",
-          path: '/admin/examination-centers',
-          icon: <FaCity className="mr-3" size={16} />
-        },
-        {
           title: 'Diplômes',
           path: '/admin/diplomas',
           icon: <FaBook className="mr-3" size={16} />
+        },
+        {
+          title: 'Enseignements',
+          path: '/admin/teachings',
+          icon: <FaGraduationCap className="mr-3" size={16} />
         },
         {
           title: "Filières",
@@ -54,9 +56,29 @@ export const Sidebar = () => {
           icon: <FaStairs className="mr-3" size={16} />
         },
         {
+          title: 'Programmes',
+          path: '/admin/curriculums',
+          icon: <FaCalendar className="mr-3" size={16} />
+        },
+        {
           title: 'Thèmes',
-          path: '/admin/topics',
+          path: '/admin/themes',
           icon: <FaList className="mr-3" size={16} />
+        },
+      ]
+    },
+    {
+      title: 'Annales',
+      list: [
+        {
+          title: "Centres d'examen",
+          path: '/admin/examination-centers',
+          icon: <FaCity className="mr-3" size={16} />
+        },
+        {
+          title: "Sujets d'examen",
+          path: '/admin/exam-papers',
+          icon: <FaFileAudio className="mr-3" size={16} />
         },
       ]
     },
@@ -74,14 +96,14 @@ export const Sidebar = () => {
       title: 'Utilisateurs',
       list: [
         {
-          title: 'Journal de connexion',
-          path: '/admin/log-users',
-          icon: <FaRightToBracket className="mr-3" size={16} />
-        },
-        {
           title: 'Utilisateurs',
           path: '/admin/users',
           icon: <FaUsers className="mr-3" size={16} />
+        },
+        {
+          title: 'Journal de connexion',
+          path: '/admin/log-users',
+          icon: <FaRightToBracket className="mr-3" size={16} />
         },
       ]
     }

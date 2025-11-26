@@ -1,11 +1,13 @@
 import { Metadata } from "next";
-
+import { getTranslations } from "next-intl/server";
 import { SubjectForm } from "../../_components/subject-form";
 import { fetchSubjectById } from "@/core/subject";
-import { updateSubject } from "@/core/subject";
+import getSession from "@/lib/auth/get-session";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-    title: "Édition d'une filière",
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('entities.subject');
+    return { title: t('actions.edit') };
 }
 
 interface SubjectEditProps {
@@ -15,16 +17,26 @@ interface SubjectEditProps {
 }
 
 const EditSubjectPage = async ({ params }: SubjectEditProps) => {
-    const { id } = await params;
+    const session = await getSession();
+    const user = session?.user;
+    
+    if (!user) {
+        redirect("/api/auth/signin?callbackUrl=/admin/subjects");
+    }
 
+    const { id } = await params;
     const subject = await fetchSubjectById(id);
 
-    const updateSubjectAction = updateSubject.bind(null, id);
+    if (!subject) {
+        redirect("/admin/subjects");
+    }
+
+    const t = await getTranslations('entities.subject');
 
     return (
         <div className="w-full p-6">
             <div>
-                <h1 className="my-4 text-2xl font-bold text-blue-700">Édition d&apos;une filière</h1>
+                <h1 className="my-4 text-2xl font-bold text-blue-700">{t('actions.edit')}</h1>
             </div>
             <div>
                 <SubjectForm
@@ -34,7 +46,6 @@ const EditSubjectPage = async ({ params }: SubjectEditProps) => {
                         longDescription: subject?.longDescription ?? "",
                         shortDescription: subject?.shortDescription ?? "",
                     }}
-                    formAction={updateSubjectAction}
                 />
             </div>
         </div>

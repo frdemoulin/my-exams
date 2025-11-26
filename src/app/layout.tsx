@@ -23,16 +23,13 @@ const inter = Inter({
 
 export default async function RootLayout({
   children,
-  params,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}>) {
-  const { locale } = await params;
+}) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body className={`${inter.className} antialiased text-slate-700 dark:text-slate-400 dark:bg-slate-900`} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           {/* Récupère la session côté client après le chargement des pages */}

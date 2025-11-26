@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import { GradeForm } from "../../_components/grade-form";
 import { fetchGradeById } from "@/core/grade";
-import { updateGrade } from "@/core/grade";
 
-export const metadata: Metadata = {
-    title: "Édition d'un diplôme",
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('entities.grade');
+    return { title: t('actions.edit') };
 }
 
 interface GradeEditProps {
@@ -24,12 +25,12 @@ const EditGradePage = async ({ params }: GradeEditProps) => {
         notFound();
     }
 
-    const updateGradeAction = updateGrade.bind(null, id);
+    const t = await getTranslations('entities.grade');
 
     return (
         <div className="w-full p-6">
             <div>
-                <h1 className="my-4 text-2xl font-bold text-blue-700">Édition d&apos;un diplôme</h1>
+                <h1 className="my-4 text-2xl font-bold text-blue-700">{t('actions.edit')}</h1>
             </div>
             <div>
                 <GradeForm
@@ -39,7 +40,6 @@ const EditGradePage = async ({ params }: GradeEditProps) => {
                         longDescription: grade.longDescription ?? "",
                         shortDescription: grade.shortDescription ?? "",
                     }}
-                    formAction={updateGradeAction}
                 />
             </div>
         </div>
