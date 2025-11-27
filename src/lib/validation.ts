@@ -128,4 +128,19 @@ export const createExamPaperSchema = z.object({
     themeIds: z.array(z.string()).optional(),
     subjectUrl: z.string().url({ message: "URL invalide" }).optional().or(z.literal('')),
     correctionUrl: z.string().url({ message: "URL invalide" }).optional().or(z.literal('')),
+    // Champs d'enrichissement automatique (optionnels)
+    estimatedDuration: z.number().int().min(1).max(600).optional(), // 1-600 minutes
+    estimatedDifficulty: z.number().int().min(1).max(5).optional(), // 1-5
+    summary: z.string().max(1000).optional(),
+    enrichmentStatus: z.enum(["pending", "completed", "failed"]).default("pending"),
+});
+
+// Schema pour créer une correction
+export const createCorrectionSchema = z.object({
+    examPaperId: z.string().min(1, "L'ID du sujet est requis"),
+    source: z.string().min(1, "La source est requise").max(255),
+    url: z.string().url("L'URL doit être valide"),
+    type: z.enum(["pdf", "video", "html"]).default("pdf"),
+    quality: z.number().int().min(1).max(5).optional(),
+    author: z.string().max(255).optional(),
 });

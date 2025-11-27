@@ -11,6 +11,7 @@ import { seedChapters } from "./seeds/chapter.seed";
 import { seedThemes } from "./seeds/theme.seed";
 import { seedUsers } from "./seeds/user.seed";
 import { seedExamPapers } from "./seeds/exam-paper.seed";
+import { seedCorrections } from "./seeds/correction.seed";
 
 const prisma = new PrismaClient();
 
@@ -42,7 +43,10 @@ async function main() {
         // 7. Exam Papers (dépend de Diplomas, Divisions, Grades, Teachings, Curriculums, ExaminationCenters)
         await seedExamPapers(prisma);
 
-        // 8. Utilisateurs (indépendants)
+        // 8. Corrections (dépend de ExamPapers)
+        await seedCorrections(prisma);
+
+        // 9. Utilisateurs (indépendants)
         await seedUsers(prisma);
 
         console.log('✅ Seeding terminé avec succès !');

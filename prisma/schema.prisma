@@ -190,10 +190,41 @@ model ExamPaper {
 
   // URLs des fichiers
   subjectUrl    String? // URL du sujet
-  correctionUrl String? // URL du corrigé
+  correctionUrl String? /// @deprecated Utiliser la relation corrections
+
+  // Métadonnées enrichies (automatiques via IA)
+  estimatedDuration   Int?      // durée estimée en minutes
+  estimatedDifficulty Int?      // difficulté estimée 1-5
+  summary             String?   // résumé automatique du sujet
+  enrichmentStatus    String    @default("pending") // "pending" | "completed" | "failed"
+  enrichedAt          DateTime? // date d'enrichissement
+
+  // Relations
+  corrections Correction[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// Corrections externes pour un sujet d'examen
+model Correction {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  examPaperId String    @db.ObjectId
+  examPaper   ExamPaper @relation(fields: [examPaperId], references: [id], onDelete: Cascade)
+
+  source String // "APMEP", "LaboLycée", "Académie de Paris", etc.
+  url    String // lien vers la correction
+  type   String @default("pdf") // "pdf", "video", "html"
+
+  // Métadonnées optionnelles
+  quality Int?    // note de qualité 1-5
+  author  String? // auteur si connu
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([examPaperId, source, url])
 }
 
 model Grade {

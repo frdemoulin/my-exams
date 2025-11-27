@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
@@ -15,11 +15,36 @@ import {
   CardDescription,
   CardContent,
 } from '@/components/ui/card';
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from '@/components/ui/toggle-group';
-import { getRecentYears } from '@/lib/utils';
+import { ThemeToggle } from '@/components/shared/theme-toggle';
+import { ExamPaperCard } from '@/components/exam-papers/ExamPaperCard';
+
+interface Correction {
+  id: string;
+  source: string;
+  url: string;
+  type: string;
+  quality: number | null;
+}
+
+interface Theme {
+  id: string;
+  shortDescription: string;
+  longDescription: string;
+}
+
+interface ExamPaperData {
+  id: string;
+  label: string;
+  sessionYear: number;
+  diploma: { longDescription: string };
+  teaching: { subject: { shortDescription: string } };
+  subjectUrl: string | null;
+  estimatedDuration: number | null;
+  estimatedDifficulty: number | null;
+  summary: string | null;
+  themes: Theme[];
+  corrections: Correction[];
+}
 
 interface HomePageProps {
   initialSubjects: Subject[];
@@ -28,37 +53,179 @@ interface HomePageProps {
 
 export default function HomePage({ initialSubjects, specialties }: HomePageProps) {
   const [search, setSearch] = useState('');
-  const [selectedLevel, setSelectedLevel] = useState<string | undefined>('lycee');
-  const [selectedYear, setSelectedYear] = useState<string | undefined>('2024');
+  const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>('bac-general');
+  const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string | undefined>();
+  const [examPapers, setExamPapers] = useState<ExamPaperData[]>([]);
+  const [filteredPapers, setFilteredPapers] = useState<ExamPaperData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [sortBy, setSortBy] = useState<'year' | 'difficulty' | 'duration'>('year');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc'); // desc par défaut (plus récent/difficile/long en premier)
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
-  const levels = [
-    { value: 'college', label: 'Collège' },
-    { value: 'lycee', label: 'Lycée' },
+  // Fetch exam papers on mount
+  useEffect(() => {
+    // Charger les favoris depuis localStorage
+    try {
+      const savedFavorites = localStorage.getItem('exam-favorites');
+      if (savedFavorites) {
+        setFavorites(new Set(JSON.parse(savedFavorites)));
+      }
+    } catch (error) {
+      console.error('Error loading favorites:', error);
+    }
+
+    fetch('/api/exam-papers/search')
+      .then(res => res.json())
+      .then(data => {
+        setExamPapers(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching exam papers:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  // Fonction de filtrage réutilisable
+  const performSearch = () => {
+    setIsSearching(true);
+    
+    setTimeout(() => {
+      let results = [...examPapers];
+
+      // Filtre par recherche textuelle (label, summary, dipôme, matière)
+      if (search.trim()) {
+        const searchLower = search.toLowerCase();
+        results = results.filter(paper => 
+          paper.label.toLowerCase().includes(searchLower) ||
+          paper.summary?.toLowerCase().includes(searchLower) ||
+          paper.diploma.longDescription.toLowerCase().includes(searchLower) ||
+          paper.teaching.subject.shortDescription.toLowerCase().includes(searchLower)
+        );
+      }
+
+      // Filtre par diplôme
+      if (selectedDiploma) {
+        const diplomaMap: Record<string, string[]> = {
+          'brevet': ['brevet', 'diplôme national du brevet'],
+          'bac-general': ['baccalauréat général', 'bac général'],
+          'bac-techno': ['baccalauréat technologique', 'bac technologique'],
+          'bts': ['bts', 'brevet de technicien supérieur'],
+        };
+        
+        const keywords = diplomaMap[selectedDiploma] || [];
+        results = results.filter(paper => 
+          keywords.some(keyword => 
+            paper.diploma.longDescription.toLowerCase().includes(keyword)
+          )
+        );
+      }
+
+      // Filtre par matière
+      if (selectedSubject) {
+        const subjectMap: Record<string, string[]> = {
+          'mathematiques': ['mathématiques', 'maths'],
+          'physique-chimie': ['physique-chimie', 'physique', 'chimie'],
+          'francais': ['français'],
+          'anglais': ['anglais'],
+          'histoire-geo': ['histoire', 'géographie', 'histoire-géo'],
+          'svt': ['svt', 'sciences de la vie', 'sciences de la terre'],
+        };
+        
+        const keywords = subjectMap[selectedSubject] || [];
+        results = results.filter(paper => 
+          keywords.some(keyword => 
+            paper.teaching.subject.shortDescription.toLowerCase().includes(keyword)
+          )
+        );
+      }
+
+      // Filtre par difficulté
+      if (selectedDifficulty && results.length > 0) {
+        const difficultyMap: Record<string, [number, number]> = {
+          'easy': [1, 2],
+          'medium': [3, 4],
+          'hard': [5, 5],
+        };
+        
+        const [min, max] = difficultyMap[selectedDifficulty] || [1, 5];
+        results = results.filter(paper => 
+          paper.estimatedDifficulty !== null && 
+          paper.estimatedDifficulty >= min && 
+          paper.estimatedDifficulty <= max
+        );
+      }
+
+      // Tri selon le critère sélectionné et l'ordre
+      const multiplier = sortOrder === 'asc' ? 1 : -1;
+      
+      switch (sortBy) {
+        case 'year':
+          results.sort((a, b) => multiplier * (b.sessionYear - a.sessionYear));
+          break;
+        case 'difficulty':
+          results.sort((a, b) => {
+            const diffA = a.estimatedDifficulty || 0;
+            const diffB = b.estimatedDifficulty || 0;
+            return multiplier * (diffB - diffA);
+          });
+          break;
+        case 'duration':
+          results.sort((a, b) => {
+            const durA = a.estimatedDuration || 0;
+            const durB = b.estimatedDuration || 0;
+            return multiplier * (durB - durA);
+          });
+          break;
+      }
+
+      setFilteredPapers(results);
+      setShowResults(true);
+      setIsSearching(false);
+    }, 300);
+  };
+
+  // Debounce pour la recherche textuelle
+  useEffect(() => {
+    if (!loading && examPapers.length > 0) {
+      const timer = setTimeout(() => {
+        performSearch();
+      }, 500); // 500ms de debounce pour la saisie textuelle
+
+      return () => clearTimeout(timer);
+    }
+  }, [search, examPapers, loading]);
+
+  // Recherche instantanée pour les filtres (pas de debounce)
+  useEffect(() => {
+    if (!loading && examPapers.length > 0) {
+      performSearch();
+    }
+  }, [selectedDiploma, selectedSubject, selectedDifficulty, sortBy, sortOrder, examPapers, loading]);
+
+  const diplomas = [
+    { value: 'brevet', label: 'Brevet' },
+    { value: 'bac-general', label: 'Bac Général' },
+    { value: 'bac-techno', label: 'Bac Techno' },
     { value: 'bts', label: 'BTS' },
-    { value: 'concours', label: 'Concours' },
   ];
 
-  const years = getRecentYears();
+  const subjects = [
+    { value: 'mathematiques', label: 'Mathématiques', emoji: '🔢' },
+    { value: 'physique-chimie', label: 'Physique-Chimie', emoji: '🧪' },
+    { value: 'francais', label: 'Français', emoji: '📖' },
+    { value: 'anglais', label: 'Anglais', emoji: '🇬🇧' },
+    { value: 'histoire-geo', label: 'Histoire-Géo', emoji: '🌍' },
+    { value: 'svt', label: 'SVT', emoji: '🧬' },
+  ];
 
-  const filieres = [
-    {
-      title: 'Bac Général',
-      subtitle: 'Spécialités, tronc commun',
-      description: 'Maths, Physique-Chimie, SES, HGGSP, LLCE…',
-      query: { level: 'lycee', track: 'general' } as Record<string, string>,
-    },
-    {
-      title: 'Bac Technologique',
-      subtitle: 'STMG, STI2D, STL…',
-      description: 'Épreuves technologiques et enseignements spécifiques.',
-      query: { level: 'lycee', track: 'technologique' } as Record<string, string>,
-    },
-    {
-      title: 'BTS',
-      subtitle: 'BTS SIO, NDRC, MCO…',
-      description: 'Annales pro pour préparer les épreuves écrites.',
-      query: { level: 'bts' } as Record<string, string>,
-    },
+  const difficulties = [
+    { value: 'easy', label: 'Facile', emoji: '😊' },
+    { value: 'medium', label: 'Moyen', emoji: '😐' },
+    { value: 'hard', label: 'Difficile', emoji: '😵' },
   ];
 
   const trendingPapers = [
@@ -93,56 +260,83 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
 
   const handleSearchSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // TODO : remplacer par un router.push quand tu brancheras la page /annales
-    // router.push({
-    //   pathname: '/annales',
-    //   query: {
-    //     q: search,
-    //     level: selectedLevel,
-    //     year: selectedYear,
-    //   },
-    // });
-    console.log('Recherche', { search, selectedLevel, selectedYear });
+    // La recherche se fait automatiquement, on empêche juste le reload de la page
   };
 
-  const handleFiliereClick = (query: Record<string, string>) => {
-    // TODO : router.push vers /annales avec les bons query params
-    console.log('Filière choisie', query);
+  const handleSortChange = (newSortBy: 'year' | 'difficulty' | 'duration') => {
+    if (sortBy === newSortBy) {
+      // Toggle l'ordre si on clique sur le même critère
+      setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc');
+    } else {
+      // Nouveau critère : ordre par défaut selon le type
+      setSortBy(newSortBy);
+      setSortOrder('desc'); // desc par défaut pour tous
+    }
   };
+
+  const handleResetFilters = () => {
+    setSelectedDiploma(undefined);
+    setSelectedSubject(undefined);
+    setSelectedDifficulty(undefined);
+    setSearch('');
+    setShowResults(false);
+  };
+
+  const toggleFavorite = (paperId: string) => {
+    setFavorites(prev => {
+      const newFavorites = new Set(prev);
+      if (newFavorites.has(paperId)) {
+        newFavorites.delete(paperId);
+      } else {
+        newFavorites.add(paperId);
+      }
+      // Sauvegarder dans localStorage
+      try {
+        localStorage.setItem('exam-favorites', JSON.stringify(Array.from(newFavorites)));
+      } catch (error) {
+        console.error('Error saving favorites:', error);
+      }
+      return newFavorites;
+    });
+  };
+
+  // Compter les filtres actifs
+  const activeFiltersCount = [selectedDiploma, selectedSubject, selectedDifficulty].filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
+    <div className="min-h-screen bg-background text-foreground">
       {/* HEADER */}
-      <header className="sticky top-0 z-20 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-600 text-xs font-bold">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-xs font-bold text-primary-foreground">
               SA
             </div>
             <div className="flex flex-col">
               <span className="font-semibold tracking-tight">
                 My exams
               </span>
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-muted-foreground">
                 Annales d'examens, gratuites et triées.
               </span>
             </div>
           </div>
 
-          <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-            <a href="/dashboard" className="hover:text-white">
+          <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
+            <a href="/dashboard" className="hover:text-foreground">
               Administration
             </a>
-            <a href="/annales" className="hover:text-white">
+            <a href="/annales" className="hover:text-foreground">
               Annales
             </a>
-            <a href="/notions" className="hover:text-white">
+            <a href="/notions" className="hover:text-foreground">
               Notions
             </a>
-            <a href="/a-propos" className="hover:text-white">
+            <a href="/a-propos" className="hover:text-foreground">
               À propos
             </a>
-            <Button variant="outline" size="sm" className="border-slate-700">
+            <ThemeToggle />
+            <Button variant="outline" size="sm">
               Se connecter
             </Button>
           </nav>
@@ -154,30 +348,30 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
         {/* HERO + FILIÈRES */}
         <section className="grid items-start gap-8 lg:grid-cols-[3fr,2fr]">
           {/* HERO GAUCHE */}
-          <div>
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <Badge
               variant="outline"
-              className="mb-4 border-slate-700 bg-slate-900/70 text-xs text-slate-200"
+              className="mb-4 text-xs"
             >
               <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400" />
-              Plateforme de révision 100% gratuite
+              📚 Plus de 1000 annales indexées
             </Badge>
 
             <h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-              Toutes tes annales
-              <span className="block text-blue-400">au même endroit.</span>
+              Trouve le bon sujet d'examen
+              <span className="block text-primary">en quelques secondes. 🎯</span>
             </h1>
 
-            <p className="mb-6 max-w-xl text-sm text-slate-300 md:text-base">
-              Recherche par filière, matière, année ou notion.
-              En quelques secondes, tu trouves le sujet – et sa correction – pour réviser efficacement.
+            <p className="mb-6 max-w-xl text-sm text-muted-foreground md:text-base">
+              Moteur de recherche d'annales du Brevet au BTS. 
+              Chaque sujet est enrichi avec sa durée, difficulté, thématiques et corrections multiples provenant des meilleures sources (APMEP, LaboLycée, YouTube...).
             </p>
 
             {/* FORMULAIRE DE RECHERCHE */}
-            <form onSubmit={handleSearchSubmit} className="space-y-3">
+            <form onSubmit={handleSearchSubmit} className="w-full space-y-3">
               <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
                 <div className="relative flex-1">
-                  <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
+                  <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
                     <Search className="h-4 w-4" />
                   </span>
                   <Input
@@ -185,241 +379,314 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Ex : bac général maths 2024, BTS SIO E4…"
-                    className="border-slate-700 bg-slate-900/70 py-2.5 pl-9 text-sm text-slate-100 placeholder:text-slate-500 focus-visible:ring-blue-500"
+                    className="py-2.5 pl-9 text-sm"
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium shadow-sm hover:bg-blue-500 active:bg-blue-600 sm:min-w-[120px]"
+                  disabled={isSearching}
+                  className="rounded-xl px-4 py-2.5 text-sm font-medium shadow-sm sm:min-w-[120px]"
                 >
-                  Rechercher
+                  {isSearching ? (
+                    <div className="flex items-center justify-center">
+                      <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                    </div>
+                  ) : (
+                    'Rechercher'
+                  )}
                 </Button>
               </div>
 
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-muted-foreground lg:text-left">
                 Suggestion :{' '}
-                <span className="font-medium text-slate-300">
+                <span className="font-medium text-foreground">
                   "Maths bac général 2024 métropole"
                 </span>{' '}
                 ou{' '}
-                <span className="font-medium text-slate-300">
+                <span className="font-medium text-foreground">
                   "BTS SIO E4 base de données"
                 </span>
               </p>
             </form>
 
             {/* FILTRES RAPIDES */}
-            <div className="mt-6 space-y-4">
-              {/* NIVEAU */}
-              <div className="space-y-2">
-                <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                  Niveau
+            <div className="mt-6 w-full space-y-4">
+              {/* EN-TÊTE AVEC BOUTON RÉINITIALISER */}
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Filtres rapides
+                  {activeFiltersCount > 0 && (
+                    <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                      {activeFiltersCount}
+                    </span>
+                  )}
                 </span>
-                <ToggleGroup
-                  type="single"
-                  value={selectedLevel}
-                  onValueChange={(val) =>
-                    setSelectedLevel(val || undefined)
-                  }
-                  className="flex flex-wrap gap-2"
-                >
-                  {levels.map((level) => (
-                    <ToggleGroupItem
-                      key={level.value}
-                      value={level.value}
-                      className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs text-slate-200 data-[state=on]:border-blue-500 data-[state=on]:bg-blue-600 data-[state=on]:text-white"
-                    >
-                      {level.label}
-                    </ToggleGroupItem>
-                  ))}
-                </ToggleGroup>
+                {(activeFiltersCount > 0 || search) && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleResetFilters}
+                    className="h-auto px-2 py-1 text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    🔄 Réinitialiser
+                  </Button>
+                )}
               </div>
 
-              {/* SPÉCIALITÉS POPULAIRES */}
+              {/* DIPLÔME */}
               <div className="space-y-2">
-                <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                  Spécialités & Enseignements populaires
+                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Diplôme
                 </span>
                 <div className="flex flex-wrap gap-2">
-                  {specialties.slice(0, 8).map((course) => (
-                    <Button
-                      key={course.id}
-                      type="button"
-                      variant="outline"
-                      size="sm"
-                      className="rounded-full border-slate-700 bg-slate-900/70 text-xs text-slate-200 hover:border-blue-500 hover:text-blue-200"
-                      onClick={() => setSearch((prev) =>
-                        prev ? `${prev} ${course.shortDescription || ''}` : course.shortDescription || ''
-                      )}
+                  {diplomas.map((diploma) => (
+                    <Badge
+                      key={diploma.value}
+                      variant={selectedDiploma === diploma.value ? 'default' : 'outline'}
+                      className="cursor-pointer rounded-full px-3 py-1 text-xs"
+                      onClick={() => setSelectedDiploma(selectedDiploma === diploma.value ? undefined : diploma.value)}
                     >
-                      {course.shortDescription} • {course.grade.shortDescription}
-                    </Button>
+                      {diploma.label}
+                    </Badge>
                   ))}
                 </div>
               </div>
 
-              {/* ANNÉES RÉCENTES */}
+              {/* MATIÈRE */}
               <div className="space-y-2">
-                <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                  Années récentes
+                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Matière
                 </span>
-                <ToggleGroup
-                  type="single"
-                  value={selectedYear}
-                  onValueChange={(val) =>
-                    setSelectedYear(val || undefined)
-                  }
-                  className="flex flex-wrap gap-2"
-                >
-                  {years.map((year) => (
-                    <ToggleGroupItem
-                      key={year}
-                      value={year}
-                      className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs text-slate-200 data-[state=on]:border-blue-500 data-[state=on]:bg-blue-600 data-[state=on]:text-white"
+                <div className="flex flex-wrap gap-2">
+                  {subjects.map((subject) => (
+                    <Badge
+                      key={subject.value}
+                      variant={selectedSubject === subject.value ? 'default' : 'outline'}
+                      className="cursor-pointer rounded-full px-3 py-1 text-xs"
+                      onClick={() => setSelectedSubject(selectedSubject === subject.value ? undefined : subject.value)}
                     >
-                      {year}
-                    </ToggleGroupItem>
+                      <span className="mr-1">{subject.emoji}</span>
+                      {subject.label}
+                    </Badge>
                   ))}
-                </ToggleGroup>
+                </div>
+              </div>
+
+              {/* DIFFICULTÉ */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Difficulté
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {difficulties.map((difficulty) => (
+                    <Badge
+                      key={difficulty.value}
+                      variant={selectedDifficulty === difficulty.value ? 'default' : 'outline'}
+                      className="cursor-pointer rounded-full px-3 py-1 text-xs"
+                      onClick={() => setSelectedDifficulty(selectedDifficulty === difficulty.value ? undefined : difficulty.value)}
+                    >
+                      <span className="mr-1">{difficulty.emoji}</span>
+                      {difficulty.label}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* PANNEAU DROIT : FILIÈRES + COMMENT ÇA MARCHE */}
+          {/* PANNEAU DROIT : COMMENT ÇA MARCHE */}
           <div className="space-y-4">
-            <Card className="border-slate-800 bg-slate-950/60">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-sm text-slate-100">
-                  Commence par ta filière
-                </CardTitle>
-                <CardDescription className="text-xs text-slate-400">
-                  Un clic sur une filière te pré-filtre les annales par
-                  niveau, série et matières principales.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {filieres.map((filiere) => (
-                  <button
-                    key={filiere.title}
-                    type="button"
-                    onClick={() => handleFiliereClick(filiere.query)}
-                    className="w-full rounded-xl border border-slate-800 bg-slate-900/70 px-3 py-3 text-left text-sm transition hover:border-blue-500 hover:bg-slate-900"
-                  >
-                    <div className="mb-1 flex items-center justify-between gap-2">
-                      <span className="font-medium text-slate-100">
-                        {filiere.title}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-wide text-blue-300">
-                        Explorer
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-400">
-                      {filiere.subtitle}
-                    </p>
-                    <p className="mt-1 text-[11px] text-slate-500">
-                      {filiere.description}
-                    </p>
-                  </button>
-                ))}
-              </CardContent>
-            </Card>
-
-            <Card className="border-emerald-600/30 bg-gradient-to-br from-emerald-900/40 via-slate-950 to-slate-950 text-xs">
+            <Card className="border-primary/30 bg-gradient-to-br from-primary/10 via-background to-background text-xs">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm text-emerald-100">
-                  Comment ça marche ?
+                <CardTitle className="text-sm">
+                  ✨ Comment ça marche ?
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2 text-emerald-50/90">
-                <ol className="list-inside list-decimal space-y-1">
-                  <li>Tu cherches ton examen (filière, matière, année).</li>
-                  <li>Tu ouvres le sujet et la correction.</li>
-                  <li>Tu ajoutes l'annale à ta liste de révision.</li>
+              <CardContent className="space-y-2">
+                <ol className="list-inside list-decimal space-y-1.5 text-xs">
+                  <li>🔍 <strong>Recherche</strong> ton sujet par diplôme, matière ou année</li>
+                  <li>📊 <strong>Compare</strong> les métadonnées (durée, difficulté, thèmes)</li>
+                  <li>📖 <strong>Accède</strong> au PDF du sujet + liens vers plusieurs corrections</li>
                 </ol>
-                <p className="mt-2 text-[11px] text-emerald-200/80">
-                  Pas besoin de compte pour commencer à consulter les sujets.
+                <p className="mt-2 text-[11px] text-muted-foreground">
+                  💡 Tous les sujets sont enrichis automatiquement via OCR + IA
                 </p>
               </CardContent>
             </Card>
           </div>
         </section>
 
-        {/* SECTION : ANNALES POPULAIRES */}
-        <section className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold text-slate-100">
-              Annales les plus consultées
-            </h2>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-auto px-0 text-xs text-blue-300 hover:text-blue-200"
-            >
-              Voir toutes les annales →
-            </Button>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-3">
-            {trendingPapers.map((paper, idx) => (
-              <Card
-                key={idx}
-                className="border-slate-800 bg-slate-950/70 text-xs hover:border-blue-500 hover:bg-slate-900/80"
-              >
-                <CardContent className="p-3">
-                  <div className="mb-1.5 flex items-center justify-between">
-                    <span className="text-[11px] uppercase tracking-wide text-slate-400">
-                      {paper.grade}
-                    </span>
-                    <Badge
-                      variant="outline"
-                      className="border-slate-700 bg-slate-900 px-2 py-0.5 text-[10px] text-slate-300"
-                    >
-                      {paper.year}
-                    </Badge>
-                  </div>
-                  <p className="mb-1 text-sm font-medium text-slate-100">
-                    {paper.course}
-                  </p>
-                  <p className="mb-2 text-[11px] text-slate-400">
-                    {paper.label}
-                  </p>
-                  <div className="mb-2 flex flex-wrap gap-1">
-                    {paper.tags.map((tag) => (
-                      <Badge
-                        key={tag}
-                        variant="outline"
-                        className="border-slate-800 bg-slate-900 px-2 py-0.5 text-[10px] text-slate-300"
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+        {/* SECTION : RÉSULTATS DE RECHERCHE */}
+        {showResults && (
+          <section className="space-y-6">
+            {/* EN-TÊTE AVEC COMPTEUR ET TRI */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">📚</span>
+                <h2 className="text-lg font-semibold">
+                  Résultats
+                </h2>
+                <span className="rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-primary">
+                  {filteredPapers.length} sujet{filteredPapers.length > 1 ? 's' : ''} trouvé{filteredPapers.length > 1 ? 's' : ''}
+                </span>
+              </div>
+              
+              {/* SÉLECTEUR DE TRI */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground">Trier par :</span>
+                <div className="flex gap-1">
                   <Button
-                    variant="outline"
+                    variant={sortBy === 'year' ? 'default' : 'outline'}
                     size="sm"
-                    className="mt-1 w-full border-slate-700 bg-slate-900/70 text-[11px] text-blue-300 hover:border-blue-500 hover:text-blue-200"
+                    onClick={() => handleSortChange('year')}
+                    className="h-auto rounded-lg px-3 py-1.5 text-xs"
                   >
-                    Ouvrir cette annale
+                    Année {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
                   </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+                  <Button
+                    variant={sortBy === 'difficulty' ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => handleSortChange('difficulty')}
+                    className="h-auto rounded-lg px-3 py-1.5 text-xs"
+                  >
+                    Difficulté {sortBy === 'difficulty' && (sortOrder === 'desc' ? '↓' : '↑')}
+                  </Button>
+                  <Button
+                    variant={sortBy === 'duration' ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => handleSortChange('duration')}
+                    className="h-auto rounded-lg px-3 py-1.5 text-xs"
+                  >
+                    Durée {sortBy === 'duration' && (sortOrder === 'desc' ? '↓' : '↑')}
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {loading ? (
+              <div className="flex min-h-[400px] items-center justify-center">
+                <div className="text-center">
+                  <div className="mb-4 text-4xl">⏳</div>
+                  <p className="text-muted-foreground">Chargement des sujets...</p>
+                </div>
+              </div>
+            ) : filteredPapers.length === 0 ? (
+              <div className="flex min-h-[400px] items-center justify-center rounded-2xl border border-border bg-card">
+                <div className="text-center">
+                  <div className="mb-4 text-5xl">🤷</div>
+                  <p className="mb-2 text-lg font-medium">
+                    Aucun sujet trouvé
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Essaye de modifier tes filtres de recherche
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-4">
+                {filteredPapers.map((paper) => (
+                  <ExamPaperCard
+                    key={paper.id}
+                    id={paper.id}
+                    label={paper.label}
+                    sessionYear={paper.sessionYear}
+                    diploma={paper.diploma.longDescription}
+                    subject={paper.teaching.subject.shortDescription}
+                    subjectUrl={paper.subjectUrl || undefined}
+                    estimatedDuration={paper.estimatedDuration || undefined}
+                    estimatedDifficulty={paper.estimatedDifficulty || undefined}
+                    summary={paper.summary || undefined}
+                    themes={paper.themes.map(t => t.shortDescription)}
+                    corrections={paper.corrections}
+                    isFavorite={favorites.has(paper.id)}
+                    onToggleFavorite={toggleFavorite}
+                  />
+                ))}
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* SECTION : ANNALES POPULAIRES */}
+        {!showResults && (
+          <section className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h2 className="text-base font-semibold">
+                Annales les plus consultées
+              </h2>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-auto px-0 text-xs text-primary hover:text-primary/80"
+                onClick={() => setShowResults(true)}
+              >
+                Voir toutes les annales →
+              </Button>
+            </div>
+
+            <div className="grid gap-3 md:grid-cols-3">
+              {trendingPapers.map((paper, idx) => (
+                <Card
+                  key={idx}
+                  className="text-xs hover:border-primary"
+                >
+                  <CardContent className="p-3">
+                    <div className="mb-1.5 flex items-center justify-between">
+                      <span className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                        {paper.grade}
+                      </span>
+                      <Badge
+                        variant="outline"
+                        className="px-2 py-0.5 text-[10px]"
+                      >
+                        {paper.year}
+                      </Badge>
+                    </div>
+                    <p className="mb-1 text-sm font-medium">
+                      {paper.course}
+                    </p>
+                    <p className="mb-2 text-[11px] text-muted-foreground">
+                      {paper.label}
+                    </p>
+                    <div className="mb-2 flex flex-wrap gap-1">
+                      {paper.tags.map((tag) => (
+                        <Badge
+                          key={tag}
+                          variant="outline"
+                          className="px-2 py-0.5 text-[10px]"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="mt-1 w-full text-[11px]"
+                      onClick={() => setShowResults(true)}
+                    >
+                      Ouvrir cette annale
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-800/60 bg-slate-950/90">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-[11px] text-slate-500 md:flex-row">
+      <footer className="border-t border-border bg-card">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-[11px] text-muted-foreground md:flex-row">
           <p>
             © {new Date().getFullYear()} Site d'annales — plateforme de
             révision.
           </p>
           <div className="flex gap-4">
-            <a href="/mentions-legales" className="hover:text-slate-300">
+            <a href="/mentions-legales" className="hover:text-foreground">
               Mentions légales
             </a>
-            <a href="/contact" className="hover:text-slate-300">
+            <a href="/contact" className="hover:text-foreground">
               Contact
             </a>
           </div>

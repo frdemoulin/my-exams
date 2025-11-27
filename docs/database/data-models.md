@@ -58,7 +58,6 @@
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue de la matière|
 |shortDescription|VARCHAR(255)|NOT NULL|La description courte de la matière|
-|topicIDs|Array(ObjectID)|NOT NULL|Les identifiants des thèmes associés|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
@@ -66,24 +65,135 @@
 - UNIQUE (longDescription, shortDescription)
 
 **Relations :**
-- topics : relation Many-to-Many avec Topic
+- teachings : relation One-to-Many avec Teaching
+- chapters : relation One-to-Many avec Chapter
 
-## Modèle Topic (`Topic`) : thèmes
+## Modèle Teaching (`Teaching`) : enseignements
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|longDescription|VARCHAR(255)|NOT NULL|La description longue de l'enseignement (ex: "Spécialité Mathématiques")|
+|shortDescription|VARCHAR(255)|NULLABLE|La description courte de l'enseignement (ex: "Spé Maths")|
+|gradeId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du niveau scolaire|
+|subjectId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la matière|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (longDescription, gradeId)
+
+**Relations :**
+- grade : relation Many-to-One avec Grade
+- subject : relation Many-to-One avec Subject
+- examPapers : relation One-to-Many avec ExamPaper
+
+## Modèle Curriculum (`Curriculum`) : programmes scolaires
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|longDescription|VARCHAR(255)|NOT NULL|La description du programme (ex: "Programme 2019", "Réforme Bac 2020")|
+|shortDescription|VARCHAR(255)|NULLABLE|Description détaillée du programme|
+|startDate|TIMESTAMP|NOT NULL|Date de mise en vigueur du programme|
+|endDate|TIMESTAMP|NULLABLE|Date de fin du programme (null si toujours en vigueur)|
+|teachingIds|Array(ObjectID)|NOT NULL|Les identifiants des enseignements concernés|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Programme actuellement en vigueur|
+|notes|TEXT|NULLABLE|Notes complémentaires|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (longDescription, startDate)
+
+**Relations :**
+- examPapers : relation One-to-Many avec ExamPaper
+
+## Modèle Chapter (`Chapter`) : chapitres
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|longDescription|VARCHAR(255)|NOT NULL|La description longue du chapitre|
+|shortDescription|VARCHAR(255)|NOT NULL|La description courte du chapitre|
+|order|INT|NULLABLE|L'ordre dans le programme|
+|subjectId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la matière|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (longDescription, subjectId)
+
+**Relations :**
+- subject : relation Many-to-One avec Subject
+- themes : relation One-to-Many avec Theme
+
+## Modèle Theme (`Theme`) : thèmes
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue du thème|
 |shortDescription|VARCHAR(255)|NULLABLE|La description courte du thème|
-|subjectIDs|Array(ObjectID)|NOT NULL|Les identifiants des matières associées|
+|chapterId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du chapitre|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Relations :**
+- chapter : relation Many-to-One avec Chapter
+
+## Modèle ExamPaper (`ExamPaper`) : sujets d'annales
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|label|VARCHAR(255)|NOT NULL|Le libellé du sujet (ex: "Métropole Sujet 1")|
+|sessionYear|INT|NOT NULL|L'année de la session (ex: 2024)|
+|diplomaId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du diplôme|
+|divisionId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la filière|
+|gradeId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du niveau scolaire|
+|teachingId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de l'enseignement|
+|curriculumId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du programme scolaire|
+|examinationCenterIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des centres d'examen|
+|chapterIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des chapitres ciblés|
+|themeIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des thèmes ciblés|
+|subjectUrl|VARCHAR(500)|NULLABLE|L'URL du PDF du sujet|
+|correctionUrl|VARCHAR(500)|NULLABLE, DEPRECATED|L'URL du PDF du corrigé (déprécié, utiliser Correction)|
+|estimatedDuration|INT|NULLABLE|La durée estimée en minutes (enrichissement IA)|
+|estimatedDifficulty|INT|NULLABLE|La difficulté estimée 1-5 (enrichissement IA)|
+|summary|TEXT|NULLABLE|Le résumé automatique du sujet (enrichissement IA)|
+|enrichmentStatus|VARCHAR(20)|NOT NULL, DEFAULT "pending"|Le statut d'enrichissement ("pending", "completed", "failed")|
+|enrichedAt|TIMESTAMP|NULLABLE|La date d'enrichissement automatique|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Relations :**
+- diploma : relation Many-to-One avec Diploma
+- division : relation Many-to-One avec Division
+- grade : relation Many-to-One avec Grade
+- teaching : relation Many-to-One avec Teaching
+- curriculum : relation Many-to-One avec Curriculum
+- corrections : relation One-to-Many avec Correction
+
+## Modèle Correction (`Correction`) : corrections externes
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|examPaperId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du sujet d'examen|
+|source|VARCHAR(255)|NOT NULL|La source de la correction (ex: "APMEP", "LaboLycée")|
+|url|VARCHAR(500)|NOT NULL|L'URL de la correction|
+|type|VARCHAR(20)|NOT NULL, DEFAULT "pdf"|Le type de correction ("pdf", "video", "html")|
+|quality|INT|NULLABLE|La note de qualité 1-5|
+|author|VARCHAR(255)|NULLABLE|L'auteur de la correction si connu|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
 **Contraintes :**
-- UNIQUE (longDescription, shortDescription)
+- UNIQUE (examPaperId, source, url)
 
 **Relations :**
-- subjects : relation Many-to-Many avec Subject
+- examPaper : relation Many-to-One avec ExamPaper (onDelete: Cascade)
 
 ## Modèle User (`User`) : utilisateurs
 
