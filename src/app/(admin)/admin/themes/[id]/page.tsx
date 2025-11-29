@@ -19,7 +19,7 @@ const ThemeDetailPage = async ({ params }: ThemeDetailPageProps) => {
     
     return (
         <div>
-            <h1>Détails du thème</h1>
+            <h1 className="text-lg font-semibold md:text-2xl">Détails du thème</h1>
             <p>Description courte : {theme?.shortDescription}</p>
             <p>Description longue : {theme?.longDescription}</p>
         </div>

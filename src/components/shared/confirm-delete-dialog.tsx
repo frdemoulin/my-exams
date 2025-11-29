@@ -56,7 +56,11 @@ export function ConfirmDeleteDialog({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel disabled={isLoading}>{cancelLabel}</AlertDialogCancel>
-          <AlertDialogAction disabled={isLoading} onClick={handleConfirm}>
+          <AlertDialogAction 
+            disabled={isLoading} 
+            onClick={handleConfirm}
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+          >
             {isLoading ? "Suppression..." : confirmLabel}
           </AlertDialogAction>
         </AlertDialogFooter>

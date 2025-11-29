@@ -16,35 +16,10 @@ import {
   CardContent,
 } from '@/components/ui/card';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
-import { ExamPaperCard } from '@/components/exam-papers/ExamPaperCard';
+import { ExerciseCard } from '@/components/exercises/ExerciseCard';
+import type { ExerciseWithRelations } from '@/core/exercise';
 
-interface Correction {
-  id: string;
-  source: string;
-  url: string;
-  type: string;
-  quality: number | null;
-}
-
-interface Theme {
-  id: string;
-  shortDescription: string;
-  longDescription: string;
-}
-
-interface ExamPaperData {
-  id: string;
-  label: string;
-  sessionYear: number;
-  diploma: { longDescription: string };
-  teaching: { subject: { shortDescription: string } };
-  subjectUrl: string | null;
-  estimatedDuration: number | null;
-  estimatedDifficulty: number | null;
-  summary: string | null;
-  themes: Theme[];
-  corrections: Correction[];
-}
+// Types importés depuis @/core/exercise
 
 interface HomePageProps {
   initialSubjects: Subject[];
@@ -53,11 +28,11 @@ interface HomePageProps {
 
 export default function HomePage({ initialSubjects, specialties }: HomePageProps) {
   const [search, setSearch] = useState('');
-  const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>('bac-general');
+  const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>('Bac général');
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
-  const [selectedDifficulty, setSelectedDifficulty] = useState<string | undefined>();
-  const [examPapers, setExamPapers] = useState<ExamPaperData[]>([]);
-  const [filteredPapers, setFilteredPapers] = useState<ExamPaperData[]>([]);
+  const [selectedDifficulty, setSelectedDifficulty] = useState<number | undefined>();
+  const [exercises, setExercises] = useState<ExerciseWithRelations[]>([]);
+  const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -65,11 +40,11 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc'); // desc par défaut (plus récent/difficile/long en premier)
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
-  // Fetch exam papers on mount
+  // Fetch exercises on mount
   useEffect(() => {
     // Charger les favoris depuis localStorage
     try {
-      const savedFavorites = localStorage.getItem('exam-favorites');
+      const savedFavorites = localStorage.getItem('exercise-favorites');
       if (savedFavorites) {
         setFavorites(new Set(JSON.parse(savedFavorites)));
       }
@@ -77,155 +52,85 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
       console.error('Error loading favorites:', error);
     }
 
-    fetch('/api/exam-papers/search')
+    fetch('/api/exercises/search')
       .then(res => res.json())
       .then(data => {
-        setExamPapers(data);
+        setExercises(data.exercises || []);
         setLoading(false);
       })
       .catch(err => {
-        console.error('Error fetching exam papers:', err);
+        console.error('Error fetching exercises:', err);
         setLoading(false);
       });
   }, []);
 
-  // Fonction de filtrage réutilisable
+  // Fonction de recherche réutilisable (appel API avec filtres)
   const performSearch = () => {
     setIsSearching(true);
     
-    setTimeout(() => {
-      let results = [...examPapers];
-
-      // Filtre par recherche textuelle (label, summary, dipôme, matière)
-      if (search.trim()) {
-        const searchLower = search.toLowerCase();
-        results = results.filter(paper => 
-          paper.label.toLowerCase().includes(searchLower) ||
-          paper.summary?.toLowerCase().includes(searchLower) ||
-          paper.diploma.longDescription.toLowerCase().includes(searchLower) ||
-          paper.teaching.subject.shortDescription.toLowerCase().includes(searchLower)
-        );
-      }
-
-      // Filtre par diplôme
-      if (selectedDiploma) {
-        const diplomaMap: Record<string, string[]> = {
-          'brevet': ['brevet', 'diplôme national du brevet'],
-          'bac-general': ['baccalauréat général', 'bac général'],
-          'bac-techno': ['baccalauréat technologique', 'bac technologique'],
-          'bts': ['bts', 'brevet de technicien supérieur'],
-        };
-        
-        const keywords = diplomaMap[selectedDiploma] || [];
-        results = results.filter(paper => 
-          keywords.some(keyword => 
-            paper.diploma.longDescription.toLowerCase().includes(keyword)
-          )
-        );
-      }
-
-      // Filtre par matière
-      if (selectedSubject) {
-        const subjectMap: Record<string, string[]> = {
-          'mathematiques': ['mathématiques', 'maths'],
-          'physique-chimie': ['physique-chimie', 'physique', 'chimie'],
-          'francais': ['français'],
-          'anglais': ['anglais'],
-          'histoire-geo': ['histoire', 'géographie', 'histoire-géo'],
-          'svt': ['svt', 'sciences de la vie', 'sciences de la terre'],
-        };
-        
-        const keywords = subjectMap[selectedSubject] || [];
-        results = results.filter(paper => 
-          keywords.some(keyword => 
-            paper.teaching.subject.shortDescription.toLowerCase().includes(keyword)
-          )
-        );
-      }
-
-      // Filtre par difficulté
-      if (selectedDifficulty && results.length > 0) {
-        const difficultyMap: Record<string, [number, number]> = {
-          'easy': [1, 2],
-          'medium': [3, 4],
-          'hard': [5, 5],
-        };
-        
-        const [min, max] = difficultyMap[selectedDifficulty] || [1, 5];
-        results = results.filter(paper => 
-          paper.estimatedDifficulty !== null && 
-          paper.estimatedDifficulty >= min && 
-          paper.estimatedDifficulty <= max
-        );
-      }
-
-      // Tri selon le critère sélectionné et l'ordre
-      const multiplier = sortOrder === 'asc' ? 1 : -1;
-      
-      switch (sortBy) {
-        case 'year':
-          results.sort((a, b) => multiplier * (b.sessionYear - a.sessionYear));
-          break;
-        case 'difficulty':
-          results.sort((a, b) => {
-            const diffA = a.estimatedDifficulty || 0;
-            const diffB = b.estimatedDifficulty || 0;
-            return multiplier * (diffB - diffA);
-          });
-          break;
-        case 'duration':
-          results.sort((a, b) => {
-            const durA = a.estimatedDuration || 0;
-            const durB = b.estimatedDuration || 0;
-            return multiplier * (durB - durA);
-          });
-          break;
-      }
-
-      setFilteredPapers(results);
-      setShowResults(true);
-      setIsSearching(false);
-    }, 300);
+    // Construction des query params
+    const params = new URLSearchParams();
+    
+    if (search.trim()) params.append('search', search.trim());
+    if (selectedDiploma) params.append('diploma', selectedDiploma);
+    if (selectedSubject) params.append('subject', selectedSubject);
+    if (selectedDifficulty) params.append('difficulty', selectedDifficulty.toString());
+    params.append('sortBy', sortBy);
+    params.append('sortOrder', sortOrder);
+    
+    fetch(`/api/exercises/search?${params.toString()}`)
+      .then(res => res.json())
+      .then(data => {
+        setFilteredExercises(data.exercises || []);
+        setShowResults(true);
+        setIsSearching(false);
+      })
+      .catch(err => {
+        console.error('Error searching exercises:', err);
+        setIsSearching(false);
+      });
   };
 
   // Debounce pour la recherche textuelle
   useEffect(() => {
-    if (!loading && examPapers.length > 0) {
+    if (!loading) {
       const timer = setTimeout(() => {
         performSearch();
       }, 500); // 500ms de debounce pour la saisie textuelle
 
       return () => clearTimeout(timer);
     }
-  }, [search, examPapers, loading]);
+  }, [search, loading]);
 
   // Recherche instantanée pour les filtres (pas de debounce)
   useEffect(() => {
-    if (!loading && examPapers.length > 0) {
+    if (!loading) {
       performSearch();
     }
-  }, [selectedDiploma, selectedSubject, selectedDifficulty, sortBy, sortOrder, examPapers, loading]);
+  }, [selectedDiploma, selectedSubject, selectedDifficulty, sortBy, sortOrder, loading]);
 
   const diplomas = [
-    { value: 'brevet', label: 'Brevet' },
-    { value: 'bac-general', label: 'Bac Général' },
-    { value: 'bac-techno', label: 'Bac Techno' },
-    { value: 'bts', label: 'BTS' },
+    { value: 'DNB', label: 'Brevet' },
+    { value: 'Bac général', label: 'Bac Général' },
+    { value: 'Bac techno', label: 'Bac Techno' },
+    { value: 'BTS', label: 'BTS' },
   ];
 
   const subjects = [
-    { value: 'mathematiques', label: 'Mathématiques', emoji: '🔢' },
-    { value: 'physique-chimie', label: 'Physique-Chimie', emoji: '🧪' },
-    { value: 'francais', label: 'Français', emoji: '📖' },
-    { value: 'anglais', label: 'Anglais', emoji: '🇬🇧' },
-    { value: 'histoire-geo', label: 'Histoire-Géo', emoji: '🌍' },
-    { value: 'svt', label: 'SVT', emoji: '🧬' },
+    { value: 'Maths', label: 'Mathématiques', emoji: '🔢' },
+    { value: 'Sciences physiques', label: 'Physique-Chimie', emoji: '🧪' },
+    { value: 'Français', label: 'Français', emoji: '📖' },
+    { value: 'Histoire-Géo', label: 'Histoire-Géo', emoji: '🌍' },
+    { value: 'SVT', label: 'SVT', emoji: '🧬' },
+    { value: 'SES', label: 'SES', emoji: '💼' },
   ];
 
   const difficulties = [
-    { value: 'easy', label: 'Facile', emoji: '😊' },
-    { value: 'medium', label: 'Moyen', emoji: '😐' },
-    { value: 'hard', label: 'Difficile', emoji: '😵' },
+    { value: 1, label: 'Très facile', emoji: '😊' },
+    { value: 2, label: 'Facile', emoji: '🙂' },
+    { value: 3, label: 'Moyen', emoji: '😐' },
+    { value: 4, label: 'Difficile', emoji: '😰' },
+    { value: 5, label: 'Très difficile', emoji: '😵' },
   ];
 
   const trendingPapers = [
@@ -282,17 +187,17 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     setShowResults(false);
   };
 
-  const toggleFavorite = (paperId: string) => {
+  const toggleFavorite = (exerciseId: string) => {
     setFavorites(prev => {
       const newFavorites = new Set(prev);
-      if (newFavorites.has(paperId)) {
-        newFavorites.delete(paperId);
+      if (newFavorites.has(exerciseId)) {
+        newFavorites.delete(exerciseId);
       } else {
-        newFavorites.add(paperId);
+        newFavorites.add(exerciseId);
       }
       // Sauvegarder dans localStorage
       try {
-        localStorage.setItem('exam-favorites', JSON.stringify(Array.from(newFavorites)));
+        localStorage.setItem('exercise-favorites', JSON.stringify(Array.from(newFavorites)));
       } catch (error) {
         console.error('Error saving favorites:', error);
       }
@@ -323,7 +228,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           </div>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <a href="/dashboard" className="hover:text-foreground">
+            <a href="/admin" className="hover:text-foreground">
               Administration
             </a>
             <a href="/annales" className="hover:text-foreground">
@@ -354,17 +259,17 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               className="mb-4 text-xs"
             >
               <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400" />
-              📚 Plus de 1000 annales indexées
+              📚 Plus de 1000 exercices d'annales indexés
             </Badge>
 
             <h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-              Trouve le bon sujet d'examen
-              <span className="block text-primary">en quelques secondes. 🎯</span>
+              Trouve le bon exercice d'annales
+              <span className="block text-primary">en quelques secondes 🎯</span>
             </h1>
 
             <p className="mb-6 max-w-xl text-sm text-muted-foreground md:text-base">
-              Moteur de recherche d'annales du Brevet au BTS. 
-              Chaque sujet est enrichi avec sa durée, difficulté, thématiques et corrections multiples provenant des meilleures sources (APMEP, LaboLycée, YouTube...).
+              Moteur de recherche d'exercices d'annales du Brevet au BTS. 
+              Chaque exercice est enrichi avec sa durée estimée, difficulté, thématiques ciblées et corrections multiples provenant des meilleures sources (APMEP, LaboLycée, YouTube...).
             </p>
 
             {/* FORMULAIRE DE RECHERCHE */}
@@ -378,7 +283,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Ex : bac général maths 2024, BTS SIO E4…"
+                    placeholder="Ex : titrage acide-base, loi normale, base de données…"
                     className="py-2.5 pl-9 text-sm"
                   />
                 </div>
@@ -400,11 +305,11 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               <p className="text-xs text-muted-foreground lg:text-left">
                 Suggestion :{' '}
                 <span className="font-medium text-foreground">
-                  "Maths bac général 2024 métropole"
+                  "titrage acide-base"
                 </span>{' '}
                 ou{' '}
                 <span className="font-medium text-foreground">
-                  "BTS SIO E4 base de données"
+                  "probabilités loi normale"
                 </span>
               </p>
             </form>
@@ -504,12 +409,12 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </CardHeader>
               <CardContent className="space-y-2">
                 <ol className="list-inside list-decimal space-y-1.5 text-xs">
-                  <li>🔍 <strong>Recherche</strong> ton sujet par diplôme, matière ou année</li>
-                  <li>📊 <strong>Compare</strong> les métadonnées (durée, difficulté, thèmes)</li>
-                  <li>📖 <strong>Accède</strong> au PDF du sujet + liens vers plusieurs corrections</li>
+                  <li>🔍 <strong>Recherche</strong> un exercice par thème, diplôme ou difficulté</li>
+                  <li>📊 <strong>Compare</strong> les métadonnées (durée, points, difficulté, thèmes)</li>
+                  <li>📖 <strong>Accède</strong> à l'énoncé de l'exercice + plusieurs corrections</li>
                 </ol>
                 <p className="mt-2 text-[11px] text-muted-foreground">
-                  💡 Tous les sujets sont enrichis automatiquement via OCR + IA
+                  💡 Tous les exercices sont enrichis automatiquement via OCR + IA
                 </p>
               </CardContent>
             </Card>
@@ -527,7 +432,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                   Résultats
                 </h2>
                 <span className="rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-primary">
-                  {filteredPapers.length} sujet{filteredPapers.length > 1 ? 's' : ''} trouvé{filteredPapers.length > 1 ? 's' : ''}
+                  {filteredExercises.length} exercice{filteredExercises.length > 1 ? 's' : ''} trouvé{filteredExercises.length > 1 ? 's' : ''}
                 </span>
               </div>
               
@@ -567,15 +472,15 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               <div className="flex min-h-[400px] items-center justify-center">
                 <div className="text-center">
                   <div className="mb-4 text-4xl">⏳</div>
-                  <p className="text-muted-foreground">Chargement des sujets...</p>
+                  <p className="text-muted-foreground">Chargement des exercices...</p>
                 </div>
               </div>
-            ) : filteredPapers.length === 0 ? (
+            ) : filteredExercises.length === 0 ? (
               <div className="flex min-h-[400px] items-center justify-center rounded-2xl border border-border bg-card">
                 <div className="text-center">
                   <div className="mb-4 text-5xl">🤷</div>
                   <p className="mb-2 text-lg font-medium">
-                    Aucun sujet trouvé
+                    Aucun exercice trouvé
                   </p>
                   <p className="text-sm text-muted-foreground">
                     Essaye de modifier tes filtres de recherche
@@ -584,21 +489,11 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </div>
             ) : (
               <div className="flex flex-col gap-4">
-                {filteredPapers.map((paper) => (
-                  <ExamPaperCard
-                    key={paper.id}
-                    id={paper.id}
-                    label={paper.label}
-                    sessionYear={paper.sessionYear}
-                    diploma={paper.diploma.longDescription}
-                    subject={paper.teaching.subject.shortDescription}
-                    subjectUrl={paper.subjectUrl || undefined}
-                    estimatedDuration={paper.estimatedDuration || undefined}
-                    estimatedDifficulty={paper.estimatedDifficulty || undefined}
-                    summary={paper.summary || undefined}
-                    themes={paper.themes.map(t => t.shortDescription)}
-                    corrections={paper.corrections}
-                    isFavorite={favorites.has(paper.id)}
+                {filteredExercises.map((exercise) => (
+                  <ExerciseCard
+                    key={exercise.id}
+                    exercise={exercise}
+                    isFavorite={favorites.has(exercise.id)}
                     onToggleFavorite={toggleFavorite}
                   />
                 ))}
@@ -607,8 +502,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           </section>
         )}
 
-        {/* SECTION : ANNALES POPULAIRES */}
-        {!showResults && (
+        {/* SECTION : EXERCICES POPULAIRES - TODO: À implémenter avec les vraies données */}
+        {false && !showResults && (
           <section className="space-y-3">
             <div className="flex items-center justify-between">
               <h2 className="text-base font-semibold">

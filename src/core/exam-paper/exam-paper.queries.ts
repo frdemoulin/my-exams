@@ -22,6 +22,9 @@ export type ExamPaperWithRelations = ExamPaper & {
         type: string;
         quality: number | null;
     }>;
+    _count?: {
+        exercises: number;
+    };
 };
 
 export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
@@ -45,6 +48,9 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
                     type: true,
                     quality: true,
                 }
+            },
+            _count: {
+                select: { exercises: true }
             }
         },
         orderBy: [

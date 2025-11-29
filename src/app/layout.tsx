@@ -30,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased text-slate-700 dark:text-slate-400 dark:bg-slate-900`} suppressHydrationWarning={true}>
+      <body className={`${inter.className} antialiased bg-background text-foreground`} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           {/* Récupère la session côté client après le chargement des pages */}
           <SessionProvider>

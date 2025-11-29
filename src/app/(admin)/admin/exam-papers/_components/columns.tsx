@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ArrowUp, ArrowDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -33,13 +33,20 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   {
     accessorKey: "label",
     header: ({ column }) => {
+      const isSorted = column.getIsSorted();
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Label
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       )
     },
@@ -47,13 +54,20 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   {
     accessorKey: "sessionYear",
     header: ({ column }) => {
+      const isSorted = column.getIsSorted();
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Année
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       )
     },
@@ -71,24 +85,57 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
     header: "Diplôme",
   },
   {
-    id: "examinationCenters",
-    header: "Centres d'examen",
+    id: "exercises",
+    accessorFn: (row) => row._count?.exercises ?? 0,
+    header: ({ column }) => {
+      const isSorted = column.getIsSorted();
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Exercices
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
+        </Button>
+      )
+    },
     cell: ({ row }) => {
-      const centerIds = row.original.examinationCenterIds || [];
-      if (centerIds.length === 0) return <div>-</div>;
-      return <div>{centerIds.length} centre(s)</div>;
+      const exerciseCount = row.original._count?.exercises ?? 0;
+      if (exerciseCount === 0) return <div className="text-muted-foreground text-center">-</div>;
+      return <div className="text-center">{exerciseCount}</div>;
+    },
+    filterFn: (row, id, value) => {
+      const exerciseCount = row.original._count?.exercises ?? 0;
+      // value peut être: "0" (sans exercices), "1+" (avec exercices), ou undefined (pas de filtre)
+      if (!value) return true;
+      if (value === "0") return exerciseCount === 0;
+      if (value === "1+") return exerciseCount > 0;
+      return true;
     },
   },
   {
     accessorKey: "updatedAt",
     header: ({ column }) => {
+      const isSorted = column.getIsSorted();
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Date de dernière modification
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       )
     },

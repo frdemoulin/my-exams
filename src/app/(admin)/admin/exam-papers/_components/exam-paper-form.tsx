@@ -93,6 +93,24 @@ export const ExamPaperForm = ({
         resolver: zodResolver(createExamPaperSchema)
     });
 
+    // Auto-generate label from examination centers
+    const handleExaminationCentersChange = (options: Option[]) => {
+        setSelectedExaminationCenters(options);
+        form.setValue('examinationCenterIds', options.map((opt) => opt.value));
+        
+        // Generate label from selected centers
+        if (options.length > 0) {
+            const centersLabel = options.map(opt => opt.label).join('-');
+            const currentDate = new Date();
+            const month = currentDate.toLocaleDateString('fr-FR', { month: 'long' });
+            const year = currentDate.getFullYear();
+            const label = `${centersLabel} ${month} ${year}`;
+            form.setValue('label', label);
+        } else {
+            form.setValue('label', '');
+        }
+    };
+
     const onSubmit = async (values: CreateExamPaperValues) => {
         const formData = new FormData();
 
@@ -126,6 +144,30 @@ export const ExamPaperForm = ({
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}
             >
+                <FormField
+                    name="examinationCenterIds"
+                    control={control}
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel required>Centres d'examen</FormLabel>
+                            <FormControl>
+                                <MultipleSelector
+                                    value={selectedExaminationCenters}
+                                    onChange={handleExaminationCentersChange}
+                                    options={examinationCenterOptions}
+                                    placeholder="Sélectionner des centres d'examen"
+                                    emptyIndicator={
+                                        <p className="text-center text-sm text-gray-500">
+                                            Aucun centre trouvé
+                                        </p>
+                                    }
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
                 <div className="grid grid-cols-2 gap-4">
                     <FormField
                         name="label"
@@ -136,8 +178,10 @@ export const ExamPaperForm = ({
                                 <FormControl>
                                     <Input
                                         type="text"
-                                        placeholder="Ex: Métropole Sujet 1"
+                                        placeholder="Généré automatiquement"
                                         required
+                                        readOnly
+                                        className="bg-muted"
                                         {...field}
                                     />
                                 </FormControl>
@@ -289,33 +333,6 @@ export const ExamPaperForm = ({
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-
-                <FormField
-                    name="examinationCenterIds"
-                    control={control}
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel required>Centres d'examen</FormLabel>
-                            <FormControl>
-                                <MultipleSelector
-                                    value={selectedExaminationCenters}
-                                    onChange={(options) => {
-                                        setSelectedExaminationCenters(options);
-                                        field.onChange(options.map((opt) => opt.value));
-                                    }}
-                                    options={examinationCenterOptions}
-                                    placeholder="Sélectionner des centres d'examen"
-                                    emptyIndicator={
-                                        <p className="text-center text-sm text-gray-500">
-                                            Aucun centre trouvé
-                                        </p>
-                                    }
-                                />
-                            </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}

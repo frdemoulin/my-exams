@@ -12,15 +12,17 @@ export async function generateMetadata(): Promise<Metadata> {
     return { title: t('actions.edit') };
 }
 
-const EditExamPaperPage = async ({ params }: { params: { id: string } }) => {
+const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+    const { id } = await params;
+    
     const session = await getSession();
     const user = session?.user;
 
     if (!user) {
-        redirect(`/api/auth/signin?callbackUrl=/admin/exam-papers/${params.id}/edit`);
+        redirect(`/api/auth/signin?callbackUrl=/admin/exam-papers/${id}/edit`);
     }
 
-    const examPaper = await fetchExamPaperById(params.id);
+    const examPaper = await fetchExamPaperById(id);
 
     if (!examPaper) {
         redirect("/admin/exam-papers");
@@ -41,7 +43,7 @@ const EditExamPaperPage = async ({ params }: { params: { id: string } }) => {
     return (
         <div className="w-full p-6">
             <div>
-                <h1 className="my-4 text-2xl font-bold text-blue-700">{t('actions.edit')}</h1>
+                <h1 className="text-lg font-semibold md:text-2xl mb-6">{t('actions.edit')}</h1>
             </div>
             <div>
                 <ExamPaperForm

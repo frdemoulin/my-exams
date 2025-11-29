@@ -14,6 +14,21 @@ import {
 
 export function ThemeToggle() {
   const { setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  // Évite les erreurs d'hydratation en n'affichant le composant qu'après le montage
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <Button variant="outline" size="icon" disabled>
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
+        <span className="sr-only">Changer le thème</span>
+      </Button>
+    );
+  }
 
   return (
     <DropdownMenu>

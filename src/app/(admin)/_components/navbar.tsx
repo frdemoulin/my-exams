@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
-import { LocaleSwitcher } from "@/components/shared/locale-switcher";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 
 export const Navbar = () => {
     // on récupère les infos de l'utilisateur connecté
@@ -19,7 +19,7 @@ export const Navbar = () => {
 
     return (
         <div className="fixed text-sm z-50 top-0 px-4 h-14 w-full shadow-sm border-b flex bg-white dark:bg-background justify-between items-center navbar-text">
-            <Link className="font-bold text-primary uppercase text-xl" href="/dashboard">
+            <Link className="font-bold text-primary uppercase text-xl" href="/">
                 My exams
             </Link>
             {/* Logged user infos */}
@@ -36,7 +36,7 @@ export const Navbar = () => {
 
             {user && (
                 <div className="flex items-center gap-2">
-                    <LocaleSwitcher />
+                    <ThemeToggle />
                     <UserButton user={user} />
                 </div>
             )}

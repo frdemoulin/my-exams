@@ -72,7 +72,7 @@ export async function seedExamPapers(prisma: PrismaClient) {
 
   // Centres d'examen
   const metropole = await prisma.examinationCenter.findFirst({
-    where: { description: 'France métropolitaine' }
+    where: { description: 'Métropole' }
   });
   
   const antilles = await prisma.examinationCenter.findFirst({
@@ -104,10 +104,14 @@ export async function seedExamPapers(prisma: PrismaClient) {
 
   const examPapers = [
     // ==================== BAC GÉNÉRAL - MATHS TERMINALE ====================
-    // Métropole 2024
+    // Session 2024
     {
-      label: 'Métropole - Juin 2024',
+      label: 'France métropolitaine juin 2024 Jour 1',
       sessionYear: 2024,
+      sessionDay: 'Jour 1',
+      examDay: 19,
+      examMonth: 6,
+      examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale.id,
       gradeId: terminale.id,
@@ -116,18 +120,46 @@ export async function seedExamPapers(prisma: PrismaClient) {
       examinationCenterIds: [metropole.id],
       chapterIds: [],
       themeIds: [themeSuites?.id, themeProbas?.id, themeFonctions?.id].filter((id): id is string => Boolean(id)),
-      subjectUrl: 'https://www.apmep.fr/IMG/pdf/Bac_Specialite_Juin_2024.pdf',
+      subjectUrl: 'https://www.sujetdebac.fr/annales/spe-mathematiques-2024-metropole-1',
       estimatedDuration: 240,
+      totalDuration: 240,
+      totalPoints: 20,
       estimatedDifficulty: 4,
-      summary: 'Sujet portant sur les fonctions, les probabilités conditionnelles et les suites numériques. Exercice 1 : étude de fonction avec logarithme. Exercice 2 : probabilités et loi binomiale. Exercice 3 : suites et algorithmes.',
+      summary: 'Sujet portant sur les fonctions, les probabilités conditionnelles et les suites numériques. Exercice 1 : Vrai/Faux. Exercice 2 : probabilités conditionnelles. Exercice 3 : géométrie dans l\'espace. Exercice 4 : analyse avec fonction ln(x).',
       enrichmentStatus: 'completed',
       enrichedAt: new Date('2024-06-15'),
     },
     
-    // Antilles-Guyane 2024
     {
-      label: 'Antilles-Guyane - Juin 2024',
+      label: 'France métropolitaine juin 2024 Jour 2',
       sessionYear: 2024,
+      sessionDay: 'Jour 2',
+      examDay: 20,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale.id,
+      gradeId: terminale.id,
+      teachingId: speMaths.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [themeSuites?.id, themeProbas?.id, themeFonctions?.id].filter((id): id is string => Boolean(id)),
+      subjectUrl: 'https://www.sujetdebac.fr/annales/spe-mathematiques-2024-metropole-2',
+      estimatedDuration: 240,
+      totalDuration: 240,
+      totalPoints: 20,
+      estimatedDifficulty: 4,
+      summary: 'Sujet du jour 2 portant sur les fonctions, les probabilités et la géométrie.',
+      enrichmentStatus: 'pending',
+    },
+    
+    {
+      label: 'Antilles-Guyane juin 2024',
+      sessionYear: 2024,
+      examDay: 18,
+      examMonth: 6,
+      examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale.id,
       gradeId: terminale.id,
@@ -144,10 +176,11 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-16'),
     },
 
-    // Polynésie 2024
     {
-      label: 'Polynésie - Juin 2024',
+      label: 'Polynésie juin 2024',
       sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale.id,
       gradeId: terminale.id,
@@ -164,10 +197,11 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-17'),
     },
 
-    // Amérique du Nord 2024
     {
-      label: 'Amérique du Nord - Mai 2024',
+      label: 'Amérique du Nord mai 2024',
       sessionYear: 2024,
+      examMonth: 5,
+      examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale.id,
       gradeId: terminale.id,
@@ -184,10 +218,13 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-05-28'),
     },
 
-    // Métropole 2023
+    // Session 2023
     {
-      label: 'Métropole - Juin 2023',
+      label: 'France métropolitaine juin 2023',
       sessionYear: 2023,
+      examDay: 20,
+      examMonth: 6,
+      examYear: 2023,
       diplomaId: bac.id,
       divisionId: generale?.id,
       gradeId: terminale.id,
@@ -204,10 +241,32 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2023-06-20'),
     },
 
-    // Métropole 2022
     {
-      label: 'Métropole - Juin 2022',
+      label: 'Amérique du Nord mai 2023',
+      sessionYear: 2023,
+      examMonth: 5,
+      examYear: 2023,
+      diplomaId: bac.id,
+      divisionId: generale?.id,
+      gradeId: terminale.id,
+      teachingId: speMaths.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: ameriqueDuNord ? [ameriqueDuNord.id] : [],
+      chapterIds: [],
+      themeIds: [themeFonctions?.id, themeProbas?.id].filter((id): id is string => Boolean(id)),
+      estimatedDuration: 240,
+      estimatedDifficulty: 3,
+      enrichmentStatus: 'completed',
+      enrichedAt: new Date('2023-05-20'),
+    },
+
+    // Session 2022
+    {
+      label: 'France métropolitaine juin 2022',
       sessionYear: 2022,
+      examDay: 14,
+      examMonth: 6,
+      examYear: 2022,
       diplomaId: bac.id,
       divisionId: generale?.id,
       gradeId: terminale.id,
@@ -224,10 +283,33 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2022-06-18'),
     },
 
+    {
+      label: 'Amérique du Nord mai 2022',
+      sessionYear: 2022,
+      examMonth: 5,
+      examYear: 2022,
+      diplomaId: bac.id,
+      divisionId: generale?.id,
+      gradeId: terminale.id,
+      teachingId: speMaths.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: ameriqueDuNord ? [ameriqueDuNord.id] : [],
+      chapterIds: [],
+      themeIds: [themeFonctions?.id, themeSuites?.id].filter((id): id is string => Boolean(id)),
+      estimatedDuration: 240,
+      estimatedDifficulty: 3,
+      enrichmentStatus: 'completed',
+      enrichedAt: new Date('2022-05-15'),
+    },
+
     // ==================== BAC GÉNÉRAL - PHYSIQUE-CHIMIE TERMINALE ====================
     ...(spePhysique ? [{
-      label: 'Métropole - Juin 2024',
+      label: 'France métropolitaine juin 2024 Jour 1',
       sessionYear: 2024,
+      sessionDay: 'Jour 1',
+      examDay: 19,
+      examMonth: 6,
+      examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale?.id,
       gradeId: terminale.id,
@@ -236,16 +318,45 @@ export async function seedExamPapers(prisma: PrismaClient) {
       examinationCenterIds: [metropole.id],
       chapterIds: [],
       themeIds: [],
-      subjectUrl: 'https://labolycee.org/2024-metropole-sujet.pdf',
+      subjectUrl: 'https://www.labolycee.org/bac-2024-metropole-jour-1',
+      totalDuration: 210,
+      totalPoints: 20,
       estimatedDuration: 210,
       estimatedDifficulty: 4,
-      summary: 'Sujet abordant la mécanique, les ondes et l\'énergie. Exercice 1 : chute libre et frottements. Exercice 2 : interférences lumineuses. Exercice 3 : pile à combustible.',
+      summary: '3 exercices : Vers le bleu de thymol (9 pts), Observation d\'un avion en vol (5 pts), Accéléromètre d\'un mobile (6 pts)',
       enrichmentStatus: 'completed',
       enrichedAt: new Date('2024-06-15'),
     },
     {
-      label: 'Antilles - Juin 2024',
+      label: 'France métropolitaine juin 2024 Jour 2',
       sessionYear: 2024,
+      sessionDay: 'Jour 2',
+      examDay: 20,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale?.id,
+      gradeId: terminale.id,
+      teachingId: spePhysique.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      subjectUrl: 'https://www.labolycee.org/bac-2024-metropole-jour-2',
+      totalDuration: 210,
+      totalPoints: 20,
+      estimatedDuration: 210,
+      estimatedDifficulty: 4,
+      summary: '3 exercices : Autour du basket-ball (11 pts), Un champignon parfumé (4 pts), Batterie Lithium-Soufre (5 pts)',
+      enrichmentStatus: 'completed',
+      enrichedAt: new Date('2024-06-20'),
+    },
+    {
+      label: 'Antilles-Guyane juin 2024',
+      sessionYear: 2024,
+      examDay: 19,
+      examMonth: 6,
+      examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale?.id,
       gradeId: terminale.id,
@@ -262,8 +373,11 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-16'),
     },
     {
-      label: 'Métropole - Juin 2023',
+      label: 'France métropolitaine juin 2023',
       sessionYear: 2023,
+      examDay: 21,
+      examMonth: 6,
+      examYear: 2023,
       diplomaId: bac.id,
       divisionId: generale?.id,
       gradeId: terminale.id,
@@ -278,12 +392,33 @@ export async function seedExamPapers(prisma: PrismaClient) {
       summary: 'Sujet 2023 avec des exercices sur la mécanique newtonienne, les circuits RC et la radioactivité. Bon équilibre théorie/pratique.',
       enrichmentStatus: 'completed',
       enrichedAt: new Date('2023-06-20'),
+    },
+    {
+      label: 'France métropolitaine juin 2022',
+      sessionYear: 2022,
+      examDay: 15,
+      examMonth: 6,
+      examYear: 2022,
+      diplomaId: bac.id,
+      divisionId: generale?.id,
+      gradeId: terminale.id,
+      teachingId: spePhysique.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      estimatedDuration: 210,
+      estimatedDifficulty: 3,
+      enrichmentStatus: 'completed',
+      enrichedAt: new Date('2022-06-18'),
     }] : []),
 
     // ==================== BAC GÉNÉRAL - MATHS PREMIÈRE ====================
     ...(mathsPremiere && reformeBac2021Premiere && premiere ? [{
-      label: 'Métropole - Juin 2024',
+      label: 'France métropolitaine juin 2024',
       sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale?.id,
       gradeId: premiere.id,
@@ -300,8 +435,10 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-15'),
     },
     {
-      label: 'Métropole - Juin 2023',
+      label: 'France métropolitaine juin 2023',
       sessionYear: 2023,
+      examMonth: 6,
+      examYear: 2023,
       diplomaId: bac.id,
       divisionId: generale?.id,
       gradeId: premiere.id,

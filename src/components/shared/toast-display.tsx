@@ -14,15 +14,44 @@ export function ToastDisplay() {
         const response = await fetch("/api/toast");
         if (response.ok) {
           const data = await response.json();
-          if (data.message) {
-            if (data.type === "success") {
-              toast.success(data.message);
-            } else if (data.type === "error") {
-              toast.error(data.message);
-            } else {
-              toast(data.message);
+            if (data.message) {
+              const common = {
+                style: {
+                  borderRadius: "8px",
+                  padding: "12px 16px",
+                },
+                className: "text-sm",
+              } as const;
+
+              if (data.type === "success") {
+                toast.success(data.message, {
+                  ...common,
+                  style: {
+                    ...common.style,
+                    background: "#10b981", // green-500 Flowbite
+                    color: "#ffffff",
+                  },
+                });
+              } else if (data.type === "error") {
+                toast.error(data.message, {
+                  ...common,
+                  style: {
+                    ...common.style,
+                    background: "#dc2626", // red-600 Flowbite
+                    color: "#ffffff",
+                  },
+                });
+              } else {
+                toast(data.message, {
+                  ...common,
+                  style: {
+                    ...common.style,
+                    background: "#3b82f6", // blue-500 Flowbite
+                    color: "#ffffff",
+                  },
+                });
+              }
             }
-          }
         }
       } catch (error) {
         console.error("Error checking toast:", error);

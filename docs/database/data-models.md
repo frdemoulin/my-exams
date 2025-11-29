@@ -142,46 +142,109 @@
 **Relations :**
 - chapter : relation Many-to-One avec Chapter
 
-## Modèle ExamPaper (`ExamPaper`) : sujets d'annales
+## Modèle ExamPaper (`ExamPaper`) : sujets d'annales (conteneur)
+
+**Note** : Ce modèle sert de conteneur pour les exercices. L'unité de recherche principale est maintenant l'`Exercise`.
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |label|VARCHAR(255)|NOT NULL|Le libellé du sujet (ex: "Métropole Sujet 1")|
 |sessionYear|INT|NOT NULL|L'année de la session (ex: 2024)|
+|sessionMonth|VARCHAR(50)|NULLABLE|Le mois de la session (ex: "juin", "septembre")|
 |diplomaId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du diplôme|
-|divisionId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la filière|
+|divisionId|ObjectID|NULLABLE, FOREIGN KEY|L'identifiant de la filière (optionnel pour Brevet)|
 |gradeId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du niveau scolaire|
 |teachingId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de l'enseignement|
-|curriculumId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du programme scolaire|
+|curriculumId|ObjectID|NULLABLE, FOREIGN KEY|L'identifiant du programme scolaire (optionnel pour Brevet)|
 |examinationCenterIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des centres d'examen|
-|chapterIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des chapitres ciblés|
-|themeIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des thèmes ciblés|
-|subjectUrl|VARCHAR(500)|NULLABLE|L'URL du PDF du sujet|
-|correctionUrl|VARCHAR(500)|NULLABLE, DEPRECATED|L'URL du PDF du corrigé (déprécié, utiliser Correction)|
-|estimatedDuration|INT|NULLABLE|La durée estimée en minutes (enrichissement IA)|
+|subjectUrl|VARCHAR(500)|NULLABLE|L'URL du PDF du sujet complet|
+|totalDuration|INT|NULLABLE|La durée totale en minutes|
+|totalPoints|INT|NULLABLE|Le total de points du sujet|
+|chapterIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds|
+|themeIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds|
+|correctionUrl|VARCHAR(500)|NULLABLE, DEPRECATED|Déprécié : utiliser Correction ou ExerciseCorrection|
+|estimatedDuration|INT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.estimatedDuration|
+|estimatedDifficulty|INT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.estimatedDifficulty|
+|summary|TEXT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.summary|
+|enrichmentStatus|VARCHAR(20)|DEFAULT "pending", DEPRECATED|Déprécié : utiliser Exercise.enrichmentStatus|
+|enrichedAt|TIMESTAMP|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.enrichedAt|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (label, sessionYear, teachingId)
+
+**Relations :**
+- diploma : relation Many-to-One avec Diploma
+- division : relation Many-to-One avec Division (optionnel)
+- grade : relation Many-to-One avec Grade
+- teaching : relation Many-to-One avec Teaching
+- curriculum : relation Many-to-One avec Curriculum (optionnel)
+- exercises : relation One-to-Many avec Exercise
+- corrections : relation One-to-Many avec Correction
+
+## Modèle Exercise (`Exercise`) : exercices d'annales ⭐
+
+**Note** : L'exercice est l'unité principale de recherche. Chaque exercice conserve la traçabilité de son sujet parent.
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|examPaperId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du sujet parent|
+|exerciseNumber|INT|NOT NULL|Le numéro de l'exercice dans le sujet (1, 2, 3...)|
+|label|VARCHAR(255)|NULLABLE|Le libellé de l'exercice (ex: "Exercice 3", "Partie A")|
+|points|INT|NULLABLE|Les points attribués à cet exercice|
+|title|VARCHAR(255)|NULLABLE|Le titre de l'exercice (ex: "Titrage acide-base d'un vinaigre")|
+|statement|TEXT|NULLABLE|L'énoncé complet de l'exercice (extrait via OCR)|
+|themeIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des thèmes couverts dans cet exercice|
+|exerciseUrl|VARCHAR(500)|NULLABLE|L'URL du PDF de l'exercice isolé|
+|correctionUrl|VARCHAR(500)|NULLABLE|L'URL de la correction isolée|
+|estimatedDuration|INT|NULLABLE|La durée estimée en minutes pour cet exercice (enrichissement IA)|
 |estimatedDifficulty|INT|NULLABLE|La difficulté estimée 1-5 (enrichissement IA)|
-|summary|TEXT|NULLABLE|Le résumé automatique du sujet (enrichissement IA)|
+|summary|TEXT|NULLABLE|Le résumé automatique de l'exercice (enrichissement IA)|
+|keywords|Array(VARCHAR)|NOT NULL, DEFAULT []|Les mots-clés extraits automatiquement|
 |enrichmentStatus|VARCHAR(20)|NOT NULL, DEFAULT "pending"|Le statut d'enrichissement ("pending", "completed", "failed")|
 |enrichedAt|TIMESTAMP|NULLABLE|La date d'enrichissement automatique|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
-**Relations :**
-- diploma : relation Many-to-One avec Diploma
-- division : relation Many-to-One avec Division
-- grade : relation Many-to-One avec Grade
-- teaching : relation Many-to-One avec Teaching
-- curriculum : relation Many-to-One avec Curriculum
-- corrections : relation One-to-Many avec Correction
+**Contraintes :**
+- UNIQUE (examPaperId, exerciseNumber)
 
-## Modèle Correction (`Correction`) : corrections externes
+**Relations :**
+- examPaper : relation Many-to-One avec ExamPaper (onDelete: Cascade)
+- corrections : relation One-to-Many avec ExerciseCorrection
+
+## Modèle ExerciseCorrection (`ExerciseCorrection`) : corrections d'exercices
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|exerciseId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de l'exercice|
+|source|VARCHAR(255)|NOT NULL|La source de la correction (ex: "APMEP", "YouTube - Prof Dupont")|
+|url|VARCHAR(500)|NOT NULL|L'URL de la correction|
+|type|VARCHAR(20)|NOT NULL, DEFAULT "pdf"|Le type de correction ("pdf", "video", "html")|
+|quality|INT|NULLABLE|La note de qualité 1-5|
+|author|VARCHAR(255)|NULLABLE|L'auteur de la correction si connu|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (exerciseId, source, url)
+
+**Relations :**
+- exercise : relation Many-to-One avec Exercise (onDelete: Cascade)
+
+## Modèle Correction (`Correction`) : corrections globales de sujets
+
+**Note** : Pour les corrections d'exercices spécifiques, utiliser `ExerciseCorrection`.
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |examPaperId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du sujet d'examen|
-|source|VARCHAR(255)|NOT NULL|La source de la correction (ex: "APMEP", "LaboLycée")|
+|source|VARCHAR(255)|NOT NULL|La source de la correction (ex: "APMEP", "LaboLycée", "Académie")|
 |url|VARCHAR(500)|NOT NULL|L'URL de la correction|
 |type|VARCHAR(20)|NOT NULL, DEFAULT "pdf"|Le type de correction ("pdf", "video", "html")|
 |quality|INT|NULLABLE|La note de qualité 1-5|
@@ -285,7 +348,45 @@
 
 ---
 
-// BACKUP CI-DESSOUS
+## Architecture Exercise-Centric
+
+### Vue d'ensemble
+
+L'application utilise maintenant une architecture **centrée sur les exercices** :
+
+- **ExamPaper** : Conteneur administratif (métadonnées du sujet complet)
+- **Exercise** : Unité de recherche principale (exercice individuel avec métadonnées enrichies)
+- **ExerciseCorrection** : Corrections spécifiques à un exercice
+- **Correction** : Corrections globales d'un sujet complet (optionnel)
+
+### Hiérarchie de recherche
+
+```
+Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
+                              ↓
+                         ExamPaper (conteneur)
+                              ↓
+                         Exercise (unité de recherche)
+                              ↓
+                    ExerciseCorrection (corrections)
+```
+
+### Exemple de traçabilité
+
+Un élève cherche "titrage acide-base" et trouve :
+```
+Exercice : "Titrage acide-base d'un vinaigre"
+Traçabilité : Métropole juin 2024 - Exercice 3 (6 pts)
+Hiérarchie : Bac Général › Physique-Chimie › Terminale › Spé PC
+Thèmes : Titrage, Acide-base, Dosage
+Métadonnées : ~25 min, Difficulté 3/5
+```
+
+Pour plus de détails, voir [`exercise-centric-refactoring.md`](./exercise-centric-refactoring.md).
+
+---
+
+// BACKUP CI-DESSOUS (anciens modèles à supprimer)
 
 ### Entité FaqEntry (`faq_entry`) : entrée de la FAQ
 

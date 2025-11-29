@@ -35,7 +35,7 @@ const TeachingPage = async ({ params }: TeachingPageProps) => {
     return (
         <div className="w-full p-6">
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-semibold">Détails de l'enseignement</h1>
+                <h1 className="text-lg font-semibold md:text-2xl">Détails de l'enseignement</h1>
                 <div className="space-x-2">
                     <Button asChild variant="outline">
                         <Link href="/admin/teachings">Retour</Link>

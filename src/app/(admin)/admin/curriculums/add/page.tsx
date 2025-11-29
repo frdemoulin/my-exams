@@ -21,7 +21,7 @@ const AddCurriculumPage = async () => {
 
     return (
         <div className="w-full p-6">
-            <h1 className="text-2xl font-semibold mb-6">Ajouter un programme</h1>
+            <h1 className="text-lg font-semibold md:text-2xl mb-6">Ajouter un programme</h1>
             <CurriculumForm
                 crudMode="add"
                 initialData={{}}

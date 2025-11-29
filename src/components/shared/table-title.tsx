@@ -17,7 +17,7 @@ export function TableTitle({
             <h1 className="text-2xl font-bold text-primary">{title}</h1>
             <Button
                 asChild
-                variant="add"
+                variant="success"
             >
                 <Link
                     href={buttonPath}
