@@ -9,6 +9,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
   Card,
   CardHeader,
   CardTitle,
@@ -338,62 +345,75 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 )}
               </div>
 
-              {/* DIPLÔME */}
-              <div className="space-y-2">
-                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  Diplôme
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {diplomas.map((diploma) => (
-                    <Badge
-                      key={diploma.value}
-                      variant={selectedDiploma === diploma.value ? 'default' : 'outline'}
-                      className="cursor-pointer rounded-full px-3 py-1 text-xs"
-                      onClick={() => setSelectedDiploma(selectedDiploma === diploma.value ? undefined : diploma.value)}
-                    >
-                      {diploma.label}
-                    </Badge>
-                  ))}
+              {/* FILTRES EN LIGNE */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {/* DIPLÔME */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    🎓 Diplôme
+                  </label>
+                  <Select
+                    value={selectedDiploma || 'all'}
+                    onValueChange={(value) => setSelectedDiploma(value === 'all' ? undefined : value)}
+                  >
+                    <SelectTrigger className="h-9 text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Tous</SelectItem>
+                      {diplomas.map((diploma) => (
+                        <SelectItem key={diploma.value} value={diploma.value}>
+                          {diploma.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
-              </div>
 
-              {/* MATIÈRE */}
-              <div className="space-y-2">
-                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  Matière
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {subjects.map((subject) => (
-                    <Badge
-                      key={subject.value}
-                      variant={selectedSubject === subject.value ? 'default' : 'outline'}
-                      className="cursor-pointer rounded-full px-3 py-1 text-xs"
-                      onClick={() => setSelectedSubject(selectedSubject === subject.value ? undefined : subject.value)}
-                    >
-                      <span className="mr-1">{subject.emoji}</span>
-                      {subject.label}
-                    </Badge>
-                  ))}
+                {/* MATIÈRE */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    📖 Matière
+                  </label>
+                  <Select
+                    value={selectedSubject || 'all'}
+                    onValueChange={(value) => setSelectedSubject(value === 'all' ? undefined : value)}
+                  >
+                    <SelectTrigger className="h-9 text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Toutes</SelectItem>
+                      {subjects.map((subject) => (
+                        <SelectItem key={subject.value} value={subject.value}>
+                          {subject.emoji} {subject.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
-              </div>
 
-              {/* DIFFICULTÉ */}
-              <div className="space-y-2">
-                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  Difficulté
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {difficulties.map((difficulty) => (
-                    <Badge
-                      key={difficulty.value}
-                      variant={selectedDifficulty === difficulty.value ? 'default' : 'outline'}
-                      className="cursor-pointer rounded-full px-3 py-1 text-xs"
-                      onClick={() => setSelectedDifficulty(selectedDifficulty === difficulty.value ? undefined : difficulty.value)}
-                    >
-                      <span className="mr-1">{difficulty.emoji}</span>
-                      {difficulty.label}
-                    </Badge>
-                  ))}
+                {/* DIFFICULTÉ */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    ⚡ Difficulté
+                  </label>
+                  <Select
+                    value={selectedDifficulty?.toString() || 'all'}
+                    onValueChange={(value) => setSelectedDifficulty(value === 'all' ? undefined : Number(value))}
+                  >
+                    <SelectTrigger className="h-9 text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Toutes</SelectItem>
+                      {difficulties.map((difficulty) => (
+                        <SelectItem key={difficulty.value} value={difficulty.value.toString()}>
+                          {difficulty.emoji} {difficulty.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
             </div>
