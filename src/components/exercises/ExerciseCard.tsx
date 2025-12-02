@@ -61,7 +61,10 @@ export function ExerciseCard({
     sessionYear,
     diploma,
     teaching,
+    subjectUrl,
   } = examPaper;
+
+  const correctionUrl = exercise.correctionUrl || exercise.corrections[0]?.url || null;
 
   // Construction du titre d'affichage
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
@@ -152,20 +155,34 @@ export function ExerciseCard({
           </p>
         )}
 
-        {/* Actions */}
-        <div className="flex items-center gap-2 pt-2">
-          <Button asChild size="sm" className="flex-1">
-            <Link href={`/exercises/${id}`}>
-              Voir l'exercice
-              <ExternalLink className="ml-2 h-3 w-3" />
-            </Link>
-          </Button>
-
+        {/* Actions : liens vers sujet / corrigé */}
+        <div className="flex items-center gap-3 pt-2 text-sm">
+          {subjectUrl && (
+            <a
+              href={subjectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-blue-600 hover:underline dark:text-blue-400"
+            >
+              Voir le sujet
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          )}
+          {correctionUrl && (
+            <a
+              href={correctionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-blue-600 hover:underline dark:text-blue-400"
+            >
+              Corrigé
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          )}
           {/* Nombre de corrections disponibles */}
-          {exercise.corrections.length > 0 && (
+          {exercise.corrections.length > 1 && (
             <Badge variant="outline" className="text-xs">
-              {exercise.corrections.length} correction
-              {exercise.corrections.length > 1 ? 's' : ''}
+              {exercise.corrections.length} corrections
             </Badge>
           )}
         </div>

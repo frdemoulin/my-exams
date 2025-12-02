@@ -35,6 +35,25 @@
   - `completed` : enrichi (OK).  
   - `failed` : échec (erreur OCR/LLM). Remettre en `pending` ou supprimer/recréer pour retraiter.
 
+## Remettre les exercices d’un sujet en `pending`
+```bash
+EXAM_PAPER_ID=<id_du_sujet> \
+npx ts-node -e "
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+(async () => {
+  const examPaperId = process.env.EXAM_PAPER_ID!;
+  const res = await prisma.exercise.updateMany({
+    where: { examPaperId },
+    data: { enrichmentStatus: 'pending', enrichedAt: null }
+  });
+  console.log(`✓ ${res.count} exercice(s) repassés en pending pour ${examPaperId}`);
+  await prisma.$disconnect();
+})().catch(async (e) => { console.error(e); await prisma.$disconnect(); process.exit(1); });
+"
+```
+Ensuite, relancer le batch d’enrichissement (mock ou LLM réel).
+
 ## 3) Vérifications
 - Dans l’admin : exercices créés sous le sujet, statut `completed`, statements/keywords/titres remplis.
 - Si un enrichissement échoue : le statut passe à `failed` ; relancer après correction.

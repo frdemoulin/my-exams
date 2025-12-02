@@ -519,12 +519,12 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </CardHeader>
               <CardContent className="space-y-2">
                 <ol className="list-inside list-decimal space-y-1.5 text-xs">
-                  <li>🔍 <strong>Recherche</strong> un exercice par thème, diplôme ou difficulté</li>
-                  <li>📊 <strong>Compare</strong> les métadonnées (durée, points, difficulté, thèmes)</li>
+                  <li>🔍 <strong>Recherche</strong> un exercice par diplôme, thème ou difficulté</li>
+                  <li>📊 <strong>Trie</strong> par année, durée ou difficulté</li>
                   <li>📖 <strong>Accède</strong> à l'énoncé de l'exercice + plusieurs corrections</li>
                 </ol>
                 <p className="mt-2 text-[11px] text-muted-foreground">
-                  💡 Tous les exercices sont enrichis automatiquement via OCR + IA
+                  💡 Tous les exercices sont enrichis automatiquement avec l'IA
                 </p>
               </CardContent>
             </Card>
