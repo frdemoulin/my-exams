@@ -28,6 +28,7 @@ export interface ExerciseWithRelations {
     label: string;
     sessionYear: number;
     subjectUrl: string | null;
+    correctionUrl: string | null;
     diploma: {
       id: string;
       longDescription: string;

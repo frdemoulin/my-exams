@@ -25,9 +25,9 @@ const badgeVariants = cva(
         points:
           "border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700",
         duration:
-          "border-transparent bg-blue-600 text-white shadow hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800",
-        difficulty:
           "border-transparent bg-purple-600 text-white shadow hover:bg-purple-700 dark:bg-purple-700 dark:hover:bg-purple-800",
+        difficulty:
+          "border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700",
       },
     },
     defaultVariants: {

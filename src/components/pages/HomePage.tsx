@@ -43,7 +43,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   const [loading, setLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [sortBy, setSortBy] = useState<'year' | 'difficulty' | 'duration'>('year');
+  const [sortBy, setSortBy] = useState<'year' | 'difficulty' | 'duration' | undefined>('year');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc'); // desc par défaut (plus récent/difficile/long en premier)
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [page, setPage] = useState(1);
@@ -89,8 +89,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     if (selectedDiploma) params.append('diploma', selectedDiploma);
     if (selectedSubject) params.append('subject', selectedSubject);
     if (selectedDifficulty) params.append('difficulty', selectedDifficulty.toString());
-    params.append('sortBy', sortBy);
-    params.append('sortOrder', sortOrder);
+    if (sortBy) {
+      params.append('sortBy', sortBy);
+      params.append('sortOrder', sortOrder);
+    }
     params.append('page', page.toString());
     params.append('pageSize', pageSize.toString());
     
@@ -188,12 +190,15 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
 
   const handleSortChange = (newSortBy: 'year' | 'difficulty' | 'duration') => {
     if (sortBy === newSortBy) {
-      // Toggle l'ordre si on clique sur le même critère
-      setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc');
+      // Cycle : desc -> asc -> off
+      if (sortOrder === 'desc') {
+        setSortOrder('asc');
+      } else {
+        setSortBy(undefined);
+      }
     } else {
-      // Nouveau critère : ordre par défaut selon le type
       setSortBy(newSortBy);
-      setSortOrder('desc'); // desc par défaut pour tous
+      setSortOrder('desc');
     }
   };
 
@@ -551,26 +556,38 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 <span className="text-xs text-muted-foreground">Trier par :</span>
                 <div className="flex gap-1">
                   <Button
-                    variant={sortBy === 'year' ? 'default' : 'outline'}
+                    variant="outline"
                     size="sm"
                     onClick={() => handleSortChange('year')}
-                    className="h-auto rounded-lg px-3 py-1.5 text-xs"
+                    className={`h-auto rounded-lg px-3 py-1.5 text-xs ${
+                      sortBy === 'year'
+                        ? 'border-transparent bg-gray-100 text-gray-800 shadow hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+                        : 'border-gray-200 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800/60'
+                    }`}
                   >
                     Année {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
                   </Button>
                   <Button
-                    variant={sortBy === 'difficulty' ? 'default' : 'outline'}
+                    variant="outline"
                     size="sm"
                     onClick={() => handleSortChange('difficulty')}
-                    className="h-auto rounded-lg px-3 py-1.5 text-xs"
+                    className={`h-auto rounded-lg px-3 py-1.5 text-xs ${
+                      sortBy === 'difficulty'
+                        ? 'border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700'
+                        : 'border-amber-200 text-amber-700 hover:bg-amber-50 dark:border-amber-500/60 dark:text-amber-100 dark:hover:bg-amber-900/40'
+                    }`}
                   >
                     Difficulté {sortBy === 'difficulty' && (sortOrder === 'desc' ? '↓' : '↑')}
                   </Button>
                   <Button
-                    variant={sortBy === 'duration' ? 'default' : 'outline'}
+                    variant="outline"
                     size="sm"
                     onClick={() => handleSortChange('duration')}
-                    className="h-auto rounded-lg px-3 py-1.5 text-xs"
+                    className={`h-auto rounded-lg px-3 py-1.5 text-xs ${
+                      sortBy === 'duration'
+                        ? 'border-transparent bg-purple-600 text-white shadow hover:bg-purple-700 dark:bg-purple-700 dark:hover:bg-purple-800'
+                        : 'border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-500/60 dark:text-purple-100 dark:hover:bg-purple-900/40'
+                    }`}
                   >
                     Durée {sortBy === 'duration' && (sortOrder === 'desc' ? '↓' : '↑')}
                   </Button>
