@@ -133,10 +133,10 @@ export default function ExerciseDetailPage() {
     examPaper,
   } = exercise;
 
-  const { label: paperLabel, sessionYear, sessionMonth, diploma, teaching } = examPaper;
+  const { label: paperLabel, sessionYear, diploma, teaching } = examPaper;
 
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
-  const traceability = `${paperLabel} ${sessionMonth ? sessionMonth + ' ' : ''}${sessionYear}`;
+  const traceability = `${paperLabel} ${sessionYear}`;
 
   return (
     <div className="min-h-screen bg-background">

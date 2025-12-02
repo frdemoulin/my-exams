@@ -94,7 +94,7 @@
   --input-bg: var(--color-fb-gray-50);
   --card-bg: #ffffff;
   --border-default: var(--color-fb-gray-200);
-  --hover-bg: var(--color-fb-gray-50);
+  --hover-bg: var(--color-fb-gray-100);
 }
 
 body {
@@ -131,10 +131,6 @@ select[data-native] {
   border-color: var(--border-default);
 }
 
-.card-flowbite:hover {
-  background-color: var(--hover-bg);
-}
-
 /* Override Tailwind border colors with Flowbite defaults */
 .border-gray-200,
 .border-gray-300 {
@@ -157,7 +153,7 @@ select[data-native] {
   --input-bg: #374151; /* gray-700 */
   --card-bg: #1f2937; /* gray-800 */
   --border-default: #374151; /* gray-700 Flowbite dark */
-  --hover-bg: #374151; /* gray-700 - hover dark */
+  --hover-bg: #111827; /* gray-900 - hover dark (évite la confusion avec les inputs) */
   
   /* Background - Flowbite Gray 900 (#111827) */
   --color-background: oklch(20% 0.02 264);

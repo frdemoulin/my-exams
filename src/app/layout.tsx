@@ -35,10 +35,8 @@ export default async function RootLayout({
           {/* Récupère la session côté client après le chargement des pages */}
           <SessionProvider>
             <Toaster
-              position="top-center"
               toastOptions={{
-                className: "text-sm",
-                duration: 3000,
+                className: "text-xs",
               }}
             />
             <NextTopLoader

@@ -59,7 +59,6 @@ export function ExerciseCard({
   const {
     label: paperLabel,
     sessionYear,
-    sessionMonth,
     diploma,
     teaching,
   } = examPaper;
@@ -68,7 +67,7 @@ export function ExerciseCard({
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
 
   // Construction de la traçabilité
-  const traceability = `${paperLabel} ${sessionMonth ? sessionMonth + ' ' : ''}${sessionYear}`;
+  const traceability = `${paperLabel} ${sessionYear}`;
   const exerciseInfo = label || `Exercice ${exerciseNumber}`;
   const fullTraceability = `${traceability} - ${exerciseInfo}${points ? ` (${points} pts)` : ''}`;
 

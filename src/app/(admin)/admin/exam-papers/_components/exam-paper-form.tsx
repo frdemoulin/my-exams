@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -23,8 +23,12 @@ interface ExamPaperFormProps {
         id?: string;
         label?: string;
         sessionYear: number;
+        sessionDay?: string;
+        examDay?: number | null;
+        examMonth?: number | null;
+        examYear?: number | null;
         diplomaId: string;
-        divisionId: string;
+        divisionId?: string | null;
         gradeId: string;
         teachingId: string;
         curriculumId: string;
@@ -79,6 +83,10 @@ export const ExamPaperForm = ({
         defaultValues: {
             label: initialData.label || '',
             sessionYear: initialData.sessionYear || new Date().getFullYear(),
+            sessionDay: initialData.sessionDay || '',
+            examDay: initialData.examDay || undefined,
+            examMonth: initialData.examMonth || undefined,
+            examYear: initialData.examYear || undefined,
             diplomaId: initialData.diplomaId || '',
             divisionId: initialData.divisionId || '',
             gradeId: initialData.gradeId || '',
@@ -93,34 +101,54 @@ export const ExamPaperForm = ({
         resolver: zodResolver(createExamPaperSchema)
     });
 
+    const sessionDay = form.watch('sessionDay');
+    const sessionYear = form.watch('sessionYear');
+    const examMonth = form.watch('examMonth');
+    const examYear = form.watch('examYear');
+
+    useEffect(() => {
+        if (crudMode === 'edit' && initialData.label && !form.formState.isDirty) {
+            return;
+        }
+
+        const centersLabel = selectedExaminationCenters.map(opt => opt.label).join('-');
+
+        if (!centersLabel) {
+            form.setValue('label', '');
+            return;
+        }
+
+        const monthNames = [
+            "janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+        ];
+        const monthLabel = examMonth ? monthNames[(examMonth || 1) - 1] : undefined;
+        const yearLabel = examYear || sessionYear || new Date().getFullYear();
+
+        const parts = [centersLabel];
+        if (monthLabel) parts.push(monthLabel);
+        parts.push(String(yearLabel));
+        if (sessionDay) parts.push(sessionDay);
+
+        form.setValue('label', parts.join(' '));
+    }, [selectedExaminationCenters, sessionYear, sessionDay, examMonth, examYear, form, crudMode, initialData.label, form.formState.isDirty]);
+
     // Auto-generate label from examination centers
     const handleExaminationCentersChange = (options: Option[]) => {
         setSelectedExaminationCenters(options);
         form.setValue('examinationCenterIds', options.map((opt) => opt.value));
-        
-        // Generate label from selected centers
-        if (options.length > 0) {
-            const centersLabel = options.map(opt => opt.label).join('-');
-            const currentDate = new Date();
-            const month = currentDate.toLocaleDateString('fr-FR', { month: 'long' });
-            const year = currentDate.getFullYear();
-            const label = `${centersLabel} ${month} ${year}`;
-            form.setValue('label', label);
-        } else {
-            form.setValue('label', '');
-        }
     };
 
     const onSubmit = async (values: CreateExamPaperValues) => {
         const formData = new FormData();
 
         Object.entries(values).forEach(([key, value]) => {
-            if (value !== undefined && value !== null) {
-                if (Array.isArray(value)) {
-                    formData.append(key, value.join(','));
-                } else {
-                    formData.append(key, String(value));
-                }
+            if (Array.isArray(value)) {
+                formData.append(key, value.join(','));
+            } else if (value === undefined || value === null) {
+                formData.append(key, '');
+            } else {
+                formData.append(key, String(value));
             }
         });
         
@@ -149,7 +177,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Centres d'examen</FormLabel>
+                            <FormLabel>Centres d'examen</FormLabel>
                             <FormControl>
                                 <MultipleSelector
                                     value={selectedExaminationCenters}
@@ -168,13 +196,13 @@ export const ExamPaperForm = ({
                     )}
                 />
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                         name="label"
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Label</FormLabel>
+                                <FormLabel>Label</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="text"
@@ -195,7 +223,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Année de session</FormLabel>
+                                <FormLabel>Année de session</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
@@ -211,12 +239,98 @@ export const ExamPaperForm = ({
                     />
                 </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <FormField
+                        name="sessionDay"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Jour / mention de session (optionnel)</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="text"
+                                        placeholder="Jour 1, Sujet A..."
+                                        value={field.value || ''}
+                                        onChange={field.onChange}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <FormField
+                        name="examDay"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Jour de l'examen (optionnel)</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="number"
+                                        placeholder="19"
+                                        min={1}
+                                        max={31}
+                                        value={field.value ?? ''}
+                                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        name="examMonth"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Mois de l'examen (optionnel)</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="number"
+                                        placeholder="6"
+                                        min={1}
+                                        max={12}
+                                        value={field.value ?? ''}
+                                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        name="examYear"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Année de l'examen (optionnel)</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="number"
+                                        placeholder="2024"
+                                        min={1900}
+                                        max={2100}
+                                        value={field.value ?? ''}
+                                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+
                 <FormField
                     name="diplomaId"
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Diplôme</FormLabel>
+                        <FormLabel>Diplôme</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -242,14 +356,18 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Filière</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormLabel>Filière (optionnel)</FormLabel>
+                                <Select
+                                    onValueChange={(val) => field.onChange(val === 'none' ? '' : val)}
+                                    value={field.value || 'none'}
+                                >
                                     <FormControl>
                                         <SelectTrigger>
-                                            <SelectValue placeholder="Sélectionner une filière" />
+                                            <SelectValue placeholder="Aucune filière" />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
+                                        <SelectItem value="none">Aucune filière</SelectItem>
                                         {divisions.map((division) => (
                                             <SelectItem key={division.id} value={division.id}>
                                                 {division.longDescription}
@@ -267,7 +385,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Niveau scolaire</FormLabel>
+                        <FormLabel>Niveau scolaire</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger>
@@ -293,7 +411,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Enseignement</FormLabel>
+                        <FormLabel>Enseignement</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -318,7 +436,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Programme</FormLabel>
+                        <FormLabel>Programme</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -343,7 +461,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>URL du sujet</FormLabel>
+                            <FormLabel>URL du sujet (optionnel)</FormLabel>
                             <FormControl>
                                 <Input
                                     type="url"
@@ -361,7 +479,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>URL du corrigé</FormLabel>
+                            <FormLabel>URL du corrigé (optionnel)</FormLabel>
                             <FormControl>
                                 <Input
                                     type="url"
@@ -377,7 +495,7 @@ export const ExamPaperForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/exam-papers">{common.cancel}</Link>

@@ -25,13 +25,19 @@ export async function GET(request: NextRequest) {
     const limit = searchParams.get('limit')
       ? parseInt(searchParams.get('limit')!)
       : undefined;
+    const page = searchParams.get('page')
+      ? parseInt(searchParams.get('page')!)
+      : undefined;
+    const pageSize = searchParams.get('pageSize')
+      ? parseInt(searchParams.get('pageSize')!)
+      : undefined;
 
     // Thèmes (peut être multiple)
     const themesParam = searchParams.get('themes');
     const themes = themesParam ? themesParam.split(',') : undefined;
 
     // Recherche des exercices
-    const exercises = await searchExercises({
+    const result = await searchExercises({
       diploma,
       subject,
       difficulty,
@@ -41,12 +47,16 @@ export async function GET(request: NextRequest) {
       sortBy,
       sortOrder,
       limit,
+      page,
+      pageSize,
     });
 
     return NextResponse.json({
       success: true,
-      count: exercises.length,
-      exercises,
+      count: result.total,
+      page: result.page,
+      pageSize: result.pageSize,
+      exercises: result.items,
     });
   } catch (error) {
     console.error('Error searching exercises:', error);

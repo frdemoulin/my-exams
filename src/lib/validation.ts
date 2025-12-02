@@ -108,12 +108,14 @@ export const createThemeSchema = z.object({
 export const createExamPaperSchema = z.object({
     label: z.string({ required_error: "Champ requis" }).trim().min(1, { message: "Le libellé est requis" }).max(255, { message: "Ne peut pas dépasser 255 caractères" }),
     sessionYear: z.number({ required_error: "Champ requis" }).int().min(1900).max(2100),
+    sessionDay: z.string().trim().max(50, { message: "Ne peut pas dépasser 50 caractères" }).optional().or(z.literal('')),
+    examDay: z.number().int().min(1, { message: "Jour invalide" }).max(31, { message: "Jour invalide" }).optional(),
+    examMonth: z.number().int().min(1, { message: "Mois invalide" }).max(12, { message: "Mois invalide" }).optional(),
+    examYear: z.number().int().min(1900, { message: "Année invalide" }).max(2100, { message: "Année invalide" }).optional(),
     diplomaId: z.string({
         required_error: "Champ requis",
     }).min(1, { message: "Champ requis" }),
-    divisionId: z.string({
-        required_error: "Champ requis",
-    }).min(1, { message: "Champ requis" }),
+    divisionId: z.string().optional().or(z.literal('')),
     gradeId: z.string({
         required_error: "Champ requis",
     }).min(1, { message: "Champ requis" }),

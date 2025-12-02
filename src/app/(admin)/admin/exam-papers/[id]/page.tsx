@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AppBreadcrumb } from "@/components/shared/app-breadcrumb";
 import { DeleteExerciseButton } from "./_components/delete-exercise-button";
+import { DeleteAllExercisesButton } from "./_components/delete-all-exercises-button";
 import prisma from "@/lib/db/prisma";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -60,15 +61,22 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
         <div className="w-full p-6">
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-lg font-semibold md:text-2xl">{t('actions.view')}</h1>
-                <Link href={`/admin/exam-papers/${id}/split`}>
-                    <Button>
-                        <Scissors className="mr-2 h-4 w-4" />
-                        Découper en exercices ({exercisesWithThemes.length})
-                    </Button>
-                </Link>
+                <div className="flex items-center gap-2">
+                    <Link href={`/admin/exam-papers/${id}/edit`}>
+                        <Button variant="secondary" size="icon" aria-label="Éditer le sujet">
+                            <Pencil className="h-4 w-4" />
+                        </Button>
+                    </Link>
+                    <Link href={`/admin/exam-papers/${id}/split`}>
+                        <Button>
+                            <Scissors className="mr-2 h-4 w-4" />
+                            Découper en exercices ({exercisesWithThemes.length})
+                        </Button>
+                    </Link>
+                </div>
             </div>
             <Card>
-                <CardHeader>
+                <CardHeader className="mb-2">
                     <CardTitle>Informations du sujet</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -79,6 +87,10 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                 <p className="text-sm">{examPaper.label}</p>
                             </div>
                         )}
+                        <div>
+                            <h3 className="text-sm font-semibold text-muted-foreground">ID</h3>
+                            <p className="text-sm font-mono break-all">{examPaper.id}</p>
+                        </div>
                         {examPaper.sessionYear && (
                             <div>
                                 <h3 className="text-sm font-semibold text-muted-foreground">Année</h3>
@@ -89,10 +101,12 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                             <h3 className="text-sm font-semibold text-muted-foreground">Diplôme</h3>
                             <p className="text-sm">{examPaper.diploma.longDescription}</p>
                         </div>
-                        <div>
-                            <h3 className="text-sm font-semibold text-muted-foreground">Filière</h3>
-                            <p className="text-sm">{examPaper.division.longDescription}</p>
-                        </div>
+                        {examPaper.division && (
+                            <div>
+                                <h3 className="text-sm font-semibold text-muted-foreground">Filière</h3>
+                                <p className="text-sm">{examPaper.division.longDescription}</p>
+                            </div>
+                        )}
                         <div>
                             <h3 className="text-sm font-semibold text-muted-foreground">Niveau</h3>
                             <p className="text-sm">{examPaper.grade.shortDescription}</p>
@@ -111,16 +125,29 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                 <p className="text-sm">{examPaper.examinationCenter.description}</p>
                             </div>
                         )}
-                        {examPaper.pdfUrl && (
+                        {examPaper.subjectUrl && (
                             <div className="col-span-2 md:col-span-3">
-                                <h3 className="text-sm font-semibold text-muted-foreground">PDF</h3>
+                                <h3 className="text-sm font-semibold text-muted-foreground">Sujet (URL)</h3>
                                 <a 
-                                    href={examPaper.pdfUrl} 
+                                    href={examPaper.subjectUrl} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="text-sm text-blue-600 hover:underline break-all"
                                 >
-                                    {examPaper.pdfUrl}
+                                    {examPaper.subjectUrl}
+                                </a>
+                            </div>
+                        )}
+                        {examPaper.correctionUrl && (
+                            <div className="col-span-2 md:col-span-3">
+                                <h3 className="text-sm font-semibold text-muted-foreground">Corrigé (URL)</h3>
+                                <a 
+                                    href={examPaper.correctionUrl} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="text-sm text-blue-600 hover:underline break-all"
+                                >
+                                    {examPaper.correctionUrl}
                                 </a>
                             </div>
                         )}
@@ -131,16 +158,44 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
             {/* Liste des exercices */}
             {exercisesWithThemes.length > 0 && (
                 <div className="mt-8">
-                    <h2 className="text-xl font-semibold mb-4">Exercices ({exercisesWithThemes.length})</h2>
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-semibold">
+                            {exercisesWithThemes.length} exercice{exercisesWithThemes.length > 1 ? 's' : ''}
+                        </h2>
+                        <DeleteAllExercisesButton examPaperId={id} exerciseCount={exercisesWithThemes.length} />
+                    </div>
                     <div className="space-y-4">
                         {exercisesWithThemes.map((exercise) => (
                             <Card key={exercise.id}>
                                 <CardHeader>
                                     <div className="flex items-start justify-between">
-                                        <CardTitle className="text-base">
-                                            Exercice {exercise.exerciseNumber}
-                                            {exercise.label && ` - ${exercise.label}`}
-                                        </CardTitle>
+                                        <div className="flex items-center gap-4">
+                                            <CardTitle className="text-base">
+                                                Exercice {exercise.exerciseNumber}
+                                                {exercise.label && ` - ${exercise.label}`}
+                                            </CardTitle>
+                                            <div className="flex gap-2">
+                                                {exercise.points && (
+                                                    <Badge variant="points">{exercise.points} pts</Badge>
+                                                )}
+                                                {exercise.estimatedDuration && (
+                                                    <Badge variant="duration">{exercise.estimatedDuration} min</Badge>
+                                                )}
+                                                <Badge
+                                                    variant={
+                                                        exercise.enrichmentStatus === 'completed'
+                                                            ? 'default'
+                                                            : exercise.enrichmentStatus === 'failed'
+                                                                ? 'destructive'
+                                                                : 'secondary'
+                                                    }
+                                                >
+                                                    {exercise.enrichmentStatus === 'completed' && 'Enrichi'}
+                                                    {exercise.enrichmentStatus === 'pending' && 'En attente'}
+                                                    {exercise.enrichmentStatus === 'failed' && 'Échec'}
+                                                </Badge>
+                                            </div>
+                                        </div>
                                         <div className="flex gap-1">
                                             <Link href={`/admin/exercises/${exercise.id}/edit`}>
                                                 <Button variant="ghost" size="sm">
@@ -154,12 +209,6 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                         </div>
                                     </div>
                                     <div className="flex gap-2 text-sm font-normal mt-2">
-                                        {exercise.points && (
-                                            <Badge variant="points">{exercise.points} pts</Badge>
-                                        )}
-                                        {exercise.estimatedDuration && (
-                                            <Badge variant="duration">{exercise.estimatedDuration} min</Badge>
-                                        )}
                                         {exercise.estimatedDifficulty && (
                                             <Badge variant="difficulty">Difficulté {exercise.estimatedDifficulty}/5</Badge>
                                         )}

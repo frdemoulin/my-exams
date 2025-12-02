@@ -3,6 +3,20 @@ import type { PrismaClient } from '@prisma/client';
 export async function seedExamPapers(prisma: PrismaClient) {
   console.log('📄 Seeding Exam Papers...');
 
+  const monthNames = [
+    'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+    'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'
+  ];
+
+  const buildLabel = (center: string, examMonth?: number | null, examYear?: number | null, sessionDay?: string | null) => {
+    const parts = [center];
+    const monthLabel = examMonth ? monthNames[(examMonth || 1) - 1] : undefined;
+    if (monthLabel) parts.push(monthLabel);
+    if (examYear) parts.push(String(examYear));
+    if (sessionDay) parts.push(sessionDay);
+    return parts.join(' ').trim();
+  };
+
   // Récupérer les IDs nécessaires - DIPLÔMES
   const bac = await prisma.diploma.findFirst({ where: { longDescription: 'Baccalauréat général' } });
   const bacTechno = await prisma.diploma.findFirst({ where: { longDescription: 'Baccalauréat technologique' } });
@@ -106,14 +120,14 @@ export async function seedExamPapers(prisma: PrismaClient) {
     // ==================== BAC GÉNÉRAL - MATHS TERMINALE ====================
     // Session 2024
     {
-      label: 'France métropolitaine juin 2024 Jour 1',
+      label: buildLabel('France métropolitaine', 6, 2024, 'Jour 1'),
       sessionYear: 2024,
       sessionDay: 'Jour 1',
       examDay: 19,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -131,14 +145,14 @@ export async function seedExamPapers(prisma: PrismaClient) {
     },
     
     {
-      label: 'France métropolitaine juin 2024 Jour 2',
+      label: buildLabel('France métropolitaine', 6, 2024, 'Jour 2'),
       sessionYear: 2024,
       sessionDay: 'Jour 2',
       examDay: 20,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -155,13 +169,13 @@ export async function seedExamPapers(prisma: PrismaClient) {
     },
     
     {
-      label: 'Antilles-Guyane juin 2024',
+      label: buildLabel('Antilles-Guyane', 6, 2024),
       sessionYear: 2024,
       examDay: 18,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -177,12 +191,12 @@ export async function seedExamPapers(prisma: PrismaClient) {
     },
 
     {
-      label: 'Polynésie juin 2024',
+      label: buildLabel('Polynésie', 6, 2024),
       sessionYear: 2024,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -198,12 +212,12 @@ export async function seedExamPapers(prisma: PrismaClient) {
     },
 
     {
-      label: 'Amérique du Nord mai 2024',
+      label: buildLabel('Amérique du Nord', 5, 2024),
       sessionYear: 2024,
       examMonth: 5,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -220,13 +234,13 @@ export async function seedExamPapers(prisma: PrismaClient) {
 
     // Session 2023
     {
-      label: 'France métropolitaine juin 2023',
+      label: buildLabel('France métropolitaine', 6, 2023),
       sessionYear: 2023,
       examDay: 20,
       examMonth: 6,
       examYear: 2023,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -242,12 +256,12 @@ export async function seedExamPapers(prisma: PrismaClient) {
     },
 
     {
-      label: 'Amérique du Nord mai 2023',
+      label: buildLabel('Amérique du Nord', 5, 2023),
       sessionYear: 2023,
       examMonth: 5,
       examYear: 2023,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -262,13 +276,13 @@ export async function seedExamPapers(prisma: PrismaClient) {
 
     // Session 2022
     {
-      label: 'France métropolitaine juin 2022',
+      label: buildLabel('France métropolitaine', 6, 2022),
       sessionYear: 2022,
       examDay: 14,
       examMonth: 6,
       examYear: 2022,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -284,12 +298,12 @@ export async function seedExamPapers(prisma: PrismaClient) {
     },
 
     {
-      label: 'Amérique du Nord mai 2022',
+      label: buildLabel('Amérique du Nord', 5, 2022),
       sessionYear: 2022,
       examMonth: 5,
       examYear: 2022,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: speMaths.id,
       curriculumId: reformeBac2021Term.id,
@@ -304,14 +318,14 @@ export async function seedExamPapers(prisma: PrismaClient) {
 
     // ==================== BAC GÉNÉRAL - PHYSIQUE-CHIMIE TERMINALE ====================
     ...(spePhysique ? [{
-      label: 'France métropolitaine juin 2024 Jour 1',
+      label: buildLabel('France métropolitaine', 6, 2024, 'Jour 1'),
       sessionYear: 2024,
       sessionDay: 'Jour 1',
       examDay: 19,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: spePhysique.id,
       curriculumId: reformeBac2021Term.id,
@@ -328,14 +342,14 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-15'),
     },
     {
-      label: 'France métropolitaine juin 2024 Jour 2',
+      label: buildLabel('France métropolitaine', 6, 2024, 'Jour 2'),
       sessionYear: 2024,
       sessionDay: 'Jour 2',
       examDay: 20,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: spePhysique.id,
       curriculumId: reformeBac2021Term.id,
@@ -352,13 +366,13 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-20'),
     },
     {
-      label: 'Antilles-Guyane juin 2024',
+      label: buildLabel('Antilles-Guyane', 6, 2024),
       sessionYear: 2024,
       examDay: 19,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: spePhysique.id,
       curriculumId: reformeBac2021Term.id,
@@ -373,13 +387,13 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-16'),
     },
     {
-      label: 'France métropolitaine juin 2023',
+      label: buildLabel('France métropolitaine', 6, 2023),
       sessionYear: 2023,
       examDay: 21,
       examMonth: 6,
       examYear: 2023,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: spePhysique.id,
       curriculumId: reformeBac2021Term.id,
@@ -394,13 +408,13 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2023-06-20'),
     },
     {
-      label: 'France métropolitaine juin 2022',
+      label: buildLabel('France métropolitaine', 6, 2022),
       sessionYear: 2022,
       examDay: 15,
       examMonth: 6,
       examYear: 2022,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: terminale.id,
       teachingId: spePhysique.id,
       curriculumId: reformeBac2021Term.id,
@@ -415,12 +429,12 @@ export async function seedExamPapers(prisma: PrismaClient) {
 
     // ==================== BAC GÉNÉRAL - MATHS PREMIÈRE ====================
     ...(mathsPremiere && reformeBac2021Premiere && premiere ? [{
-      label: 'France métropolitaine juin 2024',
+      label: buildLabel('France métropolitaine', 6, 2024),
       sessionYear: 2024,
       examMonth: 6,
       examYear: 2024,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: premiere.id,
       teachingId: mathsPremiere.id,
       curriculumId: reformeBac2021Premiere.id,
@@ -435,12 +449,12 @@ export async function seedExamPapers(prisma: PrismaClient) {
       enrichedAt: new Date('2024-06-15'),
     },
     {
-      label: 'France métropolitaine juin 2023',
+      label: buildLabel('France métropolitaine', 6, 2023),
       sessionYear: 2023,
       examMonth: 6,
       examYear: 2023,
       diplomaId: bac.id,
-      divisionId: generale?.id,
+      divisionId: generale?.id ?? null,
       gradeId: premiere.id,
       teachingId: mathsPremiere.id,
       curriculumId: reformeBac2021Premiere.id,

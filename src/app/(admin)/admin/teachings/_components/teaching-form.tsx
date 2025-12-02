@@ -89,7 +89,7 @@ export const TeachingForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Nom de l'enseignement</FormLabel>
+                                <FormLabel>Nom de l'enseignement</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -123,7 +123,7 @@ export const TeachingForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Niveau</FormLabel>
+                                <FormLabel>Niveau</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -147,7 +147,7 @@ export const TeachingForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Matière</FormLabel>
+                                <FormLabel>Matière</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -169,7 +169,7 @@ export const TeachingForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/teachings">{common.cancel}</Link>

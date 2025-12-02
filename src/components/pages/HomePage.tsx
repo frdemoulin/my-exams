@@ -46,6 +46,13 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   const [sortBy, setSortBy] = useState<'year' | 'difficulty' | 'duration'>('year');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc'); // desc par défaut (plus récent/difficile/long en premier)
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [page, setPage] = useState(1);
+  const [pageSize] = useState(10);
+  const [total, setTotal] = useState(0);
+  const [suggestions, setSuggestions] = useState<
+    Array<{ id: string; title: string; label: string | null; examPaperLabel: string; sessionYear: number; subject: string }>
+  >([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   // Fetch exercises on mount
   useEffect(() => {
@@ -84,11 +91,14 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     if (selectedDifficulty) params.append('difficulty', selectedDifficulty.toString());
     params.append('sortBy', sortBy);
     params.append('sortOrder', sortOrder);
+    params.append('page', page.toString());
+    params.append('pageSize', pageSize.toString());
     
     fetch(`/api/exercises/search?${params.toString()}`)
       .then(res => res.json())
       .then(data => {
         setFilteredExercises(data.exercises || []);
+        setTotal(data.count || 0);
         setShowResults(true);
         setIsSearching(false);
       })
@@ -102,6 +112,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   useEffect(() => {
     if (!loading) {
       const timer = setTimeout(() => {
+        setPage(1); // reset page quand la recherche texte change
         performSearch();
       }, 500); // 500ms de debounce pour la saisie textuelle
 
@@ -109,12 +120,12 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     }
   }, [search, loading]);
 
-  // Recherche instantanée pour les filtres (pas de debounce)
+  // Recherche instantanée pour les filtres/pagination (pas de debounce)
   useEffect(() => {
     if (!loading) {
       performSearch();
     }
-  }, [selectedDiploma, selectedSubject, selectedDifficulty, sortBy, sortOrder, loading]);
+  }, [selectedDiploma, selectedSubject, selectedDifficulty, sortBy, sortOrder, page, loading]);
 
   const diplomas = [
     { value: 'DNB', label: 'Brevet' },
@@ -191,8 +202,45 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     setSelectedSubject(undefined);
     setSelectedDifficulty(undefined);
     setSearch('');
+    setPage(1);
     setShowResults(false);
   };
+
+  const hasNextPage = page * pageSize < total;
+  const hasPrevPage = page > 1;
+
+  // Suggestions (autocomplete léger)
+  useEffect(() => {
+    const controller = new AbortController();
+    const run = async () => {
+      if (search.trim().length < 2) {
+        setSuggestions([]);
+        setShowSuggestions(false);
+        return;
+      }
+      try {
+        const params = new URLSearchParams();
+        params.append('q', search.trim());
+        params.append('limit', '8');
+        const res = await fetch(`/api/exercises/suggest?${params.toString()}`, {
+          signal: controller.signal,
+        });
+        const data = await res.json();
+        setSuggestions(data.suggestions || []);
+        setShowSuggestions(true);
+      } catch (err) {
+        if ((err as any).name !== 'AbortError') {
+          console.error('Error fetching suggestions:', err);
+        }
+      }
+    };
+
+    const t = setTimeout(run, 250); // debounce suggestions
+    return () => {
+      controller.abort();
+      clearTimeout(t);
+    };
+  }, [search]);
 
   const toggleFavorite = (exerciseId: string) => {
     setFavorites(prev => {
@@ -292,7 +340,40 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Ex : titrage acide-base, loi normale, base de données…"
                     className="py-2.5 pl-9 text-sm"
+                    onFocus={() => {
+                      if (suggestions.length > 0) setShowSuggestions(true);
+                    }}
+                    onBlur={() => {
+                      // petit délai pour laisser le temps de cliquer
+                      setTimeout(() => setShowSuggestions(false), 200);
+                    }}
                   />
+                  {showSuggestions && suggestions.length > 0 && (
+                    <div className="absolute left-0 top-full z-10 mt-1 w-full rounded-md border border-border bg-background shadow-lg">
+                      <ul className="max-h-64 overflow-auto py-1 text-sm">
+                        {suggestions.map((s) => (
+                          <li key={s.id}>
+                            <button
+                              type="button"
+                              className="flex w-full flex-col items-start gap-0.5 px-3 py-2 text-left hover:bg-muted"
+                              onMouseDown={(e) => e.preventDefault()}
+                              onClick={() => {
+                                setSearch(s.title);
+                                setShowSuggestions(false);
+                                setPage(1);
+                                performSearch();
+                              }}
+                            >
+                              <span className="font-medium">{s.title}</span>
+                              <span className="text-xs text-muted-foreground">
+                                {s.subject} · {s.examPaperLabel} · {s.sessionYear}
+                              </span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
                 <Button
                   type="submit"
@@ -354,7 +435,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                   </label>
                   <Select
                     value={selectedDiploma || 'all'}
-                    onValueChange={(value) => setSelectedDiploma(value === 'all' ? undefined : value)}
+                    onValueChange={(value) => {
+                      setSelectedDiploma(value === 'all' ? undefined : value);
+                      setPage(1);
+                    }}
                   >
                     <SelectTrigger className="h-9 text-sm">
                       <SelectValue />
@@ -377,7 +461,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                   </label>
                   <Select
                     value={selectedSubject || 'all'}
-                    onValueChange={(value) => setSelectedSubject(value === 'all' ? undefined : value)}
+                    onValueChange={(value) => {
+                      setSelectedSubject(value === 'all' ? undefined : value);
+                      setPage(1);
+                    }}
                   >
                     <SelectTrigger className="h-9 text-sm">
                       <SelectValue />
@@ -400,7 +487,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                   </label>
                   <Select
                     value={selectedDifficulty?.toString() || 'all'}
-                    onValueChange={(value) => setSelectedDifficulty(value === 'all' ? undefined : Number(value))}
+                    onValueChange={(value) => {
+                      setSelectedDifficulty(value === 'all' ? undefined : Number(value));
+                      setPage(1);
+                    }}
                   >
                     <SelectTrigger className="h-9 text-sm">
                       <SelectValue />
@@ -452,7 +542,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                   Résultats
                 </h2>
                 <span className="rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-primary">
-                  {filteredExercises.length} exercice{filteredExercises.length > 1 ? 's' : ''} trouvé{filteredExercises.length > 1 ? 's' : ''}
+                  {total} exercice{total > 1 ? 's' : ''} · page {page}/{Math.max(1, Math.ceil(total / pageSize))}
                 </span>
               </div>
               
@@ -517,6 +607,31 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     onToggleFavorite={toggleFavorite}
                   />
                 ))}
+                {total > pageSize && (
+                  <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm">
+                    <span className="text-muted-foreground">
+                      Page {page} / {Math.max(1, Math.ceil(total / pageSize))} · {total} exercices
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        disabled={!hasPrevPage || isSearching}
+                        onClick={() => setPage((p) => Math.max(1, p - 1))}
+                      >
+                        ← Précédent
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        disabled={!hasNextPage || isSearching}
+                        onClick={() => setPage((p) => p + 1)}
+                      >
+                        Suivant →
+                      </Button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </section>

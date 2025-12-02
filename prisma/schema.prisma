@@ -161,7 +161,6 @@ model ExamPaper {
   // Métadonnées administratives
   label        String  // ex : "Métropole juin 2024 Jour 1"
   sessionYear  Int     // ex : 2024 (année scolaire de la session)
-  sessionMonth String? // ex : "juin", "septembre"
   sessionDay   String? // ex : "Jour 1", "Jour 2", "Sujet A", optionnel
   
   // Date réelle de l'examen

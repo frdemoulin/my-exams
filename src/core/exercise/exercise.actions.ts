@@ -215,3 +215,26 @@ export async function createMultipleExercises(exercises: CreateExerciseInput[]) 
     };
   }
 }
+
+/**
+ * Supprimer tous les exercices d'un ExamPaper
+ */
+export async function deleteExercisesByExamPaper(examPaperId: string) {
+  try {
+    await prisma.exercise.deleteMany({
+      where: { examPaperId },
+    });
+
+    revalidatePath('/admin/exam-papers');
+    revalidatePath(`/admin/exam-papers/${examPaperId}`);
+    revalidatePath('/');
+
+    return { success: true };
+  } catch (error) {
+    console.error('Error deleting exercises by examPaperId:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Erreur lors de la suppression des exercices',
+    };
+  }
+}
