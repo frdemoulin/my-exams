@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent, useEffect } from 'react';
+import { useState, FormEvent, useEffect, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
@@ -35,9 +35,10 @@ interface HomePageProps {
 
 export default function HomePage({ initialSubjects, specialties }: HomePageProps) {
   const [search, setSearch] = useState('');
-  const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>('Bac général');
+  const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
   const [selectedDifficulty, setSelectedDifficulty] = useState<number | undefined>();
+  const [selectedSessionYear, setSelectedSessionYear] = useState<number | undefined>();
   const [exercises, setExercises] = useState<ExerciseWithRelations[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
@@ -49,6 +50,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   const [page, setPage] = useState(1);
   const [pageSize] = useState(10);
   const [total, setTotal] = useState(0);
+  const [isClient, setIsClient] = useState(false);
   const [suggestions, setSuggestions] = useState<
     Array<{ id: string; title: string; label: string | null; examPaperLabel: string; sessionYear: number; subject: string }>
   >([]);
@@ -89,6 +91,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     if (selectedDiploma) params.append('diploma', selectedDiploma);
     if (selectedSubject) params.append('subject', selectedSubject);
     if (selectedDifficulty) params.append('difficulty', selectedDifficulty.toString());
+    if (selectedSessionYear) params.append('year', selectedSessionYear.toString());
     if (sortBy) {
       params.append('sortBy', sortBy);
       params.append('sortOrder', sortOrder);
@@ -122,28 +125,17 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     }
   }, [search, loading]);
 
+  // Marquer le montage client pour éviter les warnings d'hydratation (Radix Select)
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Recherche instantanée pour les filtres/pagination (pas de debounce)
   useEffect(() => {
     if (!loading) {
       performSearch();
     }
-  }, [selectedDiploma, selectedSubject, selectedDifficulty, sortBy, sortOrder, page, loading]);
-
-  const diplomas = [
-    { value: 'DNB', label: 'Brevet' },
-    { value: 'Bac général', label: 'Bac Général' },
-    { value: 'Bac techno', label: 'Bac Techno' },
-    { value: 'BTS', label: 'BTS' },
-  ];
-
-  const subjects = [
-    { value: 'Maths', label: 'Mathématiques', emoji: '🔢' },
-    { value: 'Sciences physiques', label: 'Physique-Chimie', emoji: '🧪' },
-    { value: 'Français', label: 'Français', emoji: '📖' },
-    { value: 'Histoire-Géo', label: 'Histoire-Géo', emoji: '🌍' },
-    { value: 'SVT', label: 'SVT', emoji: '🧬' },
-    { value: 'SES', label: 'SES', emoji: '💼' },
-  ];
+  }, [selectedDiploma, selectedSubject, selectedDifficulty, selectedSessionYear, sortBy, sortOrder, page, loading]);
 
   const difficulties = [
     { value: 1, label: 'Très facile', emoji: '😊' },
@@ -206,6 +198,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     setSelectedDiploma(undefined);
     setSelectedSubject(undefined);
     setSelectedDifficulty(undefined);
+    setSelectedSessionYear(undefined);
     setSearch('');
     setPage(1);
     setShowResults(false);
@@ -266,7 +259,39 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   };
 
   // Compter les filtres actifs
-  const activeFiltersCount = [selectedDiploma, selectedSubject, selectedDifficulty].filter(Boolean).length;
+  const activeFiltersCount = [selectedDiploma, selectedSubject, selectedDifficulty, selectedSessionYear].filter(Boolean).length;
+
+  const diplomaOptions = useMemo(() => {
+    const set = new Set<string>();
+    exercises.forEach((ex) => {
+      const label = ex.examPaper.diploma.shortDescription;
+      if (label) set.add(label);
+    });
+    return Array.from(set).sort();
+  }, [exercises]);
+
+  const subjectOptions = useMemo(() => {
+    const map = new Map<string, string>();
+    exercises.forEach((ex) => {
+      const shortLabel = ex.examPaper.teaching.subject.shortDescription;
+      const longLabel = ex.examPaper.teaching.subject.longDescription;
+      if (shortLabel) {
+        const display = longLabel;
+        map.set(shortLabel, display);
+      }
+    });
+    return Array.from(map.entries())
+      .map(([value, label]) => ({ value, label }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, [exercises]);
+
+  const sessionOptions = useMemo(() => {
+    const set = new Set<number>();
+    exercises.forEach((ex) => {
+      if (ex.examPaper.sessionYear) set.add(ex.examPaper.sessionYear);
+    });
+    return Array.from(set).sort((a, b) => b - a);
+  }, [exercises]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -432,103 +457,160 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </div>
 
               {/* FILTRES EN LIGNE */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {/* DIPLÔME */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                    🎓 Diplôme
-                  </label>
-                  <Select
-                    value={selectedDiploma || 'all'}
-                    onValueChange={(value) => {
-                      setSelectedDiploma(value === 'all' ? undefined : value);
-                      setPage(1);
-                    }}
-                  >
-                    <SelectTrigger className="h-9 text-sm">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">Tous</SelectItem>
-                      {diplomas.map((diploma) => (
-                        <SelectItem key={diploma.value} value={diploma.value}>
-                          {diploma.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
+                {isClient ? (
+                  <>
+                    {/* DIPLÔME */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        🎓 Diplôme
+                      </label>
+                      <Select
+                        value={selectedDiploma || 'all'}
+                        onValueChange={(value) => {
+                          setSelectedDiploma(value === 'all' ? undefined : value);
+                          setPage(1);
+                        }}
+                      >
+                        <SelectTrigger className="h-9 text-sm">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">Tous les diplômes</SelectItem>
+                          {diplomaOptions.map((label) => (
+                            <SelectItem key={label} value={label}>
+                              {label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
 
-                {/* MATIÈRE */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                    📖 Matière
-                  </label>
-                  <Select
-                    value={selectedSubject || 'all'}
-                    onValueChange={(value) => {
-                      setSelectedSubject(value === 'all' ? undefined : value);
-                      setPage(1);
-                    }}
-                  >
-                    <SelectTrigger className="h-9 text-sm">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">Toutes</SelectItem>
-                      {subjects.map((subject) => (
-                        <SelectItem key={subject.value} value={subject.value}>
-                          {subject.emoji} {subject.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+                    {/* MATIÈRE */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        📖 Matière
+                      </label>
+                      <Select
+                        value={selectedSubject || 'all'}
+                        onValueChange={(value) => {
+                          setSelectedSubject(value === 'all' ? undefined : value);
+                          setPage(1);
+                        }}
+                      >
+                        <SelectTrigger className="h-9 text-sm">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">Toutes les matières</SelectItem>
+                          {subjectOptions.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
 
-                {/* DIFFICULTÉ */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                    ⚡ Difficulté
-                  </label>
-                  <Select
-                    value={selectedDifficulty?.toString() || 'all'}
-                    onValueChange={(value) => {
-                      setSelectedDifficulty(value === 'all' ? undefined : Number(value));
-                      setPage(1);
-                    }}
-                  >
-                    <SelectTrigger className="h-9 text-sm">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">Toutes</SelectItem>
-                      {difficulties.map((difficulty) => (
-                        <SelectItem key={difficulty.value} value={difficulty.value.toString()}>
-                          {difficulty.emoji} {difficulty.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+                    {/* SESSION */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        📅 Session
+                      </label>
+                      <Select
+                        value={selectedSessionYear?.toString() || 'all'}
+                        onValueChange={(value) => {
+                          setSelectedSessionYear(value === 'all' ? undefined : Number(value));
+                          setPage(1);
+                        }}
+                      >
+                        <SelectTrigger className="h-9 text-sm">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">Toutes les sessions</SelectItem>
+                          {sessionOptions.map((year) => (
+                            <SelectItem key={year} value={year.toString()}>
+                              {year}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* DIFFICULTÉ */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        ⚡ Difficulté
+                      </label>
+                      <Select
+                        value={selectedDifficulty?.toString() || 'all'}
+                        onValueChange={(value) => {
+                          setSelectedDifficulty(value === 'all' ? undefined : Number(value));
+                          setPage(1);
+                        }}
+                      >
+                        <SelectTrigger className="h-9 text-sm">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">Toutes</SelectItem>
+                          {difficulties.map((difficulty) => (
+                            <SelectItem key={difficulty.value} value={difficulty.value.toString()}>
+                              {difficulty.emoji} {difficulty.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        🎓 Diplôme
+                      </label>
+                      <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        📖 Matière
+                      </label>
+                      <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        📅 Session
+                      </label>
+                      <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        ⚡ Difficulté
+                      </label>
+                      <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
 
           {/* PANNEAU DROIT : COMMENT ÇA MARCHE */}
           <div className="space-y-4">
-            <Card className="border-primary/30 bg-gradient-to-br from-primary/10 via-background to-background text-xs">
+            <Card className="border-primary/30 bg-linear-to-br from-primary/10 via-background to-background text-sm">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">
                   ✨ Comment ça marche ?
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <ol className="list-inside list-decimal space-y-1.5 text-xs">
+              <CardContent className="space-y-2 text-sm">
+                <ol className="list-inside list-decimal space-y-1.5">
                   <li>🔍 <strong>Recherche</strong> un exercice par diplôme, thème ou difficulté</li>
                   <li>📊 <strong>Trie</strong> par année, durée ou difficulté</li>
                   <li>📖 <strong>Accède</strong> à l'énoncé de l'exercice + plusieurs corrections</li>
                 </ol>
-                <p className="mt-2 text-[11px] text-muted-foreground">
+                <p className="mt-2 text-muted-foreground">
                   💡 Tous les exercices sont enrichis automatiquement avec l'IA
                 </p>
               </CardContent>
@@ -565,7 +647,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         : 'border-gray-200 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800/60'
                     }`}
                   >
-                    Année {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
+                    Session {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
                   </Button>
                   <Button
                     variant="outline"

@@ -137,14 +137,7 @@ select[data-native] {
   border-color: var(--border-default) !important;
 }
 
-/* Fix select triggers background - force white in light mode */
-:root button[role="combobox"] {
-  background-color: #ffffff;
-}
-
-.dark button[role="combobox"] {
-  background-color: #374151;
-}
+/* Ancienne correction forcée des combobox Radix (retirée pour harmoniser avec l'input Flowbite) */
 
 .dark {
   color-scheme: dark;

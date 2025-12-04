@@ -162,6 +162,8 @@ model ExamPaper {
   label        String  // ex : "Métropole juin 2024 Jour 1"
   sessionYear  Int     // ex : 2024 (année scolaire de la session)
   sessionDay   String? // ex : "Jour 1", "Jour 2", "Sujet A", optionnel
+  source       ExamPaperSource @default(OFFICIEL)
+  sourceUrl    String? // URL de la source si disponible (APMEP, Labolycee, etc.)
   
   // Date réelle de l'examen
   examDay   Int?      // Jour de l'examen (1-31), optionnel
@@ -215,6 +217,13 @@ model ExamPaper {
   updatedAt DateTime @updatedAt
 
   @@unique([label, sessionYear, teachingId])
+}
+
+enum ExamPaperSource {
+  OFFICIEL
+  APMEP
+  LABOLYCEE
+  AUTRE
 }
 
 // Exercice d'annales (unité de recherche)

@@ -27,6 +27,9 @@ export interface ExerciseWithRelations {
     id: string;
     label: string;
     sessionYear: number;
+    source: 'OFFICIEL' | 'APMEP' | 'LABOLYCEE' | 'AUTRE';
+    sourceUrl: string | null;
+    updatedAt: Date;
     subjectUrl: string | null;
     correctionUrl: string | null;
     diploma: {

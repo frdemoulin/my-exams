@@ -26,29 +26,18 @@ export function ToastDisplay() {
               if (data.type === "success") {
                 toast.success(data.message, {
                   ...common,
-                  style: {
-                    ...common.style,
-                    background: "#10b981", // green-500 Flowbite
-                    color: "#ffffff",
-                  },
+                  icon: "✅",
+                  style: common.style,
                 });
               } else if (data.type === "error") {
                 toast.error(data.message, {
                   ...common,
-                  style: {
-                    ...common.style,
-                    background: "#dc2626", // red-600 Flowbite
-                    color: "#ffffff",
-                  },
+                  style: common.style,
                 });
               } else {
                 toast(data.message, {
                   ...common,
-                  style: {
-                    ...common.style,
-                    background: "#3b82f6", // blue-500 Flowbite
-                    color: "#ffffff",
-                  },
+                  style: common.style,
                 });
               }
             }

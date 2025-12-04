@@ -31,7 +31,7 @@ export const Navbar = () => {
 
             {/* TODO: Mobile bar */}
 
-            {!user && session.status === "loading" && <Skeleton className="w-[40px] h-[40px] rounded-full" />
+            {!user && session.status === "loading" && <Skeleton className="w-10 h-10 rounded-full" />
             }
 
             {user && (

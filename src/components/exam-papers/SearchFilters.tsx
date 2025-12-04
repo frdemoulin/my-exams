@@ -18,6 +18,7 @@ interface SearchFiltersProps {
   onSubjectChange?: (subjectId: string) => void;
   onYearChange?: (year: string) => void;
   onDifficultyChange?: (difficulty: string) => void;
+  subjects?: { id: string; shortDescription: string; longDescription: string }[];
 }
 
 export function SearchFilters({
@@ -26,8 +27,30 @@ export function SearchFilters({
   onSubjectChange,
   onYearChange,
   onDifficultyChange,
+  subjects: subjectsFromProps,
 }: SearchFiltersProps) {
   const [searchQuery, setSearchQuery] = React.useState("");
+  const [subjects, setSubjects] = React.useState<
+    { id: string; shortDescription: string; longDescription: string }[]
+  >(subjectsFromProps ?? []);
+
+  React.useEffect(() => {
+    if (subjectsFromProps && subjectsFromProps.length > 0) return;
+
+    const fetchSubjects = async () => {
+      try {
+        const res = await fetch('/api/subjects');
+        const data = await res.json();
+        if (data?.subjects) {
+          setSubjects(data.subjects);
+        }
+      } catch (error) {
+        console.error('Erreur lors du chargement des matières :', error);
+      }
+    };
+
+    fetchSubjects();
+  }, [subjectsFromProps]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -71,10 +94,11 @@ export function SearchFilters({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">Toutes les matières</SelectItem>
-            <SelectItem value="maths">Mathématiques</SelectItem>
-            <SelectItem value="physique">Physique-Chimie</SelectItem>
-            <SelectItem value="svt">SVT</SelectItem>
-            <SelectItem value="philo">Philosophie</SelectItem>
+            {subjects.map((subject) => (
+              <SelectItem key={subject.id} value={subject.id}>
+                {subject.shortDescription || subject.longDescription}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
 

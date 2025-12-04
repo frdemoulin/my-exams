@@ -27,6 +27,8 @@ interface ExamPaperFormProps {
         examDay?: number | null;
         examMonth?: number | null;
         examYear?: number | null;
+        source?: "OFFICIEL" | "APMEP" | "LABOLYCEE" | "AUTRE";
+        sourceUrl?: string | null;
         diplomaId: string;
         divisionId?: string | null;
         gradeId: string;
@@ -85,8 +87,10 @@ export const ExamPaperForm = ({
             sessionYear: initialData.sessionYear || new Date().getFullYear(),
             sessionDay: initialData.sessionDay || '',
             examDay: initialData.examDay || undefined,
-            examMonth: initialData.examMonth || undefined,
-            examYear: initialData.examYear || undefined,
+            examMonth: initialData.examMonth || new Date().getMonth() + 1,
+            examYear: initialData.examYear || initialData.sessionYear || new Date().getFullYear(),
+            source: initialData.source || "OFFICIEL",
+            sourceUrl: initialData.sourceUrl || '',
             diplomaId: initialData.diplomaId || '',
             divisionId: initialData.divisionId || '',
             gradeId: initialData.gradeId || '',
@@ -132,6 +136,36 @@ export const ExamPaperForm = ({
 
         form.setValue('label', parts.join(' '));
     }, [selectedExaminationCenters, sessionYear, sessionDay, examMonth, examYear, form, crudMode, initialData.label, form.formState.isDirty]);
+
+    const [uploading, setUploading] = useState(false);
+    const [uploadMessage, setUploadMessage] = useState<{ type: 'success' | 'error' | null; text: string }>({ type: null, text: '' });
+    const handlePdfUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        if (file.type !== "application/pdf") {
+            setUploadMessage({ type: 'error', text: "Seuls les PDF sont autorisés." });
+            e.target.value = "";
+            return;
+        }
+        setUploading(true);
+        try {
+            const fd = new FormData();
+            fd.append("file", file);
+            const res = await fetch("/api/exam-papers/upload", { method: "POST", body: fd });
+            const data = await res.json();
+            if (!res.ok) {
+                throw new Error(data?.error || "Téléversement échoué");
+            }
+            form.setValue("subjectUrl", data.url || "");
+            setUploadMessage({ type: 'success', text: "PDF téléversé. Le lien a été renseigné automatiquement." });
+        } catch (err) {
+            console.error("Upload error", err);
+            setUploadMessage({ type: 'error', text: "Échec du téléversement du PDF." });
+        } finally {
+            setUploading(false);
+            e.target.value = "";
+        }
+    };
 
     // Auto-generate label from examination centers
     const handleExaminationCentersChange = (options: Option[]) => {
@@ -258,6 +292,33 @@ export const ExamPaperForm = ({
                             </FormItem>
                         )}
                     />
+
+                    <FormField
+                        name="source"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Source du sujet</FormLabel>
+                                <Select
+                                    value={field.value}
+                                    onValueChange={(val) => field.onChange(val)}
+                                >
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Source" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        <SelectItem value="OFFICIEL">Officiel</SelectItem>
+                                        <SelectItem value="APMEP">APMEP</SelectItem>
+                                        <SelectItem value="LABOLYCEE">LaboLycée</SelectItem>
+                                        <SelectItem value="AUTRE">Autre</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -287,7 +348,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Mois de l'examen (optionnel)</FormLabel>
+                                <FormLabel>Mois de l'examen</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
@@ -296,6 +357,7 @@ export const ExamPaperForm = ({
                                         max={12}
                                         value={field.value ?? ''}
                                         onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                        required
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -308,7 +370,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Année de l'examen (optionnel)</FormLabel>
+                                <FormLabel>Année de l'examen</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
@@ -317,6 +379,7 @@ export const ExamPaperForm = ({
                                         max={2100}
                                         value={field.value ?? ''}
                                         onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                        required
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -466,6 +529,43 @@ export const ExamPaperForm = ({
                                 <Input
                                     type="url"
                                     placeholder="https://..."
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <div className="grid grid-cols-1 gap-2">
+                    <FormLabel>Ou téléverser le PDF</FormLabel>
+                    <Input
+                        type="file"
+                        accept="application/pdf"
+                        onChange={handlePdfUpload}
+                        disabled={uploading}
+                    />
+                    {uploading && <p className="text-sm text-muted-foreground">Téléversement en cours…</p>}
+                    {uploadMessage.type && (
+                        <p
+                            className={`text-sm ${uploadMessage.type === 'error' ? 'text-red-500' : 'text-green-600'}`}
+                        >
+                            {uploadMessage.text}
+                        </p>
+                    )}
+                    <p className="text-sm text-muted-foreground">Taille max 20MB. Le lien est rempli automatiquement après upload.</p>
+                </div>
+
+                <FormField
+                    name="sourceUrl"
+                    control={control}
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>URL de la source (optionnel)</FormLabel>
+                            <FormControl>
+                                <Input
+                                    type="url"
+                                    placeholder="Lien vers la source (APMEP, Labolycee, etc.)"
                                     {...field}
                                 />
                             </FormControl>

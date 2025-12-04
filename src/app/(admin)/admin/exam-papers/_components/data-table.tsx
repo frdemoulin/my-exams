@@ -42,6 +42,7 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [globalFilter, setGlobalFilter] = React.useState("");
 
   const table = useReactTable({
     data,
@@ -52,15 +53,23 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    globalFilterFn: "includesString",
     state: {
       sorting,
       columnFilters,
+      globalFilter,
     },
   });
 
   return (
     <div>
-      <div className="flex items-center py-4">
+      <div className="flex flex-col gap-3 py-4 md:flex-row md:items-center md:justify-between">
+        <input
+          className="h-9 w-full max-w-sm rounded-md border border-input bg-background px-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+          placeholder="Rechercher un sujet (label, enseignement, diplôme)..."
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+        />
         <Select
           value={(table.getColumn("exercises")?.getFilterValue() as string) ?? "all"}
           onValueChange={(value) =>

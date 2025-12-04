@@ -59,6 +59,9 @@ export function ExerciseCard({
   const {
     label: paperLabel,
     sessionYear,
+    source,
+    sourceUrl,
+    updatedAt,
     diploma,
     teaching,
     subjectUrl,
@@ -71,12 +74,16 @@ export function ExerciseCard({
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const difficultyLabel = (() => {
     if (!estimatedDifficulty) return 'Non évaluée';
-    if (estimatedDifficulty >= 4) return 'Difficile';
-    if (estimatedDifficulty === 3) return 'Moyenne';
-    if (estimatedDifficulty === 2) return 'Facile';
-    return 'Très facile';
+    if (estimatedDifficulty >= 4) return '⚡ Difficile';
+    if (estimatedDifficulty === 3) return '⚡ Moyenne';
+    if (estimatedDifficulty === 2) return '⚡ Facile';
+    return '⚡ Très facile';
   })();
-  const notions = themes.map((t) => t.shortDescription || t.longDescription);
+  const notions = themes.map((t) => ({
+    short: t.shortDescription || t.longDescription,
+    long: t.longDescription,
+    key: t.id,
+  }));
   const durationLabel = estimatedDuration
     ? estimatedDuration >= 60
       ? `${Math.floor(estimatedDuration / 60)}h${estimatedDuration % 60 ? ` ${estimatedDuration % 60}min` : ''}`
@@ -89,6 +96,34 @@ export function ExerciseCard({
   const traceabilityFooter = paperLabel
     ? `Issu du sujet ${paperLabel}`
     : `Session ${sessionYear}`;
+  const baseTitle = `Exercice ${exerciseNumber}`;
+  const fullTitle =
+    displayTitle === baseTitle ? displayTitle : `${baseTitle} – ${displayTitle}`;
+  const sourceLabel = (() => {
+    const rawSource = source ?? 'OFFICIEL';
+    switch (rawSource) {
+      case 'APMEP':
+        return 'APMEP';
+      case 'LABOLYCEE':
+        return 'LaboLycée';
+      case 'AUTRE':
+        return 'Autre source';
+      default:
+        return 'Officiel';
+    }
+  })();
+  const subjectUrlVersioned = (() => {
+    if (!subjectUrl) return null;
+    const version = updatedAt ? new Date(updatedAt).getTime() : Date.now();
+    return subjectUrl.includes('?')
+      ? `${subjectUrl}&v=${version}`
+      : `${subjectUrl}?v=${version}`;
+  })();
+  const preferredPdfUrl =
+    (source === 'OFFICIEL' && subjectUrlVersioned) ||
+    subjectUrlVersioned ||
+    sourceUrl ||
+    null;
 
   return (
     <Card className="overflow-hidden">
@@ -109,18 +144,43 @@ export function ExerciseCard({
             <div className="flex items-center gap-2">
               <CardTitle className="text-lg text-blue-600 dark:text-blue-400 hover:underline">
                 <Link href={`/exercises/${id}`}>
-                  {`Exercice ${exerciseNumber} – ${displayTitle}`}
+                  {fullTitle}
                 </Link>
               </CardTitle>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <Badge variant="secondary" className="text-xs">{sessionYear}</Badge>
-            <Badge variant="difficulty" className="text-xs">
+            <Badge
+              variant="secondary"
+              className="text-xs dark:bg-amber-600 dark:hover:bg-amber-700 dark:text-white dark:border-transparent"
+            >
               {difficultyLabel}
             </Badge>
+            {typeof points === 'number' && (
+              <Badge
+                variant="secondary"
+                className="text-xs dark:bg-amber-600 dark:hover:bg-amber-700 dark:text-white dark:border-transparent"
+              >
+                {points} pts
+              </Badge>
+            )}
+            {sourceUrl ? (
+              <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+                <Badge variant="outline" className="text-xs hover:bg-muted">
+                  {sourceLabel}
+                </Badge>
+              </a>
+            ) : (
+              <Badge variant="outline" className="text-xs">
+                {sourceLabel}
+              </Badge>
+            )}
             {durationLabel && (
-              <Badge variant="duration" className="text-xs flex items-center gap-1">
+              <Badge
+                variant="secondary"
+                className="text-xs flex items-center gap-1 dark:bg-purple-700 dark:hover:bg-purple-800 dark:text-white dark:border-transparent"
+              >
                 <Clock className="h-4 w-4" />
                 <span className="hidden md:inline">Durée estimée : {durationLabel}</span>
                 <span className="md:hidden">{durationLabel}</span>
@@ -142,27 +202,28 @@ export function ExerciseCard({
             <div className="flex flex-wrap gap-2 items-center">
               <span className="text-muted-foreground">Thèmes :</span>
               {notions.map((n) => (
-                <Badge key={n} variant="theme" className="text-xs">
-                  {n}
+                <Badge key={n.key} variant="theme" className="text-xs">
+                  <span className="hidden md:inline">{n.long}</span>
+                  <span className="md:hidden">{n.short}</span>
                 </Badge>
               ))}
             </div>
           )}
         </div>
 
-        <div className="flex items-start justify-between gap-2 pt-1 text-sm">
-          <span className="text-muted-foreground text-xs md:text-sm">{traceabilityFooter}</span>
-          <div className="flex items-start gap-2">
-            {subjectUrl && (
+        <div className="flex items-baseline justify-between gap-2 pt-1 text-sm">
+          <span className="text-muted-foreground font-bold text-xs md:text-sm">{traceabilityFooter}</span>
+          <div className="flex items-baseline gap-2">
+            {preferredPdfUrl && (
               <Button asChild size="sm" className="h-9">
-                <a href={subjectUrl} target="_blank" rel="noopener noreferrer">
-                  Sujet
+                <a href={preferredPdfUrl} target="_blank" rel="noopener noreferrer">
+                  Sujet (PDF)
                   <ExternalLink className="ml-2 h-3 w-3" />
                 </a>
               </Button>
             )}
             {correctionUrl && (
-              <Button asChild size="sm" className="h-9">
+              <Button asChild variant="outline" size="sm" className="h-9">
                 <a href={correctionUrl} target="_blank" rel="noopener noreferrer">
                   Correction
                   <ExternalLink className="ml-2 h-3 w-3" />

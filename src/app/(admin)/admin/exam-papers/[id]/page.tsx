@@ -56,6 +56,19 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
     }));
 
     const t = await getTranslations('entities.examPaper');
+    const sourceLabel = (() => {
+        switch (examPaper.source as any) {
+            case 'APMEP':
+                return 'APMEP';
+            case 'LABOLYCEE':
+                return 'LaboLycée';
+            case 'AUTRE':
+                return 'Autre source';
+            case 'OFFICIEL':
+            default:
+                return 'Officiel';
+        }
+    })();
 
     return (
         <div className="w-full p-6">
@@ -126,16 +139,30 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                             </div>
                         )}
                         {examPaper.subjectUrl && (
-                            <div className="col-span-2 md:col-span-3">
-                                <h3 className="text-sm font-semibold text-muted-foreground">Sujet (URL)</h3>
-                                <a 
-                                    href={examPaper.subjectUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="text-sm text-blue-600 hover:underline break-all"
-                                >
-                                    {examPaper.subjectUrl}
-                                </a>
+                            <div className="col-span-2 md:col-span-3 space-y-1">
+                                <h3 className="text-sm font-semibold text-muted-foreground">Sujet (PDF)</h3>
+                                <div className="flex flex-wrap items-center gap-2">
+                                    <a 
+                                        href={examPaper.subjectUrl} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="text-sm text-blue-600 hover:underline break-all"
+                                    >
+                                        Ouvrir le PDF
+                                    </a>
+                                    <Badge variant="outline">{sourceLabel}</Badge>
+                                    {examPaper.sourceUrl && (
+                                        <a
+                                            href={examPaper.sourceUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-xs text-muted-foreground hover:underline"
+                                        >
+                                            Voir la source
+                                        </a>
+                                    )}
+                                </div>
+                                <p className="text-xs text-muted-foreground break-all">{examPaper.subjectUrl}</p>
                             </div>
                         )}
                         {examPaper.correctionUrl && (
