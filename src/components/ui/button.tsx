@@ -15,7 +15,7 @@ const buttonVariants = cva(
 
         // Flowbite Success (Green)
         success:
-          "bg-green-500 text-white hover:bg-green-600 focus-visible:ring-4 focus-visible:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus-visible:ring-green-800",
+          "bg-emerald-600 text-white hover:bg-emerald-700 focus-visible:ring-4 focus-visible:ring-emerald-200 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus-visible:ring-emerald-800",
 
         // Flowbite Destructive (Red)
         destructive:

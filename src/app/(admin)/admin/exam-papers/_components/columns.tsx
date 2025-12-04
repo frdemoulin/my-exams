@@ -34,12 +34,22 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
     accessorKey: "label",
     header: ({ column }) => {
       const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={handleCycleSort}
         >
-          Label
+          LABEL
           {isSorted === "asc" ? (
             <ArrowUp className="ml-2 h-4 w-4" />
           ) : isSorted === "desc" ? (
@@ -55,12 +65,22 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
     accessorKey: "sessionYear",
     header: ({ column }) => {
       const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={handleCycleSort}
         >
-          Année
+          ANNÉE
           {isSorted === "asc" ? (
             <ArrowUp className="ml-2 h-4 w-4" />
           ) : isSorted === "desc" ? (
@@ -74,27 +94,37 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   },
   {
     accessorKey: "teaching.longDescription",
-    header: "Enseignement",
+    header: "ENSEIGNEMENT",
   },
   {
     accessorKey: "grade.shortDescription",
-    header: "Niveau",
+    header: "NIVEAU",
   },
   {
     accessorKey: "diploma.longDescription",
-    header: "Diplôme",
+    header: "DIPLÔME",
   },
   {
     id: "exercises",
     accessorFn: (row) => row._count?.exercises ?? 0,
     header: ({ column }) => {
       const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={handleCycleSort}
         >
-          Exercices
+          EXERCICES
           {isSorted === "asc" ? (
             <ArrowUp className="ml-2 h-4 w-4" />
           ) : isSorted === "desc" ? (
@@ -123,12 +153,22 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
     accessorKey: "updatedAt",
     header: ({ column }) => {
       const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200 text-left"
+          onClick={handleCycleSort}
         >
-          Date de dernière modification
+          DATE DE DERNIÈRE MODIFICATION
           {isSorted === "asc" ? (
             <ArrowUp className="ml-2 h-4 w-4" />
           ) : isSorted === "desc" ? (
