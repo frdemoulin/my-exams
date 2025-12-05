@@ -1,3 +1,9 @@
+## <small>1.0.1 (2025-12-05)</small>
+
+* Merge pull request #23 from frdemoulin/feature/design ([d329986](https://github.com/frdemoulin/my-exams/commit/d329986)), closes [#23](https://github.com/frdemoulin/my-exams/issues/23)
+* Merge pull request #24 from frdemoulin/dev ([0276c2b](https://github.com/frdemoulin/my-exams/commit/0276c2b)), closes [#24](https://github.com/frdemoulin/my-exams/issues/24)
+* fix: installation et configuration de @semantic-release/npm ([2652b98](https://github.com/frdemoulin/my-exams/commit/2652b98))
+
 ## 1.0.0 (2025-12-05)
 
 * Initial commit ([0bf0152](https://github.com/frdemoulin/my-exams/commit/0bf0152))
