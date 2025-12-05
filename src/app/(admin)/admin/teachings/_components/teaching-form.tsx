@@ -89,7 +89,7 @@ export const TeachingForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                                <FormLabel>Nom de l'enseignement</FormLabel>
+                                <FormLabel>Nom de l&apos;enseignement</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"

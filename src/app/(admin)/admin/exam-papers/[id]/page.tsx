@@ -132,10 +132,12 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                             <h3 className="text-sm font-semibold text-muted-foreground">Programme</h3>
                             <p className="text-sm">{examPaper.curriculum.shortDescription || examPaper.curriculum.longDescription}</p>
                         </div>
-                        {examPaper.examinationCenter && (
+                        {examPaper.examinationCenters && examPaper.examinationCenters.length > 0 && (
                             <div>
-                                <h3 className="text-sm font-semibold text-muted-foreground">Centre d'examen</h3>
-                                <p className="text-sm">{examPaper.examinationCenter.description}</p>
+                                <h3 className="text-sm font-semibold text-muted-foreground">Centre d&apos;examen</h3>
+                                <p className="text-sm">
+                                    {examPaper.examinationCenters.map((center) => center.description).join(', ')}
+                                </p>
                             </div>
                         )}
                         {examPaper.subjectUrl && (

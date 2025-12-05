@@ -43,7 +43,7 @@ export const columns: ColumnDef<User>[] = [
           className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
           onClick={() => cycleSorting(column)}
         >
-          NOM D'UTILISATEUR
+          NOM D&apos;UTILISATEUR
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )

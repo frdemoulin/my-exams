@@ -28,7 +28,7 @@ export default function EditExerciseWrapper({ exercise, themes }: EditExerciseWr
   useEffect(() => {
     setOverride({
       items: [
-        { label: 'Sujets d\'examen', href: '/admin/exam-papers' },
+        { label: 'Sujets d&apos;examen', href: '/admin/exam-papers' },
         { label: exercise.examPaper.label || 'Sujet', href: `/admin/exam-papers/${exercise.examPaperId}` },
         { label: `Exercice ${exercise.exerciseNumber}`, href: `/admin/exam-papers/${exercise.examPaperId}` },
         { label: 'Édition' },
@@ -43,7 +43,7 @@ export default function EditExerciseWrapper({ exercise, themes }: EditExerciseWr
     <div className="w-full p-6">
       <div className="mb-6">
         <h1 className="text-lg font-semibold md:text-2xl">
-          Modifier l'exercice {exercise.exerciseNumber}
+          Modifier l&apos;exercice {exercise.exerciseNumber}
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
           Sujet : {exercise.examPaper.label || `${exercise.examPaper.diploma.shortDescription} ${exercise.examPaper.sessionYear}`}

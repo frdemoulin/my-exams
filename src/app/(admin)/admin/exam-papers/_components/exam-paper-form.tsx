@@ -211,13 +211,13 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Centres d'examen</FormLabel>
+                            <FormLabel>Centres d&apos;examen</FormLabel>
                             <FormControl>
                                 <MultipleSelector
                                     value={selectedExaminationCenters}
                                     onChange={handleExaminationCentersChange}
                                     options={examinationCenterOptions}
-                                    placeholder="Sélectionner des centres d'examen"
+                                    placeholder="Sélectionner des centres d&apos;examen"
                                     emptyIndicator={
                                         <p className="text-center text-sm text-gray-500">
                                             Aucun centre trouvé
@@ -327,7 +327,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Jour de l'examen (optionnel)</FormLabel>
+                                <FormLabel>Jour de l&apos;examen (optionnel)</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
@@ -348,7 +348,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Mois de l'examen</FormLabel>
+                                <FormLabel>Mois de l&apos;examen</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
@@ -370,7 +370,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Année de l'examen</FormLabel>
+                                <FormLabel>Année de l&apos;examen</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"

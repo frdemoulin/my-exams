@@ -112,7 +112,7 @@ export default function ExerciseDetailPage() {
           <div className="mb-4 text-5xl">🤷</div>
           <p className="mb-2 text-lg font-medium">Exercice introuvable</p>
           <Button asChild variant="outline">
-            <Link href="/">Retour à l'accueil</Link>
+            <Link href="/">Retour à l&apos;accueil</Link>
           </Button>
         </div>
       </div>
@@ -265,7 +265,7 @@ export default function ExerciseDetailPage() {
                 rel="noopener noreferrer"
               >
                 <Download className="mr-2 h-4 w-4" />
-                Télécharger l'énoncé
+                Télécharger l&apos;énoncé
               </a>
             </Button>
 

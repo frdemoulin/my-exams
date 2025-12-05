@@ -189,12 +189,12 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="title">Titre de l'exercice</Label>
+            <Label htmlFor="title">Titre de l&apos;exercice</Label>
             <Input
               id="title"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              placeholder="Titrage acide-base d'un vinaigre"
+              placeholder="Titrage acide-base d&apos;un vinaigre"
             />
           </div>
 
@@ -204,7 +204,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
               id="statement"
               value={formData.statement}
               onChange={(e) => setFormData({ ...formData, statement: e.target.value })}
-              placeholder="Énoncé complet de l'exercice..."
+              placeholder="Énoncé complet de l&apos;exercice..."
               rows={6}
             />
           </div>
@@ -227,7 +227,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="exerciseUrl">URL de l'exercice</Label>
+            <Label htmlFor="exerciseUrl">URL de l&apos;exercice</Label>
             <Input
               id="exerciseUrl"
               type="url"

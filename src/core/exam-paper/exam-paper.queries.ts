@@ -13,6 +13,7 @@ export type ExamPaperWithRelations = (ExamPaper & {
         subject: { shortDescription: string };
     };
     curriculum: { longDescription: string; shortDescription: string | null };
+    examinationCenters?: Array<{ id: string; description: string }>;
     themes: Array<{
         id: string;
         shortDescription: string;
@@ -43,6 +44,7 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
                 } 
             },
             curriculum: { select: { longDescription: true, shortDescription: true } },
+            examinationCenters: { select: { id: true, description: true } },
             corrections: {
                 select: {
                     id: true,
@@ -102,6 +104,7 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
                 } 
             },
             curriculum: { select: { longDescription: true, shortDescription: true } },
+            examinationCenters: { select: { id: true, description: true } },
             corrections: {
                 select: {
                     id: true,
@@ -160,6 +163,7 @@ export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelat
                 } 
             },
             curriculum: { select: { longDescription: true, shortDescription: true } },
+            examinationCenters: { select: { id: true, description: true } },
             corrections: {
                 select: {
                     id: true,

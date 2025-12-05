@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent, useEffect, useMemo } from 'react';
+import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
 import { Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
@@ -25,6 +25,7 @@ import {
 import { ThemeToggle } from '@/components/shared/theme-toggle';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
+import packageInfo from '../../../package.json';
 
 // Types importés depuis @/core/exercise
 
@@ -55,6 +56,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     Array<{ id: string; title: string; label: string | null; examPaperLabel: string; sessionYear: number; subject: string }>
   >([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const appVersion = packageInfo.version;
 
   // Fetch exercises on mount
   useEffect(() => {
@@ -81,7 +83,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   }, []);
 
   // Fonction de recherche réutilisable (appel API avec filtres)
-  const performSearch = () => {
+  const performSearch = useCallback(() => {
     setIsSearching(true);
     
     // Construction des query params
@@ -111,7 +113,17 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
         console.error('Error searching exercises:', err);
         setIsSearching(false);
       });
-  };
+  }, [
+    search,
+    selectedDiploma,
+    selectedSubject,
+    selectedDifficulty,
+    selectedSessionYear,
+    sortBy,
+    sortOrder,
+    page,
+    pageSize,
+  ]);
 
   // Debounce pour la recherche textuelle
   useEffect(() => {
@@ -123,7 +135,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
 
       return () => clearTimeout(timer);
     }
-  }, [search, loading]);
+  }, [search, loading, performSearch]);
 
   // Marquer le montage client pour éviter les warnings d'hydratation (Radix Select)
   useEffect(() => {
@@ -135,7 +147,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     if (!loading) {
       performSearch();
     }
-  }, [selectedDiploma, selectedSubject, selectedDifficulty, selectedSessionYear, sortBy, sortOrder, page, loading]);
+  }, [performSearch, loading]);
 
   const difficulties = [
     { value: 1, label: 'Très facile', emoji: '😊' },
@@ -307,7 +319,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 My exams
               </span>
               <span className="text-xs text-muted-foreground">
-                Annales d'examens, gratuites et triées.
+                Annales d&apos;examens, gratuites et triées.
               </span>
             </div>
           </div>
@@ -344,16 +356,16 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               className="mb-4 text-xs"
             >
               <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400" />
-              📚 Plus de 1000 exercices d'annales indexés
+              📚 Plus de 1000 exercices d&apos;annales indexés
             </Badge>
 
             <h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-              Trouve le bon exercice d'annales
+              Trouve le bon exercice d&apos;annales
               <span className="block text-primary">en quelques secondes 🎯</span>
             </h1>
 
             <p className="mb-6 max-w-xl text-sm text-muted-foreground md:text-base">
-              Moteur de recherche d'exercices d'annales du Brevet au BTS. 
+              Moteur de recherche d&apos;exercices d&apos;annales du Brevet au BTS. 
               Chaque exercice est enrichi avec sa durée estimée, difficulté, thématiques ciblées et corrections multiples provenant des meilleures sources (APMEP, LaboLycée, YouTube...).
             </p>
 
@@ -423,11 +435,11 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               <p className="text-xs text-muted-foreground lg:text-left">
                 Suggestion :{' '}
                 <span className="font-medium text-foreground">
-                  "titrage acide-base"
+                  &quot;titrage acide-base&quot;
                 </span>{' '}
                 ou{' '}
                 <span className="font-medium text-foreground">
-                  "probabilités loi normale"
+                  &quot;probabilités loi normale&quot;
                 </span>
               </p>
             </form>
@@ -608,10 +620,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 <ol className="list-inside list-decimal space-y-1.5">
                   <li>🔍 <strong>Recherche</strong> un exercice par diplôme, thème ou difficulté</li>
                   <li>📊 <strong>Trie</strong> par année, durée ou difficulté</li>
-                  <li>📖 <strong>Accède</strong> à l'énoncé de l'exercice + plusieurs corrections</li>
+                  <li>📖 <strong>Accède</strong> à l&apos;énoncé de l&apos;exercice + plusieurs corrections</li>
                 </ol>
                 <p className="mt-2 text-muted-foreground">
-                  💡 Tous les exercices sont enrichis automatiquement avec l'IA
+                  💡 Tous les exercices sont enrichis automatiquement avec l&apos;IA
                 </p>
               </CardContent>
             </Card>
@@ -808,16 +820,19 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
       <footer className="border-t border-border bg-card">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-[11px] text-muted-foreground md:flex-row">
           <p>
-            © {new Date().getFullYear()} Site d'annales — plateforme de
+            © {new Date().getFullYear()} Site d&apos;annales — plateforme de
             révision.
           </p>
-          <div className="flex gap-4">
-            <a href="/mentions-legales" className="hover:text-foreground">
-              Mentions légales
-            </a>
-            <a href="/contact" className="hover:text-foreground">
-              Contact
-            </a>
+          <div className="flex items-center gap-4">
+            <span className="text-[11px]">Version v{appVersion}</span>
+            <div className="flex gap-4">
+              <a href="/mentions-legales" className="hover:text-foreground">
+                Mentions légales
+              </a>
+              <a href="/contact" className="hover:text-foreground">
+                Contact
+              </a>
+            </div>
           </div>
         </div>
       </footer>

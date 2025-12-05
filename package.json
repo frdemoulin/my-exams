@@ -13,7 +13,9 @@
     "db:clear": "ts-node scripts/clear-database.ts",
     "db:reset": "npm run db:clear && npm run db:seed",
     "migrate:exercises": "ts-node scripts/migrate-to-exercises.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "prepare": "husky",
+    "semantic-release": "semantic-release"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -41,7 +43,7 @@
     "date-fns": "^4.1.0",
     "lucide-react": "^0.439.0",
     "mongodb": "^6.8.1",
-    "next": "16.0.3",
+    "next": "^16.0.7",
     "next-auth": "^5.0.0-beta.30",
     "next-intl": "^4.5.5",
     "next-themes": "^0.3.0",
@@ -59,19 +61,32 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@faker-js/faker": "^10.1.0",
     "@playwright/test": "^1.56.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.1.0",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^20",
     "@types/react": "19.2.5",
     "baseline-browser-mapping": "^2.8.32",
     "dotenv": "^17.2.3",
     "eslint": "^9",
-    "eslint-config-next": "16.0.3",
+    "eslint-config-next": "^16.0.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "postcss": "^8",
     "prisma": "^6.19.0",
+    "semantic-release": "^25.0.2",
     "tailwindcss": "^4.1.17",
     "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "overrides": {
+    "eslint-plugin-react-hooks": "6.0.0"
   }
 }

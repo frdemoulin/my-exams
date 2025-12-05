@@ -46,7 +46,7 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
           className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
           onClick={() => cycleSorting(column)}
         >
-          NOM DE L'ENSEIGNEMENT
+          NOM DE L&apos;ENSEIGNEMENT
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )

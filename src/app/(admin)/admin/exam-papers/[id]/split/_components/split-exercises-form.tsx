@@ -233,12 +233,12 @@ export function SplitExercisesForm({
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor={`title-${index}`}>Titre de l'exercice</Label>
+              <Label htmlFor={`title-${index}`}>Titre de l&apos;exercice</Label>
               <Input
                 id={`title-${index}`}
                 value={exercise.title || ''}
                 onChange={(e) => updateExercise(index, 'title', e.target.value)}
-                placeholder="Titrage acide-base d'un vinaigre"
+                placeholder="Titrage acide-base d&apos;un vinaigre"
               />
             </div>
 
@@ -248,7 +248,7 @@ export function SplitExercisesForm({
                 id={`statement-${index}`}
                 value={exercise.statement || ''}
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateExercise(index, 'statement', e.target.value)}
-                placeholder="Collez l'énoncé complet ici..."
+                placeholder="Collez l&apos;énoncé complet ici..."
                 rows={3}
                 className="flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
               />
