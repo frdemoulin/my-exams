@@ -23,9 +23,9 @@ import {
   CardContent,
 } from '@/components/ui/card';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
+import { SiteFooter } from '@/components/shared/site-footer';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
-import packageInfo from '../../../package.json';
 
 // Types importés depuis @/core/exercise
 
@@ -56,7 +56,6 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     Array<{ id: string; title: string; label: string | null; examPaperLabel: string; sessionYear: number; subject: string }>
   >([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const appVersion = packageInfo.version;
 
   // Fetch exercises on mount
   useEffect(() => {
@@ -327,15 +326,6 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
             <a href="/admin" className="hover:text-foreground">
               Administration
-            </a>
-            <a href="/annales" className="hover:text-foreground">
-              Annales
-            </a>
-            <a href="/notions" className="hover:text-foreground">
-              Notions
-            </a>
-            <a href="/a-propos" className="hover:text-foreground">
-              À propos
             </a>
             <ThemeToggle />
             <Button variant="outline" size="sm">
@@ -816,26 +806,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
         )}
       </main>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border bg-card">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-[11px] text-muted-foreground md:flex-row">
-          <p>
-            © {new Date().getFullYear()} Site d&apos;annales — plateforme de
-            révision.
-          </p>
-          <div className="flex items-center gap-4">
-            <span className="text-[11px]">Version v{appVersion}</span>
-            <div className="flex gap-4">
-              <a href="/mentions-legales" className="hover:text-foreground">
-                Mentions légales
-              </a>
-              <a href="/contact" className="hover:text-foreground">
-                Contact
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

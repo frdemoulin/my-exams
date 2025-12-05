@@ -197,11 +197,18 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                         {exercisesWithThemes.map((exercise) => (
                             <Card key={exercise.id}>
                                 <CardHeader>
-                                    <div className="flex items-start justify-between">
-                                        <div className="flex items-center gap-4">
+                                    <div className="flex items-baseline justify-between">
+                                        <div className="flex gap-4">
                                             <CardTitle className="text-base">
-                                                Exercice {exercise.exerciseNumber}
-                                                {exercise.label && ` - ${exercise.label}`}
+                                                {(() => {
+                                                    const baseTitle = `Exercice ${exercise.exerciseNumber}`;
+                                                    const labelPart =
+                                                        exercise.label &&
+                                                        !exercise.label.trim().toLowerCase().startsWith(baseTitle.toLowerCase())
+                                                            ? ` - ${exercise.label}`
+                                                            : '';
+                                                    return `${baseTitle}${labelPart}`;
+                                                })()}
                                             </CardTitle>
                                             <div className="flex gap-2">
                                                 {exercise.points && (
@@ -209,6 +216,9 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                                 )}
                                                 {exercise.estimatedDuration && (
                                                     <Badge variant="duration">{exercise.estimatedDuration} min</Badge>
+                                                )}
+                                                {exercise.estimatedDifficulty && (
+                                                    <Badge variant="difficulty">Difficulté {exercise.estimatedDifficulty}/5</Badge>
                                                 )}
                                                 <Badge
                                                     variant={
@@ -237,11 +247,6 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                             />
                                         </div>
                                     </div>
-                                    <div className="flex gap-2 text-sm font-normal mt-2">
-                                        {exercise.estimatedDifficulty && (
-                                            <Badge variant="difficulty">Difficulté {exercise.estimatedDifficulty}/5</Badge>
-                                        )}
-                                    </div>
                                 </CardHeader>
                                 <CardContent className="space-y-2">
                                     {exercise.title && (
@@ -251,7 +256,7 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                         </div>
                                     )}
                                     {exercise.statement && (
-                                        <div>
+                                        <div className="space-y-2">
                                             <h4 className="font-medium text-sm">Énoncé</h4>
                                             <p className="text-sm text-muted-foreground whitespace-pre-wrap">{exercise.statement}</p>
                                         </div>

@@ -71,7 +71,14 @@ export function ExerciseCard({
 
   const correctionUrl = exercise.correctionUrl || paperCorrectionUrl || exercise.corrections[0]?.url || null;
 
-  const displayTitle = title || label || `Exercice ${exerciseNumber}`;
+  const baseTitle = `Exercice ${exerciseNumber}`;
+  const displayTitleRaw = title || label || baseTitle;
+  const normalize = (s: string) =>
+    s
+      .replace(/\s+/g, ' ')
+      .replace(/–/g, '-')
+      .trim()
+      .toLowerCase();
   const difficultyLabel = (() => {
     if (!estimatedDifficulty) return 'Non évaluée';
     if (estimatedDifficulty >= 4) return '⚡ Difficile';
@@ -96,9 +103,10 @@ export function ExerciseCard({
   const traceabilityFooter = paperLabel
     ? `Issu du sujet ${paperLabel}`
     : `Session ${sessionYear}`;
-  const baseTitle = `Exercice ${exerciseNumber}`;
   const fullTitle =
-    displayTitle === baseTitle ? displayTitle : `${baseTitle} – ${displayTitle}`;
+    normalize(displayTitleRaw).startsWith(normalize(baseTitle))
+      ? displayTitleRaw
+      : `${baseTitle} – ${displayTitleRaw}`;
   const sourceLabel = (() => {
     const rawSource = source ?? 'OFFICIEL';
     switch (rawSource) {
@@ -150,7 +158,7 @@ export function ExerciseCard({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Badge variant="secondary" className="text-xs">{sessionYear}</Badge>
+            <Badge variant="secondary" className="text-xs">Session {sessionYear}</Badge>
             <Badge
               variant="secondary"
               className="text-xs dark:bg-amber-600 dark:hover:bg-amber-700 dark:text-white dark:border-transparent"
