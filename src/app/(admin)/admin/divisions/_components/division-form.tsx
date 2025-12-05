@@ -74,7 +74,7 @@ export const DivisionForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Description longue</FormLabel>
+                                <FormLabel>Description longue</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -91,7 +91,7 @@ export const DivisionForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Description courte</FormLabel>
+                                <FormLabel>Description courte</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -106,7 +106,7 @@ export const DivisionForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/divisions">{common.cancel}</Link>

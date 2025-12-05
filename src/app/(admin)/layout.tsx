@@ -1,6 +1,7 @@
 import { Navbar } from "./_components/navbar";
 import { Sidebar } from "./_components/sidebar";
 import { ToastDisplay } from "@/components/shared/toast-display";
+import { BreadcrumbWrapper } from "./_components/breadcrumb-wrapper";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -12,7 +13,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     <div className="w-64 shrink-0 hidden md:block">
                         <Sidebar />
                     </div>
-                    {children}
+                    <BreadcrumbWrapper>
+                        {children}
+                    </BreadcrumbWrapper>
                 </div>
             </main>
         </div>

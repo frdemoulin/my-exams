@@ -13,7 +13,7 @@ const AddGradePage = async () => {
     return (
         <div className="w-full p-6">
             <div>
-                <h1 className="text-2xl font-bold text-blue-700 my-4">{t('actions.add')}</h1>
+                <h1 className="text-lg font-semibold md:text-2xl mb-6">{t('actions.add')}</h1>
             </div>
             <div>
                 <GradeForm

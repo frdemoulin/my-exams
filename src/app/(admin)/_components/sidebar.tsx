@@ -28,6 +28,16 @@ export const Sidebar = () => {
 
   const menuItems = [
     {
+      title: 'Navigation',
+      list: [
+        {
+          title: 'Accueil',
+          path: '/admin',
+          icon: <FaHouse className="mr-3" size={16} />
+        },
+      ]
+    },
+    {
       title: 'Scolarité',
       list: [
         {

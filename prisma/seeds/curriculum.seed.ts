@@ -108,6 +108,7 @@ export async function seedCurriculums() {
   ];
 
   let createdCount = 0;
+  let updatedCount = 0;
 
   for (const curriculum of curriculums) {
     // Vérifier si le curriculum existe déjà
@@ -129,8 +130,9 @@ export async function seedCurriculums() {
         where: { id: existing.id },
         data: curriculum,
       });
+      updatedCount++;
     }
   }
 
-  console.log(`   ✓ ${createdCount} programmes scolaires créés`);
+  console.log(`   ✓ ${createdCount} programmes scolaires créés${updatedCount > 0 ? `, ${updatedCount} mis à jour` : ''}`);
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -18,14 +18,39 @@ import toast from "react-hot-toast";
 import type { CurriculumWithTeachingCount } from "@/core/curriculum";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 
+const cycleSorting = (column: any) => {
+    const state = column.getIsSorted();
+    if (state === "asc") column.toggleSorting(true);
+    else if (state === "desc") column.clearSorting();
+    else column.toggleSorting(false);
+};
+
 export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
         accessorKey: "longDescription",
-        header: "Nom",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                onClick={() => cycleSorting(column)}
+            >
+                NOM
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+        ),
     },
     {
         accessorKey: "startDate",
-        header: "Date de début",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                onClick={() => cycleSorting(column)}
+            >
+                DATE DE DÉBUT
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+        ),
         cell: ({ row }) => {
             const startDate = row.original.startDate;
             return new Date(startDate).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
@@ -33,7 +58,16 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     },
     {
         accessorKey: "endDate",
-        header: "Fin",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                onClick={() => cycleSorting(column)}
+            >
+                FIN
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+        ),
         cell: ({ row }) => {
             const endDate = row.original.endDate;
             if (!endDate) return "—";
@@ -42,7 +76,16 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     },
     {
         accessorKey: "isActive",
-        header: "Statut",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                onClick={() => cycleSorting(column)}
+            >
+                STATUT
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+        ),
         cell: ({ row }) => {
             const isActive = row.original.isActive;
             return (
@@ -54,7 +97,16 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     },
     {
         id: "courseCount",
-        header: "Enseignements",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                onClick={() => cycleSorting(column)}
+            >
+                ENSEIGNEMENTS
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+        ),
         cell: ({ row }) => {
             return (
                 <span className="text-muted-foreground">

@@ -5,7 +5,7 @@ export async function fetchExaminationCenters(): Promise<ExaminationCenter[]> {
     return await prisma.examinationCenter.findMany({
         orderBy: [
             {
-                createdAt: "asc",
+                description: "asc",
             }
         ]
     });

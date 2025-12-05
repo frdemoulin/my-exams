@@ -58,7 +58,6 @@
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue de la matière|
 |shortDescription|VARCHAR(255)|NOT NULL|La description courte de la matière|
-|topicIDs|Array(ObjectID)|NOT NULL|Les identifiants des thèmes associés|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
@@ -66,24 +65,198 @@
 - UNIQUE (longDescription, shortDescription)
 
 **Relations :**
-- topics : relation Many-to-Many avec Topic
+- teachings : relation One-to-Many avec Teaching
+- chapters : relation One-to-Many avec Chapter
 
-## Modèle Topic (`Topic`) : thèmes
+## Modèle Teaching (`Teaching`) : enseignements
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|longDescription|VARCHAR(255)|NOT NULL|La description longue de l'enseignement (ex: "Spécialité Mathématiques")|
+|shortDescription|VARCHAR(255)|NULLABLE|La description courte de l'enseignement (ex: "Spé Maths")|
+|gradeId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du niveau scolaire|
+|subjectId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la matière|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (longDescription, gradeId)
+
+**Relations :**
+- grade : relation Many-to-One avec Grade
+- subject : relation Many-to-One avec Subject
+- examPapers : relation One-to-Many avec ExamPaper
+
+## Modèle Curriculum (`Curriculum`) : programmes scolaires
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|longDescription|VARCHAR(255)|NOT NULL|La description du programme (ex: "Programme 2019", "Réforme Bac 2020")|
+|shortDescription|VARCHAR(255)|NULLABLE|Description détaillée du programme|
+|startDate|TIMESTAMP|NOT NULL|Date de mise en vigueur du programme|
+|endDate|TIMESTAMP|NULLABLE|Date de fin du programme (null si toujours en vigueur)|
+|teachingIds|Array(ObjectID)|NOT NULL|Les identifiants des enseignements concernés|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Programme actuellement en vigueur|
+|notes|TEXT|NULLABLE|Notes complémentaires|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (longDescription, startDate)
+
+**Relations :**
+- examPapers : relation One-to-Many avec ExamPaper
+
+## Modèle Chapter (`Chapter`) : chapitres
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|longDescription|VARCHAR(255)|NOT NULL|La description longue du chapitre|
+|shortDescription|VARCHAR(255)|NOT NULL|La description courte du chapitre|
+|order|INT|NULLABLE|L'ordre dans le programme|
+|subjectId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la matière|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (longDescription, subjectId)
+
+**Relations :**
+- subject : relation Many-to-One avec Subject
+- themes : relation One-to-Many avec Theme
+
+## Modèle Theme (`Theme`) : thèmes
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue du thème|
 |shortDescription|VARCHAR(255)|NULLABLE|La description courte du thème|
-|subjectIDs|Array(ObjectID)|NOT NULL|Les identifiants des matières associées|
+|chapterId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du chapitre|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Relations :**
+- chapter : relation Many-to-One avec Chapter
+
+## Modèle ExamPaper (`ExamPaper`) : sujets d'annales (conteneur)
+
+**Note** : Ce modèle sert de conteneur pour les exercices. L'unité de recherche principale est maintenant l'`Exercise`.
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|label|VARCHAR(255)|NOT NULL|Le libellé du sujet (ex: "Métropole Sujet 1")|
+|sessionYear|INT|NOT NULL|L'année de la session (ex: 2024)|
+|sessionMonth|VARCHAR(50)|NULLABLE|Le mois de la session (ex: "juin", "septembre")|
+|diplomaId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du diplôme|
+|divisionId|ObjectID|NULLABLE, FOREIGN KEY|L'identifiant de la filière (optionnel pour Brevet)|
+|gradeId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du niveau scolaire|
+|teachingId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de l'enseignement|
+|curriculumId|ObjectID|NULLABLE, FOREIGN KEY|L'identifiant du programme scolaire (optionnel pour Brevet)|
+|examinationCenterIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des centres d'examen|
+|subjectUrl|VARCHAR(500)|NULLABLE|L'URL du PDF du sujet complet|
+|totalDuration|INT|NULLABLE|La durée totale en minutes|
+|totalPoints|INT|NULLABLE|Le total de points du sujet|
+|chapterIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds|
+|themeIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds|
+|correctionUrl|VARCHAR(500)|NULLABLE, DEPRECATED|Déprécié : utiliser Correction ou ExerciseCorrection|
+|estimatedDuration|INT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.estimatedDuration|
+|estimatedDifficulty|INT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.estimatedDifficulty|
+|summary|TEXT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.summary|
+|enrichmentStatus|VARCHAR(20)|DEFAULT "pending", DEPRECATED|Déprécié : utiliser Exercise.enrichmentStatus|
+|enrichedAt|TIMESTAMP|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.enrichedAt|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
 **Contraintes :**
-- UNIQUE (longDescription, shortDescription)
+- UNIQUE (label, sessionYear, teachingId)
 
 **Relations :**
-- subjects : relation Many-to-Many avec Subject
+- diploma : relation Many-to-One avec Diploma
+- division : relation Many-to-One avec Division (optionnel)
+- grade : relation Many-to-One avec Grade
+- teaching : relation Many-to-One avec Teaching
+- curriculum : relation Many-to-One avec Curriculum (optionnel)
+- exercises : relation One-to-Many avec Exercise
+- corrections : relation One-to-Many avec Correction
+
+## Modèle Exercise (`Exercise`) : exercices d'annales ⭐
+
+**Note** : L'exercice est l'unité principale de recherche. Chaque exercice conserve la traçabilité de son sujet parent.
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|examPaperId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du sujet parent|
+|exerciseNumber|INT|NOT NULL|Le numéro de l'exercice dans le sujet (1, 2, 3...)|
+|label|VARCHAR(255)|NULLABLE|Le libellé de l'exercice (ex: "Exercice 3", "Partie A")|
+|points|INT|NULLABLE|Les points attribués à cet exercice|
+|title|VARCHAR(255)|NULLABLE|Le titre de l'exercice (ex: "Titrage acide-base d'un vinaigre")|
+|statement|TEXT|NULLABLE|L'énoncé complet de l'exercice (extrait via OCR)|
+|themeIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des thèmes couverts dans cet exercice|
+|exerciseUrl|VARCHAR(500)|NULLABLE|L'URL du PDF de l'exercice isolé|
+|correctionUrl|VARCHAR(500)|NULLABLE|L'URL de la correction isolée|
+|estimatedDuration|INT|NULLABLE|La durée estimée en minutes pour cet exercice (enrichissement IA)|
+|estimatedDifficulty|INT|NULLABLE|La difficulté estimée 1-5 (enrichissement IA)|
+|summary|TEXT|NULLABLE|Le résumé automatique de l'exercice (enrichissement IA)|
+|keywords|Array(VARCHAR)|NOT NULL, DEFAULT []|Les mots-clés extraits automatiquement|
+|enrichmentStatus|VARCHAR(20)|NOT NULL, DEFAULT "pending"|Le statut d'enrichissement ("pending", "completed", "failed")|
+|enrichedAt|TIMESTAMP|NULLABLE|La date d'enrichissement automatique|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (examPaperId, exerciseNumber)
+
+**Relations :**
+- examPaper : relation Many-to-One avec ExamPaper (onDelete: Cascade)
+- corrections : relation One-to-Many avec ExerciseCorrection
+
+## Modèle ExerciseCorrection (`ExerciseCorrection`) : corrections d'exercices
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|exerciseId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de l'exercice|
+|source|VARCHAR(255)|NOT NULL|La source de la correction (ex: "APMEP", "YouTube - Prof Dupont")|
+|url|VARCHAR(500)|NOT NULL|L'URL de la correction|
+|type|VARCHAR(20)|NOT NULL, DEFAULT "pdf"|Le type de correction ("pdf", "video", "html")|
+|quality|INT|NULLABLE|La note de qualité 1-5|
+|author|VARCHAR(255)|NULLABLE|L'auteur de la correction si connu|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (exerciseId, source, url)
+
+**Relations :**
+- exercise : relation Many-to-One avec Exercise (onDelete: Cascade)
+
+## Modèle Correction (`Correction`) : corrections globales de sujets
+
+**Note** : Pour les corrections d'exercices spécifiques, utiliser `ExerciseCorrection`.
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|examPaperId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du sujet d'examen|
+|source|VARCHAR(255)|NOT NULL|La source de la correction (ex: "APMEP", "LaboLycée", "Académie")|
+|url|VARCHAR(500)|NOT NULL|L'URL de la correction|
+|type|VARCHAR(20)|NOT NULL, DEFAULT "pdf"|Le type de correction ("pdf", "video", "html")|
+|quality|INT|NULLABLE|La note de qualité 1-5|
+|author|VARCHAR(255)|NULLABLE|L'auteur de la correction si connu|
+|createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
+|updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
+
+**Contraintes :**
+- UNIQUE (examPaperId, source, url)
+
+**Relations :**
+- examPaper : relation Many-to-One avec ExamPaper (onDelete: Cascade)
 
 ## Modèle User (`User`) : utilisateurs
 
@@ -175,7 +348,45 @@
 
 ---
 
-// BACKUP CI-DESSOUS
+## Architecture Exercise-Centric
+
+### Vue d'ensemble
+
+L'application utilise maintenant une architecture **centrée sur les exercices** :
+
+- **ExamPaper** : Conteneur administratif (métadonnées du sujet complet)
+- **Exercise** : Unité de recherche principale (exercice individuel avec métadonnées enrichies)
+- **ExerciseCorrection** : Corrections spécifiques à un exercice
+- **Correction** : Corrections globales d'un sujet complet (optionnel)
+
+### Hiérarchie de recherche
+
+```
+Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
+                              ↓
+                         ExamPaper (conteneur)
+                              ↓
+                         Exercise (unité de recherche)
+                              ↓
+                    ExerciseCorrection (corrections)
+```
+
+### Exemple de traçabilité
+
+Un élève cherche "titrage acide-base" et trouve :
+```
+Exercice : "Titrage acide-base d'un vinaigre"
+Traçabilité : Métropole juin 2024 - Exercice 3 (6 pts)
+Hiérarchie : Bac Général › Physique-Chimie › Terminale › Spé PC
+Thèmes : Titrage, Acide-base, Dosage
+Métadonnées : ~25 min, Difficulté 3/5
+```
+
+Pour plus de détails, voir [`exercise-centric-refactoring.md`](./exercise-centric-refactoring.md).
+
+---
+
+// BACKUP CI-DESSOUS (anciens modèles à supprimer)
 
 ### Entité FaqEntry (`faq_entry`) : entrée de la FAQ
 

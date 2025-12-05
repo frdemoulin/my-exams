@@ -20,7 +20,7 @@ export default function FormSubmitButton({
             type="submit"
             disabled={props.disabled || loading}
             {...props}
-            variant={crudMode}
+            variant="success"
         >
             {crudMode === "add" ? (
                 loading ? `${common.loading}` : common.save

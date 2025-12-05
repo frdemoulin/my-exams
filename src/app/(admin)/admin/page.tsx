@@ -27,7 +27,7 @@ const DashboardPage = async () => {
     const user = session?.user;
 
     if (!user) {
-        redirect("/log-in?callbackUrl=/dashboard");
+        redirect("/log-in?callbackUrl=/admin");
     }
 
     const stats = await fetchDashboardStats();
@@ -95,7 +95,7 @@ const DashboardPage = async () => {
     return (
         <div className="w-full p-6 space-y-6">
             <div>
-                <h1 className="text-3xl font-bold">Tableau de bord</h1>
+                <h1 className="text-2xl font-bold text-primary">Tableau de bord</h1>
                 <p className="text-muted-foreground">
                     Bienvenue, {user.name || user.email}
                 </p>

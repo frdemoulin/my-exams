@@ -4,6 +4,20 @@ Documentation complète du projet de plateforme d'annales d'examens.
 
 ---
 
+## ⭐ Architecture Exercise-Centric (Novembre 2025)
+
+**My Exams utilise une architecture centrée sur les exercices** :
+- Les élèves recherchent des **exercices spécifiques** par thème (ex: "titrage acide-base")
+- Chaque exercice conserve la **traçabilité complète** de son sujet parent
+- Les `ExamPaper` servent de **conteneurs**, les `Exercise` sont l'**unité de recherche**
+
+📖 **Documentation clé** :
+- **[exercise-centric-refactoring.md](./database/exercise-centric-refactoring.md)** - Vision et plan complet du refactoring
+- **[exam-indexing-pivot-plan.md](./project-management/exam-indexing-pivot-plan.md)** - État d'avancement des phases de migration
+- **[data-models.md](./database/data-models.md)** - Modèles Exercise, ExerciseCorrection, ExamPaper
+
+---
+
 ## 📁 Structure de la documentation
 
 ### 🏗️ Architecture
@@ -21,11 +35,13 @@ Guides pratiques et tutoriels pour comprendre les concepts clés.
 ### 🗄️ Database
 Documentation liée à la base de données et Prisma.
 
+- **[exercise-centric-refactoring.md](./database/exercise-centric-refactoring.md)** - ⭐ Architecture Exercise-Centric (LIRE EN PREMIER)
+- **[data-models.md](./database/data-models.md)** - Modèles de données (MCD) incluant Exercise et ExerciseCorrection
 - **[prisma.md](./database/prisma.md)** - Guide Prisma ORM
 - **[prisma-composite-uniques.md](./database/prisma-composite-uniques.md)** - Contraintes uniques composites
-- **[data-models.md](./database/data-models.md)** - Modèles de données (MCD)
 - **[datas.md](./database/datas.md)** - Structure des données
 - **[fixtures.md](./database/fixtures.md)** - Données de test et seeds
+- **[hierarchy.md](./database/hierarchy.md)** - Hiérarchie pédagogique (Diploma → Division → Grade → Teaching → Subject)
 
 ### 💻 Development
 Outils et ressources pour le développement.
@@ -42,8 +58,9 @@ Configuration technique et installation d'outils.
 ### 📋 Project Management
 Suivi du projet et historique des modifications.
 
+- **[exam-indexing-pivot-plan.md](./project-management/exam-indexing-pivot-plan.md)** - ⭐ Plan de migration Exercise-Centric (état d'avancement)
 - **[CHANGELOG.md](./project-management/CHANGELOG.md)** - Journal des modifications
-- **[REFACTORING.md](./project-management/REFACTORING.md)** - Historique des refactorisations
+- **[REFACTORING.md](./project-management/REFACTORING.md)** - Architecture globale et structure des dossiers
 - **[tree.md](./project-management/tree.md)** - Arborescence du projet
 
 ---
@@ -51,15 +68,17 @@ Suivi du projet et historique des modifications.
 ## 🚀 Démarrage rapide
 
 ### Nouveaux développeurs
-1. Lire **[javascript-concepts.md](./guides/javascript-concepts.md)** pour les fondamentaux
-2. Consulter **[nextjs-server-client-components.md](./architecture/nextjs-server-client-components.md)** pour l'architecture
-3. Suivre **[prisma.md](./database/prisma.md)** pour la base de données
-4. Référencer **[terminal-commands.md](./development/terminal-commands.md)** pour les commandes
+1. **LIRE EN PREMIER** : **[exercise-centric-refactoring.md](./database/exercise-centric-refactoring.md)** - Comprendre l'architecture actuelle
+2. Lire **[javascript-concepts.md](./guides/javascript-concepts.md)** pour les fondamentaux
+3. Consulter **[nextjs-server-client-components.md](./architecture/nextjs-server-client-components.md)** pour l'architecture
+4. Suivre **[prisma.md](./database/prisma.md)** pour la base de données
+5. Référencer **[terminal-commands.md](./development/terminal-commands.md)** pour les commandes
 
 ### Développeurs expérimentés
-- Architecture : **architecture/**
-- Data models : **[data-models.md](./database/data-models.md)**
-- Historique : **[CHANGELOG.md](./project-management/CHANGELOG.md)**
+- **Architecture Exercise-Centric** : **[exercise-centric-refactoring.md](./database/exercise-centric-refactoring.md)**
+- **État du projet** : **[exam-indexing-pivot-plan.md](./project-management/exam-indexing-pivot-plan.md)**
+- **Data models** : **[data-models.md](./database/data-models.md)**
+- **Historique** : **[CHANGELOG.md](./project-management/CHANGELOG.md)**
 
 ---
 

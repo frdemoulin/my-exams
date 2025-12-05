@@ -1,8 +1,6 @@
 // Charge les variables d'environnement (.env.local) avant d'initialiser Prisma
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config({ path: '.env.local' });
 // Import Prisma client singleton
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const prisma = require("../src/lib/db").default;
 
 async function run() {

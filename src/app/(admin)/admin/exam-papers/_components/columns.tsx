@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ArrowUp, ArrowDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -33,13 +33,30 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   {
     accessorKey: "label",
     header: ({ column }) => {
+      const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={handleCycleSort}
         >
-          Label
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          LABEL
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       )
     },
@@ -47,48 +64,118 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   {
     accessorKey: "sessionYear",
     header: ({ column }) => {
+      const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={handleCycleSort}
         >
-          Année
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          ANNÉE
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       )
     },
   },
   {
     accessorKey: "teaching.longDescription",
-    header: "Enseignement",
+    header: "ENSEIGNEMENT",
   },
   {
     accessorKey: "grade.shortDescription",
-    header: "Niveau",
+    header: "NIVEAU",
   },
   {
     accessorKey: "diploma.longDescription",
-    header: "Diplôme",
+    header: "DIPLÔME",
   },
   {
-    id: "examinationCenters",
-    header: "Centres d'examen",
+    id: "exercises",
+    accessorFn: (row) => row._count?.exercises ?? 0,
+    header: ({ column }) => {
+      const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
+      return (
+        <Button
+          variant="ghost"
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={handleCycleSort}
+        >
+          EXERCICES
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
+        </Button>
+      )
+    },
     cell: ({ row }) => {
-      const centerIds = row.original.examinationCenterIds || [];
-      if (centerIds.length === 0) return <div>-</div>;
-      return <div>{centerIds.length} centre(s)</div>;
+      const exerciseCount = row.original._count?.exercises ?? 0;
+      if (exerciseCount === 0) return <div className="text-muted-foreground text-center">-</div>;
+      return <div className="text-center">{exerciseCount}</div>;
+    },
+    filterFn: (row, id, value) => {
+      const exerciseCount = row.original._count?.exercises ?? 0;
+      // value peut être: "0" (sans exercices), "1+" (avec exercices), ou undefined (pas de filtre)
+      if (!value) return true;
+      if (value === "0") return exerciseCount === 0;
+      if (value === "1+") return exerciseCount > 0;
+      return true;
     },
   },
   {
     accessorKey: "updatedAt",
     header: ({ column }) => {
+      const isSorted = column.getIsSorted();
+      const handleCycleSort = () => {
+        if (isSorted === "asc") {
+          column.toggleSorting(true);
+        } else if (isSorted === "desc") {
+          column.clearSorting();
+        } else {
+          column.toggleSorting(false);
+        }
+      };
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200 text-left"
+          onClick={handleCycleSort}
         >
-          Date de dernière modification
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          DATE DE DERNIÈRE MODIFICATION
+          {isSorted === "asc" ? (
+            <ArrowUp className="ml-2 h-4 w-4" />
+          ) : isSorted === "desc" ? (
+            <ArrowDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       )
     },

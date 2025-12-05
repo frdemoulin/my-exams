@@ -82,7 +82,7 @@ export const ThemeForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Description longue</FormLabel>
+                                <FormLabel>Description longue</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -99,7 +99,7 @@ export const ThemeForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Description courte</FormLabel>
+                                <FormLabel>Description courte</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -116,7 +116,7 @@ export const ThemeForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Chapitre</FormLabel>
+                                <FormLabel>Chapitre</FormLabel>
                             <FormControl>
                                 <select
                                     {...field}
@@ -137,7 +137,7 @@ export const ThemeForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/themes">{common.cancel}</Link>

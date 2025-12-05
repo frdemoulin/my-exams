@@ -1,4 +1,12 @@
-# Starter kit Next.js 16 - Prisma - MongoDB - Auth.js
+# My Exams - Moteur de recherche d'exercices d'annales
+
+Plateforme de recherche d'exercices d'annales du Brevet au BTS avec enrichissement automatique des métadonnées (durée, difficulté, thèmes).
+
+## 🎯 Architecture Exercise-Centric
+
+Les élèves recherchent des **exercices spécifiques** par thème (ex: "titrage acide-base"), pas des sujets complets. Chaque exercice conserve la traçabilité de son sujet parent.
+
+📖 **Documentation** : [docs/MIGRATION-EXERCISE-CENTRIC.md](./docs/MIGRATION-EXERCISE-CENTRIC.md)
 
 ## Getting Started
 

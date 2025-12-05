@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -23,8 +23,14 @@ interface ExamPaperFormProps {
         id?: string;
         label?: string;
         sessionYear: number;
+        sessionDay?: string;
+        examDay?: number | null;
+        examMonth?: number | null;
+        examYear?: number | null;
+        source?: "OFFICIEL" | "APMEP" | "LABOLYCEE" | "AUTRE";
+        sourceUrl?: string | null;
         diplomaId: string;
-        divisionId: string;
+        divisionId?: string | null;
         gradeId: string;
         teachingId: string;
         curriculumId: string;
@@ -79,6 +85,12 @@ export const ExamPaperForm = ({
         defaultValues: {
             label: initialData.label || '',
             sessionYear: initialData.sessionYear || new Date().getFullYear(),
+            sessionDay: initialData.sessionDay || '',
+            examDay: initialData.examDay || undefined,
+            examMonth: initialData.examMonth || new Date().getMonth() + 1,
+            examYear: initialData.examYear || initialData.sessionYear || new Date().getFullYear(),
+            source: initialData.source || "OFFICIEL",
+            sourceUrl: initialData.sourceUrl || '',
             diplomaId: initialData.diplomaId || '',
             divisionId: initialData.divisionId || '',
             gradeId: initialData.gradeId || '',
@@ -93,16 +105,84 @@ export const ExamPaperForm = ({
         resolver: zodResolver(createExamPaperSchema)
     });
 
+    const sessionDay = form.watch('sessionDay');
+    const sessionYear = form.watch('sessionYear');
+    const examMonth = form.watch('examMonth');
+    const examYear = form.watch('examYear');
+
+    useEffect(() => {
+        if (crudMode === 'edit' && initialData.label && !form.formState.isDirty) {
+            return;
+        }
+
+        const centersLabel = selectedExaminationCenters.map(opt => opt.label).join('-');
+
+        if (!centersLabel) {
+            form.setValue('label', '');
+            return;
+        }
+
+        const monthNames = [
+            "janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+        ];
+        const monthLabel = examMonth ? monthNames[(examMonth || 1) - 1] : undefined;
+        const yearLabel = examYear || sessionYear || new Date().getFullYear();
+
+        const parts = [centersLabel];
+        if (monthLabel) parts.push(monthLabel);
+        parts.push(String(yearLabel));
+        if (sessionDay) parts.push(sessionDay);
+
+        form.setValue('label', parts.join(' '));
+    }, [selectedExaminationCenters, sessionYear, sessionDay, examMonth, examYear, form, crudMode, initialData.label, form.formState.isDirty]);
+
+    const [uploading, setUploading] = useState(false);
+    const [uploadMessage, setUploadMessage] = useState<{ type: 'success' | 'error' | null; text: string }>({ type: null, text: '' });
+    const handlePdfUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        if (file.type !== "application/pdf") {
+            setUploadMessage({ type: 'error', text: "Seuls les PDF sont autorisés." });
+            e.target.value = "";
+            return;
+        }
+        setUploading(true);
+        try {
+            const fd = new FormData();
+            fd.append("file", file);
+            const res = await fetch("/api/exam-papers/upload", { method: "POST", body: fd });
+            const data = await res.json();
+            if (!res.ok) {
+                throw new Error(data?.error || "Téléversement échoué");
+            }
+            form.setValue("subjectUrl", data.url || "");
+            setUploadMessage({ type: 'success', text: "PDF téléversé. Le lien a été renseigné automatiquement." });
+        } catch (err) {
+            console.error("Upload error", err);
+            setUploadMessage({ type: 'error', text: "Échec du téléversement du PDF." });
+        } finally {
+            setUploading(false);
+            e.target.value = "";
+        }
+    };
+
+    // Auto-generate label from examination centers
+    const handleExaminationCentersChange = (options: Option[]) => {
+        setSelectedExaminationCenters(options);
+        form.setValue('examinationCenterIds', options.map((opt) => opt.value));
+    };
+
     const onSubmit = async (values: CreateExamPaperValues) => {
         const formData = new FormData();
 
         Object.entries(values).forEach(([key, value]) => {
-            if (value !== undefined && value !== null) {
-                if (Array.isArray(value)) {
-                    formData.append(key, value.join(','));
-                } else {
-                    formData.append(key, String(value));
-                }
+            if (Array.isArray(value)) {
+                formData.append(key, value.join(','));
+            } else if (value === undefined || value === null) {
+                formData.append(key, '');
+            } else {
+                formData.append(key, String(value));
             }
         });
         
@@ -126,18 +206,44 @@ export const ExamPaperForm = ({
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <div className="grid grid-cols-2 gap-4">
+                <FormField
+                    name="examinationCenterIds"
+                    control={control}
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Centres d&apos;examen</FormLabel>
+                            <FormControl>
+                                <MultipleSelector
+                                    value={selectedExaminationCenters}
+                                    onChange={handleExaminationCentersChange}
+                                    options={examinationCenterOptions}
+                                    placeholder="Sélectionner des centres d&apos;examen"
+                                    emptyIndicator={
+                                        <p className="text-center text-sm text-gray-500">
+                                            Aucun centre trouvé
+                                        </p>
+                                    }
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                         name="label"
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Label</FormLabel>
+                                <FormLabel>Label</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="text"
-                                        placeholder="Ex: Métropole Sujet 1"
+                                        placeholder="Généré automatiquement"
                                         required
+                                        readOnly
+                                        className="bg-muted"
                                         {...field}
                                     />
                                 </FormControl>
@@ -151,7 +257,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Année de session</FormLabel>
+                                <FormLabel>Année de session</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
@@ -167,12 +273,127 @@ export const ExamPaperForm = ({
                     />
                 </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <FormField
+                        name="sessionDay"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Jour / mention de session (optionnel)</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="text"
+                                        placeholder="Jour 1, Sujet A..."
+                                        value={field.value || ''}
+                                        onChange={field.onChange}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        name="source"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Source du sujet</FormLabel>
+                                <Select
+                                    value={field.value}
+                                    onValueChange={(val) => field.onChange(val)}
+                                >
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Source" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        <SelectItem value="OFFICIEL">Officiel</SelectItem>
+                                        <SelectItem value="APMEP">APMEP</SelectItem>
+                                        <SelectItem value="LABOLYCEE">LaboLycée</SelectItem>
+                                        <SelectItem value="AUTRE">Autre</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <FormField
+                        name="examDay"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Jour de l&apos;examen (optionnel)</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="number"
+                                        placeholder="19"
+                                        min={1}
+                                        max={31}
+                                        value={field.value ?? ''}
+                                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        name="examMonth"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Mois de l&apos;examen</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="number"
+                                        placeholder="6"
+                                        min={1}
+                                        max={12}
+                                        value={field.value ?? ''}
+                                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                        required
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        name="examYear"
+                        control={control}
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Année de l&apos;examen</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="number"
+                                        placeholder="2024"
+                                        min={1900}
+                                        max={2100}
+                                        value={field.value ?? ''}
+                                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                        required
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+
                 <FormField
                     name="diplomaId"
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Diplôme</FormLabel>
+                        <FormLabel>Diplôme</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -198,14 +419,18 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Filière</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormLabel>Filière (optionnel)</FormLabel>
+                                <Select
+                                    onValueChange={(val) => field.onChange(val === 'none' ? '' : val)}
+                                    value={field.value || 'none'}
+                                >
                                     <FormControl>
                                         <SelectTrigger>
-                                            <SelectValue placeholder="Sélectionner une filière" />
+                                            <SelectValue placeholder="Aucune filière" />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
+                                        <SelectItem value="none">Aucune filière</SelectItem>
                                         {divisions.map((division) => (
                                             <SelectItem key={division.id} value={division.id}>
                                                 {division.longDescription}
@@ -223,7 +448,7 @@ export const ExamPaperForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Niveau scolaire</FormLabel>
+                        <FormLabel>Niveau scolaire</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger>
@@ -249,7 +474,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Enseignement</FormLabel>
+                        <FormLabel>Enseignement</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -274,7 +499,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Programme</FormLabel>
+                        <FormLabel>Programme</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
@@ -295,25 +520,16 @@ export const ExamPaperForm = ({
                 />
 
                 <FormField
-                    name="examinationCenterIds"
+                    name="subjectUrl"
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Centres d'examen</FormLabel>
+                            <FormLabel>URL du sujet (optionnel)</FormLabel>
                             <FormControl>
-                                <MultipleSelector
-                                    value={selectedExaminationCenters}
-                                    onChange={(options) => {
-                                        setSelectedExaminationCenters(options);
-                                        field.onChange(options.map((opt) => opt.value));
-                                    }}
-                                    options={examinationCenterOptions}
-                                    placeholder="Sélectionner des centres d'examen"
-                                    emptyIndicator={
-                                        <p className="text-center text-sm text-gray-500">
-                                            Aucun centre trouvé
-                                        </p>
-                                    }
+                                <Input
+                                    type="url"
+                                    placeholder="https://..."
+                                    {...field}
                                 />
                             </FormControl>
                             <FormMessage />
@@ -321,16 +537,35 @@ export const ExamPaperForm = ({
                     )}
                 />
 
+                <div className="grid grid-cols-1 gap-2">
+                    <FormLabel>Ou téléverser le PDF</FormLabel>
+                    <Input
+                        type="file"
+                        accept="application/pdf"
+                        onChange={handlePdfUpload}
+                        disabled={uploading}
+                    />
+                    {uploading && <p className="text-sm text-muted-foreground">Téléversement en cours…</p>}
+                    {uploadMessage.type && (
+                        <p
+                            className={`text-sm ${uploadMessage.type === 'error' ? 'text-red-500' : 'text-green-600'}`}
+                        >
+                            {uploadMessage.text}
+                        </p>
+                    )}
+                    <p className="text-sm text-muted-foreground">Taille max 20MB. Le lien est rempli automatiquement après upload.</p>
+                </div>
+
                 <FormField
-                    name="subjectUrl"
+                    name="sourceUrl"
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>URL du sujet</FormLabel>
+                            <FormLabel>URL de la source (optionnel)</FormLabel>
                             <FormControl>
                                 <Input
                                     type="url"
-                                    placeholder="https://..."
+                                    placeholder="Lien vers la source (APMEP, Labolycee, etc.)"
                                     {...field}
                                 />
                             </FormControl>
@@ -344,7 +579,7 @@ export const ExamPaperForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>URL du corrigé</FormLabel>
+                            <FormLabel>URL du corrigé (optionnel)</FormLabel>
                             <FormControl>
                                 <Input
                                     type="url"
@@ -360,7 +595,7 @@ export const ExamPaperForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/exam-papers">{common.cancel}</Link>
