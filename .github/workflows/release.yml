@@ -8,6 +8,10 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write        # nécessaire pour push tags/commits
+      issues: write          # si semantic-release gère les issues
+      pull-requests: write   # si semantic-release touche aux PR
     steps:
       - name: Checkout
         uses: actions/checkout@v4
