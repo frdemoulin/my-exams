@@ -75,7 +75,7 @@ export const DiplomaForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Description longue</FormLabel>
+                                <FormLabel>Description longue</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -92,7 +92,7 @@ export const DiplomaForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Description courte</FormLabel>
+                                <FormLabel>Description courte</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -107,7 +107,7 @@ export const DiplomaForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/diplomas">{common.cancel}</Link>

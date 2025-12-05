@@ -19,7 +19,7 @@ const DivisionDetailPage = async ({ params }: DivisionDetailPageProps) => {
     
     return (
         <div>
-            <h1>Détails de la filière</h1>
+            <h1 className="text-lg font-semibold md:text-2xl">Détails de la filière</h1>
             <p>Description courte : {division?.shortDescription}</p>
             <p>Description longue : {division?.longDescription}</p>
         </div>

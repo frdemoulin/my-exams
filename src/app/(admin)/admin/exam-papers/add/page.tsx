@@ -41,6 +41,11 @@ const AddExamPaperPage = async () => {
                     crudMode="add"
                     initialData={{
                         sessionYear: new Date().getFullYear(),
+                        sessionDay: "",
+                        examDay: undefined,
+                        examMonth: new Date().getMonth() + 1,
+                        examYear: new Date().getFullYear(),
+                        source: "OFFICIEL",
                         diplomaId: "",
                         divisionId: "",
                         gradeId: "",

@@ -73,7 +73,7 @@ export const ExaminationCenterForm = ({
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                            <FormLabel required>Description</FormLabel>
+                                <FormLabel>Description</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -88,7 +88,7 @@ export const ExaminationCenterForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/examination-centers">{common.cancel}</Link>

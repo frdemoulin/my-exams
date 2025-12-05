@@ -154,20 +154,28 @@ model ExaminationCenter {
   @@unique([description])
 }
 
-// Sujet d'annales
+// Sujet d'annales (conteneur d'exercices)
 model ExamPaper {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  // Métadonnées "administratives"
-  label       String // ex : "Métropole Sujet 1"
-  sessionYear Int // ex : 2024
+  // Métadonnées administratives
+  label        String  // ex : "Métropole juin 2024 Jour 1"
+  sessionYear  Int     // ex : 2024 (année scolaire de la session)
+  sessionDay   String? // ex : "Jour 1", "Jour 2", "Sujet A", optionnel
+  source       ExamPaperSource @default(OFFICIEL)
+  sourceUrl    String? // URL de la source si disponible (APMEP, Labolycee, etc.)
+  
+  // Date réelle de l'examen
+  examDay   Int?      // Jour de l'examen (1-31), optionnel
+  examMonth Int?      // Mois de l'examen (1-12), optionnel
+  examYear  Int?      // Année de l'examen, optionnel
 
   // Références pédagogiques (hiérarchie complète)
   diplomaId String  @db.ObjectId
   diploma   Diploma @relation(fields: [diplomaId], references: [id])
 
-  divisionId String   @db.ObjectId
-  division   Division @relation(fields: [divisionId], references: [id])
+  divisionId String?   @db.ObjectId // Optionnel (ex: Brevet)
+  division   Division? @relation(fields: [divisionId], references: [id])
 
   gradeId String @db.ObjectId
   grade   Grade  @relation(fields: [gradeId], references: [id])
@@ -177,23 +185,130 @@ model ExamPaper {
   teaching   Teaching @relation(fields: [teachingId], references: [id])
 
   // Association au programme scolaire
-  // OBLIGATOIRE : permet de savoir quel programme est évalué dans cette annale
-  curriculumId String     @db.ObjectId
-  curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
+  curriculumId String?     @db.ObjectId // Optionnel (ex: Brevet)
+  curriculum   Curriculum? @relation(fields: [curriculumId], references: [id])
 
   // Centres d'examen (many-to-many via array d'IDs)
   examinationCenterIds String[] @db.ObjectId @default([])
 
-  // Tagging pédagogique (chapitres et thèmes couverts dans le sujet)
-  chapterIds String[] @db.ObjectId // chapitres ciblés
-  themeIds   String[] @db.ObjectId // thèmes ciblés
+  // URLs du sujet complet
+  subjectUrl String? // URL du PDF complet
 
-  // URLs des fichiers
-  subjectUrl    String? // URL du sujet
-  correctionUrl String? // URL du corrigé
+  // Métadonnées globales du sujet
+  totalDuration Int? // Durée totale en minutes
+  totalPoints   Int? // Total de points
+
+  // DEPRECATED: Métadonnées déplacées au niveau Exercise
+  // Ces champs restent pour compatibilité mais ne sont plus utilisés
+  chapterIds          String[]  @db.ObjectId @default([]) /// @deprecated Utiliser Exercise.themeIds
+  themeIds            String[]  @db.ObjectId @default([]) /// @deprecated Utiliser Exercise.themeIds
+  correctionUrl       String? /// @deprecated Utiliser Correction ou ExerciseCorrection
+  estimatedDuration   Int? /// @deprecated Utiliser Exercise.estimatedDuration
+  estimatedDifficulty Int? /// @deprecated Utiliser Exercise.estimatedDifficulty
+  summary             String? /// @deprecated Utiliser Exercise.summary
+  enrichmentStatus    String    @default("pending") /// @deprecated Utiliser Exercise.enrichmentStatus
+  enrichedAt          DateTime? /// @deprecated Utiliser Exercise.enrichedAt
+
+  // Relations
+  exercises   Exercise[]   // Les exercices contenus dans ce sujet
+  corrections Correction[] // Corrections globales (optionnel)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@unique([label, sessionYear, teachingId])
+}
+
+enum ExamPaperSource {
+  OFFICIEL
+  APMEP
+  LABOLYCEE
+  AUTRE
+}
+
+// Exercice d'annales (unité de recherche)
+model Exercise {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  // Traçabilité du sujet parent
+  examPaperId String    @db.ObjectId
+  examPaper   ExamPaper @relation(fields: [examPaperId], references: [id], onDelete: Cascade)
+
+  // Position dans le sujet
+  exerciseNumber Int     // 1, 2, 3...
+  label          String? // "Exercice 3", "Partie A", "Question de synthèse"
+  points         Int?    // Points attribués à cet exercice
+
+  // Titre et énoncé (pour recherche full-text future)
+  title     String? // ex: "Titrage acide-base d'un vinaigre"
+  statement String? @db.String // Énoncé complet (extrait via OCR)
+
+  // Tagging pédagogique précis (au niveau exercice)
+  themeIds String[] @db.ObjectId @default([]) // Thèmes couverts dans CET exercice
+
+  // URLs spécifiques (optionnel si découpage des PDFs)
+  exerciseUrl   String? // URL de l'exercice isolé
+  correctionUrl String? // URL de la correction isolée
+
+  // Métadonnées enrichies (via IA)
+  estimatedDuration   Int?      // Durée estimée en minutes pour CET exercice
+  estimatedDifficulty Int?      // Difficulté 1-5
+  summary             String?   // Résumé automatique de l'exercice
+  keywords            String[]  @default([]) // Mots-clés extraits automatiquement
+
+  // Statut d'enrichissement
+  enrichmentStatus String    @default("pending") // "pending" | "completed" | "failed"
+  enrichedAt       DateTime? // Date d'enrichissement
+
+  // Relations
+  corrections ExerciseCorrection[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([examPaperId, exerciseNumber])
+}
+
+// Corrections spécifiques à un exercice
+model ExerciseCorrection {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  exerciseId String   @db.ObjectId
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  source String // "APMEP", "YouTube - Prof Dupont", etc.
+  url    String // Lien vers la correction
+  type   String @default("pdf") // "pdf", "video", "html"
+
+  // Métadonnées optionnelles
+  quality Int?    // Note de qualité 1-5
+  author  String? // Auteur si connu
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([exerciseId, source, url])
+}
+
+// Corrections externes pour un sujet d'examen
+model Correction {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  examPaperId String    @db.ObjectId
+  examPaper   ExamPaper @relation(fields: [examPaperId], references: [id], onDelete: Cascade)
+
+  source String // "APMEP", "LaboLycée", "Académie de Paris", etc.
+  url    String // lien vers la correction
+  type   String @default("pdf") // "pdf", "video", "html"
+
+  // Métadonnées optionnelles
+  quality Int?    // note de qualité 1-5
+  author  String? // auteur si connu
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([examPaperId, source, url])
 }
 
 model Grade {

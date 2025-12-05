@@ -17,6 +17,13 @@ import { deleteTeaching } from "@/core/teaching";
 import { TeachingWithRelations } from "@/core/teaching";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 
+const cycleSorting = (column: any) => {
+  const state = column.getIsSorted();
+  if (state === "asc") column.toggleSorting(true);
+  else if (state === "desc") column.clearSorting();
+  else column.toggleSorting(false);
+};
+
 const handleOnClickDeleteButton = async (id: string) => {
   try {
     await deleteTeaching(id);
@@ -36,9 +43,10 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={() => cycleSorting(column)}
         >
-          Nom de l'enseignement
+          NOM DE L&apos;ENSEIGNEMENT
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -50,9 +58,10 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={() => cycleSorting(column)}
         >
-          Nom court
+          NOM COURT
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -64,9 +73,10 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={() => cycleSorting(column)}
         >
-          Niveau
+          NIVEAU
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -78,9 +88,10 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          onClick={() => cycleSorting(column)}
         >
-          Matière
+          MATIÈRE
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -92,9 +103,10 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200 text-left"
+          onClick={() => cycleSorting(column)}
         >
-          Date de dernière modification
+          DATE DE DERNIÈRE MODIFICATION
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )

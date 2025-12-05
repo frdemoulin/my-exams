@@ -180,6 +180,16 @@
     "profile": "Profil",
     "settings": "Paramètres"
   },
+  "breadcrumb": {
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "examPapers": "Sujets d'examen",
+    "examPaper": "Sujet",
+    "split": "Découpage",
+    "exercises": "Exercices",
+    "exercise": "Exercice",
+    "edit": "Édition"
+  },
   "messages": {
     "success": {
       "created": "{entity} créé(e) avec succès",

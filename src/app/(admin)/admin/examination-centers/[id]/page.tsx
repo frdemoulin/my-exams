@@ -19,7 +19,7 @@ const ExaminationCenterDetailPage = async ({ params }: ExaminationCenterDetailPa
     
     return (
         <div>
-            <h1>Détails du centre d&apos;examen</h1>
+            <h1 className="text-lg font-semibold md:text-2xl">Détails du centre d&apos;examen</h1>
             <p>Description : {exminationCenter?.description}</p>
         </div>
     )

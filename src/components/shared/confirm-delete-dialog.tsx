@@ -12,6 +12,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface ConfirmDeleteDialogProps {
   trigger: ReactNode;
@@ -56,7 +58,11 @@ export function ConfirmDeleteDialog({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel disabled={isLoading}>{cancelLabel}</AlertDialogCancel>
-          <AlertDialogAction disabled={isLoading} onClick={handleConfirm}>
+          <AlertDialogAction
+            disabled={isLoading}
+            onClick={handleConfirm}
+            className={cn(buttonVariants({ variant: "destructive" }))}
+          >
             {isLoading ? "Suppression..." : confirmLabel}
           </AlertDialogAction>
         </AlertDialogFooter>

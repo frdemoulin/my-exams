@@ -14,15 +14,33 @@ export function ToastDisplay() {
         const response = await fetch("/api/toast");
         if (response.ok) {
           const data = await response.json();
-          if (data.message) {
-            if (data.type === "success") {
-              toast.success(data.message);
-            } else if (data.type === "error") {
-              toast.error(data.message);
-            } else {
-              toast(data.message);
+            if (data.message) {
+              const common = {
+                style: {
+                  borderRadius: "8px",
+                  padding: "12px 16px",
+                },
+                className: "text-sm",
+              } as const;
+
+              if (data.type === "success") {
+                toast.success(data.message, {
+                  ...common,
+                  icon: "✅",
+                  style: common.style,
+                });
+              } else if (data.type === "error") {
+                toast.error(data.message, {
+                  ...common,
+                  style: common.style,
+                });
+              } else {
+                toast(data.message, {
+                  ...common,
+                  style: common.style,
+                });
+              }
             }
-          }
         }
       } catch (error) {
         console.error("Error checking toast:", error);

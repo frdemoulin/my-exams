@@ -104,7 +104,7 @@ const CurriculumForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Nom</FormLabel>
+                                <FormLabel>Nom</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -122,7 +122,7 @@ const CurriculumForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Description</FormLabel>
+                                <FormLabel>Description (optionnel)</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
@@ -141,7 +141,7 @@ const CurriculumForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel required>Date de début</FormLabel>
+                                <FormLabel>Date de début</FormLabel>
                                 <FormControl>
                                     <MonthPicker
                                         date={field.value}
@@ -159,7 +159,7 @@ const CurriculumForm = ({
                         control={control}
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Date de fin</FormLabel>
+                                <FormLabel>Date de fin (optionnel)</FormLabel>
                                 <FormControl>
                                     <MonthPicker
                                         date={field.value}
@@ -178,7 +178,7 @@ const CurriculumForm = ({
                     control={control}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel required>Enseignements associés</FormLabel>
+                                <FormLabel>Enseignements associés</FormLabel>
                             <FormControl>
                                 <MultipleSelector
                                     defaultOptions={teachings}
@@ -223,7 +223,7 @@ const CurriculumForm = ({
                 <div className="mt-2 flex justify-end">
                     <Button
                         asChild
-                        variant="outline"
+                        variant="secondary"
                         className="mr-4"
                     >
                         <Link href="/admin/curriculums">{common.cancel}</Link>
