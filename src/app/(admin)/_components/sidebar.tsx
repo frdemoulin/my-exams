@@ -135,7 +135,7 @@ export const Sidebar = () => {
                     <li
                       className={cn(
                         "px-2 py-1 my-2 flex items-center border-l -ml-px border-transparent transition no-underline hover:no-underline hover:border-slate-500 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300",
-                        isActivePath(item.path) && "text-primary dark:text-primary border-l hover:text-primary dark:hover:text-primary border-primary hover:border-primary dark:hover:border-primary"
+                        isActivePath(item.path) && "text-fg-brand border-brand hover:text-fg-brand hover:border-brand"
                       )}
                       key={item.title}
                     >

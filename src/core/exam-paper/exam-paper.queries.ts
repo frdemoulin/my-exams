@@ -44,7 +44,6 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
                 } 
             },
             curriculum: { select: { longDescription: true, shortDescription: true } },
-            examinationCenters: { select: { id: true, description: true } },
             corrections: {
                 select: {
                     id: true,
@@ -67,6 +66,8 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
     // Récupérer tous les thèmes
     const allThemeIds = examPapers.flatMap(p => p.themeIds);
     const uniqueThemeIds = [...new Set(allThemeIds)];
+    const allCenterIds = examPapers.flatMap(p => p.examinationCenterIds || []);
+    const uniqueCenterIds = [...new Set(allCenterIds)];
     
     const themes = await prisma.theme.findMany({
         where: { id: { in: uniqueThemeIds } },
@@ -76,11 +77,19 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
             longDescription: true,
         }
     });
+    const centers = await prisma.examinationCenter.findMany({
+        where: { id: { in: uniqueCenterIds } },
+        select: { id: true, description: true }
+    });
+    const centersById = new Map(centers.map(c => [c.id, c]));
 
     const themesById = new Map(themes.map(t => [t.id, t]));
 
     return examPapers.map(paper => ({
         ...paper,
+        examinationCenters: (paper.examinationCenterIds || [])
+            .map(id => centersById.get(id))
+            .filter((c): c is NonNullable<typeof c> => c !== undefined),
         themes: paper.themeIds
             .map(id => themesById.get(id))
             .filter((t): t is NonNullable<typeof t> => t !== undefined)
@@ -104,7 +113,6 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
                 } 
             },
             curriculum: { select: { longDescription: true, shortDescription: true } },
-            examinationCenters: { select: { id: true, description: true } },
             corrections: {
                 select: {
                     id: true,
@@ -127,6 +135,8 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
     // Récupérer tous les thèmes en une seule requête
     const allThemeIds = examPapers.flatMap(p => p.themeIds);
     const uniqueThemeIds = [...new Set(allThemeIds)];
+    const allCenterIds = examPapers.flatMap(p => p.examinationCenterIds || []);
+    const uniqueCenterIds = [...new Set(allCenterIds)];
     
     const themes = await prisma.theme.findMany({
         where: { id: { in: uniqueThemeIds } },
@@ -136,12 +146,20 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
             longDescription: true,
         }
     });
+    const centers = await prisma.examinationCenter.findMany({
+        where: { id: { in: uniqueCenterIds } },
+        select: { id: true, description: true },
+    });
 
     const themesById = new Map(themes.map(t => [t.id, t]));
+    const centersById = new Map(centers.map(c => [c.id, c]));
 
     // Ajouter les thèmes à chaque exam paper
     return examPapers.map(paper => ({
         ...paper,
+        examinationCenters: (paper.examinationCenterIds || [])
+            .map(id => centersById.get(id))
+            .filter((c): c is NonNullable<typeof c> => c !== undefined),
         themes: paper.themeIds
             .map(id => themesById.get(id))
             .filter((t): t is NonNullable<typeof t> => t !== undefined)
@@ -163,7 +181,6 @@ export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelat
                 } 
             },
             curriculum: { select: { longDescription: true, shortDescription: true } },
-            examinationCenters: { select: { id: true, description: true } },
             corrections: {
                 select: {
                     id: true,
@@ -190,9 +207,16 @@ export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelat
             shortDescription: "asc"
         }
     });
+    const centers = paper.examinationCenterIds?.length
+        ? await prisma.examinationCenter.findMany({
+            where: { id: { in: paper.examinationCenterIds } },
+            select: { id: true, description: true },
+          })
+        : [];
 
     return {
         ...paper,
+        examinationCenters: centers,
         themes
     };
 }

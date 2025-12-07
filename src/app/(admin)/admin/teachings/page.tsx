@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { TableTitle } from "@/components/shared/table-title";
 import { DataTable } from "./_components/data-table";
 import { columns } from "./_components/columns";
 import { fetchTeachings } from "@/core/teaching";
@@ -23,14 +22,9 @@ const CoursesPage = async () => {
 
     return (
         <div className="w-full p-6">
-            <TableTitle
-                title="Liste des enseignements"
-                buttonId="addTeachingButton"
-                buttonLabel="Ajouter un enseignement"
-                buttonPath="courses/add"
-            />
-            <div className="container mx-auto py-10">
+            <div className="container mx-auto">
                 <DataTable
+                    title="Liste des enseignements"
                     columns={columns}
                     data={teachings}
                 />

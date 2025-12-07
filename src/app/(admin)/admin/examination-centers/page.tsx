@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
-import { TableTitle } from "@/components/shared/table-title";
 import { DataTable } from "./_components/data-table";
 import { columns } from "./_components/columns";
 import { fetchExaminationCenters } from "@/core/examination-center";
@@ -26,14 +25,9 @@ const ExaminationCentersPage = async () => {
 
     return (
         <div className="w-full p-6">
-            <TableTitle
-                title={t('actions.list')}
-                buttonId="addExaminationCenterButton"
-                buttonLabel={t('actions.add')}
-                buttonPath="examination-centers/add"
-            />
-            <div className="container mx-auto py-10">
+            <div className="container mx-auto">
                 <DataTable
+                    title={t('actions.list')}
                     columns={columns}
                     data={examinationCenters}
                 />

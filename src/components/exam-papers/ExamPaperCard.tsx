@@ -46,7 +46,7 @@ export function ExamPaperCard({
   onToggleFavorite,
 }: ExamPaperCardProps) {
   return (
-    <Card className="overflow-hidden transition-all hover:border-primary/50">
+    <Card className="overflow-hidden transition-all hover:border-brand/50">
       <CardHeader className="flex flex-col gap-1 border-b md:flex-row md:items-baseline md:justify-between">
         <div className="flex-1">
           <div className="flex items-start justify-between gap-2">
@@ -114,7 +114,7 @@ export function ExamPaperCard({
               href={c.url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-primary underline-offset-2 hover:text-primary/80 hover:underline"
+              className="inline-flex items-center gap-1 text-fg-brand underline-offset-2 hover:text-fg-brand/80 hover:underline"
             >
               {c.source}
               <ExternalLink className="h-3 w-3" />

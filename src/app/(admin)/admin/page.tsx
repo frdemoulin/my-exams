@@ -95,7 +95,7 @@ const DashboardPage = async () => {
     return (
         <div className="w-full p-6 space-y-6">
             <div>
-                <h1 className="text-2xl font-bold text-primary">Tableau de bord</h1>
+                <h1 className="text-2xl font-bold text-fg-brand">Tableau de bord</h1>
                 <p className="text-muted-foreground">
                     Bienvenue, {user.name || user.email}
                 </p>

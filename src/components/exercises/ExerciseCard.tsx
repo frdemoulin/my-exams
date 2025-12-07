@@ -31,7 +31,7 @@ function DifficultyDots({ value }: { value: number }) {
         <div
           key={dot}
           className={`h-1.5 w-1.5 rounded-full ${
-            dot <= value ? 'bg-primary' : 'bg-muted'
+            dot <= value ? 'bg-brand' : 'bg-muted'
           }`}
         />
       ))}
@@ -71,7 +71,14 @@ export function ExerciseCard({
 
   const correctionUrl = exercise.correctionUrl || paperCorrectionUrl || exercise.corrections[0]?.url || null;
 
-  const displayTitle = title || label || `Exercice ${exerciseNumber}`;
+  const baseTitle = `Exercice ${exerciseNumber}`;
+  const displayTitleRaw = title || label || baseTitle;
+  const normalize = (s: string) =>
+    s
+      .replace(/\s+/g, ' ')
+      .replace(/–/g, '-')
+      .trim()
+      .toLowerCase();
   const difficultyLabel = (() => {
     if (!estimatedDifficulty) return 'Non évaluée';
     if (estimatedDifficulty >= 4) return '⚡ Difficile';
@@ -96,9 +103,10 @@ export function ExerciseCard({
   const traceabilityFooter = paperLabel
     ? `Issu du sujet ${paperLabel}`
     : `Session ${sessionYear}`;
-  const baseTitle = `Exercice ${exerciseNumber}`;
   const fullTitle =
-    displayTitle === baseTitle ? displayTitle : `${baseTitle} – ${displayTitle}`;
+    normalize(displayTitleRaw).startsWith(normalize(baseTitle))
+      ? displayTitleRaw
+      : `${baseTitle} – ${displayTitleRaw}`;
   const sourceLabel = (() => {
     const rawSource = source ?? 'OFFICIEL';
     switch (rawSource) {
@@ -130,7 +138,7 @@ export function ExerciseCard({
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex flex-col gap-1">
-            <div className="text-xs text-muted-foreground flex flex-wrap items-center gap-1">
+            <div className="text-xs font-semibold text-muted-foreground flex flex-wrap items-center gap-1">
               <span>{diploma.shortDescription}</span>
               <span>•</span>
               <span>{teaching.subject.shortDescription}</span>
@@ -142,7 +150,7 @@ export function ExerciseCard({
               )}
             </div>
             <div className="flex items-center gap-2">
-              <CardTitle className="text-lg text-blue-600 dark:text-blue-400 hover:underline">
+              <CardTitle className="text-lg text-fg-brand hover:text-heading hover:underline">
                 <Link href={`/exercises/${id}`}>
                   {fullTitle}
                 </Link>
@@ -150,41 +158,34 @@ export function ExerciseCard({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Badge variant="secondary" className="text-xs">{sessionYear}</Badge>
-            <Badge
-              variant="secondary"
-              className="text-xs dark:bg-amber-600 dark:hover:bg-amber-700 dark:text-white dark:border-transparent"
-            >
+            <Button variant="secondary" size="xs" className="rounded-lg">
+              Session {sessionYear}
+            </Button>
+            <Button variant="secondary" size="xs" className="rounded-lg">
               {difficultyLabel}
-            </Badge>
+            </Button>
             {typeof points === 'number' && (
-              <Badge
-                variant="secondary"
-                className="text-xs dark:bg-amber-600 dark:hover:bg-amber-700 dark:text-white dark:border-transparent"
-              >
+              <Button variant="secondary" size="xs" className="rounded-lg">
                 {points} pts
-              </Badge>
+              </Button>
             )}
             {sourceUrl ? (
-              <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
-                <Badge variant="outline" className="text-xs hover:bg-muted">
+              <Button asChild variant="secondary" size="xs" className="rounded-lg">
+                <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
                   {sourceLabel}
-                </Badge>
-              </a>
+                </a>
+              </Button>
             ) : (
-              <Badge variant="outline" className="text-xs">
+              <Button variant="secondary" size="xs" className="rounded-lg">
                 {sourceLabel}
-              </Badge>
+              </Button>
             )}
             {durationLabel && (
-              <Badge
-                variant="secondary"
-                className="text-xs flex items-center gap-1 dark:bg-purple-700 dark:hover:bg-purple-800 dark:text-white dark:border-transparent"
-              >
+              <Button variant="secondary" size="xs" className="flex items-center gap-1 rounded-lg">
                 <Clock className="h-4 w-4" />
                 <span className="hidden md:inline">Durée estimée : {durationLabel}</span>
                 <span className="md:hidden">{durationLabel}</span>
-              </Badge>
+              </Button>
             )}
           </div>
         </div>

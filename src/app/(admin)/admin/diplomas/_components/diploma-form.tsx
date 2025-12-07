@@ -65,7 +65,6 @@ export const DiplomaForm = ({
     return (
         <Form {...form}>
             <form
-                action={formAction}
                 className="w-full space-y-2"
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}

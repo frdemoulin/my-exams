@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,13 +15,8 @@ import { formatDateTime } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { deleteDiploma } from "@/core/diploma";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
-
-const cycleSorting = (column: any) => {
-  const state = column.getIsSorted();
-  if (state === "asc") column.toggleSorting(true);
-  else if (state === "desc") column.clearSorting();
-  else column.toggleSorting(false);
-};
+import { SortableHeader } from "@/components/shared/sortable-header";
+import { actionMenuTrigger, actionMenuContent, actionMenuItem } from "@/components/shared/table-action-menu";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
@@ -41,14 +35,7 @@ export const columns: ColumnDef<Diploma>[] = [
     accessorKey: "shortDescription",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-          onClick={() => cycleSorting(column)}
-        >
-          DESCRIPTION COURTE
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <SortableHeader label="DESCRIPTION COURTE" column={column} />
       )
     },
   },
@@ -56,14 +43,7 @@ export const columns: ColumnDef<Diploma>[] = [
     accessorKey: "longDescription",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-          onClick={() => cycleSorting(column)}
-        >
-          DESCRIPTION LONGUE
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <SortableHeader label="DESCRIPTION LONGUE" column={column} />
       )
     },
   },
@@ -71,14 +51,7 @@ export const columns: ColumnDef<Diploma>[] = [
     accessorKey: "updatedAt",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200 text-left"
-          onClick={() => cycleSorting(column)}
-        >
-          DATE DE DERNIÈRE MODIFICATION
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <SortableHeader label="DATE DE DERNIÈRE MODIFICATION" column={column} align="left" />
       )
     },
     cell: ({ row }) => {
@@ -91,39 +64,39 @@ export const columns: ColumnDef<Diploma>[] = [
     cell: ({ row }) => {
       const diploma = row.original;
 
-      return (
+          return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
+            <button type="button" className={actionMenuTrigger}>
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
-            </Button>
+            </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>
-              <Link
-                href={`/admin/diplomas/${diploma.id}`}
-              >
-                Voir
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link
-                href={`/admin/diplomas/${diploma.id}/edit`}
-              >
-                Éditer
-              </Link>
-            </DropdownMenuItem>
-            <ConfirmDeleteDialog
-              onConfirm={() => handleOnClickDeleteButton(diploma.id)}
-              trigger={
-                <DropdownMenuItem
-                  className="hover:cursor-pointer"
-                  onSelect={(event) => event.preventDefault()}
-                >
-                  Supprimer
+              <DropdownMenuContent align="end" className={actionMenuContent}>
+                <DropdownMenuItem className={actionMenuItem}>
+                  <Link
+                    href={`/admin/diplomas/${diploma.id}`}
+                  >
+                    Voir
+                  </Link>
                 </DropdownMenuItem>
-              }
+                <DropdownMenuItem className={actionMenuItem}>
+                  <Link
+                    href={`/admin/diplomas/${diploma.id}/edit`}
+                  >
+                    Éditer
+                  </Link>
+                </DropdownMenuItem>
+                <ConfirmDeleteDialog
+                  onConfirm={() => handleOnClickDeleteButton(diploma.id)}
+                  trigger={
+                    <DropdownMenuItem
+                      className={`${actionMenuItem} hover:cursor-pointer`}
+                      onSelect={(event) => event.preventDefault()}
+                    >
+                      Supprimer
+                    </DropdownMenuItem>
+                  }
             />
           </DropdownMenuContent>
         </DropdownMenu>

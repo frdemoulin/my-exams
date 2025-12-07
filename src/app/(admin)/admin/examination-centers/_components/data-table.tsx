@@ -23,15 +23,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { TableToolbar } from "@/components/shared/table-toolbar";
 
 interface DataTableProps<TData, TValue> {
+  title: string;
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 
 export function DataTable<TData, TValue>({
+  title,
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -52,19 +54,28 @@ export function DataTable<TData, TValue>({
     },
   });
 
+  const filteredCount = table.getFilteredRowModel().rows.length;
+  const totalCount = filteredCount;
+  const pagination = table.getState().pagination;
+  const pageIndex = pagination?.pageIndex ?? 0;
+  const pageSize = pagination?.pageSize ?? (data.length || 10);
+  const currentPageCount = table.getRowModel().rows.length;
+  const pageFrom = filteredCount === 0 ? 0 : Math.min(pageIndex * pageSize + 1, filteredCount);
+  const pageTo = filteredCount === 0 ? 0 : Math.min(pageFrom + currentPageCount - 1, filteredCount);
+
   return (
     <div>
-      <div className="flex flex-col gap-3 py-4 md:flex-row md:items-center md:justify-end">
-        <div className="relative w-full max-w-sm md:ml-auto">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400 dark:text-gray-500" />
-          <input
-            className="h-10 w-full rounded-lg border border-gray-300 bg-gray-50 pl-9 pr-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-            placeholder="Rechercher un centre..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-          />
-        </div>
-      </div>
+      <TableToolbar
+        title={title}
+        pageFrom={pageFrom}
+        pageTo={pageTo}
+        totalCount={totalCount}
+        placeholder="Rechercher un centre..."
+        value={globalFilter}
+        onChange={setGlobalFilter}
+        addHref="/admin/examination-centers/add"
+        addLabel="Ajouter un centre"
+      />
       <div className="rounded-md border">
         <Table>
           <TableHeader>

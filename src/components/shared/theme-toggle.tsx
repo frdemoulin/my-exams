@@ -17,7 +17,7 @@ export function ThemeToggle() {
       <button
         type="button"
         disabled
-        className="text-gray-500 dark:text-gray-400 focus:outline-none rounded-lg text-sm p-2.5"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm p-2.5"
       >
         <Sun className="w-5 h-5" />
         <span className="sr-only">Changer le thème</span>
@@ -35,7 +35,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 w-10 h-10 inline-flex items-center justify-center transition-colors"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm p-2.5 transition-colors hover:bg-neutral-secondary-soft dark:hover:bg-neutral-secondary-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
     >
       {isDark ? (
         <Sun className="w-4 h-4" />

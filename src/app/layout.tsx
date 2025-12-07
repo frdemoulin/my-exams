@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import { Inter } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
@@ -54,6 +55,8 @@ export default async function RootLayout({
             </ThemeProvider>
           </SessionProvider>
         </NextIntlClientProvider>
+        {/* Script Flowbite (UMD) via CDN ou local) */}
+        <Script src="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.js" strategy="afterInteractive" />
       </body>
     </html>
   );
