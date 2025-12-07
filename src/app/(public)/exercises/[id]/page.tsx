@@ -27,7 +27,7 @@ function DifficultyDots({ value }: { value: number }) {
         <div
           key={dot}
           className={`h-2 w-2 rounded-full ${
-            dot <= value ? 'bg-primary' : 'bg-muted'
+            dot <= value ? 'bg-brand' : 'bg-muted'
           }`}
         />
       ))}

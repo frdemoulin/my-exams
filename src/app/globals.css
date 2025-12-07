@@ -1,187 +1,196 @@
+/* Font principale (Flowbite utilise aussi Inter) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
 @import "tailwindcss";
 
+/* Évite les boucles de recompilation côté public en mode watch */
+@source not "../../public";
+
+/* Thème Flowbite 4 (choisis-en un : default / minimal / enterprise) */
+@import "flowbite/src/themes/default";
+
+/* CSS Flowbite (composants, dont Datepicker de flowbite-react) */
+@import "flowbite/dist/flowbite.min.css";
+
+/* Intégration Flowbite pour Tailwind v4 */
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
+/* Variante dark basée sur la classe .dark portée par <html> ou <body> */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* =========================
+   Thème (tokens Tailwind v4)
+   ========================= */
+
 @theme {
-  /* === Palette Flowbite (valeurs HEX) ======================= */
-  /* Grays */
-  --color-fb-gray-50: #f9fafb;
-  --color-fb-gray-100: #f3f4f6;
-  --color-fb-gray-200: #e5e7eb;
-  --color-fb-gray-300: #d1d5db;
-  --color-fb-gray-400: #9ca3af;
-  --color-fb-gray-500: #6b7280;
-  --color-fb-gray-600: #4b5563;
-  --color-fb-gray-700: #374151;
-  --color-fb-gray-800: #1f2937;
-  --color-fb-gray-900: #111827;
+  /* Police */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 
-  /* Blues */
-  --color-fb-blue-50: #eff6ff;
-  --color-fb-blue-100: #dbeafe;
-  --color-fb-blue-200: #bfdbfe;
-  --color-fb-blue-300: #93c5fd;
-  --color-fb-blue-400: #60a5fa;
-  --color-fb-blue-500: #3b82f6;
-  --color-fb-blue-600: #1d4ed8;
-  --color-fb-blue-700: #1d4ed8;
-  --color-fb-blue-800: #1e40af;
-  --color-fb-blue-900: #1e3a8a;
+  /* Tokens OKLCH pour ton design system */
+  --color-background: oklch(0.985 0.003 250);
+  --color-foreground: oklch(0.22 0.03 250);
 
-  /* Émeraude (success) */
-  --color-fb-emerald-300: #6ee7b7;
-  --color-fb-emerald-500: #10b981;
-  --color-fb-emerald-600: #059669;
+  --color-muted: oklch(0.96 0.01 250);
+  --color-muted-foreground: oklch(0.45 0.02 250);
 
-  /* Rouge (error) */
-  --color-fb-red-300: #fca5a5;
-  --color-fb-red-500: #ef4444;
-  --color-fb-red-600: #dc2626;
+  --color-border: oklch(0.92 0.01 250);
+  --color-input: var(--color-background);
 
-  /* === Tokens OKLCH dérivés ================================ */
-  /* Background - Flowbite White (#FFFFFF) */
-  --color-background: oklch(100% 0 0);
-  --color-foreground: oklch(20% 0.02 264);
+  --color-primary: oklch(0.65 0.14 255);
+  --color-primary-foreground: oklch(0.99 0.01 255);
 
-  /* Cards - White with Gray 900 text */
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(20% 0.02 264);
+  --color-destructive: oklch(0.58 0.17 27);
+  --color-destructive-foreground: oklch(0.99 0.02 95);
 
-  /* Popover - White background */
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(20% 0.02 264);
+  --color-card: var(--color-background);
+  --color-card-foreground: var(--color-foreground);
 
-  /* Primary - Flowbite Blue 600 */
-  --color-primary: oklch(55% 0.22 264);
-  --color-primary-foreground: oklch(100% 0 0);
+  /* Rayons & ombres (réutilisables en classes via Tailwind) */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 
-  /* Secondary, Muted, Accent */
-  --color-secondary: oklch(96% 0.003 247);
-  --color-secondary-foreground: oklch(25% 0.02 264);
-  --color-muted: oklch(96% 0.003 247);
-  --color-muted-foreground: oklch(58% 0.015 250);
-  --color-accent: oklch(96.5% 0.025 264);
-  --color-accent-foreground: oklch(55% 0.22 264);
-
-  /* Destructive - Red 600 */
-  --color-destructive: oklch(55% 0.22 25);
-  --color-destructive-foreground: oklch(100% 0 0);
-
-  /* Borders / Inputs / Ring */
-  --color-border: oklch(92% 0.004 247);
-  --color-input: oklch(92% 0.004 247);
-  --color-ring: oklch(55% 0.22 264);
-
-  /* Rayon par défaut des composants */
-  --radius-sm: calc(0.5rem - 4px);
-  --radius-md: calc(0.5rem - 2px);
-  --radius-lg: 0.5rem;
-
-  /* Flowbite semantic colors (OKLCH) */
-  --color-success: oklch(74% 0.17 145);
-  --color-success-hover: oklch(66% 0.14 145);
-  --ring-success: oklch(88% 0.06 145);
-
-  --color-error: oklch(62% 0.26 29);
-  --color-error-hover: oklch(57% 0.23 29);
-  --ring-error: oklch(82% 0.15 29);
-
-  --color-info: oklch(69% 0.16 248);
-  --color-info-hover: oklch(62% 0.16 248);
-  --ring-info: oklch(86% 0.06 248);
-
-  /* Utilitaires Flowbite dérivés */
-  --input-bg: var(--color-fb-gray-50);
-  --card-bg: #ffffff;
-  --border-default: var(--color-fb-gray-200);
-  --hover-bg: var(--color-fb-gray-100);
+  --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.06);
 }
 
-body {
-  font-synthesis: none;
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-}
-
-a[href] {
-  cursor: pointer;
-}
-
+/* Harmonise Flowbite avec nos tokens sans devoir réappliquer des classes utilitaires */
 :root {
-  color-scheme: light;
+  --color-body: var(--color-foreground);
+  --color-heading: var(--color-foreground);
+  --color-neutral-primary: var(--color-card);
+  --color-neutral-primary-soft: var(--color-card);
+  --color-neutral-secondary: var(--color-muted);
+  --color-neutral-secondary-soft: var(--color-muted);
+  --color-default: var(--color-border);
+  --color-default-subtle: var(--color-border);
 }
 
-/* Input backgrounds via variables */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-textarea {
-  background-color: var(--input-bg);
-}
-
-/* Native select elements only (not Radix UI components) */
-select[data-native] {
-  background-color: var(--input-bg);
-}
-
-/* Card styling via variables */
-.card-flowbite {
-  background-color: var(--card-bg);
-  border-color: var(--border-default);
-}
-
-/* Override Tailwind border colors with Flowbite defaults */
-.border-gray-200,
-.border-gray-300 {
-  border-color: var(--border-default) !important;
-}
-
-/* Ancienne correction forcée des combobox Radix (retirée pour harmoniser avec l'input Flowbite) */
-
+/* Overrides dark mode des tokens (utilisés par bg-background, text-foreground, etc.) */
 .dark {
-  color-scheme: dark;
-  
-  /* Input background dark mode */
-  --input-bg: #374151; /* gray-700 */
-  --card-bg: #1f2937; /* gray-800 */
-  --border-default: #374151; /* gray-700 Flowbite dark */
-  --hover-bg: #111827; /* gray-900 - hover dark (évite la confusion avec les inputs) */
-  
-  /* Background - Flowbite Gray 900 (#111827) */
-  --color-background: oklch(20% 0.02 264);
-  --color-foreground: oklch(98.7% 0.002 247); /* Gray 50 */
+  --color-background: oklch(0.17 0.03 250);
+  --color-foreground: oklch(0.96 0.01 250);
 
-  /* Cards - Gray 800 (#1F2937) */
-  --color-card: oklch(25% 0.02 264);
-  --color-card-foreground: oklch(98.7% 0.002 247);
+  --color-muted: oklch(0.22 0.02 250);
+  --color-muted-foreground: oklch(0.76 0.03 250);
 
-  /* Popover - Gray 800 */
-  --color-popover: oklch(25% 0.02 264);
-  --color-popover-foreground: oklch(98.7% 0.002 247);
+  --color-border: oklch(0.28 0.02 250);
+  --color-input: oklch(0.18 0.03 250);
 
-  /* Primary - Blue 500 (#3F83F8) in dark mode */
-  --color-primary: oklch(62% 0.20 264);
-  --color-primary-foreground: oklch(100% 0 0);
+  --color-card: oklch(0.18 0.03 250);
+  --color-card-foreground: var(--color-foreground);
 
-  /* Secondary - Gray 700 (#374151) */
-  --color-secondary: oklch(35% 0.015 264);
-  --color-secondary-foreground: oklch(98.7% 0.002 247);
+  --color-primary: oklch(0.72 0.13 255);
+  --color-primary-foreground: oklch(0.12 0.02 255);
 
-  /* Muted - Gray 800 with Gray 400 text */
-  --color-muted: oklch(25% 0.02 264);
-  --color-muted-foreground: oklch(67% 0.01 250);
-
-  /* Accent - Blue 900 (#233876) with Blue 400 text */
-  --color-accent: oklch(32% 0.08 264);
-  --color-accent-foreground: oklch(72% 0.16 264);
-
-  /* Destructive - Red 500 (#F05252) */
-  --color-destructive: oklch(65% 0.20 25);
-  --color-destructive-foreground: oklch(100% 0 0);
-
-  /* Borders - Gray 700 (#374151) */
-  --color-border: oklch(35% 0.015 264);
-  --color-input: oklch(35% 0.015 264);
-  --color-ring: oklch(62% 0.20 264); /* Blue 500 for focus */
+  --color-body: var(--color-foreground);
+  --color-heading: var(--color-foreground);
+  --color-neutral-primary: var(--color-card);
+  --color-neutral-primary-soft: var(--color-card);
+  --color-neutral-secondary: var(--color-muted);
+  --color-neutral-secondary-soft: var(--color-muted);
+  --color-default: var(--color-border);
+  --color-default-subtle: var(--color-border);
 }
+
+/* ==========
+   Base layer
+   ========== */
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-family: var(--font-sans);
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+  }
+
+  a[href] {
+    cursor: pointer;
+  }
+
+  /* Lien actif dans ta navbar / menu */
+  .active {
+    @apply text-fg-brand hover:!text-heading border-b-2 border-brand hover:border-brand;
+  }
+
+  /* Inputs “génériques” : fond lié à ton token d’input */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea {
+    background-color: var(--color-input);
+  }
+
+  select[data-native] {
+    background-color: var(--color-input);
+  }
+
+  /* Supprime les flèches sur les inputs number (UX plus propre) */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* ===============
+   Components layer
+   =============== */
+
+@layer components {
+  /* Badges pills (par ex. pour les tags de sujets) */
+  .badge-pill {
+    inline-flex: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+  }
+
+  .badge-pill-muted {
+    inline-flex: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    background-color: var(--color-muted);
+    color: var(--color-muted-foreground);
+  }
+}
+
+/* ============
+   Utilities (optionnel, si tu veux des utilitaires custom)
+   ============ */
+/*
+@layer utilities {
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+}
+*/

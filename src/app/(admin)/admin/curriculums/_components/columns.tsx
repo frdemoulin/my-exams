@@ -1,10 +1,9 @@
 "use client";
 
 import type { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -17,39 +16,20 @@ import { deleteCurriculum } from "@/core/curriculum";
 import toast from "react-hot-toast";
 import type { CurriculumWithTeachingCount } from "@/core/curriculum";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
-
-const cycleSorting = (column: any) => {
-    const state = column.getIsSorted();
-    if (state === "asc") column.toggleSorting(true);
-    else if (state === "desc") column.clearSorting();
-    else column.toggleSorting(false);
-};
+import { SortableHeader } from "@/components/shared/sortable-header";
+import { actionMenuContent, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 
 export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
         accessorKey: "longDescription",
         header: ({ column }) => (
-            <Button
-                variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-                onClick={() => cycleSorting(column)}
-            >
-                NOM
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
+            <SortableHeader label="NOM" column={column} />
         ),
     },
     {
         accessorKey: "startDate",
         header: ({ column }) => (
-            <Button
-                variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-                onClick={() => cycleSorting(column)}
-            >
-                DATE DE DÉBUT
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
+            <SortableHeader label="DATE DE DÉBUT" column={column} />
         ),
         cell: ({ row }) => {
             const startDate = row.original.startDate;
@@ -59,14 +39,7 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
         accessorKey: "endDate",
         header: ({ column }) => (
-            <Button
-                variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-                onClick={() => cycleSorting(column)}
-            >
-                FIN
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
+            <SortableHeader label="FIN" column={column} />
         ),
         cell: ({ row }) => {
             const endDate = row.original.endDate;
@@ -77,14 +50,7 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
         accessorKey: "isActive",
         header: ({ column }) => (
-            <Button
-                variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-                onClick={() => cycleSorting(column)}
-            >
-                STATUT
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
+            <SortableHeader label="STATUT" column={column} />
         ),
         cell: ({ row }) => {
             const isActive = row.original.isActive;
@@ -98,14 +64,7 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
         id: "courseCount",
         header: ({ column }) => (
-            <Button
-                variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-                onClick={() => cycleSorting(column)}
-            >
-                ENSEIGNEMENTS
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
+            <SortableHeader label="ENSEIGNEMENTS" column={column} />
         ),
         cell: ({ row }) => {
             return (
@@ -136,22 +95,22 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
                 }
             };
 
-            return (
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
-                            <span className="sr-only">Ouvrir le menu</span>
-                            <MoreHorizontal className="h-4 w-4" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem asChild>
+                    return (
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <button type="button" className={actionMenuTrigger}>
+                                    <span className="sr-only">Ouvrir le menu</span>
+                                    <MoreHorizontal className="h-4 w-4" />
+                                </button>
+                            </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className={actionMenuContent}>
+                        <DropdownMenuLabel className="px-3 py-2 text-xs font-semibold text-muted-foreground">Actions</DropdownMenuLabel>
+                        <DropdownMenuItem asChild className={actionMenuItem}>
                             <Link href={`/admin/curriculums/${curriculum.id}`}>
                                 Voir
                             </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuItem asChild>
+                        <DropdownMenuItem asChild className={actionMenuItem}>
                             <Link href={`/admin/curriculums/${curriculum.id}/edit`}>
                                 Éditer
                             </Link>
@@ -160,7 +119,7 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
                             onConfirm={handleDelete}
                             trigger={
                                 <DropdownMenuItem
-                                    className="hover:cursor-pointer"
+                                    className={`${actionMenuItem} hover:cursor-pointer`}
                                     onSelect={(event) => event.preventDefault()}
                                 >
                                     Supprimer

@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, ArrowUp, ArrowDown, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,6 +15,8 @@ import toast from "react-hot-toast";
 import { deleteExamPaper } from "@/core/exam-paper";
 import { ExamPaperWithRelations } from "@/core/exam-paper/exam-paper.queries";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
+import { SortableHeader } from "@/components/shared/sortable-header";
+import { actionMenuContent, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
@@ -33,107 +34,44 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   {
     accessorKey: "label",
     header: ({ column }) => {
-      const isSorted = column.getIsSorted();
-      const handleCycleSort = () => {
-        if (isSorted === "asc") {
-          column.toggleSorting(true);
-        } else if (isSorted === "desc") {
-          column.clearSorting();
-        } else {
-          column.toggleSorting(false);
-        }
-      };
-      return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-          onClick={handleCycleSort}
-        >
-          LABEL
-          {isSorted === "asc" ? (
-            <ArrowUp className="ml-2 h-4 w-4" />
-          ) : isSorted === "desc" ? (
-            <ArrowDown className="ml-2 h-4 w-4" />
-          ) : (
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          )}
-        </Button>
-      )
+      return <SortableHeader label="LABEL" column={column} />
     },
   },
   {
     accessorKey: "sessionYear",
     header: ({ column }) => {
-      const isSorted = column.getIsSorted();
-      const handleCycleSort = () => {
-        if (isSorted === "asc") {
-          column.toggleSorting(true);
-        } else if (isSorted === "desc") {
-          column.clearSorting();
-        } else {
-          column.toggleSorting(false);
-        }
-      };
-      return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-          onClick={handleCycleSort}
-        >
-          ANNÉE
-          {isSorted === "asc" ? (
-            <ArrowUp className="ml-2 h-4 w-4" />
-          ) : isSorted === "desc" ? (
-            <ArrowDown className="ml-2 h-4 w-4" />
-          ) : (
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          )}
-        </Button>
-      )
+      return <SortableHeader label="ANNÉE" column={column} />
     },
   },
   {
     accessorKey: "teaching.longDescription",
-    header: "ENSEIGNEMENT",
+    header: () => (
+      <span className="text-xs font-semibold uppercase tracking-wide text-heading">
+        ENSEIGNEMENT
+      </span>
+    ),
   },
   {
     accessorKey: "grade.shortDescription",
-    header: "NIVEAU",
+    header: () => (
+      <span className="text-xs font-semibold uppercase tracking-wide text-heading">
+        NIVEAU
+      </span>
+    ),
   },
   {
     accessorKey: "diploma.longDescription",
-    header: "DIPLÔME",
+    header: () => (
+      <span className="text-xs font-semibold uppercase tracking-wide text-heading">
+        DIPLÔME
+      </span>
+    ),
   },
   {
     id: "exercises",
     accessorFn: (row) => row._count?.exercises ?? 0,
     header: ({ column }) => {
-      const isSorted = column.getIsSorted();
-      const handleCycleSort = () => {
-        if (isSorted === "asc") {
-          column.toggleSorting(true);
-        } else if (isSorted === "desc") {
-          column.clearSorting();
-        } else {
-          column.toggleSorting(false);
-        }
-      };
-      return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-          onClick={handleCycleSort}
-        >
-          EXERCICES
-          {isSorted === "asc" ? (
-            <ArrowUp className="ml-2 h-4 w-4" />
-          ) : isSorted === "desc" ? (
-            <ArrowDown className="ml-2 h-4 w-4" />
-          ) : (
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          )}
-        </Button>
-      )
+      return <SortableHeader label="EXERCICES" column={column} />
     },
     cell: ({ row }) => {
       const exerciseCount = row.original._count?.exercises ?? 0;
@@ -152,32 +90,7 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   {
     accessorKey: "updatedAt",
     header: ({ column }) => {
-      const isSorted = column.getIsSorted();
-      const handleCycleSort = () => {
-        if (isSorted === "asc") {
-          column.toggleSorting(true);
-        } else if (isSorted === "desc") {
-          column.clearSorting();
-        } else {
-          column.toggleSorting(false);
-        }
-      };
-      return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200 text-left"
-          onClick={handleCycleSort}
-        >
-          DATE DE DERNIÈRE MODIFICATION
-          {isSorted === "asc" ? (
-            <ArrowUp className="ml-2 h-4 w-4" />
-          ) : isSorted === "desc" ? (
-            <ArrowDown className="ml-2 h-4 w-4" />
-          ) : (
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          )}
-        </Button>
-      )
+      return <SortableHeader label="DATE DE DERNIÈRE MODIFICATION" column={column} align="left" />
     },
     cell: ({ row }) => {
       return <div className="text-center">{formatDateTime(row.original.updatedAt)}</div>
@@ -192,20 +105,20 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
+            <button type="button" className={actionMenuTrigger}>
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
-            </Button>
+            </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>
+          <DropdownMenuContent align="end" className={actionMenuContent}>
+            <DropdownMenuItem className={actionMenuItem}>
               <Link
                 href={`/admin/exam-papers/${examPaper.id}`}
               >
                 Voir
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem className={actionMenuItem}>
               <Link
                 href={`/admin/exam-papers/${examPaper.id}/edit`}
               >
@@ -216,7 +129,7 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
               onConfirm={() => handleOnClickDeleteButton(examPaper.id)}
               trigger={
                 <DropdownMenuItem
-                  className="hover:cursor-pointer"
+                  className={`${actionMenuItem} hover:cursor-pointer`}
                   onSelect={(event) => event.preventDefault()}
                 >
                   Supprimer

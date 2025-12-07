@@ -37,9 +37,10 @@ export function DataTablePagination<T>({ table }: { table: Table<T> }) {
   const pages = buildPageList(pageCount, pageIndex);
 
   const baseBtn =
-    "inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700";
+    "flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm h-9 min-w-[2.25rem] px-3 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
+  const pageBtn = `${baseBtn} w-9 px-0`;
   const activeBtn =
-    "bg-blue-600 border-blue-600 text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:border-blue-600 dark:text-white dark:hover:bg-blue-700 dark:focus:ring-blue-800";
+    "text-fg-brand bg-neutral-tertiary-medium border-default-medium hover:text-fg-brand";
 
   return (
     <div className="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -47,10 +48,10 @@ export function DataTablePagination<T>({ table }: { table: Table<T> }) {
         Page {pageIndex + 1} / {pageCount}
       </div>
       <nav aria-label="Pagination">
-        <ul className="inline-flex items-center gap-1">
+        <ul className="flex -space-x-px text-sm">
           <li>
             <button
-              className={`${baseBtn} rounded-l-md`}
+              className={`${baseBtn} rounded-s-base`}
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
             >
@@ -60,23 +61,14 @@ export function DataTablePagination<T>({ table }: { table: Table<T> }) {
           {pages.map((p, idx) =>
             p === "..." ? (
               <li key={`ellipsis-${idx}`}>
-                <span className={`${baseBtn} cursor-default`}>…</span>
+                <span className={`${pageBtn} cursor-default text-muted-foreground`}>…</span>
               </li>
             ) : (
               <li key={p}>
                 <button
-                  className={`${baseBtn} ${p === pageIndex ? activeBtn : ""}`}
+                  className={`${pageBtn} ${p === pageIndex ? activeBtn : ""}`}
                   onClick={() => table.setPageIndex(p)}
                   aria-current={p === pageIndex ? "page" : undefined}
-                  style={
-                    p === pageIndex
-                      ? {
-                          backgroundColor: "#2563eb",
-                          color: "#ffffff",
-                          borderColor: "#2563eb",
-                        }
-                      : undefined
-                  }
                 >
                   {p + 1}
                 </button>
@@ -85,7 +77,7 @@ export function DataTablePagination<T>({ table }: { table: Table<T> }) {
           )}
           <li>
             <button
-              className={`${baseBtn} rounded-r-md`}
+              className={`${baseBtn} rounded-e-base`}
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >

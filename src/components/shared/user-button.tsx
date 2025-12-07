@@ -1,107 +1,54 @@
-import avatarPlaceholder from "@/assets/images/avatar_placeholder.png";
 import { LogOut, Settings } from "lucide-react";
 import { User } from "next-auth";
-import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuPortal,
-    DropdownMenuSeparator,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuSubTrigger,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
-import { FaCheck, FaDesktop, FaMoon, FaRegSun } from "react-icons/fa6";
 
 interface UserButtonProps {
     user: User;
 }
 
 export default function UserButton({ user }: UserButtonProps) {
-    const { theme, setTheme } = useTheme();
+    const initials = (() => {
+        if (!user.name) return "U";
+        const parts = user.name.split(" ").filter(Boolean);
+        if (parts.length >= 2) {
+            return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+        }
+        const first = parts[0].slice(0, 2).toUpperCase();
+        return first || "U";
+    })();
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button size="icon" className="flex-none rounded-full">
-                    <Image
-                        src={user.image || avatarPlaceholder}
-                        // src={avatarPlaceholder}
-                        alt="User profile picture"
-                        width={50}
-                        height={50}
-                        className="aspect-square rounded-full bg-background object-cover"
-                    />
+                <Button
+                    className="flex-none h-9 w-9 rounded-full border border-default bg-neutral-primary shadow-xs p-0 hover:bg-neutral-secondary-soft focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
+                    variant="ghost"
+                >
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-xs font-semibold uppercase text-white">
+                        {initials}
+                    </span>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 bg-background text-foreground">
-                <DropdownMenuLabel>{user.name || "User"}</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>
-                        <FaDesktop className="mr-2 size-4" />
-                        Thème
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
-                            <DropdownMenuItem onClick={() => setTheme("system")} className="flex justify-between">
-                                <div className="flex justify-start">
-                                    <FaRegSun className="mr-2 size-4" />
-                                    Défaut
-                                </div>
-                                <div>
-                                    {theme === "system" && <FaCheck className="ms-2 size-4 text-green-600" />}
-                                </div>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => setTheme("light")} className="flex justify-between">
-                                <div className="flex justify-start">
-                                    <FaRegSun className="mr-2 size-4" />
-                                    Clair
-                                </div>
-                                <div>
-                                    {theme === "light" && <FaCheck className="ms-2 size-4 text-green-600" />}
-                                </div>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => setTheme("dark")} className="flex justify-between">
-                                <div className="flex justify-start">
-                                    <FaMoon className="mr-2 size-4" />
-                                    Sombre
-                                </div>
-                                <div>
-                                    {theme === "dark" && <FaCheck className="ms-2 size-4 text-green-600" />}
-                                </div>
-                            </DropdownMenuItem>
-                        </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
-                </DropdownMenuSub>
-                <DropdownMenuGroup>
-                    <Link href="/settings">
-                        <DropdownMenuItem>
-                            <Settings className="mr-2 h-4 w-4" />
-                            <span>Paramètres</span>
-                        </DropdownMenuItem>
-                    </Link>
-                    {/* <DropdownMenuItem asChild>
-                        <Link href="/">
-                            <Lock className="mr-2 h-4 w-4" />
-                            Admin
+            <DropdownMenuContent className="z-50 w-56 overflow-hidden rounded-base border border-default bg-neutral-primary-medium p-0 text-body shadow-lg">
+                <div className="border-b border-default px-4 py-3 text-sm text-heading">
+                    <div className="font-semibold">{user.name || "Utilisateur"}</div>
+                </div>
+                <div className="p-2 text-sm font-medium text-body">
+                    <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-body hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
+                        <Link href="/settings" className="flex items-center gap-2">
+                            <Settings className="h-4 w-4" />
+                            Paramètres
                         </Link>
-                    </DropdownMenuItem> */}
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                    <button onClick={() => signOut()} className="flex w-full items-center">
-                        <LogOut className="mr-2 h-4 w-4" /> Se déconnecter
-                    </button>
-                </DropdownMenuItem>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-fg-danger hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
+                        <button onClick={() => signOut()} className="flex w-full items-center gap-2">
+                            <LogOut className="h-4 w-4" /> Se déconnecter
+                        </button>
+                    </DropdownMenuItem>
+                </div>
             </DropdownMenuContent>
         </DropdownMenu>
     );

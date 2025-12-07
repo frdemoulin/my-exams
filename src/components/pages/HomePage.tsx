@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
-import { Search } from 'lucide-react';
+import { ArrowRight, Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
 
@@ -23,9 +23,10 @@ import {
   CardContent,
 } from '@/components/ui/card';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
+import { SiteFooter } from '@/components/shared/site-footer';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
-import packageInfo from '../../../package.json';
+import { useSession } from 'next-auth/react';
 
 // Types importés depuis @/core/exercise
 
@@ -35,6 +36,9 @@ interface HomePageProps {
 }
 
 export default function HomePage({ initialSubjects, specialties }: HomePageProps) {
+  const { data: session } = useSession();
+  const isAdmin = session?.user?.role === "ADMIN";
+
   const [search, setSearch] = useState('');
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
@@ -56,7 +60,6 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     Array<{ id: string; title: string; label: string | null; examPaperLabel: string; sessionYear: number; subject: string }>
   >([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const appVersion = packageInfo.version;
 
   // Fetch exercises on mount
   useEffect(() => {
@@ -305,13 +308,20 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     return Array.from(set).sort((a, b) => b - a);
   }, [exercises]);
 
+  const HeroEyebrow = ({ children }: { children: React.ReactNode }) => (
+    <div className="mb-4 inline-flex items-center gap-2 rounded-base border border-gray-300 dark:border-gray-600 bg-white/70 dark:bg-gray-900/60 px-3 py-1 text-[11px] font-semibold tracking-tight shadow-sm backdrop-blur">
+      <span className="h-2 w-2 rounded-full bg-emerald-400" />
+      <span>{children}</span>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* HEADER */}
-      <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
+          <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-xs font-bold text-primary-foreground">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand text-xs font-bold text-white">
               SA
             </div>
             <div className="flex flex-col">
@@ -325,22 +335,17 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           </div>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <a href="/admin" className="hover:text-foreground">
-              Administration
-            </a>
-            <a href="/annales" className="hover:text-foreground">
-              Annales
-            </a>
-            <a href="/notions" className="hover:text-foreground">
-              Notions
-            </a>
-            <a href="/a-propos" className="hover:text-foreground">
-              À propos
-            </a>
+            {(session?.user) && (
+              <a href="/admin" className="hover:text-foreground">
+                Administration
+              </a>
+            )}
             <ThemeToggle />
-            <Button variant="outline" size="sm">
-              Se connecter
-            </Button>
+            {!session?.user && (
+              <Button variant="outline" size="sm">
+                Se connecter
+              </Button>
+            )}
           </nav>
         </div>
       </header>
@@ -351,29 +356,48 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
         <section className="grid items-start gap-8 lg:grid-cols-[3fr,2fr]">
           {/* HERO GAUCHE */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <Badge
-              variant="outline"
-              className="mb-4 text-xs"
-            >
-              <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400" />
-              📚 Plus de 1000 exercices d&apos;annales indexés
-            </Badge>
+            <HeroEyebrow>📚 Plus de 1000 exercices d&apos;annales indexés</HeroEyebrow>
 
-            <h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-              Trouve le bon exercice d&apos;annales
-              <span className="block text-primary">en quelques secondes 🎯</span>
+            <h1 className="mb-3 text-balance text-3xl font-extrabold tracking-tight text-heading md:text-4xl lg:text-5xl">
+              Révise tes annales <span className="text-fg-brand">plus efficacement</span>.
             </h1>
 
-            <p className="mb-6 max-w-xl text-sm text-muted-foreground md:text-base">
-              Moteur de recherche d&apos;exercices d&apos;annales du Brevet au BTS. 
-              Chaque exercice est enrichi avec sa durée estimée, difficulté, thématiques ciblées et corrections multiples provenant des meilleures sources (APMEP, LaboLycée, YouTube...).
+            <p className="mb-4 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground md:text-base">
+              Cherche par diplôme, matière, difficulté et durée. Visualise en un coup d’œil les sujets qui correspondent vraiment à ton niveau et à ton planning.
             </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <Button size="lg" className="font-semibold">
+                <span className="mr-2 inline-flex items-center">
+                  <ArrowRight className="mr-1 h-4 w-4" />
+                  Explorer les annales
+                </span>
+              </Button>
+              <Button variant="secondary" size="lg" className="font-semibold">
+                Découvrir les diplômes
+              </Button>
+            </div>
+
+            <div className="mb-6 flex flex-wrap gap-6 pt-4 text-xs text-muted-foreground sm:text-sm">
+              <div className="space-y-1">
+                <div className="font-semibold text-heading">+1000 exercices</div>
+                <div className="text-[11px] sm:text-xs">Annales récentes et classées par thème</div>
+              </div>
+              <div className="space-y-1">
+                <div className="font-semibold text-heading">Filtres avancés</div>
+                <div className="text-[11px] sm:text-xs">Difficulté, durée, diplôme, matière…</div>
+              </div>
+              <div className="space-y-1">
+                <div className="font-semibold text-heading">Pensé pour le bac</div>
+                <div className="text-[11px] sm:text-xs">Interface claire pour les lycéens</div>
+              </div>
+            </div>
 
             {/* FORMULAIRE DE RECHERCHE */}
             <form onSubmit={handleSearchSubmit} className="w-full space-y-3">
               <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
                 <div className="relative flex-1">
-                  <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                  <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3 text-muted-foreground">
                     <Search className="h-4 w-4" />
                   </span>
                   <Input
@@ -381,7 +405,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Ex : titrage acide-base, loi normale, base de données…"
-                    className="py-2.5 pl-9 text-sm"
+                    className="ps-10 pe-4 text-sm"
                     onFocus={() => {
                       if (suggestions.length > 0) setShowSuggestions(true);
                     }}
@@ -451,7 +475,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                   Filtres rapides
                   {activeFiltersCount > 0 && (
-                    <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                    <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-2xs font-bold text-white">
                       {activeFiltersCount}
                     </span>
                   )}
@@ -469,12 +493,12 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </div>
 
               {/* FILTRES EN LIGNE */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
+              <div className="flex flex-col gap-3 md:flex-row md:flex-nowrap">
                 {isClient ? (
                   <>
                     {/* DIPLÔME */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         🎓 Diplôme
                       </label>
                       <Select
@@ -499,8 +523,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     </div>
 
                     {/* MATIÈRE */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         📖 Matière
                       </label>
                       <Select
@@ -525,8 +549,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     </div>
 
                     {/* SESSION */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         📅 Session
                       </label>
                       <Select
@@ -551,8 +575,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     </div>
 
                     {/* DIFFICULTÉ */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         ⚡ Difficulté
                       </label>
                       <Select
@@ -578,26 +602,26 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                   </>
                 ) : (
                   <>
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         🎓 Diplôme
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                     </div>
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         📖 Matière
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                     </div>
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         📅 Session
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                     </div>
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         ⚡ Difficulté
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
@@ -610,7 +634,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
 
           {/* PANNEAU DROIT : COMMENT ÇA MARCHE */}
           <div className="space-y-4">
-            <Card className="border-primary/30 bg-linear-to-br from-primary/10 via-background to-background text-sm">
+            <Card className="border-brand/30 bg-linear-to-br from-brand/10 via-background to-background text-sm">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">
                   ✨ Comment ça marche ?
@@ -640,7 +664,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 <h2 className="text-lg font-semibold">
                   Résultats
                 </h2>
-                <span className="rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-primary">
+                <span className="rounded-full bg-brand/20 px-3 py-1 text-xs font-medium text-fg-brand">
                   {total} exercice{total > 1 ? 's' : ''} · page {page}/{Math.max(1, Math.ceil(total / pageSize))}
                 </span>
               </div>
@@ -758,7 +782,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-auto px-0 text-xs text-primary hover:text-primary/80"
+                className="h-auto px-0 text-xs text-fg-brand hover:text-fg-brand/80"
                 onClick={() => setShowResults(true)}
               >
                 Voir toutes les annales →
@@ -769,7 +793,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               {trendingPapers.map((paper, idx) => (
                 <Card
                   key={idx}
-                  className="text-xs hover:border-primary"
+                  className="text-xs hover:border-brand"
                 >
                   <CardContent className="p-3">
                     <div className="mb-1.5 flex items-center justify-between">
@@ -778,7 +802,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                       </span>
                       <Badge
                         variant="outline"
-                        className="px-2 py-0.5 text-[10px]"
+                        className="px-2 py-0.5 text-2xs"
                       >
                         {paper.year}
                       </Badge>
@@ -794,7 +818,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         <Badge
                           key={tag}
                           variant="outline"
-                          className="px-2 py-0.5 text-[10px]"
+                          className="px-2 py-0.5 text-2xs"
                         >
                           {tag}
                         </Badge>
@@ -816,26 +840,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
         )}
       </main>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border bg-card">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-[11px] text-muted-foreground md:flex-row">
-          <p>
-            © {new Date().getFullYear()} Site d&apos;annales — plateforme de
-            révision.
-          </p>
-          <div className="flex items-center gap-4">
-            <span className="text-[11px]">Version v{appVersion}</span>
-            <div className="flex gap-4">
-              <a href="/mentions-legales" className="hover:text-foreground">
-                Mentions légales
-              </a>
-              <a href="/contact" className="hover:text-foreground">
-                Contact
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
