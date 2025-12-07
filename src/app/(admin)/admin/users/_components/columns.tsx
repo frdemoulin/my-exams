@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,13 +15,8 @@ import { User } from "@prisma/client";
 import { formatDateTime } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
-
-const cycleSorting = (column: any) => {
-  const state = column.getIsSorted();
-  if (state === "asc") column.toggleSorting(true);
-  else if (state === "desc") column.clearSorting();
-  else column.toggleSorting(false);
-};
+import { SortableHeader } from "@/components/shared/sortable-header";
+import { actionMenuContent, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 
 const handleOnClickDeleteButton = async (id: string) => {
   // try {
@@ -38,14 +32,7 @@ export const columns: ColumnDef<User>[] = [
     accessorKey: "name",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-          onClick={() => cycleSorting(column)}
-        >
-          NOM D&apos;UTILISATEUR
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <SortableHeader label="NOM D'UTILISATEUR" column={column} />
       )
     },
   },
@@ -53,14 +40,7 @@ export const columns: ColumnDef<User>[] = [
     accessorKey: "email",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
-          onClick={() => cycleSorting(column)}
-        >
-          EMAIL
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <SortableHeader label="EMAIL" column={column} />
       )
     },
   },
@@ -68,14 +48,7 @@ export const columns: ColumnDef<User>[] = [
     accessorKey: "updatedAt",
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200 text-left"
-          onClick={() => cycleSorting(column)}
-        >
-          DATE DE DERNIÈRE MODIFICATION
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <SortableHeader label="DATE DE DERNIÈRE MODIFICATION" column={column} align="left" />
       )
     },
     cell: ({ row }) => {
@@ -91,20 +64,20 @@ export const columns: ColumnDef<User>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
+            <button type="button" className={actionMenuTrigger}>
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
-            </Button>
+            </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>
+          <DropdownMenuContent align="end" className={actionMenuContent}>
+            <DropdownMenuItem className={actionMenuItem}>
               <Link
                 href={`/users/${user.id}`}
               >
                 Voir
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem className={actionMenuItem}>
               <Link
                 href={`/users/${user.id}/edit`}
               >
@@ -115,7 +88,7 @@ export const columns: ColumnDef<User>[] = [
               onConfirm={() => handleOnClickDeleteButton(user.id)}
               trigger={
                 <DropdownMenuItem
-                  className="hover:cursor-pointer"
+                  className={`${actionMenuItem} hover:cursor-pointer`}
                   onSelect={(event) => event.preventDefault()}
                 >
                   Supprimer

@@ -26,6 +26,7 @@ import { ThemeToggle } from '@/components/shared/theme-toggle';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
+import { useSession } from 'next-auth/react';
 
 // Types importés depuis @/core/exercise
 
@@ -35,6 +36,9 @@ interface HomePageProps {
 }
 
 export default function HomePage({ initialSubjects, specialties }: HomePageProps) {
+  const { data: session } = useSession();
+  const isAdmin = session?.user?.role === "ADMIN";
+
   const [search, setSearch] = useState('');
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
@@ -331,13 +335,17 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           </div>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <a href="/admin" className="hover:text-foreground">
-              Administration
-            </a>
+            {(session?.user) && (
+              <a href="/admin" className="hover:text-foreground">
+                Administration
+              </a>
+            )}
             <ThemeToggle />
-            <Button variant="outline" size="sm">
-              Se connecter
-            </Button>
+            {!session?.user && (
+              <Button variant="outline" size="sm">
+                Se connecter
+              </Button>
+            )}
           </nav>
         </div>
       </header>

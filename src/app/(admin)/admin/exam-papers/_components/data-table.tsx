@@ -30,15 +30,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search } from "lucide-react";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { TableToolbar } from "@/components/shared/table-toolbar";
 
 interface DataTableProps<TData, TValue> {
+  title: string;
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 
 export function DataTable<TData, TValue>({
+  title,
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -63,20 +65,28 @@ export function DataTable<TData, TValue>({
     },
   });
 
+  const filteredCount = table.getFilteredRowModel().rows.length;
+  const totalCount = filteredCount;
+  const pagination = table.getState().pagination;
+  const pageIndex = pagination?.pageIndex ?? 0;
+  const pageSize = pagination?.pageSize ?? (data.length || 10);
+  const currentPageCount = table.getRowModel().rows.length;
+  const pageFrom = filteredCount === 0 ? 0 : Math.min(pageIndex * pageSize + 1, filteredCount);
+  const pageTo = filteredCount === 0 ? 0 : Math.min(pageFrom + currentPageCount - 1, filteredCount);
+
   return (
     <div>
-      <div className="flex flex-col gap-3 py-4 md:flex-row md:items-center md:justify-end md:gap-3">
-        <div className="relative w-full max-w-sm md:ml-auto">
-          <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3 text-muted-foreground">
-            <Search className="h-4 w-4" />
-          </span>
-          <input
-            className="h-10 w-full rounded-base border border-default bg-neutral-primary-soft ps-10 pe-3 text-sm text-body placeholder:text-body/70 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand focus:ring-offset-1"
-            placeholder="Rechercher un sujet (label, enseignement, diplôme)..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-          />
-        </div>
+      <TableToolbar
+        title={title}
+        pageFrom={pageFrom}
+        pageTo={pageTo}
+        totalCount={totalCount}
+        placeholder="Rechercher un sujet (label, enseignement, diplôme)..."
+        value={globalFilter}
+        onChange={setGlobalFilter}
+        addHref="/admin/exam-papers/add"
+        addLabel="Ajouter un sujet"
+      >
         <Select
           value={(table.getColumn("exercises")?.getFilterValue() as string) ?? "all"}
           onValueChange={(value) =>
@@ -92,7 +102,7 @@ export function DataTable<TData, TValue>({
             <SelectItem value="1+">Avec exercices</SelectItem>
           </SelectContent>
         </Select>
-      </div>
+      </TableToolbar>
       <div className="rounded-md border">
         <Table>
           <TableHeader>

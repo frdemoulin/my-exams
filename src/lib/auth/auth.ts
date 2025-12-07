@@ -55,9 +55,20 @@ export const providerMap = providers.map((provider) => {
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma) as any,
     callbacks: {
-        session({ session, user }) {
+        async session({ session, token }) {
+            if (session.user) {
+                session.user.id = token.sub ?? session.user.id;
+                // @ts-expect-error role is added to the session user
+                session.user.role = token.role ?? session.user.role;
+            }
             return session;
-        }
+        },
+        async jwt({ token, user }) {
+            if (user) {
+                token.role = (user as any).roles ?? token.role;
+            }
+            return token;
+        },
     },
     pages: {
         signIn: "/log-in",
