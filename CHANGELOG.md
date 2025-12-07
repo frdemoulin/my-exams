@@ -1,3 +1,13 @@
+## <small>1.0.2 (2025-12-07)</small>
+
+* Merge pull request #25 from frdemoulin/feature/design ([30a7222](https://github.com/frdemoulin/my-exams/commit/30a7222)), closes [#25](https://github.com/frdemoulin/my-exams/issues/25)
+* Merge pull request #26 from frdemoulin/dev ([bf64a33](https://github.com/frdemoulin/my-exams/commit/bf64a33)), closes [#26](https://github.com/frdemoulin/my-exams/issues/26)
+* fix: debug de l'intégration de Flowbite ([1f88e8a](https://github.com/frdemoulin/my-exams/commit/1f88e8a))
+* fix: debug des headers des tableaux avec Flowbite ([8c40c0d](https://github.com/frdemoulin/my-exams/commit/8c40c0d))
+* fix: debug du style des tableaux ([c1457be](https://github.com/frdemoulin/my-exams/commit/c1457be))
+* fix: factorisation du footer ([db75626](https://github.com/frdemoulin/my-exams/commit/db75626))
+* chore: installation de flowbite et flowbite-react ([d0d764a](https://github.com/frdemoulin/my-exams/commit/d0d764a))
+
 ## <small>1.0.1 (2025-12-05)</small>
 
 * Merge pull request #23 from frdemoulin/feature/design ([d329986](https://github.com/frdemoulin/my-exams/commit/d329986)), closes [#23](https://github.com/frdemoulin/my-exams/issues/23)
