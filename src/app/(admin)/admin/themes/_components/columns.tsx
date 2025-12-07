@@ -43,7 +43,7 @@ export const columns: ColumnDef<ThemeData>[] = [
       return (
         <Button
           variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
           onClick={() => cycleSorting(column)}
         >
           DESCRIPTION COURTE
@@ -58,7 +58,7 @@ export const columns: ColumnDef<ThemeData>[] = [
       return (
         <Button
           variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
           onClick={() => cycleSorting(column)}
         >
           DESCRIPTION LONGUE
@@ -73,7 +73,7 @@ export const columns: ColumnDef<ThemeData>[] = [
       return (
         <Button
           variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
           onClick={() => cycleSorting(column)}
         >
           CHAPITRE

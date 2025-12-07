@@ -16,6 +16,7 @@ import { formatDateTime } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { deleteDivision } from "@/core/division";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
+import { SortIcon } from "@/components/shared/sort-icon";
 
 const cycleSorting = (column: any) => {
   const state = column.getIsSorted();
@@ -43,11 +44,11 @@ export const columns: ColumnDef<Division>[] = [
       return (
         <Button
           variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
           onClick={() => cycleSorting(column)}
         >
           DESCRIPTION COURTE
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          <SortIcon direction={column.getIsSorted()} />
         </Button>
       )
     },
@@ -58,11 +59,11 @@ export const columns: ColumnDef<Division>[] = [
       return (
         <Button
           variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+          className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
           onClick={() => cycleSorting(column)}
         >
           DESCRIPTION LONGUE
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          <SortIcon direction={column.getIsSorted()} />
         </Button>
       )
     },
@@ -73,11 +74,11 @@ export const columns: ColumnDef<Division>[] = [
       return (
         <Button
           variant="ghost"
-          className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200 text-left"
+          className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary text-left"
           onClick={() => cycleSorting(column)}
         >
           DATE DE DERNIÈRE MODIFICATION
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          <SortIcon direction={column.getIsSorted()} />
         </Button>
       )
     },

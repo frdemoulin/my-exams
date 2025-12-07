@@ -17,6 +17,7 @@ import { deleteCurriculum } from "@/core/curriculum";
 import toast from "react-hot-toast";
 import type { CurriculumWithTeachingCount } from "@/core/curriculum";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
+import { SortIcon } from "@/components/shared/sort-icon";
 
 const cycleSorting = (column: any) => {
     const state = column.getIsSorted();
@@ -31,11 +32,11 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
         header: ({ column }) => (
             <Button
                 variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
                 onClick={() => cycleSorting(column)}
             >
                 NOM
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                <SortIcon direction={column.getIsSorted()} />
             </Button>
         ),
     },
@@ -44,11 +45,11 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
         header: ({ column }) => (
             <Button
                 variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
                 onClick={() => cycleSorting(column)}
             >
                 DATE DE DÉBUT
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                <SortIcon direction={column.getIsSorted()} />
             </Button>
         ),
         cell: ({ row }) => {
@@ -61,11 +62,11 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
         header: ({ column }) => (
             <Button
                 variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                className="text-xs font-semibold uppercase tracking-wide text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
                 onClick={() => cycleSorting(column)}
             >
                 FIN
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                <SortIcon direction={column.getIsSorted()} />
             </Button>
         ),
         cell: ({ row }) => {
@@ -79,11 +80,11 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
         header: ({ column }) => (
             <Button
                 variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                className="text-xs font-semibold uppercase tracking-wide text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
                 onClick={() => cycleSorting(column)}
             >
                 STATUT
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                <SortIcon direction={column.getIsSorted()} />
             </Button>
         ),
         cell: ({ row }) => {
@@ -100,11 +101,11 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
         header: ({ column }) => (
             <Button
                 variant="ghost"
-                className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-200"
+                className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary"
                 onClick={() => cycleSorting(column)}
             >
                 ENSEIGNEMENTS
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                <SortIcon direction={column.getIsSorted()} />
             </Button>
         ),
         cell: ({ row }) => {

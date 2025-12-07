@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
-import { Search } from 'lucide-react';
+import { ArrowRight, Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
 
@@ -305,7 +305,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   }, [exercises]);
 
   const HeroEyebrow = ({ children }: { children: React.ReactNode }) => (
-    <div className="mb-2 inline-flex items-center gap-2 rounded-base border border-default bg-neutral-primary-soft/80 px-3 py-1 text-[11px] font-semibold tracking-tight shadow-xs backdrop-blur">
+    <div className="mb-4 inline-flex items-center gap-2 rounded-base border border-gray-300 dark:border-gray-600 bg-white/70 dark:bg-gray-900/60 px-3 py-1 text-[11px] font-semibold tracking-tight shadow-sm backdrop-blur">
       <span className="h-2 w-2 rounded-full bg-emerald-400" />
       <span>{children}</span>
     </div>
@@ -350,15 +350,40 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <HeroEyebrow>📚 Plus de 1000 exercices d&apos;annales indexés</HeroEyebrow>
 
-            <h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-              Trouve le bon exercice d&apos;annales
-              <span className="block text-fg-brand">en quelques secondes 🎯</span>
+            <h1 className="mb-3 text-balance text-3xl font-extrabold tracking-tight text-heading md:text-4xl lg:text-5xl">
+              Révise tes annales <span className="text-fg-brand">plus efficacement</span>.
             </h1>
 
-            <p className="mb-6 max-w-xl text-sm text-muted-foreground md:text-base">
-              Moteur de recherche d&apos;exercices d&apos;annales du Brevet au BTS. 
-              Chaque exercice est enrichi avec sa durée estimée, difficulté, thématiques ciblées et corrections multiples provenant des meilleures sources (APMEP, LaboLycée, YouTube...).
+            <p className="mb-4 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground md:text-base">
+              Cherche par diplôme, matière, difficulté et durée. Visualise en un coup d’œil les sujets qui correspondent vraiment à ton niveau et à ton planning.
             </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <Button size="lg" className="font-semibold">
+                <span className="mr-2 inline-flex items-center">
+                  <ArrowRight className="mr-1 h-4 w-4" />
+                  Explorer les annales
+                </span>
+              </Button>
+              <Button variant="secondary" size="lg" className="font-semibold">
+                Découvrir les diplômes
+              </Button>
+            </div>
+
+            <div className="mb-6 flex flex-wrap gap-6 pt-4 text-xs text-muted-foreground sm:text-sm">
+              <div className="space-y-1">
+                <div className="font-semibold text-heading">+1000 exercices</div>
+                <div className="text-[11px] sm:text-xs">Annales récentes et classées par thème</div>
+              </div>
+              <div className="space-y-1">
+                <div className="font-semibold text-heading">Filtres avancés</div>
+                <div className="text-[11px] sm:text-xs">Difficulté, durée, diplôme, matière…</div>
+              </div>
+              <div className="space-y-1">
+                <div className="font-semibold text-heading">Pensé pour le bac</div>
+                <div className="text-[11px] sm:text-xs">Interface claire pour les lycéens</div>
+              </div>
+            </div>
 
             {/* FORMULAIRE DE RECHERCHE */}
             <form onSubmit={handleSearchSubmit} className="w-full space-y-3">
@@ -442,7 +467,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                   Filtres rapides
                   {activeFiltersCount > 0 && (
-                    <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-[10px] font-bold text-white">
+                    <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-2xs font-bold text-white">
                       {activeFiltersCount}
                     </span>
                   )}
@@ -769,7 +794,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                       </span>
                       <Badge
                         variant="outline"
-                        className="px-2 py-0.5 text-[10px]"
+                        className="px-2 py-0.5 text-2xs"
                       >
                         {paper.year}
                       </Badge>
@@ -785,7 +810,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         <Badge
                           key={tag}
                           variant="outline"
-                          className="px-2 py-0.5 text-[10px]"
+                          className="px-2 py-0.5 text-2xs"
                         >
                           {tag}
                         </Badge>
