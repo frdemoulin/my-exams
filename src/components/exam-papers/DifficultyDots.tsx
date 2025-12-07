@@ -13,7 +13,7 @@ export function DifficultyDots({ value, max = 5 }: DifficultyDotsProps) {
           key={i}
           className={
             "h-2 w-2 rounded-full " +
-            (i < value ? "bg-primary" : "bg-muted border border-border")
+            (i < value ? "bg-brand" : "bg-muted border border-border")
           }
         />
       ))}

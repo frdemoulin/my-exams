@@ -14,7 +14,7 @@
 
 /* Intégration Flowbite pour Tailwind v4 */
 @plugin "flowbite/plugin";
-@source "../node_modules/flowbite";
+@source "../../node_modules/flowbite";
 
 /* Variante dark basée sur la classe .dark portée par <html> ou <body> */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -27,21 +27,6 @@
   /* Police */
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-
-  /* Palette inspirée Flowbite (références) */
-  --color-fb-gray-50: #f9fafb;
-  --color-fb-gray-100: #f3f4f6;
-  --color-fb-gray-200: #e5e7eb;
-  --color-fb-gray-300: #d1d5db;
-  --color-fb-gray-700: #374151;
-  --color-fb-gray-800: #1f2933;
-  --color-fb-gray-900: #111827;
-
-  --color-fb-blue-50: #eff6ff;
-  --color-fb-blue-100: #dbeafe;
-  --color-fb-blue-500: #3b82f6;
-  --color-fb-blue-600: #2563eb;
-  --color-fb-blue-700: #1d4ed8;
 
   /* Tokens OKLCH pour ton design system */
   --color-background: oklch(0.985 0.003 250);
@@ -72,6 +57,18 @@
   --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.06);
 }
 
+/* Harmonise Flowbite avec nos tokens sans devoir réappliquer des classes utilitaires */
+:root {
+  --color-body: var(--color-foreground);
+  --color-heading: var(--color-foreground);
+  --color-neutral-primary: var(--color-card);
+  --color-neutral-primary-soft: var(--color-card);
+  --color-neutral-secondary: var(--color-muted);
+  --color-neutral-secondary-soft: var(--color-muted);
+  --color-default: var(--color-border);
+  --color-default-subtle: var(--color-border);
+}
+
 /* Overrides dark mode des tokens (utilisés par bg-background, text-foreground, etc.) */
 .dark {
   --color-background: oklch(0.17 0.03 250);
@@ -88,6 +85,15 @@
 
   --color-primary: oklch(0.72 0.13 255);
   --color-primary-foreground: oklch(0.12 0.02 255);
+
+  --color-body: var(--color-foreground);
+  --color-heading: var(--color-foreground);
+  --color-neutral-primary: var(--color-card);
+  --color-neutral-primary-soft: var(--color-card);
+  --color-neutral-secondary: var(--color-muted);
+  --color-neutral-secondary-soft: var(--color-muted);
+  --color-default: var(--color-border);
+  --color-default-subtle: var(--color-border);
 }
 
 /* ==========
@@ -121,7 +127,7 @@
 
   /* Lien actif dans ta navbar / menu */
   .active {
-    @apply text-blue-600 hover:text-gray-900 dark:text-blue-500 border-b-2 border-blue-600 dark:border-blue-600 dark:hover:text-blue-400;
+    @apply text-fg-brand hover:!text-heading border-b-2 border-brand hover:border-brand;
   }
 
   /* Inputs “génériques” : fond lié à ton token d’input */
@@ -154,15 +160,6 @@
    =============== */
 
 @layer components {
-  /* Card “style Flowbite” réutilisable */
-  .card-flowbite {
-    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
-  }
-
-  .card-flowbite-hover {
-    @apply transition-shadow hover:shadow-md;
-  }
-
   /* Badges pills (par ex. pour les tags de sujets) */
   .badge-pill {
     inline-flex: inline-flex;

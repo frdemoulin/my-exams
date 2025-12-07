@@ -14,7 +14,7 @@ export function TableTitle({
 }) {
     return (
         <div className="w-full flex justify-between items-baseline">
-            <h1 className="text-2xl font-bold text-primary">{title}</h1>
+            <h1 className="text-2xl font-bold text-fg-brand">{title}</h1>
             <Button
                 asChild
                 variant="success"

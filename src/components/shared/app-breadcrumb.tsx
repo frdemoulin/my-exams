@@ -22,18 +22,18 @@ export function AppBreadcrumb({ items }: AppBreadcrumbProps) {
   if (items.length === 0) return null;
 
   return (
-    <div className="mb-6 p-4 bg-blue-100 border-2 border-blue-500 rounded">
-      <p className="text-blue-900 font-bold">BREADCRUMB TEST - Items: {items.length}</p>
+    <div className="mb-6 rounded border-2 border-brand bg-brand/10 p-4">
+      <p className="font-bold text-heading">BREADCRUMB TEST - Items: {items.length}</p>
       <nav className="flex items-center gap-2 text-sm">
         {items.map((item, index) => (
           <React.Fragment key={index}>
-            {index > 0 && <span className="text-gray-400">/</span>}
+            {index > 0 && <span className="text-muted-foreground">/</span>}
             {item.href ? (
-              <Link href={item.href} className="text-blue-600 hover:underline">
+              <Link href={item.href} className="text-fg-brand hover:underline">
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-900 font-medium">{item.label}</span>
+              <span className="font-medium text-heading">{item.label}</span>
             )}
           </React.Fragment>
         ))}

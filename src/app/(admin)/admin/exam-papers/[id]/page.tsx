@@ -148,7 +148,7 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                         href={examPaper.subjectUrl} 
                                         target="_blank" 
                                         rel="noopener noreferrer"
-                                        className="text-sm text-blue-600 hover:underline break-all"
+                                        className="text-sm text-fg-brand hover:underline break-all"
                                     >
                                         Ouvrir le PDF
                                     </a>
@@ -174,7 +174,7 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                     href={examPaper.correctionUrl} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="text-sm text-blue-600 hover:underline break-all"
+                                    className="text-sm text-fg-brand hover:underline break-all"
                                 >
                                     {examPaper.correctionUrl}
                                 </a>
