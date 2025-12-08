@@ -1,3 +1,10 @@
+## <small>1.0.3 (2025-12-08)</small>
+
+* Merge pull request #27 from frdemoulin/feature/design ([9b15b73](https://github.com/frdemoulin/my-exams/commit/9b15b73)), closes [#27](https://github.com/frdemoulin/my-exams/issues/27)
+* Merge pull request #28 from frdemoulin/dev ([c14d8b1](https://github.com/frdemoulin/my-exams/commit/c14d8b1)), closes [#28](https://github.com/frdemoulin/my-exams/issues/28)
+* fix: debug de l'intégration de Flowbite (wip) ([0461b3f](https://github.com/frdemoulin/my-exams/commit/0461b3f))
+* fix: debug du style du menu de l'administration ([6506715](https://github.com/frdemoulin/my-exams/commit/6506715))
+
 ## <small>1.0.2 (2025-12-07)</small>
 
 * Merge pull request #25 from frdemoulin/feature/design ([30a7222](https://github.com/frdemoulin/my-exams/commit/30a7222)), closes [#25](https://github.com/frdemoulin/my-exams/issues/25)
