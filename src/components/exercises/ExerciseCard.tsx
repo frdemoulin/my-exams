@@ -230,8 +230,9 @@ export function ExerciseCard({
             {correctionUrl && (
               <Button
                 asChild
+                variant="success"
                 size="sm"
-                className="h-9 items-center gap-2 border border-default-medium bg-neutral-secondary-medium text-body hover:bg-neutral-tertiary-medium hover:text-heading"
+                className="h-9 gap-2"
               >
                 <a href={correctionUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                   Correction
