@@ -28,7 +28,7 @@ export const Sidebar = () => {
 
   const menuItems = [
     {
-      title: 'Navigation',
+      title: '',
       list: [
         {
           title: 'Accueil',
@@ -125,7 +125,7 @@ export const Sidebar = () => {
         <ul>
           {menuItems.map((cat) => (
             <li key={cat.title}>
-              <div className="pt-1 pb-1 uppercase">{cat.title}</div>
+              {cat.title ? <div className="pt-1 pb-1 uppercase">{cat.title}</div> : null}
               <ul className="border-l border-slate-300 dark:border-slate-800">
                 {cat.list.map((item, index, array) => (
                   <Link
@@ -134,7 +134,7 @@ export const Sidebar = () => {
                   >
                     <li
                       className={cn(
-                        "px-2 py-1 my-2 flex items-center border-l -ml-px border-transparent transition no-underline hover:no-underline hover:border-slate-500 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300",
+                        "px-2 py-1 my-2 flex items-center border-l-2 -ml-[2px] border-transparent transition no-underline hover:no-underline hover:border-default text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300",
                         isActivePath(item.path) && "text-fg-brand border-brand hover:text-fg-brand hover:border-brand"
                       )}
                       key={item.title}
