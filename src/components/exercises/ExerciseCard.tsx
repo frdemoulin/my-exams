@@ -216,16 +216,24 @@ export function ExerciseCard({
           <span className="text-muted-foreground font-bold text-xs md:text-sm">{traceabilityFooter}</span>
           <div className="flex items-baseline gap-2">
             {preferredPdfUrl && (
-              <Button asChild size="sm" className="h-9">
-                <a href={preferredPdfUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                asChild
+                size="sm"
+                className="h-9 items-center gap-2 border border-brand bg-brand text-white hover:bg-brand hover:text-white focus-visible:ring-brand"
+              >
+                <a href={preferredPdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                   Sujet (PDF)
                   <ExternalLink className="ml-2 h-3 w-3" />
                 </a>
               </Button>
             )}
             {correctionUrl && (
-              <Button asChild variant="outline" size="sm" className="h-9">
-                <a href={correctionUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                asChild
+                size="sm"
+                className="h-9 items-center gap-2 border border-default-medium bg-neutral-secondary-medium text-body hover:bg-neutral-tertiary-medium hover:text-heading"
+              >
+                <a href={correctionUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                   Correction
                   <ExternalLink className="ml-2 h-3 w-3" />
                 </a>

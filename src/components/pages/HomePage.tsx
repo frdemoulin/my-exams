@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
-import { ArrowRight, Search } from 'lucide-react';
+import { ArrowRight, LogIn, Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -342,9 +343,21 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
             )}
             <ThemeToggle />
             {!session?.user && (
-              <Button variant="outline" size="sm">
-                Se connecter
-              </Button>
+              <Link
+                href="/log-in"
+                className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
+              >
+                <LogIn className="h-4 w-4" />
+                <span>Se connecter</span>
+              </Link>
+            )}
+            {session?.user && (
+              <Link
+                href="/api/auth/signout"
+                className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
+              >
+                <span>Se déconnecter</span>
+              </Link>
             )}
           </nav>
         </div>

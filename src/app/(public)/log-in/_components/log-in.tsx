@@ -90,8 +90,16 @@ export async function LogIn() {
               }
             }}
             >
-              <input type="email" name="email" placeholder="mail@example.com" className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 dark:bg-neutral-700 dark:border-neutral-600 dark:focus:ring-blue-500 text-sm" />
-              <button type="submit" className="w-full px-4 py-2 mt-2 text-sm font-medium text-center text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700">
+              <input
+                type="email"
+                name="email"
+                placeholder="mail@example.com"
+                className="mt-2 h-10 w-full rounded-base border border-default bg-neutral-primary-soft px-3 text-sm text-body placeholder:text-body/70 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand focus:ring-offset-1"
+              />
+              <button
+                type="submit"
+                className="mt-2 w-full rounded-base border border-brand bg-brand px-4 py-2 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-brand focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
+              >
                 Envoyer l&apos;email
               </button>
             </form>

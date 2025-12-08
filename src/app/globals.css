@@ -59,8 +59,8 @@
 
 /* Harmonise Flowbite avec nos tokens sans devoir réappliquer des classes utilitaires */
 :root {
-  --color-body: var(--color-foreground);
-  --color-heading: var(--color-foreground);
+  --color-body: var(--color-gray-600);
+  --color-heading: var(--color-gray-900);
   --color-neutral-primary: var(--color-card);
   --color-neutral-primary-soft: var(--color-card);
   --color-neutral-secondary: var(--color-muted);
@@ -86,8 +86,8 @@
   --color-primary: oklch(0.72 0.13 255);
   --color-primary-foreground: oklch(0.12 0.02 255);
 
-  --color-body: var(--color-foreground);
-  --color-heading: var(--color-foreground);
+  --color-body: var(--color-gray-400);
+  --color-heading: #fff;
   --color-neutral-primary: var(--color-card);
   --color-neutral-primary-soft: var(--color-card);
   --color-neutral-secondary: var(--color-muted);
