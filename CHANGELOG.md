@@ -1,3 +1,11 @@
+## <small>1.0.4 (2025-12-09)</small>
+
+* Merge pull request #29 from frdemoulin/feature/design ([d3ea305](https://github.com/frdemoulin/my-exams/commit/d3ea305)), closes [#29](https://github.com/frdemoulin/my-exams/issues/29)
+* Merge pull request #30 from frdemoulin/feature/design ([a3aaa71](https://github.com/frdemoulin/my-exams/commit/a3aaa71)), closes [#30](https://github.com/frdemoulin/my-exams/issues/30)
+* Merge pull request #31 from frdemoulin/dev ([9dfeb4b](https://github.com/frdemoulin/my-exams/commit/9dfeb4b)), closes [#31](https://github.com/frdemoulin/my-exams/issues/31)
+* fix: mise à jour du hero ([4935044](https://github.com/frdemoulin/my-exams/commit/4935044))
+* fix: refonte du hero ([a38143c](https://github.com/frdemoulin/my-exams/commit/a38143c))
+
 ## <small>1.0.3 (2025-12-08)</small>
 
 * Merge pull request #27 from frdemoulin/feature/design ([9b15b73](https://github.com/frdemoulin/my-exams/commit/9b15b73)), closes [#27](https://github.com/frdemoulin/my-exams/issues/27)
