@@ -5,7 +5,6 @@ import { ArrowRight, LogIn, Search } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
 import Link from 'next/link';
-import { signOut } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -353,16 +352,12 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </Link>
             )}
             {session?.user && (
-              <button
-                type="button"
-                onClick={() => signOut({ callbackUrl: '/' })}
+              <Link
+                href="/api/auth/signout"
                 className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
-                </svg>
                 <span>Se déconnecter</span>
-              </button>
+              </Link>
             )}
           </nav>
         </div>
@@ -382,19 +377,31 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
 
             <p className="mb-4 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground md:text-base">
               Cherche un sujet par diplôme, matière, thème, difficulté ou durée.
-              <br/>En un coup d’œil, vois ceux qui collent à ton niveau et à ton planning, et ouvre en 1 clic les sujets et corrections complètes sur les meilleurs sites d’annales.
+              En un coup d’œil, vois ceux qui collent à ton niveau et à ton planning,
+              et ouvre en 1 clic les corrections complètes sur les meilleurs sites d’annales.
             </p>
 
+            {/* PASTILLES VERSION “GRANDS BOUTONS” NON CLIQUABLES */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              <Button size="lg" className="font-semibold">
-                <span className="mr-2 inline-flex items-center">
-                  <ArrowRight className="mr-1 h-4 w-4" />
-                  📚 Sujets d’annales
-                </span>
-              </Button>
-              <Button variant="success" size="lg" className="font-semibold">
+              {/* Bouton style primaire — Sujets d’annales */}
+              <div
+                className="inline-flex h-11 items-center gap-2 rounded-base border border-transparent
+               bg-success px-5 text-sm font-semibold text-white shadow-xs
+               select-none cursor-default transition-all
+               hover:bg-success-strong/90 hover:shadow-sm"
+              >
+                📚 Sujets d’annales
+              </div>
+
+              {/* Bouton style secondaire — Corrections de référence */}
+              <div
+                className="inline-flex h-11 items-center gap-2 rounded-base border border-default-medium
+               bg-neutral-secondary-medium px-5 text-sm font-semibold text-body shadow-xs
+               select-none cursor-default transition-all
+               hover:bg-neutral-tertiary-medium/90 hover:shadow-sm"
+              >
                 📝 Corrections de référence
-              </Button>
+              </div>
             </div>
 
             <div className="mb-6 flex flex-wrap gap-6 pt-4 text-xs text-muted-foreground sm:text-sm">
@@ -697,8 +704,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     size="sm"
                     onClick={() => handleSortChange('year')}
                     className={`h-auto rounded-lg px-3 py-1.5 text-xs ${sortBy === 'year'
-                        ? 'border-transparent bg-gray-100 text-gray-800 shadow hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
-                        : 'border-gray-200 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800/60'
+                      ? 'border-transparent bg-gray-100 text-gray-800 shadow hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+                      : 'border-gray-200 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800/60'
                       }`}
                   >
                     Session {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
@@ -708,8 +715,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     size="sm"
                     onClick={() => handleSortChange('difficulty')}
                     className={`h-auto rounded-lg px-3 py-1.5 text-xs ${sortBy === 'difficulty'
-                        ? 'border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700'
-                        : 'border-amber-200 text-amber-700 hover:bg-amber-50 dark:border-amber-500/60 dark:text-amber-100 dark:hover:bg-amber-900/40'
+                      ? 'border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700'
+                      : 'border-amber-200 text-amber-700 hover:bg-amber-50 dark:border-amber-500/60 dark:text-amber-100 dark:hover:bg-amber-900/40'
                       }`}
                   >
                     Difficulté {sortBy === 'difficulty' && (sortOrder === 'desc' ? '↓' : '↑')}
@@ -719,8 +726,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     size="sm"
                     onClick={() => handleSortChange('duration')}
                     className={`h-auto rounded-lg px-3 py-1.5 text-xs ${sortBy === 'duration'
-                        ? 'border-transparent bg-purple-600 text-white shadow hover:bg-purple-700 dark:bg-purple-700 dark:hover:bg-purple-800'
-                        : 'border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-500/60 dark:text-purple-100 dark:hover:bg-purple-900/40'
+                      ? 'border-transparent bg-purple-600 text-white shadow hover:bg-purple-700 dark:bg-purple-700 dark:hover:bg-purple-800'
+                      : 'border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-500/60 dark:text-purple-100 dark:hover:bg-purple-900/40'
                       }`}
                   >
                     Durée {sortBy === 'duration' && (sortOrder === 'desc' ? '↓' : '↑')}
