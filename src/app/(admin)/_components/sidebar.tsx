@@ -93,6 +93,16 @@ export const Sidebar = () => {
       ]
     },
     {
+      title: 'Statistiques',
+      list: [
+        {
+          title: "Statistiques d'usage",
+          path: '/admin/stats',
+          icon: <FaBarsProgress className="mr-3" size={16} />
+        },
+      ]
+    },
+    {
       title: 'Paramétrage',
       list: [
         {
