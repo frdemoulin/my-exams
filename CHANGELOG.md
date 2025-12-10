@@ -1,3 +1,10 @@
+## <small>1.0.5 (2025-12-10)</small>
+
+* Merge pull request #32 from frdemoulin/feature/design ([1832414](https://github.com/frdemoulin/my-exams/commit/1832414)), closes [#32](https://github.com/frdemoulin/my-exams/issues/32)
+* Merge pull request #33 from frdemoulin/dev ([8e16b63](https://github.com/frdemoulin/my-exams/commit/8e16b63)), closes [#33](https://github.com/frdemoulin/my-exams/issues/33)
+* fix: debug du style de l'accueil élève ([fa74baa](https://github.com/frdemoulin/my-exams/commit/fa74baa))
+* fix: debug du style de l'administration ([2a76bfa](https://github.com/frdemoulin/my-exams/commit/2a76bfa))
+
 ## <small>1.0.4 (2025-12-09)</small>
 
 * Merge pull request #29 from frdemoulin/feature/design ([d3ea305](https://github.com/frdemoulin/my-exams/commit/d3ea305)), closes [#29](https://github.com/frdemoulin/my-exams/issues/29)
