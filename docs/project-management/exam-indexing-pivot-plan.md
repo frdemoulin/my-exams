@@ -190,6 +190,26 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 
 ---
 
+### ⏳ Phase 9 : Suivi d'Usage & Analytics (À VENIR)
+**Objectif** : Instrumenter l'application et fournir un suivi d'usage aux administrateurs.
+
+**Tâches** :
+- [ ] Instrumenter les recherches : volume, termes, filtres, taux de résultats vides.
+- [ ] Tracer les interactions cartes : clics Sujet (PDF), Correction, favoris, partages.
+- [ ] Suivre la navigation : pages consultées, temps passé sur fiche, rebonds.
+- [ ] Côté auth : connexions/déconnexions, répartition SSO/email, actifs quotidiens/hebdo.
+- [ ] Mettre en place le stockage des événements (DB dédiée ou outil d'analytics).
+- [ ] Créer un dashboard admin “Statistiques d'usage” (listes/top, répartition par diplôme/matière, erreurs/404 PDF).
+- [ ] Suivi des erreurs : liens brisés (sujets/corrections), requêtes en échec, latences API.
+- [ ] RGPD : implémenter le bandeau de consentement cookies/analytics (opt-in) et la gestion des préférences.
+
+**Livrables** :
+- Tableau de bord admin “Statistiques d’usage”
+- Événements tracés (recherche, clics sujets/corrections, favoris, auth)
+- Alertes de liens brisés / requêtes en échec
+
+---
+
 ## Structure des Fichiers Implémentés
 
 ```
