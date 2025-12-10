@@ -365,6 +365,33 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </button>
             )}
           </nav>
+          <div className="flex items-center gap-3 md:hidden">
+            {session?.user && (
+              <a href="/admin" className="text-sm font-semibold text-fg-brand hover:text-heading">
+                Admin
+              </a>
+            )}
+            <ThemeToggle />
+            {session?.user ? (
+              <button
+                type="button"
+                onClick={() => signOut({ callbackUrl: '/' })}
+                className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
+              >
+                <span className="sr-only">Se déconnecter</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
+                </svg>
+              </button>
+            ) : (
+              <Link
+                href="/log-in"
+                className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
+              >
+                <LogIn className="h-4 w-4" />
+              </Link>
+            )}
+          </div>
         </div>
       </header>
 
@@ -404,7 +431,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </div>
               <div className="space-y-1">
                 <div className="font-semibold text-heading">Filtres avancés</div>
-                <div className="text-[11px] sm:text-xs">Difficulté, durée, diplôme, matière…</div>
+                <div className="text-[11px] sm:text-xs">Diplôme, matière, année, difficulté</div>
               </div>
               <div className="space-y-1">
                 <div className="font-semibold text-heading">Pensé pour le bac</div>
@@ -661,9 +688,9 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
                 <ol className="list-inside list-decimal space-y-1.5">
-                  <li>🔍 <strong>Recherche</strong> un exercice par diplôme, thème ou difficulté</li>
-                  <li>📊 <strong>Trie</strong> par année, durée ou difficulté</li>
-                  <li>📖 <strong>Accède</strong> à l&apos;énoncé de l&apos;exercice + plusieurs corrections</li>
+                  <li>🔍 <strong>Recherche</strong> un exercice d&apos;annales par thème ou mots-clé</li>
+                  <li>📊 <strong>Filtre</strong> par diplôme, matière, année ou difficulté</li>
+                  <li>📖 <strong>Accède</strong> à l&apos;énoncé de l&apos;exercice et à sa correction</li>
                 </ol>
                 <p className="mt-2 text-muted-foreground">
                   💡 Tous les exercices sont enrichis automatiquement avec l&apos;IA

@@ -12,6 +12,8 @@ export async function fetchDashboardStats() {
         themesCount,
         examinationCentersCount,
         usersCount,
+        exercisesCount,
+        examPapersCount,
     ] = await Promise.all([
         prisma.diploma.count(),
         prisma.division.count(),
@@ -23,6 +25,8 @@ export async function fetchDashboardStats() {
         prisma.theme.count(),
         prisma.examinationCenter.count(),
         prisma.user.count(),
+        prisma.exercise.count(),
+        prisma.examPaper.count(),
     ]);
 
     return {
@@ -39,6 +43,8 @@ export async function fetchDashboardStats() {
         themes: themesCount,
         examinationCenters: examinationCentersCount,
         users: usersCount,
+        exercises: exercisesCount,
+        examPapers: examPapersCount,
     };
 }
 

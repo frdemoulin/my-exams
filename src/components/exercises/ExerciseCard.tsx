@@ -80,7 +80,7 @@ export function ExerciseCard({
       .trim()
       .toLowerCase();
   const difficultyLabel = (() => {
-    if (!estimatedDifficulty) return 'Non évaluée';
+    if (!estimatedDifficulty) return null;
     if (estimatedDifficulty >= 4) return '⚡ Difficile';
     if (estimatedDifficulty === 3) return '⚡ Moyenne';
     if (estimatedDifficulty === 2) return '⚡ Facile';
@@ -120,6 +120,15 @@ export function ExerciseCard({
         return 'Officiel';
     }
   })();
+  const sourceLabelNode =
+    sourceLabel === "Officiel" ? (
+      <>
+        <span className="md:hidden">Officiel</span>
+        <span className="hidden md:inline">Sujet officiel</span>
+      </>
+    ) : (
+      sourceLabel
+    );
   const subjectUrlVersioned = (() => {
     if (!subjectUrl) return null;
     const version = updatedAt ? new Date(updatedAt).getTime() : Date.now();
@@ -159,32 +168,33 @@ export function ExerciseCard({
           </div>
           <div className="flex items-center gap-2">
             <Button variant="secondary" size="xs" className="rounded-lg">
-              Session {sessionYear}
+              <span className="md:hidden">{sessionYear}</span>
+              <span className="hidden md:inline">Session {sessionYear}</span>
             </Button>
-            <Button variant="secondary" size="xs" className="rounded-lg">
-              {difficultyLabel}
-            </Button>
-            {typeof points === 'number' && (
+            {difficultyLabel && (
               <Button variant="secondary" size="xs" className="rounded-lg">
-                {points} pts
+                {difficultyLabel}
               </Button>
             )}
             {sourceUrl ? (
               <Button asChild variant="secondary" size="xs" className="rounded-lg">
                 <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
-                  {sourceLabel}
+                  {sourceLabelNode}
                 </a>
               </Button>
             ) : (
               <Button variant="secondary" size="xs" className="rounded-lg">
-                {sourceLabel}
+                {sourceLabelNode}
+              </Button>
+            )}
+            {typeof points === 'number' && (
+              <Button variant="secondary" size="xs" className="rounded-lg">
+                {points} pts
               </Button>
             )}
             {durationLabel && (
-              <Button variant="secondary" size="xs" className="flex items-center gap-1 rounded-lg">
-                <Clock className="h-4 w-4" />
-                <span className="hidden md:inline">Durée estimée : {durationLabel}</span>
-                <span className="md:hidden">{durationLabel}</span>
+              <Button variant="secondary" size="xs" className="rounded-lg">
+                {durationLabel}
               </Button>
             )}
           </div>
@@ -219,11 +229,12 @@ export function ExerciseCard({
               <Button
                 asChild
                 size="sm"
-                className="h-9 items-center gap-2 border border-brand bg-brand text-white hover:bg-brand hover:text-white focus-visible:ring-brand"
+                className="h-9 items-center gap-2 border border-brand bg-brand text-white hover:bg-brand hover:text-white focus-visible:ring-brand sm:h-8 sm:px-3 sm:text-xs"
               >
                 <a href={preferredPdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                  Sujet (PDF)
-                  <ExternalLink className="ml-2 h-3 w-3" />
+                  <span className="md:hidden">Sujet</span>
+                  <span className="hidden md:inline">Sujet (PDF)</span>
+                  <ExternalLink className="ml-2 hidden h-3 w-3 md:inline" />
                 </a>
               </Button>
             )}
@@ -232,11 +243,12 @@ export function ExerciseCard({
                 asChild
                 variant="success"
                 size="sm"
-                className="h-9 gap-2"
+                className="h-9 gap-2 sm:h-8 sm:px-3 sm:text-xs"
               >
                 <a href={correctionUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                  Correction
-                  <ExternalLink className="ml-2 h-3 w-3" />
+                  <span className="md:hidden">Correction</span>
+                  <span className="hidden md:inline">Correction</span>
+                  <ExternalLink className="ml-2 hidden h-3 w-3 md:inline" />
                 </a>
               </Button>
             )}

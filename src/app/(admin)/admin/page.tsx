@@ -90,15 +90,24 @@ const DashboardPage = async () => {
             icon: <FaUsers className="h-4 w-4" />,
             link: "/admin/users",
         },
+        {
+            title: "Exercices",
+            value: stats.exercises,
+            icon: <FaBook className="h-4 w-4" />,
+            link: "/admin/exercises",
+        },
+        {
+            title: "Sujets d'examen",
+            value: stats.examPapers,
+            icon: <FaCalendar className="h-4 w-4" />,
+            link: "/admin/exam-papers",
+        },
     ];
 
     return (
         <div className="w-full p-6 space-y-6">
             <div>
                 <h1 className="text-2xl font-bold text-fg-brand">Tableau de bord</h1>
-                <p className="text-muted-foreground">
-                    Bienvenue, {user.name || user.email}
-                </p>
             </div>
 
             {/* Stats Grid */}

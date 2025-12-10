@@ -31,7 +31,7 @@ const buttonVariants = cva(
 
         // Flowbite Outline
         outline:
-          "border border-gray-300 bg-background text-foreground hover:bg-gray-100 focus-visible:ring-4 focus-visible:ring-gray-200 dark:border-gray-600 dark:hover:bg-gray-700 dark:focus-visible:ring-gray-700",
+          "border border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading focus-visible:ring-4 focus-visible:ring-neutral-tertiary",
 
         // Flowbite Ghost
         ghost:
