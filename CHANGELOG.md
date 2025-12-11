@@ -1,3 +1,10 @@
+## <small>1.0.6 (2025-12-11)</small>
+
+* Merge pull request #34 from frdemoulin/feature/design ([93a4ae0](https://github.com/frdemoulin/my-exams/commit/93a4ae0)), closes [#34](https://github.com/frdemoulin/my-exams/issues/34)
+* Merge pull request #35 from frdemoulin/dev ([c538207](https://github.com/frdemoulin/my-exams/commit/c538207)), closes [#35](https://github.com/frdemoulin/my-exams/issues/35)
+* fix: debug de l'intégration de Flowbite ([d633719](https://github.com/frdemoulin/my-exams/commit/d633719))
+* fix: harmonisation globale de l'intégration Flowbite ([01521e1](https://github.com/frdemoulin/my-exams/commit/01521e1))
+
 ## <small>1.0.5 (2025-12-10)</small>
 
 * Merge pull request #32 from frdemoulin/feature/design ([1832414](https://github.com/frdemoulin/my-exams/commit/1832414)), closes [#32](https://github.com/frdemoulin/my-exams/issues/32)
