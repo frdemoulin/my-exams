@@ -45,7 +45,7 @@ test.describe("smoke", () => {
     const status = response?.status() ?? 500;
     const url = page.url();
     expect(
-      status < 600 || // tolère 5xx en smoke, mais surveille en logs si besoin
+      status < 600 || // tolérant en l'absence d'auth mockée
       url.includes("/log-in") ||
       url.includes("/signin") ||
       url.includes("/auth")
