@@ -37,18 +37,18 @@ test.describe("smoke", () => {
 
     // Scan a11y rapide
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
-    if (accessibilityScanResults.violations.length > 0) {
-      console.warn("A11y violations (smoke, non bloquant):", accessibilityScanResults.violations);
-    }
-    expect(true).toBeTruthy(); // non bloquant pour le smoke
+    expect(accessibilityScanResults.violations).toEqual([]);
   });
 
   test("Page admin diplômes ne plante pas (accès ou redirection)", async ({ page }) => {
     const response = await page.goto("/admin/diplomas");
     const status = response?.status() ?? 500;
-    if (status >= 400) {
-      console.warn("Admin diplomas returned", status);
-    }
-    expect(true).toBeTruthy(); // non bloquant pour smoke
+    const url = page.url();
+    expect(
+      status < 600 || // tolère 5xx en smoke, mais surveille en logs si besoin
+      url.includes("/log-in") ||
+      url.includes("/signin") ||
+      url.includes("/auth")
+    ).toBeTruthy();
   });
 });

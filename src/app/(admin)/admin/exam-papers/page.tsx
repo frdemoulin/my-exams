@@ -8,32 +8,30 @@ import { fetchExamPapers } from "@/core/exam-paper";
 import getSession from "@/lib/auth/get-session";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const t = await getTranslations('entities.examPaper');
-    return { title: t('actions.list') };
+  const t = await getTranslations("entities.examPaper");
+  return {
+    title: t("actions.list"),
+  };
 }
 
 const ExamPapersPage = async () => {
-    const session = await getSession();
-    const user = session?.user;
+  const session = await getSession();
+  const user = session?.user;
 
-    if (!user) {
-        redirect("/api/auth/signin?callbackUrl=/admin/exam-papers");
-    }
+  if (!user) {
+    redirect("/log-in");
+  }
 
-    const examPapers = await fetchExamPapers();
-    const t = await getTranslations('entities.examPaper');
+  const examPapers = await fetchExamPapers();
+  const t = await getTranslations("entities.examPaper");
 
-    return (
-        <div className="w-full p-6">
-            <div className="container mx-auto">
-                <DataTable
-                    title={t('actions.list')}
-                    columns={columns}
-                    data={examPapers}
-                />
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="w-full p-6">
+      <div className="container mx-auto">
+        <DataTable title={t("actions.list")} columns={columns} data={examPapers} />
+      </div>
+    </div>
+  );
+};
 
 export default ExamPapersPage;

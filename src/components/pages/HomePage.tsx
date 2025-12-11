@@ -484,11 +484,13 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                 </div>
                 <Button
                   type="submit"
+                  aria-label="Rechercher"
                   disabled={isSearching}
                   className="rounded-xl px-4 py-2.5 text-sm font-medium shadow-sm sm:min-w-[120px]"
                 >
                   {isSearching ? (
                     <div className="flex items-center justify-center">
+                      <span className="sr-only">Rechercher</span>
                       <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
                     </div>
                   ) : (
@@ -550,7 +552,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         }}
                       >
                         <SelectTrigger aria-label="Filtrer par diplôme" className="h-9 text-sm">
-                          <SelectValue />
+                          <SelectValue placeholder="Tous les diplômes" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">Tous les diplômes</SelectItem>
@@ -576,7 +578,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         }}
                       >
                         <SelectTrigger aria-label="Filtrer par matière" className="h-9 text-sm">
-                          <SelectValue />
+                          <SelectValue placeholder="Toutes les matières" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">Toutes les matières</SelectItem>
@@ -602,7 +604,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         }}
                       >
                         <SelectTrigger aria-label="Filtrer par session" className="h-9 text-sm">
-                          <SelectValue />
+                          <SelectValue placeholder="Toutes les sessions" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">Toutes les sessions</SelectItem>
@@ -628,7 +630,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         }}
                       >
                         <SelectTrigger aria-label="Filtrer par difficulté" className="h-9 text-sm">
-                          <SelectValue />
+                          <SelectValue placeholder="Toutes les difficultés" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">Toutes</SelectItem>
