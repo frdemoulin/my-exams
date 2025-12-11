@@ -130,11 +130,11 @@ export function SplitExercisesForm({
         </CardHeader>
         <CardContent>
           {existingExercises.length > 0 && (
-            <div className="rounded-md border border-orange-200 bg-orange-50 p-4">
-              <p className="text-sm font-medium text-orange-800">
+            <div className="rounded-base border border-default bg-neutral-secondary-soft p-4">
+              <p className="text-sm font-semibold text-heading">
                 ⚠️ Exercices existants : {existingExercises.map((e) => `#${e.exerciseNumber}`).join(', ')}
               </p>
-              <p className="text-xs text-orange-700">
+              <p className="text-xs text-body">
                 Évitez de créer des exercices avec ces numéros.
               </p>
             </div>
@@ -227,7 +227,7 @@ export function SplitExercisesForm({
                   }
                   min={1}
                   max={5}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                  className="w-full h-2 rounded-base bg-neutral-secondary-soft accent-brand"
                 />
               </div>
             </div>
@@ -250,7 +250,7 @@ export function SplitExercisesForm({
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateExercise(index, 'statement', e.target.value)}
                 placeholder="Collez l&apos;énoncé complet ici..."
                 rows={3}
-                className="flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex min-h-[60px] w-full rounded-base border border-default bg-neutral-primary-soft px-3 py-2 text-sm text-body placeholder:text-body/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               />
             </div>
 

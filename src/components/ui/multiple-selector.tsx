@@ -583,7 +583,7 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
                                 onChange?.(newOptions);
                               }}
                               className={cn(
-                                'cursor-pointer hover:text-black hover:bg-slate-100',
+                                'cursor-pointer hover:text-heading hover:bg-neutral-secondary-soft',
                                 option.disable && 'cursor-default text-muted-foreground',
                               )}
                             >

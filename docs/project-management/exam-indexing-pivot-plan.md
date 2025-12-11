@@ -210,6 +210,82 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 
 ---
 
+### ⏳ Phase 10 : Pré-prod & Infra Prod (À PLANIFIER)
+**Objectif** : Préparer et déployer la première version stable en production avec un socle d’infra solide.**
+
+**Tâches** :
+- [ ] Choisir l’hébergement (Vercel/Render/VPS) et la stack déploiement (CI/CD).
+- [ ] Gérer les secrets/ENV (AUTH, DB, storages, analytics) et le versionnement sécurisé.
+- [ ] Configurer MongoDB Atlas (backups, accès IP, observabilité).
+- [ ] Choisir le stockage fichiers (PDF/corrections) et CDN si besoin.
+- [ ] Mettre en place monitoring, logs et alerting (erreurs app, erreurs PDF/corrections).
+- [ ] Politique de sauvegarde et restauration (DB et assets).
+- [ ] Pipeline CI/CD (lint, tests, migrations) et checklists de pré-prod.
+- [ ] Mise en prod de la version stable (recherche + CRUD admin) avant pipeline contenu/analytics.
+
+**Livrables** :
+- Environnement de prod opérationnel (app + DB + assets)
+- CI/CD en place avec contrôles qualité
+- Monitoring et sauvegardes configurés
+
+---
+
+### ⏳ Phase 11 : Qualité & Tests (À PLANIFIER)
+**Objectif** : Mettre en place la stratégie de tests automatisés (unitaires, intégration, end-to-end) et la qualité continue.**
+
+**Tâches** :
+- [ ] Définir la stratégie de tests (périmètre unitaire vs intégration vs E2E).
+- [ ] Mettre en place les tests unitaires (libs, hooks, utils) avec coverage minimal.
+- [ ] Mettre en place des tests d’intégration (API routes, Prisma, auth, filtres recherche).
+- [ ] Mettre en place des tests E2E (flows recherche, filtres, ouverture sujet/correction, CRUD admin).
+- [ ] Intégrer les tests à la CI (gates lint + tests + migrations dry-run).
+- [ ] Données de test / seeds dédiés pour les suites E2E.
+- [ ] Rapports (coverage, flaky detection) et seuils d’acceptation.
+
+**Livrables** :
+- Suites de tests U/I/E2E automatisées
+- CI bloquante sur lint + tests
+- Seeds/datasets de test pour reproduire les scénarios clés
+
+---
+
+### ⏳ Phase 12 : Modèle Économique & Monétisation (À PLANIFIER)
+**Objectif** : Définir et tester les leviers de revenus tout en conservant un cœur gratuit.**
+
+**Tâches** :
+- [ ] Cadrer l’offre Freemium : base gratuite + options premium (export, historique illimité, reco perso).
+- [ ] Positionner une offre B2B/B2E (établissements, profs) : dashboards classe, suivi élèves.
+- [ ] Évaluer sponsoring/partenariats édus (bannières légères, contenus sponsorisés).
+- [ ] Mettre en place un canal de soutien/don (Tipeee/Ko-fi/Patreon) pour couvrir infra/LLM.
+- [ ] Étudier les pistes affiliation limitée (ressources/manuels) sans dégrader l’UX.
+- [ ] Budgetiser infra/LLM (coûts fixes/variables) et fixer objectifs de couverture des coûts.
+- [ ] Plan RGPD/UX pour toute monétisation (consentement, transparence, pas de pubs intrusives).
+- [ ] Explorer les leviers via réseaux sociaux (IG/TikTok) : contenu sponsorisé, pubs ciblées respectant consentement, acquisition/retention via social.
+
+**Livrables** :
+- Modèle économique documenté (grille gratuite/premium/B2B)
+- Plan de couverture des coûts infra/LLM
+- Expérimentations initiales (soutien, partenariats) cadrées UX/RGPD
+
+---
+
+### ⏳ Phase 13 : Auth & SSO adaptés au public (À PLANIFIER)
+**Objectif** : Adapter l’authentification aux usages du public cible (réseaux sociaux pertinents).**
+
+**Tâches** :
+- [ ] Identifier les SSO plébiscités par le public (ex. Google déjà présent, ajouter Apple, Instagram/Facebook, éventuellement Microsoft/Éducation).
+- [ ] Ajouter les providers NextAuth correspondants (config, secrets, règles de sécurité).
+- [ ] Harmoniser l’UX d’onboarding (boutons SSO, lien magique, email).
+- [ ] Mettre à jour la politique de confidentialité (collecte via SSO).
+- [ ] Tests d’intégration SSO (flux complet, gestion des erreurs, comptes liés).
+
+**Livrables** :
+- SSO élargi aux réseaux sociaux pertinents
+- UX d’onboarding homogène (SSO + lien magique)
+- Documentation et mentions légales mises à jour
+
+---
+
 ## Structure des Fichiers Implémentés
 
 ```
