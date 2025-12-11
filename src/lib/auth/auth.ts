@@ -3,7 +3,6 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import Credentials from "next-auth/providers/credentials";
-import Resend from "next-auth/providers/resend";
 import type { Provider } from "next-auth/providers";
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
@@ -28,17 +27,7 @@ const providers: Provider[] = [
         clientSecret: process.env.AUTH_FACEBOOK_SECRET!,
         allowDangerousEmailAccountLinking: true,
     }),
-    Resend({
-        from: "no-reply@musicband.ovh",
-        // sendVerificationRequest({
-        //     identifier: email,
-        //     url,
-        //     provider: { server, from },
-        // }) {
-        //     sendVerificationRequest
-        // },
-        sendVerificationRequest
-    })
+    // Resend provider désactivé tant que le package n'est pas installé/configuré
 ];
 
 // find a way to get the name of the provider from the provider object

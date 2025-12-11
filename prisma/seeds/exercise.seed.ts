@@ -196,6 +196,21 @@ export async function seedExercises(prisma: PrismaClient) {
       ],
     },
     {
+      examPaperLabel: 'Métropole SES 2023',
+      teachingContains: 'Sciences Économiques et Sociales',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'Marchés et régulations',
+          statement: 'Étude de documents sur la concurrence et les politiques publiques.',
+          points: 10,
+          estimatedDuration: 90,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Marchés', 'Politiques publiques'],
+        },
+      ],
+    },
+    {
       examPaperLabel: 'Métropole NSI 2024',
       teachingContains: 'Numérique et Sciences Informatiques',
       exercises: [
@@ -207,6 +222,21 @@ export async function seedExercises(prisma: PrismaClient) {
           estimatedDuration: 90,
           estimatedDifficulty: 3,
           themeDescriptions: ['Graphes', 'Algorithmique'],
+        },
+      ],
+    },
+    {
+      examPaperLabel: 'Métropole SVT 2023',
+      teachingContains: 'Sciences de la Vie et de la Terre',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'Génétique et évolution',
+          statement: 'Analyse de croisements et d\'arbres phylogénétiques.',
+          points: 10,
+          estimatedDuration: 90,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Génétique', 'Évolution'],
         },
       ],
     },

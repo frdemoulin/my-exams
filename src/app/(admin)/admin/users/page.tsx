@@ -17,7 +17,7 @@ const UsersPage = async () => {
     const user = session?.user;
 
     if (!user) {
-        redirect("/api/auth/signin?callbackUrl=/users");
+        redirect("/log-in");
     }
 
     const users = await fetchUsers();

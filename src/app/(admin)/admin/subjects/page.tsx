@@ -17,7 +17,7 @@ const SubjectsPage = async () => {
     const user = session?.user;
 
     if (!user) {
-        redirect("/api/auth/signin?callbackUrl=/users");
+        redirect("/log-in");
     }
 
     const subjects = await fetchSubjects();

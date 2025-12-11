@@ -17,7 +17,7 @@ const GradesPage = async () => {
     const user = session?.user;
 
     if (!user) {
-        redirect("/api/auth/signin?callbackUrl=/users");
+        redirect("/log-in");
     }
 
     const grades = await fetchGrades();
