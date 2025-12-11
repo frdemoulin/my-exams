@@ -288,19 +288,14 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   }, [exercises]);
 
   const subjectOptions = useMemo(() => {
-    const map = new Map<string, string>();
-    exercises.forEach((ex) => {
-      const shortLabel = ex.examPaper.teaching.subject.shortDescription;
-      const longLabel = ex.examPaper.teaching.subject.longDescription;
-      if (shortLabel) {
-        const display = longLabel;
-        map.set(shortLabel, display);
-      }
-    });
-    return Array.from(map.entries())
-      .map(([value, label]) => ({ value, label }))
+    return initialSubjects
+      .map((s) => ({
+        value: s.shortDescription || s.longDescription,
+        label: s.longDescription,
+      }))
+      .filter((s) => Boolean(s.value))
       .sort((a, b) => a.label.localeCompare(b.label));
-  }, [exercises]);
+  }, [initialSubjects]);
 
   const sessionOptions = useMemo(() => {
     const set = new Set<number>();

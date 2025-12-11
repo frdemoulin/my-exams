@@ -46,11 +46,53 @@ export async function seedExamPapers(prisma: PrismaClient) {
     }
   });
 
+  const speSVT = await prisma.teaching.findFirst({
+    where: {
+      longDescription: 'Spécialité Sciences de la Vie et de la Terre',
+      gradeId: terminale?.id,
+    },
+  });
+
+  const speSES = await prisma.teaching.findFirst({
+    where: {
+      longDescription: 'Spécialité Sciences Économiques et Sociales',
+      gradeId: terminale?.id,
+    },
+  });
+
+  const speNSI = await prisma.teaching.findFirst({
+    where: {
+      longDescription: 'Spécialité Numérique et Sciences Informatiques',
+      gradeId: terminale?.id,
+    },
+  });
+
+  const speHGGSP = await prisma.teaching.findFirst({
+    where: {
+      longDescription: 'Spécialité Histoire-Géographie, Géopolitique et Sciences Politiques',
+      gradeId: terminale?.id,
+    },
+  });
+
+  const tcPhilo = await prisma.teaching.findFirst({
+    where: {
+      longDescription: 'Tronc Commun - Philosophie',
+      gradeId: terminale?.id,
+    },
+  });
+
   const mathsPremiere = await prisma.teaching.findFirst({
     where: { 
       longDescription: 'Spécialité Mathématiques',
       gradeId: premiere?.id
     }
+  });
+
+  const tcFrancaisPremiere = await prisma.teaching.findFirst({
+    where: {
+      longDescription: 'Tronc Commun - Français',
+      gradeId: premiere?.id,
+    },
   });
 
   // ENSEIGNEMENTS - BREVET (collège)
@@ -435,7 +477,7 @@ export async function seedExamPapers(prisma: PrismaClient) {
       examYear: 2024,
       diplomaId: bac.id,
       divisionId: generale?.id ?? null,
-      gradeId: premiere.id,
+      gradeId: premiere!.id,
       teachingId: mathsPremiere.id,
       curriculumId: reformeBac2021Premiere.id,
       examinationCenterIds: [metropole.id],
@@ -467,6 +509,139 @@ export async function seedExamPapers(prisma: PrismaClient) {
       summary: 'Sujet accessible sur les fonctions polynômes, exponentielles et les statistiques. Idéal pour une première approche du Bac.',
       enrichmentStatus: 'completed',
       enrichedAt: new Date('2023-06-15'),
+    }] : []),
+
+    // ==================== AUTRES SPÉCIALITÉS (présence dans les filtres) ====================
+    ...(speSVT ? [{
+      label: 'Métropole SVT 2024',
+      sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale?.id ?? null,
+      gradeId: terminale.id,
+      teachingId: speSVT.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      subjectUrl: '',
+      estimatedDuration: 180,
+      totalDuration: 180,
+      totalPoints: 20,
+      estimatedDifficulty: 3,
+      summary: 'Sujet SVT terminale métropole 2024.',
+      enrichmentStatus: 'pending',
+    }] : []),
+
+    ...(speSES ? [{
+      label: 'Métropole SES 2024',
+      sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale?.id ?? null,
+      gradeId: terminale.id,
+      teachingId: speSES.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      subjectUrl: '',
+      estimatedDuration: 180,
+      totalDuration: 180,
+      totalPoints: 20,
+      estimatedDifficulty: 3,
+      summary: 'Sujet SES terminale métropole 2024.',
+      enrichmentStatus: 'pending',
+    }] : []),
+
+    ...(speNSI ? [{
+      label: 'Métropole NSI 2024',
+      sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale?.id ?? null,
+      gradeId: terminale.id,
+      teachingId: speNSI.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      subjectUrl: '',
+      estimatedDuration: 180,
+      totalDuration: 180,
+      totalPoints: 20,
+      estimatedDifficulty: 3,
+      summary: 'Sujet NSI terminale métropole 2024.',
+      enrichmentStatus: 'pending',
+    }] : []),
+
+    ...(speHGGSP ? [{
+      label: 'Métropole HGGSP 2024',
+      sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale?.id ?? null,
+      gradeId: terminale.id,
+      teachingId: speHGGSP.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      subjectUrl: '',
+      estimatedDuration: 180,
+      totalDuration: 180,
+      totalPoints: 20,
+      estimatedDifficulty: 3,
+      summary: 'Sujet HGGSP terminale métropole 2024.',
+      enrichmentStatus: 'pending',
+    }] : []),
+
+    ...(tcPhilo ? [{
+      label: 'Métropole Philosophie 2024',
+      sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale?.id ?? null,
+      gradeId: terminale.id,
+      teachingId: tcPhilo.id,
+      curriculumId: reformeBac2021Term.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      subjectUrl: '',
+      estimatedDuration: 240,
+      totalDuration: 240,
+      totalPoints: 20,
+      estimatedDifficulty: 3,
+      summary: 'Sujet Philosophie tronc commun métropole 2024.',
+      enrichmentStatus: 'pending',
+    }] : []),
+
+    ...(tcFrancaisPremiere && reformeBac2021Premiere && premiere ? [{
+      label: 'Métropole Français 2024',
+      sessionYear: 2024,
+      examMonth: 6,
+      examYear: 2024,
+      diplomaId: bac.id,
+      divisionId: generale?.id ?? null,
+      gradeId: premiere.id,
+      teachingId: tcFrancaisPremiere.id,
+      curriculumId: reformeBac2021Premiere.id,
+      examinationCenterIds: [metropole.id],
+      chapterIds: [],
+      themeIds: [],
+      subjectUrl: '',
+      estimatedDuration: 240,
+      totalDuration: 240,
+      totalPoints: 20,
+      estimatedDifficulty: 3,
+      summary: 'Sujet Français première métropole 2024.',
+      enrichmentStatus: 'pending',
     }] : []),
 
     // TODO: Ajouter sujets de Brevet (nécessite une Division et un Curriculum génériques pour le collège)

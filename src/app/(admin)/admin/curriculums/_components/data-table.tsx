@@ -76,7 +76,7 @@ export function DataTable<TData, TValue>({
         addHref="/admin/curriculums/add"
         addLabel="Ajouter un programme"
       />
-      <div className="rounded-md border">
+      <div>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
