@@ -35,7 +35,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm p-2.5 transition-colors hover:bg-neutral-secondary-soft dark:hover:bg-neutral-secondary-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm p-2.5 transition-colors hover:bg-neutral-secondary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
     >
       {isDark ? (
         <Sun className="w-4 h-4" />

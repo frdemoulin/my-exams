@@ -65,7 +65,7 @@ export function ExamPaperCard({
                 title={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
               >
                 <Heart
-                  className={`h-5 w-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-muted-foreground'}`}
+                  className={`h-5 w-5 ${isFavorite ? 'fill-fg-danger text-fg-danger' : 'text-body'}`}
                 />
               </button>
             )}

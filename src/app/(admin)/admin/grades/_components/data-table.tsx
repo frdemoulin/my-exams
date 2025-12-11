@@ -76,7 +76,7 @@ export function DataTable<TData, TValue>({
         addHref="/admin/grades/add"
         addLabel="Ajouter un niveau"
       />
-      <div className="rounded-md border">
+      <div>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

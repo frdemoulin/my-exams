@@ -219,7 +219,7 @@ export const ExamPaperForm = ({
                                     options={examinationCenterOptions}
                                     placeholder="Sélectionner des centres d&apos;examen"
                                     emptyIndicator={
-                                        <p className="text-center text-sm text-gray-500">
+                                        <p className="text-center text-sm text-body">
                                             Aucun centre trouvé
                                         </p>
                                     }
@@ -548,7 +548,7 @@ export const ExamPaperForm = ({
                     {uploading && <p className="text-sm text-muted-foreground">Téléversement en cours…</p>}
                     {uploadMessage.type && (
                         <p
-                            className={`text-sm ${uploadMessage.type === 'error' ? 'text-red-500' : 'text-green-600'}`}
+                            className={`text-sm ${uploadMessage.type === 'error' ? 'text-fg-danger' : 'text-success-strong'}`}
                         >
                             {uploadMessage.text}
                         </p>

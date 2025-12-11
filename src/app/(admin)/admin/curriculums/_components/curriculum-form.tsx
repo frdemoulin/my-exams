@@ -208,7 +208,7 @@ const CurriculumForm = ({
                                     type="checkbox"
                                     checked={field.value}
                                     onChange={(e) => field.onChange(e.target.checked)}
-                                    className="h-4 w-4 rounded border-gray-300"
+                                    className="h-4 w-4 rounded-base border border-default accent-brand bg-neutral-primary-soft"
                                 />
                             </FormControl>
                             <div className="space-y-1 leading-none">

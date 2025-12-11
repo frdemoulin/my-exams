@@ -180,7 +180,7 @@ export default function ExerciseDetailPage() {
               >
                 <Heart
                   className={`h-5 w-5 ${
-                    isFavorite ? 'fill-red-500 text-red-500' : ''
+                    isFavorite ? 'fill-fg-danger text-fg-danger' : 'text-body'
                   }`}
                 />
               </Button>
