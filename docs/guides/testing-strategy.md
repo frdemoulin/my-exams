@@ -48,3 +48,8 @@ Ce document résume les types de tests recommandés pour l’application (Next.j
 4. Ajouter un scan a11y rapide sur les pages clés.
 
 Ce plan permet de sécuriser rapidement les régressions majeures tout en construisant progressivement une suite de tests plus complète.
+
+## Notes pratiques (Playwright / logs)
+- Voir un rapport détaillé : `npx playwright test --reporter=list` puis `npx playwright show-report`.
+- Exporter la sortie console : `npx playwright test tests/e2e/smoke.spec.ts --reporter=list > /tmp/playwright-smoke.log` puis ouvrir `/tmp/playwright-smoke.log`.
+- Plus de verbosité réseau : `DEBUG=pw:api npx playwright test ...`.
