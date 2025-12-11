@@ -17,7 +17,7 @@ const DivisionsPage = async () => {
     const user = session?.user;
 
     if (!user) {
-        redirect("/api/auth/signin?callbackUrl=/users");
+        redirect("/log-in");
     }
 
     const divisions = await fetchDivisions();
