@@ -5,21 +5,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-base text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-base text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
   {
     variants: {
       variant: {
-        // Flowbite Primary (Blue)
+        // Flowbite Primary (Brand)
         default:
-          "bg-blue-700 text-white shadow-xs hover:bg-blue-800 focus-visible:ring-4 focus-visible:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus-visible:ring-blue-800",
+          "box-border border border-transparent bg-brand text-white shadow-xs hover:bg-brand-strong focus-visible:ring-4 focus-visible:ring-brand-medium",
 
         // Flowbite Success (Green)
         success:
-          "bg-emerald-600 text-white shadow-xs hover:bg-emerald-700 focus-visible:ring-4 focus-visible:ring-emerald-200 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus-visible:ring-emerald-800",
+          "box-border border border-transparent bg-success text-white shadow-xs hover:bg-success-strong focus-visible:ring-4 focus-visible:ring-success-medium",
 
         // Flowbite Destructive (Red)
         destructive:
-          "bg-red-600 text-white shadow-xs hover:bg-red-700 focus-visible:ring-4 focus-visible:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus-visible:ring-red-900",
+          "box-border border border-transparent bg-error text-white shadow-xs hover:bg-error-strong focus-visible:ring-4 focus-visible:ring-error-medium",
 
         // Flowbite Secondary (Gray)
         secondary:
@@ -35,10 +35,10 @@ const buttonVariants = cva(
 
         // Flowbite Ghost
         ghost:
-          "hover:bg-gray-50 hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+          "text-body hover:text-heading hover:bg-neutral-secondary-soft",
 
         // Flowbite Link
-        link: "text-fg-brand underline-offset-4 hover:underline",
+        link: "text-fg-brand underline-offset-4 hover:underline hover:text-fg-brand-strong",
       },
       size: {
         default: "h-10 px-4 py-2",

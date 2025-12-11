@@ -4,30 +4,26 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-1 rounded-base border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1",
+  "inline-flex items-center gap-1 rounded-base border px-2.5 py-0.5 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1",
   {
     variants: {
       variant: {
-        // Flowbite Primary
         default:
-          "border-transparent bg-blue-100 text-blue-800 shadow dark:bg-blue-900 dark:text-blue-300",
-        // Flowbite Secondary
+          "box-border border border-brand bg-brand/10 text-fg-brand shadow-xs hover:bg-brand/20",
         secondary:
-          "border-transparent bg-gray-100 text-gray-800 shadow dark:bg-gray-700 dark:text-gray-300",
-        // Flowbite Theme badge (Gris foncé)
+          "box-border border border-default bg-neutral-secondary-soft text-body shadow-xs hover:bg-neutral-tertiary-soft hover:text-heading",
         theme:
-          "border-transparent bg-gray-600 text-white shadow hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700",
-        // Flowbite Destructive
+          "box-border border border-default bg-neutral-primary-soft text-body shadow-xs hover:bg-neutral-secondary-soft",
         destructive:
-          "border-transparent bg-red-100 text-red-800 shadow dark:bg-red-900 dark:text-red-300",
-        // Flowbite Outline
-        outline: "border border-gray-300 text-gray-800 dark:border-gray-600 dark:text-gray-300",
+          "box-border border border-transparent bg-error text-white shadow-xs hover:bg-error-strong focus-visible:ring-error-medium",
+        outline:
+          "box-border border border-default text-heading shadow-xs hover:bg-neutral-secondary-soft hover:text-heading",
         points:
-          "border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700",
+          "box-border border border-transparent bg-amber-500 text-white shadow-xs hover:bg-amber-600",
         duration:
-          "border-transparent bg-purple-600 text-white shadow hover:bg-purple-700 dark:bg-purple-700 dark:hover:bg-purple-800",
+          "box-border border border-transparent bg-purple-600 text-white shadow-xs hover:bg-purple-700",
         difficulty:
-          "border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700",
+          "box-border border border-transparent bg-amber-500 text-white shadow-xs hover:bg-amber-600",
       },
     },
     defaultVariants: {

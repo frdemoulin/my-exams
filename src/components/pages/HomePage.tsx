@@ -288,19 +288,14 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   }, [exercises]);
 
   const subjectOptions = useMemo(() => {
-    const map = new Map<string, string>();
-    exercises.forEach((ex) => {
-      const shortLabel = ex.examPaper.teaching.subject.shortDescription;
-      const longLabel = ex.examPaper.teaching.subject.longDescription;
-      if (shortLabel) {
-        const display = longLabel;
-        map.set(shortLabel, display);
-      }
-    });
-    return Array.from(map.entries())
-      .map(([value, label]) => ({ value, label }))
+    return initialSubjects
+      .map((s) => ({
+        value: s.shortDescription || s.longDescription,
+        label: s.longDescription,
+      }))
+      .filter((s) => Boolean(s.value))
       .sort((a, b) => a.label.localeCompare(b.label));
-  }, [exercises]);
+  }, [initialSubjects]);
 
   const sessionOptions = useMemo(() => {
     const set = new Set<number>();
@@ -311,8 +306,8 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   }, [exercises]);
 
   const HeroEyebrow = ({ children }: { children: React.ReactNode }) => (
-    <div className="mb-4 inline-flex items-center gap-2 rounded-base border border-gray-300 dark:border-gray-600 bg-white/70 dark:bg-gray-900/60 px-3 py-1 text-[11px] font-semibold tracking-tight shadow-sm backdrop-blur">
-      <span className="h-2 w-2 rounded-full bg-emerald-400" />
+    <div className="mb-4 inline-flex items-center gap-2 rounded-base border border-default bg-neutral-primary-soft px-3 py-1 text-[11px] font-semibold tracking-tight text-body shadow-xs">
+      <span className="h-2 w-2 rounded-full bg-success" />
       <span>{children}</span>
     </div>
   );
@@ -723,9 +718,9 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     variant="outline"
                     size="sm"
                     onClick={() => handleSortChange('year')}
-                    className={`h-auto rounded-lg px-3 py-1.5 text-xs ${sortBy === 'year'
-                        ? 'border-transparent bg-gray-100 text-gray-800 shadow hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
-                        : 'border-gray-200 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800/60'
+                    className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'year'
+                        ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                        : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
                       }`}
                   >
                     Session {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
@@ -734,9 +729,9 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     variant="outline"
                     size="sm"
                     onClick={() => handleSortChange('difficulty')}
-                    className={`h-auto rounded-lg px-3 py-1.5 text-xs ${sortBy === 'difficulty'
-                        ? 'border-transparent bg-amber-500 text-white shadow hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700'
-                        : 'border-amber-200 text-amber-700 hover:bg-amber-50 dark:border-amber-500/60 dark:text-amber-100 dark:hover:bg-amber-900/40'
+                    className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'difficulty'
+                        ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                        : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
                       }`}
                   >
                     Difficulté {sortBy === 'difficulty' && (sortOrder === 'desc' ? '↓' : '↑')}
@@ -745,9 +740,9 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     variant="outline"
                     size="sm"
                     onClick={() => handleSortChange('duration')}
-                    className={`h-auto rounded-lg px-3 py-1.5 text-xs ${sortBy === 'duration'
-                        ? 'border-transparent bg-purple-600 text-white shadow hover:bg-purple-700 dark:bg-purple-700 dark:hover:bg-purple-800'
-                        : 'border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-500/60 dark:text-purple-100 dark:hover:bg-purple-900/40'
+                    className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'duration'
+                        ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                        : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
                       }`}
                   >
                     Durée {sortBy === 'duration' && (sortOrder === 'desc' ? '↓' : '↑')}

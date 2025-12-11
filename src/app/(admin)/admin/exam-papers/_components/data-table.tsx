@@ -103,7 +103,7 @@ export function DataTable<TData, TValue>({
           </SelectContent>
         </Select>
       </TableToolbar>
-      <div className="rounded-md border">
+      <div>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

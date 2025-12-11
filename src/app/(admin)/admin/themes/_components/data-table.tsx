@@ -76,7 +76,7 @@ export function DataTable<TData, TValue>({
         addHref="/admin/themes/add"
         addLabel="Ajouter un thème"
       />
-      <div className="rounded-md border">
+      <div>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

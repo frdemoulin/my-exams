@@ -76,7 +76,7 @@ export function DataTable<TData, TValue>({
         addHref="/admin/examination-centers/add"
         addLabel="Ajouter un centre"
       />
-      <div className="rounded-md border">
+      <div>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

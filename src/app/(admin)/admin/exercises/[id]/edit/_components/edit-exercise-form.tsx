@@ -115,7 +115,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="exerciseNumber">
-                Numéro <span className="text-red-500">*</span>
+                Numéro <span className="text-fg-danger">*</span>
               </Label>
               <Input
                 id="exerciseNumber"
@@ -183,7 +183,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
                 }
                 min={1}
                 max={5}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                className="w-full h-2 rounded-base bg-neutral-secondary-soft accent-brand"
               />
             </div>
           </div>

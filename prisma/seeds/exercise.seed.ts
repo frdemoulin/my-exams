@@ -163,6 +163,109 @@ export async function seedExercises(prisma: PrismaClient) {
     },
   ];
 
+  // Exercices synthétiques pour d'autres matières afin d'alimenter les filtres
+  const otherSubjectsExercises = [
+    {
+      examPaperLabel: 'Métropole SVT 2024',
+      teachingContains: 'Sciences de la Vie et de la Terre',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'Géologie et climat',
+          statement: 'Analyse d\'un document sur les variations climatiques et la tectonique.',
+          points: 10,
+          estimatedDuration: 90,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Climat', 'Tectonique des plaques'],
+        },
+      ],
+    },
+    {
+      examPaperLabel: 'Métropole SES 2024',
+      teachingContains: 'Sciences Économiques et Sociales',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'Croissance et chômage',
+          statement: 'Discussion argumentée sur les liens entre croissance et emploi.',
+          points: 10,
+          estimatedDuration: 90,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Croissance', 'Chômage'],
+        },
+      ],
+    },
+    {
+      examPaperLabel: 'Métropole NSI 2024',
+      teachingContains: 'Numérique et Sciences Informatiques',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'Graphes et algorithmes',
+          statement: 'Implémenter un parcours en largeur sur un graphe pondéré.',
+          points: 10,
+          estimatedDuration: 90,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Graphes', 'Algorithmique'],
+        },
+      ],
+    },
+    {
+      examPaperLabel: 'Métropole HGGSP 2024',
+      teachingContains: 'Histoire-Géographie, Géopolitique et Sciences Politiques',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'Gouvernance mondiale',
+          statement: 'Analyse d\'un corpus de documents sur l\'ONU et les conflits récents.',
+          points: 10,
+          estimatedDuration: 90,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Géopolitique'],
+        },
+      ],
+    },
+    {
+      examPaperLabel: 'Métropole Philosophie 2024',
+      teachingContains: 'Philosophie',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'La liberté',
+          statement: 'Dissertation sur la notion de liberté et de déterminisme.',
+          points: 20,
+          estimatedDuration: 180,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Liberté'],
+        },
+      ],
+    },
+    {
+      examPaperLabel: 'Métropole Français 2024',
+      teachingContains: 'Français',
+      exercises: [
+        {
+          exerciseNumber: 1,
+          label: 'Commentaire littéraire',
+          statement: 'Analyse d\'un extrait et construction d\'une problématique.',
+          points: 10,
+          estimatedDuration: 120,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Commentaire'],
+        },
+        {
+          exerciseNumber: 2,
+          label: 'Dissertation',
+          statement: 'Réflexion argumentée sur la poésie et le réel.',
+          points: 10,
+          estimatedDuration: 120,
+          estimatedDifficulty: 3,
+          themeDescriptions: ['Dissertation'],
+        },
+      ],
+    },
+  ];
+
   let createdCount = 0;
 
   // Créer les exercices de Physique-Chimie
@@ -302,6 +405,64 @@ export async function seedExercises(prisma: PrismaClient) {
         createdCount++;
       } catch (error) {
         console.log(`⚠️  Erreur lors de la création de l'exercice: Exercice ${exerciseData.exerciseNumber}`);
+      }
+    }
+  }
+
+  // Créer les exercices des autres matières pour alimenter les filtres
+  for (const paperData of otherSubjectsExercises) {
+    const examPaper = await prisma.examPaper.findFirst({
+      where: {
+        label: { contains: paperData.examPaperLabel },
+        teaching: {
+          longDescription: { contains: paperData.teachingContains },
+        },
+      },
+    });
+
+    if (!examPaper) {
+      console.log(`⚠️  Sujet non trouvé pour ${paperData.examPaperLabel}`);
+      continue;
+    }
+
+    for (const exerciseData of paperData.exercises) {
+      const existingExercise = await prisma.exercise.findFirst({
+        where: {
+          examPaperId: examPaper.id,
+          exerciseNumber: exerciseData.exerciseNumber,
+        },
+      });
+      if (existingExercise) continue;
+
+      const themes = await prisma.theme.findMany({
+        where: {
+          OR: exerciseData.themeDescriptions?.map(desc => ({
+            OR: [
+              { shortDescription: { contains: desc, mode: 'insensitive' } },
+              { longDescription: { contains: desc, mode: 'insensitive' } },
+            ],
+          })) || [],
+        },
+      });
+
+      try {
+        await prisma.exercise.create({
+          data: {
+            exerciseNumber: exerciseData.exerciseNumber,
+            label: exerciseData.label,
+            statement: exerciseData.statement || '',
+            points: exerciseData.points,
+            estimatedDuration: exerciseData.estimatedDuration,
+            estimatedDifficulty: exerciseData.estimatedDifficulty || 3,
+            examPaperId: examPaper.id,
+            themeIds: themes.map(t => t.id),
+            enrichmentStatus: 'completed',
+            enrichedAt: new Date(),
+          },
+        });
+        createdCount++;
+      } catch (error) {
+        console.log(`⚠️  Erreur lors de la création de l'exercice: ${exerciseData.label}`);
       }
     }
   }

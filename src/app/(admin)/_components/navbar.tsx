@@ -19,20 +19,15 @@ export const Navbar = () => {
 
     return (
         <div className="fixed top-0 z-50 flex h-14 w-full items-center justify-between border-b border-default bg-neutral-primary px-4 text-sm shadow-xs">
-            <Link className="text-xl font-bold uppercase text-fg-brand" href="/">
+            <Link className="text-xl font-extrabold uppercase text-heading hover:text-heading" href="/">
                 My exams
             </Link>
-            {/* Logged user infos */}
             <div className="flex text-body">
                 {!user && session.status === "loading" && <Skeleton className="h-4 w-[200px]" />}
-                {/* {user && <div>Connecté en tant que <span className="">{user?.name}</span> (<span>{user?.role}</span>)</div>} */}
-                {user && <div>Connecté en tant que <span className="">{user?.name}</span></div>}
+                {user && <div>Connecté en tant que <span className="font-semibold text-heading">{user?.name}</span></div>}
             </div>
 
-            {/* TODO: Mobile bar */}
-
-            {!user && session.status === "loading" && <Skeleton className="w-10 h-10 rounded-full" />
-            }
+            {!user && session.status === "loading" && <Skeleton className="w-10 h-10 rounded-full" />}
 
             {user && (
                 <div className="flex items-center gap-2">

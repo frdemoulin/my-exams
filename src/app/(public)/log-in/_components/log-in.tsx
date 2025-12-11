@@ -67,15 +67,15 @@ export async function LogIn() {
           </div>
           {/* Separator between social media sign in and magic link sign in */}
           <div
-            className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300 dark:before:border-neutral-500 dark:after:border-neutral-500">
+            className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-default after:mt-0.5 after:flex-1 after:border-t after:border-default">
             <p
-              className="mx-4 mb-0 text-center font-semibold dark:text-white">
+              className="mx-4 mb-0 text-center font-semibold text-heading">
               Ou
             </p>
           </div>
           {/* lien magique */}
           <div>
-            <p className="text-gray-500 text-sm">Recevoir un lien de connexion par email</p>
+            <p className="text-body text-sm">Recevoir un lien de connexion par email</p>
             <form action={async (formData) => {
               "use server";
               try {
@@ -98,7 +98,7 @@ export async function LogIn() {
               />
               <button
                 type="submit"
-                className="mt-2 w-full rounded-base border border-brand bg-brand px-4 py-2 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-brand focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
+                className="mt-2 w-full rounded-base border border-brand bg-brand px-4 py-2 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-brand-strong focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
               >
                 Envoyer l&apos;email
               </button>
@@ -106,7 +106,7 @@ export async function LogIn() {
           </div>
           {/* signup link */}
           <div className="text-center text-sm mt-4">
-            Pas de compte ? <a className="text-blue-700" href="/signup">Créer un compte</a>
+            Pas de compte ? <a className="text-fg-brand hover:text-fg-brand-strong" href="/signup">Créer un compte</a>
           </div>
         </CardContent>
       </Card>
