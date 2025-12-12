@@ -9,6 +9,10 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import "./globals.css";
 
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
+const umamiHost = process.env.NEXT_PUBLIC_UMAMI_HOST;
+
 export const metadata: Metadata = {
   title: {
     template: "%s | My exams",
@@ -55,6 +59,14 @@ export default async function RootLayout({
             </ThemeProvider>
           </SessionProvider>
         </NextIntlClientProvider>
+        {umamiWebsiteId && umamiSrc && (
+          <Script
+            src={umamiSrc}
+            data-website-id={umamiWebsiteId}
+            data-host-url={umamiHost}
+            strategy="afterInteractive"
+          />
+        )}
         {/* Script Flowbite (UMD) via CDN ou local) */}
         <Script src="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.js" strategy="afterInteractive" />
       </body>
