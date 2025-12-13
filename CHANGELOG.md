@@ -1,3 +1,8 @@
+## <small>1.1.7 (2025-12-13)</small>
+
+* Merge pull request #14 from frdemoulin/dev ([274b03e](https://github.com/frdemoulin/my-exams/commit/274b03e)), closes [#14](https://github.com/frdemoulin/my-exams/issues/14)
+* fix: correction d'un typage ([419438d](https://github.com/frdemoulin/my-exams/commit/419438d))
+
 ## <small>1.1.6 (2025-12-13)</small>
 
 * Merge pull request #13 from frdemoulin/dev ([4b12fbe](https://github.com/frdemoulin/my-exams/commit/4b12fbe)), closes [#13](https://github.com/frdemoulin/my-exams/issues/13)
