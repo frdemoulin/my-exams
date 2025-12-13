@@ -81,11 +81,11 @@ async function testCurriculums() {
   console.log('\n\n📅 Timeline des programmes:\n');
   
   const timeline = curriculums
-    .sort((a, b) => a.startYear - b.startYear)
-    .map(c => ({
-      year: c.startYear,
-      name: c.name,
-      type: c.endYear ? 'ancien' : 'actuel',
+    .sort((a, b) => (a.startDate?.getTime() ?? 0) - (b.startDate?.getTime() ?? 0))
+    .map((c) => ({
+      year: c.startDate?.getFullYear() ?? 'N/A',
+      name: c.longDescription,
+      type: c.endDate ? 'ancien' : 'actuel',
     }));
 
   timeline.forEach(({ year, name, type }) => {
