@@ -6,7 +6,8 @@ import { encode } from "next-auth/jwt";
 import prisma from "@/lib/db/prisma";
 
 const HEADER_NAME = "x-e2e-test-login";
-const COOKIE_NAME = "next-auth.session-token";
+const COOKIE_SALT = "authjs.session-token";
+const COOKIE_NAMES = ["next-auth.session-token", "authjs.session-token"];
 
 export async function POST(req: Request) {
   const testSecret = process.env.E2E_TEST_LOGIN_SECRET;
@@ -49,16 +50,30 @@ export async function POST(req: Request) {
         sub: user.id,
       },
       secret: authSecret,
+      salt: COOKIE_SALT,
       maxAge: 60 * 60 * 24, // 1 jour
     });
 
     const res = NextResponse.json({ ok: true, user: { id: user.id, email: user.email } });
-    res.cookies.set(COOKIE_NAME, jwt, {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-    });
+    const secure = process.env.NODE_ENV === "production";
+
+    for (const cookieName of COOKIE_NAMES) {
+      res.cookies.set(cookieName, jwt, {
+        httpOnly: true,
+        sameSite: "lax",
+        secure,
+        path: "/",
+      });
+
+      if (secure) {
+        res.cookies.set(`__Secure-${cookieName}`, jwt, {
+          httpOnly: true,
+          sameSite: "lax",
+          secure,
+          path: "/",
+        });
+      }
+    }
 
     return res;
   } catch (error) {

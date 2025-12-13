@@ -1,5 +1,5 @@
 // Types
-export { CreateExamPaperValues, CreateExamPaperErrors } from './exam-paper.types';
+export type { CreateExamPaperValues, CreateExamPaperErrors } from './exam-paper.types';
 
 // Queries
 export { fetchExamPapers, fetchExamPaperById } from './exam-paper.queries';

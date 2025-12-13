@@ -47,8 +47,8 @@ const EditCoursePage = async ({ params }: EditCoursePageProps) => {
                 crudMode="edit"
                 initialData={{
                     id: course.id,
-                    name: course.longDescription,
-                    shortName: course.shortDescription,
+                    longDescription: course.longDescription,
+                    shortDescription: course.shortDescription,
                     gradeId: course.gradeId,
                     subjectId: course.subjectId,
                 }}

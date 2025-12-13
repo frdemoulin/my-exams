@@ -40,15 +40,13 @@ export default async function globalSetup(_config: FullConfig) {
     });
   }
 
-  const secretBuffer = Buffer.from(authSecret, "utf-8");
-
   const token = await encode({
     token: {
       email: user.email || undefined,
       name: user.name || undefined,
       sub: user.id,
     },
-    secret: secretBuffer,
+    secret: authSecret,
     salt: "authjs.session-token",
     maxAge: 60 * 60 * 24,
   });
@@ -62,7 +60,7 @@ export default async function globalSetup(_config: FullConfig) {
     path: "/",
     httpOnly: true,
     secure: url.protocol === "https:",
-    sameSite: "Lax" as BrowserContextOptions["storageState"]["cookies"][number]["sameSite"],
+    sameSite: "Lax" as const,
     expires: Math.floor(Date.now() / 1000 + 60 * 60 * 24),
   };
 
