@@ -8,7 +8,7 @@ async function testHomeData() {
   // Tester fetchSpecialties
   const specialties = await prisma.teaching.findMany({
     where: {
-      name: {
+      longDescription: {
         startsWith: 'Spécialité',
       },
       grade: {
@@ -28,7 +28,7 @@ async function testHomeData() {
         },
       },
       {
-        name: 'asc',
+        longDescription: 'asc',
       },
     ],
   });
@@ -36,7 +36,8 @@ async function testHomeData() {
   console.log(`✅ ${specialties.length} spécialités trouvées:\n`);
   
   specialties.slice(0, 8).forEach((course) => {
-    console.log(`   ${course.shortName} (${course.grade.shortDescription}) - ${course.subject.shortDescription}`);
+    const label = course.shortDescription ?? course.longDescription;
+    console.log(`   ${label} (${course.grade.shortDescription}) - ${course.subject.shortDescription}`);
   });
 
   // Tester les matières

@@ -8,34 +8,34 @@ async function validateCurriculumModel() {
   let errors = 0;
   let warnings = 0;
 
-  // 1. Vérifier que tous les programmes actifs ont un startYear
+  // 1. Vérifier que tous les programmes actifs ont une date de début
   console.log('✓ Vérification des programmes actifs...');
   const activePrograms = await prisma.curriculum.findMany({
     where: { isActive: true },
   });
 
   activePrograms.forEach((program) => {
-    if (!program.startYear) {
-      console.error(`   ❌ ${program.name} n'a pas de startYear`);
+    if (!program.startDate) {
+      console.error(`   ❌ ${program.longDescription} n'a pas de date de début`);
       errors++;
     }
-    if (program.endYear) {
-      console.warn(`   ⚠️  ${program.name} est actif mais a une endYear`);
+    if (program.endDate) {
+      console.warn(`   ⚠️  ${program.longDescription} est actif mais a une date de fin`);
       warnings++;
     }
   });
 
   console.log(`   → ${activePrograms.length} programmes actifs validés\n`);
 
-  // 2. Vérifier que les programmes inactifs ont une endYear
+  // 2. Vérifier que les programmes inactifs ont une date de fin
   console.log('✓ Vérification des programmes inactifs...');
   const inactivePrograms = await prisma.curriculum.findMany({
     where: { isActive: false },
   });
 
   inactivePrograms.forEach((program) => {
-    if (!program.endYear) {
-      console.warn(`   ⚠️  ${program.name} est inactif mais n'a pas de endYear`);
+    if (!program.endDate) {
+      console.warn(`   ⚠️  ${program.longDescription} est inactif mais n'a pas de date de fin`);
       warnings++;
     }
   });
@@ -54,11 +54,11 @@ async function validateCurriculumModel() {
       });
 
       if (courses.length !== program.teachingIds.length) {
-        console.error(`   ❌ ${program.name}: ${program.teachingIds.length - courses.length} cours introuvables`);
+        console.error(`   ❌ ${program.longDescription}: ${program.teachingIds.length - courses.length} cours introuvables`);
         errors++;
       }
-    } else if (program.isActive && !program.name.includes('Collège')) {
-      console.warn(`   ⚠️  ${program.name} est actif mais n'a aucun cours associé`);
+    } else if (program.isActive && !program.longDescription.includes('Collège')) {
+      console.warn(`   ⚠️  ${program.longDescription} est actif mais n'a aucun cours associé`);
       warnings++;
     }
   }
@@ -67,8 +67,8 @@ async function validateCurriculumModel() {
 
   // 4. Vérifier les chevauchements temporels
   console.log('✓ Vérification des chevauchements...');
-  const lyceePrograms = allPrograms.filter(p => 
-    p.name.includes('Lycée') || p.name.includes('Bac')
+  const lyceePrograms = allPrograms.filter((p) =>
+    p.longDescription.includes('Lycée') || p.longDescription.includes('Bac'),
   );
 
   for (let i = 0; i < lyceePrograms.length; i++) {
@@ -76,23 +76,24 @@ async function validateCurriculumModel() {
       const p1 = lyceePrograms[i];
       const p2 = lyceePrograms[j];
 
-      const p1End = p1.endYear || new Date().getFullYear() + 10;
-      const p2End = p2.endYear || new Date().getFullYear() + 10;
+      const p1Start = p1.startDate?.getFullYear() ?? 0;
+      const p2Start = p2.startDate?.getFullYear() ?? 0;
+      const p1End = p1.endDate?.getFullYear() ?? new Date().getFullYear() + 10;
+      const p2End = p2.endDate?.getFullYear() ?? new Date().getFullYear() + 10;
 
-      // Chevauchement si p1 commence avant que p2 se termine
-      // ET p2 commence avant que p1 se termine
-      if (p1.startYear < p2End && p2.startYear < p1End) {
-        // C'est normal pour des programmes de niveaux différents
-        if (p1.name.includes('Seconde') && p2.name.includes('Terminale')) {
+      // Chevauchement si p1 commence avant que p2 se termine ET p2 commence avant que p1 se termine
+      if (p1Start < p2End && p2Start < p1End) {
+        // Tolérance pour des niveaux différents
+        if (p1.longDescription.includes('Seconde') && p2.longDescription.includes('Terminale')) {
           continue;
         }
-        if (p1.name.includes('Première') && p2.name.includes('Terminale')) {
+        if (p1.longDescription.includes('Première') && p2.longDescription.includes('Terminale')) {
           continue;
         }
-        
+
         console.log(`   ℹ️  Chevauchement détecté:`);
-        console.log(`      ${p1.name} (${p1.startYear}-${p1End})`);
-        console.log(`      ${p2.name} (${p2.startYear}-${p2End})`);
+        console.log(`      ${p1.longDescription} (${p1Start}-${p1End})`);
+        console.log(`      ${p2.longDescription} (${p2Start}-${p2End})`);
       }
     }
   }
@@ -104,16 +105,18 @@ async function validateCurriculumModel() {
   console.log(`   Total de programmes: ${allPrograms.length}`);
   console.log(`   Programmes actifs: ${activePrograms.length}`);
   console.log(`   Programmes inactifs: ${inactivePrograms.length}`);
-  
+
   const totalCourses = allPrograms.reduce((sum, p) => sum + p.teachingIds.length, 0);
-  const uniqueCourses = new Set(allPrograms.flatMap(p => p.teachingIds));
-  
+  const uniqueCourses = new Set(allPrograms.flatMap((p) => p.teachingIds));
+
   console.log(`   Total associations cours: ${totalCourses}`);
   console.log(`   Cours uniques associés: ${uniqueCourses.size}`);
 
   // Timeline
-  const minYear = Math.min(...allPrograms.map(p => p.startYear));
-  const maxYear = Math.max(...allPrograms.map(p => p.endYear || new Date().getFullYear()));
+  const startYears = allPrograms.map((p) => p.startDate?.getFullYear() ?? 0);
+  const endYears = allPrograms.map((p) => p.endDate?.getFullYear() ?? new Date().getFullYear());
+  const minYear = Math.min(...startYears);
+  const maxYear = Math.max(...endYears);
   console.log(`   Période couverte: ${minYear} - ${maxYear}`);
 
   console.log('\n' + '='.repeat(50));
