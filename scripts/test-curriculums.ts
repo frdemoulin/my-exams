@@ -8,8 +8,8 @@ async function testCurriculums() {
   // 1. Lister tous les programmes
   const curriculums = await prisma.curriculum.findMany({
     orderBy: [
-      { startYear: 'desc' },
-      { name: 'asc' },
+      { startDate: 'desc' },
+      { longDescription: 'asc' },
     ],
   });
 
@@ -17,16 +17,8 @@ async function testCurriculums() {
 
   for (const curriculum of curriculums) {
     const status = curriculum.isActive ? '🟢 Actif' : '🔴 Inactif';
-    const period = curriculum.endYear 
-      ? `${curriculum.startYear}-${curriculum.endYear}`
-      : `${curriculum.startYear}→`;
-    
-    console.log(`${status} ${curriculum.name} (${period})`);
-    console.log(`   📝 ${curriculum.description}`);
-    console.log(`   📅 Début: ${curriculum.startYear}/${curriculum.startMonth || '?'}`);
-    if (curriculum.endYear) {
-      console.log(`   📅 Fin: ${curriculum.endYear}/${curriculum.endMonth || '?'}`);
-    }
+    console.log(`${status} ${curriculum.longDescription} (${curriculum.shortDescription ?? ''})`);
+    console.log(`   📅 Début: ${curriculum.startDate?.toISOString().split('T')[0] || '?'}`);
     console.log(`   🎯 ${curriculum.teachingIds.length} cours associés`);
     if (curriculum.notes) {
       console.log(`   💡 ${curriculum.notes}`);
@@ -39,7 +31,9 @@ async function testCurriculums() {
   
   const reformeTerminale = await prisma.curriculum.findFirst({
     where: {
-      name: 'Réforme Bac 2021 - Terminale',
+      longDescription: {
+        contains: 'Réforme Bac 2021 - Terminale',
+      },
     },
   });
 
@@ -53,16 +47,16 @@ async function testCurriculums() {
         subject: true,
       },
       orderBy: {
-        name: 'asc',
+        longDescription: 'asc',
       },
     });
 
-    console.log(`Programme: ${reformeTerminale.name}`);
-    console.log(`Période: ${reformeTerminale.startYear}/0${reformeTerminale.startMonth} → en cours`);
+    console.log(`Programme: ${reformeTerminale.longDescription}`);
+    console.log(`Période: ${reformeTerminale.startDate?.toISOString().split('T')[0] ?? '?'} → en cours`);
     console.log(`\nCours inclus (${courses.length}):\n`);
 
     courses.forEach((course) => {
-      console.log(`   - ${course.name} (${course.subject.shortDescription})`);
+      console.log(`   - ${course.longDescription} (${course.subject.shortDescription})`);
     });
   }
 
@@ -74,12 +68,12 @@ async function testCurriculums() {
       isActive: true,
     },
     orderBy: {
-      startYear: 'desc',
+      startDate: 'desc',
     },
   });
 
   activePrograms.forEach((program) => {
-    console.log(`   ${program.name} (depuis ${program.startYear})`);
+    console.log(`   ${program.longDescription} (depuis ${program.startDate?.getFullYear() ?? '?'})`);
     console.log(`      → ${program.teachingIds.length} cours`);
   });
 
