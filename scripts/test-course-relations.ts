@@ -23,7 +23,7 @@ async function testCourseRelations() {
   console.log('\n📘 Exemple: Spécialité Mathématiques Terminale:');
   const speMathesTle = await prisma.teaching.findFirst({
     where: {
-      name: 'Spécialité Mathématiques',
+      longDescription: 'Spécialité Mathématiques',
       grade: { shortDescription: 'Tle' },
     },
     include: {
@@ -33,7 +33,7 @@ async function testCourseRelations() {
   });
   
   if (speMathesTle) {
-    console.log(`   Nom: ${speMathesTle.name}`);
+    console.log(`   Nom: ${speMathesTle.longDescription}`);
     console.log(`   Niveau: ${speMathesTle.grade.longDescription}`);
     console.log(`   Matière: ${speMathesTle.subject.longDescription}`);
   }
@@ -43,16 +43,16 @@ async function testCourseRelations() {
   const spesPremiere = await prisma.teaching.findMany({
     where: {
       grade: { shortDescription: '1re' },
-      name: { startsWith: 'Spécialité' },
+      longDescription: { startsWith: 'Spécialité' },
     },
     include: {
       subject: true,
     },
-    orderBy: { name: 'asc' },
+    orderBy: { longDescription: 'asc' },
   });
   
   spesPremiere.forEach((course) => {
-    console.log(`   - ${course.shortName} (${course.subject.shortDescription})`);
+    console.log(`   - ${course.shortDescription} (${course.subject.shortDescription})`);
   });
 
   // 4. Options de Terminale
@@ -60,7 +60,7 @@ async function testCourseRelations() {
   const optionsTerminale = await prisma.teaching.findMany({
     where: {
       grade: { shortDescription: 'Tle' },
-      name: { startsWith: 'Option' },
+      longDescription: { startsWith: 'Option' },
     },
     include: {
       subject: true,
@@ -68,7 +68,7 @@ async function testCourseRelations() {
   });
   
   optionsTerminale.forEach((course) => {
-    console.log(`   - ${course.name} (${course.subject.shortDescription})`);
+    console.log(`   - ${course.longDescription} (${course.subject.shortDescription})`);
   });
 
   await prisma.$disconnect();
