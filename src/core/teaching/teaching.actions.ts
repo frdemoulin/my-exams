@@ -19,7 +19,7 @@ export const createTeaching = async (formData: FormData) => {
             await prisma.teaching.create({
                 data: {
                     longDescription,
-                    shortDescription: shortName || null,
+                    shortDescription: shortDescription || null,
                     gradeId,
                     subjectId,
                 }
@@ -54,7 +54,7 @@ export const updateTeaching = async (id: string | undefined, formData: FormData)
                 where: { id },
                 data: {
                     longDescription,
-                    shortDescription: shortName || null,
+                    shortDescription: shortDescription || null,
                     gradeId,
                     subjectId,
                 }

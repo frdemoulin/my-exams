@@ -13,6 +13,7 @@ export type EntityKey =
   | 'examinationCenter' 
   | 'grade' 
   | 'subject' 
+  | 'teaching'
   | 'theme' 
   | 'user';
 

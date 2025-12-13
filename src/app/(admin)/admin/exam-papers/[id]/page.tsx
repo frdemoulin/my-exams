@@ -128,10 +128,14 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                             <h3 className="text-sm font-semibold text-muted-foreground">Enseignement</h3>
                             <p className="text-sm">{examPaper.teaching.longDescription}</p>
                         </div>
-                        <div>
-                            <h3 className="text-sm font-semibold text-muted-foreground">Programme</h3>
-                            <p className="text-sm">{examPaper.curriculum.shortDescription || examPaper.curriculum.longDescription}</p>
-                        </div>
+                        {examPaper.curriculum && (
+                            <div>
+                                <h3 className="text-sm font-semibold text-muted-foreground">Programme</h3>
+                                <p className="text-sm">
+                                    {examPaper.curriculum.shortDescription || examPaper.curriculum.longDescription}
+                                </p>
+                            </div>
+                        )}
                         {examPaper.examinationCenters && examPaper.examinationCenters.length > 0 && (
                             <div>
                                 <h3 className="text-sm font-semibold text-muted-foreground">Centre d&apos;examen</h3>

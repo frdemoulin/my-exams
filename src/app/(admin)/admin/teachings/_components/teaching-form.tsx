@@ -28,7 +28,7 @@ interface TeachingFormProps {
     initialData: {
         id?: string,
         longDescription: string,
-        shortName?: string | null,
+        shortDescription?: string | null,
         gradeId: string,
         subjectId: string,
     };
@@ -85,7 +85,7 @@ export const TeachingForm = ({
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <FormField
-                    name="name"
+                    name="longDescription"
                     control={control}
                     render={({ field }) => (
                         <FormItem>
@@ -102,7 +102,7 @@ export const TeachingForm = ({
                     )}
                 />
                 <FormField
-                    name="shortName"
+                    name="shortDescription"
                     control={control}
                     render={({ field }) => (
                         <FormItem>

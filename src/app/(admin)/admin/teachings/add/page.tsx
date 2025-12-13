@@ -27,8 +27,8 @@ const AddCoursePage = async () => {
             <TeachingForm
                 crudMode="add"
                 initialData={{
-                    name: "",
-                    shortName: "",
+                    longDescription: "",
+                    shortDescription: "",
                     gradeId: "",
                     subjectId: "",
                 }}

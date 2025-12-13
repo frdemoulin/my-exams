@@ -6,17 +6,17 @@ export type ExamPaperWithRelations = (ExamPaper & {
     sourceUrl?: string | null;
 }) & {
     diploma: { longDescription: string };
-    division: { longDescription: string };
+    division: { longDescription: string } | null;
     grade: { shortDescription: string };
     teaching: { 
         longDescription: string;
         subject: { shortDescription: string };
     };
-    curriculum: { longDescription: string; shortDescription: string | null };
+    curriculum: { longDescription: string; shortDescription: string | null } | null;
     examinationCenters?: Array<{ id: string; description: string }>;
     themes: Array<{
         id: string;
-        shortDescription: string;
+        shortDescription: string | null;
         longDescription: string;
     }>;
     corrections: Array<{
@@ -93,7 +93,7 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
         themes: paper.themeIds
             .map(id => themesById.get(id))
             .filter((t): t is NonNullable<typeof t> => t !== undefined)
-            .sort((a, b) => a.shortDescription.localeCompare(b.shortDescription))
+            .sort((a, b) => (a.shortDescription ?? a.longDescription).localeCompare(b.shortDescription ?? b.longDescription))
     }));
 }
 
@@ -163,7 +163,7 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
         themes: paper.themeIds
             .map(id => themesById.get(id))
             .filter((t): t is NonNullable<typeof t> => t !== undefined)
-            .sort((a, b) => a.shortDescription.localeCompare(b.shortDescription))
+            .sort((a, b) => (a.shortDescription ?? a.longDescription).localeCompare(b.shortDescription ?? b.longDescription))
     }));
 }
 
