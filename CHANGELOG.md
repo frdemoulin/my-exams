@@ -1,3 +1,8 @@
+## <small>1.1.8 (2025-12-13)</small>
+
+* Merge pull request #15 from frdemoulin/dev ([9597cb9](https://github.com/frdemoulin/my-exams/commit/9597cb9)), closes [#15](https://github.com/frdemoulin/my-exams/issues/15)
+* fix: gestion des workers avec Cloudflare ([e6bcdb7](https://github.com/frdemoulin/my-exams/commit/e6bcdb7))
+
 ## <small>1.1.7 (2025-12-13)</small>
 
 * Merge pull request #14 from frdemoulin/dev ([274b03e](https://github.com/frdemoulin/my-exams/commit/274b03e)), closes [#14](https://github.com/frdemoulin/my-exams/issues/14)
