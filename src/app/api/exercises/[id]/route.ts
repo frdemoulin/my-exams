@@ -8,10 +8,10 @@ import { fetchExerciseById, fetchExercisesByExamPaperId } from '@/core/exercise'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await context.params;
 
     // Récupérer l'exercice
     const exercise = await fetchExerciseById(id);
