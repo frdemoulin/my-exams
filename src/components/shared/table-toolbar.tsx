@@ -52,7 +52,7 @@ export function TableToolbar({
               <Search className="h-4 w-4" />
             </span>
             <input
-              className="h-10 w-full rounded-base border border-default bg-neutral-primary-soft ps-10 pe-3 text-sm text-body placeholder:text-body/70 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand focus:ring-offset-1"
+              className="h-10 w-full rounded-base border border-default bg-neutral-primary-soft ps-10 pe-3 text-sm text-body placeholder:text-body/70 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand"
               placeholder={placeholder}
               value={value}
               onChange={(e) => onChange(e.target.value)}
