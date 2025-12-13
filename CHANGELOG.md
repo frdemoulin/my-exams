@@ -1,3 +1,9 @@
+## <small>1.1.1 (2025-12-13)</small>
+
+* Merge pull request #5 from frdemoulin/feature/analytics ([4d0544f](https://github.com/frdemoulin/my-exams/commit/4d0544f)), closes [#5](https://github.com/frdemoulin/my-exams/issues/5)
+* Merge pull request #6 from frdemoulin/dev ([2fb6dd1](https://github.com/frdemoulin/my-exams/commit/2fb6dd1)), closes [#6](https://github.com/frdemoulin/my-exams/issues/6)
+* fix: correction d'un typage ([5c566b8](https://github.com/frdemoulin/my-exams/commit/5c566b8))
+
 ## 1.1.0 (2025-12-13)
 
 * Merge pull request #1 from frdemoulin/feature/analytics ([4855b47](https://github.com/frdemoulin/my-exams/commit/4855b47)), closes [#1](https://github.com/frdemoulin/my-exams/issues/1)
