@@ -1,3 +1,20 @@
+## 1.1.0 (2025-12-13)
+
+* Merge pull request #1 from frdemoulin/feature/analytics ([4855b47](https://github.com/frdemoulin/my-exams/commit/4855b47)), closes [#1](https://github.com/frdemoulin/my-exams/issues/1)
+* Merge pull request #2 from frdemoulin/dev ([c3318ae](https://github.com/frdemoulin/my-exams/commit/c3318ae)), closes [#2](https://github.com/frdemoulin/my-exams/issues/2)
+* Merge pull request #3 from frdemoulin/feature/analytics ([b8b0913](https://github.com/frdemoulin/my-exams/commit/b8b0913)), closes [#3](https://github.com/frdemoulin/my-exams/issues/3)
+* Merge pull request #36 from frdemoulin/feature/test-implementation ([f3272a8](https://github.com/frdemoulin/my-exams/commit/f3272a8)), closes [#36](https://github.com/frdemoulin/my-exams/issues/36)
+* Merge pull request #37 from frdemoulin/dev ([fa4b62d](https://github.com/frdemoulin/my-exams/commit/fa4b62d)), closes [#37](https://github.com/frdemoulin/my-exams/issues/37)
+* Merge pull request #38 from freddmn/feature/analytics ([03a18de](https://github.com/frdemoulin/my-exams/commit/03a18de)), closes [#38](https://github.com/frdemoulin/my-exams/issues/38)
+* Merge pull request #39 from freddmn/dev ([308a021](https://github.com/frdemoulin/my-exams/commit/308a021)), closes [#39](https://github.com/frdemoulin/my-exams/issues/39)
+* Merge pull request #4 from frdemoulin/dev ([c8e450d](https://github.com/frdemoulin/my-exams/commit/c8e450d)), closes [#4](https://github.com/frdemoulin/my-exams/issues/4)
+* fix: ajout d'une doc SSR/SSG/ISR ([ce3a935](https://github.com/frdemoulin/my-exams/commit/ce3a935))
+* fix: correction d'un typage ([c319ea7](https://github.com/frdemoulin/my-exams/commit/c319ea7))
+* feat: mise en place d'une section statistique dans le backoffice ([ef70fa5](https://github.com/frdemoulin/my-exams/commit/ef70fa5))
+* test: amélioration des smoke tests ([9983711](https://github.com/frdemoulin/my-exams/commit/9983711))
+* test: implémentation de smoke tests ([2516722](https://github.com/frdemoulin/my-exams/commit/2516722))
+* test: mise à jour des smoke tests ([fba4072](https://github.com/frdemoulin/my-exams/commit/fba4072))
+
 ## <small>1.0.6 (2025-12-11)</small>
 
 * Merge pull request #34 from frdemoulin/feature/design ([93a4ae0](https://github.com/frdemoulin/my-exams/commit/93a4ae0)), closes [#34](https://github.com/frdemoulin/my-exams/issues/34)
