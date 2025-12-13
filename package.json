@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && opennextjs-cloudflare build --skipNextBuild --skipWranglerConfigCheck",
     "start": "next start",
+    "build:next": "next build",
     "lint": "eslint . --max-warnings=0",
     "prisma:test": "ts-node scripts/test-prisma.ts",
     "db:seed": "ts-node prisma/seed.ts",
@@ -69,6 +70,7 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@faker-js/faker": "^10.1.0",
+    "@opennextjs/cloudflare": "^1.14.6",
     "@playwright/test": "^1.56.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
@@ -91,7 +93,8 @@
     "semantic-release": "^25.0.2",
     "tailwindcss": "^4.1.17",
     "ts-node": "^10.9.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.54.0"
   },
   "overrides": {
     "eslint-plugin-react-hooks": "6.0.0"
