@@ -62,7 +62,7 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                         divisionId: examPaper.divisionId,
                         gradeId: examPaper.gradeId,
                         teachingId: examPaper.teachingId,
-                        curriculumId: examPaper.curriculumId || undefined,
+                        curriculumId: examPaper.curriculumId || "",
                         examinationCenterIds: examPaper.examinationCenterIds,
                         chapterIds: examPaper.chapterIds,
                         themeIds: examPaper.themeIds,

@@ -33,7 +33,7 @@ interface ExamPaperFormProps {
         divisionId?: string | null;
         gradeId: string;
         teachingId: string;
-        curriculumId: string;
+        curriculumId?: string;
         examinationCenterIds?: string[];
         chapterIds?: string[];
         themeIds?: string[];
