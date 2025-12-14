@@ -1,3 +1,8 @@
+## <small>1.1.16 (2025-12-14)</small>
+
+* Merge pull request #23 from frdemoulin/dev ([6af2186](https://github.com/frdemoulin/my-exams/commit/6af2186)), closes [#23](https://github.com/frdemoulin/my-exams/issues/23)
+* fix: rajout du standalone ([0278b63](https://github.com/frdemoulin/my-exams/commit/0278b63))
+
 ## <small>1.1.15 (2025-12-14)</small>
 
 * Merge pull request #22 from frdemoulin/dev ([1911f86](https://github.com/frdemoulin/my-exams/commit/1911f86)), closes [#22](https://github.com/frdemoulin/my-exams/issues/22)
