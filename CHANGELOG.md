@@ -1,3 +1,8 @@
+## <small>1.1.12 (2025-12-14)</small>
+
+* Merge pull request #19 from frdemoulin/dev ([b41af1f](https://github.com/frdemoulin/my-exams/commit/b41af1f)), closes [#19](https://github.com/frdemoulin/my-exams/issues/19)
+* fix: paramétrage du proxy en runtime Edge ([1f33bf4](https://github.com/frdemoulin/my-exams/commit/1f33bf4))
+
 ## <small>1.1.11 (2025-12-14)</small>
 
 * Merge pull request #18 from frdemoulin/dev ([118c0f3](https://github.com/frdemoulin/my-exams/commit/118c0f3)), closes [#18](https://github.com/frdemoulin/my-exams/issues/18)
