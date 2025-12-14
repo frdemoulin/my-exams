@@ -1,3 +1,8 @@
+## <small>1.1.11 (2025-12-14)</small>
+
+* Merge pull request #18 from frdemoulin/dev ([118c0f3](https://github.com/frdemoulin/my-exams/commit/118c0f3)), closes [#18](https://github.com/frdemoulin/my-exams/issues/18)
+* fix: debug du proxy ([dd75543](https://github.com/frdemoulin/my-exams/commit/dd75543))
+
 ## <small>1.1.10 (2025-12-14)</small>
 
 * Merge pull request #17 from frdemoulin/dev ([62052dd](https://github.com/frdemoulin/my-exams/commit/62052dd)), closes [#17](https://github.com/frdemoulin/my-exams/issues/17)
