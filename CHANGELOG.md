@@ -1,3 +1,8 @@
+## <small>1.1.9 (2025-12-14)</small>
+
+* Merge pull request #16 from frdemoulin/dev ([9de9a44](https://github.com/frdemoulin/my-exams/commit/9de9a44)), closes [#16](https://github.com/frdemoulin/my-exams/issues/16)
+* fix: configuration du déploiement dans Cloudflare ([5811553](https://github.com/frdemoulin/my-exams/commit/5811553))
+
 ## <small>1.1.8 (2025-12-13)</small>
 
 * Merge pull request #15 from frdemoulin/dev ([9597cb9](https://github.com/frdemoulin/my-exams/commit/9597cb9)), closes [#15](https://github.com/frdemoulin/my-exams/issues/15)
