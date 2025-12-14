@@ -1,3 +1,8 @@
+## <small>1.1.14 (2025-12-14)</small>
+
+* Merge pull request #21 from frdemoulin/dev ([aadb73e](https://github.com/frdemoulin/my-exams/commit/aadb73e)), closes [#21](https://github.com/frdemoulin/my-exams/issues/21)
+* fix: gestion de next-auth comme dépendance hors dev ([9978dd5](https://github.com/frdemoulin/my-exams/commit/9978dd5))
+
 ## <small>1.1.13 (2025-12-14)</small>
 
 * Merge pull request #20 from frdemoulin/dev ([fdb4021](https://github.com/frdemoulin/my-exams/commit/fdb4021)), closes [#20](https://github.com/frdemoulin/my-exams/issues/20)
