@@ -1,3 +1,8 @@
+## <small>1.1.10 (2025-12-14)</small>
+
+* Merge pull request #17 from frdemoulin/dev ([62052dd](https://github.com/frdemoulin/my-exams/commit/62052dd)), closes [#17](https://github.com/frdemoulin/my-exams/issues/17)
+* fix: mise à jour du wrangler.jsonc ([470226d](https://github.com/frdemoulin/my-exams/commit/470226d))
+
 ## <small>1.1.9 (2025-12-14)</small>
 
 * Merge pull request #16 from frdemoulin/dev ([9de9a44](https://github.com/frdemoulin/my-exams/commit/9de9a44)), closes [#16](https://github.com/frdemoulin/my-exams/issues/16)
