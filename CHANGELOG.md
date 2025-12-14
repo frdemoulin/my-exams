@@ -1,3 +1,8 @@
+## <small>1.1.13 (2025-12-14)</small>
+
+* Merge pull request #20 from frdemoulin/dev ([fdb4021](https://github.com/frdemoulin/my-exams/commit/fdb4021)), closes [#20](https://github.com/frdemoulin/my-exams/issues/20)
+* fix: nettoyage des mentions à Cloudflare ([948e0e3](https://github.com/frdemoulin/my-exams/commit/948e0e3))
+
 ## <small>1.1.12 (2025-12-14)</small>
 
 * Merge pull request #19 from frdemoulin/dev ([b41af1f](https://github.com/frdemoulin/my-exams/commit/b41af1f)), closes [#19](https://github.com/frdemoulin/my-exams/issues/19)
