@@ -3,6 +3,9 @@ import { NextRequest } from "next/server";
 
 import { routing } from "./i18n/routing";
 
+// Force Edge runtime for Cloudflare (Node middleware non supporté)
+export const runtime = "edge";
+
 const intlMiddleware = createIntlMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
@@ -18,4 +21,3 @@ export const config = {
   // - /favicon.ico, /robots.txt (static files)
   matcher: ["/", "/(fr|en)/:path*", "/((?!api|_next|_vercel|static|favicon.ico|robots.txt).*)"],
 };
-
