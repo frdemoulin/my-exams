@@ -8,8 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && opennextjs-cloudflare build --skipNextBuild --skipWranglerConfigCheck",
-    "check:worker-size": "node -e \"const fs=require('fs');const z=require('zlib');const b=fs.readFileSync('.open-next/worker.js');const gz=z.gzipSync(b);console.log('worker.js bytes:',b.length);console.log('gzip bytes:',gz.length);console.log('gzip KiB:',(gz.length/1024).toFixed(2));console.log('limit KiB:',(3*1024).toFixed(2)); process.exit(gz.length>3*1024*1024?1:0)\"",
+    "build": "next build",
     "start": "next start",
     "build:next": "next build",
     "lint": "eslint . --max-warnings=0",
@@ -72,7 +71,6 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@faker-js/faker": "^10.1.0",
-    "@opennextjs/cloudflare": "^1.14.6",
     "@playwright/test": "^1.56.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
@@ -87,6 +85,7 @@
     "dotenv": "^17.2.3",
     "eslint": "^9",
     "eslint-config-next": "^16.0.7",
+    "eslint-plugin-react-hooks": "6.0.0-rc.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "next-auth": "^5.0.0-beta.30",
@@ -95,10 +94,9 @@
     "semantic-release": "^25.0.2",
     "tailwindcss": "^4.1.17",
     "ts-node": "^10.9.2",
-    "typescript": "^5",
-    "wrangler": "^4.54.0"
+    "typescript": "^5"
   },
   "overrides": {
-    "eslint-plugin-react-hooks": "6.0.0"
+    "eslint-plugin-react-hooks": "6.0.0-rc.1"
   }
 }
