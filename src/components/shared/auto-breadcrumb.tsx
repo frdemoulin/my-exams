@@ -69,6 +69,7 @@ export function AutoBreadcrumb() {
     'curriculums': 'Programmes',
     'examination-centers': 'Centres d\'examen',
     'users': 'Utilisateurs',
+    'stats': 'Statistiques de contenu',
     'add': 'Ajouter',
     'edit': 'Modifier',
     'split': 'Découpage',

@@ -172,10 +172,10 @@ brew install mongosh
 mongosh
 
 # Se connecter avec une URI spécifique
-mongosh "mongodb://localhost:27017"
+mongosh "<URI_MONGODB_LOCALE>"
 
 # Se connecter à MongoDB Atlas
-mongosh "mongodb+srv://username:password@cluster.mongodb.net/dbname"
+mongosh "<URI_MONGODB_ATLAS>"
 ```
 
 ### Commandes de base
@@ -231,7 +231,7 @@ brew install --cask mongodb-compass
 
 **Connexion :**
 1. Ouvrir MongoDB Compass
-2. URI de connexion : `mongodb://localhost:27017`
+2. URI de connexion : `<URI_MONGODB_LOCALE>`
 3. Cliquer sur "Connect"
 
 ### Studio 3T (gratuit/payant)
@@ -286,13 +286,13 @@ db.getUsers()
 
 ```bash
 # Local sans authentification
-DATABASE_URL="mongodb://localhost:27017/my-exams"
+DATABASE_URL="<URI_MONGODB_DEV>"
 
 # Local avec authentification
-DATABASE_URL="mongodb://myexams_user:votre_mot_de_passe_securise@localhost:27017/my-exams"
+DATABASE_URL="<URI_MONGODB_DEV_AUTH>"
 
 # MongoDB Atlas (cloud)
-DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/my-exams?retryWrites=true&w=majority"
+DATABASE_URL="<URI_MONGODB_ATLAS>"
 ```
 
 ## Configuration Prisma
@@ -367,7 +367,7 @@ mongoimport --db=my-exams --collection=users --file=users.json --jsonArray
    - **Database Access** : Créer un utilisateur avec mot de passe
 5. Récupérer l'URI de connexion :
    ```
-   mongodb+srv://<username>:<password>@cluster.mongodb.net/my-exams
+   <URI_MONGODB_ATLAS>
    ```
 
 ### Avantages d'Atlas

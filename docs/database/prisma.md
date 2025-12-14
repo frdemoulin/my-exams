@@ -211,27 +211,24 @@ await prisma.subject.findUnique({ where: { id: subject.id }, include: { topics: 
 ## 11. Nettoyage / Maintenance
 Supprimer des documents obsolètes :
 ```bash
-mongosh my-exams --eval 'db.Diploma.deleteMany({ longDescription: { $regex: /MOD/ } })'
+mongosh <NOM_DE_LA_BASE> --eval 'db.Diploma.deleteMany({ longDescription: { $regex: /MOD/ } })'
 ```
 Supprimer un champ sur tous les documents :
 ```bash
-mongosh my-exams --eval 'db.User.updateMany({}, { $unset: { legacyField: "" } })'
+mongosh <NOM_DE_LA_BASE> --eval 'db.User.updateMany({}, { $unset: { legacyField: "" } })'
 ```
 Exporter un snapshot avant changement :
 ```bash
-mongodump --db=my-exams --out=./backup_$(date +%F)
+mongodump --db=<NOM_DE_LA_BASE> --out=./backup_$(date +%F)
 ```
 
 ---
 ## 12. Variables d’environnement
-`DATABASE_URL` (local) exemplaire :
-```
-mongodb://root:<motdepasse>@localhost:27017/my-exams
-```
-En production (Atlas) :
-```
-mongodb+srv://user:pass@cluster-id.mongodb.net/my-exams?retryWrites=true&w=majority
-```
+`DATABASE_URL` : URI de connexion MongoDB (dev ou prod).
+
+- En dev : une URI pointant vers ta base locale.
+- En prod : l’URI MongoDB Atlas fournie par Atlas (elle doit inclure le nom de la base, chemin `/<db>`).
+
 Après modification de `DATABASE_URL` : redémarrer l’app + régénérer le client si nécessaire.
 
 ### 12.1 Chargement `.env` vs `.env.local`
@@ -242,11 +239,11 @@ Après modification de `DATABASE_URL` : redémarrer l’app + régénérer le cl
 #### Solutions
 1. Créer un fichier `.env` contenant la même variable :
 ```
-DATABASE_URL="mongodb://root:<motdepasse>@localhost:27017/my-exams"
+DATABASE_URL="<URI_MONGODB_DEV>"
 ```
 2. Exporter manuellement avant la commande :
 ```bash
-export DATABASE_URL="mongodb://root:<motdepasse>@localhost:27017/my-exams"
+export DATABASE_URL="<URI_MONGODB_DEV>"
 npx prisma db push
 ```
 3. Utiliser `dotenv-cli` :

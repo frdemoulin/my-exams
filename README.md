@@ -37,7 +37,7 @@ Créer un fichier `.env.local` à la racine :
 
 ```bash
 # Base de données MongoDB
-DATABASE_URL="mongodb://root:votre_mot_de_passe@localhost:27017/my-exams"
+DATABASE_URL="<URI_MONGODB_DEV>"
 
 # Auth.js secret (OBLIGATOIRE)
 # Générer avec: openssl rand -base64 32
@@ -118,7 +118,7 @@ Sur votre hébergeur (Vercel, Netlify, etc.), définir :
 
 ```bash
 # MongoDB (Atlas recommandé en production)
-DATABASE_URL="mongodb+srv://user:password@cluster.mongodb.net/my-exams"
+DATABASE_URL="<URI_MONGODB_ATLAS>"
 
 # Auth.js secret (NOUVEAU POUR LA PROD, ne pas réutiliser celui de dev)
 AUTH_SECRET="generer_un_nouveau_secret_avec_openssl"
@@ -152,7 +152,7 @@ brew services start mongodb-community@8.0
 brew services stop mongodb-community@8.0
 
 # Se connecter via mongosh
-mongosh "mongodb://root:password@localhost:27017/my-exams"
+mongosh "<URI_MONGODB>"
 ```
 
 ## Ressources

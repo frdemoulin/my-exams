@@ -14,7 +14,7 @@ Ce document explique comment peupler la base (dev ou prod) avec des données coh
 1) Dans `.env.local` (dev) :
 
 ```bash
-DATABASE_URL="mongodb://root:***@localhost:27017/my-exams"
+DATABASE_URL="<URI_MONGODB_DEV>"
 ```
 
 2) Lancer le seed :
@@ -33,7 +33,7 @@ Dans `.env.production.local` (non commité) :
 
 ```bash
 # ⚠️ Important : Prisma (MongoDB) a besoin du nom de base dans l’URI : `...mongodb.net/<db>?...`
-DATABASE_URL_PROD="mongodb+srv://USER:PASSWORD@cluster.mongodb.net/my-exams?retryWrites=true&w=majority"
+DATABASE_URL_PROD="<URI_MONGODB_ATLAS_AVEC_DB>"
 ```
 
 ### 2) Lancer le seed prod

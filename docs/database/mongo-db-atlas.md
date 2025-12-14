@@ -13,4 +13,5 @@ Menu Security > Database & Network access, bouton "Add new database user"
 
 ## Chaîne de connexion
 
-- MongoDB avec Prisma : `DATABASE_URL="mongodb+srv://<USERNAME>:<MDP>@cluster0.abcde.mongodb.net/<NOM_DE_LA_BASE>?retryWrites=true&w=majority&appName=Cluster0"`
+- MongoDB avec Prisma : définir `DATABASE_URL` avec l’URI MongoDB Atlas fournie par Atlas.
+- Important : l’URI doit inclure le nom de la base (chemin `/<NOM_DE_LA_BASE>`), sinon Prisma échoue.

@@ -96,7 +96,7 @@ export const Sidebar = () => {
       title: 'Statistiques',
       list: [
         {
-          title: "Statistiques d'usage",
+          title: "Statistiques de contenu",
           path: '/admin/stats',
           icon: <FaBarsProgress className="mr-3" size={16} />
         },
