@@ -15,6 +15,8 @@
 
 # production
 /build
+# `.env.production.local` est déjà couvert par `.env*` ci-dessous (on le laisse mentionné ici si tu veux le garder visible)
+.env.production.local
 
 # misc
 .DS_Store

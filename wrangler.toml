@@ -1,0 +1,6 @@
+name = "my-exams"
+main = ".open-next/worker.js"
+compatibility_date = "2025-12-14"
+
+workers_dev = true
+preview_urls = true
