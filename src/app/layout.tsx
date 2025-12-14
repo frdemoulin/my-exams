@@ -6,7 +6,7 @@ import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
 import NextTopLoader from 'nextjs-toploader';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getLocale, getMessages } from 'next-intl/server';
 import "./globals.css";
 
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
@@ -31,10 +31,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
   const messages = await getMessages();
 
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-background text-foreground`} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           {/* Récupère la session côté client après le chargement des pages */}

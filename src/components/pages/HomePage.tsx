@@ -332,10 +332,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           </div>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            {(session?.user) && (
-              <a href="/admin" className="hover:text-foreground">
+            {session?.user && (
+              <Link href="/admin" className="hover:text-foreground">
                 Administration
-              </a>
+              </Link>
             )}
             <ThemeToggle />
             {!session?.user && (
@@ -362,9 +362,9 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
           </nav>
           <div className="flex items-center gap-3 md:hidden">
             {session?.user && (
-              <a href="/admin" className="text-sm font-semibold text-fg-brand hover:text-heading">
+              <Link href="/admin" className="text-sm font-semibold text-fg-brand hover:text-heading">
                 Admin
-              </a>
+              </Link>
             )}
             <ThemeToggle />
             {session?.user ? (

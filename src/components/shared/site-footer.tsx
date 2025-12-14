@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import packageInfo from '../../../package.json';
 
 type SiteFooterProps = {
@@ -21,12 +22,12 @@ export function SiteFooter({ className = '' }: SiteFooterProps) {
         <div className="flex items-center gap-4">
           <span className="text-[11px]">Version v{appVersion}</span>
           <div className="flex gap-4">
-            <a href="/mentions-legales" className="hover:text-foreground">
+            <Link href="/mentions-legales" className="hover:text-foreground">
               Mentions légales
-            </a>
-            <a href="/contact" className="hover:text-foreground">
+            </Link>
+            <Link href="/contact" className="hover:text-foreground">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>
