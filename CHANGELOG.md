@@ -1,3 +1,9 @@
+## <small>1.1.15 (2025-12-14)</small>
+
+* Merge pull request #22 from frdemoulin/dev ([1911f86](https://github.com/frdemoulin/my-exams/commit/1911f86)), closes [#22](https://github.com/frdemoulin/my-exams/issues/22)
+* fix: gestion des dépendances pour build Render ([ef89359](https://github.com/frdemoulin/my-exams/commit/ef89359))
+* fix: suppression du standalone ([3554f03](https://github.com/frdemoulin/my-exams/commit/3554f03))
+
 ## <small>1.1.14 (2025-12-14)</small>
 
 * Merge pull request #21 from frdemoulin/dev ([aadb73e](https://github.com/frdemoulin/my-exams/commit/aadb73e)), closes [#21](https://github.com/frdemoulin/my-exams/issues/21)
