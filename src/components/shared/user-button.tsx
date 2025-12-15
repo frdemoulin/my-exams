@@ -44,7 +44,7 @@ export default function UserButton({ user }: UserButtonProps) {
                         </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-fg-danger hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
-                        <button onClick={() => signOut()} className="flex w-full items-center gap-2">
+                        <button onClick={() => signOut({ callbackUrl: "/" })} className="flex w-full items-center gap-2">
                             <LogOut className="h-4 w-4" /> Se déconnecter
                         </button>
                     </DropdownMenuItem>
