@@ -1,3 +1,8 @@
+## <small>1.1.18 (2025-12-15)</small>
+
+* Merge pull request #25 from frdemoulin/dev ([b5597dc](https://github.com/frdemoulin/my-exams/commit/b5597dc)), closes [#25](https://github.com/frdemoulin/my-exams/issues/25)
+* fix: gestion des commandes pour mise à jour du schéma MongoDB ([2b0d282](https://github.com/frdemoulin/my-exams/commit/2b0d282))
+
 ## <small>1.1.17 (2025-12-15)</small>
 
 * Merge pull request #24 from frdemoulin/dev ([3c718fc](https://github.com/frdemoulin/my-exams/commit/3c718fc)), closes [#24](https://github.com/frdemoulin/my-exams/issues/24)
