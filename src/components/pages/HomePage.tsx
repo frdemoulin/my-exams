@@ -29,6 +29,7 @@ import { SiteFooter } from '@/components/shared/site-footer';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { useSession } from 'next-auth/react';
+import { APP_NAME } from '@/config/app';
 
 // Types importés depuis @/core/exercise
 
@@ -323,7 +324,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
             </div>
             <div className="flex flex-col">
               <span className="font-semibold tracking-tight">
-                My exams
+                {APP_NAME}
               </span>
               <span className="text-xs text-muted-foreground">
                 Annales d&apos;examens, gratuites et triées.
