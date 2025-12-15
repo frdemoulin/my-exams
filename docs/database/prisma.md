@@ -2,7 +2,9 @@
 
 Ce document explique comment Prisma fonctionne avec MongoDB dans **my-exams**, comment appliquer les changements de schéma, tester, vérifier les index et bonnes pratiques (développement / production).
 
-> Voir aussi: `docs/prisma-composite-uniques.md` pour une explication détaillée des clés uniques composites et de la notation `longDescription_shortDescription` utilisée dans les requêtes Prisma (upsert, findUnique, etc.).
+> Voir aussi:
+> - `docs/database/dev-prod.md` (workflow DEV/PROD, Render, scripts à lancer)
+> - `docs/prisma-composite-uniques.md` (détails sur les uniques composites et la notation `longDescription_shortDescription`)
 
 ---
 ## 1. Principe général avec MongoDB
@@ -45,7 +47,7 @@ npx prisma validate
 # Formater le schéma (indentation, ordre des champs)
 npx prisma format
 
-# Synchroniser le schéma (création des index uniques, validations) – DEV uniquement
+# Synchroniser le schéma (création / MAJ des index uniques, validations)
 npx prisma db push
 
 # Ouvrir Prisma Studio (interface web de gestion des données)
@@ -74,7 +76,8 @@ npx prisma studio
 **`npx prisma db push`**
 - Synchronise le schéma avec la base de données MongoDB
 - Crée/met à jour les index uniques et contraintes
-- **DEV uniquement** - ne pas utiliser en production sans tests
+- À utiliser en dev/staging, et en production via un **Pre-deploy command** (Render) après tests
+- En cas de changement destructif, Prisma peut demander `--accept-data-loss` (à n'utiliser que si tu assumes l'impact)
 
 **`npx prisma studio`**
 - Lance une interface web sur http://localhost:5555
@@ -289,6 +292,41 @@ R: Pas automatiquement. Sauvegarde avant les changements critiques (mongodump).
 - [ ] Route santé renvoie `{ ok: true }`.
 - [ ] Documentation mise à jour (`docs/database/prisma.md`).
 - [ ] Sauvegarde effectuée si changement destructif.
+
+---
+## 16. Migrations applicatives (data)
+
+Pour les évolutions non-triviales (renommage de champ, backfill, normalisation), on versionne des migrations **data** dans :
+- `scripts/migrations/*.ts`
+
+Ces migrations sont exécutées par le runner :
+- `npm run db:migrate`
+
+Le runner trace l'état dans la collection Mongo `migrations` (modèle Prisma `DbMigration`) :
+- `RUNNING` pendant l'exécution
+- `APPLIED` si OK
+- `FAILED` si erreur (stack tronquée)
+
+Commandes :
+```bash
+# Affiche ce qui serait exécuté (aucune écriture)
+npm run db:migrate -- --dry-run
+
+# Affiche l'état côté DB
+npm run db:migrate -- --status
+```
+
+Règles :
+- Ne modifie pas une migration déjà `APPLIED` (checksum différent → erreur). Crée une nouvelle migration.
+- Les migrations doivent être **idempotentes** (safe à relancer).
+
+### Déploiement (Render)
+
+Sur Render, tu peux exécuter ça en **Pre-deploy command** :
+```bash
+# Applique les index/uniques Prisma puis exécute les migrations data
+CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
+```
 
 ---
 Fin du guide Prisma.

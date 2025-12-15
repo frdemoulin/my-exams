@@ -72,15 +72,14 @@ npx prisma db push
 # Ouvrir Prisma Studio (interface graphique)
 npx prisma studio
 
-# Créer une migration
-npx prisma migrate dev --name <nom-migration>
-
-# Appliquer les migrations en production
-npx prisma migrate deploy
+# ⚠️ MongoDB : Prisma ne gère pas de migrations SQL (`prisma migrate`).
+# - Évolution de schéma (index/uniques) : `npx prisma db push` (ou `npm run db:push`)
+# - Évolution de données (backfill, renommage, normalisation) : `npm run db:migrate`
+# - Déploiement prod (Render pre-deploy) : `CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`
 
 # Seed de la base de données
 npm run db:seed         # Seed complet
-npm run db:seed:dev     # Seed développement
+npm run db:seed:prod    # Seed PROD (one-shot, avec garde-fous)
 npm run db:clear        # Vider la base
 npm run db:reset        # Clear + Seed
 
@@ -292,7 +291,9 @@ alias ll='ls -lah'
 # Prisma
 alias pg='npx prisma generate'
 alias ps='npx prisma studio'
-alias pm='npx prisma migrate dev'
+alias pp='npx prisma db push'
+alias dm='npm run db:migrate'
+alias dd='npm run db:deploy'
 ```
 
 ### Raccourcis clavier terminal
