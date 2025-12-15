@@ -1,3 +1,8 @@
+## <small>1.1.20 (2025-12-15)</small>
+
+* Merge pull request #27 from frdemoulin/dev ([7d1efd5](https://github.com/frdemoulin/my-exams/commit/7d1efd5)), closes [#27](https://github.com/frdemoulin/my-exams/issues/27)
+* fix: correction de l'URL de redirection au logout ([1b3e570](https://github.com/frdemoulin/my-exams/commit/1b3e570))
+
 ## <small>1.1.19 (2025-12-15)</small>
 
 * Merge pull request #26 from frdemoulin/dev ([ce7782e](https://github.com/frdemoulin/my-exams/commit/ce7782e)), closes [#26](https://github.com/frdemoulin/my-exams/issues/26)
