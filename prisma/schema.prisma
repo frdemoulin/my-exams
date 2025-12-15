@@ -159,16 +159,16 @@ model ExamPaper {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   // Métadonnées administratives
-  label        String  // ex : "Métropole juin 2024 Jour 1"
-  sessionYear  Int     // ex : 2024 (année scolaire de la session)
-  sessionDay   String? // ex : "Jour 1", "Jour 2", "Sujet A", optionnel
-  source       ExamPaperSource @default(OFFICIEL)
-  sourceUrl    String? // URL de la source si disponible (APMEP, Labolycee, etc.)
-  
+  label       String // ex : "Métropole juin 2024 Jour 1"
+  sessionYear Int // ex : 2024 (année scolaire de la session)
+  sessionDay  String? // ex : "Jour 1", "Jour 2", "Sujet A", optionnel
+  source      ExamPaperSource @default(OFFICIEL)
+  sourceUrl   String? // URL de la source si disponible (APMEP, Labolycee, etc.)
+
   // Date réelle de l'examen
-  examDay   Int?      // Jour de l'examen (1-31), optionnel
-  examMonth Int?      // Mois de l'examen (1-12), optionnel
-  examYear  Int?      // Année de l'examen, optionnel
+  examDay   Int? // Jour de l'examen (1-31), optionnel
+  examMonth Int? // Mois de l'examen (1-12), optionnel
+  examYear  Int? // Année de l'examen, optionnel
 
   // Références pédagogiques (hiérarchie complète)
   diplomaId String  @db.ObjectId
@@ -189,7 +189,7 @@ model ExamPaper {
   curriculum   Curriculum? @relation(fields: [curriculumId], references: [id])
 
   // Centres d'examen (many-to-many via array d'IDs)
-  examinationCenterIds String[] @db.ObjectId @default([])
+  examinationCenterIds String[] @default([]) @db.ObjectId
 
   // URLs du sujet complet
   subjectUrl String? // URL du PDF complet
@@ -200,8 +200,8 @@ model ExamPaper {
 
   // DEPRECATED: Métadonnées déplacées au niveau Exercise
   // Ces champs restent pour compatibilité mais ne sont plus utilisés
-  chapterIds          String[]  @db.ObjectId @default([]) /// @deprecated Utiliser Exercise.themeIds
-  themeIds            String[]  @db.ObjectId @default([]) /// @deprecated Utiliser Exercise.themeIds
+  chapterIds          String[]  @default([]) @db.ObjectId /// @deprecated Utiliser Exercise.themeIds
+  themeIds            String[]  @default([]) @db.ObjectId /// @deprecated Utiliser Exercise.themeIds
   correctionUrl       String? /// @deprecated Utiliser Correction ou ExerciseCorrection
   estimatedDuration   Int? /// @deprecated Utiliser Exercise.estimatedDuration
   estimatedDifficulty Int? /// @deprecated Utiliser Exercise.estimatedDifficulty
@@ -210,7 +210,7 @@ model ExamPaper {
   enrichedAt          DateTime? /// @deprecated Utiliser Exercise.enrichedAt
 
   // Relations
-  exercises   Exercise[]   // Les exercices contenus dans ce sujet
+  exercises   Exercise[] // Les exercices contenus dans ce sujet
   corrections Correction[] // Corrections globales (optionnel)
 
   createdAt DateTime @default(now())
@@ -235,26 +235,26 @@ model Exercise {
   examPaper   ExamPaper @relation(fields: [examPaperId], references: [id], onDelete: Cascade)
 
   // Position dans le sujet
-  exerciseNumber Int     // 1, 2, 3...
+  exerciseNumber Int // 1, 2, 3...
   label          String? // "Exercice 3", "Partie A", "Question de synthèse"
-  points         Int?    // Points attribués à cet exercice
+  points         Int? // Points attribués à cet exercice
 
   // Titre et énoncé (pour recherche full-text future)
   title     String? // ex: "Titrage acide-base d'un vinaigre"
   statement String? @db.String // Énoncé complet (extrait via OCR)
 
   // Tagging pédagogique précis (au niveau exercice)
-  themeIds String[] @db.ObjectId @default([]) // Thèmes couverts dans CET exercice
+  themeIds String[] @default([]) @db.ObjectId // Thèmes couverts dans CET exercice
 
   // URLs spécifiques (optionnel si découpage des PDFs)
   exerciseUrl   String? // URL de l'exercice isolé
   correctionUrl String? // URL de la correction isolée
 
   // Métadonnées enrichies (via IA)
-  estimatedDuration   Int?      // Durée estimée en minutes pour CET exercice
-  estimatedDifficulty Int?      // Difficulté 1-5
-  summary             String?   // Résumé automatique de l'exercice
-  keywords            String[]  @default([]) // Mots-clés extraits automatiquement
+  estimatedDuration   Int? // Durée estimée en minutes pour CET exercice
+  estimatedDifficulty Int? // Difficulté 1-5
+  summary             String? // Résumé automatique de l'exercice
+  keywords            String[] @default([]) // Mots-clés extraits automatiquement
 
   // Statut d'enrichissement
   enrichmentStatus String    @default("pending") // "pending" | "completed" | "failed"
@@ -281,7 +281,7 @@ model ExerciseCorrection {
   type   String @default("pdf") // "pdf", "video", "html"
 
   // Métadonnées optionnelles
-  quality Int?    // Note de qualité 1-5
+  quality Int? // Note de qualité 1-5
   author  String? // Auteur si connu
 
   createdAt DateTime @default(now())
@@ -302,7 +302,7 @@ model Correction {
   type   String @default("pdf") // "pdf", "video", "html"
 
   // Métadonnées optionnelles
-  quality Int?    // note de qualité 1-5
+  quality Int? // note de qualité 1-5
   author  String? // auteur si connu
 
   createdAt DateTime @default(now())
@@ -388,4 +388,25 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+enum DbMigrationStatus {
+  RUNNING
+  APPLIED
+  FAILED
+}
+
+model DbMigration {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  // Identifiant stable de migration (souvent basé sur le nom de fichier)
+  name     String            @unique
+  checksum String
+  status   DbMigrationStatus @default(RUNNING)
+
+  startedAt  DateTime  @default(now())
+  finishedAt DateTime?
+  error      String?
+
+  @@map("migrations")
 }

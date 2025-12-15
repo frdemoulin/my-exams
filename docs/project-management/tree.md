@@ -51,7 +51,8 @@ my-exams/
 │
 ├── 📂 scripts/                        # 🔧 Scripts utilitaires
 │   ├── clear-database.ts              #    Nettoyer la base de données
-│   ├── seed-dev.ts                    #    Seed pour environnement de développement
+│   ├── seed-prod.ts                   #    Seed PROD (Atlas) avec garde-fous
+│   ├── db-migrate.ts                  #    Migrations applicatives (data) versionnées
 │   └── test-prisma.ts                 #    Tester la connexion Prisma
 │
 └── 📂 src/                            # 💻 Code source principal

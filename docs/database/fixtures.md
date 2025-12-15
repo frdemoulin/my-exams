@@ -2,6 +2,8 @@
 
 Ce document explique comment peupler la base (dev ou prod) avec des données cohérentes via Prisma.
 
+> Voir aussi: `docs/database/dev-prod.md` (workflow DEV/PROD, Render, scripts à lancer).
+
 ## Structure
 
 - `prisma/seed.ts` : point d’entrée Prisma (`prisma db seed`)
@@ -64,3 +66,16 @@ npm run db:clear
 ```
 
 ⚠️ Destructif : ne pas utiliser sur la prod.
+
+## Déploiement (prod) – schéma & migrations data
+
+En production, on distingue :
+- **Schéma / index** : `prisma db push` (création/MAJ des `@@unique`, `@@index`…)
+- **Données** : migrations applicatives versionnées (`scripts/migrations/*.ts`)
+
+Commande projet :
+```bash
+CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
+```
+
+Sur Render, cette commande est idéale en **Pre-deploy command** (après le build, avant la mise en ligne).
