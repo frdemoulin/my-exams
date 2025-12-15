@@ -1,3 +1,8 @@
+## <small>1.1.19 (2025-12-15)</small>
+
+* Merge pull request #26 from frdemoulin/dev ([ce7782e](https://github.com/frdemoulin/my-exams/commit/ce7782e)), closes [#26](https://github.com/frdemoulin/my-exams/issues/26)
+* fix: harmonisation du style du login ([005df35](https://github.com/frdemoulin/my-exams/commit/005df35))
+
 ## <small>1.1.18 (2025-12-15)</small>
 
 * Merge pull request #25 from frdemoulin/dev ([b5597dc](https://github.com/frdemoulin/my-exams/commit/b5597dc)), closes [#25](https://github.com/frdemoulin/my-exams/issues/25)
