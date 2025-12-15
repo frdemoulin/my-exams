@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import NextTopLoader from 'nextjs-toploader';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import { APP_DESCRIPTION, APP_NAME, APP_TITLE_TEMPLATE } from "@/config/app";
 import "./globals.css";
 
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
@@ -15,10 +16,10 @@ const umamiHost = process.env.NEXT_PUBLIC_UMAMI_HOST;
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | My exams",
-    default: "My exams",
+    template: APP_TITLE_TEMPLATE,
+    default: APP_NAME,
   },
-  description: "My exams",
+  description: APP_DESCRIPTION,
 };
 
 const inter = Inter({
