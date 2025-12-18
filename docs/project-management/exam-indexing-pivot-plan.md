@@ -269,20 +269,28 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 
 ---
 
-### ⏳ Phase 13 : Auth & SSO adaptés au public (À PLANIFIER)
-**Objectif** : Adapter l’authentification aux usages du public cible (réseaux sociaux pertinents).**
+### ⏳ Phase 13 : Auth & SSO (public ado FR) (À PLANIFIER)
+**Objectif** : Mettre en place une authentification V1 adaptée à un public France “fin collège / fin lycée”.**
 
 **Tâches** :
-- [ ] Identifier les SSO plébiscités par le public (ex. Google déjà présent, ajouter Apple, Instagram/Facebook, éventuellement Microsoft/Éducation).
-- [ ] Ajouter les providers NextAuth correspondants (config, secrets, règles de sécurité).
-- [ ] Harmoniser l’UX d’onboarding (boutons SSO, lien magique, email).
-- [ ] Mettre à jour la politique de confidentialité (collecte via SSO).
-- [ ] Tests d’intégration SSO (flux complet, gestion des erreurs, comptes liés).
+- [ ] **V1** : activer **Google + Microsoft (Entra ID) + Facebook + lien magique**.
+- [ ] Référence conformité/sécurité : `docs/technical-setup/authentification_par_lien_magique_doc_codex.md`.
+- [ ] Durcir la config prod (`AUTH_URL`/`NEXTAUTH_URL`, `AUTH_SECRET`/`NEXTAUTH_SECRET`, redirect URIs OAuth, cookies Secure/SameSite).
+- [ ] **Lien magique — parcours & UX** : formulaire email, message neutre anti-énumération (“Si un compte correspond…”), états de chargement/erreur, accessibilité.
+- [ ] **Lien magique — SMTP** : config SMTP (dev : Mailtrap ; prod : fournisseur SMTP), domaine/emails transactionnels, et vérification de délivrabilité (SPF/DKIM/DMARC).
+- [ ] **Lien magique — sécurité tokens** : durée de vie 10–15 min, usage unique, invalidation/rotation quand un nouveau lien est demandé, stockage hash (pas de token en clair).
+- [ ] **Lien magique — anti-abus** : rate limiting par IP + par email, cooldown de renvoi (ex: 60s), escalade CAPTCHA soft uniquement en cas d’abus.
+- [ ] **Lien magique — “just-in-time”** : décider et implémenter la règle (création de compte à la validation du lien vs “login only”), sans fuite d’existence de compte.
+- [ ] **Session** : rotation à chaque connexion, TTL raisonnable (ex: 7–30 jours), re-auth pour actions sensibles (phase suivante si besoin).
+- [ ] **Journalisation** : loguer demande/validation/échecs de lien magique (sans token en clair, sans PII excessive), politique de rétention.
+- [ ] Sécurité globale : règles de liaison de comptes (email linking), contrôle des rôles, durcissement headers.
+- [ ] Tests + doc : tests d’intégration (OAuth + lien magique) + smoke E2E minimal + doc de configuration (dev/prod).
+- [ ] **V2 (reporté)** : **Apple** (coût Apple Developer Program ≈ 99€/an).
 
 **Livrables** :
-- SSO élargi aux réseaux sociaux pertinents
-- UX d’onboarding homogène (SSO + lien magique)
-- Documentation et mentions légales mises à jour
+- Parcours d’auth stable en prod (V1 : Google + Microsoft + Facebook + lien magique)
+- Page login unifiée et cohérente (Flowbite tokens + a11y)
+- Documentation de config SSO et impact RGPD
 
 ---
 

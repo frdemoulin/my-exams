@@ -8,6 +8,7 @@ import NextTopLoader from 'nextjs-toploader';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { APP_DESCRIPTION, APP_NAME, APP_TITLE_TEMPLATE } from "@/config/app";
+import { ToastDisplay } from "@/components/shared/toast-display";
 import "./globals.css";
 
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
@@ -46,6 +47,7 @@ export default async function RootLayout({
                 className: "text-xs",
               }}
             />
+            <ToastDisplay />
             <NextTopLoader
               color="#3266BF"
               height={4}

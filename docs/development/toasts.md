@@ -50,10 +50,10 @@ Composant invisible qui :
 3. Affiche le toast avec `react-hot-toast`
 4. Se base sur le router pour détecter les changements de page
 
-**Intégration :** Placé dans le layout admin pour être disponible sur toutes les pages.
+**Intégration :** Placé dans le layout racine pour être disponible partout (public + admin).
 
 ```tsx
-// src/app/(admin)/layout.tsx
+// src/app/layout.tsx
 import { ToastDisplay } from "@/components/shared/toast-display";
 
 <ToastDisplay />
