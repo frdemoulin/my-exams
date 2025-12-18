@@ -135,6 +135,9 @@ Champs minimum :
 - `createdAt`
 - `lastLoginAt`
 - `status` (`active`, `pending`, `disabled`)
+- `roles` (`USER`, `ADMIN`) — **par défaut `USER`**, promotion explicite en `ADMIN` uniquement si besoin (backoffice).
+
+> Implémentation My Exams : pour promouvoir un compte en admin (dev/prod), utiliser le script `npm run user:role -- --email "<email>" --role ADMIN`.
 
 ---
 
@@ -217,4 +220,3 @@ Il permet :
 - l’usage unique
 - l’absence d’énumération
 - la sobriété des données collectées
-

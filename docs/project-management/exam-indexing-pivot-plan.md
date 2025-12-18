@@ -279,7 +279,7 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 - [ ] **Lien magique — parcours & UX** : formulaire email, message neutre anti-énumération (“Si un compte correspond…”), états de chargement/erreur, accessibilité.
 - [ ] **Lien magique — SMTP** : config SMTP (dev : Mailtrap ; prod : fournisseur SMTP), domaine/emails transactionnels, et vérification de délivrabilité (SPF/DKIM/DMARC).
 - [ ] **Lien magique — sécurité tokens** : durée de vie 10–15 min, usage unique, invalidation/rotation quand un nouveau lien est demandé, stockage hash (pas de token en clair).
-- [ ] **Lien magique — anti-abus** : rate limiting par IP + par email, cooldown de renvoi (ex: 60s), escalade CAPTCHA soft uniquement en cas d’abus.
+- [x] **Lien magique — anti-abus** : rate limiting par IP + par email, cooldown de renvoi (ex: 60s) — implémenté en mémoire (best effort, à durcir plus tard via store partagé).
 - [ ] **Lien magique — “just-in-time”** : décider et implémenter la règle (création de compte à la validation du lien vs “login only”), sans fuite d’existence de compte.
 - [ ] **Session** : rotation à chaque connexion, TTL raisonnable (ex: 7–30 jours), re-auth pour actions sensibles (phase suivante si besoin).
 - [ ] **Journalisation** : loguer demande/validation/échecs de lien magique (sans token en clair, sans PII excessive), politique de rétention.

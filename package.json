@@ -21,6 +21,7 @@
     "db:clear": "ts-node scripts/clear-database.ts",
     "db:reset": "npm run db:clear && npm run db:seed",
     "migrate:exercises": "ts-node scripts/migrate-to-exercises.ts",
+    "user:role": "tsx scripts/set-user-role.ts",
     "test:e2e": "playwright test",
     "prepare": "node -e \"process.env.CI ? process.exit(0) : require('child_process').execSync('husky', {stdio:'inherit'})\"",
     "semantic-release": "semantic-release"

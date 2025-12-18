@@ -1,8 +1,34 @@
 import { Navbar } from "./_components/navbar";
 import { Sidebar } from "./_components/sidebar";
 import { BreadcrumbWrapper } from "./_components/breadcrumb-wrapper";
+import { auth } from "@/lib/auth/auth";
+import { redirect } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = async ({
+    children,
+    params,
+}: {
+    children: React.ReactNode;
+    params: Promise<{ locale: string }>;
+}) => {
+    const session = await auth();
+    const { locale: rawLocale } = await params;
+    const locale = rawLocale ?? routing.defaultLocale;
+
+    const localePrefix = locale === routing.defaultLocale ? "" : `/${locale}`;
+    const loginPath = `${localePrefix}/log-in`;
+    const homePath = `${localePrefix}/`;
+
+    if (!session?.user) {
+        redirect(loginPath);
+    }
+
+    const role = (session.user as any).role;
+    if (role !== "ADMIN") {
+        redirect(homePath);
+    }
+
     return (
         <div className="h-full">
             <Navbar />

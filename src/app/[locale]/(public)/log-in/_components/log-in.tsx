@@ -7,6 +7,7 @@ import { AuthError } from "next-auth";
 import facebookIcon from "@/assets/images/facebook.svg";
 import googleIcon from "@/assets/images/google.svg";
 import { signIn, providerMap } from "@/lib/auth/auth";
+import { checkMagicLinkRateLimit } from "@/lib/auth/magic-link-rate-limit";
 import { setToastCookie } from "@/lib/toast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,13 @@ async function getMagicLinkRedirectPath() {
   } catch {
     return "/log-in/check-email";
   }
+}
+
+function getClientIp(headerList: Headers) {
+  const forwardedFor = headerList.get("x-forwarded-for");
+  if (forwardedFor) return forwardedFor.split(",")[0]?.trim() || null;
+
+  return headerList.get("x-real-ip") || headerList.get("cf-connecting-ip");
 }
 
 export async function LogIn() {
@@ -114,6 +122,7 @@ export async function LogIn() {
                   "use server";
                   const email = formData.get("email")?.toString().trim() ?? "";
                   const redirectTo = await getMagicLinkRedirectPath();
+                  const successMessage = "Si un compte correspond à cet email, un lien de connexion vient de t’être envoyé.";
 
                   if (!email) {
                     await setToastCookie("error", "Renseigne une adresse email.");
@@ -121,8 +130,17 @@ export async function LogIn() {
                   }
 
                   try {
+                    const headerList = await headers();
+                    const ip = getClientIp(headerList);
+                    const rateLimit = checkMagicLinkRateLimit({ email, ip });
+
+                    if (!rateLimit.allowed) {
+                      await setToastCookie("success", successMessage);
+                      redirect(redirectTo);
+                    }
+
                     await signIn("email", { email, redirect: false });
-                    await setToastCookie("success", "Lien de connexion envoyé. Vérifie ta boîte email.");
+                    await setToastCookie("success", successMessage);
                   } catch (error) {
                     // Signin can fail for a number of reasons, such as the user
                     // not existing, or the user not having the correct role.
@@ -131,7 +149,12 @@ export async function LogIn() {
                       // return redirect(`${SIGNIN_ERROR_URL}?error=${error.type}`)
                     }
 
-                    await setToastCookie("error", "Impossible d'envoyer le lien. Réessaie dans un instant.");
+                    await setToastCookie(
+                      process.env.NODE_ENV === "production" ? "success" : "error",
+                      process.env.NODE_ENV === "production"
+                        ? successMessage
+                        : "Impossible d'envoyer le lien. Réessaie dans un instant.",
+                    );
                   }
 
                   redirect(redirectTo);
