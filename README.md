@@ -44,12 +44,21 @@ DATABASE_URL="<URI_MONGODB_DEV>"
 AUTH_SECRET="votre_secret_genere_aleatoirement"
 
 # OAuth providers (optionnel)
-AUTH_GITHUB_ID="your_github_client_id"
-AUTH_GITHUB_SECRET="your_github_client_secret"
 AUTH_GOOGLE_ID="your_google_client_id"
 AUTH_GOOGLE_SECRET="your_google_client_secret"
+AUTH_MICROSOFT_ENTRA_ID_ID="your_microsoft_entra_client_id"
+AUTH_MICROSOFT_ENTRA_ID_SECRET="your_microsoft_entra_client_secret"
+AUTH_MICROSOFT_ENTRA_ID_TENANT_ID="your_microsoft_entra_tenant_id"
 AUTH_FACEBOOK_ID="your_facebook_app_id"
 AUTH_FACEBOOK_SECRET="your_facebook_app_secret"
+
+# Lien magique (email)
+AUTH_EMAIL_SERVER="smtp://user:pass@smtp.example.com:587"
+AUTH_EMAIL_FROM="My exams <no-reply@ton-domaine.fr>"
+
+# (V2) Apple - reporté (coût Apple Developer Program ≈ 99€/an)
+# AUTH_APPLE_ID="your_apple_service_id"
+# AUTH_APPLE_SECRET="your_apple_client_secret_jwt"
 ```
 
 **Générer `AUTH_SECRET` :**
@@ -124,15 +133,24 @@ DATABASE_URL="<URI_MONGODB_ATLAS>"
 AUTH_SECRET="generer_un_nouveau_secret_avec_openssl"
 
 # OAuth providers
-AUTH_GITHUB_ID="..."
-AUTH_GITHUB_SECRET="..."
 AUTH_GOOGLE_ID="..."
 AUTH_GOOGLE_SECRET="..."
+AUTH_MICROSOFT_ENTRA_ID_ID="..."
+AUTH_MICROSOFT_ENTRA_ID_SECRET="..."
+AUTH_MICROSOFT_ENTRA_ID_TENANT_ID="..."
 AUTH_FACEBOOK_ID="..."
 AUTH_FACEBOOK_SECRET="..."
 
+# Lien magique (email)
+AUTH_EMAIL_SERVER="..."
+AUTH_EMAIL_FROM="..."
+
 # URL de l'application (pour OAuth callbacks)
-NEXTAUTH_URL="https://votre-domaine.com"
+AUTH_URL="https://votre-domaine.com"
+
+# (V2) Apple - reporté (coût Apple Developer Program ≈ 99€/an)
+# AUTH_APPLE_ID="..."
+# AUTH_APPLE_SECRET="..."
 ```
 
 ### Sécurité

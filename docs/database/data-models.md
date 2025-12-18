@@ -267,7 +267,7 @@
 |email|VARCHAR(255)|NULLABLE, UNIQUE|L'email de l'utilisateur|
 |emailVerified|TIMESTAMP|NULLABLE|La date de vérification de l'email|
 |image|TEXT|NULLABLE|L'URL de l'image de profil|
-|roles|ENUM|NOT NULL, DEFAULT 'ADMIN'|Le rôle de l'utilisateur (USER, ADMIN)|
+|roles|ENUM|NOT NULL, DEFAULT 'USER'|Le rôle de l'utilisateur (USER, ADMIN)|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
