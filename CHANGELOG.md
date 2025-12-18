@@ -1,3 +1,9 @@
+## <small>1.1.21 (2025-12-18)</small>
+
+* Merge pull request #28 from frdemoulin/dev ([d637d60](https://github.com/frdemoulin/my-exams/commit/d637d60)), closes [#28](https://github.com/frdemoulin/my-exams/issues/28)
+* fix: implémentation du lien magique ([9a64cd6](https://github.com/frdemoulin/my-exams/commit/9a64cd6))
+* fix: sécurisation des rôles à la création d'un utilisateur ([87cda97](https://github.com/frdemoulin/my-exams/commit/87cda97))
+
 ## <small>1.1.20 (2025-12-15)</small>
 
 * Merge pull request #27 from frdemoulin/dev ([7d1efd5](https://github.com/frdemoulin/my-exams/commit/7d1efd5)), closes [#27](https://github.com/frdemoulin/my-exams/issues/27)
