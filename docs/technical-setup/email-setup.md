@@ -6,7 +6,9 @@ Ce document explique comment configurer, tester et déployer l'envoi d'e-mails (
 
 ## Résumé rapide ✅
 - En dev : utilise Ethereal ou Mailtrap pour capturer et visualiser les e-mails sans toucher de vraies boîtes.
-- En prod (Render) : utilise un service transactionnel (Postmark, SendGrid, Mailgun, Amazon SES) et configure SPF/DKIM.
+- En prod (Render) : utilise un service transactionnel **avec SMTP** (ou API), puis configure SPF/DKIM dès que tu utilises ton domaine.
+- Pour démarrer **à coût faible** : Brevo / Mailjet / SendGrid ont souvent un palier gratuit (à vérifier, les offres évoluent).
+- Pour un coût très faible mais plus technique : AWS SES (quasi gratuit au début, mais setup plus long).
 - Variables essentielles : `AUTH_EMAIL_SERVER`, `AUTH_EMAIL_FROM`, `AUTH_SECRET`, `AUTH_URL`.
 
 ---
@@ -49,14 +51,67 @@ AUTH_EMAIL_FROM="My exams <no-reply@exemple.local>"
 
 ## Production chez Render 🚀
 
-1. **Choisir un fournisseur transactionnel** : Postmark / SendGrid / Mailgun / Amazon SES (préférable pour délivrabilité et webhooks).
-2. **Valider le domaine** chez le fournisseur (ils fournissent les enregistrements DNS pour SPF/DKIM).
-3. **Configurer les variables d'environnement** dans le dashboard Render → Service → Environment Variables :
-   - `AUTH_EMAIL_SERVER` (ex : SendGrid SMTP `smtp://apikey:YOUR_SENDGRID_API_KEY@smtp.sendgrid.net:587`)
-   - `AUTH_EMAIL_FROM` (adresse validée)
-   - `AUTH_URL` (ex : `https://app.mondomaine.com`)
-   - `AUTH_SECRET`
-4. **Webhooks (optionnel)** : configure les webhooks pour bounces/complaints et traite-les côté serveur.
+### Quel fournisseur choisir (peu onéreux) ?
+
+Objectif : envoyer des emails de lien magique vers des boîtes majoritairement Gmail/Outlook sans finir en spam.
+
+À éviter en prod :
+- Gmail/Outlook “perso” en SMTP direct (limites, délivrabilité, sécurité, blocages, nécessite souvent OAuth2).
+- Mailtrap/Ethereal (réservés au dev/staging).
+
+Options (souvent) peu coûteuses :
+- **Brevo (ex Sendinblue)** — SMTP relay simple, souvent un palier gratuit.
+- **Mailjet** — SMTP relay, souvent un palier gratuit.
+- **SendGrid** — SMTP relay, souvent un palier gratuit.
+- **Amazon SES** — très peu cher, mais setup (DNS/validation) plus exigeant.
+
+> Note : les paliers gratuits et tarifs changent régulièrement → vérifie la page pricing du fournisseur avant de t’engager.
+> Note : Postmark est excellent en délivrabilité mais généralement payant (plutôt “V2” si budget serré).
+
+### Mise en place (étapes)
+
+1) **Créer le compte** chez le fournisseur choisi, puis :
+- soit vérifier une **adresse expéditrice** (rapide pour démarrer),
+- soit (recommandé) vérifier un **domaine** + ajouter **SPF/DKIM** (meilleure délivrabilité).
+
+2) **Récupérer les identifiants SMTP**
+- Certains fournisseurs donnent un “login + mot de passe SMTP”
+- D’autres utilisent un **API key** comme mot de passe SMTP (ex: SendGrid → user `apikey`)
+
+3) **Configurer les variables Render**
+Dashboard Render → Service → **Environment Variables** :
+- `AUTH_EMAIL_SERVER` (URI SMTP)
+- `AUTH_EMAIL_FROM` (doit correspondre à une adresse/domaine validé)
+- `AUTH_URL` (URL publique de l’app)
+- `AUTH_SECRET` (généré, ex: `openssl rand -base64 32`)
+
+4) **Redéployer / Restart**
+Après ajout/modif des variables, fais un **redeploy** (ou restart) pour que le provider email apparaisse.
+
+### Exemples d’URI SMTP (à adapter)
+
+Brevo (port recommandé : **587** STARTTLS) :
+```bash
+AUTH_EMAIL_SERVER="smtp://LOGIN:SMTP_KEY@smtp-relay.brevo.com:587"
+AUTH_EMAIL_FROM="My exams <no-reply@ton-domaine.fr>"
+```
+
+Mailjet (587 STARTTLS) :
+```bash
+AUTH_EMAIL_SERVER="smtp://MJ_APIKEY_PUBLIC:MJ_APIKEY_PRIVATE@in-v3.mailjet.com:587"
+AUTH_EMAIL_FROM="My exams <no-reply@ton-domaine.fr>"
+```
+
+SendGrid (587 STARTTLS, user fixe `apikey`) :
+```bash
+AUTH_EMAIL_SERVER="smtp://apikey:SENDGRID_API_KEY@smtp.sendgrid.net:587"
+AUTH_EMAIL_FROM="My exams <no-reply@ton-domaine.fr>"
+```
+
+> Ports : privilégie **587**. Le port **25** est souvent bloqué en hébergement. Le port **465** fonctionne en `smtps://...:465` (TLS implicite) si le fournisseur le recommande.
+
+### Webhooks (optionnel)
+Selon le fournisseur, tu peux brancher des webhooks (bounces/complaints). Utile plus tard, pas indispensable pour démarrer.
 
 > Remarque : si Render bloque des ports sortants pour votre plan, utilisez l'API HTTP du fournisseur (beaucoup le proposent) au lieu du SMTP.
 
@@ -124,10 +179,10 @@ AUTH_EMAIL_SERVER="..." AUTH_EMAIL_FROM="..." node test-send.js
 - Auth.js (NextAuth) Email Provider: https://authjs.dev/
 - Mailtrap: https://mailtrap.io/
 - Ethereal: https://ethereal.email/
-- Postmark/SendGrid/Mailgun docs (pour SPF/DKIM)
+- Brevo / Mailjet / SendGrid / AWS SES docs (pour SPF/DKIM)
 
 ---
 
 Si tu veux, je peux aussi :
 - Générer un `.env.local` de test Ethereal et lancer un test d'envoi localement, ou
-- Te guider pas-à-pas pour configurer Postmark / DNS pour ta prod sur Render.
+- Te guider pas-à-pas pour configurer Brevo/Mailjet/SendGrid (ou AWS SES) + DNS pour ta prod sur Render.
