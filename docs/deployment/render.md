@@ -32,7 +32,7 @@ Dans Render : **New +** → **Blueprint**, puis sélectionne le repo.
 Utilise la même Pre-deploy command qu’avant :
 
 ```bash
-CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
+env CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
 ```
 
 Voir `docs/database/dev-prod.md` pour les détails liés à la base.
