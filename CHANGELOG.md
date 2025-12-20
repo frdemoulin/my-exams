@@ -1,3 +1,12 @@
+## 1.2.0 (2025-12-20)
+
+* Merge pull request #29 from frdemoulin/dev ([a323d2e](https://github.com/frdemoulin/my-exams/commit/a323d2e)), closes [#29](https://github.com/frdemoulin/my-exams/issues/29)
+* Merge pull request #30 from frdemoulin/dev ([7363386](https://github.com/frdemoulin/my-exams/commit/7363386)), closes [#30](https://github.com/frdemoulin/my-exams/issues/30)
+* fix: ajout d'une page de détail utilisateur ([fc5033e](https://github.com/frdemoulin/my-exams/commit/fc5033e))
+* fix: debug de l'erreur TypeScript dans replaceExercisesByExamPaper ([d6e2225](https://github.com/frdemoulin/my-exams/commit/d6e2225))
+* feat: mise en place de la compression des PDF ([f62b8db](https://github.com/frdemoulin/my-exams/commit/f62b8db))
+* docs: ajout de la doc sur la gestion d'envoi d'emails ([9c8b6b7](https://github.com/frdemoulin/my-exams/commit/9c8b6b7))
+
 ## <small>1.1.21 (2025-12-18)</small>
 
 * Merge pull request #28 from frdemoulin/dev ([d637d60](https://github.com/frdemoulin/my-exams/commit/d637d60)), closes [#28](https://github.com/frdemoulin/my-exams/issues/28)
