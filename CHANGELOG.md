@@ -1,3 +1,8 @@
+## <small>1.2.4 (2025-12-20)</small>
+
+* Merge pull request #34 from frdemoulin/dev ([9c540fa](https://github.com/frdemoulin/my-exams/commit/9c540fa)), closes [#34](https://github.com/frdemoulin/my-exams/issues/34)
+* fix: debug d'un type Buffer trop strict dans le Dockerfile ([14929b9](https://github.com/frdemoulin/my-exams/commit/14929b9))
+
 ## <small>1.2.3 (2025-12-20)</small>
 
 * Merge pull request #33 from frdemoulin/dev ([eb9b787](https://github.com/frdemoulin/my-exams/commit/eb9b787)), closes [#33](https://github.com/frdemoulin/my-exams/issues/33)
