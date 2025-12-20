@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.local
+.env.production.local
+.git
+.gitignore
+.next
+.vercel
+node_modules
+test-results
+tests
+playwright
+docs
+README.md
+CHANGELOG.md
+tsconfig.tsbuildinfo
