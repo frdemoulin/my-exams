@@ -108,11 +108,7 @@ export function SplitExercisesForm({
         toast.success(`${result.created} exercice(s) créé(s) avec succès`);
         router.push(`/admin/exam-papers/${examPaperId}`);
       } else {
-        toast.error(
-          result.errors
-            ? `Erreurs : ${JSON.stringify(result.errors)}`
-            : 'Certains exercices n\'ont pas pu être créés'
-        );
+        toast.error(result.error || 'Certains exercices n\'ont pas pu être créés');
       }
     } catch (error) {
       console.error('Error creating exercises:', error);
