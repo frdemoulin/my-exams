@@ -1,3 +1,8 @@
+## <small>1.2.3 (2025-12-20)</small>
+
+* Merge pull request #33 from frdemoulin/dev ([eb9b787](https://github.com/frdemoulin/my-exams/commit/eb9b787)), closes [#33](https://github.com/frdemoulin/my-exams/issues/33)
+* fix: gestion du fichier .npmrc dans le Dockerfile ([ad5bedb](https://github.com/frdemoulin/my-exams/commit/ad5bedb))
+
 ## <small>1.2.2 (2025-12-20)</small>
 
 * Merge pull request #32 from frdemoulin/dev ([7cb8730](https://github.com/frdemoulin/my-exams/commit/7cb8730)), closes [#32](https://github.com/frdemoulin/my-exams/issues/32)
