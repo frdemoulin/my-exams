@@ -1,3 +1,8 @@
+## <small>1.2.5 (2025-12-20)</small>
+
+* Merge pull request #35 from frdemoulin/dev ([212f16d](https://github.com/frdemoulin/my-exams/commit/212f16d)), closes [#35](https://github.com/frdemoulin/my-exams/issues/35)
+* fix: correciton du Dockerfile pour pre deploy command ([4d1cf77](https://github.com/frdemoulin/my-exams/commit/4d1cf77))
+
 ## <small>1.2.4 (2025-12-20)</small>
 
 * Merge pull request #34 from frdemoulin/dev ([9c540fa](https://github.com/frdemoulin/my-exams/commit/9c540fa)), closes [#34](https://github.com/frdemoulin/my-exams/issues/34)
