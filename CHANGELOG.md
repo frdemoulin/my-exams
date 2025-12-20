@@ -1,3 +1,8 @@
+## <small>1.2.2 (2025-12-20)</small>
+
+* Merge pull request #32 from frdemoulin/dev ([7cb8730](https://github.com/frdemoulin/my-exams/commit/7cb8730)), closes [#32](https://github.com/frdemoulin/my-exams/issues/32)
+* fix: gestion des envVars dans le render.yaml ([4bd4154](https://github.com/frdemoulin/my-exams/commit/4bd4154))
+
 ## <small>1.2.1 (2025-12-20)</small>
 
 * Merge pull request #31 from frdemoulin/dev ([838a6f2](https://github.com/frdemoulin/my-exams/commit/838a6f2)), closes [#31](https://github.com/frdemoulin/my-exams/issues/31)
