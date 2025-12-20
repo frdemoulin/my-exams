@@ -1,38 +1,47 @@
 # Déploiement Render
 
-## Build command (Ghostscript)
-Pour activer la compression PDF en production, définis la Build Command Render sur :
+Ce projet est configuré pour tourner en **mode Docker** afin d’avoir Ghostscript disponible (compression PDF).
 
-```bash
-./scripts/render-build.sh
-```
+---
+## Fichiers utilisés
+- `Dockerfile` : build + Ghostscript
+- `render.yaml` : configuration Render (Docker + pre-deploy + env vars)
+- `.dockerignore` : réduit le contexte de build
 
-Le script installe Ghostscript via apt-get, puis exécute :
-- `npm ci --include=dev`
-- `npm run build`
+---
+## Déploiement recommandé (Blueprint + Docker)
+1) Commit/push `Dockerfile`, `render.yaml`, `.dockerignore`.
+2) Render → **New +** → **Blueprint** → sélectionne le repo.
+3) **Auto Sync = Yes**.
+4) **Associate existing service** si `my-exams` existe, sinon **Create new**.
+5) Une fois le service créé : ouvrir le service → **Environment** → renseigner les valeurs.
+   - Les clés à fournir sont listées dans `render.yaml` (bloc `envVars`).
+6) Déployer (le sync déclenche souvent un déploiement automatique).
 
-Si tu utilises un Dockerfile custom, installe `ghostscript` à cet endroit.
+---
+## Déploiement manuel (sans Blueprint)
+Possible, mais moins pratique si tu veux éviter l’UI.
 
-## Limite Render (environnement natif)
-Sur Render (environnement natif), `apt-get` peut être en lecture seule. Dans ce cas, le build continue sans Ghostscript et la compression PDF > 2MB échouera.
-
-Si tu veux Ghostscript en production, passe le service en mode Docker et installe `ghostscript` dans le Dockerfile.
-
-## Mode Docker (recommandé pour Ghostscript)
-1) Dans Render, crée un service **Docker** (ou change l’environnement du service en Docker).
-2) Assure-toi que le `Dockerfile` est à la racine du repo.
-3) Supprime la Build Command côté Render (elle n’est pas utilisée en mode Docker).
-4) Déploie.
-
-## render.yaml (optionnel)
-Un fichier `render.yaml` est disponible à la racine pour créer le service Docker via **Blueprint**.
-Dans Render : **New +** → **Blueprint**, puis sélectionne le repo.
-
-## Pre-deploy command (base de données)
-Utilise la même Pre-deploy command qu’avant :
+1) Passer le service en **Docker**.
+2) Dockerfile path : `./Dockerfile`.
+3) Build/Start command : laisser vide (Dockerfile fait foi).
+4) Renseigner les variables d’environnement dans **Environment**.
+5) Pré-deploy command :
 
 ```bash
 env CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
 ```
+
+---
+## Mise à jour / Sync
+- **Changement de code** : push → auto-deploy (si `autoDeploy: true`).
+- **Changement de config Render** (`render.yaml`) : Blueprint **Sync**, puis deploy si besoin.
+- **Changement d’env vars** : onglet **Environment** du service.
+
+---
+## Notes / dépannage rapide
+- En environnement natif Render, `apt-get` est en lecture seule → **Ghostscript non disponible**.
+- Si le pre-deploy échoue, vérifier `DATABASE_URL` et la commande `env CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`.
+- Si la compression échoue en prod, vérifier que Ghostscript est bien présent (mode Docker requis).
 
 Voir `docs/database/dev-prod.md` pour les détails liés à la base.

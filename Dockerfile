@@ -25,5 +25,8 @@ COPY --from=build /app/.next /app/.next
 COPY --from=build /app/public /app/public
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/next.config.mjs /app/next.config.mjs
+COPY --from=build /app/prisma /app/prisma
+COPY --from=build /app/scripts /app/scripts
+COPY --from=build /app/tsconfig.json /app/tsconfig.json
 EXPOSE 3000
 CMD ["npm", "run", "start"]
