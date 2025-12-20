@@ -1,3 +1,8 @@
+## <small>1.2.6 (2025-12-20)</small>
+
+* Merge pull request #36 from frdemoulin/dev ([a322bff](https://github.com/frdemoulin/my-exams/commit/a322bff)), closes [#36](https://github.com/frdemoulin/my-exams/issues/36)
+* fix: inclusion de prisma dans le conteneur docker ([ab7cd11](https://github.com/frdemoulin/my-exams/commit/ab7cd11))
+
 ## <small>1.2.5 (2025-12-20)</small>
 
 * Merge pull request #35 from frdemoulin/dev ([212f16d](https://github.com/frdemoulin/my-exams/commit/212f16d)), closes [#35](https://github.com/frdemoulin/my-exams/issues/35)
