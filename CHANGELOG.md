@@ -1,3 +1,8 @@
+## <small>1.2.1 (2025-12-20)</small>
+
+* Merge pull request #31 from frdemoulin/dev ([838a6f2](https://github.com/frdemoulin/my-exams/commit/838a6f2)), closes [#31](https://github.com/frdemoulin/my-exams/issues/31)
+* fix: mise en place d'un dockerfile ([1d7eb47](https://github.com/frdemoulin/my-exams/commit/1d7eb47))
+
 ## 1.2.0 (2025-12-20)
 
 * Merge pull request #29 from frdemoulin/dev ([a323d2e](https://github.com/frdemoulin/my-exams/commit/a323d2e)), closes [#29](https://github.com/frdemoulin/my-exams/issues/29)
