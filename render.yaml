@@ -6,3 +6,25 @@ services:
     dockerContext: .
     branch: main
     autoDeploy: true
+    preDeployCommand: CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
+    envVars:
+      - key: AUTH_EMAIL_FROM
+        sync: false
+      - key: AUTH_EMAIL_SERVER
+        sync: false
+      - key: AUTH_GOOGLE_ID
+        sync: false
+      - key: AUTH_GOOGLE_SECRET
+        sync: false
+      - key: AUTH_SECRET
+        sync: false
+      - key: AUTH_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: NEXTAUTH_SECRET
+        sync: false
+      - key: NODE_ENV
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
