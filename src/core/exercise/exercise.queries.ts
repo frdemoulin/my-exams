@@ -11,6 +11,8 @@ export interface ExerciseWithRelations {
   exerciseNumber: number;
   label: string | null;
   points: number | null;
+  pageStart: number | null;
+  pageEnd: number | null;
   title: string | null;
   statement: string | null;
   exerciseUrl: string | null;

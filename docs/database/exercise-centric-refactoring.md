@@ -311,20 +311,27 @@ async function migrateExamPapersToExercises() {
 - [ ] Liste d'exercices avec traçabilité du sujet parent
 - [ ] Système de favoris par exercice
 
-### Phase 4 : Découpage des sujets (en continu)
-- [ ] Script manuel pour découper les sujets en exercices
-- [ ] Extraction des titres via OCR
-- [ ] Attribution précise des thèmes par exercice
+### Phase 4.1 : Découpage fin + extraction texte (priorité 1)
+- [ ] Définir la granularité (exercice/partie/question) et les règles de nommage
+- [ ] Ajouter `pageStart`/`pageEnd` et un `exerciseNumber` séquentiel
+- [ ] Outil admin semi-manuel pour découper par plages de pages
+- [ ] Extraction texte via PDF.js, fallback OCR si scan
+- [ ] Stocker le texte brut dans `Exercise.statement`
 
-### Phase 5 : Full-text search (futur)
-- [ ] Indexation Elasticsearch des énoncés
-- [ ] Recherche par mots-clés dans les énoncés
-- [ ] Suggestions intelligentes
+### Phase 4.2 : Enrichissement automatique (LLM)
+- [ ] Titres, thèmes, difficulté, durée par exercice
+- [ ] Mots-clés + résumé
+- [ ] Script batch + statut d'enrichissement
+
+### Phase 5 : Moteur de recherche avancé (futur)
+- [ ] Indexation MongoDB Atlas Search des énoncés
+- [ ] Recherche full-text + autocomplétion + pagination
+- [ ] Optimisation perf + analytics recherche
 
 ## Questions ouvertes
 
 1. **Découpage manuel ou automatique ?**
-   - Manuel au début (plus précis)
+   - Semi-manuel au début (outil admin + plages de pages)
    - Automatique via OCR + IA ensuite
 
 2. **Garder l'accès aux sujets complets ?**
@@ -345,7 +352,8 @@ async function migrateExamPapersToExercises() {
 
 1. **Maintenant** : Créer le schéma `Exercise` en parallèle de `ExamPaper`
 2. **Court terme** : Migrer les données (1 exercice = 1 sujet)
-3. **Moyen terme** : Interface de recherche d'exercices
-4. **Long terme** : Découpage fin des sujets + full-text search
+3. **Moyen terme** : Découpage fin + extraction texte brut
+4. **Moyen terme** : Recherche avancée (full-text, pagination)
+5. **Long terme** : Enrichissement automatique + pipeline
 
 Cette approche permet de **valider le concept** sans tout casser, puis de **raffiner progressivement** la granularité.

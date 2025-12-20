@@ -56,6 +56,7 @@ export default async function SplitExercisesPage({ params }: PageProps) {
         examPaperLabel={`${examPaper.label} ${examPaper.sessionYear}`}
         existingExercises={examPaper.exercises}
         availableThemes={themes}
+        subjectUrl={examPaper.subjectUrl}
       />
     </div>
   );

@@ -9,7 +9,7 @@
 
 Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec enrichissement automatique des métadonnées.
 
-**Proposition de valeur** : Les élèves cherchent des exercices spécifiques par thème (ex: "titrage acide-base"), pas des sujets complets. Chaque exercice conserve la traçabilité de son sujet parent.
+**Proposition de valeur** : Les élèves cherchent des exercices spécifiques par thème (exemple : "titrage acide-base"), pas des sujets complets. Chaque exercice conserve la traçabilité de son sujet parent.
 
 ## Branche
 
@@ -17,9 +17,9 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 
 ---
 
-## Phases de Migration
+## Phases de migration
 
-### ✅ Phase 1 : Fondations du Modèle de Données (TERMINÉE)
+### ✅ Phase 1 : Fondations du modèle de données (TERMINÉE)
 **Objectif** : Créer les nouveaux modèles de données centrés sur les exercices
 
 **Tâches** :
@@ -37,7 +37,7 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 
 ---
 
-### ✅ Phase 2 : Interface de Recherche d'Exercices (TERMINÉE)
+### ✅ Phase 2 : Interface de Recherche d'exercices (TERMINÉE)
 **Objectif** : Implémenter l'UI de recherche centrée sur les exercices
 
 **Tâches** :
@@ -82,13 +82,46 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 
 ---
 
-### ⏳ Phase 4 : Enrichissement Automatique (EN ATTENTE)
-**Objectif** : Extraire automatiquement les métadonnées des fichiers PDF
+### 🔄 Phase 4 : Découpage Fin et Enrichissement (EN COURS - priorité 1)
+**Objectif** : Passer de 1 exercice/sujet à plusieurs exercices avec un texte exploitable pour la recherche.
 
+**Sous-phase 4.1 - Découpage fin (priorité 1)**
 **Tâches** :
-- [ ] Intégrer un service OCR (PDF.js ou Tesseract)
+- [ ] Définir la granularité cible (exercice/partie/question) et les règles de nommage
+- [ ] Ajouter le support de découpage dans le modèle (pageStart/pageEnd, label, exerciseNumber)
+- [ ] Créer un outil admin semi-manuel pour découper un ExamPaper en plusieurs Exercises
+- [ ] Créer `ocr.service.ts` pour l'extraction de texte des exercices (PDF.js, fallback OCR si scan)
+- [ ] Migrer 5-10 sujets en multi-exercices pour validation qualité/UX
+
+**Spécifications 4.1 (découpage fin)**
+- **Modèle** : `Exercise.pageStart` et `Exercise.pageEnd` (entiers 1-based, inclusifs), `exerciseNumber` séquentiel par ExamPaper, `label` optionnel ; `Exercise.statement` stocke le texte brut extrait.
+- **Règles de découpage** : pas de chevauchement entre exercices ; `pageStart <= pageEnd` ; auto-label par défaut ("Exercice 1", "Partie A") si `label` absent.
+- **Workflow admin** : sélectionner un ExamPaper, définir N plages de pages, prévisualiser PDF + texte extrait, sauvegarder (création/remplacement des Exercises), possibilité d'ajuster et relancer l'extraction.
+- **Extraction texte** : PDF.js si calque texte disponible, fallback OCR si scan ; concaténer le texte par plage de pages ; nettoyage minimal (normalisation des espaces).
+- **Critères de validation** : 5-10 sujets découpés en 3+ exercices, >80% des exercices avec `statement` non vide, validation manuelle sur 3 sujets.
+
+**Sujets pilotes (session 2025 en priorité ; source : https://www.sujetdebac.fr/)**
+- [ ] Bac G - Spé Maths (Tle) — Métropole France 1 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-mathematiques-2025-metropole-1-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Maths (Tle) — Métropole France 2 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-mathematiques-2025-metropole-2-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Maths (Tle) — Amérique du Nord 1 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-mathematiques-2025-amerique-nord-1-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Maths (Tle) — Polynésie 1 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-mathematiques-2025-polynesie-1-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Maths (Tle) — Asie 1 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-mathematiques-2025-asie-1-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Maths (Tle) — Nouvelle-Calédonie 1 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-mathematiques-2025-nouv-caledonie-1-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Physique-Chimie (Tle) — Métropole France 1 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-physique-chimie-2025-metropole-1-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Physique-Chimie (Tle) — Métropole France 2 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-physique-chimie-2025-metropole-2-sujet-officiel.pdf`)
+- [ ] Bac G - Spé Physique-Chimie (Tle) — Amérique du Nord 1 (2025) — PDF officiel (`https://www.sujetdebac.fr/annales-pdf/2025/spe-physique-chimie-2025-amerique-nord-1-sujet-officiel.pdf`)
+
+**Checklist d'implémentation (Phase 4.1)**
+- [ ] Modèle Prisma : ajouter `pageStart`/`pageEnd` (optionnels), migration, types TS, schémas Zod.
+- [ ] Admin : étendre le split manuel (formulaire) avec plages de pages + validation des ranges.
+- [ ] Extraction : service PDF.js (calque texte) + fallback OCR ; extraction par plage + normalisation.
+- [ ] Preview : afficher un extrait texte par plage avant sauvegarde.
+- [ ] Écriture : créer/remplacer les Exercises d'un ExamPaper en une seule action (transaction).
+- [ ] QA : exécuter le découpage sur les sujets pilotes, ajuster règles si besoin.
+
+**Sous-phase 4.2 - Enrichissement automatique (priorité 4)**
+**Tâches** :
 - [ ] Intégrer une API LLM (OpenAI GPT-4 ou Claude)
-- [ ] Créer `ocr.service.ts` pour l'extraction de texte des exercices
 - [ ] Créer `llm-analyzer.service.ts` pour :
   - Extraction des titres d'exercices
   - Attribution des thèmes par exercice
@@ -100,13 +133,15 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 - [ ] Tester la précision sur des PDF échantillons
 
 **Livrables** :
-- Pipeline d'extraction automatique au niveau exercice
+- Découpage fin validé sur 5-10 sujets (multi-exercices)
+- Texte brut exploitable dans `Exercise.statement`
+- Pipeline d'enrichissement automatique au niveau exercice
 - Script par lots pour enrichir les exercices existants
 - Métriques de qualité pour la précision de l'enrichissement
 
 ---
 
-### 🔄 Phase 5 : Moteur de Recherche Avancé (EN COURS)
+### ⏳ Phase 5 : Moteur de Recherche Avancé (EN ATTENTE - priorité 2 après Phase 4.1)
 **Objectif** : Améliorer les capacités de recherche
 
 **Tâches** :
@@ -145,7 +180,7 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
 
 ---
 
-### 🔄 Phase 7 : Fonctionnalités Utilisateur (EN COURS)
+### ⏳ Phase 7 : Fonctionnalités Utilisateur (EN ATTENTE - priorité 3 après Phase 5)
 **Objectif** : Améliorer l'expérience élève
 
 **Tâches** :
@@ -420,7 +455,8 @@ scripts/
 - [ ] Score d'utilisabilité mobile > 90%
 - [ ] Temps d'interaction de recherche < 3s
 
-### Phase 4 (Enrichissement)
+### Phase 4 (Découpage + Enrichissement)
+- [ ] 10+ sujets découpés en 3+ exercices validés
 - [ ] Précision d'extraction des thèmes > 85%
 - [ ] Variance d'estimation de difficulté < 1 point
 - [ ] Variance d'estimation de durée < 20%
@@ -459,14 +495,13 @@ scripts/
 6. ✅ Phase 6 : Migration initiale (23 exercices)
 7. ✅ Refactoring du hero pour l'approche exercice
 
-### 🔄 En cours
-- Phase 5 : Amélioration du moteur de recherche (full-text search à venir)
-- Phase 7 : Dashboard utilisateur pour favoris
+### 🔄 En cours (priorité 1)
+- Phase 4.1 : Découpage fin des sujets + extraction texte brut
 
-### ⏳ À venir
-1. **Découpage fin des sujets** : Passer de 1 exercice/sujet à plusieurs exercices/sujet
-2. **Phase 4 : Enrichissement automatique** (OCR + IA)
-3. **Phase 5 : Full-text search** dans les énoncés (MongoDB Atlas Search)
+### ⏭️ Priorités suivantes
+1. **Phase 5 : Moteur de recherche avancé** (full-text, pagination, perf)
+2. **Phase 7 : Dashboard favoris + historique** (MVP rétention)
+3. **Phase 4.2 : Enrichissement automatique** (LLM sur exercices découpés)
 4. **Phase 8 : Pipeline automatique** (scraping + découpage + enrichissement)
 
 ---

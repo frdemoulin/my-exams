@@ -1,6 +1,13 @@
 # Traitement d'un sujet d'examen (split + enrichissement)
 
-## 1) Découper un ExamPaper en exercices
+## 0) Découpage via admin (recommandé)
+- Aller sur `/admin/exam-papers/[id]/split`.
+- Renseigner `pageStart` / `pageEnd` pour chaque exercice (1-based, inclusif).
+- Cliquer sur **"Extraire les énoncés depuis le PDF"** pour pre-remplir `statement`.
+- Ajuster manuellement les enonces si besoin, puis **Creer** (remplace les exercices existants).
+- Requis : `subjectUrl` sur l'ExamPaper (sinon pas d'extraction auto).
+
+## 1) Découper un ExamPaper en exercices (script)
 - Cible **un seul sujet** : passer `EXAM_PAPER_ID=<id>` (les exercices du sujet sont créés à partir du PDF).
 - **Dry run (visualiser les blocs sans rien écrire)**  
   ```bash

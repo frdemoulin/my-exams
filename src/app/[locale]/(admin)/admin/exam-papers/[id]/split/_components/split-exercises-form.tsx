@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { MultiSelect } from '@/components/ui/multi-select';
-import { createMultipleExercises, type CreateExerciseInput } from '@/core/exercise';
+import { previewExerciseStatements, replaceExercisesByExamPaper, type CreateExerciseInput } from '@/core/exercise';
 import { Theme } from '@prisma/client';
 import toast from 'react-hot-toast';
 
@@ -16,6 +16,8 @@ interface ExerciseFormData {
   exerciseNumber: number;
   label: string;
   points?: number;
+  pageStart?: number;
+  pageEnd?: number;
   title?: string;
   statement?: string;
   themeIds: string[];
@@ -28,6 +30,7 @@ interface SplitExercisesFormProps {
   examPaperLabel: string;
   existingExercises: Array<{ exerciseNumber: number; label?: string | null }>;
   availableThemes: Theme[];
+  subjectUrl?: string | null;
 }
 
 export function SplitExercisesForm({
@@ -35,12 +38,14 @@ export function SplitExercisesForm({
   examPaperLabel,
   existingExercises,
   availableThemes,
+  subjectUrl,
 }: SplitExercisesFormProps) {
   const router = useRouter();
   const [exercises, setExercises] = useState<ExerciseFormData[]>([
     { exerciseNumber: 1, label: 'Exercice 1', themeIds: [] },
   ]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isPreviewing, setIsPreviewing] = useState(false);
 
   const addExercise = () => {
     const nextNumber = Math.max(...exercises.map((e) => e.exerciseNumber), 0) + 1;
@@ -70,15 +75,14 @@ export function SplitExercisesForm({
     setIsSubmitting(true);
 
     try {
-      // Vérifier qu'aucun numéro n'existe déjà
-      const conflicts = exercises.filter((ex) =>
-        existingExercises.some((existing) => existing.exerciseNumber === ex.exerciseNumber)
-      );
-
-      if (conflicts.length > 0) {
-        toast.error(`Les numéros suivants existent déjà : ${conflicts.map((c) => c.exerciseNumber).join(', ')}`);
-        setIsSubmitting(false);
-        return;
+      if (existingExercises.length > 0) {
+        const confirmed = confirm(
+          'Des exercices existent deja pour ce sujet. Voulez-vous les remplacer ?'
+        );
+        if (!confirmed) {
+          setIsSubmitting(false);
+          return;
+        }
       }
 
       // Préparer les données
@@ -87,6 +91,8 @@ export function SplitExercisesForm({
         exerciseNumber: ex.exerciseNumber,
         label: ex.label || undefined,
         points: ex.points,
+        pageStart: ex.pageStart,
+        pageEnd: ex.pageEnd,
         title: ex.title,
         statement: ex.statement,
         themeIds: ex.themeIds,
@@ -96,23 +102,69 @@ export function SplitExercisesForm({
       }));
 
       // Créer les exercices
-      const result = await createMultipleExercises(exercisesToCreate);
+      const result = await replaceExercisesByExamPaper(examPaperId, exercisesToCreate);
 
       if (result.success) {
         toast.success(`${result.created} exercice(s) créé(s) avec succès`);
         router.push(`/admin/exam-papers/${examPaperId}`);
       } else {
-        toast.error(
-          result.errors
-            ? `Erreurs : ${JSON.stringify(result.errors)}`
-            : 'Certains exercices n\'ont pas pu être créés'
-        );
+        toast.error(result.error || 'Certains exercices n\'ont pas pu être créés');
       }
     } catch (error) {
       console.error('Error creating exercises:', error);
       toast.error('Une erreur est survenue');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handlePreview = async () => {
+    if (!subjectUrl) {
+      toast.error('Sujet sans PDF : impossible de previsualiser');
+      return;
+    }
+
+    const missingRanges = exercises.filter((ex) => !ex.pageStart || !ex.pageEnd);
+    if (missingRanges.length > 0) {
+      toast.error(
+        `Plages manquantes pour : ${missingRanges.map((ex) => `#${ex.exerciseNumber}`).join(', ')}`
+      );
+      return;
+    }
+
+    setIsPreviewing(true);
+    try {
+      const result = await previewExerciseStatements({
+        examPaperId,
+        ranges: exercises.map((ex) => ({
+          exerciseNumber: ex.exerciseNumber,
+          pageStart: ex.pageStart as number,
+          pageEnd: ex.pageEnd as number,
+        })),
+      });
+
+      if (!result.success) {
+        toast.error(result.error || 'Erreur de previsualisation');
+        return;
+      }
+
+      const statementByExercise = new Map(
+        (result.items || []).map((item) => [item.exerciseNumber, item.statement])
+      );
+
+      setExercises((prev) =>
+        prev.map((ex) => ({
+          ...ex,
+          statement: statementByExercise.get(ex.exerciseNumber) ?? ex.statement,
+        }))
+      );
+
+      toast.success('Enonces extraits depuis le PDF');
+    } catch (error) {
+      console.error('Error previewing statements:', error);
+      toast.error('Une erreur est survenue');
+    } finally {
+      setIsPreviewing(false);
     }
   };
 
@@ -135,10 +187,30 @@ export function SplitExercisesForm({
                 ⚠️ Exercices existants : {existingExercises.map((e) => `#${e.exerciseNumber}`).join(', ')}
               </p>
               <p className="text-xs text-body">
-                Évitez de créer des exercices avec ces numéros.
+                La création remplacera tous les exercices existants.
               </p>
             </div>
           )}
+          {!subjectUrl && (
+            <div className="rounded-base border border-default bg-neutral-secondary-soft p-4 mt-4">
+              <p className="text-sm font-semibold text-heading">
+                ⚠️ Aucun PDF disponible (subjectUrl manquant)
+              </p>
+              <p className="text-xs text-body">
+                L&apos;extraction automatique des énoncés est désactivée.
+              </p>
+            </div>
+          )}
+          <div className="mt-4">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={handlePreview}
+              disabled={isSubmitting || isPreviewing}
+            >
+              {isPreviewing ? 'Extraction...' : 'Extraire les énoncés depuis le PDF'}
+            </Button>
+          </div>
         </CardContent>
       </Card>
 
@@ -183,6 +255,43 @@ export function SplitExercisesForm({
                   value={exercise.label}
                   onChange={(e) => updateExercise(index, 'label', e.target.value)}
                   placeholder="Exercice 1, Partie A..."
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor={`pageStart-${index}`}>Page debut</Label>
+                <Input
+                  id={`pageStart-${index}`}
+                  type="number"
+                  value={exercise.pageStart || ''}
+                  onChange={(e) =>
+                    updateExercise(
+                      index,
+                      'pageStart',
+                      e.target.value ? parseInt(e.target.value) : undefined
+                    )
+                  }
+                  placeholder="1"
+                  min={1}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor={`pageEnd-${index}`}>Page fin</Label>
+                <Input
+                  id={`pageEnd-${index}`}
+                  type="number"
+                  value={exercise.pageEnd || ''}
+                  onChange={(e) =>
+                    updateExercise(
+                      index,
+                      'pageEnd',
+                      e.target.value ? parseInt(e.target.value) : undefined
+                    )
+                  }
+                  placeholder="3"
+                  min={1}
                 />
               </div>
             </div>

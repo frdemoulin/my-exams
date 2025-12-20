@@ -145,13 +145,13 @@ Résultat : **23 exercices créés** (1 exercice par exam paper existant)
 
 ### 🔄 En cours
 
-- **Phase 5 : Moteur de recherche avancé** - Full-text search dans énoncés (à venir)
-- **Phase 7 : Fonctionnalités utilisateur** - Dashboard favoris (à venir)
+- **Phase 4.1 : Découpage fin** - Outil admin + extraction texte brut (PDF.js/OCR)
 
 ### ⏳ À venir
 
-- **Phase 4 : Enrichissement automatique** - OCR + IA pour extraire titres, thèmes, difficulté
-- **Découpage fin** - Passer de 1 exercice/sujet à plusieurs exercices/sujet
+- **Phase 5 : Moteur de recherche avancé** - Full-text search, pagination, perf
+- **Phase 7 : Fonctionnalités utilisateur** - Dashboard favoris + historique
+- **Phase 4.2 : Enrichissement automatique** - LLM pour titres, thèmes, difficulté
 - **Phase 8 : Pipeline automatique** - Scraping + découpage + enrichissement
 
 ---
@@ -233,8 +233,8 @@ src/components/pages/HomePage.tsx  # Recherche d'exercices
 ✅ **Architecture opérationnelle** - Recherche d'exercices fonctionnelle  
 ✅ **Traçabilité préservée** - Chaque exercice connaît son sujet parent  
 ✅ **Granularité fine** - Recherche au niveau exercice, pas sujet complet  
-✅ **Évolutif** - Prêt pour découpage automatique et enrichissement IA  
+✅ **Évolutif** - Prêt pour découpage fin et enrichissement IA  
 
 ---
 
-**Prochaine étape** : Découpage des sujets en plusieurs exercices + enrichissement automatique via OCR + IA
+**Prochaine étape** : Phase 4.1 (découpage fin + extraction texte brut), puis Phase 5 (moteur de recherche avancé)

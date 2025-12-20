@@ -72,14 +72,14 @@ export const columns: ColumnDef<User>[] = [
           <DropdownMenuContent align="end" className={actionMenuContent}>
             <DropdownMenuItem className={actionMenuItem}>
               <Link
-                href={`/users/${user.id}`}
+                href={`/admin/users/${user.id}`}
               >
                 Voir
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem className={actionMenuItem}>
               <Link
-                href={`/users/${user.id}/edit`}
+                href={`/admin/users/${user.id}/edit`}
               >
                 Éditer
               </Link>

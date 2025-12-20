@@ -46,6 +46,8 @@
 
   --color-card: var(--color-background);
   --color-card-foreground: var(--color-foreground);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-card-foreground);
 
   /* Rayons & ombres (réutilisables en classes via Tailwind) */
   --radius-xs: 0.25rem;
@@ -82,6 +84,8 @@
 
   --color-card: oklch(0.18 0.03 250);
   --color-card-foreground: var(--color-foreground);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-card-foreground);
 
   --color-primary: oklch(0.72 0.13 255);
   --color-primary-foreground: oklch(0.12 0.02 255);

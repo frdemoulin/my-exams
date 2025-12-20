@@ -39,6 +39,8 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
     exerciseNumber: exercise.exerciseNumber,
     label: exercise.label || '',
     points: exercise.points || undefined,
+    pageStart: exercise.pageStart || undefined,
+    pageEnd: exercise.pageEnd || undefined,
     title: exercise.title || '',
     statement: exercise.statement || '',
     themeIds: exercise.themeIds,
@@ -58,6 +60,8 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
         exerciseNumber: formData.exerciseNumber,
         label: formData.label || undefined,
         points: formData.points,
+        pageStart: formData.pageStart,
+        pageEnd: formData.pageEnd,
         title: formData.title || undefined,
         statement: formData.statement || undefined,
         themeIds: formData.themeIds,
@@ -135,6 +139,41 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
                 value={formData.label}
                 onChange={(e) => setFormData({ ...formData, label: e.target.value })}
                 placeholder="Exercice 1, Partie A..."
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="pageStart">Page debut</Label>
+              <Input
+                id="pageStart"
+                type="number"
+                min="1"
+                value={formData.pageStart || ''}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    pageStart: e.target.value ? parseInt(e.target.value) : undefined,
+                  })
+                }
+                placeholder="1"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="pageEnd">Page fin</Label>
+              <Input
+                id="pageEnd"
+                type="number"
+                min="1"
+                value={formData.pageEnd || ''}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    pageEnd: e.target.value ? parseInt(e.target.value) : undefined,
+                  })
+                }
+                placeholder="3"
               />
             </div>
           </div>
