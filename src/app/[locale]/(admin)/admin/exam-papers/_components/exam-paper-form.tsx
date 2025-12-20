@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import MultipleSelector, { type Option } from "@/components/ui/multiple-selector";
+import { MultiSelect } from "@/components/ui/multi-select";
 
 import { createExamPaper, updateExamPaper } from "@/core/exam-paper";
 import { CreateExamPaperValues } from "@/core/exam-paper";
@@ -62,24 +62,16 @@ export const ExamPaperForm = ({
     const common = useCommonTranslations();
     
     // Convert examinationCenters to options
-    const examinationCenterOptions = useMemo<Option[]>(() => {
+    const examinationCenterOptions = useMemo(() => {
         return examinationCenters.map(center => ({
             label: center.description,
             value: center.id,
         }));
     }, [examinationCenters]);
 
-    // Get default selected examination centers
-    const defaultExaminationCenters = useMemo<Option[]>(() => {
-        if (initialData.examinationCenterIds) {
-            return examinationCenterOptions.filter((option) =>
-                initialData.examinationCenterIds?.includes(option.value)
-            );
-        }
-        return [];
-    }, [initialData.examinationCenterIds, examinationCenterOptions]);
-
-    const [selectedExaminationCenters, setSelectedExaminationCenters] = useState<Option[]>(defaultExaminationCenters);
+    const [selectedExaminationCenterIds, setSelectedExaminationCenterIds] = useState<string[]>(
+        initialData.examinationCenterIds || []
+    );
     
     const form = useForm<CreateExamPaperValues>({
         defaultValues: {
@@ -115,7 +107,10 @@ export const ExamPaperForm = ({
             return;
         }
 
-        const centersLabel = selectedExaminationCenters.map(opt => opt.label).join('-');
+        const centersLabel = selectedExaminationCenterIds
+            .map((id) => examinationCenterOptions.find((opt) => opt.value === id)?.label)
+            .filter((label): label is string => Boolean(label))
+            .join('-');
 
         if (!centersLabel) {
             form.setValue('label', '');
@@ -135,7 +130,7 @@ export const ExamPaperForm = ({
         if (sessionDay) parts.push(sessionDay);
 
         form.setValue('label', parts.join(' '));
-    }, [selectedExaminationCenters, sessionYear, sessionDay, examMonth, examYear, form, crudMode, initialData.label, form.formState.isDirty]);
+    }, [selectedExaminationCenterIds, examinationCenterOptions, sessionYear, sessionDay, examMonth, examYear, form, crudMode, initialData.label, form.formState.isDirty]);
 
     const [uploading, setUploading] = useState(false);
     const [uploadMessage, setUploadMessage] = useState<{ type: 'success' | 'error' | null; text: string }>({ type: null, text: '' });
@@ -157,10 +152,14 @@ export const ExamPaperForm = ({
                 throw new Error(data?.error || "Téléversement échoué");
             }
             form.setValue("subjectUrl", data.url || "");
-            setUploadMessage({ type: 'success', text: "PDF téléversé. Le lien a été renseigné automatiquement." });
+            const successText = data?.compressed
+                ? "PDF téléversé (compressé). Le lien a été renseigné automatiquement."
+                : "PDF téléversé. Le lien a été renseigné automatiquement.";
+            setUploadMessage({ type: 'success', text: successText });
         } catch (err) {
             console.error("Upload error", err);
-            setUploadMessage({ type: 'error', text: "Échec du téléversement du PDF." });
+            const message = err instanceof Error ? err.message : "Échec du téléversement du PDF.";
+            setUploadMessage({ type: 'error', text: message });
         } finally {
             setUploading(false);
             e.target.value = "";
@@ -168,9 +167,9 @@ export const ExamPaperForm = ({
     };
 
     // Auto-generate label from examination centers
-    const handleExaminationCentersChange = (options: Option[]) => {
-        setSelectedExaminationCenters(options);
-        form.setValue('examinationCenterIds', options.map((opt) => opt.value));
+    const handleExaminationCentersChange = (ids: string[]) => {
+        setSelectedExaminationCenterIds(ids);
+        form.setValue('examinationCenterIds', ids);
     };
 
     const onSubmit = async (values: CreateExamPaperValues) => {
@@ -213,16 +212,14 @@ export const ExamPaperForm = ({
                         <FormItem>
                             <FormLabel>Centres d&apos;examen</FormLabel>
                             <FormControl>
-                                <MultipleSelector
-                                    value={selectedExaminationCenters}
-                                    onChange={handleExaminationCentersChange}
+                                <MultiSelect
                                     options={examinationCenterOptions}
-                                    placeholder="Sélectionner des centres d&apos;examen"
-                                    emptyIndicator={
-                                        <p className="text-center text-sm text-body">
-                                            Aucun centre trouvé
-                                        </p>
-                                    }
+                                    selected={selectedExaminationCenterIds}
+                                    onChange={handleExaminationCentersChange}
+                                    placeholder="Sélectionner des centres d'examen"
+                                    searchPlaceholder="Rechercher un centre..."
+                                    emptyText="Aucun centre trouvé."
+                                    contentClassName="z-[1000]"
                                 />
                             </FormControl>
                             <FormMessage />
@@ -553,7 +550,7 @@ export const ExamPaperForm = ({
                             {uploadMessage.text}
                         </p>
                     )}
-                    <p className="text-sm text-muted-foreground">Taille max 20MB. Le lien est rempli automatiquement après upload.</p>
+                    <p className="text-sm text-muted-foreground">Taille max 10MB. Compression auto au-delà de 2MB (Ghostscript requis). Le lien est rempli automatiquement après upload.</p>
                 </div>
 
                 <FormField

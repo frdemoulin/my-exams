@@ -238,6 +238,8 @@ model Exercise {
   exerciseNumber Int // 1, 2, 3...
   label          String? // "Exercice 3", "Partie A", "Question de synthèse"
   points         Int? // Points attribués à cet exercice
+  pageStart      Int? // Page de debut (1-based)
+  pageEnd        Int? // Page de fin (1-based)
 
   // Titre et énoncé (pour recherche full-text future)
   title     String? // ex: "Titrage acide-base d'un vinaigre"

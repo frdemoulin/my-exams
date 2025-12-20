@@ -34,6 +34,11 @@ export class TesseractOcrService {
   }
 
   async extractFromPdfBuffer(pdfBuffer: Buffer): Promise<OcrResult> {
+    const pageTexts = await this.extractPagesFromPdfBuffer(pdfBuffer);
+    return { text: pageTexts.join('\n') };
+  }
+
+  async extractPagesFromPdfBuffer(pdfBuffer: Buffer): Promise<string[]> {
     const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'ocr-'));
     const pdfPath = path.join(tmpDir, 'input.pdf');
     await fs.writeFile(pdfPath, pdfBuffer);
@@ -49,14 +54,14 @@ export class TesseractOcrService {
         throw new Error('pdftoppm n’a généré aucune image');
       }
 
-      let fullText = '';
+      const pageTexts: string[] = [];
       for (const png of pngs) {
         const pngPath = path.join(tmpDir, png);
         const { stdout } = await execFileAsync('tesseract', [pngPath, 'stdout', '-l', 'fra']);
-        fullText += stdout + '\n';
+        pageTexts.push(stdout.trim());
       }
 
-      return { text: fullText };
+      return pageTexts;
     } finally {
       // Nettoyage silencieux
       fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
