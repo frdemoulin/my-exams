@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     }
 
     const arrayBuffer = await file.arrayBuffer();
-    let buffer = Buffer.from(arrayBuffer);
+    let buffer: Buffer = Buffer.from(arrayBuffer);
     let compressed = false;
     let compressionError: CompressionResult["error"] = undefined;
 
