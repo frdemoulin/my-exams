@@ -1,3 +1,8 @@
+## <small>1.2.8 (2025-12-21)</small>
+
+* Merge pull request #38 from frdemoulin/dev ([f3a73ec](https://github.com/frdemoulin/my-exams/commit/f3a73ec)), closes [#38](https://github.com/frdemoulin/my-exams/issues/38)
+* fix: normalisation d'enrichmentStatus ([90b2705](https://github.com/frdemoulin/my-exams/commit/90b2705))
+
 ## <small>1.2.7 (2025-12-21)</small>
 
 * Merge pull request #37 from frdemoulin/dev ([fb591d3](https://github.com/frdemoulin/my-exams/commit/fb591d3)), closes [#37](https://github.com/frdemoulin/my-exams/issues/37)
