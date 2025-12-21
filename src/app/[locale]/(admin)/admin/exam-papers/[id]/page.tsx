@@ -83,6 +83,15 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
         return exerciseType;
     };
 
+    const normalizeEnrichmentStatus = (
+        status: string
+    ): 'completed' | 'pending' | 'failed' => {
+        if (status === 'completed' || status === 'pending' || status === 'failed') {
+            return status;
+        }
+        return 'pending';
+    };
+
     return (
         <div className="w-full p-6">
             <div className="flex items-center justify-between mb-6">
@@ -276,7 +285,7 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                             <ReenrichExerciseButton
                                                 exerciseId={exercise.id}
                                                 exerciseNumber={exercise.exerciseNumber}
-                                                enrichmentStatus={exercise.enrichmentStatus}
+                                                enrichmentStatus={normalizeEnrichmentStatus(exercise.enrichmentStatus)}
                                             />
                                             <TooltipProvider>
                                                 <Tooltip>
