@@ -220,7 +220,7 @@ export function SplitExercisesForm({
         return;
       }
 
-      const suggested = result.exercises.map((exercise) => ({
+      const suggested = (result.exercises ?? []).map((exercise) => ({
         exerciseNumber: exercise.exerciseNumber,
         label: exercise.label || `Exercice ${exercise.exerciseNumber}`,
         points: exercise.points ?? undefined,
@@ -235,6 +235,11 @@ export function SplitExercisesForm({
         confidence: exercise.confidence ?? null,
         flags: exercise.flags ?? [],
       }));
+
+      if (suggested.length === 0) {
+        toast.error("L'analyse n'a retourné aucun exercice.");
+        return;
+      }
 
       setExercises(suggested);
       setSplitWarnings(result.flags || []);
