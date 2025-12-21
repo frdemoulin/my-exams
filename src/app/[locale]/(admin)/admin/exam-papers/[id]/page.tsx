@@ -10,8 +10,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AppBreadcrumb } from "@/components/shared/app-breadcrumb";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { DeleteExerciseButton } from "./_components/delete-exercise-button";
 import { DeleteAllExercisesButton } from "./_components/delete-all-exercises-button";
+import { EnrichExercisesButton } from "./_components/enrich-exercises-button";
+import { ReenrichExerciseButton } from "./_components/reenrich-exercise-button";
 import prisma from "@/lib/db/prisma";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -40,6 +43,8 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
         where: { examPaperId: id },
         orderBy: { exerciseNumber: 'asc' },
     });
+    const pendingCount = exercises.filter((ex) => ex.enrichmentStatus === 'pending').length;
+    const failedCount = exercises.filter((ex) => ex.enrichmentStatus === 'failed').length;
 
     // Récupérer tous les thèmes référencés
     const themeIds = [...new Set(exercises.flatMap(ex => ex.themeIds))];
@@ -70,16 +75,31 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
         }
     })();
 
+    const formatExerciseType = (exerciseType?: string | null) => {
+        if (!exerciseType || exerciseType === 'NORMAL') return null;
+        if (exerciseType === 'QCM') return 'QCM';
+        if (exerciseType === 'TRUE_FALSE') return 'Vrai/Faux';
+        if (exerciseType === 'OTHER') return 'Autre';
+        return exerciseType;
+    };
+
     return (
         <div className="w-full p-6">
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-lg font-semibold md:text-2xl">{t('actions.view')}</h1>
                 <div className="flex items-center gap-2">
-                    <Link href={`/admin/exam-papers/${id}/edit`}>
-                        <Button variant="secondary" size="icon" aria-label="Éditer le sujet">
-                            <Pencil className="h-4 w-4" />
-                        </Button>
-                    </Link>
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Link href={`/admin/exam-papers/${id}/edit`}>
+                                    <Button variant="warning" size="icon" aria-label="Éditer le sujet">
+                                        <Pencil className="h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </TooltipTrigger>
+                            <TooltipContent>Éditer le sujet</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                     <Link href={`/admin/exam-papers/${id}/split`}>
                         <Button>
                             <Scissors className="mr-2 h-4 w-4" />
@@ -195,7 +215,15 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                         <h2 className="text-xl font-semibold">
                             {exercisesWithThemes.length} exercice{exercisesWithThemes.length > 1 ? 's' : ''}
                         </h2>
-                        <DeleteAllExercisesButton examPaperId={id} exerciseCount={exercisesWithThemes.length} />
+                        <div className="flex items-center gap-2">
+                            <EnrichExercisesButton
+                                examPaperId={id}
+                                exerciseCount={exercisesWithThemes.length}
+                                pendingCount={pendingCount}
+                                failedCount={failedCount}
+                            />
+                            <DeleteAllExercisesButton examPaperId={id} exerciseCount={exercisesWithThemes.length} />
+                        </div>
                     </div>
                     <div className="space-y-4">
                         {exercisesWithThemes.map((exercise) => (
@@ -217,6 +245,11 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                             <div className="flex gap-2">
                                                 {exercise.points && (
                                                     <Badge variant="points">{exercise.points} pts</Badge>
+                                                )}
+                                                {formatExerciseType(exercise.exerciseType) && (
+                                                    <Badge variant="outline">
+                                                        {formatExerciseType(exercise.exerciseType)}
+                                                    </Badge>
                                                 )}
                                                 {exercise.estimatedDuration && (
                                                     <Badge variant="duration">{exercise.estimatedDuration} min</Badge>
@@ -240,11 +273,23 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                             </div>
                                         </div>
                                         <div className="flex gap-1">
-                                            <Link href={`/admin/exercises/${exercise.id}/edit`}>
-                                                <Button variant="ghost" size="sm">
-                                                    <Pencil className="h-4 w-4" />
-                                                </Button>
-                                            </Link>
+                                            <ReenrichExerciseButton
+                                                exerciseId={exercise.id}
+                                                exerciseNumber={exercise.exerciseNumber}
+                                                enrichmentStatus={exercise.enrichmentStatus}
+                                            />
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <Link href={`/admin/exercises/${exercise.id}/edit`}>
+                                                            <Button variant="warning" size="sm">
+                                                                <Pencil className="h-4 w-4" />
+                                                            </Button>
+                                                        </Link>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>Éditer l&apos;exercice</TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
                                             <DeleteExerciseButton 
                                                 exerciseId={exercise.id} 
                                                 exerciseNumber={exercise.exerciseNumber}
@@ -259,11 +304,22 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                             <p className="text-sm text-muted-foreground">{exercise.title}</p>
                                         </div>
                                     )}
-                                    {exercise.statement && (
+                                    {exercise.summary ? (
                                         <div className="space-y-2">
-                                            <h4 className="font-medium text-sm">Énoncé</h4>
-                                            <p className="text-sm text-muted-foreground whitespace-pre-wrap">{exercise.statement}</p>
+                                            <div className="flex items-center gap-2">
+                                                <h4 className="font-medium text-sm">Résumé</h4>
+                                                <Badge variant="outline" className="text-[10px] uppercase">
+                                                    Résumé généré par IA
+                                                </Badge>
+                                            </div>
+                                            <p className="text-sm text-muted-foreground whitespace-pre-wrap">
+                                                {exercise.summary}
+                                            </p>
                                         </div>
+                                    ) : (
+                                        <p className="text-xs text-muted-foreground">
+                                            Résumé non disponible (enrichissement requis).
+                                        </p>
                                     )}
                                     {exercise.themes.length > 0 && (
                                         <div>

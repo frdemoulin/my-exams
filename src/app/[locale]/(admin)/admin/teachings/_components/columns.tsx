@@ -16,7 +16,7 @@ import { deleteTeaching } from "@/core/teaching";
 import { TeachingWithRelations } from "@/core/teaching";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
-import { actionMenuContent, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
@@ -89,6 +89,7 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className={actionMenuContent}>
+            <div className={actionMenuHeader}>Actions</div>
             <DropdownMenuItem className={actionMenuItem}>
               <Link href={`/admin/teachings/${teaching.id}`}>
                 Voir

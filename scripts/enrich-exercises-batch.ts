@@ -52,6 +52,7 @@ async function run() {
       id: true,
       exerciseUrl: true,
       statement: true,
+      themeIds: true,
       examPaper: {
         select: { subjectUrl: true, label: true },
       },
@@ -84,6 +85,10 @@ async function run() {
 
       const themeIdSet = new Set(themes.map((t) => t.id));
       const filteredThemes = (llmResult.themeIds ?? []).filter((id) => themeIdSet.has(id));
+      const mergedThemes =
+        ex.themeIds.length > 0
+          ? Array.from(new Set([...ex.themeIds, ...filteredThemes]))
+          : filteredThemes;
 
       await prisma.exercise.update({
         where: { id: ex.id },
@@ -94,7 +99,7 @@ async function run() {
           keywords: llmResult.keywords ?? [],
           estimatedDuration: llmResult.estimatedDuration ?? null,
           estimatedDifficulty: llmResult.estimatedDifficulty ?? null,
-          themeIds: filteredThemes,
+          themeIds: mergedThemes,
           enrichmentStatus: 'completed',
           enrichedAt: new Date(),
         },

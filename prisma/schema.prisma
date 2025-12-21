@@ -226,6 +226,13 @@ enum ExamPaperSource {
   AUTRE
 }
 
+enum ExerciseType {
+  NORMAL
+  QCM
+  TRUE_FALSE
+  OTHER
+}
+
 // Exercice d'annales (unité de recherche)
 model Exercise {
   id String @id @default(auto()) @map("_id") @db.ObjectId
@@ -240,6 +247,7 @@ model Exercise {
   points         Int? // Points attribués à cet exercice
   pageStart      Int? // Page de debut (1-based)
   pageEnd        Int? // Page de fin (1-based)
+  exerciseType   ExerciseType? @default(NORMAL) // Type d'exercice (QCM, vrai/faux, etc.)
 
   // Titre et énoncé (pour recherche full-text future)
   title     String? // ex: "Titrage acide-base d'un vinaigre"

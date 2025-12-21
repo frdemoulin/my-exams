@@ -60,7 +60,10 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   const [total, setTotal] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [suggestions, setSuggestions] = useState<
-    Array<{ id: string; title: string; label: string | null; examPaperLabel: string; sessionYear: number; subject: string }>
+    Array<
+      | { type: 'exercise'; id: string; title: string; label: string | null; examPaperLabel: string; sessionYear: number; subject: string }
+      | { type: 'theme'; id: string; title: string }
+    >
   >([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -473,9 +476,15 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                               }}
                             >
                               <span className="font-medium">{s.title}</span>
-                              <span className="text-xs text-muted-foreground">
-                                {s.subject} · {s.examPaperLabel} · {s.sessionYear}
-                              </span>
+                              {s.type === 'exercise' ? (
+                                <span className="text-xs text-muted-foreground">
+                                  {s.subject} · {s.examPaperLabel} · {s.sessionYear}
+                                </span>
+                              ) : (
+                                <span className="text-xs text-muted-foreground">
+                                  Thème
+                                </span>
+                              )}
                             </button>
                           </li>
                         ))}

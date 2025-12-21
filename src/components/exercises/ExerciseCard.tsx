@@ -96,10 +96,7 @@ export function ExerciseCard({
       ? `${Math.floor(estimatedDuration / 60)}h${estimatedDuration % 60 ? ` ${estimatedDuration % 60}min` : ''}`
       : `${estimatedDuration} min`
     : null;
-  const summaryText =
-    exercise.summary ||
-    exercise.statement?.slice(0, 220).replace(/\s+/g, ' ').trim() ||
-    '';
+  const summaryText = exercise.summary?.trim() || '';
   const traceabilityFooter = paperLabel
     ? `Issu du sujet ${paperLabel}`
     : `Session ${sessionYear}`;
@@ -203,9 +200,14 @@ export function ExerciseCard({
 
       <CardContent className="flex flex-col gap-3 p-4 pt-0">
         {summaryText && (
-          <p className="text-sm text-muted-foreground line-clamp-2">
-            {summaryText}
-          </p>
+          <div className="flex flex-col gap-2">
+            <Badge variant="outline" className="w-fit text-[10px] uppercase">
+              Résumé généré par IA
+            </Badge>
+            <p className="text-sm text-muted-foreground line-clamp-2">
+              {summaryText}
+            </p>
+          </div>
         )}
 
         <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">

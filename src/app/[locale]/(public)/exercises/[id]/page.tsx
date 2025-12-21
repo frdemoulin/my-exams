@@ -124,6 +124,7 @@ export default function ExerciseDetailPage() {
     exerciseNumber,
     label,
     points,
+    exerciseType,
     estimatedDuration,
     estimatedDifficulty,
     summary,
@@ -137,6 +138,13 @@ export default function ExerciseDetailPage() {
 
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const traceability = `${paperLabel} ${sessionYear}`;
+  const formatExerciseType = (value?: string | null) => {
+    if (!value || value === 'NORMAL') return null;
+    if (value === 'QCM') return 'QCM';
+    if (value === 'TRUE_FALSE') return 'Vrai/Faux';
+    if (value === 'OTHER') return 'Autre';
+    return value;
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -164,11 +172,16 @@ export default function ExerciseDetailPage() {
               <div className="flex-1">
                 <h1 className="text-3xl font-bold leading-tight">{displayTitle}</h1>
                 <p className="mt-2 text-muted-foreground">{traceability}</p>
-                {points && (
-                  <Badge variant="secondary" className="mt-2">
-                    {points} point{points > 1 ? 's' : ''}
-                  </Badge>
-                )}
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {points && (
+                    <Badge variant="secondary">
+                      {points} point{points > 1 ? 's' : ''}
+                    </Badge>
+                  )}
+                  {formatExerciseType(exerciseType) && (
+                    <Badge variant="outline">{formatExerciseType(exerciseType)}</Badge>
+                  )}
+                </div>
               </div>
 
               {/* Bouton favoris */}

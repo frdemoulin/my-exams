@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
+export const exerciseTypeSchema = z.enum(['NORMAL', 'QCM', 'TRUE_FALSE', 'OTHER']);
+export type ExerciseType = z.infer<typeof exerciseTypeSchema>;
+
 /**
  * Schéma de validation pour la création d'un exercice
  */
@@ -10,6 +13,7 @@ const baseExerciseSchema = z.object({
   points: z.number().int().positive().optional(),
   pageStart: z.number().int().positive().optional(),
   pageEnd: z.number().int().positive().optional(),
+  exerciseType: exerciseTypeSchema.optional(),
   title: z.string().optional(),
   statement: z.string().optional(),
   themeIds: z.array(z.string()).default([]),

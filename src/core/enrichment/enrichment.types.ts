@@ -1,4 +1,5 @@
 export type EnrichmentStatus = 'pending' | 'completed' | 'failed';
+export type ExerciseType = 'NORMAL' | 'QCM' | 'TRUE_FALSE' | 'OTHER';
 
 export interface OcrResult {
   text: string; // contenu OCRisé complet
@@ -11,6 +12,7 @@ export interface LlmAnalysisResult {
   estimatedDuration?: number | null;
   estimatedDifficulty?: number | null;
   themeIds?: string[];
+  exerciseType?: ExerciseType | null;
 }
 
 export interface EnrichmentInput {
@@ -26,4 +28,28 @@ export interface EnrichmentInput {
 export interface EnrichmentPayload {
   ocr: OcrResult;
   llm: LlmAnalysisResult;
+}
+
+export interface ExamPaperPageSnippet {
+  pageNumber: number;
+  text: string;
+}
+
+export interface ExamPaperSplitInput {
+  pages: ExamPaperPageSnippet[];
+  expectedExerciseCount?: number | null;
+}
+
+export interface ExamPaperSplitSuggestion {
+  exerciseNumber: number;
+  label?: string | null;
+  pageStart: number;
+  pageEnd: number;
+  points?: number | null;
+  estimatedDuration?: number | null;
+  confidence?: number | null;
+}
+
+export interface ExamPaperSplitResult {
+  exercises: ExamPaperSplitSuggestion[];
 }

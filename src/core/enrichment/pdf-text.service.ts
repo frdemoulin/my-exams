@@ -1,5 +1,6 @@
 import pdf from 'pdf-parse';
 import { TesseractOcrService } from './tesseract-ocr.service';
+import { loadPdfBuffer } from './pdf-buffer';
 
 export interface PageRange {
   pageStart: number;
@@ -13,12 +14,10 @@ interface ExtractPageRangeOptions {
   enableTesseractFallback?: boolean;
 }
 
-async function fetchPdfBuffer(pdfUrl: string) {
-  const res = await fetch(pdfUrl);
-  if (!res.ok) {
-    throw new Error(`Echec du telechargement du PDF (${res.status})`);
-  }
-  return Buffer.from(await res.arrayBuffer());
+interface ExtractPageTextOptions {
+  pdfUrl: string;
+  minLengthForValidText?: number;
+  enableTesseractFallback?: boolean;
 }
 
 async function extractPdfTextByPage(pdfBuffer: Buffer): Promise<string[]> {
@@ -64,6 +63,23 @@ function validateRanges(pageRanges: PageRange[]) {
   }
 }
 
+export async function extractPdfTextByPages({
+  pdfUrl,
+  minLengthForValidText = 200,
+  enableTesseractFallback = false,
+}: ExtractPageTextOptions): Promise<string[]> {
+  const pdfBuffer = await loadPdfBuffer(pdfUrl);
+  let pageTexts = await extractPdfTextByPage(pdfBuffer);
+
+  const combinedText = pageTexts.join('\n');
+  if (combinedText.trim().length < minLengthForValidText && enableTesseractFallback) {
+    const tesseract = new TesseractOcrService();
+    pageTexts = await tesseract.extractPagesFromPdfBuffer(pdfBuffer);
+  }
+
+  return pageTexts;
+}
+
 export async function extractPdfTextByPageRanges({
   pdfUrl,
   pageRanges,
@@ -73,14 +89,11 @@ export async function extractPdfTextByPageRanges({
   if (!pageRanges.length) return [];
   validateRanges(pageRanges);
 
-  const pdfBuffer = await fetchPdfBuffer(pdfUrl);
-  let pageTexts = await extractPdfTextByPage(pdfBuffer);
-
-  const combinedText = pageTexts.join('\n');
-  if (combinedText.trim().length < minLengthForValidText && enableTesseractFallback) {
-    const tesseract = new TesseractOcrService();
-    pageTexts = await tesseract.extractPagesFromPdfBuffer(pdfBuffer);
-  }
+  const pageTexts = await extractPdfTextByPages({
+    pdfUrl,
+    minLengthForValidText,
+    enableTesseractFallback,
+  });
 
   const pageCount = pageTexts.length;
 

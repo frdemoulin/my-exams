@@ -35,8 +35,9 @@ export function DeleteAllExercisesButton({ examPaperId, exerciseCount }: DeleteA
       onConfirm={handleDelete}
       title="Supprimer tous les exercices"
       description={`Supprimer les ${exerciseCount} exercice(s) de ce sujet ? Cette action est irréversible.`}
+      tooltip="Supprimer tous les exercices"
       trigger={
-        <Button variant="destructive" size="icon" aria-label="Supprimer tous les exercices">
+        <Button variant="destructive" size="sm" aria-label="Supprimer tous les exercices">
           <Trash2 className="h-4 w-4" />
         </Button>
       }

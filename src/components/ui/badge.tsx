@@ -15,7 +15,7 @@ const badgeVariants = cva(
         theme:
           "box-border border border-default bg-neutral-primary-soft text-body shadow-xs hover:bg-neutral-secondary-soft",
         destructive:
-          "box-border border border-transparent bg-error text-white shadow-xs hover:bg-error-strong focus-visible:ring-error-medium",
+          "box-border border border-transparent bg-danger text-white shadow-xs hover:bg-danger-strong focus-visible:ring-danger-medium",
         outline:
           "box-border border border-default text-heading shadow-xs hover:bg-neutral-secondary-soft hover:text-heading",
         points:
