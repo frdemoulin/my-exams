@@ -220,13 +220,14 @@ export function SplitExercisesForm({
         return;
       }
 
+      const defaultExerciseType: ExerciseType = 'NORMAL';
       const suggested = (result.exercises ?? []).map((exercise) => ({
         exerciseNumber: exercise.exerciseNumber,
         label: exercise.label || `Exercice ${exercise.exerciseNumber}`,
         points: exercise.points ?? undefined,
         pageStart: exercise.pageStart ?? undefined,
         pageEnd: exercise.pageEnd ?? undefined,
-        exerciseType: 'NORMAL',
+        exerciseType: defaultExerciseType,
         title: undefined,
         statement: undefined,
         themeIds: [],
