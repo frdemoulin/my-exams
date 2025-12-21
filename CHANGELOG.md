@@ -1,3 +1,8 @@
+## <small>1.2.7 (2025-12-21)</small>
+
+* Merge pull request #37 from frdemoulin/dev ([fb591d3](https://github.com/frdemoulin/my-exams/commit/fb591d3)), closes [#37](https://github.com/frdemoulin/my-exams/issues/37)
+* fix: amélioration de l'enrichissement des exercices par LLM ([87a1327](https://github.com/frdemoulin/my-exams/commit/87a1327))
+
 ## <small>1.2.6 (2025-12-20)</small>
 
 * Merge pull request #36 from frdemoulin/dev ([a322bff](https://github.com/frdemoulin/my-exams/commit/a322bff)), closes [#36](https://github.com/frdemoulin/my-exams/issues/36)
