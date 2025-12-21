@@ -1,3 +1,8 @@
+## <small>1.2.10 (2025-12-21)</small>
+
+* Merge pull request #40 from frdemoulin/dev ([9429390](https://github.com/frdemoulin/my-exams/commit/9429390)), closes [#40](https://github.com/frdemoulin/my-exams/issues/40)
+* fix: correction du type d'exerciseType ([e02544b](https://github.com/frdemoulin/my-exams/commit/e02544b))
+
 ## <small>1.2.9 (2025-12-21)</small>
 
 * Merge pull request #39 from frdemoulin/dev ([87d3eef](https://github.com/frdemoulin/my-exams/commit/87d3eef)), closes [#39](https://github.com/frdemoulin/my-exams/issues/39)
