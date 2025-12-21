@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "check": "npx prisma generate && npm run build",
     "start": "next start",
     "build:next": "next build",
     "lint": "eslint . --max-warnings=0",

@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import prisma from '@/lib/db/prisma';
+import { ExerciseType } from '@prisma/client';
 import {
   extractPdfTextByPages,
   extractPdfTextByPageRanges,
@@ -127,10 +128,10 @@ const enrichExerciseRecord = async (ex: EnrichmentTarget, context: EnrichmentCon
       ? Array.from(new Set([...ex.themeIds, ...filteredThemes]))
       : filteredThemes;
 
-  const resolvedExerciseType =
+  const resolvedExerciseType: ExerciseType =
     llmResult.exerciseType && llmResult.exerciseType !== 'NORMAL'
-      ? llmResult.exerciseType
-      : ex.exerciseType ?? llmResult.exerciseType ?? 'NORMAL';
+      ? (llmResult.exerciseType as ExerciseType)
+      : (ex.exerciseType as ExerciseType) ?? (llmResult.exerciseType as ExerciseType) ?? 'NORMAL';
   const summaryWithType = ensureSummaryMentionsType(
     llmResult.summary ?? null,
     resolvedExerciseType
