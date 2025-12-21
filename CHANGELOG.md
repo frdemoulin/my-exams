@@ -1,3 +1,8 @@
+## <small>1.2.9 (2025-12-21)</small>
+
+* Merge pull request #39 from frdemoulin/dev ([87d3eef](https://github.com/frdemoulin/my-exams/commit/87d3eef)), closes [#39](https://github.com/frdemoulin/my-exams/issues/39)
+* fix: correction du champ result.exercises en base ([f1ca4fa](https://github.com/frdemoulin/my-exams/commit/f1ca4fa))
+
 ## <small>1.2.8 (2025-12-21)</small>
 
 * Merge pull request #38 from frdemoulin/dev ([f3a73ec](https://github.com/frdemoulin/my-exams/commit/f3a73ec)), closes [#38](https://github.com/frdemoulin/my-exams/issues/38)
