@@ -8,7 +8,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
@@ -17,7 +16,7 @@ import toast from "react-hot-toast";
 import type { CurriculumWithTeachingCount } from "@/core/curriculum";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
-import { actionMenuContent, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 
 export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
@@ -76,6 +75,7 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     },
     {
         id: "actions",
+        header: "Actions",
         cell: ({ row }) => {
             const curriculum = row.original;
 
@@ -104,7 +104,7 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
                                 </button>
                             </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className={actionMenuContent}>
-                        <DropdownMenuLabel className="px-3 py-2 text-xs font-semibold text-muted-foreground">Actions</DropdownMenuLabel>
+                        <div className={actionMenuHeader}>Actions</div>
                         <DropdownMenuItem asChild className={actionMenuItem}>
                             <Link href={`/admin/curriculums/${curriculum.id}`}>
                                 Voir

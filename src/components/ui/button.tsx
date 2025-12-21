@@ -19,7 +19,11 @@ const buttonVariants = cva(
 
         // Flowbite Destructive (Red)
         destructive:
-          "box-border border border-transparent bg-error text-white shadow-xs hover:bg-error-strong focus-visible:ring-4 focus-visible:ring-error-medium",
+          "box-border border border-transparent bg-danger text-white shadow-xs hover:bg-danger-strong focus-visible:ring-4 focus-visible:ring-danger-medium",
+
+        // Flowbite Warning (Yellow)
+        warning:
+          "box-border border border-transparent bg-yellow-500 text-white shadow-xs hover:bg-yellow-600 focus-visible:ring-4 focus-visible:ring-yellow-400",
 
         // Flowbite Secondary (Gray)
         secondary:

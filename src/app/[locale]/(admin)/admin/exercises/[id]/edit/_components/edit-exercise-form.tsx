@@ -9,8 +9,24 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MultiSelect } from '@/components/ui/multi-select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { updateExercise, deleteExercise } from '@/core/exercise';
-import { Exercise, ExamPaper, Diploma, Division, Grade, Teaching, Subject } from '@prisma/client';
+import {
+  Exercise,
+  ExamPaper,
+  Diploma,
+  Division,
+  Grade,
+  Teaching,
+  Subject,
+  ExerciseType,
+} from '@prisma/client';
 import toast from 'react-hot-toast';
 
 type ExerciseWithRelations = Exercise & {
@@ -30,6 +46,13 @@ interface EditExerciseFormProps {
   themes: Array<{ value: string; label: string }>;
 }
 
+const EXERCISE_TYPE_OPTIONS: Array<{ value: ExerciseType; label: string }> = [
+  { value: 'NORMAL', label: 'Normal' },
+  { value: 'QCM', label: 'QCM' },
+  { value: 'TRUE_FALSE', label: 'Vrai / Faux' },
+  { value: 'OTHER', label: 'Autre' },
+];
+
 export default function EditExerciseForm({ exercise, themes }: EditExerciseFormProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,6 +64,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
     points: exercise.points || undefined,
     pageStart: exercise.pageStart || undefined,
     pageEnd: exercise.pageEnd || undefined,
+    exerciseType: exercise.exerciseType || 'NORMAL',
     title: exercise.title || '',
     statement: exercise.statement || '',
     themeIds: exercise.themeIds,
@@ -62,6 +86,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
         points: formData.points,
         pageStart: formData.pageStart,
         pageEnd: formData.pageEnd,
+        exerciseType: formData.exerciseType,
         title: formData.title || undefined,
         statement: formData.statement || undefined,
         themeIds: formData.themeIds,
@@ -178,7 +203,27 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="exerciseType">Type d&apos;exercice</Label>
+              <Select
+                value={formData.exerciseType}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, exerciseType: value as ExerciseType })
+                }
+              >
+                <SelectTrigger id="exerciseType">
+                  <SelectValue placeholder="Normal" />
+                </SelectTrigger>
+                <SelectContent>
+                  {EXERCISE_TYPE_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="points">Points</Label>
               <Input

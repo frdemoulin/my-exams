@@ -7,10 +7,33 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { MultiSelect } from '@/components/ui/multi-select';
-import { previewExerciseStatements, replaceExercisesByExamPaper, type CreateExerciseInput } from '@/core/exercise';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { ConfirmDeleteDialog } from '@/components/shared/confirm-delete-dialog';
+import {
+  previewExerciseStatements,
+  replaceExercisesByExamPaper,
+  suggestExerciseSplitByExamPaper,
+  type CreateExerciseInput,
+  type ExerciseType,
+} from '@/core/exercise';
 import { Theme } from '@prisma/client';
 import toast from 'react-hot-toast';
+
+const EXERCISE_TYPE_OPTIONS: Array<{ value: ExerciseType; label: string }> = [
+  { value: 'NORMAL', label: 'Normal' },
+  { value: 'QCM', label: 'QCM' },
+  { value: 'TRUE_FALSE', label: 'Vrai / Faux' },
+  { value: 'OTHER', label: 'Autre' },
+];
 
 interface ExerciseFormData {
   exerciseNumber: number;
@@ -18,11 +41,14 @@ interface ExerciseFormData {
   points?: number;
   pageStart?: number;
   pageEnd?: number;
+  exerciseType: ExerciseType;
   title?: string;
   statement?: string;
   themeIds: string[];
   estimatedDuration?: number;
   estimatedDifficulty?: number;
+  confidence?: number | null;
+  flags?: string[];
 }
 
 interface SplitExercisesFormProps {
@@ -42,16 +68,23 @@ export function SplitExercisesForm({
 }: SplitExercisesFormProps) {
   const router = useRouter();
   const [exercises, setExercises] = useState<ExerciseFormData[]>([
-    { exerciseNumber: 1, label: 'Exercice 1', themeIds: [] },
+    { exerciseNumber: 1, label: 'Exercice 1', themeIds: [], exerciseType: 'NORMAL' },
   ]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isPreviewing, setIsPreviewing] = useState(false);
+  const [isSuggesting, setIsSuggesting] = useState(false);
+  const [splitWarnings, setSplitWarnings] = useState<string[]>([]);
 
   const addExercise = () => {
     const nextNumber = Math.max(...exercises.map((e) => e.exerciseNumber), 0) + 1;
     setExercises([
       ...exercises,
-      { exerciseNumber: nextNumber, label: `Exercice ${nextNumber}`, themeIds: [] },
+      {
+        exerciseNumber: nextNumber,
+        label: `Exercice ${nextNumber}`,
+        themeIds: [],
+        exerciseType: 'NORMAL',
+      },
     ]);
   };
 
@@ -93,6 +126,7 @@ export function SplitExercisesForm({
         points: ex.points,
         pageStart: ex.pageStart,
         pageEnd: ex.pageEnd,
+        exerciseType: ex.exerciseType,
         title: ex.title,
         statement: ex.statement,
         themeIds: ex.themeIds,
@@ -168,6 +202,56 @@ export function SplitExercisesForm({
     }
   };
 
+  const handleSuggestSplit = async () => {
+    if (!subjectUrl) {
+      toast.error('Sujet sans PDF : impossible de pré-découper');
+      return;
+    }
+
+    setIsSuggesting(true);
+    setSplitWarnings([]);
+    try {
+      const result = await suggestExerciseSplitByExamPaper(examPaperId, {
+        expectedExerciseCount: existingExercises.length || undefined,
+      });
+
+      if (!result.success) {
+        toast.error(result.error || "Erreur lors de l'analyse IA");
+        return;
+      }
+
+      const suggested = result.exercises.map((exercise) => ({
+        exerciseNumber: exercise.exerciseNumber,
+        label: exercise.label || `Exercice ${exercise.exerciseNumber}`,
+        points: exercise.points ?? undefined,
+        pageStart: exercise.pageStart ?? undefined,
+        pageEnd: exercise.pageEnd ?? undefined,
+        exerciseType: 'NORMAL',
+        title: undefined,
+        statement: undefined,
+        themeIds: [],
+        estimatedDuration: exercise.estimatedDuration ?? undefined,
+        estimatedDifficulty: undefined,
+        confidence: exercise.confidence ?? null,
+        flags: exercise.flags ?? [],
+      }));
+
+      setExercises(suggested);
+      setSplitWarnings(result.flags || []);
+
+      if ((result.flags && result.flags.length > 0) || suggested.some((ex) => ex.flags?.length)) {
+        toast('Découpage proposé. Vérifiez les points signalés.', { icon: '⚠️' });
+      } else {
+        toast.success('Découpage proposé par IA');
+      }
+    } catch (error) {
+      console.error('Error suggesting split:', error);
+      toast.error("Erreur lors de l'analyse IA");
+    } finally {
+      setIsSuggesting(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* En-tête */}
@@ -202,14 +286,43 @@ export function SplitExercisesForm({
             </div>
           )}
           <div className="mt-4">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={handlePreview}
-              disabled={isSubmitting || isPreviewing}
-            >
-              {isPreviewing ? 'Extraction...' : 'Extraire les énoncés depuis le PDF'}
-            </Button>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handlePreview}
+                disabled={isSubmitting || isPreviewing || isSuggesting}
+              >
+                {isPreviewing ? 'Extraction...' : 'Extraire les énoncés depuis le PDF'}
+              </Button>
+              <ConfirmDeleteDialog
+                onConfirm={handleSuggestSplit}
+                title="Pré-découper avec l'IA ?"
+                description="L'analyse IA remplacera le formulaire actuel. Aucun exercice en base ne sera modifié."
+                confirmLabel="Lancer l'analyse IA"
+                confirmLoadingLabel="Analyse..."
+                confirmVariant="default"
+                trigger={
+                  <Button
+                    type="button"
+                    variant="default"
+                    disabled={isSubmitting || isPreviewing || isSuggesting}
+                  >
+                    {isSuggesting ? 'Analyse...' : "Pré-découper avec l'IA"}
+                  </Button>
+                }
+              />
+            </div>
+            {splitWarnings.length > 0 && (
+              <div className="mt-4 rounded-base border border-default bg-neutral-secondary-soft p-4">
+                <p className="text-sm font-semibold text-heading">Points à vérifier</p>
+                <ul className="mt-2 list-disc pl-4 text-xs text-muted-foreground">
+                  {splitWarnings.map((warning) => (
+                    <li key={warning}>{warning}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -219,22 +332,49 @@ export function SplitExercisesForm({
         <Card key={index}>
           <CardHeader className="pb-4">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-lg">
-                Exercice {exercise.exerciseNumber}
-              </CardTitle>
+              <div className="flex items-center gap-2">
+                <CardTitle className="text-lg">
+                  Exercice {exercise.exerciseNumber}
+                </CardTitle>
+                {typeof exercise.confidence === 'number' && (
+                  <Badge variant="outline">
+                    Confiance IA {Math.round(exercise.confidence * 100)}%
+                  </Badge>
+                )}
+                {exercise.flags && exercise.flags.length > 0 && (
+                  <Badge variant="outline">À vérifier</Badge>
+                )}
+              </div>
               {exercises.length > 1 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => removeExercise(index)}
-                  className="text-destructive"
-                >
-                  <Trash2 className="h-4 w-4" />
-                </Button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="destructive"
+                        size="sm"
+                        onClick={() => removeExercise(index)}
+                        aria-label="Supprimer l&apos;exercice"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Supprimer l&apos;exercice</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               )}
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
+            {exercise.flags && exercise.flags.length > 0 && (
+              <div className="rounded-base border border-default bg-neutral-secondary-soft p-3">
+                <p className="text-xs font-semibold text-heading">Points à vérifier</p>
+                <ul className="mt-1 list-disc pl-4 text-xs text-muted-foreground">
+                  {exercise.flags.map((flag) => (
+                    <li key={flag}>{flag}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor={`number-${index}`}>Numéro *</Label>
@@ -296,7 +436,27 @@ export function SplitExercisesForm({
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor={`type-${index}`}>Type d&apos;exercice</Label>
+                <Select
+                  value={exercise.exerciseType}
+                  onValueChange={(value) =>
+                    updateExercise(index, 'exerciseType', value as ExerciseType)
+                  }
+                >
+                  <SelectTrigger id={`type-${index}`}>
+                    <SelectValue placeholder="Normal" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {EXERCISE_TYPE_OPTIONS.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
               <div className="space-y-2">
                 <Label htmlFor={`points-${index}`}>Points</Label>
                 <Input
@@ -304,7 +464,11 @@ export function SplitExercisesForm({
                   type="number"
                   value={exercise.points || ''}
                   onChange={(e) =>
-                    updateExercise(index, 'points', e.target.value ? parseInt(e.target.value) : undefined)
+                    updateExercise(
+                      index,
+                      'points',
+                      e.target.value ? parseInt(e.target.value) : undefined
+                    )
                   }
                   placeholder="6"
                   min={1}
@@ -317,7 +481,11 @@ export function SplitExercisesForm({
                   type="number"
                   value={exercise.estimatedDuration || ''}
                   onChange={(e) =>
-                    updateExercise(index, 'estimatedDuration', e.target.value ? parseInt(e.target.value) : undefined)
+                    updateExercise(
+                      index,
+                      'estimatedDuration',
+                      e.target.value ? parseInt(e.target.value) : undefined
+                    )
                   }
                   placeholder="25"
                   min={1}
@@ -392,11 +560,14 @@ export function SplitExercisesForm({
           <Button
             variant="outline"
             onClick={() => router.push(`/admin/exam-papers/${examPaperId}`)}
-            disabled={isSubmitting}
+            disabled={isSubmitting || isSuggesting}
           >
             Annuler
           </Button>
-          <Button onClick={handleSubmit} disabled={isSubmitting || exercises.length === 0}>
+          <Button
+            onClick={handleSubmit}
+            disabled={isSubmitting || isSuggesting || exercises.length === 0}
+          >
             <Save className="mr-2 h-4 w-4" />
             {isSubmitting ? 'Création...' : `Créer ${exercises.length} exercice(s)`}
           </Button>

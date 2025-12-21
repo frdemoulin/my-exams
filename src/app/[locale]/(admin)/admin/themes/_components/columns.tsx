@@ -16,7 +16,7 @@ import { deleteTheme } from "@/core/theme";
 import { ThemeData } from "@/core/theme";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
-import { actionMenuContent, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 const handleOnClickDeleteButton = async (id: string) => {
   try {
     await deleteTheme(id);
@@ -85,6 +85,7 @@ export const columns: ColumnDef<ThemeData>[] = [
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className={actionMenuContent}>
+            <div className={actionMenuHeader}>Actions</div>
             <DropdownMenuItem className={actionMenuItem}>
               <Link
                 href={`/admin/themes/${theme.id}`}

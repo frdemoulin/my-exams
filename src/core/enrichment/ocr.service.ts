@@ -1,6 +1,7 @@
 import { EnrichmentInput, OcrResult } from './enrichment.types';
 import pdf from 'pdf-parse';
 import { TesseractOcrService } from './tesseract-ocr.service';
+import { loadPdfBuffer } from './pdf-buffer';
 
 /**
  * Interface OCR (stub)
@@ -41,11 +42,7 @@ export class PdfParseOcrService implements OcrService {
       throw new Error('Aucune URL de PDF fournie pour OCR');
     }
 
-    const res = await fetch(pdfUrl);
-    if (!res.ok) {
-      throw new Error(`Échec du téléchargement du PDF (${res.status})`);
-    }
-    const buffer = Buffer.from(await res.arrayBuffer());
+    const buffer = await loadPdfBuffer(pdfUrl);
 
     const data = await pdf(buffer);
     const text = data.text || '';

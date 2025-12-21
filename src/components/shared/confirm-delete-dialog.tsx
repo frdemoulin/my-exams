@@ -12,7 +12,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants, type ButtonProps } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 interface ConfirmDeleteDialogProps {
@@ -20,7 +21,11 @@ interface ConfirmDeleteDialogProps {
   title?: string;
   description?: string;
   confirmLabel?: string;
+  confirmLoadingLabel?: string;
+  confirmVariant?: ButtonProps["variant"];
   cancelLabel?: string;
+  tooltip?: string;
+  tooltipSide?: "top" | "right" | "bottom" | "left";
   onConfirm: () => Promise<void> | void;
 }
 
@@ -29,7 +34,11 @@ export function ConfirmDeleteDialog({
   title = "Confirmer la suppression",
   description = "Cette action est définitive et ne peut pas être annulée.",
   confirmLabel = "Supprimer",
+  confirmLoadingLabel = "Suppression...",
+  confirmVariant = "destructive",
   cancelLabel = "Annuler",
+  tooltip,
+  tooltipSide = "top",
   onConfirm,
 }: ConfirmDeleteDialogProps) {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,9 +55,18 @@ export function ConfirmDeleteDialog({
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        {trigger}
-      </AlertDialogTrigger>
+      {tooltip ? (
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
+            </TooltipTrigger>
+            <TooltipContent side={tooltipSide}>{tooltip}</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      ) : (
+        <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
+      )}
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>{title}</AlertDialogTitle>
@@ -61,9 +79,9 @@ export function ConfirmDeleteDialog({
           <AlertDialogAction
             disabled={isLoading}
             onClick={handleConfirm}
-            className={cn(buttonVariants({ variant: "destructive" }))}
+            className={cn(buttonVariants({ variant: confirmVariant }))}
           >
-            {isLoading ? "Suppression..." : confirmLabel}
+            {isLoading ? confirmLoadingLabel : confirmLabel}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

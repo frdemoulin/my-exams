@@ -2,7 +2,7 @@
  * Queries pour les exercices d'annales
  */
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Prisma, ExerciseType } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -13,6 +13,7 @@ export interface ExerciseWithRelations {
   points: number | null;
   pageStart: number | null;
   pageEnd: number | null;
+  exerciseType: ExerciseType | null;
   title: string | null;
   statement: string | null;
   exerciseUrl: string | null;
@@ -89,6 +90,7 @@ export interface SearchExercisesParams {
   themes?: string[];
   year?: number;
   search?: string;
+  exerciseType?: ExerciseType;
   sortBy?: 'year' | 'difficulty' | 'duration';
   sortOrder?: 'asc' | 'desc';
   limit?: number;
@@ -102,6 +104,22 @@ export interface SearchExercisesResult {
   page: number;
   pageSize: number;
 }
+
+export type SearchSuggestion =
+  | {
+      type: 'exercise';
+      id: string;
+      title: string;
+      label: string | null;
+      examPaperLabel: string;
+      sessionYear: number;
+      subject: string;
+    }
+  | {
+      type: 'theme';
+      id: string;
+      title: string;
+    };
 
 // Échappe les caractères spéciaux pour les regex Mongo (protection injection/performances)
 function escapeRegex(input: string) {
@@ -121,6 +139,7 @@ export async function searchExercises(
     themes: themeFilters = [],
     year,
     search,
+    exerciseType,
     sortBy = 'year',
     sortOrder = 'desc',
     limit,
@@ -133,93 +152,114 @@ export async function searchExercises(
   const offset = (safePage - 1) * safePageSize;
 
   // Construction du filtre Prisma
-  const where: any = {
+  const baseWhere: Prisma.ExerciseWhereInput = {
     enrichmentStatus: 'completed', // Seulement les exercices enrichis
   };
 
+  const examPaperFilter: Prisma.ExamPaperWhereInput = {};
+
   // Filtre par diplôme
   if (diploma) {
-    where.examPaper = {
-      ...where.examPaper,
-      diploma: {
-        shortDescription: {
-          contains: diploma,
-          mode: 'insensitive',
-        },
+    examPaperFilter.diploma = {
+      shortDescription: {
+        contains: diploma,
+        mode: 'insensitive',
       },
     };
   }
 
   // Filtre par matière
   if (subject) {
-    where.examPaper = {
-      ...where.examPaper,
-      teaching: {
-        subject: {
-          shortDescription: {
-            contains: subject,
-            mode: 'insensitive',
-          },
+    examPaperFilter.teaching = {
+      subject: {
+        shortDescription: {
+          contains: subject,
+          mode: 'insensitive',
         },
       },
     };
   }
 
-  // Filtre par difficulté
-  if (difficulty) {
-    where.estimatedDifficulty = difficulty;
-  }
-
-  // Filtre par thèmes (au moins un thème correspondant)
-  if (themeFilters.length > 0) {
-    where.themeIds = {
-      hasSome: themeFilters,
-    };
-  }
-
   // Filtre par année
   if (year) {
-    where.examPaper = {
-      ...where.examPaper,
-      sessionYear: year,
-    };
+    examPaperFilter.sessionYear = year;
   }
+
+  if (Object.keys(examPaperFilter).length > 0) {
+    baseWhere.examPaper = examPaperFilter;
+  }
+
+  // Filtre par difficulté
+  if (difficulty) {
+    baseWhere.estimatedDifficulty = difficulty;
+  }
+
+  if (exerciseType) {
+    baseWhere.exerciseType = exerciseType;
+  }
+
+  const themeFilterWhere: Prisma.ExerciseWhereInput | undefined =
+    themeFilters.length > 0
+      ? {
+          themeIds: {
+            hasSome: themeFilters,
+          },
+        }
+      : undefined;
+
+  const where: Prisma.ExerciseWhereInput = themeFilterWhere
+    ? { ...baseWhere, ...themeFilterWhere }
+    : baseWhere;
 
   // Recherche textuelle (préférence pour l'index text MongoDB, gratuit)
   const hasSearch = Boolean(search && search.trim());
   if (hasSearch) {
-    // Pipeline d'aggregation pour utiliser $text et récupérer un scoring
-    const commandResult = await prisma.$runCommandRaw({
-      aggregate: 'Exercise',
-      pipeline: [
-        {
-          $match: {
-            $text: { $search: search!.trim() },
-            enrichmentStatus: 'completed',
-            ...(difficulty ? { estimatedDifficulty: difficulty } : {}),
-            ...(themeFilters.length > 0 ? { themeIds: { $in: themeFilters } } : {}),
+    const searchTerm = search!.trim();
+
+    const [commandResult, matchedThemes] = await Promise.all([
+      // Pipeline d'aggregation pour utiliser $text et récupérer un scoring
+      prisma.$runCommandRaw({
+        aggregate: 'Exercise',
+        pipeline: [
+          {
+            $match: {
+              $text: { $search: searchTerm },
+              enrichmentStatus: 'completed',
+              ...(difficulty ? { estimatedDifficulty: difficulty } : {}),
+              ...(exerciseType ? { exerciseType } : {}),
+              ...(themeFilters.length > 0 ? { themeIds: { $in: themeFilters } } : {}),
+            },
           },
-        },
-        {
-          $addFields: { score: { $meta: 'textScore' } },
-        },
-        {
-          $sort: {
-            score: -1,
+          {
+            $addFields: { score: { $meta: 'textScore' } },
           },
-        },
-        {
-          $project: {
-            _id: 1,
-            score: 1,
+          {
+            $sort: {
+              score: -1,
+            },
           },
+          {
+            $project: {
+              _id: 1,
+              score: 1,
+            },
+          },
+          {
+            $limit: 500, // garde-fou pour éviter un résultat trop volumineux
+          },
+        ],
+        cursor: {},
+      }),
+      prisma.theme.findMany({
+        where: {
+          OR: [
+            { longDescription: { contains: searchTerm, mode: 'insensitive' } },
+            { shortDescription: { contains: searchTerm, mode: 'insensitive' } },
+          ],
         },
-        {
-          $limit: 500, // garde-fou pour éviter un résultat trop volumineux
-        },
-      ],
-      cursor: {},
-    });
+        select: { id: true },
+      }),
+    ]);
 
     const rawResults =
       (commandResult as any)?.cursor?.firstBatch ?? (commandResult as any)?.documents ?? [];
@@ -229,17 +269,41 @@ export async function searchExercises(
       score: doc.score ?? 0,
     }));
 
-    if (idsWithScore.length === 0) {
-      return { items: [], total: 0, page: safePage, pageSize: safePageSize };
+    const idsOrdered = idsWithScore.map((d) => d.id);
+
+    const themeIdsFromSearch = matchedThemes.map((theme) => theme.id);
+    let themeExerciseIds: string[] = [];
+    if (themeIdsFromSearch.length > 0) {
+      const themeSearchWhere: Prisma.ExerciseWhereInput = {
+        ...baseWhere,
+        AND: [
+          { themeIds: { hasSome: themeIdsFromSearch } },
+          ...(themeFilterWhere ? [themeFilterWhere] : []),
+        ],
+      };
+
+      const themeExercises = await prisma.exercise.findMany({
+        where: themeSearchWhere,
+        select: { id: true },
+      });
+
+      themeExerciseIds = themeExercises.map((ex) => ex.id);
     }
 
-    const idsOrdered = idsWithScore.map((d) => d.id);
+    const combinedIds = [
+      ...idsOrdered,
+      ...themeExerciseIds.filter((id) => !idsOrdered.includes(id)),
+    ];
+
+    if (combinedIds.length === 0) {
+      return { items: [], total: 0, page: safePage, pageSize: safePageSize };
+    }
 
     // On applique les autres filtres (diplôme, matière, année) via Prisma
     const filteredExercises = await prisma.exercise.findMany({
       where: {
         ...where,
-        id: { in: idsOrdered },
+        id: { in: combinedIds },
       },
       include: {
         examPaper: {
@@ -260,7 +324,7 @@ export async function searchExercises(
 
     // Trie selon l'ordre de score text
     const byId = new Map(filteredExercises.map((ex) => [ex.id, ex]));
-    const sorted = idsOrdered
+    const sorted = combinedIds
       .map((id) => byId.get(id))
       .filter((ex): ex is NonNullable<typeof ex> => ex !== undefined);
 
@@ -353,43 +417,73 @@ export async function searchExercises(
 /**
  * Suggestions basées sur le titre/label/keywords (autocomplete simplifié)
  */
-export async function suggestExercises(query: string, limit = 8) {
+export async function suggestExercises(
+  query: string,
+  limit = 8
+): Promise<SearchSuggestion[]> {
   const cleaned = query.trim();
   if (cleaned.length < 2) return [];
 
   const lower = cleaned.toLowerCase();
 
-  const suggestions = await prisma.exercise.findMany({
-    where: {
-      enrichmentStatus: 'completed',
-      OR: [
-        { title: { startsWith: cleaned, mode: 'insensitive' } },
-        { label: { startsWith: cleaned, mode: 'insensitive' } },
-        { keywords: { has: lower } },
-      ],
-    },
-    include: {
-      examPaper: {
-        include: {
-          teaching: {
-            include: {
-              subject: true,
+  const themeLimit =
+    limit <= 1 ? 0 : Math.min(3, Math.max(1, Math.round(limit / 4)));
+  const exerciseLimit = Math.max(0, limit - themeLimit);
+
+  const [exerciseSuggestions, themeSuggestions] = await Promise.all([
+    exerciseLimit > 0
+      ? prisma.exercise.findMany({
+          where: {
+            enrichmentStatus: 'completed',
+            OR: [
+              { title: { startsWith: cleaned, mode: 'insensitive' } },
+              { label: { startsWith: cleaned, mode: 'insensitive' } },
+              { keywords: { has: lower } },
+            ],
+          },
+          include: {
+            examPaper: {
+              include: {
+                teaching: {
+                  include: {
+                    subject: true,
+                  },
+                },
+              },
             },
           },
-        },
-      },
-    },
-    take: limit,
-  });
+          take: exerciseLimit,
+        })
+      : Promise.resolve([]),
+    themeLimit > 0
+      ? prisma.theme.findMany({
+          where: {
+            OR: [
+              { longDescription: { contains: cleaned, mode: 'insensitive' } },
+              { shortDescription: { contains: cleaned, mode: 'insensitive' } },
+            ],
+          },
+          take: themeLimit,
+        })
+      : Promise.resolve([]),
+  ]);
 
-  return suggestions.map((s) => ({
-    id: s.id,
-    title: s.title ?? s.label ?? 'Exercice',
-    label: s.label,
-    examPaperLabel: s.examPaper.label,
-    sessionYear: s.examPaper.sessionYear,
-    subject: s.examPaper.teaching.subject.shortDescription,
-  }));
+  return [
+    ...exerciseSuggestions.map<SearchSuggestion>((s) => ({
+      type: 'exercise',
+      id: s.id,
+      title: s.title ?? s.label ?? 'Exercice',
+      label: s.label,
+      examPaperLabel: s.examPaper.label,
+      sessionYear: s.examPaper.sessionYear,
+      subject: s.examPaper.teaching.subject.shortDescription,
+    })),
+    ...themeSuggestions.map<SearchSuggestion>((theme) => ({
+      type: 'theme',
+      id: `theme:${theme.id}`,
+      title: theme.longDescription || theme.shortDescription || 'Thème',
+    })),
+  ];
 }
 
 /**

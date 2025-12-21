@@ -16,7 +16,7 @@ import toast from "react-hot-toast";
 import { deleteDiploma } from "@/core/diploma";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
-import { actionMenuTrigger, actionMenuContent, actionMenuItem } from "@/components/shared/table-action-menu";
+import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
@@ -71,8 +71,9 @@ export const columns: ColumnDef<Diploma>[] = [
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </button>
-          </DropdownMenuTrigger>
+              </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className={actionMenuContent}>
+                <div className={actionMenuHeader}>Actions</div>
                 <DropdownMenuItem className={actionMenuItem}>
                   <Link
                     href={`/admin/diplomas/${diploma.id}`}

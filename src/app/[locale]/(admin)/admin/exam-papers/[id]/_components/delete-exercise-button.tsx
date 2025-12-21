@@ -33,9 +33,10 @@ export function DeleteExerciseButton({ exerciseId, exerciseNumber }: DeleteExerc
       onConfirm={handleDelete}
       title="Supprimer l'exercice"
       description={`Êtes-vous sûr de vouloir supprimer l'exercice ${exerciseNumber} ? Cette action est irréversible.`}
+      tooltip="Supprimer l'exercice"
       trigger={
-        <Button variant="ghost" size="sm">
-          <Trash2 className="h-4 w-4 text-destructive" />
+        <Button variant="destructive" size="sm">
+          <Trash2 className="h-4 w-4" />
         </Button>
       }
     />
