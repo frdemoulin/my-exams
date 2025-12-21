@@ -1,3 +1,8 @@
+## <small>1.2.11 (2025-12-21)</small>
+
+* Merge pull request #41 from frdemoulin/dev ([efcaee1](https://github.com/frdemoulin/my-exams/commit/efcaee1)), closes [#41](https://github.com/frdemoulin/my-exams/issues/41)
+* fix: mise en place d'un check pre-commit ([1793d7d](https://github.com/frdemoulin/my-exams/commit/1793d7d))
+
 ## <small>1.2.10 (2025-12-21)</small>
 
 * Merge pull request #40 from frdemoulin/dev ([9429390](https://github.com/frdemoulin/my-exams/commit/9429390)), closes [#40](https://github.com/frdemoulin/my-exams/issues/40)
