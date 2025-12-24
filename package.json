@@ -21,6 +21,7 @@
     "db:seed:prod": "ts-node scripts/seed-prod.ts",
     "db:clear": "ts-node scripts/clear-database.ts",
     "db:reset": "npm run db:clear && npm run db:seed",
+    "db:rename-domain": "tsx scripts/rename-chapter-to-domain.ts",
     "migrate:exercises": "ts-node scripts/migrate-to-exercises.ts",
     "user:role": "tsx scripts/set-user-role.ts",
     "test:e2e": "playwright test",

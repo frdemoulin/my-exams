@@ -109,10 +109,33 @@ export const createThemeSchema = z.object({
         .trim()
         .min(1, { message: "Champ requis" })
         .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
-    chapterId: z.string({
+    domainId: z.string({
         required_error: "Champ requis",
     })
         .min(1, { message: "Champ requis" })
+});
+
+export const createDomainSchema = z.object({
+    longDescription: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" }),
+    shortDescription: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
+    subjectId: z.string({
+        required_error: "Champ requis",
+    })
+        .min(1, { message: "Champ requis" }),
+    order: z.number().int().min(1).max(1000).optional(),
+    discipline: z.enum(["PHYSIQUE", "CHIMIE", "TRANSVERSAL"]).optional(),
 });
 
 export const createExamPaperSchema = z.object({
@@ -138,7 +161,7 @@ export const createExamPaperSchema = z.object({
         required_error: "Champ requis",
     }).min(1, { message: "Champ requis" }),
     examinationCenterIds: z.array(z.string()).min(1, { message: "Au moins un centre d'examen est requis" }),
-    chapterIds: z.array(z.string()).optional(),
+    domainIds: z.array(z.string()).optional(),
     themeIds: z.array(z.string()).optional(),
     subjectUrl: urlOrPathSchema.optional(),
     correctionUrl: z.string().url({ message: "URL invalide" }).optional().or(z.literal('')),

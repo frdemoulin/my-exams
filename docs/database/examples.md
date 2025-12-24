@@ -39,7 +39,7 @@ Ce document illustre la hiérarchie des données avec des exemples concrets de s
 └──────┬───────┘ └──────┬───────┘ └──────┬───────┘ └──────┬───────┘ └──────┬───────┘
        │                │                 │                │                │
        ▼                ▼                 ▼                ▼                ▼
-   Chapters         Chapters          Chapters         Chapters          Chapters
+   Domaines        Domaines         Domaines        Domaines         Domaines
        │                │                 │                │                │
        ▼                ▼                 ▼                ▼                ▼
     Themes           Themes            Themes           Themes            Themes
@@ -84,7 +84,7 @@ Bac Général
     "gradeId": "ObjectId(Terminale)",
     "teachingId": "ObjectId(Spécialité Mathématiques Terminale)",
     "examinationCenterId": "ObjectId(Métropole)",
-    "chapterIds": [
+    "domainIds": [
       "ObjectId(Algèbre et analyse)",
       "ObjectId(Probabilités et statistiques)"
     ],
@@ -113,19 +113,19 @@ const examPaper = await prisma.examPaper.findUnique({
       }
     },
     examinationCenter: true,
-    // Les chapitres et thèmes sont récupérés par leurs IDs
+    // Les domaines (domains) et thèmes sont récupérés par leurs IDs
   }
 });
 
-// Récupérer les chapitres et thèmes
-const chapters = await prisma.chapter.findMany({
-  where: { id: { in: examPaper.chapterIds } },
+// Récupérer les domaines (domains) et thèmes
+const domains = await prisma.domain.findMany({
+  where: { id: { in: examPaper.domainIds } },
   include: { subject: true }
 });
 
 const themes = await prisma.theme.findMany({
   where: { id: { in: examPaper.themeIds } },
-  include: { chapter: true }
+  include: { domain: true }
 });
 ```
 
@@ -167,7 +167,7 @@ Bac Général
     "gradeId": "ObjectId(Première)",
     "teachingId": "ObjectId(Spécialité Physique-Chimie Première)",
     "examinationCenterId": "ObjectId(Polynésie)",
-    "chapterIds": [
+    "domainIds": [
       "ObjectId(Constitution et transformations de la matière)",
       "ObjectId(L'énergie : conversions et transferts)"
     ],
@@ -213,7 +213,7 @@ Bac Général
 | **Volume horaire** | 6h/semaine | 3h/semaine |
 | **Niveau** | Approfondi | Intermédiaire |
 | **Examen** | Épreuve écrite coefficient 16 | Contrôle continu |
-| **Chapitres** | Plus nombreux et approfondis | Programme allégé |
+| **Domaines** | Plus nombreux et approfondis | Programme allégé |
 
 ### Données pour un sujet de Maths Comp
 
@@ -226,7 +226,7 @@ Bac Général
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Terminale)",
     "teachingId": "ObjectId(Option Mathématiques Complémentaires)",
-    "chapterIds": [
+    "domainIds": [
       "ObjectId(Analyse)",
       "ObjectId(Probabilités et statistiques)"
     ],
@@ -276,7 +276,7 @@ Bac Général
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Première)",
     "teachingId": "ObjectId(Tronc Commun - Enseignement Scientifique)",
-    "chapterIds": [
+    "domainIds": [
       "ObjectId(Une longue histoire de la matière)",
       "ObjectId(Le Soleil, notre source d'énergie)"
     ],
@@ -288,28 +288,28 @@ Bac Général
 }
 ```
 
-## Exemple 5 : Multi-chapitres et multi-thèmes
+## Exemple 5 : Multi-domaines et multi-thèmes
 
 ### Contexte
 
-Un sujet d'annales couvre souvent **plusieurs chapitres et thèmes**.
+Un sujet d'annales couvre souvent **plusieurs domaines et thèmes**.
 
 ### Sujet : Bac Maths Métropole 2024 - Sujet 1
 
 **Exercice 1** : Suites et fonctions  
-→ Chapitres : Algèbre et analyse  
+→ Domaines : Algèbre et analyse  
 → Thèmes : Suites, Limites de fonctions, Dérivation
 
 **Exercice 2** : Probabilités  
-→ Chapitres : Probabilités et statistiques  
+→ Domaines : Probabilités et statistiques  
 → Thèmes : Variables aléatoires, Loi normale
 
 **Exercice 3** : Géométrie dans l'espace  
-→ Chapitres : Géométrie  
+→ Domaines : Géométrie  
 → Thèmes : Vecteurs dans l'espace, Équations de plans
 
 **Exercice 4** : Primitives et équations différentielles  
-→ Chapitres : Algèbre et analyse  
+→ Domaines : Algèbre et analyse  
 → Thèmes : Primitives et équations différentielles
 
 ### Données complètes
@@ -324,7 +324,7 @@ Un sujet d'annales couvre souvent **plusieurs chapitres et thèmes**.
     "gradeId": "ObjectId(Terminale)",
     "teachingId": "ObjectId(Spécialité Mathématiques Terminale)",
     "examinationCenterId": "ObjectId(Métropole)",
-    "chapterIds": [
+    "domainIds": [
       "ObjectId(Algèbre et analyse)",
       "ObjectId(Probabilités et statistiques)",
       "ObjectId(Géométrie)"
@@ -448,7 +448,7 @@ const terminaleTeachings = await prisma.teaching.findMany({
 └──────────────────┬──────────────────────────┘
                    ▼
 ┌─────────────────────────────────────────────┐
-│  5. Sélectionner les Chapters               │
+│  5. Sélectionner les Domaines              │
 │     (ex: Algèbre, Probabilités)             │
 │     → Basés sur le Subject du Teaching        │
 └──────────────────┬──────────────────────────┘
@@ -456,7 +456,7 @@ const terminaleTeachings = await prisma.teaching.findMany({
 ┌─────────────────────────────────────────────┐
 │  6. Sélectionner les Themes                 │
 │     (ex: Suites, Variables aléatoires)      │
-│     → Basés sur les Chapters sélectionnés   │
+│     → Basés sur les Domaines sélectionnés  │
 └──────────────────┬──────────────────────────┘
                    ▼
 ┌─────────────────────────────────────────────┐
@@ -475,8 +475,8 @@ const terminaleTeachings = await prisma.teaching.findMany({
 ## Points clés à retenir
 
 1. **Teaching est le pivot** : C'est le niveau où s'attache l'ExamPaper
-2. **Subject est la référence** : Il contient les Chapters et Themes réutilisables
+2. **Subject est la référence** : Il contient les Domaines et Themes réutilisables
 3. **Flexibilité** : Même Subject peut être dans plusieurs Teachings (Spé Maths, Maths Comp, etc.)
 4. **Hiérarchie administrative** : Diploma → Division → Grade
-5. **Hiérarchie pédagogique** : Teaching → Subject → Chapter → Theme
-6. **Tagging multiple** : Un ExamPaper peut couvrir plusieurs Chapters et Themes
+5. **Hiérarchie pédagogique** : Teaching → Subject → Domain → Theme
+6. **Tagging multiple** : Un ExamPaper peut couvrir plusieurs Domaines et Themes

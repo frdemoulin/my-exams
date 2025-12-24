@@ -7,7 +7,7 @@ import { seedGrades } from "./seeds/grade.seed";
 import { seedSubjects } from "./seeds/subject.seed";
 import { seedTeachings } from "./seeds/teaching.seed";
 import { seedCurriculums } from "./seeds/curriculum.seed";
-import { seedChapters } from "./seeds/chapter.seed";
+import { seedDomains } from "./seeds/domain.seed";
 import { seedThemes } from "./seeds/theme.seed";
 import { seedUsers } from "./seeds/user.seed";
 import { seedExamPapers } from "./seeds/exam-paper.seed";
@@ -35,10 +35,10 @@ async function main() {
         // 4. Curriculums/Programmes scolaires (dépend de Teachings)
         await seedCurriculums();
 
-        // 5. Chapters (dépend de Subjects)
-        await seedChapters(prisma);
+        // 5. Domains (dépend de Subjects)
+        await seedDomains(prisma);
 
-        // 6. Themes (dépend de Chapters)
+        // 6. Themes (dépend de Domains)
         await seedThemes(prisma);
 
         // 7. Exam Papers (dépend de Diplomas, Divisions, Grades, Teachings, Curriculums, ExaminationCenters)

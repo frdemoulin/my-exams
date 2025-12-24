@@ -90,6 +90,21 @@
         "list": "Liste des matières"
       }
     },
+    "domain": {
+      "singular": "Domaine",
+      "plural": "Domaines",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un domaine",
+        "edit": "Éditer le domaine",
+        "delete": "Supprimer le domaine",
+        "view": "Voir le domaine",
+        "list": "Liste des domaines"
+      }
+    },
     "teaching": {
       "singular": "Enseignement",
       "plural": "Enseignements",

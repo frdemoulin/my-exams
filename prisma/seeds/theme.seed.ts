@@ -26,21 +26,21 @@ export async function seedThemes(prisma: PrismaClient) {
   const jsonData = fs.readFileSync(jsonPath, 'utf-8');
   const data: TopicsData = JSON.parse(jsonData);
 
-  // Récupérer les chapitres pour associer les thèmes
-  const chapters = await prisma.chapter.findMany({
+  // Récupérer les domaines pour associer les thèmes
+  const domains = await prisma.domain.findMany({
     select: { id: true, longDescription: true },
   });
 
-  const chapterByName = Object.fromEntries(
-    chapters.map((c) => [c.longDescription, c.id])
+  const domainByName = Object.fromEntries(
+    domains.map((d) => [d.longDescription, d.id])
   );
 
-  // Mapper les thèmes aux chapitres appropriés
-  const themeMapping: Array<Topic & { chapterName: string }> = [
+  // Mapper les thèmes aux domaines appropriés
+  const themeMapping: Array<Topic & { domainName: string }> = [
     // Mathématiques Collège
     ...data.mathematics.college.map((t) => ({
       ...t,
-      chapterName: t.longDescription.includes('fraction') || t.longDescription.includes('nombre') || t.longDescription.includes('calcul') || t.longDescription.includes('puissance') || t.longDescription.includes('racine') || t.longDescription.includes('équation') || t.longDescription.includes('proportion')
+      domainName: t.longDescription.includes('fraction') || t.longDescription.includes('nombre') || t.longDescription.includes('calcul') || t.longDescription.includes('puissance') || t.longDescription.includes('racine') || t.longDescription.includes('équation') || t.longDescription.includes('proportion')
         ? 'Nombres et calculs'
         : t.longDescription.includes('Thalès') || t.longDescription.includes('Pythagore') || t.longDescription.includes('triangle') || t.longDescription.includes('cercle') || t.longDescription.includes('symétrie') || t.longDescription.includes('aire') || t.longDescription.includes('volume')
         ? 'Géométrie plane'
@@ -51,7 +51,7 @@ export async function seedThemes(prisma: PrismaClient) {
     // Mathématiques Lycée
     ...data.mathematics.lycee.map((t) => ({
       ...t,
-      chapterName: t.longDescription.includes('suite')
+      domainName: t.longDescription.includes('suite')
         ? 'Suites numériques'
         : t.longDescription.includes('fonction') || t.longDescription.includes('dérivation') || t.longDescription.includes('limite') || t.longDescription.includes('primitive') || t.longDescription.includes('intégrale') || t.longDescription.includes('exponentielle') || t.longDescription.includes('logarithme')
         ? 'Fonctions'
@@ -66,7 +66,7 @@ export async function seedThemes(prisma: PrismaClient) {
     // Physique-Chimie Collège
     ...data.physics_chemistry.college.map((t) => ({
       ...t,
-      chapterName: t.longDescription.includes('état') || t.longDescription.includes('mélange') || t.longDescription.includes('masse') || t.longDescription.includes('atome') || t.longDescription.includes('molécule') || t.longDescription.includes('formule') || t.longDescription.includes('transformation') || t.longDescription.includes('acide') || t.longDescription.includes('pH') || t.longDescription.includes('combustion')
+      domainName: t.longDescription.includes('état') || t.longDescription.includes('mélange') || t.longDescription.includes('masse') || t.longDescription.includes('atome') || t.longDescription.includes('molécule') || t.longDescription.includes('formule') || t.longDescription.includes('transformation') || t.longDescription.includes('acide') || t.longDescription.includes('pH') || t.longDescription.includes('combustion')
         ? 'Matière et ses états'
         : t.longDescription.includes('circuit') || t.longDescription.includes('intensité') || t.longDescription.includes('tension') || t.longDescription.includes('Ohm') || t.longDescription.includes('puissance') || t.longDescription.includes('énergie électrique')
         ? 'Électricité'
@@ -79,7 +79,7 @@ export async function seedThemes(prisma: PrismaClient) {
     // Physique-Chimie Lycée
     ...data.physics_chemistry.lycee.map((t) => ({
       ...t,
-      chapterName: t.longDescription.includes('mouvement') || t.longDescription.includes('vitesse') || t.longDescription.includes('accélération') || t.longDescription.includes('chute') || t.longDescription.includes('Newton') || t.longDescription.includes('force') || t.longDescription.includes('travail') || t.longDescription.includes('énergie cinétique') || t.longDescription.includes('énergie potentielle') || t.longDescription.includes('quantité de mouvement')
+      domainName: t.longDescription.includes('mouvement') || t.longDescription.includes('vitesse') || t.longDescription.includes('accélération') || t.longDescription.includes('chute') || t.longDescription.includes('Newton') || t.longDescription.includes('force') || t.longDescription.includes('travail') || t.longDescription.includes('énergie cinétique') || t.longDescription.includes('énergie potentielle') || t.longDescription.includes('quantité de mouvement')
         ? 'Mécanique'
         : t.longDescription.includes('onde') || t.longDescription.includes('sonore') || t.longDescription.includes('électromagnétique') || t.longDescription.includes('diffraction') || t.longDescription.includes('Doppler')
         ? 'Ondes et signaux'
@@ -94,9 +94,9 @@ export async function seedThemes(prisma: PrismaClient) {
   let createdCount = 0;
 
   for (const theme of themeMapping) {
-    const chapterId = chapterByName[theme.chapterName];
-    if (!chapterId) {
-      console.warn(`   ⚠️  Chapitre non trouvé pour le thème: ${theme.longDescription} (cherchait: ${theme.chapterName})`);
+    const domainId = domainByName[theme.domainName];
+    if (!domainId) {
+      console.warn(`   ⚠️  Domaine non trouvé pour le thème: ${theme.longDescription} (cherchait: ${theme.domainName})`);
       continue;
     }
 
@@ -104,7 +104,7 @@ export async function seedThemes(prisma: PrismaClient) {
     const existingTheme = await prisma.theme.findFirst({
       where: {
         longDescription: theme.longDescription,
-        chapterId: chapterId,
+        domainId: domainId,
       },
     });
 
@@ -122,7 +122,7 @@ export async function seedThemes(prisma: PrismaClient) {
         data: {
           longDescription: theme.longDescription,
           shortDescription: theme.shortDescription,
-          chapterId: chapterId,
+          domainId: domainId,
         },
       });
     }

@@ -2,6 +2,6 @@
 | ------------------------- | -------------- |
 | Matière                   | **Subject**    |
 | Spécialité / Enseignement | **Teaching**   |
-| Chapitre                  | **Chapter**        |
+| Domaine                   | **Domain**        |
 | Thème                     | **Theme**          |
 | Sujet d'annales           | **ExamPaper**      |

@@ -16,7 +16,7 @@ export async function fetchThemes(): Promise<Theme[]> {
 export async function fetchThemesWithIncludes(): Promise<ThemeData[]> {
     return await prisma.theme.findMany({
         include: {
-            chapter: {
+            domain: {
                 select: {
                     id: true,
                     longDescription: true,
@@ -37,7 +37,7 @@ export async function fetchThemeById(id: string): Promise<ThemeData | null> {
             id,
         },
         include: {
-            chapter: {
+            domain: {
                 select: {
                     id: true,
                     longDescription: true,
@@ -47,13 +47,13 @@ export async function fetchThemeById(id: string): Promise<ThemeData | null> {
     });
 }
 
-export async function fetchChapterOptionsByThemeId(id: string): Promise<Option[] | null> {
+export async function fetchDomainOptionsByThemeId(id: string): Promise<Option[] | null> {
     const theme = await prisma.theme.findUnique({
         where: {
             id,
         },
         include: {
-            chapter: {
+            domain: {
                 select: {
                     longDescription: true,
                 },
@@ -61,12 +61,12 @@ export async function fetchChapterOptionsByThemeId(id: string): Promise<Option[]
         },
     });
 
-    if (!theme || !theme.chapter) {
+    if (!theme || !theme.domain) {
         return null;
     }
 
     return [{
-        value: theme.chapter.longDescription,
-        label: theme.chapter.longDescription,
+        value: theme.domain.longDescription,
+        label: theme.domain.longDescription,
     }];
 }

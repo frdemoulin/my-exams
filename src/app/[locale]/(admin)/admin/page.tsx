@@ -60,6 +60,12 @@ const DashboardPage = async () => {
             link: "/admin/subjects",
         },
         {
+            title: "Domaines",
+            value: stats.domains,
+            icon: <FaList className="h-4 w-4" />,
+            link: "/admin/domains",
+        },
+        {
             title: "Enseignements",
             value: stats.courses,
             icon: <FaGraduationCap className="h-4 w-4" />,

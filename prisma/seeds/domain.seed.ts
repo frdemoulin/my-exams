@@ -1,7 +1,15 @@
-import type { PrismaClient } from '@prisma/client';
+import type { PrismaClient, DomainDiscipline } from '@prisma/client';
 
-export async function seedChapters(prisma: PrismaClient) {
-  console.log('📚 Seeding Chapters...');
+type SeedDomain = {
+  longDescription: string;
+  shortDescription: string;
+  subjectId: string;
+  order: number;
+  discipline?: DomainDiscipline;
+};
+
+export async function seedDomains(prisma: PrismaClient) {
+  console.log('📚 Seeding Domains...');
 
   // Récupérer les matières
   const subjects = await prisma.subject.findMany({
@@ -12,7 +20,7 @@ export async function seedChapters(prisma: PrismaClient) {
     subjects.map((s) => [s.longDescription, s.id])
   );
 
-  const chapters = [
+  const domains: SeedDomain[] = [
     // Mathématiques - Collège
     {
       longDescription: 'Nombres et calculs',
@@ -68,24 +76,28 @@ export async function seedChapters(prisma: PrismaClient) {
       longDescription: 'Matière et ses états',
       shortDescription: 'Matière',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'CHIMIE',
       order: 1,
     },
     {
       longDescription: 'Électricité',
       shortDescription: 'Électricité',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'PHYSIQUE',
       order: 2,
     },
     {
       longDescription: 'Lumière et vision',
       shortDescription: 'Lumière',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'PHYSIQUE',
       order: 3,
     },
     {
       longDescription: 'Mouvement et forces',
       shortDescription: 'Mouvement',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'PHYSIQUE',
       order: 4,
     },
     // Sciences physiques - Lycée
@@ -93,58 +105,63 @@ export async function seedChapters(prisma: PrismaClient) {
       longDescription: 'Mécanique',
       shortDescription: 'Mécanique',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'PHYSIQUE',
       order: 5,
     },
     {
       longDescription: 'Ondes et signaux',
       shortDescription: 'Ondes',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'PHYSIQUE',
       order: 6,
     },
     {
       longDescription: 'Constitution et transformations de la matière',
       shortDescription: 'Chimie',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'CHIMIE',
       order: 7,
     },
     {
       longDescription: 'Énergie',
       shortDescription: 'Énergie',
       subjectId: subjectByName['Sciences physiques'],
+      discipline: 'TRANSVERSAL',
       order: 8,
     },
   ];
 
   let createdCount = 0;
 
-  for (const chapter of chapters) {
-    if (!chapter.subjectId) continue;
+  for (const domain of domains) {
+    if (!domain.subjectId) continue;
 
-    // Chercher si le chapitre existe déjà
-    const existingChapter = await prisma.chapter.findFirst({
+    // Chercher si le domaine existe déjà
+    const existingDomain = await prisma.domain.findFirst({
       where: {
-        longDescription: chapter.longDescription,
-        subjectId: chapter.subjectId,
+        longDescription: domain.longDescription,
+        subjectId: domain.subjectId,
       },
     });
 
-    if (existingChapter) {
+    if (existingDomain) {
       // Mettre à jour si existe
-      await prisma.chapter.update({
-        where: { id: existingChapter.id },
+      await prisma.domain.update({
+        where: { id: existingDomain.id },
         data: {
-          shortDescription: chapter.shortDescription,
-          order: chapter.order,
+          shortDescription: domain.shortDescription,
+          order: domain.order,
+          discipline: domain.discipline ?? null,
         },
       });
     } else {
       // Créer si n'existe pas
-      await prisma.chapter.create({
-        data: chapter,
+      await prisma.domain.create({
+        data: domain,
       });
     }
     createdCount++;
   }
 
-  console.log(`   ✓ ${createdCount} chapitres créés`);
+  console.log(`   ✓ ${createdCount} domaines créés`);
 }

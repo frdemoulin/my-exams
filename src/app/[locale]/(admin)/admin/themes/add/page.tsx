@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ThemeForm } from "../_components/theme-form";
-import { fetchChaptersOptions } from "@/core/chapter";
+import { fetchDomainsOptions } from "@/core/domain";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.theme');
@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const AddThemePage = async () => {
-    const chaptersOptions = await fetchChaptersOptions();
+    const domainsOptions = await fetchDomainsOptions();
     const t = await getTranslations('entities.theme');
 
     return (
@@ -23,9 +23,9 @@ const AddThemePage = async () => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
-                        chapterId: undefined,
+                        domainId: undefined,
                     }}
-                    options={chaptersOptions}
+                    options={domainsOptions}
                 />
             </div>
         </div>

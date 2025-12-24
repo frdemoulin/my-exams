@@ -61,6 +61,11 @@ export const Sidebar = () => {
           icon: <FaBook className="mr-3" size={16} />
         },
         {
+          title: 'Domaines',
+          path: '/admin/domains',
+          icon: <FaList className="mr-3" size={16} />
+        },
+        {
           title: 'Niveaux scolaires',
           path: '/admin/grades',
           icon: <FaStairs className="mr-3" size={16} />

@@ -29,7 +29,7 @@ interface ThemeFormProps {
         id?: string,
         longDescription: string,
         shortDescription: string,
-        chapterId: string | undefined,
+        domainId: string | undefined,
     }
     options: Option[];
 }
@@ -51,7 +51,7 @@ export const ThemeForm = ({
         const formData = new FormData();
         formData.append('longDescription', values.longDescription);
         formData.append('shortDescription', values.shortDescription || '');
-        formData.append('chapterId', values.chapterId);
+        formData.append('domainId', values.domainId);
         
         if (!initialData.id) {
             await createTheme(formData);
@@ -112,17 +112,17 @@ export const ThemeForm = ({
                     }}
                 />
                 <FormField
-                    name="chapterId"
+                    name="domainId"
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                                <FormLabel>Chapitre</FormLabel>
+                                <FormLabel>Domaine</FormLabel>
                             <FormControl>
                                 <select
                                     {...field}
                                     className="w-full border rounded p-2"
                                 >
-                                    <option value="">Sélectionner un chapitre</option>
+                                    <option value="">Sélectionner un domaine</option>
                                     {options.map((option) => (
                                         <option key={option.value} value={option.value}>
                                             {option.label}

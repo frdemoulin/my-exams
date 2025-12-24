@@ -12,69 +12,84 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { formatDateTime } from "@/lib/utils";
 import toast from "react-hot-toast";
-import { deleteTheme } from "@/core/theme";
-import { ThemeData } from "@/core/theme";
+import { deleteDomain } from "@/core/domain";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { DomainData } from "@/core/domain";
+
+const disciplineLabels: Record<string, string> = {
+  PHYSIQUE: "Physique",
+  CHIMIE: "Chimie",
+  TRANSVERSAL: "Transversal",
+};
+
 const handleOnClickDeleteButton = async (id: string) => {
   try {
-    await deleteTheme(id);
-    toast.success("Thème supprimé");
+    await deleteDomain(id);
+    toast.success("Domaine supprimé");
   } catch (error) {
-    if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+    if (error && typeof error === "object" && "digest" in error && String(error.digest).startsWith("NEXT_REDIRECT")) {
       throw error;
     }
-    toast.error("Erreur dans la suppression du thème");
+    toast.error("Erreur dans la suppression du domaine");
   }
-}
+};
 
-export const columns: ColumnDef<ThemeData>[] = [
+export const columns: ColumnDef<DomainData>[] = [
   {
     accessorKey: "shortDescription",
-    header: ({ column }) => {
-      return (
-        <SortableHeader label="DESCRIPTION COURTE" column={column} />
-      )
-    },
+    header: ({ column }) => (
+      <SortableHeader label="DESCRIPTION COURTE" column={column} />
+    ),
   },
   {
     accessorKey: "longDescription",
-    header: ({ column }) => {
-      return (
-        <SortableHeader label="DESCRIPTION LONGUE" column={column} />
-      )
-    },
+    header: ({ column }) => (
+      <SortableHeader label="DESCRIPTION LONGUE" column={column} />
+    ),
   },
   {
-    accessorKey: "domain",
-    header: ({ column }) => {
-      return (
-        <SortableHeader label="DOMAINE" column={column} />
-      )
-    },
-    cell: ({ row }) => {
-      return <div>
-        {row.original.domain?.longDescription || 'N/A'}
-      </div>
-    },
+    accessorKey: "subject",
+    header: ({ column }) => (
+      <SortableHeader label="MATIÈRE" column={column} />
+    ),
+    cell: ({ row }) => (
+      <div>{row.original.subject?.longDescription || "N/A"}</div>
+    ),
+  },
+  {
+    accessorKey: "discipline",
+    header: ({ column }) => (
+      <SortableHeader label="DISCIPLINE" column={column} />
+    ),
+    cell: ({ row }) => (
+      <div>{row.original.discipline ? disciplineLabels[row.original.discipline] : "—"}</div>
+    ),
+  },
+  {
+    accessorKey: "order",
+    header: ({ column }) => (
+      <SortableHeader label="ORDRE" column={column} align="left" />
+    ),
+    cell: ({ row }) => (
+      <div className="text-center">{row.original.order ?? "—"}</div>
+    ),
   },
   {
     accessorKey: "updatedAt",
-    header: ({ column }) => {
-      return (
-        <SortableHeader label="DATE DE DERNIÈRE MODIFICATION" column={column} align="left" />
-      )
-    },
-    cell: ({ row }) => {
-      return <div className="text-center">{formatDateTime(row.original.updatedAt)}</div>
-    },
+    header: ({ column }) => (
+      <SortableHeader label="DATE DE DERNIÈRE MODIFICATION" column={column} align="left" />
+    ),
+    cell: ({ row }) => (
+      <div className="text-center">{formatDateTime(row.original.updatedAt)}</div>
+    ),
   },
   {
     header: "Actions",
     id: "actions",
     cell: ({ row }) => {
-      const theme = row.original;
+      const domain = row.original;
 
       return (
         <DropdownMenu>
@@ -87,21 +102,13 @@ export const columns: ColumnDef<ThemeData>[] = [
           <DropdownMenuContent align="end" className={actionMenuContent}>
             <div className={actionMenuHeader}>Actions</div>
             <DropdownMenuItem className={actionMenuItem}>
-              <Link
-                href={`/admin/themes/${theme.id}`}
-              >
-                Voir
-              </Link>
+              <Link href={`/admin/domains/${domain.id}`}>Voir</Link>
             </DropdownMenuItem>
             <DropdownMenuItem className={actionMenuItem}>
-              <Link
-                href={`/admin/themes/${theme.id}/edit`}
-              >
-                Éditer
-              </Link>
+              <Link href={`/admin/domains/${domain.id}/edit`}>Éditer</Link>
             </DropdownMenuItem>
             <ConfirmDeleteDialog
-              onConfirm={() => handleOnClickDeleteButton(theme.id)}
+              onConfirm={() => handleOnClickDeleteButton(domain.id)}
               trigger={
                 <DropdownMenuItem
                   className={`${actionMenuItem} hover:cursor-pointer`}
@@ -113,7 +120,7 @@ export const columns: ColumnDef<ThemeData>[] = [
             />
           </DropdownMenuContent>
         </DropdownMenu>
-      )
+      );
     },
   },
-]
+];

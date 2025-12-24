@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { ThemeForm } from "../../_components/theme-form";
 import { fetchThemeById } from "@/core/theme";
-import { fetchChaptersOptions } from "@/core/chapter";
+import { fetchDomainsOptions } from "@/core/domain";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.theme');
@@ -21,7 +21,7 @@ const EditThemePage = async ({ params }: ThemeEditProps) => {
 
     const theme = await fetchThemeById(id);
     
-    const chaptersOptions = await fetchChaptersOptions();
+    const domainsOptions = await fetchDomainsOptions();
     const t = await getTranslations('entities.theme');
 
     return (
@@ -36,9 +36,9 @@ const EditThemePage = async ({ params }: ThemeEditProps) => {
                         id,
                         longDescription: theme?.longDescription ?? "",
                         shortDescription: theme?.shortDescription ?? "",
-                        chapterId: theme?.chapterId,
+                        domainId: theme?.domainId,
                     }}
-                    options={chaptersOptions}
+                    options={domainsOptions}
                 />
             </div>
         </div>

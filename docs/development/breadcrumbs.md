@@ -67,7 +67,7 @@ const segmentLabels: Record<string, string> = {
   'diplomas': 'Diplômes',
   'divisions': 'Filières',
   'themes': 'Thèmes',
-  'chapters': 'Chapitres',
+  'domains': 'Domaines',
   'curriculums': 'Programmes',
   'examination-centers': 'Centres d\'examen',
   'users': 'Utilisateurs',

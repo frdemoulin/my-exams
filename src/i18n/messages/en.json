@@ -75,6 +75,21 @@
         "list": "List of subjects"
       }
     },
+    "domain": {
+      "singular": "Domain",
+      "plural": "Domains",
+      "article": {
+        "definite": "the",
+        "indefinite": "a"
+      },
+      "actions": {
+        "add": "Add a domain",
+        "edit": "Edit the domain",
+        "delete": "Delete the domain",
+        "view": "View the domain",
+        "list": "List of domains"
+      }
+    },
     "theme": {
       "singular": "Theme",
       "plural": "Themes",
