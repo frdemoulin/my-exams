@@ -1,3 +1,8 @@
+## <small>1.3.1 (2025-12-24)</small>
+
+* Merge pull request #43 from frdemoulin/dev ([8047e1f](https://github.com/frdemoulin/my-exams/commit/8047e1f)), closes [#43](https://github.com/frdemoulin/my-exams/issues/43)
+* fix: ajout d'un filtre par matière dans l'administration des domaines ([d62e46d](https://github.com/frdemoulin/my-exams/commit/d62e46d))
+
 ## 1.3.0 (2025-12-24)
 
 * Merge pull request #42 from frdemoulin/dev ([04f82bf](https://github.com/frdemoulin/my-exams/commit/04f82bf)), closes [#42](https://github.com/frdemoulin/my-exams/issues/42)
