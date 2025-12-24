@@ -1,10 +1,10 @@
 import prisma from "@/lib/db/prisma";
 import { Option } from "@/types/option";
-import { ChapterData } from "./chapter.types";
-import { Chapter } from "@prisma/client";
+import { DomainData } from "./domain.types";
+import { Domain } from "@prisma/client";
 
-export async function fetchChapters(): Promise<Chapter[]> {
-    return await prisma.chapter.findMany({
+export async function fetchDomains(): Promise<Domain[]> {
+    return await prisma.domain.findMany({
         orderBy: [
             {
                 order: "asc",
@@ -13,8 +13,8 @@ export async function fetchChapters(): Promise<Chapter[]> {
     });
 }
 
-export async function fetchChaptersWithIncludes(): Promise<ChapterData[]> {
-    return await prisma.chapter.findMany({
+export async function fetchDomainsWithIncludes(): Promise<DomainData[]> {
+    return await prisma.domain.findMany({
         include: {
             subject: {
                 select: {
@@ -31,8 +31,8 @@ export async function fetchChaptersWithIncludes(): Promise<ChapterData[]> {
     });
 }
 
-export async function fetchChapterById(id: string): Promise<ChapterData | null> {
-    return await prisma.chapter.findUnique({
+export async function fetchDomainById(id: string): Promise<DomainData | null> {
+    return await prisma.domain.findUnique({
         where: {
             id,
         },
@@ -47,15 +47,15 @@ export async function fetchChapterById(id: string): Promise<ChapterData | null> 
     });
 }
 
-export async function fetchChaptersOptions(): Promise<Option[]> {
-    const chapters = await prisma.chapter.findMany({
+export async function fetchDomainsOptions(): Promise<Option[]> {
+    const domains = await prisma.domain.findMany({
         orderBy: {
             order: "asc",
         },
     });
 
-    return chapters.map((chapter) => ({
-        value: chapter.id,
-        label: chapter.longDescription,
+    return domains.map((domain) => ({
+        value: domain.id,
+        label: domain.longDescription,
     }));
 }

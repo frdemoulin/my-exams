@@ -35,7 +35,7 @@ interface ExamPaperFormProps {
         teachingId: string;
         curriculumId?: string;
         examinationCenterIds?: string[];
-        chapterIds?: string[];
+        domainIds?: string[];
         themeIds?: string[];
         subjectUrl?: string;
         correctionUrl?: string;
@@ -89,7 +89,7 @@ export const ExamPaperForm = ({
             teachingId: initialData.teachingId || '',
             curriculumId: initialData.curriculumId || '',
             examinationCenterIds: initialData.examinationCenterIds || [],
-            chapterIds: initialData.chapterIds || [],
+            domainIds: initialData.domainIds || [],
             themeIds: initialData.themeIds || [],
             subjectUrl: initialData.subjectUrl || '',
             correctionUrl: initialData.correctionUrl || '',

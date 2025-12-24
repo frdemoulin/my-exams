@@ -7,7 +7,7 @@ export type CreateThemeValues = z.infer<typeof createThemeSchema>;
 export type CreateThemeErrors = z.inferFormattedError<typeof createThemeSchema>;
 
 export const themeDataInclude = {
-    chapter: {
+    domain: {
         select: {
             id: true,
             longDescription: true,

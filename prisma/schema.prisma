@@ -47,11 +47,12 @@ model Authenticator {
   @@unique([userId, credentialID])
 }
 
-model Chapter {
+model Domain {
   id               String @id @default(auto()) @map("_id") @db.ObjectId
   longDescription  String
   shortDescription String
   order            Int? // Ordre dans le programme
+  discipline       DomainDiscipline? // Discipline dominante pour Physique-Chimie
 
   // Relations
   subjectId String  @db.ObjectId
@@ -90,6 +91,12 @@ enum TeachingType {
   OPTION
   COMPLEMENTAIRE
   EXPERT
+}
+
+enum DomainDiscipline {
+  PHYSIQUE
+  CHIMIE
+  TRANSVERSAL
 }
 
 // Programme scolaire (ex: Programmes 2019, Réforme 2020, etc.)
@@ -200,7 +207,7 @@ model ExamPaper {
 
   // DEPRECATED: Métadonnées déplacées au niveau Exercise
   // Ces champs restent pour compatibilité mais ne sont plus utilisés
-  chapterIds          String[]  @default([]) @db.ObjectId /// @deprecated Utiliser Exercise.themeIds
+  domainIds           String[]  @default([]) @db.ObjectId /// @deprecated Utiliser Exercise.themeIds
   themeIds            String[]  @default([]) @db.ObjectId /// @deprecated Utiliser Exercise.themeIds
   correctionUrl       String? /// @deprecated Utiliser Correction ou ExerciseCorrection
   estimatedDuration   Int? /// @deprecated Utiliser Exercise.estimatedDuration
@@ -359,7 +366,7 @@ model Subject {
 
   // Relations
   teachings Teaching[]
-  chapters  Chapter[]
+  domains   Domain[]
 
   @@unique([longDescription, shortDescription])
 }
@@ -369,8 +376,8 @@ model Theme {
   longDescription  String
   shortDescription String?
 
-  chapterId String  @db.ObjectId
-  chapter   Chapter @relation(fields: [chapterId], references: [id])
+  domainId String  @db.ObjectId
+  domain   Domain @relation(fields: [domainId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

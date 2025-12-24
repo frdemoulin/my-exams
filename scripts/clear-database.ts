@@ -16,7 +16,7 @@ async function clearDatabase() {
     // Données applicatives (ordre inverse des dépendances)
     await prisma.examPaper.deleteMany({});
     await prisma.theme.deleteMany({});
-    await prisma.chapter.deleteMany({});
+    await prisma.domain.deleteMany({});
     await prisma.curriculum.deleteMany({});
     await prisma.teaching.deleteMany({});
     await prisma.subject.deleteMany({});

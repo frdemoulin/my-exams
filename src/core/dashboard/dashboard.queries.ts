@@ -6,6 +6,7 @@ export async function fetchDashboardStats() {
         divisionsCount,
         gradesCount,
         subjectsCount,
+        domainsCount,
         coursesCount,
         curriculumsCount,
         activeCurriculumsCount,
@@ -19,6 +20,7 @@ export async function fetchDashboardStats() {
         prisma.division.count(),
         prisma.grade.count(),
         prisma.subject.count(),
+        prisma.domain.count(),
         prisma.teaching.count(),
         prisma.curriculum.count(),
         prisma.curriculum.count({ where: { isActive: true } }),
@@ -34,6 +36,7 @@ export async function fetchDashboardStats() {
         divisions: divisionsCount,
         grades: gradesCount,
         subjects: subjectsCount,
+        domains: domainsCount,
         courses: coursesCount,
         curriculums: {
             total: curriculumsCount,

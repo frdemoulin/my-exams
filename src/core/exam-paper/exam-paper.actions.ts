@@ -11,7 +11,7 @@ import { CreateExamPaperErrors } from "./exam-paper.types";
 export const createExamPaper = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
-    // Convert chapterIds, themeIds and examinationCenterIds from comma-separated strings to arrays
+    // Convert domainIds, themeIds and examinationCenterIds from comma-separated strings to arrays
     const parsedValues = {
         ...values,
         sessionYear: values.sessionYear ? parseInt(values.sessionYear as string) : undefined,
@@ -21,7 +21,7 @@ export const createExamPaper = async (formData: FormData) => {
         source: values.source || "OFFICIEL",
         sourceUrl: values.sourceUrl || undefined,
         examinationCenterIds: values.examinationCenterIds ? (values.examinationCenterIds as string).split(',').filter(Boolean) : [],
-        chapterIds: values.chapterIds ? (values.chapterIds as string).split(',').filter(Boolean) : [],
+        domainIds: values.domainIds ? (values.domainIds as string).split(',').filter(Boolean) : [],
         themeIds: values.themeIds ? (values.themeIds as string).split(',').filter(Boolean) : [],
     };
 
@@ -47,7 +47,7 @@ export const createExamPaper = async (formData: FormData) => {
                     teachingId: data.teachingId,
                     curriculumId: data.curriculumId,
                     examinationCenterIds: data.examinationCenterIds || [],
-                    chapterIds: data.chapterIds || [],
+                    domainIds: data.domainIds || [],
                     themeIds: data.themeIds || [],
                     subjectUrl: data.subjectUrl,
                     correctionUrl: data.correctionUrl,
@@ -81,7 +81,7 @@ export const updateExamPaper = async (id: string | undefined, formData: FormData
         source: values.source || "OFFICIEL",
         sourceUrl: values.sourceUrl || undefined,
         examinationCenterIds: values.examinationCenterIds ? (values.examinationCenterIds as string).split(',').filter(Boolean) : [],
-        chapterIds: values.chapterIds ? (values.chapterIds as string).split(',').filter(Boolean) : [],
+        domainIds: values.domainIds ? (values.domainIds as string).split(',').filter(Boolean) : [],
         themeIds: values.themeIds ? (values.themeIds as string).split(',').filter(Boolean) : [],
     };
 
@@ -108,7 +108,7 @@ export const updateExamPaper = async (id: string | undefined, formData: FormData
                     teachingId: data.teachingId,
                     curriculumId: data.curriculumId,
                     examinationCenterIds: data.examinationCenterIds || [],
-                    chapterIds: data.chapterIds || [],
+                    domainIds: data.domainIds || [],
                     themeIds: data.themeIds || [],
                     subjectUrl: data.subjectUrl,
                     correctionUrl: data.correctionUrl,

@@ -9,6 +9,7 @@ export type ToastEntityKey =
   | "curriculum"
   | "diploma"
   | "division"
+  | "domain"
   | "examPaper"
   | "examinationCenter"
   | "grade"

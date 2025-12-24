@@ -71,6 +71,9 @@ Le runner :
 
 Il enregistre l’état en base dans la collection Mongo `migrations` (modèle Prisma `DbMigration`).
 
+Cas particulier (renommage structurel) :
+- **Chapter → Domain** : `npm run db:rename-domain`
+
 ---
 ## 4) Workflows concrets : quoi lancer, où, quand ?
 
@@ -157,4 +160,3 @@ CONFIRM_DB_MIGRATIONS=1 npm run db:migrate -- --prod
 - PROD (Render) : `DATABASE_URL` dans les env Render
   - Pre-deploy : `CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`
   - seed prod (one-shot) : `CONFIRM_PROD_SEED=1 npm run db:seed:prod`
-

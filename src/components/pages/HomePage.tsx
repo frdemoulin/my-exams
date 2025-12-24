@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
-import { ArrowRight, LogIn, Search } from 'lucide-react';
+import { ArrowRight, LogIn, Search, X } from 'lucide-react';
 import type { Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
 import Link from 'next/link';
@@ -47,6 +47,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
   const [selectedDifficulty, setSelectedDifficulty] = useState<number | undefined>();
   const [selectedSessionYear, setSelectedSessionYear] = useState<number | undefined>();
+  const [selectedThemes, setSelectedThemes] = useState<Array<{ id: string; label: string }>>([]);
   const [exercises, setExercises] = useState<ExerciseWithRelations[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
@@ -103,6 +104,12 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     if (selectedSubject) params.append('subject', selectedSubject);
     if (selectedDifficulty) params.append('difficulty', selectedDifficulty.toString());
     if (selectedSessionYear) params.append('year', selectedSessionYear.toString());
+    if (selectedThemes.length > 0) {
+      params.append(
+        'themes',
+        selectedThemes.map((theme) => theme.id).join(',')
+      );
+    }
     if (sortBy) {
       params.append('sortBy', sortBy);
       params.append('sortOrder', sortOrder);
@@ -128,6 +135,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     selectedSubject,
     selectedDifficulty,
     selectedSessionYear,
+    selectedThemes,
     sortBy,
     sortOrder,
     page,
@@ -220,6 +228,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     setSelectedSubject(undefined);
     setSelectedDifficulty(undefined);
     setSelectedSessionYear(undefined);
+    setSelectedThemes([]);
     setSearch('');
     setPage(1);
     setShowResults(false);
@@ -280,7 +289,9 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   };
 
   // Compter les filtres actifs
-  const activeFiltersCount = [selectedDiploma, selectedSubject, selectedDifficulty, selectedSessionYear].filter(Boolean).length;
+  const activeFiltersCount =
+    [selectedDiploma, selectedSubject, selectedDifficulty, selectedSessionYear].filter(Boolean)
+      .length + selectedThemes.length;
 
   const diplomaOptions = useMemo(() => {
     const set = new Set<string>();
@@ -397,7 +408,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
       {/* MAIN */}
       <div className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-10">
         {/* HERO + FILIÈRES */}
-        <section className="grid items-start gap-8 lg:grid-cols-[3fr,2fr]">
+        <section className="grid items-start gap-8">
           {/* HERO GAUCHE */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <HeroEyebrow>📚 Plus de 1000 exercices d&apos;annales indexés</HeroEyebrow>
@@ -469,10 +480,20 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                               className="flex w-full flex-col items-start gap-0.5 px-3 py-2 text-left hover:bg-muted"
                               onMouseDown={(e) => e.preventDefault()}
                               onClick={() => {
-                                setSearch(s.title);
+                                if (s.type === 'theme') {
+                                  const themeId = s.id.replace(/^theme:/, '');
+                                  setSelectedThemes((prev) => {
+                                    if (prev.some((theme) => theme.id === themeId)) {
+                                      return prev;
+                                    }
+                                    return [...prev, { id: themeId, label: s.title }];
+                                  });
+                                  setSearch('');
+                                } else {
+                                  setSearch(s.title);
+                                }
                                 setShowSuggestions(false);
                                 setPage(1);
-                                performSearch();
                               }}
                             >
                               <span className="font-medium">{s.title}</span>
@@ -682,29 +703,42 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                   </>
                 )}
               </div>
+              {selectedThemes.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2">
+                  {selectedThemes.map((theme) => (
+                    <Badge key={theme.id} variant="outline" className="flex items-center gap-1">
+                      Thème : {theme.label}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSelectedThemes((prev) =>
+                            prev.filter((item) => item.id !== theme.id)
+                          );
+                          setPage(1);
+                        }}
+                        className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full text-muted-foreground hover:text-foreground"
+                        aria-label={`Retirer le thème ${theme.label}`}
+                      >
+                        <X className="h-3 w-3" />
+                      </button>
+                    </Badge>
+                  ))}
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setSelectedThemes([]);
+                      setPage(1);
+                    }}
+                    className="h-auto px-2 py-1 text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    Retirer tous les thèmes
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* PANNEAU DROIT : COMMENT ÇA MARCHE */}
-          <div className="space-y-4">
-            <Card className="border-brand/30 bg-linear-to-br from-brand/10 via-background to-background text-sm">
-              <CardHeader className="pb-2">
-                <h2 className="text-heading font-semibold tracking-tight text-sm">
-                  ✨ Comment ça marche ?
-                </h2>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm">
-                <ol className="list-inside list-decimal space-y-1.5">
-                  <li>🔍 <strong>Recherche</strong> un exercice d&apos;annales par thème ou mots-clé</li>
-                  <li>📊 <strong>Filtre</strong> par diplôme, matière, année ou difficulté</li>
-                  <li>📖 <strong>Accède</strong> à l&apos;énoncé de l&apos;exercice et à sa correction</li>
-                </ol>
-                <p className="mt-2 text-muted-foreground">
-                  💡 Tous les exercices sont enrichis automatiquement avec l&apos;IA
-                </p>
-              </CardContent>
-            </Card>
-          </div>
         </section>
 
         {/* SECTION : RÉSULTATS DE RECHERCHE */}

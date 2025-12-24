@@ -66,7 +66,7 @@
 
 **Relations :**
 - teachings : relation One-to-Many avec Teaching
-- chapters : relation One-to-Many avec Chapter
+- domains : relation One-to-Many avec Domain
 
 ## Modèle Teaching (`Teaching`) : enseignements
 
@@ -109,14 +109,15 @@
 **Relations :**
 - examPapers : relation One-to-Many avec ExamPaper
 
-## Modèle Chapter (`Chapter`) : chapitres
+## Modèle Domaine (`Domain`) : domaines
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
-|longDescription|VARCHAR(255)|NOT NULL|La description longue du chapitre|
-|shortDescription|VARCHAR(255)|NOT NULL|La description courte du chapitre|
+|longDescription|VARCHAR(255)|NOT NULL|La description longue du domaine|
+|shortDescription|VARCHAR(255)|NOT NULL|La description courte du domaine|
 |order|INT|NULLABLE|L'ordre dans le programme|
+|discipline|ENUM|NULLABLE|PHYSIQUE, CHIMIE, TRANSVERSAL (optionnel)|
 |subjectId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la matière|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
@@ -135,12 +136,12 @@
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue du thème|
 |shortDescription|VARCHAR(255)|NULLABLE|La description courte du thème|
-|chapterId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du chapitre|
+|domainId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du domaine|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
 **Relations :**
-- chapter : relation Many-to-One avec Chapter
+- domain : relation Many-to-One avec Domain
 
 ## Modèle ExamPaper (`ExamPaper`) : sujets d'annales (conteneur)
 
@@ -161,7 +162,7 @@
 |subjectUrl|VARCHAR(500)|NULLABLE|L'URL du PDF du sujet complet|
 |totalDuration|INT|NULLABLE|La durée totale en minutes|
 |totalPoints|INT|NULLABLE|Le total de points du sujet|
-|chapterIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds|
+|domainIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds (domaines)|
 |themeIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds|
 |correctionUrl|VARCHAR(500)|NULLABLE, DEPRECATED|Déprécié : utiliser Correction ou ExerciseCorrection|
 |estimatedDuration|INT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.estimatedDuration|
@@ -362,7 +363,7 @@ L'application utilise maintenant une architecture **centrée sur les exercices**
 ### Hiérarchie de recherche
 
 ```
-Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
+Diploma → Division → Grade → Teaching → Subject → Domain → Theme
                               ↓
                          ExamPaper (conteneur)
                               ↓

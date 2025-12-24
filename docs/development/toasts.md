@@ -239,7 +239,7 @@ export const ThemeForm = ({ initialData }: ThemeFormProps) => {
     const formData = new FormData();
     formData.append('longDescription', values.longDescription);
     formData.append('shortDescription', values.shortDescription || '');
-    formData.append('chapterId', values.chapterId);
+    formData.append('domainId', values.domainId);
     
     if (!initialData.id) {
       await createTheme(formData);

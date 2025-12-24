@@ -14,7 +14,7 @@ export const createTheme = async (formData: FormData) => {
     const result = createThemeSchema.safeParse(values);
 
     if (result.success) {
-        const { longDescription, shortDescription, chapterId } = result.data;
+        const { longDescription, shortDescription, domainId } = result.data;
 
         // create theme in database
         try {
@@ -22,7 +22,7 @@ export const createTheme = async (formData: FormData) => {
                 data: {
                     longDescription,
                     shortDescription,
-                    chapterId
+                    domainId
                 }
             });
         } catch (error: any) {
@@ -50,7 +50,7 @@ export const updateTheme = async (id: string | undefined, formData: FormData) =>
     const result = createThemeSchema.safeParse(values);
 
     if (result.success) {
-        const { longDescription, shortDescription, chapterId } = result.data;
+        const { longDescription, shortDescription, domainId } = result.data;
 
         try {
             await prisma.theme.update({
@@ -60,7 +60,7 @@ export const updateTheme = async (id: string | undefined, formData: FormData) =>
                 data: {
                     longDescription,
                     shortDescription,
-                    chapterId
+                    domainId
                 }
             });
 

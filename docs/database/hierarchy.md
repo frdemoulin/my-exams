@@ -17,7 +17,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
             │
             └── Subject (Mathématiques, Physique-Chimie, Histoire-Géo)
                 │
-                └── Chapter (Suites, Fonctions, Probabilités, etc.)
+                └── Domaine (Domain) (Suites, Fonctions, Probabilités, etc.)
                     │
                     └── Theme (Suites géométriques, Fonction exponentielle, etc.)
 ```
@@ -57,10 +57,10 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 ### 5. Subject
 - **Description** : Matière disciplinaire
 - **Exemples** : Mathématiques, Physique-Chimie, Histoire-Géographie, SVT
-- **Relations** : Teaching, Chapter
+- **Relations** : Teaching, Domaine (Domain)
 
-### 6. Chapter
-- **Description** : Chapitre du programme (grandes parties)
+### 6. Domaine (Domain)
+- **Description** : Domaine stable (grandes parties du programme)
 - **Exemples** : 
   - Algèbre et analyse
   - Probabilités et statistiques
@@ -69,17 +69,18 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Propriétés** :
   - `order` : Ordre dans le programme
   - `subjectId` : Matière de référence
+  - `discipline` : PHYSIQUE | CHIMIE | TRANSVERSAL (optionnel)
 - **Relations** : Subject, Theme
 - **Contrainte unique** : `[longDescription, subjectId]`
 
 ### 7. Theme
-- **Description** : Thème spécifique au sein d'un chapitre
+- **Description** : Thème spécifique au sein d'un domaine
 - **Exemples** :
   - Suites géométriques
   - Fonction exponentielle
   - Lois de Newton
   - Dosages par titrage
-- **Relations** : Chapter
+- **Relations** : Domain
 
 ## ExamPaper (Sujet d'annales)
 
@@ -101,7 +102,7 @@ ExamPaper {
   teachingId: ObjectId        // ex: Spé Maths Terminale
   
   // Tagging pédagogique
-  chapterIds: ObjectId[]    // Chapitres traités
+  domainIds: ObjectId[]    // Domaines traités (champ historique)
   themeIds: ObjectId[]      // Thèmes spécifiques
   
   // Autres
@@ -120,11 +121,11 @@ Bac Général
     └── Terminale
         └── Spécialité Mathématiques (Teaching)
             └── Mathématiques (Subject)
-                ├── Algèbre et analyse (Chapter)
+                ├── Algèbre et analyse (Domaine)
                 │   ├── Suites (Theme)
                 │   ├── Limites de fonctions (Theme)
                 │   └── ...
-                └── Probabilités et statistiques (Chapter)
+                └── Probabilités et statistiques (Domaine)
                     ├── Variables aléatoires (Theme)
                     └── ...
 ```
@@ -137,7 +138,7 @@ Bac Général
     └── Première
         └── Tronc Commun Sciences (Teaching)
             └── Physique-Chimie (Subject)
-                ├── Constitution et transformations de la matière (Chapter)
+                ├── Constitution et transformations de la matière (Domaine)
                 └── ...
 ```
 
@@ -149,10 +150,10 @@ Bac Général
     └── Terminale
         └── Spécialité Physique-Chimie (Teaching)
             └── Physique-Chimie (Subject)
-                ├── Mouvement et interactions (Chapter)
-                ├── Ondes et signaux (Chapter)
-                ├── Énergie (Chapter)
-                └── Constitution et transformations de la matière (Chapter)
+                ├── Mouvement et interactions (Domaine)
+                ├── Ondes et signaux (Domaine)
+                ├── Énergie (Domaine)
+                └── Constitution et transformations de la matière (Domaine)
 ```
 
 ## Avantages de cette structure
@@ -160,21 +161,21 @@ Bac Général
 1. **Flexibilité** : Gère les spécialités, options et tronc commun
 2. **Précision** : Le Teaching permet de distinguer "Spé Maths" du "Tronc Commun Maths"
 3. **Évolutivité** : Peut s'adapter aux futures réformes
-4. **Réutilisation** : Les Subjects, Chapters et Themes sont partagés entre plusieurs Teachings
+4. **Réutilisation** : Les Subjects, Domaines et Themes sont partagés entre plusieurs Teachings
 5. **Recherche** : Facilite la recherche de sujets par spécialité, niveau, etc.
 
 ## Migration depuis l'ancien modèle
 
 ### Ancien modèle
 ```
-Diploma → Division → Grade → Subject → Chapter → Theme
+Diploma → Division → Grade → Subject → Domain → Theme
                               ↓
                          ExamPaper
 ```
 
 ### Nouveau modèle
 ```
-Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
+Diploma → Division → Grade → Teaching → Subject → Domain → Theme
                               ↓
                          ExamPaper
 ```
@@ -184,4 +185,4 @@ Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
 1. **Ajout du niveau Teaching** entre Grade et Subject
 2. **ExamPaper rattaché à Teaching** au lieu de Subject
 3. **Teaching définit l'enseignement** (Spé, Tronc Commun, Option)
-4. **Subject reste la référence disciplinaire** pour les Chapters
+4. **Subject reste la référence disciplinaire** pour les Domaines

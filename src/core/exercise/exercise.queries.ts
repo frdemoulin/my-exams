@@ -202,7 +202,7 @@ export async function searchExercises(
     themeFilters.length > 0
       ? {
           themeIds: {
-            hasSome: themeFilters,
+            hasEvery: themeFilters,
           },
         }
       : undefined;
@@ -227,7 +227,7 @@ export async function searchExercises(
               enrichmentStatus: 'completed',
               ...(difficulty ? { estimatedDifficulty: difficulty } : {}),
               ...(exerciseType ? { exerciseType } : {}),
-              ...(themeFilters.length > 0 ? { themeIds: { $in: themeFilters } } : {}),
+              ...(themeFilters.length > 0 ? { themeIds: { $all: themeFilters } } : {}),
             },
           },
           {

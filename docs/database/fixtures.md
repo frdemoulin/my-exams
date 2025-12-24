@@ -7,7 +7,7 @@ Ce document explique comment peupler la base (dev ou prod) avec des données coh
 ## Structure
 
 - `prisma/seed.ts` : point d’entrée Prisma (`prisma db seed`)
-- `prisma/seeds/*.seed.ts` : seeders unitaires (diplômes, matières, enseignements, programmes, chapitres, thèmes, sujets, exercices, corrections, users…)
+- `prisma/seeds/*.seed.ts` : seeders unitaires (diplômes, matières, enseignements, programmes, domaines, thèmes, sujets, exercices, corrections, users…)
 - `scripts/seed-prod.ts` : wrapper “prod” (MongoDB Atlas) avec garde-fous
 - `scripts/clear-database.ts` : purge complète (dev/test uniquement)
 

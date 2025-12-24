@@ -91,7 +91,7 @@ model ExamPaper {
 ## Hiérarchie complète
 
 ```
-Diploma → Division → Grade → Teaching → Subject → Chapter → Theme
+Diploma → Division → Grade → Teaching → Subject → Domain → Theme
                               ^^^^^^
                                 |
                             Curriculum ← ExamPaper
