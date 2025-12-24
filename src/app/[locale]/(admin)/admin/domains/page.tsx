@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { DataTable } from "./_components/data-table";
 import { columns } from "./_components/columns";
 import { fetchDomainsWithIncludes } from "@/core/domain";
+import { fetchSubjectsOptions } from "@/core/subject";
 import getSession from "@/lib/auth/get-session";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -21,6 +22,7 @@ const DomainsPage = async () => {
   }
 
   const domains = await fetchDomainsWithIncludes();
+  const subjects = await fetchSubjectsOptions();
   const t = await getTranslations("entities.domain");
 
   return (
@@ -30,6 +32,7 @@ const DomainsPage = async () => {
           title={t("actions.list")}
           columns={columns}
           data={domains}
+          subjects={subjects}
         />
       </div>
     </div>
