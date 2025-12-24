@@ -1,3 +1,8 @@
+## 1.3.0 (2025-12-24)
+
+* Merge pull request #42 from frdemoulin/dev ([04f82bf](https://github.com/frdemoulin/my-exams/commit/04f82bf)), closes [#42](https://github.com/frdemoulin/my-exams/issues/42)
+* feat: gestion des domaines ([175b233](https://github.com/frdemoulin/my-exams/commit/175b233))
+
 ## <small>1.2.11 (2025-12-21)</small>
 
 * Merge pull request #41 from frdemoulin/dev ([efcaee1](https://github.com/frdemoulin/my-exams/commit/efcaee1)), closes [#41](https://github.com/frdemoulin/my-exams/issues/41)
