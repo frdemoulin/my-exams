@@ -4,6 +4,7 @@ import * as React from "react";
 
 import {
   ColumnDef,
+  ColumnFiltersState,
   SortingState,
   flexRender,
   getCoreRowModel,
@@ -21,21 +22,32 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
 import { TableToolbar } from "@/components/shared/table-toolbar";
+import { Option } from "@/types/option";
 
 interface DataTableProps<TData, TValue> {
   title: string;
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  subjects: Option[];
 }
 
 export function DataTable<TData, TValue>({
   title,
   columns,
   data,
+  subjects,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = React.useState("");
 
   const table = useReactTable({
@@ -46,8 +58,11 @@ export function DataTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    globalFilterFn: "includesString",
     state: {
       sorting,
+      columnFilters,
       globalFilter,
     },
   });
@@ -73,7 +88,26 @@ export function DataTable<TData, TValue>({
         onChange={setGlobalFilter}
         addHref="/admin/domains/add"
         addLabel="Ajouter un domaine"
-      />
+      >
+        <Select
+          value={(table.getColumn("subject")?.getFilterValue() as string) ?? "all"}
+          onValueChange={(value) =>
+            table.getColumn("subject")?.setFilterValue(value === "all" ? undefined : value)
+          }
+        >
+          <SelectTrigger className="w-[220px]">
+            <SelectValue placeholder="Filtrer par matière" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">Toutes les matières</SelectItem>
+            {subjects.map((subject) => (
+              <SelectItem key={subject.value} value={subject.value}>
+                {subject.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </TableToolbar>
       <div>
         <Table>
           <TableHeader>

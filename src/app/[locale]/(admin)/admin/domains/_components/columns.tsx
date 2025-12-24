@@ -54,6 +54,12 @@ export const columns: ColumnDef<DomainData>[] = [
     header: ({ column }) => (
       <SortableHeader label="MATIÈRE" column={column} />
     ),
+    filterFn: (row, _id, value) => {
+      if (!value) {
+        return true;
+      }
+      return row.original.subject?.id === value;
+    },
     cell: ({ row }) => (
       <div>{row.original.subject?.longDescription || "N/A"}</div>
     ),
