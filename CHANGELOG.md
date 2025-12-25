@@ -1,3 +1,8 @@
+## <small>1.4.1 (2025-12-25)</small>
+
+* Merge pull request #50 from frdemoulin/dev ([29fdc6f](https://github.com/frdemoulin/my-exams/commit/29fdc6f)), closes [#50](https://github.com/frdemoulin/my-exams/issues/50)
+* fix: ajout d'un lien vers le détail depuis les lignes des tableaux d'administration ([3a03f68](https://github.com/frdemoulin/my-exams/commit/3a03f68))
+
 ## 1.4.0 (2025-12-25)
 
 * Merge pull request #49 from frdemoulin/dev ([e026dc8](https://github.com/frdemoulin/my-exams/commit/e026dc8)), closes [#49](https://github.com/frdemoulin/my-exams/issues/49)
