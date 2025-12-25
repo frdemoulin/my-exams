@@ -1,3 +1,8 @@
+## <small>1.3.4 (2025-12-25)</small>
+
+* Merge pull request #46 from frdemoulin/dev ([0c02b0b](https://github.com/frdemoulin/my-exams/commit/0c02b0b)), closes [#46](https://github.com/frdemoulin/my-exams/issues/46)
+* fix: amélioration du tri sur les colonnes avec gestion des accents ([adcd16c](https://github.com/frdemoulin/my-exams/commit/adcd16c))
+
 ## <small>1.3.3 (2025-12-25)</small>
 
 * Merge pull request #45 from frdemoulin/dev ([31ee9cf](https://github.com/frdemoulin/my-exams/commit/31ee9cf)), closes [#45](https://github.com/frdemoulin/my-exams/issues/45)
