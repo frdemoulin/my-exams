@@ -38,15 +38,15 @@ const handleOnClickDeleteButton = async (id: string) => {
 
 export const columns: ColumnDef<DomainData>[] = [
   {
-    accessorKey: "shortDescription",
-    header: ({ column }) => (
-      <SortableHeader label="DESCRIPTION COURTE" column={column} />
-    ),
-  },
-  {
     accessorKey: "longDescription",
     header: ({ column }) => (
       <SortableHeader label="DESCRIPTION LONGUE" column={column} />
+    ),
+  },
+  {
+    accessorKey: "shortDescription",
+    header: ({ column }) => (
+      <SortableHeader label="DESCRIPTION COURTE" column={column} />
     ),
   },
   {
