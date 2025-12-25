@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Plus, Search } from "lucide-react";
+import { Plus, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type TableToolbarProps = {
@@ -52,11 +52,27 @@ export function TableToolbar({
               <Search className="h-4 w-4" />
             </span>
             <input
-              className="h-10 w-full rounded-base border border-default bg-neutral-primary-soft ps-10 pe-3 text-sm text-body placeholder:text-body/70 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand"
+              className="h-10 w-full rounded-base border border-default bg-neutral-primary-soft ps-10 pe-9 text-sm text-body placeholder:text-body/70 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand"
               placeholder={placeholder}
               value={value}
               onChange={(e) => onChange(e.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Escape") {
+                  onChange("");
+                  event.preventDefault();
+                }
+              }}
             />
+            {value ? (
+              <button
+                type="button"
+                onClick={() => onChange("")}
+                className="absolute inset-y-0 end-0 flex items-center pe-3 text-muted-foreground transition-colors hover:text-heading"
+                aria-label="Effacer la recherche"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            ) : null}
           </div>
           {children ? <div className="flex flex-wrap items-center gap-3">{children}</div> : null}
         </div>
