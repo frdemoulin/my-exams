@@ -19,12 +19,6 @@ import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 import { DomainData } from "@/core/domain";
 
-const disciplineLabels: Record<string, string> = {
-  PHYSIQUE: "Physique",
-  CHIMIE: "Chimie",
-  TRANSVERSAL: "Transversal",
-};
-
 const handleOnClickDeleteButton = async (id: string) => {
   try {
     await deleteDomain(id);
@@ -70,21 +64,12 @@ export const columns: ColumnDef<DomainData>[] = [
     ),
   },
   {
-    accessorKey: "discipline",
+    accessorKey: "_count.themes",
     header: ({ column }) => (
-      <SortableHeader label="DISCIPLINE" column={column} />
+      <SortableHeader label="NB DE THÈMES" column={column} align="left" />
     ),
     cell: ({ row }) => (
-      <div>{row.original.discipline ? disciplineLabels[row.original.discipline] : "—"}</div>
-    ),
-  },
-  {
-    accessorKey: "order",
-    header: ({ column }) => (
-      <SortableHeader label="ORDRE" column={column} align="left" />
-    ),
-    cell: ({ row }) => (
-      <div className="text-center">{row.original.order ?? "—"}</div>
+      <div className="text-center">{row.original._count?.themes ?? 0}</div>
     ),
   },
   {

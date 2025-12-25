@@ -7,13 +7,7 @@ import Link from "next/link";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
+import { MultiSelect } from "@/components/ui/multi-select";
 
 import { createTheme } from "@/core/theme";
 import { CreateThemeValues } from "@/core/theme";
@@ -113,22 +107,22 @@ export const ThemeForm = ({
                     name="domainId"
                     control={control}
                     render={({ field }) => {
+                        const selectedDomain = field.value ? [field.value] : [];
                         return <FormItem>
                                 <FormLabel>Domaine</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                <FormControl>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Sélectionner un domaine" />
-                                    </SelectTrigger>
-                                </FormControl>
-                                <SelectContent>
-                                    {sortedOptions.map((option) => (
-                                        <SelectItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
+                            <FormControl>
+                                <MultiSelect
+                                    options={sortedOptions}
+                                    selected={selectedDomain}
+                                    onChange={(selected) => {
+                                        const next = selected[selected.length - 1];
+                                        field.onChange(next ?? "");
+                                    }}
+                                    placeholder="Sélectionner un domaine"
+                                    searchPlaceholder="Rechercher un domaine..."
+                                    emptyText="Aucun domaine trouvé."
+                                />
+                            </FormControl>
                             <FormMessage />
                         </FormItem>
                     }}
