@@ -7,6 +7,13 @@ import Link from "next/link";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 import { createTheme } from "@/core/theme";
 import { CreateThemeValues } from "@/core/theme";
@@ -14,14 +21,7 @@ import { createThemeSchema } from "@/lib/validation";
 import { updateTheme } from "@/core/theme";
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import { Option } from "@/types/option";
-import { useEntityTranslation, useCommonTranslations, useMessageTranslations } from "@/hooks/use-translations";
-import { 
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem 
-} from "@/components/ui/command";
+import { useCommonTranslations } from "@/hooks/use-translations";
 
 interface ThemeFormProps {
     crudMode: "add" | "edit";
@@ -39,8 +39,10 @@ export const ThemeForm = ({
     initialData,
     options
 }: ThemeFormProps) => {
-    const entity = useEntityTranslation('theme');
     const common = useCommonTranslations();
+    const sortedOptions = [...options].sort((a, b) =>
+        a.label.localeCompare(b.label, "fr", { sensitivity: "base" })
+    );
     
     const form = useForm<CreateThemeValues>({
         defaultValues: initialData,
@@ -62,11 +64,7 @@ export const ThemeForm = ({
 
     const {
         handleSubmit,
-        watch,
-        trigger,
         control,
-        setValue,
-        setFocus,
         formState: { isSubmitting }
     } = form;
 
@@ -117,19 +115,20 @@ export const ThemeForm = ({
                     render={({ field }) => {
                         return <FormItem>
                                 <FormLabel>Domaine</FormLabel>
-                            <FormControl>
-                                <select
-                                    {...field}
-                                    className="w-full border rounded p-2"
-                                >
-                                    <option value="">Sélectionner un domaine</option>
-                                    {options.map((option) => (
-                                        <option key={option.value} value={option.value}>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Sélectionner un domaine" />
+                                    </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                    {sortedOptions.map((option) => (
+                                        <SelectItem key={option.value} value={option.value}>
                                             {option.label}
-                                        </option>
+                                        </SelectItem>
                                     ))}
-                                </select>
-                            </FormControl>
+                                </SelectContent>
+                            </Select>
                             <FormMessage />
                         </FormItem>
                     }}

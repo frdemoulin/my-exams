@@ -10,6 +10,7 @@ Ce document explique comment peupler la base (dev ou prod) avec des données coh
 - `prisma/seeds/*.seed.ts` : seeders unitaires (diplômes, matières, enseignements, programmes, domaines, thèmes, sujets, exercices, corrections, users…)
 - `scripts/seed-prod.ts` : wrapper “prod” (MongoDB Atlas) avec garde-fous
 - `scripts/clear-database.ts` : purge complète (dev/test uniquement)
+- `scripts/clear-domains-themes.ts` : purge domaines + thèmes (avec garde-fous)
 
 ## Seed dev (base locale)
 
@@ -66,6 +67,23 @@ npm run db:clear
 ```
 
 ⚠️ Destructif : ne pas utiliser sur la prod.
+
+## Purge domaines + thèmes (dev/prod)
+
+```bash
+# Dry-run (aucune modification)
+DRY_RUN=1 npm run db:clear-domains-themes
+
+# Exécution réelle (destructif)
+CONFIRM_CLEAR_DOMAINS_THEMES=1 npm run db:clear-domains-themes
+```
+
+Ce script :
+- vide `Exercise.themeIds`
+- vide `ExamPaper.domainIds` et `ExamPaper.themeIds`
+- supprime tous les `Theme` et `Domain`
+
+⚠️ Destructif : utiliser le dry-run avant, et ne lancer en prod que si `DATABASE_URL` pointe explicitement sur la base cible.
 
 ## Déploiement (prod) – schéma & migrations data
 
