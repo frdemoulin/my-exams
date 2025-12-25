@@ -12,6 +12,11 @@ export const domainDataInclude = {
             longDescription: true,
         }
     },
+    _count: {
+        select: {
+            themes: true,
+        },
+    },
     scopes: {
         include: {
             diploma: {

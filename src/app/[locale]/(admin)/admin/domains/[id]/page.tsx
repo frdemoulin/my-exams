@@ -1,6 +1,9 @@
 import { Metadata } from "next";
-
 import { fetchDomainById } from "@/core/domain";
+import { fetchThemesByDomainId } from "@/core/theme";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { DomainThemeForm } from "./_components/domain-theme-form";
+import { DomainThemesTable } from "./_components/domain-themes-table";
 
 export const metadata: Metadata = {
   title: "Détails du domaine",
@@ -22,18 +25,67 @@ const DomainDetailPage = async ({ params }: DomainDetailPageProps) => {
   const { id } = await params;
 
   const domain = await fetchDomainById(id);
+  const themes = await fetchThemesByDomainId(id);
 
   return (
     <div>
       <h1 className="text-lg font-semibold md:text-2xl">Détails du domaine</h1>
-      <p>Description courte : {domain?.shortDescription}</p>
-      <p>Description longue : {domain?.longDescription}</p>
-      <p>Matière : {domain?.subject?.longDescription ?? "N/A"}</p>
-      <p>
-        Discipline :{" "}
-        {domain?.discipline ? disciplineLabels[domain.discipline] : "—"}
-      </p>
-      <p>Ordre : {domain?.order ?? "—"}</p>
+      <Card className="mt-4">
+        <CardHeader className="mb-2">
+          <CardTitle>Informations du domaine</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground">
+                Description courte
+              </h3>
+              <p className="text-sm">{domain?.shortDescription ?? "—"}</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground">
+                Description longue
+              </h3>
+              <p className="text-sm">{domain?.longDescription ?? "—"}</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground">
+                Matière
+              </h3>
+              <p className="text-sm">{domain?.subject?.longDescription ?? "N/A"}</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground">
+                Discipline
+              </h3>
+              <p className="text-sm">
+                {domain?.discipline ? disciplineLabels[domain.discipline] : "—"}
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground">
+                Ordre
+              </h3>
+              <p className="text-sm">{domain?.order ?? "—"}</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="mt-8 space-y-6">
+        {domain ? (
+          <DomainThemeForm
+            domainId={domain.id}
+            domainLabel={domain.longDescription}
+          />
+        ) : null}
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">
+            Thèmes associés ({themes.length})
+          </h2>
+        </div>
+        <DomainThemesTable domainId={id} themes={themes} />
+      </div>
     </div>
   );
 };

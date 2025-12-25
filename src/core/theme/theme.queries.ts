@@ -31,6 +31,19 @@ export async function fetchThemesWithIncludes(): Promise<ThemeData[]> {
     });
 }
 
+export async function fetchThemesByDomainId(domainId: string): Promise<Theme[]> {
+    return await prisma.theme.findMany({
+        where: {
+            domainId,
+        },
+        orderBy: [
+            {
+                longDescription: "asc",
+            },
+        ],
+    });
+}
+
 export async function fetchThemeById(id: string): Promise<ThemeData | null> {
     return await prisma.theme.findUnique({
         where: {

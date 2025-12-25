@@ -8,9 +8,16 @@ export async function generateMetadata(): Promise<Metadata> {
     return { title: t('actions.add') };
 }
 
-const AddThemePage = async () => {
+interface AddThemePageProps {
+    searchParams?: {
+        domainId?: string;
+    };
+}
+
+const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
     const domainsOptions = await fetchDomainsOptions();
     const t = await getTranslations('entities.theme');
+    const domainId = typeof searchParams?.domainId === "string" ? searchParams.domainId : undefined;
 
     return (
         <div className="w-full p-6">
@@ -23,7 +30,7 @@ const AddThemePage = async () => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
-                        domainId: undefined,
+                        domainId,
                     }}
                     options={domainsOptions}
                 />

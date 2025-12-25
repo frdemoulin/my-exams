@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
@@ -67,7 +66,9 @@ export function MultiSelect({
       normalizeString(option.label).includes(normalizeString(searchQuery))
     ) : options;
     
-    return toFilter.sort((a, b) => a.label.localeCompare(b.label));
+    return toFilter.sort((a, b) =>
+      a.label.localeCompare(b.label, 'fr', { sensitivity: 'base', numeric: true })
+    );
   }, [options, searchQuery]);
 
   return (
@@ -142,23 +143,28 @@ export function MultiSelect({
             onValueChange={setSearchQuery}
           />
           <CommandList>
-            <CommandEmpty>{emptyText}</CommandEmpty>
-            <CommandGroup className="max-h-64 overflow-auto">
-              {filteredOptions.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  onSelect={() => handleSelect(option.value)}
-                >
-                  <Check
-                    className={cn(
-                      'mr-2 h-4 w-4',
-                      selected.includes(option.value) ? 'opacity-100' : 'opacity-0'
-                    )}
-                  />
-                  {option.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
+            {filteredOptions.length === 0 ? (
+              <div className="py-6 text-center text-sm text-muted-foreground">
+                {emptyText}
+              </div>
+            ) : (
+              <CommandGroup className="max-h-64 overflow-auto">
+                {filteredOptions.map((option) => (
+                  <CommandItem
+                    key={option.value}
+                    onSelect={() => handleSelect(option.value)}
+                  >
+                    <Check
+                      className={cn(
+                        'mr-2 h-4 w-4',
+                        selected.includes(option.value) ? 'opacity-100' : 'opacity-0'
+                      )}
+                    />
+                    {option.label}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            )}
           </CommandList>
         </Command>
       </PopoverContent>

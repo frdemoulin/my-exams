@@ -8,7 +8,12 @@ import { createThemeSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateThemeErrors, CreateThemeValues } from "./theme.types";
 
-export const createTheme = async (formData: FormData) => {
+type CreateThemeOptions = {
+    redirectTo?: string;
+    revalidatePaths?: string[];
+};
+
+export const createTheme = async (formData: FormData, options?: CreateThemeOptions) => {
     const values = Object.fromEntries(formData.entries());
     
     const result = createThemeSchema.safeParse(values);
@@ -39,12 +44,22 @@ export const createTheme = async (formData: FormData) => {
         throw errors;
     }
 
-    revalidatePath("/admin/themes");
+    const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
     await setCrudSuccessToast("theme", "created");
-    redirect("/admin/themes");
+    redirect(options?.redirectTo ?? "/admin/themes");
 }
 
-export const updateTheme = async (id: string | undefined, formData: FormData) => {
+type UpdateThemeOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+};
+
+export const updateTheme = async (
+    id: string | undefined,
+    formData: FormData,
+    options?: UpdateThemeOptions
+) => {
     const values = Object.fromEntries(formData.entries());
 
     const result = createThemeSchema.safeParse(values);
@@ -64,9 +79,12 @@ export const updateTheme = async (id: string | undefined, formData: FormData) =>
                 }
             });
 
-            revalidatePath('/admin/themes');
+            const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
+            paths.forEach((path) => revalidatePath(path));
             await setCrudSuccessToast("theme", "updated");
-            redirect('/admin/themes');
+            if (options?.redirectTo !== null) {
+                redirect(options?.redirectTo ?? "/admin/themes");
+            }
         } catch (error) {
             console.error('Error updating theme: ', error);
             throw error;
@@ -78,7 +96,12 @@ export const updateTheme = async (id: string | undefined, formData: FormData) =>
     }
 }
 
-export const deleteTheme = async (id: string) => {
+type DeleteThemeOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+};
+
+export const deleteTheme = async (id: string, options?: DeleteThemeOptions) => {
     try {
         await prisma.theme.delete({
             where: {
@@ -91,7 +114,10 @@ export const deleteTheme = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/themes");
+    const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
     await setCrudSuccessToast("theme", "deleted");
-    redirect("/admin/themes");
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/themes");
+    }
 }
