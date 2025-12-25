@@ -60,12 +60,13 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Relations** : Teaching, Domaine (Domain)
 
 ### 6. Domaine (Domain)
-- **Description** : Domaine stable (grandes parties du programme)
+- **Description** : Domaine au sens "chapitre" (niveau élève, plus fin que des macro-parties)
 - **Exemples** : 
-  - Algèbre et analyse
-  - Probabilités et statistiques
-  - Mécanique
-  - Constitution et transformations de la matière
+  - Nombres complexes
+  - Suites
+  - Géométrie dans l'espace
+  - Probabilités
+  - Électricité
 - **Propriétés** :
   - `order` : Ordre dans le programme
   - `subjectId` : Matière de référence
@@ -74,13 +75,17 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Contrainte unique** : `[longDescription, subjectId]`
 
 ### 7. Theme
-- **Description** : Thème spécifique au sein d'un domaine
+- **Description** : Thème fin au sein d'un domaine (notion précise)
 - **Exemples** :
-  - Suites géométriques
-  - Fonction exponentielle
-  - Lois de Newton
-  - Dosages par titrage
+  - Loi binomiale
+  - Equation d'une tangente
+  - Interpretation geometrique du nombre derive
+  - Argument d'un nombre complexe
+  - Equation du second degre
 - **Relations** : Domain
+
+> Usage recherche : les eleves peuvent filtrer les annales par domaines et themes.
+> La recherche globale doit tenir compte de ces deux niveaux.
 
 ## ExamPaper (Sujet d'annales)
 
