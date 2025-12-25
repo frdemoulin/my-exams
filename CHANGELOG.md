@@ -1,3 +1,8 @@
+## <small>1.3.5 (2025-12-25)</small>
+
+* Merge pull request #47 from frdemoulin/dev ([9dd1742](https://github.com/frdemoulin/my-exams/commit/9dd1742)), closes [#47](https://github.com/frdemoulin/my-exams/issues/47)
+* fix: implémentation du vidage des champs de recherche dans les tableaux d'administration ([3ec134a](https://github.com/frdemoulin/my-exams/commit/3ec134a))
+
 ## <small>1.3.4 (2025-12-25)</small>
 
 * Merge pull request #46 from frdemoulin/dev ([0c02b0b](https://github.com/frdemoulin/my-exams/commit/0c02b0b)), closes [#46](https://github.com/frdemoulin/my-exams/issues/46)
