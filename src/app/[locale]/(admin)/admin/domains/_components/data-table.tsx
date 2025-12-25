@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 
 import {
   ColumnDef,
@@ -32,20 +33,22 @@ import {
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { Option } from "@/types/option";
+import { DomainData } from "@/core/domain";
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps {
   title: string;
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+  columns: ColumnDef<DomainData, unknown>[];
+  data: DomainData[];
   subjects: Option[];
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable({
   title,
   columns,
   data,
   subjects,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps) {
+  const router = useRouter();
   const [sorting, setSorting] = React.useState<SortingState>([
     { id: "longDescription", desc: false },
   ]);
@@ -68,6 +71,20 @@ export function DataTable<TData, TValue>({
       globalFilter,
     },
   });
+
+  const handleRowClick = (
+    event: React.MouseEvent<HTMLTableRowElement>,
+    rowId: string
+  ) => {
+    const target = event.target as HTMLElement;
+    if (
+      target.closest("[data-row-action]") ||
+      target.closest("a, button, [role='button'], input, select, textarea")
+    ) {
+      return;
+    }
+    router.push(`/admin/domains/${rowId}`);
+  };
 
   const filteredCount = table.getFilteredRowModel().rows.length;
   const totalCount = filteredCount;
@@ -136,12 +153,17 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  onClick={(event) => handleRowClick(event, row.original.id)}
+                  className="cursor-pointer transition-colors hover:bg-neutral-primary-soft"
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                  ))}
+                  {row.getVisibleCells().map((cell) => {
+                    const isActionCell = cell.column.id === "actions";
+                    return (
+                      <TableCell key={cell.id} data-row-action={isActionCell || undefined}>
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               ))
             ) : (

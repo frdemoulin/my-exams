@@ -9,7 +9,7 @@ import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateThemeErrors, CreateThemeValues } from "./theme.types";
 
 type CreateThemeOptions = {
-    redirectTo?: string;
+    redirectTo?: string | null;
     revalidatePaths?: string[];
 };
 
@@ -47,7 +47,9 @@ export const createTheme = async (formData: FormData, options?: CreateThemeOptio
     const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
     paths.forEach((path) => revalidatePath(path));
     await setCrudSuccessToast("theme", "created");
-    redirect(options?.redirectTo ?? "/admin/themes");
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/themes");
+    }
 }
 
 type UpdateThemeOptions = {
