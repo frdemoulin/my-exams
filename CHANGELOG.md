@@ -1,3 +1,9 @@
+## <small>1.3.2 (2025-12-25)</small>
+
+* Merge pull request #44 from frdemoulin/dev ([dee22e8](https://github.com/frdemoulin/my-exams/commit/dee22e8)), closes [#44](https://github.com/frdemoulin/my-exams/issues/44)
+* chore: mise à jour des dépendances JS ([92cf9ee](https://github.com/frdemoulin/my-exams/commit/92cf9ee))
+* fix: ajout d'un batch de suppression des domaines et des thèmes ([704580a](https://github.com/frdemoulin/my-exams/commit/704580a))
+
 ## <small>1.3.1 (2025-12-24)</small>
 
 * Merge pull request #43 from frdemoulin/dev ([8047e1f](https://github.com/frdemoulin/my-exams/commit/8047e1f)), closes [#43](https://github.com/frdemoulin/my-exams/issues/43)
