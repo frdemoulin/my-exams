@@ -1,6 +1,6 @@
 import prisma from "@/lib/db/prisma";
 import { Option } from "@/types/option";
-import { DomainData } from "./domain.types";
+import { DomainData, domainDataInclude } from "./domain.types";
 import { Domain } from "@prisma/client";
 
 export async function fetchDomains(): Promise<Domain[]> {
@@ -15,14 +15,7 @@ export async function fetchDomains(): Promise<Domain[]> {
 
 export async function fetchDomainsWithIncludes(): Promise<DomainData[]> {
     return await prisma.domain.findMany({
-        include: {
-            subject: {
-                select: {
-                    id: true,
-                    longDescription: true,
-                },
-            }
-        },
+        include: domainDataInclude,
         orderBy: [
             {
                 order: "asc",
@@ -36,14 +29,7 @@ export async function fetchDomainById(id: string): Promise<DomainData | null> {
         where: {
             id,
         },
-        include: {
-            subject: {
-                select: {
-                    id: true,
-                    longDescription: true,
-                },
-            }
-        },
+        include: domainDataInclude,
     });
 }
 

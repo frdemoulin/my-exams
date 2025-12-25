@@ -59,11 +59,41 @@ model Domain {
   subject   Subject @relation(fields: [subjectId], references: [id])
 
   themes Theme[]
+  scopes DomainScope[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@unique([longDescription, subjectId])
+}
+
+model DomainScope {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  domainId String @db.ObjectId
+  domain   Domain @relation(fields: [domainId], references: [id])
+
+  diplomaId String?  @db.ObjectId
+  diploma   Diploma? @relation(fields: [diplomaId], references: [id])
+
+  gradeId String? @db.ObjectId
+  grade   Grade?  @relation(fields: [gradeId], references: [id])
+
+  divisionId String?   @db.ObjectId
+  division   Division? @relation(fields: [divisionId], references: [id])
+
+  labelOverride String?
+  order         Int?
+  isActive      Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([domainId])
+  @@index([diplomaId])
+  @@index([gradeId])
+  @@index([divisionId])
+  @@index([domainId, diplomaId, gradeId, divisionId])
 }
 
 model Teaching {
@@ -135,6 +165,7 @@ model Diploma {
 
   // Relations
   examPapers ExamPaper[]
+  domainScopes DomainScope[]
 
   @@unique([longDescription, shortDescription])
 }
@@ -148,6 +179,7 @@ model Division {
 
   // Relations
   examPapers ExamPaper[]
+  domainScopes DomainScope[]
 
   @@unique([longDescription, shortDescription])
 }
@@ -338,6 +370,7 @@ model Grade {
   // Relations
   teachings  Teaching[]
   examPapers ExamPaper[]
+  domainScopes DomainScope[]
 
   @@unique([longDescription, shortDescription])
 }

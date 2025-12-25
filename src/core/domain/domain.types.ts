@@ -11,7 +11,30 @@ export const domainDataInclude = {
             id: true,
             longDescription: true,
         }
-    }
+    },
+    scopes: {
+        include: {
+            diploma: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                },
+            },
+            grade: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
+            division: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                },
+            },
+        },
+    },
 } satisfies Prisma.DomainInclude;
 
 export type DomainData = Prisma.DomainGetPayload<{

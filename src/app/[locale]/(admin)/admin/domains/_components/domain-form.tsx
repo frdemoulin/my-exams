@@ -3,6 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { useState } from "react";
+import { Plus, Trash2 } from "lucide-react";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -31,9 +33,22 @@ interface DomainFormProps {
     subjectId: string | undefined;
     order?: number | null;
     discipline?: "PHYSIQUE" | "CHIMIE" | "TRANSVERSAL" | null;
+    scopes?: DomainScopeForm[];
   };
   subjects: Option[];
+  diplomas: Option[];
+  grades: Option[];
+  divisions: Option[];
 }
+
+type DomainScopeForm = {
+  diplomaId?: string | null;
+  gradeId?: string | null;
+  divisionId?: string | null;
+  labelOverride?: string | null;
+  order?: number | null;
+  isActive?: boolean;
+};
 
 const disciplineOptions = [
   { value: "PHYSIQUE", label: "Physique" },
@@ -45,8 +60,19 @@ export const DomainForm = ({
   crudMode,
   initialData,
   subjects,
+  diplomas,
+  grades,
+  divisions,
 }: DomainFormProps) => {
   const common = useCommonTranslations();
+  const [scopes, setScopes] = useState<DomainScopeForm[]>(
+    initialData.scopes?.map((scope) => ({
+      ...scope,
+      labelOverride: scope.labelOverride ?? "",
+      order: scope.order ?? null,
+      isActive: scope.isActive ?? true,
+    })) ?? []
+  );
 
   const form = useForm<CreateDomainValues>({
     defaultValues: {
@@ -67,6 +93,7 @@ export const DomainForm = ({
         formData.append(key, String(value));
       }
     });
+    formData.append("scopes", JSON.stringify(scopes));
 
     if (!initialData.id) {
       await createDomain(formData);
@@ -80,6 +107,30 @@ export const DomainForm = ({
     control,
     formState: { isSubmitting },
   } = form;
+
+  const addScope = () => {
+    setScopes((prev) => [
+      ...prev,
+      {
+        diplomaId: null,
+        gradeId: null,
+        divisionId: null,
+        labelOverride: "",
+        order: null,
+        isActive: true,
+      },
+    ]);
+  };
+
+  const updateScope = (index: number, updates: Partial<DomainScopeForm>) => {
+    setScopes((prev) =>
+      prev.map((scope, idx) => (idx === index ? { ...scope, ...updates } : scope))
+    );
+  };
+
+  const removeScope = (index: number) => {
+    setScopes((prev) => prev.filter((_, idx) => idx !== index));
+  };
 
   return (
     <Form {...form}>
@@ -190,6 +241,145 @@ export const DomainForm = ({
             </FormItem>
           )}
         />
+        <div className="space-y-3 rounded-base border border-default bg-neutral-primary-soft p-4">
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <div>
+              <div className="text-sm font-semibold text-heading">Portée du domaine</div>
+              <p className="text-xs text-muted-foreground">
+                Associe le domaine à un diplôme / niveau (optionnel).
+              </p>
+            </div>
+            <Button type="button" variant="secondary" size="sm" onClick={addScope}>
+              <Plus className="h-4 w-4" />
+              Ajouter un scope
+            </Button>
+          </div>
+
+          {scopes.length === 0 ? (
+            <p className="text-xs text-muted-foreground">Aucun scope défini.</p>
+          ) : (
+            <div className="space-y-3">
+              {scopes.map((scope, index) => (
+                <div
+                  key={`scope-${index}`}
+                  className="space-y-3 rounded-base border border-default bg-neutral-primary-medium p-4"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-heading">
+                      Scope #{index + 1}
+                    </span>
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      size="icon"
+                      onClick={() => removeScope(index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  <div className="grid gap-3 md:grid-cols-3">
+                    <div className="space-y-1">
+                      <span className="text-xs font-semibold text-muted-foreground">Diplôme</span>
+                      <Select
+                        value={scope.diplomaId ?? "none"}
+                        onValueChange={(value) =>
+                          updateScope(index, { diplomaId: value === "none" ? null : value })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Tous les diplômes" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="none">Tous les diplômes</SelectItem>
+                          {diplomas.map((diploma) => (
+                            <SelectItem key={diploma.value} value={diploma.value}>
+                              {diploma.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-xs font-semibold text-muted-foreground">Niveau</span>
+                      <Select
+                        value={scope.gradeId ?? "none"}
+                        onValueChange={(value) =>
+                          updateScope(index, { gradeId: value === "none" ? null : value })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Tous les niveaux" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="none">Tous les niveaux</SelectItem>
+                          {grades.map((grade) => (
+                            <SelectItem key={grade.value} value={grade.value}>
+                              {grade.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-xs font-semibold text-muted-foreground">Filière</span>
+                      <Select
+                        value={scope.divisionId ?? "none"}
+                        onValueChange={(value) =>
+                          updateScope(index, { divisionId: value === "none" ? null : value })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Toutes les filières" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="none">Toutes les filières</SelectItem>
+                          {divisions.map((division) => (
+                            <SelectItem key={division.value} value={division.value}>
+                              {division.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                  <div className="grid gap-3 md:grid-cols-3">
+                    <div className="space-y-1 md:col-span-2">
+                      <span className="text-xs font-semibold text-muted-foreground">Libellé (optionnel)</span>
+                      <Input
+                        type="text"
+                        placeholder="Libellé surchargé"
+                        value={scope.labelOverride ?? ""}
+                        onChange={(event) => updateScope(index, { labelOverride: event.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-xs font-semibold text-muted-foreground">Ordre</span>
+                      <Input
+                        type="number"
+                        placeholder="1"
+                        value={scope.order ?? ""}
+                        onChange={(event) =>
+                          updateScope(index, {
+                            order: event.target.value ? parseInt(event.target.value, 10) : null,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+                  <label className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 accent-brand"
+                      checked={scope.isActive ?? true}
+                      onChange={(event) => updateScope(index, { isActive: event.target.checked })}
+                    />
+                    Actif dans ce scope
+                  </label>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
         <div className="mt-2 flex justify-end">
           <Button asChild variant="secondary" className="mr-4">
             <Link href="/admin/domains">{common.cancel}</Link>

@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { DomainForm } from "../_components/domain-form";
+import { fetchDiplomasOptions } from "@/core/diploma";
+import { fetchDivisionsOptions } from "@/core/division";
+import { fetchGradesOptions } from "@/core/grade";
 import { fetchSubjectsOptions } from "@/core/subject";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -11,6 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const AddDomainPage = async () => {
   const subjects = await fetchSubjectsOptions();
+  const diplomas = await fetchDiplomasOptions();
+  const grades = await fetchGradesOptions();
+  const divisions = await fetchDivisionsOptions();
   const t = await getTranslations("entities.domain");
 
   return (
@@ -29,8 +35,12 @@ const AddDomainPage = async () => {
             subjectId: undefined,
             order: undefined,
             discipline: undefined,
+            scopes: [],
           }}
           subjects={subjects}
+          diplomas={diplomas}
+          grades={grades}
+          divisions={divisions}
         />
       </div>
     </div>

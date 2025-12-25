@@ -74,6 +74,17 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Relations** : Subject, Theme
 - **Contrainte unique** : `[longDescription, subjectId]`
 
+### 6bis. DomainScope (DomainScope)
+- **Description** : Portée d'un domaine par diplôme/niveau (activation ciblée)
+- **Exemples** :
+  - "Suites" actif pour Bac / Terminale
+  - "Probabilités" actif pour Brevet / 3e
+- **Propriétés** :
+  - `domainId`, `diplomaId`, `gradeId`
+  - `divisionId` (optionnel)
+  - `labelOverride`, `order`, `isActive`
+- **Relations** : Domain, Diploma, Grade, Division (optionnel)
+
 ### 7. Theme
 - **Description** : Thème fin au sein d'un domaine (notion précise)
 - **Exemples** :

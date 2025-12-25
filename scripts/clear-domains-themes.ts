@@ -15,10 +15,12 @@ async function main() {
 
   const themeCount = await prisma.theme.count();
   const domainCount = await prisma.domain.count();
+  const domainScopeCount = await prisma.domainScope.count();
   const exerciseCount = await prisma.exercise.count();
   const examPaperCount = await prisma.examPaper.count();
 
   console.log(`🧹 Suppression des themes (${themeCount}) et domaines (${domainCount})`);
+  console.log(`ℹ️  DomainScopes: ${domainScopeCount}`);
   console.log(`ℹ️  Exercices: ${exerciseCount}, sujets: ${examPaperCount}`);
 
   if (dryRun) {
@@ -43,11 +45,12 @@ async function main() {
     `✅ References nettoyees: exercises=${exerciseUpdate.count}, examPapers=${examPaperUpdate.count}`
   );
 
+  const deletedDomainScopes = await prisma.domainScope.deleteMany();
   const deletedThemes = await prisma.theme.deleteMany();
   const deletedDomains = await prisma.domain.deleteMany();
 
   console.log(
-    `✅ Supprime: themes=${deletedThemes.count}, domaines=${deletedDomains.count}`
+    `✅ Supprime: domainScopes=${deletedDomainScopes.count}, themes=${deletedThemes.count}, domaines=${deletedDomains.count}`
   );
 }
 
