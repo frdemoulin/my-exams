@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { formatDateTime } from "@/lib/utils";
+import { localeStringSort } from "@/lib/table";
 import toast from "react-hot-toast";
 import { deleteTeaching } from "@/core/teaching";
 import { TeachingWithRelations } from "@/core/teaching";
@@ -30,9 +31,12 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 }
 
+const localeSort = localeStringSort<TeachingWithRelations>();
+
 export const columns: ColumnDef<TeachingWithRelations>[] = [
   {
     accessorKey: "longDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="NOM DE L'ENSEIGNEMENT" column={column} />
@@ -41,6 +45,7 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
   },
   {
     accessorKey: "shortDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="NOM COURT" column={column} />
@@ -49,6 +54,7 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
   },
   {
     accessorKey: "grade.shortDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="NIVEAU" column={column} />
@@ -57,6 +63,7 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
   },
   {
     accessorKey: "subject.shortDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="MATIÈRE" column={column} />

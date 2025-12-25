@@ -17,10 +17,14 @@ import type { CurriculumWithTeachingCount } from "@/core/curriculum";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { localeStringSort } from "@/lib/table";
+
+const localeSort = localeStringSort<CurriculumWithTeachingCount>();
 
 export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
         accessorKey: "longDescription",
+        sortingFn: localeSort,
         header: ({ column }) => (
             <SortableHeader label="NOM" column={column} />
         ),

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ExaminationCenter } from "@prisma/client";
 import { formatDateTime } from "@/lib/utils";
+import { localeStringSort } from "@/lib/table";
 import toast from "react-hot-toast";
 import { deleteExaminationCenter } from "@/core/examination-center";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
@@ -30,9 +31,12 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 }
 
+const localeSort = localeStringSort<ExaminationCenter>();
+
 export const columns: ColumnDef<ExaminationCenter>[] = [
   {
     accessorKey: "description",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="DESCRIPTION" column={column} />
