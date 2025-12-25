@@ -13,6 +13,7 @@ import {
 import { User } from "@prisma/client";
 // import { deleteUser } from "@/actions/user/delete-user";
 import { formatDateTime } from "@/lib/utils";
+import { localeStringSort } from "@/lib/table";
 import toast from "react-hot-toast";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
@@ -27,9 +28,12 @@ const handleOnClickDeleteButton = async (id: string) => {
   // }
 }
 
+const localeSort = localeStringSort<User>();
+
 export const columns: ColumnDef<User>[] = [
   {
     accessorKey: "name",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="NOM D'UTILISATEUR" column={column} />
@@ -38,6 +42,7 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: "email",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="EMAIL" column={column} />

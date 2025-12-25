@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { formatDateTime } from "@/lib/utils";
+import { localeStringSort } from "@/lib/table";
 import toast from "react-hot-toast";
 import { deleteTheme } from "@/core/theme";
 import { ThemeData } from "@/core/theme";
@@ -29,9 +30,12 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 }
 
+const localeSort = localeStringSort<ThemeData>();
+
 export const columns: ColumnDef<ThemeData>[] = [
   {
     accessorKey: "longDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="DESCRIPTION LONGUE" column={column} />
@@ -40,6 +44,7 @@ export const columns: ColumnDef<ThemeData>[] = [
   },
   {
     accessorKey: "shortDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="DESCRIPTION COURTE" column={column} />

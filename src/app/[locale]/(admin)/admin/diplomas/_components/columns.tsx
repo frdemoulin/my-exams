@@ -17,6 +17,7 @@ import { deleteDiploma } from "@/core/diploma";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { localeStringSort } from "@/lib/table";
 
 const handleOnClickDeleteButton = async (id: string) => {
   try {
@@ -30,9 +31,12 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 }
 
+const localeSort = localeStringSort<Diploma>();
+
 export const columns: ColumnDef<Diploma>[] = [
   {
     accessorKey: "longDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="DESCRIPTION LONGUE" column={column} />
@@ -41,6 +45,7 @@ export const columns: ColumnDef<Diploma>[] = [
   },
   {
     accessorKey: "shortDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="DESCRIPTION COURTE" column={column} />

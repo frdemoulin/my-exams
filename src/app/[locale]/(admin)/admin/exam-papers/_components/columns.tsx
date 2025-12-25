@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { formatDateTime } from "@/lib/utils";
+import { localeStringSort } from "@/lib/table";
 import toast from "react-hot-toast";
 import { deleteExamPaper } from "@/core/exam-paper";
 import { ExamPaperWithRelations } from "@/core/exam-paper/exam-paper.queries";
@@ -30,9 +31,12 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 }
 
+const localeSort = localeStringSort<ExamPaperWithRelations>();
+
 export const columns: ColumnDef<ExamPaperWithRelations>[] = [
   {
     accessorKey: "label",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return <SortableHeader label="LABEL" column={column} />
     },

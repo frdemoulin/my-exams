@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Subject } from "@prisma/client";
 import { formatDateTime } from "@/lib/utils";
+import { localeStringSort } from "@/lib/table";
 import toast from "react-hot-toast";
 import { deleteSubject } from "@/core/subject";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
@@ -30,9 +31,12 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 }
 
+const localeSort = localeStringSort<Subject>();
+
 export const columns: ColumnDef<Subject>[] = [
   {
     accessorKey: "longDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="DESCRIPTION LONGUE" column={column} />
@@ -41,6 +45,7 @@ export const columns: ColumnDef<Subject>[] = [
   },
   {
     accessorKey: "shortDescription",
+    sortingFn: localeSort,
     header: ({ column }) => {
       return (
         <SortableHeader label="DESCRIPTION COURTE" column={column} />

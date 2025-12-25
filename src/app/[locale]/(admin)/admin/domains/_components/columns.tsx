@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { formatDateTime } from "@/lib/utils";
+import { localeStringSort } from "@/lib/table";
 import toast from "react-hot-toast";
 import { deleteDomain } from "@/core/domain";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
@@ -36,15 +37,19 @@ const handleOnClickDeleteButton = async (id: string) => {
   }
 };
 
+const localeSort = localeStringSort<DomainData>();
+
 export const columns: ColumnDef<DomainData>[] = [
   {
     accessorKey: "longDescription",
+    sortingFn: localeSort,
     header: ({ column }) => (
       <SortableHeader label="DESCRIPTION LONGUE" column={column} />
     ),
   },
   {
     accessorKey: "shortDescription",
+    sortingFn: localeSort,
     header: ({ column }) => (
       <SortableHeader label="DESCRIPTION COURTE" column={column} />
     ),
