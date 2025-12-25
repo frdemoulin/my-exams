@@ -114,7 +114,7 @@
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
-|longDescription|VARCHAR(255)|NOT NULL|La description longue du domaine|
+|longDescription|VARCHAR(255)|NOT NULL|La description longue du domaine (niveau "chapitre")|
 |shortDescription|VARCHAR(255)|NOT NULL|La description courte du domaine|
 |order|INT|NULLABLE|L'ordre dans le programme|
 |discipline|ENUM|NULLABLE|PHYSIQUE, CHIMIE, TRANSVERSAL (optionnel)|
@@ -128,13 +128,18 @@
 **Relations :**
 - subject : relation Many-to-One avec Subject
 - themes : relation One-to-Many avec Theme
+- scopes : relation One-to-Many avec DomainScope
+
+**Intention produit :**
+- Un domaine correspond a un "chapitre" du point de vue eleve (ex: Nombres complexes, Suites, Geometrie dans l'espace).
+- Les filtres de recherche peuvent se faire a la fois sur les domaines et les themes.
 
 ## Modèle Theme (`Theme`) : thèmes
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
-|longDescription|VARCHAR(255)|NOT NULL|La description longue du thème|
+|longDescription|VARCHAR(255)|NOT NULL|La description longue du thème (notion fine)|
 |shortDescription|VARCHAR(255)|NULLABLE|La description courte du thème|
 |domainId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du domaine|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
@@ -142,6 +147,25 @@
 
 **Relations :**
 - domain : relation Many-to-One avec Domain
+
+## Modèle DomainScope : domaines par niveau / diplome
+
+Objectif : activer / desactiver un domaine selon le diplome et le niveau scolaire sans dupliquer les domaines.
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
+|domainId|ObjectID|NOT NULL, FOREIGN KEY|Le domaine cible|
+|diplomaId|ObjectID|NULLABLE, FOREIGN KEY|Le diplome (ex: Brevet, Bac)|
+|gradeId|ObjectID|NULLABLE, FOREIGN KEY|Le niveau (ex: 3e, 1re, Tle)|
+|divisionId|ObjectID|NULLABLE, FOREIGN KEY|Optionnel pour la filiere (general/techno, etc.)|
+|labelOverride|VARCHAR(255)|NULLABLE|Libelle adapte au niveau (optionnel)|
+|order|INT|NULLABLE|Ordre d'affichage dans ce scope|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Actif / inactif dans ce scope|
+
+**Notes :**
+- Par defaut, les themes heritent du scope du domaine.
+- Un ThemeScope n'est a ajouter que si certains themes doivent etre restreints a un niveau precis.
 
 ## Modèle ExamPaper (`ExamPaper`) : sujets d'annales (conteneur)
 
