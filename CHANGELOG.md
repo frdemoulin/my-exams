@@ -1,3 +1,8 @@
+## <small>1.3.6 (2025-12-25)</small>
+
+* Merge pull request #48 from frdemoulin/dev ([e239459](https://github.com/frdemoulin/my-exams/commit/e239459)), closes [#48](https://github.com/frdemoulin/my-exams/issues/48)
+* fix: gestion d'un scope sur les domaines ([5e86e6f](https://github.com/frdemoulin/my-exams/commit/5e86e6f))
+
 ## <small>1.3.5 (2025-12-25)</small>
 
 * Merge pull request #47 from frdemoulin/dev ([9dd1742](https://github.com/frdemoulin/my-exams/commit/9dd1742)), closes [#47](https://github.com/frdemoulin/my-exams/issues/47)
