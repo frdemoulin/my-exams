@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
 
 import { createTheme } from "@/core/theme";
@@ -18,6 +19,7 @@ interface DomainThemeFormProps {
 }
 
 export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps) => {
+    const router = useRouter();
     const form = useForm<CreateThemeValues>({
         defaultValues: {
             longDescription: "",
@@ -41,9 +43,15 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
         formData.append("domainId", domainId);
 
         await createTheme(formData, {
-            redirectTo: `/admin/domains/${domainId}`,
+            redirectTo: null,
             revalidatePaths: [`/admin/domains/${domainId}`],
         });
+        form.reset({
+            longDescription: "",
+            shortDescription: "",
+            domainId,
+        });
+        router.refresh();
     };
 
     return (
