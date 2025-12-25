@@ -1,3 +1,8 @@
+## 1.4.0 (2025-12-25)
+
+* Merge pull request #49 from frdemoulin/dev ([e026dc8](https://github.com/frdemoulin/my-exams/commit/e026dc8)), closes [#49](https://github.com/frdemoulin/my-exams/issues/49)
+* feat: gestion des thèmes depuis le détail d'un domaine ([f83b7b0](https://github.com/frdemoulin/my-exams/commit/f83b7b0))
+
 ## <small>1.3.6 (2025-12-25)</small>
 
 * Merge pull request #48 from frdemoulin/dev ([e239459](https://github.com/frdemoulin/my-exams/commit/e239459)), closes [#48](https://github.com/frdemoulin/my-exams/issues/48)
