@@ -1,3 +1,9 @@
+## <small>1.3.3 (2025-12-25)</small>
+
+* Merge pull request #45 from frdemoulin/dev ([31ee9cf](https://github.com/frdemoulin/my-exams/commit/31ee9cf)), closes [#45](https://github.com/frdemoulin/my-exams/issues/45)
+* fix: mise à jour des tris dans les tableaux d'administration ([ee553ad](https://github.com/frdemoulin/my-exams/commit/ee553ad))
+* fix: suppression d'un warning husky ([6ac76a6](https://github.com/frdemoulin/my-exams/commit/6ac76a6))
+
 ## <small>1.3.2 (2025-12-25)</small>
 
 * Merge pull request #44 from frdemoulin/dev ([dee22e8](https://github.com/frdemoulin/my-exams/commit/dee22e8)), closes [#44](https://github.com/frdemoulin/my-exams/issues/44)
