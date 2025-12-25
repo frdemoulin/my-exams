@@ -81,6 +81,7 @@ npx prisma studio
 npm run db:seed         # Seed complet
 npm run db:seed:prod    # Seed PROD (one-shot, avec garde-fous)
 npm run db:clear        # Vider la base
+npm run db:clear-domains-themes  # Purge domaines + themes (avec garde-fous)
 npm run db:reset        # Clear + Seed
 
 # Tester la connexion Prisma
