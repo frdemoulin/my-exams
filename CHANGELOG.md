@@ -1,3 +1,8 @@
+## <small>1.4.2 (2025-12-26)</small>
+
+* Merge pull request #51 from frdemoulin/dev ([4d1649d](https://github.com/frdemoulin/my-exams/commit/4d1649d)), closes [#51](https://github.com/frdemoulin/my-exams/issues/51)
+* fix: gestion d'un tri sur les thèmes dans le détail d'un domaine ([dee94a2](https://github.com/frdemoulin/my-exams/commit/dee94a2))
+
 ## <small>1.4.1 (2025-12-25)</small>
 
 * Merge pull request #50 from frdemoulin/dev ([29fdc6f](https://github.com/frdemoulin/my-exams/commit/29fdc6f)), closes [#50](https://github.com/frdemoulin/my-exams/issues/50)
