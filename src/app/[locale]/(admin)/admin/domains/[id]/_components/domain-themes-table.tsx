@@ -25,6 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { formatDateTime } from "@/lib/utils";
+import { SortIcon } from "@/components/shared/sort-icon";
 import {
     actionMenuContent,
     actionMenuHeader,
@@ -37,6 +38,8 @@ interface DomainThemesTableProps {
     themes: Theme[];
 }
 
+type SortKey = "longDescription" | "shortDescription" | "updatedAt";
+
 export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) => {
     const [rows, setRows] = React.useState<Theme[]>(themes);
     const [editingThemeId, setEditingThemeId] = React.useState<string | null>(null);
@@ -45,10 +48,56 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
         shortDescription: "",
     });
     const [isSaving, setIsSaving] = React.useState(false);
+    const [sortState, setSortState] = React.useState<{
+        key: SortKey | null;
+        direction: "asc" | "desc";
+    }>({
+        key: "longDescription",
+        direction: "asc",
+    });
 
     React.useEffect(() => {
         setRows(themes);
     }, [themes]);
+
+    const cycleSort = (key: SortKey) => {
+        setSortState((current) => {
+            if (current.key !== key) {
+                return { key, direction: "asc" };
+            }
+            if (current.direction === "asc") {
+                return { key, direction: "desc" };
+            }
+            return { key: "longDescription", direction: "asc" };
+        });
+    };
+
+    const sortedRows = React.useMemo(() => {
+            if (!sortState.key) {
+                return rows;
+            }
+
+        const direction = sortState.direction === "asc" ? 1 : -1;
+        const compareString = (a: string, b: string) =>
+            a.localeCompare(b, "fr", { sensitivity: "base", numeric: true });
+
+        return [...rows].sort((a, b) => {
+            if (sortState.key === "updatedAt") {
+                return direction * (a.updatedAt.getTime() - b.updatedAt.getTime());
+            }
+
+            const aValue =
+                sortState.key === "longDescription"
+                    ? a.longDescription
+                    : a.shortDescription ?? "";
+            const bValue =
+                sortState.key === "longDescription"
+                    ? b.longDescription
+                    : b.shortDescription ?? "";
+
+            return direction * compareString(aValue, bValue);
+        });
+    }, [rows, sortState]);
 
     const startEdit = (theme: Theme) => {
         setEditingThemeId(theme.id);
@@ -148,14 +197,59 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
         <Table>
             <TableHeader>
                 <TableRow>
-                    <TableHead>DESCRIPTION LONGUE</TableHead>
-                    <TableHead>DESCRIPTION COURTE</TableHead>
-                    <TableHead>DATE DE DERNIÈRE MODIFICATION</TableHead>
+                    <TableHead>
+                        <Button
+                            variant="ghost"
+                            className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary justify-start"
+                            onClick={() => cycleSort("longDescription")}
+                        >
+                            DESCRIPTION LONGUE
+                            <SortIcon
+                                direction={
+                                    sortState.key === "longDescription"
+                                        ? sortState.direction
+                                        : false
+                                }
+                            />
+                        </Button>
+                    </TableHead>
+                    <TableHead>
+                        <Button
+                            variant="ghost"
+                            className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary justify-start"
+                            onClick={() => cycleSort("shortDescription")}
+                        >
+                            DESCRIPTION COURTE
+                            <SortIcon
+                                direction={
+                                    sortState.key === "shortDescription"
+                                        ? sortState.direction
+                                        : false
+                                }
+                            />
+                        </Button>
+                    </TableHead>
+                    <TableHead>
+                        <Button
+                            variant="ghost"
+                            className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary justify-start"
+                            onClick={() => cycleSort("updatedAt")}
+                        >
+                            DATE DE DERNIÈRE MODIFICATION
+                            <SortIcon
+                                direction={
+                                    sortState.key === "updatedAt"
+                                        ? sortState.direction
+                                        : false
+                                }
+                            />
+                        </Button>
+                    </TableHead>
                     <TableHead>Actions</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {rows.map((theme) => {
+                {sortedRows.map((theme) => {
                     const isEditing = editingThemeId === theme.id;
 
                     return (
