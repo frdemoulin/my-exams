@@ -1,4 +1,6 @@
 import type { PrismaClient, DomainDiscipline } from '@prisma/client';
+import * as fs from 'fs';
+import * as path from 'path';
 
 type SeedDomain = {
   longDescription: string;
@@ -8,17 +10,112 @@ type SeedDomain = {
   discipline?: DomainDiscipline;
 };
 
+type SeedDomainExport = {
+  longDescription: string;
+  shortDescription: string;
+  order: number | null;
+  discipline: DomainDiscipline | null;
+  subjectLongDescription: string;
+  subjectShortDescription: string;
+};
+
+type SeedPayload = {
+  domains: SeedDomainExport[];
+};
+
+const seedFilePath = path.join(__dirname, 'data', 'domains-themes.json');
+
+const loadSeedDomains = (): SeedDomainExport[] | null => {
+  if (!fs.existsSync(seedFilePath)) return null;
+  const raw = fs.readFileSync(seedFilePath, 'utf-8');
+  const payload = JSON.parse(raw) as SeedPayload;
+  if (!payload || !Array.isArray(payload.domains)) {
+    throw new Error('Seed file invalid: expected domains array.');
+  }
+  return payload.domains;
+};
+
 export async function seedDomains(prisma: PrismaClient) {
   console.log('📚 Seeding Domains...');
 
   // Récupérer les matières
   const subjects = await prisma.subject.findMany({
-    select: { id: true, longDescription: true },
+    select: { id: true, longDescription: true, shortDescription: true },
   });
 
   const subjectByName = Object.fromEntries(
     subjects.map((s) => [s.longDescription, s.id])
   );
+
+  const seedDomains = loadSeedDomains();
+  if (seedDomains) {
+    const subjectsByKey = new Map(
+      subjects.map((s) => [`${s.longDescription}::${s.shortDescription}`, s.id])
+    );
+    const subjectsByLong = new Map<string, string[]>();
+
+    for (const subject of subjects) {
+      const list = subjectsByLong.get(subject.longDescription);
+      if (list) {
+        list.push(subject.id);
+      } else {
+        subjectsByLong.set(subject.longDescription, [subject.id]);
+      }
+    }
+
+    const resolveSubjectId = (domain: SeedDomainExport): string | null => {
+      const key = `${domain.subjectLongDescription}::${domain.subjectShortDescription}`;
+      const direct = subjectsByKey.get(key);
+      if (direct) return direct;
+      const byLong = subjectsByLong.get(domain.subjectLongDescription);
+      if (byLong?.length === 1) return byLong[0];
+      return null;
+    };
+
+    let createdCount = 0;
+
+    for (const domain of seedDomains) {
+      const subjectId = resolveSubjectId(domain);
+      if (!subjectId) {
+        console.warn(
+          `   ⚠️  Matiere introuvable pour le domaine: ${domain.longDescription} (${domain.subjectLongDescription})`
+        );
+        continue;
+      }
+
+      const existingDomain = await prisma.domain.findFirst({
+        where: {
+          longDescription: domain.longDescription,
+          subjectId,
+        },
+      });
+
+      if (existingDomain) {
+        await prisma.domain.update({
+          where: { id: existingDomain.id },
+          data: {
+            shortDescription: domain.shortDescription,
+            order: domain.order ?? null,
+            discipline: domain.discipline ?? null,
+          },
+        });
+      } else {
+        await prisma.domain.create({
+          data: {
+            longDescription: domain.longDescription,
+            shortDescription: domain.shortDescription,
+            order: domain.order ?? null,
+            discipline: domain.discipline ?? null,
+            subjectId,
+          },
+        });
+      }
+      createdCount++;
+    }
+
+    console.log(`   ✓ ${createdCount} domaines créés`);
+    return;
+  }
 
   const domains: SeedDomain[] = [
     // Mathématiques - Collège

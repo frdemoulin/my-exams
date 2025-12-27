@@ -18,8 +18,118 @@ interface TopicsData {
   };
 }
 
+type SeedThemeExport = {
+  longDescription: string;
+  shortDescription: string | null;
+  domainLongDescription: string;
+  subjectLongDescription: string;
+  subjectShortDescription: string;
+};
+
+type SeedPayload = {
+  themes: SeedThemeExport[];
+};
+
+const seedFilePath = path.join(__dirname, 'data', 'domains-themes.json');
+
+const loadSeedThemes = (): SeedThemeExport[] | null => {
+  if (!fs.existsSync(seedFilePath)) return null;
+  const raw = fs.readFileSync(seedFilePath, 'utf-8');
+  const payload = JSON.parse(raw) as SeedPayload;
+  if (!payload || !Array.isArray(payload.themes)) {
+    throw new Error('Seed file invalid: expected themes array.');
+  }
+  return payload.themes;
+};
+
 export async function seedThemes(prisma: PrismaClient) {
   console.log('🧩 Seeding Themes...');
+
+  const seedThemes = loadSeedThemes();
+  if (seedThemes) {
+    const subjects = await prisma.subject.findMany({
+      select: { id: true, longDescription: true, shortDescription: true },
+    });
+
+    const subjectsByKey = new Map(
+      subjects.map((s) => [`${s.longDescription}::${s.shortDescription}`, s.id])
+    );
+    const subjectsByLong = new Map<string, string[]>();
+
+    for (const subject of subjects) {
+      const list = subjectsByLong.get(subject.longDescription);
+      if (list) {
+        list.push(subject.id);
+      } else {
+        subjectsByLong.set(subject.longDescription, [subject.id]);
+      }
+    }
+
+    const resolveSubjectId = (theme: SeedThemeExport): string | null => {
+      const key = `${theme.subjectLongDescription}::${theme.subjectShortDescription}`;
+      const direct = subjectsByKey.get(key);
+      if (direct) return direct;
+      const byLong = subjectsByLong.get(theme.subjectLongDescription);
+      if (byLong?.length === 1) return byLong[0];
+      return null;
+    };
+
+    const domains = await prisma.domain.findMany({
+      select: { id: true, longDescription: true, subjectId: true },
+    });
+
+    const domainByKey = new Map(
+      domains.map((d) => [`${d.subjectId}::${d.longDescription}`, d.id])
+    );
+
+    let createdCount = 0;
+
+    for (const theme of seedThemes) {
+      const subjectId = resolveSubjectId(theme);
+      if (!subjectId) {
+        console.warn(
+          `   ⚠️  Matiere introuvable pour le theme: ${theme.longDescription} (${theme.subjectLongDescription})`
+        );
+        continue;
+      }
+
+      const domainId = domainByKey.get(`${subjectId}::${theme.domainLongDescription}`);
+      if (!domainId) {
+        console.warn(
+          `   ⚠️  Domaine introuvable pour le theme: ${theme.longDescription} (${theme.domainLongDescription})`
+        );
+        continue;
+      }
+
+      const existingTheme = await prisma.theme.findFirst({
+        where: {
+          longDescription: theme.longDescription,
+          domainId,
+        },
+      });
+
+      if (existingTheme) {
+        await prisma.theme.update({
+          where: { id: existingTheme.id },
+          data: {
+            shortDescription: theme.shortDescription ?? null,
+          },
+        });
+      } else {
+        await prisma.theme.create({
+          data: {
+            longDescription: theme.longDescription,
+            shortDescription: theme.shortDescription ?? null,
+            domainId,
+          },
+        });
+      }
+      createdCount++;
+    }
+
+    console.log(`   ✓ ${createdCount} thèmes créés`);
+    return;
+  }
 
   // Charger les données depuis le fichier JSON
   const jsonPath = path.join(__dirname, 'data', 'topics.json');
