@@ -6,6 +6,8 @@ import { fetchDiplomasOptions } from "@/core/diploma";
 import { fetchDivisionsOptions } from "@/core/division";
 import { fetchGradesOptions } from "@/core/grade";
 import { fetchSubjectsOptions } from "@/core/subject";
+import { fetchTeachingsOptions } from "@/core/teaching";
+import { fetchCurriculumsOptions } from "@/core/curriculum";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("entities.domain");
@@ -17,6 +19,8 @@ const AddDomainPage = async () => {
   const diplomas = await fetchDiplomasOptions();
   const grades = await fetchGradesOptions();
   const divisions = await fetchDivisionsOptions();
+  const teachings = await fetchTeachingsOptions();
+  const curriculums = await fetchCurriculumsOptions();
   const t = await getTranslations("entities.domain");
 
   return (
@@ -41,6 +45,8 @@ const AddDomainPage = async () => {
           diplomas={diplomas}
           grades={grades}
           divisions={divisions}
+          teachings={teachings}
+          curriculums={curriculums}
         />
       </div>
     </div>

@@ -82,6 +82,12 @@ model DomainScope {
   divisionId String?   @db.ObjectId
   division   Division? @relation(fields: [divisionId], references: [id])
 
+  teachingId String?   @db.ObjectId
+  teaching   Teaching? @relation(fields: [teachingId], references: [id])
+
+  curriculumId String?     @db.ObjectId
+  curriculum   Curriculum? @relation(fields: [curriculumId], references: [id])
+
   labelOverride String?
   order         Int?
   isActive      Boolean @default(true)
@@ -93,7 +99,9 @@ model DomainScope {
   @@index([diplomaId])
   @@index([gradeId])
   @@index([divisionId])
-  @@index([domainId, diplomaId, gradeId, divisionId])
+  @@index([teachingId])
+  @@index([curriculumId])
+  @@index([domainId, diplomaId, gradeId, divisionId, teachingId, curriculumId])
 }
 
 model Teaching {
@@ -111,6 +119,7 @@ model Teaching {
   subject   Subject @relation(fields: [subjectId], references: [id])
 
   examPapers ExamPaper[]
+  domainScopes DomainScope[]
 
   @@unique([longDescription, gradeId])
 }
@@ -152,6 +161,7 @@ model Curriculum {
 
   // Relations
   examPapers ExamPaper[]
+  domainScopes DomainScope[]
 
   @@unique([longDescription, startDate])
 }

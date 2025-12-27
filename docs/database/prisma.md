@@ -4,11 +4,15 @@ Ce document explique comment Prisma fonctionne avec MongoDB dans **my-exams**, c
 
 > Voir aussi:
 > - `docs/database/dev-prod.md` (workflow DEV/PROD, Render, scripts à lancer)
-> - `docs/prisma-composite-uniques.md` (détails sur les uniques composites et la notation `longDescription_shortDescription`)
+> - `docs/database/prisma-composite-uniques.md` (détails sur les uniques composites et la notation `longDescription_shortDescription`)
 
 ---
 ## 1. Principe général avec MongoDB
-Contrairement aux bases SQL (PostgreSQL, MySQL), **MongoDB n’utilise pas le moteur de migrations SQL de Prisma**. Il n’y a pas de fichiers migrations à versionner. Prisma se charge uniquement de :
+Contrairement aux bases SQL (PostgreSQL, MySQL), **MongoDB n’utilise pas le moteur de migrations SQL de Prisma**. Prisma ne génère donc pas de migrations SQL.
+
+Dans ce projet, les **migrations de données** sont gérées via `scripts/db-migrate.ts` et `scripts/migrations/*` (migrations applicatives versionnées).
+
+Prisma se charge uniquement de :
 - Générer le client TypeScript à partir de `prisma/schema.prisma`.
 - Synchroniser le schéma (modèles / index uniques) via `prisma db push`.
 
@@ -33,7 +37,10 @@ model Diploma {
 Points importants MongoDB + Prisma :
 - Champ `id` mappé sur `_id` avec `@db.ObjectId`.
 - Composite unique possible (`@@unique([a, b])`).
-- Les relations `Topic` ↔ `Subject` sont gérées par des tableaux d’ObjectId (`topicIDs`, `subjectIDs`). Prisma **ne synchronise pas automatiquement les deux côtés** : tu dois maintenir la cohérence dans ton code (ex: mise à jour réciproque).
+- Les relations 1-N classiques (ex: `Subject` → `Domain` → `Theme`) utilisent `@relation` et sont gérées par Prisma.
+- Les many-to-many passent soit par un **modèle de jonction** (ex: `DomainScope`), soit par des **listes d’ObjectId manuelles** (ex: `ExamPaper.examinationCenterIds`, `Curriculum.teachingIds`) que l’application doit maintenir.
+
+> Note : un `prisma/prisma.config.ts` est déjà présent pour préparer Prisma 7. Avec Prisma 6, la clé `package.json#prisma.seed` est encore utilisée mais dépréciée.
 
 ---
 ## 3. Commandes essentielles
@@ -152,8 +159,10 @@ Résultats attendus :
 - Création d’un diplôme
 - Modification
 - Erreur contrainte unique (si l’index composite existe déjà)
-- Relation Subject ↔ Topic affichée
+- Relation Domain ↔ Theme affichée
 - Transaction OK
+
+> Si `scripts/test-prisma.ts` utilise encore d’anciens modèles, adapte-le aux entités actuelles (Domain/Theme).
 
 Si la contrainte unique **ne lève pas d’erreur** :
 - Vérifier les index :
@@ -188,18 +197,31 @@ mongosh my-exams --eval 'db.Diploma.find().limit(3).pretty()'
 ```
 
 ---
-## 9. Gestion des relations manuelles (Subject ↔ Topic)
-Exemple de liaison réciproque :
+## 9. Gestion des relations manuelles (listes d’ObjectId)
+Certaines relations sont stockées en **tableaux d’ObjectId** sans `@relation` Prisma :
+- `ExamPaper.examinationCenterIds` (centres d’examen)
+- `Curriculum.teachingIds` (enseignements couverts par un programme)
+
+Exemple : associer des centres d’examen à un sujet.
 ```ts
-const topic = await prisma.topic.create({ data: { longDescription: 'T', shortDescription: 'TC', subjectIDs: [] }});
-const subject = await prisma.subject.create({ data: { longDescription: 'S', shortDescription: 'SC', topicIDs: [topic.id] }});
-await prisma.topic.update({ where: { id: topic.id }, data: { subjectIDs: [subject.id] }});
+const centers = await prisma.examinationCenter.findMany({
+  where: { description: { in: ["France métropolitaine", "Asie"] } },
+  select: { id: true },
+});
+
+await prisma.examPaper.update({
+  where: { id: examPaperId },
+  data: { examinationCenterIds: centers.map((c) => c.id) },
+});
 ```
-Lecture avec include :
+Lecture associée :
 ```ts
-await prisma.subject.findUnique({ where: { id: subject.id }, include: { topics: true } });
+const paper = await prisma.examPaper.findUnique({ where: { id: examPaperId } });
+const centers = await prisma.examinationCenter.findMany({
+  where: { id: { in: paper?.examinationCenterIds ?? [] } },
+});
 ```
-> En cas de désynchronisation, tu peux ajouter un script de maintenance pour réaligner les tableaux d’IDs.
+> Même logique pour `Curriculum.teachingIds` : la cohérence est maintenue par l’application.
 
 ---
 ## 10. Bonnes pratiques

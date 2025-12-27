@@ -16,7 +16,7 @@ Elle suit les bonnes pratiques recommandées pour :
 
 ### 2.1. Dépendances de base
 ```bash
-npm install flowbite tailwindcss postcss autoprefixer
+npm install flowbite flowbite-react tailwindcss postcss @tailwindcss/postcss
 ```
 
 ### 2.2. Vérifier la structure d’un projet Next.js 16
@@ -33,24 +33,23 @@ src/
 
 ## 3. Configuration Tailwind CSS 4.1
 
-Flowbite 4 utilise la nouvelle architecture Tailwind 4 (100 % CSS-based).  
-Votre fichier `tailwind.config.ts` doit ressembler à :
+Tailwind v4 est **CSS-first** : ce repo n’embarque pas de `tailwind.config.*`.  
+La config passe par `postcss.config.mjs` et `src/app/globals.css`.
 
-```ts
-import type { Config } from "tailwindcss";
+`postcss.config.mjs` :
+```js
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
+};
 
-export default {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.{js,ts}",
-  ],
-  darkMode: "class",
-  plugins: [],
-} satisfies Config;
+export default config;
 ```
 
 ⚠️ **Note :**  
-Flowbite expose des tokens dans du CSS, mais pas un plugin magique Tailwind comme avant → il faut importer les thèmes dans `globals.css`.
+Les tokens Flowbite sont fournis via CSS → l’intégration se fait dans `globals.css`.
 
 ---
 
@@ -59,23 +58,21 @@ Flowbite expose des tokens dans du CSS, mais pas un plugin magique Tailwind comm
 Voici la version recommandée :
 
 ```css
-@import "tailwindcss";
-@source not "../../public";
-
 /* Polices */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+@source not "../../public";
 
 /* Thème Flowbite (tokens OKLCH + radius + shadow + typography) */
 @import "flowbite/src/themes/default";
 
-/* Plugins CSS externes */
-@import "leaflet/dist/leaflet.css";
+/* CSS Flowbite */
+@import "flowbite/dist/flowbite.min.css";
 
-/* Flowbite plugin */
+/* Flowbite plugin + scan */
 @plugin "flowbite/plugin";
-
-/* Permet à Tailwind de scanner Flowbite */
-@source "../node_modules/flowbite";
+@source "../../node_modules/flowbite";
 
 /* Déclare dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -195,7 +192,7 @@ Uniquement pour override un composant externe (ex.: Tom Select, Leaflet).
 - [x] `@import "tailwindcss"` présent en début de fichier  
 - [x] `@import "flowbite/src/themes/default"` chargé  
 - [x] `@plugin "flowbite/plugin"` ajouté  
-- [x] `@source "../node_modules/flowbite"` configuré  
+- [x] `@source "../../node_modules/flowbite"` configuré  
 - [x] dark mode déclaré via `@custom-variant`  
 - [x] composants maison compatibles tokens  
 - [x] aucun conflit de thèmes (pas de `bg-white` forcé)  

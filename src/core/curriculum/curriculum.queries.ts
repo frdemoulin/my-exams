@@ -1,5 +1,6 @@
 import prisma from "@/lib/db/prisma";
 import type { Curriculum } from "@prisma/client";
+import type { Option } from "@/types/option";
 import type { CurriculumWithTeachingCount, CurriculumWithTeachings } from "./curriculum.types";
 
 export async function fetchCurriculums(): Promise<Curriculum[]> {
@@ -75,4 +76,18 @@ export async function fetchActiveCurriculums(): Promise<Curriculum[]> {
         where: { isActive: true },
         orderBy: { startDate: "desc" },
     });
+}
+
+export async function fetchCurriculumsOptions(): Promise<Option[]> {
+    const curriculums = await prisma.curriculum.findMany({
+        orderBy: [
+            { isActive: "desc" },
+            { startDate: "desc" },
+        ],
+    });
+
+    return curriculums.map((curriculum) => ({
+        value: curriculum.id,
+        label: curriculum.longDescription,
+    }));
 }

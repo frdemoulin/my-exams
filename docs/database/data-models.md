@@ -58,6 +58,7 @@
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue de la matière|
 |shortDescription|VARCHAR(255)|NOT NULL|La description courte de la matière|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Matière active (affichée côté élève)|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
@@ -87,6 +88,7 @@
 - grade : relation Many-to-One avec Grade
 - subject : relation Many-to-One avec Subject
 - examPapers : relation One-to-Many avec ExamPaper
+- domainScopes : relation One-to-Many avec DomainScope
 
 ## Modèle Curriculum (`Curriculum`) : programmes scolaires
 
@@ -108,6 +110,7 @@
 
 **Relations :**
 - examPapers : relation One-to-Many avec ExamPaper
+- domainScopes : relation One-to-Many avec DomainScope
 
 ## Modèle Domaine (`Domain`) : domaines
 
@@ -159,6 +162,8 @@ Objectif : activer / desactiver un domaine selon le diplome et le niveau scolair
 |diplomaId|ObjectID|NULLABLE, FOREIGN KEY|Le diplome (ex: Brevet, Bac)|
 |gradeId|ObjectID|NULLABLE, FOREIGN KEY|Le niveau (ex: 3e, 1re, Tle)|
 |divisionId|ObjectID|NULLABLE, FOREIGN KEY|Optionnel pour la filiere (general/techno, etc.)|
+|teachingId|ObjectID|NULLABLE, FOREIGN KEY|Enseignement cible (ex: Maths expertes)|
+|curriculumId|ObjectID|NULLABLE, FOREIGN KEY|Programme cible (ex: Réforme 2020)|
 |labelOverride|VARCHAR(255)|NULLABLE|Libelle adapte au niveau (optionnel)|
 |order|INT|NULLABLE|Ordre d'affichage dans ce scope|
 |isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Actif / inactif dans ce scope|
@@ -166,6 +171,7 @@ Objectif : activer / desactiver un domaine selon le diplome et le niveau scolair
 **Notes :**
 - Par defaut, les themes heritent du scope du domaine.
 - Un ThemeScope n'est a ajouter que si certains themes doivent etre restreints a un niveau precis.
+- Les champs `teachingId` et `curriculumId` permettent de scoper finement (ex: Terminale + Maths expertes + programme précis).
 
 ## Modèle ExamPaper (`ExamPaper`) : sujets d'annales (conteneur)
 

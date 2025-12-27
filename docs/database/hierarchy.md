@@ -47,17 +47,18 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
   - Tronc Commun Sciences (Première)
   - Histoire-Géographie, Géopolitique et Sciences Politiques (HGGSP)
 - **Propriétés** :
-  - `name` : Nom complet (ex: "Spécialité Mathématiques")
-  - `shortName` : Nom court (ex: "Spé Maths")
+  - `longDescription` : Nom complet (ex: "Spécialité Mathématiques")
+  - `shortDescription` : Nom court (ex: "Spé Maths")
   - `gradeId` : Niveau scolaire
   - `subjectId` : Matière de référence
 - **Relations** : Grade, Subject, ExamPaper
-- **Contrainte unique** : `[name, gradeId]`
+- **Contrainte unique** : `[longDescription, gradeId]`
 
 ### 5. Subject
 - **Description** : Matière disciplinaire
 - **Exemples** : Mathématiques, Physique-Chimie, Histoire-Géographie, SVT
 - **Relations** : Teaching, Domaine (Domain)
+- **Note** : `isActive` permet de masquer une matière côté élève sans la supprimer.
 
 ### 6. Domaine (Domain)
 - **Description** : Domaine au sens "chapitre" (niveau élève, plus fin que des macro-parties)
@@ -71,7 +72,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
   - `order` : Ordre dans le programme
   - `subjectId` : Matière de référence
   - `discipline` : PHYSIQUE | CHIMIE | TRANSVERSAL (optionnel)
-- **Relations** : Subject, Theme
+- **Relations** : Subject, Theme, DomainScope
 - **Contrainte unique** : `[longDescription, subjectId]`
 
 ### 6bis. DomainScope (DomainScope)
@@ -82,8 +83,10 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Propriétés** :
   - `domainId`, `diplomaId`, `gradeId`
   - `divisionId` (optionnel)
+  - `teachingId` (optionnel) pour cibler un enseignement précis (ex: Maths expertes)
+  - `curriculumId` (optionnel) pour cibler un programme précis
   - `labelOverride`, `order`, `isActive`
-- **Relations** : Domain, Diploma, Grade, Division (optionnel)
+- **Relations** : Domain, Diploma, Grade, Division, Teaching, Curriculum (optionnels)
 
 ### 7. Theme
 - **Description** : Thème fin au sein d'un domaine (notion précise)
@@ -95,7 +98,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
   - Equation du second degre
 - **Relations** : Domain
 
-> Usage recherche : les eleves peuvent filtrer les annales par domaines et themes.
+> Usage recherche : les eleves filtrent via Domain/Theme, mais le tagging effectif est porte par `Exercise.themeIds`.
 > La recherche globale doit tenir compte de ces deux niveaux.
 
 ## ExamPaper (Sujet d'annales)
@@ -118,12 +121,13 @@ ExamPaper {
   teachingId: ObjectId        // ex: Spé Maths Terminale
   
   // Tagging pédagogique
-  domainIds: ObjectId[]    // Domaines traités (champ historique)
-  themeIds: ObjectId[]      // Thèmes spécifiques
+  domainIds: ObjectId[]    // Domaines traités (champ historique, déprécié)
+  themeIds: ObjectId[]      // Thèmes spécifiques (déprécié)
+  // Tagging actuel : Exercise.themeIds (au niveau exercice)
   
   // Autres
-  examinationCenterId: ObjectId?
-  pdfUrl: string?
+  examinationCenterIds: ObjectId[] // Liste de centres d'examen
+  subjectUrl: string?
 }
 ```
 

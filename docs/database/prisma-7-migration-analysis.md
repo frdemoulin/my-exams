@@ -1,7 +1,7 @@
 # Analyse : Migration Prisma 7.0.0
 
 **Date d'analyse :** 22 novembre 2025  
-**Version actuelle :** Prisma 6.19.0  
+**Version actuelle :** Prisma 6.19.1  
 **Version cible :** Prisma 7.0.0 (sortie il y a 3 jours)
 
 ---
@@ -138,17 +138,23 @@ export default defineConfig({
 + import { Subject, User } from './generated/prisma/client'
 ```
 
-**Fichiers à modifier :**
+**Fichiers à modifier (exemples) :**
 - `src/lib/db/prisma.ts`
 - `src/core/diploma/diploma.queries.ts`
 - `src/core/division/division.queries.ts`
 - `src/core/examination-center/examination-center.queries.ts`
 - `src/core/grade/grade.queries.ts`
 - `src/core/subject/subject.queries.ts`
-- `src/core/topic/topic.queries.ts`
+- `src/core/teaching/teaching.queries.ts`
+- `src/core/curriculum/curriculum.queries.ts`
+- `src/core/domain/domain.queries.ts`
+- `src/core/theme/theme.queries.ts`
+- `src/core/exam-paper/exam-paper.queries.ts`
+- `src/core/exercise/exercise.queries.ts`
+- `src/core/correction/correction.queries.ts`
 - `src/core/user/user.queries.ts`
 - `prisma/seed.ts`
-- `prisma/seeds/*.ts` (7 fichiers)
+- `prisma/seeds/*.ts`
 - Tous les fichiers `.actions.ts`
 
 **Total estimé : ~30-40 fichiers à modifier**
@@ -166,7 +172,7 @@ Tu devras :
 
 ## 📊 Comparaison : Rester vs Migrer
 
-| Aspect | Prisma 6.19.0 (actuel) | Prisma 7.0.0 |
+| Aspect | Prisma 6.19.1 (actuel) | Prisma 7.0.0 |
 |--------|------------------------|--------------|
 | **MongoDB support** | ✅ Excellent | ⚠️ Limité (pas de nouveau client) |
 | **Stabilité** | ✅ Stable (2 semaines) | ⚠️ Très récent (3 jours) |
@@ -182,7 +188,7 @@ Tu devras :
 
 ### À court terme (maintenant)
 
-1. **Rester sur Prisma 6.19.0**
+1. **Rester sur Prisma 6.19.1**
    - Version stable et mature
    - Support MongoDB complet
    - Pas de breaking changes
@@ -224,7 +230,7 @@ Tu devras :
 
 ## 📝 Actions immédiates
 
-### 1. Garder Prisma 6.19.0
+### 1. Garder Prisma 6.19.1
 ```bash
 # Pas de mise à jour nécessaire
 # Version actuelle OK

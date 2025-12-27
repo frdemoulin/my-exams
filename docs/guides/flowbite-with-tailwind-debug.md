@@ -24,7 +24,7 @@ flowbite.com
 
 @plugin "flowbite/plugin"; : plugin Flowbite bien enregistré.
 
-@source "../node_modules/flowbite"; : tu dis à Tailwind de scanner les fichiers de Flowbite → indispensable pour générer les classes utilisées dans leurs composants.
+@source "../../node_modules/flowbite"; : tu dis à Tailwind de scanner les fichiers de Flowbite → indispensable pour générer les classes utilisées dans leurs composants (chemin relatif à `src/app/globals.css`).
 
 @custom-variant dark (&:where(.dark, .dark *)); : dark mode piloté par .dark sur le HTML, conforme à la doc Tailwind v4.
 tailwindcss.com
@@ -159,7 +159,7 @@ Actuellement :
 @import "flowbite/src/themes/default";
 ...
 @plugin "flowbite/plugin";
-@source "../node_modules/flowbite";
+@source "../../node_modules/flowbite";
 @custom-variant dark (...);
 
 /* ensuite */

@@ -11,6 +11,8 @@ type DomainScopeInput = {
     diplomaId?: string | null;
     gradeId?: string | null;
     divisionId?: string | null;
+    teachingId?: string | null;
+    curriculumId?: string | null;
     labelOverride?: string | null;
     order?: number | null;
     isActive?: boolean;
@@ -40,6 +42,8 @@ const parseScopes = (raw: FormDataEntryValue | null): DomainScopeInput[] => {
             const diplomaId = emptyToNull((scope as { diplomaId?: string }).diplomaId) as string | null;
             const gradeId = emptyToNull((scope as { gradeId?: string }).gradeId) as string | null;
             const divisionId = emptyToNull((scope as { divisionId?: string }).divisionId) as string | null;
+            const teachingId = emptyToNull((scope as { teachingId?: string }).teachingId) as string | null;
+            const curriculumId = emptyToNull((scope as { curriculumId?: string }).curriculumId) as string | null;
             const labelOverride = emptyToNull((scope as { labelOverride?: string }).labelOverride) as string | null;
             const orderRaw = (scope as { order?: number | string | null }).order;
             const order = typeof orderRaw === "number"
@@ -49,7 +53,7 @@ const parseScopes = (raw: FormDataEntryValue | null): DomainScopeInput[] => {
                     : null;
             const isActive = (scope as { isActive?: boolean }).isActive !== false;
 
-            const hasTarget = Boolean(diplomaId || gradeId || divisionId);
+            const hasTarget = Boolean(diplomaId || gradeId || divisionId || teachingId || curriculumId);
             if (!hasTarget) {
                 continue;
             }
@@ -58,6 +62,8 @@ const parseScopes = (raw: FormDataEntryValue | null): DomainScopeInput[] => {
                 diplomaId,
                 gradeId,
                 divisionId,
+                teachingId,
+                curriculumId,
                 labelOverride: labelOverride ? String(labelOverride) : null,
                 order: Number.isFinite(order as number) ? (order as number) : null,
                 isActive,
@@ -103,6 +109,8 @@ export const createDomain = async (formData: FormData) => {
                         diplomaId: scope.diplomaId ?? null,
                         gradeId: scope.gradeId ?? null,
                         divisionId: scope.divisionId ?? null,
+                        teachingId: scope.teachingId ?? null,
+                        curriculumId: scope.curriculumId ?? null,
                         labelOverride: scope.labelOverride ?? null,
                         order: scope.order ?? null,
                         isActive: scope.isActive ?? true,
@@ -163,6 +171,8 @@ export const updateDomain = async (id: string | undefined, formData: FormData) =
                         diplomaId: scope.diplomaId ?? null,
                         gradeId: scope.gradeId ?? null,
                         divisionId: scope.divisionId ?? null,
+                        teachingId: scope.teachingId ?? null,
+                        curriculumId: scope.curriculumId ?? null,
                         labelOverride: scope.labelOverride ?? null,
                         order: scope.order ?? null,
                         isActive: scope.isActive ?? true,
@@ -183,6 +193,33 @@ export const updateDomain = async (id: string | undefined, formData: FormData) =
         console.error('Invalid domain data: ', errors);
         throw errors;
     }
+}
+
+export const updateDomainScopes = async (domainId: string, formData: FormData) => {
+    const scopes = parseScopes(formData.get("scopes"));
+
+    await prisma.domainScope.deleteMany({
+        where: { domainId },
+    });
+
+    if (scopes.length > 0) {
+        await prisma.domainScope.createMany({
+            data: scopes.map((scope) => ({
+                domainId,
+                diplomaId: scope.diplomaId ?? null,
+                gradeId: scope.gradeId ?? null,
+                divisionId: scope.divisionId ?? null,
+                teachingId: scope.teachingId ?? null,
+                curriculumId: scope.curriculumId ?? null,
+                labelOverride: scope.labelOverride ?? null,
+                order: scope.order ?? null,
+                isActive: scope.isActive ?? true,
+            })),
+        });
+    }
+
+    revalidatePath(`/admin/domains/${domainId}`);
+    revalidatePath(`/admin/domains/${domainId}/edit`);
 }
 
 export const deleteDomain = async (id: string) => {

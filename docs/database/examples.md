@@ -74,6 +74,9 @@ Bac Général
 
 ### Données dans la base
 
+> Note : `domainIds` / `themeIds` sur `ExamPaper` sont historiques (dépréciés).  
+> Le tagging effectif se fait au niveau `Exercise.themeIds`.
+
 ```json
 {
   "examPaper": {
@@ -83,7 +86,7 @@ Bac Général
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Terminale)",
     "teachingId": "ObjectId(Spécialité Mathématiques Terminale)",
-    "examinationCenterId": "ObjectId(Métropole)",
+    "examinationCenterIds": ["ObjectId(Métropole)"],
     "domainIds": [
       "ObjectId(Algèbre et analyse)",
       "ObjectId(Probabilités et statistiques)"
@@ -93,7 +96,7 @@ Bac Général
       "ObjectId(Primitives et équations différentielles)",
       "ObjectId(Variables aléatoires)"
     ],
-    "pdfUrl": "https://storage.example.com/bac-2024-maths-metropole-1.pdf"
+    "subjectUrl": "https://storage.example.com/bac-2024-maths-metropole-1.pdf"
   }
 }
 ```
@@ -112,20 +115,23 @@ const examPaper = await prisma.examPaper.findUnique({
         subject: true
       }
     },
-    examinationCenter: true,
-    // Les domaines (domains) et thèmes sont récupérés par leurs IDs
+    // Les centres d'examen sont récupérés via examinationCenterIds
   }
 });
 
-// Récupérer les domaines (domains) et thèmes
-const domains = await prisma.domain.findMany({
-  where: { id: { in: examPaper.domainIds } },
-  include: { subject: true }
+const examinationCenters = await prisma.examinationCenter.findMany({
+  where: { id: { in: examPaper?.examinationCenterIds ?? [] } },
 });
 
+// Récupérer les thèmes via les exercices (tagging actuel)
+const exercises = await prisma.exercise.findMany({
+  where: { examPaperId },
+  select: { themeIds: true },
+});
+const themeIds = [...new Set(exercises.flatMap((e) => e.themeIds))];
 const themes = await prisma.theme.findMany({
-  where: { id: { in: examPaper.themeIds } },
-  include: { domain: true }
+  where: { id: { in: themeIds } },
+  include: { domain: true },
 });
 ```
 
@@ -166,7 +172,7 @@ Bac Général
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Première)",
     "teachingId": "ObjectId(Spécialité Physique-Chimie Première)",
-    "examinationCenterId": "ObjectId(Polynésie)",
+    "examinationCenterIds": ["ObjectId(Polynésie)"],
     "domainIds": [
       "ObjectId(Constitution et transformations de la matière)",
       "ObjectId(L'énergie : conversions et transferts)"
@@ -175,7 +181,7 @@ Bac Général
       "ObjectId(Suivi d'un titrage)",
       "ObjectId(Aspects énergétiques des phénomènes électriques)"
     ],
-    "pdfUrl": "https://storage.example.com/bac-2023-pc-polynesie-2.pdf"
+    "subjectUrl": "https://storage.example.com/bac-2023-pc-polynesie-2.pdf"
   }
 }
 ```
@@ -323,7 +329,7 @@ Un sujet d'annales couvre souvent **plusieurs domaines et thèmes**.
     "divisionId": "ObjectId(Générale)",
     "gradeId": "ObjectId(Terminale)",
     "teachingId": "ObjectId(Spécialité Mathématiques Terminale)",
-    "examinationCenterId": "ObjectId(Métropole)",
+    "examinationCenterIds": ["ObjectId(Métropole)"],
     "domainIds": [
       "ObjectId(Algèbre et analyse)",
       "ObjectId(Probabilités et statistiques)",
@@ -339,7 +345,7 @@ Un sujet d'annales couvre souvent **plusieurs domaines et thèmes**.
       "ObjectId(Équations de plans)",
       "ObjectId(Primitives et équations différentielles)"
     ],
-    "pdfUrl": "https://storage.example.com/bac-2024-maths-metropole-1.pdf"
+    "subjectUrl": "https://storage.example.com/bac-2024-maths-metropole-1.pdf"
   }
 }
 ```
@@ -352,7 +358,7 @@ Un sujet d'annales couvre souvent **plusieurs domaines et thèmes**.
 const examPapers = await prisma.examPaper.findMany({
   where: {
     teaching: {
-      name: "Spécialité Mathématiques",
+      longDescription: "Spécialité Mathématiques",
       grade: {
         shortDescription: "Tle"
       }
@@ -365,7 +371,7 @@ const examPapers = await prisma.examPaper.findMany({
         subject: true
       }
     },
-    examinationCenter: true
+    // Centres d'examen via examinationCenterIds
   },
   orderBy: {
     sessionYear: 'desc'
@@ -383,13 +389,17 @@ const suitesTheme = await prisma.theme.findFirst({
   }
 });
 
-// Trouver les sujets contenant ce thème
-const examPapers = await prisma.examPaper.findMany({
+// Trouver les sujets contenant ce thème (via exercises)
+const exercises = await prisma.exercise.findMany({
   where: {
-    themeIds: {
-      has: suitesTheme.id
-    }
+    themeIds: { has: suitesTheme.id }
   },
+  select: { examPaperId: true }
+});
+
+const examPaperIds = [...new Set(exercises.map((e) => e.examPaperId))];
+const examPapers = await prisma.examPaper.findMany({
+  where: { id: { in: examPaperIds } },
   include: {
     teaching: {
       include: {
@@ -418,7 +428,7 @@ const terminaleTeachings = await prisma.teaching.findMany({
     }
   },
   orderBy: {
-    name: 'asc'
+    longDescription: 'asc'
   }
 });
 ```
@@ -463,8 +473,8 @@ const terminaleTeachings = await prisma.teaching.findMany({
 │  7. Ajouter les métadonnées                 │
 │     - Label (ex: Métropole Sujet 1)         │
 │     - Année (ex: 2024)                      │
-│     - Centre d'examen                       │
-│     - PDF                                   │
+│     - Centres d'examen (liste)              │
+│     - URL du sujet (subjectUrl)             │
 └──────────────────┬──────────────────────────┘
                    ▼
 ┌─────────────────────────────────────────────┐

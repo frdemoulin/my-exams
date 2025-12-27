@@ -38,6 +38,26 @@ export const domainDataInclude = {
                     longDescription: true,
                 },
             },
+            teaching: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                    grade: {
+                        select: {
+                            id: true,
+                            shortDescription: true,
+                        },
+                    },
+                },
+            },
+            curriculum: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    isActive: true,
+                },
+            },
         },
     },
 } satisfies Prisma.DomainInclude;

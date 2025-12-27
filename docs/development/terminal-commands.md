@@ -83,6 +83,9 @@ npm run db:seed:prod    # Seed PROD (one-shot, avec garde-fous)
 npm run db:clear        # Vider la base
 npm run db:clear-domains-themes  # Purge domaines + themes (avec garde-fous)
 npm run db:reset        # Clear + Seed
+npm run db:export-domains-themes  # Export domaines/themes (JSON)
+npm run db:import-domains-themes  # Import domaines/themes (JSON)
+npm run db:sync-domains-themes    # Reset dev + import depuis prod
 
 # Tester la connexion Prisma
 npm run prisma:test
