@@ -1,3 +1,8 @@
+## <small>1.4.7 (2025-12-27)</small>
+
+* Merge pull request #56 from frdemoulin/dev ([8427657](https://github.com/frdemoulin/my-exams/commit/8427657)), closes [#56](https://github.com/frdemoulin/my-exams/issues/56)
+* fix: refonte des filtres rapides (wip) ([bcfb027](https://github.com/frdemoulin/my-exams/commit/bcfb027))
+
 ## <small>1.4.6 (2025-12-27)</small>
 
 * Merge pull request #55 from frdemoulin/dev ([931180a](https://github.com/frdemoulin/my-exams/commit/931180a)), closes [#55](https://github.com/frdemoulin/my-exams/issues/55)
