@@ -28,6 +28,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Description** : Type de diplôme
 - **Exemples** : Bac Général, Bac Technologique STMG, Brevet des Collèges
 - **Relations** : ExamPaper
+- **Note** : `isActive` permet de masquer un diplôme côté élève sans le supprimer.
 
 ### 2. Division
 - **Description** : Filière au sein d'un diplôme

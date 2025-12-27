@@ -36,6 +36,7 @@ export const createDiplomaSchema = z.object({
         .trim()
         .min(1, { message: "Champ requis" })
         .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
+    isActive: z.boolean().default(true),
 });
 
 export const createDivisionSchema = z.object({

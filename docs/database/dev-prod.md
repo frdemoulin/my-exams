@@ -132,7 +132,9 @@ En PROD (Render) : la migration se jouera automatiquement via “Pre-deploy”.
 Quand des imports produisent des apostrophes typographiques ou des variantes d’écriture :
 - migrations réutilisables :
   - `scripts/migrations/2025-12-16-0002-normalize-domain-theme-apostrophes.ts`
+  - `scripts/migrations/2025-12-16-0003-backfill-subject-is-active.ts`
   - `scripts/migrations/2025-12-16-0004-abbreviate-inequation-system-theme-short.ts`
+  - `scripts/migrations/2025-12-16-0005-backfill-diploma-is-active.ts`
 - effet :
   - normalise les apostrophes vers `'` (ASCII) dans `Domain` et `Theme`
   - fusionne les doublons de domaines (même `subjectId` + `longDescription` normalisée)

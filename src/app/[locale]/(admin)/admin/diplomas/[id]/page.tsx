@@ -22,6 +22,7 @@ const DiplomaDetailPage = async ({ params }: DiplomaDetailPageProps) => {
             <h1 className="text-lg font-semibold md:text-2xl">Détails du diplôme</h1>
             <p>Description courte : {diploma?.shortDescription}</p>
             <p>Description longue : {diploma?.longDescription}</p>
+            <p>Statut : {diploma?.isActive ? "Actif" : "Inactif"}</p>
         </div>
     )
 }

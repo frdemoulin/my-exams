@@ -2,7 +2,7 @@
 
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
 import { ArrowRight, LogIn, Search, X } from 'lucide-react';
-import type { Subject } from '@prisma/client';
+import type { Diploma, Subject } from '@prisma/client';
 import type { TeachingWithRelations } from '@/core/teaching';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
@@ -36,16 +36,21 @@ import { APP_NAME } from '@/config/app';
 interface HomePageProps {
   initialSubjects: Subject[];
   specialties: TeachingWithRelations[];
+  initialDiplomas: Diploma[];
 }
 
-export default function HomePage({ initialSubjects, specialties }: HomePageProps) {
+export default function HomePage({
+  initialSubjects,
+  specialties,
+  initialDiplomas,
+}: HomePageProps) {
   const { data: session } = useSession();
   const isAdmin = session?.user?.role === "ADMIN";
 
   const [search, setSearch] = useState('');
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
-  const [selectedDifficulty, setSelectedDifficulty] = useState<number | undefined>();
+  const [selectedTeaching, setSelectedTeaching] = useState<string | undefined>();
   const [selectedSessionYear, setSelectedSessionYear] = useState<number | undefined>();
   const [selectedThemes, setSelectedThemes] = useState<Array<{ id: string; label: string }>>([]);
   const [exercises, setExercises] = useState<ExerciseWithRelations[]>([]);
@@ -102,7 +107,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     if (search.trim()) params.append('search', search.trim());
     if (selectedDiploma) params.append('diploma', selectedDiploma);
     if (selectedSubject) params.append('subject', selectedSubject);
-    if (selectedDifficulty) params.append('difficulty', selectedDifficulty.toString());
+    if (selectedTeaching) params.append('teachingId', selectedTeaching);
     if (selectedSessionYear) params.append('year', selectedSessionYear.toString());
     if (selectedThemes.length > 0) {
       params.append(
@@ -133,7 +138,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
     search,
     selectedDiploma,
     selectedSubject,
-    selectedDifficulty,
+    selectedTeaching,
     selectedSessionYear,
     selectedThemes,
     sortBy,
@@ -165,14 +170,6 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
       performSearch();
     }
   }, [performSearch, loading]);
-
-  const difficulties = [
-    { value: 1, label: 'Très facile', emoji: '😊' },
-    { value: 2, label: 'Facile', emoji: '🙂' },
-    { value: 3, label: 'Moyen', emoji: '😐' },
-    { value: 4, label: 'Difficile', emoji: '😰' },
-    { value: 5, label: 'Très difficile', emoji: '😵' },
-  ];
 
   const trendingPapers = [
     {
@@ -226,7 +223,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
   const handleResetFilters = () => {
     setSelectedDiploma(undefined);
     setSelectedSubject(undefined);
-    setSelectedDifficulty(undefined);
+    setSelectedTeaching(undefined);
     setSelectedSessionYear(undefined);
     setSelectedThemes([]);
     setSearch('');
@@ -290,17 +287,24 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
 
   // Compter les filtres actifs
   const activeFiltersCount =
-    [selectedDiploma, selectedSubject, selectedDifficulty, selectedSessionYear].filter(Boolean)
+    [selectedDiploma, selectedSubject, selectedTeaching, selectedSessionYear].filter(Boolean)
       .length + selectedThemes.length;
 
   const diplomaOptions = useMemo(() => {
+    if (initialDiplomas.length > 0) {
+      return initialDiplomas
+        .map((d) => d.shortDescription || d.longDescription)
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b));
+    }
+
     const set = new Set<string>();
     exercises.forEach((ex) => {
       const label = ex.examPaper.diploma.shortDescription;
       if (label) set.add(label);
     });
     return Array.from(set).sort();
-  }, [exercises]);
+  }, [exercises, initialDiplomas]);
 
   const subjectOptions = useMemo(() => {
     return initialSubjects
@@ -311,6 +315,46 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
       .filter((s) => Boolean(s.value))
       .sort((a, b) => a.label.localeCompare(b.label));
   }, [initialSubjects]);
+
+  const teachingOptions = useMemo(() => {
+    const options = new Map<string, { value: string; label: string }>();
+
+    exercises.forEach((ex) => {
+      if (!ex.examPaper?.teaching) return;
+      const diplomaLabel = ex.examPaper.diploma.shortDescription;
+      const subjectShort = ex.examPaper.teaching.subject.shortDescription;
+      const subjectLong = ex.examPaper.teaching.subject.longDescription;
+
+      if (selectedDiploma && diplomaLabel !== selectedDiploma) return;
+      if (
+        selectedSubject &&
+        selectedSubject !== subjectShort &&
+        selectedSubject !== subjectLong
+      ) {
+        return;
+      }
+
+      const teachingId = ex.examPaper.teaching.id;
+      const gradeLabel = ex.examPaper.grade?.shortDescription ?? '';
+      const label = gradeLabel
+        ? `${ex.examPaper.teaching.longDescription} (${gradeLabel})`
+        : ex.examPaper.teaching.longDescription;
+
+      if (!options.has(teachingId)) {
+        options.set(teachingId, { value: teachingId, label });
+      }
+    });
+
+    return Array.from(options.values()).sort((a, b) =>
+      a.label.localeCompare(b.label)
+    );
+  }, [exercises, selectedDiploma, selectedSubject]);
+
+  useEffect(() => {
+    if (!selectedTeaching) return;
+    if (teachingOptions.some((opt) => opt.value === selectedTeaching)) return;
+    setSelectedTeaching(undefined);
+  }, [selectedTeaching, teachingOptions]);
 
   const sessionOptions = useMemo(() => {
     const set = new Set<number>();
@@ -418,7 +462,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
             </h1>
 
             <p className="mb-4 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground md:text-base">
-              Cherche un sujet par diplôme, matière, thème, difficulté ou durée.
+              Cherche un sujet par diplôme, session, matière, option/spécialité, thème ou durée.
               <br/>En un coup d’œil, vois ceux qui collent à ton niveau et à ton planning, et ouvre en 1 clic les sujets et corrections complètes sur les meilleurs sites d’annales.
             </p>
 
@@ -441,7 +485,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
               </div>
               <div className="space-y-1">
                 <div className="font-semibold text-heading">Filtres avancés</div>
-                <div className="text-[11px] sm:text-xs">Diplôme, matière, année, difficulté</div>
+                <div className="text-[11px] sm:text-xs">Diplôme, session, matière, option</div>
               </div>
               <div className="space-y-1">
                 <div className="font-semibold text-heading">Pensé pour le bac</div>
@@ -579,6 +623,7 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                         value={selectedDiploma || 'all'}
                         onValueChange={(value) => {
                           setSelectedDiploma(value === 'all' ? undefined : value);
+                          setSelectedTeaching(undefined);
                           setPage(1);
                         }}
                       >
@@ -590,32 +635,6 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                           {diplomaOptions.map((label) => (
                             <SelectItem key={label} value={label}>
                               {label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    {/* MATIÈRE */}
-                    <div className="space-y-1.5 md:flex-1">
-                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        📖 Matière
-                      </label>
-                      <Select
-                        value={selectedSubject || 'all'}
-                        onValueChange={(value) => {
-                          setSelectedSubject(value === 'all' ? undefined : value);
-                          setPage(1);
-                        }}
-                      >
-                        <SelectTrigger aria-label="Filtrer par matière" className="h-9 text-sm">
-                          <SelectValue placeholder="Toutes les matières" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">Toutes les matières</SelectItem>
-                          {subjectOptions.map((opt) => (
-                            <SelectItem key={opt.value} value={opt.value}>
-                              {opt.label}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -648,26 +667,53 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                       </Select>
                     </div>
 
-                    {/* DIFFICULTÉ */}
+                    {/* MATIÈRE */}
                     <div className="space-y-1.5 md:flex-1">
                       <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        ⚡ Difficulté
+                        📖 Matière
                       </label>
                       <Select
-                        value={selectedDifficulty?.toString() || 'all'}
+                        value={selectedSubject || 'all'}
                         onValueChange={(value) => {
-                          setSelectedDifficulty(value === 'all' ? undefined : Number(value));
+                          setSelectedSubject(value === 'all' ? undefined : value);
+                          setSelectedTeaching(undefined);
                           setPage(1);
                         }}
                       >
-                        <SelectTrigger aria-label="Filtrer par difficulté" className="h-9 text-sm">
-                          <SelectValue placeholder="Toutes les difficultés" />
+                        <SelectTrigger aria-label="Filtrer par matière" className="h-9 text-sm">
+                          <SelectValue placeholder="Toutes les matières" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="all">Toutes</SelectItem>
-                          {difficulties.map((difficulty) => (
-                            <SelectItem key={difficulty.value} value={difficulty.value.toString()}>
-                              {difficulty.emoji} {difficulty.label}
+                          <SelectItem value="all">Toutes les matières</SelectItem>
+                          {subjectOptions.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* OPTION / SPÉCIALITÉ */}
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        🧭 Option / Spécialité
+                      </label>
+                      <Select
+                        value={selectedTeaching || 'all'}
+                        onValueChange={(value) => {
+                          setSelectedTeaching(value === 'all' ? undefined : value);
+                          setPage(1);
+                        }}
+                      >
+                        <SelectTrigger aria-label="Filtrer par option ou spécialité" className="h-9 text-sm">
+                          <SelectValue placeholder="Toutes les options" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">Toutes les options</SelectItem>
+                          {teachingOptions.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>
+                              {opt.label}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -684,19 +730,19 @@ export default function HomePage({ initialSubjects, specialties }: HomePageProps
                     </div>
                     <div className="space-y-1.5 md:flex-1">
                       <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        📖 Matière
-                      </label>
-                      <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
-                    </div>
-                    <div className="space-y-1.5 md:flex-1">
-                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         📅 Session
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                     </div>
                     <div className="space-y-1.5 md:flex-1">
                       <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        ⚡ Difficulté
+                        📖 Matière
+                      </label>
+                      <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
+                    </div>
+                    <div className="space-y-1.5 md:flex-1">
+                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        🧭 Option / Spécialité
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                     </div>

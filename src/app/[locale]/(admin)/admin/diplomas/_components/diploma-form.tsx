@@ -21,6 +21,7 @@ interface DiplomaFormProps {
         id?: string,
         longDescription: string,
         shortDescription: string,
+        isActive: boolean,
     }
 }
 
@@ -39,11 +40,9 @@ export const DiplomaForm = ({
     const onSubmit = async (values: CreateDiplomaValues) => {
         const formData = new FormData();
 
-        Object.entries(values).forEach(([key, value]) => {
-            if (value) {
-                formData.append(key, value as string);
-            }
-        });
+        formData.append("longDescription", values.longDescription);
+        formData.append("shortDescription", values.shortDescription);
+        formData.append("isActive", String(values.isActive));
         
         if (!initialData.id) {
             await createDiploma(formData);
@@ -102,6 +101,27 @@ export const DiplomaForm = ({
                             <FormMessage />
                         </FormItem>
                     }}
+                />
+                <FormField
+                    name="isActive"
+                    control={control}
+                    render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                            <FormControl>
+                                <input
+                                    type="checkbox"
+                                    checked={field.value}
+                                    onChange={(e) => field.onChange(e.target.checked)}
+                                    className="h-4 w-4 rounded-base border border-default accent-brand bg-neutral-primary-soft"
+                                />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                                <FormLabel className="cursor-pointer">
+                                    Diplôme actif
+                                </FormLabel>
+                            </div>
+                        </FormItem>
+                    )}
                 />
                 <div className="mt-2 flex justify-end">
                     <Button

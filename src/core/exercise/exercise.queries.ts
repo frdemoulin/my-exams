@@ -86,6 +86,7 @@ export interface ExerciseWithRelations {
 export interface SearchExercisesParams {
   diploma?: string;
   subject?: string;
+  teachingId?: string;
   difficulty?: number;
   themes?: string[];
   year?: number;
@@ -135,6 +136,7 @@ export async function searchExercises(
   const {
     diploma,
     subject,
+    teachingId,
     difficulty,
     themes: themeFilters = [],
     year,
@@ -158,26 +160,35 @@ export async function searchExercises(
 
   const examPaperFilter: Prisma.ExamPaperWhereInput = {};
 
-  // Filtre par diplôme
+  // Filtre par diplôme (toujours actives côté public)
+  const diplomaFilter: Prisma.DiplomaWhereInput = { isActive: true };
   if (diploma) {
-    examPaperFilter.diploma = {
+    diplomaFilter.shortDescription = {
+      contains: diploma,
+      mode: 'insensitive',
+    };
+  }
+  examPaperFilter.diploma = diplomaFilter;
+
+  const teachingFilter: Prisma.TeachingWhereInput = {};
+
+  // Filtre par matière
+  if (subject) {
+    teachingFilter.subject = {
       shortDescription: {
-        contains: diploma,
+        contains: subject,
         mode: 'insensitive',
       },
     };
   }
 
-  // Filtre par matière
-  if (subject) {
-    examPaperFilter.teaching = {
-      subject: {
-        shortDescription: {
-          contains: subject,
-          mode: 'insensitive',
-        },
-      },
-    };
+  // Filtre par option/spécialité
+  if (teachingId) {
+    teachingFilter.id = teachingId;
+  }
+
+  if (Object.keys(teachingFilter).length > 0) {
+    examPaperFilter.teaching = teachingFilter;
   }
 
   // Filtre par année
