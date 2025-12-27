@@ -1,3 +1,8 @@
+## <small>1.4.5 (2025-12-27)</small>
+
+* Merge pull request #54 from frdemoulin/dev ([b3bfb2e](https://github.com/frdemoulin/my-exams/commit/b3bfb2e)), closes [#54](https://github.com/frdemoulin/my-exams/issues/54)
+* fix: gestion de l'état actif d'une matière ([c0c668b](https://github.com/frdemoulin/my-exams/commit/c0c668b))
+
 ## <small>1.4.4 (2025-12-27)</small>
 
 * Merge pull request #53 from frdemoulin/dev ([182d8bb](https://github.com/frdemoulin/my-exams/commit/182d8bb)), closes [#53](https://github.com/frdemoulin/my-exams/issues/53)
