@@ -1,3 +1,8 @@
+## <small>1.4.3 (2025-12-27)</small>
+
+* Merge pull request #52 from frdemoulin/dev ([eabcf86](https://github.com/frdemoulin/my-exams/commit/eabcf86)), closes [#52](https://github.com/frdemoulin/my-exams/issues/52)
+* fix: patch des descriptions courtes des thèmes ([5834c63](https://github.com/frdemoulin/my-exams/commit/5834c63))
+
 ## <small>1.4.2 (2025-12-26)</small>
 
 * Merge pull request #51 from frdemoulin/dev ([4d1649d](https://github.com/frdemoulin/my-exams/commit/4d1649d)), closes [#51](https://github.com/frdemoulin/my-exams/issues/51)
