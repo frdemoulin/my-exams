@@ -23,7 +23,7 @@ const EditDomainPage = async ({ params }: DomainEditProps) => {
   const { id } = await params;
 
   const domain = await fetchDomainById(id);
-  const subjects = await fetchSubjectsOptions();
+  const subjects = await fetchSubjectsOptions({ includeInactive: true });
   const diplomas = await fetchDiplomasOptions();
   const grades = await fetchGradesOptions();
   const divisions = await fetchDivisionsOptions();

@@ -2,8 +2,15 @@ import prisma from "@/lib/db/prisma";
 import { Option } from "@/types/option";
 import { Subject } from "@prisma/client";
 
-export async function fetchSubjects(): Promise<Subject[]> {
+type SubjectQueryOptions = {
+    includeInactive?: boolean;
+};
+
+export async function fetchSubjects(
+    options: SubjectQueryOptions = {}
+): Promise<Subject[]> {
     return await prisma.subject.findMany({
+        where: options.includeInactive ? undefined : { isActive: true },
         orderBy: [
             {
                 createdAt: "asc",
@@ -12,8 +19,11 @@ export async function fetchSubjects(): Promise<Subject[]> {
     });
 }
 
-export async function fetchSubjectsOptions(): Promise<Option[]> {
+export async function fetchSubjectsOptions(
+    options: SubjectQueryOptions = {}
+): Promise<Option[]> {
     const subjects = await prisma.subject.findMany({
+        where: options.includeInactive ? undefined : { isActive: true },
         orderBy: [
             {
                 longDescription: "asc",
@@ -21,14 +31,14 @@ export async function fetchSubjectsOptions(): Promise<Option[]> {
         ]
     });
 
-    const options = subjects.map((subject) => {
+    const optionsList = subjects.map((subject) => {
         return {
             value: subject.id,
             label: subject.longDescription,
         }
     });
 
-    return options;
+    return optionsList;
 }
 
 export async function fetchSubjectById(id: string): Promise<Subject | null> {

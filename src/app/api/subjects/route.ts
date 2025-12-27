@@ -9,6 +9,7 @@ export async function GET() {
         shortDescription: true,
         longDescription: true,
       },
+      where: { isActive: true },
       orderBy: { shortDescription: 'asc' },
     });
 

@@ -23,8 +23,6 @@ const normalizeApostrophes = (value: string | null | undefined) => {
 
 const FUNCTION_WORD_REGEX = /\bfonctions?\b/gi;
 const EQUATION_WORD_REGEX = /(?<!\p{L})(?:e|\u00e9)quations?(?!\p{L})/giu;
-const INEQUATION_WORD_REGEX = /(?<!\p{L})in(?:e|\u00e9)quations?(?!\p{L})/giu;
-const SYSTEM_WORD_REGEX = /(?<!\p{L})syst(?:e|\u00e8)mes?(?!\p{L})/giu;
 
 const abbreviateFunctionWord = (value: string | null | undefined) => {
   if (value == null) return value;
@@ -38,51 +36,21 @@ const abbreviateFunctionWord = (value: string | null | undefined) => {
 
 const abbreviateEquationWord = (value: string | null | undefined) => {
   if (value == null) return value;
-
-  const formatAbbrev = (match: string, base: string, isInequation: boolean) => {
-    if (match.toUpperCase() === match) {
-      const upper = base.toUpperCase();
-      const accented = isInequation
-        ? upper.replace(/^IN(E)/, "IN\u00c9")
-        : upper.replace(/^E/, "\u00c9");
-      return `${accented}.`;
-    }
-
-    const accented = isInequation
-      ? base.replace(/^in(e)/, "in\u00e9")
-      : base.replace(/^e/, "\u00e9");
-
-    if (match[0] === match[0].toUpperCase()) {
-      return `${accented[0].toUpperCase()}${accented.slice(1)}.`;
-    }
-
-    return `${accented}.`;
-  };
-
-  const withInequations = value.replace(INEQUATION_WORD_REGEX, (match) => {
-    const isPlural = match.toLowerCase().endsWith("s");
-    const base = isPlural ? "ineqs" : "ineq";
-    return formatAbbrev(match, base, true);
-  });
-
-  return withInequations.replace(EQUATION_WORD_REGEX, (match) => {
+  return value.replace(EQUATION_WORD_REGEX, (match) => {
     const isPlural = match.toLowerCase().endsWith("s");
     const base = isPlural ? "eqs" : "eq";
-    return formatAbbrev(match, base, false);
-  });
-};
-
-const abbreviateSystemWord = (value: string | null | undefined) => {
-  if (value == null) return value;
-  return value.replace(SYSTEM_WORD_REGEX, (match) => {
-    if (match.toUpperCase() === match) return "SYST.";
-    if (match[0] === match[0].toUpperCase()) return "Syst.";
-    return "syst.";
+    if (match.toUpperCase() === match)
+      return `${base.toUpperCase()}.`.replace("E", "\u00c9");
+    if (match[0] === match[0].toUpperCase()) {
+      const withAccent = base.replace(/^e/, "\u00e9");
+      return `${withAccent[0].toUpperCase()}${withAccent.slice(1)}.`;
+    }
+    return `${base.replace(/^e/, "\u00e9")}.`;
   });
 };
 
 export const description =
-  "Normalize apostrophes and abbreviate function/equation/inequation/system in theme short labels.";
+  "Normalize apostrophes and abbreviate function/equation in theme short labels.";
 
 export async function up(prisma: PrismaClient) {
   const domains = await prisma.domain.findMany({
@@ -193,10 +161,8 @@ export async function up(prisma: PrismaClient) {
   for (const theme of themes) {
     const nextLong =
       normalizeApostrophes(theme.longDescription) ?? theme.longDescription;
-    const nextShort = abbreviateSystemWord(
-      abbreviateEquationWord(
-        abbreviateFunctionWord(normalizeApostrophes(theme.shortDescription))
-      )
+    const nextShort = abbreviateEquationWord(
+      abbreviateFunctionWord(normalizeApostrophes(theme.shortDescription))
     );
     const needsUpdate =
       nextLong !== theme.longDescription ||

@@ -22,6 +22,7 @@ const SubjectDetailPage = async ({ params }: SubjectDetailPageProps) => {
             <h1 className="text-lg font-semibold md:text-2xl">Détails de la matière</h1>
             <p>Description courte : {subject?.shortDescription}</p>
             <p>Description longue : {subject?.longDescription}</p>
+            <p>Statut : {subject?.isActive ? "Active" : "Inactive"}</p>
         </div>
     )
 }

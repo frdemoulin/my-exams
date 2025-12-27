@@ -9,19 +9,27 @@ import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateSubjectErrors } from "./subject.types";
 
 export const createSubject = async (formData: FormData) => {
-    const values = Object.fromEntries(formData.entries());
+    const longDescription = formData.get("longDescription") as string;
+    const shortDescription = formData.get("shortDescription") as string;
+    const isActiveValue = formData.get("isActive");
+    const isActive = isActiveValue == null ? true : isActiveValue === "true";
 
-    const result = createSubjectSchema.safeParse(values);
+    const result = createSubjectSchema.safeParse({
+        longDescription,
+        shortDescription,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription } = result.data;
+        const { longDescription, shortDescription, isActive } = result.data;
 
         // create subject in database
         try {
             await prisma.subject.create({
                 data: {
                     longDescription,
-                    shortDescription
+                    shortDescription,
+                    isActive,
                 }
             });
         } catch (error: any) {
@@ -45,12 +53,19 @@ export const createSubject = async (formData: FormData) => {
 }
 
 export const updateSubject = async (id: string | undefined, formData: FormData) => {
-    const values = Object.fromEntries(formData.entries());
+    const longDescription = formData.get("longDescription") as string;
+    const shortDescription = formData.get("shortDescription") as string;
+    const isActiveValue = formData.get("isActive");
+    const isActive = isActiveValue == null ? true : isActiveValue === "true";
 
-    const result = createSubjectSchema.safeParse(values);
+    const result = createSubjectSchema.safeParse({
+        longDescription,
+        shortDescription,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription } = result.data;
+        const { longDescription, shortDescription, isActive } = result.data;
 
         try {
             await prisma.subject.update({
@@ -59,7 +74,8 @@ export const updateSubject = async (id: string | undefined, formData: FormData) 
                 },
                 data: {
                     longDescription,
-                    shortDescription
+                    shortDescription,
+                    isActive,
                 }
             });
 

@@ -189,6 +189,9 @@ export async function fetchSpecialties(): Promise<TeachingWithRelations[]> {
           in: ['1re', 'Tle'],
         },
       },
+      subject: {
+        isActive: true,
+      },
     },
     include: {
       grade: true,
