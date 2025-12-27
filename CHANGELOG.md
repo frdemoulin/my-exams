@@ -1,3 +1,9 @@
+## <small>1.4.4 (2025-12-27)</small>
+
+* Merge pull request #53 from frdemoulin/dev ([182d8bb](https://github.com/frdemoulin/my-exams/commit/182d8bb)), closes [#53](https://github.com/frdemoulin/my-exams/issues/53)
+* fix: ajout de scripts d'import/export des domaines et thèmes ([d298c2c](https://github.com/frdemoulin/my-exams/commit/d298c2c))
+* fix: mise à jour du script de gestion des abréviations ([269f4a5](https://github.com/frdemoulin/my-exams/commit/269f4a5))
+
 ## <small>1.4.3 (2025-12-27)</small>
 
 * Merge pull request #52 from frdemoulin/dev ([eabcf86](https://github.com/frdemoulin/my-exams/commit/eabcf86)), closes [#52](https://github.com/frdemoulin/my-exams/issues/52)
