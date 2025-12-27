@@ -21,7 +21,16 @@ Regroupe toute la logique métier par domaine. Chaque domaine contient:
 - `examination-center/` - Gestion des centres d'examen
 - `grade/` - Gestion des niveaux scolaires
 - `subject/` - Gestion des matières
-- `topic/` - Gestion des thèmes
+- `teaching/` - Gestion des enseignements
+- `curriculum/` - Gestion des programmes
+- `domain/` - Gestion des domaines
+- `theme/` - Gestion des thèmes
+- `exam-paper/` - Gestion des sujets d'annales
+- `exercise/` - Gestion des exercices
+- `correction/` - Gestion des corrections
+- `stats/` - Statistiques et reporting
+- `dashboard/` - Agrégats dashboard
+- `enrichment/` - Enrichissement (LLM/OCR)
 - `user/` - Gestion des utilisateurs
 
 **Avantages:**

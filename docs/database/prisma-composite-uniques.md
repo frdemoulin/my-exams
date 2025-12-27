@@ -116,8 +116,15 @@ await prisma.diploma.delete({
 
 ## 📚 Autres modèles du projet
 
-- `Division`, `Grade`, `Subject`, `Topic` : également déclarés avec `@@unique([longDescription, shortDescription])` → utilisent la même **clé composite** `longDescription_shortDescription`.
-- `ExaminationCenter` : unicité simple `@@unique([description])` → `where: { description: '...' }` (pas de clé composite ici).
+- `Diploma`, `Division`, `Grade`, `Subject` : `@@unique([longDescription, shortDescription])` → clé composite `longDescription_shortDescription`.
+- `Domain` : `@@unique([longDescription, subjectId])` → clé composite `longDescription_subjectId`.
+- `Teaching` : `@@unique([longDescription, gradeId])` → clé composite `longDescription_gradeId`.
+- `Curriculum` : `@@unique([longDescription, startDate])` → clé composite `longDescription_startDate`.
+- `ExamPaper` : `@@unique([label, sessionYear, teachingId])` → clé composite `label_sessionYear_teachingId`.
+- `Exercise` : `@@unique([examPaperId, exerciseNumber])` → clé composite `examPaperId_exerciseNumber`.
+- `ExerciseCorrection` : `@@unique([exerciseId, source, url])` → clé composite `exerciseId_source_url`.
+- `Correction` : `@@unique([examPaperId, source, url])` → clé composite `examPaperId_source_url`.
+- `ExaminationCenter` : unicité simple `@@unique([description])` → `where: { description: '...' }` (pas de clé composite ici).
 
 ---
 

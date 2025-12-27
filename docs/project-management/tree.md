@@ -8,150 +8,105 @@ Documentation de la structure du projet
 my-exams/
 │
 ├── 📄 .env.local                      # Variables d'environnement locales (non versionnées)
-├── 📄 .eslintrc.json                  # Configuration ESLint pour la qualité du code
 ├── 📄 .gitignore                      # Fichiers et dossiers à ignorer par Git
+├── 📄 Dockerfile                      # Image de build/deploy
+├── 📄 commitlint.config.js            # Règles de commitlint
+├── 📄 eslint.config.mjs               # Configuration ESLint
+├── 📄 lint-staged.config.js           # Lint-staged pour pre-commit
 ├── 📄 components.json                 # Configuration shadcn/ui pour les composants UI
 ├── 📄 next-env.d.ts                   # Types TypeScript générés par Next.js
 ├── 📄 next.config.mjs                 # Configuration Next.js (routes, redirections, etc.)
 ├── 📄 package.json                    # Dépendances et scripts npm du projet
-├── 📄 postcss.config.mjs              # Configuration PostCSS pour Tailwind
+├── 📄 package-lock.json               # Verrouillage npm
+├── 📄 postcss.config.mjs              # Configuration PostCSS
 ├── 📄 README.md                       # Documentation principale du projet
-├── 📄 tailwind.config.ts              # Configuration Tailwind CSS (thème, plugins)
+├── 📄 render.yaml                     # Config Render
 ├── 📄 tsconfig.json                   # Configuration TypeScript du projet
 │
 ├── 📂 docs/                           # 📚 Documentation du projet
-│   ├── CHANGELOG.md                   #    Historique des changements
-│   ├── REFACTORING.md                 #    Documentation du refactoring architecture
-│   ├── colors.md                      #    Palette de couleurs du projet
-│   ├── data-models.md                 #    Modèles de données et relations
-│   ├── datas.md                       #    Documentation des données
-│   ├── fixtures.md                    #    Guide des fixtures et données de test
-│   ├── mongodb-macos.md               #    Installation MongoDB sur macOS
-│   ├── prisma-composite-uniques.md    #    Documentation contraintes Prisma
-│   ├── prisma.md                      #    Guide d'utilisation Prisma
-│   ├── smtp-ovh.md                    #    Configuration SMTP OVH
-│   ├── translations.md                #    Guide de traduction/i18n
-│   └── tree.md                        #    Cette arborescence commentée
+│   ├── README.md                      #    Table des matières des docs
+│   ├── summary.md                     #    Glossaire des concepts
+│   ├── TODO.md                        #    Suivi rapide des sujets ouverts
+│   ├── release-workflow.md            #    Process release
+│   ├── architecture/                  #    Architecture & rendering
+│   ├── database/                      #    Modèle de données & Prisma
+│   ├── development/                   #    Guides dev (scripts, analytics, OCR, etc.)
+│   ├── deployment/                    #    Render/Cloudflare
+│   ├── guides/                        #    Guides techniques (i18n, tests, UI)
+│   ├── project-management/            #    Changelog + plans
+│   └── technical-setup/               #    SMTP, SSO, MongoDB, etc.
 │
 ├── 📂 prisma/                         # 🗄️ Schéma et seeds base de données
+│   ├── prisma.config.ts               #    Configuration Prisma (préparation Prisma 7)
 │   ├── schema.prisma                  #    Définition du schéma de données (MongoDB)
 │   ├── seed.ts                        #    Script de seed principal
 │   └── seeds/                         #    Scripts de seed par entité
-│       ├── diploma.seed.ts            #       Données initiales des diplômes
-│       ├── division.seed.ts           #       Données initiales des filières
-│       ├── examination-center.seed.ts #       Données initiales des centres d'examen
-│       ├── grade.seed.ts              #       Données initiales des niveaux scolaires
-│       ├── subject.seed.ts            #       Données initiales des matières
-│       ├── topic.seed.ts              #       Données initiales des thèmes
-│       └── user.seed.ts               #       Données initiales des utilisateurs
+│       ├── diploma.seed.ts            #       Diplômes
+│       ├── division.seed.ts           #       Filières
+│       ├── examination-center.seed.ts #       Centres d'examen
+│       ├── grade.seed.ts              #       Niveaux scolaires
+│       ├── subject.seed.ts            #       Matières
+│       ├── teaching.seed.ts           #       Enseignements
+│       ├── curriculum.seed.ts         #       Programmes
+│       ├── domain.seed.ts             #       Domaines
+│       ├── theme.seed.ts              #       Thèmes
+│       ├── exam-paper.seed.ts         #       Sujets
+│       ├── exercise.seed.ts           #       Exercices
+│       ├── correction.seed.ts         #       Corrections
+│       └── user.seed.ts               #       Utilisateurs
 │
 ├── 📂 public/                         # 🌐 Fichiers statiques publics
 │   ├── favicon.ico                    #    Icône du site
 │   └── ...                            #    Images, logos, assets statiques
 │
 ├── 📂 scripts/                        # 🔧 Scripts utilitaires
-│   ├── clear-database.ts              #    Nettoyer la base de données
-│   ├── seed-prod.ts                   #    Seed PROD (Atlas) avec garde-fous
 │   ├── db-migrate.ts                  #    Migrations applicatives (data) versionnées
+│   ├── seed-prod.ts                   #    Seed PROD (Atlas) avec garde-fous
+│   ├── clear-database.ts              #    Nettoyer la base de données
+│   ├── clear-domains-themes.ts        #    Purge domaines + thèmes (garde-fous)
+│   ├── export-domains-themes.ts       #    Export domaines/thèmes (JSON)
+│   ├── import-domains-themes.ts       #    Import domaines/thèmes (JSON)
+│   ├── sync-domains-themes-from-prod.ts # Sync prod -> dev (domaines/thèmes)
+│   ├── set-user-role.ts               #    Gestion du rôle admin
 │   └── test-prisma.ts                 #    Tester la connexion Prisma
 │
 └── 📂 src/                            # 💻 Code source principal
     │
     ├── 📂 app/                        # 🚀 Routes et pages Next.js (App Router)
     │   │
-    │   ├── 📂 (public)/               #    ✨ Espace PUBLIC (élèves, visiteurs)
-    │   │   ├── layout.tsx             #       Layout pour les pages publiques
-    │   │   ├── page.tsx               #       Page d'accueil publique (/)
-    │   │   └── log-in/                #       Authentification
-    │   │       └── log-in/
-    │   │           ├── page.tsx       #          Page de connexion
-    │   │           └── _components/   #          Composants du login
-    │   │               ├── log-in.tsx
-    │   │               └── log-in-button.tsx
-    │   │
-    │   ├── 📂 (admin)/                #    🔐 Espace ADMINISTRATION (backoffice)
-    │   │   ├── layout.tsx             #       Layout admin avec sidebar et navbar
-    │   │   ├── dashboard/             #       Dashboard principal admin
-    │   │   │   └── page.tsx           #          Page d'accueil admin (/dashboard)
+    │   ├── 📂 [locale]/               # 🌍 Routes localisées
+    │   │   ├── 📂 (public)/           #    ✨ Espace PUBLIC (élèves, visiteurs)
+    │   │   │   ├── layout.tsx         #       Layout pour les pages publiques
+    │   │   │   ├── page.tsx           #       Page d'accueil publique (/)
+    │   │   │   ├── exercises/
+    │   │   │   │   └── [id]/page.tsx  #          Détail d'exercice
+    │   │   │   └── log-in/            #       Authentification
+    │   │   │       ├── page.tsx       #          Page de connexion
+    │   │   │       ├── check-email/page.tsx
+    │   │   │       └── _components/
+    │   │   │           ├── log-in.tsx
+    │   │   │           └── log-in-button.tsx
     │   │   │
-    │   │   ├── _components/           #       Composants partagés de l'admin
-    │   │   │   ├── mobile-sidebar.tsx #          Sidebar responsive mobile
-    │   │   │   ├── navbar.tsx         #          Barre de navigation admin
-    │   │   │   └── sidebar.tsx        #          Menu latéral admin
-    │   │   │
-    │   │   └── admin/                 #       Routes CRUD du backoffice
-    │   │       │
-    │   │       ├── diplomas/          #          📜 Gestion des diplômes
-    │   │       │   ├── page.tsx       #             Liste des diplômes
-    │   │       │   ├── add/page.tsx   #             Ajouter un diplôme
-    │   │       │   ├── [id]/
-    │   │       │   │   ├── page.tsx   #             Détail d'un diplôme
-    │   │       │   │   └── edit/page.tsx  #         Éditer un diplôme
-    │   │       │   └── _components/   #             Composants spécifiques diplômes
-    │   │       │       ├── columns.tsx
-    │   │       │       ├── data-table.tsx
-    │   │       │       └── diploma-form.tsx
-    │   │       │
-    │   │       ├── divisions/         #          📚 Gestion des filières
-    │   │       │   ├── page.tsx
-    │   │       │   ├── add/page.tsx
-    │   │       │   ├── [id]/
-    │   │       │   │   ├── page.tsx
-    │   │       │   │   └── edit/page.tsx
-    │   │       │   └── _components/
-    │   │       │       ├── columns.tsx
-    │   │       │       ├── data-table.tsx
-    │   │       │       └── division-form.tsx
-    │   │       │
-    │   │       ├── examination-centers/ #        🏛️ Gestion des centres d'examen
-    │   │       │   ├── page.tsx
-    │   │       │   ├── add/page.tsx
-    │   │       │   ├── [id]/
-    │   │       │   │   ├── page.tsx
-    │   │       │   │   └── edit/page.tsx
-    │   │       │   └── _components/
-    │   │       │       ├── columns.tsx
-    │   │       │       ├── data-table.tsx
-    │   │       │       └── examination-center-form.tsx
-    │   │       │
-    │   │       ├── grades/            #          📊 Gestion des niveaux scolaires
-    │   │       │   ├── page.tsx
-    │   │       │   ├── add/page.tsx
-    │   │       │   ├── [id]/
-    │   │       │   │   ├── page.tsx
-    │   │       │   │   └── edit/page.tsx
-    │   │       │   └── _components/
-    │   │       │       ├── columns.tsx
-    │   │       │       ├── data-table.tsx
-    │   │       │       └── grade-form.tsx
-    │   │       │
-    │   │       ├── subjects/          #          📖 Gestion des matières
-    │   │       │   ├── page.tsx
-    │   │       │   ├── add/page.tsx
-    │   │       │   ├── [id]/
-    │   │       │   │   ├── page.tsx
-    │   │       │   │   └── edit/page.tsx
-    │   │       │   └── _components/
-    │   │       │       ├── columns.tsx
-    │   │       │       ├── data-table.tsx
-    │   │       │       └── subject-form.tsx
-    │   │       │
-    │   │       ├── topics/            #          🏷️ Gestion des thèmes
-    │   │       │   ├── page.tsx
-    │   │       │   ├── add/page.tsx
-    │   │       │   ├── [id]/
-    │   │       │   │   ├── page.tsx
-    │   │       │   │   └── edit/page.tsx
-    │   │       │   └── _components/
-    │   │       │       ├── columns.tsx
-    │   │       │       ├── data-table.tsx
-    │   │       │       └── topic-form.tsx
-    │   │       │
-    │   │       └── users/             #          👥 Gestion des utilisateurs
-    │   │           ├── page.tsx
-    │   │           └── _components/
-    │   │               ├── columns.tsx
-    │   │               └── data-table.tsx
+    │   │   └── 📂 (admin)/            #    🔐 Espace ADMINISTRATION (backoffice)
+    │   │       ├── layout.tsx         #       Layout admin avec sidebar et navbar
+    │   │       ├── _components/       #       Composants partagés de l'admin
+    │   │       │   ├── mobile-sidebar.tsx
+    │   │       │   ├── navbar.tsx
+    │   │       │   └── sidebar.tsx
+    │   │       └── admin/             #       Routes CRUD du backoffice
+    │   │           ├── curriculums/
+    │   │           ├── diplomas/
+    │   │           ├── divisions/
+    │   │           ├── domains/
+    │   │           ├── exam-papers/
+    │   │           ├── examination-centers/
+    │   │           ├── exercises/
+    │   │           ├── grades/
+    │   │           ├── subjects/
+    │   │           ├── teachings/
+    │   │           ├── themes/
+    │   │           ├── users/
+    │   │           └── stats/
     │   │
     │   ├── 📂 api/                    #    🔌 Routes API Next.js
     │   │   ├── auth/                  #       Authentification NextAuth
@@ -163,7 +118,7 @@ my-exams/
     │   │           └── route.ts       #          Health check base de données
     │   │
     │   ├── favicon.ico                #    Icône du site (racine app)
-    │   ├── globals.css                #    Styles CSS globaux (Tailwind)
+    │   ├── globals.css                #    Styles CSS globaux
     │   └── layout.tsx                 #    Layout racine (providers, metadata)
     │
     ├── 📂 assets/                     # 🎨 Assets du projet (images, etc.)
@@ -203,52 +158,36 @@ my-exams/
     │   └── 📂 layout/                 #    Composants de structure (à créer)
     │       └── (futurs composants layout)
     │
+    ├── 📂 config/                     # ⚙️ Configuration applicative
+    │   └── app.ts                     #    Paramètres globaux
+    │
     ├── 📂 core/                       # 🎯 LOGIQUE MÉTIER par domaine
     │   │                              #    (Backend interne de l'application)
     │   │
-    │   ├── 📂 diploma/                #    📜 Domaine DIPLÔMES
-    │   │   ├── diploma.types.ts       #       Types TypeScript
-    │   │   ├── diploma.queries.ts     #       Requêtes base de données (Prisma)
-    │   │   ├── diploma.actions.ts     #       Server actions (CRUD)
-    │   │   └── index.ts               #       Exports centralisés du domaine
-    │   │
-    │   ├── 📂 division/               #    📚 Domaine FILIÈRES
-    │   │   ├── division.types.ts
-    │   │   ├── division.queries.ts
-    │   │   ├── division.actions.ts
-    │   │   └── index.ts
-    │   │
-    │   ├── 📂 examination-center/     #    🏛️ Domaine CENTRES D'EXAMEN
-    │   │   ├── examination-center.types.ts
-    │   │   ├── examination-center.queries.ts
-    │   │   ├── examination-center.actions.ts
-    │   │   └── index.ts
-    │   │
-    │   ├── 📂 grade/                  #    📊 Domaine NIVEAUX SCOLAIRES
-    │   │   ├── grade.types.ts
-    │   │   ├── grade.queries.ts
-    │   │   ├── grade.actions.ts
-    │   │   └── index.ts
-    │   │
-    │   ├── 📂 subject/                #    📖 Domaine MATIÈRES
-    │   │   ├── subject.types.ts
-    │   │   ├── subject.queries.ts
-    │   │   ├── subject.actions.ts
-    │   │   └── index.ts
-    │   │
-    │   ├── 📂 topic/                  #    🏷️ Domaine THÈMES
-    │   │   ├── topic.types.ts
-    │   │   ├── topic.queries.ts
-    │   │   ├── topic.actions.ts
-    │   │   └── index.ts
-    │   │
-    │   └── 📂 user/                   #    👥 Domaine UTILISATEURS
-    │       ├── user.queries.ts
-    │       ├── user.actions.ts
-    │       └── index.ts
+    │   ├── 📂 correction/             #    Corrections
+    │   ├── 📂 curriculum/             #    Programmes
+    │   ├── 📂 dashboard/              #    Agrégats dashboard
+    │   ├── 📂 diploma/                #    Diplômes
+    │   ├── 📂 division/               #    Filières
+    │   ├── 📂 domain/                 #    Domaines
+    │   ├── 📂 enrichment/             #    Enrichissement (LLM/OCR)
+    │   ├── 📂 exam-paper/             #    Sujets d'annales
+    │   ├── 📂 examination-center/     #    Centres d'examen
+    │   ├── 📂 exercise/               #    Exercices
+    │   ├── 📂 grade/                  #    Niveaux scolaires
+    │   ├── 📂 stats/                  #    Statistiques
+    │   ├── 📂 subject/                #    Matières
+    │   ├── 📂 teaching/               #    Enseignements
+    │   ├── 📂 theme/                  #    Thèmes
+    │   └── 📂 user/                   #    Utilisateurs
     │
     ├── 📂 hooks/                      # 🪝 Custom React Hooks
     │   └── use-active-path.ts         #    Hook pour détecter la route active
+    │
+    ├── 📂 i18n/                       # 🌍 Configuration i18n
+    │   ├── messages/                  #    Fichiers de traduction
+    │   ├── request.ts                 #    Chargement côté serveur
+    │   └── routing.ts                 #    Routage des locales
     │
     ├── 📂 lib/                        # 🛠️ Infrastructure et utilitaires
     │   │
@@ -260,9 +199,14 @@ my-exams/
     │   │   ├── get-session.ts         #       Helper pour récupérer la session
     │   │   └── auth-send-request.ts   #       Envoi des emails d'authentification
     │   │
-    │   ├── 📂 validation/             #    Validation des données
-    │   │   └── index.ts               #       Schémas Zod pour validation
+    │   ├── 📂 i18n/                   #    Helpers i18n
+    │   │   ├── dictionary.ts
+    │   │   ├── hooks.ts
+    │   │   └── index.ts
     │   │
+    │   ├── analytics.ts               #    Tracking Umami (client)
+    │   ├── table.ts                   #    Helpers table
+    │   ├── toast.ts                   #    Helpers toast
     │   ├── utils.ts                   #    Utilitaires génériques (cn, etc.)
     │   └── validation.ts              #    Schémas de validation Zod
     │
@@ -299,12 +243,12 @@ Chaque domaine métier est isolé dans `src/core/[domain]/` avec :
 
 ## 📊 Statistiques du projet
 
-- **Domaines métier** : 7 (diploma, division, examination-center, grade, subject, topic, user)
-- **Routes admin CRUD** : 6 domaines complets avec list/add/view/edit
+- **Domaines métier** : 16 (correction, curriculum, dashboard, diploma, division, domain, enrichment, exam-paper, examination-center, exercise, grade, stats, subject, teaching, theme, user)
+- **Routes admin** : 12 domaines CRUD + stats (curriculums, diplomas, divisions, domains, exam-papers, examination-centers, exercises, grades, subjects, teachings, themes, users)
 - **Composants UI** : 13+ composants shadcn/ui
 - **Composants shared** : 6 composants métier
-- **Scripts** : 3 utilitaires (clear, seed, test)
-- **Documentation** : 12 fichiers markdown
+- **Scripts** : 20+ utilitaires (migrations, seeds, export/import, patchs, tests)
+- **Documentation** : 40+ fichiers markdown
 
 ## 🚀 Pour aller plus loin
 

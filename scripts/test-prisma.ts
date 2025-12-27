@@ -6,10 +6,47 @@ const prisma = require("../src/lib/db").default;
 async function run() {
   console.log("== Début test Prisma ==");
 
+  const testSubject = {
+    longDescription: "Subject Test Long",
+    shortDescription: "Subject Test Court",
+  };
+  const testDomain = {
+    longDescription: "Domain Test Long",
+    shortDescription: "Domain Test Court",
+  };
+  const testTheme = {
+    longDescription: "Theme Test Long",
+    shortDescription: "Theme Test Court",
+  };
+  const testGrades = [
+    { longDescription: "Grade Long A", shortDescription: "Grade Court A" },
+    { longDescription: "Grade Long B", shortDescription: "Grade Court B" },
+  ];
+
   // Nettoyage ciblé pour éviter les doublons lors de tests successifs
   await prisma.diploma.deleteMany({
     where: {
       shortDescription: { in: ["Diplôme Test Court"] }
+    }
+  });
+  await prisma.theme.deleteMany({
+    where: { longDescription: testTheme.longDescription }
+  });
+  await prisma.domain.deleteMany({
+    where: { longDescription: testDomain.longDescription }
+  });
+  await prisma.subject.deleteMany({
+    where: {
+      longDescription: testSubject.longDescription,
+      shortDescription: testSubject.shortDescription,
+    }
+  });
+  await prisma.grade.deleteMany({
+    where: {
+      OR: testGrades.map((grade) => ({
+        longDescription: grade.longDescription,
+        shortDescription: grade.shortDescription,
+      })),
     }
   });
 
@@ -46,44 +83,40 @@ async function run() {
     console.log("Contrainte unique OK:", e.code || e.message);
   }
 
-  // 5. Relations Topic / Subject (listes d'ObjectId)
-  const topic = await prisma.topic.create({
+  // 5. Relation Domain / Theme (1-N)
+  const subject = await prisma.subject.create({ data: testSubject });
+  const domain = await prisma.domain.create({
     data: {
-      longDescription: "Topic Long",
-      shortDescription: "Topic Court",
-      subjectIDs: [],
+      ...testDomain,
+      subjectId: subject.id,
+    }
+  });
+  await prisma.theme.create({
+    data: {
+      ...testTheme,
+      domainId: domain.id,
     }
   });
 
-  const subject = await prisma.subject.create({
-    data: {
-      longDescription: "Subject Long",
-      shortDescription: "Subject Court",
-      topicIDs: [topic.id],
-    }
+  const domainWithThemes = await prisma.domain.findUnique({
+    where: { id: domain.id },
+    include: { subject: true, themes: true }
   });
-
-  // Mise à jour réciproque du topic
-  await prisma.topic.update({
-    where: { id: topic.id },
-    data: { subjectIDs: [subject.id] }
-  });
-
-  const subjectWithTopics = await prisma.subject.findUnique({
-    where: { id: subject.id },
-    include: { topics: true }
-  });
-  console.log("Subject avec topics:", subjectWithTopics);
+  console.log("Domain avec themes:", domainWithThemes);
 
   // 6. Transaction (test Replica Set)
   const tx = await prisma.$transaction([
-    prisma.grade.create({ data: { longDescription: "Grade Long A", shortDescription: "Grade Court A" } }),
-    prisma.grade.create({ data: { longDescription: "Grade Long B", shortDescription: "Grade Court B" } }),
+    prisma.grade.create({ data: testGrades[0] }),
+    prisma.grade.create({ data: testGrades[1] }),
   ]);
   console.log("Transaction OK (grades créés):", tx.map((g: any) => g.id));
 
   // 7. DELETE
   await prisma.diploma.delete({ where: { id: diploma.id } });
+  await prisma.theme.deleteMany({ where: { domainId: domain.id } });
+  await prisma.domain.delete({ where: { id: domain.id } });
+  await prisma.subject.delete({ where: { id: subject.id } });
+  await prisma.grade.deleteMany({ where: { id: { in: tx.map((g: any) => g.id) } } });
   console.log("Diplôme supprimé");
 
   // 8. Déconnexion

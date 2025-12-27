@@ -4,6 +4,12 @@ import { fetchThemesByDomainId } from "@/core/theme";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DomainThemeForm } from "./_components/domain-theme-form";
 import { DomainThemesTable } from "./_components/domain-themes-table";
+import { DomainScopesForm } from "./_components/domain-scopes-form";
+import { fetchDiplomasOptions } from "@/core/diploma";
+import { fetchDivisionsOptions } from "@/core/division";
+import { fetchGradesOptions } from "@/core/grade";
+import { fetchTeachingsOptions } from "@/core/teaching";
+import { fetchCurriculumsOptions } from "@/core/curriculum";
 
 export const metadata: Metadata = {
   title: "Détails du domaine",
@@ -26,6 +32,11 @@ const DomainDetailPage = async ({ params }: DomainDetailPageProps) => {
 
   const domain = await fetchDomainById(id);
   const themes = await fetchThemesByDomainId(id);
+  const diplomas = await fetchDiplomasOptions();
+  const grades = await fetchGradesOptions();
+  const divisions = await fetchDivisionsOptions();
+  const teachings = await fetchTeachingsOptions();
+  const curriculums = await fetchCurriculumsOptions();
 
   return (
     <div>
@@ -73,6 +84,26 @@ const DomainDetailPage = async ({ params }: DomainDetailPageProps) => {
       </Card>
 
       <div className="mt-8 space-y-6">
+        {domain ? (
+          <DomainScopesForm
+            domainId={domain.id}
+            scopes={domain.scopes?.map((scope) => ({
+              diplomaId: scope.diplomaId ?? null,
+              gradeId: scope.gradeId ?? null,
+              divisionId: scope.divisionId ?? null,
+              teachingId: scope.teachingId ?? null,
+              curriculumId: scope.curriculumId ?? null,
+              labelOverride: scope.labelOverride ?? "",
+              order: scope.order ?? null,
+              isActive: scope.isActive ?? true,
+            })) ?? []}
+            diplomas={diplomas}
+            grades={grades}
+            divisions={divisions}
+            teachings={teachings}
+            curriculums={curriculums}
+          />
+        ) : null}
         {domain ? (
           <DomainThemeForm
             domainId={domain.id}

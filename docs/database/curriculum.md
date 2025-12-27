@@ -13,7 +13,7 @@ L'année d'un sujet d'annales ne suffit pas à l'associer à un programme scolai
 
 ## Solution: Modèle Curriculum
 
-### Nouveau modèle Prisma
+### Modèle Prisma actuel
 
 ```prisma
 model Curriculum {
@@ -22,10 +22,8 @@ model Curriculum {
   shortDescription String?
   
   // Période de validité
-  startYear  Int      // Année de mise en vigueur
-  endYear    Int?     // Année de fin (null si actif)
-  startMonth Int?     // Mois de début (1-12)
-  endMonth   Int?     // Mois de fin (1-12)
+  startDate DateTime // Date de mise en vigueur
+  endDate   DateTime? // Date de fin (null si actif)
   
   // Applicabilité (many-to-many avec Teaching via array d'IDs)
   teachingIds String[] @db.ObjectId
@@ -37,7 +35,7 @@ model Curriculum {
   // Relations
   examPapers ExamPaper[]
   
-  @@unique([longDescription, startYear])
+  @@unique([longDescription, startDate])
 }
 ```
 
@@ -47,9 +45,9 @@ model Curriculum {
 model ExamPaper {
   // ... champs existants ...
   
-  // Association OBLIGATOIRE au programme scolaire
-  curriculumId String     @db.ObjectId
-  curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
+  // Association optionnelle au programme scolaire
+  curriculumId String?     @db.ObjectId
+  curriculum   Curriculum? @relation(fields: [curriculumId], references: [id])
   
   // ... autres champs ...
 }
@@ -57,36 +55,7 @@ model ExamPaper {
 
 ## Programmes créés (Seeds)
 
-### Programmes Actifs 🟢
-
-1. **Programme Collège 2016** (2016 →)
-   - Cycle 3 (6e) et Cycle 4 (5e, 4e, 3e)
-   - 0 enseignement associés (à compléter)
-
-2. **Réforme Bac 2021 - Seconde** (2019 →)
-   - 5 enseignement de 2de
-   - Entrée en vigueur: septembre 2019
-
-3. **Réforme Bac 2021 - Première** (2019 →)
-   - 11 enseignement (spécialités + tronc commun)
-   - Première session: 2021
-
-4. **Réforme Bac 2021 - Terminale** (2020 →)
-   - 12 enseignement (spécialités + tronc commun + options)
-   - Première session: juin 2021
-
-5. **Programme Mathématiques 2023** (2023 →)
-   - 5 enseignement de maths (1re + Tle)
-   - Ajustements mineurs
-
-### Programmes Inactifs 🔴
-
-6. **Programme Lycée 2010 - Série S** (2012-2020)
-   - Dernière session: juin 2020
-
-7. **Programme Lycée 2010 - Série ES** (2012-2020)
-
-8. **Programme Lycée 2010 - Série L** (2012-2020)
+Les seeds évoluent dans `prisma/seeds/curriculum.seed.ts`. Le jeu exact (noms, dates, actifs/inactifs) est susceptible d'évoluer, donc se référer au fichier plutôt qu'à une liste figée.
 
 ## Hiérarchie complète
 
@@ -94,7 +63,7 @@ model ExamPaper {
 Diploma → Division → Grade → Teaching → Subject → Domain → Theme
                               ^^^^^^
                                 |
-                            Curriculum ← ExamPaper
+Curriculum ← ExamPaper
 ```
 
 **Lien ExamPaper:**
@@ -111,7 +80,7 @@ const examPaper = {
   label: "Métropole Juin 2024",
   sessionYear: 2024,
   teachingId: "...", // Spécialité Mathématiques (Terminale)
-  curriculumId: "...", // Réforme Bac 2021 - Terminale
+  curriculumId: "...", // Réforme Bac 2021 - Terminale (optionnel)
   // ...
 };
 ```
@@ -123,7 +92,7 @@ const oldExamPaper = {
   label: "Métropole Juin 2019",
   sessionYear: 2019,
   teachingId: "...", // Mathématiques Série S
-  curriculumId: "...", // Programme Lycée 2010 - Série S
+  curriculumId: "...", // Programme Lycée 2010 - Série S (optionnel)
   // ...
 };
 ```
@@ -148,20 +117,16 @@ const papers = await prisma.examPaper.findMany({
 ### 4. Trouver le bon programme pour une annale
 
 ```typescript
-// Logique de sélection automatique
-function findCurriculum(sessionYear: number, teachingId: string) {
-  // Si 2021 ou après → Réforme Bac 2021
-  // Si 2020 ou avant → Ancien programme
-  
-  if (sessionYear >= 2021) {
-    return prisma.curriculum.findFirst({
-      where: {
-        longDescription: { startsWith: "Réforme Bac 2021" },
-        teachingIds: { has: teachingId }
-      }
-    });
-  }
-  // ...
+// Logique de sélection automatique (exemple)
+async function findCurriculum(sessionDate: Date, teachingId: string) {
+  return prisma.curriculum.findFirst({
+    where: {
+      teachingIds: { has: teachingId },
+      startDate: { lte: sessionDate },
+      OR: [{ endDate: null }, { endDate: { gte: sessionDate } }],
+    },
+    orderBy: { startDate: "desc" },
+  });
 }
 ```
 
@@ -175,7 +140,7 @@ function findCurriculum(sessionYear: number, teachingId: string) {
 
 ## Impact sur les données existantes
 
-⚠️ **ExamPaper nécessite maintenant `curriculumId`**
+⚠️ **`curriculumId` est optionnel mais recommandé** pour tracer le programme exact.
 
 Migration nécessaire si des ExamPaper existent déjà:
 1. Identifier le programme selon `sessionYear` et `teachingId`
@@ -195,5 +160,4 @@ Vérification:
 ```bash
 npx ts-node scripts/test-curriculums.ts
 ```
-
-Résultat: 8 programmes créés, 5 actifs, correctement liés aux 28 enseignement.
+Le script vérifie la cohérence des programmes et des enseignements liés.

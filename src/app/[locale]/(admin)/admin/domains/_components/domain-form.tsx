@@ -39,12 +39,16 @@ interface DomainFormProps {
   diplomas: Option[];
   grades: Option[];
   divisions: Option[];
+  teachings: Option[];
+  curriculums: Option[];
 }
 
 type DomainScopeForm = {
   diplomaId?: string | null;
   gradeId?: string | null;
   divisionId?: string | null;
+  teachingId?: string | null;
+  curriculumId?: string | null;
   labelOverride?: string | null;
   order?: number | null;
   isActive?: boolean;
@@ -63,6 +67,8 @@ export const DomainForm = ({
   diplomas,
   grades,
   divisions,
+  teachings,
+  curriculums,
 }: DomainFormProps) => {
   const common = useCommonTranslations();
   const [scopes, setScopes] = useState<DomainScopeForm[]>(
@@ -115,6 +121,8 @@ export const DomainForm = ({
         diplomaId: null,
         gradeId: null,
         divisionId: null,
+        teachingId: null,
+        curriculumId: null,
         labelOverride: "",
         order: null,
         isActive: true,
@@ -246,7 +254,7 @@ export const DomainForm = ({
             <div>
               <div className="text-sm font-semibold text-heading">Portée du domaine</div>
               <p className="text-xs text-muted-foreground">
-                Associe le domaine à un diplôme / niveau (optionnel).
+                Associe le domaine à un diplôme / niveau / enseignement / programme (optionnel).
               </p>
             </div>
             <Button type="button" variant="secondary" size="sm" onClick={addScope}>
@@ -336,6 +344,50 @@ export const DomainForm = ({
                           {divisions.map((division) => (
                             <SelectItem key={division.value} value={division.value}>
                               {division.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                  <div className="grid gap-3 md:grid-cols-2">
+                    <div className="space-y-1">
+                      <span className="text-xs font-semibold text-muted-foreground">Enseignement</span>
+                      <Select
+                        value={scope.teachingId ?? "none"}
+                        onValueChange={(value) =>
+                          updateScope(index, { teachingId: value === "none" ? null : value })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Tous les enseignements" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="none">Tous les enseignements</SelectItem>
+                          {teachings.map((teaching) => (
+                            <SelectItem key={teaching.value} value={teaching.value}>
+                              {teaching.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-xs font-semibold text-muted-foreground">Programme</span>
+                      <Select
+                        value={scope.curriculumId ?? "none"}
+                        onValueChange={(value) =>
+                          updateScope(index, { curriculumId: value === "none" ? null : value })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Tous les programmes" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="none">Tous les programmes</SelectItem>
+                          {curriculums.map((curriculum) => (
+                            <SelectItem key={curriculum.value} value={curriculum.value}>
+                              {curriculum.label}
                             </SelectItem>
                           ))}
                         </SelectContent>

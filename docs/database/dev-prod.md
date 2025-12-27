@@ -130,12 +130,15 @@ En PROD (Render) : la migration se jouera automatiquement via “Pre-deploy”.
 ### Scénario 3 bis — Normaliser apostrophes et abréviations (domaines/thèmes)
 
 Quand des imports produisent des apostrophes typographiques ou des variantes d’écriture :
-- migration réutilisable : `scripts/migrations/2025-12-16-0002-normalize-domain-theme-apostrophes.ts`
+- migrations réutilisables :
+  - `scripts/migrations/2025-12-16-0002-normalize-domain-theme-apostrophes.ts`
+  - `scripts/migrations/2025-12-16-0004-abbreviate-inequation-system-theme-short.ts`
 - effet :
   - normalise les apostrophes vers `'` (ASCII) dans `Domain` et `Theme`
   - fusionne les doublons de domaines (même `subjectId` + `longDescription` normalisée)
   - ré-attache `Theme`/`DomainScope` et met à jour `ExamPaper.domainIds`
   - abrège `fonction(s)` → `fct(s)` et `équation(s)` → `éq./éqs.` dans `Theme.shortDescription` (casse préservée)
+  - abrège `inéquation(s)` → `inéq./inéqs.` et `système(s)` → `syst.`
 
 Exécution (comme toute migration data) :
 ```bash
