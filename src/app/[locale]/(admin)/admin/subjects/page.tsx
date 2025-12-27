@@ -20,7 +20,7 @@ const SubjectsPage = async () => {
         redirect("/log-in");
     }
 
-    const subjects = await fetchSubjects();
+    const subjects = await fetchSubjects({ includeInactive: true });
     const t = await getTranslations('entities.subject');
 
     return (

@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const AddDomainPage = async () => {
-  const subjects = await fetchSubjectsOptions();
+  const subjects = await fetchSubjectsOptions({ includeInactive: true });
   const diplomas = await fetchDiplomasOptions();
   const grades = await fetchGradesOptions();
   const divisions = await fetchDivisionsOptions();

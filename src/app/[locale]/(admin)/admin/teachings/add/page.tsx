@@ -19,7 +19,7 @@ const AddCoursePage = async () => {
     }
 
     const grades = await fetchGradesOptions();
-    const subjects = await fetchSubjectsOptions();
+    const subjects = await fetchSubjectsOptions({ includeInactive: true });
 
     return (
         <div className="w-full p-6">

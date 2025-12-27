@@ -45,6 +45,7 @@ const EditSubjectPage = async ({ params }: SubjectEditProps) => {
                         id,
                         longDescription: subject?.longDescription ?? "",
                         shortDescription: subject?.shortDescription ?? "",
+                        isActive: subject?.isActive ?? true,
                     }}
                 />
             </div>

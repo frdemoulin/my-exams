@@ -22,7 +22,7 @@ const DomainsPage = async () => {
   }
 
   const domains = await fetchDomainsWithIncludes();
-  const subjects = await fetchSubjectsOptions();
+  const subjects = await fetchSubjectsOptions({ includeInactive: true });
   const t = await getTranslations("entities.domain");
 
   return (

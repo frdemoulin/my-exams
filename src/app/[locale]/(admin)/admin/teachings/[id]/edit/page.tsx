@@ -35,7 +35,7 @@ const EditCoursePage = async ({ params }: EditCoursePageProps) => {
     }
 
     const grades = await fetchGradesOptions();
-    const subjects = await fetchSubjectsOptions();
+    const subjects = await fetchSubjectsOptions({ includeInactive: true });
     const t = await getTranslations('entities.teaching');
 
     return (

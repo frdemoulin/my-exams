@@ -21,6 +21,7 @@ const AddSubjectPage = async () => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
+                        isActive: true,
                     }}
                 />
             </div>
