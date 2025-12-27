@@ -1,3 +1,8 @@
+## <small>1.4.6 (2025-12-27)</small>
+
+* Merge pull request #55 from frdemoulin/dev ([931180a](https://github.com/frdemoulin/my-exams/commit/931180a)), closes [#55](https://github.com/frdemoulin/my-exams/issues/55)
+* fix: mise à jour des docs et gestion du scope d'un domaine ([f13f6e5](https://github.com/frdemoulin/my-exams/commit/f13f6e5))
+
 ## <small>1.4.5 (2025-12-27)</small>
 
 * Merge pull request #54 from frdemoulin/dev ([b3bfb2e](https://github.com/frdemoulin/my-exams/commit/b3bfb2e)), closes [#54](https://github.com/frdemoulin/my-exams/issues/54)
