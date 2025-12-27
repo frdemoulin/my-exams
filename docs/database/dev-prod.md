@@ -127,6 +127,21 @@ npm run db:migrate
 
 En PROD (Render) : la migration se jouera automatiquement via “Pre-deploy”.
 
+### Scénario 3 bis — Normaliser apostrophes et abréviations (domaines/thèmes)
+
+Quand des imports produisent des apostrophes typographiques ou des variantes d’écriture :
+- migration réutilisable : `scripts/migrations/2025-12-16-0002-normalize-domain-theme-apostrophes.ts`
+- effet :
+  - normalise les apostrophes vers `'` (ASCII) dans `Domain` et `Theme`
+  - fusionne les doublons de domaines (même `subjectId` + `longDescription` normalisée)
+  - ré-attache `Theme`/`DomainScope` et met à jour `ExamPaper.domainIds`
+  - abrège `fonction(s)` → `fct(s)` et `équation(s)` → `éq./éqs.` dans `Theme.shortDescription` (casse préservée)
+
+Exécution (comme toute migration data) :
+```bash
+npm run db:migrate
+```
+
 ### Scénario 4 — Déploiement Render (PROD) : schéma + migrations data
 
 Dans Render, configure la **Pre-deploy command** :
