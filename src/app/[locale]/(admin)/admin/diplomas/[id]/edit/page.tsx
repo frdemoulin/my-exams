@@ -39,6 +39,7 @@ const EditDiplomaPage = async ({ params }: DiplomaEditProps) => {
                         id,
                         longDescription: diploma.longDescription ?? "",
                         shortDescription: diploma.shortDescription ?? "",
+                        isActive: diploma.isActive ?? true,
                     }}
                 />
             </div>

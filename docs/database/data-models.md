@@ -7,6 +7,7 @@
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue du diplôme|
 |shortDescription|VARCHAR(255)|NOT NULL|La description courte du diplôme|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Diplôme actif (affiché côté élève)|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 

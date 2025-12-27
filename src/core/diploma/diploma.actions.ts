@@ -9,19 +9,27 @@ import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateDiplomaErrors } from "./diploma.types";
 
 export const createDiploma = async (formData: FormData) => {
-    const values = Object.fromEntries(formData.entries());
+    const longDescription = formData.get("longDescription") as string;
+    const shortDescription = formData.get("shortDescription") as string;
+    const isActiveValue = formData.get("isActive");
+    const isActive = isActiveValue == null ? true : isActiveValue === "true";
 
-    const result = createDiplomaSchema.safeParse(values);
+    const result = createDiplomaSchema.safeParse({
+        longDescription,
+        shortDescription,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription } = result.data;
+        const { longDescription, shortDescription, isActive } = result.data;
 
         // create diploma in database
         try {
             await prisma.diploma.create({
                 data: {
                     longDescription,
-                    shortDescription
+                    shortDescription,
+                    isActive,
                 }
             });
         } catch (error: any) {
@@ -45,12 +53,19 @@ export const createDiploma = async (formData: FormData) => {
 }
 
 export const updateDiploma = async (id: string | undefined, formData: FormData) => {
-    const values = Object.fromEntries(formData.entries());
+    const longDescription = formData.get("longDescription") as string;
+    const shortDescription = formData.get("shortDescription") as string;
+    const isActiveValue = formData.get("isActive");
+    const isActive = isActiveValue == null ? true : isActiveValue === "true";
 
-    const result = createDiplomaSchema.safeParse(values);
+    const result = createDiplomaSchema.safeParse({
+        longDescription,
+        shortDescription,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription } = result.data;
+        const { longDescription, shortDescription, isActive } = result.data;
 
         try {
             await prisma.diploma.update({
@@ -59,7 +74,8 @@ export const updateDiploma = async (id: string | undefined, formData: FormData) 
                 },
                 data: {
                     longDescription,
-                    shortDescription
+                    shortDescription,
+                    isActive,
                 }
             });
 

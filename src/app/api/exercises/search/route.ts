@@ -13,6 +13,7 @@ export async function GET(request: NextRequest) {
     // Extraction des paramètres
     const diploma = searchParams.get('diploma') || undefined;
     const subject = searchParams.get('subject') || undefined;
+    const teachingId = searchParams.get('teachingId') || undefined;
     const difficulty = searchParams.get('difficulty')
       ? parseInt(searchParams.get('difficulty')!)
       : undefined;
@@ -40,6 +41,7 @@ export async function GET(request: NextRequest) {
     const result = await searchExercises({
       diploma,
       subject,
+      teachingId,
       difficulty,
       themes,
       year,

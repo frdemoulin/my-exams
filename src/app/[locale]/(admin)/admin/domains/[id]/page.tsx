@@ -32,7 +32,7 @@ const DomainDetailPage = async ({ params }: DomainDetailPageProps) => {
 
   const domain = await fetchDomainById(id);
   const themes = await fetchThemesByDomainId(id);
-  const diplomas = await fetchDiplomasOptions();
+  const diplomas = await fetchDiplomasOptions({ includeInactive: true });
   const grades = await fetchGradesOptions();
   const divisions = await fetchDivisionsOptions();
   const teachings = await fetchTeachingsOptions();

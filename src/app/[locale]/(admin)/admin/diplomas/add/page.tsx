@@ -23,6 +23,7 @@ const AddDiplomaPage = async () => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
+                        isActive: true,
                     }}
                 />
             </div>

@@ -2,8 +2,15 @@ import prisma from "@/lib/db/prisma";
 import { Diploma } from "@prisma/client";
 import { Option } from "@/types/option";
 
-export async function fetchDiplomas(): Promise<Diploma[]> {
+type DiplomaQueryOptions = {
+    includeInactive?: boolean;
+};
+
+export async function fetchDiplomas(
+    options: DiplomaQueryOptions = {}
+): Promise<Diploma[]> {
     return await prisma.diploma.findMany({
+        where: options.includeInactive ? undefined : { isActive: true },
         orderBy: [
             {
                 createdAt: "asc",
@@ -12,8 +19,11 @@ export async function fetchDiplomas(): Promise<Diploma[]> {
     });
 }
 
-export async function fetchDiplomasOptions(): Promise<Option[]> {
+export async function fetchDiplomasOptions(
+    options: DiplomaQueryOptions = {}
+): Promise<Option[]> {
     const diplomas = await prisma.diploma.findMany({
+        where: options.includeInactive ? undefined : { isActive: true },
         orderBy: [
             {
                 longDescription: "asc",

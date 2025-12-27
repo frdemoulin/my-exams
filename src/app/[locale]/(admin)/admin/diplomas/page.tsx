@@ -22,7 +22,7 @@ const DiplomasPage = async () => {
         redirect("/log-in");
     }
 
-    const diplomas = await fetchDiplomas();
+    const diplomas = await fetchDiplomas({ includeInactive: true });
     const t = await getTranslations('entities.diploma');
 
     return (
