@@ -1,15 +1,39 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
 import prisma from "@/lib/db/prisma";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const searchParams = request.nextUrl.searchParams;
+    const diploma = searchParams.get("diploma") || undefined;
+
+    const where: Prisma.SubjectWhereInput = { isActive: true };
+
+    if (diploma) {
+      where.teachings = {
+        some: {
+          examPapers: {
+            some: {
+              diploma: {
+                isActive: true,
+                OR: [
+                  { shortDescription: { contains: diploma, mode: "insensitive" } },
+                  { longDescription: { contains: diploma, mode: "insensitive" } },
+                ],
+              },
+            },
+          },
+        },
+      };
+    }
+
     const subjects = await prisma.subject.findMany({
       select: {
         id: true,
         shortDescription: true,
         longDescription: true,
       },
-      where: { isActive: true },
+      where,
       orderBy: { shortDescription: 'asc' },
     });
 

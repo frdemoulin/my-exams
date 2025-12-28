@@ -7,6 +7,7 @@ import prisma from "@/lib/db/prisma";
 import { createDomainSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateDomainErrors } from "./domain.types";
+
 type DomainScopeInput = {
     diplomaId?: string | null;
     gradeId?: string | null;
@@ -16,6 +17,12 @@ type DomainScopeInput = {
     labelOverride?: string | null;
     order?: number | null;
     isActive?: boolean;
+};
+
+type DeleteDomainOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
 };
 
 const emptyToNull = (value: unknown) =>
@@ -222,7 +229,7 @@ export const updateDomainScopes = async (domainId: string, formData: FormData) =
     revalidatePath(`/admin/domains/${domainId}/edit`);
 }
 
-export const deleteDomain = async (id: string) => {
+export const deleteDomain = async (id: string, options?: DeleteDomainOptions) => {
     try {
         await prisma.domainScope.deleteMany({
             where: { domainId: id },
@@ -235,7 +242,12 @@ export const deleteDomain = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/domains");
-    await setCrudSuccessToast("domain", "deleted");
-    redirect("/admin/domains");
+    const paths = new Set(["/admin/domains", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("domain", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/domains");
+    }
 }

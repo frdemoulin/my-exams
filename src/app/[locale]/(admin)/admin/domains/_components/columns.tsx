@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import {
   DropdownMenu,
@@ -19,16 +20,52 @@ import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 import { DomainData } from "@/core/domain";
 
-const handleOnClickDeleteButton = async (id: string) => {
-  try {
-    await deleteDomain(id);
-    toast.success("Domaine supprimé");
-  } catch (error) {
-    if (error && typeof error === "object" && "digest" in error && String(error.digest).startsWith("NEXT_REDIRECT")) {
-      throw error;
+const DomainActions = ({ domain }: { domain: DomainData }) => {
+  const router = useRouter();
+
+  const handleOnClickDeleteButton = async () => {
+    try {
+      await deleteDomain(domain.id, { redirectTo: null, skipSuccessToast: true });
+      toast.success("Domaine supprimé");
+      router.refresh();
+    } catch (error) {
+      if (error && typeof error === "object" && "digest" in error && String(error.digest).startsWith("NEXT_REDIRECT")) {
+        throw error;
+      }
+      toast.error("Erreur dans la suppression du domaine");
     }
-    toast.error("Erreur dans la suppression du domaine");
-  }
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button type="button" className={actionMenuTrigger}>
+          <span className="sr-only">Open menu</span>
+          <MoreHorizontal className="h-4 w-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className={actionMenuContent}>
+        <div className={actionMenuHeader}>Actions</div>
+        <DropdownMenuItem className={actionMenuItem}>
+          <Link href={`/admin/domains/${domain.id}`}>Voir</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className={actionMenuItem}>
+          <Link href={`/admin/domains/${domain.id}/edit`}>Éditer</Link>
+        </DropdownMenuItem>
+        <ConfirmDeleteDialog
+          onConfirm={handleOnClickDeleteButton}
+          trigger={
+            <DropdownMenuItem
+              className={`${actionMenuItem} hover:cursor-pointer`}
+              onSelect={(event) => event.preventDefault()}
+            >
+              Supprimer
+            </DropdownMenuItem>
+          }
+        />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 };
 
 const localeSort = localeStringSort<DomainData>();
@@ -87,36 +124,7 @@ export const columns: ColumnDef<DomainData>[] = [
     cell: ({ row }) => {
       const domain = row.original;
 
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button type="button" className={actionMenuTrigger}>
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className={actionMenuContent}>
-            <div className={actionMenuHeader}>Actions</div>
-            <DropdownMenuItem className={actionMenuItem}>
-              <Link href={`/admin/domains/${domain.id}`}>Voir</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem className={actionMenuItem}>
-              <Link href={`/admin/domains/${domain.id}/edit`}>Éditer</Link>
-            </DropdownMenuItem>
-            <ConfirmDeleteDialog
-              onConfirm={() => handleOnClickDeleteButton(domain.id)}
-              trigger={
-                <DropdownMenuItem
-                  className={`${actionMenuItem} hover:cursor-pointer`}
-                  onSelect={(event) => event.preventDefault()}
-                >
-                  Supprimer
-                </DropdownMenuItem>
-              }
-            />
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
+      return <DomainActions domain={domain} />;
     },
   },
 ];

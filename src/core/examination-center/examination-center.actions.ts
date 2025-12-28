@@ -8,6 +8,12 @@ import { createExaminationCenterSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateExaminationCenterErrors } from "./examination-center.types";
 
+type DeleteExaminationCenterOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
+};
+
 export const createExaminationCenter = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
@@ -77,7 +83,10 @@ export const updateExaminationCenter = async (id: string | undefined, formData: 
     }
 }
 
-export const deleteExaminationCenter = async (id: string) => {
+export const deleteExaminationCenter = async (
+    id: string,
+    options?: DeleteExaminationCenterOptions
+) => {
     try {
         await prisma.examinationCenter.delete({
             where: {
@@ -90,7 +99,12 @@ export const deleteExaminationCenter = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/examination-centers");
-    await setCrudSuccessToast("examinationCenter", "deleted");
-    redirect("/admin/examination-centers");
+    const paths = new Set(["/admin/examination-centers", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("examinationCenter", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/examination-centers");
+    }
 }

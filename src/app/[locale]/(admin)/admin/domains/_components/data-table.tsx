@@ -79,7 +79,8 @@ export function DataTable({
     const target = event.target as HTMLElement;
     if (
       target.closest("[data-row-action]") ||
-      target.closest("a, button, [role='button'], input, select, textarea")
+      target.closest("a, button, [role='button'], input, select, textarea") ||
+      target.closest("[role='menuitem']")
     ) {
       return;
     }

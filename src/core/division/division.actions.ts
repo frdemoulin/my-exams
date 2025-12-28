@@ -8,6 +8,12 @@ import { createDivisionSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateDivisionErrors } from "./division.types";
 
+type DeleteDivisionOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
+};
+
 export const createDivision = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
@@ -79,7 +85,7 @@ export const updateDivision = async (id: string | undefined, formData: FormData)
     }
 }
 
-export const deleteDivision = async (id: string) => {
+export const deleteDivision = async (id: string, options?: DeleteDivisionOptions) => {
     try {
         await prisma.division.delete({
             where: {
@@ -92,7 +98,12 @@ export const deleteDivision = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/divisions");
-    await setCrudSuccessToast("division", "deleted");
-    redirect("/admin/divisions");
+    const paths = new Set(["/admin/divisions", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("division", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/divisions");
+    }
 }

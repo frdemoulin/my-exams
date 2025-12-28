@@ -170,7 +170,15 @@ export async function updateCurriculum(
     redirect("/admin/curriculums");
 }
 
-export async function deleteCurriculum(id: string): Promise<void> {
+type DeleteCurriculumOptions = {
+    skipSuccessToast?: boolean;
+    revalidatePaths?: string[];
+};
+
+export async function deleteCurriculum(
+    id: string,
+    options?: DeleteCurriculumOptions
+): Promise<void> {
     try {
         // Check if curriculum is used by exam papers
         const examPaperCount = await prisma.examPaper.count({
@@ -187,8 +195,11 @@ export async function deleteCurriculum(id: string): Promise<void> {
             where: { id },
         });
 
-        await setCrudSuccessToast("curriculum", "deleted");
-        revalidatePath("/admin/curriculums");
+        if (!options?.skipSuccessToast) {
+            await setCrudSuccessToast("curriculum", "deleted");
+        }
+        const paths = new Set(["/admin/curriculums", ...(options?.revalidatePaths ?? [])]);
+        paths.forEach((path) => revalidatePath(path));
     } catch (error: unknown) {
         if (error instanceof Error) {
             throw error;

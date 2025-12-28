@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -29,6 +30,7 @@ export const SubjectForm = ({
     crudMode,
     initialData
 }: SubjectFormProps) => {
+    const router = useRouter();
     const entity = useEntityTranslation('subject');
     const common = useCommonTranslations();
     
@@ -45,10 +47,12 @@ export const SubjectForm = ({
         formData.append("isActive", String(values.isActive));
         
         if (!initialData.id) {
-            await createSubject(formData);
+            await createSubject(formData, { redirectTo: null });
         } else {
-            await updateSubject(initialData.id, formData);
+            await updateSubject(initialData.id, formData, { redirectTo: null });
         }
+        router.push("/admin/subjects");
+        router.refresh();
     }
 
     const {
