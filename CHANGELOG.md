@@ -1,3 +1,8 @@
+## <small>1.4.13 (2025-12-28)</small>
+
+* Merge pull request #62 from frdemoulin/dev ([6bfed72](https://github.com/frdemoulin/my-exams/commit/6bfed72)), closes [#62](https://github.com/frdemoulin/my-exams/issues/62)
+* fix: filtres des options inactives dans le formulaire de création/édition d'un sujet ([c3bf02e](https://github.com/frdemoulin/my-exams/commit/c3bf02e))
+
 ## <small>1.4.12 (2025-12-28)</small>
 
 * Merge pull request #61 from frdemoulin/dev ([632bc8b](https://github.com/frdemoulin/my-exams/commit/632bc8b)), closes [#61](https://github.com/frdemoulin/my-exams/issues/61)
