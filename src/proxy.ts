@@ -24,5 +24,13 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  const localeMatch = pathname.match(/^\/(fr|en)(\/|$)/);
+  if (localeMatch) {
+    const url = request.nextUrl.clone();
+    const trimmed = pathname.replace(/^\/(fr|en)/, "");
+    url.pathname = trimmed === "" ? "/" : trimmed;
+    return NextResponse.redirect(url);
+  }
+
   return intlMiddleware(request);
 }

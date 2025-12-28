@@ -29,8 +29,8 @@ Documentation sur l'architecture technique de l'application.
 Guides pratiques et tutoriels pour comprendre les concepts clés.
 
 - **[javascript-concepts.md](./guides/javascript-concepts.md)** - Concepts fondamentaux JavaScript (Promises, async/await)
-- **[i18n.md](./guides/i18n.md)** - Internationalisation avec next-intl
-- **[translations.md](./guides/translations.md)** - Gestion des traductions
+- **[i18n.md](./guides/i18n.md)** - Libellés & terminologie (next-intl en mono-langue)
+- **[translations.md](./guides/translations.md)** - Glossaire métier (termes techniques → vocabulaire produit)
 
 ### 🗄️ Database
 Documentation liée à la base de données et Prisma.

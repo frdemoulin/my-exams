@@ -24,9 +24,9 @@ Le public visé est **jeune (collège / lycée)**, mobile-first, peu tolérant �
 ## 3. Fonctionnalités accessibles **sans compte**
 
 ### 3.1 Accès & navigation
-- 🔍 Recherche d’annales (diplôme, matière, thème, année)
+- 🔍 Recherche d’annales (diplôme → matière → session → option/spécialité si applicable → domaines/thèmes)
 - 🧭 Parcours libre des résultats
-- 🏷️ Filtres (thème, difficulté estimée, durée)
+- 🏷️ Filtres (domaines/thèmes, difficulté estimée, durée)
 - 👀 Consultation des métadonnées d’un sujet
 - 🔗 Redirection vers les sites sources (si contenu non hébergé)
 
@@ -38,7 +38,7 @@ Le public visé est **jeune (collège / lycée)**, mobile-first, peu tolérant �
 
 ### 3.3 Personnalisation légère (locale)
 - 🌗 Thème clair / sombre
-- 🎓 Choix du niveau par défaut (collège / lycée / spécialité)
+- 🎓 Choix du diplôme/matière par défaut (préférence locale)
 - 🧭 Mémorisation des derniers filtres utilisés
 
 ### 3.4 Limites assumées
@@ -139,4 +139,3 @@ Objectif : **aucune perte de données, expérience fluide et transparente**.
 - Positionner l’authentification comme un **outil de sauvegarde et de continuité**
 
 👉 Cette approche maximise l’adoption, respecte le public jeune et prépare naturellement l’évolution vers des fonctionnalités avancées.
-

@@ -46,6 +46,11 @@ export const Sidebar = () => {
           icon: <FaBook className="mr-3" size={16} />
         },
         {
+          title: 'Domaines',
+          path: '/admin/domains',
+          icon: <FaList className="mr-3" size={16} />
+        },
+        {
           title: 'Enseignements',
           path: '/admin/teachings',
           icon: <FaGraduationCap className="mr-3" size={16} />
@@ -59,11 +64,6 @@ export const Sidebar = () => {
           title: 'Matières',
           path: '/admin/subjects',
           icon: <FaBook className="mr-3" size={16} />
-        },
-        {
-          title: 'Domaines',
-          path: '/admin/domains',
-          icon: <FaList className="mr-3" size={16} />
         },
         {
           title: 'Niveaux scolaires',
@@ -89,6 +89,11 @@ export const Sidebar = () => {
           title: "Centres d'examen",
           path: '/admin/examination-centers',
           icon: <FaCity className="mr-3" size={16} />
+        },
+        {
+          title: "Exercices",
+          path: '/admin/exercises',
+          icon: <FaArrowsTurnToDots className="mr-3" size={16} />
         },
         {
           title: "Sujets d'examen",
@@ -121,14 +126,14 @@ export const Sidebar = () => {
       title: 'Utilisateurs',
       list: [
         {
-          title: 'Utilisateurs',
-          path: '/admin/users',
-          icon: <FaUsers className="mr-3" size={16} />
-        },
-        {
           title: 'Journal de connexion',
           path: '/admin/log-users',
           icon: <FaRightToBracket className="mr-3" size={16} />
+        },
+        {
+          title: 'Utilisateurs',
+          path: '/admin/users',
+          icon: <FaUsers className="mr-3" size={16} />
         },
       ]
     }

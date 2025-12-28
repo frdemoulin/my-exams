@@ -34,6 +34,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Description** : Filière au sein d'un diplôme
 - **Exemples** : Générale, Technologique, Professionnelle
 - **Relations** : ExamPaper
+- **Note** : `isActive` permet de masquer une filière côté élève sans la supprimer.
 
 ### 3. Grade
 - **Description** : Niveau scolaire
@@ -50,6 +51,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
 - **Propriétés** :
   - `longDescription` : Nom complet (ex: "Spécialité Mathématiques")
   - `shortDescription` : Nom court (ex: "Spé Maths")
+  - `isActive` : Permet de masquer un enseignement côté élève
   - `gradeId` : Niveau scolaire
   - `subjectId` : Matière de référence
 - **Relations** : Grade, Subject, ExamPaper
@@ -75,6 +77,7 @@ Diploma (Bac Général, Bac Technologique, Bac Pro, Brevet, etc.)
   - `discipline` : PHYSIQUE | CHIMIE | TRANSVERSAL (optionnel)
 - **Relations** : Subject, Theme, DomainScope
 - **Contrainte unique** : `[longDescription, subjectId]`
+- **Note** : `isActive` permet de masquer un domaine côté élève sans le supprimer.
 
 ### 6bis. DomainScope (DomainScope)
 - **Description** : Portée d'un domaine par diplôme/niveau (activation ciblée)

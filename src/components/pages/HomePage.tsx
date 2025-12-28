@@ -50,11 +50,11 @@ export default function HomePage({
   const [selectedTeaching, setSelectedTeaching] = useState<string | undefined>();
   const [selectedSessionYear, setSelectedSessionYear] = useState<number | null | undefined>();
   const [selectedThemes, setSelectedThemes] = useState<Array<{ id: string; label: string }>>([]);
-  const [exercises, setExercises] = useState<ExerciseWithRelations[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [hasUserSearched, setHasUserSearched] = useState(false);
   const [sortBy, setSortBy] = useState<'year' | 'difficulty' | 'duration' | undefined>('year');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc'); // desc par défaut (plus récent/difficile/long en premier)
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
@@ -73,14 +73,8 @@ export default function HomePage({
     Array<{ value: string; label: string }>
   >([]);
   const [isTeachingLoading, setIsTeachingLoading] = useState(false);
-  const baseSessionOptions = useMemo(() => {
-    const set = new Set<number>();
-    exercises.forEach((ex) => {
-      if (ex.examPaper.sessionYear) set.add(ex.examPaper.sessionYear);
-    });
-    return Array.from(set).sort((a, b) => b - a);
-  }, [exercises]);
-  const [sessionOptions, setSessionOptions] = useState(() => baseSessionOptions);
+  const baseSessionOptions = useMemo<number[]>(() => [], []);
+  const [sessionOptions, setSessionOptions] = useState<number[]>(() => baseSessionOptions);
   const [isSessionLoading, setIsSessionLoading] = useState(false);
   const baseSubjectOptions = useMemo(() => {
     return initialSubjects
@@ -95,7 +89,7 @@ export default function HomePage({
   const [subjectOptions, setSubjectOptions] = useState(() => baseSubjectOptions);
   const [isSubjectLoading, setIsSubjectLoading] = useState(false);
 
-  // Fetch exercises on mount
+  // Initialisation locale (favoris)
   useEffect(() => {
     // Charger les favoris depuis localStorage
     try {
@@ -106,21 +100,28 @@ export default function HomePage({
     } catch (error) {
       console.error('Error loading favorites:', error);
     }
-
-    fetch('/api/exercises/search')
-      .then(res => res.json())
-      .then(data => {
-        setExercises(data.exercises || []);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching exercises:', err);
-        setLoading(false);
-      });
+    setLoading(false);
   }, []);
+
+  const hasActiveSearch = Boolean(
+    search.trim() ||
+    selectedDiploma ||
+    selectedSubject ||
+    selectedTeaching ||
+    selectedSessionYear != null ||
+    selectedThemes.length > 0
+  );
 
   // Fonction de recherche réutilisable (appel API avec filtres)
   const performSearch = useCallback(() => {
+    if (!hasActiveSearch && !hasUserSearched) {
+      setIsSearching(false);
+      setShowResults(false);
+      setFilteredExercises([]);
+      setTotal(0);
+      return;
+    }
+
     setIsSearching(true);
 
     // Construction des query params
@@ -157,6 +158,8 @@ export default function HomePage({
         setIsSearching(false);
       });
   }, [
+    hasActiveSearch,
+    hasUserSearched,
     search,
     selectedDiploma,
     selectedSubject,
@@ -225,7 +228,11 @@ export default function HomePage({
 
   const handleSearchSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // La recherche se fait automatiquement, on empêche juste le reload de la page
+    setHasUserSearched(true);
+    setPage(1);
+    if (hasActiveSearch) {
+      performSearch();
+    }
   };
 
   const handleSortChange = (newSortBy: 'year' | 'difficulty' | 'duration') => {
@@ -251,6 +258,7 @@ export default function HomePage({
     setSearch('');
     setPage(1);
     setShowResults(false);
+    setHasUserSearched(false);
   };
 
   const hasNextPage = page * pageSize < total;
@@ -313,20 +321,11 @@ export default function HomePage({
       .length + selectedThemes.length;
 
   const diplomaOptions = useMemo(() => {
-    if (initialDiplomas.length > 0) {
-      return initialDiplomas
-        .map((d) => d.shortDescription || d.longDescription)
-        .filter(Boolean)
-        .sort((a, b) => a.localeCompare(b));
-    }
-
-    const set = new Set<string>();
-    exercises.forEach((ex) => {
-      const label = ex.examPaper.diploma.shortDescription;
-      if (label) set.add(label);
-    });
-    return Array.from(set).sort();
-  }, [exercises, initialDiplomas]);
+    return initialDiplomas
+      .map((d) => d.shortDescription || d.longDescription)
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b));
+  }, [initialDiplomas]);
 
   const showTeachingFilter = true;
 
@@ -457,8 +456,16 @@ export default function HomePage({
     <div className="mb-4 inline-flex items-center gap-2 rounded-base border border-default bg-neutral-primary-soft px-3 py-1 text-[11px] font-semibold tracking-tight text-body shadow-xs">
       <span className="h-2 w-2 rounded-full bg-success" />
       <span>{children}</span>
-      </div>
+    </div>
   );
+
+  const HERO = {
+    eyebrow: "📚 Base d’annales en construction",
+    titlePrefix: "Des exercices d’annales officiels, indexés pour réviser",
+    titleEmphasis: "efficacement",
+    subtitle:
+      "Filtres rapides pensés pour le bac : diplôme, matière, session, spécialité et thèmes",
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -479,61 +486,68 @@ export default function HomePage({
             </div>
           </div>
 
-          <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            {session?.user && (
-              <Link href="/admin" className="hover:text-foreground">
-                Administration
+          <div className="flex items-center gap-3">
+            <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
+              {session?.user && (
+                <Link href="/admin" className="hover:text-foreground">
+                  Administration
+                </Link>
+              )}
+              <Link href="/contact" className="hover:text-foreground">
+                Contact
               </Link>
-            )}
+              {!session?.user && (
+                <Link
+                  href="/log-in"
+                  className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
+                >
+                  <LogIn className="h-4 w-4" />
+                  <span>Se connecter</span>
+                </Link>
+              )}
+              {session?.user && (
+                <button
+                  type="button"
+                  onClick={() => signOut({ callbackUrl: '/' })}
+                  className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
+                  </svg>
+                  <span>Se déconnecter</span>
+                </button>
+              )}
+            </nav>
+            <div className="flex items-center gap-3 md:hidden">
+              {session?.user && (
+                <Link href="/admin" className="text-sm font-semibold text-fg-brand hover:text-heading">
+                  Admin
+                </Link>
+              )}
+              <Link href="/contact" className="text-sm font-semibold text-fg-brand hover:text-heading">
+                Contact
+              </Link>
+              {session?.user ? (
+                <button
+                  type="button"
+                  onClick={() => signOut({ callbackUrl: '/' })}
+                  className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
+                >
+                  <span className="sr-only">Se déconnecter</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
+                  </svg>
+                </button>
+              ) : (
+                <Link
+                  href="/log-in"
+                  className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
+                >
+                  <LogIn className="h-4 w-4" />
+                </Link>
+              )}
+            </div>
             <ThemeToggle />
-            {!session?.user && (
-              <Link
-                href="/log-in"
-                className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
-              >
-                <LogIn className="h-4 w-4" />
-                <span>Se connecter</span>
-              </Link>
-            )}
-            {session?.user && (
-              <button
-                type="button"
-                onClick={() => signOut({ callbackUrl: '/' })}
-                className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
-                </svg>
-                <span>Se déconnecter</span>
-              </button>
-            )}
-          </nav>
-          <div className="flex items-center gap-3 md:hidden">
-            {session?.user && (
-              <Link href="/admin" className="text-sm font-semibold text-fg-brand hover:text-heading">
-                Admin
-              </Link>
-            )}
-            <ThemeToggle />
-            {session?.user ? (
-              <button
-                type="button"
-                onClick={() => signOut({ callbackUrl: '/' })}
-                className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
-              >
-                <span className="sr-only">Se déconnecter</span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
-                </svg>
-              </button>
-            ) : (
-              <Link
-                href="/log-in"
-                className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
-              >
-                <LogIn className="h-4 w-4" />
-              </Link>
-            )}
           </div>
         </div>
       </header>
@@ -544,15 +558,15 @@ export default function HomePage({
         <section className="grid items-start gap-8">
           {/* HERO GAUCHE */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <HeroEyebrow>📚 Plus de 1000 exercices d&apos;annales indexés</HeroEyebrow>
+            <HeroEyebrow>{HERO.eyebrow}</HeroEyebrow>
 
             <h1 className="mb-3 text-balance text-3xl font-extrabold tracking-tight text-heading md:text-4xl lg:text-5xl">
-              Révise tes annales <span className="text-fg-brand">plus efficacement</span>.
+              {HERO.titlePrefix}{" "}
+              <span className="text-fg-brand">{HERO.titleEmphasis}</span>
             </h1>
 
-            <p className="mb-4 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground md:text-base">
-              Cherche un sujet par diplôme, session, matière, option/spécialité, thème ou durée.
-              <br/>En un coup d’œil, vois ceux qui collent à ton niveau et à ton planning, et ouvre en 1 clic les sujets et corrections complètes sur les meilleurs sites d’annales.
+            <p className="mb-5 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground md:text-base">
+              {HERO.subtitle}
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">
@@ -569,12 +583,12 @@ export default function HomePage({
 
             <div className="mb-6 flex flex-wrap gap-6 pt-4 text-xs text-muted-foreground sm:text-sm">
               <div className="space-y-1">
-                <div className="font-semibold text-heading">+1000 exercices</div>
-                <div className="text-[11px] sm:text-xs">Annales récentes et classées par thème</div>
+                <div className="font-semibold text-heading">Base en construction</div>
+                <div className="text-[11px] sm:text-xs">Exercices ajoutés régulièrement</div>
               </div>
               <div className="space-y-1">
-                <div className="font-semibold text-heading">Filtres avancés</div>
-                <div className="text-[11px] sm:text-xs">Diplôme, session, matière, option</div>
+                <div className="font-semibold text-heading">Filtres rapides</div>
+                <div className="text-[11px] sm:text-xs">Diplôme, matière, session, spécialité</div>
               </div>
               <div className="space-y-1">
                 <div className="font-semibold text-heading">Pensé pour le bac</div>
@@ -593,7 +607,7 @@ export default function HomePage({
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Ex : titrage acide-base, loi normale, base de données…"
+                    placeholder="Ex : titrage acide-base, loi binomiale, équations horaires du mouvement…"
                     className="ps-10 pe-4 text-sm"
                     onFocus={() => {
                       if (suggestions.length > 0) setShowSuggestions(true);
@@ -650,7 +664,7 @@ export default function HomePage({
                   type="submit"
                   aria-label="Rechercher"
                   disabled={isSearching}
-                  className="rounded-xl px-4 py-2.5 text-sm font-medium shadow-sm sm:min-w-[120px]"
+                  className="rounded-xl px-4 py-2.5 text-sm font-medium shadow-sm sm:min-w-30"
                 >
                   {isSearching ? (
                     <div className="flex items-center justify-center">
@@ -663,30 +677,26 @@ export default function HomePage({
                 </Button>
               </div>
 
-              <p className="text-xs text-muted-foreground lg:text-left">
-                Suggestion :{' '}
-                <span className="font-medium text-foreground">
-                  &quot;titrage acide-base&quot;
-                </span>{' '}
-                ou{' '}
-                <span className="font-medium text-foreground">
-                  &quot;probabilités loi normale&quot;
-                </span>
-              </p>
             </form>
 
             {/* FILTRES RAPIDES */}
             <div className="mt-6 w-full space-y-4">
               {/* EN-TÊTE AVEC BOUTON RÉINITIALISER */}
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  Filtres rapides
-                  {activeFiltersCount > 0 && (
-                    <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-2xs font-bold text-white">
-                      {activeFiltersCount}
-                    </span>
-                  )}
-                </span>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    Filtres rapides
+                    {activeFiltersCount > 0 && (
+                      <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-2xs font-bold text-white">
+                        {activeFiltersCount}
+                      </span>
+                    )}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    Quelques clics pour filtrer un sujet de bac. Commence par{" "}
+                    <span className="font-medium text-foreground">Diplôme → Matière → Session → Spécialité</span>.
+                  </span>
+                </div>
                 {(activeFiltersCount > 0 || search) && (
                   <Button
                     variant="ghost"
@@ -784,11 +794,11 @@ export default function HomePage({
                       </Select>
                     </div>
 
-                    {/* OPTION / SPÉCIALITÉ */}
+                    {/* SPÉCIALITÉ */}
                     {showTeachingFilter && (
                       <div className="space-y-1.5 md:flex-1">
                         <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                          🧭 Option / Spécialité
+                          🧭 Spécialité
                         </label>
                         {isTeachingLoading ? (
                           <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
@@ -801,18 +811,18 @@ export default function HomePage({
                               setPage(1);
                             }}
                           >
-                            <SelectTrigger aria-label="Filtrer par option ou spécialité" className="h-9 text-sm">
-                              <SelectValue placeholder={teachingOptions.length === 0 ? 'Aucune option' : 'Toutes les options'} />
+                            <SelectTrigger aria-label="Filtrer par spécialité" className="h-9 text-sm">
+                              <SelectValue placeholder={teachingOptions.length === 0 ? 'Aucune spécialité' : 'Toutes les spécialités'} />
                             </SelectTrigger>
                             <SelectContent>
-                            <SelectItem value="all">Toutes les options</SelectItem>
-                            {teachingOptions.map((opt) => (
-                              <SelectItem key={opt.value} value={opt.value}>
-                                {opt.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                              <SelectItem value="all">Toutes les spécialités</SelectItem>
+                              {teachingOptions.map((opt) => (
+                                <SelectItem key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         )}
                       </div>
                     )}
@@ -840,7 +850,7 @@ export default function HomePage({
                     {showTeachingFilter && (
                       <div className="space-y-1.5 md:flex-1">
                         <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                          🧭 Option / Spécialité
+                          🧭 Spécialité
                         </label>
                         <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                       </div>
@@ -910,8 +920,8 @@ export default function HomePage({
                     size="sm"
                     onClick={() => handleSortChange('year')}
                     className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'year'
-                        ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
-                        : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
+                      ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                      : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
                       }`}
                   >
                     Session {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
@@ -921,8 +931,8 @@ export default function HomePage({
                     size="sm"
                     onClick={() => handleSortChange('difficulty')}
                     className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'difficulty'
-                        ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
-                        : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
+                      ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                      : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
                       }`}
                   >
                     Difficulté {sortBy === 'difficulty' && (sortOrder === 'desc' ? '↓' : '↑')}
@@ -932,8 +942,8 @@ export default function HomePage({
                     size="sm"
                     onClick={() => handleSortChange('duration')}
                     className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'duration'
-                        ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
-                        : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
+                      ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                      : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
                       }`}
                   >
                     Durée {sortBy === 'duration' && (sortOrder === 'desc' ? '↓' : '↑')}
@@ -943,14 +953,14 @@ export default function HomePage({
             </div>
 
             {loading ? (
-              <div className="flex min-h-[400px] items-center justify-center">
+              <div className="flex min-h-100 items-center justify-center">
                 <div className="text-center">
                   <div className="mb-4 text-4xl">⏳</div>
                   <p className="text-muted-foreground">Chargement des exercices...</p>
                 </div>
               </div>
             ) : filteredExercises.length === 0 ? (
-              <div className="flex min-h-[400px] items-center justify-center rounded-2xl border border-border bg-card">
+              <div className="flex min-h-100 items-center justify-center rounded-2xl border border-border bg-card">
                 <div className="text-center">
                   <div className="mb-4 text-5xl">🤷</div>
                   <p className="mb-2 text-lg font-medium">

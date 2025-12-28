@@ -143,7 +143,6 @@ test("suppression de thème -> toast traduit", async ({ page }) => {
 ### Bonnes pratiques
 - **Isolation** : créer/seed une entité dédiée et la supprimer dans le test; nettoyer après si nécessaire.
 - **Réseau** : pour ce scénario, ne pas mocker `/api/toast` afin de valider la chaîne complète (action serveur -> cookie -> fetch client -> toast).
-- **Locales** : rejouer le scénario en `?locale=en` pour vérifier la traduction.
 - **Flakiness** : préférer `expect(...).toBeVisible()` aux `waitForTimeout`.
 
 ## Points d’attention

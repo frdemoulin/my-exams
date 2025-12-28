@@ -4,6 +4,9 @@
 
 Ce document illustre la hiérarchie des données avec des exemples concrets de sujets d'annales du baccalauréat.
 
+Note UX (élève) : les filtres rapides suivent l'ordre **diplôme → matière → session → option/spécialité**
+(l'option/spécialité correspond au `Teaching`).
+
 ## Schéma complet
 
 ```
@@ -352,7 +355,35 @@ Un sujet d'annales couvre souvent **plusieurs domaines et thèmes**.
 
 ## Recherche de sujets
 
-### Cas d'usage 1 : Trouver tous les sujets de Spé Maths Terminale
+### Cas d'usage 1 : Filtrage côté élève (diplôme → matière → session → option/spécialité)
+
+```typescript
+const examPapers = await prisma.examPaper.findMany({
+  where: {
+    diploma: { shortDescription: "Bac général" },
+    sessionYear: 2024,
+    teaching: {
+      subject: { shortDescription: "Maths" },
+      longDescription: "Spécialité Mathématiques",
+      grade: { shortDescription: "Tle" },
+    },
+  },
+  include: {
+    diploma: true,
+    teaching: {
+      include: {
+        grade: true,
+        subject: true,
+      },
+    },
+  },
+  orderBy: {
+    sessionYear: "desc",
+  },
+});
+```
+
+### Cas d'usage 2 : Trouver tous les sujets de Spé Maths Terminale
 
 ```typescript
 const examPapers = await prisma.examPaper.findMany({
@@ -379,7 +410,7 @@ const examPapers = await prisma.examPaper.findMany({
 });
 ```
 
-### Cas d'usage 2 : Trouver des sujets sur les "Suites"
+### Cas d'usage 3 : Trouver des sujets sur les "Suites"
 
 ```typescript
 // Récupérer l'ID du thème "Suites"
@@ -411,7 +442,7 @@ const examPapers = await prisma.examPaper.findMany({
 });
 ```
 
-### Cas d'usage 3 : Lister tous les Teachings de Terminale
+### Cas d'usage 4 : Lister tous les Teachings de Terminale
 
 ```typescript
 const terminaleTeachings = await prisma.teaching.findMany({

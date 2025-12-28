@@ -4,7 +4,7 @@
 > Hypothèses MVP :
 > - Pas de comptes utilisateurs au début (pas de personnalisation).
 > - Les contenus évoluent par lots (import d’annales / seeds), pas à la seconde.
-> - Recherche = filtres (diplôme/matière/niveau/thème/année/difficulté) + pagination + tri.
+> - Recherche = filtres (diplôme/matière/session/option-spécialité/domaines-thèmes) + pagination + tri.
 > - Le front doit rester **majoritairement statique** (SSG/ISR) pour coût/perf.
 
 ---
@@ -34,4 +34,3 @@
 
 ## 2) Arborescence de routes (exacte)
 Arborescence recommandée dans `src/app` :
-

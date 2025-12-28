@@ -179,13 +179,6 @@ export async function LogIn() {
               </div>
             </>
           )}
-          {/* signup link */}
-          <div className="text-center text-sm mt-4">
-            Pas de compte ?{" "}
-            <Link className="text-fg-brand hover:text-fg-brand-strong" href="/signup">
-              Créer un compte
-            </Link>
-          </div>
         </CardContent>
       </Card>
     </div>

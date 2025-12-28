@@ -74,12 +74,18 @@ my-exams/
     │
     ├── 📂 app/                        # 🚀 Routes et pages Next.js (App Router)
     │   │
-    │   ├── 📂 [locale]/               # 🌍 Routes localisées
+    │   ├── 📂 [locale]/               # 🌍 Segment locale (mono-fr, URL sans préfixe)
     │   │   ├── 📂 (public)/           #    ✨ Espace PUBLIC (élèves, visiteurs)
     │   │   │   ├── layout.tsx         #       Layout pour les pages publiques
     │   │   │   ├── page.tsx           #       Page d'accueil publique (/)
+    │   │   │   ├── contact/           #       Formulaire de contact
+    │   │   │   │   ├── page.tsx       #          Page contact
+    │   │   │   │   └── _components/
+    │   │   │   │       └── contact-form.tsx
     │   │   │   ├── exercises/
     │   │   │   │   └── [id]/page.tsx  #          Détail d'exercice
+    │   │   │   ├── mentions-legales/
+    │   │   │   │   └── page.tsx       #          Mentions légales
     │   │   │   └── log-in/            #       Authentification
     │   │   │       ├── page.tsx       #          Page de connexion
     │   │   │       ├── check-email/page.tsx
@@ -112,6 +118,8 @@ my-exams/
     │   │   ├── auth/                  #       Authentification NextAuth
     │   │   │   └── [...nextauth]/
     │   │   │       └── route.ts       #          Handler NextAuth.js
+    │   │   ├── contact/               #       Formulaire de contact
+    │   │   │   └── route.ts           #          Envoi email contact
     │   │   └── health/                #       Health checks
     │   │       ├── route.ts           #          Health check API
     │   │       └── db/
@@ -184,10 +192,10 @@ my-exams/
     ├── 📂 hooks/                      # 🪝 Custom React Hooks
     │   └── use-active-path.ts         #    Hook pour détecter la route active
     │
-    ├── 📂 i18n/                       # 🌍 Configuration i18n
+    ├── 📂 i18n/                       # 🌍 Configuration i18n (mono-fr)
     │   ├── messages/                  #    Fichiers de traduction
     │   ├── request.ts                 #    Chargement côté serveur
-    │   └── routing.ts                 #    Routage des locales
+    │   └── routing.ts                 #    Routage (fr uniquement)
     │
     ├── 📂 lib/                        # 🛠️ Infrastructure et utilitaires
     │   │
@@ -214,7 +222,7 @@ my-exams/
     │   ├── next-auth.d.ts             #    Extension des types NextAuth
     │   └── option.ts                  #    Type Option générique
     │
-    └── proxy.ts                       # 🔄 Proxy pour Auth.js middleware
+    └── proxy.ts                       # 🔄 Middleware i18n + redirections de locale
 
 ```
 

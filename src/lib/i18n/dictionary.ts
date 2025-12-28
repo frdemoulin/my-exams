@@ -10,7 +10,8 @@ export type EntityKey =
   | 'grade' 
   | 'subject' 
   | 'theme' 
-  | 'user';
+  | 'user'
+  | 'exercise';
 
 export interface EntityTranslation {
   singular: string;
@@ -75,6 +76,21 @@ export const entityTranslations: Record<EntityKey, EntityTranslation> = {
       delete: "Supprimer le centre d'examen",
       view: "Voir le centre d'examen",
       list: "Liste des centres d'examen",
+    },
+  },
+  exercise: {
+    singular: "Exercice",
+    plural: "Exercices",
+    article: {
+      definite: "l'",
+      indefinite: 'un',
+    },
+    actions: {
+      add: 'Ajouter un exercice',
+      edit: "Éditer l'exercice",
+      delete: "Supprimer l'exercice",
+      view: "Voir l'exercice",
+      list: 'Liste des exercices',
     },
   },
   grade: {

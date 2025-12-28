@@ -366,7 +366,6 @@ src/
       ExerciseCard.tsx          # ✅ Carte d'exercice avec traçabilité
     shared/
       loading-button.tsx        # ✅ Composants UI réutilisables
-      locale-switcher.tsx
       ...
 
 scripts/
