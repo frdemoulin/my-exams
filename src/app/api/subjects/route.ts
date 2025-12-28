@@ -7,16 +7,16 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const diploma = searchParams.get("diploma") || undefined;
 
-    const where: Prisma.SubjectWhereInput = { isActive: true };
+    const where: Prisma.SubjectWhereInput = { isActive: { not: false } };
 
     if (diploma) {
       where.teachings = {
         some: {
-          isActive: true,
+          isActive: { not: false },
           examPapers: {
             some: {
               diploma: {
-                isActive: true,
+                isActive: { not: false },
                 OR: [
                   { shortDescription: { contains: diploma, mode: "insensitive" } },
                   { longDescription: { contains: diploma, mode: "insensitive" } },

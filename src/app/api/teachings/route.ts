@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
     const where: Prisma.ExamPaperWhereInput = {};
 
-    const diplomaFilter: Prisma.DiplomaWhereInput = { isActive: true };
+    const diplomaFilter: Prisma.DiplomaWhereInput = { isActive: { not: false } };
     if (diploma) {
       diplomaFilter.shortDescription = {
         contains: diploma,
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     }
     where.diploma = diplomaFilter;
 
-    const subjectFilter: Prisma.SubjectWhereInput = { isActive: true };
+    const subjectFilter: Prisma.SubjectWhereInput = { isActive: { not: false } };
     if (subject) {
       subjectFilter.OR = [
         { shortDescription: { contains: subject, mode: 'insensitive' } },
@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
 
     const teachingFilter: Prisma.TeachingWhereInput = {
       subject: subjectFilter,
-      isActive: true,
+      isActive: { not: false },
     };
 
     where.teaching = teachingFilter;
