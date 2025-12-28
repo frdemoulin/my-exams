@@ -1,3 +1,10 @@
+## <small>1.4.10 (2025-12-28)</small>
+
+* Merge pull request #59 from frdemoulin/dev ([e61f285](https://github.com/frdemoulin/my-exams/commit/e61f285)), closes [#59](https://github.com/frdemoulin/my-exams/issues/59)
+* fix: ajout d'un formulaire de contact ([3021438](https://github.com/frdemoulin/my-exams/commit/3021438))
+* fix: ajout d'une page d'administration des exercices ([9ca1394](https://github.com/frdemoulin/my-exams/commit/9ca1394))
+* fix: mise à jour du hero ([c378812](https://github.com/frdemoulin/my-exams/commit/c378812))
+
 ## <small>1.4.9 (2025-12-28)</small>
 
 * Merge pull request #58 from frdemoulin/dev ([b702a85](https://github.com/frdemoulin/my-exams/commit/b702a85)), closes [#58](https://github.com/frdemoulin/my-exams/issues/58)
