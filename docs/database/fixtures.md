@@ -14,7 +14,7 @@ Ce document explique comment peupler la base (dev ou prod) avec des données coh
 - `scripts/export-domains-themes.ts` : export domaines/themes (prod/dev) vers JSON
 - `scripts/import-domains-themes.ts` : import domaines/themes depuis JSON
 - `scripts/sync-domains-themes-from-prod.ts` : reset dev + import depuis prod
-- `prisma/seeds/data/domains-themes.json` : dataset domaines/themes (source prod)
+- `prisma/seeds/data/domains-themes.json` : dataset domaines/themes (source prod, généré si besoin)
 
 ## Seed dev (base locale)
 
@@ -138,6 +138,7 @@ npm run db:export-domains-themes -- --prod --out ./prisma/seeds/data/domains-the
 ```
 
 Une fois ce fichier present, les seeders `Domain` et `Theme` l'utiliseront automatiquement.
+Si le fichier est absent, les thèmes sont générés depuis `prisma/seeds/data/topics.json`.
 
 ## Déploiement (prod) – schéma & migrations data
 

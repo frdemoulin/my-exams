@@ -1,4 +1,7 @@
-# Traductions
+# Traductions (glossaire métier)
+
+Ce tableau sert de **glossaire** pour traduire les termes techniques (anglais) en vocabulaire
+produit (français). Il ne s'agit pas d'un système multi-langue.
 
 |Anglais|Français|Signification|Exemples|
 |-|-|-|-|

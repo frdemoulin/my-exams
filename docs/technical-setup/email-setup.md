@@ -1,6 +1,6 @@
 # Envoi d'e-mails — développement et production (Render)
 
-Ce document explique comment configurer, tester et déployer l'envoi d'e-mails (lien magique / notifications) pour ce projet.
+Ce document explique comment configurer, tester et déployer l'envoi d'e-mails (lien magique / contact) pour ce projet.
 
 ---
 
@@ -9,7 +9,8 @@ Ce document explique comment configurer, tester et déployer l'envoi d'e-mails (
 - En prod (Render) : utilise un service transactionnel **avec SMTP** (ou API), puis configure SPF/DKIM dès que tu utilises ton domaine.
 - Pour démarrer **à coût faible** : Brevo / Mailjet / SendGrid ont souvent un palier gratuit (à vérifier, les offres évoluent).
 - Pour un coût très faible mais plus technique : AWS SES (quasi gratuit au début, mais setup plus long).
-- Variables essentielles : `AUTH_EMAIL_SERVER`, `AUTH_EMAIL_FROM`, `AUTH_SECRET`, `AUTH_URL`.
+- Magic link : `AUTH_EMAIL_SERVER`, `AUTH_EMAIL_FROM`, `AUTH_SECRET`, `AUTH_URL`.
+- Contact : `CONTACT_EMAIL_SERVER`, `CONTACT_EMAIL_FROM`, `CONTACT_EMAIL_TO` (sinon fallback vers `AUTH_*`).
 
 ---
 
@@ -18,9 +19,20 @@ Ce document explique comment configurer, tester et déployer l'envoi d'e-mails (
 - `AUTH_EMAIL_FROM` — expéditeur affiché (ex: `"My exams <no-reply@votre-domaine.fr>"`).
 - `AUTH_URL` — base URL de l'application (ex: `https://mon-domaine.com`).
 - `AUTH_SECRET` — secret utilisé par Auth.js/NextAuth (générer via `openssl rand -base64 32`).
+- `CONTACT_EMAIL_SERVER` — URI SMTP dédiée au formulaire de contact (sinon fallback sur `AUTH_EMAIL_SERVER`).
+- `CONTACT_EMAIL_FROM` — expéditeur affiché pour le contact (sinon fallback sur `AUTH_EMAIL_FROM`).
+- `CONTACT_EMAIL_TO` — destinataire des messages de contact (ex: `contact@my-exams.fr`).
 
 > Note : Ne jamais committer `.env.local` contenant ces secrets. Utilise `.env.local.example` comme référence.
 > Note : si ton mot de passe SMTP contient des caractères spéciaux (`@`, `:`, `/`, `?`, `#`…), il faut l’**URL-encoder** dans `AUTH_EMAIL_SERVER` (sinon l’URI devient invalide).
+
+## Emails de contact (formulaire public)
+
+Le formulaire de contact utilise des variables dédiées si elles sont présentes :
+- `CONTACT_EMAIL_SERVER`, `CONTACT_EMAIL_FROM`, `CONTACT_EMAIL_TO`.
+
+Si elles sont absentes, l'envoi retombe sur `AUTH_EMAIL_SERVER` / `AUTH_EMAIL_FROM` et le destinataire
+par défaut `contact@my-exams.fr`.
 
 ---
 

@@ -114,7 +114,8 @@ Affiche un exercice avec :
 
 #### **HomePage refactorisée**
 - Recherche d'exercices (plus de sujets)
-- Filtres : diplôme, matière, difficulté, année, thèmes
+- Filtres : diplôme, matière, session, option/spécialité (si applicable), domaines/thèmes
+- Filtres secondaires : difficulté, année (selon données disponibles)
 - Tri : année, difficulté, durée
 - Favoris en localStorage avec clé `exercise-favorites`
 
