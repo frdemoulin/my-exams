@@ -16,17 +16,28 @@ type DeleteExaminationCenterOptions = {
 
 export const createExaminationCenter = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createExaminationCenterSchema.safeParse(values);
+    const result = createExaminationCenterSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { description } = result.data;
+        const { description, isActive } = result.data;
 
         // create examination center in database
         try {
             await prisma.examinationCenter.create({
                 data: {
-                    description
+                    description,
+                    isActive,
                 }
             });
         } catch (error: any) {
@@ -51,11 +62,21 @@ export const createExaminationCenter = async (formData: FormData) => {
 
 export const updateExaminationCenter = async (id: string | undefined, formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createExaminationCenterSchema.safeParse(values);
+    const result = createExaminationCenterSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { description } = result.data;
+        const { description, isActive } = result.data;
 
         try {
             await prisma.examinationCenter.update({
@@ -63,7 +84,8 @@ export const updateExaminationCenter = async (id: string | undefined, formData: 
                     id
                 },
                 data: {
-                    description
+                    description,
+                    isActive,
                 }
             });
 

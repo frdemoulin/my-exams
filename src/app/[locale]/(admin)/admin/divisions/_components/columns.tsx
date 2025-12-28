@@ -19,6 +19,7 @@ import { deleteDivision } from "@/core/division";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { Badge } from "@/components/ui/badge";
 
 const DivisionActions = ({ division }: { division: Division }) => {
   const router = useRouter();
@@ -95,6 +96,18 @@ export const columns: ColumnDef<Division>[] = [
       return (
         <SortableHeader label="DESCRIPTION COURTE" column={column} />
       )
+    },
+  },
+  {
+    accessorKey: "isActive",
+    header: "STATUT",
+    cell: ({ row }) => {
+      const label = row.original.isActive ? "Active" : "Inactive";
+      return (
+        <Badge variant={row.original.isActive ? "default" : "secondary"}>
+          {label}
+        </Badge>
+      );
     },
   },
   {

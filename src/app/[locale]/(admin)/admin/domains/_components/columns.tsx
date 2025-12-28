@@ -19,6 +19,7 @@ import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 import { DomainData } from "@/core/domain";
+import { Badge } from "@/components/ui/badge";
 
 const DomainActions = ({ domain }: { domain: DomainData }) => {
   const router = useRouter();
@@ -108,6 +109,18 @@ export const columns: ColumnDef<DomainData>[] = [
     cell: ({ row }) => (
       <div className="text-center">{row.original._count?.themes ?? 0}</div>
     ),
+  },
+  {
+    accessorKey: "isActive",
+    header: "STATUT",
+    cell: ({ row }) => {
+      const label = row.original.isActive ? "Actif" : "Inactif";
+      return (
+        <Badge variant={row.original.isActive ? "default" : "secondary"}>
+          {label}
+        </Badge>
+      );
+    },
   },
   {
     accessorKey: "updatedAt",

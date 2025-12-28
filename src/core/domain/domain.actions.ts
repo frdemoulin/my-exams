@@ -86,17 +86,25 @@ const parseScopes = (raw: FormDataEntryValue | null): DomainScopeInput[] => {
 
 export const createDomain = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
     const parsedValues = {
         ...values,
         order: values.order ? parseInt(values.order as string, 10) : undefined,
         discipline: values.discipline || undefined,
+        isActive,
     };
     const scopes = parseScopes(formData.get("scopes"));
 
     const result = createDomainSchema.safeParse(parsedValues);
 
     if (result.success) {
-        const { longDescription, shortDescription, subjectId, order, discipline } = result.data;
+        const { longDescription, shortDescription, subjectId, order, discipline, isActive } = result.data;
 
         try {
             const createdDomain = await prisma.domain.create({
@@ -106,6 +114,7 @@ export const createDomain = async (formData: FormData) => {
                     subjectId,
                     order: order ?? null,
                     discipline: discipline ?? null,
+                    isActive,
                 },
             });
 
@@ -143,17 +152,25 @@ export const createDomain = async (formData: FormData) => {
 
 export const updateDomain = async (id: string | undefined, formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
     const parsedValues = {
         ...values,
         order: values.order ? parseInt(values.order as string, 10) : undefined,
         discipline: values.discipline || undefined,
+        isActive,
     };
     const scopes = parseScopes(formData.get("scopes"));
 
     const result = createDomainSchema.safeParse(parsedValues);
 
     if (result.success) {
-        const { longDescription, shortDescription, subjectId, order, discipline } = result.data;
+        const { longDescription, shortDescription, subjectId, order, discipline, isActive } = result.data;
 
         try {
             await prisma.domain.update({
@@ -164,6 +181,7 @@ export const updateDomain = async (id: string | undefined, formData: FormData) =
                     subjectId,
                     order: order ?? null,
                     discipline: discipline ?? null,
+                    isActive,
                 },
             });
 

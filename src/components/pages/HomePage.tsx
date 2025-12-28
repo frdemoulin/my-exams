@@ -48,7 +48,7 @@ export default function HomePage({
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
   const [selectedTeaching, setSelectedTeaching] = useState<string | undefined>();
-  const [selectedSessionYear, setSelectedSessionYear] = useState<number | undefined>();
+  const [selectedSessionYear, setSelectedSessionYear] = useState<number | null | undefined>();
   const [selectedThemes, setSelectedThemes] = useState<Array<{ id: string; label: string }>>([]);
   const [exercises, setExercises] = useState<ExerciseWithRelations[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
@@ -73,6 +73,15 @@ export default function HomePage({
     Array<{ value: string; label: string }>
   >([]);
   const [isTeachingLoading, setIsTeachingLoading] = useState(false);
+  const baseSessionOptions = useMemo(() => {
+    const set = new Set<number>();
+    exercises.forEach((ex) => {
+      if (ex.examPaper.sessionYear) set.add(ex.examPaper.sessionYear);
+    });
+    return Array.from(set).sort((a, b) => b - a);
+  }, [exercises]);
+  const [sessionOptions, setSessionOptions] = useState(() => baseSessionOptions);
+  const [isSessionLoading, setIsSessionLoading] = useState(false);
   const baseSubjectOptions = useMemo(() => {
     return initialSubjects
       .filter((s) => s.isActive)
@@ -121,7 +130,7 @@ export default function HomePage({
     if (selectedDiploma) params.append('diploma', selectedDiploma);
     if (selectedSubject) params.append('subject', selectedSubject);
     if (selectedTeaching) params.append('teachingId', selectedTeaching);
-    if (selectedSessionYear) params.append('year', selectedSessionYear.toString());
+    if (selectedSessionYear != null) params.append('year', selectedSessionYear.toString());
     if (selectedThemes.length > 0) {
       params.append(
         'themes',
@@ -319,7 +328,7 @@ export default function HomePage({
     return Array.from(set).sort();
   }, [exercises, initialDiplomas]);
 
-  const showTeachingFilter = isTeachingLoading || teachingOptions.length > 0;
+  const showTeachingFilter = true;
 
   useEffect(() => {
     if (!selectedDiploma) {
@@ -371,8 +380,9 @@ export default function HomePage({
     const params = new URLSearchParams();
     if (selectedDiploma) params.append('diploma', selectedDiploma);
     if (selectedSubject) params.append('subject', selectedSubject);
-    if (selectedSessionYear)
+    if (selectedSessionYear != null) {
       params.append('session', selectedSessionYear.toString());
+    }
 
     setTeachingOptions([]);
     setIsTeachingLoading(true);
@@ -405,16 +415,46 @@ export default function HomePage({
     setPage(1);
   }, [selectedTeaching, teachingOptions]);
 
-  const sessionOptions = useMemo(() => {
-    const set = new Set<number>();
-    exercises.forEach((ex) => {
-      if (ex.examPaper.sessionYear) set.add(ex.examPaper.sessionYear);
-    });
-    return Array.from(set).sort((a, b) => b - a);
-  }, [exercises]);
+  useEffect(() => {
+    if (!selectedDiploma && !selectedSubject) {
+      setSessionOptions(baseSessionOptions);
+      setIsSessionLoading(false);
+      return;
+    }
+
+    const params = new URLSearchParams();
+    if (selectedDiploma) params.append('diploma', selectedDiploma);
+    if (selectedSubject) params.append('subject', selectedSubject);
+
+    setSessionOptions([]);
+    setIsSessionLoading(true);
+
+    fetch(`/api/sessions?${params.toString()}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const sessions: number[] = Array.isArray(data.sessions)
+          ? data.sessions.filter((year: unknown) => typeof year === 'number')
+          : [];
+        setSessionOptions(sessions.sort((a, b) => b - a));
+      })
+      .catch((error) => {
+        console.error('Error fetching sessions:', error);
+        setSessionOptions(baseSessionOptions);
+      })
+      .finally(() => {
+        setIsSessionLoading(false);
+      });
+  }, [selectedDiploma, selectedSubject, baseSessionOptions]);
 
   useEffect(() => {
-    if (selectedSessionYear || sessionOptions.length === 0) return;
+    if (selectedSessionYear == null) return;
+    if (sessionOptions.includes(selectedSessionYear)) return;
+    setSelectedSessionYear(undefined);
+    setPage(1);
+  }, [selectedSessionYear, sessionOptions]);
+
+  useEffect(() => {
+    if (selectedSessionYear !== undefined || sessionOptions.length === 0) return;
     setSelectedSessionYear(sessionOptions[0]);
     setPage(1);
   }, [selectedSessionYear, sessionOptions]);
@@ -729,9 +769,10 @@ export default function HomePage({
                         📅 Session
                       </label>
                       <Select
-                        value={selectedSessionYear?.toString() || 'all'}
+                        value={selectedSessionYear == null ? 'all' : selectedSessionYear.toString()}
+                        disabled={isSessionLoading}
                         onValueChange={(value) => {
-                          setSelectedSessionYear(value === 'all' ? undefined : Number(value));
+                          setSelectedSessionYear(value === 'all' ? null : Number(value));
                           setPage(1);
                         }}
                       >
@@ -760,23 +801,24 @@ export default function HomePage({
                         ) : (
                           <Select
                             value={selectedTeaching || 'all'}
+                            disabled={teachingOptions.length === 0}
                             onValueChange={(value) => {
                               setSelectedTeaching(value === 'all' ? undefined : value);
                               setPage(1);
                             }}
                           >
                             <SelectTrigger aria-label="Filtrer par option ou spécialité" className="h-9 text-sm">
-                              <SelectValue placeholder="Toutes les options" />
+                              <SelectValue placeholder={teachingOptions.length === 0 ? 'Aucune option' : 'Toutes les options'} />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="all">Toutes les options</SelectItem>
-                              {teachingOptions.map((opt) => (
-                                <SelectItem key={opt.value} value={opt.value}>
-                                  {opt.label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                            <SelectItem value="all">Toutes les options</SelectItem>
+                            {teachingOptions.map((opt) => (
+                              <SelectItem key={opt.value} value={opt.value}>
+                                {opt.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                         )}
                       </div>
                     )}

@@ -16,18 +16,29 @@ type DeleteDivisionOptions = {
 
 export const createDivision = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createDivisionSchema.safeParse(values);
+    const result = createDivisionSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription } = result.data;
+        const { longDescription, shortDescription, isActive } = result.data;
 
         // create division in database
         try {
             await prisma.division.create({
                 data: {
                     longDescription,
-                    shortDescription
+                    shortDescription,
+                    isActive,
                 }
             });
         } catch (error: any) {
@@ -52,11 +63,21 @@ export const createDivision = async (formData: FormData) => {
 
 export const updateDivision = async (id: string | undefined, formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createDivisionSchema.safeParse(values);
+    const result = createDivisionSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription } = result.data;
+        const { longDescription, shortDescription, isActive } = result.data;
 
         try {
             await prisma.division.update({
@@ -65,7 +86,8 @@ export const updateDivision = async (id: string | undefined, formData: FormData)
                 },
                 data: {
                     longDescription,
-                    shortDescription
+                    shortDescription,
+                    isActive,
                 }
             });
 

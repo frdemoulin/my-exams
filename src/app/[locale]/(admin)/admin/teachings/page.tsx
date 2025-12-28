@@ -18,7 +18,7 @@ const CoursesPage = async () => {
         redirect("/api/auth/signin?callbackUrl=/admin/teachings");
     }
 
-    const teachings = await fetchTeachings();
+    const teachings = await fetchTeachings({ includeInactive: true });
 
     return (
         <div className="w-full p-6">

@@ -20,7 +20,7 @@ const ExaminationCentersPage = async () => {
         redirect("/log-in");
     }
 
-    const examinationCenters = await fetchExaminationCenters();
+    const examinationCenters = await fetchExaminationCenters({ includeInactive: true });
     const t = await getTranslations('entities.examinationCenter');
 
     return (

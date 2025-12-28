@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
     if (diploma) {
       where.teachings = {
         some: {
+          isActive: true,
           examPapers: {
             some: {
               diploma: {

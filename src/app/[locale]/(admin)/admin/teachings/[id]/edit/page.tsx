@@ -51,6 +51,7 @@ const EditCoursePage = async ({ params }: EditCoursePageProps) => {
                     shortDescription: course.shortDescription,
                     gradeId: course.gradeId,
                     subjectId: course.subjectId,
+                    isActive: course.isActive ?? true,
                 }}
                 grades={grades}
                 subjects={subjects}

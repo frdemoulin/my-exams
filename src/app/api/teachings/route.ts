@@ -38,6 +38,7 @@ export async function GET(request: NextRequest) {
 
     const teachingFilter: Prisma.TeachingWhereInput = {
       subject: subjectFilter,
+      isActive: true,
     };
 
     where.teaching = teachingFilter;

@@ -17,6 +17,7 @@ export const createTeachingSchema = z.object({
   shortDescription: z.string().optional(),
   gradeId: z.string().min(1, 'Le niveau est requis'),
   subjectId: z.string().min(1, 'La matière est requise'),
+  isActive: z.boolean().default(true),
 });
 
 export type CreateTeachingErrors = z.inferFlattenedErrors<typeof createTeachingSchema>;

@@ -20,6 +20,7 @@ interface ExaminationCenterFormProps {
     initialData: {
         id?: string,
         description: string,
+        isActive: boolean,
     }
 }
 
@@ -31,18 +32,18 @@ export const ExaminationCenterForm = ({
     const common = useCommonTranslations();
     
     const form = useForm<CreateExaminationCenterValues>({
-        defaultValues: initialData,
+        defaultValues: {
+            description: initialData.description,
+            isActive: initialData.isActive,
+        },
         resolver: zodResolver(createExaminationCenterSchema)
     });
 
     const onSubmit = async (values: CreateExaminationCenterValues) => {
         const formData = new FormData();
 
-        Object.entries(values).forEach(([key, value]) => {
-            if (value) {
-                formData.append(key, value as string);
-            }
-        });
+        formData.append("description", values.description);
+        formData.append("isActive", String(values.isActive));
         
         if (!initialData.id) {
             await createExaminationCenter(formData);
@@ -84,6 +85,27 @@ export const ExaminationCenterForm = ({
                             <FormMessage />
                         </FormItem>
                     }}
+                />
+                <FormField
+                    name="isActive"
+                    control={control}
+                    render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                            <FormControl>
+                                <input
+                                    type="checkbox"
+                                    checked={field.value}
+                                    onChange={(e) => field.onChange(e.target.checked)}
+                                    className="h-4 w-4 rounded-base border border-default accent-brand bg-neutral-primary-soft"
+                                />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                                <FormLabel className="cursor-pointer">
+                                    Centre actif
+                                </FormLabel>
+                            </div>
+                        </FormItem>
+                    )}
                 />
                 <div className="mt-2 flex justify-end">
                     <Button

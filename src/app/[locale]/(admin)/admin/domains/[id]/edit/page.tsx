@@ -28,8 +28,8 @@ const EditDomainPage = async ({ params }: DomainEditProps) => {
   const subjects = await fetchSubjectsOptions({ includeInactive: true });
   const diplomas = await fetchDiplomasOptions({ includeInactive: true });
   const grades = await fetchGradesOptions();
-  const divisions = await fetchDivisionsOptions();
-  const teachings = await fetchTeachingsOptions();
+  const divisions = await fetchDivisionsOptions({ includeInactive: true });
+  const teachings = await fetchTeachingsOptions({ includeInactive: true });
   const curriculums = await fetchCurriculumsOptions();
   const t = await getTranslations("entities.domain");
 
@@ -50,6 +50,7 @@ const EditDomainPage = async ({ params }: DomainEditProps) => {
             subjectId: domain?.subjectId,
             order: domain?.order ?? undefined,
             discipline: domain?.discipline ?? undefined,
+            isActive: domain?.isActive ?? true,
             scopes: domain?.scopes?.map((scope) => ({
               diplomaId: scope.diplomaId ?? null,
               gradeId: scope.gradeId ?? null,

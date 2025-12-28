@@ -33,7 +33,7 @@ const EditCurriculumPage = async ({ params }: EditCurriculumPageProps) => {
         redirect("/admin/curriculums");
     }
 
-    const teachings = await fetchTeachingsOptions();
+    const teachings = await fetchTeachingsOptions({ includeInactive: true });
     const t = await getTranslations('entities.curriculum');
 
     return (

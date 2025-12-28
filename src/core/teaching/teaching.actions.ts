@@ -15,11 +15,21 @@ type DeleteTeachingOptions = {
 
 export const createTeaching = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createTeachingSchema.safeParse(values);
+    const result = createTeachingSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription, gradeId, subjectId } = result.data;
+        const { longDescription, shortDescription, gradeId, subjectId, isActive } = result.data;
 
         try {
             await prisma.teaching.create({
@@ -28,6 +38,7 @@ export const createTeaching = async (formData: FormData) => {
                     shortDescription: shortDescription || null,
                     gradeId,
                     subjectId,
+                    isActive,
                 }
             });
         } catch (error: any) {
@@ -49,11 +60,21 @@ export const createTeaching = async (formData: FormData) => {
 
 export const updateTeaching = async (id: string | undefined, formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createTeachingSchema.safeParse(values);
+    const result = createTeachingSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription, gradeId, subjectId } = result.data;
+        const { longDescription, shortDescription, gradeId, subjectId, isActive } = result.data;
 
         try {
             await prisma.teaching.update({
@@ -63,6 +84,7 @@ export const updateTeaching = async (id: string | undefined, formData: FormData)
                     shortDescription: shortDescription || null,
                     gradeId,
                     subjectId,
+                    isActive,
                 }
             });
 

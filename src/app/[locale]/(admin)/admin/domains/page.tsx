@@ -21,7 +21,7 @@ const DomainsPage = async () => {
     redirect("/log-in");
   }
 
-  const domains = await fetchDomainsWithIncludes();
+  const domains = await fetchDomainsWithIncludes({ includeInactive: true });
   const subjects = await fetchSubjectsOptions({ includeInactive: true });
   const t = await getTranslations("entities.domain");
 

@@ -20,7 +20,7 @@ const DivisionsPage = async () => {
         redirect("/log-in");
     }
 
-    const divisions = await fetchDivisions();
+    const divisions = await fetchDivisions({ includeInactive: true });
     const t = await getTranslations('entities.division');
 
     return (

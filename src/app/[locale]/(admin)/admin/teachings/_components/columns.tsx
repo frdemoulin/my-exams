@@ -19,6 +19,7 @@ import { TeachingWithRelations } from "@/core/teaching";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { Badge } from "@/components/ui/badge";
 
 const TeachingActions = ({ teaching }: { teaching: TeachingWithRelations }) => {
   const router = useRouter();
@@ -111,6 +112,18 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
       return (
         <SortableHeader label="MATIÈRE" column={column} />
       )
+    },
+  },
+  {
+    accessorKey: "isActive",
+    header: "STATUT",
+    cell: ({ row }) => {
+      const label = row.original.isActive ? "Actif" : "Inactif";
+      return (
+        <Badge variant={row.original.isActive ? "default" : "secondary"}>
+          {label}
+        </Badge>
+      );
     },
   },
   {

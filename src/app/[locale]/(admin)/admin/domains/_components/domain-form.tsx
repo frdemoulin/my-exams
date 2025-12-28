@@ -33,6 +33,7 @@ interface DomainFormProps {
     subjectId: string | undefined;
     order?: number | null;
     discipline?: "PHYSIQUE" | "CHIMIE" | "TRANSVERSAL" | null;
+    isActive: boolean;
     scopes?: DomainScopeForm[];
   };
   subjects: Option[];
@@ -87,6 +88,7 @@ export const DomainForm = ({
       subjectId: initialData.subjectId,
       order: initialData.order ?? undefined,
       discipline: initialData.discipline ?? undefined,
+      isActive: initialData.isActive,
     },
     resolver: zodResolver(createDomainSchema),
   });
@@ -94,11 +96,18 @@ export const DomainForm = ({
   const onSubmit = async (values: CreateDomainValues) => {
     const formData = new FormData();
 
-    Object.entries(values).forEach(([key, value]) => {
-      if (value !== undefined && value !== null && value !== "") {
-        formData.append(key, String(value));
-      }
-    });
+    formData.append("longDescription", values.longDescription);
+    formData.append("shortDescription", values.shortDescription);
+    if (values.subjectId) {
+      formData.append("subjectId", values.subjectId);
+    }
+    if (values.order != null) {
+      formData.append("order", String(values.order));
+    }
+    if (values.discipline) {
+      formData.append("discipline", values.discipline);
+    }
+    formData.append("isActive", String(values.isActive));
     formData.append("scopes", JSON.stringify(scopes));
 
     if (!initialData.id) {
@@ -194,6 +203,27 @@ export const DomainForm = ({
                 </SelectContent>
               </Select>
               <FormMessage />
+            </FormItem>
+            )}
+        />
+        <FormField
+          name="isActive"
+          control={control}
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+              <FormControl>
+                <input
+                  type="checkbox"
+                  checked={field.value}
+                  onChange={(e) => field.onChange(e.target.checked)}
+                  className="h-4 w-4 rounded-base border border-default accent-brand bg-neutral-primary-soft"
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel className="cursor-pointer">
+                  Domaine actif
+                </FormLabel>
+              </div>
             </FormItem>
           )}
         />

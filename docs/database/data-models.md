@@ -21,6 +21,7 @@
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue de la filière|
 |shortDescription|VARCHAR(255)|NOT NULL|La description courte de la filière|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Filière active (affichée côté élève)|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
@@ -33,6 +34,7 @@
 |-|-|-|-|
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |description|VARCHAR(255)|NOT NULL|La description du centre d'examen|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Centre d'examen actif (affiché côté élève)|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 
@@ -77,6 +79,7 @@
 |_id|ObjectID|PRIMARY KEY, NOT NULL|L'identifiant|
 |longDescription|VARCHAR(255)|NOT NULL|La description longue de l'enseignement (ex: "Spécialité Mathématiques")|
 |shortDescription|VARCHAR(255)|NULLABLE|La description courte de l'enseignement (ex: "Spé Maths")|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Enseignement actif (affiché côté élève)|
 |gradeId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant du niveau scolaire|
 |subjectId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la matière|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
@@ -123,6 +126,7 @@
 |order|INT|NULLABLE|L'ordre dans le programme|
 |discipline|ENUM|NULLABLE|PHYSIQUE, CHIMIE, TRANSVERSAL (optionnel)|
 |subjectId|ObjectID|NOT NULL, FOREIGN KEY|L'identifiant de la matière|
+|isActive|BOOLEAN|NOT NULL, DEFAULT TRUE|Domaine actif (affiché côté élève)|
 |createdAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de persistence des données|
 |updatedAt|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de la dernière mise à jour des données|
 

@@ -19,6 +19,7 @@ import { deleteExaminationCenter } from "@/core/examination-center";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
+import { Badge } from "@/components/ui/badge";
 
 const ExaminationCenterActions = ({ examinationCenter }: { examinationCenter: ExaminationCenter }) => {
   const router = useRouter();
@@ -86,6 +87,18 @@ export const columns: ColumnDef<ExaminationCenter>[] = [
       return (
         <SortableHeader label="DESCRIPTION" column={column} />
       )
+    },
+  },
+  {
+    accessorKey: "isActive",
+    header: "STATUT",
+    cell: ({ row }) => {
+      const label = row.original.isActive ? "Actif" : "Inactif";
+      return (
+        <Badge variant={row.original.isActive ? "default" : "secondary"}>
+          {label}
+        </Badge>
+      );
     },
   },
   {
