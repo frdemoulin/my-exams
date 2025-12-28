@@ -45,6 +45,21 @@
         "list": "List of examination centers"
       }
     },
+    "exercise": {
+      "singular": "Exercise",
+      "plural": "Exercises",
+      "article": {
+        "definite": "the",
+        "indefinite": "an"
+      },
+      "actions": {
+        "add": "Add an exercise",
+        "edit": "Edit the exercise",
+        "delete": "Delete the exercise",
+        "view": "View the exercise",
+        "list": "List of exercises"
+      }
+    },
     "grade": {
       "singular": "Grade Level",
       "plural": "Grade Levels",

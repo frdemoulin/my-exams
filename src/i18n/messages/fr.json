@@ -60,6 +60,21 @@
         "list": "Liste des sujets d'examen"
       }
     },
+    "exercise": {
+      "singular": "Exercice",
+      "plural": "Exercices",
+      "article": {
+        "definite": "l'",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un exercice",
+        "edit": "Éditer l'exercice",
+        "delete": "Supprimer l'exercice",
+        "view": "Voir l'exercice",
+        "list": "Liste des exercices"
+      }
+    },
     "grade": {
       "singular": "Niveau scolaire",
       "plural": "Niveaux scolaires",

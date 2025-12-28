@@ -9,6 +9,7 @@ export type EntityKey =
   | 'curriculum'
   | 'diploma' 
   | 'division' 
+  | 'exercise'
   | 'examPaper'
   | 'examinationCenter' 
   | 'grade' 
