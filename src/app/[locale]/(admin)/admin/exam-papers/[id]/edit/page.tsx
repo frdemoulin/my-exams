@@ -30,12 +30,27 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
 
     // Fetch all necessary data for selects
     const [diplomas, divisions, grades, teachings, curriculums, examinationCenters] = await Promise.all([
-        prisma.diploma.findMany({ orderBy: { longDescription: 'asc' } }),
-        prisma.division.findMany({ orderBy: { longDescription: 'asc' } }),
+        prisma.diploma.findMany({
+            where: { isActive: { not: false } },
+            orderBy: { longDescription: 'asc' },
+        }),
+        prisma.division.findMany({
+            where: { isActive: { not: false } },
+            orderBy: { longDescription: 'asc' },
+        }),
         prisma.grade.findMany({ orderBy: { shortDescription: 'asc' } }),
-        prisma.teaching.findMany({ orderBy: { longDescription: 'asc' } }),
-        prisma.curriculum.findMany({ orderBy: { longDescription: 'asc' } }),
-        prisma.examinationCenter.findMany({ orderBy: { description: 'asc' } }),
+        prisma.teaching.findMany({
+            where: { isActive: { not: false } },
+            orderBy: { longDescription: 'asc' },
+        }),
+        prisma.curriculum.findMany({
+            where: { isActive: { not: false } },
+            orderBy: { longDescription: 'asc' },
+        }),
+        prisma.examinationCenter.findMany({
+            where: { isActive: { not: false } },
+            orderBy: { description: 'asc' },
+        }),
     ]);
 
     const t = await getTranslations('entities.examPaper');
