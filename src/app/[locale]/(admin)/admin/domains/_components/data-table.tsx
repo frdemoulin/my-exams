@@ -49,11 +49,21 @@ export function DataTable({
   subjects,
 }: DataTableProps) {
   const router = useRouter();
-  const [sorting, setSorting] = React.useState<SortingState>([
+  const defaultSorting: SortingState = [
     { id: "longDescription", desc: false },
-  ]);
+  ];
+  const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = React.useState("");
+
+  const handleSortingChange = (
+    updater: SortingState | ((prev: SortingState) => SortingState)
+  ) => {
+    setSorting((current) => {
+      const next = typeof updater === "function" ? updater(current) : updater;
+      return next.length === 0 ? defaultSorting : next;
+    });
+  };
 
   const table = useReactTable({
     data,
@@ -61,10 +71,13 @@ export function DataTable({
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
+    onSortingChange: handleSortingChange,
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     globalFilterFn: "includesString",
+    initialState: {
+      sorting: defaultSorting,
+    },
     state: {
       sorting,
       columnFilters,

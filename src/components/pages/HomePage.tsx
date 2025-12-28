@@ -453,12 +453,6 @@ export default function HomePage({
     setPage(1);
   }, [selectedSessionYear, sessionOptions]);
 
-  useEffect(() => {
-    if (selectedSessionYear !== undefined || sessionOptions.length === 0) return;
-    setSelectedSessionYear(sessionOptions[0]);
-    setPage(1);
-  }, [selectedSessionYear, sessionOptions]);
-
   const HeroEyebrow = ({ children }: { children: React.ReactNode }) => (
     <div className="mb-4 inline-flex items-center gap-2 rounded-base border border-default bg-neutral-primary-soft px-3 py-1 text-[11px] font-semibold tracking-tight text-body shadow-xs">
       <span className="h-2 w-2 rounded-full bg-success" />

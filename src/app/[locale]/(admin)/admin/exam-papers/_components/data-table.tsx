@@ -46,20 +46,33 @@ export function DataTable<TData extends { id: string }, TValue>({
   data,
 }: DataTableProps<TData, TValue>) {
   const router = useRouter();
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const defaultSorting: SortingState = [];
+  const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = React.useState("");
+
+  const handleSortingChange = (
+    updater: SortingState | ((prev: SortingState) => SortingState)
+  ) => {
+    setSorting((current) => {
+      const next = typeof updater === "function" ? updater(current) : updater;
+      return next.length === 0 ? defaultSorting : next;
+    });
+  };
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
+    onSortingChange: handleSortingChange,
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
     globalFilterFn: "includesString",
+    initialState: {
+      sorting: defaultSorting,
+    },
     state: {
       sorting,
       columnFilters,
