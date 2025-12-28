@@ -1,3 +1,8 @@
+## <small>1.4.9 (2025-12-28)</small>
+
+* Merge pull request #58 from frdemoulin/dev ([b702a85](https://github.com/frdemoulin/my-exams/commit/b702a85)), closes [#58](https://github.com/frdemoulin/my-exams/issues/58)
+* fix: debug des tris à trois états ([642235e](https://github.com/frdemoulin/my-exams/commit/642235e))
+
 ## <small>1.4.8 (2025-12-28)</small>
 
 * Merge pull request #57 from frdemoulin/dev ([28f2b40](https://github.com/frdemoulin/my-exams/commit/28f2b40)), closes [#57](https://github.com/frdemoulin/my-exams/issues/57)
