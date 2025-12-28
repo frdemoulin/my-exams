@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
+import { useState } from "react";
 
 import {
   DropdownMenu,
@@ -29,6 +30,46 @@ const handleOnClickDeleteButton = async (id: string) => {
 }
 
 const localeSort = localeStringSort<User>();
+
+const UserActions = ({ user }: { user: User }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleDelete = async () => {
+    await handleOnClickDeleteButton(user.id);
+    setMenuOpen(false);
+  };
+
+  return (
+    <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
+      <DropdownMenuTrigger asChild>
+        <button type="button" className={actionMenuTrigger}>
+          <span className="sr-only">Open menu</span>
+          <MoreHorizontal className="h-4 w-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className={actionMenuContent}>
+        <div className={actionMenuHeader}>Actions</div>
+        <DropdownMenuItem className={actionMenuItem}>
+          <Link href={`/admin/users/${user.id}`}>Voir</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className={actionMenuItem}>
+          <Link href={`/admin/users/${user.id}/edit`}>Éditer</Link>
+        </DropdownMenuItem>
+        <ConfirmDeleteDialog
+          onConfirm={handleDelete}
+          trigger={
+            <DropdownMenuItem
+              className={`${actionMenuItem} hover:cursor-pointer`}
+              onSelect={(event) => event.preventDefault()}
+            >
+              Supprimer
+            </DropdownMenuItem>
+          }
+        />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -66,44 +107,7 @@ export const columns: ColumnDef<User>[] = [
     cell: ({ row }) => {
       const user = row.original;
 
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button type="button" className={actionMenuTrigger}>
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className={actionMenuContent}>
-            <div className={actionMenuHeader}>Actions</div>
-            <DropdownMenuItem className={actionMenuItem}>
-              <Link
-                href={`/admin/users/${user.id}`}
-              >
-                Voir
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem className={actionMenuItem}>
-              <Link
-                href={`/admin/users/${user.id}/edit`}
-              >
-                Éditer
-              </Link>
-            </DropdownMenuItem>
-            <ConfirmDeleteDialog
-              onConfirm={() => handleOnClickDeleteButton(user.id)}
-              trigger={
-                <DropdownMenuItem
-                  className={`${actionMenuItem} hover:cursor-pointer`}
-                  onSelect={(event) => event.preventDefault()}
-                >
-                  Supprimer
-                </DropdownMenuItem>
-              }
-            />
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )
+      return <UserActions user={user} />
     },
   },
 ]

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -22,11 +23,13 @@ import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger 
 
 const ExamPaperActions = ({ examPaper }: { examPaper: ExamPaperWithRelations }) => {
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleOnClickDeleteButton = async () => {
     try {
       await deleteExamPaper(examPaper.id, { redirectTo: null, skipSuccessToast: true });
       toast.success("Sujet d'examen supprimé");
+      setMenuOpen(false);
       router.refresh();
     } catch (error) {
       if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
@@ -37,7 +40,7 @@ const ExamPaperActions = ({ examPaper }: { examPaper: ExamPaperWithRelations }) 
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
       <DropdownMenuTrigger asChild>
         <button type="button" className={actionMenuTrigger}>
           <span className="sr-only">Open menu</span>

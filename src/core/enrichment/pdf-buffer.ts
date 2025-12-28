@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs';
-import path from 'path';
+import { resolveLocalPdfPath } from '@/lib/uploads';
 
 function isRemoteUrl(pdfUrl: string) {
   return /^https?:\/\//i.test(pdfUrl);
@@ -14,8 +14,7 @@ export async function loadPdfBuffer(pdfUrl: string): Promise<Buffer> {
     return Buffer.from(await res.arrayBuffer());
   }
 
-  const relativePath = pdfUrl.startsWith('/') ? pdfUrl.slice(1) : pdfUrl;
-  const filePath = path.join(process.cwd(), 'public', relativePath);
+  const filePath = resolveLocalPdfPath(pdfUrl);
 
   try {
     return await fs.readFile(filePath);

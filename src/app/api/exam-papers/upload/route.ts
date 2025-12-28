@@ -6,6 +6,9 @@ import path from "path";
 import os from "os";
 import { execFile } from "child_process";
 import { promisify } from "util";
+import { createHash } from "crypto";
+
+import { getExamPaperPublicUrl, getExamPapersUploadDir } from "@/lib/uploads";
 
 const MAX_SIZE_BYTES = 2 * 1024 * 1024; // 2MB
 const HARD_MAX_BYTES = 10 * 1024 * 1024; // 10MB
@@ -115,17 +118,19 @@ export async function POST(request: Request) {
       );
     }
 
-    const uploadsDir = path.join(process.cwd(), "public", "uploads", "exam-papers");
+    const uploadsDir = getExamPapersUploadDir();
     await fs.mkdir(uploadsDir, { recursive: true });
 
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const timestamp = Date.now();
-    const fileName = `${timestamp}-${safeName}`;
+    const fileName = `${createHash("sha256").update(buffer).digest("hex")}.pdf`;
     const filePath = path.join(uploadsDir, fileName);
 
-    await fs.writeFile(filePath, buffer);
+    try {
+      await fs.access(filePath);
+    } catch {
+      await fs.writeFile(filePath, buffer);
+    }
 
-    const url = `/uploads/exam-papers/${fileName}`;
+    const url = getExamPaperPublicUrl(fileName);
 
     return NextResponse.json({ url, compressed });
   } catch (error) {

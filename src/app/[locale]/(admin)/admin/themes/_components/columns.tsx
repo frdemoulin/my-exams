@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import {
   DropdownMenu,
@@ -22,11 +23,13 @@ import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger 
 
 const ThemeActions = ({ theme }: { theme: ThemeData }) => {
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleOnClickDeleteButton = async () => {
     try {
       await deleteTheme(theme.id, { redirectTo: null, skipSuccessToast: true });
       toast.success("Thème supprimé");
+      setMenuOpen(false);
       router.refresh();
     } catch (error) {
       if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
@@ -37,7 +40,7 @@ const ThemeActions = ({ theme }: { theme: ThemeData }) => {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
       <DropdownMenuTrigger asChild>
         <button type="button" className={actionMenuTrigger}>
           <span className="sr-only">Open menu</span>

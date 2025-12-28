@@ -43,5 +43,34 @@ env CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
 - En environnement natif Render, `apt-get` est en lecture seule → **Ghostscript non disponible**.
 - Si le pre-deploy échoue, vérifier `DATABASE_URL` et la commande `env CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`.
 - Si la compression échoue en prod, vérifier que Ghostscript est bien présent (mode Docker requis).
+- Si les PDFs uploadés renvoient 404 après déploiement/redémarrage, utiliser un disque persistant Render
+  et définir `UPLOADS_DIR=/data/uploads` (ou tout autre chemin monté), afin que les fichiers restent accessibles.
+
+---
+## Uploads PDF en production (Render)
+
+Par défaut, Render ne conserve **pas** les fichiers locaux entre deux déploiements : les PDFs uploadés
+disparaissent et les URLs renvoient 404. Il faut donc un **disque persistant**.
+
+### Étapes (Render)
+
+1. Render → Service → **Disks** → **Add Disk**
+   - **Mount path** : `/data`
+   - **Size** : 1–5 GB suffisent pour commencer
+
+2. Render → Service → **Environment**
+   - Ajouter la variable :
+     ```
+     UPLOADS_DIR=/data/uploads
+     ```
+
+3. Redéployer le service (Deploy → Manual deploy).
+
+### Vérification rapide
+- Un PDF uploadé doit être accessible via une URL du type :
+  ```
+  https://<ton-domaine>/uploads/exam-papers/<hash>.pdf
+  ```
+- Après un redeploy, l’URL doit **toujours** répondre 200.
 
 Voir `docs/database/dev-prod.md` pour les détails liés à la base.
