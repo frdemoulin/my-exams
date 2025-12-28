@@ -485,6 +485,9 @@ export default function HomePage({
                 Administration
               </Link>
             )}
+            <Link href="/contact" className="hover:text-foreground">
+              Contact
+            </Link>
             <ThemeToggle />
             {!session?.user && (
               <Link
@@ -514,6 +517,9 @@ export default function HomePage({
                 Admin
               </Link>
             )}
+            <Link href="/contact" className="text-sm font-semibold text-fg-brand hover:text-heading">
+              Contact
+            </Link>
             <ThemeToggle />
             {session?.user ? (
               <button
