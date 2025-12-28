@@ -1,3 +1,8 @@
+## <small>1.4.12 (2025-12-28)</small>
+
+* Merge pull request #61 from frdemoulin/dev ([632bc8b](https://github.com/frdemoulin/my-exams/commit/632bc8b)), closes [#61](https://github.com/frdemoulin/my-exams/issues/61)
+* fix: mise à jour des mentions légales ([8f043a1](https://github.com/frdemoulin/my-exams/commit/8f043a1))
+
 ## <small>1.4.11 (2025-12-28)</small>
 
 * Merge pull request #60 from frdemoulin/dev ([f592481](https://github.com/frdemoulin/my-exams/commit/f592481)), closes [#60](https://github.com/frdemoulin/my-exams/issues/60)
