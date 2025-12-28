@@ -1,3 +1,8 @@
+## <small>1.4.11 (2025-12-28)</small>
+
+* Merge pull request #60 from frdemoulin/dev ([f592481](https://github.com/frdemoulin/my-exams/commit/f592481)), closes [#60](https://github.com/frdemoulin/my-exams/issues/60)
+* fix: debug de l'upload de fichiers ([91b9583](https://github.com/frdemoulin/my-exams/commit/91b9583))
+
 ## <small>1.4.10 (2025-12-28)</small>
 
 * Merge pull request #59 from frdemoulin/dev ([e61f285](https://github.com/frdemoulin/my-exams/commit/e61f285)), closes [#59](https://github.com/frdemoulin/my-exams/issues/59)
