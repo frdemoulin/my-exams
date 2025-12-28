@@ -1,3 +1,9 @@
+## <small>1.4.8 (2025-12-28)</small>
+
+* Merge pull request #57 from frdemoulin/dev ([28f2b40](https://github.com/frdemoulin/my-exams/commit/28f2b40)), closes [#57](https://github.com/frdemoulin/my-exams/issues/57)
+* fix: gestion d'un champ isActive sur différentes entités ([b46af78](https://github.com/frdemoulin/my-exams/commit/b46af78))
+* fix: refonte des filtres rapides, dynamisme des matières ([43ee6d9](https://github.com/frdemoulin/my-exams/commit/43ee6d9))
+
 ## <small>1.4.7 (2025-12-27)</small>
 
 * Merge pull request #56 from frdemoulin/dev ([8427657](https://github.com/frdemoulin/my-exams/commit/8427657)), closes [#56](https://github.com/frdemoulin/my-exams/issues/56)
