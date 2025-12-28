@@ -101,6 +101,7 @@ export const updateTheme = async (
 type DeleteThemeOptions = {
     redirectTo?: string | null;
     revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
 };
 
 export const deleteTheme = async (id: string, options?: DeleteThemeOptions) => {
@@ -118,7 +119,9 @@ export const deleteTheme = async (id: string, options?: DeleteThemeOptions) => {
 
     const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
     paths.forEach((path) => revalidatePath(path));
-    await setCrudSuccessToast("theme", "deleted");
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("theme", "deleted");
+    }
     if (options?.redirectTo !== null) {
         redirect(options?.redirectTo ?? "/admin/themes");
     }

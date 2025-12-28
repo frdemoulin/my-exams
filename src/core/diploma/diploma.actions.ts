@@ -8,6 +8,12 @@ import { createDiplomaSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateDiplomaErrors } from "./diploma.types";
 
+type DeleteDiplomaOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
+};
+
 export const createDiploma = async (formData: FormData) => {
     const longDescription = formData.get("longDescription") as string;
     const shortDescription = formData.get("shortDescription") as string;
@@ -95,7 +101,7 @@ export const updateDiploma = async (id: string | undefined, formData: FormData) 
     }
 }
 
-export const deleteDiploma = async (id: string) => {
+export const deleteDiploma = async (id: string, options?: DeleteDiplomaOptions) => {
     try {
         await prisma.diploma.delete({
             where: {
@@ -108,7 +114,12 @@ export const deleteDiploma = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/diplomas");
-    await setCrudSuccessToast("diploma", "deleted");
-    redirect("/admin/diplomas");
+    const paths = new Set(["/admin/diplomas", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("diploma", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/diplomas");
+    }
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import {
   DropdownMenu,
@@ -19,17 +20,61 @@ import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { SortableHeader } from "@/components/shared/sortable-header";
 import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger } from "@/components/shared/table-action-menu";
 
-const handleOnClickDeleteButton = async (id: string) => {
-  try {
-    await deleteExamPaper(id);
-    toast.success("Sujet d'examen supprimé");
-  } catch (error) {
-    if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
-      throw error;
+const ExamPaperActions = ({ examPaper }: { examPaper: ExamPaperWithRelations }) => {
+  const router = useRouter();
+
+  const handleOnClickDeleteButton = async () => {
+    try {
+      await deleteExamPaper(examPaper.id, { redirectTo: null, skipSuccessToast: true });
+      toast.success("Sujet d'examen supprimé");
+      router.refresh();
+    } catch (error) {
+      if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
+        throw error;
+      }
+      toast.error("Erreur dans la suppression du sujet d'examen");
     }
-    toast.error("Erreur dans la suppression du sujet d'examen");
-  }
-}
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button type="button" className={actionMenuTrigger}>
+          <span className="sr-only">Open menu</span>
+          <MoreHorizontal className="h-4 w-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className={actionMenuContent}>
+        <div className={actionMenuHeader}>Actions</div>
+        <DropdownMenuItem className={actionMenuItem}>
+          <Link
+            href={`/admin/exam-papers/${examPaper.id}`}
+          >
+            Voir
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className={actionMenuItem}>
+          <Link
+            href={`/admin/exam-papers/${examPaper.id}/edit`}
+          >
+            Éditer
+          </Link>
+        </DropdownMenuItem>
+        <ConfirmDeleteDialog
+          onConfirm={handleOnClickDeleteButton}
+          trigger={
+            <DropdownMenuItem
+              className={`${actionMenuItem} hover:cursor-pointer`}
+              onSelect={(event) => event.preventDefault()}
+            >
+              Supprimer
+            </DropdownMenuItem>
+          }
+        />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 const localeSort = localeStringSort<ExamPaperWithRelations>();
 
@@ -106,44 +151,7 @@ export const columns: ColumnDef<ExamPaperWithRelations>[] = [
     cell: ({ row }) => {
       const examPaper = row.original;
 
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button type="button" className={actionMenuTrigger}>
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className={actionMenuContent}>
-            <div className={actionMenuHeader}>Actions</div>
-            <DropdownMenuItem className={actionMenuItem}>
-              <Link
-                href={`/admin/exam-papers/${examPaper.id}`}
-              >
-                Voir
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem className={actionMenuItem}>
-              <Link
-                href={`/admin/exam-papers/${examPaper.id}/edit`}
-              >
-                Éditer
-              </Link>
-            </DropdownMenuItem>
-            <ConfirmDeleteDialog
-              onConfirm={() => handleOnClickDeleteButton(examPaper.id)}
-              trigger={
-                <DropdownMenuItem
-                  className={`${actionMenuItem} hover:cursor-pointer`}
-                  onSelect={(event) => event.preventDefault()}
-                >
-                  Supprimer
-                </DropdownMenuItem>
-              }
-            />
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )
+      return <ExamPaperActions examPaper={examPaper} />
     },
   },
 ]

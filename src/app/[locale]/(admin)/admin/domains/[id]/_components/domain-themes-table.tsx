@@ -168,6 +168,7 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
         try {
             await deleteTheme(id, {
                 redirectTo: null,
+                skipSuccessToast: true,
                 revalidatePaths: [`/admin/domains/${domainId}`],
             });
             setRows((current) => current.filter((theme) => theme.id !== id));

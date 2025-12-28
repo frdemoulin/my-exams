@@ -15,7 +15,7 @@ interface AddThemePageProps {
 }
 
 const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
-    const domainsOptions = await fetchDomainsOptions();
+    const domainsOptions = await fetchDomainsOptions({ includeInactive: true });
     const t = await getTranslations('entities.theme');
     const domainId = typeof searchParams?.domainId === "string" ? searchParams.domainId : undefined;
 

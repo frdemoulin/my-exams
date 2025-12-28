@@ -31,6 +31,7 @@ const AddCoursePage = async () => {
                     shortDescription: "",
                     gradeId: "",
                     subjectId: "",
+                    isActive: true,
                 }}
                 grades={grades}
                 subjects={subjects}

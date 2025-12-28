@@ -2,8 +2,15 @@ import prisma from "@/lib/db/prisma";
 import { Division } from "@prisma/client";
 import { Option } from "@/types/option";
 
-export async function fetchDivisions(): Promise<Division[]> {
+type DivisionQueryOptions = {
+    includeInactive?: boolean;
+};
+
+export async function fetchDivisions(
+    options: DivisionQueryOptions = {}
+): Promise<Division[]> {
     return await prisma.division.findMany({
+        where: options.includeInactive ? undefined : { isActive: true },
         orderBy: [
             {
                 createdAt: "asc",
@@ -12,8 +19,11 @@ export async function fetchDivisions(): Promise<Division[]> {
     });
 }
 
-export async function fetchDivisionsOptions(): Promise<Option[]> {
+export async function fetchDivisionsOptions(
+    options: DivisionQueryOptions = {}
+): Promise<Option[]> {
     const divisions = await prisma.division.findMany({
+        where: options.includeInactive ? undefined : { isActive: true },
         orderBy: [
             {
                 longDescription: "asc",

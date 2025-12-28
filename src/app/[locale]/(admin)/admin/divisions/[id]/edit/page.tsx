@@ -34,6 +34,7 @@ const EditDivisionPage = async ({ params }: DivisionEditProps) => {
                         id,
                         longDescription: division?.longDescription ?? "",
                         shortDescription: division?.shortDescription ?? "",
+                        isActive: division?.isActive ?? true,
                     }}
                 />
             </div>

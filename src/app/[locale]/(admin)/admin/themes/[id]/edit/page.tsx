@@ -21,7 +21,7 @@ const EditThemePage = async ({ params }: ThemeEditProps) => {
 
     const theme = await fetchThemeById(id);
     
-    const domainsOptions = await fetchDomainsOptions();
+    const domainsOptions = await fetchDomainsOptions({ includeInactive: true });
     const t = await getTranslations('entities.theme');
 
     return (

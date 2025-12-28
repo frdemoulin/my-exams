@@ -8,6 +8,12 @@ import { createGradeSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateGradeErrors } from "./grade.types";
 
+type DeleteGradeOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
+};
+
 export const createGrade = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
@@ -79,7 +85,7 @@ export const updateGrade = async (id: string | undefined, formData: FormData) =>
     }
 }
 
-export const deleteGrade = async (id: string) => {
+export const deleteGrade = async (id: string, options?: DeleteGradeOptions) => {
     try {
         await prisma.grade.delete({
             where: {
@@ -92,7 +98,12 @@ export const deleteGrade = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/grades");
-    await setCrudSuccessToast("grade", "deleted");
-    redirect("/admin/grades");
+    const paths = new Set(["/admin/grades", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("grade", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/grades");
+    }
 }

@@ -68,6 +68,10 @@ const TeachingPage = async ({ params }: TeachingPageProps) => {
                     <label className="text-sm font-medium text-muted-foreground">Matière</label>
                     <p className="text-lg">{teaching.subject.longDescription}</p>
                 </div>
+                <div>
+                    <label className="text-sm font-medium text-muted-foreground">Statut</label>
+                    <p className="text-lg">{teaching.isActive ? "Actif" : "Inactif"}</p>
+                </div>
 
                 <div className="pt-4 border-t">
                     <div className="grid grid-cols-2 gap-4 text-sm">

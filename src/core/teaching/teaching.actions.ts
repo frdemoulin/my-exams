@@ -7,13 +7,29 @@ import prisma from "@/lib/db/prisma";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { createTeachingSchema, CreateTeachingErrors } from "./teaching.types";
 
+type DeleteTeachingOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
+};
+
 export const createTeaching = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createTeachingSchema.safeParse(values);
+    const result = createTeachingSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription, gradeId, subjectId } = result.data;
+        const { longDescription, shortDescription, gradeId, subjectId, isActive } = result.data;
 
         try {
             await prisma.teaching.create({
@@ -22,6 +38,7 @@ export const createTeaching = async (formData: FormData) => {
                     shortDescription: shortDescription || null,
                     gradeId,
                     subjectId,
+                    isActive,
                 }
             });
         } catch (error: any) {
@@ -43,11 +60,21 @@ export const createTeaching = async (formData: FormData) => {
 
 export const updateTeaching = async (id: string | undefined, formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
 
-    const result = createTeachingSchema.safeParse(values);
+    const result = createTeachingSchema.safeParse({
+        ...values,
+        isActive,
+    });
 
     if (result.success) {
-        const { longDescription, shortDescription, gradeId, subjectId } = result.data;
+        const { longDescription, shortDescription, gradeId, subjectId, isActive } = result.data;
 
         try {
             await prisma.teaching.update({
@@ -57,6 +84,7 @@ export const updateTeaching = async (id: string | undefined, formData: FormData)
                     shortDescription: shortDescription || null,
                     gradeId,
                     subjectId,
+                    isActive,
                 }
             });
 
@@ -75,7 +103,7 @@ export const updateTeaching = async (id: string | undefined, formData: FormData)
     }
 }
 
-export const deleteTeaching = async (id: string) => {
+export const deleteTeaching = async (id: string, options?: DeleteTeachingOptions) => {
     try {
         await prisma.teaching.delete({
             where: { id }
@@ -85,7 +113,12 @@ export const deleteTeaching = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/teachings");
-    await setCrudSuccessToast("teaching", "deleted");
-    redirect("/admin/teachings");
+    const paths = new Set(["/admin/teachings", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("teaching", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/teachings");
+    }
 }

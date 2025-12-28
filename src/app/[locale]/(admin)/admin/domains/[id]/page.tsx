@@ -34,8 +34,8 @@ const DomainDetailPage = async ({ params }: DomainDetailPageProps) => {
   const themes = await fetchThemesByDomainId(id);
   const diplomas = await fetchDiplomasOptions({ includeInactive: true });
   const grades = await fetchGradesOptions();
-  const divisions = await fetchDivisionsOptions();
-  const teachings = await fetchTeachingsOptions();
+  const divisions = await fetchDivisionsOptions({ includeInactive: true });
+  const teachings = await fetchTeachingsOptions({ includeInactive: true });
   const curriculums = await fetchCurriculumsOptions();
 
   return (
@@ -78,6 +78,12 @@ const DomainDetailPage = async ({ params }: DomainDetailPageProps) => {
                 Ordre
               </h3>
               <p className="text-sm">{domain?.order ?? "—"}</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground">
+                Statut
+              </h3>
+              <p className="text-sm">{domain?.isActive ? "Actif" : "Inactif"}</p>
             </div>
           </div>
         </CardContent>

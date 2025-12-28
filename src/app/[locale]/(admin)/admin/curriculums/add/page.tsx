@@ -17,7 +17,7 @@ const AddCurriculumPage = async () => {
         redirect("/api/auth/signin?callbackUrl=/admin/curriculums/add");
     }
 
-    const teachings = await fetchTeachingsOptions();
+    const teachings = await fetchTeachingsOptions({ includeInactive: true });
 
     return (
         <div className="w-full p-6">

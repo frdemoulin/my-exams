@@ -3,6 +3,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import {
     DropdownMenu,
@@ -20,6 +21,62 @@ import { actionMenuContent, actionMenuHeader, actionMenuItem, actionMenuTrigger 
 import { localeStringSort } from "@/lib/table";
 
 const localeSort = localeStringSort<CurriculumWithTeachingCount>();
+
+const CurriculumActions = ({ curriculum }: { curriculum: CurriculumWithTeachingCount }) => {
+    const router = useRouter();
+
+    const handleDelete = async () => {
+        try {
+            await deleteCurriculum(curriculum.id, { skipSuccessToast: true });
+            toast.success("Programme supprimé avec succès");
+            router.refresh();
+        } catch (error) {
+            if (error instanceof Error) {
+                if (error.message === "NEXT_REDIRECT") {
+                    throw error;
+                }
+                toast.error(error.message);
+            } else {
+                toast.error("Une erreur est survenue");
+            }
+        }
+    };
+
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <button type="button" className={actionMenuTrigger}>
+                    <span className="sr-only">Ouvrir le menu</span>
+                    <MoreHorizontal className="h-4 w-4" />
+                </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className={actionMenuContent}>
+                <div className={actionMenuHeader}>Actions</div>
+                <DropdownMenuItem asChild className={actionMenuItem}>
+                    <Link href={`/admin/curriculums/${curriculum.id}`}>
+                        Voir
+                    </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild className={actionMenuItem}>
+                    <Link href={`/admin/curriculums/${curriculum.id}/edit`}>
+                        Éditer
+                    </Link>
+                </DropdownMenuItem>
+                <ConfirmDeleteDialog
+                    onConfirm={handleDelete}
+                    trigger={
+                        <DropdownMenuItem
+                            className={`${actionMenuItem} hover:cursor-pointer`}
+                            onSelect={(event) => event.preventDefault()}
+                        >
+                            Supprimer
+                        </DropdownMenuItem>
+                    }
+                />
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
+};
 
 export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     {
@@ -83,56 +140,7 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
         cell: ({ row }) => {
             const curriculum = row.original;
 
-            const handleDelete = async () => {
-                try {
-                    await deleteCurriculum(curriculum.id);
-                    toast.success("Programme supprimé avec succès");
-                } catch (error) {
-                    if (error instanceof Error) {
-                        if (error.message === "NEXT_REDIRECT") {
-                            throw error;
-                        }
-                        toast.error(error.message);
-                    } else {
-                        toast.error("Une erreur est survenue");
-                    }
-                }
-            };
-
-                    return (
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <button type="button" className={actionMenuTrigger}>
-                                    <span className="sr-only">Ouvrir le menu</span>
-                                    <MoreHorizontal className="h-4 w-4" />
-                                </button>
-                            </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className={actionMenuContent}>
-                        <div className={actionMenuHeader}>Actions</div>
-                        <DropdownMenuItem asChild className={actionMenuItem}>
-                            <Link href={`/admin/curriculums/${curriculum.id}`}>
-                                Voir
-                            </Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem asChild className={actionMenuItem}>
-                            <Link href={`/admin/curriculums/${curriculum.id}/edit`}>
-                                Éditer
-                            </Link>
-                        </DropdownMenuItem>
-                        <ConfirmDeleteDialog
-                            onConfirm={handleDelete}
-                            trigger={
-                                <DropdownMenuItem
-                                    className={`${actionMenuItem} hover:cursor-pointer`}
-                                    onSelect={(event) => event.preventDefault()}
-                                >
-                                    Supprimer
-                                </DropdownMenuItem>
-                            }
-                        />
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            );
+            return <CurriculumActions curriculum={curriculum} />;
         },
     },
 ];

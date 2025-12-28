@@ -21,6 +21,7 @@ const AddDivisionPage = async () => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
+                        isActive: true,
                     }}
                 />
             </div>

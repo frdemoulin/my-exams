@@ -170,7 +170,7 @@ export async function searchExercises(
   }
   examPaperFilter.diploma = diplomaFilter;
 
-  const teachingFilter: Prisma.TeachingWhereInput = {};
+  const teachingFilter: Prisma.TeachingWhereInput = { isActive: true };
 
   // Filtre par matière
   if (subject) {

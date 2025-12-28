@@ -53,6 +53,7 @@ model Domain {
   shortDescription String
   order            Int? // Ordre dans le programme
   discipline       DomainDiscipline? // Discipline dominante pour Physique-Chimie
+  isActive         Boolean @default(true)
 
   // Relations
   subjectId String  @db.ObjectId
@@ -108,6 +109,7 @@ model Teaching {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
   longDescription  String // ex: "Spécialité Mathématiques", "Tronc Commun Sciences"
   shortDescription String? // ex: "Spé Maths", "TC Sciences"
+  isActive         Boolean  @default(true)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
@@ -185,6 +187,7 @@ model Division {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
   longDescription  String
   shortDescription String
+  isActive         Boolean  @default(true)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
@@ -198,6 +201,7 @@ model Division {
 model ExaminationCenter {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   description String
+  isActive    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 

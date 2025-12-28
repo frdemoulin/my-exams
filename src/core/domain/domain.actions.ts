@@ -7,6 +7,7 @@ import prisma from "@/lib/db/prisma";
 import { createDomainSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateDomainErrors } from "./domain.types";
+
 type DomainScopeInput = {
     diplomaId?: string | null;
     gradeId?: string | null;
@@ -16,6 +17,12 @@ type DomainScopeInput = {
     labelOverride?: string | null;
     order?: number | null;
     isActive?: boolean;
+};
+
+type DeleteDomainOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
 };
 
 const emptyToNull = (value: unknown) =>
@@ -79,17 +86,25 @@ const parseScopes = (raw: FormDataEntryValue | null): DomainScopeInput[] => {
 
 export const createDomain = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
     const parsedValues = {
         ...values,
         order: values.order ? parseInt(values.order as string, 10) : undefined,
         discipline: values.discipline || undefined,
+        isActive,
     };
     const scopes = parseScopes(formData.get("scopes"));
 
     const result = createDomainSchema.safeParse(parsedValues);
 
     if (result.success) {
-        const { longDescription, shortDescription, subjectId, order, discipline } = result.data;
+        const { longDescription, shortDescription, subjectId, order, discipline, isActive } = result.data;
 
         try {
             const createdDomain = await prisma.domain.create({
@@ -99,6 +114,7 @@ export const createDomain = async (formData: FormData) => {
                     subjectId,
                     order: order ?? null,
                     discipline: discipline ?? null,
+                    isActive,
                 },
             });
 
@@ -136,17 +152,25 @@ export const createDomain = async (formData: FormData) => {
 
 export const updateDomain = async (id: string | undefined, formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
+    const isActiveValue = values.isActive;
+    const isActive =
+        typeof isActiveValue === "boolean"
+            ? isActiveValue
+            : isActiveValue == null
+                ? true
+                : String(isActiveValue) === "true";
     const parsedValues = {
         ...values,
         order: values.order ? parseInt(values.order as string, 10) : undefined,
         discipline: values.discipline || undefined,
+        isActive,
     };
     const scopes = parseScopes(formData.get("scopes"));
 
     const result = createDomainSchema.safeParse(parsedValues);
 
     if (result.success) {
-        const { longDescription, shortDescription, subjectId, order, discipline } = result.data;
+        const { longDescription, shortDescription, subjectId, order, discipline, isActive } = result.data;
 
         try {
             await prisma.domain.update({
@@ -157,6 +181,7 @@ export const updateDomain = async (id: string | undefined, formData: FormData) =
                     subjectId,
                     order: order ?? null,
                     discipline: discipline ?? null,
+                    isActive,
                 },
             });
 
@@ -222,7 +247,7 @@ export const updateDomainScopes = async (domainId: string, formData: FormData) =
     revalidatePath(`/admin/domains/${domainId}/edit`);
 }
 
-export const deleteDomain = async (id: string) => {
+export const deleteDomain = async (id: string, options?: DeleteDomainOptions) => {
     try {
         await prisma.domainScope.deleteMany({
             where: { domainId: id },
@@ -235,7 +260,12 @@ export const deleteDomain = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/domains");
-    await setCrudSuccessToast("domain", "deleted");
-    redirect("/admin/domains");
+    const paths = new Set(["/admin/domains", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("domain", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/domains");
+    }
 }

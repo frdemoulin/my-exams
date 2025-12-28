@@ -20,6 +20,7 @@ const AddExaminationCenterPage = async () => {
                     crudMode="add"
                     initialData={{
                         description: "",
+                        isActive: true,
                     }}
                 />
             </div>

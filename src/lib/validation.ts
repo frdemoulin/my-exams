@@ -19,6 +19,7 @@ export const createExaminationCenterSchema = z.object({
         .trim()
         .min(1, { message: "Champ requis" })
         .max(255, { message: "Ne peut pas dépasser 255 caractères" }),
+    isActive: z.boolean().default(true),
 });
 
 export const createDiplomaSchema = z.object({
@@ -54,6 +55,7 @@ export const createDivisionSchema = z.object({
         .trim()
         .min(1, { message: "Champ requis" })
         .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
+    isActive: z.boolean().default(true),
 });
 
 export const createGradeSchema = z.object({
@@ -138,6 +140,7 @@ export const createDomainSchema = z.object({
         .min(1, { message: "Champ requis" }),
     order: z.number().int().min(1).max(1000).optional(),
     discipline: z.enum(["PHYSIQUE", "CHIMIE", "TRANSVERSAL"]).optional(),
+    isActive: z.boolean().default(true),
 });
 
 export const createExamPaperSchema = z.object({

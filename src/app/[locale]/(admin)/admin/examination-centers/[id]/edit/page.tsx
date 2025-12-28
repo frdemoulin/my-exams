@@ -33,6 +33,7 @@ const EditExaminationCenterPage = async ({ params }: ExaminationCenterEditProps)
                     initialData={{
                         id,
                         description: examinationCenter?.description ?? "",
+                        isActive: examinationCenter?.isActive ?? true,
                     }}
                 />
             </div>

@@ -8,6 +8,12 @@ import { createExamPaperSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateExamPaperErrors } from "./exam-paper.types";
 
+type DeleteExamPaperOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
+};
+
 export const createExamPaper = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
@@ -130,7 +136,7 @@ export const updateExamPaper = async (id: string | undefined, formData: FormData
     }
 }
 
-export const deleteExamPaper = async (id: string) => {
+export const deleteExamPaper = async (id: string, options?: DeleteExamPaperOptions) => {
     try {
         await prisma.examPaper.delete({
             where: { id }
@@ -140,7 +146,12 @@ export const deleteExamPaper = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/exam-papers");
-    await setCrudSuccessToast("examPaper", "deleted");
-    redirect("/admin/exam-papers");
+    const paths = new Set(["/admin/exam-papers", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("examPaper", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/exam-papers");
+    }
 }

@@ -22,6 +22,7 @@ const DivisionDetailPage = async ({ params }: DivisionDetailPageProps) => {
             <h1 className="text-lg font-semibold md:text-2xl">Détails de la filière</h1>
             <p>Description courte : {division?.shortDescription}</p>
             <p>Description longue : {division?.longDescription}</p>
+            <p>Statut : {division?.isActive ? "Active" : "Inactive"}</p>
         </div>
     )
 }

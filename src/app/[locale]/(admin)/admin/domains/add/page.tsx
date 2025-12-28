@@ -18,8 +18,8 @@ const AddDomainPage = async () => {
   const subjects = await fetchSubjectsOptions({ includeInactive: true });
   const diplomas = await fetchDiplomasOptions({ includeInactive: true });
   const grades = await fetchGradesOptions();
-  const divisions = await fetchDivisionsOptions();
-  const teachings = await fetchTeachingsOptions();
+  const divisions = await fetchDivisionsOptions({ includeInactive: true });
+  const teachings = await fetchTeachingsOptions({ includeInactive: true });
   const curriculums = await fetchCurriculumsOptions();
   const t = await getTranslations("entities.domain");
 
@@ -39,6 +39,7 @@ const AddDomainPage = async () => {
             subjectId: undefined,
             order: undefined,
             discipline: undefined,
+            isActive: true,
             scopes: [],
           }}
           subjects={subjects}

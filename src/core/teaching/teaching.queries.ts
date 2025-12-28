@@ -1,13 +1,19 @@
 import prisma from '@/lib/db/prisma';
-import { Teaching } from '@prisma/client';
 import { TeachingWithRelations, TeachingsByGrade } from './teaching.types';
 import type { Option } from '@/types/option';
+
+type TeachingQueryOptions = {
+  includeInactive?: boolean;
+};
 
 /**
  * Récupère tous les enseignements avec leurs relations Grade et Subject
  */
-export async function fetchTeachings(): Promise<TeachingWithRelations[]> {
+export async function fetchTeachings(
+  options: TeachingQueryOptions = {}
+): Promise<TeachingWithRelations[]> {
   return await prisma.teaching.findMany({
+    where: options.includeInactive ? undefined : { isActive: true },
     include: {
       grade: true,
       subject: true,
@@ -28,8 +34,11 @@ export async function fetchTeachings(): Promise<TeachingWithRelations[]> {
 /**
  * Récupère tous les enseignements sous forme d'options pour les formulaires
  */
-export async function fetchTeachingsOptions(): Promise<Option[]> {
+export async function fetchTeachingsOptions(
+  options: TeachingQueryOptions = {}
+): Promise<Option[]> {
   const teachings = await prisma.teaching.findMany({
+    where: options.includeInactive ? undefined : { isActive: true },
     include: {
       grade: {
         select: {
@@ -69,6 +78,7 @@ export async function fetchTeachingsByGrade(): Promise<TeachingsByGrade[]> {
   const grades = await prisma.grade.findMany({
     include: {
       teachings: {
+        where: { isActive: true },
         include: {
           subject: true,
           grade: true,
@@ -101,11 +111,13 @@ export async function fetchTeachingsByGrade(): Promise<TeachingsByGrade[]> {
  * Récupère les enseignements d'un niveau spécifique (ex: Terminale)
  */
 export async function fetchTeachingsByGradeId(
-  gradeId: string
+  gradeId: string,
+  options: TeachingQueryOptions = {}
 ): Promise<TeachingWithRelations[]> {
   return await prisma.teaching.findMany({
     where: {
       gradeId,
+      ...(options.includeInactive ? {} : { isActive: true }),
     },
     include: {
       grade: true,
@@ -130,6 +142,7 @@ export async function fetchLyceeTeachings(): Promise<TeachingsByGrade[]> {
     },
     include: {
       teachings: {
+        where: { isActive: true },
         include: {
           subject: true,
           grade: true,
@@ -184,6 +197,7 @@ export async function fetchSpecialties(): Promise<TeachingWithRelations[]> {
       longDescription: {
         startsWith: 'Spécialité',
       },
+      isActive: true,
       grade: {
         shortDescription: {
           in: ['1re', 'Tle'],

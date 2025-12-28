@@ -15,12 +15,13 @@ interface ExaminationCenterDetailPageProps {
 const ExaminationCenterDetailPage = async ({ params }: ExaminationCenterDetailPageProps) => {
     const { id } = await params;
 
-    const exminationCenter = await fetchExaminationCenterById(id);
+    const examinationCenter = await fetchExaminationCenterById(id);
     
     return (
         <div>
             <h1 className="text-lg font-semibold md:text-2xl">Détails du centre d&apos;examen</h1>
-            <p>Description : {exminationCenter?.description}</p>
+            <p>Description : {examinationCenter?.description}</p>
+            <p>Statut : {examinationCenter?.isActive ? "Actif" : "Inactif"}</p>
         </div>
     )
 }

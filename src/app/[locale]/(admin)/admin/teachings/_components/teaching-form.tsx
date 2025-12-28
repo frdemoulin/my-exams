@@ -31,6 +31,7 @@ interface TeachingFormProps {
         shortDescription?: string | null,
         gradeId: string,
         subjectId: string,
+        isActive: boolean,
     };
     grades: Option[];
     subjects: Option[];
@@ -51,6 +52,7 @@ export const TeachingForm = ({
             shortDescription: initialData.shortDescription || undefined,
             gradeId: initialData.gradeId,
             subjectId: initialData.subjectId,
+            isActive: initialData.isActive,
         },
         resolver: zodResolver(createTeachingSchema)
     });
@@ -58,11 +60,13 @@ export const TeachingForm = ({
     const onSubmit = async (values: CreateTeachingValues) => {
         const formData = new FormData();
 
-        Object.entries(values).forEach(([key, value]) => {
-            if (value) {
-                formData.append(key, value as string);
-            }
-        });
+        formData.append("longDescription", values.longDescription);
+        if (values.shortDescription) {
+            formData.append("shortDescription", values.shortDescription);
+        }
+        formData.append("gradeId", values.gradeId);
+        formData.append("subjectId", values.subjectId);
+        formData.append("isActive", String(values.isActive));
         
         if (!initialData.id) {
             await createTeaching(formData);
@@ -163,6 +167,27 @@ export const TeachingForm = ({
                                 </SelectContent>
                             </Select>
                             <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    name="isActive"
+                    control={control}
+                    render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                            <FormControl>
+                                <input
+                                    type="checkbox"
+                                    checked={field.value}
+                                    onChange={(e) => field.onChange(e.target.checked)}
+                                    className="h-4 w-4 rounded-base border border-default accent-brand bg-neutral-primary-soft"
+                                />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                                <FormLabel className="cursor-pointer">
+                                    Enseignement actif
+                                </FormLabel>
+                            </div>
                         </FormItem>
                     )}
                 />

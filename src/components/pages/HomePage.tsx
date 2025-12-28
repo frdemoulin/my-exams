@@ -3,7 +3,6 @@
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
 import { ArrowRight, LogIn, Search, X } from 'lucide-react';
 import type { Diploma, Subject } from '@prisma/client';
-import type { TeachingWithRelations } from '@/core/teaching';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
 
@@ -35,13 +34,11 @@ import { APP_NAME } from '@/config/app';
 
 interface HomePageProps {
   initialSubjects: Subject[];
-  specialties: TeachingWithRelations[];
   initialDiplomas: Diploma[];
 }
 
 export default function HomePage({
   initialSubjects,
-  specialties,
   initialDiplomas,
 }: HomePageProps) {
   const { data: session } = useSession();
@@ -51,7 +48,7 @@ export default function HomePage({
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
   const [selectedTeaching, setSelectedTeaching] = useState<string | undefined>();
-  const [selectedSessionYear, setSelectedSessionYear] = useState<number | undefined>();
+  const [selectedSessionYear, setSelectedSessionYear] = useState<number | null | undefined>();
   const [selectedThemes, setSelectedThemes] = useState<Array<{ id: string; label: string }>>([]);
   const [exercises, setExercises] = useState<ExerciseWithRelations[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
@@ -72,6 +69,31 @@ export default function HomePage({
     >
   >([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [teachingOptions, setTeachingOptions] = useState<
+    Array<{ value: string; label: string }>
+  >([]);
+  const [isTeachingLoading, setIsTeachingLoading] = useState(false);
+  const baseSessionOptions = useMemo(() => {
+    const set = new Set<number>();
+    exercises.forEach((ex) => {
+      if (ex.examPaper.sessionYear) set.add(ex.examPaper.sessionYear);
+    });
+    return Array.from(set).sort((a, b) => b - a);
+  }, [exercises]);
+  const [sessionOptions, setSessionOptions] = useState(() => baseSessionOptions);
+  const [isSessionLoading, setIsSessionLoading] = useState(false);
+  const baseSubjectOptions = useMemo(() => {
+    return initialSubjects
+      .filter((s) => s.isActive)
+      .map((s) => ({
+        value: s.shortDescription || s.longDescription,
+        label: s.longDescription,
+      }))
+      .filter((s) => Boolean(s.value))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, [initialSubjects]);
+  const [subjectOptions, setSubjectOptions] = useState(() => baseSubjectOptions);
+  const [isSubjectLoading, setIsSubjectLoading] = useState(false);
 
   // Fetch exercises on mount
   useEffect(() => {
@@ -108,7 +130,7 @@ export default function HomePage({
     if (selectedDiploma) params.append('diploma', selectedDiploma);
     if (selectedSubject) params.append('subject', selectedSubject);
     if (selectedTeaching) params.append('teachingId', selectedTeaching);
-    if (selectedSessionYear) params.append('year', selectedSessionYear.toString());
+    if (selectedSessionYear != null) params.append('year', selectedSessionYear.toString());
     if (selectedThemes.length > 0) {
       params.append(
         'themes',
@@ -306,49 +328,78 @@ export default function HomePage({
     return Array.from(set).sort();
   }, [exercises, initialDiplomas]);
 
-  const subjectOptions = useMemo(() => {
-    return initialSubjects
-      .map((s) => ({
-        value: s.shortDescription || s.longDescription,
-        label: s.longDescription,
-      }))
-      .filter((s) => Boolean(s.value))
-      .sort((a, b) => a.label.localeCompare(b.label));
-  }, [initialSubjects]);
+  const showTeachingFilter = true;
 
-  const teachingOptions = useMemo(() => {
-    const options = new Map<string, { value: string; label: string }>();
+  useEffect(() => {
+    if (!selectedDiploma) {
+      setSubjectOptions(baseSubjectOptions);
+      setIsSubjectLoading(false);
+      return;
+    }
 
-    exercises.forEach((ex) => {
-      if (!ex.examPaper?.teaching) return;
-      const diplomaLabel = ex.examPaper.diploma.shortDescription;
-      const subjectShort = ex.examPaper.teaching.subject.shortDescription;
-      const subjectLong = ex.examPaper.teaching.subject.longDescription;
+    const params = new URLSearchParams();
+    params.append('diploma', selectedDiploma);
 
-      if (selectedDiploma && diplomaLabel !== selectedDiploma) return;
-      if (
-        selectedSubject &&
-        selectedSubject !== subjectShort &&
-        selectedSubject !== subjectLong
-      ) {
-        return;
-      }
+    setIsSubjectLoading(true);
 
-      const teachingId = ex.examPaper.teaching.id;
-      const gradeLabel = ex.examPaper.grade?.shortDescription ?? '';
-      const label = gradeLabel
-        ? `${ex.examPaper.teaching.longDescription} (${gradeLabel})`
-        : ex.examPaper.teaching.longDescription;
+    fetch(`/api/subjects?${params.toString()}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const options: Array<{ value: string; label: string }> =
+          data.subjects?.map((subject: { shortDescription: string; longDescription: string }) => ({
+            value: subject.shortDescription || subject.longDescription,
+            label: subject.longDescription,
+          })) ?? [];
+        options.sort((a, b) => a.label.localeCompare(b.label));
+        setSubjectOptions(options);
+      })
+      .catch((error) => {
+        console.error('Error fetching subjects:', error);
+        setSubjectOptions(baseSubjectOptions);
+      })
+      .finally(() => {
+        setIsSubjectLoading(false);
+      });
+  }, [selectedDiploma, baseSubjectOptions]);
 
-      if (!options.has(teachingId)) {
-        options.set(teachingId, { value: teachingId, label });
-      }
-    });
+  useEffect(() => {
+    if (!selectedSubject) return;
+    if (subjectOptions.some((opt) => opt.value === selectedSubject)) return;
+    setSelectedSubject(undefined);
+    setSelectedTeaching(undefined);
+    setPage(1);
+  }, [selectedSubject, subjectOptions]);
 
-    return Array.from(options.values()).sort((a, b) =>
-      a.label.localeCompare(b.label)
-    );
-  }, [exercises, selectedDiploma, selectedSubject]);
+  useEffect(() => {
+    if (!selectedSubject) {
+      setTeachingOptions([]);
+      setIsTeachingLoading(false);
+      return;
+    }
+
+    const params = new URLSearchParams();
+    if (selectedDiploma) params.append('diploma', selectedDiploma);
+    if (selectedSubject) params.append('subject', selectedSubject);
+    if (selectedSessionYear != null) {
+      params.append('session', selectedSessionYear.toString());
+    }
+
+    setTeachingOptions([]);
+    setIsTeachingLoading(true);
+
+    fetch(`/api/teachings?${params.toString()}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setTeachingOptions(data.options || []);
+      })
+      .catch((error) => {
+        console.error('Error fetching teachings:', error);
+        setTeachingOptions([]);
+      })
+      .finally(() => {
+        setIsTeachingLoading(false);
+      });
+  }, [selectedDiploma, selectedSubject, selectedSessionYear]);
 
   useEffect(() => {
     if (!selectedTeaching) return;
@@ -356,13 +407,57 @@ export default function HomePage({
     setSelectedTeaching(undefined);
   }, [selectedTeaching, teachingOptions]);
 
-  const sessionOptions = useMemo(() => {
-    const set = new Set<number>();
-    exercises.forEach((ex) => {
-      if (ex.examPaper.sessionYear) set.add(ex.examPaper.sessionYear);
-    });
-    return Array.from(set).sort((a, b) => b - a);
-  }, [exercises]);
+  useEffect(() => {
+    if (teachingOptions.length !== 1) return;
+    const onlyOption = teachingOptions[0]?.value;
+    if (!onlyOption || selectedTeaching === onlyOption) return;
+    setSelectedTeaching(onlyOption);
+    setPage(1);
+  }, [selectedTeaching, teachingOptions]);
+
+  useEffect(() => {
+    if (!selectedDiploma && !selectedSubject) {
+      setSessionOptions(baseSessionOptions);
+      setIsSessionLoading(false);
+      return;
+    }
+
+    const params = new URLSearchParams();
+    if (selectedDiploma) params.append('diploma', selectedDiploma);
+    if (selectedSubject) params.append('subject', selectedSubject);
+
+    setSessionOptions([]);
+    setIsSessionLoading(true);
+
+    fetch(`/api/sessions?${params.toString()}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const sessions: number[] = Array.isArray(data.sessions)
+          ? data.sessions.filter((year: unknown) => typeof year === 'number')
+          : [];
+        setSessionOptions(sessions.sort((a, b) => b - a));
+      })
+      .catch((error) => {
+        console.error('Error fetching sessions:', error);
+        setSessionOptions(baseSessionOptions);
+      })
+      .finally(() => {
+        setIsSessionLoading(false);
+      });
+  }, [selectedDiploma, selectedSubject, baseSessionOptions]);
+
+  useEffect(() => {
+    if (selectedSessionYear == null) return;
+    if (sessionOptions.includes(selectedSessionYear)) return;
+    setSelectedSessionYear(undefined);
+    setPage(1);
+  }, [selectedSessionYear, sessionOptions]);
+
+  useEffect(() => {
+    if (selectedSessionYear !== undefined || sessionOptions.length === 0) return;
+    setSelectedSessionYear(sessionOptions[0]);
+    setPage(1);
+  }, [selectedSessionYear, sessionOptions]);
 
   const HeroEyebrow = ({ children }: { children: React.ReactNode }) => (
     <div className="mb-4 inline-flex items-center gap-2 rounded-base border border-default bg-neutral-primary-soft px-3 py-1 text-[11px] font-semibold tracking-tight text-body shadow-xs">
@@ -641,32 +736,6 @@ export default function HomePage({
                       </Select>
                     </div>
 
-                    {/* SESSION */}
-                    <div className="space-y-1.5 md:flex-1">
-                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        📅 Session
-                      </label>
-                      <Select
-                        value={selectedSessionYear?.toString() || 'all'}
-                        onValueChange={(value) => {
-                          setSelectedSessionYear(value === 'all' ? undefined : Number(value));
-                          setPage(1);
-                        }}
-                      >
-                        <SelectTrigger aria-label="Filtrer par session" className="h-9 text-sm">
-                          <SelectValue placeholder="Toutes les sessions" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">Toutes les sessions</SelectItem>
-                          {sessionOptions.map((year) => (
-                            <SelectItem key={year} value={year.toString()}>
-                              {year}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
                     {/* MATIÈRE */}
                     <div className="space-y-1.5 md:flex-1">
                       <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -674,6 +743,7 @@ export default function HomePage({
                       </label>
                       <Select
                         value={selectedSubject || 'all'}
+                        disabled={isSubjectLoading}
                         onValueChange={(value) => {
                           setSelectedSubject(value === 'all' ? undefined : value);
                           setSelectedTeaching(undefined);
@@ -693,32 +763,65 @@ export default function HomePage({
                         </SelectContent>
                       </Select>
                     </div>
-
-                    {/* OPTION / SPÉCIALITÉ */}
+                    {/* SESSION */}
                     <div className="space-y-1.5 md:flex-1">
                       <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        🧭 Option / Spécialité
+                        📅 Session
                       </label>
                       <Select
-                        value={selectedTeaching || 'all'}
+                        value={selectedSessionYear == null ? 'all' : selectedSessionYear.toString()}
+                        disabled={isSessionLoading}
                         onValueChange={(value) => {
-                          setSelectedTeaching(value === 'all' ? undefined : value);
+                          setSelectedSessionYear(value === 'all' ? null : Number(value));
                           setPage(1);
                         }}
                       >
-                        <SelectTrigger aria-label="Filtrer par option ou spécialité" className="h-9 text-sm">
-                          <SelectValue placeholder="Toutes les options" />
+                        <SelectTrigger aria-label="Filtrer par session" className="h-9 text-sm">
+                          <SelectValue placeholder="Toutes les sessions" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="all">Toutes les options</SelectItem>
-                          {teachingOptions.map((opt) => (
-                            <SelectItem key={opt.value} value={opt.value}>
-                              {opt.label}
+                          <SelectItem value="all">Toutes les sessions</SelectItem>
+                          {sessionOptions.map((year) => (
+                            <SelectItem key={year} value={year.toString()}>
+                              {year}
                             </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
                     </div>
+
+                    {/* OPTION / SPÉCIALITÉ */}
+                    {showTeachingFilter && (
+                      <div className="space-y-1.5 md:flex-1">
+                        <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                          🧭 Option / Spécialité
+                        </label>
+                        {isTeachingLoading ? (
+                          <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
+                        ) : (
+                          <Select
+                            value={selectedTeaching || 'all'}
+                            disabled={teachingOptions.length === 0}
+                            onValueChange={(value) => {
+                              setSelectedTeaching(value === 'all' ? undefined : value);
+                              setPage(1);
+                            }}
+                          >
+                            <SelectTrigger aria-label="Filtrer par option ou spécialité" className="h-9 text-sm">
+                              <SelectValue placeholder={teachingOptions.length === 0 ? 'Aucune option' : 'Toutes les options'} />
+                            </SelectTrigger>
+                            <SelectContent>
+                            <SelectItem value="all">Toutes les options</SelectItem>
+                            {teachingOptions.map((opt) => (
+                              <SelectItem key={opt.value} value={opt.value}>
+                                {opt.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        )}
+                      </div>
+                    )}
                   </>
                 ) : (
                   <>
@@ -730,22 +833,24 @@ export default function HomePage({
                     </div>
                     <div className="space-y-1.5 md:flex-1">
                       <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        📅 Session
-                      </label>
-                      <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
-                    </div>
-                    <div className="space-y-1.5 md:flex-1">
-                      <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         📖 Matière
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                     </div>
                     <div className="space-y-1.5 md:flex-1">
                       <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        🧭 Option / Spécialité
+                        📅 Session
                       </label>
                       <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
                     </div>
+                    {showTeachingFilter && (
+                      <div className="space-y-1.5 md:flex-1">
+                        <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                          🧭 Option / Spécialité
+                        </label>
+                        <div className="h-9 w-full animate-pulse rounded-lg bg-muted" />
+                      </div>
+                    )}
                   </>
                 )}
               </div>

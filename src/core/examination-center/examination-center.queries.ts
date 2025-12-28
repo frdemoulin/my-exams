@@ -1,8 +1,15 @@
 import prisma from "@/lib/db/prisma";
 import { ExaminationCenter } from "@prisma/client";
 
-export async function fetchExaminationCenters(): Promise<ExaminationCenter[]> {
+type ExaminationCenterQueryOptions = {
+    includeInactive?: boolean;
+};
+
+export async function fetchExaminationCenters(
+    options: ExaminationCenterQueryOptions = {}
+): Promise<ExaminationCenter[]> {
     return await prisma.examinationCenter.findMany({
+        where: options.includeInactive ? undefined : { isActive: true },
         orderBy: [
             {
                 description: "asc",

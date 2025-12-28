@@ -8,7 +8,13 @@ import { createSubjectSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { CreateSubjectErrors } from "./subject.types";
 
-export const createSubject = async (formData: FormData) => {
+type SubjectActionOptions = {
+    redirectTo?: string | null;
+    revalidatePaths?: string[];
+    skipSuccessToast?: boolean;
+};
+
+export const createSubject = async (formData: FormData, options?: SubjectActionOptions) => {
     const longDescription = formData.get("longDescription") as string;
     const shortDescription = formData.get("shortDescription") as string;
     const isActiveValue = formData.get("isActive");
@@ -46,13 +52,19 @@ export const createSubject = async (formData: FormData) => {
         throw errors;
     }
 
-    // on redirige vers la liste des matières
-    revalidatePath("/admin/subjects");
+    const paths = new Set(["/admin/subjects", "/", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
     await setCrudSuccessToast("subject", "created");
-    redirect("/admin/subjects");
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/subjects");
+    }
 }
 
-export const updateSubject = async (id: string | undefined, formData: FormData) => {
+export const updateSubject = async (
+    id: string | undefined,
+    formData: FormData,
+    options?: SubjectActionOptions
+) => {
     const longDescription = formData.get("longDescription") as string;
     const shortDescription = formData.get("shortDescription") as string;
     const isActiveValue = formData.get("isActive");
@@ -79,7 +91,8 @@ export const updateSubject = async (id: string | undefined, formData: FormData) 
                 }
             });
 
-            revalidatePath('/admin/subjects');
+            const paths = new Set(["/admin/subjects", "/", ...(options?.revalidatePaths ?? [])]);
+            paths.forEach((path) => revalidatePath(path));
         } catch (error) {
             console.error('Error updating subject: ', error);
             throw error;
@@ -87,7 +100,9 @@ export const updateSubject = async (id: string | undefined, formData: FormData) 
         
         // redirect doit être en dehors du try/catch pour ne pas être intercepté comme une erreur
         await setCrudSuccessToast("subject", "updated");
-        redirect('/admin/subjects');
+        if (options?.redirectTo !== null) {
+            redirect(options?.redirectTo ?? "/admin/subjects");
+        }
     } else {
         const errors = result.error.format();
         console.error('Invalid subject data: ', errors);
@@ -95,7 +110,7 @@ export const updateSubject = async (id: string | undefined, formData: FormData) 
     }
 }
 
-export const deleteSubject = async (id: string) => {
+export const deleteSubject = async (id: string, options?: SubjectActionOptions) => {
     try {
         await prisma.subject.delete({
             where: {
@@ -108,7 +123,12 @@ export const deleteSubject = async (id: string) => {
         throw error;
     }
 
-    revalidatePath("/admin/subjects");
-    await setCrudSuccessToast("subject", "deleted");
-    redirect("/admin/subjects");
+    const paths = new Set(["/admin/subjects", "/", ...(options?.revalidatePaths ?? [])]);
+    paths.forEach((path) => revalidatePath(path));
+    if (!options?.skipSuccessToast) {
+        await setCrudSuccessToast("subject", "deleted");
+    }
+    if (options?.redirectTo !== null) {
+        redirect(options?.redirectTo ?? "/admin/subjects");
+    }
 }
