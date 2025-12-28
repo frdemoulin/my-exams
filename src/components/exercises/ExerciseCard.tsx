@@ -15,6 +15,12 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
 
@@ -201,9 +207,22 @@ export function ExerciseCard({
       <CardContent className="flex flex-col gap-3 p-4 pt-0">
         {summaryText && (
           <div className="flex flex-col gap-2">
-            <Badge variant="outline" className="w-fit text-[10px] uppercase">
-              Résumé généré par IA
-            </Badge>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Badge
+                    variant="outline"
+                    className="w-fit cursor-help text-[10px] uppercase"
+                  >
+                    Résumé assisté par IA
+                  </Badge>
+                </TooltipTrigger>
+                <TooltipContent className="max-w-xs text-xs font-normal leading-relaxed">
+                  Résumé généré avec l&apos;aide d&apos;une intelligence artificielle et relu par
+                  l&apos;équipe My Exams. Résumé indicatif, l&apos;énoncé officiel fait foi.
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <p className="text-sm text-muted-foreground line-clamp-2">
               {summaryText}
             </p>
