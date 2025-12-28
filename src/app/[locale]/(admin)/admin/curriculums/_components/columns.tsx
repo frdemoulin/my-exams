@@ -109,8 +109,12 @@ export const columns: ColumnDef<CurriculumWithTeachingCount>[] = [
     },
     {
         accessorKey: "isActive",
-        header: ({ column }) => (
-            <SortableHeader label="STATUT" column={column} />
+        header: ({ column, table }) => (
+            <SortableHeader
+                label="STATUT"
+                column={column}
+                resetSorting={() => table.resetSorting()}
+            />
         ),
         cell: ({ row }) => {
             const isActive = row.original.isActive;

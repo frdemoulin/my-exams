@@ -116,7 +116,15 @@ export const columns: ColumnDef<TeachingWithRelations>[] = [
   },
   {
     accessorKey: "isActive",
-    header: "STATUT",
+    header: ({ column, table }) => {
+      return (
+        <SortableHeader
+          label="STATUT"
+          column={column}
+          resetSorting={() => table.resetSorting()}
+        />
+      )
+    },
     cell: ({ row }) => {
       const label = row.original.isActive ? "Actif" : "Inactif";
       return (
