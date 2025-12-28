@@ -43,6 +43,7 @@ type SortKey = "longDescription" | "shortDescription" | "updatedAt";
 export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) => {
     const [rows, setRows] = React.useState<Theme[]>(themes);
     const [editingThemeId, setEditingThemeId] = React.useState<string | null>(null);
+    const [openMenuId, setOpenMenuId] = React.useState<string | null>(null);
     const [draft, setDraft] = React.useState({
         longDescription: "",
         shortDescription: "",
@@ -173,6 +174,7 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
             });
             setRows((current) => current.filter((theme) => theme.id !== id));
             toast.success("Thème supprimé");
+            setOpenMenuId(null);
         } catch (error) {
             if (
                 error &&
@@ -308,7 +310,10 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
                                         </Button>
                                     </div>
                                 ) : (
-                                    <DropdownMenu>
+                                    <DropdownMenu
+                                        open={openMenuId === theme.id}
+                                        onOpenChange={(open) => setOpenMenuId(open ? theme.id : null)}
+                                    >
                                         <DropdownMenuTrigger asChild>
                                             <button type="button" className={actionMenuTrigger}>
                                                 <span className="sr-only">Open menu</span>

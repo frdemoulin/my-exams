@@ -496,6 +496,9 @@ export default function HomePage({
               <Link href="/contact" className="hover:text-foreground">
                 Contact
               </Link>
+            </nav>
+            <div className="hidden items-center gap-3 md:flex">
+              <ThemeToggle />
               {!session?.user && (
                 <Link
                   href="/log-in"
@@ -517,7 +520,7 @@ export default function HomePage({
                   <span>Se déconnecter</span>
                 </button>
               )}
-            </nav>
+            </div>
             <div className="flex items-center gap-3 md:hidden">
               {session?.user && (
                 <Link href="/admin" className="text-sm font-semibold text-fg-brand hover:text-heading">
@@ -527,6 +530,7 @@ export default function HomePage({
               <Link href="/contact" className="text-sm font-semibold text-fg-brand hover:text-heading">
                 Contact
               </Link>
+              <ThemeToggle />
               {session?.user ? (
                 <button
                   type="button"
@@ -547,7 +551,6 @@ export default function HomePage({
                 </Link>
               )}
             </div>
-            <ThemeToggle />
           </div>
         </div>
       </header>

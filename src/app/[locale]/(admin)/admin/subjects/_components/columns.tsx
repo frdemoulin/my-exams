@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import {
   DropdownMenu,
@@ -23,11 +24,13 @@ import { Badge } from "@/components/ui/badge";
 
 const SubjectActions = ({ subject }: { subject: Subject }) => {
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleOnClickDeleteButton = async () => {
     try {
       await deleteSubject(subject.id, { redirectTo: null, skipSuccessToast: true });
       toast.success("Matière supprimée");
+      setMenuOpen(false);
       router.refresh();
     } catch (error) {
       if (error && typeof error === 'object' && 'digest' in error && String(error.digest).startsWith('NEXT_REDIRECT')) {
@@ -38,7 +41,7 @@ const SubjectActions = ({ subject }: { subject: Subject }) => {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
       <DropdownMenuTrigger asChild>
         <button type="button" className={actionMenuTrigger}>
           <span className="sr-only">Open menu</span>

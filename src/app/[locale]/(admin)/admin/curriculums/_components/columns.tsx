@@ -4,6 +4,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import {
     DropdownMenu,
@@ -24,11 +25,13 @@ const localeSort = localeStringSort<CurriculumWithTeachingCount>();
 
 const CurriculumActions = ({ curriculum }: { curriculum: CurriculumWithTeachingCount }) => {
     const router = useRouter();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleDelete = async () => {
         try {
             await deleteCurriculum(curriculum.id, { skipSuccessToast: true });
             toast.success("Programme supprimé avec succès");
+            setMenuOpen(false);
             router.refresh();
         } catch (error) {
             if (error instanceof Error) {
@@ -43,7 +46,7 @@ const CurriculumActions = ({ curriculum }: { curriculum: CurriculumWithTeachingC
     };
 
     return (
-        <DropdownMenu>
+        <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
             <DropdownMenuTrigger asChild>
                 <button type="button" className={actionMenuTrigger}>
                     <span className="sr-only">Ouvrir le menu</span>

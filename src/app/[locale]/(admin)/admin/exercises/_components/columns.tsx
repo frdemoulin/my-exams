@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import type { Prisma } from "@prisma/client";
 import toast from "react-hot-toast";
 
@@ -64,6 +65,7 @@ const localeSort = localeStringSort<ExerciseListItem>();
 
 const ExerciseActions = ({ exercise }: { exercise: ExerciseListItem }) => {
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleOnClickDeleteButton = async () => {
     const result = await deleteExercise(exercise.id);
@@ -72,11 +74,12 @@ const ExerciseActions = ({ exercise }: { exercise: ExerciseListItem }) => {
       return;
     }
     toast.success("Exercice supprimé");
+    setMenuOpen(false);
     router.refresh();
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
       <DropdownMenuTrigger asChild>
         <button type="button" className={actionMenuTrigger}>
           <span className="sr-only">Open menu</span>
