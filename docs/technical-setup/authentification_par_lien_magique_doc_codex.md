@@ -196,6 +196,14 @@ Cela évite :
 
 Les logs sont conservés pour une **durée limitée** (sécurité uniquement).
 
+### Implémentation My Exams
+
+- Table `AuthLog` : actions `SIGN_IN` / `SIGN_OUT` avec `userId`, `provider`, `createdAt`.
+- Durée de conservation : **180 jours** par défaut (paramétrable via `AUTH_LOG_RETENTION_DAYS`).
+- Nettoyage automatique recommandé via un cron :
+  - Commande : `npm run auth:logs:cleanup`
+  - Exemple fréquence : 1 fois/jour.
+
 ---
 
 ## 11. Évolutions futures prévues

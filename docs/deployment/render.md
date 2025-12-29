@@ -74,3 +74,43 @@ disparaissent et les URLs renvoient 404. Il faut donc un **disque persistant**.
 - Après un redeploy, l’URL doit **toujours** répondre 200.
 
 Voir `docs/database/dev-prod.md` pour les détails liés à la base.
+
+---
+## Umami auto-hébergé (Render)
+
+Umami peut être auto-hébergé sur Render pour disposer d’analytics sans abonnement.
+
+### Étapes (Render)
+1. Créer une base **Postgres** sur Render (même région que le service Umami).
+2. Créer un **Web Service** depuis `https://github.com/umami-software/umami`.
+3. Build command :
+   ```
+   corepack enable && pnpm install --frozen-lockfile && pnpm run build
+   ```
+4. Start command :
+   ```
+   pnpm run start
+   ```
+5. Variables d’environnement :
+   - `DATABASE_URL` = **Internal Database URL** de la base Postgres.
+6. Déployer, ouvrir l’URL Umami, se connecter (admin/umami) puis changer le mot de passe.
+7. Dans l’admin Umami, créer un “Website” et récupérer l’ID + l’URL du script.
+8. Dans le service `my-exams`, ajouter :
+   - `NEXT_PUBLIC_UMAMI_WEBSITE_ID=<UUID>`
+   - `NEXT_PUBLIC_UMAMI_SRC=https://<url-umami>/script.js`
+
+Voir aussi `docs/development/analytics-umami-setup.md`.
+
+---
+## Nettoyage automatique des logs de connexion
+
+Recommandé pour respecter la durée de conservation (CNIL).
+
+1. Render → **Cron Jobs** → **New Cron Job**
+2. Commande :
+   ```
+   npm run auth:logs:cleanup
+   ```
+3. Fréquence conseillée : **1 fois/jour**
+4. Variables d’environnement à définir :
+   - `AUTH_LOG_RETENTION_DAYS` (ex: `180`)

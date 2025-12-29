@@ -12,6 +12,11 @@ async function clearDatabase() {
     await prisma.session.deleteMany({});
     await prisma.account.deleteMany({});
     await prisma.authenticator.deleteMany({});
+    await prisma.authLog.deleteMany({});
+    await prisma.usageEvent.deleteMany({});
+    await prisma.errorLog.deleteMany({});
+    await prisma.usageDailyStat.deleteMany({});
+    await prisma.errorDailyStat.deleteMany({});
 
     // Données applicatives (ordre inverse des dépendances)
     await prisma.examPaper.deleteMany({});

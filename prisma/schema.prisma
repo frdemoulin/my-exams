@@ -395,6 +395,34 @@ enum Role {
   ADMIN
 }
 
+enum AuthLogAction {
+  SIGN_IN
+  SIGN_OUT
+}
+
+enum UsageEventType {
+  SEARCH
+}
+
+enum ErrorLogType {
+  PDF_404
+  API_SLOW
+}
+
+enum UsageDailyCategory {
+  SEARCH_TOTAL
+  SEARCH_ZERO
+  SEARCH_TERM
+  SEARCH_DIPLOMA
+  SEARCH_SUBJECT
+  SEARCH_SESSION
+}
+
+enum ErrorDailyCategory {
+  PDF_404
+  API_SLOW
+}
+
 model Session {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   sessionToken String   @unique @map("session_token")
@@ -443,8 +471,80 @@ model User {
   roles         Role            @default(USER)
   // Optional for WebAuthn support
   Authenticator Authenticator[]
+  authLogs      AuthLog[]
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
+}
+
+model AuthLog {
+  id       String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String        @db.ObjectId
+  user     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  action   AuthLogAction
+  provider String?
+  createdAt DateTime     @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+}
+
+model UsageEvent {
+  id           String          @id @default(auto()) @map("_id") @db.ObjectId
+  type         UsageEventType
+  searchTerm   String?
+  resultsCount Int
+  diploma      String?
+  subject      String?
+  teachingId   String?
+  sessionYear  Int?
+  themeIds     String[]        @default([]) @db.ObjectId
+  createdAt    DateTime        @default(now())
+
+  @@index([type])
+  @@index([createdAt])
+  @@index([resultsCount])
+}
+
+model ErrorLog {
+  id         String        @id @default(auto()) @map("_id") @db.ObjectId
+  type       ErrorLogType
+  path       String?
+  statusCode Int?
+  durationMs Int?
+  message    String?
+  createdAt  DateTime      @default(now())
+
+  @@index([type])
+  @@index([createdAt])
+  @@index([statusCode])
+}
+
+model UsageDailyStat {
+  id       String            @id @default(auto()) @map("_id") @db.ObjectId
+  date     DateTime
+  category UsageDailyCategory
+  label    String
+  count    Int
+  createdAt DateTime         @default(now())
+
+  @@unique([date, category, label])
+  @@index([date, category])
+  @@index([category, label])
+}
+
+model ErrorDailyStat {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  date           DateTime
+  category       ErrorDailyCategory
+  label          String
+  count          Int
+  totalDurationMs Int?
+  createdAt      DateTime        @default(now())
+
+  @@unique([date, category, label])
+  @@index([date, category])
+  @@index([category, label])
 }
 
 model VerificationToken {
