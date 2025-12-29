@@ -5,8 +5,23 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { searchExercises } from '@/core/exercise';
+import prisma from '@/lib/db/prisma';
+
+const MAX_SEARCH_TERM_LENGTH = 120;
+const rawSlowThreshold = Number(process.env.API_SLOW_THRESHOLD_MS ?? '3000');
+const API_SLOW_THRESHOLD_MS =
+  Number.isFinite(rawSlowThreshold) && rawSlowThreshold > 0 ? rawSlowThreshold : 3000;
+
+const normalizeSearchTerm = (value?: string) => {
+  if (!value) return null;
+  const trimmed = value.trim().replace(/\s+/g, ' ');
+  if (!trimmed) return null;
+  if (trimmed.includes('@')) return null; // évite de stocker des emails
+  return trimmed.slice(0, MAX_SEARCH_TERM_LENGTH);
+};
 
 export async function GET(request: NextRequest) {
+  const startedAt = Date.now();
   try {
     const searchParams = request.nextUrl.searchParams;
 
@@ -53,6 +68,43 @@ export async function GET(request: NextRequest) {
       pageSize,
     });
 
+    const durationMs = Date.now() - startedAt;
+    const shouldLogSearch = !page || page === 1;
+    if (shouldLogSearch) {
+      try {
+        const searchTerm = normalizeSearchTerm(search);
+        await prisma.usageEvent.create({
+          data: {
+            type: 'SEARCH',
+            searchTerm,
+            resultsCount: result.total,
+            diploma: diploma || null,
+            subject: subject || null,
+            teachingId: teachingId || null,
+            sessionYear: year ?? null,
+            themeIds: themes ?? [],
+          },
+        });
+      } catch (error) {
+        console.error('Error logging search usage event:', error);
+      }
+    }
+
+    if (durationMs >= API_SLOW_THRESHOLD_MS) {
+      try {
+        await prisma.errorLog.create({
+          data: {
+            type: 'API_SLOW',
+            path: request.nextUrl.pathname,
+            durationMs,
+            message: `search=${search ?? ''} diploma=${diploma ?? ''} subject=${subject ?? ''}`,
+          },
+        });
+      } catch (error) {
+        console.error('Error logging slow API:', error);
+      }
+    }
+
     return NextResponse.json({
       success: true,
       count: result.total,
@@ -61,6 +113,21 @@ export async function GET(request: NextRequest) {
       exercises: result.items,
     });
   } catch (error) {
+    const durationMs = Date.now() - startedAt;
+    if (durationMs >= API_SLOW_THRESHOLD_MS) {
+      try {
+        await prisma.errorLog.create({
+          data: {
+            type: 'API_SLOW',
+            path: request.nextUrl.pathname,
+            durationMs,
+            statusCode: 500,
+          },
+        });
+      } catch (logError) {
+        console.error('Error logging slow API after failure:', logError);
+      }
+    }
     console.error('Error searching exercises:', error);
     return NextResponse.json(
       {

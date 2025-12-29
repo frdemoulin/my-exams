@@ -3,6 +3,7 @@ import path from "path";
 import type { NextRequest } from "next/server";
 
 import { getExamPapersUploadDir } from "@/lib/uploads";
+import prisma from "@/lib/db/prisma";
 
 export async function GET(
   _request: NextRequest,
@@ -29,6 +30,17 @@ export async function GET(
       },
     });
   } catch {
+    try {
+      await prisma.errorLog.create({
+        data: {
+          type: "PDF_404",
+          path: safeName,
+          statusCode: 404,
+        },
+      });
+    } catch (error) {
+      console.error("Error logging PDF 404:", error);
+    }
     return new Response("Fichier introuvable", { status: 404 });
   }
 }

@@ -115,6 +115,11 @@ export const Sidebar = () => {
           path: '/admin/stats',
           icon: <FaBarsProgress className="mr-3" size={16} />
         },
+        {
+          title: "Statistiques d'usage",
+          path: "/admin/usage-stats",
+          icon: <FaBarsProgress className="mr-3" size={16} />
+        },
       ]
     },
     {

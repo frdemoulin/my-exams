@@ -121,6 +121,40 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return token;
         },
     },
+    events: {
+        async signIn({ user, account }) {
+            if (!user?.id) return;
+            try {
+                await prisma.authLog.create({
+                    data: {
+                        userId: user.id,
+                        action: "SIGN_IN",
+                        provider: account?.provider ?? null,
+                    },
+                });
+            } catch (error) {
+                console.error("Auth log sign-in error:", error);
+            }
+        },
+        async signOut(message) {
+            const token = "token" in message ? message.token : null;
+            const session = "session" in message ? message.session : null;
+            const userId =
+                (token?.sub as string | undefined) ??
+                (session?.userId as string | undefined);
+            if (!userId) return;
+            try {
+                await prisma.authLog.create({
+                    data: {
+                        userId,
+                        action: "SIGN_OUT",
+                    },
+                });
+            } catch (error) {
+                console.error("Auth log sign-out error:", error);
+            }
+        },
+    },
     pages: {
         signIn: "/log-in",
     },

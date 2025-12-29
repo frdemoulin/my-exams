@@ -27,6 +27,8 @@
     "db:reset": "npm run db:clear && npm run db:seed",
     "db:rename-domain": "tsx scripts/rename-chapter-to-domain.ts",
     "migrate:exercises": "ts-node scripts/migrate-to-exercises.ts",
+    "auth:logs:cleanup": "tsx scripts/cleanup-auth-logs.ts",
+    "usage:stats:rollup": "tsx scripts/usage-stats-rollup.ts",
     "user:role": "tsx scripts/set-user-role.ts",
     "test:e2e": "playwright test",
     "prepare": "node -e \"process.env.CI ? process.exit(0) : require('child_process').execSync('husky', {stdio:'inherit'})\"",

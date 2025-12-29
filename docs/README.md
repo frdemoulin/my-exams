@@ -55,11 +55,17 @@ Configuration technique et installation d'outils.
 - **[mongodb-macos.md](./technical-setup/mongodb-macos.md)** - Installation MongoDB sur macOS
 - **[smtp-ovh.md](./technical-setup/smtp-ovh.md)** - Configuration SMTP avec OVH
 
+### 🚀 Déploiement
+Documentation liée aux environnements de production.
+
+- **[render.md](./deployment/render.md)** - Déploiement Render (Docker, uploads persistants, Umami)
+
 ### 📋 Project Management
 Suivi du projet et historique des modifications.
 
 - **[exam-indexing-pivot-plan.md](./project-management/exam-indexing-pivot-plan.md)** - ⭐ Plan de migration Exercise-Centric (état d'avancement)
 - **[CHANGELOG.md](./project-management/CHANGELOG.md)** - Journal des modifications
+- **[scheduled-tasks.md](./deployment/scheduled-tasks.md)** - Tâches planifiées (cron)
 - **[REFACTORING.md](./project-management/REFACTORING.md)** - Architecture globale et structure des dossiers
 - **[tree.md](./project-management/tree.md)** - Arborescence du projet
 
