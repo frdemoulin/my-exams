@@ -92,11 +92,13 @@ export function ExerciseCard({
     if (estimatedDifficulty === 2) return '⚡ Facile';
     return '⚡ Très facile';
   })();
-  const notions = themes.map((t) => ({
-    short: t.shortDescription || t.longDescription,
-    long: t.longDescription,
-    key: t.id,
-  }));
+  const notions = themes
+    .map((t) => ({
+      short: t.shortDescription || t.longDescription,
+      long: t.longDescription,
+      key: t.id,
+    }))
+    .sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
   const durationLabel = estimatedDuration
     ? estimatedDuration >= 60
       ? `${Math.floor(estimatedDuration / 60)}h${estimatedDuration % 60 ? ` ${estimatedDuration % 60}min` : ''}`
@@ -223,7 +225,7 @@ export function ExerciseCard({
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <p className="text-sm text-muted-foreground line-clamp-2">
+            <p className="text-sm text-muted-foreground">
               {summaryText}
             </p>
           </div>
