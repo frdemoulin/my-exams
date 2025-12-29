@@ -1,3 +1,11 @@
+## <small>1.4.14 (2025-12-29)</small>
+
+* Merge pull request #63 from frdemoulin/dev ([854df97](https://github.com/frdemoulin/my-exams/commit/854df97)), closes [#63](https://github.com/frdemoulin/my-exams/issues/63)
+* fix: ajout de l'affinage par domaine et thème ([dddf531](https://github.com/frdemoulin/my-exams/commit/dddf531))
+* fix: amélioration des cartes de résultat ([4bc541a](https://github.com/frdemoulin/my-exams/commit/4bc541a))
+* fix: mise en place d'un contrôle qualité dans l'admin ([d4a2203](https://github.com/frdemoulin/my-exams/commit/d4a2203))
+* fix: mise en place de l'édition du résumé LLM d'un exercice ([eee095e](https://github.com/frdemoulin/my-exams/commit/eee095e))
+
 ## <small>1.4.13 (2025-12-28)</small>
 
 * Merge pull request #62 from frdemoulin/dev ([6bfed72](https://github.com/frdemoulin/my-exams/commit/6bfed72)), closes [#62](https://github.com/frdemoulin/my-exams/issues/62)
