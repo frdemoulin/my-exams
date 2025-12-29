@@ -302,6 +302,7 @@ Règles :
 - "exerciseType" : utilise "QCM" si l'exercice est un choix multiple, "TRUE_FALSE" si vrai/faux, "OTHER" si format atypique, sinon "NORMAL".
 - Si ce n’est pas explicite, retourne "NORMAL".
 - Si "exerciseType" vaut "QCM" ou "TRUE_FALSE", mentionne-le explicitement dans le résumé (ex: "Format QCM", "Série de vrai/faux").
+- Si l’exercice porte sur une fonction logarithme, exponentielle ou trigonométrique, précise explicitement le type de fonction dans le résumé.
 - Si tu n’es pas sûr, renvoie null plutôt qu’une valeur inventée.
 Liste des thèmes autorisés (id : label) :
 ${themesList}
