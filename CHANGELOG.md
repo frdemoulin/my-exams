@@ -1,3 +1,8 @@
+## <small>1.4.15 (2025-12-29)</small>
+
+* Merge pull request #64 from frdemoulin/dev ([ca1490b](https://github.com/frdemoulin/my-exams/commit/ca1490b)), closes [#64](https://github.com/frdemoulin/my-exams/issues/64)
+* fix: mise en place de stats d'usage et de contenus ([05452a8](https://github.com/frdemoulin/my-exams/commit/05452a8))
+
 ## <small>1.4.14 (2025-12-29)</small>
 
 * Merge pull request #63 from frdemoulin/dev ([854df97](https://github.com/frdemoulin/my-exams/commit/854df97)), closes [#63](https://github.com/frdemoulin/my-exams/issues/63)
