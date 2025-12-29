@@ -91,6 +91,11 @@ export const Sidebar = () => {
           icon: <FaCity className="mr-3" size={16} />
         },
         {
+          title: "Contrôle éditorial",
+          path: "/admin/editorial",
+          icon: <FaGears className="mr-3" size={16} />
+        },
+        {
           title: "Exercices",
           path: '/admin/exercises',
           icon: <FaArrowsTurnToDots className="mr-3" size={16} />

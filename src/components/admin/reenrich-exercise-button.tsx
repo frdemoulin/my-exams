@@ -2,8 +2,8 @@
 
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { enrichExerciseById } from "@/core/exercise";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
+import { enrichExerciseById } from "@/core/exercise";
 import toast from "react-hot-toast";
 
 interface ReenrichExerciseButtonProps {

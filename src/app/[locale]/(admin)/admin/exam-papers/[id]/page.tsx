@@ -14,7 +14,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { DeleteExerciseButton } from "./_components/delete-exercise-button";
 import { DeleteAllExercisesButton } from "./_components/delete-all-exercises-button";
 import { EnrichExercisesButton } from "./_components/enrich-exercises-button";
-import { ReenrichExerciseButton } from "./_components/reenrich-exercise-button";
+import { ReenrichExerciseButton } from "@/components/admin/reenrich-exercise-button";
 import prisma from "@/lib/db/prisma";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
