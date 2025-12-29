@@ -67,6 +67,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
     exerciseType: exercise.exerciseType || 'NORMAL',
     title: exercise.title || '',
     statement: exercise.statement || '',
+    summary: exercise.summary || '',
     themeIds: exercise.themeIds,
     estimatedDuration: exercise.estimatedDuration || undefined,
     estimatedDifficulty: exercise.estimatedDifficulty || 3,
@@ -89,6 +90,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
         exerciseType: formData.exerciseType,
         title: formData.title || undefined,
         statement: formData.statement || undefined,
+        summary: formData.summary || undefined,
         themeIds: formData.themeIds,
         estimatedDuration: formData.estimatedDuration,
         estimatedDifficulty: formData.estimatedDifficulty,
@@ -290,6 +292,17 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
               onChange={(e) => setFormData({ ...formData, statement: e.target.value })}
               placeholder="Énoncé complet de l&apos;exercice..."
               rows={6}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="summary">Résumé (éditable)</Label>
+            <Textarea
+              id="summary"
+              value={formData.summary}
+              onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
+              placeholder="Résumé généré par IA, modifiable..."
+              rows={4}
             />
           </div>
 

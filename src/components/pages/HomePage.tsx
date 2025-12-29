@@ -9,6 +9,7 @@ import { signOut } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Select,
   SelectContent,
@@ -50,6 +51,17 @@ export default function HomePage({
   const [selectedTeaching, setSelectedTeaching] = useState<string | undefined>();
   const [selectedSessionYear, setSelectedSessionYear] = useState<number | null | undefined>();
   const [selectedThemes, setSelectedThemes] = useState<Array<{ id: string; label: string }>>([]);
+  const [domainOptions, setDomainOptions] = useState<
+    Array<{
+      id: string;
+      label: string;
+      shortLabel?: string | null;
+      order?: number | null;
+      themes: Array<{ id: string; label: string; shortLabel?: string | null }>;
+    }>
+  >([]);
+  const [themeSearch, setThemeSearch] = useState('');
+  const [isDomainsLoading, setIsDomainsLoading] = useState(false);
   const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
@@ -88,6 +100,15 @@ export default function HomePage({
   }, [initialSubjects]);
   const [subjectOptions, setSubjectOptions] = useState(() => baseSubjectOptions);
   const [isSubjectLoading, setIsSubjectLoading] = useState(false);
+  const selectedThemeIds = useMemo(
+    () => new Set(selectedThemes.map((theme) => theme.id)),
+    [selectedThemes]
+  );
+  const availableThemeIds = useMemo(() => {
+    return new Set(
+      domainOptions.flatMap((domain) => domain.themes.map((theme) => theme.id))
+    );
+  }, [domainOptions]);
 
   // Initialisation locale (favoris)
   useEffect(() => {
@@ -255,6 +276,7 @@ export default function HomePage({
     setSelectedTeaching(undefined);
     setSelectedSessionYear(undefined);
     setSelectedThemes([]);
+    setThemeSearch('');
     setSearch('');
     setPage(1);
     setShowResults(false);
@@ -263,6 +285,70 @@ export default function HomePage({
 
   const hasNextPage = page * pageSize < total;
   const hasPrevPage = page > 1;
+  const resultsFilterBadges = [
+    selectedDiploma
+      ? {
+          id: "diploma",
+          label: `Diplôme : ${selectedDiploma}`,
+          onRemove: () => {
+            setSelectedDiploma(undefined);
+            setPage(1);
+          },
+        }
+      : null,
+    selectedSubject
+      ? {
+          id: "subject",
+          label: `Matière : ${selectedSubject}`,
+          onRemove: () => {
+            setSelectedSubject(undefined);
+            setPage(1);
+          },
+        }
+      : null,
+    selectedSessionYear != null
+      ? {
+          id: "session",
+          label: `Session : ${selectedSessionYear}`,
+          onRemove: () => {
+            setSelectedSessionYear(null);
+            setPage(1);
+          },
+        }
+      : null,
+    selectedTeaching
+      ? {
+          id: "teaching",
+          label: `Spécialité : ${
+            teachingOptions.find((opt) => opt.value === selectedTeaching)?.label || selectedTeaching
+          }`,
+          onRemove: () => {
+            setSelectedTeaching(undefined);
+            setPage(1);
+          },
+        }
+      : null,
+    ...(selectedThemes.length > 0
+      ? selectedThemes.map((theme) => ({
+          id: `theme-${theme.id}`,
+          label: `Thème : ${theme.label}`,
+          onRemove: () => {
+            setSelectedThemes((prev) => prev.filter((item) => item.id !== theme.id));
+            setPage(1);
+          },
+        }))
+      : []),
+    search.trim()
+      ? {
+          id: "search",
+          label: `Recherche : ${search.trim()}`,
+          onRemove: () => {
+            setSearch("");
+            setPage(1);
+          },
+        }
+      : null,
+  ].filter(Boolean) as Array<{ id: string; label: string; onRemove: () => void }>;
 
   // Suggestions (autocomplete léger)
   useEffect(() => {
@@ -315,10 +401,23 @@ export default function HomePage({
     });
   };
 
+  const toggleThemeSelection = (theme: { id: string; label: string }) => {
+    setSelectedThemes((prev) => {
+      if (prev.some((item) => item.id === theme.id)) {
+        return prev.filter((item) => item.id !== theme.id);
+      }
+      return [...prev, theme];
+    });
+    setPage(1);
+  };
+
   // Compter les filtres actifs
   const activeFiltersCount =
     [selectedDiploma, selectedSubject, selectedTeaching, selectedSessionYear].filter(Boolean)
       .length + selectedThemes.length;
+  const hasDomainFilters = Boolean(
+    selectedDiploma || selectedSubject || selectedTeaching || selectedSessionYear != null
+  );
 
   const diplomaOptions = useMemo(() => {
     return initialDiplomas
@@ -328,6 +427,66 @@ export default function HomePage({
   }, [initialDiplomas]);
 
   const showTeachingFilter = true;
+
+  useEffect(() => {
+    const hasFilters =
+      selectedDiploma ||
+      selectedSubject ||
+      selectedTeaching ||
+      selectedSessionYear != null;
+
+    if (!hasFilters) {
+      setDomainOptions([]);
+      setIsDomainsLoading(false);
+      return;
+    }
+
+    const params = new URLSearchParams();
+    if (selectedDiploma) params.append('diploma', selectedDiploma);
+    if (selectedSubject) params.append('subject', selectedSubject);
+    if (selectedTeaching) params.append('teachingId', selectedTeaching);
+    if (selectedSessionYear != null) {
+      params.append('session', selectedSessionYear.toString());
+    }
+
+    setIsDomainsLoading(true);
+    fetch(`/api/domains?${params.toString()}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDomainOptions(Array.isArray(data.domains) ? data.domains : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching domains/themes:', error);
+        setDomainOptions([]);
+      })
+      .finally(() => {
+        setIsDomainsLoading(false);
+      });
+  }, [selectedDiploma, selectedSubject, selectedTeaching, selectedSessionYear]);
+
+  useEffect(() => {
+    if (!hasDomainFilters || domainOptions.length === 0 || selectedThemes.length === 0) {
+      return;
+    }
+    const next = selectedThemes.filter((theme) => availableThemeIds.has(theme.id));
+    if (next.length === selectedThemes.length) return;
+    setSelectedThemes(next);
+  }, [availableThemeIds, domainOptions.length, hasDomainFilters, selectedThemes]);
+
+  const filteredDomainOptions = useMemo(() => {
+    if (!themeSearch.trim()) return domainOptions;
+    const normalized = themeSearch.trim().toLowerCase();
+    return domainOptions
+      .map((domain) => {
+        const themes = domain.themes.filter((theme) => {
+          const label = theme.label.toLowerCase();
+          const shortLabel = theme.shortLabel?.toLowerCase() ?? '';
+          return label.includes(normalized) || shortLabel.includes(normalized);
+        });
+        return { ...domain, themes };
+      })
+      .filter((domain) => domain.themes.length > 0);
+  }, [domainOptions, themeSearch]);
 
   useEffect(() => {
     if (!selectedDiploma) {
@@ -466,6 +625,111 @@ export default function HomePage({
     subtitle:
       "Filtres rapides pensés pour le bac : diplôme, matière, session, spécialité et thèmes",
   };
+  const domainFiltersPanel = (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <div className="space-y-1">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Affiner par domaines & thèmes
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Choisis un thème pour affiner ta recherche.
+          </p>
+        </div>
+        {selectedThemes.length > 0 && (
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              setSelectedThemes([]);
+              setPage(1);
+            }}
+            className="h-auto px-2 py-1 text-xs text-muted-foreground hover:text-foreground"
+          >
+            Tout effacer
+          </Button>
+        )}
+      </div>
+
+      <div className="mt-3 flex flex-col gap-3">
+        <div className="relative">
+          <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3 text-muted-foreground">
+            <Search className="h-4 w-4" />
+          </span>
+          <Input
+            value={themeSearch}
+            onChange={(e) => setThemeSearch(e.target.value)}
+            placeholder="Chercher un thème..."
+            className="ps-10 text-sm"
+          />
+        </div>
+
+        {!hasDomainFilters && (
+          <div className="rounded-lg border border-dashed border-border bg-neutral-primary-soft p-3 text-xs text-muted-foreground">
+            Sélectionne un diplôme, une matière ou une session pour afficher les thèmes.
+          </div>
+        )}
+
+        {hasDomainFilters && isDomainsLoading && (
+          <div className="space-y-2">
+            {[...Array(3)].map((_, idx) => (
+              <div key={idx} className="h-12 w-full animate-pulse rounded-lg bg-muted" />
+            ))}
+          </div>
+        )}
+
+        {hasDomainFilters && !isDomainsLoading && filteredDomainOptions.length === 0 && (
+          <div className="rounded-lg border border-dashed border-border bg-neutral-primary-soft p-3 text-xs text-muted-foreground">
+            Aucun thème disponible pour ces filtres.
+          </div>
+        )}
+
+        {hasDomainFilters && !isDomainsLoading && filteredDomainOptions.length > 0 && (
+          <div className="space-y-3">
+            {filteredDomainOptions.map((domain) => (
+              <details
+                key={domain.id}
+                open={Boolean(themeSearch.trim())}
+                className="rounded-lg border border-border bg-neutral-primary-soft/60 px-3 py-2"
+              >
+                <summary className="cursor-pointer list-none text-sm font-semibold text-heading">
+                  <div className="flex items-center justify-between">
+                    <span>{domain.shortLabel || domain.label}</span>
+                    <span className="text-xs text-muted-foreground">
+                      {domain.themes.length} thème{domain.themes.length > 1 ? 's' : ''}
+                    </span>
+                  </div>
+                </summary>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {domain.themes.map((theme) => {
+                    const isSelected = selectedThemeIds.has(theme.id);
+                    return (
+                      <Button
+                        key={theme.id}
+                        type="button"
+                        size="xs"
+                        variant={isSelected ? "default" : "outline"}
+                        className="h-7 rounded-full px-3 text-[11px] font-semibold"
+                        aria-pressed={isSelected}
+                        onClick={() =>
+                          toggleThemeSelection({
+                            id: theme.id,
+                            label: theme.label,
+                          })
+                        }
+                      >
+                        {theme.shortLabel || theme.label}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </details>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -894,192 +1158,288 @@ export default function HomePage({
                   </Button>
                 </div>
               )}
+              <div className="lg:hidden">
+                {domainFiltersPanel}
+              </div>
             </div>
           </div>
 
         </section>
 
-        {/* SECTION : RÉSULTATS DE RECHERCHE */}
-        {showResults && (
-          <section className="space-y-6">
-            {/* EN-TÊTE AVEC COMPTEUR ET TRI */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">📚</span>
-                <h2 className="text-lg font-semibold">
-                  Résultats
-                </h2>
-                <span className="rounded-full bg-brand/20 px-3 py-1 text-xs font-medium text-fg-brand">
-                  {total} exercice{total > 1 ? 's' : ''} · page {page}/{Math.max(1, Math.ceil(total / pageSize))}
-                </span>
-              </div>
-
-              {/* SÉLECTEUR DE TRI */}
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-muted-foreground">Trier par :</span>
-                <div className="flex gap-1">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleSortChange('year')}
-                    className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'year'
-                      ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
-                      : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
-                      }`}
-                  >
-                    Session {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleSortChange('difficulty')}
-                    className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'difficulty'
-                      ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
-                      : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
-                      }`}
-                  >
-                    Difficulté {sortBy === 'difficulty' && (sortOrder === 'desc' ? '↓' : '↑')}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleSortChange('duration')}
-                    className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'duration'
-                      ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
-                      : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
-                      }`}
-                  >
-                    Durée {sortBy === 'duration' && (sortOrder === 'desc' ? '↓' : '↑')}
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {loading ? (
-              <div className="flex min-h-100 items-center justify-center">
-                <div className="text-center">
-                  <div className="mb-4 text-4xl">⏳</div>
-                  <p className="text-muted-foreground">Chargement des exercices...</p>
-                </div>
-              </div>
-            ) : filteredExercises.length === 0 ? (
-              <div className="flex min-h-100 items-center justify-center rounded-2xl border border-border bg-card">
-                <div className="text-center">
-                  <div className="mb-4 text-5xl">🤷</div>
-                  <p className="mb-2 text-lg font-medium">
-                    Aucun exercice trouvé
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Essaye de modifier tes filtres de recherche
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-col gap-4">
-                {filteredExercises.map((exercise) => (
-                  <ExerciseCard
-                    key={exercise.id}
-                    exercise={exercise}
-                    isFavorite={favorites.has(exercise.id)}
-                    onToggleFavorite={toggleFavorite}
-                  />
-                ))}
-                {total > pageSize && (
-                  <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm">
-                    <span className="text-muted-foreground">
-                      Page {page} / {Math.max(1, Math.ceil(total / pageSize))} · {total} exercices
-                    </span>
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="space-y-6">
+            {/* SECTION : RÉSULTATS DE RECHERCHE */}
+            {showResults && (
+              <section className="space-y-6">
+                {/* EN-TÊTE AVEC COMPTEUR ET TRI */}
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2">
+                    <span className="text-xl">📚</span>
+                    <h2 className="text-lg font-semibold">
+                      Résultats
+                    </h2>
+                    <span className="rounded-full bg-brand/20 px-3 py-1 text-xs font-medium text-fg-brand">
+                      {total} exercice{total > 1 ? 's' : ''} · page {page}/{Math.max(1, Math.ceil(total / pageSize))}
+                    </span>
+                    </div>
+                    {resultsFilterBadges.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                        {resultsFilterBadges.map((badge) => (
+                          <Badge key={badge.id} variant="outline" className="flex items-center gap-1">
+                            {badge.label}
+                            <button
+                              type="button"
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                badge.onRemove();
+                              }}
+                              className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full text-muted-foreground hover:text-foreground"
+                              aria-label={`Retirer le filtre ${badge.label}`}
+                            >
+                              <X className="h-3 w-3" />
+                            </button>
+                          </Badge>
+                        ))}
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={handleResetFilters}
+                          className="h-auto px-2 py-1 text-xs text-muted-foreground hover:text-foreground"
+                        >
+                          Tout effacer
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* SÉLECTEUR DE TRI */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-muted-foreground">Trier par :</span>
+                    <div className="flex gap-1">
                       <Button
                         variant="outline"
                         size="sm"
-                        disabled={!hasPrevPage || isSearching}
-                        onClick={() => setPage((p) => Math.max(1, p - 1))}
+                        onClick={() => handleSortChange('year')}
+                        className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'year'
+                          ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                          : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
+                          }`}
                       >
-                        ← Précédent
+                        Session {sortBy === 'year' && (sortOrder === 'desc' ? '↓' : '↑')}
                       </Button>
                       <Button
                         variant="outline"
                         size="sm"
-                        disabled={!hasNextPage || isSearching}
-                        onClick={() => setPage((p) => p + 1)}
+                        onClick={() => handleSortChange('difficulty')}
+                        className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'difficulty'
+                          ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                          : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
+                          }`}
                       >
-                        Suivant →
+                        Difficulté {sortBy === 'difficulty' && (sortOrder === 'desc' ? '↓' : '↑')}
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleSortChange('duration')}
+                        className={`h-auto rounded-base px-3 py-1.5 text-xs font-semibold ${sortBy === 'duration'
+                          ? 'border-default-medium bg-neutral-secondary-medium text-heading hover:bg-neutral-tertiary-medium hover:text-heading'
+                          : 'border-default bg-neutral-primary-soft text-body hover:bg-neutral-secondary-soft hover:text-heading'
+                          }`}
+                      >
+                        Durée {sortBy === 'duration' && (sortOrder === 'desc' ? '↓' : '↑')}
                       </Button>
                     </div>
                   </div>
+                </div>
+
+                {loading || isSearching ? (
+                  <div className="space-y-4">
+                    {[...Array(3)].map((_, idx) => (
+                      <div key={idx} className="rounded-2xl border border-border bg-card p-4">
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                          <div className="space-y-2">
+                            <Skeleton className="h-5 w-40" />
+                            <Skeleton className="h-4 w-56" />
+                          </div>
+                          <div className="flex gap-2">
+                            <Skeleton className="h-7 w-16 rounded-full" />
+                            <Skeleton className="h-7 w-20 rounded-full" />
+                            <Skeleton className="h-7 w-24 rounded-full" />
+                          </div>
+                        </div>
+                        <div className="mt-4 space-y-2">
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-5/6" />
+                        </div>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          <Skeleton className="h-6 w-24 rounded-full" />
+                          <Skeleton className="h-6 w-20 rounded-full" />
+                          <Skeleton className="h-6 w-28 rounded-full" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : filteredExercises.length === 0 ? (
+                  <div className="flex min-h-100 items-center justify-center rounded-2xl border border-border bg-card">
+                    <div className="text-center space-y-3">
+                      <div className="mb-4 text-5xl">🤷</div>
+                      <p className="mb-2 text-lg font-medium">
+                        Aucun exercice trouvé
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Essaye de modifier tes filtres de recherche
+                      </p>
+                      <div className="flex flex-wrap justify-center gap-2 pt-2">
+                        {selectedThemes.length > 0 && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => {
+                              setSelectedThemes([]);
+                              setPage(1);
+                            }}
+                          >
+                            Retirer les thèmes
+                          </Button>
+                        )}
+                        {selectedSessionYear != null && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => {
+                              setSelectedSessionYear(null);
+                              setPage(1);
+                            }}
+                          >
+                            Toutes les sessions
+                          </Button>
+                        )}
+                        {(activeFiltersCount > 0 || search) && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={handleResetFilters}
+                          >
+                            Réinitialiser
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-4">
+                    {filteredExercises.map((exercise) => (
+                      <ExerciseCard
+                        key={exercise.id}
+                        exercise={exercise}
+                        isFavorite={favorites.has(exercise.id)}
+                        onToggleFavorite={toggleFavorite}
+                      />
+                    ))}
+                    {total > pageSize && (
+                      <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm">
+                        <span className="text-muted-foreground">
+                          Page {page} / {Math.max(1, Math.ceil(total / pageSize))} · {total} exercices
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            disabled={!hasPrevPage || isSearching}
+                            onClick={() => setPage((p) => Math.max(1, p - 1))}
+                          >
+                            ← Précédent
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            disabled={!hasNextPage || isSearching}
+                            onClick={() => setPage((p) => p + 1)}
+                          >
+                            Suivant →
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 )}
-              </div>
+              </section>
             )}
-          </section>
-        )}
 
-        {/* SECTION : EXERCICES POPULAIRES - TODO: À implémenter avec les vraies données */}
-        {false && !showResults && (
-          <section className="space-y-3">
-            <div className="flex items-center justify-between">
-              <h2 className="text-base font-semibold">
-                Annales les plus consultées
-              </h2>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-auto px-0 text-xs text-fg-brand hover:text-fg-brand/80"
-                onClick={() => setShowResults(true)}
-              >
-                Voir toutes les annales →
-              </Button>
-            </div>
+            {/* SECTION : EXERCICES POPULAIRES - TODO: À implémenter avec les vraies données */}
+            {false && !showResults && (
+              <section className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-base font-semibold">
+                    Annales les plus consultées
+                  </h2>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-auto px-0 text-xs text-fg-brand hover:text-fg-brand/80"
+                    onClick={() => setShowResults(true)}
+                  >
+                    Voir toutes les annales →
+                  </Button>
+                </div>
 
-            <div className="grid gap-3 md:grid-cols-3">
-              {trendingPapers.map((paper, idx) => (
-                <Card
-                  key={idx}
-                  className="text-xs hover:border-brand"
-                >
-                  <CardContent className="p-3">
-                    <div className="mb-1.5 flex items-center justify-between">
-                      <span className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                        {paper.grade}
-                      </span>
-                      <Badge
-                        variant="outline"
-                        className="px-2 py-0.5 text-2xs"
-                      >
-                        {paper.year}
-                      </Badge>
-                    </div>
-                    <p className="mb-1 text-sm font-medium">
-                      {paper.course}
-                    </p>
-                    <p className="mb-2 text-[11px] text-muted-foreground">
-                      {paper.label}
-                    </p>
-                    <div className="mb-2 flex flex-wrap gap-1">
-                      {paper.tags.map((tag) => (
-                        <Badge
-                          key={tag}
-                          variant="outline"
-                          className="px-2 py-0.5 text-2xs"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="mt-1 w-full text-[11px]"
-                      onClick={() => setShowResults(true)}
+                <div className="grid gap-3 md:grid-cols-3">
+                  {trendingPapers.map((paper, idx) => (
+                    <Card
+                      key={idx}
+                      className="text-xs hover:border-brand"
                     >
-                      Ouvrir cette annale
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-        )}
+                      <CardContent className="p-3">
+                        <div className="mb-1.5 flex items-center justify-between">
+                          <span className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                            {paper.grade}
+                          </span>
+                          <Badge
+                            variant="outline"
+                            className="px-2 py-0.5 text-2xs"
+                          >
+                            {paper.year}
+                          </Badge>
+                        </div>
+                        <p className="mb-1 text-sm font-medium">
+                          {paper.course}
+                        </p>
+                        <p className="mb-2 text-[11px] text-muted-foreground">
+                          {paper.label}
+                        </p>
+                        <div className="mb-2 flex flex-wrap gap-1">
+                          {paper.tags.map((tag) => (
+                            <Badge
+                              key={tag}
+                              variant="outline"
+                              className="px-2 py-0.5 text-2xs"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="mt-1 w-full text-[11px]"
+                          onClick={() => setShowResults(true)}
+                        >
+                          Ouvrir cette annale
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+
+          <aside className="hidden lg:block">
+            {domainFiltersPanel}
+          </aside>
+        </div>
       </div>
 
       <SiteFooter />

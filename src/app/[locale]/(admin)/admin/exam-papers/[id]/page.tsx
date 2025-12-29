@@ -14,7 +14,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { DeleteExerciseButton } from "./_components/delete-exercise-button";
 import { DeleteAllExercisesButton } from "./_components/delete-all-exercises-button";
 import { EnrichExercisesButton } from "./_components/enrich-exercises-button";
-import { ReenrichExerciseButton } from "./_components/reenrich-exercise-button";
+import { ReenrichExerciseButton } from "@/components/admin/reenrich-exercise-button";
 import prisma from "@/lib/db/prisma";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -317,9 +317,22 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                         <div className="space-y-2">
                                             <div className="flex items-center gap-2">
                                                 <h4 className="font-medium text-sm">Résumé</h4>
-                                                <Badge variant="outline" className="text-[10px] uppercase">
-                                                    Résumé généré par IA
-                                                </Badge>
+                                                <TooltipProvider>
+                                                    <Tooltip>
+                                                        <TooltipTrigger asChild>
+                                                            <Badge
+                                                                variant="outline"
+                                                                className="cursor-help text-[10px] uppercase"
+                                                            >
+                                                                Résumé assisté par IA
+                                                            </Badge>
+                                                        </TooltipTrigger>
+                                                        <TooltipContent className="max-w-xs text-xs font-normal leading-relaxed">
+                                                            Résumé généré avec l&apos;aide d&apos;une intelligence artificielle et relu par
+                                                            l&apos;équipe My Exams. Résumé indicatif, l&apos;énoncé officiel fait foi.
+                                                        </TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
                                             </div>
                                             <p className="text-sm text-muted-foreground whitespace-pre-wrap">
                                                 {exercise.summary}
@@ -334,7 +347,13 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                         <div>
                                             <h4 className="font-medium text-sm mb-1">Thèmes</h4>
                                             <div className="flex flex-wrap gap-1">
-                                                {exercise.themes.map((theme) => (
+                                                {[...exercise.themes]
+                                                    .sort((a, b) =>
+                                                        a.longDescription.localeCompare(b.longDescription, 'fr', {
+                                                            sensitivity: 'base',
+                                                        })
+                                                    )
+                                                    .map((theme) => (
                                                     <Badge key={theme.id} variant="outline">
                                                         {theme.longDescription}
                                                     </Badge>
