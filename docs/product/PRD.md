@@ -1,4 +1,4 @@
-# PRD — My Exams (v1 → v2)
+# Product Requirements Document — My Exams (v1 → v2)
 
 ## 1. Contexte et objectif
 
