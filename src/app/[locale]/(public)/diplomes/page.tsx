@@ -13,8 +13,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { SiteFooter } from '@/components/shared/site-footer';
 
 export const metadata = {
-  title: 'Diplômes | My Exams',
-  description: "Choisis ton diplôme pour accéder rapidement aux sujets d'annales.",
+  title: 'Diplomes | My Exams',
+  description: "Choisis ton diplome pour acceder rapidement aux sujets d'annales.",
 };
 
 export default async function DiplomasPage() {
@@ -33,21 +33,21 @@ export default async function DiplomasPage() {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Diplômes</BreadcrumbPage>
+              <BreadcrumbPage>Dipl&ocirc;mes</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
 
         <div className="space-y-2">
-          <h1 className="text-2xl font-semibold">Parcourir les annales par diplôme</h1>
+          <h1 className="text-2xl font-semibold">Parcourir les annales par dipl&ocirc;me</h1>
           <p className="text-sm text-muted-foreground">
-            Choisis ton diplôme pour afficher les matières et les sessions disponibles.
+            Choisis ton dipl&ocirc;me pour afficher les mati&egrave;res et les sessions disponibles.
           </p>
         </div>
 
         {diplomas.length === 0 ? (
           <div className="rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-            Aucun diplôme actif n&apos;est disponible pour le moment.
+            Aucun dipl&ocirc;me actif n&apos;est disponible pour le moment.
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2">
@@ -67,7 +67,7 @@ export default async function DiplomasPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-xs text-muted-foreground">
-                    Voir les matières disponibles →
+                    Voir les mati&egrave;res disponibles &rarr;
                   </CardContent>
                 </Card>
               </Link>

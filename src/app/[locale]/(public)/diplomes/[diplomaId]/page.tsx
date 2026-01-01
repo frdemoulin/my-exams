@@ -16,29 +16,31 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { SiteFooter } from '@/components/shared/site-footer';
 
 type PageProps = {
-  params: {
+  params: Promise<{
     diplomaId: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const diploma = await fetchDiplomaById(params.diplomaId);
+  const { diplomaId } = await params;
+  const diploma = await fetchDiplomaById(diplomaId);
 
   if (!diploma) {
     return {
-      title: 'Diplôme introuvable | My Exams',
+      title: 'Diplome introuvable | My Exams',
     };
   }
 
   return {
     title: `${diploma.longDescription} | My Exams`,
-    description: `Matières disponibles pour ${diploma.longDescription}.`,
+    description: `Matieres disponibles pour ${diploma.longDescription}.`,
   };
 }
 
 export default async function DiplomaPage({ params }: PageProps) {
   noStore();
-  const diploma = await fetchDiplomaById(params.diplomaId);
+  const { diplomaId } = await params;
+  const diploma = await fetchDiplomaById(diplomaId);
 
   if (!diploma || !diploma.isActive) {
     notFound();
@@ -59,7 +61,7 @@ export default async function DiplomaPage({ params }: PageProps) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/diplomes">Diplômes</Link>
+                <Link href="/diplomes">Dipl&ocirc;mes</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -72,13 +74,13 @@ export default async function DiplomaPage({ params }: PageProps) {
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">{diploma.longDescription}</h1>
           <p className="text-sm text-muted-foreground">
-            Sélectionne une matière pour afficher les sessions disponibles.
+            S&eacute;lectionne une mati&egrave;re pour afficher les sessions disponibles.
           </p>
         </div>
 
         {subjects.length === 0 ? (
           <div className="rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-            Aucune matière n&apos;est disponible pour ce diplôme.
+            Aucune mati&egrave;re n&apos;est disponible pour ce dipl&ocirc;me.
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2">
@@ -98,7 +100,7 @@ export default async function DiplomaPage({ params }: PageProps) {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-xs text-muted-foreground">
-                    Voir les sessions disponibles →
+                    Voir les sessions disponibles &rarr;
                   </CardContent>
                 </Card>
               </Link>

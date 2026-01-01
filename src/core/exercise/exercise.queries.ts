@@ -71,6 +71,12 @@ export interface ExerciseWithRelations {
     id: string;
     shortDescription: string | null;
     longDescription: string;
+    domain?: {
+      id: string;
+      longDescription: string;
+      shortDescription: string;
+      order: number | null;
+    };
   }>;
   
   corrections: Array<{
@@ -350,6 +356,16 @@ export async function searchExercises(
       where: {
         id: { in: uniqueThemeIds },
       },
+      include: {
+        domain: {
+          select: {
+            id: true,
+            longDescription: true,
+            shortDescription: true,
+            order: true,
+          },
+        },
+      },
     });
 
     const themesById = new Map(themesList.map((t) => [t.id, t]));
@@ -410,6 +426,16 @@ export async function searchExercises(
   const themesList = await prisma.theme.findMany({
     where: {
       id: { in: uniqueThemeIds },
+    },
+    include: {
+      domain: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+          order: true,
+        },
+      },
     },
   });
 
@@ -530,6 +556,16 @@ export async function fetchExerciseById(
     where: {
       id: { in: exercise.themeIds },
     },
+    include: {
+      domain: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+          order: true,
+        },
+      },
+    },
   });
 
   return {
@@ -572,6 +608,16 @@ export async function fetchExercisesByExamPaperId(
   const themesList = await prisma.theme.findMany({
     where: {
       id: { in: uniqueThemeIds },
+    },
+    include: {
+      domain: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+          order: true,
+        },
+      },
     },
   });
 

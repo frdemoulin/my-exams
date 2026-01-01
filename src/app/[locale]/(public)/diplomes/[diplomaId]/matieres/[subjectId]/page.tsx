@@ -17,35 +17,37 @@ import { Button } from '@/components/ui/button';
 import { SiteFooter } from '@/components/shared/site-footer';
 
 type PageProps = {
-  params: {
+  params: Promise<{
     diplomaId: string;
     subjectId: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { diplomaId, subjectId } = await params;
   const [diploma, subject] = await Promise.all([
-    fetchDiplomaById(params.diplomaId),
-    fetchSubjectById(params.subjectId),
+    fetchDiplomaById(diplomaId),
+    fetchSubjectById(subjectId),
   ]);
 
   if (!diploma || !subject) {
     return {
-      title: 'Matière introuvable | My Exams',
+      title: 'Matiere introuvable | My Exams',
     };
   }
 
   return {
-    title: `${subject.longDescription} — ${diploma.longDescription} | My Exams`,
+    title: `${subject.longDescription} - ${diploma.longDescription} | My Exams`,
     description: `Sessions disponibles pour ${subject.longDescription} (${diploma.shortDescription}).`,
   };
 }
 
 export default async function SubjectPage({ params }: PageProps) {
   noStore();
+  const { diplomaId, subjectId } = await params;
   const [diploma, subject] = await Promise.all([
-    fetchDiplomaById(params.diplomaId),
-    fetchSubjectById(params.subjectId),
+    fetchDiplomaById(diplomaId),
+    fetchSubjectById(subjectId),
   ]);
 
   if (!diploma || !diploma.isActive || !subject || !subject.isActive) {
@@ -67,7 +69,7 @@ export default async function SubjectPage({ params }: PageProps) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/diplomes">Diplômes</Link>
+                <Link href="/diplomes">Dipl&ocirc;mes</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -88,13 +90,13 @@ export default async function SubjectPage({ params }: PageProps) {
             {subject.longDescription}
           </h1>
           <p className="text-sm text-muted-foreground">
-            Choisis une session pour accéder aux sujets d&apos;annales.
+            Choisis une session pour acc&eacute;der aux sujets d&apos;annales.
           </p>
         </div>
 
         {sessions.length === 0 ? (
           <div className="rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-            Aucune session n&apos;est disponible pour cette matière.
+            Aucune session n&apos;est disponible pour cette mati&egrave;re.
           </div>
         ) : (
           <div className="flex flex-wrap gap-3">

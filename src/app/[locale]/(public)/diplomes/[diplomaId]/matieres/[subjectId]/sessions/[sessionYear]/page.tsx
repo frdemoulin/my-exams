@@ -17,11 +17,11 @@ import { ExamPaperCard } from '@/components/exam-papers/ExamPaperCard';
 import { SiteFooter } from '@/components/shared/site-footer';
 
 type PageProps = {
-  params: {
+  params: Promise<{
     diplomaId: string;
     subjectId: string;
     sessionYear: string;
-  };
+  }>;
 };
 
 function parseSessionYear(value: string): number | null {
@@ -31,10 +31,11 @@ function parseSessionYear(value: string): number | null {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const sessionYear = parseSessionYear(params.sessionYear);
+  const { diplomaId, subjectId, sessionYear: sessionParam } = await params;
+  const sessionYear = parseSessionYear(sessionParam);
   const [diploma, subject] = await Promise.all([
-    fetchDiplomaById(params.diplomaId),
-    fetchSubjectById(params.subjectId),
+    fetchDiplomaById(diplomaId),
+    fetchSubjectById(subjectId),
   ]);
 
   if (!diploma || !subject || sessionYear === null) {
@@ -44,17 +45,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${subject.longDescription} — Session ${sessionYear} | My Exams`,
+    title: `${subject.longDescription} - Session ${sessionYear} | My Exams`,
     description: `Sujets ${sessionYear} pour ${subject.longDescription} (${diploma.shortDescription}).`,
   };
 }
 
 export default async function SessionPage({ params }: PageProps) {
   noStore();
-  const sessionYear = parseSessionYear(params.sessionYear);
+  const { diplomaId, subjectId, sessionYear: sessionParam } = await params;
+  const sessionYear = parseSessionYear(sessionParam);
   const [diploma, subject] = await Promise.all([
-    fetchDiplomaById(params.diplomaId),
-    fetchSubjectById(params.subjectId),
+    fetchDiplomaById(diplomaId),
+    fetchSubjectById(subjectId),
   ]);
 
   if (!diploma || !diploma.isActive || !subject || !subject.isActive || sessionYear === null) {
@@ -80,7 +82,7 @@ export default async function SessionPage({ params }: PageProps) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/diplomes">Diplômes</Link>
+                <Link href="/diplomes">Dipl&ocirc;mes</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -106,7 +108,7 @@ export default async function SessionPage({ params }: PageProps) {
 
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">
-            {subject.longDescription} — Session {sessionYear}
+            {subject.longDescription} - Session {sessionYear}
           </h1>
           <p className="text-sm text-muted-foreground">
             {diploma.longDescription}
@@ -134,6 +136,7 @@ export default async function SessionPage({ params }: PageProps) {
                   diploma={paper.diploma.shortDescription || paper.diploma.longDescription}
                   subject={subjectLabel}
                   subjectUrl={paper.subjectUrl ?? undefined}
+                  domains={paper.domains}
                   corrections={paper.corrections}
                 />
               );

@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import prisma from '@/lib/db/prisma';
 import { fetchActiveDiplomasWithExamPapers } from '@/core/exam-paper';
 
+export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 const DEFAULT_BASE_URL = 'http://localhost:3000';
@@ -58,6 +59,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.2,
     },
   ];
+
+  if (!process.env.DATABASE_URL) {
+    return staticEntries;
+  }
 
   const diplomas = await fetchActiveDiplomasWithExamPapers();
 

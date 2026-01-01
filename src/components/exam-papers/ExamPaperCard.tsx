@@ -24,7 +24,7 @@ interface ExamPaperCardProps {
   estimatedDuration?: number;
   estimatedDifficulty?: number;
   summary?: string;
-  themes?: string[];
+  domains?: string[];
   corrections: Correction[];
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
@@ -40,7 +40,7 @@ export function ExamPaperCard({
   estimatedDuration,
   estimatedDifficulty,
   summary,
-  themes = [],
+  domains = [],
   corrections,
   isFavorite = false,
   onToggleFavorite,
@@ -83,15 +83,15 @@ export function ExamPaperCard({
       </CardHeader>
 
       <CardContent className="flex flex-col gap-3 p-4">
-        {themes.length > 0 && (
+        {domains.length > 0 ? (
           <div className="flex flex-wrap gap-2">
-            {themes.map((theme) => (
-              <Badge key={theme} variant="secondary">
-                🏷️ {theme}
+            {domains.map((domain) => (
+              <Badge key={domain} variant="secondary">
+                {domain}
               </Badge>
             ))}
           </div>
-        )}
+        ) : null}
 
         {summary && (
           <div className="text-xs leading-relaxed text-muted-foreground">
@@ -128,10 +128,15 @@ export function ExamPaperCard({
         </div>
 
         <div className="flex gap-2">
+          <Button asChild size="sm">
+            <Link href={`/sujets/${id}`}>
+              📖 Faire le sujet
+            </Link>
+          </Button>
           {subjectUrl && (
-            <Button asChild size="sm">
+            <Button asChild variant="outline" size="sm">
               <a href={subjectUrl} target="_blank" rel="noreferrer">
-                📖 Voir le sujet
+                PDF
               </a>
             </Button>
           )}
