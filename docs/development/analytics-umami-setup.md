@@ -34,7 +34,10 @@ NEXT_PUBLIC_UMAMI_SRC=https://analytics.umami.is/script.js
 ## 5) Auto-héberger Umami sur Render (résumé rapide)
 1. Créer une base Postgres sur Render (même région que le service Umami).  
 2. Créer un Web Service depuis `https://github.com/umami-software/umami`.  
-3. Build command : `corepack enable && pnpm install --frozen-lockfile && pnpm run build`.  
+3. Build command :
+   ```
+   corepack enable && pnpm install --frozen-lockfile && pnpm run build && mkdir -p .next/standalone/.next/static .next/standalone/public && cp -R .next/static/. .next/standalone/.next/static/ && cp -R public/. .next/standalone/public/
+   ```
 4. Start command : `node .next/standalone/server.js`.  
 5. Définir `DATABASE_URL` (Internal Database URL de Render).  
 6. Déployer, ouvrir l’URL Umami, se connecter (admin/umami) puis changer le mot de passe.  
@@ -48,16 +51,26 @@ Si tu utilises Supabase comme base externe (plan gratuit), privilégie le **pool
 
 1. Supabase → **Connect** → **Session pooler** → copier la connection string.  
 2. Ajouter `?sslmode=require` à la fin de l’URL.  
-3. Si l’erreur `self-signed certificate in certificate chain` apparaît, ajouter le certificat :
+3. Si l’erreur `self-signed certificate in certificate chain` apparaît, utiliser le certificat (base64 recommandé) :
    - Supabase → **Project Settings → Database → SSL certificates** → télécharger le `.crt`.
+   - Convertir en base64 (exemple macOS) :
+     ```
+     base64 -i ~/Downloads/prod-ca-2021.crt
+     ```
    - Render (service Umami) → **Environment** :
-     - `SUPABASE_CA_CERT` = contenu du fichier `.crt`.
+     - `SUPABASE_CA_CERT_B64` = contenu base64 du `.crt`.
      - `NODE_EXTRA_CA_CERTS=/tmp/supabase-ca.crt`.
+   - Render → **Build command** :
+     ```
+     /bin/sh -c 'echo "$SUPABASE_CA_CERT_B64" | base64 -d > /tmp/supabase-ca.crt && corepack enable && pnpm install --frozen-lockfile && pnpm run build && mkdir -p .next/standalone/.next/static .next/standalone/public && cp -R .next/static/. .next/standalone/.next/static/ && cp -R public/. .next/standalone/public/'
+     ```
    - Render → **Start command** :
      ```
-     /bin/sh -c 'echo "$SUPABASE_CA_CERT" > /tmp/supabase-ca.crt && node .next/standalone/server.js'
+     /bin/sh -c 'echo "$SUPABASE_CA_CERT_B64" | base64 -d > /tmp/supabase-ca.crt && node .next/standalone/server.js'
      ```
 4. Redeploy le service Umami.
+5. Pour afficher Umami dans l’admin My Exams (iframe), ajouter dans le service Umami :
+   - `ALLOWED_FRAME_URLS=https://my-exams.onrender.com http://localhost:3000`
 
 ## 7) Auto-héberger Umami sur Vercel (résumé rapide)
 1. Cloner le repo Umami (ou utiliser le template Vercel).  

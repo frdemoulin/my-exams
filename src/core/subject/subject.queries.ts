@@ -42,6 +42,10 @@ export async function fetchSubjectsOptions(
 }
 
 export async function fetchSubjectById(id: string): Promise<Subject | null> {
+    if (!/^[a-f0-9]{24}$/i.test(id)) {
+        return null;
+    }
+
     return await prisma.subject.findUnique({
         where: {
             id,

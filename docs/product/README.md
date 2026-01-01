@@ -43,6 +43,14 @@ Ils servent de guide, mais **ne définissent pas les priorités court terme**.
 
 ---
 
+### Vocabulaire
+Glossaire des termes utilisés dans le PRD et le backlog.
+
+- **vocabulaire.md**  
+  Définition des termes (PRD, backlog, P0/P1/P2, epic, etc.).
+
+---
+
 ## Règle d’utilisation
 
 - En cas de conflit : **PRD > backlog > conception**

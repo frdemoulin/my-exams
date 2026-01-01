@@ -9,6 +9,7 @@ Umami est un outil d’analytics respectueux du RGPD, sans cookies par défaut, 
 - `NEXT_PUBLIC_UMAMI_HOST` : optionnel, host de l’instance (si différent du domaine du script).
 - `UMAMI_SHARE_URL` : lien de partage Umami pour afficher le dashboard dans l’admin.
 - `UMAMI_DASHBOARD_URL` : optionnel, URL Umami pour ouvrir le dashboard complet.
+- `ALLOWED_FRAME_URLS` : côté service Umami, autorise l’iframe (ex : `https://my-exams.onrender.com http://localhost:3000`).
 
 Si `NEXT_PUBLIC_UMAMI_WEBSITE_ID` et `NEXT_PUBLIC_UMAMI_SRC` sont définis, le script est injecté dans `src/app/layout.tsx`.
 

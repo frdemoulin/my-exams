@@ -1,4 +1,4 @@
-# PRD — My Exams (v1 → v2)
+# Product Requirements Document — My Exams (v1 → v2)
 
 ## 1. Contexte et objectif
 
@@ -62,6 +62,7 @@ Les élèves disposent d’annales :
 - accès simple aux annales ;
 - corrections associées ;
 - navigation par diplôme, matière, session.
+- interface mono-langue FR (i18n conservée uniquement comme dictionnaire métier, pas de /fr en URL).
 
 ### Objectif v1
 Devenir le **réflexe simple** pour “faire un vrai sujet d’examen”.

@@ -4,11 +4,13 @@ set -euo pipefail
 # Usage:
 #   ./scripts/create_issues_v1.sh OWNER/REPO
 # Exemple:
-#   ./scripts/create_issues_v1.sh fred/my-exams
+#   ./scripts/create_issues_v1.sh frdemoulin/my-exams
 
 REPO="${1:-}"
 if [[ -z "${REPO}" ]]; then
   echo "Usage: $0 OWNER/REPO"
+  echo "Example: $0 frdemoulin/my-exams"
+  echo "Hint: install GitHub CLI with 'brew install gh' and login using 'gh auth login'."
   exit 1
 fi
 
@@ -41,15 +43,52 @@ create_label "entitlements" "111111"
 create_label "dashboard" "1D76DB"
 
 # Créer les issues à partir du JSON
-node <<'NODE'
+node - "$REPO" <<'NODE'
 const fs = require('fs');
 
-const repo = process.argv[1];
+const repo = process.argv[2];
 const items = JSON.parse(fs.readFileSync('scripts/issues_v1.json', 'utf8'));
 
 const { spawnSync } = require('child_process');
 
+const listExisting = () => {
+  const res = spawnSync('gh', [
+    'issue', 'list',
+    '--repo', repo,
+    '--state', 'all',
+    '--limit', '1000',
+    '--json', 'title'
+  ], { encoding: 'utf8' });
+
+  if (res.status !== 0) {
+    console.error('Failed to list existing issues. Aborting to avoid duplicates.');
+    console.error(res.stderr || res.stdout || '');
+    process.exit(res.status || 1);
+  }
+
+  try {
+    const parsed = JSON.parse(res.stdout || '[]');
+    return new Set(
+      parsed
+        .map((item) => (item.title || '').trim().toLowerCase())
+        .filter(Boolean)
+    );
+  } catch (error) {
+    console.error('Failed to parse existing issues list. Aborting to avoid duplicates.');
+    console.error(error);
+    process.exit(1);
+  }
+};
+
+const existingTitles = listExisting();
+
 for (const it of items) {
+  const normalizedTitle = (it.title || '').trim().toLowerCase();
+  if (normalizedTitle && existingTitles.has(normalizedTitle)) {
+    console.log(`Skip (already exists): ${it.title}`);
+    continue;
+  }
+
   const labels = it.labels.join(',');
   const res = spawnSync('gh', [
     'issue', 'create',
@@ -63,7 +102,11 @@ for (const it of items) {
     console.error(`Failed creating issue: ${it.title}`);
     process.exit(res.status || 1);
   }
+
+  if (normalizedTitle) {
+    existingTitles.add(normalizedTitle);
+  }
 }
 
 console.log('Done.');
-NODE "$REPO"
+NODE

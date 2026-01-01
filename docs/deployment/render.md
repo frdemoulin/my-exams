@@ -85,7 +85,7 @@ Umami peut être auto-hébergé sur Render pour disposer d’analytics sans abon
 2. Créer un **Web Service** depuis `https://github.com/umami-software/umami`.
 3. Build command :
    ```
-   corepack enable && pnpm install --frozen-lockfile && pnpm run build
+   corepack enable && pnpm install --frozen-lockfile && pnpm run build && mkdir -p .next/standalone/.next/static .next/standalone/public && cp -R .next/static/. .next/standalone/.next/static/ && cp -R public/. .next/standalone/public/
    ```
 4. Start command :
    ```
@@ -98,6 +98,9 @@ Umami peut être auto-hébergé sur Render pour disposer d’analytics sans abon
 8. Dans le service `my-exams`, ajouter :
    - `NEXT_PUBLIC_UMAMI_WEBSITE_ID=<UUID>`
    - `NEXT_PUBLIC_UMAMI_SRC=https://<url-umami>/script.js`
+
+Si tu affiches Umami dans l’admin (iframe), ajouter dans le service Umami :
+- `ALLOWED_FRAME_URLS=https://my-exams.onrender.com http://localhost:3000`
 
 Si tu utilises Supabase en base externe (pooler + TLS), voir `docs/development/analytics-umami-setup.md`.
 
