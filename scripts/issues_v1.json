@@ -1,0 +1,47 @@
+[
+  {
+    "title": "UX “Faire un sujet d’examen”",
+    "labels": ["P0", "examens", "ux"],
+    "body": "## Objectif\nAméliorer l’expérience centrale “faire un sujet d’examen” pour réduire toute friction.\n\n## Acceptance criteria\n- accès clair sujet → correction\n- navigation fluide\n- retour simple à la liste\n- aucun contexte perdu\n"
+  },
+  {
+    "title": "Corrections lisibles et exploitables",
+    "labels": ["P0", "examens", "corrections"],
+    "body": "## Objectif\nAméliorer l’affichage et la structure des corrections.\n\n## Acceptance criteria\n- distinction claire énoncé / correction\n- ancrage par page ou exercice\n- lisibilité sur mobile et desktop\n"
+  },
+  {
+    "title": "Navigation SEO par diplôme / matière",
+    "labels": ["P0", "seo", "navigation"],
+    "body": "## Objectif\nStructurer les pages d’entrée pour permettre indexation et navigation rapide.\n\n## Acceptance criteria\n- URLs stables\n- balises meta cohérentes\n- accès à un sujet en < 3 clics\n"
+  },
+  {
+    "title": "Tracer l’activité utilisateur minimale",
+    "labels": ["P0", "tracking", "user"],
+    "body": "## Objectif\nTracer la dernière activité utile pour permettre la reprise.\n\n## Acceptance criteria\n- dernier sujet consulté\n- dernière matière\n- stockage simple (DB)\n"
+  },
+  {
+    "title": "Bloc “Continuer là où je me suis arrêté”",
+    "labels": ["P0", "ux", "dashboard"],
+    "body": "## Objectif\nAfficher un point d’entrée direct vers la dernière activité après connexion.\n\n## Acceptance criteria\n- visible après login\n- lien fonctionnel\n- pas de bruit inutile\n"
+  },
+  {
+    "title": "Justifier le compte utilisateur",
+    "labels": ["P0", "auth", "ux-copy"],
+    "body": "## Objectif\nClarifier pourquoi créer un compte (continuité, pas paiement).\n\n## Acceptance criteria\n- message clair\n- pas de promesse excessive\n- pas de friction inutile\n"
+  },
+  {
+    "title": "Modèles entitlements en base",
+    "labels": ["P1", "backend", "entitlements"],
+    "body": "## Objectif\nCréer les modèles DB pour les droits et abonnements futurs.\n\n## Acceptance criteria\n- aucun impact sur l’existant\n- migrations sûres\n- modèles prêts mais non utilisés\n"
+  },
+  {
+    "title": "Endpoint `/api/me/entitlements`",
+    "labels": ["P1", "api", "entitlements"],
+    "body": "## Objectif\nExposer les droits effectifs de l’utilisateur (baseline gratuite).\n\n## Acceptance criteria\n- endpoint fonctionnel\n- retour JSON simple\n- aucun blocage d’accès\n"
+  },
+  {
+    "title": "Créer la route `/dashboard` (squelette)",
+    "labels": ["P2", "dashboard", "ux"],
+    "body": "## Objectif\nCréer la structure minimale du dashboard unifié (masquée).\n\n## Acceptance criteria\n- route existante\n- non indexée\n- accessible via feature flag\n"
+  }
+]

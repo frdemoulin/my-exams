@@ -120,6 +120,11 @@ export const Sidebar = () => {
           path: "/admin/usage-stats",
           icon: <FaBarsProgress className="mr-3" size={16} />
         },
+        {
+          title: "Statistiques Umami",
+          path: "/admin/umami",
+          icon: <FaBarsProgress className="mr-3" size={16} />
+        },
       ]
     },
     {
