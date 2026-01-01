@@ -88,7 +88,7 @@ export default async function DiplomaPage({ params }: PageProps) {
               <Link
                 key={subject.id}
                 href={`/diplomes/${diploma.id}/matieres/${subject.id}`}
-                className="group"
+                className="group block h-full rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <Card className="h-full transition-colors group-hover:border-brand/50">
                   <CardHeader>

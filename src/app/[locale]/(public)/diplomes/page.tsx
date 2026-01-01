@@ -55,7 +55,7 @@ export default async function DiplomasPage() {
               <Link
                 key={diploma.id}
                 href={`/diplomes/${diploma.id}`}
-                className="group"
+                className="group block h-full rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <Card className="h-full transition-colors group-hover:border-brand/50">
                   <CardHeader>
