@@ -76,4 +76,4 @@ Pour que le sitemap declare la bonne URL publique:
 
 1. Definir `NEXT_PUBLIC_APP_URL` dans les variables d'environnement Render.
 2. Exemple: `https://my-exams.onrender.com`.
-3. Redéployer pour que `/sitemap.xml` et `/robots.txt` reflètent l'URL publique.
+3. Redeployer pour que `/sitemap.xml` et `/robots.txt` refletent l'URL publique.

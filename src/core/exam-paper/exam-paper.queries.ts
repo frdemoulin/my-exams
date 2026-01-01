@@ -5,12 +5,13 @@ export type ExamPaperWithRelations = (ExamPaper & {
     source?: 'OFFICIEL' | 'APMEP' | 'LABOLYCEE' | 'AUTRE';
     sourceUrl?: string | null;
 }) & {
-    diploma: { longDescription: string };
+    diploma: { longDescription: string; shortDescription?: string | null };
     division: { longDescription: string } | null;
     grade: { shortDescription: string };
     teaching: { 
         longDescription: string;
-        subject: { shortDescription: string };
+        subjectId?: string;
+        subject: { shortDescription: string; longDescription?: string | null };
     };
     curriculum: { longDescription: string; shortDescription: string | null } | null;
     examinationCenters?: Array<{ id: string; description: string }>;
@@ -168,16 +169,21 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
 }
 
 export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelations | null> {
+    if (!/^[a-f0-9]{24}$/i.test(id)) {
+        return null;
+    }
+
     const paper = await prisma.examPaper.findUnique({
         where: { id },
         include: {
-            diploma: { select: { longDescription: true } },
+            diploma: { select: { longDescription: true, shortDescription: true } },
             division: { select: { longDescription: true } },
             grade: { select: { shortDescription: true } },
             teaching: { 
                 select: { 
                     longDescription: true,
-                    subject: { select: { shortDescription: true } }
+                    subjectId: true,
+                    subject: { select: { shortDescription: true, longDescription: true } }
                 } 
             },
             curriculum: { select: { longDescription: true, shortDescription: true } },
@@ -238,6 +244,7 @@ export type ExamPaperNavigationItem = {
     label: string;
     sessionYear: number;
     subjectUrl: string | null;
+    domains: string[];
     diploma: {
         longDescription: string;
         shortDescription: string;
@@ -334,7 +341,7 @@ export async function fetchExamPapersByScope(params: {
 }): Promise<ExamPaperNavigationItem[]> {
     const { diplomaId, subjectId, sessionYear } = params;
 
-    return await prisma.examPaper.findMany({
+    const examPapers = await prisma.examPaper.findMany({
         where: {
             diplomaId,
             sessionYear,
@@ -350,6 +357,7 @@ export async function fetchExamPapersByScope(params: {
             label: true,
             sessionYear: true,
             subjectUrl: true,
+            themeIds: true,
             diploma: {
                 select: {
                     longDescription: true,
@@ -385,4 +393,101 @@ export async function fetchExamPapersByScope(params: {
             { label: "asc" },
         ],
     });
+
+    if (examPapers.length === 0) {
+        return [];
+    }
+
+    const exercises = await prisma.exercise.findMany({
+        where: {
+            examPaperId: { in: examPapers.map((paper) => paper.id) },
+        },
+        select: {
+            examPaperId: true,
+            themeIds: true,
+        },
+    });
+
+    const themeIdsFromExercises = exercises.flatMap((exercise) => exercise.themeIds);
+    const themeIdsFromPapers = examPapers.flatMap((paper) => paper.themeIds);
+    const themeIds = [...new Set([...themeIdsFromExercises, ...themeIdsFromPapers])];
+    if (themeIds.length === 0) {
+        return examPapers.map(({ themeIds: _themeIds, ...paper }) => ({
+            ...paper,
+            domains: [],
+        }));
+    }
+
+    const themes = await prisma.theme.findMany({
+        where: {
+            id: { in: themeIds },
+        },
+        select: {
+            id: true,
+            domain: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                    order: true,
+                },
+            },
+        },
+    });
+
+    const domainByThemeId = new Map(
+        themes.map((theme) => [theme.id, theme.domain])
+    );
+
+    type DomainInfo = {
+        id: string;
+        longDescription: string;
+        shortDescription: string;
+        order: number | null;
+    };
+
+    const domainsByPaperId = new Map<string, Map<string, DomainInfo>>();
+
+    exercises.forEach((exercise) => {
+        const domainMap = domainsByPaperId.get(exercise.examPaperId) ?? new Map();
+        exercise.themeIds.forEach((themeId) => {
+            const domain = domainByThemeId.get(themeId);
+            if (!domain) return;
+            domainMap.set(domain.id, domain);
+        });
+        domainsByPaperId.set(exercise.examPaperId, domainMap);
+    });
+
+    const domainLabelsByPaperId = new Map<string, string[]>();
+    examPapers.forEach((paper) => {
+        const existingDomainMap = domainsByPaperId.get(paper.id);
+        let domainMap = existingDomainMap;
+
+        if (!domainMap || domainMap.size === 0) {
+            const fallbackMap = new Map<string, DomainInfo>();
+            paper.themeIds.forEach((themeId) => {
+                const domain = domainByThemeId.get(themeId);
+                if (!domain) return;
+                fallbackMap.set(domain.id, domain);
+            });
+            domainMap = fallbackMap;
+        }
+
+        const sortedDomains = Array.from(domainMap.values()).sort((a, b) => {
+            const orderA = a.order ?? Number.POSITIVE_INFINITY;
+            const orderB = b.order ?? Number.POSITIVE_INFINITY;
+            if (orderA !== orderB) return orderA - orderB;
+            return a.longDescription.localeCompare(b.longDescription, "fr", { sensitivity: "base" });
+        });
+
+        domainLabelsByPaperId.set(
+            paper.id,
+            sortedDomains.map((domain) => domain.longDescription)
+        );
+    });
+
+    return examPapers.map(({ themeIds: _themeIds, ...paper }) => ({
+        ...paper,
+        domains: domainLabelsByPaperId.get(paper.id) ?? [],
+    }));
 }
