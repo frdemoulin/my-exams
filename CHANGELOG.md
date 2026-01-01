@@ -1,3 +1,8 @@
+## <small>1.4.19 (2026-01-01)</small>
+
+* Merge pull request #77 from frdemoulin/dev ([d5618b0](https://github.com/frdemoulin/my-exams/commit/d5618b0)), closes [#77](https://github.com/frdemoulin/my-exams/issues/77)
+* fix: harmonisation de l'UX sur les pages d'annales ([77a5cc4](https://github.com/frdemoulin/my-exams/commit/77a5cc4))
+
 ## <small>1.4.18 (2026-01-01)</small>
 
 * Merge pull request #76 from frdemoulin/dev ([14df2df](https://github.com/frdemoulin/my-exams/commit/14df2df)), closes [#76](https://github.com/frdemoulin/my-exams/issues/76)
