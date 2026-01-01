@@ -220,3 +220,169 @@ export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelat
         themes
     };
 }
+
+export type DiplomaNavigationItem = {
+    id: string;
+    longDescription: string;
+    shortDescription: string;
+};
+
+export type SubjectNavigationItem = {
+    id: string;
+    longDescription: string;
+    shortDescription: string;
+};
+
+export type ExamPaperNavigationItem = {
+    id: string;
+    label: string;
+    sessionYear: number;
+    subjectUrl: string | null;
+    diploma: {
+        longDescription: string;
+        shortDescription: string;
+    };
+    teaching: {
+        longDescription: string;
+        subject: {
+            longDescription: string;
+            shortDescription: string;
+        };
+    };
+    corrections: Array<{
+        id: string;
+        source: string;
+        url: string;
+        type: string;
+        quality: number | null;
+    }>;
+};
+
+export async function fetchActiveDiplomasWithExamPapers(): Promise<DiplomaNavigationItem[]> {
+    return await prisma.diploma.findMany({
+        where: {
+            isActive: true,
+            examPapers: {
+                some: {
+                    teaching: {
+                        isActive: true,
+                        subject: { isActive: true },
+                    },
+                },
+            },
+        },
+        select: {
+            id: true,
+            longDescription: true,
+            shortDescription: true,
+        },
+        orderBy: { longDescription: "asc" },
+    });
+}
+
+export async function fetchActiveSubjectsByDiplomaId(diplomaId: string): Promise<SubjectNavigationItem[]> {
+    return await prisma.subject.findMany({
+        where: {
+            isActive: true,
+            teachings: {
+                some: {
+                    isActive: true,
+                    examPapers: {
+                        some: {
+                            diplomaId,
+                            diploma: { isActive: true },
+                        },
+                    },
+                },
+            },
+        },
+        select: {
+            id: true,
+            longDescription: true,
+            shortDescription: true,
+        },
+        orderBy: { longDescription: "asc" },
+    });
+}
+
+export async function fetchSessionYearsByDiplomaAndSubject(
+    diplomaId: string,
+    subjectId: string
+): Promise<number[]> {
+    const sessions = await prisma.examPaper.findMany({
+        where: {
+            diplomaId,
+            diploma: { isActive: true },
+            teaching: {
+                subjectId,
+                isActive: true,
+                subject: { isActive: true },
+            },
+        },
+        select: { sessionYear: true },
+        distinct: ["sessionYear"],
+        orderBy: { sessionYear: "desc" },
+    });
+
+    return sessions.map((paper) => paper.sessionYear);
+}
+
+export async function fetchExamPapersByScope(params: {
+    diplomaId: string;
+    subjectId: string;
+    sessionYear: number;
+}): Promise<ExamPaperNavigationItem[]> {
+    const { diplomaId, subjectId, sessionYear } = params;
+
+    return await prisma.examPaper.findMany({
+        where: {
+            diplomaId,
+            sessionYear,
+            diploma: { isActive: true },
+            teaching: {
+                subjectId,
+                isActive: true,
+                subject: { isActive: true },
+            },
+        },
+        select: {
+            id: true,
+            label: true,
+            sessionYear: true,
+            subjectUrl: true,
+            diploma: {
+                select: {
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
+            teaching: {
+                select: {
+                    longDescription: true,
+                    subject: {
+                        select: {
+                            longDescription: true,
+                            shortDescription: true,
+                        },
+                    },
+                },
+            },
+            corrections: {
+                select: {
+                    id: true,
+                    source: true,
+                    url: true,
+                    type: true,
+                    quality: true,
+                },
+                orderBy: {
+                    quality: "desc",
+                },
+            },
+        },
+        orderBy: [
+            { sessionDay: "asc" },
+            { label: "asc" },
+        ],
+    });
+}

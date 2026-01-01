@@ -37,6 +37,7 @@ Garantir une expérience fluide, robuste et crédible pour l’expérimentation 
 - pages dédiées et indexables
 - URLs stables
 - cohérence du fil d’Ariane
+- interface mono-langue FR (i18n conservée comme dictionnaire métier, pas de /fr en URL)
 
 **Critères de succès**
 - un utilisateur accède à un sujet en < 3 clics

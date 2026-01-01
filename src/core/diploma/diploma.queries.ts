@@ -38,6 +38,10 @@ export async function fetchDiplomasOptions(
 }
 
 export async function fetchDiplomaById(id: string): Promise<Diploma | null> {
+    if (!/^[a-f0-9]{24}$/i.test(id)) {
+        return null;
+    }
+
     return await prisma.diploma.findUnique({
         where: {
             id,
