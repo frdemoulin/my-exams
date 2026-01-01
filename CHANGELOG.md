@@ -1,3 +1,8 @@
+## <small>1.4.18 (2026-01-01)</small>
+
+* Merge pull request #76 from frdemoulin/dev ([14df2df](https://github.com/frdemoulin/my-exams/commit/14df2df)), closes [#76](https://github.com/frdemoulin/my-exams/issues/76)
+* fix: mise en place de la page d'un sujet ([a758caa](https://github.com/frdemoulin/my-exams/commit/a758caa))
+
 ## <small>1.4.17 (2026-01-01)</small>
 
 * Merge pull request #75 from frdemoulin/dev ([63ced8d](https://github.com/frdemoulin/my-exams/commit/63ced8d)), closes [#75](https://github.com/frdemoulin/my-exams/issues/75)
