@@ -245,6 +245,11 @@ export type ExamPaperNavigationItem = {
     sessionYear: number;
     subjectUrl: string | null;
     domains: string[];
+    exerciseDomains: Array<{
+        exerciseNumber: number;
+        label: string | null;
+        domains: string[];
+    }>;
     diploma: {
         longDescription: string;
         shortDescription: string;
@@ -404,6 +409,8 @@ export async function fetchExamPapersByScope(params: {
         },
         select: {
             examPaperId: true,
+            exerciseNumber: true,
+            label: true,
             themeIds: true,
         },
     });
@@ -415,6 +422,7 @@ export async function fetchExamPapersByScope(params: {
         return examPapers.map(({ themeIds: _themeIds, ...paper }) => ({
             ...paper,
             domains: [],
+            exerciseDomains: [],
         }));
     }
 
@@ -446,16 +454,60 @@ export async function fetchExamPapersByScope(params: {
         order: number | null;
     };
 
-    const domainsByPaperId = new Map<string, Map<string, DomainInfo>>();
-
-    exercises.forEach((exercise) => {
-        const domainMap = domainsByPaperId.get(exercise.examPaperId) ?? new Map();
-        exercise.themeIds.forEach((themeId) => {
+    const buildDomainMap = (themeIds: string[]) => {
+        const domainMap = new Map<string, DomainInfo>();
+        themeIds.forEach((themeId) => {
             const domain = domainByThemeId.get(themeId);
             if (!domain) return;
             domainMap.set(domain.id, domain);
         });
-        domainsByPaperId.set(exercise.examPaperId, domainMap);
+        return domainMap;
+    };
+
+    const sortDomainLabels = (domainMap: Map<string, DomainInfo>) =>
+        Array.from(domainMap.values())
+            .sort((a, b) => {
+                const orderA = a.order ?? Number.POSITIVE_INFINITY;
+                const orderB = b.order ?? Number.POSITIVE_INFINITY;
+                if (orderA !== orderB) return orderA - orderB;
+                return a.longDescription.localeCompare(b.longDescription, "fr", { sensitivity: "base" });
+            })
+            .map((domain) => domain.longDescription);
+
+    const exercisesByPaperId = new Map<string, typeof exercises>();
+    exercises.forEach((exercise) => {
+        const existing = exercisesByPaperId.get(exercise.examPaperId) ?? [];
+        existing.push(exercise);
+        exercisesByPaperId.set(exercise.examPaperId, existing);
+    });
+
+    const exerciseDomainsByPaperId = new Map<
+        string,
+        Array<{ exerciseNumber: number; label: string | null; domains: string[] }>
+    >();
+    const domainsByPaperId = new Map<string, Map<string, DomainInfo>>();
+
+    exercisesByPaperId.forEach((paperExercises, paperId) => {
+        const aggregatedDomainMap = new Map<string, DomainInfo>();
+        const sortedExercises = [...paperExercises].sort(
+            (a, b) => a.exerciseNumber - b.exerciseNumber
+        );
+
+        const exerciseDomains = sortedExercises.map((exercise) => {
+            const domainMap = buildDomainMap(exercise.themeIds);
+            domainMap.forEach((domain, domainId) => {
+                aggregatedDomainMap.set(domainId, domain);
+            });
+
+            return {
+                exerciseNumber: exercise.exerciseNumber,
+                label: exercise.label ?? null,
+                domains: sortDomainLabels(domainMap),
+            };
+        });
+
+        exerciseDomainsByPaperId.set(paperId, exerciseDomains);
+        domainsByPaperId.set(paperId, aggregatedDomainMap);
     });
 
     const domainLabelsByPaperId = new Map<string, string[]>();
@@ -464,30 +516,18 @@ export async function fetchExamPapersByScope(params: {
         let domainMap = existingDomainMap;
 
         if (!domainMap || domainMap.size === 0) {
-            const fallbackMap = new Map<string, DomainInfo>();
-            paper.themeIds.forEach((themeId) => {
-                const domain = domainByThemeId.get(themeId);
-                if (!domain) return;
-                fallbackMap.set(domain.id, domain);
-            });
-            domainMap = fallbackMap;
+            domainMap = buildDomainMap(paper.themeIds);
         }
-
-        const sortedDomains = Array.from(domainMap.values()).sort((a, b) => {
-            const orderA = a.order ?? Number.POSITIVE_INFINITY;
-            const orderB = b.order ?? Number.POSITIVE_INFINITY;
-            if (orderA !== orderB) return orderA - orderB;
-            return a.longDescription.localeCompare(b.longDescription, "fr", { sensitivity: "base" });
-        });
 
         domainLabelsByPaperId.set(
             paper.id,
-            sortedDomains.map((domain) => domain.longDescription)
+            sortDomainLabels(domainMap)
         );
     });
 
     return examPapers.map(({ themeIds: _themeIds, ...paper }) => ({
         ...paper,
         domains: domainLabelsByPaperId.get(paper.id) ?? [],
+        exerciseDomains: exerciseDomainsByPaperId.get(paper.id) ?? [],
     }));
 }

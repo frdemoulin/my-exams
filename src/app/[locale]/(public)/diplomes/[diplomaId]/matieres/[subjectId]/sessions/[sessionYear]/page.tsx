@@ -136,7 +136,7 @@ export default async function SessionPage({ params }: PageProps) {
                   diploma={paper.diploma.shortDescription || paper.diploma.longDescription}
                   subject={subjectLabel}
                   subjectUrl={paper.subjectUrl ?? undefined}
-                  domains={paper.domains}
+                  exerciseDomains={paper.exerciseDomains}
                   corrections={paper.corrections}
                 />
               );

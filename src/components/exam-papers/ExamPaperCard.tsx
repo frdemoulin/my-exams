@@ -25,6 +25,11 @@ interface ExamPaperCardProps {
   estimatedDifficulty?: number;
   summary?: string;
   domains?: string[];
+  exerciseDomains?: Array<{
+    exerciseNumber: number;
+    label: string | null;
+    domains: string[];
+  }>;
   corrections: Correction[];
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
@@ -41,13 +46,22 @@ export function ExamPaperCard({
   estimatedDifficulty,
   summary,
   domains = [],
+  exerciseDomains,
   corrections,
   isFavorite = false,
   onToggleFavorite,
 }: ExamPaperCardProps) {
+  const showExerciseDomains = exerciseDomains !== undefined;
+  const hasExerciseDomains = (exerciseDomains ?? []).length > 0;
+
   return (
-    <Card className="overflow-hidden transition-all hover:border-brand/50">
-      <CardHeader className="flex flex-col gap-1 border-b md:flex-row md:items-baseline md:justify-between">
+    <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
+      <Link
+        href={`/sujets/${id}`}
+        aria-label={`Ouvrir le sujet ${label}`}
+        className="absolute inset-0 z-0 focus-visible:outline-none"
+      />
+      <CardHeader className="relative z-10 flex flex-col gap-1 border-b md:flex-row md:items-baseline md:justify-between">
         <div className="flex-1">
           <div className="flex items-start justify-between gap-2">
             <div>
@@ -82,8 +96,45 @@ export function ExamPaperCard({
         </div>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-3 p-4">
-        {domains.length > 0 ? (
+      <CardContent className="relative z-10 flex flex-col gap-3 p-4">
+        {showExerciseDomains ? (
+          hasExerciseDomains ? (
+            <div className="space-y-2 text-xs">
+              {exerciseDomains?.map((exercise) => {
+                const normalizedLabel = (exercise.label ?? '')
+                  .toLowerCase()
+                  .replace(/\s+/g, ' ')
+                  .trim();
+                const defaultLabel = `exercice ${exercise.exerciseNumber}`;
+                const displayLabel =
+                  normalizedLabel && normalizedLabel !== defaultLabel ? exercise.label : null;
+
+                return (
+                  <div key={`${id}-${exercise.exerciseNumber}`} className="flex flex-wrap items-baseline gap-2">
+                    <span className="font-semibold text-foreground">
+                      Exercice {exercise.exerciseNumber}
+                    </span>
+                    {displayLabel && (
+                      <span className="text-muted-foreground">({displayLabel})</span>
+                    )}
+                    <span className="text-muted-foreground">:</span>
+                    {exercise.domains.length > 0 ? (
+                      <span className="text-foreground">
+                        {exercise.domains.join(' \u00b7 ')}
+                      </span>
+                    ) : (
+                      <span className="text-muted-foreground">
+                        Domaines non renseign&eacute;s
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="text-xs text-muted-foreground">Exercices non renseign&eacute;s.</p>
+          )
+        ) : domains.length > 0 ? (
           <div className="flex flex-wrap gap-2">
             {domains.map((domain) => (
               <Badge key={domain} variant="secondary">
@@ -100,7 +151,7 @@ export function ExamPaperCard({
         )}
       </CardContent>
 
-      <CardFooter className="flex flex-col gap-3 border-t bg-muted/40 p-4 md:flex-row md:items-center md:justify-between">
+      <CardFooter className="relative z-10 flex flex-col gap-3 border-t bg-muted/40 p-4 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">
           <span className="font-medium">✅ Corrigés :</span>
           {corrections.length === 0 && (
