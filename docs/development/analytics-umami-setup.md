@@ -16,18 +16,26 @@ Dans le dashboard Umami (SaaS ou self-host) après avoir créé ton site :
 - Les env sont lues dans `src/app/layout.tsx`. Sans `NEXT_PUBLIC_UMAMI_WEBSITE_ID` ET `NEXT_PUBLIC_UMAMI_SRC`, rien n’est injecté.
 - Ajoute-les dans `.env.local` pour le dev, et dans Render/Vercel (Environment Variables) pour la prod.
 
+## 3bis) Afficher Umami dans l’admin
+1. Dans Umami → Website → **Share** → **Copy link**.  
+2. Ajouter la variable d’environnement :
+   - `UMAMI_SHARE_URL=<lien_de_partage>`
+3. Optionnel : `UMAMI_DASHBOARD_URL=https://<url-umami>` pour un bouton “Ouvrir Umami”.
+
 ## 4) Exemple `.env.local`
 ```
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=ton-uuid-ici
 NEXT_PUBLIC_UMAMI_SRC=https://analytics.umami.is/script.js
 # NEXT_PUBLIC_UMAMI_HOST=https://analytics.umami.is (optionnel)
+# UMAMI_SHARE_URL=https://umami.example.com/share/<shareId>/my-exams
+# UMAMI_DASHBOARD_URL=https://umami.example.com
 ```
 
 ## 5) Auto-héberger Umami sur Render (résumé rapide)
 1. Créer une base Postgres sur Render (même région que le service Umami).  
 2. Créer un Web Service depuis `https://github.com/umami-software/umami`.  
 3. Build command : `corepack enable && pnpm install --frozen-lockfile && pnpm run build`.  
-4. Start command : `pnpm run start`.  
+4. Start command : `node .next/standalone/server.js`.  
 5. Définir `DATABASE_URL` (Internal Database URL de Render).  
 6. Déployer, ouvrir l’URL Umami, se connecter (admin/umami) puis changer le mot de passe.  
 7. Dans l’admin Umami, créer un “Website” → récupérer l’ID + l’URL du script.  
@@ -35,14 +43,30 @@ NEXT_PUBLIC_UMAMI_SRC=https://analytics.umami.is/script.js
    - `NEXT_PUBLIC_UMAMI_WEBSITE_ID=<UUID>`  
    - `NEXT_PUBLIC_UMAMI_SRC=https://<url-umami>/script.js`
 
-## 6) Auto-héberger Umami sur Vercel (résumé rapide)
+## 6) Supabase (pooler + TLS) avec Render
+Si tu utilises Supabase comme base externe (plan gratuit), privilégie le **pooler session**.
+
+1. Supabase → **Connect** → **Session pooler** → copier la connection string.  
+2. Ajouter `?sslmode=require` à la fin de l’URL.  
+3. Si l’erreur `self-signed certificate in certificate chain` apparaît, ajouter le certificat :
+   - Supabase → **Project Settings → Database → SSL certificates** → télécharger le `.crt`.
+   - Render (service Umami) → **Environment** :
+     - `SUPABASE_CA_CERT` = contenu du fichier `.crt`.
+     - `NODE_EXTRA_CA_CERTS=/tmp/supabase-ca.crt`.
+   - Render → **Start command** :
+     ```
+     /bin/sh -c 'echo "$SUPABASE_CA_CERT" > /tmp/supabase-ca.crt && node .next/standalone/server.js'
+     ```
+4. Redeploy le service Umami.
+
+## 7) Auto-héberger Umami sur Vercel (résumé rapide)
 1. Cloner le repo Umami (ou utiliser le template Vercel).  
 2. Créer une base Postgres (ex. Neon, Supabase, Render).  
 3. Déployer sur Vercel avec l’env `DATABASE_URL`.  
 4. Dans l’admin Umami, créer un “Website” → récupérer l’ID + URL du script.  
 5. Reporter ces deux valeurs dans ton `.env` de l’app.
 
-## 7) Tracking d’événements
+## 8) Tracking d’événements
 - Helper dispo : `src/lib/analytics.ts` → `trackEvent("event", { props })`.  
 - Aucun tracking n’est émis tant que les env ci-dessus ne sont pas présentes.
 

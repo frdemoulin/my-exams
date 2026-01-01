@@ -73,6 +73,7 @@ export function AutoBreadcrumb() {
     'log-users': 'Journal de connexion',
     'stats': 'Statistiques de contenu',
     'usage-stats': 'Statistiques d\'usage',
+    'umami': 'Statistiques Umami',
     'add': 'Ajouter',
     'edit': 'Modifier',
     'split': 'Découpage',

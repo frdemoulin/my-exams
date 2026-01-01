@@ -89,7 +89,7 @@ Umami peut être auto-hébergé sur Render pour disposer d’analytics sans abon
    ```
 4. Start command :
    ```
-   pnpm run start
+   node .next/standalone/server.js
    ```
 5. Variables d’environnement :
    - `DATABASE_URL` = **Internal Database URL** de la base Postgres.
@@ -98,6 +98,8 @@ Umami peut être auto-hébergé sur Render pour disposer d’analytics sans abon
 8. Dans le service `my-exams`, ajouter :
    - `NEXT_PUBLIC_UMAMI_WEBSITE_ID=<UUID>`
    - `NEXT_PUBLIC_UMAMI_SRC=https://<url-umami>/script.js`
+
+Si tu utilises Supabase en base externe (pooler + TLS), voir `docs/development/analytics-umami-setup.md`.
 
 Voir aussi `docs/development/analytics-umami-setup.md`.
 
