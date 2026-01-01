@@ -1,3 +1,8 @@
+## <small>1.4.16 (2026-01-01)</small>
+
+* Merge pull request #65 from frdemoulin/dev ([464d1ed](https://github.com/frdemoulin/my-exams/commit/464d1ed)), closes [#65](https://github.com/frdemoulin/my-exams/issues/65)
+* fix: mise en place des statistiques Umami ([290cfe6](https://github.com/frdemoulin/my-exams/commit/290cfe6))
+
 ## <small>1.4.15 (2025-12-29)</small>
 
 * Merge pull request #64 from frdemoulin/dev ([ca1490b](https://github.com/frdemoulin/my-exams/commit/ca1490b)), closes [#64](https://github.com/frdemoulin/my-exams/issues/64)
