@@ -1,3 +1,9 @@
+## <small>1.4.17 (2026-01-01)</small>
+
+* Merge pull request #75 from frdemoulin/dev ([63ced8d](https://github.com/frdemoulin/my-exams/commit/63ced8d)), closes [#75](https://github.com/frdemoulin/my-exams/issues/75)
+* fix: création des pages cookies et politique de confidentialité ([6596d5d](https://github.com/frdemoulin/my-exams/commit/6596d5d))
+* fix: mise en place de sitemap.xml et robots.txt ([aa9f8e0](https://github.com/frdemoulin/my-exams/commit/aa9f8e0))
+
 ## <small>1.4.16 (2026-01-01)</small>
 
 * Merge pull request #65 from frdemoulin/dev ([464d1ed](https://github.com/frdemoulin/my-exams/commit/464d1ed)), closes [#65](https://github.com/frdemoulin/my-exams/issues/65)
