@@ -2,14 +2,16 @@ import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ChevronLeft, ExternalLink, Download } from 'lucide-react';
+import { ChevronLeft, ExternalLink } from 'lucide-react';
 
 import { fetchExamPaperById } from '@/core/exam-paper';
 import { fetchExercisesByExamPaperId } from '@/core/exercise';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
 
 type PageProps = {
   params: Promise<{
@@ -58,8 +60,22 @@ export default async function ExamPaperPage({ params }: PageProps) {
     examPaper.teaching.subject.longDescription ||
     examPaper.teaching.subject.shortDescription ||
     examPaper.teaching.longDescription;
-  const diplomaLabel =
+  const diplomaShort =
     examPaper.diploma.shortDescription || examPaper.diploma.longDescription;
+  const diplomaLong =
+    examPaper.diploma.longDescription || examPaper.diploma.shortDescription;
+  const teachingShort =
+    examPaper.teaching.shortDescription || examPaper.teaching.longDescription;
+  const teachingLong =
+    examPaper.teaching.longDescription || examPaper.teaching.shortDescription || teachingShort;
+  const gradeShort = examPaper.grade.shortDescription || examPaper.grade.longDescription;
+  const gradeLong = examPaper.grade.longDescription || examPaper.grade.shortDescription;
+  const divisionShort = examPaper.division?.shortDescription || examPaper.division?.longDescription;
+  const divisionLong = examPaper.division?.longDescription || examPaper.division?.shortDescription;
+  const curriculumShort =
+    examPaper.curriculum?.shortDescription || examPaper.curriculum?.longDescription;
+  const curriculumLong =
+    examPaper.curriculum?.longDescription || examPaper.curriculum?.shortDescription;
   const subjectId = examPaper.teaching.subjectId;
   const backHref =
     subjectId
@@ -69,6 +85,9 @@ export default async function ExamPaperPage({ params }: PageProps) {
   const corrections = examPaper.corrections ?? [];
   const primaryCorrectionUrl =
     corrections[0]?.url || examPaper.correctionUrl || null;
+  const internalOrigin = getInternalOrigin();
+  const subjectUrlIsExternal = isExternalUrl(examPaper.subjectUrl, internalOrigin);
+  const primaryCorrectionIsExternal = isExternalUrl(primaryCorrectionUrl, internalOrigin);
   type DomainInfo = {
     id: string;
     label: string;
@@ -143,7 +162,8 @@ export default async function ExamPaperPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pb-16 pt-10">
+      <PublicHeader />
+      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
         <div className="flex items-center gap-3">
           <Button asChild variant="ghost" size="sm" className="gap-2">
             <Link href={backHref}>
@@ -153,51 +173,74 @@ export default async function ExamPaperPage({ params }: PageProps) {
           </Button>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            <Badge variant="secondary">{diplomaLabel}</Badge>
+            <Badge variant="secondary">
+              <span className="md:hidden">{diplomaShort}</span>
+              <span className="hidden md:inline">{diplomaLong}</span>
+            </Badge>
             <Badge variant="outline">Session {examPaper.sessionYear}</Badge>
-            <Badge variant="outline">{examPaper.teaching.longDescription}</Badge>
+            {examPaper.sessionDay && (
+              <Badge variant="outline">{examPaper.sessionDay}</Badge>
+            )}
+            <Badge variant="outline">
+              <span className="md:hidden">{teachingShort}</span>
+              <span className="hidden md:inline">{teachingLong}</span>
+            </Badge>
+            <Badge variant="outline">
+              <span className="md:hidden">{gradeShort}</span>
+              <span className="hidden md:inline">{gradeLong}</span>
+            </Badge>
+            {divisionLong && (
+              <Badge variant="outline">
+                <span className="md:hidden">{divisionShort}</span>
+                <span className="hidden md:inline">{divisionLong}</span>
+              </Badge>
+            )}
+            {curriculumLong && (
+              <Badge variant="outline">
+                <span className="md:hidden">{curriculumShort}</span>
+                <span className="hidden md:inline">{curriculumLong}</span>
+              </Badge>
+            )}
           </div>
-          <div className="space-y-1">
-            <h1 className="text-2xl font-semibold">{subjectLabel}</h1>
-            <p className="text-sm text-muted-foreground">{examPaper.label}</p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {examPaper.subjectUrl && (
-              <>
+          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div className="space-y-1">
+              <h1 className="text-2xl font-semibold">{subjectLabel}</h1>
+              <p className="text-sm text-muted-foreground">{examPaper.label}</p>
+            </div>
+            <div className="flex flex-wrap gap-2 md:justify-end">
+              {examPaper.subjectUrl && (
                 <Button asChild size="sm">
                   <a href={examPaper.subjectUrl} target="_blank" rel="noopener noreferrer">
-                    Ouvrir le PDF
+                    Ouvrir le sujet (PDF)
+                    {subjectUrlIsExternal && <ExternalLink className="ml-2 h-4 w-4" />}
                   </a>
                 </Button>
-                <Button asChild variant="outline" size="sm">
-                  <a href={examPaper.subjectUrl} download>
-                    <Download className="h-4 w-4" />
-                    T&eacute;l&eacute;charger
+              )}
+              {primaryCorrectionUrl && (
+                <Button asChild variant="success" size="sm">
+                  <a href={primaryCorrectionUrl} target="_blank" rel="noopener noreferrer">
+                    Voir la correction
+                    {primaryCorrectionIsExternal && (
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    )}
                   </a>
                 </Button>
-              </>
-            )}
-            {primaryCorrectionUrl && (
-              <Button asChild variant="success" size="sm">
-                <a href={primaryCorrectionUrl} target="_blank" rel="noopener noreferrer">
-                  Voir la correction
-                </a>
-              </Button>
-            )}
+              )}
+            </div>
           </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <section className="space-y-3">
+          <section className="space-y-2">
             <h2 className="text-base font-semibold">Sujet officiel</h2>
             {examPaper.subjectUrl ? (
               <div className="overflow-hidden rounded-2xl border border-border bg-card">
                 <iframe
                   title={`Sujet ${subjectLabel}`}
                   src={examPaper.subjectUrl}
-                  className="h-[70vh] w-full"
+                  className="h-[100dvh] min-h-[100vh] w-full"
                 />
               </div>
             ) : (
@@ -207,7 +250,7 @@ export default async function ExamPaperPage({ params }: PageProps) {
             )}
           </section>
 
-          <section className="space-y-3">
+          <section className="space-y-2">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h2 className="text-base font-semibold">Exercices & domaines/th&egrave;mes</h2>
               <span className="text-xs text-muted-foreground">
@@ -221,128 +264,56 @@ export default async function ExamPaperPage({ params }: PageProps) {
             ) : (
               <div className="space-y-3">
                 {exercisesWithTags.map((exercise) => (
-                  <Card key={exercise.id}>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-base">{exercise.displayTitle}</CardTitle>
-                      {exercise.subtitle && (
-                        <p className="text-xs text-muted-foreground">{exercise.subtitle}</p>
-                      )}
-                    </CardHeader>
-                    <CardContent className="space-y-3 text-sm">
-                      {exercise.groupedDomains.length > 0 ? (
-                        <div className="space-y-3">
-                          {exercise.groupedDomains.map((domain) => (
-                            <div key={domain.domainLabel} className="space-y-1">
-                              <div className="flex flex-wrap items-center gap-2">
-                                <Badge variant="secondary">{domain.domainLabel}</Badge>
-                              </div>
-                              {domain.themes.length > 0 ? (
-                                <div className="flex flex-wrap gap-2">
-                                  {domain.themes.map((theme) => (
-                                    <Badge key={theme} variant="outline">
-                                      {theme}
-                                    </Badge>
-                                  ))}
+                  <Link
+                    key={exercise.id}
+                    href={`/exercises/${exercise.id}`}
+                    aria-label={`Voir le détail de ${exercise.displayTitle}`}
+                    className="block rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <Card>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-base">{exercise.displayTitle}</CardTitle>
+                        {exercise.subtitle && (
+                          <p className="text-xs text-muted-foreground">{exercise.subtitle}</p>
+                        )}
+                      </CardHeader>
+                      <CardContent className="space-y-3 text-sm">
+                        {exercise.groupedDomains.length > 0 ? (
+                          <div className="space-y-3">
+                            {exercise.groupedDomains.map((domain) => (
+                              <div key={domain.domainLabel} className="space-y-1">
+                                <div className="flex flex-wrap items-center gap-2">
+                                  <Badge variant="secondary">{domain.domainLabel}</Badge>
                                 </div>
-                              ) : (
-                                <p className="text-xs text-muted-foreground">
-                                  Th&egrave;mes non renseign&eacute;s.
-                                </p>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-xs text-muted-foreground">
-                          Domaines et th&egrave;mes non renseign&eacute;s.
-                        </p>
-                      )}
-                    </CardContent>
-                  </Card>
+                                {domain.themes.length > 0 ? (
+                                  <div className="flex flex-wrap gap-2">
+                                    {domain.themes.map((theme) => (
+                                      <Badge key={theme} variant="outline">
+                                        {theme}
+                                      </Badge>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <p className="text-xs text-muted-foreground">
+                                    Th&egrave;mes non renseign&eacute;s.
+                                  </p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-xs text-muted-foreground">
+                            Domaines et th&egrave;mes non renseign&eacute;s.
+                          </p>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </Link>
                 ))}
               </div>
             )}
           </section>
 
-          <aside className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">Infos sujet</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <div>
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Session</span>
-                  <p className="text-sm text-foreground">Session {examPaper.sessionYear}</p>
-                </div>
-                {examPaper.sessionDay && (
-                  <div>
-                    <span className="text-xs uppercase tracking-wide text-muted-foreground">Session</span>
-                    <p className="text-sm text-foreground">{examPaper.sessionDay}</p>
-                  </div>
-                )}
-                <div>
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Dipl&ocirc;me</span>
-                  <p className="text-sm text-foreground">{examPaper.diploma.longDescription}</p>
-                </div>
-                {examPaper.division && (
-                  <div>
-                    <span className="text-xs uppercase tracking-wide text-muted-foreground">Fili&egrave;re</span>
-                    <p className="text-sm text-foreground">{examPaper.division.longDescription}</p>
-                  </div>
-                )}
-                <div>
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Niveau</span>
-                  <p className="text-sm text-foreground">{examPaper.grade.shortDescription}</p>
-                </div>
-                {examPaper.curriculum && (
-                  <div>
-                    <span className="text-xs uppercase tracking-wide text-muted-foreground">Programme</span>
-                    <p className="text-sm text-foreground">
-                      {examPaper.curriculum.shortDescription || examPaper.curriculum.longDescription}
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">Corrections</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm">
-                {corrections.length > 0 ? (
-                  <div className="space-y-2">
-                    {corrections.map((correction) => (
-                      <a
-                        key={correction.id}
-                        href={correction.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm text-fg-brand hover:border-brand/50"
-                      >
-                        <span>{correction.source}</span>
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    ))}
-                  </div>
-                ) : examPaper.correctionUrl ? (
-                  <a
-                    href={examPaper.correctionUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm text-fg-brand hover:border-brand/50"
-                  >
-                    <span>Corrig&eacute; externe</span>
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Aucun corrig&eacute; r&eacute;f&eacute;renc&eacute; pour le moment.
-                  </p>
-                )}
-              </CardContent>
-            </Card>
-          </aside>
         </div>
       </main>
 

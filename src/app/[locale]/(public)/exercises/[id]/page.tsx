@@ -17,8 +17,10 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { PublicHeader } from '@/components/shared/public-header';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
+import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
 
 function DifficultyDots({ value }: { value: number }) {
   return (
@@ -125,6 +127,9 @@ export default function ExerciseDetailPage() {
     label,
     points,
     exerciseType,
+    statement,
+    exerciseUrl,
+    correctionUrl,
     estimatedDuration,
     estimatedDifficulty,
     summary,
@@ -135,6 +140,16 @@ export default function ExerciseDetailPage() {
   } = exercise;
 
   const { label: paperLabel, sessionYear, diploma, teaching } = examPaper;
+  const statementText = statement?.trim() ?? '';
+  const statementUrl = exerciseUrl || examPaper.subjectUrl || null;
+  const primaryCorrectionUrl = correctionUrl || corrections[0]?.url || null;
+  const correctionFallback =
+    correctionUrl && !corrections.some((item) => item.url === correctionUrl)
+      ? correctionUrl
+      : null;
+  const internalOrigin = getInternalOrigin();
+  const statementUrlIsExternal = isExternalUrl(statementUrl, internalOrigin);
+  const primaryCorrectionIsExternal = isExternalUrl(primaryCorrectionUrl, internalOrigin);
 
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const traceability = `${paperLabel} ${sessionYear}`;
@@ -148,23 +163,27 @@ export default function ExerciseDetailPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto max-w-4xl px-4 py-3">
+      <PublicHeader />
+
+      {/* Contenu principal */}
+      <main className="mx-auto max-w-4xl px-4 py-8">
+        <div className="mb-4">
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => router.back()}
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.history.length > 1) {
+                router.back();
+                return;
+              }
+              router.push('/');
+            }}
             className="gap-2"
           >
             <ChevronLeft className="h-4 w-4" />
             Retour
           </Button>
         </div>
-      </header>
-
-      {/* Contenu principal */}
-      <main className="mx-auto max-w-4xl px-4 py-8">
         <div className="space-y-6">
           {/* En-tête exercice */}
           <div className="space-y-4">
@@ -269,42 +288,86 @@ export default function ExerciseDetailPage() {
             </Card>
           )}
 
-          {/* Actions principales */}
-          <div className="grid gap-4 md:grid-cols-2">
-            <Button size="lg" className="w-full" asChild>
-              <a
-                href={exercise.exerciseUrl || examPaper.subjectUrl || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Télécharger l&apos;énoncé
-              </a>
-            </Button>
-
-            {exercise.correctionUrl && (
-              <Button size="lg" variant="outline" className="w-full" asChild>
-                <a
-                  href={exercise.correctionUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Voir la correction
-                </a>
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Accès rapide
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" size="sm" asChild>
+                <a href="#enonce">Énoncé</a>
               </Button>
-            )}
+              <Button variant="outline" size="sm" asChild>
+                <a href="#corrections">Corrections</a>
+              </Button>
+            </div>
           </div>
 
-          {/* Corrections disponibles */}
-          {corrections.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">
-                  Corrections disponibles ({corrections.length})
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
+          {/* Actions principales */}
+          {(statementUrl || primaryCorrectionUrl) && (
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Documents
+              </p>
+              <div className="grid gap-4 md:grid-cols-2">
+                {statementUrl && (
+                  <Button size="lg" className="w-full" asChild>
+                    <a href={statementUrl} target="_blank" rel="noopener noreferrer">
+                      <Download className="mr-2 h-4 w-4" />
+                      Télécharger l&apos;énoncé
+                      {statementUrlIsExternal && (
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      )}
+                    </a>
+                  </Button>
+                )}
+                {primaryCorrectionUrl && (
+                  <Button size="lg" variant="outline" className="w-full" asChild>
+                    <a
+                      href={primaryCorrectionUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Voir la correction
+                      {primaryCorrectionIsExternal && (
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      )}
+                    </a>
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+
+          <Card id="enonce">
+            <CardHeader>
+              <CardTitle className="text-lg">Énoncé</CardTitle>
+            </CardHeader>
+            <CardContent>
+              {statementText ? (
+                <div className="whitespace-pre-wrap break-words text-sm leading-relaxed text-foreground">
+                  {statementText}
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  Énoncé non disponible pour le moment.
+                  {statementUrl ? ' Utilise le PDF ci-dessus.' : ''}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+
+          <Card id="corrections">
+            <CardHeader>
+              <CardTitle className="text-lg">Corrections</CardTitle>
+              {corrections.length > 0 && (
+                <CardDescription>
+                  {corrections.length} correction{corrections.length > 1 ? 's' : ''}{' '}
+                  disponible{corrections.length > 1 ? 's' : ''}
+                </CardDescription>
+              )}
+            </CardHeader>
+            <CardContent>
+              {corrections.length > 0 ? (
                 <div className="space-y-3">
                   {corrections.map((correction) => (
                     <div
@@ -339,15 +402,46 @@ export default function ExerciseDetailPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <ExternalLink className="h-4 w-4" />
+                          {isExternalUrl(correction.url, internalOrigin) && (
+                            <ExternalLink className="h-4 w-4" />
+                          )}
                         </a>
                       </Button>
                     </div>
                   ))}
+                  {correctionFallback && (
+                    <a
+                      href={correctionFallback}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm text-fg-brand hover:border-brand/50"
+                    >
+                      <span>Corrigé externe</span>
+                      {isExternalUrl(correctionFallback, internalOrigin) && (
+                        <ExternalLink className="h-4 w-4" />
+                      )}
+                    </a>
+                  )}
                 </div>
-              </CardContent>
-            </Card>
-          )}
+              ) : correctionFallback ? (
+                <a
+                  href={correctionFallback}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm text-fg-brand hover:border-brand/50"
+                >
+                  <span>Corrigé externe</span>
+                  {isExternalUrl(correctionFallback, internalOrigin) && (
+                    <ExternalLink className="h-4 w-4" />
+                  )}
+                </a>
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  Aucune correction disponible pour le moment.
+                </p>
+              )}
+            </CardContent>
+          </Card>
 
           {/* Autres exercices du même sujet */}
           {otherExercises.length > 0 && (

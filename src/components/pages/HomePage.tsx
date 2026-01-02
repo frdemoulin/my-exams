@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
-import { ArrowRight, LogIn, Search, X } from 'lucide-react';
+import { ArrowRight, Search, X } from 'lucide-react';
 import type { Diploma, Subject } from '@prisma/client';
 import Link from 'next/link';
-import { signOut } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,12 +23,10 @@ import {
   CardDescription,
   CardContent,
 } from '@/components/ui/card';
-import { ThemeToggle } from '@/components/shared/theme-toggle';
+import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
-import { useSession } from 'next-auth/react';
-import { APP_NAME } from '@/config/app';
 
 // Types importés depuis @/core/exercise
 
@@ -42,9 +39,8 @@ export default function HomePage({
   initialSubjects,
   initialDiplomas,
 }: HomePageProps) {
-  const { data: session } = useSession();
-  const isAdmin = session?.user?.role === "ADMIN";
-
+  const SEARCH_STATE_KEY = 'my-exams:search-state';
+  const SEARCH_RESTORE_KEY = 'my-exams:search-restore';
   const [search, setSearch] = useState('');
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
@@ -210,12 +206,99 @@ export default function HomePage({
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    if (!isClient) return;
+    try {
+      const shouldRestore = sessionStorage.getItem(SEARCH_RESTORE_KEY) === '1';
+      if (!shouldRestore) return;
+      const savedState = sessionStorage.getItem(SEARCH_STATE_KEY);
+      if (!savedState) {
+        sessionStorage.removeItem(SEARCH_RESTORE_KEY);
+        return;
+      }
+      const parsed = JSON.parse(savedState) as {
+        search?: string;
+        selectedDiploma?: string;
+        selectedSubject?: string;
+        selectedTeaching?: string;
+        selectedSessionYear?: number | null;
+        selectedThemes?: Array<{ id: string; label: string }>;
+        sortBy?: 'year' | 'difficulty' | 'duration' | null;
+        sortOrder?: 'asc' | 'desc';
+        page?: number;
+      };
+
+      if (typeof parsed.search === 'string') setSearch(parsed.search);
+      if (typeof parsed.selectedDiploma === 'string') setSelectedDiploma(parsed.selectedDiploma);
+      if (typeof parsed.selectedSubject === 'string') setSelectedSubject(parsed.selectedSubject);
+      if (typeof parsed.selectedTeaching === 'string') setSelectedTeaching(parsed.selectedTeaching);
+      if (typeof parsed.selectedSessionYear === 'number' || parsed.selectedSessionYear === null) {
+        setSelectedSessionYear(parsed.selectedSessionYear);
+      }
+      if (Array.isArray(parsed.selectedThemes)) {
+        setSelectedThemes(parsed.selectedThemes);
+      }
+      if (parsed.sortBy === 'year' || parsed.sortBy === 'difficulty' || parsed.sortBy === 'duration') {
+        setSortBy(parsed.sortBy);
+      } else if (parsed.sortBy === null) {
+        setSortBy(undefined);
+      }
+      if (parsed.sortOrder === 'asc' || parsed.sortOrder === 'desc') {
+        setSortOrder(parsed.sortOrder);
+      }
+      if (typeof parsed.page === 'number' && parsed.page > 0) {
+        setPage(parsed.page);
+      }
+      setHasUserSearched(true);
+    } catch (error) {
+      console.error('Error restoring search state:', error);
+    } finally {
+      sessionStorage.removeItem(SEARCH_RESTORE_KEY);
+    }
+  }, [isClient]);
+
   // Recherche instantanée pour les filtres/pagination (pas de debounce)
   useEffect(() => {
     if (!loading) {
       performSearch();
     }
   }, [performSearch, loading]);
+
+  useEffect(() => {
+    if (!isClient) return;
+    if (!hasActiveSearch && !hasUserSearched) return;
+    try {
+      sessionStorage.setItem(
+        SEARCH_STATE_KEY,
+        JSON.stringify({
+          search,
+          selectedDiploma,
+          selectedSubject,
+          selectedTeaching,
+          selectedSessionYear: selectedSessionYear ?? null,
+          selectedThemes,
+          sortBy: sortBy ?? null,
+          sortOrder,
+          page,
+        })
+      );
+    } catch (error) {
+      console.error('Error saving search state:', error);
+    }
+  }, [
+    isClient,
+    hasActiveSearch,
+    hasUserSearched,
+    search,
+    selectedDiploma,
+    selectedSubject,
+    selectedTeaching,
+    selectedSessionYear,
+    selectedThemes,
+    sortBy,
+    sortOrder,
+    page,
+  ]);
 
   const trendingPapers = [
     {
@@ -281,15 +364,25 @@ export default function HomePage({
     setPage(1);
     setShowResults(false);
     setHasUserSearched(false);
+    try {
+      sessionStorage.removeItem(SEARCH_STATE_KEY);
+    } catch (error) {
+      console.error('Error clearing search state:', error);
+    }
   };
 
   const hasNextPage = page * pageSize < total;
   const hasPrevPage = page > 1;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const resultsCountLabel =
+    totalPages > 1
+      ? `${total} exercice${total > 1 ? 's' : ''} · page ${page}/${totalPages}`
+      : `${total} exercice${total > 1 ? 's' : ''}`;
   const resultsFilterBadges = [
     selectedDiploma
       ? {
           id: "diploma",
-          label: `Diplôme : ${selectedDiploma}`,
+          label: `🎓 ${selectedDiploma}`,
           onRemove: () => {
             setSelectedDiploma(undefined);
             setPage(1);
@@ -299,7 +392,7 @@ export default function HomePage({
     selectedSubject
       ? {
           id: "subject",
-          label: `Matière : ${selectedSubject}`,
+          label: `📖 ${selectedSubject}`,
           onRemove: () => {
             setSelectedSubject(undefined);
             setPage(1);
@@ -309,7 +402,7 @@ export default function HomePage({
     selectedSessionYear != null
       ? {
           id: "session",
-          label: `Session : ${selectedSessionYear}`,
+          label: `📅 ${selectedSessionYear}`,
           onRemove: () => {
             setSelectedSessionYear(null);
             setPage(1);
@@ -319,7 +412,7 @@ export default function HomePage({
     selectedTeaching
       ? {
           id: "teaching",
-          label: `Spécialité : ${
+          label: `🧭 ${
             teachingOptions.find((opt) => opt.value === selectedTeaching)?.label || selectedTeaching
           }`,
           onRemove: () => {
@@ -331,7 +424,7 @@ export default function HomePage({
     ...(selectedThemes.length > 0
       ? selectedThemes.map((theme) => ({
           id: `theme-${theme.id}`,
-          label: `Thème : ${theme.label}`,
+          label: `🏷️ ${theme.label}`,
           onRemove: () => {
             setSelectedThemes((prev) => prev.filter((item) => item.id !== theme.id));
             setPage(1);
@@ -341,7 +434,7 @@ export default function HomePage({
     search.trim()
       ? {
           id: "search",
-          label: `Recherche : ${search.trim()}`,
+          label: `🔎 ${search.trim()}`,
           onRemove: () => {
             setSearch("");
             setPage(1);
@@ -630,7 +723,7 @@ export default function HomePage({
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="space-y-1">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Affiner par domaines & thèmes
+            Affiner par domaines et thèmes
           </p>
           <p className="text-xs text-muted-foreground">
             Choisis un thème pour affiner ta recherche.
@@ -733,91 +826,7 @@ export default function HomePage({
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* HEADER */}
-      <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand text-xs font-bold text-white">
-              SA
-            </div>
-            <div className="flex flex-col">
-              <span className="font-semibold tracking-tight">
-                {APP_NAME}
-              </span>
-              <span className="text-xs text-muted-foreground">
-                Annales d&apos;examens, gratuites et triées.
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-              {session?.user && (
-                <Link href="/admin" className="hover:text-foreground">
-                  Administration
-                </Link>
-              )}
-              <Link href="/contact" className="hover:text-foreground">
-                Contact
-              </Link>
-            </nav>
-            <div className="hidden items-center gap-3 md:flex">
-              <ThemeToggle />
-              {!session?.user && (
-                <Link
-                  href="/log-in"
-                  className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
-                >
-                  <LogIn className="h-4 w-4" />
-                  <span>Se connecter</span>
-                </Link>
-              )}
-              {session?.user && (
-                <button
-                  type="button"
-                  onClick={() => signOut({ callbackUrl: '/' })}
-                  className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
-                  </svg>
-                  <span>Se déconnecter</span>
-                </button>
-              )}
-            </div>
-            <div className="flex items-center gap-3 md:hidden">
-              {session?.user && (
-                <Link href="/admin" className="text-sm font-semibold text-fg-brand hover:text-heading">
-                  Admin
-                </Link>
-              )}
-              <Link href="/contact" className="text-sm font-semibold text-fg-brand hover:text-heading">
-                Contact
-              </Link>
-              <ThemeToggle />
-              {session?.user ? (
-                <button
-                  type="button"
-                  onClick={() => signOut({ callbackUrl: '/' })}
-                  className="inline-flex h-9 items-center gap-2 rounded-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-semibold text-body shadow-xs transition-colors hover:bg-neutral-tertiary-medium hover:text-heading focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1"
-                >
-                  <span className="sr-only">Se déconnecter</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3" />
-                  </svg>
-                </button>
-              ) : (
-                <Link
-                  href="/log-in"
-                  className="inline-flex h-9 items-center gap-2 rounded-base border border-transparent bg-success px-3 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-success-strong focus:outline-none focus:ring-4 focus:ring-success-medium focus:ring-offset-1"
-                >
-                  <LogIn className="h-4 w-4" />
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
+      <PublicHeader />
 
       {/* MAIN */}
       <div className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-10">
@@ -1174,14 +1183,15 @@ export default function HomePage({
                 {/* EN-TÊTE AVEC COMPTEUR ET TRI */}
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
-                    <span className="text-xl">📚</span>
-                    <h2 className="text-lg font-semibold">
-                      Résultats
-                    </h2>
-                    <span className="rounded-full bg-brand/20 px-3 py-1 text-xs font-medium text-fg-brand">
-                      {total} exercice{total > 1 ? 's' : ''} · page {page}/{Math.max(1, Math.ceil(total / pageSize))}
-                    </span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-xl">📚</span>
+                      <h2 className="text-lg font-semibold">Résultats</h2>
+                      <span
+                        className="rounded-full bg-brand/20 px-3 py-1 text-xs font-medium text-fg-brand"
+                        aria-live="polite"
+                      >
+                        {resultsCountLabel}
+                      </span>
                     </div>
                     {resultsFilterBadges.length > 0 && (
                       <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
@@ -1329,7 +1339,7 @@ export default function HomePage({
                     </div>
                   </div>
                 ) : (
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     {filteredExercises.map((exercise) => (
                       <ExerciseCard
                         key={exercise.id}
@@ -1341,7 +1351,7 @@ export default function HomePage({
                     {total > pageSize && (
                       <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm">
                         <span className="text-muted-foreground">
-                          Page {page} / {Math.max(1, Math.ceil(total / pageSize))} · {total} exercices
+                          Page {page} / {totalPages} · {total} exercices
                         </span>
                         <div className="flex items-center gap-2">
                           <Button
@@ -1436,7 +1446,7 @@ export default function HomePage({
             )}
           </div>
 
-          <aside className="hidden lg:block">
+          <aside className="hidden self-start lg:block lg:sticky lg:top-24">
             {domainFiltersPanel}
           </aside>
         </div>

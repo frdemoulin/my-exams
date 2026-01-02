@@ -1,11 +1,18 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { ExternalLink } from "lucide-react";
+
+import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
 };
 
 const LegalMentionsPage = () => {
+  const internalOrigin = getInternalOrigin();
+  const renderUrl = "https://render.com";
+  const renderUrlIsExternal = isExternalUrl(renderUrl, internalOrigin);
+
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-12">
       <div className="space-y-8">
@@ -41,12 +48,13 @@ const LegalMentionsPage = () => {
             525 Brannan St, Suite 300, San Francisco, CA 94107, USA
             <br />
             <a
-              href="https://render.com"
+              href={renderUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-fg-brand hover:text-fg-brand-strong"
+              className="inline-flex items-center gap-2 text-fg-brand hover:text-fg-brand-strong"
             >
               render.com
+              {renderUrlIsExternal && <ExternalLink className="h-4 w-4" />}
             </a>
           </p>
         </section>

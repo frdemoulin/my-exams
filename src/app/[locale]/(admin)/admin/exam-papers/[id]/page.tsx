@@ -2,10 +2,11 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { Scissors, Pencil } from "lucide-react";
+import { ExternalLink, Scissors, Pencil } from "lucide-react";
 
 import { fetchExamPaperById } from "@/core/exam-paper";
 import getSession from "@/lib/auth/get-session";
+import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -74,6 +75,10 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                 return 'Officiel';
         }
     })();
+    const internalOrigin = getInternalOrigin();
+    const subjectUrlIsExternal = isExternalUrl(examPaper.subjectUrl, internalOrigin);
+    const sourceUrlIsExternal = isExternalUrl(examPaper.sourceUrl, internalOrigin);
+    const correctionUrlIsExternal = isExternalUrl(examPaper.correctionUrl, internalOrigin);
 
     const formatExerciseType = (exerciseType?: string | null) => {
         if (!exerciseType || exerciseType === 'NORMAL') return null;
@@ -181,9 +186,10 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                         href={examPaper.subjectUrl} 
                                         target="_blank" 
                                         rel="noopener noreferrer"
-                                        className="text-sm text-fg-brand hover:underline break-all"
+                                        className="inline-flex items-center gap-2 text-sm text-fg-brand hover:underline break-all"
                                     >
                                         Ouvrir le PDF
+                                        {subjectUrlIsExternal && <ExternalLink className="h-4 w-4" />}
                                     </a>
                                     <Badge variant="outline">{sourceLabel}</Badge>
                                     {examPaper.sourceUrl && (
@@ -191,9 +197,10 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                             href={examPaper.sourceUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-xs text-muted-foreground hover:underline"
+                                            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:underline"
                                         >
                                             Voir la source
+                                            {sourceUrlIsExternal && <ExternalLink className="h-3 w-3" />}
                                         </a>
                                     )}
                                 </div>
@@ -207,9 +214,10 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                     href={examPaper.correctionUrl} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="text-sm text-fg-brand hover:underline break-all"
+                                    className="inline-flex items-center gap-2 text-sm text-fg-brand hover:underline break-all"
                                 >
                                     {examPaper.correctionUrl}
+                                    {correctionUrlIsExternal && <ExternalLink className="h-4 w-4" />}
                                 </a>
                             </div>
                         )}

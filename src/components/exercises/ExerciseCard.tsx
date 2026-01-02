@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
+import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
 
 interface ExerciseCardProps {
   exercise: ExerciseWithRelations;
@@ -76,6 +77,8 @@ export function ExerciseCard({
   } = examPaper;
 
   const correctionUrl = exercise.correctionUrl || paperCorrectionUrl || exercise.corrections[0]?.url || null;
+  const internalOrigin = getInternalOrigin();
+  const sourceUrlIsExternal = isExternalUrl(sourceUrl, internalOrigin);
 
   const baseTitle = `Exercice ${exerciseNumber}`;
   const displayTitleRaw = title || label || baseTitle;
@@ -87,18 +90,25 @@ export function ExerciseCard({
       .toLowerCase();
   const difficultyLabel = (() => {
     if (!estimatedDifficulty) return null;
-    if (estimatedDifficulty >= 4) return '⚡ Difficile';
-    if (estimatedDifficulty === 3) return '⚡ Moyenne';
-    if (estimatedDifficulty === 2) return '⚡ Facile';
-    return '⚡ Très facile';
+    if (estimatedDifficulty >= 4) return 'Difficile';
+    if (estimatedDifficulty === 3) return 'Moyenne';
+    if (estimatedDifficulty === 2) return 'Facile';
+    return 'Très facile';
   })();
-  const notions = themes
-    .map((t) => ({
-      short: t.shortDescription || t.longDescription,
-      long: t.longDescription,
-      key: t.id,
-    }))
-    .sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
+  const domains = Array.from(
+    new Map(
+      themes
+        .filter((t) => t.domain)
+        .map((t) => [
+          t.domain!.id,
+          {
+            short: t.domain!.shortDescription || t.domain!.longDescription,
+            long: t.domain!.longDescription,
+            key: t.domain!.id,
+          },
+        ])
+    ).values()
+  ).sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
   const durationLabel = estimatedDuration
     ? estimatedDuration >= 60
       ? `${Math.floor(estimatedDuration / 60)}h${estimatedDuration % 60 ? ` ${estimatedDuration % 60}min` : ''}`
@@ -146,32 +156,37 @@ export function ExerciseCard({
     subjectUrlVersioned ||
     sourceUrl ||
     null;
+  const preferredPdfIsExternal = isExternalUrl(preferredPdfUrl, internalOrigin);
+  const correctionUrlIsExternal = isExternalUrl(correctionUrl, internalOrigin);
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <div className="flex flex-col gap-1">
-            <div className="text-xs font-semibold text-muted-foreground flex flex-wrap items-center gap-1">
-              <span>{diploma.shortDescription}</span>
-              <span>•</span>
-              <span>{teaching.subject.shortDescription}</span>
-              {grade?.shortDescription && (
-                <>
-                  <span>•</span>
-                  <span>{grade.shortDescription}</span>
-                </>
-              )}
-            </div>
-            <div className="flex items-center gap-2">
-              <CardTitle className="text-lg text-fg-brand hover:text-heading hover:underline">
-                <Link href={`/exercises/${id}`}>
-                  {fullTitle}
-                </Link>
-              </CardTitle>
-            </div>
+    <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
+      <Link
+        href={`/exercises/${id}`}
+        aria-label={`Ouvrir ${fullTitle}`}
+        className="absolute inset-0 z-0 focus-visible:outline-none"
+        onClick={() => {
+          try {
+            sessionStorage.setItem('my-exams:search-restore', '1');
+          } catch {
+            // ignore storage errors
+          }
+        }}
+      />
+      <CardHeader className="relative z-10 pb-3 pointer-events-none">
+        <div className="flex w-full flex-wrap items-start gap-2 md:flex-nowrap md:items-center">
+          <div className="flex flex-wrap items-center gap-1 text-xs font-semibold text-muted-foreground">
+            <span>{diploma.shortDescription}</span>
+            <span>•</span>
+            <span>{teaching.subject.shortDescription}</span>
+            {grade?.shortDescription && (
+              <>
+                <span>•</span>
+                <span>{grade.shortDescription}</span>
+              </>
+            )}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex w-full flex-wrap items-center gap-2 md:ml-auto md:w-auto md:justify-end">
             <Button variant="secondary" size="xs" className="rounded-lg">
               <span className="md:hidden">{sessionYear}</span>
               <span className="hidden md:inline">Session {sessionYear}</span>
@@ -185,6 +200,7 @@ export function ExerciseCard({
               <Button asChild variant="secondary" size="xs" className="rounded-lg">
                 <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
                   {sourceLabelNode}
+                  {sourceUrlIsExternal && <ExternalLink className="ml-1.5 h-3 w-3" />}
                 </a>
               </Button>
             ) : (
@@ -204,9 +220,14 @@ export function ExerciseCard({
             )}
           </div>
         </div>
+        <div className="flex items-center gap-2">
+          <CardTitle className="text-lg text-fg-brand hover:text-heading hover:underline">
+            {fullTitle}
+          </CardTitle>
+        </div>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-3 p-4 pt-0">
+      <CardContent className="relative z-10 flex flex-col gap-2 p-4 pt-0 pointer-events-none">
         {summaryText && (
           <div className="flex flex-col gap-2">
             <TooltipProvider>
@@ -214,7 +235,7 @@ export function ExerciseCard({
                 <TooltipTrigger asChild>
                   <Badge
                     variant="outline"
-                    className="w-fit cursor-help text-[10px] uppercase"
+                    className="w-fit cursor-help text-[10px] uppercase pointer-events-auto"
                   >
                     Résumé assisté par IA
                   </Badge>
@@ -232,13 +253,14 @@ export function ExerciseCard({
         )}
 
         <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">
-          {notions.length > 0 && (
-            <div className="flex flex-wrap gap-2 items-center">
-              <span className="text-muted-foreground">Thèmes :</span>
-              {notions.map((n) => (
-                <Badge key={n.key} variant="theme" className="text-xs">
-                  <span className="hidden md:inline">{n.long}</span>
-                  <span className="md:hidden">{n.short}</span>
+          {domains.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-semibold text-muted-foreground">Domaines :</span>
+              {domains.map((domain) => (
+                <Badge key={domain.key} variant="outline" className="gap-1.5 text-xs">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+                  <span className="hidden md:inline">{domain.long}</span>
+                  <span className="md:hidden">{domain.short}</span>
                 </Badge>
               ))}
             </div>
@@ -247,7 +269,7 @@ export function ExerciseCard({
 
         <div className="flex items-baseline justify-between gap-2 pt-1 text-sm">
           <span className="text-muted-foreground font-bold text-xs md:text-sm">{traceabilityFooter}</span>
-          <div className="flex items-baseline gap-2">
+          <div className="flex items-baseline gap-2 pointer-events-auto">
             {preferredPdfUrl && (
               <Button
                 asChild
@@ -255,9 +277,8 @@ export function ExerciseCard({
                 className="h-9 items-center gap-2 border border-brand bg-brand text-white hover:bg-brand hover:text-white focus-visible:ring-brand sm:h-8 sm:px-3 sm:text-xs"
               >
                 <a href={preferredPdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                  <span className="md:hidden">Sujet</span>
-                  <span className="hidden md:inline">Sujet (PDF)</span>
-                  <ExternalLink className="ml-2 hidden h-3 w-3 md:inline" />
+                  Ouvrir le sujet (PDF)
+                  {preferredPdfIsExternal && <ExternalLink className="ml-2 h-3 w-3" />}
                 </a>
               </Button>
             )}
@@ -271,7 +292,7 @@ export function ExerciseCard({
                 <a href={correctionUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                   <span className="md:hidden">Correction</span>
                   <span className="hidden md:inline">Correction</span>
-                  <ExternalLink className="ml-2 hidden h-3 w-3 md:inline" />
+                  {correctionUrlIsExternal && <ExternalLink className="ml-2 h-3 w-3" />}
                 </a>
               </Button>
             )}

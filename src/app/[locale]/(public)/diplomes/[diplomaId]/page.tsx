@@ -13,6 +13,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 
 type PageProps = {
@@ -50,6 +51,7 @@ export default async function DiplomaPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <PublicHeader />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
         <Breadcrumb>
           <BreadcrumbList>
