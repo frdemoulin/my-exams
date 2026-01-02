@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Badge } from '@/components/ui/badge';
 import { ExamPaperCard } from '@/components/exam-papers/ExamPaperCard';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
@@ -64,6 +65,11 @@ export default async function SessionPage({ params }: PageProps) {
     notFound();
   }
 
+  const diplomaShort = diploma.shortDescription || diploma.longDescription;
+  const diplomaLong = diploma.longDescription || diploma.shortDescription;
+  const subjectShort = subject.shortDescription || subject.longDescription;
+  const subjectLong = subject.longDescription || subject.shortDescription;
+
   const examPapers = await fetchExamPapersByScope({
     diplomaId: diploma.id,
     subjectId: subject.id,
@@ -109,6 +115,17 @@ export default async function SessionPage({ params }: PageProps) {
         </Breadcrumb>
 
         <div className="space-y-2">
+          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            <Badge variant="secondary">
+              <span className="md:hidden">{diplomaShort}</span>
+              <span className="hidden md:inline">{diplomaLong}</span>
+            </Badge>
+            <Badge variant="outline">Session {sessionYear}</Badge>
+            <Badge variant="outline">
+              <span className="md:hidden">{subjectShort}</span>
+              <span className="hidden md:inline">{subjectLong}</span>
+            </Badge>
+          </div>
           <h1 className="text-2xl font-semibold">
             {subject.longDescription} - Session {sessionYear}
           </h1>

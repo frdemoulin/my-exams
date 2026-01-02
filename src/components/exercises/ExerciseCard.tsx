@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
+import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
 
 interface ExerciseCardProps {
   exercise: ExerciseWithRelations;
@@ -76,6 +77,8 @@ export function ExerciseCard({
   } = examPaper;
 
   const correctionUrl = exercise.correctionUrl || paperCorrectionUrl || exercise.corrections[0]?.url || null;
+  const internalOrigin = getInternalOrigin();
+  const sourceUrlIsExternal = isExternalUrl(sourceUrl, internalOrigin);
 
   const baseTitle = `Exercice ${exerciseNumber}`;
   const displayTitleRaw = title || label || baseTitle;
@@ -146,32 +149,25 @@ export function ExerciseCard({
     subjectUrlVersioned ||
     sourceUrl ||
     null;
+  const preferredPdfIsExternal = isExternalUrl(preferredPdfUrl, internalOrigin);
+  const correctionUrlIsExternal = isExternalUrl(correctionUrl, internalOrigin);
 
   return (
     <Card className="overflow-hidden">
       <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <div className="flex flex-col gap-1">
-            <div className="text-xs font-semibold text-muted-foreground flex flex-wrap items-center gap-1">
-              <span>{diploma.shortDescription}</span>
-              <span>•</span>
-              <span>{teaching.subject.shortDescription}</span>
-              {grade?.shortDescription && (
-                <>
-                  <span>•</span>
-                  <span>{grade.shortDescription}</span>
-                </>
-              )}
-            </div>
-            <div className="flex items-center gap-2">
-              <CardTitle className="text-lg text-fg-brand hover:text-heading hover:underline">
-                <Link href={`/exercises/${id}`}>
-                  {fullTitle}
-                </Link>
-              </CardTitle>
-            </div>
+        <div className="flex w-full flex-wrap items-start gap-2 md:flex-nowrap md:items-center">
+          <div className="flex flex-wrap items-center gap-1 text-xs font-semibold text-muted-foreground">
+            <span>{diploma.shortDescription}</span>
+            <span>•</span>
+            <span>{teaching.subject.shortDescription}</span>
+            {grade?.shortDescription && (
+              <>
+                <span>•</span>
+                <span>{grade.shortDescription}</span>
+              </>
+            )}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex w-full flex-wrap items-center gap-2 md:ml-auto md:w-auto md:justify-end">
             <Button variant="secondary" size="xs" className="rounded-lg">
               <span className="md:hidden">{sessionYear}</span>
               <span className="hidden md:inline">Session {sessionYear}</span>
@@ -185,6 +181,7 @@ export function ExerciseCard({
               <Button asChild variant="secondary" size="xs" className="rounded-lg">
                 <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
                   {sourceLabelNode}
+                  {sourceUrlIsExternal && <ExternalLink className="ml-1.5 h-3 w-3" />}
                 </a>
               </Button>
             ) : (
@@ -204,9 +201,16 @@ export function ExerciseCard({
             )}
           </div>
         </div>
+        <div className="flex items-center gap-2">
+          <CardTitle className="text-lg text-fg-brand hover:text-heading hover:underline">
+            <Link href={`/exercises/${id}`}>
+              {fullTitle}
+            </Link>
+          </CardTitle>
+        </div>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-3 p-4 pt-0">
+      <CardContent className="flex flex-col gap-2 p-4 pt-0">
         {summaryText && (
           <div className="flex flex-col gap-2">
             <TooltipProvider>
@@ -255,9 +259,8 @@ export function ExerciseCard({
                 className="h-9 items-center gap-2 border border-brand bg-brand text-white hover:bg-brand hover:text-white focus-visible:ring-brand sm:h-8 sm:px-3 sm:text-xs"
               >
                 <a href={preferredPdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                  <span className="md:hidden">Sujet</span>
-                  <span className="hidden md:inline">Sujet (PDF)</span>
-                  <ExternalLink className="ml-2 hidden h-3 w-3 md:inline" />
+                  Ouvrir le sujet (PDF)
+                  {preferredPdfIsExternal && <ExternalLink className="ml-2 h-3 w-3" />}
                 </a>
               </Button>
             )}
@@ -271,7 +274,7 @@ export function ExerciseCard({
                 <a href={correctionUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                   <span className="md:hidden">Correction</span>
                   <span className="hidden md:inline">Correction</span>
-                  <ExternalLink className="ml-2 hidden h-3 w-3 md:inline" />
+                  {correctionUrlIsExternal && <ExternalLink className="ml-2 h-3 w-3" />}
                 </a>
               </Button>
             )}

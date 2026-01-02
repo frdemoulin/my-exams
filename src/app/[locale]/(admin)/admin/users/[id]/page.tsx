@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
 import { fetchUserById } from "@/core/user";
-import { formatDateTime } from "@/lib/utils";
+import { formatDateTime, getInternalOrigin, isExternalUrl } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,6 +34,8 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
 
   const roleLabel = user.roles === "ADMIN" ? "Administrateur" : "Utilisateur";
   const roleVariant = user.roles === "ADMIN" ? "default" : "secondary";
+  const internalOrigin = getInternalOrigin();
+  const imageIsExternal = isExternalUrl(user.image, internalOrigin);
 
   return (
     <div className="w-full space-y-6 p-6">
@@ -80,9 +83,10 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
                   href={user.image}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-fg-brand hover:underline break-all"
+                  className="inline-flex items-center gap-2 text-sm text-fg-brand hover:underline break-all"
                 >
                   Ouvrir l&apos;image
+                  {imageIsExternal && <ExternalLink className="h-4 w-4" />}
                 </a>
               ) : (
                 <p className="text-sm text-body">Non renseigné</p>

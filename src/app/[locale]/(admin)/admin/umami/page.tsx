@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
 import getSession from "@/lib/auth/get-session";
+import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -20,6 +22,8 @@ const UmamiStatsPage = async () => {
   const shareUrl = process.env.UMAMI_SHARE_URL?.trim();
   const dashboardUrl = process.env.UMAMI_DASHBOARD_URL?.trim();
   const openUrl = dashboardUrl || shareUrl;
+  const internalOrigin = getInternalOrigin();
+  const openUrlIsExternal = isExternalUrl(openUrl, internalOrigin);
 
   return (
     <div className="w-full space-y-6 p-6">
@@ -45,6 +49,7 @@ const UmamiStatsPage = async () => {
               <Button asChild>
                 <a href={openUrl} target="_blank" rel="noreferrer">
                   Ouvrir Umami
+                  {openUrlIsExternal && <ExternalLink className="ml-2 h-4 w-4" />}
                 </a>
               </Button>
             ) : null}
@@ -57,6 +62,7 @@ const UmamiStatsPage = async () => {
               <Button asChild>
                 <a href={openUrl} target="_blank" rel="noreferrer">
                   Ouvrir Umami
+                  {openUrlIsExternal && <ExternalLink className="ml-2 h-4 w-4" />}
                 </a>
               </Button>
             </div>

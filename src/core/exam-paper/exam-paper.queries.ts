@@ -6,10 +6,11 @@ export type ExamPaperWithRelations = (ExamPaper & {
     sourceUrl?: string | null;
 }) & {
     diploma: { longDescription: string; shortDescription?: string | null };
-    division: { longDescription: string } | null;
-    grade: { shortDescription: string };
+    division: { longDescription: string; shortDescription?: string | null } | null;
+    grade: { shortDescription: string; longDescription?: string | null };
     teaching: { 
         longDescription: string;
+        shortDescription?: string | null;
         subjectId?: string;
         subject: { shortDescription: string; longDescription?: string | null };
     };
@@ -177,11 +178,12 @@ export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelat
         where: { id },
         include: {
             diploma: { select: { longDescription: true, shortDescription: true } },
-            division: { select: { longDescription: true } },
-            grade: { select: { shortDescription: true } },
+            division: { select: { longDescription: true, shortDescription: true } },
+            grade: { select: { shortDescription: true, longDescription: true } },
             teaching: { 
                 select: { 
                     longDescription: true,
+                    shortDescription: true,
                     subjectId: true,
                     subject: { select: { shortDescription: true, longDescription: true } }
                 } 
@@ -410,6 +412,7 @@ export async function fetchExamPapersByScope(params: {
         select: {
             examPaperId: true,
             exerciseNumber: true,
+            title: true,
             label: true,
             themeIds: true,
         },
@@ -501,7 +504,7 @@ export async function fetchExamPapersByScope(params: {
 
             return {
                 exerciseNumber: exercise.exerciseNumber,
-                label: exercise.label ?? null,
+                label: exercise.title ?? exercise.label ?? null,
                 domains: sortDomainLabels(domainMap),
             };
         });

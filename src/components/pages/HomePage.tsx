@@ -279,11 +279,16 @@ export default function HomePage({
 
   const hasNextPage = page * pageSize < total;
   const hasPrevPage = page > 1;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const resultsCountLabel =
+    totalPages > 1
+      ? `${total} exercice${total > 1 ? 's' : ''} · page ${page}/${totalPages}`
+      : `${total} exercice${total > 1 ? 's' : ''}`;
   const resultsFilterBadges = [
     selectedDiploma
       ? {
           id: "diploma",
-          label: `Diplôme : ${selectedDiploma}`,
+          label: `🎓 ${selectedDiploma}`,
           onRemove: () => {
             setSelectedDiploma(undefined);
             setPage(1);
@@ -293,7 +298,7 @@ export default function HomePage({
     selectedSubject
       ? {
           id: "subject",
-          label: `Matière : ${selectedSubject}`,
+          label: `📖 ${selectedSubject}`,
           onRemove: () => {
             setSelectedSubject(undefined);
             setPage(1);
@@ -303,7 +308,7 @@ export default function HomePage({
     selectedSessionYear != null
       ? {
           id: "session",
-          label: `Session : ${selectedSessionYear}`,
+          label: `📅 ${selectedSessionYear}`,
           onRemove: () => {
             setSelectedSessionYear(null);
             setPage(1);
@@ -313,7 +318,7 @@ export default function HomePage({
     selectedTeaching
       ? {
           id: "teaching",
-          label: `Spécialité : ${
+          label: `🧭 ${
             teachingOptions.find((opt) => opt.value === selectedTeaching)?.label || selectedTeaching
           }`,
           onRemove: () => {
@@ -325,7 +330,7 @@ export default function HomePage({
     ...(selectedThemes.length > 0
       ? selectedThemes.map((theme) => ({
           id: `theme-${theme.id}`,
-          label: `Thème : ${theme.label}`,
+          label: `🏷️ ${theme.label}`,
           onRemove: () => {
             setSelectedThemes((prev) => prev.filter((item) => item.id !== theme.id));
             setPage(1);
@@ -335,7 +340,7 @@ export default function HomePage({
     search.trim()
       ? {
           id: "search",
-          label: `Recherche : ${search.trim()}`,
+          label: `🔎 ${search.trim()}`,
           onRemove: () => {
             setSearch("");
             setPage(1);
@@ -1084,14 +1089,15 @@ export default function HomePage({
                 {/* EN-TÊTE AVEC COMPTEUR ET TRI */}
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
-                    <span className="text-xl">📚</span>
-                    <h2 className="text-lg font-semibold">
-                      Résultats
-                    </h2>
-                    <span className="rounded-full bg-brand/20 px-3 py-1 text-xs font-medium text-fg-brand">
-                      {total} exercice{total > 1 ? 's' : ''} · page {page}/{Math.max(1, Math.ceil(total / pageSize))}
-                    </span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-xl">📚</span>
+                      <h2 className="text-lg font-semibold">Résultats</h2>
+                      <span
+                        className="rounded-full bg-brand/20 px-3 py-1 text-xs font-medium text-fg-brand"
+                        aria-live="polite"
+                      >
+                        {resultsCountLabel}
+                      </span>
                     </div>
                     {resultsFilterBadges.length > 0 && (
                       <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
@@ -1239,7 +1245,7 @@ export default function HomePage({
                     </div>
                   </div>
                 ) : (
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     {filteredExercises.map((exercise) => (
                       <ExerciseCard
                         key={exercise.id}
@@ -1251,7 +1257,7 @@ export default function HomePage({
                     {total > pageSize && (
                       <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm">
                         <span className="text-muted-foreground">
-                          Page {page} / {Math.max(1, Math.ceil(total / pageSize))} · {total} exercices
+                          Page {page} / {totalPages} · {total} exercices
                         </span>
                         <div className="flex items-center gap-2">
                           <Button
@@ -1346,7 +1352,7 @@ export default function HomePage({
             )}
           </div>
 
-          <aside className="hidden lg:block">
+          <aside className="hidden self-start lg:block lg:sticky lg:top-24">
             {domainFiltersPanel}
           </aside>
         </div>
