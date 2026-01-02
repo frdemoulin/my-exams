@@ -1,3 +1,11 @@
+## <small>1.4.20 (2026-01-02)</small>
+
+* Merge pull request #78 from frdemoulin/dev ([53df9c6](https://github.com/frdemoulin/my-exams/commit/53df9c6)), closes [#78](https://github.com/frdemoulin/my-exams/issues/78)
+* fix: ajustement mineur des cartes de résultat ([212bee6](https://github.com/frdemoulin/my-exams/commit/212bee6))
+* fix: amélioration des pages d'annales ([08f5760](https://github.com/frdemoulin/my-exams/commit/08f5760))
+* fix: câblage de la page de détail d'un exercice (wip) ([cdcccfe](https://github.com/frdemoulin/my-exams/commit/cdcccfe))
+* fix: gestion des cartes de sujet sur la page d'une session ([0656311](https://github.com/frdemoulin/my-exams/commit/0656311))
+
 ## <small>1.4.19 (2026-01-01)</small>
 
 * Merge pull request #77 from frdemoulin/dev ([d5618b0](https://github.com/frdemoulin/my-exams/commit/d5618b0)), closes [#77](https://github.com/frdemoulin/my-exams/issues/77)
