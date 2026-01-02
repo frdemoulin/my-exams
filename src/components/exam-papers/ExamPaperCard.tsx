@@ -61,21 +61,21 @@ export function ExamPaperCard({
         aria-label={`Ouvrir le sujet ${label}`}
         className="absolute inset-0 z-0 focus-visible:outline-none"
       />
-      <CardHeader className="relative z-10 flex flex-col gap-1 border-b md:flex-row md:items-baseline md:justify-between">
+      <CardHeader className="pointer-events-none relative z-10 flex flex-col gap-1 border-b md:flex-row md:items-baseline md:justify-between">
         <div className="flex-1">
           <div className="flex items-start justify-between gap-2">
             <div>
-              <CardTitle className="text-base md:text-lg">
+              <CardTitle className="mb-1 text-base md:text-lg">
                 {diploma} – {subject}
               </CardTitle>
               <CardDescription className="text-sm">
-                📄 {label} · {sessionYear}
+                📄 {label}
               </CardDescription>
             </div>
             {onToggleFavorite && (
               <button
                 onClick={() => onToggleFavorite(id)}
-                className="rounded-full p-1.5 transition-colors hover:bg-accent"
+                className="pointer-events-auto rounded-full p-1.5 transition-colors hover:bg-accent"
                 title={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
               >
                 <Heart
@@ -96,10 +96,10 @@ export function ExamPaperCard({
         </div>
       </CardHeader>
 
-      <CardContent className="relative z-10 flex flex-col gap-3 p-4">
+      <CardContent className="pointer-events-none relative z-10 flex flex-col gap-3 p-4">
         {showExerciseDomains ? (
           hasExerciseDomains ? (
-            <div className="space-y-2 text-xs">
+            <div className="space-y-3 text-xs">
               {exerciseDomains?.map((exercise) => {
                 const normalizedLabel = (exercise.label ?? '')
                   .toLowerCase()
@@ -110,23 +110,17 @@ export function ExamPaperCard({
                   normalizedLabel && normalizedLabel !== defaultLabel ? exercise.label : null;
 
                 return (
-                  <div key={`${id}-${exercise.exerciseNumber}`} className="flex flex-wrap items-baseline gap-2">
-                    <span className="font-semibold text-foreground">
+                  <div key={`${id}-${exercise.exerciseNumber}`} className="space-y-1">
+                    <div className="font-semibold text-foreground">
                       Exercice {exercise.exerciseNumber}
-                    </span>
-                    {displayLabel && (
-                      <span className="text-muted-foreground">({displayLabel})</span>
-                    )}
-                    <span className="text-muted-foreground">:</span>
-                    {exercise.domains.length > 0 ? (
-                      <span className="text-foreground">
-                        {exercise.domains.join(' \u00b7 ')}
-                      </span>
-                    ) : (
-                      <span className="text-muted-foreground">
-                        Domaines non renseign&eacute;s
-                      </span>
-                    )}
+                      {displayLabel ? ` - ${displayLabel}` : ''}
+                    </div>
+                    <div className="text-[11px] text-muted-foreground">
+                      Domaines abord&eacute;s :{' '}
+                      {exercise.domains.length > 0
+                        ? exercise.domains.join(' \u00b7 ')
+                        : 'Non renseign&eacute;s'}
+                    </div>
                   </div>
                 );
               })}
@@ -151,7 +145,7 @@ export function ExamPaperCard({
         )}
       </CardContent>
 
-      <CardFooter className="relative z-10 flex flex-col gap-3 border-t bg-muted/40 p-4 md:flex-row md:items-center md:justify-between">
+      <CardFooter className="pointer-events-none relative z-10 flex flex-col gap-3 border-t bg-muted/40 p-4 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">
           <span className="font-medium">✅ Corrigés :</span>
           {corrections.length === 0 && (
@@ -165,7 +159,7 @@ export function ExamPaperCard({
               href={c.url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-fg-brand underline-offset-2 hover:text-fg-brand/80 hover:underline"
+              className="pointer-events-auto inline-flex items-center gap-1 text-fg-brand underline-offset-2 hover:text-fg-brand/80 hover:underline"
             >
               {c.source}
               <ExternalLink className="h-3 w-3" />
@@ -178,20 +172,13 @@ export function ExamPaperCard({
           )}
         </div>
 
-        <div className="flex gap-2">
-          <Button asChild size="sm">
-            <Link href={`/sujets/${id}`}>
-              📖 Faire le sujet
-            </Link>
+        {subjectUrl ? (
+          <Button asChild variant="outline" size="sm" className="pointer-events-auto">
+            <a href={subjectUrl} target="_blank" rel="noreferrer">
+              PDF
+            </a>
           </Button>
-          {subjectUrl && (
-            <Button asChild variant="outline" size="sm">
-              <a href={subjectUrl} target="_blank" rel="noreferrer">
-                PDF
-              </a>
-            </Button>
-          )}
-        </div>
+        ) : null}
       </CardFooter>
     </Card>
   );

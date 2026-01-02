@@ -9,6 +9,7 @@ import { fetchExercisesByExamPaperId } from '@/core/exercise';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 
 type PageProps = {
@@ -143,6 +144,7 @@ export default async function ExamPaperPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <PublicHeader />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pb-16 pt-10">
         <div className="flex items-center gap-3">
           <Button asChild variant="ghost" size="sm" className="gap-2">

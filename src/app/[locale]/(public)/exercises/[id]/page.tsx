@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { PublicHeader } from '@/components/shared/public-header';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
 
@@ -148,9 +149,11 @@ export default function ExerciseDetailPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto max-w-4xl px-4 py-3">
+      <PublicHeader />
+
+      {/* Contenu principal */}
+      <main className="mx-auto max-w-4xl px-4 py-8">
+        <div className="mb-4">
           <Button
             variant="ghost"
             size="sm"
@@ -161,10 +164,6 @@ export default function ExerciseDetailPage() {
             Retour
           </Button>
         </div>
-      </header>
-
-      {/* Contenu principal */}
-      <main className="mx-auto max-w-4xl px-4 py-8">
         <div className="space-y-6">
           {/* En-tête exercice */}
           <div className="space-y-4">
