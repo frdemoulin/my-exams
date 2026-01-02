@@ -1,18 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { Clock, ExternalLink, Heart } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Clock, Heart } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { DifficultyDots } from "./DifficultyDots";
-
-interface Correction {
-  id: string;
-  source: string;
-  url: string;
-  type: string;
-  quality?: number | null;
-}
 
 interface ExamPaperCardProps {
   id: string;
@@ -20,7 +11,6 @@ interface ExamPaperCardProps {
   sessionYear: number;
   diploma: string;
   subject: string;
-  subjectUrl?: string;
   estimatedDuration?: number;
   estimatedDifficulty?: number;
   summary?: string;
@@ -30,7 +20,6 @@ interface ExamPaperCardProps {
     label: string | null;
     domains: string[];
   }>;
-  corrections: Correction[];
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
 }
@@ -41,13 +30,11 @@ export function ExamPaperCard({
   sessionYear,
   diploma,
   subject,
-  subjectUrl,
   estimatedDuration,
   estimatedDifficulty,
   summary,
   domains = [],
   exerciseDomains,
-  corrections,
   isFavorite = false,
   onToggleFavorite,
 }: ExamPaperCardProps) {
@@ -145,41 +132,6 @@ export function ExamPaperCard({
         )}
       </CardContent>
 
-      <CardFooter className="pointer-events-none relative z-10 flex flex-col gap-3 border-t bg-muted/40 p-4 md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">
-          <span className="font-medium">✅ Corrigés :</span>
-          {corrections.length === 0 && (
-            <span className="text-muted-foreground">
-              Aucun corrigé référencé pour le moment.
-            </span>
-          )}
-          {corrections.slice(0, 3).map((c) => (
-            <a
-              key={c.id}
-              href={c.url}
-              target="_blank"
-              rel="noreferrer"
-              className="pointer-events-auto inline-flex items-center gap-1 text-fg-brand underline-offset-2 hover:text-fg-brand/80 hover:underline"
-            >
-              {c.source}
-              <ExternalLink className="h-3 w-3" />
-            </a>
-          ))}
-          {corrections.length > 3 && (
-            <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
-              +{corrections.length - 3} autre{corrections.length - 3 > 1 ? 's' : ''}
-            </span>
-          )}
-        </div>
-
-        {subjectUrl ? (
-          <Button asChild variant="outline" size="sm" className="pointer-events-auto">
-            <a href={subjectUrl} target="_blank" rel="noreferrer">
-              PDF
-            </a>
-          </Button>
-        ) : null}
-      </CardFooter>
     </Card>
   );
 }
