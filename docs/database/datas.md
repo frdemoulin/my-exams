@@ -53,7 +53,7 @@
 - Enseignements : définis dans `prisma/seeds/teaching.seed.ts` (spécialités, options, tronc commun).
 - Programmes : définis dans `prisma/seeds/curriculum.seed.ts`.
 
-## Domaines & thèmes
+## Domaines et thèmes
 
 - Si le fichier `prisma/seeds/data/domains-themes.json` est présent (généré via les scripts
   d'export/sync), il sert de source de vérité pour les domaines et thèmes.

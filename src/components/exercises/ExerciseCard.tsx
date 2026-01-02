@@ -90,18 +90,25 @@ export function ExerciseCard({
       .toLowerCase();
   const difficultyLabel = (() => {
     if (!estimatedDifficulty) return null;
-    if (estimatedDifficulty >= 4) return '⚡ Difficile';
-    if (estimatedDifficulty === 3) return '⚡ Moyenne';
-    if (estimatedDifficulty === 2) return '⚡ Facile';
-    return '⚡ Très facile';
+    if (estimatedDifficulty >= 4) return 'Difficile';
+    if (estimatedDifficulty === 3) return 'Moyenne';
+    if (estimatedDifficulty === 2) return 'Facile';
+    return 'Très facile';
   })();
-  const notions = themes
-    .map((t) => ({
-      short: t.shortDescription || t.longDescription,
-      long: t.longDescription,
-      key: t.id,
-    }))
-    .sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
+  const domains = Array.from(
+    new Map(
+      themes
+        .filter((t) => t.domain)
+        .map((t) => [
+          t.domain!.id,
+          {
+            short: t.domain!.shortDescription || t.domain!.longDescription,
+            long: t.domain!.longDescription,
+            key: t.domain!.id,
+          },
+        ])
+    ).values()
+  ).sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
   const durationLabel = estimatedDuration
     ? estimatedDuration >= 60
       ? `${Math.floor(estimatedDuration / 60)}h${estimatedDuration % 60 ? ` ${estimatedDuration % 60}min` : ''}`
@@ -153,8 +160,20 @@ export function ExerciseCard({
   const correctionUrlIsExternal = isExternalUrl(correctionUrl, internalOrigin);
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader className="pb-3">
+    <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
+      <Link
+        href={`/exercises/${id}`}
+        aria-label={`Ouvrir ${fullTitle}`}
+        className="absolute inset-0 z-0 focus-visible:outline-none"
+        onClick={() => {
+          try {
+            sessionStorage.setItem('my-exams:search-restore', '1');
+          } catch {
+            // ignore storage errors
+          }
+        }}
+      />
+      <CardHeader className="relative z-10 pb-3 pointer-events-none">
         <div className="flex w-full flex-wrap items-start gap-2 md:flex-nowrap md:items-center">
           <div className="flex flex-wrap items-center gap-1 text-xs font-semibold text-muted-foreground">
             <span>{diploma.shortDescription}</span>
@@ -203,14 +222,12 @@ export function ExerciseCard({
         </div>
         <div className="flex items-center gap-2">
           <CardTitle className="text-lg text-fg-brand hover:text-heading hover:underline">
-            <Link href={`/exercises/${id}`}>
-              {fullTitle}
-            </Link>
+            {fullTitle}
           </CardTitle>
         </div>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-2 p-4 pt-0">
+      <CardContent className="relative z-10 flex flex-col gap-2 p-4 pt-0 pointer-events-none">
         {summaryText && (
           <div className="flex flex-col gap-2">
             <TooltipProvider>
@@ -218,7 +235,7 @@ export function ExerciseCard({
                 <TooltipTrigger asChild>
                   <Badge
                     variant="outline"
-                    className="w-fit cursor-help text-[10px] uppercase"
+                    className="w-fit cursor-help text-[10px] uppercase pointer-events-auto"
                   >
                     Résumé assisté par IA
                   </Badge>
@@ -236,13 +253,14 @@ export function ExerciseCard({
         )}
 
         <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">
-          {notions.length > 0 && (
-            <div className="flex flex-wrap gap-2 items-center">
-              <span className="text-muted-foreground">Thèmes :</span>
-              {notions.map((n) => (
-                <Badge key={n.key} variant="theme" className="text-xs">
-                  <span className="hidden md:inline">{n.long}</span>
-                  <span className="md:hidden">{n.short}</span>
+          {domains.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-semibold text-muted-foreground">Domaines :</span>
+              {domains.map((domain) => (
+                <Badge key={domain.key} variant="outline" className="gap-1.5 text-xs">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+                  <span className="hidden md:inline">{domain.long}</span>
+                  <span className="md:hidden">{domain.short}</span>
                 </Badge>
               ))}
             </div>
@@ -251,7 +269,7 @@ export function ExerciseCard({
 
         <div className="flex items-baseline justify-between gap-2 pt-1 text-sm">
           <span className="text-muted-foreground font-bold text-xs md:text-sm">{traceabilityFooter}</span>
-          <div className="flex items-baseline gap-2">
+          <div className="flex items-baseline gap-2 pointer-events-auto">
             {preferredPdfUrl && (
               <Button
                 asChild

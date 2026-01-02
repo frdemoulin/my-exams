@@ -39,6 +39,8 @@ export default function HomePage({
   initialSubjects,
   initialDiplomas,
 }: HomePageProps) {
+  const SEARCH_STATE_KEY = 'my-exams:search-state';
+  const SEARCH_RESTORE_KEY = 'my-exams:search-restore';
   const [search, setSearch] = useState('');
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
@@ -204,12 +206,99 @@ export default function HomePage({
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    if (!isClient) return;
+    try {
+      const shouldRestore = sessionStorage.getItem(SEARCH_RESTORE_KEY) === '1';
+      if (!shouldRestore) return;
+      const savedState = sessionStorage.getItem(SEARCH_STATE_KEY);
+      if (!savedState) {
+        sessionStorage.removeItem(SEARCH_RESTORE_KEY);
+        return;
+      }
+      const parsed = JSON.parse(savedState) as {
+        search?: string;
+        selectedDiploma?: string;
+        selectedSubject?: string;
+        selectedTeaching?: string;
+        selectedSessionYear?: number | null;
+        selectedThemes?: Array<{ id: string; label: string }>;
+        sortBy?: 'year' | 'difficulty' | 'duration' | null;
+        sortOrder?: 'asc' | 'desc';
+        page?: number;
+      };
+
+      if (typeof parsed.search === 'string') setSearch(parsed.search);
+      if (typeof parsed.selectedDiploma === 'string') setSelectedDiploma(parsed.selectedDiploma);
+      if (typeof parsed.selectedSubject === 'string') setSelectedSubject(parsed.selectedSubject);
+      if (typeof parsed.selectedTeaching === 'string') setSelectedTeaching(parsed.selectedTeaching);
+      if (typeof parsed.selectedSessionYear === 'number' || parsed.selectedSessionYear === null) {
+        setSelectedSessionYear(parsed.selectedSessionYear);
+      }
+      if (Array.isArray(parsed.selectedThemes)) {
+        setSelectedThemes(parsed.selectedThemes);
+      }
+      if (parsed.sortBy === 'year' || parsed.sortBy === 'difficulty' || parsed.sortBy === 'duration') {
+        setSortBy(parsed.sortBy);
+      } else if (parsed.sortBy === null) {
+        setSortBy(undefined);
+      }
+      if (parsed.sortOrder === 'asc' || parsed.sortOrder === 'desc') {
+        setSortOrder(parsed.sortOrder);
+      }
+      if (typeof parsed.page === 'number' && parsed.page > 0) {
+        setPage(parsed.page);
+      }
+      setHasUserSearched(true);
+    } catch (error) {
+      console.error('Error restoring search state:', error);
+    } finally {
+      sessionStorage.removeItem(SEARCH_RESTORE_KEY);
+    }
+  }, [isClient]);
+
   // Recherche instantanée pour les filtres/pagination (pas de debounce)
   useEffect(() => {
     if (!loading) {
       performSearch();
     }
   }, [performSearch, loading]);
+
+  useEffect(() => {
+    if (!isClient) return;
+    if (!hasActiveSearch && !hasUserSearched) return;
+    try {
+      sessionStorage.setItem(
+        SEARCH_STATE_KEY,
+        JSON.stringify({
+          search,
+          selectedDiploma,
+          selectedSubject,
+          selectedTeaching,
+          selectedSessionYear: selectedSessionYear ?? null,
+          selectedThemes,
+          sortBy: sortBy ?? null,
+          sortOrder,
+          page,
+        })
+      );
+    } catch (error) {
+      console.error('Error saving search state:', error);
+    }
+  }, [
+    isClient,
+    hasActiveSearch,
+    hasUserSearched,
+    search,
+    selectedDiploma,
+    selectedSubject,
+    selectedTeaching,
+    selectedSessionYear,
+    selectedThemes,
+    sortBy,
+    sortOrder,
+    page,
+  ]);
 
   const trendingPapers = [
     {
@@ -275,6 +364,11 @@ export default function HomePage({
     setPage(1);
     setShowResults(false);
     setHasUserSearched(false);
+    try {
+      sessionStorage.removeItem(SEARCH_STATE_KEY);
+    } catch (error) {
+      console.error('Error clearing search state:', error);
+    }
   };
 
   const hasNextPage = page * pageSize < total;
@@ -629,7 +723,7 @@ export default function HomePage({
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="space-y-1">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Affiner par domaines & thèmes
+            Affiner par domaines et thèmes
           </p>
           <p className="text-xs text-muted-foreground">
             Choisis un thème pour affiner ta recherche.

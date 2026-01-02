@@ -171,7 +171,13 @@ export default function ExerciseDetailPage() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => router.back()}
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.history.length > 1) {
+                router.back();
+                return;
+              }
+              router.push('/');
+            }}
             className="gap-2"
           >
             <ChevronLeft className="h-4 w-4" />
