@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { LogIn } from 'lucide-react';
+import { Shield, LogIn } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
 
@@ -20,7 +20,7 @@ export function PublicHeader() {
           </div>
           <div className="flex flex-col">
             <span className="font-semibold tracking-tight">{APP_NAME}</span>
-            <span className="text-xs text-muted-foreground">
+            <span className="hidden text-xs text-muted-foreground md:inline">
               Annales d&apos;examens, gratuites et tri&eacute;es.
             </span>
           </div>
@@ -76,14 +76,12 @@ export function PublicHeader() {
             {session?.user && (
               <Link
                 href="/admin"
-                className="text-sm font-semibold text-fg-brand hover:text-heading"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm p-2.5 transition-colors hover:bg-neutral-secondary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
               >
-                Admin
+                <Shield className="h-4 w-4" />
+                <span className="sr-only">Administration</span>
               </Link>
             )}
-            <Link href="/contact" className="text-sm font-semibold text-fg-brand hover:text-heading">
-              Contact
-            </Link>
             <ThemeToggle />
             {session?.user ? (
               <button

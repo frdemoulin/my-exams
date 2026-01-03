@@ -20,7 +20,7 @@ export function SiteFooter({ className = '' }: SiteFooterProps) {
           révision.
         </p>
         <div className="flex items-center gap-4">
-          <span className="text-[11px]">Version v{appVersion}</span>
+          <span className="text-[11px]">Version {appVersion}</span>
           <div className="flex gap-4">
             <Link href="/diplomes" className="hover:text-foreground">
               Annales
