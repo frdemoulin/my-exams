@@ -1,3 +1,8 @@
+## <small>1.4.22 (2026-01-03)</small>
+
+* Merge pull request #80 from frdemoulin/dev ([6b16e38](https://github.com/frdemoulin/my-exams/commit/6b16e38)), closes [#80](https://github.com/frdemoulin/my-exams/issues/80)
+* fix: debug de l'accueil public en mode mobile ([b450e42](https://github.com/frdemoulin/my-exams/commit/b450e42))
+
 ## <small>1.4.21 (2026-01-03)</small>
 
 * Merge pull request #79 from frdemoulin/dev ([58210bd](https://github.com/frdemoulin/my-exams/commit/58210bd)), closes [#79](https://github.com/frdemoulin/my-exams/issues/79)
