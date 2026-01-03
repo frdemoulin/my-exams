@@ -4,6 +4,7 @@ import { Clock, Heart } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DifficultyDots } from "./DifficultyDots";
+import { ClickThroughHint } from "@/components/shared/click-through-hint";
 
 interface ExamPaperCardProps {
   id: string;
@@ -146,6 +147,8 @@ export function ExamPaperCard({
             💡 {summary}
           </div>
         )}
+
+        <ClickThroughHint text="Clique sur la carte pour voir le détail du sujet." />
       </CardContent>
 
     </Card>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
-import { ArrowRight, Search, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import type { Diploma, Subject } from '@prisma/client';
 import Link from 'next/link';
 
@@ -715,8 +715,7 @@ export default function HomePage({
     eyebrow: "📚 Base d’annales en construction",
     titlePrefix: "Des exercices d’annales officiels, indexés pour réviser",
     titleEmphasis: "efficacement",
-    subtitle:
-      "Filtres rapides pensés pour le bac : diplôme, matière, session, spécialité et thèmes",
+    subtitle: "Brevet des collèges, baccalauréat, BTS. Toutes matières.",
   };
   const domainFiltersPanel = (
     <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
@@ -829,9 +828,9 @@ export default function HomePage({
       <PublicHeader />
 
       {/* MAIN */}
-      <div className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-10">
+      <div className="mx-auto max-w-6xl space-y-4 px-4 py-4">
         {/* HERO + FILIÈRES */}
-        <section className="grid items-start gap-8">
+        <section className="grid items-start">
           {/* HERO GAUCHE */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <HeroEyebrow>{HERO.eyebrow}</HeroEyebrow>
@@ -845,19 +844,20 @@ export default function HomePage({
               {HERO.subtitle}
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              <Button size="lg" className="font-semibold">
-                <span className="mr-2 inline-flex items-center">
-                  <ArrowRight className="mr-1 h-4 w-4" />
-                  📚 Sujets d’annales
-                </span>
+            <div className="grid w-full grid-cols-2 gap-3 pt-1 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
+              <Button size="lg" className="w-full font-semibold sm:w-auto">
+                <span className="inline-flex items-center">📚 Sujets d’annales</span>
               </Button>
-              <Button variant="success" size="lg" className="font-semibold">
-                📝 Corrections de référence
+              <Button
+                variant="success"
+                size="lg"
+                className="w-full font-semibold sm:w-auto"
+              >
+                📝 Corrections
               </Button>
             </div>
 
-            <div className="mb-6 flex flex-wrap gap-6 pt-4 text-xs text-muted-foreground sm:text-sm">
+            <div className="mb-6 grid grid-cols-3 gap-3 pt-4 text-center text-xs text-muted-foreground sm:flex sm:flex-wrap sm:gap-6 sm:text-left sm:text-sm">
               <div className="space-y-1">
                 <div className="font-semibold text-heading">Base en construction</div>
                 <div className="text-[11px] sm:text-xs">Exercices ajoutés régulièrement</div>
@@ -867,8 +867,8 @@ export default function HomePage({
                 <div className="text-[11px] sm:text-xs">Diplôme, matière, session, spécialité</div>
               </div>
               <div className="space-y-1">
-                <div className="font-semibold text-heading">Pensé pour le bac</div>
-                <div className="text-[11px] sm:text-xs">Interface claire pour les lycéens</div>
+                <div className="font-semibold text-heading">Expérience premium</div>
+                <div className="text-[11px] sm:text-xs">Navigation intuitive et ergonomique</div>
               </div>
             </div>
 
@@ -968,8 +968,8 @@ export default function HomePage({
                       </span>
                     )}
                   </span>
-                  <span className="text-xs text-muted-foreground">
-                    Quelques clics pour filtrer un sujet de bac. Commence par{" "}
+                  <span className="hidden text-xs text-muted-foreground sm:inline">
+                    Quelques clics pour filtrer un sujet d&apos;examen :{' '}
                     <span className="font-medium text-foreground">Diplôme → Matière → Session → Spécialité</span>.
                   </span>
                 </div>
@@ -1167,7 +1167,7 @@ export default function HomePage({
                   </Button>
                 </div>
               )}
-              <div className="lg:hidden">
+              <div className="hidden sm:block lg:hidden">
                 {domainFiltersPanel}
               </div>
             </div>

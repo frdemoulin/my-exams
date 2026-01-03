@@ -5,12 +5,11 @@
 
 'use client';
 
-import { Heart, Clock, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import {
   Card,
   CardHeader,
   CardTitle,
-  CardDescription,
   CardContent,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -25,6 +24,7 @@ import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
+import { ClickThroughHint } from '@/components/shared/click-through-hint';
 
 interface ExerciseCardProps {
   exercise: ExerciseWithRelations;
@@ -69,10 +69,8 @@ export function ExerciseCard({
     sessionYear,
     source,
     sourceUrl,
-    updatedAt,
     diploma,
     teaching,
-    subjectUrl,
     grade,
     correctionUrl: paperCorrectionUrl,
   } = examPaper;
@@ -133,19 +131,6 @@ export function ExerciseCard({
     ) : (
       sourceLabel
     );
-  const subjectUrlVersioned = (() => {
-    if (!subjectUrl) return null;
-    const version = updatedAt ? new Date(updatedAt).getTime() : Date.now();
-    return subjectUrl.includes('?')
-      ? `${subjectUrl}&v=${version}`
-      : `${subjectUrl}?v=${version}`;
-  })();
-  const preferredPdfUrl =
-    (source === 'OFFICIEL' && subjectUrlVersioned) ||
-    subjectUrlVersioned ||
-    sourceUrl ||
-    null;
-  const preferredPdfIsExternal = isExternalUrl(preferredPdfUrl, internalOrigin);
   const correctionUrlIsExternal = isExternalUrl(correctionUrl, internalOrigin);
 
   return (
@@ -245,35 +230,31 @@ export function ExerciseCard({
         </div>
 
         <div className="flex items-baseline justify-between gap-2 pt-1 text-sm">
-          <span className="text-muted-foreground font-bold text-xs md:text-sm">{traceabilityFooter}</span>
-          <div className="flex items-baseline gap-2 pointer-events-auto">
-            {preferredPdfUrl && (
-              <Button
-                asChild
-                size="sm"
-                className="h-9 items-center gap-2 border border-brand bg-brand text-white hover:bg-brand hover:text-white focus-visible:ring-brand sm:h-8 sm:px-3 sm:text-xs"
-              >
-                <a href={preferredPdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                  Ouvrir le sujet (PDF)
-                  {preferredPdfIsExternal && <ExternalLink className="ml-2 h-3 w-3" />}
-                </a>
-              </Button>
-            )}
-            {correctionUrl && (
+          <div className="flex flex-col gap-1">
+            <span className="text-muted-foreground font-bold text-xs md:text-sm">{traceabilityFooter}</span>
+            <ClickThroughHint text="Clique sur la carte pour voir le détail de l'exercice." />
+          </div>
+          {correctionUrl && (
+            <div className="flex items-center gap-2 self-baseline pointer-events-auto">
               <Button
                 asChild
                 variant="success"
                 size="sm"
-                className="h-9 gap-2 sm:h-8 sm:px-3 sm:text-xs"
+                className="h-9 items-center gap-2 sm:h-8 sm:px-3 sm:text-xs"
               >
-                <a href={correctionUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                <a
+                  href={correctionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
                   <span className="md:hidden">Correction</span>
                   <span className="hidden md:inline">Correction</span>
                   {correctionUrlIsExternal && <ExternalLink className="ml-2 h-3 w-3" />}
                 </a>
               </Button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>
