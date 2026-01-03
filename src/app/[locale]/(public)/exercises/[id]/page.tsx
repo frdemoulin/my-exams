@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Heart, Clock, ExternalLink, ChevronLeft, Download } from 'lucide-react';
+import { Heart, ExternalLink, ChevronLeft, Download } from 'lucide-react';
 import {
   Card,
   CardHeader,
@@ -18,24 +18,10 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
+import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
-
-function DifficultyDots({ value }: { value: number }) {
-  return (
-    <div className="flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map((dot) => (
-        <div
-          key={dot}
-          className={`h-2 w-2 rounded-full ${
-            dot <= value ? 'bg-brand' : 'bg-muted'
-          }`}
-        />
-      ))}
-    </div>
-  );
-}
 
 export default function ExerciseDetailPage() {
   const params = useParams();
@@ -127,7 +113,6 @@ export default function ExerciseDetailPage() {
     label,
     points,
     exerciseType,
-    statement,
     exerciseUrl,
     correctionUrl,
     estimatedDuration,
@@ -135,12 +120,10 @@ export default function ExerciseDetailPage() {
     summary,
     themes,
     corrections,
-    keywords,
     examPaper,
   } = exercise;
 
-  const { label: paperLabel, sessionYear, diploma, teaching } = examPaper;
-  const statementText = statement?.trim() ?? '';
+  const { label: paperLabel, sessionYear, diploma, teaching, curriculum } = examPaper;
   const statementUrl = exerciseUrl || examPaper.subjectUrl || null;
   const primaryCorrectionUrl = correctionUrl || corrections[0]?.url || null;
   const correctionFallback =
@@ -152,14 +135,24 @@ export default function ExerciseDetailPage() {
   const primaryCorrectionIsExternal = isExternalUrl(primaryCorrectionUrl, internalOrigin);
 
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
-  const traceability = `${paperLabel} ${sessionYear}`;
-  const formatExerciseType = (value?: string | null) => {
-    if (!value || value === 'NORMAL') return null;
-    if (value === 'QCM') return 'QCM';
-    if (value === 'TRUE_FALSE') return 'Vrai/Faux';
-    if (value === 'OTHER') return 'Autre';
-    return value;
-  };
+  const traceability = paperLabel || `Session ${sessionYear}`;
+  const domains = Array.from(
+    new Map(
+      themes
+        .filter((theme) => theme.domain)
+        .map((theme) => [
+          theme.domain!.id,
+          {
+            id: theme.domain!.id,
+            short:
+              theme.domain!.shortDescription || theme.domain!.longDescription,
+            long: theme.domain!.longDescription,
+          },
+        ])
+    ).values()
+  ).sort((a, b) =>
+    a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' })
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -187,20 +180,30 @@ export default function ExerciseDetailPage() {
         <div className="space-y-6">
           {/* En-tête exercice */}
           <div className="space-y-4">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-muted-foreground md:flex-nowrap md:items-center">
+              <div className="flex flex-wrap items-center gap-1">
+                <span>{diploma.shortDescription}</span>
+                <span>&gt;</span>
+                <span>{teaching.subject.shortDescription}</span>
+                <span>&gt;</span>
+                <span>{teaching.grade.shortDescription}</span>
+              </div>
+              <div className="flex w-full md:ml-auto md:w-auto md:justify-end">
+                <ExerciseMetaLine
+                  variant="chips"
+                  sessionYear={sessionYear}
+                  curriculum={curriculum}
+                  duration={estimatedDuration}
+                  difficulty={estimatedDifficulty}
+                  points={points ?? null}
+                  exerciseType={exerciseType}
+                />
+              </div>
+            </div>
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <h1 className="text-3xl font-bold leading-tight">{displayTitle}</h1>
                 <p className="mt-2 text-muted-foreground">{traceability}</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {points && (
-                    <Badge variant="secondary">
-                      {points} point{points > 1 ? 's' : ''}
-                    </Badge>
-                  )}
-                  {formatExerciseType(exerciseType) && (
-                    <Badge variant="outline">{formatExerciseType(exerciseType)}</Badge>
-                  )}
-                </div>
               </div>
 
               {/* Bouton favoris */}
@@ -218,60 +221,21 @@ export default function ExerciseDetailPage() {
               </Button>
             </div>
 
-            {/* Hiérarchie pédagogique */}
-            <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-              <span>{diploma.shortDescription}</span>
-              <span>›</span>
-              <span>{teaching.subject.shortDescription}</span>
-              <span>›</span>
-              <span>{teaching.grade.shortDescription}</span>
-            </div>
-
-            {/* Métadonnées */}
-            <div className="flex flex-wrap items-center gap-4">
-              {estimatedDuration && (
-                <div className="flex items-center gap-2 text-sm">
-                  <Clock className="h-4 w-4 text-muted-foreground" />
-                  <span>
-                    {estimatedDuration >= 60
-                      ? `${Math.floor(estimatedDuration / 60)}h${
-                          estimatedDuration % 60 > 0
-                            ? ` ${estimatedDuration % 60}min`
-                            : ''
-                        }`
-                      : `${estimatedDuration}min`}
-                  </span>
-                </div>
-              )}
-              {estimatedDifficulty && (
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground">Difficulté :</span>
-                  <DifficultyDots value={estimatedDifficulty} />
-                </div>
+            {/* Domaines */}
+            <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
+              <span className="font-semibold text-muted-foreground">Domaines :</span>
+              {domains.length > 0 ? (
+                domains.map((domain) => (
+                  <Badge key={domain.id} variant="outline" className="gap-1.5 text-xs">
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+                    <span className="hidden md:inline">{domain.long}</span>
+                    <span className="md:hidden">{domain.short}</span>
+                  </Badge>
+                ))
+              ) : (
+                <span className="text-xs text-muted-foreground">Non renseignés</span>
               )}
             </div>
-
-            {/* Thèmes */}
-            {themes.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {themes.map((theme) => (
-                  <Badge key={theme.id} variant="secondary">
-                    {theme.shortDescription || theme.longDescription}
-                  </Badge>
-                ))}
-              </div>
-            )}
-
-            {/* Mots-clés */}
-            {keywords.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {keywords.map((keyword, idx) => (
-                  <Badge key={idx} variant="outline" className="text-xs">
-                    {keyword}
-                  </Badge>
-                ))}
-              </div>
-            )}
           </div>
 
           <div className="h-px w-full bg-border" />
@@ -343,14 +307,29 @@ export default function ExerciseDetailPage() {
               <CardTitle className="text-lg">Énoncé</CardTitle>
             </CardHeader>
             <CardContent>
-              {statementText ? (
-                <div className="whitespace-pre-wrap break-words text-sm leading-relaxed text-foreground">
-                  {statementText}
+              {statementUrl ? (
+                <div className="overflow-hidden rounded-2xl border border-border bg-card">
+                  <iframe
+                    title={`Énoncé ${displayTitle}`}
+                    src={statementUrl}
+                    className="h-[70dvh] min-h-[70vh] w-full md:h-[100dvh] md:min-h-[100vh]"
+                  />
+                </div>
+              ) : examPaper.sourceUrl ? (
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p>Énoncé non disponible en PDF.</p>
+                  <Button variant="outline" size="sm" asChild>
+                    <a href={examPaper.sourceUrl} target="_blank" rel="noopener noreferrer">
+                      Consulter la source externe
+                      {isExternalUrl(examPaper.sourceUrl, internalOrigin) && (
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      )}
+                    </a>
+                  </Button>
                 </div>
               ) : (
                 <p className="text-sm text-muted-foreground">
                   Énoncé non disponible pour le moment.
-                  {statementUrl ? ' Utilise le PDF ci-dessus.' : ''}
                 </p>
               )}
             </CardContent>

@@ -86,7 +86,7 @@ export function ExamPaperCard({
       <CardContent className="pointer-events-none relative z-10 flex flex-col gap-3 p-4">
         {showExerciseDomains ? (
           hasExerciseDomains ? (
-            <div className="space-y-3 text-xs">
+            <div className="space-y-3 text-sm">
               {exerciseDomains?.map((exercise) => {
                 const normalizedLabel = (exercise.label ?? '')
                   .toLowerCase()
@@ -98,15 +98,31 @@ export function ExamPaperCard({
 
                 return (
                   <div key={`${id}-${exercise.exerciseNumber}`} className="space-y-1">
-                    <div className="font-semibold text-foreground">
+                    <div className="text-sm font-semibold text-foreground md:text-base">
                       Exercice {exercise.exerciseNumber}
                       {displayLabel ? ` - ${displayLabel}` : ''}
                     </div>
-                    <div className="text-[11px] text-muted-foreground">
-                      Domaines abord&eacute;s :{' '}
-                      {exercise.domains.length > 0
-                        ? exercise.domains.join(' \u00b7 ')
-                        : 'Non renseign&eacute;s'}
+                    <div className="flex flex-wrap items-baseline gap-2 text-[11px] text-muted-foreground">
+                      <span className="font-semibold text-muted-foreground">
+                        Domaines abord&eacute;s :
+                      </span>
+                      {exercise.domains.length > 0 ? (
+                        exercise.domains.map((domain) => (
+                          <Badge
+                            key={`${id}-${exercise.exerciseNumber}-${domain}`}
+                            variant="outline"
+                            className="gap-1.5 text-[11px]"
+                          >
+                            <span
+                              className="h-1.5 w-1.5 rounded-full bg-brand"
+                              aria-hidden="true"
+                            />
+                            {domain}
+                          </Badge>
+                        ))
+                      ) : (
+                        <span>Non renseign&eacute;s</span>
+                      )}
                     </div>
                   </div>
                 );

@@ -282,13 +282,25 @@ export default async function ExamPaperPage({ params }: PageProps) {
                           <div className="space-y-3">
                             {exercise.groupedDomains.map((domain) => (
                               <div key={domain.domainLabel} className="space-y-1">
-                                <div className="flex flex-wrap items-center gap-2">
-                                  <Badge variant="secondary">{domain.domainLabel}</Badge>
+                                <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
+                                  <span className="font-semibold text-muted-foreground">
+                                    Domaine :
+                                  </span>
+                                  <Badge variant="outline" className="gap-1.5 text-xs">
+                                    <span
+                                      className="h-1.5 w-1.5 rounded-full bg-brand"
+                                      aria-hidden="true"
+                                    />
+                                    {domain.domainLabel}
+                                  </Badge>
                                 </div>
                                 {domain.themes.length > 0 ? (
-                                  <div className="flex flex-wrap gap-2">
+                                  <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
+                                    <span className="font-semibold text-muted-foreground">
+                                      Th&egrave;mes :
+                                    </span>
                                     {domain.themes.map((theme) => (
-                                      <Badge key={theme} variant="outline">
+                                      <Badge key={theme} variant="outline" className="text-xs">
                                         {theme}
                                       </Badge>
                                     ))}

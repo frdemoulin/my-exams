@@ -24,6 +24,7 @@ import {
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
+import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 
 interface ExerciseCardProps {
   exercise: ExerciseWithRelations;
@@ -88,13 +89,6 @@ export function ExerciseCard({
       .replace(/–/g, '-')
       .trim()
       .toLowerCase();
-  const difficultyLabel = (() => {
-    if (!estimatedDifficulty) return null;
-    if (estimatedDifficulty >= 4) return 'Difficile';
-    if (estimatedDifficulty === 3) return 'Moyenne';
-    if (estimatedDifficulty === 2) return 'Facile';
-    return 'Très facile';
-  })();
   const domains = Array.from(
     new Map(
       themes
@@ -109,11 +103,6 @@ export function ExerciseCard({
         ])
     ).values()
   ).sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
-  const durationLabel = estimatedDuration
-    ? estimatedDuration >= 60
-      ? `${Math.floor(estimatedDuration / 60)}h${estimatedDuration % 60 ? ` ${estimatedDuration % 60}min` : ''}`
-      : `${estimatedDuration} min`
-    : null;
   const summaryText = exercise.summary?.trim() || '';
   const traceabilityFooter = paperLabel
     ? `Issu du sujet ${paperLabel}`
@@ -187,15 +176,13 @@ export function ExerciseCard({
             )}
           </div>
           <div className="flex w-full flex-wrap items-center gap-2 md:ml-auto md:w-auto md:justify-end">
-            <Button variant="secondary" size="xs" className="rounded-lg">
-              <span className="md:hidden">{sessionYear}</span>
-              <span className="hidden md:inline">Session {sessionYear}</span>
-            </Button>
-            {difficultyLabel && (
-              <Button variant="secondary" size="xs" className="rounded-lg">
-                {difficultyLabel}
-              </Button>
-            )}
+            <ExerciseMetaLine
+              variant="chips"
+              sessionYear={sessionYear}
+              duration={estimatedDuration}
+              difficulty={estimatedDifficulty}
+              points={points ?? null}
+            />
             {sourceUrl ? (
               <Button asChild variant="secondary" size="xs" className="rounded-lg">
                 <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
@@ -206,16 +193,6 @@ export function ExerciseCard({
             ) : (
               <Button variant="secondary" size="xs" className="rounded-lg">
                 {sourceLabelNode}
-              </Button>
-            )}
-            {typeof points === 'number' && (
-              <Button variant="secondary" size="xs" className="rounded-lg">
-                {points} pts
-              </Button>
-            )}
-            {durationLabel && (
-              <Button variant="secondary" size="xs" className="rounded-lg">
-                {durationLabel}
               </Button>
             )}
           </div>
@@ -252,7 +229,7 @@ export function ExerciseCard({
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">
+        <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
           {domains.length > 0 && (
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-semibold text-muted-foreground">Domaines :</span>
