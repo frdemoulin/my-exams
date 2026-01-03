@@ -65,6 +65,11 @@ export interface ExerciseWithRelations {
         shortDescription: string;
       };
     };
+    curriculum: {
+      id: string;
+      longDescription: string;
+      shortDescription: string | null;
+    } | null;
   };
   
   themes: Array<{
@@ -328,6 +333,7 @@ export async function searchExercises(
             diploma: true,
             division: true,
             grade: true,
+            curriculum: true,
             teaching: {
               include: {
                 subject: true,
@@ -403,6 +409,7 @@ export async function searchExercises(
             diploma: true,
             division: true,
             grade: true,
+            curriculum: true,
             teaching: {
               include: {
                 subject: true,
@@ -537,6 +544,7 @@ export async function fetchExerciseById(
           diploma: true,
           division: true,
           grade: true,
+          curriculum: true,
           teaching: {
             include: {
               subject: true,
@@ -588,6 +596,7 @@ export async function fetchExercisesByExamPaperId(
           diploma: true,
           division: true,
           grade: true,
+          curriculum: true,
           teaching: {
             include: {
               subject: true,
