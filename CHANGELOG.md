@@ -1,3 +1,8 @@
+## <small>1.4.21 (2026-01-03)</small>
+
+* Merge pull request #79 from frdemoulin/dev ([58210bd](https://github.com/frdemoulin/my-exams/commit/58210bd)), closes [#79](https://github.com/frdemoulin/my-exams/issues/79)
+* fix: amélioration de l'UI des domaines ([bc97b24](https://github.com/frdemoulin/my-exams/commit/bc97b24))
+
 ## <small>1.4.20 (2026-01-02)</small>
 
 * Merge pull request #78 from frdemoulin/dev ([53df9c6](https://github.com/frdemoulin/my-exams/commit/53df9c6)), closes [#78](https://github.com/frdemoulin/my-exams/issues/78)
