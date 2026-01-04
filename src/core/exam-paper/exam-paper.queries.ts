@@ -255,6 +255,7 @@ export type ExamPaperNavigationItem = {
     };
     teaching: {
         longDescription: string;
+        shortDescription: string | null;
         subject: {
             longDescription: string;
             shortDescription: string;
@@ -371,6 +372,7 @@ export async function fetchExamPapersByScope(params: {
             teaching: {
                 select: {
                     longDescription: true,
+                    shortDescription: true,
                     subject: {
                         select: {
                             longDescription: true,

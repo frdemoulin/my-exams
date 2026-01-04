@@ -86,14 +86,10 @@ const LegalMentionsPage = () => {
             Sujets d&apos;examen hébergés
           </h2>
           <p className="text-sm text-body">
-            My Exams héberge et met à disposition des <strong>sujets d&apos;examen officiels</strong>
-            (Brevet, Baccalauréat, examens nationaux), tels que publiés par
-            les autorités compétentes (ministère de l&apos;Éducation nationale,
-            académies, organismes publics).
+            My Exams héberge et met à disposition des <strong>sujets d&apos;examen officiels</strong> (brevet des collèges, baccalauréat, examens nationaux), tels que publiés par les autorités compétentes (ministère de l&apos;Éducation nationale, académies, organismes publics).
           </p>
           <p className="text-sm text-body">
-            Ces documents constituent des <strong>documents administratifs publics</strong>
-            et sont diffusés à l&apos;identique, sans modification.
+            Ces documents constituent des <strong>documents administratifs publics</strong> et sont diffusés à l&apos;identique, sans modification.
             Leur reproduction et leur diffusion sont autorisées par la réglementation
             applicable.
           </p>
@@ -114,9 +110,16 @@ const LegalMentionsPage = () => {
             (associations, sites pédagogiques, institutions).
           </p>
           <p className="text-sm text-body">
-            Ces documents demeurent la propriété exclusive de leurs auteurs ou éditeurs
-            respectifs. My Exams n&apos;héberge pas ces corrections et se limite à fournir
-            des liens vers les sites sources.
+            Les ressources provenant de sites tiers (par exemple Labolycée, APMEP, autres
+            services pédagogiques) sont des contenus créés par leurs éditeurs respectifs.
+          </p>
+          <p className="text-sm text-body">
+            My Exams n&apos;héberge pas ces ressources et se contente de proposer des liens
+            hypertextes vers ces services externes.
+          </p>
+          <p className="text-sm text-body">
+            Lorsque vous suivez ces liens, vous quittez le site My Exams et accédez à un
+            contenu édité, contrôlé et publié par ces tiers.
           </p>
           <p className="text-sm text-body">
             L&apos;éditeur du site ne saurait être tenu responsable du contenu,

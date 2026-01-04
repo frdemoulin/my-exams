@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
-import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
+import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib/utils';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ClickThroughHint } from '@/components/shared/click-through-hint';
 
@@ -100,8 +100,9 @@ export function ExerciseCard({
     ).values()
   ).sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
   const summaryText = exercise.summary?.trim() || '';
-  const traceabilityFooter = paperLabel
-    ? `Issu du sujet ${paperLabel}`
+  const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
+  const traceabilityFooter = normalizedPaperLabel
+    ? `Issu du sujet ${normalizedPaperLabel}`
     : `Session ${sessionYear}`;
   const fullTitle =
     normalize(displayTitleRaw).startsWith(normalize(baseTitle))

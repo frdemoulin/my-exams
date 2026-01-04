@@ -55,3 +55,8 @@ export function isExternalUrl(url?: string | null, internalOrigin?: string | nul
     return true;
   }
 }
+
+export function normalizeExamPaperLabel(label?: string | null): string | null {
+  if (!label) return label ?? null;
+  return label.replace(/\b(?:JOUR|Jour|jour)\b/g, "jour");
+}

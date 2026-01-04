@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useBreadcrumbOverride } from '@/components/shared/auto-breadcrumb';
 import EditExerciseForm from './edit-exercise-form';
 import { Exercise, ExamPaper, Diploma, Division, Grade, Teaching, Subject } from '@prisma/client';
+import { normalizeExamPaperLabel } from '@/lib/utils';
 
 type ExerciseWithRelations = Exercise & {
   examPaper: ExamPaper & {
@@ -24,20 +25,24 @@ interface EditExerciseWrapperProps {
 
 export default function EditExerciseWrapper({ exercise, themes }: EditExerciseWrapperProps) {
   const { setOverride } = useBreadcrumbOverride();
+  const examPaperId = exercise.examPaperId;
+  const exerciseNumber = exercise.exerciseNumber;
+  const normalizedLabel =
+    normalizeExamPaperLabel(exercise.examPaper.label) ?? exercise.examPaper.label;
 
   useEffect(() => {
     setOverride({
       items: [
         { label: 'Sujets d&apos;examen', href: '/admin/exam-papers' },
-        { label: exercise.examPaper.label || 'Sujet', href: `/admin/exam-papers/${exercise.examPaperId}` },
-        { label: `Exercice ${exercise.exerciseNumber}`, href: `/admin/exam-papers/${exercise.examPaperId}` },
+        { label: normalizedLabel || 'Sujet', href: `/admin/exam-papers/${examPaperId}` },
+        { label: `Exercice ${exerciseNumber}`, href: `/admin/exam-papers/${examPaperId}` },
         { label: 'Édition' },
       ]
     });
 
     // Cleanup: retirer l'override quand le composant se démonte
     return () => setOverride(null);
-  }, [exercise, setOverride]);
+  }, [examPaperId, exerciseNumber, normalizedLabel, setOverride]);
 
   return (
     <div className="w-full p-6">
@@ -46,7 +51,7 @@ export default function EditExerciseWrapper({ exercise, themes }: EditExerciseWr
           Modifier l&apos;exercice {exercise.exerciseNumber}
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Sujet : {exercise.examPaper.label || `${exercise.examPaper.diploma.shortDescription} ${exercise.examPaper.sessionYear}`}
+          Sujet : {normalizedLabel || `${exercise.examPaper.diploma.shortDescription} ${exercise.examPaper.sessionYear}`}
         </p>
       </div>
 

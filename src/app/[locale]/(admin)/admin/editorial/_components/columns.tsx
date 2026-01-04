@@ -20,7 +20,7 @@ import {
   actionMenuItem,
   actionMenuTrigger,
 } from "@/components/shared/table-action-menu";
-import { formatDateTime } from "@/lib/utils";
+import { formatDateTime, normalizeExamPaperLabel } from "@/lib/utils";
 import { localeStringSort } from "@/lib/table";
 import { ReenrichExerciseButton } from "@/components/admin/reenrich-exercise-button";
 
@@ -150,11 +150,15 @@ export const columns: ColumnDef<EditorialExerciseListItem>[] = [
   },
   {
     id: "examPaper",
-    accessorFn: (row) => row.examPaper.label,
+    accessorFn: (row) =>
+      normalizeExamPaperLabel(row.examPaper.label) ?? row.examPaper.label,
     sortingFn: localeSort,
     header: ({ column }) => <SortableHeader label="SUJET" column={column} />,
     cell: ({ row }) => (
-      <div className="text-sm text-body">{row.original.examPaper.label}</div>
+      <div className="text-sm text-body">
+        {normalizeExamPaperLabel(row.original.examPaper.label) ??
+          row.original.examPaper.label}
+      </div>
     ),
   },
   {
