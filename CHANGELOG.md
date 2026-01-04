@@ -1,3 +1,8 @@
+## <small>1.4.25 (2026-01-04)</small>
+
+* Merge pull request #83 from frdemoulin/dev ([68a132b](https://github.com/frdemoulin/my-exams/commit/68a132b)), closes [#83](https://github.com/frdemoulin/my-exams/issues/83)
+* fix: mise à jour de l'UI d'une page de session ([21f0798](https://github.com/frdemoulin/my-exams/commit/21f0798))
+
 ## <small>1.4.24 (2026-01-04)</small>
 
 * Merge pull request #82 from frdemoulin/dev ([d67d3e8](https://github.com/frdemoulin/my-exams/commit/d67d3e8)), closes [#82](https://github.com/frdemoulin/my-exams/issues/82)
