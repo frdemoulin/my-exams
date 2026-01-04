@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Heart, ExternalLink, ChevronLeft, Download, Info } from 'lucide-react';
+import { Heart, ExternalLink, ChevronLeft, Info } from 'lucide-react';
 import {
   Card,
   CardHeader,
@@ -135,10 +135,10 @@ export default function ExerciseDetailPage() {
       return true;
     });
   })();
-  const primaryCorrectionUrl = mergedCorrections[0]?.url ?? null;
   const internalOrigin = getInternalOrigin();
   const statementUrlIsExternal = isExternalUrl(statementUrl, internalOrigin);
-  const primaryCorrectionIsExternal = isExternalUrl(primaryCorrectionUrl, internalOrigin);
+  const officialStatementUrl = statementUrl ?? examPaper.sourceUrl ?? null;
+  const officialStatementIsExternal = isExternalUrl(officialStatementUrl, internalOrigin);
   const formatCorrectionType = (value?: string | null) => {
     if (!value) return 'PDF';
     const normalized = value.trim().toLowerCase();
@@ -147,12 +147,6 @@ export default function ExerciseDetailPage() {
     if (normalized === 'html') return 'Page web';
     return value.toUpperCase();
   };
-  const primaryCorrection =
-    mergedCorrections.find((item) => item.url === primaryCorrectionUrl) ?? null;
-  const primaryCorrectionLabel = primaryCorrection
-    ? `Corrigé ${primaryCorrection.source} (${formatCorrectionType(primaryCorrection.type)})`
-    : 'Corrigé (PDF)';
-
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const traceability = paperLabel || `Session ${sessionYear}`;
   const domains = Array.from(
@@ -271,55 +265,112 @@ export default function ExerciseDetailPage() {
             </Card>
           )}
 
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Accès rapide
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Button variant="outline" size="sm" asChild>
-                <a href="#enonce">Énoncé</a>
-              </Button>
-              <Button variant="outline" size="sm" asChild>
-                <a href="#corrections">Corrections</a>
-              </Button>
-            </div>
-          </div>
-
-          {/* Actions principales */}
-          {(statementUrl || primaryCorrectionUrl) && (
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Documents
-              </p>
-              <div className="grid gap-4 md:grid-cols-2">
-                {statementUrl && (
-                  <Button size="lg" className="w-full" asChild>
-                    <a href={statementUrl} target="_blank" rel="noopener noreferrer">
-                      <Download className="mr-2 h-4 w-4" />
-                      Télécharger l&apos;énoncé
-                      {statementUrlIsExternal && (
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      )}
-                    </a>
-                  </Button>
-                )}
-                {primaryCorrectionUrl && (
-                  <Button size="lg" variant="outline" className="w-full" asChild>
-                    <a
-                      href={primaryCorrectionUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {primaryCorrectionLabel}
-                      {primaryCorrectionIsExternal && (
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      )}
-                    </a>
-                  </Button>
+          <Card id="corrections">
+            <CardHeader>
+              <CardTitle className="text-lg">Documents</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="space-y-3">
+                {officialStatementUrl ? (
+                  <div className="flex items-center justify-between gap-4 rounded-lg border border-border p-3">
+                    <div className="flex-1 space-y-1">
+                      <p className="font-medium">Sujet officiel (PDF)</p>
+                      <span className="inline-flex items-start gap-1 text-xs text-muted-foreground">
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
+                          <Info className="h-3 w-3" aria-hidden="true" />
+                        </span>
+                        <span className="hidden md:inline">
+                          Document officiel d&apos;examen, diffus&eacute; &agrave; l&apos;identique
+                          (non modifi&eacute;). Source institutionnelle : autorit&eacute;
+                          acad&eacute;mique / minist&egrave;re comp&eacute;tent.
+                        </span>
+                        <span className="md:hidden">
+                          Sujet officiel d&apos;examen – document original non modifi&eacute;.
+                        </span>
+                      </span>
+                    </div>
+                    <Button size="sm" asChild>
+                      <a
+                        href={officialStatementUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Ouvrir le sujet (PDF)
+                        {officialStatementIsExternal && (
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        )}
+                      </a>
+                    </Button>
+                  </div>
+                ) : (
+                  <p className="text-sm text-muted-foreground">
+                    Sujet officiel non disponible pour le moment.
+                  </p>
                 )}
               </div>
-            </div>
-          )}
+              <div className="space-y-3">
+                {mergedCorrections.length > 0 ? (
+                  <div className="space-y-3">
+                    {mergedCorrections.map((correction, index) => {
+                      const isLastCorrection = index === mergedCorrections.length - 1;
+                      return (
+                        <div
+                          key={correction.id}
+                          className="flex items-center justify-between rounded-lg border border-border p-3"
+                        >
+                          <div className="flex-1">
+                            <p className="font-medium">{correction.source}</p>
+                            {correction.author && (
+                              <p className="text-sm text-muted-foreground">
+                                Par {correction.author}
+                              </p>
+                            )}
+                            {correction.quality && (
+                              <div className="mt-1 flex gap-0.5">
+                                {[...Array(correction.quality)].map((_, i) => (
+                                  <span key={i} className="text-yellow-500">
+                                    ⭐
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                            {isLastCorrection && (
+                              <div className="mt-2 inline-flex items-start gap-1 text-xs text-muted-foreground">
+                                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
+                                  <Info className="h-3 w-3" aria-hidden="true" />
+                                </span>
+                                <span>
+                                  H&eacute;bergement et diffusion des corrections par leurs
+                                  &eacute;diteurs respectifs. Aucun h&eacute;bergement par My
+                                  Exams.
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                          <Button size="sm" variant="success" asChild>
+                            <a
+                              href={correction.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Corrigé {correction.source} ({formatCorrectionType(correction.type)})
+                              {isExternalUrl(correction.url, internalOrigin) && (
+                                <ExternalLink className="ml-2 h-4 w-4" />
+                              )}
+                            </a>
+                          </Button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <p className="text-sm text-muted-foreground">
+                    Aucun corrig&eacute; r&eacute;f&eacute;renc&eacute; pour ce sujet.
+                  </p>
+                )}
+              </div>
+            </CardContent>
+          </Card>
 
           <Card id="enonce">
             <CardHeader>
@@ -350,80 +401,6 @@ export default function ExerciseDetailPage() {
                 <p className="text-sm text-muted-foreground">
                   Énoncé non disponible pour le moment.
                 </p>
-              )}
-            </CardContent>
-          </Card>
-
-          <Card id="corrections">
-            <CardHeader>
-              <CardTitle className="text-lg">Corrections disponibles</CardTitle>
-              {mergedCorrections.length > 0 && (
-                <CardDescription>
-                  {mergedCorrections.length} correction{mergedCorrections.length > 1 ? 's' : ''}{' '}
-                  disponible{mergedCorrections.length > 1 ? 's' : ''}
-                </CardDescription>
-              )}
-            </CardHeader>
-            <CardContent>
-              {mergedCorrections.length > 0 ? (
-                <div className="space-y-3">
-                  {mergedCorrections.map((correction) => (
-                    <div
-                      key={correction.id}
-                      className="flex items-center justify-between rounded-lg border border-border p-3"
-                    >
-                      <div className="flex-1">
-                        <p className="font-medium">{correction.source}</p>
-                        {correction.author && (
-                          <p className="text-sm text-muted-foreground">
-                            Par {correction.author}
-                          </p>
-                        )}
-                        <div className="mt-1 flex items-center gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            {formatCorrectionType(correction.type)}
-                          </Badge>
-                          {correction.quality && (
-                            <div className="flex gap-0.5">
-                              {[...Array(correction.quality)].map((_, i) => (
-                                <span key={i} className="text-yellow-500">
-                                  ⭐
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      <Button size="sm" variant="ghost" asChild>
-                        <a
-                          href={correction.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Corrigé {correction.source} ({formatCorrectionType(correction.type)})
-                          {isExternalUrl(correction.url, internalOrigin) && (
-                            <ExternalLink className="ml-2 h-4 w-4" />
-                          )}
-                        </a>
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  Aucun corrig&eacute; r&eacute;f&eacute;renc&eacute; pour ce sujet.
-                </p>
-              )}
-              {mergedCorrections.length > 0 && (
-                <div className="mt-4">
-                  <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                      <Info className="h-3 w-3" aria-hidden="true" />
-                    </span>
-                    Les corrections sont h&eacute;berg&eacute;es et diffus&eacute;es par leurs
-                    &eacute;diteurs respectifs. My Exams ne les h&eacute;berge pas.
-                  </span>
-                </div>
               )}
             </CardContent>
           </Card>
