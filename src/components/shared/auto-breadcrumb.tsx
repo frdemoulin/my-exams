@@ -69,6 +69,7 @@ export function AutoBreadcrumb() {
     'chapters': 'Domaines',
     'curriculums': 'Programmes',
     'examination-centers': 'Centres d\'examen',
+    'correction-sources': 'Sources de correction',
     'users': 'Utilisateurs',
     'log-users': 'Journal de connexion',
     'stats': 'Statistiques de contenu',

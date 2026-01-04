@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 export type ToastType = "success" | "error" | "info";
 export type CrudSuccessAction = "created" | "updated" | "deleted";
 export type ToastEntityKey =
+  | "correctionSource"
   | "curriculum"
   | "diploma"
   | "division"

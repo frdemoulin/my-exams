@@ -72,7 +72,6 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
     estimatedDuration: exercise.estimatedDuration || undefined,
     estimatedDifficulty: exercise.estimatedDifficulty || 3,
     exerciseUrl: exercise.exerciseUrl || '',
-    correctionUrl: exercise.correctionUrl || '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -95,7 +94,6 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
         estimatedDuration: formData.estimatedDuration,
         estimatedDifficulty: formData.estimatedDifficulty,
         exerciseUrl: formData.exerciseUrl || undefined,
-        correctionUrl: formData.correctionUrl || undefined,
       });
 
       if (result.success) {
@@ -330,16 +328,6 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
               type="url"
               value={formData.exerciseUrl}
               onChange={(e) => setFormData({ ...formData, exerciseUrl: e.target.value })}
-              placeholder="https://..."
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="correctionUrl">URL de la correction</Label>
-            <Input
-              id="correctionUrl"
-              type="url"
-              value={formData.correctionUrl}
-              onChange={(e) => setFormData({ ...formData, correctionUrl: e.target.value })}
               placeholder="https://..."
             />
           </div>

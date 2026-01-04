@@ -14,6 +14,24 @@ type DeleteExamPaperOptions = {
     skipSuccessToast?: boolean;
 };
 
+const normalizeExamPaperSource = (value: unknown): string => {
+    if (typeof value !== "string") return "Officiel";
+    const trimmed = value.trim();
+    if (!trimmed) return "Officiel";
+    switch (trimmed) {
+        case "OFFICIEL":
+            return "Officiel";
+        case "APMEP":
+            return "APMEP";
+        case "LABOLYCEE":
+            return "LaboLycée";
+        case "AUTRE":
+            return "Autre";
+        default:
+            return trimmed;
+    }
+};
+
 export const createExamPaper = async (formData: FormData) => {
     const values = Object.fromEntries(formData.entries());
 
@@ -24,7 +42,7 @@ export const createExamPaper = async (formData: FormData) => {
         examDay: values.examDay ? parseInt(values.examDay as string) : undefined,
         examMonth: values.examMonth ? parseInt(values.examMonth as string) : undefined,
         examYear: values.examYear ? parseInt(values.examYear as string) : undefined,
-        source: values.source || "OFFICIEL",
+        source: normalizeExamPaperSource(values.source),
         sourceUrl: values.sourceUrl || undefined,
         examinationCenterIds: values.examinationCenterIds ? (values.examinationCenterIds as string).split(',').filter(Boolean) : [],
         domainIds: values.domainIds ? (values.domainIds as string).split(',').filter(Boolean) : [],
@@ -56,7 +74,6 @@ export const createExamPaper = async (formData: FormData) => {
                     domainIds: data.domainIds || [],
                     themeIds: data.themeIds || [],
                     subjectUrl: data.subjectUrl,
-                    correctionUrl: data.correctionUrl,
                 }
             });
         } catch (error: any) {
@@ -84,7 +101,7 @@ export const updateExamPaper = async (id: string | undefined, formData: FormData
         examDay: values.examDay ? parseInt(values.examDay as string) : undefined,
         examMonth: values.examMonth ? parseInt(values.examMonth as string) : undefined,
         examYear: values.examYear ? parseInt(values.examYear as string) : undefined,
-        source: values.source || "OFFICIEL",
+        source: normalizeExamPaperSource(values.source),
         sourceUrl: values.sourceUrl || undefined,
         examinationCenterIds: values.examinationCenterIds ? (values.examinationCenterIds as string).split(',').filter(Boolean) : [],
         domainIds: values.domainIds ? (values.domainIds as string).split(',').filter(Boolean) : [],
@@ -117,7 +134,6 @@ export const updateExamPaper = async (id: string | undefined, formData: FormData
                     domainIds: data.domainIds || [],
                     themeIds: data.themeIds || [],
                     subjectUrl: data.subjectUrl,
-                    correctionUrl: data.correctionUrl,
                 }
             });
 

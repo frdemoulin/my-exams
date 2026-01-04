@@ -6,6 +6,7 @@ import { ExamPaperForm } from "../../_components/exam-paper-form";
 import { fetchExamPaperById } from "@/core/exam-paper";
 import getSession from "@/lib/auth/get-session";
 import prisma from "@/lib/db/prisma";
+import { fetchCorrectionSources } from "@/core/correction-source";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.examPaper');
@@ -29,7 +30,7 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
     }
 
     // Fetch all necessary data for selects
-    const [diplomas, divisions, grades, teachings, curriculums, examinationCenters] = await Promise.all([
+    const [diplomas, divisions, grades, teachings, curriculums, examinationCenters, sources] = await Promise.all([
         prisma.diploma.findMany({
             where: { isActive: { not: false } },
             orderBy: { longDescription: 'asc' },
@@ -51,6 +52,7 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
             where: { isActive: { not: false } },
             orderBy: { description: 'asc' },
         }),
+        fetchCorrectionSources({ includeInactive: true }),
     ]);
 
     const t = await getTranslations('entities.examPaper');
@@ -82,7 +84,6 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                         domainIds: examPaper.domainIds,
                         themeIds: examPaper.themeIds,
                         subjectUrl: examPaper.subjectUrl || undefined,
-                        correctionUrl: examPaper.correctionUrl || undefined,
                     }}
                     diplomas={diplomas}
                     divisions={divisions}
@@ -90,6 +91,7 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                     teachings={teachings}
                     curriculums={curriculums}
                     examinationCenters={examinationCenters}
+                    sources={sources}
                 />
             </div>
         </div>

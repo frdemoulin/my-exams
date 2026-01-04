@@ -216,7 +216,7 @@ model ExamPaper {
   label       String // ex : "Métropole juin 2024 Jour 1"
   sessionYear Int // ex : 2024 (année scolaire de la session)
   sessionDay  String? // ex : "Jour 1", "Jour 2", "Sujet A", optionnel
-  source      ExamPaperSource @default(OFFICIEL)
+  source      String @default("Officiel") // Source standardisée (liste admin)
   sourceUrl   String? // URL de la source si disponible (APMEP, Labolycee, etc.)
 
   // Date réelle de l'examen
@@ -256,7 +256,6 @@ model ExamPaper {
   // Ces champs restent pour compatibilité mais ne sont plus utilisés
   domainIds           String[]  @default([]) @db.ObjectId /// @deprecated Utiliser Exercise.themeIds
   themeIds            String[]  @default([]) @db.ObjectId /// @deprecated Utiliser Exercise.themeIds
-  correctionUrl       String? /// @deprecated Utiliser Correction ou ExerciseCorrection
   estimatedDuration   Int? /// @deprecated Utiliser Exercise.estimatedDuration
   estimatedDifficulty Int? /// @deprecated Utiliser Exercise.estimatedDifficulty
   summary             String? /// @deprecated Utiliser Exercise.summary
@@ -271,13 +270,6 @@ model ExamPaper {
   updatedAt DateTime @updatedAt
 
   @@unique([label, sessionYear, teachingId])
-}
-
-enum ExamPaperSource {
-  OFFICIEL
-  APMEP
-  LABOLYCEE
-  AUTRE
 }
 
 enum ExerciseType {
@@ -311,8 +303,7 @@ model Exercise {
   themeIds String[] @default([]) @db.ObjectId // Thèmes couverts dans CET exercice
 
   // URLs spécifiques (optionnel si découpage des PDFs)
-  exerciseUrl   String? // URL de l'exercice isolé
-  correctionUrl String? // URL de la correction isolée
+  exerciseUrl String? // URL de l'exercice isolé
 
   // Métadonnées enrichies (via IA)
   estimatedDuration   Int? // Durée estimée en minutes pour CET exercice
@@ -331,6 +322,19 @@ model Exercise {
   updatedAt DateTime @updatedAt
 
   @@unique([examPaperId, exerciseNumber])
+}
+
+// Standardized sources for corrections (admin-managed list)
+model CorrectionSource {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  label    String
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([label])
 }
 
 // Corrections spécifiques à un exercice

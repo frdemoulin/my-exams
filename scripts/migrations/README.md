@@ -18,6 +18,16 @@ export async function up(prisma: PrismaClient) {
 }
 ```
 
+## Création
+
+```bash
+# Crée un fichier de migration avec timestamp + compteur
+npm run db:migration:new -- "normaliser les sources de sujets"
+
+# Optionnel: description personnalisée
+npm run db:migration:new -- "normaliser les sources de sujets" --desc "Normaliser les sources de sujets"
+```
+
 ## Exécution
 
 ```bash
@@ -27,4 +37,3 @@ npm run db:migrate -- --dry-run
 # Exécute réellement (en prod: nécessite CONFIRM_DB_MIGRATIONS=1)
 CONFIRM_DB_MIGRATIONS=1 npm run db:migrate
 ```
-

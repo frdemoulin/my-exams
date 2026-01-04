@@ -464,7 +464,6 @@ export async function createExercise(data: CreateExerciseInput) {
         statement: validated.statement,
         themeIds: validated.themeIds,
         exerciseUrl: validated.exerciseUrl || undefined,
-        correctionUrl: validated.correctionUrl || undefined,
         estimatedDuration: validated.estimatedDuration,
         estimatedDifficulty: validated.estimatedDifficulty,
         summary: validated.summary,
@@ -536,7 +535,6 @@ export async function updateExercise(data: UpdateExerciseInput) {
       data: {
         ...updateData,
         exerciseUrl: updateData.exerciseUrl || undefined,
-        correctionUrl: updateData.correctionUrl || undefined,
       },
     });
 
@@ -686,7 +684,6 @@ export async function replaceExercisesByExamPaper(
           statement: ex.statement,
           themeIds: ex.themeIds,
           exerciseUrl: ex.exerciseUrl || undefined,
-          correctionUrl: ex.correctionUrl || undefined,
           estimatedDuration: ex.estimatedDuration,
           estimatedDifficulty: ex.estimatedDifficulty,
           summary: ex.summary,

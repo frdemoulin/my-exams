@@ -84,7 +84,6 @@ model Exercise {
   
   // URLs spécifiques (optionnel si découpage des PDFs)
   exerciseUrl    String? // URL de l'exercice isolé
-  correctionUrl  String? // URL de la correction isolée
   
   // Métadonnées enrichies (via IA)
   estimatedDuration   Int?      // Durée estimée en minutes

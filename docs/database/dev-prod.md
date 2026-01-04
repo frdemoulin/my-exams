@@ -118,7 +118,11 @@ Exemples typiques :
 
 Étapes :
 
-1) Créer une migration dans `scripts/migrations/` (1 fichier = 1 migration)
+1) Créer une migration (script conseillé) :
+```bash
+npm run db:migration:new -- "normaliser les sources de sujets"
+```
+   (1 fichier = 1 migration dans `scripts/migrations/`)
 2) Lancer en DEV :
 ```bash
 npm run db:migrate

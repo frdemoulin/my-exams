@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Heart, ExternalLink, ChevronLeft, Download } from 'lucide-react';
+import { Heart, ExternalLink, ChevronLeft, Download, Info } from 'lucide-react';
 import {
   Card,
   CardHeader,
@@ -114,25 +114,44 @@ export default function ExerciseDetailPage() {
     points,
     exerciseType,
     exerciseUrl,
-    correctionUrl,
     estimatedDuration,
     estimatedDifficulty,
     summary,
     themes,
-    corrections,
+    corrections: exerciseCorrections,
     examPaper,
   } = exercise;
 
   const { label: paperLabel, sessionYear, diploma, teaching, curriculum } = examPaper;
   const statementUrl = exerciseUrl || examPaper.subjectUrl || null;
-  const primaryCorrectionUrl = correctionUrl || corrections[0]?.url || null;
-  const correctionFallback =
-    correctionUrl && !corrections.some((item) => item.url === correctionUrl)
-      ? correctionUrl
-      : null;
+  const examPaperCorrections = examPaper.corrections ?? [];
+  const mergedCorrections = (() => {
+    const items = [...(exerciseCorrections ?? []), ...examPaperCorrections];
+    const seen = new Set<string>();
+    return items.filter((item) => {
+      const key = `${item.source}::${item.url}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  })();
+  const primaryCorrectionUrl = mergedCorrections[0]?.url ?? null;
   const internalOrigin = getInternalOrigin();
   const statementUrlIsExternal = isExternalUrl(statementUrl, internalOrigin);
   const primaryCorrectionIsExternal = isExternalUrl(primaryCorrectionUrl, internalOrigin);
+  const formatCorrectionType = (value?: string | null) => {
+    if (!value) return 'PDF';
+    const normalized = value.trim().toLowerCase();
+    if (normalized === 'pdf') return 'PDF';
+    if (normalized === 'video') return 'Vidéo';
+    if (normalized === 'html') return 'Page web';
+    return value.toUpperCase();
+  };
+  const primaryCorrection =
+    mergedCorrections.find((item) => item.url === primaryCorrectionUrl) ?? null;
+  const primaryCorrectionLabel = primaryCorrection
+    ? `Corrigé ${primaryCorrection.source} (${formatCorrectionType(primaryCorrection.type)})`
+    : 'Corrigé (PDF)';
 
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const traceability = paperLabel || `Session ${sessionYear}`;
@@ -291,7 +310,7 @@ export default function ExerciseDetailPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Voir la correction
+                      {primaryCorrectionLabel}
                       {primaryCorrectionIsExternal && (
                         <ExternalLink className="ml-2 h-4 w-4" />
                       )}
@@ -337,18 +356,18 @@ export default function ExerciseDetailPage() {
 
           <Card id="corrections">
             <CardHeader>
-              <CardTitle className="text-lg">Corrections</CardTitle>
-              {corrections.length > 0 && (
+              <CardTitle className="text-lg">Corrections disponibles</CardTitle>
+              {mergedCorrections.length > 0 && (
                 <CardDescription>
-                  {corrections.length} correction{corrections.length > 1 ? 's' : ''}{' '}
-                  disponible{corrections.length > 1 ? 's' : ''}
+                  {mergedCorrections.length} correction{mergedCorrections.length > 1 ? 's' : ''}{' '}
+                  disponible{mergedCorrections.length > 1 ? 's' : ''}
                 </CardDescription>
               )}
             </CardHeader>
             <CardContent>
-              {corrections.length > 0 ? (
+              {mergedCorrections.length > 0 ? (
                 <div className="space-y-3">
-                  {corrections.map((correction) => (
+                  {mergedCorrections.map((correction) => (
                     <div
                       key={correction.id}
                       className="flex items-center justify-between rounded-lg border border-border p-3"
@@ -362,7 +381,7 @@ export default function ExerciseDetailPage() {
                         )}
                         <div className="mt-1 flex items-center gap-2">
                           <Badge variant="outline" className="text-xs">
-                            {correction.type}
+                            {formatCorrectionType(correction.type)}
                           </Badge>
                           {correction.quality && (
                             <div className="flex gap-0.5">
@@ -381,43 +400,30 @@ export default function ExerciseDetailPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
+                          Corrigé {correction.source} ({formatCorrectionType(correction.type)})
                           {isExternalUrl(correction.url, internalOrigin) && (
-                            <ExternalLink className="h-4 w-4" />
+                            <ExternalLink className="ml-2 h-4 w-4" />
                           )}
                         </a>
                       </Button>
                     </div>
                   ))}
-                  {correctionFallback && (
-                    <a
-                      href={correctionFallback}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm text-fg-brand hover:border-brand/50"
-                    >
-                      <span>Corrigé externe</span>
-                      {isExternalUrl(correctionFallback, internalOrigin) && (
-                        <ExternalLink className="h-4 w-4" />
-                      )}
-                    </a>
-                  )}
                 </div>
-              ) : correctionFallback ? (
-                <a
-                  href={correctionFallback}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm text-fg-brand hover:border-brand/50"
-                >
-                  <span>Corrigé externe</span>
-                  {isExternalUrl(correctionFallback, internalOrigin) && (
-                    <ExternalLink className="h-4 w-4" />
-                  )}
-                </a>
               ) : (
                 <p className="text-sm text-muted-foreground">
-                  Aucune correction disponible pour le moment.
+                  Aucun corrig&eacute; r&eacute;f&eacute;renc&eacute; pour ce sujet.
                 </p>
+              )}
+              {mergedCorrections.length > 0 && (
+                <div className="mt-4">
+                  <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
+                      <Info className="h-3 w-3" aria-hidden="true" />
+                    </span>
+                    Les corrections sont h&eacute;berg&eacute;es et diffus&eacute;es par leurs
+                    &eacute;diteurs respectifs. My Exams ne les h&eacute;berge pas.
+                  </span>
+                </div>
               )}
             </CardContent>
           </Card>

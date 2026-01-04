@@ -17,7 +17,6 @@ export interface ExerciseWithRelations {
   title: string | null;
   statement: string | null;
   exerciseUrl: string | null;
-  correctionUrl: string | null;
   estimatedDuration: number | null;
   estimatedDifficulty: number | null;
   summary: string | null;
@@ -30,11 +29,10 @@ export interface ExerciseWithRelations {
     id: string;
     label: string;
     sessionYear: number;
-    source: 'OFFICIEL' | 'APMEP' | 'LABOLYCEE' | 'AUTRE';
+    source: string;
     sourceUrl: string | null;
     updatedAt: Date;
     subjectUrl: string | null;
-    correctionUrl: string | null;
     diploma: {
       id: string;
       longDescription: string;
@@ -70,6 +68,14 @@ export interface ExerciseWithRelations {
       longDescription: string;
       shortDescription: string | null;
     } | null;
+    corrections?: Array<{
+      id: string;
+      source: string;
+      url: string;
+      type: string;
+      quality: number | null;
+      author: string | null;
+    }>;
   };
   
   themes: Array<{
@@ -551,6 +557,7 @@ export async function fetchExerciseById(
               grade: true,
             },
           },
+          corrections: true,
         },
       },
       corrections: true,

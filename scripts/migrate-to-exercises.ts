@@ -69,7 +69,6 @@ async function main() {
 
           // URLs (si disponibles)
           exerciseUrl: paper.subjectUrl,
-          correctionUrl: paper.correctionUrl,
 
           // Métadonnées enrichies
           estimatedDuration: paper.estimatedDuration,

@@ -18,7 +18,6 @@ const baseExerciseSchema = z.object({
   statement: z.string().optional(),
   themeIds: z.array(z.string()).default([]),
   exerciseUrl: z.string().url().optional().or(z.literal('')),
-  correctionUrl: z.string().url().optional().or(z.literal('')),
   estimatedDuration: z.number().int().positive().optional(),
   estimatedDifficulty: z.number().int().min(1).max(5).optional(),
   summary: z.string().optional(),

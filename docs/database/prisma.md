@@ -331,6 +331,9 @@ Le runner trace l'état dans la collection Mongo `migrations` (modèle Prisma `D
 
 Commandes :
 ```bash
+# Créer une migration (timestamp + compteur)
+npm run db:migration:new -- "normaliser les sources de sujets"
+
 # Affiche ce qui serait exécuté (aucune écriture)
 npm run db:migrate -- --dry-run
 

@@ -12,6 +12,7 @@ import {
   FaGears,
   FaGraduationCap,
   FaHouse,
+  FaLink,
   FaList,
   FaRightToBracket,
   FaSliders,
@@ -99,6 +100,11 @@ export const Sidebar = () => {
           title: "Exercices",
           path: '/admin/exercises',
           icon: <FaArrowsTurnToDots className="mr-3" size={16} />
+        },
+        {
+          title: "Sources de correction",
+          path: "/admin/correction-sources",
+          icon: <FaLink className="mr-3" size={16} />
         },
         {
           title: "Sujets d'examen",
