@@ -1,3 +1,8 @@
+## <small>1.4.24 (2026-01-04)</small>
+
+* Merge pull request #82 from frdemoulin/dev ([d67d3e8](https://github.com/frdemoulin/my-exams/commit/d67d3e8)), closes [#82](https://github.com/frdemoulin/my-exams/issues/82)
+* fix: refonte de la section Documents dans la page de détail d'un exercice ([fd45784](https://github.com/frdemoulin/my-exams/commit/fd45784))
+
 ## <small>1.4.23 (2026-01-04)</small>
 
 * Merge pull request #81 from frdemoulin/dev ([6c57e91](https://github.com/frdemoulin/my-exams/commit/6c57e91)), closes [#81](https://github.com/frdemoulin/my-exams/issues/81)
