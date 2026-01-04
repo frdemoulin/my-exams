@@ -7,7 +7,7 @@ import { ExternalLink, Scissors, Pencil } from "lucide-react";
 import { fetchExamPaperById } from "@/core/exam-paper";
 import { fetchCorrectionSources } from "@/core/correction-source";
 import getSession from "@/lib/auth/get-session";
-import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
+import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -86,6 +86,7 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
     const internalOrigin = getInternalOrigin();
     const subjectUrlIsExternal = isExternalUrl(examPaper.subjectUrl, internalOrigin);
     const sourceUrlIsExternal = isExternalUrl(examPaper.sourceUrl, internalOrigin);
+    const normalizedLabel = normalizeExamPaperLabel(examPaper.label) ?? examPaper.label;
 
     const formatExerciseType = (exerciseType?: string | null) => {
         if (!exerciseType || exerciseType === 'NORMAL') return null;
@@ -138,7 +139,7 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                         {examPaper.label && (
                             <div>
                                 <h3 className="text-sm font-semibold text-muted-foreground">Label</h3>
-                                <p className="text-sm">{examPaper.label}</p>
+                                <p className="text-sm">{normalizedLabel}</p>
                             </div>
                         )}
                         <div>

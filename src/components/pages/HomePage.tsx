@@ -27,6 +27,7 @@ import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
+import { normalizeExamPaperLabel } from '@/lib/utils';
 
 // Types importés depuis @/core/exercise
 
@@ -712,7 +713,7 @@ export default function HomePage({
   );
 
   const HERO = {
-    eyebrow: "📚 Base d’annales en construction",
+    eyebrow: "📚 Base d’annales en construction, contenus enrichis avec l'IA",
     titlePrefix: "Des exercices d’annales officiels, indexés pour réviser",
     titleEmphasis: "efficacement",
     subtitle: "Brevet des collèges, baccalauréat, BTS. Toutes matières.",
@@ -922,7 +923,7 @@ export default function HomePage({
                               <span className="font-medium">{s.title}</span>
                               {s.type === 'exercise' ? (
                                 <span className="text-xs text-muted-foreground">
-                                  {s.subject} · {s.examPaperLabel} · {s.sessionYear}
+                                  {s.subject} · {normalizeExamPaperLabel(s.examPaperLabel) ?? s.examPaperLabel} · {s.sessionYear}
                                 </span>
                               ) : (
                                 <span className="text-xs text-muted-foreground">

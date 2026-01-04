@@ -8,7 +8,7 @@ import prisma from "@/lib/db/prisma";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { formatDateTime } from "@/lib/utils";
+import { formatDateTime, normalizeExamPaperLabel } from "@/lib/utils";
 
 const statusLabels: Record<string, { label: string; variant: "default" | "secondary" | "destructive" }> = {
   pending: { label: "En attente", variant: "secondary" },
@@ -65,6 +65,8 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
     label: exercise.enrichmentStatus,
     variant: "secondary",
   };
+  const normalizedLabel =
+    normalizeExamPaperLabel(exercise.examPaper.label) ?? exercise.examPaper.label;
 
   return (
     <div className="w-full p-6 space-y-6">
@@ -74,7 +76,7 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
             {exercise.label || `Exercice ${exercise.exerciseNumber}`}
           </h1>
           <p className="text-sm text-muted-foreground">
-            Sujet : {exercise.examPaper.label} • Session {exercise.examPaper.sessionYear}
+            Sujet : {normalizedLabel} • Session {exercise.examPaper.sessionYear}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

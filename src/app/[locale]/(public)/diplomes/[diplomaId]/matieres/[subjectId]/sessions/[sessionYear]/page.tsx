@@ -75,6 +75,19 @@ export default async function SessionPage({ params }: PageProps) {
     subjectId: subject.id,
     sessionYear,
   });
+  const teachingOptions = Array.from(
+    new Map(
+      examPapers.map((paper) => {
+        const longLabel = paper.teaching.longDescription;
+        const shortLabel = paper.teaching.shortDescription || longLabel;
+        return [longLabel, { longLabel, shortLabel }];
+      })
+    ).values()
+  );
+  const teachingLongLabel = teachingOptions.map((option) => option.longLabel).join(" / ");
+  const teachingShortLabel = teachingOptions.map((option) => option.shortLabel).join(" / ");
+  const teachingLongSuffix = teachingLongLabel ? ` - ${teachingLongLabel}` : "";
+  const teachingShortSuffix = teachingShortLabel ? ` - ${teachingShortLabel}` : "";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -115,22 +128,14 @@ export default async function SessionPage({ params }: PageProps) {
         </Breadcrumb>
 
         <div className="space-y-2">
-          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            <Badge variant="secondary">
-              <span className="md:hidden">{diplomaShort}</span>
-              <span className="hidden md:inline">{diplomaLong}</span>
-            </Badge>
-            <Badge variant="outline">Session {sessionYear}</Badge>
-            <Badge variant="outline">
-              <span className="md:hidden">{subjectShort}</span>
-              <span className="hidden md:inline">{subjectLong}</span>
-            </Badge>
-          </div>
-          <h1 className="text-2xl font-semibold">
-            {subject.longDescription} - Session {sessionYear}
-          </h1>
+          <h1 className="text-2xl font-semibold">Liste des sujets d&apos;examen</h1>
           <p className="text-sm text-muted-foreground">
-            {diploma.longDescription}
+            <span className="md:hidden">
+              {diplomaShort} - {subjectShort}{teachingShortSuffix} - Session {sessionYear}
+            </span>
+            <span className="hidden md:inline">
+              {diplomaLong} - {subjectLong}{teachingLongSuffix} - Session {sessionYear}
+            </span>
           </p>
         </div>
 

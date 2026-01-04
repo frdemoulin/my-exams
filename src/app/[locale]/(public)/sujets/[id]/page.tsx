@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
-import { getInternalOrigin, isExternalUrl } from '@/lib/utils';
+import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib/utils';
 
 type PageProps = {
   params: Promise<{
@@ -33,10 +33,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     examPaper.teaching.subject.longDescription ||
     examPaper.teaching.subject.shortDescription ||
     examPaper.teaching.longDescription;
+  const normalizedLabel = normalizeExamPaperLabel(examPaper.label) ?? examPaper.label;
 
   return {
     title: `${subjectLabel} - Session ${examPaper.sessionYear} | My Exams`,
-    description: `Sujet ${examPaper.sessionYear} : ${examPaper.label}.`,
+    description: `Sujet ${examPaper.sessionYear} : ${normalizedLabel}.`,
   };
 }
 
@@ -76,6 +77,9 @@ export default async function ExamPaperPage({ params }: PageProps) {
     examPaper.curriculum?.shortDescription || examPaper.curriculum?.longDescription;
   const curriculumLong =
     examPaper.curriculum?.longDescription || examPaper.curriculum?.shortDescription;
+  const normalizedLabel = normalizeExamPaperLabel(examPaper.label) ?? examPaper.label;
+  const sessionDayLabel =
+    normalizeExamPaperLabel(examPaper.sessionDay) ?? examPaper.sessionDay;
   const subjectId = examPaper.teaching.subjectId;
   const backHref =
     subjectId
@@ -194,8 +198,8 @@ export default async function ExamPaperPage({ params }: PageProps) {
               <span className="hidden md:inline">{diplomaLong}</span>
             </Badge>
             <Badge variant="outline">Session {examPaper.sessionYear}</Badge>
-            {examPaper.sessionDay && (
-              <Badge variant="outline">{examPaper.sessionDay}</Badge>
+            {sessionDayLabel && (
+              <Badge variant="outline">{sessionDayLabel}</Badge>
             )}
             <Badge variant="outline">
               <span className="md:hidden">{teachingShort}</span>
@@ -221,7 +225,7 @@ export default async function ExamPaperPage({ params }: PageProps) {
           <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
             <div className="space-y-1">
               <h1 className="text-2xl font-semibold">{subjectLabel}</h1>
-              <p className="text-sm text-muted-foreground">{examPaper.label}</p>
+              <p className="text-sm text-muted-foreground">{normalizedLabel}</p>
             </div>
             <div className="flex flex-wrap gap-2 md:justify-end">
               {examPaper.subjectUrl && (

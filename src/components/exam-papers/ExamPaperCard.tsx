@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { Clock, Heart } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DifficultyDots } from "./DifficultyDots";
 import { ClickThroughHint } from "@/components/shared/click-through-hint";
+import { normalizeExamPaperLabel } from "@/lib/utils";
 
 interface ExamPaperCardProps {
   id: string;
@@ -29,8 +30,6 @@ export function ExamPaperCard({
   id,
   label,
   sessionYear,
-  diploma,
-  subject,
   estimatedDuration,
   estimatedDifficulty,
   summary,
@@ -41,6 +40,7 @@ export function ExamPaperCard({
 }: ExamPaperCardProps) {
   const showExerciseDomains = exerciseDomains !== undefined;
   const hasExerciseDomains = (exerciseDomains ?? []).length > 0;
+  const titleLabel = normalizeExamPaperLabel(label) ?? label;
 
   return (
     <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
@@ -54,11 +54,8 @@ export function ExamPaperCard({
           <div className="flex items-start justify-between gap-2">
             <div>
               <CardTitle className="mb-1 text-base md:text-lg">
-                {diploma} – {subject}
+                {titleLabel}
               </CardTitle>
-              <CardDescription className="text-sm">
-                📄 {label}
-              </CardDescription>
             </div>
             {onToggleFavorite && (
               <button
