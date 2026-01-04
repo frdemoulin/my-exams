@@ -1,3 +1,8 @@
+## <small>1.4.23 (2026-01-04)</small>
+
+* Merge pull request #81 from frdemoulin/dev ([6c57e91](https://github.com/frdemoulin/my-exams/commit/6c57e91)), closes [#81](https://github.com/frdemoulin/my-exams/issues/81)
+* fix: mise à jour du schéma (gestion des corrections) ([3bdb132](https://github.com/frdemoulin/my-exams/commit/3bdb132))
+
 ## <small>1.4.22 (2026-01-03)</small>
 
 * Merge pull request #80 from frdemoulin/dev ([6b16e38](https://github.com/frdemoulin/my-exams/commit/6b16e38)), closes [#80](https://github.com/frdemoulin/my-exams/issues/80)
