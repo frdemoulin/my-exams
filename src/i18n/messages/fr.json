@@ -30,6 +30,21 @@
         "list": "Liste des filières"
       }
     },
+    "correctionSource": {
+      "singular": "Source de correction",
+      "plural": "Sources de correction",
+      "article": {
+        "definite": "la",
+        "indefinite": "une"
+      },
+      "actions": {
+        "add": "Ajouter une source de correction",
+        "edit": "Éditer la source de correction",
+        "delete": "Supprimer la source de correction",
+        "view": "Voir la source de correction",
+        "list": "Liste des sources de correction"
+      }
+    },
     "examinationCenter": {
       "singular": "Centre d'examen",
       "plural": "Centres d'examen",

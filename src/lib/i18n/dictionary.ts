@@ -4,6 +4,7 @@
  */
 
 export type EntityKey = 
+  | 'correctionSource'
   | 'diploma' 
   | 'division' 
   | 'examinationCenter' 
@@ -33,6 +34,21 @@ export interface EntityTranslation {
  * Dictionnaire des traductions en français
  */
 export const entityTranslations: Record<EntityKey, EntityTranslation> = {
+  correctionSource: {
+    singular: 'Source de correction',
+    plural: 'Sources de correction',
+    article: {
+      definite: 'la',
+      indefinite: 'une',
+    },
+    actions: {
+      add: 'Ajouter une source de correction',
+      edit: 'Éditer la source de correction',
+      delete: 'Supprimer la source de correction',
+      view: 'Voir la source de correction',
+      list: 'Liste des sources de correction',
+    },
+  },
   diploma: {
     singular: 'Diplôme',
     plural: 'Diplômes',

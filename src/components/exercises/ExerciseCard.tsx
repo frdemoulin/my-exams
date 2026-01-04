@@ -72,10 +72,8 @@ export function ExerciseCard({
     diploma,
     teaching,
     grade,
-    correctionUrl: paperCorrectionUrl,
   } = examPaper;
 
-  const correctionUrl = exercise.correctionUrl || paperCorrectionUrl || exercise.corrections[0]?.url || null;
   const internalOrigin = getInternalOrigin();
   const sourceUrlIsExternal = isExternalUrl(sourceUrl, internalOrigin);
 
@@ -109,21 +107,25 @@ export function ExerciseCard({
     normalize(displayTitleRaw).startsWith(normalize(baseTitle))
       ? displayTitleRaw
       : `${baseTitle} – ${displayTitleRaw}`;
-  const sourceLabel = (() => {
-    const rawSource = source ?? 'OFFICIEL';
-    switch (rawSource) {
-      case 'APMEP':
-        return 'APMEP';
-      case 'LABOLYCEE':
-        return 'LaboLycée';
-      case 'AUTRE':
-        return 'Autre source';
+  const normalizeSourceLabel = (value?: string | null) => {
+    const raw = value?.trim();
+    if (!raw) return "Officiel";
+    switch (raw) {
+      case "OFFICIEL":
+        return "Officiel";
+      case "APMEP":
+        return "APMEP";
+      case "LABOLYCEE":
+        return "LaboLycée";
+      case "AUTRE":
+        return "Autre";
       default:
-        return 'Officiel';
+        return raw;
     }
-  })();
+  };
+  const sourceLabel = normalizeSourceLabel(source);
   const sourceLabelNode =
-    sourceLabel === "Officiel" ? (
+    sourceLabel.toLowerCase() === "officiel" ? (
       <>
         <span className="md:hidden">Officiel</span>
         <span className="hidden md:inline">Sujet officiel</span>
@@ -131,8 +133,6 @@ export function ExerciseCard({
     ) : (
       sourceLabel
     );
-  const correctionUrlIsExternal = isExternalUrl(correctionUrl, internalOrigin);
-
   return (
     <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
       <Link
@@ -234,27 +234,6 @@ export function ExerciseCard({
             <span className="text-muted-foreground font-bold text-xs md:text-sm">{traceabilityFooter}</span>
             <ClickThroughHint text="Clique sur la carte pour voir le détail de l'exercice." />
           </div>
-          {correctionUrl && (
-            <div className="flex items-center gap-2 self-baseline pointer-events-auto">
-              <Button
-                asChild
-                variant="success"
-                size="sm"
-                className="h-9 items-center gap-2 sm:h-8 sm:px-3 sm:text-xs"
-              >
-                <a
-                  href={correctionUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
-                >
-                  <span className="md:hidden">Correction</span>
-                  <span className="hidden md:inline">Correction</span>
-                  {correctionUrlIsExternal && <ExternalLink className="ml-2 h-3 w-3" />}
-                </a>
-              </Button>
-            </div>
-          )}
         </div>
       </CardContent>
     </Card>

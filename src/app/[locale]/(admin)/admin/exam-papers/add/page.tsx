@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { ExamPaperForm } from "../_components/exam-paper-form";
 import getSession from "@/lib/auth/get-session";
 import prisma from "@/lib/db/prisma";
+import { fetchCorrectionSources } from "@/core/correction-source";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.examPaper');
@@ -20,7 +21,7 @@ const AddExamPaperPage = async () => {
     }
 
     // Fetch all necessary data for selects
-    const [diplomas, divisions, grades, teachings, curriculums, examinationCenters] = await Promise.all([
+    const [diplomas, divisions, grades, teachings, curriculums, examinationCenters, sources] = await Promise.all([
         prisma.diploma.findMany({
             where: { isActive: { not: false } },
             orderBy: { longDescription: 'asc' },
@@ -42,6 +43,7 @@ const AddExamPaperPage = async () => {
             where: { isActive: { not: false } },
             orderBy: { description: 'asc' },
         }),
+        fetchCorrectionSources(),
     ]);
 
     const t = await getTranslations('entities.examPaper');
@@ -60,7 +62,7 @@ const AddExamPaperPage = async () => {
                         examDay: undefined,
                         examMonth: new Date().getMonth() + 1,
                         examYear: new Date().getFullYear(),
-                        source: "OFFICIEL",
+                        source: "Officiel",
                         diplomaId: "",
                         divisionId: "",
                         gradeId: "",
@@ -73,6 +75,7 @@ const AddExamPaperPage = async () => {
                     teachings={teachings}
                     curriculums={curriculums}
                     examinationCenters={examinationCenters}
+                    sources={sources}
                 />
             </div>
         </div>

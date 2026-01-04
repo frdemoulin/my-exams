@@ -83,11 +83,25 @@ export default async function ExamPaperPage({ params }: PageProps) {
       : '/diplomes';
 
   const corrections = examPaper.corrections ?? [];
-  const primaryCorrectionUrl =
-    corrections[0]?.url || examPaper.correctionUrl || null;
+  const primaryCorrectionUrl = corrections[0]?.url || null;
   const internalOrigin = getInternalOrigin();
   const subjectUrlIsExternal = isExternalUrl(examPaper.subjectUrl, internalOrigin);
   const primaryCorrectionIsExternal = isExternalUrl(primaryCorrectionUrl, internalOrigin);
+  const formatCorrectionType = (value?: string | null) => {
+    if (!value) return 'PDF';
+    const normalized = value.trim().toLowerCase();
+    if (normalized === 'pdf') return 'PDF';
+    if (normalized === 'video') return 'Vidéo';
+    if (normalized === 'html') return 'Page web';
+    return value.toUpperCase();
+  };
+  const primaryCorrection =
+    corrections.find((item) => item.url === primaryCorrectionUrl) ??
+    corrections[0] ??
+    null;
+  const primaryCorrectionLabel = primaryCorrection
+    ? `Corrigé ${primaryCorrection.source} (${formatCorrectionType(primaryCorrection.type)})`
+    : 'Corrigé externe (PDF)';
   type DomainInfo = {
     id: string;
     label: string;
@@ -221,7 +235,7 @@ export default async function ExamPaperPage({ params }: PageProps) {
               {primaryCorrectionUrl && (
                 <Button asChild variant="success" size="sm">
                   <a href={primaryCorrectionUrl} target="_blank" rel="noopener noreferrer">
-                    Voir la correction
+                    {primaryCorrectionLabel}
                     {primaryCorrectionIsExternal && (
                       <ExternalLink className="ml-2 h-4 w-4" />
                     )}

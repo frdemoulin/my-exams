@@ -27,7 +27,7 @@ interface ExamPaperFormProps {
         examDay?: number | null;
         examMonth?: number | null;
         examYear?: number | null;
-        source?: "OFFICIEL" | "APMEP" | "LABOLYCEE" | "AUTRE";
+        source?: string;
         sourceUrl?: string | null;
         diplomaId: string;
         divisionId?: string | null;
@@ -38,7 +38,6 @@ interface ExamPaperFormProps {
         domainIds?: string[];
         themeIds?: string[];
         subjectUrl?: string;
-        correctionUrl?: string;
     };
     diplomas: { id: string; longDescription: string }[];
     divisions: { id: string; longDescription: string }[];
@@ -46,6 +45,7 @@ interface ExamPaperFormProps {
     teachings: { id: string; longDescription: string }[];
     curriculums: { id: string; longDescription: string; shortDescription: string | null }[];
     examinationCenters: { id: string; description: string }[];
+    sources: { id: string; label: string; isActive: boolean }[];
 }
 
 export const ExamPaperForm = ({
@@ -57,10 +57,64 @@ export const ExamPaperForm = ({
     teachings,
     curriculums,
     examinationCenters,
+    sources,
 }: ExamPaperFormProps) => {
     const entity = useEntityTranslation('examPaper');
     const common = useCommonTranslations();
-    
+
+    const normalizeSourceLabel = (value?: string | null) => {
+        const raw = value?.trim();
+        if (!raw) return "Officiel";
+        switch (raw) {
+            case "OFFICIEL":
+                return "Officiel";
+            case "APMEP":
+                return "APMEP";
+            case "LABOLYCEE":
+                return "LaboLycée";
+            case "AUTRE":
+                return "Autre";
+            default:
+                return raw;
+        }
+    };
+    const normalizedInitialSource = normalizeSourceLabel(initialData.source);
+    const activeSources = useMemo(
+        () => sources.filter((source) => source.isActive),
+        [sources]
+    );
+    const sourceOptions = useMemo(() => {
+        const optionsByKey = new Map<string, { label: string; value: string }>();
+        for (const source of activeSources) {
+            const key = source.label.trim().toLowerCase();
+            if (!key || optionsByKey.has(key)) {
+                continue;
+            }
+            optionsByKey.set(key, { label: source.label, value: source.label });
+        }
+        const options = Array.from(optionsByKey.values());
+        if (normalizedInitialSource) {
+            const key = normalizedInitialSource.toLowerCase();
+            if (!optionsByKey.has(key) && sources.length > 0) {
+                options.unshift({ label: normalizedInitialSource, value: normalizedInitialSource });
+            }
+        }
+        return options;
+    }, [activeSources, normalizedInitialSource, sources.length]);
+    const defaultSource = useMemo(() => {
+        const normalizedKey = normalizedInitialSource.toLowerCase();
+        const matchingOption = sourceOptions.find(
+            (opt) => opt.value.toLowerCase() === normalizedKey
+        );
+        if (matchingOption) {
+            return matchingOption.value;
+        }
+        if (sourceOptions.length > 0) {
+            return sourceOptions[0].value;
+        }
+        return "";
+    }, [normalizedInitialSource, sourceOptions]);
+
     // Convert examinationCenters to options
     const examinationCenterOptions = useMemo(() => {
         return examinationCenters.map(center => ({
@@ -81,7 +135,7 @@ export const ExamPaperForm = ({
             examDay: initialData.examDay || undefined,
             examMonth: initialData.examMonth || new Date().getMonth() + 1,
             examYear: initialData.examYear || initialData.sessionYear || new Date().getFullYear(),
-            source: initialData.source || "OFFICIEL",
+            source: defaultSource,
             sourceUrl: initialData.sourceUrl || '',
             diplomaId: initialData.diplomaId || '',
             divisionId: initialData.divisionId || '',
@@ -92,7 +146,6 @@ export const ExamPaperForm = ({
             domainIds: initialData.domainIds || [],
             themeIds: initialData.themeIds || [],
             subjectUrl: initialData.subjectUrl || '',
-            correctionUrl: initialData.correctionUrl || '',
         },
         resolver: zodResolver(createExamPaperSchema)
     });
@@ -299,19 +352,30 @@ export const ExamPaperForm = ({
                                 <Select
                                     value={field.value}
                                     onValueChange={(val) => field.onChange(val)}
+                                    disabled={sourceOptions.length === 0}
                                 >
                                     <FormControl>
                                         <SelectTrigger>
-                                            <SelectValue placeholder="Source" />
+                                            <SelectValue placeholder="Sélectionner une source" />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
-                                        <SelectItem value="OFFICIEL">Officiel</SelectItem>
-                                        <SelectItem value="APMEP">APMEP</SelectItem>
-                                        <SelectItem value="LABOLYCEE">LaboLycée</SelectItem>
-                                        <SelectItem value="AUTRE">Autre</SelectItem>
+                                        {sourceOptions.map((option) => (
+                                            <SelectItem key={option.value} value={option.value}>
+                                                {option.label}
+                                            </SelectItem>
+                                        ))}
                                     </SelectContent>
                                 </Select>
+                                {sourceOptions.length === 0 && (
+                                    <p className="mt-2 text-xs text-muted-foreground">
+                                        Ajoute une source dans{" "}
+                                        <Link href="/admin/correction-sources" className="text-fg-brand hover:underline">
+                                            Sources de correction
+                                        </Link>{" "}
+                                        pour pouvoir renseigner ce champ.
+                                    </p>
+                                )}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -563,24 +627,6 @@ export const ExamPaperForm = ({
                                 <Input
                                     type="url"
                                     placeholder="Lien vers la source (APMEP, Labolycee, etc.)"
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-
-                <FormField
-                    name="correctionUrl"
-                    control={control}
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>URL du corrigé (optionnel)</FormLabel>
-                            <FormControl>
-                                <Input
-                                    type="url"
-                                    placeholder="https://..."
                                     {...field}
                                 />
                             </FormControl>

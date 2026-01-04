@@ -75,6 +75,7 @@ npx prisma studio
 # ⚠️ MongoDB : Prisma ne gère pas de migrations SQL (`prisma migrate`).
 # - Évolution de schéma (index/uniques) : `npx prisma db push` (ou `npm run db:push`)
 # - Évolution de données (backfill, renommage, normalisation) : `npm run db:migrate`
+# - Créer une migration data : `npm run db:migration:new -- "normaliser les sources de sujets"`
 # - Déploiement prod (Render pre-deploy) : `CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`
 
 # Seed de la base de données

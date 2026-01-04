@@ -401,7 +401,6 @@ scripts/
   
   // Liens externes
   exerciseUrl: string?         // PDF de l'exercice isolé
-  correctionUrl: string?       // PDF de la correction isolée
   corrections: ExerciseCorrection[] // Corrections multiples
   
   // Statut

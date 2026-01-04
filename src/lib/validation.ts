@@ -22,6 +22,17 @@ export const createExaminationCenterSchema = z.object({
     isActive: z.boolean().default(true),
 });
 
+export const createCorrectionSourceSchema = z.object({
+    label: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" }),
+    isActive: z.boolean().default(true),
+});
+
 export const createDiplomaSchema = z.object({
     longDescription: z.string({
         required_error: "Champ requis",
@@ -147,7 +158,12 @@ export const createExamPaperSchema = z.object({
     label: z.string({ required_error: "Champ requis" }).trim().min(1, { message: "Le libellé est requis" }).max(255, { message: "Ne peut pas dépasser 255 caractères" }),
     sessionYear: z.number({ required_error: "Champ requis" }).int().min(1900).max(2100),
     sessionDay: z.string().trim().max(50, { message: "Ne peut pas dépasser 50 caractères" }).optional().or(z.literal('')),
-    source: z.enum(["OFFICIEL", "APMEP", "LABOLYCEE", "AUTRE"]).default("OFFICIEL"),
+    source: z
+        .string({ required_error: "Champ requis" })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" })
+        .default("Officiel"),
     sourceUrl: z.string().url({ message: "URL invalide" }).optional().or(z.literal('')),
     examDay: z.number().int().min(1, { message: "Jour invalide" }).max(31, { message: "Jour invalide" }).optional(),
     examMonth: z.number({ required_error: "Mois requis" }).int().min(1, { message: "Mois invalide" }).max(12, { message: "Mois invalide" }),
@@ -169,7 +185,6 @@ export const createExamPaperSchema = z.object({
     domainIds: z.array(z.string()).optional(),
     themeIds: z.array(z.string()).optional(),
     subjectUrl: urlOrPathSchema.optional(),
-    correctionUrl: z.string().url({ message: "URL invalide" }).optional().or(z.literal('')),
     // Champs d'enrichissement automatique (optionnels)
     estimatedDuration: z.number().int().min(1).max(600).optional(), // 1-600 minutes
     estimatedDifficulty: z.number().int().min(1).max(5).optional(), // 1-5

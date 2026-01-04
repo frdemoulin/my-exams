@@ -199,7 +199,6 @@ Objectif : activer / desactiver un domaine selon le diplome et le niveau scolair
 |totalPoints|INT|NULLABLE|Le total de points du sujet|
 |domainIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds (domaines)|
 |themeIds|Array(ObjectID)|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.themeIds|
-|correctionUrl|VARCHAR(500)|NULLABLE, DEPRECATED|Déprécié : utiliser Correction ou ExerciseCorrection|
 |estimatedDuration|INT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.estimatedDuration|
 |estimatedDifficulty|INT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.estimatedDifficulty|
 |summary|TEXT|NULLABLE, DEPRECATED|Déprécié : utiliser Exercise.summary|
@@ -235,7 +234,6 @@ Objectif : activer / desactiver un domaine selon le diplome et le niveau scolair
 |statement|TEXT|NULLABLE|L'énoncé complet de l'exercice (extrait via OCR)|
 |themeIds|Array(ObjectID)|NOT NULL, DEFAULT []|Les identifiants des thèmes couverts dans cet exercice|
 |exerciseUrl|VARCHAR(500)|NULLABLE|L'URL du PDF de l'exercice isolé|
-|correctionUrl|VARCHAR(500)|NULLABLE|L'URL de la correction isolée|
 |estimatedDuration|INT|NULLABLE|La durée estimée en minutes pour cet exercice (enrichissement IA)|
 |estimatedDifficulty|INT|NULLABLE|La difficulté estimée 1-5 (enrichissement IA)|
 |summary|TEXT|NULLABLE|Le résumé automatique de l'exercice (enrichissement IA)|

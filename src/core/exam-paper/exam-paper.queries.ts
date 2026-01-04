@@ -1,10 +1,7 @@
 import prisma from "@/lib/db/prisma";
 import { ExamPaper } from "@prisma/client";
 
-export type ExamPaperWithRelations = (ExamPaper & {
-    source?: 'OFFICIEL' | 'APMEP' | 'LABOLYCEE' | 'AUTRE';
-    sourceUrl?: string | null;
-}) & {
+export type ExamPaperWithRelations = ExamPaper & {
     diploma: { longDescription: string; shortDescription?: string | null };
     division: { longDescription: string; shortDescription?: string | null } | null;
     grade: { shortDescription: string; longDescription?: string | null };

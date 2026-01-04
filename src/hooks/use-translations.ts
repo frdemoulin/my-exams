@@ -6,6 +6,7 @@
 import { useTranslations } from 'next-intl';
 
 export type EntityKey = 
+  | 'correctionSource'
   | 'curriculum'
   | 'diploma' 
   | 'division' 

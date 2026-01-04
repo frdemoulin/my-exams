@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ExternalLink, Scissors, Pencil } from "lucide-react";
 
 import { fetchExamPaperById } from "@/core/exam-paper";
+import { fetchCorrectionSources } from "@/core/correction-source";
 import getSession from "@/lib/auth/get-session";
 import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,7 @@ import { DeleteAllExercisesButton } from "./_components/delete-all-exercises-but
 import { EnrichExercisesButton } from "./_components/enrich-exercises-button";
 import { ReenrichExerciseButton } from "@/components/admin/reenrich-exercise-button";
 import prisma from "@/lib/db/prisma";
+import { ExamPaperCorrections } from "./_components/exam-paper-corrections";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const t = await getTranslations('entities.examPaper');
@@ -38,6 +40,8 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
     if (!examPaper) {
         redirect("/admin/exam-papers");
     }
+
+    const correctionSources = await fetchCorrectionSources({ includeInactive: true });
 
     // Récupérer les exercices de ce sujet
     const exercises = await prisma.exercise.findMany({
@@ -62,23 +66,26 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
     }));
 
     const t = await getTranslations('entities.examPaper');
-    const sourceLabel = (() => {
-        switch (examPaper.source as any) {
-            case 'APMEP':
-                return 'APMEP';
-            case 'LABOLYCEE':
-                return 'LaboLycée';
-            case 'AUTRE':
-                return 'Autre source';
-            case 'OFFICIEL':
+    const normalizeSourceLabel = (value?: string | null) => {
+        const raw = value?.trim();
+        if (!raw) return "Officiel";
+        switch (raw) {
+            case "OFFICIEL":
+                return "Officiel";
+            case "APMEP":
+                return "APMEP";
+            case "LABOLYCEE":
+                return "LaboLycée";
+            case "AUTRE":
+                return "Autre";
             default:
-                return 'Officiel';
+                return raw;
         }
-    })();
+    };
+    const sourceLabel = normalizeSourceLabel(examPaper.source);
     const internalOrigin = getInternalOrigin();
     const subjectUrlIsExternal = isExternalUrl(examPaper.subjectUrl, internalOrigin);
     const sourceUrlIsExternal = isExternalUrl(examPaper.sourceUrl, internalOrigin);
-    const correctionUrlIsExternal = isExternalUrl(examPaper.correctionUrl, internalOrigin);
 
     const formatExerciseType = (exerciseType?: string | null) => {
         if (!exerciseType || exerciseType === 'NORMAL') return null;
@@ -207,23 +214,15 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                 <p className="text-xs text-muted-foreground break-all">{examPaper.subjectUrl}</p>
                             </div>
                         )}
-                        {examPaper.correctionUrl && (
-                            <div className="col-span-2 md:col-span-3">
-                                <h3 className="text-sm font-semibold text-muted-foreground">Corrigé (URL)</h3>
-                                <a 
-                                    href={examPaper.correctionUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm text-fg-brand hover:underline break-all"
-                                >
-                                    {examPaper.correctionUrl}
-                                    {correctionUrlIsExternal && <ExternalLink className="h-4 w-4" />}
-                                </a>
-                            </div>
-                        )}
                     </div>
                 </CardContent>
             </Card>
+
+            <ExamPaperCorrections
+                examPaperId={id}
+                corrections={examPaper.corrections ?? []}
+                sources={correctionSources}
+            />
 
             {/* Liste des exercices */}
             {exercisesWithThemes.length > 0 && (
