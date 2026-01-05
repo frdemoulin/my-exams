@@ -6,6 +6,7 @@ import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
+  description: "Informations légales et mentions obligatoires du site My Exams.",
 };
 
 const LegalMentionsPage = () => {

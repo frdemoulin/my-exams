@@ -29,14 +29,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!diploma) {
     return {
-      title: 'Diplome introuvable | My Exams',
+      title: 'Diplome introuvable',
     };
   }
 
   const canonical = buildCanonicalUrl(`/diplomes/${diploma.id}`);
 
   return {
-    title: `${diploma.longDescription} | My Exams`,
+    title: diploma.longDescription,
     description: `Matieres disponibles pour ${diploma.longDescription}.`,
     alternates: canonical ? { canonical } : undefined,
   };

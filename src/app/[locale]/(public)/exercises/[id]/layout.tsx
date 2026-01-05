@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   const { id } = await params;
   if (!/^[a-f0-9]{24}$/i.test(id)) {
     return {
-      title: 'Exercice introuvable | My Exams',
+      title: 'Exercice introuvable',
     };
   }
 
   const exercise = await fetchExerciseById(id);
   if (!exercise) {
     return {
-      title: 'Exercice introuvable | My Exams',
+      title: 'Exercice introuvable',
     };
   }
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   const canonical = buildCanonicalUrl(`/exercises/${exercise.id}`);
 
   return {
-    title: `${exerciseTitle} - ${subjectLabel} | My Exams`,
+    title: `${exerciseTitle} - ${subjectLabel}`,
     description: `Exercice ${exercise.exerciseNumber} du sujet ${normalizedPaperLabel} (${exercise.examPaper.sessionYear}).`,
     alternates: canonical ? { canonical } : undefined,
   };

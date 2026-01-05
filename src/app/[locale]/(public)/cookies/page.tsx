@@ -3,6 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Politique cookies",
+  description: "Informations sur l'usage des cookies et traceurs sur My Exams.",
 };
 
 const CookiesPolicyPage = () => {
