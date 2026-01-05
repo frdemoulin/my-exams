@@ -1,3 +1,8 @@
+## <small>1.4.27 (2026-01-05)</small>
+
+* Merge pull request #85 from frdemoulin/dev ([10b722f](https://github.com/frdemoulin/my-exams/commit/10b722f)), closes [#85](https://github.com/frdemoulin/my-exams/issues/85)
+* fix: correctifs pour SEO ([18e5819](https://github.com/frdemoulin/my-exams/commit/18e5819))
+
 ## <small>1.4.26 (2026-01-05)</small>
 
 * Merge pull request #84 from frdemoulin/dev ([448e8f2](https://github.com/frdemoulin/my-exams/commit/448e8f2)), closes [#84](https://github.com/frdemoulin/my-exams/issues/84)
