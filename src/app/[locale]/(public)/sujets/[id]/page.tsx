@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { buildCanonicalUrl } from '@/lib/seo';
 import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib/utils';
 
 type PageProps = {
@@ -34,10 +35,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     examPaper.teaching.subject.shortDescription ||
     examPaper.teaching.longDescription;
   const normalizedLabel = normalizeExamPaperLabel(examPaper.label) ?? examPaper.label;
+  const canonical = buildCanonicalUrl(`/sujets/${examPaper.id}`);
 
   return {
     title: `${subjectLabel} - Session ${examPaper.sessionYear} | My Exams`,
     description: `Sujet ${examPaper.sessionYear} : ${normalizedLabel}.`,
+    alternates: canonical ? { canonical } : undefined,
   };
 }
 

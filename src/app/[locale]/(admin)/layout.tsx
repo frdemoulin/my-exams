@@ -4,6 +4,14 @@ import { BreadcrumbWrapper } from "./_components/breadcrumb-wrapper";
 import { auth } from "@/lib/auth/auth";
 import { redirect } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
 
 const DashboardLayout = async ({
     children,

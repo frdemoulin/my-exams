@@ -1,19 +1,8 @@
 import type { MetadataRoute } from 'next';
-
-const DEFAULT_BASE_URL = 'http://localhost:3000';
-
-function getBaseUrl() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_APP_URL ||
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.AUTH_URL ||
-    DEFAULT_BASE_URL;
-
-  return baseUrl.replace(/\/$/, '');
-}
+import { getSeoBaseUrlWithDefault } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = getBaseUrl();
+  const baseUrl = getSeoBaseUrlWithDefault();
 
   return {
     rules: [

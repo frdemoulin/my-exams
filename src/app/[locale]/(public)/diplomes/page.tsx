@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import { fetchActiveDiplomasWithExamPapers } from '@/core/exam-paper';
@@ -12,10 +13,14 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { buildCanonicalUrl } from '@/lib/seo';
 
-export const metadata = {
+const canonical = buildCanonicalUrl('/diplomes');
+
+export const metadata: Metadata = {
   title: 'Diplomes | My Exams',
   description: "Choisis ton diplome pour acceder rapidement aux sujets d'annales.",
+  alternates: canonical ? { canonical } : undefined,
 };
 
 export default async function DiplomasPage() {
