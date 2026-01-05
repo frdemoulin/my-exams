@@ -4,6 +4,7 @@ import ContactForm from "./_components/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",
+  description: "Contacte l'equipe My Exams pour une question ou un retour.",
 };
 
 const ContactPage = () => {

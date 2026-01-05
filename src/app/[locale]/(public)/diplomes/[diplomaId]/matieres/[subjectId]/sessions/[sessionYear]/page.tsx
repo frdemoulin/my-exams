@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!diploma || !subject || sessionYear === null) {
     return {
-      title: 'Session introuvable | My Exams',
+      title: 'Session introuvable',
     };
   }
 
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   );
 
   return {
-    title: `${subject.longDescription} - Session ${sessionYear} | My Exams`,
+    title: `${subject.longDescription} - Session ${sessionYear}`,
     description: `Sujets ${sessionYear} pour ${subject.longDescription} (${diploma.shortDescription}).`,
     alternates: canonical ? { canonical } : undefined,
   };

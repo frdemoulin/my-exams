@@ -3,6 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
+  description: "Informations sur la collecte et l'utilisation des données personnelles.",
 };
 
 const PrivacyPolicyPage = () => {

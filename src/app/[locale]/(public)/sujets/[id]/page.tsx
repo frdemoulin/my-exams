@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!examPaper) {
     return {
-      title: 'Sujet introuvable | My Exams',
+      title: 'Sujet introuvable',
     };
   }
 
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonical = buildCanonicalUrl(`/sujets/${examPaper.id}`);
 
   return {
-    title: `${subjectLabel} - Session ${examPaper.sessionYear} | My Exams`,
+    title: `${subjectLabel} - Session ${examPaper.sessionYear}`,
     description: `Sujet ${examPaper.sessionYear} : ${normalizedLabel}.`,
     alternates: canonical ? { canonical } : undefined,
   };
