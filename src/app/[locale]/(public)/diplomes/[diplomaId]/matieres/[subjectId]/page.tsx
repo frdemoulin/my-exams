@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { fetchDiplomaById } from '@/core/diploma';
 import { fetchSubjectById } from '@/core/subject';
 import { fetchSessionYearsByDiplomaAndSubject } from '@/core/exam-paper';
+import { buildCanonicalUrl } from '@/lib/seo';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -37,9 +38,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const canonical = buildCanonicalUrl(`/diplomes/${diploma.id}/matieres/${subject.id}`);
+
   return {
     title: `${subject.longDescription} - ${diploma.longDescription} | My Exams`,
     description: `Sessions disponibles pour ${subject.longDescription} (${diploma.shortDescription}).`,
+    alternates: canonical ? { canonical } : undefined,
   };
 }
 

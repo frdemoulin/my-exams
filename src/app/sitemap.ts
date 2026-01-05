@@ -1,24 +1,13 @@
 import type { MetadataRoute } from 'next';
 import prisma from '@/lib/db/prisma';
 import { fetchActiveDiplomasWithExamPapers } from '@/core/exam-paper';
+import { getSeoBaseUrlWithDefault } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
-const DEFAULT_BASE_URL = 'http://localhost:3000';
-
-function getBaseUrl() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_APP_URL ||
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.AUTH_URL ||
-    DEFAULT_BASE_URL;
-
-  return baseUrl.replace(/\/$/, '');
-}
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = getBaseUrl();
+  const baseUrl = getSeoBaseUrlWithDefault();
   const now = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = [
@@ -75,6 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     },
     select: {
+      id: true,
       diplomaId: true,
       sessionYear: true,
       updatedAt: true,
@@ -144,10 +134,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
+  const subjectPageEntries: MetadataRoute.Sitemap = examPapers.map((paper) => ({
+    url: `${baseUrl}/sujets/${paper.id}`,
+    lastModified: paper.updatedAt ?? now,
+    changeFrequency: 'monthly',
+    priority: 0.5,
+  }));
+
+  const exercises = await prisma.exercise.findMany({
+    where: {
+      examPaper: {
+        diploma: { isActive: true },
+        teaching: {
+          isActive: true,
+          subject: { isActive: true },
+        },
+      },
+    },
+    select: {
+      id: true,
+      updatedAt: true,
+    },
+  });
+
+  const exerciseEntries: MetadataRoute.Sitemap = exercises.map((exercise) => ({
+    url: `${baseUrl}/exercises/${exercise.id}`,
+    lastModified: exercise.updatedAt ?? now,
+    changeFrequency: 'monthly',
+    priority: 0.4,
+  }));
+
   return [
     ...staticEntries,
     ...diplomaEntries,
     ...subjectEntries,
     ...sessionEntries,
+    ...subjectPageEntries,
+    ...exerciseEntries,
   ];
 }

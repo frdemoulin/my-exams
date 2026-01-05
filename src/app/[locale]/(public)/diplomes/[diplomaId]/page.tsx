@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { fetchDiplomaById } from '@/core/diploma';
 import { fetchActiveSubjectsByDiplomaId } from '@/core/exam-paper';
+import { buildCanonicalUrl } from '@/lib/seo';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -32,9 +33,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const canonical = buildCanonicalUrl(`/diplomes/${diploma.id}`);
+
   return {
     title: `${diploma.longDescription} | My Exams`,
     description: `Matieres disponibles pour ${diploma.longDescription}.`,
+    alternates: canonical ? { canonical } : undefined,
   };
 }
 
