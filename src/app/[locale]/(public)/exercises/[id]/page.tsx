@@ -7,12 +7,11 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
-import { Heart, ExternalLink, ChevronLeft, Info } from 'lucide-react';
+import { Heart, ChevronLeft } from 'lucide-react';
 import {
   Card,
   CardHeader,
   CardTitle,
-  CardDescription,
   CardContent,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -27,9 +26,12 @@ import {
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
+import { ExamPaperComposition } from '@/components/exam-papers/ExamPaperComposition';
+import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
+import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
-import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib/utils';
+import { normalizeExamPaperLabel } from '@/lib/utils';
 
 export default function ExerciseDetailPage() {
   const params = useParams();
@@ -180,7 +182,6 @@ export default function ExerciseDetailPage() {
     if (safeReturnTo === '/' || safeReturnTo.startsWith('/?')) return 'Retour aux résultats';
     return 'Retour';
   })();
-  const statementUrl = exerciseUrl || examPaper.subjectUrl || null;
   const examPaperCorrections = examPaper.corrections ?? [];
   const mergedCorrections = (() => {
     const items = [...(exerciseCorrections ?? []), ...examPaperCorrections];
@@ -192,18 +193,15 @@ export default function ExerciseDetailPage() {
       return true;
     });
   })();
-  const internalOrigin = getInternalOrigin();
-  const statementUrlIsExternal = isExternalUrl(statementUrl, internalOrigin);
-  const officialStatementUrl = statementUrl ?? examPaper.sourceUrl ?? null;
-  const officialStatementIsExternal = isExternalUrl(officialStatementUrl, internalOrigin);
-  const formatCorrectionType = (value?: string | null) => {
-    if (!value) return 'PDF';
-    const normalized = value.trim().toLowerCase();
-    if (normalized === 'pdf') return 'PDF';
-    if (normalized === 'video') return 'Vidéo';
-    if (normalized === 'html') return 'Page web';
-    return value.toUpperCase();
-  };
+  const officialStatementUrl = examPaper.subjectUrl ?? null;
+  const previewPdfUrl = exerciseUrl || examPaper.subjectUrl || null;
+  const compositionExercises = (() => {
+    const unique = new Map<string, ExerciseWithRelations>();
+    [exercise, ...otherExercises].forEach((item) => {
+      unique.set(item.id, item);
+    });
+    return Array.from(unique.values());
+  })();
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
   const paperLabelDisplay = normalizedPaperLabel || paperLabel;
@@ -231,7 +229,7 @@ export default function ExerciseDetailPage() {
       <PublicHeader />
 
       {/* Contenu principal */}
-      <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8">
+      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8">
         <div className="space-y-3">
           <Breadcrumb>
             <BreadcrumbList>
@@ -354,201 +352,37 @@ export default function ExerciseDetailPage() {
 
           <div className="h-px w-full bg-border" />
 
-          {/* Résumé */}
-          {summary && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Résumé</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{summary}</p>
-              </CardContent>
-            </Card>
-          )}
+          <ExamPaperDocumentsCard
+            officialStatementUrl={officialStatementUrl}
+            corrections={mergedCorrections}
+          />
 
-          <Card id="corrections">
-            <CardHeader>
-              <CardTitle className="text-lg">Documents</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-5">
-              <div className="space-y-3">
-                {officialStatementUrl ? (
-                  <div className="flex items-center justify-between gap-4 rounded-lg border border-border p-3">
-                    <div className="flex-1 space-y-1">
-                      <p className="font-medium">Sujet officiel (PDF)</p>
-                      <span className="inline-flex items-start gap-1 text-xs text-muted-foreground">
-                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                          <Info className="h-3 w-3" aria-hidden="true" />
-                        </span>
-                        <span className="hidden md:inline">
-                          Document officiel d&apos;examen, diffus&eacute; &agrave; l&apos;identique
-                          (non modifi&eacute;). Source institutionnelle : autorit&eacute;
-                          acad&eacute;mique / minist&egrave;re comp&eacute;tent.
-                        </span>
-                        <span className="md:hidden">
-                          Sujet officiel d&apos;examen – document original non modifi&eacute;.
-                        </span>
-                      </span>
-                    </div>
-                    <Button size="sm" asChild>
-                      <a
-                        href={officialStatementUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Ouvrir le sujet (PDF)
-                        {officialStatementIsExternal && (
-                          <ExternalLink className="ml-2 h-4 w-4" />
-                        )}
-                      </a>
-                    </Button>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Sujet officiel non disponible pour le moment.
-                  </p>
-                )}
-              </div>
-              <div className="space-y-3">
-                {mergedCorrections.length > 0 ? (
-                  <div className="space-y-3">
-                    {mergedCorrections.map((correction, index) => {
-                      const isLastCorrection = index === mergedCorrections.length - 1;
-                      return (
-                        <div
-                          key={correction.id}
-                          className="flex items-center justify-between rounded-lg border border-border p-3"
-                        >
-                          <div className="flex-1">
-                            <p className="font-medium">{correction.source}</p>
-                            {correction.author && (
-                              <p className="text-sm text-muted-foreground">
-                                Par {correction.author}
-                              </p>
-                            )}
-                            {correction.quality && (
-                              <div className="mt-1 flex gap-0.5">
-                                {[...Array(correction.quality)].map((_, i) => (
-                                  <span key={i} className="text-yellow-500">
-                                    ⭐
-                                  </span>
-                                ))}
-                              </div>
-                            )}
-                            {isLastCorrection && (
-                              <div className="mt-2 inline-flex items-start gap-1 text-xs text-muted-foreground">
-                                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                                  <Info className="h-3 w-3" aria-hidden="true" />
-                                </span>
-                                <span>
-                                  H&eacute;bergement et diffusion des corrections par leurs
-                                  &eacute;diteurs respectifs. Aucun h&eacute;bergement par My
-                                  Exams.
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                          <Button size="sm" variant="success" asChild>
-                            <a
-                              href={correction.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Corrigé {correction.source} ({formatCorrectionType(correction.type)})
-                              {isExternalUrl(correction.url, internalOrigin) && (
-                                <ExternalLink className="ml-2 h-4 w-4" />
-                              )}
-                            </a>
-                          </Button>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Aucun corrig&eacute; r&eacute;f&eacute;renc&eacute; pour ce sujet.
-                  </p>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card id="enonce">
-            <CardHeader>
-              <CardTitle className="text-lg">Énoncé</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {statementUrl ? (
-                <div className="overflow-hidden rounded-2xl border border-border bg-card">
-                  <iframe
-                    title={`Énoncé ${displayTitle}`}
-                    src={statementUrl}
-                    className="h-[70dvh] min-h-[70vh] w-full md:h-[100dvh] md:min-h-[100vh]"
-                  />
-                </div>
-              ) : examPaper.sourceUrl ? (
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p>Énoncé non disponible en PDF.</p>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={examPaper.sourceUrl} target="_blank" rel="noopener noreferrer">
-                      Consulter la source externe
-                      {isExternalUrl(examPaper.sourceUrl, internalOrigin) && (
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      )}
-                    </a>
-                  </Button>
-                </div>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  Énoncé non disponible pour le moment.
-                </p>
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div className="space-y-6">
+              {summary && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Résumé</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{summary}</p>
+                  </CardContent>
+                </Card>
               )}
-            </CardContent>
-          </Card>
 
-          {/* Autres exercices du même sujet */}
-          {otherExercises.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">
-                  Autres exercices de ce sujet
-                </CardTitle>
-                <CardDescription>
-                  {otherExercises.length} exercice{otherExercises.length > 1 ? 's' : ''}{' '}
-                  du même sujet
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  {otherExercises.map((ex) => (
-                    <Link
-                      key={ex.id}
-                      href={{
-                        pathname: `/exercises/${ex.id}`,
-                        query: { returnTo: backHref },
-                      }}
-                    >
-                      <div className="rounded-lg border border-border p-3 transition-colors hover:bg-muted">
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <p className="font-medium">
-                              {ex.title || ex.label || `Exercice ${ex.exerciseNumber}`}
-                            </p>
-                            {ex.points && (
-                              <p className="text-sm text-muted-foreground">
-                                {ex.points} point{ex.points > 1 ? 's' : ''}
-                              </p>
-                            )}
-                          </div>
-                          <ChevronLeft className="h-4 w-4 rotate-180 text-muted-foreground" />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
+              <ExamPaperPdfPreview
+                pdfUrl={previewPdfUrl}
+                fallbackUrl={examPaper.sourceUrl ?? null}
+                frameTitle={`Énoncé ${displayTitle}`}
+              />
+            </div>
+
+            <ExamPaperComposition
+              exercises={compositionExercises}
+              returnTo={backHref}
+              currentExerciseId={exercise.id}
+            />
+          </div>
         </div>
       </main>
     </div>
