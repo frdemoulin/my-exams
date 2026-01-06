@@ -6,18 +6,11 @@ import { fetchDiplomaById } from '@/core/diploma';
 import { fetchSubjectById } from '@/core/subject';
 import { fetchExamPapersByScope } from '@/core/exam-paper';
 import { buildCanonicalUrl } from '@/lib/seo';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
-import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { ExamPaperCard } from '@/components/exam-papers/ExamPaperCard';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 
 type PageProps = {
   params: Promise<{
@@ -94,60 +87,37 @@ export default async function SessionPage({ params }: PageProps) {
   const teachingShortLabel = teachingOptions.map((option) => option.shortLabel).join(" / ");
   const teachingLongSuffix = teachingLongLabel ? ` - ${teachingLongLabel}` : "";
   const teachingShortSuffix = teachingShortLabel ? ` - ${teachingShortLabel}` : "";
+  const subjectBreadcrumbLabel = teachingLongLabel
+    ? `${subject.longDescription} (${teachingLongLabel})`
+    : subject.longDescription;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <PublicHeader />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/">Accueil</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/diplomes">Dipl&ocirc;mes</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href={`/diplomes/${diploma.id}`}>{diploma.longDescription}</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href={`/diplomes/${diploma.id}/matieres/${subject.id}`}>
-                  {subject.longDescription}
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Session {sessionYear}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <PublicBreadcrumb
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
+            { label: diploma.longDescription, href: `/diplomes/${diploma.id}` },
+            {
+              label: subjectBreadcrumbLabel,
+              href: `/diplomes/${diploma.id}/matieres/${subject.id}`,
+            },
+            { label: `Session ${sessionYear}` },
+          ]}
+        />
 
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">Liste des sujets d&apos;examen</h1>
-          <p className="text-sm text-muted-foreground">
-            <span className="md:hidden">
-              {diplomaShort} - {subjectShort}{teachingShortSuffix} - Session {sessionYear}
-            </span>
-            <span className="hidden md:inline">
-              {diplomaLong} - {subjectLong}{teachingLongSuffix} - Session {sessionYear}
-            </span>
-          </p>
         </div>
 
         {examPapers.length === 0 ? (
-          <div className="rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-            Aucun sujet n&apos;est disponible pour cette session.
+          <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
+            <p>Aucun sujet n&apos;est disponible pour cette session.</p>
+            <Button asChild variant="outline" size="sm" className="w-fit">
+              <Link href="/diplomes">Revenir aux dipl&ocirc;mes</Link>
+            </Button>
           </div>
         ) : (
           <div className="flex flex-col gap-4">

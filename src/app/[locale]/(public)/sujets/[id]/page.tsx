@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -11,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { buildCanonicalUrl } from '@/lib/seo';
 import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib/utils';
 
@@ -181,50 +183,49 @@ export default async function ExamPaperPage({ params }: PageProps) {
     };
   });
 
+  const subjectBreadcrumbLabel =
+    teachingLong && teachingLong !== subjectLabel
+      ? `${subjectLabel} (${teachingLong})`
+      : subjectLabel;
+  const breadcrumbItems: Array<{ label: ReactNode; href?: string }> = [
+    { label: 'Accueil', href: '/' },
+    { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
+    { label: diplomaLong, href: `/diplomes/${examPaper.diplomaId}` },
+  ];
+
+  if (subjectId) {
+    breadcrumbItems.push(
+      {
+        label: subjectBreadcrumbLabel,
+        href: `/diplomes/${examPaper.diplomaId}/matieres/${subjectId}`,
+      },
+      {
+        label: `Session ${examPaper.sessionYear}`,
+        href: `/diplomes/${examPaper.diplomaId}/matieres/${subjectId}/sessions/${examPaper.sessionYear}`,
+      }
+    );
+  }
+
+  breadcrumbItems.push({ label: normalizedLabel });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <PublicHeader />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
-        <div className="flex items-center gap-3">
-          <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link href={backHref}>
-              <ChevronLeft className="h-4 w-4" />
-              Retour &agrave; la liste
-            </Link>
-          </Button>
+        <div className="space-y-3">
+          <PublicBreadcrumb items={breadcrumbItems} />
+
+          <div className="flex items-center gap-3">
+            <Button asChild variant="ghost" size="sm" className="gap-2">
+              <Link href={backHref}>
+                <ChevronLeft className="h-4 w-4" />
+                Retour &agrave; la liste
+              </Link>
+            </Button>
+          </div>
         </div>
 
         <div className="space-y-2">
-          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            <Badge variant="secondary">
-              <span className="md:hidden">{diplomaShort}</span>
-              <span className="hidden md:inline">{diplomaLong}</span>
-            </Badge>
-            <Badge variant="outline">Session {examPaper.sessionYear}</Badge>
-            {sessionDayLabel && (
-              <Badge variant="outline">{sessionDayLabel}</Badge>
-            )}
-            <Badge variant="outline">
-              <span className="md:hidden">{teachingShort}</span>
-              <span className="hidden md:inline">{teachingLong}</span>
-            </Badge>
-            <Badge variant="outline">
-              <span className="md:hidden">{gradeShort}</span>
-              <span className="hidden md:inline">{gradeLong}</span>
-            </Badge>
-            {divisionLong && (
-              <Badge variant="outline">
-                <span className="md:hidden">{divisionShort}</span>
-                <span className="hidden md:inline">{divisionLong}</span>
-              </Badge>
-            )}
-            {curriculumLong && (
-              <Badge variant="outline">
-                <span className="md:hidden">{curriculumShort}</span>
-                <span className="hidden md:inline">{curriculumLong}</span>
-              </Badge>
-            )}
-          </div>
           <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
             <div className="space-y-1">
               <h1 className="text-2xl font-semibold">{subjectLabel}</h1>
@@ -273,7 +274,7 @@ export default async function ExamPaperPage({ params }: PageProps) {
 
           <section className="space-y-2">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h2 className="text-base font-semibold">Exercices & domaines/th&egrave;mes</h2>
+              <h2 className="text-base font-semibold">Composition du sujet</h2>
               <span className="text-xs text-muted-foreground">
                 {exercisesWithTags.length} exercice{exercisesWithTags.length > 1 ? 's' : ''}
               </span>
@@ -287,7 +288,10 @@ export default async function ExamPaperPage({ params }: PageProps) {
                 {exercisesWithTags.map((exercise) => (
                   <Link
                     key={exercise.id}
-                    href={`/exercises/${exercise.id}`}
+                    href={{
+                      pathname: `/exercises/${exercise.id}`,
+                      query: { returnTo: `/sujets/${examPaper.id}` },
+                    }}
                     aria-label={`Voir le détail de ${exercise.displayTitle}`}
                     className="block rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >

@@ -6,17 +6,10 @@ import { fetchDiplomaById } from '@/core/diploma';
 import { fetchSubjectById } from '@/core/subject';
 import { fetchSessionYearsByDiplomaAndSubject } from '@/core/exam-paper';
 import { buildCanonicalUrl } from '@/lib/seo';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 
 type PageProps = {
   params: Promise<{
@@ -65,31 +58,14 @@ export default async function SubjectPage({ params }: PageProps) {
     <div className="min-h-screen bg-background text-foreground">
       <PublicHeader />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/">Accueil</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/diplomes">Dipl&ocirc;mes</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href={`/diplomes/${diploma.id}`}>{diploma.longDescription}</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{subject.longDescription}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <PublicBreadcrumb
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
+            { label: diploma.longDescription, href: `/diplomes/${diploma.id}` },
+            { label: subject.longDescription },
+          ]}
+        />
 
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">
@@ -101,8 +77,11 @@ export default async function SubjectPage({ params }: PageProps) {
         </div>
 
         {sessions.length === 0 ? (
-          <div className="rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-            Aucune session n&apos;est disponible pour cette mati&egrave;re.
+          <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
+            <p>Aucune session n&apos;est disponible pour cette mati&egrave;re.</p>
+            <Button asChild variant="outline" size="sm" className="w-fit">
+              <Link href="/diplomes">Revenir aux dipl&ocirc;mes</Link>
+            </Button>
           </div>
         ) : (
           <div className="flex flex-wrap gap-3">

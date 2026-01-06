@@ -6,7 +6,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import { Heart, ExternalLink, ChevronLeft, Info } from 'lucide-react';
 import {
   Card,
@@ -16,6 +16,14 @@ import {
   CardContent,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
@@ -25,7 +33,7 @@ import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib
 
 export default function ExerciseDetailPage() {
   const params = useParams();
-  const router = useRouter();
+  const searchParams = useSearchParams();
   const [exercise, setExercise] = useState<ExerciseWithRelations | null>(null);
   const [otherExercises, setOtherExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
@@ -141,6 +149,37 @@ export default function ExerciseDetailPage() {
   } = exercise;
 
   const { label: paperLabel, sessionYear, diploma, teaching, curriculum } = examPaper;
+  const subjectId = teaching.subject.id;
+  const subjectLabel =
+    teaching.subject.longDescription ||
+    teaching.subject.shortDescription ||
+    teaching.longDescription;
+  const teachingBreadcrumbLabel =
+    teaching.longDescription && teaching.longDescription !== subjectLabel
+      ? teaching.longDescription
+      : teaching.shortDescription && teaching.shortDescription !== subjectLabel
+        ? teaching.shortDescription
+        : null;
+  const subjectBreadcrumbLabel = teachingBreadcrumbLabel
+    ? `${subjectLabel} (${teachingBreadcrumbLabel})`
+    : subjectLabel;
+  const fallbackBackHref = subjectId
+    ? `/diplomes/${diploma.id}/matieres/${subjectId}/sessions/${sessionYear}`
+    : '/diplomes';
+  const returnToParam = searchParams.get('returnTo')?.trim() || null;
+  const safeReturnTo =
+    returnToParam && returnToParam.startsWith('/') && !returnToParam.startsWith('//')
+      ? returnToParam
+      : null;
+  const backHref = safeReturnTo ?? fallbackBackHref;
+  const backLabel = (() => {
+    if (!safeReturnTo) return 'Retour à la session';
+    if (safeReturnTo.startsWith('/sujets/')) return 'Retour au sujet';
+    if (safeReturnTo.includes('/sessions/')) return 'Retour à la session';
+    if (safeReturnTo.startsWith('/diplomes')) return 'Retour aux diplômes';
+    if (safeReturnTo === '/' || safeReturnTo.startsWith('/?')) return 'Retour aux résultats';
+    return 'Retour';
+  })();
   const statementUrl = exerciseUrl || examPaper.subjectUrl || null;
   const examPaperCorrections = examPaper.corrections ?? [];
   const mergedCorrections = (() => {
@@ -167,7 +206,8 @@ export default function ExerciseDetailPage() {
   };
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
-  const traceability = normalizedPaperLabel || `Session ${sessionYear}`;
+  const paperLabelDisplay = normalizedPaperLabel || paperLabel;
+  const traceability = paperLabelDisplay || `Session ${sessionYear}`;
   const domains = Array.from(
     new Map(
       themes
@@ -191,35 +231,77 @@ export default function ExerciseDetailPage() {
       <PublicHeader />
 
       {/* Contenu principal */}
-      <main className="mx-auto max-w-4xl px-4 py-8">
-        <div className="mb-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => {
-              if (typeof window !== 'undefined' && window.history.length > 1) {
-                router.back();
-                return;
-              }
-              router.push('/');
-            }}
-            className="gap-2"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Retour
-          </Button>
+      <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8">
+        <div className="space-y-3">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Accueil</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/diplomes">Dipl&ocirc;mes</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href={`/diplomes/${diploma.id}`}>{diploma.longDescription}</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              {subjectId && (
+                <>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link href={`/diplomes/${diploma.id}/matieres/${subjectId}`}>
+                        {subjectBreadcrumbLabel}
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link
+                        href={`/diplomes/${diploma.id}/matieres/${subjectId}/sessions/${sessionYear}`}
+                      >
+                        Session {sessionYear}
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                </>
+              )}
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href={`/sujets/${examPaper.id}`}>
+                    {paperLabelDisplay || 'Sujet'}
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{displayTitle}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
+          <div className="flex items-center gap-3">
+            <Button asChild variant="ghost" size="sm" className="gap-2">
+              <Link href={backHref}>
+                <ChevronLeft className="h-4 w-4" />
+                {backLabel}
+              </Link>
+            </Button>
+          </div>
         </div>
         <div className="space-y-6">
           {/* En-tête exercice */}
           <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-muted-foreground md:flex-nowrap md:items-center">
-              <div className="flex flex-wrap items-center gap-1">
-                <span>{diploma.shortDescription}</span>
-                <span>&gt;</span>
-                <span>{teaching.subject.shortDescription}</span>
-                <span>&gt;</span>
-                <span>{teaching.grade.shortDescription}</span>
-              </div>
               <div className="flex w-full md:ml-auto md:w-auto md:justify-end">
                 <ExerciseMetaLine
                   variant="chips"
@@ -439,7 +521,13 @@ export default function ExerciseDetailPage() {
               <CardContent>
                 <div className="space-y-2">
                   {otherExercises.map((ex) => (
-                    <Link key={ex.id} href={`/exercises/${ex.id}`}>
+                    <Link
+                      key={ex.id}
+                      href={{
+                        pathname: `/exercises/${ex.id}`,
+                        query: { returnTo: backHref },
+                      }}
+                    >
                       <div className="rounded-lg border border-border p-3 transition-colors hover:bg-muted">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">

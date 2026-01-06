@@ -2,17 +2,10 @@ import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import { fetchActiveDiplomasWithExamPapers } from '@/core/exam-paper';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { buildCanonicalUrl } from '@/lib/seo';
 
 const canonical = buildCanonicalUrl('/diplomes');
@@ -31,19 +24,12 @@ export default async function DiplomasPage() {
     <div className="min-h-screen bg-background text-foreground">
       <PublicHeader />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/">Accueil</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Dipl&ocirc;mes</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <PublicBreadcrumb
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: <>Dipl&ocirc;mes</> },
+          ]}
+        />
 
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">Parcourir les annales par dipl&ocirc;me</h1>
