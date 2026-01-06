@@ -1,3 +1,11 @@
+## <small>1.4.28 (2026-01-06)</small>
+
+* Merge pull request #86 from frdemoulin/dev ([03fcf00](https://github.com/frdemoulin/my-exams/commit/03fcf00)), closes [#86](https://github.com/frdemoulin/my-exams/issues/86)
+* fix: finalisation du SEO ([10b34da](https://github.com/frdemoulin/my-exams/commit/10b34da))
+* fix: gestion du bloc Domaines dans la page de détail d'un exercice ([d1ef28f](https://github.com/frdemoulin/my-exams/commit/d1ef28f))
+* fix: harmonisation de l'UI sur les fils d'ariane et les boutons de retour ([27ba57d](https://github.com/frdemoulin/my-exams/commit/27ba57d))
+* fix: harmonisation des pages de détail d'un sujet et d'un exercice ([e12d3d6](https://github.com/frdemoulin/my-exams/commit/e12d3d6))
+
 ## <small>1.4.27 (2026-01-05)</small>
 
 * Merge pull request #85 from frdemoulin/dev ([10b722f](https://github.com/frdemoulin/my-exams/commit/10b722f)), closes [#85](https://github.com/frdemoulin/my-exams/issues/85)
