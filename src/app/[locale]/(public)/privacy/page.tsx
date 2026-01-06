@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { buildCanonicalUrl } from "@/lib/seo";
+
+const canonical = buildCanonicalUrl("/privacy");
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
   description: "Informations sur la collecte et l'utilisation des données personnelles.",
+  alternates: canonical ? { canonical } : undefined,
 };
 
 const PrivacyPolicyPage = () => {

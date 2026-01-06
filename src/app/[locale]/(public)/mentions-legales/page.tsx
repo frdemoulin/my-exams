@@ -2,11 +2,15 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 
+import { buildCanonicalUrl } from "@/lib/seo";
 import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
+
+const canonical = buildCanonicalUrl("/mentions-legales");
 
 export const metadata: Metadata = {
   title: "Mentions légales",
   description: "Informations légales et mentions obligatoires du site My Exams.",
+  alternates: canonical ? { canonical } : undefined,
 };
 
 const LegalMentionsPage = () => {

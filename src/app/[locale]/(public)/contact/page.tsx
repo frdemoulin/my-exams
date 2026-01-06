@@ -1,11 +1,15 @@
 import { Metadata } from "next";
 
 import { PublicHeader } from "@/components/shared/public-header";
+import { buildCanonicalUrl } from "@/lib/seo";
 import ContactForm from "./_components/contact-form";
+
+const canonical = buildCanonicalUrl("/contact");
 
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contacte l'equipe My Exams pour une question ou un retour.",
+  alternates: canonical ? { canonical } : undefined,
 };
 
 const ContactPage = () => {
