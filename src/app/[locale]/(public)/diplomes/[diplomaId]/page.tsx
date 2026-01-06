@@ -5,17 +5,11 @@ import { notFound } from 'next/navigation';
 import { fetchDiplomaById } from '@/core/diploma';
 import { fetchActiveSubjectsByDiplomaId } from '@/core/exam-paper';
 import { buildCanonicalUrl } from '@/lib/seo';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 
 type PageProps = {
   params: Promise<{
@@ -57,25 +51,13 @@ export default async function DiplomaPage({ params }: PageProps) {
     <div className="min-h-screen bg-background text-foreground">
       <PublicHeader />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/">Accueil</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/diplomes">Dipl&ocirc;mes</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{diploma.longDescription}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <PublicBreadcrumb
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
+            { label: diploma.longDescription },
+          ]}
+        />
 
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">{diploma.longDescription}</h1>
@@ -85,8 +67,11 @@ export default async function DiplomaPage({ params }: PageProps) {
         </div>
 
         {subjects.length === 0 ? (
-          <div className="rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-            Aucune mati&egrave;re n&apos;est disponible pour ce dipl&ocirc;me.
+          <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
+            <p>Aucune mati&egrave;re n&apos;est disponible pour ce dipl&ocirc;me.</p>
+            <Button asChild variant="outline" size="sm" className="w-fit">
+              <Link href="/diplomes">Revenir aux dipl&ocirc;mes</Link>
+            </Button>
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2">

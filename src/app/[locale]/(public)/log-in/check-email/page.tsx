@@ -1,10 +1,19 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
 
 import getSession from "@/lib/auth/get-session";
 import { APP_NAME } from "@/config/app";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Vérifie ta boîte mail",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default async function CheckEmailPage() {
   const session = await getSession();
@@ -32,4 +41,3 @@ export default async function CheckEmailPage() {
     </div>
   );
 }
-

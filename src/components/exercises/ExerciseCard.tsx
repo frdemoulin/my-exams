@@ -21,6 +21,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib/utils';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
@@ -52,6 +53,8 @@ export function ExerciseCard({
   isFavorite = false,
   onToggleFavorite,
 }: ExerciseCardProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const {
     id,
     title,
@@ -134,10 +137,16 @@ export function ExerciseCard({
     ) : (
       sourceLabel
     );
+  const search = searchParams?.toString();
+  const returnTo = pathname ? (search ? `${pathname}?${search}` : pathname) : null;
+  const exerciseHref = returnTo
+    ? { pathname: `/exercises/${id}`, query: { returnTo } }
+    : `/exercises/${id}`;
+
   return (
     <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
       <Link
-        href={`/exercises/${id}`}
+        href={exerciseHref}
         aria-label={`Ouvrir ${fullTitle}`}
         className="absolute inset-0 z-0 focus-visible:outline-none"
         onClick={() => {

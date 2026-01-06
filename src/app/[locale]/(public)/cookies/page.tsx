@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { buildCanonicalUrl } from "@/lib/seo";
+
+const canonical = buildCanonicalUrl("/cookies");
 
 export const metadata: Metadata = {
   title: "Politique cookies",
   description: "Informations sur l'usage des cookies et traceurs sur My Exams.",
+  alternates: canonical ? { canonical } : undefined,
 };
 
 const CookiesPolicyPage = () => {
