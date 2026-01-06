@@ -26,9 +26,9 @@ import {
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
-import { ExamPaperComposition } from '@/components/exam-papers/ExamPaperComposition';
 import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
+import { ExerciseDomainsCard } from '@/components/exercises/ExerciseDomainsCard';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { normalizeExamPaperLabel } from '@/lib/utils';
@@ -37,7 +37,6 @@ export default function ExerciseDetailPage() {
   const params = useParams();
   const searchParams = useSearchParams();
   const [exercise, setExercise] = useState<ExerciseWithRelations | null>(null);
-  const [otherExercises, setOtherExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -61,7 +60,6 @@ export default function ExerciseDetailPage() {
       .then((data) => {
         if (data.success) {
           setExercise(data.exercise);
-          setOtherExercises(data.otherExercises || []);
         }
         setLoading(false);
       })
@@ -195,13 +193,6 @@ export default function ExerciseDetailPage() {
   })();
   const officialStatementUrl = examPaper.subjectUrl ?? null;
   const previewPdfUrl = exerciseUrl || examPaper.subjectUrl || null;
-  const compositionExercises = (() => {
-    const unique = new Map<string, ExerciseWithRelations>();
-    [exercise, ...otherExercises].forEach((item) => {
-      unique.set(item.id, item);
-    });
-    return Array.from(unique.values());
-  })();
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
   const paperLabelDisplay = normalizedPaperLabel || paperLabel;
@@ -377,11 +368,7 @@ export default function ExerciseDetailPage() {
               />
             </div>
 
-            <ExamPaperComposition
-              exercises={compositionExercises}
-              returnTo={backHref}
-              currentExerciseId={exercise.id}
-            />
+            <ExerciseDomainsCard exercise={exercise} />
           </div>
         </div>
       </main>
