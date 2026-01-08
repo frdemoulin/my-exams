@@ -21,6 +21,9 @@ type PageProps = {
   params: Promise<{
     id: string;
   }>;
+  searchParams?: {
+    returnTo?: string;
+  };
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -47,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ExamPaperPage({ params }: PageProps) {
+export default async function ExamPaperPage({ params, searchParams }: PageProps) {
   noStore();
   const { id } = await params;
   if (!/^[a-f0-9]{24}$/i.test(id)) {
@@ -73,14 +76,29 @@ export default async function ExamPaperPage({ params }: PageProps) {
     examPaper.teaching.longDescription || examPaper.teaching.shortDescription || subjectLabel;
   const normalizedLabel = normalizeExamPaperLabel(examPaper.label) ?? examPaper.label;
   const subjectId = examPaper.teaching.subjectId;
-  const backHref =
-    subjectId
-      ? `/diplomes/${examPaper.diplomaId}/matieres/${subjectId}/sessions/${examPaper.sessionYear}`
-      : '/diplomes';
+  const defaultBackHref = subjectId
+    ? `/diplomes/${examPaper.diplomaId}/matieres/${subjectId}/sessions/${examPaper.sessionYear}`
+    : '/diplomes';
+  const returnToParam = searchParams?.returnTo?.trim() ?? null;
+  const safeReturnTo =
+    returnToParam && returnToParam.startsWith('/') && !returnToParam.startsWith('//')
+      ? returnToParam
+      : null;
+  const backHref = safeReturnTo ?? defaultBackHref;
+  const backLabel: ReactNode = (() => {
+    if (!safeReturnTo) return <>Retour &agrave; la session</>;
+    if (safeReturnTo.startsWith('/exercises/')) return <>Retour &agrave; l&apos;exercice</>;
+    if (safeReturnTo.startsWith('/sujets/')) return <>Retour aux sujets</>;
+    if (safeReturnTo.includes('/sessions/')) return <>Retour &agrave; la session</>;
+    if (safeReturnTo.startsWith('/diplomes')) return <>Retour aux dipl&ocirc;mes</>;
+    if (safeReturnTo === '/' || safeReturnTo.startsWith('/?')) return <>Retour aux r&eacute;sultats</>;
+    return <>Retour</>;
+  })();
 
   const corrections = examPaper.corrections ?? [];
   const officialStatementUrl = examPaper.subjectUrl ?? null;
   const previewPdfUrl = examPaper.subjectUrl ?? null;
+  const hasCorrections = corrections.length > 0;
 
   const subjectBreadcrumbLabel =
     teachingLong && teachingLong !== subjectLabel
@@ -118,7 +136,7 @@ export default async function ExamPaperPage({ params }: PageProps) {
             <Button asChild variant="ghost" size="sm" className="gap-2">
               <Link href={backHref}>
                 <ChevronLeft className="h-4 w-4" />
-                Retour &agrave; la liste
+                <span>{backLabel}</span>
               </Link>
             </Button>
           </div>

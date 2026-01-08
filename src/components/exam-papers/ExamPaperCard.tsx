@@ -22,6 +22,7 @@ interface ExamPaperCardProps {
     label: string | null;
     domains: string[];
   }>;
+  returnTo?: string;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
 }
@@ -35,17 +36,21 @@ export function ExamPaperCard({
   summary,
   domains = [],
   exerciseDomains,
+  returnTo,
   isFavorite = false,
   onToggleFavorite,
 }: ExamPaperCardProps) {
   const showExerciseDomains = exerciseDomains !== undefined;
   const hasExerciseDomains = (exerciseDomains ?? []).length > 0;
   const titleLabel = normalizeExamPaperLabel(label) ?? label;
+  const examPaperHref = returnTo
+    ? { pathname: `/sujets/${id}`, query: { returnTo } }
+    : `/sujets/${id}`;
 
   return (
     <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
       <Link
-        href={`/sujets/${id}`}
+        href={examPaperHref}
         aria-label={`Ouvrir le sujet ${label}`}
         className="absolute inset-0 z-0 focus-visible:outline-none"
       />

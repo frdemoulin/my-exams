@@ -90,6 +90,7 @@ export default async function SessionPage({ params }: PageProps) {
   const subjectBreadcrumbLabel = teachingLongLabel
     ? `${subject.longDescription} (${teachingLongLabel})`
     : subject.longDescription;
+  const returnTo = `/diplomes/${diploma.id}/matieres/${subject.id}/sessions/${sessionYear}`;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -136,6 +137,7 @@ export default async function SessionPage({ params }: PageProps) {
                   diploma={paper.diploma.shortDescription || paper.diploma.longDescription}
                   subject={subjectLabel}
                   exerciseDomains={paper.exerciseDomains}
+                  returnTo={returnTo}
                 />
               );
             })}
