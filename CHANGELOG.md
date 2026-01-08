@@ -1,3 +1,8 @@
+## <small>1.4.29 (2026-01-08)</small>
+
+* Merge pull request #87 from frdemoulin/dev ([0fa851e](https://github.com/frdemoulin/my-exams/commit/0fa851e)), closes [#87](https://github.com/frdemoulin/my-exams/issues/87)
+* fix: corrections mineures dans les pages de détail d'un sujet et d'un exercice ([353c089](https://github.com/frdemoulin/my-exams/commit/353c089))
+
 ## <small>1.4.28 (2026-01-06)</small>
 
 * Merge pull request #86 from frdemoulin/dev ([03fcf00](https://github.com/frdemoulin/my-exams/commit/03fcf00)), closes [#86](https://github.com/frdemoulin/my-exams/issues/86)
