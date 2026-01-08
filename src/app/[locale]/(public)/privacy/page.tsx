@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { buildCanonicalUrl } from "@/lib/seo";
+import { PublicHeader } from "@/components/shared/public-header";
 
 const canonical = buildCanonicalUrl("/privacy");
 
@@ -12,8 +13,10 @@ export const metadata: Metadata = {
 
 const PrivacyPolicyPage = () => {
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 py-12">
-      <div className="space-y-8">
+    <div className="min-h-screen bg-background text-foreground">
+      <PublicHeader />
+      <main className="mx-auto w-full max-w-4xl px-4 py-12">
+        <div className="space-y-8">
         <div>
           <h1 className="text-2xl font-semibold text-heading">Politique de confidentialité</h1>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -109,7 +112,8 @@ const PrivacyPolicyPage = () => {
             Retour à l&apos;accueil
           </Link>
         </div>
-      </div>
+        </div>
+      </main>
     </div>
   );
 };

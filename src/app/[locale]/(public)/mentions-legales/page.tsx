@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 
 import { buildCanonicalUrl } from "@/lib/seo";
+import { PublicHeader } from "@/components/shared/public-header";
 import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 
 const canonical = buildCanonicalUrl("/mentions-legales");
@@ -19,8 +20,10 @@ const LegalMentionsPage = () => {
   const renderUrlIsExternal = isExternalUrl(renderUrl, internalOrigin);
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 py-12">
-      <div className="space-y-10">
+    <div className="min-h-screen bg-background text-foreground">
+      <PublicHeader />
+      <main className="mx-auto w-full max-w-4xl px-4 py-12">
+        <div className="space-y-10">
         {/* Header */}
         <div>
           <h1 className="text-2xl font-semibold text-heading">
@@ -237,7 +240,8 @@ const LegalMentionsPage = () => {
             Retour à l&apos;accueil
           </Link>
         </div>
-      </div>
+        </div>
+      </main>
     </div>
   );
 };

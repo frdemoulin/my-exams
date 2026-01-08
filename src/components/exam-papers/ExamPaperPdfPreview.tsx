@@ -14,6 +14,11 @@ type ExamPaperPdfPreviewProps = {
   frameTitle?: string;
 };
 
+const buildPdfViewerUrl = (url: string) => {
+  const viewerParams = 'toolbar=1&navpanes=0&view=FitH';
+  return url.includes('#') ? `${url}&${viewerParams}` : `${url}#${viewerParams}`;
+};
+
 export function ExamPaperPdfPreview({
   title = 'Aperçu du sujet (PDF)',
   pdfUrl,
@@ -22,18 +27,20 @@ export function ExamPaperPdfPreview({
   fallbackLabel = 'Consulter la source externe',
   frameTitle,
 }: ExamPaperPdfPreviewProps) {
+  const previewUrl = pdfUrl ? buildPdfViewerUrl(pdfUrl) : null;
+
   return (
     <Card>
       <CardHeader>
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        {pdfUrl ? (
+        {previewUrl ? (
           <div className="overflow-hidden rounded-2xl border border-border bg-card">
             <iframe
               title={frameTitle ?? 'Aperçu PDF'}
-              src={pdfUrl}
-              className="h-[100dvh] min-h-[100vh] w-full"
+              src={previewUrl}
+              className="h-[75vh] w-full"
             />
           </div>
         ) : fallbackUrl ? (

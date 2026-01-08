@@ -19,6 +19,8 @@ export type ExamPaperCorrectionLink = {
 type ExamPaperDocumentsCardProps = {
   officialStatementUrl: string | null;
   corrections: ExamPaperCorrectionLink[];
+  statementAnchorId?: string;
+  correctionsAnchorId?: string;
 };
 
 type LegalNoticeProps = {
@@ -74,6 +76,8 @@ function LegalNotice({ label, desktopContent, mobileContent, className }: LegalN
 export function ExamPaperDocumentsCard({
   officialStatementUrl,
   corrections,
+  statementAnchorId = 'documents-statement',
+  correctionsAnchorId = 'documents-corrections',
 }: ExamPaperDocumentsCardProps) {
   return (
     <Card id="documents">
@@ -83,7 +87,10 @@ export function ExamPaperDocumentsCard({
       <CardContent className="space-y-5">
         <div className="space-y-3">
           {officialStatementUrl ? (
-            <div className="flex items-center justify-between gap-4 rounded-lg border border-border p-3">
+            <div
+              id={statementAnchorId}
+              className="flex items-center justify-between gap-4 rounded-lg border border-border p-3 scroll-mt-24"
+            >
               <div className="flex-1 space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="font-medium">Sujet officiel (PDF)</p>
@@ -120,7 +127,10 @@ export function ExamPaperDocumentsCard({
 
         <div className="space-y-3">
           {corrections.length > 0 ? (
-            <div className="space-y-3">
+            <div
+              id={correctionsAnchorId}
+              className="space-y-3 scroll-mt-24"
+            >
               {corrections.map((correction, index) => {
                 const isLastCorrection = index === corrections.length - 1;
                 return (

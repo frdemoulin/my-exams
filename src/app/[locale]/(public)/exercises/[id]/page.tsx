@@ -278,15 +278,15 @@ export default function ExerciseDetailPage() {
             </BreadcrumbList>
           </Breadcrumb>
 
-          <div className="flex items-center gap-3">
-            <Button asChild variant="ghost" size="sm" className="gap-2">
-              <Link href={backHref}>
-                <ChevronLeft className="h-4 w-4" />
-                {backLabel}
-              </Link>
-            </Button>
-          </div>
+        <div className="flex items-center gap-3">
+          <Button asChild variant="ghost" size="sm" className="gap-2">
+            <Link href={backHref}>
+              <ChevronLeft className="h-4 w-4" />
+              {backLabel}
+            </Link>
+          </Button>
         </div>
+      </div>
         <div className="space-y-6">
           {/* En-tête exercice */}
           <div className="space-y-4">
