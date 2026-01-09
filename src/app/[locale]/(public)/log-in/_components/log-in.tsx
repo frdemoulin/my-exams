@@ -51,6 +51,15 @@ export async function LogIn() {
           <CardTitle className="flex justify-center">Connexion à l&apos;application</CardTitle>
         </CardHeader>
         <CardContent>
+          <div className="mb-5 rounded-base border border-default bg-neutral-primary-soft p-3 text-xs text-muted-foreground">
+            <div className="font-semibold text-heading">Pourquoi se connecter&nbsp;?</div>
+            <p className="mt-1">
+              Pour retrouver facilement tes sujets et exercices consult&eacute;s.
+            </p>
+            <p className="mt-1">
+              Compte gratuit, sans obligation, uniquement pour la continuit&eacute;.
+            </p>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
             <p className="text-sm text-body">Se connecter avec</p>
             <TooltipProvider>

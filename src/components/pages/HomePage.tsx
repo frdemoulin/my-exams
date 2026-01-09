@@ -4,6 +4,7 @@ import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
 import { Search, X } from 'lucide-react';
 import type { Diploma, Subject } from '@prisma/client';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,10 +37,18 @@ interface HomePageProps {
   initialDiplomas: Diploma[];
 }
 
+type ResumeActivity = {
+  kind: 'exercise' | 'examPaper';
+  href: string;
+  title: string;
+  context?: string;
+};
+
 export default function HomePage({
   initialSubjects,
   initialDiplomas,
 }: HomePageProps) {
+  const { data: session } = useSession();
   const SEARCH_STATE_KEY = 'my-exams:search-state';
   const SEARCH_RESTORE_KEY = 'my-exams:search-restore';
   const [search, setSearch] = useState('');
@@ -78,6 +87,8 @@ export default function HomePage({
     >
   >([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [resumeActivity, setResumeActivity] = useState<ResumeActivity | null>(null);
+  const [isResumeLoading, setIsResumeLoading] = useState(false);
   const [teachingOptions, setTeachingOptions] = useState<
     Array<{ value: string; label: string }>
   >([]);
@@ -120,6 +131,25 @@ export default function HomePage({
     }
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (!session?.user) {
+      setResumeActivity(null);
+      return;
+    }
+
+    setIsResumeLoading(true);
+    fetch('/api/user-activity')
+      .then((res) => res.json())
+      .then((data) => {
+        setResumeActivity(data.activity ?? null);
+        setIsResumeLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching user activity:', error);
+        setIsResumeLoading(false);
+      });
+  }, [session?.user]);
 
   const hasActiveSearch = Boolean(
     search.trim() ||
@@ -1181,6 +1211,43 @@ export default function HomePage({
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="space-y-6">
+            {session?.user && (resumeActivity || isResumeLoading) && (
+              <section className="space-y-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-lg">🧭</span>
+                  <h2 className="text-lg font-semibold">Continuer l&agrave; o&ugrave; je me suis arr&ecirc;t&eacute;</h2>
+                </div>
+                {isResumeLoading ? (
+                  <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+                    <div className="space-y-2">
+                      <Skeleton className="h-4 w-3/4" />
+                      <Skeleton className="h-3 w-1/2" />
+                      <Skeleton className="h-9 w-32" />
+                    </div>
+                  </div>
+                ) : resumeActivity ? (
+                  <Card>
+                    <CardHeader className="space-y-1">
+                      <CardTitle className="text-base">{resumeActivity.title}</CardTitle>
+                      {resumeActivity.context && (
+                        <CardDescription>{resumeActivity.context}</CardDescription>
+                      )}
+                    </CardHeader>
+                    <CardContent>
+                      <Button asChild variant="default">
+                        <Link href={resumeActivity.href}>Continuer</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ) : (
+                  <Card>
+                    <CardContent className="py-4 text-sm text-muted-foreground">
+                      Aucune activit&eacute; r&eacute;cente enregistr&eacute;e.
+                    </CardContent>
+                  </Card>
+                )}
+              </section>
+            )}
             {/* SECTION : RÉSULTATS DE RECHERCHE */}
             {showResults && (
               <section className="space-y-6">
