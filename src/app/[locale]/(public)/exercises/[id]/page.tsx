@@ -25,6 +25,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
+import { AccountContinuityCta } from '@/components/shared/account-continuity-cta';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
@@ -68,6 +69,23 @@ export default function ExerciseDetailPage() {
         setLoading(false);
       });
   }, [params?.id]);
+
+  useEffect(() => {
+    if (!exercise) return;
+
+    const subjectId = exercise.examPaper?.teaching?.subject?.id ?? null;
+
+    fetch('/api/user-activity', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        examPaperId: exercise.examPaper?.id ?? null,
+        exerciseId: exercise.id,
+        subjectId,
+        sessionYear: exercise.examPaper?.sessionYear ?? null,
+      }),
+    }).catch(() => {});
+  }, [exercise]);
 
   const toggleFavorite = () => {
     if (!exercise) return;
@@ -347,6 +365,8 @@ export default function ExerciseDetailPage() {
             officialStatementUrl={officialStatementUrl}
             corrections={mergedCorrections}
           />
+
+          <AccountContinuityCta kind="exercise" />
 
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div className="space-y-6">

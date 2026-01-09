@@ -30,15 +30,6 @@ type LegalNoticeProps = {
   label?: string;
 };
 
-const formatCorrectionType = (value?: string | null) => {
-  if (!value) return 'PDF';
-  const normalized = value.trim().toLowerCase();
-  if (normalized === 'pdf') return 'PDF';
-  if (normalized === 'video') return 'Vidéo';
-  if (normalized === 'html') return 'Page web';
-  return value.toUpperCase();
-};
-
 function LegalNotice({ label, desktopContent, mobileContent, className }: LegalNoticeProps) {
   return (
     <div className={className}>
@@ -89,7 +80,7 @@ export function ExamPaperDocumentsCard({
           {officialStatementUrl ? (
             <div
               id={statementAnchorId}
-              className="flex items-center justify-between gap-4 rounded-lg border border-border p-3 scroll-mt-24"
+              className="flex flex-col gap-2 scroll-mt-24 md:flex-row md:items-center md:justify-between"
             >
               <div className="flex-1 space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
@@ -111,7 +102,7 @@ export function ExamPaperDocumentsCard({
               </div>
               <Button size="sm" asChild>
                 <a href={officialStatementUrl} target="_blank" rel="noopener noreferrer">
-                  Ouvrir le sujet (PDF)
+                  Ouvrir le sujet
                   {isExternalUrl(officialStatementUrl) && (
                     <ExternalLink className="ml-2 h-4 w-4" />
                   )}
@@ -136,11 +127,11 @@ export function ExamPaperDocumentsCard({
                 return (
                   <div
                     key={correction.id ?? `${correction.source}-${correction.url}`}
-                    className="flex items-center justify-between rounded-lg border border-border p-3"
+                    className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
                   >
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <p className="font-medium">{correction.source}</p>
+                        <p className="font-medium">Correction {correction.source} (PDF)</p>
                         {isLastCorrection && (
                           <LegalNotice
                             className="w-full md:w-auto"
@@ -180,7 +171,7 @@ export function ExamPaperDocumentsCard({
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Corrig&eacute; {correction.source} ({formatCorrectionType(correction.type)})
+                        Ouvrir la correction
                         {isExternalUrl(correction.url) && (
                           <ExternalLink className="ml-2 h-4 w-4" />
                         )}

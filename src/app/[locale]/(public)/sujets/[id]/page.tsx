@@ -7,13 +7,16 @@ import { ChevronLeft } from 'lucide-react';
 
 import { fetchExamPaperById } from '@/core/exam-paper';
 import { fetchExercisesByExamPaperId } from '@/core/exercise';
+import { upsertUserActivity } from '@/core/user-activity';
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
+import { AccountContinuityCta } from '@/components/shared/account-continuity-cta';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { ExamPaperComposition } from '@/components/exam-papers/ExamPaperComposition';
 import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
+import getSession from '@/lib/auth/get-session';
 import { buildCanonicalUrl } from '@/lib/seo';
 import { normalizeExamPaperLabel } from '@/lib/utils';
 
@@ -64,6 +67,20 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
 
   if (!examPaper) {
     notFound();
+  }
+
+  const session = await getSession();
+  if (session?.user?.id) {
+    try {
+      await upsertUserActivity({
+        userId: session.user.id,
+        examPaperId: examPaper.id,
+        subjectId: examPaper.teaching.subjectId ?? null,
+        sessionYear: examPaper.sessionYear,
+      });
+    } catch (error) {
+      console.error('Erreur de suivi activité utilisateur:', error);
+    }
   }
 
   const subjectLabel =
@@ -153,6 +170,8 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
           officialStatementUrl={officialStatementUrl}
           corrections={corrections}
         />
+
+        <AccountContinuityCta kind="examPaper" />
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="space-y-6">
