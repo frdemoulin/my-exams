@@ -1,3 +1,8 @@
+## <small>1.4.30 (2026-01-09)</small>
+
+* Merge pull request #88 from frdemoulin/dev ([a23ce66](https://github.com/frdemoulin/my-exams/commit/a23ce66)), closes [#88](https://github.com/frdemoulin/my-exams/issues/88)
+* fix: mise en place de statistiques d'usage ([4fa1a2b](https://github.com/frdemoulin/my-exams/commit/4fa1a2b))
+
 ## <small>1.4.29 (2026-01-08)</small>
 
 * Merge pull request #87 from frdemoulin/dev ([0fa851e](https://github.com/frdemoulin/my-exams/commit/0fa851e)), closes [#87](https://github.com/frdemoulin/my-exams/issues/87)
