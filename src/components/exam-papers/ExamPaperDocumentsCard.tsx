@@ -123,7 +123,6 @@ export function ExamPaperDocumentsCard({
               className="space-y-3 scroll-mt-24"
             >
               {corrections.map((correction, index) => {
-                const isLastCorrection = index === corrections.length - 1;
                 return (
                   <div
                     key={correction.id ?? `${correction.source}-${correction.url}`}
@@ -132,23 +131,21 @@ export function ExamPaperDocumentsCard({
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="font-medium">Correction {correction.source} (PDF)</p>
-                        {isLastCorrection && (
-                          <LegalNotice
-                            className="w-full md:w-auto"
-                            desktopContent={
-                              <>
-                                H&eacute;bergement et diffusion des corrections par leurs
-                                &eacute;diteurs respectifs. Aucun h&eacute;bergement par My Exams.
-                              </>
-                            }
-                            mobileContent={
-                              <>
-                                H&eacute;bergement et diffusion des corrections par leurs
-                                &eacute;diteurs respectifs. Aucun h&eacute;bergement par My Exams.
-                              </>
-                            }
-                          />
-                        )}
+                        <LegalNotice
+                          className="w-full md:w-auto"
+                          desktopContent={
+                            <>
+                              H&eacute;bergement et diffusion des corrections par leurs
+                              &eacute;diteurs respectifs. Aucun h&eacute;bergement par My Exams.
+                            </>
+                          }
+                          mobileContent={
+                            <>
+                              H&eacute;bergement et diffusion des corrections par leurs
+                              &eacute;diteurs respectifs. Aucun h&eacute;bergement par My Exams.
+                            </>
+                          }
+                        />
                       </div>
                       {correction.author && (
                         <p className="text-sm text-muted-foreground">

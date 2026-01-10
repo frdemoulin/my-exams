@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { Heart, ChevronLeft } from 'lucide-react';
 import {
   Card,
@@ -15,16 +16,9 @@ import {
   CardContent,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { AccountContinuityCta } from '@/components/shared/account-continuity-cta';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
@@ -37,6 +31,7 @@ import { normalizeExamPaperLabel } from '@/lib/utils';
 export default function ExerciseDetailPage() {
   const params = useParams();
   const searchParams = useSearchParams();
+  const { data: session, status } = useSession();
   const [exercise, setExercise] = useState<ExerciseWithRelations | null>(null);
   const [loading, setLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -71,7 +66,7 @@ export default function ExerciseDetailPage() {
   }, [params?.id]);
 
   useEffect(() => {
-    if (!exercise) return;
+    if (!exercise || status !== 'authenticated' || !session?.user?.id) return;
 
     const subjectId = exercise.examPaper?.teaching?.subject?.id ?? null;
 
@@ -85,7 +80,7 @@ export default function ExerciseDetailPage() {
         sessionYear: exercise.examPaper?.sessionYear ?? null,
       }),
     }).catch(() => {});
-  }, [exercise]);
+  }, [exercise, session?.user?.id, status]);
 
   const toggleFavorite = () => {
     if (!exercise) return;
@@ -162,7 +157,6 @@ export default function ExerciseDetailPage() {
     estimatedDifficulty,
     summary,
     themes,
-    corrections: exerciseCorrections,
     examPaper,
   } = exercise;
 
@@ -199,16 +193,6 @@ export default function ExerciseDetailPage() {
     return 'Retour';
   })();
   const examPaperCorrections = examPaper.corrections ?? [];
-  const mergedCorrections = (() => {
-    const items = [...(exerciseCorrections ?? []), ...examPaperCorrections];
-    const seen = new Set<string>();
-    return items.filter((item) => {
-      const key = `${item.source}::${item.url}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-  })();
   const officialStatementUrl = examPaper.subjectUrl ?? null;
   const previewPdfUrl = exerciseUrl || examPaper.subjectUrl || null;
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
@@ -232,6 +216,28 @@ export default function ExerciseDetailPage() {
   ).sort((a, b) =>
     a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' })
   );
+  const breadcrumbItems = [
+    { label: 'Accueil', href: '/' },
+    { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
+    { label: diploma.longDescription, href: `/diplomes/${diploma.id}` },
+    ...(subjectId
+      ? [
+          {
+            label: subjectBreadcrumbLabel,
+            href: `/diplomes/${diploma.id}/matieres/${subjectId}`,
+          },
+          {
+            label: `Session ${sessionYear}`,
+            href: `/diplomes/${diploma.id}/matieres/${subjectId}/sessions/${sessionYear}`,
+          },
+        ]
+      : []),
+    {
+      label: paperLabelDisplay || 'Sujet',
+      href: `/sujets/${examPaper.id}`,
+    },
+    { label: displayTitle },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -240,71 +246,18 @@ export default function ExerciseDetailPage() {
       {/* Contenu principal */}
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8">
         <div className="space-y-3">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/">Accueil</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/diplomes">Dipl&ocirc;mes</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href={`/diplomes/${diploma.id}`}>{diploma.longDescription}</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              {subjectId && (
-                <>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link href={`/diplomes/${diploma.id}/matieres/${subjectId}`}>
-                        {subjectBreadcrumbLabel}
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link
-                        href={`/diplomes/${diploma.id}/matieres/${subjectId}/sessions/${sessionYear}`}
-                      >
-                        Session {sessionYear}
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                </>
-              )}
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href={`/sujets/${examPaper.id}`}>
-                    {paperLabelDisplay || 'Sujet'}
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{displayTitle}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <PublicBreadcrumb items={breadcrumbItems} />
 
-        <div className="flex items-center gap-3">
-          <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link href={backHref}>
-              <ChevronLeft className="h-4 w-4" />
-              {backLabel}
-            </Link>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button asChild variant="ghost" size="sm" className="gap-2">
+              <Link href={backHref}>
+                <ChevronLeft className="h-4 w-4" />
+                {backLabel}
+              </Link>
+            </Button>
+          </div>
         </div>
-      </div>
+
         <div className="space-y-6">
           {/* En-tête exercice */}
           <div className="space-y-4">
@@ -363,7 +316,7 @@ export default function ExerciseDetailPage() {
 
           <ExamPaperDocumentsCard
             officialStatementUrl={officialStatementUrl}
-            corrections={mergedCorrections}
+            corrections={examPaperCorrections}
           />
 
           <AccountContinuityCta kind="exercise" />

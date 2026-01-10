@@ -29,6 +29,7 @@ import { SiteFooter } from '@/components/shared/site-footer';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { normalizeExamPaperLabel } from '@/lib/utils';
+import { RESUME_ACTIVITY_TTL_DAYS } from '@/config/app';
 
 // Types importés depuis @/core/exercise
 
@@ -44,6 +45,8 @@ type ResumeActivity = {
   context?: string;
 };
 
+const RESUME_DISMISS_TTL_MS = RESUME_ACTIVITY_TTL_DAYS * 24 * 60 * 60 * 1000;
+
 export default function HomePage({
   initialSubjects,
   initialDiplomas,
@@ -51,6 +54,7 @@ export default function HomePage({
   const { data: session } = useSession();
   const SEARCH_STATE_KEY = 'my-exams:search-state';
   const SEARCH_RESTORE_KEY = 'my-exams:search-restore';
+  const RESUME_DISMISS_KEY = 'my-exams:resume-dismissed';
   const [search, setSearch] = useState('');
   const [selectedDiploma, setSelectedDiploma] = useState<string | undefined>();
   const [selectedSubject, setSelectedSubject] = useState<string | undefined>();
@@ -89,6 +93,7 @@ export default function HomePage({
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [resumeActivity, setResumeActivity] = useState<ResumeActivity | null>(null);
   const [isResumeLoading, setIsResumeLoading] = useState(false);
+  const [isResumeDismissed, setIsResumeDismissed] = useState(false);
   const [teachingOptions, setTeachingOptions] = useState<
     Array<{ value: string; label: string }>
   >([]);
@@ -125,6 +130,21 @@ export default function HomePage({
       const savedFavorites = localStorage.getItem('exercise-favorites');
       if (savedFavorites) {
         setFavorites(new Set(JSON.parse(savedFavorites)));
+      }
+      const resumeDismissed = localStorage.getItem(RESUME_DISMISS_KEY);
+      if (resumeDismissed) {
+        const dismissedAt = Number(resumeDismissed);
+        const effectiveTimestamp = Number.isFinite(dismissedAt)
+          ? dismissedAt
+          : Date.now();
+        if (!Number.isFinite(dismissedAt)) {
+          localStorage.setItem(RESUME_DISMISS_KEY, String(effectiveTimestamp));
+        }
+        if (Date.now() - effectiveTimestamp < RESUME_DISMISS_TTL_MS) {
+          setIsResumeDismissed(true);
+        } else {
+          localStorage.removeItem(RESUME_DISMISS_KEY);
+        }
       }
     } catch (error) {
       console.error('Error loading favorites:', error);
@@ -1211,11 +1231,30 @@ export default function HomePage({
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="space-y-6">
-            {session?.user && (resumeActivity || isResumeLoading) && (
+            {session?.user && !isResumeDismissed && (resumeActivity || isResumeLoading) && (
               <section className="space-y-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-lg">🧭</span>
-                  <h2 className="text-lg font-semibold">Continuer l&agrave; o&ugrave; je me suis arr&ecirc;t&eacute;</h2>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-lg">🧭</span>
+                    <h2 className="text-lg font-semibold">Continuer l&agrave; o&ugrave; je me suis arr&ecirc;t&eacute;</h2>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                      onClick={() => {
+                        setIsResumeDismissed(true);
+                        try {
+                          localStorage.setItem(RESUME_DISMISS_KEY, String(Date.now()));
+                        } catch {
+                          // Ignore localStorage errors.
+                        }
+                    }}
+                    aria-label="Masquer ce bloc"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
                 </div>
                 {isResumeLoading ? (
                   <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
@@ -1233,7 +1272,7 @@ export default function HomePage({
                         <CardDescription>{resumeActivity.context}</CardDescription>
                       )}
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex justify-end">
                       <Button asChild variant="default">
                         <Link href={resumeActivity.href}>Continuer</Link>
                       </Button>
