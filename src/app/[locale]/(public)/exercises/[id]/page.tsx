@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { Heart, ChevronLeft } from 'lucide-react';
 import {
   Card,
@@ -37,6 +38,7 @@ import { normalizeExamPaperLabel } from '@/lib/utils';
 export default function ExerciseDetailPage() {
   const params = useParams();
   const searchParams = useSearchParams();
+  const { data: session, status } = useSession();
   const [exercise, setExercise] = useState<ExerciseWithRelations | null>(null);
   const [loading, setLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -71,7 +73,7 @@ export default function ExerciseDetailPage() {
   }, [params?.id]);
 
   useEffect(() => {
-    if (!exercise) return;
+    if (!exercise || status !== 'authenticated' || !session?.user?.id) return;
 
     const subjectId = exercise.examPaper?.teaching?.subject?.id ?? null;
 
@@ -85,7 +87,7 @@ export default function ExerciseDetailPage() {
         sessionYear: exercise.examPaper?.sessionYear ?? null,
       }),
     }).catch(() => {});
-  }, [exercise]);
+  }, [exercise, session?.user?.id, status]);
 
   const toggleFavorite = () => {
     if (!exercise) return;

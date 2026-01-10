@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import prisma from '@/lib/db/prisma';
 import { auth } from '@/lib/auth/auth';
 import { upsertUserActivity } from '@/core/user-activity';
+import { RESUME_ACTIVITY_TTL_DAYS } from '@/config/app';
 import { normalizeExamPaperLabel } from '@/lib/utils';
 
 type UserActivityPayload = {
@@ -42,13 +43,21 @@ export async function POST(request: Request) {
         : null;
   const sessionYear = Number.isNaN(parsedSessionYear) ? null : parsedSessionYear;
 
-  await upsertUserActivity({
-    userId,
-    examPaperId: typeof payload?.examPaperId === 'string' ? payload.examPaperId : null,
-    exerciseId: typeof payload?.exerciseId === 'string' ? payload.exerciseId : null,
-    subjectId: typeof payload?.subjectId === 'string' ? payload.subjectId : null,
-    sessionYear,
-  });
+  try {
+    await upsertUserActivity({
+      userId,
+      examPaperId: typeof payload?.examPaperId === 'string' ? payload.examPaperId : null,
+      exerciseId: typeof payload?.exerciseId === 'string' ? payload.exerciseId : null,
+      subjectId: typeof payload?.subjectId === 'string' ? payload.subjectId : null,
+      sessionYear,
+    });
+  } catch (error) {
+    console.error('Erreur de suivi activité utilisateur:', error);
+    return NextResponse.json(
+      { success: false, message: 'Erreur de suivi activité utilisateur.' },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({ success: true });
 }
@@ -69,6 +78,11 @@ export async function GET() {
   });
 
   if (!activity) {
+    return NextResponse.json({ success: true, activity: null });
+  }
+
+  const maxAgeMs = RESUME_ACTIVITY_TTL_DAYS * 24 * 60 * 60 * 1000;
+  if (activity.updatedAt && Date.now() - activity.updatedAt.getTime() > maxAgeMs) {
     return NextResponse.json({ success: true, activity: null });
   }
 
