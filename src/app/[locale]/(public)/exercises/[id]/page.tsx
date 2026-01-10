@@ -16,16 +16,9 @@ import {
   CardContent,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { PublicHeader } from '@/components/shared/public-header';
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { AccountContinuityCta } from '@/components/shared/account-continuity-cta';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
@@ -223,6 +216,28 @@ export default function ExerciseDetailPage() {
   ).sort((a, b) =>
     a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' })
   );
+  const breadcrumbItems = [
+    { label: 'Accueil', href: '/' },
+    { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
+    { label: diploma.longDescription, href: `/diplomes/${diploma.id}` },
+    ...(subjectId
+      ? [
+          {
+            label: subjectBreadcrumbLabel,
+            href: `/diplomes/${diploma.id}/matieres/${subjectId}`,
+          },
+          {
+            label: `Session ${sessionYear}`,
+            href: `/diplomes/${diploma.id}/matieres/${subjectId}/sessions/${sessionYear}`,
+          },
+        ]
+      : []),
+    {
+      label: paperLabelDisplay || 'Sujet',
+      href: `/sujets/${examPaper.id}`,
+    },
+    { label: displayTitle },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -231,71 +246,18 @@ export default function ExerciseDetailPage() {
       {/* Contenu principal */}
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8">
         <div className="space-y-3">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/">Accueil</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/diplomes">Dipl&ocirc;mes</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href={`/diplomes/${diploma.id}`}>{diploma.longDescription}</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              {subjectId && (
-                <>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link href={`/diplomes/${diploma.id}/matieres/${subjectId}`}>
-                        {subjectBreadcrumbLabel}
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link
-                        href={`/diplomes/${diploma.id}/matieres/${subjectId}/sessions/${sessionYear}`}
-                      >
-                        Session {sessionYear}
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                </>
-              )}
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href={`/sujets/${examPaper.id}`}>
-                    {paperLabelDisplay || 'Sujet'}
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{displayTitle}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <PublicBreadcrumb items={breadcrumbItems} />
 
-        <div className="flex items-center gap-3">
-          <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link href={backHref}>
-              <ChevronLeft className="h-4 w-4" />
-              {backLabel}
-            </Link>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button asChild variant="ghost" size="sm" className="gap-2">
+              <Link href={backHref}>
+                <ChevronLeft className="h-4 w-4" />
+                {backLabel}
+              </Link>
+            </Button>
+          </div>
         </div>
-      </div>
+
         <div className="space-y-6">
           {/* En-tête exercice */}
           <div className="space-y-4">

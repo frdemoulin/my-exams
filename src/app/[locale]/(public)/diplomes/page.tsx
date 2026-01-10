@@ -11,8 +11,8 @@ import { buildCanonicalUrl } from '@/lib/seo';
 const canonical = buildCanonicalUrl('/diplomes');
 
 export const metadata: Metadata = {
-  title: 'Diplomes',
-  description: "Choisis ton diplome pour acceder rapidement aux sujets d'annales.",
+  title: "Diplômes",
+  description: "Choisis ton diplôme pour accéder rapidement aux sujets d'annales.",
   alternates: canonical ? { canonical } : undefined,
 };
 

@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!diploma || !subject) {
     return {
-      title: 'Matiere introuvable',
+      title: 'Matière introuvable',
     };
   }
 

@@ -48,7 +48,7 @@ function buildDomainGroups(exercise: ExerciseWithRelations): DomainGroup[] {
   if (orphanThemes.length > 0) {
     domainMap.set('orphan', {
       id: 'orphan',
-      label: 'Autres th\u00e8mes',
+      label: 'Autres thèmes',
       order: Number.POSITIVE_INFINITY,
       themes: orphanThemes,
     });
@@ -71,8 +71,8 @@ function buildDomainGroups(exercise: ExerciseWithRelations): DomainGroup[] {
 
 export function ExerciseDomainsCard({
   exercise,
-  title = 'Domaines abord\u00e9s',
-  emptyLabel = 'Domaines et th\u00e8mes non renseign\u00e9s.',
+  title = 'Domaines abordés',
+  emptyLabel = 'Domaines et thèmes non renseignés.',
 }: ExerciseDomainsCardProps) {
   const domainGroups = buildDomainGroups(exercise);
 
@@ -103,7 +103,7 @@ export function ExerciseDomainsCard({
                   </div>
                 ) : (
                   <p className="text-xs text-muted-foreground">
-                    Th\u00e8mes non renseign\u00e9s.
+                    Thèmes non renseignés.
                   </p>
                 )}
               </CardContent>

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!diploma) {
     return {
-      title: 'Diplome introuvable',
+      title: 'Diplôme introuvable',
     };
   }
 
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: diploma.longDescription,
-    description: `Matieres disponibles pour ${diploma.longDescription}.`,
+    description: `Matières disponibles pour ${diploma.longDescription}.`,
     alternates: canonical ? { canonical } : undefined,
   };
 }

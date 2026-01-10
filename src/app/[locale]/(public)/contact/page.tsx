@@ -8,7 +8,7 @@ const canonical = buildCanonicalUrl("/contact");
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contacte l'equipe My Exams pour une question ou un retour.",
+  description: "Contacte l'équipe My Exams pour une question ou un retour.",
   alternates: canonical ? { canonical } : undefined,
 };
 
