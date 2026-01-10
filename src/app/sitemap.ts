@@ -1,14 +1,19 @@
 import type { MetadataRoute } from 'next';
 import prisma from '@/lib/db/prisma';
 import { fetchActiveDiplomasWithExamPapers } from '@/core/exam-paper';
-import { getSeoBaseUrlWithDefault } from '@/lib/seo';
+import { getSeoBaseUrl, getSeoBaseUrlWithDefault } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = getSeoBaseUrlWithDefault();
+  const baseUrl =
+    process.env.NODE_ENV === 'production' ? getSeoBaseUrl() : getSeoBaseUrlWithDefault();
   const now = new Date();
+
+  if (!baseUrl) {
+    return [];
+  }
 
   const staticEntries: MetadataRoute.Sitemap = [
     {
