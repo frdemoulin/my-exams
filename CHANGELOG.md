@@ -1,3 +1,11 @@
+## <small>1.4.31 (2026-01-10)</small>
+
+* Merge pull request #89 from frdemoulin/dev ([ad952fe](https://github.com/frdemoulin/my-exams/commit/ad952fe)), closes [#89](https://github.com/frdemoulin/my-exams/issues/89)
+* fix: correctifs SEO ([50f9f83](https://github.com/frdemoulin/my-exams/commit/50f9f83))
+* fix: corrections mineures dans la page de détail d'un sujet ([be22187](https://github.com/frdemoulin/my-exams/commit/be22187))
+* fix: incitation à la création de compte ([a69c78d](https://github.com/frdemoulin/my-exams/commit/a69c78d))
+* fix: mise à jour des accents et du SEO ([ec88390](https://github.com/frdemoulin/my-exams/commit/ec88390))
+
 ## <small>1.4.30 (2026-01-09)</small>
 
 * Merge pull request #88 from frdemoulin/dev ([a23ce66](https://github.com/frdemoulin/my-exams/commit/a23ce66)), closes [#88](https://github.com/frdemoulin/my-exams/issues/88)
