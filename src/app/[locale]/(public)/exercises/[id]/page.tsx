@@ -164,7 +164,6 @@ export default function ExerciseDetailPage() {
     estimatedDifficulty,
     summary,
     themes,
-    corrections: exerciseCorrections,
     examPaper,
   } = exercise;
 
@@ -201,16 +200,6 @@ export default function ExerciseDetailPage() {
     return 'Retour';
   })();
   const examPaperCorrections = examPaper.corrections ?? [];
-  const mergedCorrections = (() => {
-    const items = [...(exerciseCorrections ?? []), ...examPaperCorrections];
-    const seen = new Set<string>();
-    return items.filter((item) => {
-      const key = `${item.source}::${item.url}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-  })();
   const officialStatementUrl = examPaper.subjectUrl ?? null;
   const previewPdfUrl = exerciseUrl || examPaper.subjectUrl || null;
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
@@ -365,7 +354,7 @@ export default function ExerciseDetailPage() {
 
           <ExamPaperDocumentsCard
             officialStatementUrl={officialStatementUrl}
-            corrections={mergedCorrections}
+            corrections={examPaperCorrections}
           />
 
           <AccountContinuityCta kind="exercise" />
