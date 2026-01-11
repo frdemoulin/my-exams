@@ -119,7 +119,7 @@ Affiche un exercice avec :
 - Tri : année, difficulté, durée
 - Favoris en localStorage avec clé `exercise-favorites`
 
-#### **Page de détail `/exercises/[id]`**
+#### **Page de détail `/exercices/[id]`**
 - Titre et traçabilité du sujet parent
 - Hiérarchie complète : Diploma › Subject › Grade
 - Métadonnées : Points, durée, difficulté, thèmes, keywords
@@ -166,7 +166,7 @@ src/core/exercise/
   ├── exercise.types.ts      # Types TypeScript
   └── index.ts               # Exports
 
-src/app/(public)/exercises/
+src/app/(public)/exercices/
   └── [id]/
       └── page.tsx           # Page de détail d'exercice
 
@@ -215,7 +215,7 @@ src/components/pages/HomePage.tsx  # Recherche d'exercices
 
 ### Détail
 4. Clique sur "Voir l'exercice"
-5. Voit la page `/exercises/[id]` avec :
+5. Voit la page `/exercices/[id]` avec :
    - Titre : "Titrage acide-base d'un vinaigre"
    - Traçabilité : Métropole juin 2024 - Exercice 3 (6 pts)
    - Métadonnées : Points, durée, difficulté, thèmes

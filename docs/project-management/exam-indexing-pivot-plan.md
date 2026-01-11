@@ -52,7 +52,7 @@ Transformer My Exams vers un **moteur de recherche d'exercices d'annales** avec 
   - Compteur de corrections disponibles
 - [x] Refactorer `HomePage` pour la recherche d'exercices
 - [x] Implémenter les filtres (diplôme, matière, difficulté, année, thèmes)
-- [x] Créer la page de détail `/exercises/[id]`
+- [x] Créer la page de détail `/exercices/[id]`
 - [x] Mettre à jour le hero avec l'approche exercice
 - [x] Système de favoris par exercice (localStorage)
 

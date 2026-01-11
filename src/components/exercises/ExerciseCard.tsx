@@ -140,8 +140,8 @@ export function ExerciseCard({
   const search = searchParams?.toString();
   const returnTo = pathname ? (search ? `${pathname}?${search}` : pathname) : null;
   const exerciseHref = returnTo
-    ? { pathname: `/exercises/${id}`, query: { returnTo } }
-    : `/exercises/${id}`;
+    ? { pathname: `/exercices/${id}`, query: { returnTo } }
+    : `/exercices/${id}`;
 
   return (
     <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">

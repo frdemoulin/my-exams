@@ -104,7 +104,7 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
   const backHref = safeReturnTo ?? defaultBackHref;
   const backLabel: ReactNode = (() => {
     if (!safeReturnTo) return <>Retour &agrave; la session</>;
-    if (safeReturnTo.startsWith('/exercises/')) return <>Retour &agrave; l&apos;exercice</>;
+    if (safeReturnTo.startsWith('/exercices/')) return <>Retour &agrave; l&apos;exercice</>;
     if (safeReturnTo.startsWith('/sujets/')) return <>Retour aux sujets</>;
     if (safeReturnTo.includes('/sessions/')) return <>Retour &agrave; la session</>;
     if (safeReturnTo.startsWith('/diplomes')) return <>Retour aux dipl&ocirc;mes</>;

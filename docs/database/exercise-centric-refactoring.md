@@ -306,7 +306,7 @@ async function migrateExamPapersToExercises() {
 - [ ] Mettre à jour `HomePage` avec nouvelle logique de recherche
 
 ### Phase 3 : Interface utilisateur (2-3 jours)
-- [ ] Page de détail d'exercice `/exercises/[id]`
+- [ ] Page de détail d'exercice `/exercices/[id]`
 - [ ] Liste d'exercices avec traçabilité du sujet parent
 - [ ] Système de favoris par exercice
 

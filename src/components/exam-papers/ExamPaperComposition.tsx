@@ -112,10 +112,10 @@ export function ExamPaperComposition({
             const groupedDomains = buildGroupedDomains(exercise);
             const href = returnTo
               ? {
-                  pathname: `/exercises/${exercise.id}`,
+                  pathname: `/exercices/${exercise.id}`,
                   query: { returnTo },
                 }
-              : `/exercises/${exercise.id}`;
+              : `/exercices/${exercise.id}`;
             const isCurrent = currentExerciseId === exercise.id;
 
             return (
