@@ -1,3 +1,9 @@
+## <small>1.4.34 (2026-01-11)</small>
+
+* Merge pull request #92 from frdemoulin/dev ([cbb878a](https://github.com/frdemoulin/my-exams/commit/cbb878a)), closes [#92](https://github.com/frdemoulin/my-exams/issues/92)
+* fix: ajout d'une description d'un thème ([92e70bf](https://github.com/frdemoulin/my-exams/commit/92e70bf))
+* fix: harmonisation des footers ([0940e82](https://github.com/frdemoulin/my-exams/commit/0940e82))
+
 ## <small>1.4.33 (2026-01-11)</small>
 
 * Merge pull request #91 from frdemoulin/dev ([b31d80e](https://github.com/frdemoulin/my-exams/commit/b31d80e)), closes [#91](https://github.com/frdemoulin/my-exams/issues/91)
