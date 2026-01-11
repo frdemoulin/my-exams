@@ -456,6 +456,7 @@ model Theme {
   id               String  @id @default(auto()) @map("_id") @db.ObjectId
   longDescription  String
   shortDescription String?
+  description      String?
 
   domainId String  @db.ObjectId
   domain   Domain @relation(fields: [domainId], references: [id])

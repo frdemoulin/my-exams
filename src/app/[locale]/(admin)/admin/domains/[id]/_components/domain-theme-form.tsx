@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 interface DomainThemeFormProps {
     domainId: string;
@@ -24,6 +25,7 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
         defaultValues: {
             longDescription: "",
             shortDescription: "",
+            description: "",
             domainId,
         },
         resolver: zodResolver(createThemeSchema),
@@ -40,6 +42,7 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
         const formData = new FormData();
         formData.append("longDescription", values.longDescription);
         formData.append("shortDescription", values.shortDescription || "");
+        formData.append("description", values.description || "");
         formData.append("domainId", domainId);
 
         await createTheme(formData, {
@@ -49,6 +52,7 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
         form.reset({
             longDescription: "",
             shortDescription: "",
+            description: "",
             domainId,
         });
         router.refresh();
@@ -91,6 +95,23 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
                                     <FormLabel>Description courte</FormLabel>
                                     <FormControl>
                                         <Input type="text" placeholder="Description" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            name="description"
+                            control={control}
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Description (optionnelle)</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            placeholder="Description détaillée"
+                                            rows={4}
+                                            {...field}
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

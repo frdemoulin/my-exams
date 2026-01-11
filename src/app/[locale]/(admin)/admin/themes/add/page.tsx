@@ -30,6 +30,7 @@ const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
                     initialData={{
                         shortDescription: "",
                         longDescription: "",
+                        description: "",
                         domainId,
                     }}
                     options={domainsOptions}

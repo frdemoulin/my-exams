@@ -36,6 +36,7 @@ const EditThemePage = async ({ params }: ThemeEditProps) => {
                         id,
                         longDescription: theme?.longDescription ?? "",
                         shortDescription: theme?.shortDescription ?? "",
+                        description: theme?.description ?? "",
                         domainId: theme?.domainId,
                     }}
                     options={domainsOptions}

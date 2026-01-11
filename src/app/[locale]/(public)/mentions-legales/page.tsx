@@ -4,6 +4,7 @@ import { ExternalLink } from "lucide-react";
 
 import { buildCanonicalUrl } from "@/lib/seo";
 import { PublicHeader } from "@/components/shared/public-header";
+import { SiteFooter } from "@/components/shared/site-footer";
 import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 
 const canonical = buildCanonicalUrl("/mentions-legales");
@@ -20,9 +21,9 @@ const LegalMentionsPage = () => {
   const renderUrlIsExternal = isExternalUrl(renderUrl, internalOrigin);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <PublicHeader />
-      <main className="mx-auto w-full max-w-4xl px-4 py-12">
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-12">
         <div className="space-y-10">
         {/* Header */}
         <div>
@@ -242,6 +243,7 @@ const LegalMentionsPage = () => {
         </div>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { PublicHeader } from "@/components/shared/public-header";
+import { SiteFooter } from "@/components/shared/site-footer";
 import { buildCanonicalUrl } from "@/lib/seo";
 import ContactForm from "./_components/contact-form";
 
@@ -14,9 +15,9 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <PublicHeader />
-      <main className="mx-auto w-full max-w-4xl px-4 py-12">
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-12">
         <div className="space-y-8">
           <div className="space-y-2">
             <h1 className="text-2xl font-semibold text-heading">Contact</h1>
@@ -27,6 +28,7 @@ const ContactPage = () => {
           <ContactForm />
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 };

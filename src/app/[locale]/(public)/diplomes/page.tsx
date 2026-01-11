@@ -21,9 +21,9 @@ export default async function DiplomasPage() {
   const diplomas = await fetchActiveDiplomasWithExamPapers();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <PublicHeader />
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 pt-10">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 pb-16 pt-10">
         <PublicBreadcrumb
           items={[
             { label: 'Accueil', href: '/' },
