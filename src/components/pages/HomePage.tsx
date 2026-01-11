@@ -896,18 +896,20 @@ export default function HomePage({
             </p>
 
             <div className="grid w-full grid-cols-2 gap-3 pt-1 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
-              <Button asChild size="lg" className="w-full font-semibold sm:w-auto">
-                <Link href="/diplomes">
-                  <span className="inline-flex items-center">📚 Sujets d’annales</span>
-                </Link>
+              <Button
+                type="button"
+                size="lg"
+                className="w-full cursor-default font-semibold hover:bg-brand sm:w-auto"
+              >
+                <span className="inline-flex items-center">📚 Sujets d’annales</span>
               </Button>
               <Button
-                asChild
+                type="button"
                 variant="success"
                 size="lg"
-                className="w-full font-semibold sm:w-auto"
+                className="w-full cursor-default font-semibold hover:bg-success sm:w-auto"
               >
-                <Link href="/diplomes">📝 Corrections</Link>
+                📝 Corrections
               </Button>
             </div>
 

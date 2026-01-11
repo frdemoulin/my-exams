@@ -180,7 +180,7 @@ export function ExamPaperDocumentsCard({
             </div>
           ) : (
             <p className="text-sm text-muted-foreground">
-              Aucun corrig&eacute; r&eacute;f&eacute;renc&eacute; pour ce sujet.
+              Pas encore de correction pour ce sujet.
             </p>
           )}
         </div>

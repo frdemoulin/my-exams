@@ -24,6 +24,7 @@ import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
 import { ExerciseDomainsCard } from '@/components/exercises/ExerciseDomainsCard';
+import { SiteFooter } from '@/components/shared/site-footer';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
 import { normalizeExamPaperLabel } from '@/lib/utils';
@@ -240,11 +241,11 @@ export default function ExerciseDetailPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
       <PublicHeader />
 
       {/* Contenu principal */}
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-8">
         <div className="space-y-3">
           <PublicBreadcrumb items={breadcrumbItems} />
 
@@ -345,6 +346,7 @@ export default function ExerciseDetailPage() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }
