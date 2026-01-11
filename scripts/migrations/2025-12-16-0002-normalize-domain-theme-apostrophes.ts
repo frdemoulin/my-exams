@@ -22,7 +22,7 @@ const normalizeApostrophes = (value: string | null | undefined) => {
 };
 
 const FUNCTION_WORD_REGEX = /\bfonctions?\b/gi;
-const EQUATION_WORD_REGEX = /(?<!\p{L})(?:e|é)quations?(?!\p{L})/giu;
+const EQUATION_WORD_REGEX = /(?<!\p{L})(?:e|\u00e9)quations?(?!\p{L})/giu;
 
 const abbreviateFunctionWord = (value: string | null | undefined) => {
   if (value == null) return value;
@@ -40,12 +40,12 @@ const abbreviateEquationWord = (value: string | null | undefined) => {
     const isPlural = match.toLowerCase().endsWith("s");
     const base = isPlural ? "eqs" : "eq";
     if (match.toUpperCase() === match)
-      return `${base.toUpperCase()}.`.replace("E", "É");
+      return `${base.toUpperCase()}.`.replace("E", "\u00c9");
     if (match[0] === match[0].toUpperCase()) {
-      const withAccent = base.replace(/^e/, "é");
+      const withAccent = base.replace(/^e/, "\u00e9");
       return `${withAccent[0].toUpperCase()}${withAccent.slice(1)}.`;
     }
-    return `${base.replace(/^e/, "é")}.`;
+    return `${base.replace(/^e/, "\u00e9")}.`;
   });
 };
 

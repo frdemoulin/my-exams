@@ -1,7 +1,7 @@
 import type { PrismaClient } from "@prisma/client";
 
-const INEQUATION_WORD_REGEX = /(?<!\p{L})in(?:e|é)quations?(?!\p{L})/giu;
-const SYSTEM_WORD_REGEX = /(?<!\p{L})syst(?:e|è)mes?(?!\p{L})/giu;
+const INEQUATION_WORD_REGEX = /(?<!\p{L})in(?:e|\u00e9)quations?(?!\p{L})/giu;
+const SYSTEM_WORD_REGEX = /(?<!\p{L})syst(?:e|\u00e8)mes?(?!\p{L})/giu;
 
 const abbreviateInequationWord = (value: string | null | undefined) => {
   if (value == null) return value;
@@ -12,10 +12,10 @@ const abbreviateInequationWord = (value: string | null | undefined) => {
 
     if (match.toUpperCase() === match) {
       const upper = base.toUpperCase();
-      return `${upper.replace(/^IN(E)/, "INÉ")}.`;
+      return `${upper.replace(/^IN(E)/, "IN\u00c9")}.`;
     }
 
-    const accented = base.replace(/^in(e)/, "iné");
+    const accented = base.replace(/^in(e)/, "in\u00e9");
     if (match[0] === match[0].toUpperCase()) {
       return `${accented[0].toUpperCase()}${accented.slice(1)}.`;
     }
