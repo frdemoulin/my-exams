@@ -48,13 +48,14 @@ const EditExercisePage = async ({ params }: { params: Promise<{ id: string }> })
     const themes = await fetchThemes();
 
     return (
-        <EditExerciseWrapper
-            exercise={exercise}
-            themes={themes.map(theme => ({
-                value: theme.id,
-                label: theme.longDescription,
-            }))}
-        />
+      <EditExerciseWrapper
+        exercise={exercise}
+        themes={themes.map(theme => ({
+          value: theme.id,
+          label: theme.longDescription,
+          description: theme.description || undefined,
+        }))}
+      />
     );
 }
 

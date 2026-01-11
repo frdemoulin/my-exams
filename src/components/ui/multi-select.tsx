@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Check, ChevronsUpDown, X } from 'lucide-react';
+import { Check, ChevronsUpDown, Info, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,9 +17,15 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Badge } from '@/components/ui/badge';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface MultiSelectProps {
-  options: { value: string; label: string }[];
+  options: { value: string; label: string; description?: string }[];
   selected: string[];
   onChange: (selected: string[]) => void;
   placeholder?: string;
@@ -136,7 +142,8 @@ export function MultiSelect({
         className={cn('w-[--radix-popover-trigger-width] p-0', contentClassName)}
         align="start"
       >
-        <Command shouldFilter={false}>
+        <TooltipProvider>
+          <Command shouldFilter={false}>
           <CommandInput
             placeholder={searchPlaceholder}
             value={searchQuery}
@@ -160,13 +167,41 @@ export function MultiSelect({
                         selected.includes(option.value) ? 'opacity-100' : 'opacity-0'
                       )}
                     />
-                    {option.label}
+                    <div className="flex w-full items-center justify-between gap-2">
+                      <span>{option.label}</span>
+                      {option.description && (
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span
+                              className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-default bg-neutral-primary-soft text-xs text-muted-foreground hover:text-foreground hover:border-foreground"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                              }}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                }
+                              }}
+                              role="button"
+                              tabIndex={0}
+                              aria-label="Afficher la description du thème"
+                            >
+                              <Info className="h-3 w-3" />
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent>{option.description}</TooltipContent>
+                        </Tooltip>
+                      )}
+                    </div>
                   </CommandItem>
                 ))}
               </CommandGroup>
             )}
           </CommandList>
         </Command>
+        </TooltipProvider>
       </PopoverContent>
     </Popover>
   );
