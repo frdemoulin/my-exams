@@ -20,8 +20,18 @@ const ThemeDetailPage = async ({ params }: ThemeDetailPageProps) => {
     return (
         <div>
             <h1 className="text-lg font-semibold md:text-2xl">Détails du thème</h1>
-            <p>Description courte : {theme?.shortDescription}</p>
-            <p>Description longue : {theme?.longDescription}</p>
+            <p className="text-sm text-muted-foreground">
+                Description courte : {theme?.shortDescription ?? "Aucune"}
+            </p>
+            <p className="text-sm text-muted-foreground">
+                Description longue : {theme?.longDescription ?? "Aucune"}
+            </p>
+            <div className="mt-4 rounded-lg border border-border bg-card p-4 shadow-sm">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">Description publique</p>
+                <p className="mt-1 text-base text-foreground">
+                    {theme?.description ? theme.description : "Pas encore de description détaillée pour ce thème."}
+                </p>
+            </div>
         </div>
     )
 }
