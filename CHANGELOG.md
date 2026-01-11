@@ -1,3 +1,8 @@
+## <small>1.4.32 (2026-01-11)</small>
+
+* Merge pull request #90 from frdemoulin/dev ([73309ec](https://github.com/frdemoulin/my-exams/commit/73309ec)), closes [#90](https://github.com/frdemoulin/my-exams/issues/90)
+* fix: restauration de fichiers de migration ([91e6de2](https://github.com/frdemoulin/my-exams/commit/91e6de2))
+
 ## <small>1.4.31 (2026-01-10)</small>
 
 * Merge pull request #89 from frdemoulin/dev ([ad952fe](https://github.com/frdemoulin/my-exams/commit/ad952fe)), closes [#89](https://github.com/frdemoulin/my-exams/issues/89)
