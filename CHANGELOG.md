@@ -1,3 +1,8 @@
+## <small>1.4.35 (2026-01-11)</small>
+
+* Merge pull request #93 from frdemoulin/dev ([066195c](https://github.com/frdemoulin/my-exams/commit/066195c)), closes [#93](https://github.com/frdemoulin/my-exams/issues/93)
+* fix: ajout d'une infobulle dans les options d'un thème ([6cb8de5](https://github.com/frdemoulin/my-exams/commit/6cb8de5))
+
 ## <small>1.4.34 (2026-01-11)</small>
 
 * Merge pull request #92 from frdemoulin/dev ([cbb878a](https://github.com/frdemoulin/my-exams/commit/cbb878a)), closes [#92](https://github.com/frdemoulin/my-exams/issues/92)
