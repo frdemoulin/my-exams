@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { MultiSelect } from "@/components/ui/multi-select";
 
@@ -20,11 +21,12 @@ import { useCommonTranslations } from "@/hooks/use-translations";
 interface ThemeFormProps {
     crudMode: "add" | "edit";
     initialData: {
-        id?: string,
-        longDescription: string,
-        shortDescription: string,
-        domainId: string | undefined,
-    }
+        id?: string;
+        longDescription: string;
+        shortDescription: string;
+        description?: string;
+        domainId?: string;
+    };
     options: Option[];
 }
 
@@ -47,6 +49,7 @@ export const ThemeForm = ({
         const formData = new FormData();
         formData.append('longDescription', values.longDescription);
         formData.append('shortDescription', values.shortDescription || '');
+        formData.append('description', values.description || '');
         formData.append('domainId', values.domainId);
         
         if (!initialData.id) {
@@ -125,6 +128,25 @@ export const ThemeForm = ({
                             </FormControl>
                             <FormMessage />
                         </FormItem>
+                    }}
+                />
+                <FormField
+                    name="description"
+                    control={control}
+                    render={({ field }) => {
+                        return (
+                            <FormItem>
+                                <FormLabel>Description (optionnelle)</FormLabel>
+                                <FormControl>
+                                    <Textarea
+                                        placeholder="Description détaillée"
+                                        rows={4}
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        );
                     }}
                 />
                 <div className="mt-2 flex justify-end">

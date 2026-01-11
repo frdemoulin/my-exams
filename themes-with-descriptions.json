@@ -1,0 +1,1780 @@
+[
+  {
+    "id": "694daed439eca862cab78015",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Module d'un nombre complexe",
+    "shortDescription": "Module",
+    "description": null
+  },
+  {
+    "id": "694daed639eca862cab78016",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Argument d'un nombre complexe",
+    "shortDescription": "Argument",
+    "description": null
+  },
+  {
+    "id": "694db83139eca862cab78017",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Théorème des gendarmes",
+    "shortDescription": "Th. des gendarmes",
+    "description": null
+  },
+  {
+    "id": "694dbb4153561c4deee97930",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Limite d'une fonction composée",
+    "shortDescription": "Limite d'une fct composée",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694dbf3e53561c4deee97932",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Théorème des croissances comparées",
+    "shortDescription": "Th. des croissances comparées",
+    "description": null
+  },
+  {
+    "id": "694e90b453561c4deee97933",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Limites à l'infini d'une fonction polynomiale",
+    "shortDescription": "Limites d'une fct polynomiale (±∞)",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694e910153561c4deee97934",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Limites à l'infini d'une fonction rationnelle",
+    "shortDescription": "Limites d'une fct rationnelle (±∞)",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694e92db53561c4deee97935",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Théorèmes de minoration et de majoration",
+    "shortDescription": "Th. de minoration et de majoration",
+    "description": null
+  },
+  {
+    "id": "694e93ef53561c4deee97936",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Asymptotes",
+    "shortDescription": "Asymptotes",
+    "description": null
+  },
+  {
+    "id": "694e94eb53561c4deee97937",
+    "domainId": "694d39e16e9120f3bba421dc",
+    "longDescription": "Théorème des valeurs intermédiaires",
+    "shortDescription": "TVI",
+    "description": null
+  },
+  {
+    "id": "694e950853561c4deee97938",
+    "domainId": "694d39e16e9120f3bba421dc",
+    "longDescription": "Corollaire du théorème des valeurs intermédiaires",
+    "shortDescription": "Corollaire du TVI",
+    "description": null
+  },
+  {
+    "id": "694e977c53561c4deee97939",
+    "domainId": "694d3e521e4bfcfffd2fd6d5",
+    "longDescription": "Algorithme de dichotomie",
+    "shortDescription": "Dichotomie",
+    "description": null
+  },
+  {
+    "id": "694e980c53561c4deee9793a",
+    "domainId": "694d39e16e9120f3bba421dc",
+    "longDescription": "Continuité d'une fonction définie par morceaux",
+    "shortDescription": "Continuité d'une fct définie par morceaux",
+    "description": null
+  },
+  {
+    "id": "694e9a9b53561c4deee9793b",
+    "domainId": "694d39e16e9120f3bba421dc",
+    "longDescription": "Prolongement par continuité",
+    "shortDescription": "Prolongement par continuité",
+    "description": null
+  },
+  {
+    "id": "694e9b1953561c4deee9793c",
+    "domainId": "694d39e16e9120f3bba421dc",
+    "longDescription": "Interprétation graphique de la continuité",
+    "shortDescription": "Interprétation graphique de la continuité",
+    "description": "Analyse graphique permettant de relier la notion à sa représentation visuelle."
+  },
+  {
+    "id": "694ea15253561c4deee9793d",
+    "domainId": "694d39f16e9120f3bba421dd",
+    "longDescription": "Interprétation graphique de la convexité",
+    "shortDescription": "Interprétation graphique de la convexité",
+    "description": "Analyse graphique permettant de relier la notion à sa représentation visuelle."
+  },
+  {
+    "id": "694ea19a53561c4deee9793e",
+    "domainId": "694d39f16e9120f3bba421dd",
+    "longDescription": "Point d'inflexion",
+    "shortDescription": "Point d'inflexion",
+    "description": null
+  },
+  {
+    "id": "694ea1d553561c4deee9793f",
+    "domainId": "694d39f16e9120f3bba421dd",
+    "longDescription": "Convexité et dérivée seconde",
+    "shortDescription": "Convexité et dérivée seconde",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebcf453561c4deee97940",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Équation de la tangente à une courbe",
+    "shortDescription": "Éq. de la tangente à une courbe",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694ebd0453561c4deee97941",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Interprétation géométrique du nombre dérivé",
+    "shortDescription": "Interprétation géométrique du nombre dérivé",
+    "description": null
+  },
+  {
+    "id": "694ebd1453561c4deee97942",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Dérivée d'une fonction sur un intervalle",
+    "shortDescription": "Dérivée d'une fct sur un intervalle",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebd2953561c4deee97943",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Sens de variation et signe de la dérivée",
+    "shortDescription": "Sens de variation et signe de la dérivée",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebd3353561c4deee97944",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Définition du nombre dérivé",
+    "shortDescription": "Définition du nombre dérivé",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694ebd4653561c4deee97945",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Extrema d'une fonction",
+    "shortDescription": "Extrema d'une fct",
+    "description": null
+  },
+  {
+    "id": "694ebd6c53561c4deee97946",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Optimisation par dérivation",
+    "shortDescription": "Optimisation par dérivation",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebdb053561c4deee97947",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Dérivation des fonctions polynomiales",
+    "shortDescription": "Dérivation des fcts polynomiales",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebdba53561c4deee97948",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Fonctions dérivées usuelles",
+    "shortDescription": "Fcts dérivées usuelles",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebdc353561c4deee97949",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Dérivation des fonctions rationnelles",
+    "shortDescription": "Dérivation des fcts rationnelles",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebdcc53561c4deee9794a",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Dérivation de la fonction exponentielle",
+    "shortDescription": "Dérivation de la fct exponentielle",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebdd553561c4deee9794b",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Dérivation de la fonction logarithme népérien",
+    "shortDescription": "Dérivation de la fct logarithme népérien",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebde653561c4deee9794c",
+    "domainId": "694d39bc6e9120f3bba421db",
+    "longDescription": "Dérivation de fonctions composées",
+    "shortDescription": "Dérivation de fcts composées",
+    "description": "Étude du calcul de la dérivée et de son interprétation pour analyser une fonction."
+  },
+  {
+    "id": "694ebedd53561c4deee9794d",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Écriture algébrique d'un nombre complexe",
+    "shortDescription": "Écriture algébrique",
+    "description": null
+  },
+  {
+    "id": "694ec03453561c4deee9794e",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Représentation géométrique dans le plan complexe",
+    "shortDescription": "Représentation géométrique dans le plan complexe",
+    "description": null
+  },
+  {
+    "id": "694ec0a153561c4deee9794f",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Propriétés du module",
+    "shortDescription": "Propriétés du module",
+    "description": "Étude des propriétés fondamentales associées à cette notion et de leur utilisation dans les exercices."
+  },
+  {
+    "id": "694ec0ab53561c4deee97950",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Propriétés de l'argument",
+    "shortDescription": "Propriétés de l'argument",
+    "description": "Étude des propriétés fondamentales associées à cette notion et de leur utilisation dans les exercices."
+  },
+  {
+    "id": "694ec0c153561c4deee97951",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Forme trigonométrique d'un nombre complexe",
+    "shortDescription": "Forme trigonométrique",
+    "description": null
+  },
+  {
+    "id": "694ec0d953561c4deee97952",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Forme exponentielle d'un nombre complexe",
+    "shortDescription": "Forme exponentielle",
+    "description": null
+  },
+  {
+    "id": "694ec0fd53561c4deee97953",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Puissances d'un nombre complexe",
+    "shortDescription": "Puissances d'un nombre complexe",
+    "description": null
+  },
+  {
+    "id": "694ec10b53561c4deee97954",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Racines n-ièmes d'un nombre complexe",
+    "shortDescription": "Racines n-ièmes d'un nombre complexe",
+    "description": null
+  },
+  {
+    "id": "694ec12353561c4deee97955",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Transformations du plan complexe",
+    "shortDescription": "Transformations du plan complexe",
+    "description": null
+  },
+  {
+    "id": "694ec22653561c4deee97956",
+    "domainId": "694d1ceb6e9120f3bba421d2",
+    "longDescription": "Lieux géométriques dans le plan complexe",
+    "shortDescription": "Lieux géométriques",
+    "description": null
+  },
+  {
+    "id": "694ec60f53561c4deee97957",
+    "domainId": "694d3e521e4bfcfffd2fd6d5",
+    "longDescription": "Boucle bornée (pour)",
+    "shortDescription": "Boucle \"pour\"",
+    "description": null
+  },
+  {
+    "id": "694ec62053561c4deee97958",
+    "domainId": "694d3e521e4bfcfffd2fd6d5",
+    "longDescription": "Boucle non bornée (tant que)",
+    "shortDescription": "Boucle \"tant que\"",
+    "description": null
+  },
+  {
+    "id": "694ec67753561c4deee97959",
+    "domainId": "694d3e521e4bfcfffd2fd6d5",
+    "longDescription": "Instructions conditionnelles",
+    "shortDescription": "Instructions conditionnelles",
+    "description": null
+  },
+  {
+    "id": "694ecc8b53561c4deee9795a",
+    "domainId": "694d3e521e4bfcfffd2fd6d5",
+    "longDescription": "Algorithme en langage Python",
+    "shortDescription": "Algorithme en langage Python",
+    "description": null
+  },
+  {
+    "id": "694eccc453561c4deee9795b",
+    "domainId": "694d3e521e4bfcfffd2fd6d5",
+    "longDescription": "Simulation d'une expérience aléatoire",
+    "shortDescription": "Simulation d'une expérience aléatoire",
+    "description": null
+  },
+  {
+    "id": "694ee1a253561c4deee9795c",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Tableaux à double entrée",
+    "shortDescription": "Tableaux à double entrée",
+    "description": null
+  },
+  {
+    "id": "694ee1d253561c4deee9795e",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Interprétation d'une probabilité conditionnelle",
+    "shortDescription": "Interprétation d'une probabilité conditionnelle",
+    "description": null
+  },
+  {
+    "id": "694ee1e653561c4deee9795f",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Arbres de probabilités pondérés",
+    "shortDescription": "Arbres pondérés",
+    "description": null
+  },
+  {
+    "id": "694ee20f53561c4deee97960",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Probabilité d'une intersection d'événements",
+    "shortDescription": "Probabilité d'une intersection d'événements",
+    "description": null
+  },
+  {
+    "id": "694ee21953561c4deee97961",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Probabilité d'une réunion d'événements",
+    "shortDescription": "Probabilité d'une réunion d'événements",
+    "description": null
+  },
+  {
+    "id": "694ee22353561c4deee97962",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Indépendance de deux événements",
+    "shortDescription": "Indépendance de deux événements",
+    "description": null
+  },
+  {
+    "id": "694ee23453561c4deee97963",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Tests d'indépendance à partir de données",
+    "shortDescription": "Tests d'indépendance à partir de données",
+    "description": null
+  },
+  {
+    "id": "694ee27253561c4deee97964",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Incompatibilité d'événements",
+    "shortDescription": "Incompatibilité d'événements",
+    "description": null
+  },
+  {
+    "id": "694ee30a53561c4deee97965",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Formule de la probabilité conditionnelle",
+    "shortDescription": "Formule de la probabilité conditionnelle",
+    "description": null
+  },
+  {
+    "id": "694ee32153561c4deee97966",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Formule des probabilités totales",
+    "shortDescription": "Formule des probabilités totales",
+    "description": null
+  },
+  {
+    "id": "694ee43053561c4deee97967",
+    "domainId": "694d45246a55124a31784411",
+    "longDescription": "Événements complémentaires",
+    "shortDescription": "Événements complémentaires",
+    "description": null
+  },
+  {
+    "id": "694eec8353561c4deee9796d",
+    "domainId": "694d3b496e9120f3bba421e4",
+    "longDescription": "Inégalité de Bienaymé-Tchebychev",
+    "shortDescription": "Inégalité de Bienaymé-Tchebychev",
+    "description": null
+  },
+  {
+    "id": "694eecd453561c4deee9796e",
+    "domainId": "694d3b496e9120f3bba421e4",
+    "longDescription": "Espérance, variance et écart-type d'une variable aléatoire moyenne",
+    "shortDescription": "Espérance, variance et écart-type d'une variable aléatoire moyenne",
+    "description": null
+  },
+  {
+    "id": "694eeda453561c4deee9796f",
+    "domainId": "694d3b496e9120f3bba421e4",
+    "longDescription": "Inégalité de concentration",
+    "shortDescription": "Inégalité de concentration",
+    "description": null
+  },
+  {
+    "id": "694eedf953561c4deee97970",
+    "domainId": "694d3b496e9120f3bba421e4",
+    "longDescription": "Taille d'un échantillon",
+    "shortDescription": "Taille d'un échantillon",
+    "description": null
+  },
+  {
+    "id": "694eee7d53561c4deee97971",
+    "domainId": "694d3b496e9120f3bba421e4",
+    "longDescription": "Loi des grands nombres",
+    "shortDescription": "Loi des grands nombres",
+    "description": null
+  },
+  {
+    "id": "694eef3353561c4deee97972",
+    "domainId": "694d3b496e9120f3bba421e4",
+    "longDescription": "Simulation de la loi des grands nombres",
+    "shortDescription": "Simulation de la loi des grands nombres",
+    "description": null
+  },
+  {
+    "id": "694ef07253561c4deee97973",
+    "domainId": "694d45446a55124a31784412",
+    "longDescription": "Somme de variables aléatoires",
+    "shortDescription": "Somme de variables aléatoires",
+    "description": null
+  },
+  {
+    "id": "694ef07d53561c4deee97974",
+    "domainId": "694d45446a55124a31784412",
+    "longDescription": "Espérance et variance de combinaisons linéaires de variables aléatoires",
+    "shortDescription": "Espérance et variance de combinaisons linéaires de variables aléatoires",
+    "description": null
+  },
+  {
+    "id": "694ef08e53561c4deee97976",
+    "domainId": "694d45446a55124a31784412",
+    "longDescription": "Indépendance de deux variables aléatoires",
+    "shortDescription": "Indépendance de deux variables aléatoires",
+    "description": null
+  },
+  {
+    "id": "694efd4453561c4deee97977",
+    "domainId": "694d39f16e9120f3bba421dd",
+    "longDescription": "Définition de la convexité",
+    "shortDescription": "Définition de la convexité",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694efd4e53561c4deee97978",
+    "domainId": "694d39f16e9120f3bba421dd",
+    "longDescription": "Tangente et position de la courbe",
+    "shortDescription": "Tangente et position de la courbe",
+    "description": null
+  },
+  {
+    "id": "694f010d53561c4deee97979",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Limite en un point",
+    "shortDescription": "Limite en un point",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694fd327501300f9cc2dbe6c",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Intégrale définie d'une fonction",
+    "shortDescription": "Intégrale définie d'une fct",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fd331501300f9cc2dbe6d",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Interprétation géométrique de l'intégrale",
+    "shortDescription": "Interprétation géométrique de l'intégrale",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fd33a501300f9cc2dbe6e",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Aire sous une courbe",
+    "shortDescription": "Aire sous une courbe",
+    "description": null
+  },
+  {
+    "id": "694fd35e501300f9cc2dbe71",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Intégrale d'une fonction polynomiale",
+    "shortDescription": "Intégrale d'une fct polynomiale",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fd366501300f9cc2dbe72",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Intégrale d'une fonction exponentielle",
+    "shortDescription": "Intégrale d'une fct exponentielle",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fd377501300f9cc2dbe73",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Aire entre deux courbes",
+    "shortDescription": "Aire entre deux courbes",
+    "description": null
+  },
+  {
+    "id": "694fd3fa501300f9cc2dbe74",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Théorème de Newton–Leibniz",
+    "shortDescription": "Th. de Newton–Leibniz",
+    "description": null
+  },
+  {
+    "id": "694fd6a1501300f9cc2dbe75",
+    "domainId": "694d37b86e9120f3bba421d7",
+    "longDescription": "Définition de la fonction exponentielle",
+    "shortDescription": "Définition de la fct exponentielle",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fd6a9501300f9cc2dbe76",
+    "domainId": "694d37b86e9120f3bba421d7",
+    "longDescription": "Propriétés de la fonction exponentielle",
+    "shortDescription": "Propriétés de la fct exponentielle",
+    "description": "Étude des propriétés fondamentales associées à cette notion et de leur utilisation dans les exercices."
+  },
+  {
+    "id": "694fd6b4501300f9cc2dbe77",
+    "domainId": "694d37b86e9120f3bba421d7",
+    "longDescription": "Domaine de définition de la fonction exponentielle",
+    "shortDescription": "Domaine de définition de la fct exponentielle",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fd6bc501300f9cc2dbe78",
+    "domainId": "694d37b86e9120f3bba421d7",
+    "longDescription": "Croissance de la fonction exponentielle",
+    "shortDescription": "Croissance de la fct exponentielle",
+    "description": null
+  },
+  {
+    "id": "694fd6c4501300f9cc2dbe79",
+    "domainId": "694d37b86e9120f3bba421d7",
+    "longDescription": "Équation exponentielle",
+    "shortDescription": "Éq. exponentielle",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fd6ce501300f9cc2dbe7a",
+    "domainId": "694d37b86e9120f3bba421d7",
+    "longDescription": "Inéquation exponentielle",
+    "shortDescription": "Inéq. exponentielle",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fd6e7501300f9cc2dbe7b",
+    "domainId": "694d37b86e9120f3bba421d7",
+    "longDescription": "Modélisation par une fonction exponentielle",
+    "shortDescription": "Modélisation par une fct exponentielle",
+    "description": null
+  },
+  {
+    "id": "694fd739501300f9cc2dbe7c",
+    "domainId": "694d37d06e9120f3bba421d8",
+    "longDescription": "Définition du logarithme népérien",
+    "shortDescription": "Définition du logarithme népérien",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fd742501300f9cc2dbe7d",
+    "domainId": "694d37d06e9120f3bba421d8",
+    "longDescription": "Domaine de définition du logarithme népérien",
+    "shortDescription": "Domaine de définition du logarithme népérien",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fd74a501300f9cc2dbe7e",
+    "domainId": "694d37d06e9120f3bba421d8",
+    "longDescription": "Propriétés du logarithme népérien",
+    "shortDescription": "Propriétés du logarithme népérien",
+    "description": "Étude des propriétés fondamentales associées à cette notion et de leur utilisation dans les exercices."
+  },
+  {
+    "id": "694fd752501300f9cc2dbe7f",
+    "domainId": "694d37d06e9120f3bba421d8",
+    "longDescription": "Croissance du logarithme népérien",
+    "shortDescription": "Croissance du logarithme népérien",
+    "description": null
+  },
+  {
+    "id": "694fd75c501300f9cc2dbe80",
+    "domainId": "694d37d06e9120f3bba421d8",
+    "longDescription": "Équation logarithmique",
+    "shortDescription": "Éq. logarithmique",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fd764501300f9cc2dbe81",
+    "domainId": "694d37d06e9120f3bba421d8",
+    "longDescription": "Inéquation logarithmique",
+    "shortDescription": "Inéq. logarithmique",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fd76c501300f9cc2dbe82",
+    "domainId": "694d37d06e9120f3bba421d8",
+    "longDescription": "Modélisation à l'aide du logarithme népérien",
+    "shortDescription": "Modélisation à l'aide du logarithme népérien",
+    "description": null
+  },
+  {
+    "id": "694fd7f0501300f9cc2dbe83",
+    "domainId": "694d384c6e9120f3bba421da",
+    "longDescription": "Définition des fcts trigonométriques",
+    "shortDescription": "Définition des fcts trigo.",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fd80a501300f9cc2dbe84",
+    "domainId": "694d384c6e9120f3bba421da",
+    "longDescription": "Cercle trigonométrique",
+    "shortDescription": "Cercle trigo.",
+    "description": null
+  },
+  {
+    "id": "694fd819501300f9cc2dbe85",
+    "domainId": "694d384c6e9120f3bba421da",
+    "longDescription": "Valeurs remarquables des fonctions trigonométriques",
+    "shortDescription": "Valeurs remarquables des fcts trigo.",
+    "description": null
+  },
+  {
+    "id": "694fd825501300f9cc2dbe86",
+    "domainId": "694d384c6e9120f3bba421da",
+    "longDescription": "Périodicité des fonctions trigonométriques",
+    "shortDescription": "Périodicité des fcts trigo.",
+    "description": null
+  },
+  {
+    "id": "694fd830501300f9cc2dbe87",
+    "domainId": "694d384c6e9120f3bba421da",
+    "longDescription": "Parité des fonctions trigonométriques",
+    "shortDescription": "Parité des fcts trigo.",
+    "description": null
+  },
+  {
+    "id": "694fd83a501300f9cc2dbe88",
+    "domainId": "694d384c6e9120f3bba421da",
+    "longDescription": "Équations trigonométriques",
+    "shortDescription": "Éqs. trigo.",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fd846501300f9cc2dbe89",
+    "domainId": "694d384c6e9120f3bba421da",
+    "longDescription": "Inéquations trigonométriques",
+    "shortDescription": "Inéqs. trigo.",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fd8fd501300f9cc2dbe8a",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Définition d'une suite numérique",
+    "shortDescription": "Définition d'une suite numérique",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fd908501300f9cc2dbe8b",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Modes de définition d'une suite (explicite, récurrente)",
+    "shortDescription": "Modes de définition d'une suite (explicite, récurrente)",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fd915501300f9cc2dbe8c",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Suites arithmétiques",
+    "shortDescription": "Suites arithmétiques",
+    "description": null
+  },
+  {
+    "id": "694fd91d501300f9cc2dbe8d",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Suites géométriques",
+    "shortDescription": "Suites géométriques",
+    "description": null
+  },
+  {
+    "id": "694fd925501300f9cc2dbe8e",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Sens de variation d'une suite",
+    "shortDescription": "Sens de variation d'une suite",
+    "description": null
+  },
+  {
+    "id": "694fd930501300f9cc2dbe8f",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Limite d'une suite",
+    "shortDescription": "Limite d'une suite",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694fda91501300f9cc2dbe90",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Convergence d'une suite",
+    "shortDescription": "Convergence d'une suite",
+    "description": null
+  },
+  {
+    "id": "694fda99501300f9cc2dbe91",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Divergence d'une suite",
+    "shortDescription": "Divergence d'une suite",
+    "description": null
+  },
+  {
+    "id": "694fdaa0501300f9cc2dbe92",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Suite définie par récurrence",
+    "shortDescription": "Suite définie par récurrence",
+    "description": null
+  },
+  {
+    "id": "694fdaa8501300f9cc2dbe93",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Représentation graphique d'une suite",
+    "shortDescription": "Représentation graphique d'une suite",
+    "description": null
+  },
+  {
+    "id": "694fdab1501300f9cc2dbe94",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Modélisation par une suite",
+    "shortDescription": "Modélisation par une suite",
+    "description": null
+  },
+  {
+    "id": "694fdcaf501300f9cc2dbe95",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Suites arithmético-géométriques",
+    "shortDescription": "Suites arithmético-géométriques",
+    "description": null
+  },
+  {
+    "id": "694fdcbb501300f9cc2dbe96",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Suite minorée, majorée, bornée",
+    "shortDescription": "Suite minorée, majorée, bornée",
+    "description": null
+  },
+  {
+    "id": "694fdddf501300f9cc2dbe97",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Limite d'une suite arithmétique",
+    "shortDescription": "Limite d'une suite arithmétique",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694fdded501300f9cc2dbe98",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Limite d'une suite géométrique",
+    "shortDescription": "Limite d'une suite géométrique",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694fde7b501300f9cc2dbe99",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Limite d'une suite monotone",
+    "shortDescription": "Limite d'une suite monotone",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "694fde98501300f9cc2dbe9a",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Raisonnement par récurrence",
+    "shortDescription": "Raisonnement par récurrence",
+    "description": null
+  },
+  {
+    "id": "694fdf65501300f9cc2dbe9b",
+    "domainId": "694d1d4e6e9120f3bba421d3",
+    "longDescription": "Théorème du point fixe",
+    "shortDescription": "Th. du point fixe",
+    "description": null
+  },
+  {
+    "id": "694fdf79501300f9cc2dbe9c",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Principe de dénombrement",
+    "shortDescription": "Principe de dénombrement",
+    "description": null
+  },
+  {
+    "id": "694fdf7f501300f9cc2dbe9d",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Arbres de dénombrement",
+    "shortDescription": "Arbres de dénombrement",
+    "description": null
+  },
+  {
+    "id": "694fdf87501300f9cc2dbe9e",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Factorielle",
+    "shortDescription": "Factorielle",
+    "description": null
+  },
+  {
+    "id": "694fdf8e501300f9cc2dbe9f",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Coefficients binomiaux",
+    "shortDescription": "Coefficients binomiaux",
+    "description": null
+  },
+  {
+    "id": "694fdf95501300f9cc2dbea0",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Combinaisons",
+    "shortDescription": "Combinaisons",
+    "description": null
+  },
+  {
+    "id": "694fdf9d501300f9cc2dbea1",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Arrangements",
+    "shortDescription": "Arrangements",
+    "description": null
+  },
+  {
+    "id": "694fdfa5501300f9cc2dbea2",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Permutations",
+    "shortDescription": "Permutations",
+    "description": null
+  },
+  {
+    "id": "694fdfae501300f9cc2dbea3",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Cardinal d'un ensemble fini",
+    "shortDescription": "Cardinal d'un ensemble fini",
+    "description": null
+  },
+  {
+    "id": "694fdfb7501300f9cc2dbea4",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Dénombrement avec répétition",
+    "shortDescription": "Dénombrement avec répétition",
+    "description": null
+  },
+  {
+    "id": "694fdfc0501300f9cc2dbea5",
+    "domainId": "694d3a0e6e9120f3bba421de",
+    "longDescription": "Dénombrement sans répétition",
+    "shortDescription": "Dénombrement sans répétition",
+    "description": null
+  },
+  {
+    "id": "694fe03a501300f9cc2dbea6",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Définition d'une primitive",
+    "shortDescription": "Définition d'une primitive",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fe042501300f9cc2dbea7",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Primitives d'une fonction polynomiale",
+    "shortDescription": "Primitives d'une fct polynomiale",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe04b501300f9cc2dbea8",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Primitives de la fonction exponentielle",
+    "shortDescription": "Primitives de la fct exponentielle",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe052501300f9cc2dbea9",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Primitives de la fonction logarithme népérien",
+    "shortDescription": "Primitives de la fct logarithme népérien",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe058501300f9cc2dbeaa",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Primitives des fonctions usuelles",
+    "shortDescription": "Primitives des fcts usuelles",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe061501300f9cc2dbeab",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Famille de primitives d'une fonction",
+    "shortDescription": "Famille de primitives d'une fct",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe06b501300f9cc2dbeac",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Condition d'existence d'une primitive",
+    "shortDescription": "Condition d'existence d'une primitive",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe072501300f9cc2dbead",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Primitives et variations d'une fonction",
+    "shortDescription": "Primitives et variations d'une fct",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe0c0501300f9cc2dbeae",
+    "domainId": "694d36cc6e9120f3bba421d4",
+    "longDescription": "Primitive définie par une condition initiale",
+    "shortDescription": "Primitive définie par une condition initiale",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe0e5501300f9cc2dbeaf",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Fonction définie par une intégrale",
+    "shortDescription": "Fct définie par une intégrale",
+    "description": "Étude du lien entre dérivation et intégration, et calcul de primitives ou d’intégrales."
+  },
+  {
+    "id": "694fe1de501300f9cc2dbeb0",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Définition du produit scalaire",
+    "shortDescription": "Définition du produit scalaire",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fe1e4501300f9cc2dbeb1",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Propriétés du produit scalaire",
+    "shortDescription": "Propriétés du produit scalaire",
+    "description": "Étude des propriétés fondamentales associées à cette notion et de leur utilisation dans les exercices."
+  },
+  {
+    "id": "694fe1ec501300f9cc2dbeb2",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Interprétation géométrique du produit scalaire",
+    "shortDescription": "Interprétation géométrique du produit scalaire",
+    "description": null
+  },
+  {
+    "id": "694fe1f3501300f9cc2dbeb3",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Angle entre deux vecteurs",
+    "shortDescription": "Angle entre deux vecteurs",
+    "description": null
+  },
+  {
+    "id": "694fe1fb501300f9cc2dbeb4",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Calcul du produit scalaire",
+    "shortDescription": "Calcul du produit scalaire",
+    "description": null
+  },
+  {
+    "id": "694fe203501300f9cc2dbeb5",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Produit scalaire et coordonnées",
+    "shortDescription": "Produit scalaire et coordonnées",
+    "description": null
+  },
+  {
+    "id": "694fe20d501300f9cc2dbeb6",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Orthogonalité de deux vecteurs",
+    "shortDescription": "Orthogonalité de deux vecteurs",
+    "description": null
+  },
+  {
+    "id": "694fe215501300f9cc2dbeb7",
+    "domainId": "694d470b6a55124a31784413",
+    "longDescription": "Projection orthogonale",
+    "shortDescription": "Projection orthogonale",
+    "description": null
+  },
+  {
+    "id": "694fe276501300f9cc2dbeb8",
+    "domainId": "694d3a736e9120f3bba421e1",
+    "longDescription": "Représentation paramétrique d'une droite",
+    "shortDescription": "Représentation paramétrique d'une droite",
+    "description": null
+  },
+  {
+    "id": "694fe27e501300f9cc2dbeb9",
+    "domainId": "694d3a736e9120f3bba421e1",
+    "longDescription": "Représentation paramétrique d'un plan",
+    "shortDescription": "Représentation paramétrique d'un plan",
+    "description": null
+  },
+  {
+    "id": "694fe287501300f9cc2dbeba",
+    "domainId": "694d3a736e9120f3bba421e1",
+    "longDescription": "Passage d'une représentation paramétrique à une équation cartésienne",
+    "shortDescription": "Passage d'une représentation paramétrique à une éq. cartésienne",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fe290501300f9cc2dbebb",
+    "domainId": "694d3a736e9120f3bba421e1",
+    "longDescription": "Équation cartésienne d'une droite",
+    "shortDescription": "Éq. cartésienne d'une droite",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fe297501300f9cc2dbebc",
+    "domainId": "694d3a736e9120f3bba421e1",
+    "longDescription": "Équation cartésienne d'un plan",
+    "shortDescription": "Éq. cartésienne d'un plan",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fe2a0501300f9cc2dbebd",
+    "domainId": "694d3a736e9120f3bba421e1",
+    "longDescription": "Interprétation géométrique d'une représentation paramétrique",
+    "shortDescription": "Interprétation géométrique d'une représentation paramétrique",
+    "description": null
+  },
+  {
+    "id": "694fe2a7501300f9cc2dbebe",
+    "domainId": "694d3a736e9120f3bba421e1",
+    "longDescription": "Interprétation géométrique d'une équation cartésienne",
+    "shortDescription": "Interprétation géométrique d'une éq. cartésienne",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fe2cc501300f9cc2dbebf",
+    "domainId": "694d3a4e6e9120f3bba421e0",
+    "longDescription": "Vecteurs orthogonaux dans l'espace",
+    "shortDescription": "Vecteurs orthogonaux dans l'espace",
+    "description": null
+  },
+  {
+    "id": "694fe2d3501300f9cc2dbec0",
+    "domainId": "694d3a4e6e9120f3bba421e0",
+    "longDescription": "Droites orthogonales dans l'espace",
+    "shortDescription": "Droites orthogonales dans l'espace",
+    "description": null
+  },
+  {
+    "id": "694fe2da501300f9cc2dbec1",
+    "domainId": "694d3a4e6e9120f3bba421e0",
+    "longDescription": "Droite et plan orthogonaux",
+    "shortDescription": "Droite et plan orthogonaux",
+    "description": null
+  },
+  {
+    "id": "694fe2e0501300f9cc2dbec2",
+    "domainId": "694d3a4e6e9120f3bba421e0",
+    "longDescription": "Plans orthogonaux",
+    "shortDescription": "Plans orthogonaux",
+    "description": null
+  },
+  {
+    "id": "694fe2e8501300f9cc2dbec3",
+    "domainId": "694d3a4e6e9120f3bba421e0",
+    "longDescription": "Vecteur normal à un plan",
+    "shortDescription": "Vecteur normal à un plan",
+    "description": null
+  },
+  {
+    "id": "694fe2ee501300f9cc2dbec4",
+    "domainId": "694d3a4e6e9120f3bba421e0",
+    "longDescription": "Angle entre une droite et un plan",
+    "shortDescription": "Angle entre une droite et un plan",
+    "description": null
+  },
+  {
+    "id": "694fe2f6501300f9cc2dbec5",
+    "domainId": "694d3a4e6e9120f3bba421e0",
+    "longDescription": "Distance d'un point à un plan",
+    "shortDescription": "Distance d'un point à un plan",
+    "description": null
+  },
+  {
+    "id": "694fed4e501300f9cc2dbec6",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Vecteurs de l'espace",
+    "shortDescription": "Vecteurs de l'espace",
+    "description": null
+  },
+  {
+    "id": "694fed56501300f9cc2dbec7",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Coordonnées d'un vecteur",
+    "shortDescription": "Coordonnées d'un vecteur",
+    "description": null
+  },
+  {
+    "id": "694fed5e501300f9cc2dbec8",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Colinéarité de vecteurs",
+    "shortDescription": "Colinéarité de vecteurs",
+    "description": null
+  },
+  {
+    "id": "694fed67501300f9cc2dbec9",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Droite de l'espace",
+    "shortDescription": "Droite de l'espace",
+    "description": null
+  },
+  {
+    "id": "694fed6e501300f9cc2dbeca",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Vecteur directeur d'une droite",
+    "shortDescription": "Vecteur directeur d'une droite",
+    "description": null
+  },
+  {
+    "id": "694fed77501300f9cc2dbecb",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Position relative de deux droites",
+    "shortDescription": "Position relative de deux droites",
+    "description": null
+  },
+  {
+    "id": "694fed82501300f9cc2dbecc",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Plan de l'espace",
+    "shortDescription": "Plan de l'espace",
+    "description": null
+  },
+  {
+    "id": "694fed8a501300f9cc2dbecd",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Vecteurs directeurs d'un plan",
+    "shortDescription": "Vecteurs directeurs d'un plan",
+    "description": null
+  },
+  {
+    "id": "694fed91501300f9cc2dbece",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Position relative d'une droite et d'un plan",
+    "shortDescription": "Position relative d'une droite et d'un plan",
+    "description": null
+  },
+  {
+    "id": "694fed98501300f9cc2dbecf",
+    "domainId": "694d3a2c6e9120f3bba421df",
+    "longDescription": "Position relative de deux plans",
+    "shortDescription": "Position relative de deux plans",
+    "description": null
+  },
+  {
+    "id": "694fedbd501300f9cc2dbed0",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Repère du plan",
+    "shortDescription": "Repère du plan",
+    "description": null
+  },
+  {
+    "id": "694fedc5501300f9cc2dbed1",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Repère de l'espace",
+    "shortDescription": "Repère de l'espace",
+    "description": null
+  },
+  {
+    "id": "694fedcb501300f9cc2dbed2",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Coordonnées d'un point",
+    "shortDescription": "Coordonnées d'un point",
+    "description": null
+  },
+  {
+    "id": "694fedd3501300f9cc2dbed3",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Distance entre deux points",
+    "shortDescription": "Distance entre deux points",
+    "description": null
+  },
+  {
+    "id": "694fedda501300f9cc2dbed4",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Milieu d'un segment",
+    "shortDescription": "Milieu d'un segment",
+    "description": null
+  },
+  {
+    "id": "694fede1501300f9cc2dbed5",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Alignement de points",
+    "shortDescription": "Alignement de points",
+    "description": null
+  },
+  {
+    "id": "694fede9501300f9cc2dbed6",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Distance entre deux points de l'espace",
+    "shortDescription": "Distance entre deux points de l'espace",
+    "description": null
+  },
+  {
+    "id": "694fedf3501300f9cc2dbed7",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Alignement et coplanarité",
+    "shortDescription": "Alignement et coplanarité",
+    "description": null
+  },
+  {
+    "id": "694fedfa501300f9cc2dbed8",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Interprétation géométrique d'une équation",
+    "shortDescription": "Interprétation géométrique d'une éq.",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fee02501300f9cc2dbed9",
+    "domainId": "694d476f6a55124a31784414",
+    "longDescription": "Interprétation géométrique d'un système d'équations",
+    "shortDescription": "Interprétation géométrique d'un syst. d'éqs.",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fee91501300f9cc2dbeda",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Définition d'une équation différentielle",
+    "shortDescription": "Définition d'une éq. différentielle",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fee99501300f9cc2dbedb",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Solution d'une équation différentielle",
+    "shortDescription": "Solution d'une éq. différentielle",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694feeae501300f9cc2dbedc",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Équation différentielle du type y'=f",
+    "shortDescription": "Éq. différentielle du type y'=f",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694feec1501300f9cc2dbedd",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Équation différentielle du type y′=ay",
+    "shortDescription": "Éq. différentielle du type y′=ay",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694feecd501300f9cc2dbede",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Famille de solutions d'une équation différentielle",
+    "shortDescription": "Famille de solutions d'une éq. différentielle",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694feed4501300f9cc2dbedf",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Solution particulière vérifiant une condition initiale",
+    "shortDescription": "Solution particulière vérifiant une condition initiale",
+    "description": null
+  },
+  {
+    "id": "694feedd501300f9cc2dbee0",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Interprétation graphique des solutions",
+    "shortDescription": "Interprétation graphique des solutions",
+    "description": "Analyse graphique permettant de relier la notion à sa représentation visuelle."
+  },
+  {
+    "id": "694feee5501300f9cc2dbee1",
+    "domainId": "694d37986e9120f3bba421d6",
+    "longDescription": "Modélisation par une équation différentielle",
+    "shortDescription": "Modélisation par une éq. différentielle",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fef20501300f9cc2dbee2",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Définition d'une fonction affine",
+    "shortDescription": "Définition d'une fct affine",
+    "description": "Présentation de la notion et de son sens mathématique, ainsi que des conditions dans lesquelles elle est définie."
+  },
+  {
+    "id": "694fef2f501300f9cc2dbee3",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Coefficient directeur, ordonnée à l'origine",
+    "shortDescription": "Coefficient directeur, ordonnée à l'origine",
+    "description": null
+  },
+  {
+    "id": "694fef37501300f9cc2dbee4",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Représentation graphique d'une fonction affine",
+    "shortDescription": "Représentation graphique d'une fct affine",
+    "description": null
+  },
+  {
+    "id": "694fef3e501300f9cc2dbee5",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Lecture graphique d'une fonction affine",
+    "shortDescription": "Lecture graphique d'une fct affine",
+    "description": null
+  },
+  {
+    "id": "694fef46501300f9cc2dbee6",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Sens de variation d'une fonction affine",
+    "shortDescription": "Sens de variation d'une fct affine",
+    "description": null
+  },
+  {
+    "id": "694fef4e501300f9cc2dbee7",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Fonction affine croissante ou décroissante",
+    "shortDescription": "Fct affine croissante ou décroissante",
+    "description": null
+  },
+  {
+    "id": "694fef56501300f9cc2dbee8",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Équation associée à une fonction affine",
+    "shortDescription": "Éq. associée à une fct affine",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694fef5d501300f9cc2dbee9",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Modélisation par une fonction affine",
+    "shortDescription": "Modélisation par une fct affine",
+    "description": null
+  },
+  {
+    "id": "694fef6f501300f9cc2dbeea",
+    "domainId": "694d47926a55124a31784415",
+    "longDescription": "Signe d'une fonction affine",
+    "shortDescription": "Signe d'une fct affine",
+    "description": null
+  },
+  {
+    "id": "694ff5d2501300f9cc2dbeeb",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Polynôme d'une variable réelle",
+    "shortDescription": "Polynôme d'une variable réelle",
+    "description": null
+  },
+  {
+    "id": "694ff5da501300f9cc2dbeec",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Degré d'un polynôme",
+    "shortDescription": "Degré d'un polynôme",
+    "description": null
+  },
+  {
+    "id": "694ff5e2501300f9cc2dbeed",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Racine d'un polynôme",
+    "shortDescription": "Racine d'un polynôme",
+    "description": null
+  },
+  {
+    "id": "694ff5ee501300f9cc2dbeee",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Factorisation d'un polynôme",
+    "shortDescription": "Factorisation d'un polynôme",
+    "description": null
+  },
+  {
+    "id": "694ff5f7501300f9cc2dbeef",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Multiplicité d'une racine",
+    "shortDescription": "Multiplicité d'une racine",
+    "description": null
+  },
+  {
+    "id": "694ff5ff501300f9cc2dbef0",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Équation polynomiale du second degré",
+    "shortDescription": "Éq. polynomiale du second degré",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694ff606501300f9cc2dbef1",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Discriminant d'une équation du second degré",
+    "shortDescription": "Discriminant d'une éq. du second degré",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694ff60c501300f9cc2dbef2",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Résolution d'une équation du second degré",
+    "shortDescription": "Résolution d'une éq. du second degré",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694ff615501300f9cc2dbef3",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Équation polynomiale de degré supérieur à deux",
+    "shortDescription": "Éq. polynomiale de degré supérieur à deux",
+    "description": "Résolution d’équations ou d’inéquations faisant intervenir cette notion."
+  },
+  {
+    "id": "694ff61d501300f9cc2dbef4",
+    "domainId": "694d3c241e4bfcfffd2fd6ce",
+    "longDescription": "Lien entre factorisation et solutions",
+    "shortDescription": "Lien entre factorisation et solutions",
+    "description": null
+  },
+  {
+    "id": "694ff67a501300f9cc2dbef5",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Série statistique",
+    "shortDescription": "Série statistique",
+    "description": null
+  },
+  {
+    "id": "694ff682501300f9cc2dbef6",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Caractère quantitatif discret",
+    "shortDescription": "Caractère quantitatif discret",
+    "description": null
+  },
+  {
+    "id": "694ff689501300f9cc2dbef7",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Caractère quantitatif continu",
+    "shortDescription": "Caractère quantitatif continu",
+    "description": null
+  },
+  {
+    "id": "694ff69f501300f9cc2dbef8",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Moyenne",
+    "shortDescription": "Moyenne",
+    "description": null
+  },
+  {
+    "id": "694ff6a5501300f9cc2dbef9",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Médiane",
+    "shortDescription": "Médiane",
+    "description": null
+  },
+  {
+    "id": "694ff6ab501300f9cc2dbefa",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Quartiles",
+    "shortDescription": "Quartiles",
+    "description": null
+  },
+  {
+    "id": "694ff6b2501300f9cc2dbefb",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Étendue",
+    "shortDescription": "Étendue",
+    "description": null
+  },
+  {
+    "id": "694ff6b9501300f9cc2dbefc",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Écart interquartile",
+    "shortDescription": "Écart interquartile",
+    "description": null
+  },
+  {
+    "id": "694ff6bf501300f9cc2dbefd",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Écart-type",
+    "shortDescription": "Écart-type",
+    "description": null
+  },
+  {
+    "id": "694ff6e0501300f9cc2dbefe",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Diagramme en bâtons",
+    "shortDescription": "Diagramme en bâtons",
+    "description": null
+  },
+  {
+    "id": "694ff6e6501300f9cc2dbeff",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Histogramme",
+    "shortDescription": "Histogramme",
+    "description": null
+  },
+  {
+    "id": "694ff6ee501300f9cc2dbf00",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Boîte à moustaches",
+    "shortDescription": "Boîte à moustaches",
+    "description": null
+  },
+  {
+    "id": "694ff6f7501300f9cc2dbf01",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Lecture et interprétation d'indicateurs statistiques",
+    "shortDescription": "Lecture et interprétation d'indicateurs statistiques",
+    "description": null
+  },
+  {
+    "id": "694ff6fe501300f9cc2dbf02",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Comparaison de séries statistiques",
+    "shortDescription": "Comparaison de séries statistiques",
+    "description": null
+  },
+  {
+    "id": "694ff727501300f9cc2dbf03",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Variance",
+    "shortDescription": "Variance",
+    "description": null
+  },
+  {
+    "id": "694ff732501300f9cc2dbf04",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Fréquence",
+    "shortDescription": "Fréquence",
+    "description": null
+  },
+  {
+    "id": "694ff73f501300f9cc2dbf05",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Effectifs cumulés croissants",
+    "shortDescription": "Effectifs cumulés croissants",
+    "description": null
+  },
+  {
+    "id": "694ff747501300f9cc2dbf06",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Effectifs cumulés décroissants",
+    "shortDescription": "Effectifs cumulés décroissants",
+    "description": null
+  },
+  {
+    "id": "694ff777501300f9cc2dbf07",
+    "domainId": "694d3bfb1e4bfcfffd2fd6cd",
+    "longDescription": "Déciles",
+    "shortDescription": "Déciles",
+    "description": null
+  },
+  {
+    "id": "694ff7aa501300f9cc2dbf08",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Population statistique",
+    "shortDescription": "Population statistique",
+    "description": null
+  },
+  {
+    "id": "694ff7b0501300f9cc2dbf09",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Échantillon",
+    "shortDescription": "Échantillon",
+    "description": null
+  },
+  {
+    "id": "694ff7b7501300f9cc2dbf0a",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Taille d'un échantillon",
+    "shortDescription": "Taille d'un échantillon",
+    "description": null
+  },
+  {
+    "id": "694ff7c0501300f9cc2dbf0b",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Fréquence observée",
+    "shortDescription": "Fréquence observée",
+    "description": null
+  },
+  {
+    "id": "694ff7ea501300f9cc2dbf0c",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Estimation d'une proportion",
+    "shortDescription": "Estimation d'une proportion",
+    "description": null
+  },
+  {
+    "id": "694ff7f0501300f9cc2dbf0d",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Fluctuation d'échantillonnage",
+    "shortDescription": "Fluctuation d'échantillonnage",
+    "description": null
+  },
+  {
+    "id": "694ff7f6501300f9cc2dbf0e",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Intervalle de fluctuation",
+    "shortDescription": "Intervalle de fluctuation",
+    "description": null
+  },
+  {
+    "id": "694ff7ff501300f9cc2dbf0f",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Modélisation probabiliste d'un échantillon",
+    "shortDescription": "Modélisation probabiliste d'un échantillon",
+    "description": null
+  },
+  {
+    "id": "694ff806501300f9cc2dbf10",
+    "domainId": "694d484f6a55124a31784416",
+    "longDescription": "Lien entre fréquence et probabilité",
+    "shortDescription": "Lien entre fréquence et probabilité",
+    "description": null
+  },
+  {
+    "id": "694ff963501300f9cc2dbf11",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Variable aléatoire discrète",
+    "shortDescription": "Variable aléatoire discrète",
+    "description": null
+  },
+  {
+    "id": "694ff970501300f9cc2dbf12",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Loi de probabilité d'une variable aléatoire discrète",
+    "shortDescription": "Loi de probabilité d'une variable aléatoire discrète",
+    "description": null
+  },
+  {
+    "id": "694ff979501300f9cc2dbf13",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Support d'une loi de probabilité discrète",
+    "shortDescription": "Support d'une loi de probabilité discrète",
+    "description": null
+  },
+  {
+    "id": "694ff981501300f9cc2dbf14",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Espérance d'une variable aléatoire discrète",
+    "shortDescription": "Espérance d'une variable aléatoire discrète",
+    "description": null
+  },
+  {
+    "id": "694ff987501300f9cc2dbf15",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Variance d'une variable aléatoire discrète",
+    "shortDescription": "Variance d'une variable aléatoire discrète",
+    "description": null
+  },
+  {
+    "id": "694ff98e501300f9cc2dbf16",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Écart-type d'une variable aléatoire discrète",
+    "shortDescription": "Écart-type d'une variable aléatoire discrète",
+    "description": null
+  },
+  {
+    "id": "694ff994501300f9cc2dbf17",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Loi de Bernoulli",
+    "shortDescription": "Loi de Bernoulli",
+    "description": null
+  },
+  {
+    "id": "694ff9ac501300f9cc2dbf18",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Loi binomiale",
+    "shortDescription": "Loi binomiale",
+    "description": null
+  },
+  {
+    "id": "694ff9b6501300f9cc2dbf19",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Tableau de loi de probabilité",
+    "shortDescription": "Tableau de loi de probabilité",
+    "description": null
+  },
+  {
+    "id": "694ff9c2501300f9cc2dbf1a",
+    "domainId": "694d3aad6e9120f3bba421e2",
+    "longDescription": "Représentation graphique d'une loi de probabilité discrète",
+    "shortDescription": "Représentation graphique d'une loi de probabilité discrète",
+    "description": null
+  },
+  {
+    "id": "694ffb0e501300f9cc2dbf1b",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Variable aléatoire continue",
+    "shortDescription": "Variable aléatoire continue",
+    "description": null
+  },
+  {
+    "id": "694ffb16501300f9cc2dbf1c",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Loi à densité",
+    "shortDescription": "Loi à densité",
+    "description": null
+  },
+  {
+    "id": "694ffb1e501300f9cc2dbf1d",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Densité de probabilité",
+    "shortDescription": "Densité de probabilité",
+    "description": null
+  },
+  {
+    "id": "694ffb26501300f9cc2dbf1e",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Espérance d'une variable aléatoire continue",
+    "shortDescription": "Espérance d'une variable aléatoire continue",
+    "description": null
+  },
+  {
+    "id": "694ffb2d501300f9cc2dbf1f",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Variance d'une variable aléatoire continue",
+    "shortDescription": "Variance d'une variable aléatoire continue",
+    "description": null
+  },
+  {
+    "id": "694ffb34501300f9cc2dbf20",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Écart-type d'une variable aléatoire continue",
+    "shortDescription": "Écart-type d'une variable aléatoire continue",
+    "description": null
+  },
+  {
+    "id": "694ffb3d501300f9cc2dbf21",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Loi uniforme sur un intervalle",
+    "shortDescription": "Loi uniforme sur un intervalle",
+    "description": null
+  },
+  {
+    "id": "694ffb44501300f9cc2dbf22",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Loi exponentielle",
+    "shortDescription": "Loi exponentielle",
+    "description": null
+  },
+  {
+    "id": "694ffb4e501300f9cc2dbf23",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Fonction de densité",
+    "shortDescription": "Fct de densité",
+    "description": null
+  },
+  {
+    "id": "694ffb56501300f9cc2dbf24",
+    "domainId": "694d3ad16e9120f3bba421e3",
+    "longDescription": "Représentation graphique d'une densité",
+    "shortDescription": "Représentation graphique d'une densité",
+    "description": null
+  },
+  {
+    "id": "6952884052e778401c9e9df2",
+    "domainId": "694d37fb6e9120f3bba421d9",
+    "longDescription": "Limites à l’infini",
+    "shortDescription": "Limites à l’infini",
+    "description": "Étude du comportement d’une fonction ou d’une suite lorsque la variable se rapproche d’une valeur donnée ou de l’infini."
+  },
+  {
+    "id": "69528f6852e778401c9e9df3",
+    "domainId": "694d377b6e9120f3bba421d5",
+    "longDescription": "Intégration par partie",
+    "shortDescription": "Intégration par partie",
+    "description": null
+  }
+]
