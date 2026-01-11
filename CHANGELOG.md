@@ -1,3 +1,8 @@
+## <small>1.4.33 (2026-01-11)</small>
+
+* Merge pull request #91 from frdemoulin/dev ([b31d80e](https://github.com/frdemoulin/my-exams/commit/b31d80e)), closes [#91](https://github.com/frdemoulin/my-exams/issues/91)
+* fix: francisation des urls publiques ([26c8503](https://github.com/frdemoulin/my-exams/commit/26c8503))
+
 ## <small>1.4.32 (2026-01-11)</small>
 
 * Merge pull request #90 from frdemoulin/dev ([73309ec](https://github.com/frdemoulin/my-exams/commit/73309ec)), closes [#90](https://github.com/frdemoulin/my-exams/issues/90)
