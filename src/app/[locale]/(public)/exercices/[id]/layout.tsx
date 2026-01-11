@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     normalizeExamPaperLabel(exercise.examPaper.label) ?? exercise.examPaper.label;
   const exerciseTitle =
     exercise.title ?? exercise.label ?? `Exercice ${exercise.exerciseNumber}`;
-  const canonical = buildCanonicalUrl(`/exercises/${exercise.id}`);
+  const canonical = buildCanonicalUrl(`/exercices/${exercise.id}`);
 
   return {
     title: `${exerciseTitle} - ${subjectLabel}`,

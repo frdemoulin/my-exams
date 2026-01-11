@@ -540,7 +540,7 @@ export async function updateExercise(data: UpdateExerciseInput) {
 
     revalidatePath('/admin/exam-papers');
     revalidatePath(`/admin/exam-papers/${existing.examPaperId}`);
-    revalidatePath(`/exercises/${id}`);
+    revalidatePath(`/exercices/${id}`);
     revalidatePath('/');
 
     return {
@@ -949,7 +949,7 @@ export async function enrichExerciseById(exerciseId: string) {
 
     revalidatePath('/admin/exam-papers');
     revalidatePath(`/admin/exam-papers/${exercise.examPaperId}`);
-    revalidatePath(`/exercises/${exerciseId}`);
+    revalidatePath(`/exercices/${exerciseId}`);
     revalidatePath('/');
 
     return {

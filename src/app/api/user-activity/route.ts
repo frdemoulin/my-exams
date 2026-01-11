@@ -125,8 +125,8 @@ export async function GET() {
         ? `/diplomes/${exercise.examPaper.diplomaId}/matieres/${subject.id}/sessions/${exercise.examPaper.sessionYear}`
         : null;
       const href = returnTo
-        ? `/exercises/${exercise.id}?returnTo=${encodeURIComponent(returnTo)}`
-        : `/exercises/${exercise.id}`;
+        ? `/exercices/${exercise.id}?returnTo=${encodeURIComponent(returnTo)}`
+        : `/exercices/${exercise.id}`;
       const title =
         exercise.title ||
         exercise.label ||

@@ -1,6 +1,6 @@
 /**
  * Page de détail d'un exercice
- * /exercises/[id]
+ * /exercices/[id]
  */
 
 'use client';

@@ -131,6 +131,10 @@ npm run db:migrate
 
 En PROD (Render) : la migration se jouera automatiquement via “Pre-deploy”.
 
+⚠️ **Règle stricte** : ne modifie **jamais** un fichier de migration déjà appliqué.
+Sinon : erreur de checksum au déploiement (ex : `Migration déjà appliquée mais checksum différent`).
+Si tu dois ajuster une migration appliquée, **crée un nouveau fichier**.
+
 ### Scénario 3 bis — Normaliser apostrophes et abréviations (domaines/thèmes)
 
 Quand des imports produisent des apostrophes typographiques ou des variantes d’écriture :

@@ -76,6 +76,7 @@ npx prisma studio
 # - Évolution de schéma (index/uniques) : `npx prisma db push` (ou `npm run db:push`)
 # - Évolution de données (backfill, renommage, normalisation) : `npm run db:migrate`
 # - Créer une migration data : `npm run db:migration:new -- "normaliser les sources de sujets"`
+# - ⚠️ Ne jamais modifier une migration déjà appliquée (checksum différent → erreur). Créer un nouveau fichier.
 # - Déploiement prod (Render pre-deploy) : `CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`
 
 # Seed de la base de données

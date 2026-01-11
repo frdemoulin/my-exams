@@ -350,6 +350,10 @@ Règles :
 Sur Render, tu peux exécuter ça en **Pre-deploy command** :
 ```bash
 # Applique les index/uniques Prisma puis exécute les migrations data
+
+⚠️ **Règle stricte** : ne modifie **jamais** un fichier de migration déjà appliqué.
+Sinon : erreur de checksum au déploiement (ex : `Migration déjà appliquée mais checksum différent`).
+Si tu dois ajuster une migration appliquée, **crée un nouveau fichier**.
 CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
 ```
 

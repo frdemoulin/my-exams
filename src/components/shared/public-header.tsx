@@ -15,7 +15,7 @@ export function PublicHeader() {
   const pathname = usePathname();
   const isAnnalesActive = pathname?.startsWith('/diplomes')
     || pathname?.startsWith('/sujets')
-    || pathname?.startsWith('/exercises');
+    || pathname?.startsWith('/exercices');
   const annalesLinkClass = isAnnalesActive
     ? 'font-semibold text-foreground'
     : 'hover:text-foreground';

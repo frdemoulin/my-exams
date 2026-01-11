@@ -163,7 +163,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   const exerciseEntries: MetadataRoute.Sitemap = exercises.map((exercise) => ({
-    url: `${baseUrl}/exercises/${exercise.id}`,
+    url: `${baseUrl}/exercices/${exercise.id}`,
     lastModified: exercise.updatedAt ?? now,
     changeFrequency: 'monthly',
     priority: 0.4,
