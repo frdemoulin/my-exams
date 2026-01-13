@@ -1,3 +1,9 @@
+## <small>1.4.36 (2026-01-13)</small>
+
+* Merge pull request #94 from frdemoulin/dev ([502511c](https://github.com/frdemoulin/my-exams/commit/502511c)), closes [#94](https://github.com/frdemoulin/my-exams/issues/94)
+* fix: correctifs mineurs sur l'incitation à créer un compte ([2032293](https://github.com/frdemoulin/my-exams/commit/2032293))
+* fix: mise en place de l'épique 3 ([2ed9af1](https://github.com/frdemoulin/my-exams/commit/2ed9af1))
+
 ## <small>1.4.35 (2026-01-11)</small>
 
 * Merge pull request #93 from frdemoulin/dev ([066195c](https://github.com/frdemoulin/my-exams/commit/066195c)), closes [#93](https://github.com/frdemoulin/my-exams/issues/93)
