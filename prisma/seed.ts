@@ -13,6 +13,8 @@ import { seedUsers } from "./seeds/user.seed";
 import { seedExamPapers } from "./seeds/exam-paper.seed";
 import { seedCorrections } from "./seeds/correction.seed";
 import { seedExercises } from "./seeds/exercise.seed";
+import { seedEntitlements } from "./seeds/entitlement.seed";
+import { seedSubscriptionPlans } from "./seeds/subscription-plan.seed";
 
 const prisma = new PrismaClient();
 
@@ -21,6 +23,8 @@ async function main() {
 
     try {
         // 1. Entités sans dépendances
+        await seedEntitlements(prisma);
+        await seedSubscriptionPlans(prisma);
         await seedDiplomas(prisma);
         await seedDivisions(prisma);
         await seedExaminationCenters(prisma);
