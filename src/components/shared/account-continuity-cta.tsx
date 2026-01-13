@@ -65,7 +65,7 @@ export function AccountContinuityCta({
       : 'Tu veux retrouver ce sujet plus tard ?';
   const copy: ReactNode = (
     <>
-      Cr&eacute;e un compte gratuit pour reprendre l&agrave; o&ugrave; tu t&apos;es
+      Compte gratuit, sans obligation, pour reprendre l&agrave; o&ugrave; tu t&apos;es
       arr&ecirc;t&eacute;.
     </>
   );

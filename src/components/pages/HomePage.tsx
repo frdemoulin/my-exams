@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent, useEffect, useMemo, useCallback } from 'react';
+import { useState, FormEvent, useEffect, useMemo, useCallback, useRef } from 'react';
 import { Search, X } from 'lucide-react';
 import type { Diploma, Subject } from '@prisma/client';
 import Link from 'next/link';
@@ -44,8 +44,6 @@ type ResumeActivity = {
   title: string;
   context?: string;
 };
-
-const RESUME_DISMISS_TTL_MS = RESUME_ACTIVITY_TTL_DAYS * 24 * 60 * 60 * 1000;
 
 export default function HomePage({
   initialSubjects,
@@ -94,6 +92,7 @@ export default function HomePage({
   const [resumeActivity, setResumeActivity] = useState<ResumeActivity | null>(null);
   const [isResumeLoading, setIsResumeLoading] = useState(false);
   const [isResumeDismissed, setIsResumeDismissed] = useState(false);
+  const resumeDismissTtlMsRef = useRef(RESUME_ACTIVITY_TTL_DAYS * 24 * 60 * 60 * 1000);
   const [teachingOptions, setTeachingOptions] = useState<
     Array<{ value: string; label: string }>
   >([]);
@@ -140,7 +139,7 @@ export default function HomePage({
         if (!Number.isFinite(dismissedAt)) {
           localStorage.setItem(RESUME_DISMISS_KEY, String(effectiveTimestamp));
         }
-        if (Date.now() - effectiveTimestamp < RESUME_DISMISS_TTL_MS) {
+        if (Date.now() - effectiveTimestamp < resumeDismissTtlMsRef.current) {
           setIsResumeDismissed(true);
         } else {
           localStorage.removeItem(RESUME_DISMISS_KEY);
@@ -1280,13 +1279,7 @@ export default function HomePage({
                       </Button>
                     </CardContent>
                   </Card>
-                ) : (
-                  <Card>
-                    <CardContent className="py-4 text-sm text-muted-foreground">
-                      Aucune activit&eacute; r&eacute;cente enregistr&eacute;e.
-                    </CardContent>
-                  </Card>
-                )}
+                ) : null}
               </section>
             )}
             {/* SECTION : RÉSULTATS DE RECHERCHE */}

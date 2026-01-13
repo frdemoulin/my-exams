@@ -5,6 +5,7 @@ import { ExternalLink, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { CorrectionLinkCard } from '@/components/corrections/CorrectionLinkCard';
 import { isExternalUrl } from '@/lib/utils';
 
 export type ExamPaperCorrectionLink = {
@@ -75,7 +76,7 @@ export function ExamPaperDocumentsCard({
       <CardHeader>
         <CardTitle className="text-lg">Documents</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-5">
+      <CardContent className="space-y-4">
         <div className="space-y-3">
           {officialStatementUrl ? (
             <div
@@ -118,65 +119,13 @@ export function ExamPaperDocumentsCard({
 
         <div className="space-y-3">
           {corrections.length > 0 ? (
-            <div
-              id={correctionsAnchorId}
-              className="space-y-3 scroll-mt-24"
-            >
-              {corrections.map((correction, index) => {
-                return (
-                  <div
-                    key={correction.id ?? `${correction.source}-${correction.url}`}
-                    className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
-                  >
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <p className="font-medium">Correction {correction.source} (PDF)</p>
-                        <LegalNotice
-                          className="w-full md:w-auto"
-                          desktopContent={
-                            <>
-                              H&eacute;bergement et diffusion des corrections par leurs
-                              &eacute;diteurs respectifs. Aucun h&eacute;bergement par My Exams.
-                            </>
-                          }
-                          mobileContent={
-                            <>
-                              H&eacute;bergement et diffusion des corrections par leurs
-                              &eacute;diteurs respectifs. Aucun h&eacute;bergement par My Exams.
-                            </>
-                          }
-                        />
-                      </div>
-                      {correction.author && (
-                        <p className="text-sm text-muted-foreground">
-                          Par {correction.author}
-                        </p>
-                      )}
-                      {correction.quality && (
-                        <div className="mt-1 flex gap-0.5">
-                          {[...Array(correction.quality)].map((_, i) => (
-                            <span key={i} className="text-yellow-500">
-                              ⭐
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    <Button size="sm" variant="success" asChild>
-                      <a
-                        href={correction.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Ouvrir la correction
-                        {isExternalUrl(correction.url) && (
-                          <ExternalLink className="ml-2 h-4 w-4" />
-                        )}
-                      </a>
-                    </Button>
-                  </div>
-                );
-              })}
+            <div id={correctionsAnchorId} className="divide-y divide-border scroll-mt-24">
+              {corrections.map((correction) => (
+                <CorrectionLinkCard
+                  key={correction.id ?? `${correction.source}-${correction.url}`}
+                  correction={correction}
+                />
+              ))}
             </div>
           ) : (
             <p className="text-sm text-muted-foreground">

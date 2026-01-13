@@ -24,6 +24,7 @@ export type ExamPaperWithRelations = ExamPaper & {
         url: string;
         type: string;
         quality: number | null;
+        author: string | null;
     }>;
     _count?: {
         exercises: number;
@@ -50,6 +51,7 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
                     url: true,
                     type: true,
                     quality: true,
+                    author: true,
                 }
             },
             _count: {
@@ -119,6 +121,7 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
                     url: true,
                     type: true,
                     quality: true,
+                    author: true,
                 },
                 orderBy: {
                     quality: "desc" // Meilleures corrections en premier
@@ -193,6 +196,7 @@ export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelat
                     url: true,
                     type: true,
                     quality: true,
+                    author: true,
                 }
             }
         },
@@ -388,6 +392,7 @@ export async function fetchExamPapersByScope(params: {
                     url: true,
                     type: true,
                     quality: true,
+                    author: true,
                 },
                 orderBy: {
                     quality: "desc",
