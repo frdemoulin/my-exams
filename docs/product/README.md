@@ -43,6 +43,14 @@ Ils servent de guide, mais **ne définissent pas les priorités court terme**.
 
 ---
 
+### Docs techniques associées
+Documents utiles pour la mise en œuvre côté dev.
+
+- **docs/development/entitlements.md**  
+  Guide technique v1 sur les droits (entitlements), endpoint et seeds.
+
+---
+
 ### Vocabulaire
 Glossaire des termes utilisés dans le PRD et le backlog.
 
