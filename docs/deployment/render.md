@@ -39,6 +39,19 @@ env CONFIRM_DB_MIGRATIONS=1 npm run db:deploy
 - **Changement d’env vars** : onglet **Environment** du service.
 
 ---
+## Dashboard beta (EPIC 4)
+
+Le dashboard public est **réservé à une liste d’emails** (beta) ou aux admins.
+
+Variables Render (Environment) :
+```
+DASHBOARD_BETA_EMAILS=alice@exemple.fr,bob@exemple.fr
+```
+
+- Sépare les emails par des virgules.
+- Laisse vide pour tout bloquer (hors admins).
+
+---
 ## Notes / dépannage rapide
 - En environnement natif Render, `apt-get` est en lecture seule → **Ghostscript non disponible**.
 - Si le pre-deploy échoue, vérifier `DATABASE_URL` et la commande `env CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`.

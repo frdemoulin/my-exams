@@ -317,6 +317,7 @@ model Exercise {
 
   // Relations
   corrections ExerciseCorrection[]
+  historyEntries UserExerciseHistory[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -480,6 +481,7 @@ model User {
   activity      UserActivity?
   entitlements  UserEntitlement[]
   subscriptions UserSubscription[]
+  exerciseHistory UserExerciseHistory[]
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
 }
@@ -492,6 +494,7 @@ model UserActivity {
   lastExerciseId  String?  @db.ObjectId
   lastSubjectId   String?  @db.ObjectId
   lastSessionYear Int?
+  currentGoalLabel String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
@@ -500,6 +503,22 @@ model UserActivity {
   @@index([lastExerciseId])
   @@index([lastSubjectId])
   @@index([lastSessionYear])
+}
+
+model UserExerciseHistory {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @db.ObjectId
+  exerciseId String   @db.ObjectId
+  lastViewedAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, exerciseId])
+  @@index([userId])
+  @@index([exerciseId])
+  @@index([lastViewedAt])
 }
 
 model Entitlement {

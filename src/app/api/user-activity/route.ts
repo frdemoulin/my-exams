@@ -11,6 +11,7 @@ type UserActivityPayload = {
   exerciseId?: string | null;
   subjectId?: string | null;
   sessionYear?: number | string | null;
+  currentGoalLabel?: string | null;
 };
 
 export async function POST(request: Request) {
@@ -44,13 +45,38 @@ export async function POST(request: Request) {
   const sessionYear = Number.isNaN(parsedSessionYear) ? null : parsedSessionYear;
 
   try {
+    const exerciseId =
+      typeof payload?.exerciseId === 'string' ? payload.exerciseId : null;
     await upsertUserActivity({
       userId,
       examPaperId: typeof payload?.examPaperId === 'string' ? payload.examPaperId : null,
-      exerciseId: typeof payload?.exerciseId === 'string' ? payload.exerciseId : null,
+      exerciseId,
       subjectId: typeof payload?.subjectId === 'string' ? payload.subjectId : null,
       sessionYear,
+      currentGoalLabel:
+        typeof payload?.currentGoalLabel === 'string'
+          ? payload.currentGoalLabel
+          : null,
     });
+
+    if (exerciseId) {
+      await prisma.userExerciseHistory.upsert({
+        where: {
+          userId_exerciseId: {
+            userId,
+            exerciseId,
+          },
+        },
+        update: {
+          lastViewedAt: new Date(),
+        },
+        create: {
+          userId,
+          exerciseId,
+          lastViewedAt: new Date(),
+        },
+      });
+    }
   } catch (error) {
     console.error('Erreur de suivi activité utilisateur:', error);
     return NextResponse.json(
