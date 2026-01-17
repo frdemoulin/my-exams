@@ -1,3 +1,8 @@
+## <small>1.4.37 (2026-01-17)</small>
+
+* Merge pull request #95 from frdemoulin/dev ([741c269](https://github.com/frdemoulin/my-exams/commit/741c269)), closes [#95](https://github.com/frdemoulin/my-exams/issues/95)
+* fix: mise en place d'un dashboard beta ([89cbbd8](https://github.com/frdemoulin/my-exams/commit/89cbbd8))
+
 ## <small>1.4.36 (2026-01-13)</small>
 
 * Merge pull request #94 from frdemoulin/dev ([502511c](https://github.com/frdemoulin/my-exams/commit/502511c)), closes [#94](https://github.com/frdemoulin/my-exams/issues/94)
