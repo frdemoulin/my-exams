@@ -11,6 +11,8 @@ import prisma from "@/lib/db/prisma";
 import { sendVerificationRequest } from "@/lib/auth/auth-send-request";
 
 const MAGIC_LINK_MAX_AGE_SECONDS = 15 * 60;
+const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
+const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
 // définition des providers
 const providers: Provider[] = [];
@@ -112,12 +114,29 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 // @ts-expect-error role is added to the session user
                 session.user.role = token.role ?? session.user.role;
             }
+
+            if (token?.role === "ADMIN") {
+                const adminExpiresAt =
+                    typeof (token as any).adminExpiresAt === "number"
+                        ? (token as any).adminExpiresAt
+                        : null;
+                if (adminExpiresAt && Date.now() > adminExpiresAt) {
+                    session.expires = new Date(0) as any;
+                }
+            }
+
             return session;
         },
         async jwt({ token, user }) {
             if (user) {
                 token.role = (user as any).roles ?? token.role;
             }
+
+            if (token.role === "ADMIN" && !(token as any).adminExpiresAt) {
+                (token as any).adminExpiresAt =
+                    Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000;
+            }
+
             return token;
         },
     },
@@ -161,6 +180,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     providers,
     session: {
         strategy: "jwt",
+        maxAge: USER_SESSION_MAX_AGE_SECONDS,
+        updateAge: 60 * 60,
+    },
+    jwt: {
+        maxAge: USER_SESSION_MAX_AGE_SECONDS,
     },
     trustHost: true,
 });
