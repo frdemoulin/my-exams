@@ -1,3 +1,8 @@
+## <small>1.4.38 (2026-01-17)</small>
+
+* Merge pull request #96 from frdemoulin/dev ([0956508](https://github.com/frdemoulin/my-exams/commit/0956508)), closes [#96](https://github.com/frdemoulin/my-exams/issues/96)
+* fix: mise à jour des durées de session ([07470a2](https://github.com/frdemoulin/my-exams/commit/07470a2))
+
 ## <small>1.4.37 (2026-01-17)</small>
 
 * Merge pull request #95 from frdemoulin/dev ([741c269](https://github.com/frdemoulin/my-exams/commit/741c269)), closes [#95](https://github.com/frdemoulin/my-exams/issues/95)
