@@ -1,6 +1,32 @@
 import type { PrismaClient } from '@prisma/client';
 import * as fs from 'fs';
 import * as path from 'path';
+import {
+  mechanicsDomainId,
+  mechanicsThemes,
+} from './data/mechanics-themes';
+import {
+  wavesAndSignalsDomainId,
+  wavesAndSignalsThemes,
+} from './data/waves-and-signals-themes';
+import {
+  electricityDomainId,
+  electricityThemes,
+} from './data/electricity-themes';
+import {
+  thermodynamicsDomainId,
+  thermodynamicsThemes,
+} from './data/thermodynamics-themes';
+import {
+  matterConstitutionDomainId,
+  matterConstitutionThemes,
+} from './data/matter-constitution-themes';
+import { acidBaseDomainId, acidBaseThemes } from './data/acid-base-themes';
+import { redoxDomainId, redoxThemes } from './data/redox-themes';
+import {
+  chemicalKineticsDomainId,
+  chemicalKineticsThemes,
+} from './data/chemical-kinetics-themes';
 
 interface Topic {
   longDescription: string;
@@ -34,6 +60,61 @@ type SeedPayload = {
 
 const seedFilePath = path.join(__dirname, 'data', 'domains-themes.json');
 
+type ManualThemeSeed = {
+  title: string;
+  shortTitle?: string;
+  shortDescription: string;
+  longDescription: string;
+  description?: string;
+};
+
+const manualThemeGroups: Array<{
+  domainId: string;
+  domainLabel: string;
+  themes: ManualThemeSeed[];
+}> = [
+  {
+    domainId: mechanicsDomainId,
+    domainLabel: 'Mécanique',
+    themes: mechanicsThemes,
+  },
+  {
+    domainId: wavesAndSignalsDomainId,
+    domainLabel: 'Ondes et signaux',
+    themes: wavesAndSignalsThemes,
+  },
+  {
+    domainId: electricityDomainId,
+    domainLabel: 'Électricité',
+    themes: electricityThemes,
+  },
+  {
+    domainId: thermodynamicsDomainId,
+    domainLabel: 'Thermodynamique',
+    themes: thermodynamicsThemes,
+  },
+  {
+    domainId: matterConstitutionDomainId,
+    domainLabel: 'Constitution de la matière',
+    themes: matterConstitutionThemes,
+  },
+  {
+    domainId: acidBaseDomainId,
+    domainLabel: 'Acide-base',
+    themes: acidBaseThemes,
+  },
+  {
+    domainId: redoxDomainId,
+    domainLabel: 'Oxydoréduction',
+    themes: redoxThemes,
+  },
+  {
+    domainId: chemicalKineticsDomainId,
+    domainLabel: 'Cinétique chimique',
+    themes: chemicalKineticsThemes,
+  },
+];
+
 const loadSeedThemes = (): SeedThemeExport[] | null => {
   if (!fs.existsSync(seedFilePath)) return null;
   const raw = fs.readFileSync(seedFilePath, 'utf-8');
@@ -42,6 +123,85 @@ const loadSeedThemes = (): SeedThemeExport[] | null => {
     throw new Error('Seed file invalid: expected themes array.');
   }
   return payload.themes;
+};
+
+const seedManualThemeGroups = async (prisma: PrismaClient) => {
+  if (manualThemeGroups.length === 0) return;
+
+  const domainsById = new Map(
+    (await prisma.domain.findMany({
+      select: { id: true, longDescription: true },
+    })).map((domain) => [domain.id, domain])
+  );
+
+  const domainsByLabel = new Map(
+    (await prisma.domain.findMany({
+      select: { id: true, longDescription: true },
+    })).map((domain) => [domain.longDescription, domain.id])
+  );
+
+  let createdCount = 0;
+  let updatedCount = 0;
+  let skippedCount = 0;
+
+  for (const group of manualThemeGroups) {
+    const domainId =
+      domainsById.get(group.domainId)?.id ??
+      domainsByLabel.get(group.domainLabel);
+
+    if (!domainId) {
+      console.warn(
+        `   ⚠️  Domaine introuvable pour le groupe: ${group.domainLabel}`
+      );
+      skippedCount += group.themes.length;
+      continue;
+    }
+
+    for (const theme of group.themes) {
+      const title = theme.title.trim();
+      const shortTitle = theme.shortTitle?.trim() || null;
+      const shortDescription = theme.shortDescription.trim();
+      const longDescription = theme.longDescription.trim();
+      const description = theme.description?.trim() || null;
+
+      const existing = await prisma.theme.findFirst({
+        where: {
+          domainId,
+          title,
+        },
+      });
+
+      if (existing) {
+        await prisma.theme.update({
+          where: { id: existing.id },
+          data: {
+            title,
+            shortTitle,
+            shortDescription,
+            longDescription,
+            description,
+          },
+        });
+        updatedCount += 1;
+      } else {
+        await prisma.theme.create({
+          data: {
+            title,
+            shortTitle,
+            shortDescription,
+            longDescription,
+            description,
+            domainId,
+          },
+        });
+        createdCount += 1;
+      }
+    }
+  }
+
+  console.log(
+    `   ✓ Thèmes manuels: created=${createdCount}, updated=${updatedCount}, skipped=${skippedCount}`
+  );
 };
 
 export async function seedThemes(prisma: PrismaClient) {
@@ -137,7 +297,8 @@ export async function seedThemes(prisma: PrismaClient) {
       createdCount++;
     }
 
-    console.log(`   ✓ ${createdCount} thèmes créés`);
+    console.log(`   ✓ ${createdCount} thèmes créés (fichier JSON)`);
+    await seedManualThemeGroups(prisma);
     return;
   }
 
@@ -196,7 +357,7 @@ export async function seedThemes(prisma: PrismaClient) {
         ? 'Mouvement et forces'
         : 'Matière et ses états',
     })),
-    // Physique-Chimie Lycée
+  // Physique-Chimie Lycée
     ...data.physics_chemistry.lycee.map((t) => ({
       ...t,
       domainName: t.longDescription.includes('mouvement') || t.longDescription.includes('vitesse') || t.longDescription.includes('accélération') || t.longDescription.includes('chute') || t.longDescription.includes('Newton') || t.longDescription.includes('force') || t.longDescription.includes('travail') || t.longDescription.includes('énergie cinétique') || t.longDescription.includes('énergie potentielle') || t.longDescription.includes('quantité de mouvement')
@@ -228,9 +389,9 @@ export async function seedThemes(prisma: PrismaClient) {
       },
     });
 
-    const title = theme.longDescription;
-    const shortTitle = theme.shortDescription || null;
-    const shortDescription = theme.shortDescription || theme.longDescription;
+  const title = theme.longDescription;
+  const shortTitle = theme.shortDescription || null;
+  const shortDescription = theme.shortDescription || theme.longDescription;
 
     if (existingTheme) {
       // Mettre à jour si existe
@@ -258,4 +419,5 @@ export async function seedThemes(prisma: PrismaClient) {
   }
 
   console.log(`   ✓ ${createdCount} thèmes créés`);
+  await seedManualThemeGroups(prisma);
 }
