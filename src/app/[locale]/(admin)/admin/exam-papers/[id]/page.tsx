@@ -357,13 +357,13 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                             <div className="flex flex-wrap gap-1">
                                                 {[...exercise.themes]
                                                     .sort((a, b) =>
-                                                        a.longDescription.localeCompare(b.longDescription, 'fr', {
+                                                        a.title.localeCompare(b.title, 'fr', {
                                                             sensitivity: 'base',
                                                         })
                                                     )
                                                     .map((theme) => (
                                                     <Badge key={theme.id} variant="outline">
-                                                        {theme.longDescription}
+                                                        {theme.title}
                                                     </Badge>
                                                 ))}
                                             </div>

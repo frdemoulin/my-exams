@@ -40,7 +40,7 @@ export function DataTable<TData extends { id: string }, TValue>({
 }: DataTableProps<TData, TValue>) {
   const router = useRouter();
   const defaultSorting: SortingState = [
-    { id: "longDescription", desc: false },
+    { id: "title", desc: false },
   ];
   const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
   const [globalFilter, setGlobalFilter] = React.useState("");

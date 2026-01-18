@@ -49,6 +49,12 @@ Documents utiles pour la mise en œuvre côté dev.
 - **docs/development/entitlements.md**  
   Guide technique v1 sur les droits (entitlements), endpoint et seeds.
 
+### Cadrages éditoriaux
+Guides pour la rédaction et l’indexation des contenus pédagogiques.
+
+- **cadrage-themes-sciences-physiques.md**  
+  Cadrage éditorial pour renseigner les thèmes (Sciences physiques).
+
 ---
 
 ### Vocabulaire

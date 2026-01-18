@@ -34,6 +34,8 @@ const EditThemePage = async ({ params }: ThemeEditProps) => {
                     crudMode="edit"
                     initialData={{
                         id,
+                        title: theme?.title ?? "",
+                        shortTitle: theme?.shortTitle ?? "",
                         longDescription: theme?.longDescription ?? "",
                         shortDescription: theme?.shortDescription ?? "",
                         description: theme?.description ?? "",

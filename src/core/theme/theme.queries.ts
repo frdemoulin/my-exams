@@ -7,7 +7,7 @@ export async function fetchThemes(): Promise<Theme[]> {
     return await prisma.theme.findMany({
         orderBy: [
             {
-                createdAt: "asc",
+                title: "asc",
             }
         ]
     });
@@ -20,12 +20,19 @@ export async function fetchThemesWithIncludes(): Promise<ThemeData[]> {
                 select: {
                     id: true,
                     longDescription: true,
+                    subject: {
+                        select: {
+                            id: true,
+                            longDescription: true,
+                            shortDescription: true,
+                        },
+                    },
                 },
             }
         },
         orderBy: [
             {
-                createdAt: "asc",
+                title: "asc",
             }
         ]
     });
@@ -38,7 +45,7 @@ export async function fetchThemesByDomainId(domainId: string): Promise<Theme[]> 
         },
         orderBy: [
             {
-                longDescription: "asc",
+                title: "asc",
             },
         ],
     });
@@ -54,6 +61,13 @@ export async function fetchThemeById(id: string): Promise<ThemeData | null> {
                 select: {
                     id: true,
                     longDescription: true,
+                    subject: {
+                        select: {
+                            id: true,
+                            longDescription: true,
+                            shortDescription: true,
+                        },
+                    },
                 },
             }
         },

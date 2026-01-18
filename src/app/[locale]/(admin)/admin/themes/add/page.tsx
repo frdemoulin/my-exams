@@ -28,6 +28,8 @@ const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
                 <ThemeForm
                     crudMode="add"
                     initialData={{
+                        title: "",
+                        shortTitle: "",
                         shortDescription: "",
                         longDescription: "",
                         description: "",

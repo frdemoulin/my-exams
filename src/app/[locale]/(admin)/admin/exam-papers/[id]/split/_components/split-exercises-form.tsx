@@ -542,7 +542,7 @@ export function SplitExercisesForm({
               <MultiSelect
                 options={availableThemes.map((theme) => ({
                   value: theme.id,
-                  label: theme.longDescription,
+                  label: theme.title,
                 }))}
                 selected={exercise.themeIds}
                 onChange={(themeIds) => updateThemes(index, themeIds)}

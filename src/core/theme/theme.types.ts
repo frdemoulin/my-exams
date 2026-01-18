@@ -11,6 +11,13 @@ export const themeDataInclude = {
         select: {
             id: true,
             longDescription: true,
+            subject: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
         }
     }
 } satisfies Prisma.ThemeInclude;

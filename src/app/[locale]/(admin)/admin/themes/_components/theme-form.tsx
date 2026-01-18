@@ -22,6 +22,8 @@ interface ThemeFormProps {
     crudMode: "add" | "edit";
     initialData: {
         id?: string;
+        title: string;
+        shortTitle?: string;
         longDescription: string;
         shortDescription: string;
         description?: string;
@@ -41,14 +43,19 @@ export const ThemeForm = ({
     );
     
     const form = useForm<CreateThemeValues>({
-        defaultValues: initialData,
+        defaultValues: {
+            ...initialData,
+            shortTitle: initialData.shortTitle ?? undefined,
+        },
         resolver: zodResolver(createThemeSchema)
     });
 
     const onSubmit = async (values: CreateThemeValues) => {
         const formData = new FormData();
+        formData.append('title', values.title);
+        formData.append('shortTitle', values.shortTitle || '');
         formData.append('longDescription', values.longDescription);
-        formData.append('shortDescription', values.shortDescription || '');
+        formData.append('shortDescription', values.shortDescription);
         formData.append('description', values.description || '');
         formData.append('domainId', values.domainId);
         
@@ -73,15 +80,32 @@ export const ThemeForm = ({
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <FormField
-                    name="longDescription"
+                    name="title"
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                                <FormLabel>Description longue</FormLabel>
+                                <FormLabel>Titre</FormLabel>
                             <FormControl>
                                 <Input
                                     type="text"
-                                    placeholder="Description"
+                                    placeholder="Nom canonique du thème"
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    }}
+                />
+                <FormField
+                    name="shortTitle"
+                    control={control}
+                    render={({ field }) => {
+                        return <FormItem>
+                                <FormLabel>Titre court (optionnel)</FormLabel>
+                            <FormControl>
+                                <Input
+                                    type="text"
+                                    placeholder="Version courte pour mobile"
                                     {...field}
                                 />
                             </FormControl>
@@ -98,7 +122,24 @@ export const ThemeForm = ({
                             <FormControl>
                                 <Input
                                     type="text"
-                                    placeholder="Description"
+                                    placeholder="Phrase courte orientée élève"
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    }}
+                />
+                <FormField
+                    name="longDescription"
+                    control={control}
+                    render={({ field }) => {
+                        return <FormItem>
+                                <FormLabel>Description longue</FormLabel>
+                            <FormControl>
+                                <Textarea
+                                    placeholder="Description pédagogique (2–5 lignes)"
+                                    rows={4}
                                     {...field}
                                 />
                             </FormControl>
@@ -136,10 +177,10 @@ export const ThemeForm = ({
                     render={({ field }) => {
                         return (
                             <FormItem>
-                                <FormLabel>Description (optionnelle)</FormLabel>
+                                <FormLabel>Description (guidage admin, optionnelle)</FormLabel>
                                 <FormControl>
                                     <Textarea
-                                        placeholder="Description détaillée"
+                                        placeholder="À utiliser lorsque..."
                                         rows={4}
                                         {...field}
                                     />

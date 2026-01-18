@@ -340,6 +340,8 @@ export async function seedExercises(prisma: PrismaClient) {
           where: {
             OR: exerciseData.themeDescriptions?.map(desc => ({
               OR: [
+                { title: { contains: desc, mode: 'insensitive' } },
+                { shortTitle: { contains: desc, mode: 'insensitive' } },
                 { shortDescription: { contains: desc, mode: 'insensitive' } },
                 { longDescription: { contains: desc, mode: 'insensitive' } },
               ],
@@ -409,6 +411,8 @@ export async function seedExercises(prisma: PrismaClient) {
           where: {
             OR: (exerciseData as any).themeDescriptions?.map((desc: string) => ({
               OR: [
+                { title: { contains: desc, mode: 'insensitive' } },
+                { shortTitle: { contains: desc, mode: 'insensitive' } },
                 { shortDescription: { contains: desc, mode: 'insensitive' } },
                 { longDescription: { contains: desc, mode: 'insensitive' } },
               ],
@@ -468,6 +472,8 @@ export async function seedExercises(prisma: PrismaClient) {
         where: {
           OR: exerciseData.themeDescriptions?.map(desc => ({
             OR: [
+              { title: { contains: desc, mode: 'insensitive' } },
+              { shortTitle: { contains: desc, mode: 'insensitive' } },
               { shortDescription: { contains: desc, mode: 'insensitive' } },
               { longDescription: { contains: desc, mode: 'insensitive' } },
             ],

@@ -23,6 +23,8 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
     const router = useRouter();
     const form = useForm<CreateThemeValues>({
         defaultValues: {
+            title: "",
+            shortTitle: "",
             longDescription: "",
             shortDescription: "",
             description: "",
@@ -40,8 +42,10 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
 
     const onSubmit = async (values: CreateThemeValues) => {
         const formData = new FormData();
+        formData.append("title", values.title);
+        formData.append("shortTitle", values.shortTitle || "");
         formData.append("longDescription", values.longDescription);
-        formData.append("shortDescription", values.shortDescription || "");
+        formData.append("shortDescription", values.shortDescription);
         formData.append("description", values.description || "");
         formData.append("domainId", domainId);
 
@@ -50,6 +54,8 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
             revalidatePaths: [`/admin/domains/${domainId}`],
         });
         form.reset({
+            title: "",
+            shortTitle: "",
             longDescription: "",
             shortDescription: "",
             description: "",
@@ -75,13 +81,26 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
                             Domaine : <span className="font-medium text-heading">{domainLabel}</span>
                         </div>
                         <FormField
-                            name="longDescription"
+                            name="title"
                             control={control}
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Description longue</FormLabel>
+                                    <FormLabel>Titre</FormLabel>
                                     <FormControl>
-                                        <Input type="text" placeholder="Description" {...field} />
+                                        <Input type="text" placeholder="Nom canonique du thème" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            name="shortTitle"
+                            control={control}
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Titre court (optionnel)</FormLabel>
+                                    <FormControl>
+                                        <Input type="text" placeholder="Version courte pour mobile" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -94,7 +113,24 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
                                 <FormItem>
                                     <FormLabel>Description courte</FormLabel>
                                     <FormControl>
-                                        <Input type="text" placeholder="Description" {...field} />
+                                        <Input type="text" placeholder="Phrase courte orientée élève" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            name="longDescription"
+                            control={control}
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Description longue</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            placeholder="Description pédagogique (2–5 lignes)"
+                                            rows={4}
+                                            {...field}
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -105,10 +141,10 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
                             control={control}
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Description (optionnelle)</FormLabel>
+                                    <FormLabel>Description (guidage admin, optionnelle)</FormLabel>
                                     <FormControl>
                                         <Textarea
-                                            placeholder="Description détaillée"
+                                            placeholder="À utiliser lorsque..."
                                             rows={4}
                                             {...field}
                                         />

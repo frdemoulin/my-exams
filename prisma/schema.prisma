@@ -455,8 +455,10 @@ model Subject {
 
 model Theme {
   id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  title            String
+  shortTitle       String?
   longDescription  String
-  shortDescription String?
+  shortDescription String
   description      String?
 
   domainId String  @db.ObjectId

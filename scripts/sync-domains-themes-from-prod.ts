@@ -14,6 +14,8 @@ type ExportDomain = {
 };
 
 type ExportTheme = {
+  title?: string | null;
+  shortTitle?: string | null;
   longDescription: string;
   shortDescription: string | null;
   domainLongDescription: string;
@@ -117,6 +119,8 @@ async function exportFromProd(prisma: PrismaClient): Promise<ExportPayload> {
 
   const themes = await prisma.theme.findMany({
     select: {
+      title: true,
+      shortTitle: true,
       longDescription: true,
       shortDescription: true,
       domain: {
@@ -149,6 +153,8 @@ async function exportFromProd(prisma: PrismaClient): Promise<ExportPayload> {
   });
 
   const themeExports: ExportTheme[] = themes.map((theme) => ({
+    title: theme.title ?? null,
+    shortTitle: theme.shortTitle ?? null,
     longDescription: theme.longDescription,
     shortDescription: theme.shortDescription ?? null,
     domainLongDescription: theme.domain.longDescription,
@@ -322,6 +328,8 @@ async function importIntoDev(
     select: {
       id: true,
       domainId: true,
+      title: true,
+      shortTitle: true,
       longDescription: true,
       shortDescription: true,
     },
@@ -358,15 +366,22 @@ async function importIntoDev(
 
     const key = `${domain.id}::${theme.longDescription}`;
     const existing = themeByKey.get(key);
-    const nextShort = theme.shortDescription ?? null;
+    const nextTitle = theme.title?.trim() || theme.longDescription;
+    const nextShortTitle = theme.shortTitle?.trim() || null;
+    const nextShort = theme.shortDescription?.trim() || theme.longDescription;
 
     if (existing) {
-      const needsUpdate = (existing.shortDescription ?? null) !== nextShort;
+      const needsUpdate =
+        existing.title !== nextTitle ||
+        existing.shortTitle !== nextShortTitle ||
+        existing.shortDescription !== nextShort;
       if (needsUpdate) {
         if (!dryRun) {
           const updated = await prisma.theme.update({
             where: { id: existing.id },
             data: {
+              title: nextTitle,
+              shortTitle: nextShortTitle,
               shortDescription: nextShort,
             },
           });
@@ -378,6 +393,8 @@ async function importIntoDev(
       if (!dryRun) {
         const created = await prisma.theme.create({
           data: {
+            title: nextTitle,
+            shortTitle: nextShortTitle,
             longDescription: theme.longDescription,
             shortDescription: nextShort,
             domainId: domain.id,
