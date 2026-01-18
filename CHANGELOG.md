@@ -1,3 +1,8 @@
+## <small>1.5.1 (2026-01-18)</small>
+
+* Merge pull request #98 from frdemoulin/dev ([f7410da](https://github.com/frdemoulin/my-exams/commit/f7410da)), closes [#98](https://github.com/frdemoulin/my-exams/issues/98)
+* fix: mise à jour du batch d'exécution des seeds ([db269f9](https://github.com/frdemoulin/my-exams/commit/db269f9))
+
 ## 1.5.0 (2026-01-18)
 
 * Merge pull request #97 from frdemoulin/dev ([beaee7c](https://github.com/frdemoulin/my-exams/commit/beaee7c)), closes [#97](https://github.com/frdemoulin/my-exams/issues/97)
