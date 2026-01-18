@@ -1,3 +1,8 @@
+## 1.5.0 (2026-01-18)
+
+* Merge pull request #97 from frdemoulin/dev ([beaee7c](https://github.com/frdemoulin/my-exams/commit/beaee7c)), closes [#97](https://github.com/frdemoulin/my-exams/issues/97)
+* feat: mise à jour de la modélisation des thèmes ([f947315](https://github.com/frdemoulin/my-exams/commit/f947315))
+
 ## <small>1.4.38 (2026-01-17)</small>
 
 * Merge pull request #96 from frdemoulin/dev ([0956508](https://github.com/frdemoulin/my-exams/commit/0956508)), closes [#96](https://github.com/frdemoulin/my-exams/issues/96)
