@@ -58,7 +58,7 @@ const buildEnrichmentContext = async (): Promise<EnrichmentContext> => {
   const llm = useMockLlm ? new MockLlmAnalyzerService() : new OpenAiLlmAnalyzerService();
 
   const themes = await prisma.theme.findMany({
-    select: { id: true, shortDescription: true, longDescription: true },
+    select: { id: true, title: true, shortTitle: true, shortDescription: true },
   });
 
   return {
@@ -71,7 +71,7 @@ const buildEnrichmentContext = async (): Promise<EnrichmentContext> => {
     themeIdSet: new Set(themes.map((t) => t.id)),
     availableThemes: themes.map((t) => ({
       id: t.id,
-      label: t.shortDescription || t.longDescription || t.id,
+      label: t.title || t.shortTitle || t.shortDescription || t.id,
     })),
   };
 };

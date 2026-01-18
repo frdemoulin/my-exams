@@ -52,7 +52,7 @@ const EditExercisePage = async ({ params }: { params: Promise<{ id: string }> })
         exercise={exercise}
         themes={themes.map(theme => ({
           value: theme.id,
-          label: theme.longDescription,
+          label: theme.title,
           description: theme.description || undefined,
         }))}
       />

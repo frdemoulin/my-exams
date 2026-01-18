@@ -14,6 +14,8 @@ type ImportDomain = {
 };
 
 type ImportTheme = {
+  title?: string | null;
+  shortTitle?: string | null;
   longDescription: string;
   shortDescription: string | null;
   domainLongDescription: string;
@@ -231,6 +233,8 @@ async function main() {
       select: {
         id: true,
         domainId: true,
+        title: true,
+        shortTitle: true,
         longDescription: true,
         shortDescription: true,
       },
@@ -267,15 +271,22 @@ async function main() {
 
       const key = `${domain.id}::${theme.longDescription}`;
       const existing = themeByKey.get(key);
-      const nextShort = theme.shortDescription ?? null;
+      const nextTitle = theme.title?.trim() || theme.longDescription;
+      const nextShortTitle = theme.shortTitle?.trim() || null;
+      const nextShort = theme.shortDescription?.trim() || theme.longDescription;
 
       if (existing) {
-        const needsUpdate = (existing.shortDescription ?? null) !== nextShort;
+        const needsUpdate =
+          existing.title !== nextTitle ||
+          existing.shortTitle !== nextShortTitle ||
+          existing.shortDescription !== nextShort;
         if (needsUpdate) {
           if (!dryRun) {
             const updated = await prisma.theme.update({
               where: { id: existing.id },
               data: {
+                title: nextTitle,
+                shortTitle: nextShortTitle,
                 shortDescription: nextShort,
               },
             });
@@ -287,6 +298,8 @@ async function main() {
         if (!dryRun) {
           const created = await prisma.theme.create({
             data: {
+              title: nextTitle,
+              shortTitle: nextShortTitle,
               longDescription: theme.longDescription,
               shortDescription: nextShort,
               domainId: domain.id,

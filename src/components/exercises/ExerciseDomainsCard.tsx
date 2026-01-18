@@ -25,8 +25,8 @@ function buildDomainGroups(exercise: ExerciseWithRelations): DomainGroup[] {
   const orphanThemes: DomainGroup['themes'] = [];
 
   exercise.themes.forEach((theme) => {
-    const longLabel = theme.longDescription;
-    const shortLabel = theme.shortDescription ?? theme.longDescription;
+    const longLabel = theme.title ?? theme.shortDescription;
+    const shortLabel = theme.shortTitle ?? theme.title ?? theme.shortDescription;
     if (!longLabel || !shortLabel) return;
 
     if (!theme.domain) {

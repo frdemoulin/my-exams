@@ -83,20 +83,11 @@ const localeSort = localeStringSort<ThemeData>();
 
 export const columns: ColumnDef<ThemeData>[] = [
   {
-    accessorKey: "longDescription",
+    accessorKey: "title",
     sortingFn: localeSort,
     header: ({ column }) => {
       return (
-        <SortableHeader label="DESCRIPTION LONGUE" column={column} />
-      )
-    },
-  },
-  {
-    accessorKey: "shortDescription",
-    sortingFn: localeSort,
-    header: ({ column }) => {
-      return (
-        <SortableHeader label="DESCRIPTION COURTE" column={column} />
+        <SortableHeader label="TITRE" column={column} />
       )
     },
   },
@@ -111,6 +102,28 @@ export const columns: ColumnDef<ThemeData>[] = [
       return <div>
         {row.original.domain?.longDescription || 'N/A'}
       </div>
+    },
+  },
+  {
+    id: "subject",
+    accessorFn: (row) =>
+      row.domain?.subject?.shortDescription ||
+      row.domain?.subject?.longDescription ||
+      "N/A",
+    sortingFn: localeSort,
+    header: ({ column }) => {
+      return (
+        <SortableHeader label="MATIÈRE" column={column} />
+      )
+    },
+    cell: ({ row }) => {
+      return (
+        <div>
+          {row.original.domain?.subject?.shortDescription ||
+            row.original.domain?.subject?.longDescription ||
+            "N/A"}
+        </div>
+      )
     },
   },
   {

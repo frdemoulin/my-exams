@@ -80,7 +80,9 @@ export interface ExerciseWithRelations {
   
   themes: Array<{
     id: string;
-    shortDescription: string | null;
+    title: string;
+    shortTitle: string | null;
+    shortDescription: string;
     longDescription: string;
     domain?: {
       id: string;
@@ -281,6 +283,8 @@ export async function searchExercises(
       prisma.theme.findMany({
         where: {
           OR: [
+            { title: { contains: searchTerm, mode: 'insensitive' } },
+            { shortTitle: { contains: searchTerm, mode: 'insensitive' } },
             { longDescription: { contains: searchTerm, mode: 'insensitive' } },
             { shortDescription: { contains: searchTerm, mode: 'insensitive' } },
           ],
@@ -509,6 +513,8 @@ export async function suggestExercises(
       ? prisma.theme.findMany({
           where: {
             OR: [
+              { title: { contains: cleaned, mode: 'insensitive' } },
+              { shortTitle: { contains: cleaned, mode: 'insensitive' } },
               { longDescription: { contains: cleaned, mode: 'insensitive' } },
               { shortDescription: { contains: cleaned, mode: 'insensitive' } },
             ],
@@ -531,7 +537,7 @@ export async function suggestExercises(
     ...themeSuggestions.map<SearchSuggestion>((theme) => ({
       type: 'theme',
       id: `theme:${theme.id}`,
-      title: theme.longDescription || theme.shortDescription || 'Thème',
+      title: theme.title || theme.shortTitle || theme.shortDescription || 'Thème',
     })),
   ];
 }

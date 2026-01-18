@@ -64,6 +64,8 @@ export async function GET(request: NextRequest) {
       },
       select: {
         id: true,
+        title: true,
+        shortTitle: true,
         shortDescription: true,
         longDescription: true,
         domain: {
@@ -102,8 +104,8 @@ export async function GET(request: NextRequest) {
 
       existing.themes.push({
         id: theme.id,
-        label: theme.longDescription,
-        shortLabel: theme.shortDescription,
+        label: theme.title,
+        shortLabel: theme.shortTitle ?? null,
       });
 
       domainsMap.set(domain.id, existing);

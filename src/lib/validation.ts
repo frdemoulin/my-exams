@@ -110,32 +110,56 @@ const optionSchema = z.object({
 });
 
 export const createThemeSchema = z.object({
+    title: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(80, { message: "Ne peut pas dépasser 80 caractères" }),
+    shortTitle: z
+        .string({
+            invalid_type_error: "Doit être une chaîne de caractère",
+        })
+        .trim()
+        .max(40, { message: "Ne peut pas dépasser 40 caractères" })
+        .optional()
+        .or(z.literal("")),
     longDescription: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
     })
         .trim()
         .min(1, { message: "Champ requis" })
-        .max(255, { message: "Ne peut pas dépasser 255 caractères" }),
+        .max(600, { message: "Ne peut pas dépasser 600 caractères" }),
     shortDescription: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
     })
         .trim()
         .min(1, { message: "Champ requis" })
-        .max(100, { message: "Ne peut pas dépasser 100 caractères" }),
+        .max(140, { message: "Ne peut pas dépasser 140 caractères" }),
     description: z
         .string({
             invalid_type_error: "Doit être une chaîne de caractère",
         })
         .trim()
-        .max(1000, { message: "Ne peut pas dépasser 1000 caractères" })
+        .max(800, { message: "Ne peut pas dépasser 800 caractères" })
         .optional()
         .or(z.literal("")),
     domainId: z.string({
         required_error: "Champ requis",
     })
         .min(1, { message: "Champ requis" })
+}).superRefine((values, ctx) => {
+    const shortTitle = values.shortTitle?.trim();
+    if (shortTitle && shortTitle.length >= values.title.trim().length) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["shortTitle"],
+            message: "Doit être plus court que le titre",
+        });
+    }
 });
 
 export const createDomainSchema = z.object({

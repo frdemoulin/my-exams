@@ -57,7 +57,13 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
   const themes = exercise.themeIds.length
     ? await prisma.theme.findMany({
         where: { id: { in: exercise.themeIds } },
-        select: { id: true, shortDescription: true, longDescription: true },
+        select: {
+          id: true,
+          title: true,
+          shortTitle: true,
+          shortDescription: true,
+          longDescription: true,
+        },
       })
     : [];
 
@@ -171,7 +177,7 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
             <p className="text-sm">
               {themes.length > 0
                 ? themes
-                    .map((theme) => theme.shortDescription || theme.longDescription)
+                    .map((theme) => theme.shortTitle || theme.title)
                     .join(", ")
                 : "—"}
             </p>

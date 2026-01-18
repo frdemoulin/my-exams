@@ -73,6 +73,11 @@ const DomainActions = ({ domain }: { domain: DomainData }) => {
 };
 
 const localeSort = localeStringSort<DomainData>();
+const statusSort = (rowA: { original: DomainData }, rowB: { original: DomainData }) => {
+  const a = rowA.original.isActive ? 1 : 0;
+  const b = rowB.original.isActive ? 1 : 0;
+  return a - b;
+};
 
 export const columns: ColumnDef<DomainData>[] = [
   {
@@ -90,7 +95,9 @@ export const columns: ColumnDef<DomainData>[] = [
     ),
   },
   {
-    accessorKey: "subject",
+    id: "subject",
+    accessorFn: (row) => row.subject?.longDescription ?? "",
+    sortingFn: localeSort,
     header: ({ column }) => (
       <SortableHeader label="MATIÈRE" column={column} />
     ),
@@ -115,6 +122,7 @@ export const columns: ColumnDef<DomainData>[] = [
   },
   {
     accessorKey: "isActive",
+    sortingFn: statusSort,
     header: ({ column, table }) => {
       return (
         <SortableHeader

@@ -148,10 +148,38 @@ export async function seedExamPapers(prisma: PrismaClient) {
   });
 
   // Récupérer quelques thèmes pour les associer aux sujets
-  const themeSuites = await prisma.theme.findFirst({ where: { shortDescription: { contains: 'Suite' } } });
-  const themeProbas = await prisma.theme.findFirst({ where: { shortDescription: { contains: 'Probabilité' } } });
-  const themeDerivation = await prisma.theme.findFirst({ where: { shortDescription: { contains: 'Dérivation' } } });
-  const themeFonctions = await prisma.theme.findFirst({ where: { shortDescription: { contains: 'Fonction' } } });
+  const themeSuites = await prisma.theme.findFirst({
+    where: {
+      OR: [
+        { title: { contains: 'Suite' } },
+        { shortTitle: { contains: 'Suite' } },
+      ],
+    },
+  });
+  const themeProbas = await prisma.theme.findFirst({
+    where: {
+      OR: [
+        { title: { contains: 'Probabilité' } },
+        { shortTitle: { contains: 'Probabilité' } },
+      ],
+    },
+  });
+  const themeDerivation = await prisma.theme.findFirst({
+    where: {
+      OR: [
+        { title: { contains: 'Dérivation' } },
+        { shortTitle: { contains: 'Dérivation' } },
+      ],
+    },
+  });
+  const themeFonctions = await prisma.theme.findFirst({
+    where: {
+      OR: [
+        { title: { contains: 'Fonction' } },
+        { shortTitle: { contains: 'Fonction' } },
+      ],
+    },
+  });
 
   if (!bac || !generale || !terminale || !speMaths || !reformeBac2021Term || !metropole) {
     console.log('⚠️  Données de base manquantes, seeding des exam papers annulé');

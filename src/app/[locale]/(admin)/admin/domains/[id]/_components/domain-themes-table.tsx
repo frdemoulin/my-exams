@@ -38,13 +38,15 @@ interface DomainThemesTableProps {
     themes: Theme[];
 }
 
-type SortKey = "longDescription" | "shortDescription" | "updatedAt";
+type SortKey = "title" | "shortTitle" | "shortDescription" | "longDescription" | "updatedAt";
 
 export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) => {
     const [rows, setRows] = React.useState<Theme[]>(themes);
     const [editingThemeId, setEditingThemeId] = React.useState<string | null>(null);
     const [openMenuId, setOpenMenuId] = React.useState<string | null>(null);
     const [draft, setDraft] = React.useState({
+        title: "",
+        shortTitle: "",
         longDescription: "",
         shortDescription: "",
     });
@@ -53,7 +55,7 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
         key: SortKey | null;
         direction: "asc" | "desc";
     }>({
-        key: "longDescription",
+        key: "title",
         direction: "asc",
     });
 
@@ -69,7 +71,7 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
             if (current.direction === "asc") {
                 return { key, direction: "desc" };
             }
-            return { key: "longDescription", direction: "asc" };
+            return { key: "title", direction: "asc" };
         });
     };
 
@@ -88,13 +90,21 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
             }
 
             const aValue =
-                sortState.key === "longDescription"
-                    ? a.longDescription
-                    : a.shortDescription ?? "";
+                sortState.key === "title"
+                    ? a.title
+                    : sortState.key === "shortTitle"
+                    ? a.shortTitle ?? ""
+                    : sortState.key === "shortDescription"
+                    ? a.shortDescription
+                    : a.longDescription;
             const bValue =
-                sortState.key === "longDescription"
-                    ? b.longDescription
-                    : b.shortDescription ?? "";
+                sortState.key === "title"
+                    ? b.title
+                    : sortState.key === "shortTitle"
+                    ? b.shortTitle ?? ""
+                    : sortState.key === "shortDescription"
+                    ? b.shortDescription
+                    : b.longDescription;
 
             return direction * compareString(aValue, bValue);
         });
@@ -103,14 +113,18 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
     const startEdit = (theme: Theme) => {
         setEditingThemeId(theme.id);
         setDraft({
+            title: theme.title,
+            shortTitle: theme.shortTitle ?? "",
             longDescription: theme.longDescription,
-            shortDescription: theme.shortDescription ?? "",
+            shortDescription: theme.shortDescription,
         });
     };
 
     const cancelEdit = () => {
         setEditingThemeId(null);
         setDraft({
+            title: "",
+            shortTitle: "",
             longDescription: "",
             shortDescription: "",
         });
@@ -122,6 +136,8 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
         }
 
         const formData = new FormData();
+        formData.append("title", draft.title);
+        formData.append("shortTitle", draft.shortTitle);
         formData.append("longDescription", draft.longDescription);
         formData.append("shortDescription", draft.shortDescription);
         formData.append("domainId", domainId);
@@ -137,8 +153,10 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
                     theme.id === editingThemeId
                         ? {
                               ...theme,
+                              title: draft.title,
+                              shortTitle: draft.shortTitle || null,
                               longDescription: draft.longDescription,
-                              shortDescription: draft.shortDescription || null,
+                              shortDescription: draft.shortDescription,
                               updatedAt: new Date(),
                           }
                         : theme
@@ -146,6 +164,8 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
             );
             setEditingThemeId(null);
             setDraft({
+                title: "",
+                shortTitle: "",
                 longDescription: "",
                 shortDescription: "",
             });
@@ -204,12 +224,28 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
                         <Button
                             variant="ghost"
                             className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary justify-start"
-                            onClick={() => cycleSort("longDescription")}
+                            onClick={() => cycleSort("title")}
                         >
-                            DESCRIPTION LONGUE
+                            TITRE
                             <SortIcon
                                 direction={
-                                    sortState.key === "longDescription"
+                                    sortState.key === "title"
+                                        ? sortState.direction
+                                        : false
+                                }
+                            />
+                        </Button>
+                    </TableHead>
+                    <TableHead>
+                        <Button
+                            variant="ghost"
+                            className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary justify-start"
+                            onClick={() => cycleSort("shortTitle")}
+                        >
+                            TITRE COURT
+                            <SortIcon
+                                direction={
+                                    sortState.key === "shortTitle"
                                         ? sortState.direction
                                         : false
                                 }
@@ -226,6 +262,22 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
                             <SortIcon
                                 direction={
                                     sortState.key === "shortDescription"
+                                        ? sortState.direction
+                                        : false
+                                }
+                            />
+                        </Button>
+                    </TableHead>
+                    <TableHead>
+                        <Button
+                            variant="ghost"
+                            className="text-xs font-semibold uppercase tracking-wide text-heading dark:text-heading hover:bg-transparent hover:text-heading dark:hover:bg-transparent dark:hover:text-heading focus-visible:ring-2 focus-visible:ring-neutral-tertiary justify-start"
+                            onClick={() => cycleSort("longDescription")}
+                        >
+                            DESCRIPTION LONGUE
+                            <SortIcon
+                                direction={
+                                    sortState.key === "longDescription"
                                         ? sortState.direction
                                         : false
                                 }
@@ -260,16 +312,31 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
                             <TableCell>
                                 {isEditing ? (
                                     <Input
-                                        value={draft.longDescription}
+                                        value={draft.title}
                                         onChange={(event) =>
                                             setDraft((current) => ({
                                                 ...current,
-                                                longDescription: event.target.value,
+                                                title: event.target.value,
                                             }))
                                         }
                                     />
                                 ) : (
-                                    theme.longDescription
+                                    theme.title
+                                )}
+                            </TableCell>
+                            <TableCell>
+                                {isEditing ? (
+                                    <Input
+                                        value={draft.shortTitle}
+                                        onChange={(event) =>
+                                            setDraft((current) => ({
+                                                ...current,
+                                                shortTitle: event.target.value,
+                                            }))
+                                        }
+                                    />
+                                ) : (
+                                    theme.shortTitle || "—"
                                 )}
                             </TableCell>
                             <TableCell>
@@ -284,7 +351,22 @@ export const DomainThemesTable = ({ domainId, themes }: DomainThemesTableProps) 
                                         }
                                     />
                                 ) : (
-                                    theme.shortDescription || "—"
+                                    theme.shortDescription
+                                )}
+                            </TableCell>
+                            <TableCell>
+                                {isEditing ? (
+                                    <Input
+                                        value={draft.longDescription}
+                                        onChange={(event) =>
+                                            setDraft((current) => ({
+                                                ...current,
+                                                longDescription: event.target.value,
+                                            }))
+                                        }
+                                    />
+                                ) : (
+                                    theme.longDescription
                                 )}
                             </TableCell>
                             <TableCell>{formatDateTime(theme.updatedAt)}</TableCell>

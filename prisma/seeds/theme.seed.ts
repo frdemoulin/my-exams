@@ -19,6 +19,8 @@ interface TopicsData {
 }
 
 type SeedThemeExport = {
+  title?: string;
+  shortTitle?: string | null;
   longDescription: string;
   shortDescription: string | null;
   domainLongDescription: string;
@@ -108,18 +110,26 @@ export async function seedThemes(prisma: PrismaClient) {
         },
       });
 
+      const title = theme.title?.trim() || theme.longDescription;
+      const shortTitle = theme.shortTitle?.trim() || theme.shortDescription?.trim() || null;
+      const shortDescription = theme.shortDescription?.trim() || theme.longDescription;
+
       if (existingTheme) {
         await prisma.theme.update({
           where: { id: existingTheme.id },
           data: {
-            shortDescription: theme.shortDescription ?? null,
+            title,
+            shortTitle,
+            shortDescription,
           },
         });
       } else {
         await prisma.theme.create({
           data: {
+            title,
+            shortTitle,
             longDescription: theme.longDescription,
-            shortDescription: theme.shortDescription ?? null,
+            shortDescription,
             domainId,
           },
         });
@@ -218,20 +228,28 @@ export async function seedThemes(prisma: PrismaClient) {
       },
     });
 
+    const title = theme.longDescription;
+    const shortTitle = theme.shortDescription || null;
+    const shortDescription = theme.shortDescription || theme.longDescription;
+
     if (existingTheme) {
       // Mettre à jour si existe
       await prisma.theme.update({
         where: { id: existingTheme.id },
         data: {
-          shortDescription: theme.shortDescription,
+          title,
+          shortTitle,
+          shortDescription,
         },
       });
     } else {
       // Créer si n'existe pas
       await prisma.theme.create({
         data: {
+          title,
+          shortTitle,
           longDescription: theme.longDescription,
-          shortDescription: theme.shortDescription,
+          shortDescription,
           domainId: domainId,
         },
       });
