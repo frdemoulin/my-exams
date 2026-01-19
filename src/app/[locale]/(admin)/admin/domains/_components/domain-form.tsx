@@ -287,7 +287,7 @@ export const DomainForm = ({
                 Associe le domaine à un diplôme / niveau / enseignement / programme (optionnel).
               </p>
             </div>
-            <Button type="button" variant="secondary" size="sm" onClick={addScope}>
+            <Button type="button" variant="success" size="sm" onClick={addScope}>
               <Plus className="h-4 w-4" />
               Ajouter un scope
             </Button>

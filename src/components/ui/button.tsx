@@ -25,6 +25,10 @@ const buttonVariants = cva(
         warning:
           "box-border border border-transparent bg-yellow-500 text-white shadow-xs hover:bg-yellow-600 focus-visible:ring-4 focus-visible:ring-yellow-400",
 
+        // Flowbite Info (Cyan)
+        ai:
+          "box-border border border-transparent bg-cyan-600 text-white shadow-xs hover:bg-cyan-700 focus-visible:ring-4 focus-visible:ring-cyan-300",
+
         // Flowbite Secondary (Gray)
         secondary:
           "box-border border border-default bg-neutral-secondary-medium text-body shadow-xs hover:bg-neutral-tertiary-medium hover:text-heading focus-visible:ring-4 focus-visible:ring-neutral-tertiary",

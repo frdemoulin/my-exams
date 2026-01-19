@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { ExternalLink, Scissors, Pencil } from "lucide-react";
+import { ExternalLink, Scissors, Pencil, Eye } from "lucide-react";
 
 import { fetchExamPaperById } from "@/core/exam-paper";
 import { fetchCorrectionSources } from "@/core/correction-source";
@@ -110,6 +110,18 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-lg font-semibold md:text-2xl">{t('actions.view')}</h1>
                 <div className="flex items-center gap-2">
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Link href={`/sujets/${id}`}>
+                                    <Button variant="default" size="icon" aria-label="Voir le sujet">
+                                        <Eye className="h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </TooltipTrigger>
+                            <TooltipContent>Voir le sujet</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -223,6 +235,8 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                 examPaperId={id}
                 corrections={examPaper.corrections ?? []}
                 sources={correctionSources}
+                sourceUrl={examPaper.sourceUrl}
+                subjectUrl={examPaper.subjectUrl}
             />
 
             {/* Liste des exercices */}
@@ -295,6 +309,18 @@ const ViewExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
                                                 exerciseNumber={exercise.exerciseNumber}
                                                 enrichmentStatus={normalizeEnrichmentStatus(exercise.enrichmentStatus)}
                                             />
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <Link href={`/exercices/${exercise.id}`}>
+                                                            <Button variant="default" size="sm" aria-label="Voir l'exercice">
+                                                                <Eye className="h-4 w-4" />
+                                                            </Button>
+                                                        </Link>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>Voir l&apos;exercice</TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
                                             <TooltipProvider>
                                                 <Tooltip>
                                                     <TooltipTrigger asChild>

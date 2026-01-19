@@ -116,6 +116,20 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
   const officialStatementUrl = examPaper.subjectUrl ?? null;
   const previewPdfUrl = examPaper.subjectUrl ?? null;
   const hasCorrections = corrections.length > 0;
+  const exerciseStatements = exercises
+    .filter((exercise) => exercise.exerciseUrl)
+    .map((exercise) => ({
+      exerciseNumber: exercise.exerciseNumber,
+      label: exercise.title || exercise.label,
+      url: exercise.exerciseUrl as string,
+    }));
+  const exerciseCorrections = exercises
+    .filter((exercise) => exercise.corrections && exercise.corrections.length > 0)
+    .map((exercise) => ({
+      exerciseNumber: exercise.exerciseNumber,
+      label: exercise.title || exercise.label,
+      corrections: exercise.corrections,
+    }));
 
   const subjectBreadcrumbLabel =
     teachingLong && teachingLong !== subjectLabel
@@ -169,6 +183,8 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
         <ExamPaperDocumentsCard
           officialStatementUrl={officialStatementUrl}
           corrections={corrections}
+          exerciseStatements={exerciseStatements}
+          exerciseCorrections={exerciseCorrections}
         />
 
         <AccountContinuityCta kind="examPaper" />

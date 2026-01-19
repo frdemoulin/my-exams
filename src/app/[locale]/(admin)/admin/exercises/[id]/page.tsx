@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { Pencil } from "lucide-react";
 
 import getSession from "@/lib/auth/get-session";
 import prisma from "@/lib/db/prisma";
@@ -9,6 +10,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatDateTime, normalizeExamPaperLabel } from "@/lib/utils";
+import { fetchCorrectionSources } from "@/core/correction-source";
+import { ExerciseCorrections } from "./_components/exercise-corrections";
 
 const statusLabels: Record<string, { label: string; variant: "default" | "secondary" | "destructive" }> = {
   pending: { label: "En attente", variant: "secondary" },
@@ -34,6 +37,7 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
   const exercise = await prisma.exercise.findUnique({
     where: { id },
     include: {
+      corrections: true,
       examPaper: {
         include: {
           diploma: true,
@@ -53,6 +57,8 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
   if (!exercise) {
     redirect("/admin/exercises");
   }
+
+  const correctionSources = await fetchCorrectionSources({ includeInactive: true });
 
   const themes = exercise.themeIds.length
     ? await prisma.theme.findMany({
@@ -89,8 +95,10 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
           <Button asChild size="sm" variant="secondary">
             <Link href={`/admin/exam-papers/${exercise.examPaperId}`}>Voir le sujet</Link>
           </Button>
-          <Button asChild size="sm">
-            <Link href={`/admin/exercises/${exercise.id}/edit`}>Éditer</Link>
+          <Button asChild size="icon" variant="warning" aria-label="Éditer l'exercice">
+            <Link href={`/admin/exercises/${exercise.id}/edit`}>
+              <Pencil className="h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>
@@ -184,6 +192,12 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
           </div>
         </CardContent>
       </Card>
+
+      <ExerciseCorrections
+        exerciseId={exercise.id}
+        corrections={exercise.corrections ?? []}
+        sources={correctionSources}
+      />
     </div>
   );
 };

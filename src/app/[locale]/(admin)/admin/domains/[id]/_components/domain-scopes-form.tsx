@@ -116,7 +116,7 @@ export const DomainScopesForm = ({
           <p className="text-xs text-muted-foreground">
             Définis où ce domaine s&apos;applique (diplôme, niveau, enseignement, programme).
           </p>
-          <Button type="button" variant="secondary" size="sm" onClick={addScope}>
+          <Button type="button" variant="success" size="sm" onClick={addScope}>
             <Plus className="h-4 w-4" />
             Ajouter un scope
           </Button>

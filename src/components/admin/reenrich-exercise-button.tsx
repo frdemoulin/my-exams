@@ -52,11 +52,11 @@ export function ReenrichExerciseButton({
       description={`Confirmer l'enrichissement de l'exercice ${exerciseNumber}.`}
       confirmLabel={`${verb} l'enrichissement`}
       confirmLoadingLabel={verb === "Relancer" ? "Relance..." : "Enrichissement..."}
-      confirmVariant="default"
+      confirmVariant="ai"
       tooltip={`${verb} l'enrichissement`}
       trigger={
         <Button
-          variant="default"
+          variant="ai"
           size="sm"
           aria-label={`${verb} l'enrichissement`}
           title={`${verb} l'enrichissement`}
