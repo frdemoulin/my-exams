@@ -1,3 +1,8 @@
+## <small>1.5.2 (2026-01-19)</small>
+
+* Merge pull request #99 from frdemoulin/dev ([3f9b401](https://github.com/frdemoulin/my-exams/commit/3f9b401)), closes [#99](https://github.com/frdemoulin/my-exams/issues/99)
+* fix: harmonisation des couleurs des boutons d'action ([917d190](https://github.com/frdemoulin/my-exams/commit/917d190))
+
 ## <small>1.5.1 (2026-01-18)</small>
 
 * Merge pull request #98 from frdemoulin/dev ([f7410da](https://github.com/frdemoulin/my-exams/commit/f7410da)), closes [#98](https://github.com/frdemoulin/my-exams/issues/98)
