@@ -32,7 +32,7 @@ export function TableToolbar({
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <h1 className="text-xl font-extrabold leading-tight text-fg-brand md:text-2xl">{title}</h1>
         {addHref && addLabel ? (
-          <Button asChild size="sm" className="font-semibold gap-2">
+          <Button asChild size="sm" variant="success" className="font-semibold gap-2">
             <Link href={addHref}>
               <Plus className="h-4 w-4" />
               {addLabel}

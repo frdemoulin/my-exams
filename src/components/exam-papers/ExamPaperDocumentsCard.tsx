@@ -20,6 +20,19 @@ export type ExamPaperCorrectionLink = {
 type ExamPaperDocumentsCardProps = {
   officialStatementUrl: string | null;
   corrections: ExamPaperCorrectionLink[];
+  exerciseStatements?: Array<{
+    exerciseNumber: number;
+    label?: string | null;
+    url: string;
+  }>;
+  exerciseCorrections?: Array<{
+    exerciseNumber: number;
+    label?: string | null;
+    corrections: ExamPaperCorrectionLink[];
+  }>;
+  statementLabel?: string;
+  emptyStatementLabel?: string;
+  emptyCorrectionsLabel?: string;
   statementAnchorId?: string;
   correctionsAnchorId?: string;
 };
@@ -68,9 +81,17 @@ function LegalNotice({ label, desktopContent, mobileContent, className }: LegalN
 export function ExamPaperDocumentsCard({
   officialStatementUrl,
   corrections,
+  exerciseStatements,
+  exerciseCorrections,
+  statementLabel = 'Sujet officiel (PDF)',
+  emptyStatementLabel = 'Sujet officiel non disponible pour le moment.',
+  emptyCorrectionsLabel = 'Pas encore de correction pour ce sujet.',
   statementAnchorId = 'documents-statement',
   correctionsAnchorId = 'documents-corrections',
 }: ExamPaperDocumentsCardProps) {
+  const hasExerciseStatements = Boolean(exerciseStatements && exerciseStatements.length > 0);
+  const hasExerciseCorrections = Boolean(exerciseCorrections && exerciseCorrections.length > 0);
+
   return (
     <Card id="documents">
       <CardHeader>
@@ -85,7 +106,7 @@ export function ExamPaperDocumentsCard({
             >
               <div className="flex-1 space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <p className="font-medium">Sujet officiel (PDF)</p>
+                  <p className="font-medium">{statementLabel}</p>
                   <LegalNotice
                     className="w-full md:w-auto"
                     desktopContent={
@@ -110,9 +131,49 @@ export function ExamPaperDocumentsCard({
                 </a>
               </Button>
             </div>
+          ) : hasExerciseStatements ? (
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="font-medium">Énoncés par exercice (PDF)</p>
+                <LegalNotice
+                  className="w-full md:w-auto"
+                  desktopContent={
+                    <>
+                      Documents officiels d&apos;examen, diffus&eacute;s &agrave; l&apos;identique
+                      (non modifi&eacute;s). Source institutionnelle : autorit&eacute;
+                      acad&eacute;mique / minist&egrave;re comp&eacute;tent.
+                    </>
+                  }
+                  mobileContent={
+                    <>Documents officiels d&apos;examen – originaux non modifi&eacute;s.</>
+                  }
+                />
+              </div>
+              <div className="divide-y divide-border">
+                {exerciseStatements?.map((statement) => (
+                  <div
+                    key={`${statement.exerciseNumber}-${statement.url}`}
+                    className="flex flex-col gap-2 py-3 md:flex-row md:items-center md:justify-between"
+                  >
+                    <p className="text-sm font-medium">
+                      Exercice {statement.exerciseNumber}
+                      {statement.label ? ` — ${statement.label}` : ''}
+                    </p>
+                    <Button size="sm" asChild>
+                      <a href={statement.url} target="_blank" rel="noopener noreferrer">
+                        Ouvrir l&apos;énoncé
+                        {isExternalUrl(statement.url) && (
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        )}
+                      </a>
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
           ) : (
             <p className="text-sm text-muted-foreground">
-              Sujet officiel non disponible pour le moment.
+              {emptyStatementLabel}
             </p>
           )}
         </div>
@@ -127,9 +188,28 @@ export function ExamPaperDocumentsCard({
                 />
               ))}
             </div>
+          ) : hasExerciseCorrections ? (
+            <div className="divide-y divide-border">
+              {exerciseCorrections?.map((group) => (
+                <div key={group.exerciseNumber} className="space-y-3 py-3">
+                  <p className="text-sm font-medium">
+                    Exercice {group.exerciseNumber}
+                    {group.label ? ` — ${group.label}` : ''}
+                  </p>
+                  <div className="divide-y divide-border">
+                    {group.corrections.map((correction) => (
+                      <CorrectionLinkCard
+                        key={correction.id ?? `${group.exerciseNumber}-${correction.source}-${correction.url}`}
+                        correction={correction}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           ) : (
             <p className="text-sm text-muted-foreground">
-              Pas encore de correction pour ce sujet.
+              {emptyCorrectionsLabel}
             </p>
           )}
         </div>

@@ -85,11 +85,11 @@ export function EnrichExercisesButton({
       description={description}
       confirmLabel={confirmLabel}
       confirmLoadingLabel={confirmLoadingLabel}
-      confirmVariant="default"
+      confirmVariant="ai"
       tooltip={buttonLabel}
       trigger={
         <Button
-          variant="default"
+          variant="ai"
           disabled={isEnriching}
           aria-label={buttonLabel}
         >

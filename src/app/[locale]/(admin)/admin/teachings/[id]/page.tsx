@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { Pencil } from "lucide-react";
 
 import { fetchTeachingById } from "@/core/teaching";
 import getSession from "@/lib/auth/get-session";
@@ -36,12 +37,14 @@ const TeachingPage = async ({ params }: TeachingPageProps) => {
         <div className="w-full p-6">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-lg font-semibold md:text-2xl">Détails de l&apos;enseignement</h1>
-                <div className="space-x-2">
+                <div className="flex items-center gap-2">
                     <Button asChild variant="outline">
                         <Link href="/admin/teachings">Retour</Link>
                     </Button>
-                    <Button asChild>
-                        <Link href={`/admin/teachings/${teaching.id}/edit`}>Éditer</Link>
+                    <Button asChild variant="warning" size="icon" aria-label="Éditer l'enseignement">
+                        <Link href={`/admin/teachings/${teaching.id}/edit`}>
+                            <Pencil className="h-4 w-4" />
+                        </Link>
                     </Button>
                 </div>
             </div>

@@ -194,7 +194,17 @@ export default function ExerciseDetailPage() {
     return 'Retour';
   })();
   const examPaperCorrections = examPaper.corrections ?? [];
-  const officialStatementUrl = examPaper.subjectUrl ?? null;
+  const exerciseCorrections = exercise.corrections ?? [];
+  const officialStatementUrl = exerciseUrl ?? examPaper.subjectUrl ?? null;
+  const statementLabel = exerciseUrl ? "Énoncé de l'exercice (PDF)" : "Sujet officiel (PDF)";
+  const emptyStatementLabel = exerciseUrl
+    ? "Énoncé indisponible pour le moment."
+    : "Sujet officiel non disponible pour le moment.";
+  const correctionsToDisplay =
+    exerciseCorrections.length > 0 ? exerciseCorrections : examPaperCorrections;
+  const emptyCorrectionsLabel = exerciseCorrections.length > 0
+    ? "Pas encore de correction pour cet exercice."
+    : "Pas encore de correction pour ce sujet.";
   const previewPdfUrl = exerciseUrl || examPaper.subjectUrl || null;
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
@@ -315,10 +325,13 @@ export default function ExerciseDetailPage() {
 
           <div className="h-px w-full bg-border" />
 
-          <ExamPaperDocumentsCard
-            officialStatementUrl={officialStatementUrl}
-            corrections={examPaperCorrections}
-          />
+        <ExamPaperDocumentsCard
+          officialStatementUrl={officialStatementUrl}
+          corrections={correctionsToDisplay}
+          statementLabel={statementLabel}
+          emptyStatementLabel={emptyStatementLabel}
+          emptyCorrectionsLabel={emptyCorrectionsLabel}
+        />
 
           <AccountContinuityCta kind="exercise" />
 

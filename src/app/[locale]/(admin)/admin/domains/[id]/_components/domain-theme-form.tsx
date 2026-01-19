@@ -154,7 +154,7 @@ export const DomainThemeForm = ({ domainId, domainLabel }: DomainThemeFormProps)
                             )}
                         />
                         <div className="flex justify-end">
-                            <Button type="submit" disabled={isSubmitting} className="gap-2">
+                            <Button type="submit" variant="success" disabled={isSubmitting} className="gap-2">
                                 <Plus className="h-4 w-4" />
                                 Ajouter un thème
                             </Button>

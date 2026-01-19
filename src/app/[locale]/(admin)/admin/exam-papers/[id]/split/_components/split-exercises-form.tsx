@@ -307,11 +307,11 @@ export function SplitExercisesForm({
                 description="L'analyse IA remplacera le formulaire actuel. Aucun exercice en base ne sera modifié."
                 confirmLabel="Lancer l'analyse IA"
                 confirmLoadingLabel="Analyse..."
-                confirmVariant="default"
+                confirmVariant="ai"
                 trigger={
                   <Button
                     type="button"
-                    variant="default"
+                    variant="ai"
                     disabled={isSubmitting || isPreviewing || isSuggesting}
                   >
                     {isSuggesting ? 'Analyse...' : "Pré-découper avec l'IA"}

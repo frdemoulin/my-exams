@@ -11,12 +11,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { isExternalUrl } from "@/lib/utils";
 import { createCorrection, deleteCorrection } from "@/core/correction";
 
@@ -39,6 +47,8 @@ interface ExamPaperCorrectionsProps {
     examPaperId: string;
     corrections: ExamPaperCorrectionItem[];
     sources: CorrectionSourceOption[];
+    sourceUrl?: string | null;
+    subjectUrl?: string | null;
 }
 
 const correctionTypes = [
@@ -51,6 +61,8 @@ export const ExamPaperCorrections = ({
     examPaperId,
     corrections,
     sources,
+    sourceUrl,
+    subjectUrl,
 }: ExamPaperCorrectionsProps) => {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,6 +77,52 @@ export const ExamPaperCorrections = ({
     const [source, setSource] = useState(defaultSource);
     const [url, setUrl] = useState("");
     const [type, setType] = useState("pdf");
+    const [isDetecting, setIsDetecting] = useState(false);
+    const [isDetectDialogOpen, setIsDetectDialogOpen] = useState(false);
+    const [detectUrlInput, setDetectUrlInput] = useState(sourceUrl || subjectUrl || "");
+
+    const handleDetectLabolycee = async (inputUrl: string) => {
+        const detectionUrl = inputUrl.trim();
+        if (!detectionUrl) {
+            toast.error("Renseigne l'URL Labolycée du sujet.");
+            return;
+        }
+        if (!detectionUrl.includes("labolycee.org")) {
+            toast.error("La détection est disponible uniquement pour Labolycée.");
+            return;
+        }
+
+        setIsDetecting(true);
+        try {
+            const response = await fetch("/api/corrections/labolycee", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ url: detectionUrl, examPaperId }),
+            });
+            const payload = await response.json();
+            if (!response.ok || !payload?.success) {
+                toast.error(payload?.message || "Impossible de détecter une correction.");
+                return;
+            }
+
+            if (!payload?.subjectPdf && (!payload?.corrections || payload.corrections.length === 0)) {
+                toast.error("Aucun PDF détecté sur la page source.");
+                return;
+            }
+
+            const updates: string[] = [];
+            if (payload.subjectPdf) updates.push("sujet");
+            if (payload.exerciseSubjects?.length) updates.push(`${payload.exerciseSubjects.length} énoncé(s)`);
+            if (payload.corrections?.length) updates.push(`${payload.corrections.length} correction(s)`);
+            toast.success(`Détection terminée (${updates.join(" + ")}).`);
+            router.refresh();
+            setIsDetectDialogOpen(false);
+        } catch (error) {
+            toast.error("Impossible de détecter une correction.");
+        } finally {
+            setIsDetecting(false);
+        }
+    };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -116,6 +174,7 @@ export const ExamPaperCorrections = ({
     };
 
     return (
+        <>
         <Card className="mt-6">
             <CardHeader>
                 <CardTitle>Corrections</CardTitle>
@@ -189,6 +248,17 @@ export const ExamPaperCorrections = ({
                             </Link>
                         )}
                     </div>
+                    <div className="mt-3">
+                        <Button
+                            type="button"
+                            variant="secondary"
+                            size="sm"
+                            onClick={() => setIsDetectDialogOpen(true)}
+                            disabled={isDetecting}
+                        >
+                            {isDetecting ? "Détection en cours…" : "Détecter depuis Labolycée"}
+                        </Button>
+                    </div>
 
                     {activeSources.length === 0 ? (
                         <p className="mt-3 text-xs text-muted-foreground">
@@ -242,7 +312,7 @@ export const ExamPaperCorrections = ({
                                 </Select>
                             </div>
                             <div className="flex items-end">
-                                <Button type="submit" disabled={isSubmitting}>
+                                <Button type="submit" variant="success" disabled={isSubmitting}>
                                     <Plus className="mr-2 h-4 w-4" />
                                     Ajouter
                                 </Button>
@@ -252,5 +322,43 @@ export const ExamPaperCorrections = ({
                 </div>
             </CardContent>
         </Card>
+        <Dialog open={isDetectDialogOpen} onOpenChange={setIsDetectDialogOpen}>
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>Détection Labolycée</DialogTitle>
+                    <DialogDescription>
+                        Renseigne l&apos;URL de la page Labolycée du sujet.
+                    </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-2">
+                    <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        URL Labolycée
+                    </label>
+                    <Input
+                        type="url"
+                        placeholder="https://www.labolycee.org/..."
+                        value={detectUrlInput}
+                        onChange={(event) => setDetectUrlInput(event.target.value)}
+                    />
+                </div>
+                <DialogFooter className="gap-2 sm:justify-end">
+                    <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => setIsDetectDialogOpen(false)}
+                    >
+                        Annuler
+                    </Button>
+                    <Button
+                        type="button"
+                        onClick={() => handleDetectLabolycee(detectUrlInput)}
+                        disabled={isDetecting}
+                    >
+                        Lancer la détection
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+        </>
     );
 };
