@@ -186,6 +186,48 @@
     background-color: var(--color-muted);
     color: var(--color-muted-foreground);
   }
+
+  .command-root [cmdk-group-heading] {
+    padding-inline: calc(var(--spacing) * 2);
+    font-weight: 500;
+    color: var(--color-muted-foreground);
+  }
+
+  .command-root [cmdk-group]:not([hidden]) ~ [cmdk-group] {
+    padding-top: 0;
+  }
+
+  .command-root [cmdk-group] {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+
+  .command-root [cmdk-input-wrapper] svg {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
+
+  .command-root [cmdk-input] {
+    height: calc(var(--spacing) * 12);
+  }
+
+  .command-root [cmdk-item] {
+    padding-inline: calc(var(--spacing) * 2);
+    padding-block: calc(var(--spacing) * 3);
+  }
+
+  .command-root [cmdk-item] svg {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
+
+  .command-group [cmdk-group-heading] {
+    padding-inline: calc(var(--spacing) * 2);
+    padding-block: calc(var(--spacing) * 1.5);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    font-weight: 500;
+    color: var(--color-muted-foreground);
+  }
 }
 
 /* ============
