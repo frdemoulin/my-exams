@@ -1,8 +1,11 @@
 "use client";
 
+import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { Sparkles } from "lucide-react";
+import toast from "react-hot-toast";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -13,7 +16,7 @@ import { MultiSelect } from "@/components/ui/multi-select";
 import { createTheme } from "@/core/theme";
 import { CreateThemeValues } from "@/core/theme";
 import { createThemeSchema } from "@/lib/validation";
-import { updateTheme } from "@/core/theme";
+import { suggestThemeDraftFromTitle, updateTheme } from "@/core/theme";
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import { Option } from "@/types/option";
 import { useCommonTranslations } from "@/hooks/use-translations";
@@ -30,12 +33,18 @@ interface ThemeFormProps {
         domainId?: string;
     };
     options: Option[];
+    cancelHref?: string;
+    submitRedirectTo?: string | null;
+    revalidatePaths?: string[];
 }
 
 export const ThemeForm = ({
     crudMode,
     initialData,
-    options
+    options,
+    cancelHref = "/admin/themes",
+    submitRedirectTo,
+    revalidatePaths,
 }: ThemeFormProps) => {
     const common = useCommonTranslations();
     const sortedOptions = [...options].sort((a, b) =>
@@ -49,6 +58,9 @@ export const ThemeForm = ({
         },
         resolver: zodResolver(createThemeSchema)
     });
+    const [isSuggesting, setIsSuggesting] = React.useState(false);
+    const watchedTitle = form.watch("title");
+    const watchedDomainId = form.watch("domainId");
 
     const onSubmit = async (values: CreateThemeValues) => {
         const formData = new FormData();
@@ -60,11 +72,72 @@ export const ThemeForm = ({
         formData.append('domainId', values.domainId);
         
         if (!initialData.id) {
-            await createTheme(formData);
+            await createTheme(formData, {
+                redirectTo: submitRedirectTo,
+                revalidatePaths,
+            });
         } else {
-            await updateTheme(initialData.id, formData);
+            await updateTheme(initialData.id, formData, {
+                redirectTo: submitRedirectTo,
+                revalidatePaths,
+            });
         }
     }
+
+    const handleSuggest = async () => {
+        const title = form.getValues("title")?.trim() ?? "";
+        const domainId = form.getValues("domainId")?.trim() || undefined;
+
+        if (!title) {
+            toast.error("Renseigne un titre avant de lancer l'enrichissement.");
+            return;
+        }
+
+        try {
+            setIsSuggesting(true);
+            const result = await suggestThemeDraftFromTitle({ title, domainId });
+
+            if (!result.success) {
+                toast.error(result.error);
+                return;
+            }
+
+            form.setValue("title", result.data.title, { shouldDirty: true, shouldValidate: true });
+            form.setValue("shortTitle", result.data.shortTitle, { shouldDirty: true, shouldValidate: true });
+            form.setValue("shortDescription", result.data.shortDescription, { shouldDirty: true, shouldValidate: true });
+            form.setValue("longDescription", result.data.longDescription, { shouldDirty: true, shouldValidate: true });
+            form.setValue("description", result.data.description, { shouldDirty: true, shouldValidate: true });
+            if (!domainId && result.data.suggestedDomainId) {
+                form.setValue("domainId", result.data.suggestedDomainId, {
+                    shouldDirty: true,
+                    shouldValidate: true,
+                });
+            }
+
+            const autoSelectedDomain = !domainId && result.data.suggestedDomainId;
+            toast.success(
+                result.source === "openai"
+                    ? autoSelectedDomain
+                        ? "Champs enrichis par IA, domaine préselectionné"
+                        : "Champs enrichis par IA"
+                    : autoSelectedDomain
+                        ? "Suggestion générée (mode mock), domaine préselectionné"
+                        : "Suggestion générée (mode mock)"
+            );
+        } catch (error) {
+            if (
+                error &&
+                typeof error === "object" &&
+                "digest" in error &&
+                String(error.digest).startsWith("NEXT_REDIRECT")
+            ) {
+                throw error;
+            }
+            toast.error("Erreur lors de l'enrichissement IA");
+        } finally {
+            setIsSuggesting(false);
+        }
+    };
 
     const {
         handleSubmit,
@@ -79,6 +152,26 @@ export const ThemeForm = ({
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}
             >
+                <div className="mb-4 flex flex-col gap-3 rounded-base border border-default bg-neutral-primary-soft p-4 shadow-xs md:flex-row md:items-center md:justify-between">
+                    <div className="space-y-1">
+                        <p className="text-sm font-semibold text-heading">
+                            {crudMode === "add" ? "Préremplissage IA" : "Aide IA"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            À partir du titre saisi, l&apos;IA peut proposer un titre court, des
+                            descriptions modifiables et, si besoin, un domaine plausible.
+                        </p>
+                    </div>
+                    <Button
+                        type="button"
+                        variant="ai"
+                        onClick={handleSuggest}
+                        disabled={isSubmitting || isSuggesting || !watchedTitle?.trim()}
+                    >
+                        <Sparkles className="h-4 w-4" />
+                        {isSuggesting ? "Enrichissement..." : "Enrichir par IA"}
+                    </Button>
+                </div>
                 <FormField
                     name="title"
                     control={control}
@@ -167,6 +260,11 @@ export const ThemeForm = ({
                                     emptyText="Aucun domaine trouvé."
                                 />
                             </FormControl>
+                            {!watchedDomainId ? (
+                                <p className="text-xs text-muted-foreground">
+                                    Le domaine améliore la qualité de la suggestion IA.
+                                </p>
+                            ) : null}
                             <FormMessage />
                         </FormItem>
                     }}
@@ -196,7 +294,7 @@ export const ThemeForm = ({
                         variant="secondary"
                         className="mr-4"
                     >
-                        <Link href="/admin/themes">{common.cancel}</Link>
+                        <Link href={cancelHref}>{common.cancel}</Link>
                     </Button>
                     <FormSubmitButton
                         crudMode={crudMode}

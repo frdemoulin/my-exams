@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/select";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
 import { TableToolbar } from "@/components/shared/table-toolbar";
+import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 import { Option } from "@/types/option";
 import { DomainData } from "@/core/domain";
 
@@ -74,7 +75,7 @@ export function DataTable({
     onSortingChange: handleSortingChange,
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
-    globalFilterFn: "includesString",
+    globalFilterFn: accentInsensitiveIncludesString,
     initialState: {
       sorting: defaultSorting,
     },
