@@ -367,7 +367,7 @@ export default function HomePage({
       subject: 'Sciences physiques',
       year: '2024',
       label: 'Sujet Métropole – Juin 2024',
-      tags: ['Mécanique', 'Électricité', 'Ondes'],
+      tags: ['Mouvement et interactions', 'Électricité', 'Ondes'],
     },
     {
       level: 'Lycée',
