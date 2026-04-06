@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { DivisionForm } from "../../_components/division-form";
 import { fetchDivisionById } from "@/core/division";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.division');
@@ -24,9 +25,7 @@ const EditDivisionPage = async ({ params }: DivisionEditProps) => {
 
     return (
         <div className="w-full p-6">
-            <div>
-                <h1 className="text-lg font-semibold md:text-2xl mb-6">{t('actions.edit')}</h1>
-            </div>
+            <AdminPageHeading title={t('actions.edit')} className="mb-6" />
             <div>
                 <DivisionForm
                     crudMode="edit"

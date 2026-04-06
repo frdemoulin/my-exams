@@ -7,6 +7,7 @@ import { TeachingForm } from "../../_components/teaching-form";
 import getSession from "@/lib/auth/get-session";
 import { fetchGradesOptions } from "@/core/grade";
 import { fetchSubjectsOptions } from "@/core/subject";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.teaching');
@@ -40,9 +41,7 @@ const EditCoursePage = async ({ params }: EditCoursePageProps) => {
 
     return (
         <div className="w-full p-6">
-            <div>
-                <h1 className="text-lg font-semibold md:text-2xl mb-6">{t('actions.edit')}</h1>
-            </div>
+            <AdminPageHeading title={t('actions.edit')} className="mb-6" />
             <TeachingForm
                 crudMode="edit"
                 initialData={{

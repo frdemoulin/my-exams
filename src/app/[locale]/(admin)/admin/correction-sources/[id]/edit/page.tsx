@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { CorrectionSourceForm } from "../../_components/correction-source-form";
 import { fetchCorrectionSourceById } from "@/core/correction-source";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations("entities.correctionSource");
@@ -23,9 +24,7 @@ const EditCorrectionSourcePage = async ({ params }: CorrectionSourceEditProps) =
 
     return (
         <div className="w-full p-6">
-            <div>
-                <h1 className="text-lg font-semibold md:text-2xl mb-6">{t("actions.edit")}</h1>
-            </div>
+            <AdminPageHeading title={t("actions.edit")} className="mb-6" />
             <div>
                 <CorrectionSourceForm
                     crudMode="edit"

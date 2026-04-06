@@ -17,6 +17,7 @@ import { fetchDashboardStats, fetchRecentCurriculums, fetchRecentTeachings } fro
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { formatDateTime } from "@/lib/utils";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Tableau de bord",
@@ -112,9 +113,10 @@ const DashboardPage = async () => {
 
     return (
         <div className="w-full p-6 space-y-6">
-            <div>
-                <h1 className="text-2xl font-bold text-fg-brand">Tableau de bord</h1>
-            </div>
+            <AdminPageHeading
+                title="Tableau de bord"
+                description="Accède rapidement aux principaux indicateurs et aux derniers contenus créés dans l'administration."
+            />
 
             {/* Stats Grid */}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

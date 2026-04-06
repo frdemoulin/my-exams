@@ -5,6 +5,7 @@ import { TeachingForm } from "../_components/teaching-form";
 import getSession from "@/lib/auth/get-session";
 import { fetchGradesOptions } from "@/core/grade";
 import { fetchSubjectsOptions } from "@/core/subject";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Ajouter un enseignement",
@@ -23,7 +24,7 @@ const AddCoursePage = async () => {
 
     return (
         <div className="w-full p-6">
-            <h1 className="text-lg font-semibold md:text-2xl mb-6">Ajouter un enseignement</h1>
+            <AdminPageHeading title="Ajouter un enseignement" className="mb-6" />
             <TeachingForm
                 crudMode="add"
                 initialData={{

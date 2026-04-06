@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { fetchDiplomaById } from "@/core/diploma";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Détails du diplôme"
@@ -19,7 +20,7 @@ const DiplomaDetailPage = async ({ params }: DiplomaDetailPageProps) => {
     
     return (
         <div>
-            <h1 className="text-lg font-semibold md:text-2xl">Détails du diplôme</h1>
+            <AdminPageHeading title="Détails du diplôme" className="mb-4" />
             <p>Description courte : {diploma?.shortDescription}</p>
             <p>Description longue : {diploma?.longDescription}</p>
             <p>Statut : {diploma?.isActive ? "Actif" : "Inactif"}</p>

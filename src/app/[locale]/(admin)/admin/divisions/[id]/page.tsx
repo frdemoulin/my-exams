@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { fetchDivisionById } from "@/core/division";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Détails de la filière"
@@ -19,7 +20,7 @@ const DivisionDetailPage = async ({ params }: DivisionDetailPageProps) => {
     
     return (
         <div>
-            <h1 className="text-lg font-semibold md:text-2xl">Détails de la filière</h1>
+            <AdminPageHeading title="Détails de la filière" className="mb-4" />
             <p>Description courte : {division?.shortDescription}</p>
             <p>Description longue : {division?.longDescription}</p>
             <p>Statut : {division?.isActive ? "Active" : "Inactive"}</p>

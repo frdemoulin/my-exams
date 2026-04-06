@@ -6,6 +6,7 @@ import getSession from "@/lib/auth/get-session";
 import { getInternalOrigin, isExternalUrl } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
   title: "Statistiques Umami",
@@ -27,12 +28,10 @@ const UmamiStatsPage = async () => {
 
   return (
     <div className="w-full space-y-6 p-6">
-      <div>
-        <h1 className="text-2xl font-bold text-heading">Statistiques Umami</h1>
-        <p className="text-sm text-muted-foreground">
-          Tableau de bord externe (Umami) intégré dans l&apos;admin.
-        </p>
-      </div>
+      <AdminPageHeading
+        title="Statistiques Umami"
+        description="Tableau de bord analytique externe intégré dans l'administration via Umami."
+      />
 
       {!shareUrl ? (
         <Card>
