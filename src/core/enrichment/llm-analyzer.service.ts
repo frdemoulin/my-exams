@@ -4,6 +4,7 @@ import {
   ExamPaperSplitInput,
   ExamPaperSplitResult,
   ExerciseType,
+  AvailableThemeOption,
 } from './enrichment.types';
 import OpenAI from 'openai';
 
@@ -27,6 +28,34 @@ const normalizeForDetection = (text: string) =>
     .replace(/\s+/g, ' ')
     .toLowerCase()
     .trim();
+
+const buildThemeAliases = (theme: AvailableThemeOption) => {
+  const aliases = new Set<string>();
+  if (theme.label) aliases.add(theme.label);
+  if (theme.domainLabel) aliases.add(`${theme.domainLabel} - ${theme.label}`);
+  for (const alias of theme.aliases ?? []) {
+    if (alias?.trim()) aliases.add(alias.trim());
+  }
+  return Array.from(aliases);
+};
+
+const inferThemeIdsFromText = (text: string, themes: AvailableThemeOption[]) => {
+  const normalizedText = normalizeForDetection(text);
+  if (!normalizedText) return [];
+
+  const matches: string[] = [];
+  for (const theme of themes) {
+    const aliases = buildThemeAliases(theme)
+      .map((alias) => normalizeForDetection(alias))
+      .filter((alias) => alias.length >= 4);
+
+    if (aliases.some((alias) => normalizedText.includes(alias))) {
+      matches.push(theme.id);
+    }
+  }
+
+  return Array.from(new Set(matches)).slice(0, 5);
+};
 
 const detectExerciseTypeFromStatement = (statement: string): ExerciseType | null => {
   const normalized = normalizeForDetection(statement);
@@ -69,6 +98,14 @@ export class MockLlmAnalyzerService implements LlmAnalyzerService {
   async analyze(input: EnrichmentInput & { statement: string }): Promise<LlmAnalysisResult> {
     const detectedType = detectExerciseTypeFromStatement(input.statement);
     const resolvedType = detectedType ?? 'NORMAL';
+    const sourceText = [input.statement, input.correctionText].filter(Boolean).join('\n\n');
+    const inferredThemes = inferThemeIdsFromText(sourceText, input.availableThemes ?? []);
+    const points = typeof input.exercisePoints === 'number' ? input.exercisePoints : null;
+    const minutesPerPoint =
+      input.examTotalDuration && input.examTotalPoints
+        ? input.examTotalDuration / input.examTotalPoints
+        : null;
+
     // Exemple très basique à remplacer par un vrai prompt LLM
     return {
       title: input.statement.slice(0, 60) || 'Exercice sans titre',
@@ -77,9 +114,10 @@ export class MockLlmAnalyzerService implements LlmAnalyzerService {
         resolvedType
       ),
       keywords: ['exercice', 'simulation'],
-      estimatedDuration: 20,
+      estimatedDuration:
+        points && minutesPerPoint ? Math.round(points * minutesPerPoint) : 20,
       estimatedDifficulty: 3,
-      themeIds: [],
+      themeIds: inferredThemes,
       exerciseType: resolvedType,
     };
   }
@@ -262,7 +300,10 @@ export class OpenAiLlmAnalyzerService implements LlmAnalyzerService {
   async analyze(input: EnrichmentInput & { statement: string }): Promise<LlmAnalysisResult> {
     const themes = input.availableThemes ?? [];
     const themesList = themes
-      .map((t) => `- ${t.id} : ${t.label}`)
+      .map((t) => {
+        const aliases = (t.aliases ?? []).slice(0, 3).join(', ');
+        return `- ${t.id} : ${t.label}${t.domainLabel ? ` (domaine: ${t.domainLabel})` : ''}${aliases ? ` [alias: ${aliases}]` : ''}`;
+      })
       .join('\n');
 
     const prompt = `
@@ -278,6 +319,7 @@ Donne une réponse JSON strictement conforme au schéma suivant :
   "estimatedDuration": number | null, // minutes, entier
   "estimatedDifficulty": number | null, // entier 1-5
   "themeIds": string[], // IDs pris dans la liste ci-dessous, sinon []
+  "themeLabels": string[], // labels exacts de la liste ci-dessous si l'ID n'est pas certain, sinon []
   "exerciseType": "NORMAL" | "QCM" | "TRUE_FALSE" | "OTHER" // type d'exercice
 }
 Règles :
@@ -299,12 +341,19 @@ Règles :
   - "Cas pratique sur ...", "Scénario appliqué à ..."
   - "Une situation portant sur ...", "Une étude portant sur ..."
 - "estimatedDifficulty" : 1=très facile, 5=très difficile.
+- Si un barème et une durée officielle sont fournis, "estimatedDuration" doit rester cohérent avec cette enveloppe globale.
 - "exerciseType" : utilise "QCM" si l'exercice est un choix multiple, "TRUE_FALSE" si vrai/faux, "OTHER" si format atypique, sinon "NORMAL".
 - Si ce n’est pas explicite, retourne "NORMAL".
 - Si "exerciseType" vaut "QCM" ou "TRUE_FALSE", mentionne-le explicitement dans le résumé (ex: "Format QCM", "Série de vrai/faux").
 - Si l’exercice porte sur une fonction logarithme, exponentielle ou trigonométrique, précise explicitement le type de fonction dans le résumé.
+- Utilise le corrigé éventuel pour mieux identifier les thèmes, le niveau de difficulté et le type de raisonnement attendu.
+- N'ajoute pas de domaine séparé: les domaines seront déduits automatiquement des thèmes retenus.
+- Choisis 1 à 5 thèmes maximum, les plus précis possible.
+- Remplis en priorité "themeIds". Utilise "themeLabels" seulement si l'ID exact n'est pas certain.
+- Privilégie les notions réellement évaluées dans les questions, pas les constantes, unités ou grandeurs fournies dans le bloc "Données" si elles sont seulement utilitaires.
+- Évite les thèmes trop périphériques si un thème plus central et plus spécifique existe (ex: préfère une notion d'électrochimie/oxydo-réduction à une simple grandeur électrique si l'exercice porte sur une pile).
 - Si tu n’es pas sûr, renvoie null plutôt qu’une valeur inventée.
-Liste des thèmes autorisés (id : label) :
+Liste des thèmes autorisés (id : label), déjà triée du plus plausible au moins plausible :
 ${themesList}
     `;
 
@@ -319,7 +368,19 @@ ${themesList}
           content: [
             {
               type: 'text',
-              text: `ÉNONCÉ:\n${input.statement}\n\nINDICE FORMAT (à confirmer) : ${detectExerciseTypeFromStatement(input.statement) ?? 'NORMAL'}`,
+              text: [
+                input.subjectLabel ? `CONTEXTE MATIÈRE:\n${input.subjectLabel}` : null,
+                input.examTotalDuration
+                  ? `DURÉE OFFICIELLE DU SUJET:\n${input.examTotalDuration} minutes`
+                  : null,
+                input.examTotalPoints ? `BARÈME TOTAL DU SUJET:\n${input.examTotalPoints} points` : null,
+                input.exercisePoints ? `BARÈME DE L'EXERCICE:\n${input.exercisePoints} points` : null,
+                `ÉNONCÉ:\n${input.statement}`,
+                input.correctionText ? `CORRIGÉ (si disponible):\n${input.correctionText}` : null,
+                `INDICE FORMAT (à confirmer) : ${detectExerciseTypeFromStatement(input.statement) ?? 'NORMAL'}`,
+              ]
+                .filter(Boolean)
+                .join('\n\n'),
             },
           ],
         },
@@ -335,6 +396,7 @@ ${themesList}
       estimatedDuration: null,
       estimatedDifficulty: null,
       themeIds: [],
+      themeLabels: [],
       exerciseType: null,
     };
 
@@ -363,6 +425,7 @@ ${themesList}
           ? Number(json.estimatedDifficulty)
           : null,
         themeIds: Array.isArray(json.themeIds) ? json.themeIds : [],
+        themeLabels: Array.isArray(json.themeLabels) ? json.themeLabels : [],
         exerciseType: resolvedExerciseType ?? null,
       };
     } catch (err) {

@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { formatDateTime, normalizeExamPaperLabel } from "@/lib/utils";
 import { fetchCorrectionSources } from "@/core/correction-source";
 import { ExerciseCorrections } from "./_components/exercise-corrections";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 const statusLabels: Record<string, { label: string; variant: "default" | "secondary" | "destructive" }> = {
   pending: { label: "En attente", variant: "secondary" },
@@ -82,16 +83,11 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
 
   return (
     <div className="w-full p-6 space-y-6">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h1 className="text-lg font-semibold md:text-2xl">
-            {exercise.label || `Exercice ${exercise.exerciseNumber}`}
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Sujet : {normalizedLabel} • Session {exercise.examPaper.sessionYear}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-2">
+      <AdminPageHeading
+        title={exercise.label || `Exercice ${exercise.exerciseNumber}`}
+        description={`Sujet : ${normalizedLabel} • Session ${exercise.examPaper.sessionYear}`}
+        actions={
+          <div className="flex flex-wrap gap-2">
           <Button asChild size="sm" variant="secondary">
             <Link href={`/admin/exam-papers/${exercise.examPaperId}`}>Voir le sujet</Link>
           </Button>
@@ -100,8 +96,9 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
               <Pencil className="h-4 w-4" />
             </Link>
           </Button>
-        </div>
-      </div>
+          </div>
+        }
+      />
 
       <Card>
         <CardHeader>

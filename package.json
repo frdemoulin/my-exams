@@ -27,6 +27,7 @@
     "db:sync-domains-themes": "tsx scripts/sync-domains-themes-from-prod.ts",
     "db:reset": "npm run db:clear && npm run db:seed",
     "db:rename-domain": "tsx scripts/rename-chapter-to-domain.ts",
+    "db:index:exercise-search": "tsx scripts/ensure-exercise-text-index.ts",
     "migrate:exercises": "ts-node scripts/migrate-to-exercises.ts",
     "auth:logs:cleanup": "tsx scripts/cleanup-auth-logs.ts",
     "usage:stats:rollup": "tsx scripts/usage-stats-rollup.ts",

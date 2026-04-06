@@ -20,13 +20,37 @@ type EnrichmentTarget = {
   examPaperId: string;
   statement: string | null;
   exerciseUrl: string | null;
+  points: number | null;
   pageStart: number | null;
   pageEnd: number | null;
   themeIds: string[];
   exerciseType: string | null;
+  corrections: Array<{
+    url: string;
+    type: string;
+    quality: number | null;
+    source: string;
+  }>;
   examPaper: {
     subjectUrl: string | null;
     label: string | null;
+    totalDuration: number | null;
+    totalPoints: number | null;
+    corrections: Array<{
+      url: string;
+      type: string;
+      quality: number | null;
+      source: string;
+    }>;
+    teaching: {
+      longDescription: string | null;
+      shortDescription: string | null;
+      subject: {
+        id: string;
+        longDescription: string | null;
+        shortDescription: string | null;
+      } | null;
+    } | null;
   };
 };
 
@@ -37,8 +61,401 @@ type EnrichmentContext = {
   useMockLlm: boolean;
   useTesseractFallback: boolean;
   minLengthForValidText: number;
-  availableThemes: Array<{ id: string; label: string }>;
+  availableThemes: Array<{
+    id: string;
+    label: string;
+    domainLabel: string | null;
+    aliases: string[];
+    subjectId: string;
+  }>;
   themeIdSet: Set<string>;
+  themeAliasToIds: Map<string, string[]>;
+  textCache: Map<string, string>;
+};
+
+const normalizeThemeKey = (value: string) =>
+  value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+
+const addThemeAlias = (map: Map<string, string[]>, alias: string | null | undefined, themeId: string) => {
+  if (!alias) return;
+  const normalized = normalizeThemeKey(alias);
+  if (!normalized) return;
+  const existing = map.get(normalized) ?? [];
+  if (!existing.includes(themeId)) {
+    existing.push(themeId);
+    map.set(normalized, existing);
+  }
+};
+
+const THEME_ALIAS_RULES: Array<{
+  matchers: string[];
+  aliases: string[];
+}> = [
+  {
+    matchers: ['oxydo', 'redox'],
+    aliases: [
+      'oxydoreduction',
+      'oxydo reduction',
+      'redox',
+      'reaction electrochimique',
+      'electrochimie',
+      'anode',
+      'cathode',
+      'electrode',
+      'electrolyte',
+      'pile',
+      'pile a combustible',
+      'demi equation electronique',
+    ],
+  },
+  {
+    matchers: ['transformations chimiques'],
+    aliases: [
+      'transformation chimique',
+      'equation de reaction',
+      'equation bilan',
+      'catalyseur',
+      'catalyse',
+      'reformage',
+      'vaporeformage',
+    ],
+  },
+  {
+    matchers: ['avancement'],
+    aliases: [
+      'stoechiometrie',
+      'quantite de matiere',
+      'mole',
+      'reactif limitant',
+      'proportions stoechiometriques',
+    ],
+  },
+  {
+    matchers: ['tension electrique'],
+    aliases: ['difference de potentiel', 'tension a vide', 'voltage'],
+  },
+  {
+    matchers: ['energie electrique'],
+    aliases: ['capacite electrique', 'charge electrique', 'energie stockee'],
+  },
+];
+
+const expandThemeAliases = (aliases: string[]) => {
+  const expanded = new Set(
+    aliases
+      .map((alias) => alias?.trim())
+      .filter((alias): alias is string => Boolean(alias))
+  );
+  const normalizedBlob = normalizeThemeKey(Array.from(expanded).join(' '));
+
+  for (const rule of THEME_ALIAS_RULES) {
+    if (rule.matchers.some((matcher) => normalizedBlob.includes(matcher))) {
+      rule.aliases.forEach((alias) => expanded.add(alias));
+    }
+  }
+
+  return Array.from(expanded);
+};
+
+const countOccurrences = (haystack: string, needle: string) => {
+  if (!haystack || !needle) return 0;
+
+  let count = 0;
+  let cursor = 0;
+  while (cursor < haystack.length) {
+    const foundIndex = haystack.indexOf(needle, cursor);
+    if (foundIndex === -1) break;
+    count += 1;
+    cursor = foundIndex + Math.max(needle.length, 1);
+  }
+
+  return count;
+};
+
+const buildThemeFocusText = (statementText: string, correctionText: string | null) => {
+  const focusedLines: string[] = [];
+  const statementLines = statementText.split('\n');
+  let insideDataBlock = false;
+
+  for (const rawLine of statementLines) {
+    const line = rawLine.trim();
+    if (!line) continue;
+
+    const normalized = normalizeThemeKey(line);
+    if (normalized.startsWith('donnees') || normalized.startsWith('donnee')) {
+      insideDataBlock = true;
+      continue;
+    }
+
+    if (/^q\d+\b/i.test(line)) {
+      insideDataBlock = false;
+      focusedLines.push(line);
+      continue;
+    }
+
+    if (
+      /^exercice\s+\d+/i.test(line) ||
+      /^partie\s+\d+/i.test(line) ||
+      /^objectif/i.test(line)
+    ) {
+      focusedLines.push(line);
+      continue;
+    }
+
+    if (insideDataBlock) {
+      continue;
+    }
+
+    if (line.length <= 240) {
+      focusedLines.push(line);
+    }
+  }
+
+  if (correctionText?.trim()) {
+    focusedLines.push(correctionText.trim());
+  }
+
+  return focusedLines.join('\n');
+};
+
+const THEME_TOKEN_STOPWORDS = new Set([
+  'avec',
+  'dans',
+  'pour',
+  'entre',
+  'cette',
+  'cet',
+  'plus',
+  'moins',
+  'dune',
+  'dun',
+  'tres',
+  'leurs',
+  'leur',
+  'theme',
+  'point',
+  'points',
+  'etude',
+]);
+
+const scoreThemeCandidate = (
+  sourceText: string,
+  theme: {
+    label: string;
+    aliases: string[];
+    domainLabel: string | null;
+  }
+) => {
+  const normalizedText = normalizeThemeKey(sourceText);
+  if (!normalizedText) return 0;
+
+  const aliases = Array.from(
+    new Set(
+      [theme.label, ...theme.aliases]
+        .map((alias) => alias?.trim())
+        .filter((alias): alias is string => Boolean(alias))
+    )
+  );
+
+  let bestScore = 0;
+
+  for (const alias of aliases) {
+    const normalizedAlias = normalizeThemeKey(alias);
+    if (!normalizedAlias || normalizedAlias.length < 4) continue;
+
+    let score = 0;
+    const exactHits = countOccurrences(normalizedText, normalizedAlias);
+    if (exactHits > 0) {
+      score += Math.min(4, exactHits) * 40;
+      if (normalizedAlias.includes(' ')) {
+        score += 8;
+      }
+    }
+
+    const tokens = normalizedAlias
+      .split(/[^a-z0-9]+/)
+      .filter((token) => token.length >= 5 && !THEME_TOKEN_STOPWORDS.has(token));
+    const tokenHits = new Set(tokens.filter((token) => normalizedText.includes(token)));
+    score += tokenHits.size * 4;
+    if (tokenHits.size >= 2) {
+      score += 6;
+    }
+
+    if (score > bestScore) bestScore = score;
+  }
+
+  if (
+    theme.domainLabel &&
+    normalizedText.includes(normalizeThemeKey(theme.domainLabel))
+  ) {
+    bestScore += 1;
+  }
+
+  return bestScore;
+};
+
+type RankedThemeCandidate<
+  T extends {
+    id: string;
+    label: string;
+    aliases: string[];
+    domainLabel: string | null;
+  }
+> = {
+  theme: T;
+  score: number;
+};
+
+const rankThemeCandidates = <
+  T extends {
+    id: string;
+    label: string;
+    aliases: string[];
+    domainLabel: string | null;
+  }
+>(
+  sourceText: string,
+  themes: T[]
+) => {
+  return themes
+    .map((theme) => ({
+      theme,
+      score: scoreThemeCandidate(sourceText, theme),
+    }))
+    .filter((entry) => entry.score >= 2)
+    .sort((a, b) => b.score - a.score);
+};
+
+const buildThemeShortlist = <
+  T extends {
+    id: string;
+    label: string;
+    aliases: string[];
+    domainLabel: string | null;
+  }
+>(
+  ranked: RankedThemeCandidate<T>[],
+  themes: T[],
+  limit = 18
+) => {
+  if (ranked.length === 0) {
+    return themes;
+  }
+
+  return ranked.slice(0, limit).map((entry) => entry.theme);
+};
+
+const isPhysicsSubject = (labels: Array<string | null | undefined>) => {
+  return labels.some((label) => {
+    if (!label) return false;
+    const normalized = normalizeScanText(label);
+    return (
+      normalized.includes('physique') ||
+      normalized.includes('physique-chimie') ||
+      normalized.includes('sciences physiques')
+    );
+  });
+};
+
+const roundDuration = (minutes: number) => {
+  if (!Number.isFinite(minutes) || minutes <= 0) return null;
+  return Math.max(5, Math.round(minutes / 5) * 5);
+};
+
+const resolveMinutesPerPoint = (target: EnrichmentTarget) => {
+  const totalDuration = target.examPaper.totalDuration;
+  const totalPoints = target.examPaper.totalPoints;
+  if (totalDuration && totalPoints && totalPoints > 0) {
+    return totalDuration / totalPoints;
+  }
+
+  const subjectLabels = [
+    target.examPaper.teaching?.longDescription,
+    target.examPaper.teaching?.shortDescription,
+    target.examPaper.teaching?.subject?.longDescription,
+    target.examPaper.teaching?.subject?.shortDescription,
+  ];
+
+  if (isMathSubject(subjectLabels)) return 12;
+  if (isPhysicsSubject(subjectLabels)) return 10.5;
+  return null;
+};
+
+const resolveEstimatedDuration = (
+  target: EnrichmentTarget,
+  llmDuration: number | null | undefined
+) => {
+  const minutesPerPoint = resolveMinutesPerPoint(target);
+  if (minutesPerPoint && target.points && target.points > 0) {
+    return roundDuration(target.points * minutesPerPoint);
+  }
+
+  if (typeof llmDuration === 'number' && Number.isFinite(llmDuration) && llmDuration > 0) {
+    return roundDuration(llmDuration);
+  }
+
+  return null;
+};
+
+const resolveThemeIds = (
+  llmResult: { themeIds?: string[]; themeLabels?: string[] },
+  allowedThemeIds: Set<string>,
+  allowedThemeAliasToIds: Map<string, string[]>
+) => {
+  const resolved = new Set<string>();
+
+  const register = (value: string | null | undefined) => {
+    if (!value) return;
+    if (allowedThemeIds.has(value)) {
+      resolved.add(value);
+      return;
+    }
+
+    const matches = allowedThemeAliasToIds.get(normalizeThemeKey(value)) ?? [];
+    matches.forEach((id) => resolved.add(id));
+  };
+
+  (llmResult.themeIds ?? []).forEach(register);
+  (llmResult.themeLabels ?? []).forEach(register);
+
+  return Array.from(resolved);
+};
+
+const buildSubjectLabel = (target: EnrichmentTarget) => {
+  const parts = [
+    target.examPaper.teaching?.longDescription,
+    target.examPaper.teaching?.subject?.longDescription,
+    target.examPaper.label,
+  ].filter(Boolean);
+  return parts.join(' | ') || null;
+};
+
+const isPdfCorrection = (correction: { url: string; type: string }) => {
+  return correction.type === 'pdf' || /\.pdf(?:$|[?#])/i.test(correction.url);
+};
+
+const pickCorrectionForEnrichment = (target: EnrichmentTarget) => {
+  const preferred = [...target.corrections]
+    .sort((a, b) => (b.quality ?? 0) - (a.quality ?? 0))
+    .find(isPdfCorrection);
+  if (preferred) return preferred;
+
+  return [...target.examPaper.corrections]
+    .sort((a, b) => (b.quality ?? 0) - (a.quality ?? 0))
+    .find(isPdfCorrection) ?? null;
+};
+
+const clipContextText = (text: string, maxChars = 9000) => {
+  const cleaned = text.replace(/\s+/g, ' ').trim();
+  if (cleaned.length <= maxChars) return cleaned;
+  const head = Math.floor(maxChars * 0.7);
+  const tail = maxChars - head - 5;
+  return `${cleaned.slice(0, head)} ... ${cleaned.slice(-tail)}`;
 };
 
 const buildEnrichmentContext = async (): Promise<EnrichmentContext> => {
@@ -58,7 +475,41 @@ const buildEnrichmentContext = async (): Promise<EnrichmentContext> => {
   const llm = useMockLlm ? new MockLlmAnalyzerService() : new OpenAiLlmAnalyzerService();
 
   const themes = await prisma.theme.findMany({
-    select: { id: true, title: true, shortTitle: true, shortDescription: true },
+    select: {
+      id: true,
+      title: true,
+      shortTitle: true,
+      shortDescription: true,
+      longDescription: true,
+      domain: {
+        select: {
+          subjectId: true,
+          longDescription: true,
+          shortDescription: true,
+        },
+      },
+    },
+  });
+
+  const themeAliasToIds = new Map<string, string[]>();
+  const availableThemes = themes.map((t) => {
+    const domainLabel = t.domain.shortDescription || t.domain.longDescription || null;
+    const aliases = expandThemeAliases([
+      t.title,
+      t.shortTitle,
+      t.shortDescription,
+      t.longDescription,
+    ].filter((value): value is string => Boolean(value?.trim())));
+
+    aliases.forEach((alias) => addThemeAlias(themeAliasToIds, alias, t.id));
+
+    return {
+      id: t.id,
+      label: t.title || t.shortTitle || t.shortDescription || t.id,
+      domainLabel,
+      aliases,
+      subjectId: t.domain.subjectId,
+    };
   });
 
   return {
@@ -69,10 +520,9 @@ const buildEnrichmentContext = async (): Promise<EnrichmentContext> => {
     useTesseractFallback,
     minLengthForValidText,
     themeIdSet: new Set(themes.map((t) => t.id)),
-    availableThemes: themes.map((t) => ({
-      id: t.id,
-      label: t.title || t.shortTitle || t.shortDescription || t.id,
-    })),
+    availableThemes,
+    themeAliasToIds,
+    textCache: new Map<string, string>(),
   };
 };
 
@@ -113,20 +563,70 @@ const enrichExerciseRecord = async (ex: EnrichmentTarget, context: EnrichmentCon
     }
   }
 
+  let correctionText: string | null = null;
+  const correction = pickCorrectionForEnrichment(ex);
+  const subjectId = ex.examPaper.teaching?.subject?.id ?? null;
+  const scopedThemes =
+    subjectId
+      ? context.availableThemes.filter((theme) => theme.subjectId === subjectId)
+      : context.availableThemes;
+  const baseThemes = scopedThemes.length > 0 ? scopedThemes : context.availableThemes;
+
+  if (correction?.url) {
+    const cached = context.textCache.get(correction.url);
+    if (cached) {
+      correctionText = cached;
+    } else {
+      try {
+        const extracted = await context.ocr.extract({
+          exerciseId: ex.id,
+          exerciseUrl: correction.url,
+        });
+        if (extracted.text?.trim()) {
+          correctionText = clipContextText(extracted.text);
+          context.textCache.set(correction.url, correctionText);
+        }
+      } catch (error) {
+        console.warn('Unable to extract correction text for enrichment:', ex.id, correction.url, error);
+      }
+    }
+  }
+
+  const themeSourceText = buildThemeFocusText(ocrText, correctionText);
+  const rankedThemes = rankThemeCandidates(themeSourceText, baseThemes);
+  const effectiveThemes = buildThemeShortlist(rankedThemes, baseThemes);
+  const allowedThemeIds = new Set(effectiveThemes.map((theme) => theme.id));
+  const allowedThemeAliasToIds = new Map<string, string[]>();
+
+  effectiveThemes.forEach((theme) => {
+    addThemeAlias(allowedThemeAliasToIds, theme.label, theme.id);
+    addThemeAlias(allowedThemeAliasToIds, theme.domainLabel, theme.id);
+    theme.aliases.forEach((alias) => addThemeAlias(allowedThemeAliasToIds, alias, theme.id));
+  });
+
   const llmResult = await context.llm.analyze({
     exerciseId: ex.id,
     statement: ocrText,
-    availableThemes: context.availableThemes,
+    correctionText,
+    exercisePoints: ex.points,
+    examTotalDuration: ex.examPaper.totalDuration,
+    examTotalPoints: ex.examPaper.totalPoints,
+    subjectLabel: buildSubjectLabel(ex),
+    availableThemes: effectiveThemes,
   });
 
-  const filteredThemes = (llmResult.themeIds ?? []).filter((id) =>
-    context.themeIdSet.has(id)
-  );
+  const filteredThemes = resolveThemeIds(llmResult, allowedThemeIds, allowedThemeAliasToIds);
+  const heuristicFallbackThemeIds = rankedThemes
+    .filter((entry) => entry.score >= 8)
+    .slice(0, 3)
+    .map((entry) => entry.theme.id);
 
   const mergedThemes =
-    ex.themeIds.length > 0
-      ? Array.from(new Set([...ex.themeIds, ...filteredThemes]))
-      : filteredThemes;
+    filteredThemes.length > 0
+      ? filteredThemes.slice(0, 5)
+      : heuristicFallbackThemeIds.length > 0
+        ? heuristicFallbackThemeIds
+        : ex.themeIds.slice(0, 5);
 
   const resolvedExerciseType: ExerciseType =
     llmResult.exerciseType && llmResult.exerciseType !== 'NORMAL'
@@ -144,7 +644,7 @@ const enrichExerciseRecord = async (ex: EnrichmentTarget, context: EnrichmentCon
       title: llmResult.title ?? null,
       summary: summaryWithType,
       keywords: llmResult.keywords ?? [],
-      estimatedDuration: llmResult.estimatedDuration ?? null,
+      estimatedDuration: resolveEstimatedDuration(ex, llmResult.estimatedDuration),
       estimatedDifficulty: llmResult.estimatedDifficulty ?? null,
       themeIds: mergedThemes,
       exerciseType: resolvedExerciseType,
@@ -695,6 +1195,7 @@ export async function replaceExercisesByExamPaper(
 
     revalidatePath('/admin/exam-papers');
     revalidatePath(`/admin/exam-papers/${examPaperId}`);
+    revalidatePath(`/sujets/${examPaperId}`);
     revalidatePath('/');
 
     return { success: true, created: parsed.length };
@@ -928,14 +1429,52 @@ export async function enrichExerciseById(exerciseId: string) {
         examPaperId: true,
         statement: true,
         exerciseUrl: true,
+        points: true,
         pageStart: true,
         pageEnd: true,
         themeIds: true,
         exerciseType: true,
+        corrections: {
+          select: {
+            url: true,
+            type: true,
+            quality: true,
+            source: true,
+          },
+          orderBy: {
+            quality: 'desc',
+          },
+        },
         examPaper: {
           select: {
             subjectUrl: true,
             label: true,
+            totalDuration: true,
+            totalPoints: true,
+            corrections: {
+              select: {
+                url: true,
+                type: true,
+                quality: true,
+                source: true,
+              },
+              orderBy: {
+                quality: 'desc',
+              },
+            },
+            teaching: {
+              select: {
+                longDescription: true,
+                shortDescription: true,
+                subject: {
+                  select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                  },
+                },
+              },
+            },
           },
         },
       },
@@ -950,6 +1489,7 @@ export async function enrichExerciseById(exerciseId: string) {
     revalidatePath('/admin/exam-papers');
     revalidatePath(`/admin/exam-papers/${exercise.examPaperId}`);
     revalidatePath(`/exercices/${exerciseId}`);
+    revalidatePath(`/sujets/${exercise.examPaperId}`);
     revalidatePath('/');
 
     return {
@@ -1003,14 +1543,52 @@ export async function enrichExercisesByExamPaper(
         examPaperId: true,
         statement: true,
         exerciseUrl: true,
+        points: true,
         pageStart: true,
         pageEnd: true,
         themeIds: true,
         exerciseType: true,
+        corrections: {
+          select: {
+            url: true,
+            type: true,
+            quality: true,
+            source: true,
+          },
+          orderBy: {
+            quality: 'desc',
+          },
+        },
         examPaper: {
           select: {
             subjectUrl: true,
             label: true,
+            totalDuration: true,
+            totalPoints: true,
+            corrections: {
+              select: {
+                url: true,
+                type: true,
+                quality: true,
+                source: true,
+              },
+              orderBy: {
+                quality: 'desc',
+              },
+            },
+            teaching: {
+              select: {
+                longDescription: true,
+                shortDescription: true,
+                subject: {
+                  select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                  },
+                },
+              },
+            },
           },
         },
       },
@@ -1052,6 +1630,8 @@ export async function enrichExercisesByExamPaper(
 
     revalidatePath('/admin/exam-papers');
     revalidatePath(`/admin/exam-papers/${examPaperId}`);
+    revalidatePath(`/sujets/${examPaperId}`);
+    revalidatePath('/');
 
     return {
       success: true,
@@ -1082,6 +1662,7 @@ export async function deleteExercisesByExamPaper(examPaperId: string) {
 
     revalidatePath('/admin/exam-papers');
     revalidatePath(`/admin/exam-papers/${examPaperId}`);
+    revalidatePath(`/sujets/${examPaperId}`);
     revalidatePath('/');
 
     return { success: true };

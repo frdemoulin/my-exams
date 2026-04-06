@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 import getSession from "@/lib/auth/get-session";
 import prisma from "@/lib/db/prisma";
-import { fetchThemes } from "@/core/theme";
+import { fetchThemesWithIncludes } from "@/core/theme";
 import EditExerciseWrapper from "./_components/edit-exercise-wrapper";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -45,7 +45,7 @@ const EditExercisePage = async ({ params }: { params: Promise<{ id: string }> })
     }
 
     // Récupérer tous les thèmes
-    const themes = await fetchThemes();
+    const themes = await fetchThemesWithIncludes();
 
     return (
       <EditExerciseWrapper
@@ -54,6 +54,7 @@ const EditExercisePage = async ({ params }: { params: Promise<{ id: string }> })
           value: theme.id,
           label: theme.title,
           description: theme.description || undefined,
+          domainLabel: theme.domain.longDescription,
         }))}
       />
     );

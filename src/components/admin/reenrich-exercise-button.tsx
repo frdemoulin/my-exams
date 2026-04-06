@@ -1,6 +1,7 @@
 "use client";
 
 import { Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import { enrichExerciseById } from "@/core/exercise";
@@ -17,6 +18,7 @@ export function ReenrichExerciseButton({
   exerciseNumber,
   enrichmentStatus,
 }: ReenrichExerciseButtonProps) {
+  const router = useRouter();
   const verb = enrichmentStatus === "completed" ? "Relancer" : "Lancer";
 
   const handleEnrich = async () => {
@@ -30,8 +32,9 @@ export function ReenrichExerciseButton({
       toast.success(
         enrichmentStatus === "completed"
           ? "Enrichissement relancé"
-          : "Exercice enrichi"
+          : "Exercice enrichi",
       );
+      router.refresh();
     } catch (error) {
       if (
         error &&
@@ -51,7 +54,9 @@ export function ReenrichExerciseButton({
       title={`${verb} l'enrichissement ?`}
       description={`Confirmer l'enrichissement de l'exercice ${exerciseNumber}.`}
       confirmLabel={`${verb} l'enrichissement`}
-      confirmLoadingLabel={verb === "Relancer" ? "Relance..." : "Enrichissement..."}
+      confirmLoadingLabel={
+        verb === "Relancer" ? "Relance..." : "Enrichissement..."
+      }
       confirmVariant="ai"
       tooltip={`${verb} l'enrichissement`}
       trigger={

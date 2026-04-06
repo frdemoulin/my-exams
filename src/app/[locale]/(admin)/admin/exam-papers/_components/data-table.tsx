@@ -33,6 +33,7 @@ import {
 } from "@/components/ui/select";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
 import { TableToolbar } from "@/components/shared/table-toolbar";
+import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 
 interface DataTableProps<TData extends { id: string }, TValue> {
   title: string;
@@ -69,7 +70,7 @@ export function DataTable<TData extends { id: string }, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
-    globalFilterFn: "includesString",
+    globalFilterFn: accentInsensitiveIncludesString,
     initialState: {
       sorting: defaultSorting,
     },
