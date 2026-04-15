@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Shield, LogIn, BookOpen } from 'lucide-react';
+import { Shield, LogIn, BookOpen, FlaskConical } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
@@ -16,10 +16,17 @@ export function PublicHeader() {
   const isAnnalesActive = pathname?.startsWith('/diplomes')
     || pathname?.startsWith('/sujets')
     || pathname?.startsWith('/exercices');
+  const isTrainingActive = pathname?.startsWith('/entrainement');
   const annalesLinkClass = isAnnalesActive
     ? 'font-semibold text-foreground'
     : 'hover:text-foreground';
   const annalesIconClass = isAnnalesActive
+    ? 'border-brand/40 bg-brand/10 text-fg-brand'
+    : '';
+  const trainingLinkClass = isTrainingActive
+    ? 'font-semibold text-foreground'
+    : 'hover:text-foreground';
+  const trainingIconClass = isTrainingActive
     ? 'border-brand/40 bg-brand/10 text-fg-brand'
     : '';
   const topbarIconButtonClass = 'inline-flex items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm font-semibold transition-colors hover:bg-neutral-secondary-soft hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1';
@@ -52,6 +59,13 @@ export function PublicHeader() {
               aria-current={isAnnalesActive ? 'page' : undefined}
             >
               Annales
+            </Link>
+            <Link
+              href="/entrainement/sciences-physiques"
+              className={trainingLinkClass}
+              aria-current={isTrainingActive ? 'page' : undefined}
+            >
+              Entra&icirc;nement
             </Link>
             <Link href="/contact" className="hover:text-foreground">
               Contact
@@ -130,6 +144,14 @@ export function PublicHeader() {
             >
               <BookOpen className="h-4 w-4" />
               <span className="sr-only">Annales</span>
+            </Link>
+            <Link
+              href="/entrainement/sciences-physiques"
+              className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${trainingIconClass}`}
+              aria-current={isTrainingActive ? 'page' : undefined}
+            >
+              <FlaskConical className="h-4 w-4" />
+              <span className="sr-only">Entra&icirc;nement</span>
             </Link>
             <ThemeToggle className={`${topbarIconButtonClass} h-10 w-10 p-2.5`} />
             {session?.user ? (

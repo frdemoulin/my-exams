@@ -9,13 +9,17 @@
  * À adapter avec de vraies implémentations OCR/LLM et un contrôle d'erreurs robuste.
  */
 
-import { PrismaClient } from '@prisma/client';
+import { loadProjectEnv } from './lib/load-env';
 import {
   MockOcrService,
   MockLlmAnalyzerService,
   PdfParseOcrService,
   OpenAiLlmAnalyzerService,
 } from '@/core/enrichment';
+
+loadProjectEnv();
+
+const { PrismaClient } = require('@prisma/client') as typeof import('@prisma/client');
 
 const prisma = new PrismaClient();
 // Switch mock / réel via variables d'environnement

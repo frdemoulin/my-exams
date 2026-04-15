@@ -1,7 +1,9 @@
-// Charge les variables d'environnement (.env.local) avant d'initialiser Prisma
-require('dotenv').config({ path: '.env.local' });
-// Import Prisma client singleton
-const prisma = require("../src/lib/db").default;
+const { loadProjectEnv } = require('./lib/load-env');
+
+loadProjectEnv();
+
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 async function run() {
   console.log("== Début test Prisma ==");

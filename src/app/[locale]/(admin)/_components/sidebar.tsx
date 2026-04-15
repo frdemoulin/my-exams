@@ -42,19 +42,19 @@ export const Sidebar = () => {
       title: 'Scolarité',
       list: [
         {
-          title: 'Diplômes',
-          path: '/admin/diplomas',
-          icon: <FaBook className="mr-3" size={16} />
-        },
-        {
-          title: 'Domaines',
-          path: '/admin/domains',
+          title: 'Chapitres',
+          path: '/admin/chapters',
           icon: <FaList className="mr-3" size={16} />
         },
         {
           title: 'Enseignements',
           path: '/admin/teachings',
           icon: <FaGraduationCap className="mr-3" size={16} />
+        },
+        {
+          title: 'Domaines',
+          path: '/admin/domains',
+          icon: <FaList className="mr-3" size={16} />
         },
         {
           title: "Filières",

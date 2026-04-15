@@ -10,6 +10,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { APP_DESCRIPTION, APP_NAME, APP_TITLE_TEMPLATE } from "@/config/app";
 import { ToastDisplay } from "@/components/shared/toast-display";
 import "./globals.css";
+import "katex/dist/katex.min.css";
 
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;

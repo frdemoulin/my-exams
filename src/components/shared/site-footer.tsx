@@ -25,6 +25,9 @@ export function SiteFooter({ className = '' }: SiteFooterProps) {
             <Link href="/diplomes" className="hover:text-foreground">
               Annales
             </Link>
+            <Link href="/entrainement/sciences-physiques" className="hover:text-foreground">
+              Entra&icirc;nement
+            </Link>
             <Link href="/mentions-legales" className="hover:text-foreground">
               Mentions légales
             </Link>

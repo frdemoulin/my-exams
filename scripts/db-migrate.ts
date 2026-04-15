@@ -23,9 +23,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-import dotenv from "dotenv";
+import type { PrismaClient } from "@prisma/client";
 
-import { DbMigrationStatus, PrismaClient } from "@prisma/client";
+import { loadProjectEnv } from "./lib/load-env";
 
 type MigrationModule = {
   id?: string;
@@ -48,18 +48,7 @@ function getErrorCode(err: unknown): string | undefined {
   return typeof record.code === "string" ? record.code : undefined;
 }
 
-function loadEnvIfExists(relativePath: string) {
-  const filePath = path.resolve(process.cwd(), relativePath);
-  if (fs.existsSync(filePath)) {
-    dotenv.config({ path: filePath });
-  }
-}
-
-// Priorité : shell > env prod local > env local > env
-loadEnvIfExists(".env.prod.local");
-loadEnvIfExists(".env.production.local");
-loadEnvIfExists(".env.local");
-loadEnvIfExists(".env");
+loadProjectEnv();
 
 function ensureDatabaseUrl(useProdUrl: boolean) {
   if (useProdUrl) {
@@ -192,6 +181,7 @@ async function main() {
     );
   }
 
+  const { DbMigrationStatus, PrismaClient } = require("@prisma/client") as typeof import("@prisma/client");
   const prisma = new PrismaClient();
   const migrationsDir = path.resolve(process.cwd(), "scripts", "migrations");
 

@@ -14,7 +14,7 @@
     "build:next": "next build",
     "lint": "eslint . --max-warnings=0",
     "prisma:test": "ts-node scripts/test-prisma.ts",
-    "db:push": "npx prisma db push",
+    "db:push": "tsx scripts/prisma-db-push.ts",
     "db:migrate": "npx prisma generate && tsx scripts/db-migrate.ts",
     "db:migration:new": "tsx scripts/create-migration.ts",
     "db:deploy": "npm run db:push && npm run db:migrate",
@@ -35,9 +35,6 @@
     "test:e2e": "playwright test",
     "prepare": "node -e \"process.env.CI ? process.exit(0) : require('child_process').execSync('husky', {stdio:'inherit'})\"",
     "semantic-release": "semantic-release"
-  },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.1",
@@ -61,6 +58,7 @@
     "date-fns": "^4.1.0",
     "flowbite": "^4.0.1",
     "flowbite-react": "^0.12.17",
+    "katex": "^0.16.45",
     "lucide-react": "^0.439.0",
     "mongodb": "^6.21.0",
     "next": "^16.2.3",
@@ -94,6 +92,7 @@
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@tailwindcss/postcss": "^4.2.1",
+    "@types/katex": "^0.16.8",
     "@types/node": "^20.19.35",
     "@types/nodemailer": "^8.0.0",
     "@types/react": "^19.2.14",

@@ -45,13 +45,17 @@ export function AutoBreadcrumb() {
   const pathname = usePathname();
   const context = useContext(BreadcrumbContext);
   const override = context?.override;
+  const rawSegments = pathname?.split('/').filter(Boolean) ?? [];
+  const localeSegment = rawSegments[0] && /^[a-z]{2}(?:-[A-Z]{2})?$/i.test(rawSegments[0])
+    ? rawSegments[0]
+    : null;
+  const segments = localeSegment ? rawSegments.slice(1) : rawSegments;
+  const localePrefix = localeSegment ? `/${localeSegment}` : '';
   
   // Ne pas afficher sur la home ou l'admin racine
-  if (!pathname || pathname === '/' || pathname === '/admin') {
+  if (!pathname || segments.length === 0 || (segments.length === 1 && segments[0] === 'admin')) {
     return null;
   }
-
-  const segments = pathname.split('/').filter(Boolean);
   
   // Mapping des segments vers des labels français
   const segmentLabels: Record<string, string> = {
@@ -66,10 +70,11 @@ export function AutoBreadcrumb() {
     'divisions': 'Filières',
     'themes': 'Thèmes',
     'domains': 'Domaines',
-    'chapters': 'Domaines',
+    'chapters': 'Chapitres',
     'curriculums': 'Programmes',
     'examination-centers': 'Centres d\'examen',
     'correction-sources': 'Sources de correction',
+    'questions': 'Questions',
     'users': 'Utilisateurs',
     'log-users': 'Journal de connexion',
     'stats': 'Statistiques de contenu',
@@ -82,7 +87,7 @@ export function AutoBreadcrumb() {
 
   const breadcrumbItems: Array<{ label: string; href?: string }> = [];
 
-  let currentPath = '';
+  let currentPath = localePrefix;
   segments.forEach((segment, index) => {
     currentPath += `/${segment}`;
     

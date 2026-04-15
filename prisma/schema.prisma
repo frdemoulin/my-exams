@@ -5,9 +5,9 @@ generator client {
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
-  // Note: Prisma 6 requiert cette ligne `url` dans le schema.prisma
-  // Avec Prisma 7+, la configuration sera déplacée dans prisma.config.ts
-  // Le fichier prisma.config.ts est déjà prêt pour la migration future
+  // Note: this project stays on Prisma 6.19.x for now because MongoDB support for
+  // Prisma 7 is not available yet. Once MongoDB is supported in Prisma 7, move the
+  // connection URL fully to prisma.config.ts and remove this line.
 }
 
 model Account {
@@ -201,7 +201,7 @@ model Division {
 model ExaminationCenter {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   description String
-  isActive    Boolean  @default(true)
+  isActive    Boolean? @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -277,6 +277,12 @@ enum ExerciseType {
   QCM
   TRUE_FALSE
   OTHER
+}
+
+enum QuizDifficulty {
+  EASY
+  MEDIUM
+  HARD
 }
 
 // Exercice d'annales (unité de recherche)
@@ -449,6 +455,7 @@ model Subject {
   // Relations
   teachings Teaching[]
   domains   Domain[]
+  chapters  Chapter[]
 
   @@unique([longDescription, shortDescription])
 }
@@ -466,6 +473,54 @@ model Theme {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Chapter {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String
+  level       String   @default("terminale")
+  order       Int
+  isActive    Boolean  @default(true)
+  isPublished Boolean  @default(true)
+
+  subjectId String  @db.ObjectId
+  subject   Subject @relation(fields: [subjectId], references: [id])
+
+  domainIds String[] @default([]) @db.ObjectId
+  themeIds  String[] @default([]) @db.ObjectId
+
+  quizQuestions QuizQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([subjectId, slug])
+  @@unique([subjectId, order])
+  @@index([subjectId, isActive, isPublished])
+  @@index([level])
+}
+
+model QuizQuestion {
+  id                 String         @id @default(auto()) @map("_id") @db.ObjectId
+  difficulty         QuizDifficulty
+  question           String         @db.String
+  choices            Json
+  correctChoiceIndex Int
+  explanation        String         @db.String
+  order              Int
+  isPublished        Boolean        @default(true)
+  themeIds           String[]       @default([]) @db.ObjectId
+
+  chapterId String  @db.ObjectId
+  chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([chapterId, order])
+  @@index([chapterId, difficulty, isPublished])
+  @@index([difficulty])
 }
 
 model User {

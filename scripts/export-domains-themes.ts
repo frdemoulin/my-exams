@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import dotenv from "dotenv";
-import { PrismaClient, type DomainDiscipline } from "@prisma/client";
+import type { DomainDiscipline } from "@prisma/client";
+
+import { loadProjectEnv } from "./lib/load-env";
 
 type ExportDomain = {
   longDescription: string;
@@ -28,18 +29,7 @@ type ExportPayload = {
   themes: ExportTheme[];
 };
 
-function loadEnvIfExists(relativePath: string) {
-  const filePath = path.resolve(process.cwd(), relativePath);
-  if (fs.existsSync(filePath)) {
-    dotenv.config({ path: filePath });
-  }
-}
-
-// Priority: shell > prod local env > local env > env
-loadEnvIfExists(".env.prod.local");
-loadEnvIfExists(".env.production.local");
-loadEnvIfExists(".env.local");
-loadEnvIfExists(".env");
+loadProjectEnv();
 
 function ensureDatabaseUrl(useProdUrl: boolean) {
   if (useProdUrl) {
@@ -113,6 +103,8 @@ async function main() {
   }
 
   ensureDatabaseUrl(useProdUrl);
+
+  const { PrismaClient } = require("@prisma/client") as typeof import("@prisma/client");
 
   const prisma = new PrismaClient();
 

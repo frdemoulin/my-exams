@@ -12,8 +12,12 @@
  * - mode dry-run (log sans écrire)
  */
 
-import { PrismaClient } from '@prisma/client';
+import { loadProjectEnv } from './lib/load-env';
 import { PdfParseOcrService } from '@/core/enrichment';
+
+loadProjectEnv();
+
+const { PrismaClient } = require('@prisma/client') as typeof import('@prisma/client');
 
 const prisma = new PrismaClient();
 const useTesseractFallback = process.env.USE_TESSERACT_FALLBACK === 'true';

@@ -94,6 +94,13 @@ export function normalizeSearchText(value: unknown): string {
     .replace(/\s+/g, " ");
 }
 
+export function slugifyText(value: string): string {
+  return normalizeSearchText(value)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-");
+}
+
 export function includesNormalizedSearch(value: unknown, search: unknown): boolean {
   const normalizedSearch = normalizeSearchText(search);
   if (!normalizedSearch) return true;

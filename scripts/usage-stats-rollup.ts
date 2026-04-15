@@ -1,5 +1,13 @@
-import "dotenv/config";
-import { PrismaClient, UsageDailyCategory, ErrorDailyCategory } from "@prisma/client";
+import type {
+  ErrorDailyCategory as ErrorDailyCategoryType,
+  UsageDailyCategory as UsageDailyCategoryType,
+} from "@prisma/client";
+
+import { loadProjectEnv } from "./lib/load-env";
+
+loadProjectEnv();
+
+const { PrismaClient, UsageDailyCategory, ErrorDailyCategory } = require("@prisma/client") as typeof import("@prisma/client");
 
 const prisma = new PrismaClient();
 
@@ -39,7 +47,7 @@ async function rollupUsageStatsForDay(dayStart: Date, dayEnd: Date) {
 
   const counts = new Map<string, number>();
 
-  const addCount = (category: UsageDailyCategory, label: string, delta: number) => {
+  const addCount = (category: UsageDailyCategoryType, label: string, delta: number) => {
     const key = `${category}::${label}`;
     counts.set(key, (counts.get(key) ?? 0) + delta);
   };
@@ -75,14 +83,14 @@ async function rollupUsageStatsForDay(dayStart: Date, dayEnd: Date) {
       where: {
         date_category_label: {
           date: dayStart,
-          category: category as UsageDailyCategory,
+          category: category as UsageDailyCategoryType,
           label,
         },
       },
       update: { count },
       create: {
         date: dayStart,
-        category: category as UsageDailyCategory,
+        category: category as UsageDailyCategoryType,
         label,
         count,
       },
@@ -102,7 +110,7 @@ async function rollupErrorStatsForDay(dayStart: Date, dayEnd: Date) {
   const counts = new Map<string, { count: number; totalDurationMs: number }>();
 
   const addCount = (
-    category: ErrorDailyCategory,
+    category: ErrorDailyCategoryType,
     label: string,
     deltaCount: number,
     deltaDuration: number
@@ -147,14 +155,14 @@ async function rollupErrorStatsForDay(dayStart: Date, dayEnd: Date) {
       where: {
         date_category_label: {
           date: dayStart,
-          category: category as ErrorDailyCategory,
+          category: category as ErrorDailyCategoryType,
           label,
         },
       },
       update: { count: value.count, totalDurationMs: value.totalDurationMs || null },
       create: {
         date: dayStart,
-        category: category as ErrorDailyCategory,
+        category: category as ErrorDailyCategoryType,
         label,
         count: value.count,
         totalDurationMs: value.totalDurationMs || null,

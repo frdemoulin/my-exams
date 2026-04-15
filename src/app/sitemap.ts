@@ -29,6 +29,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/entrainement/sciences-physiques`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/mentions-legales`,
       lastModified: now,
       changeFrequency: 'yearly',
@@ -169,6 +175,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.4,
   }));
 
+  const trainingChapters = await prisma.chapter.findMany({
+    where: {
+      isPublished: true,
+      isActive: { not: false },
+      subject: {
+        isActive: true,
+        longDescription: 'Sciences physiques',
+      },
+    },
+    select: {
+      slug: true,
+      updatedAt: true,
+    },
+  });
+
+  const trainingEntries: MetadataRoute.Sitemap = trainingChapters.map((chapter) => ({
+    url: `${baseUrl}/entrainement/sciences-physiques/${chapter.slug}`,
+    lastModified: chapter.updatedAt ?? now,
+    changeFrequency: 'weekly',
+    priority: 0.6,
+  }));
+
   return [
     ...staticEntries,
     ...diplomaEntries,
@@ -176,5 +204,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...sessionEntries,
     ...subjectPageEntries,
     ...exerciseEntries,
+    ...trainingEntries,
   ];
 }

@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import dotenv from "dotenv";
-import { PrismaClient, type DomainDiscipline } from "@prisma/client";
+import type { DomainDiscipline } from "@prisma/client";
+
+import { loadProjectEnv } from "./lib/load-env";
 
 type ImportDomain = {
   longDescription: string;
@@ -30,18 +31,7 @@ type ImportPayload = {
   themes: ImportTheme[];
 };
 
-function loadEnvIfExists(relativePath: string) {
-  const filePath = path.resolve(process.cwd(), relativePath);
-  if (fs.existsSync(filePath)) {
-    dotenv.config({ path: filePath });
-  }
-}
-
-// Priority: shell > prod local env > local env > env
-loadEnvIfExists(".env.prod.local");
-loadEnvIfExists(".env.production.local");
-loadEnvIfExists(".env.local");
-loadEnvIfExists(".env");
+loadProjectEnv();
 
 function ensureDatabaseUrl() {
   if (!process.env.DATABASE_URL && process.env.MONGODB_URI) {
@@ -103,6 +93,8 @@ async function main() {
   }
 
   ensureDatabaseUrl();
+
+  const { PrismaClient } = require("@prisma/client") as typeof import("@prisma/client");
 
   const isProdTarget = process.env.NODE_ENV === "production";
   if (isProdTarget && !dryRun && !confirmed) {
