@@ -1,5 +1,10 @@
-import 'dotenv/config';
-import { PrismaClient, type DomainDiscipline, type Prisma } from '@prisma/client';
+import type { DomainDiscipline, Prisma } from '@prisma/client';
+
+import { loadProjectEnv } from './lib/load-env';
+
+loadProjectEnv();
+
+const { PrismaClient } = require('@prisma/client') as typeof import('@prisma/client');
 
 const prisma = new PrismaClient();
 

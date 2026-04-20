@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { fetchThemeById } from "@/core/theme";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Détails du thème"
@@ -19,7 +20,7 @@ const ThemeDetailPage = async ({ params }: ThemeDetailPageProps) => {
     
     return (
         <div>
-            <h1 className="text-lg font-semibold md:text-2xl">Détails du thème</h1>
+            <AdminPageHeading title="Détails du thème" className="mb-4" />
             <div className="mt-3 space-y-1 text-sm text-muted-foreground">
                 <p>Titre : {theme?.title ?? "Aucun"}</p>
                 <p>Description courte : {theme?.shortDescription ?? "Aucune"}</p>

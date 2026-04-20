@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import CurriculumForm from "../_components/curriculum-form";
 import getSession from "@/lib/auth/get-session";
 import { fetchTeachingsOptions } from "@/core/teaching/teaching.queries";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Ajouter un programme",
@@ -21,7 +22,7 @@ const AddCurriculumPage = async () => {
 
     return (
         <div className="w-full p-6">
-            <h1 className="text-lg font-semibold md:text-2xl mb-6">Ajouter un programme</h1>
+            <AdminPageHeading title="Ajouter un programme" className="mb-6" />
             <CurriculumForm
                 crudMode="add"
                 initialData={{}}

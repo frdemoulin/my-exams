@@ -29,6 +29,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/entrainement`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/entrainement/sciences-physiques`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/mentions-legales`,
       lastModified: now,
       changeFrequency: 'yearly',
@@ -169,6 +181,47 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.4,
   }));
 
+  const trainingChapters = await prisma.chapter.findMany({
+    where: {
+      isPublished: true,
+      isActive: { not: false },
+      subject: {
+        isActive: true,
+        longDescription: 'Sciences physiques',
+      },
+    },
+    select: {
+      level: true,
+      slug: true,
+      updatedAt: true,
+    },
+  });
+
+  const trainingEntries: MetadataRoute.Sitemap = trainingChapters.map((chapter) => ({
+    url: `${baseUrl}/entrainement/sciences-physiques/${chapter.slug}`,
+    lastModified: chapter.updatedAt ?? now,
+    changeFrequency: 'weekly',
+    priority: 0.6,
+  }));
+
+  const trainingLevelEntries: MetadataRoute.Sitemap = Array.from(
+    trainingChapters.reduce((map, chapter) => {
+      const key = chapter.level.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const previousDate = map.get(key);
+
+      if (!previousDate || (chapter.updatedAt ?? now) > previousDate) {
+        map.set(key, chapter.updatedAt ?? now);
+      }
+
+      return map;
+    }, new Map<string, Date>()).entries()
+  ).map(([levelSlug, lastModified]) => ({
+    url: `${baseUrl}/entrainement/sciences-physiques/niveaux/${levelSlug}`,
+    lastModified,
+    changeFrequency: 'weekly' as const,
+    priority: 0.65,
+  }));
+
   return [
     ...staticEntries,
     ...diplomaEntries,
@@ -176,5 +229,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...sessionEntries,
     ...subjectPageEntries,
     ...exerciseEntries,
+    ...trainingLevelEntries,
+    ...trainingEntries,
   ];
 }

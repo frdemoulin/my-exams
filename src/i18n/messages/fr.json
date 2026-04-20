@@ -1,5 +1,20 @@
 {
   "entities": {
+    "chapter": {
+      "singular": "Chapitre",
+      "plural": "Chapitres",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un chapitre",
+        "edit": "Éditer le chapitre",
+        "delete": "Supprimer le chapitre",
+        "view": "Voir le chapitre",
+        "list": "Liste des chapitres"
+      }
+    },
     "diploma": {
       "singular": "Diplôme",
       "plural": "Diplômes",
@@ -178,6 +193,21 @@
         "delete": "Supprimer le thème",
         "view": "Voir le thème",
         "list": "Liste des thèmes"
+      }
+    },
+    "quizQuestion": {
+      "singular": "Question QCM",
+      "plural": "Questions QCM",
+      "article": {
+        "definite": "la",
+        "indefinite": "une"
+      },
+      "actions": {
+        "add": "Ajouter une question QCM",
+        "edit": "Éditer la question QCM",
+        "delete": "Supprimer la question QCM",
+        "view": "Voir la question QCM",
+        "list": "Liste des questions QCM"
       }
     },
     "user": {

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 
 import prisma from "@/lib/db/prisma";
+import { includesNormalizedSearch } from "@/lib/utils";
 
 export async function GET(request: NextRequest) {
   try {
@@ -12,33 +13,24 @@ export async function GET(request: NextRequest) {
     const session = searchParams.get("session");
     const sessionYear = session ? Number(session) : undefined;
 
-    const examPaperFilter: Prisma.ExamPaperWhereInput = {};
-
-    const diplomaFilter: Prisma.DiplomaWhereInput = { isActive: { not: false } };
-    if (diploma) {
-      diplomaFilter.OR = [
-        { shortDescription: { contains: diploma, mode: "insensitive" } },
-        { longDescription: { contains: diploma, mode: "insensitive" } },
-      ];
-    }
-    examPaperFilter.diploma = diplomaFilter;
-
-    const subjectFilter: Prisma.SubjectWhereInput = { isActive: { not: false } };
-    if (subject) {
-      subjectFilter.OR = [
-        { shortDescription: { contains: subject, mode: "insensitive" } },
-        { longDescription: { contains: subject, mode: "insensitive" } },
-      ];
-    }
-
-    const teachingFilter: Prisma.TeachingWhereInput = {
-      isActive: { not: false },
-      subject: subjectFilter,
+    const examPaperFilter: Prisma.ExamPaperWhereInput = {
+      diploma: { isActive: { not: false } },
+      teaching: {
+        isActive: { not: false },
+        subject: { isActive: { not: false } },
+      },
     };
+
+    const teachingFilter: Prisma.TeachingWhereInput = {};
     if (teachingId) {
       teachingFilter.id = teachingId;
     }
-    examPaperFilter.teaching = teachingFilter;
+    if (Object.keys(teachingFilter).length > 0) {
+      examPaperFilter.teaching = {
+        ...(examPaperFilter.teaching as Prisma.TeachingWhereInput),
+        ...teachingFilter,
+      };
+    }
 
     if (Number.isFinite(sessionYear)) {
       examPaperFilter.sessionYear = sessionYear as number;
@@ -49,10 +41,54 @@ export async function GET(request: NextRequest) {
         enrichmentStatus: "completed",
         examPaper: examPaperFilter,
       },
-      select: { themeIds: true },
+      select: {
+        themeIds: true,
+        examPaper: {
+          select: {
+            diploma: {
+              select: {
+                shortDescription: true,
+                longDescription: true,
+              },
+            },
+            teaching: {
+              select: {
+                subject: {
+                  select: {
+                    shortDescription: true,
+                    longDescription: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     });
 
-    const themeIds = [...new Set(exercises.flatMap((ex) => ex.themeIds))];
+    const themeIds = [
+      ...new Set(
+        exercises
+          .filter((exercise) => {
+            const matchesDiploma = includesNormalizedSearch(
+              [
+                exercise.examPaper.diploma.shortDescription,
+                exercise.examPaper.diploma.longDescription,
+              ],
+              diploma
+            );
+            const matchesSubject = includesNormalizedSearch(
+              [
+                exercise.examPaper.teaching.subject.shortDescription,
+                exercise.examPaper.teaching.subject.longDescription,
+              ],
+              subject
+            );
+            return matchesDiploma && matchesSubject;
+          })
+          .flatMap((exercise) => exercise.themeIds)
+      ),
+    ];
     if (themeIds.length === 0) {
       return NextResponse.json({ success: true, domains: [] });
     }

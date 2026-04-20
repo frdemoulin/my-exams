@@ -15,11 +15,7 @@
  *   --prod              utilise DATABASE_URL_PROD / MONGODB_URI_PROD
  *   --yes               confirme en prod (équiv. CONFIRM_USER_ROLE=1)
  */
-import fs from "node:fs";
-import path from "node:path";
-
-import dotenv from "dotenv";
-import { PrismaClient } from "@prisma/client";
+import { loadProjectEnv } from "./lib/load-env";
 
 type CliOptions = {
   email?: string;
@@ -28,13 +24,6 @@ type CliOptions = {
   useProdUrl: boolean;
   confirmed: boolean;
 };
-
-function loadEnvIfExists(relativePath: string) {
-  const filePath = path.resolve(process.cwd(), relativePath);
-  if (fs.existsSync(filePath)) {
-    dotenv.config({ path: filePath });
-  }
-}
 
 function getArgValue(flag: string): string | undefined {
   const index = process.argv.indexOf(flag);
@@ -88,11 +77,7 @@ function ensureDatabaseUrl(useProdUrl: boolean) {
 }
 
 async function main() {
-  // Priorité : shell > env prod local > env local > env
-  loadEnvIfExists(".env.prod.local");
-  loadEnvIfExists(".env.production.local");
-  loadEnvIfExists(".env.local");
-  loadEnvIfExists(".env");
+  loadProjectEnv();
 
   const opts = parseCli();
   ensureDatabaseUrl(opts.useProdUrl);
@@ -102,6 +87,7 @@ async function main() {
     throw new Error("Refus par sécurité: en prod, lance avec `CONFIRM_USER_ROLE=1` (ou `--yes`).");
   }
 
+  const { PrismaClient } = require("@prisma/client") as typeof import("@prisma/client");
   const prisma = new PrismaClient();
 
   try {

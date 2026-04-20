@@ -8,6 +8,7 @@ import prisma from "@/lib/db/prisma";
 const HEADER_NAME = "x-e2e-test-login";
 const COOKIE_SALT = "authjs.session-token";
 const COOKIE_NAMES = ["next-auth.session-token", "authjs.session-token"];
+const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
 export async function POST(req: Request) {
   const testSecret = process.env.E2E_TEST_LOGIN_SECRET;
@@ -41,6 +42,14 @@ export async function POST(req: Request) {
           roles: "ADMIN",
         },
       });
+    } else if (user.roles !== "ADMIN" || user.name !== name) {
+      user = await prisma.user.update({
+        where: { id: user.id },
+        data: {
+          name,
+          roles: "ADMIN",
+        },
+      });
     }
 
     const jwt = await encode({
@@ -48,6 +57,11 @@ export async function POST(req: Request) {
         email: user.email || undefined,
         name: user.name || undefined,
         sub: user.id,
+        role: user.roles,
+        adminExpiresAt:
+          user.roles === "ADMIN"
+            ? Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000
+            : undefined,
       },
       secret: authSecret,
       salt: COOKIE_SALT,

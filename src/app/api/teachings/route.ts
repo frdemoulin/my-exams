@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Prisma } from '@prisma/client';
 
 import prisma from '@/lib/db/prisma';
+import { includesNormalizedSearch } from '@/lib/utils';
 
 type TeachingOption = {
   value: string;
@@ -17,31 +18,13 @@ export async function GET(request: NextRequest) {
 
     const sessionYear = session ? Number(session) : undefined;
 
-    const where: Prisma.ExamPaperWhereInput = {};
-
-    const diplomaFilter: Prisma.DiplomaWhereInput = { isActive: { not: false } };
-    if (diploma) {
-      diplomaFilter.shortDescription = {
-        contains: diploma,
-        mode: 'insensitive',
-      };
-    }
-    where.diploma = diplomaFilter;
-
-    const subjectFilter: Prisma.SubjectWhereInput = { isActive: { not: false } };
-    if (subject) {
-      subjectFilter.OR = [
-        { shortDescription: { contains: subject, mode: 'insensitive' } },
-        { longDescription: { contains: subject, mode: 'insensitive' } },
-      ];
-    }
-
-    const teachingFilter: Prisma.TeachingWhereInput = {
-      subject: subjectFilter,
-      isActive: { not: false },
+    const where: Prisma.ExamPaperWhereInput = {
+      diploma: { isActive: { not: false } },
+      teaching: {
+        isActive: { not: false },
+        subject: { isActive: { not: false } },
+      },
     };
-
-    where.teaching = teachingFilter;
 
     if (sessionYear) {
       where.sessionYear = sessionYear;
@@ -50,11 +33,23 @@ export async function GET(request: NextRequest) {
     const examPapers = await prisma.examPaper.findMany({
       where,
       select: {
+        diploma: {
+          select: {
+            shortDescription: true,
+            longDescription: true,
+          },
+        },
         teaching: {
           select: {
             id: true,
             longDescription: true,
             shortDescription: true,
+            subject: {
+              select: {
+                shortDescription: true,
+                longDescription: true,
+              },
+            },
             grade: {
               select: {
                 shortDescription: true,
@@ -65,9 +60,21 @@ export async function GET(request: NextRequest) {
       },
     });
 
+    const filteredExamPapers = examPapers.filter((paper) => {
+      const matchesDiploma = includesNormalizedSearch(
+        [paper.diploma.shortDescription, paper.diploma.longDescription],
+        diploma
+      );
+      const matchesSubject = includesNormalizedSearch(
+        [paper.teaching.subject.shortDescription, paper.teaching.subject.longDescription],
+        subject
+      );
+      return matchesDiploma && matchesSubject;
+    });
+
     const optionsMap = new Map<string, TeachingOption>();
 
-    for (const paper of examPapers) {
+    for (const paper of filteredExamPapers) {
       const teaching = paper.teaching;
       if (!teaching) continue;
 
@@ -82,7 +89,7 @@ export async function GET(request: NextRequest) {
     }
 
     const options = Array.from(optionsMap.values()).sort((a, b) =>
-      a.label.localeCompare(b.label)
+      a.label.localeCompare(b.label, 'fr', { sensitivity: 'base' })
     );
 
     return NextResponse.json({ success: true, options });

@@ -1,5 +1,8 @@
-import "dotenv/config";
-import { PrismaClient } from "@prisma/client";
+import { loadProjectEnv } from "./lib/load-env";
+
+loadProjectEnv();
+
+const { PrismaClient } = require("@prisma/client") as typeof import("@prisma/client");
 
 const prisma = new PrismaClient();
 

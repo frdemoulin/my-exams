@@ -190,41 +190,34 @@ export async function seedDomains(prisma: PrismaClient) {
       discipline: 'PHYSIQUE',
       order: 3,
     },
+    // Sciences physiques - Lycée
     {
-      longDescription: 'Mouvement et forces',
-      shortDescription: 'Mouvement',
+      longDescription: 'Mouvement et interactions',
+      shortDescription: 'Mouvement et interactions',
       subjectId: subjectByName['Sciences physiques'],
       discipline: 'PHYSIQUE',
       order: 4,
-    },
-    // Sciences physiques - Lycée
-    {
-      longDescription: 'Mécanique',
-      shortDescription: 'Mécanique',
-      subjectId: subjectByName['Sciences physiques'],
-      discipline: 'PHYSIQUE',
-      order: 5,
     },
     {
       longDescription: 'Ondes et signaux',
       shortDescription: 'Ondes',
       subjectId: subjectByName['Sciences physiques'],
       discipline: 'PHYSIQUE',
-      order: 6,
+      order: 5,
     },
     {
       longDescription: 'Constitution et transformations de la matière',
       shortDescription: 'Chimie',
       subjectId: subjectByName['Sciences physiques'],
       discipline: 'CHIMIE',
-      order: 7,
+      order: 6,
     },
     {
       longDescription: 'Énergie',
       shortDescription: 'Énergie',
       subjectId: subjectByName['Sciences physiques'],
       discipline: 'TRANSVERSAL',
-      order: 8,
+      order: 7,
     },
   ];
 

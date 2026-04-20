@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/table";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
 import { TableToolbar } from "@/components/shared/table-toolbar";
+import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 import type { ExerciseListItem } from "./columns";
 
 interface DataTableProps {
@@ -58,7 +59,7 @@ export function DataTable({ title, columns, data }: DataTableProps) {
     onSortingChange: handleSortingChange,
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
-    globalFilterFn: "includesString",
+    globalFilterFn: accentInsensitiveIncludesString,
     initialState: {
       sorting: defaultSorting,
     },

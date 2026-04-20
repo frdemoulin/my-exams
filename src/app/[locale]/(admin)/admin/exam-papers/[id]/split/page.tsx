@@ -4,6 +4,7 @@ import prisma from '@/lib/db/prisma';
 import { SplitExercisesForm } from './_components/split-exercises-form';
 import { fetchThemes } from '@/core/theme';
 import { AppBreadcrumb } from '@/components/shared/app-breadcrumb';
+import { AdminPageHeading } from '@/components/shared/admin-page-heading';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -45,10 +46,10 @@ export default async function SplitExercisesPage({ params }: PageProps) {
   return (
     <div className="container mx-auto max-w-4xl py-8">
       <div className="mb-6">
-        <h1 className="text-lg font-semibold md:text-2xl mb-6">Découper un sujet en exercices</h1>
-        <p className="text-muted-foreground">
-          {examPaper.diploma.longDescription} › {examPaper.teaching.subject.longDescription} › {examPaper.teaching.grade.longDescription}
-        </p>
+        <AdminPageHeading
+          title="Découper un sujet en exercices"
+          description={`${examPaper.diploma.longDescription} › ${examPaper.teaching.subject.longDescription} › ${examPaper.teaching.grade.longDescription}`}
+        />
       </div>
 
       <SplitExercisesForm

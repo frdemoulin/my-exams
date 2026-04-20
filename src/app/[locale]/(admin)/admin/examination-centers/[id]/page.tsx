@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { fetchExaminationCenterById } from "@/core/examination-center";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Détails du centre d'examen"
@@ -19,7 +20,7 @@ const ExaminationCenterDetailPage = async ({ params }: ExaminationCenterDetailPa
     
     return (
         <div>
-            <h1 className="text-lg font-semibold md:text-2xl">Détails du centre d&apos;examen</h1>
+            <AdminPageHeading title="Détails du centre d'examen" className="mb-4" />
             <p>Description : {examinationCenter?.description}</p>
             <p>Statut : {examinationCenter?.isActive ? "Actif" : "Inactif"}</p>
         </div>

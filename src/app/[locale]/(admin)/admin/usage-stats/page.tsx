@@ -6,6 +6,7 @@ import prisma from "@/lib/db/prisma";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
   title: "Statistiques d'usage",
@@ -177,10 +178,10 @@ const UsageStatsPage = async ({ searchParams }: UsageStatsPageProps) => {
   return (
     <div className="w-full space-y-6 p-6">
       <div>
-        <h1 className="text-2xl font-bold text-heading">Statistiques d&apos;usage</h1>
-        <p className="text-sm text-muted-foreground">
-          Période analysée : {toDateInput(fromDate)} → {toDateInput(toDate)} (recherches, erreurs et latences).
-        </p>
+        <AdminPageHeading
+          title="Statistiques d'usage"
+          description={`Période analysée : ${toDateInput(fromDate)} → ${toDateInput(toDate)} (recherches, erreurs et latences).`}
+        />
         <form className="mt-3 flex flex-wrap items-end gap-2" method="get">
           <div className="space-y-1">
             <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground" htmlFor="from">

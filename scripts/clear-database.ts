@@ -1,10 +1,12 @@
-import 'dotenv/config';
-import { PrismaClient } from '@prisma/client';
+import { loadProjectEnv } from './lib/load-env';
 
-const prisma = new PrismaClient();
+loadProjectEnv();
 
 async function clearDatabase() {
   console.log('🧹 Nettoyage de la base de données...');
+
+  const { PrismaClient } = await import('@prisma/client');
+  const prisma = new PrismaClient();
 
   try {
     // Relations NextAuth / Authenticator
@@ -38,6 +40,8 @@ async function clearDatabase() {
   } catch (error) {
     console.error('❌ Erreur lors du nettoyage:', error);
     throw error;
+  } finally {
+    await prisma.$disconnect();
   }
 }
 
@@ -45,7 +49,4 @@ clearDatabase()
   .catch((e) => {
     console.error(e);
     process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
   });

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { SubjectForm } from "../../_components/subject-form";
 import { fetchSubjectById } from "@/core/subject";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import getSession from "@/lib/auth/get-session";
 import { redirect } from "next/navigation";
 
@@ -35,9 +36,7 @@ const EditSubjectPage = async ({ params }: SubjectEditProps) => {
 
     return (
         <div className="w-full p-6">
-            <div>
-                <h1 className="text-lg font-semibold md:text-2xl mb-6">{t('actions.edit')}</h1>
-            </div>
+            <AdminPageHeading title={t('actions.edit')} className="mb-6" />
             <div>
                 <SubjectForm
                     crudMode="edit"

@@ -1,6 +1,13 @@
 export type EnrichmentStatus = 'pending' | 'completed' | 'failed';
 export type ExerciseType = 'NORMAL' | 'QCM' | 'TRUE_FALSE' | 'OTHER';
 
+export interface AvailableThemeOption {
+  id: string;
+  label: string;
+  domainLabel?: string | null;
+  aliases?: string[];
+}
+
 export interface OcrResult {
   text: string; // contenu OCRisé complet
 }
@@ -12,6 +19,7 @@ export interface LlmAnalysisResult {
   estimatedDuration?: number | null;
   estimatedDifficulty?: number | null;
   themeIds?: string[];
+  themeLabels?: string[];
   exerciseType?: ExerciseType | null;
 }
 
@@ -19,10 +27,12 @@ export interface EnrichmentInput {
   exerciseId: string;
   statementUrl?: string | null;
   exerciseUrl?: string | null;
-  availableThemes?: {
-    id: string;
-    label: string;
-  }[];
+  correctionText?: string | null;
+  exercisePoints?: number | null;
+  examTotalDuration?: number | null;
+  examTotalPoints?: number | null;
+  subjectLabel?: string | null;
+  availableThemes?: AvailableThemeOption[];
 }
 
 export interface EnrichmentPayload {

@@ -3,7 +3,12 @@
 import fs from "fs";
 import path from "path";
 
-import prisma from "@/lib/db/prisma";
+import { loadProjectEnv } from "./lib/load-env";
+
+loadProjectEnv();
+
+const { PrismaClient } = require("@prisma/client") as typeof import("@prisma/client");
+const prisma = new PrismaClient();
 
 type UpdateEntry = {
   id: string;

@@ -60,3 +60,49 @@ export function normalizeExamPaperLabel(label?: string | null): string | null {
   if (!label) return label ?? null;
   return label.replace(/\b(?:JOUR|Jour|jour)\b/g, "jour");
 }
+
+function toSearchableText(value: unknown): string {
+  if (value == null) return "";
+  if (
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean" ||
+    typeof value === "bigint"
+  ) {
+    return String(value);
+  }
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => toSearchableText(item)).join(" ");
+  }
+  if (typeof value === "object") {
+    return Object.values(value as Record<string, unknown>)
+      .map((item) => toSearchableText(item))
+      .join(" ");
+  }
+  return "";
+}
+
+export function normalizeSearchText(value: unknown): string {
+  return toSearchableText(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+export function slugifyText(value: string): string {
+  return normalizeSearchText(value)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-");
+}
+
+export function includesNormalizedSearch(value: unknown, search: unknown): boolean {
+  const normalizedSearch = normalizeSearchText(search);
+  if (!normalizedSearch) return true;
+  return normalizeSearchText(value).includes(normalizedSearch);
+}

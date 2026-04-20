@@ -1,32 +1,14 @@
 import type { PrismaClient } from '@prisma/client';
 import * as fs from 'fs';
 import * as path from 'path';
-import {
-  mechanicsDomainId,
-  mechanicsThemes,
-} from './data/mechanics-themes';
-import {
-  wavesAndSignalsDomainId,
-  wavesAndSignalsThemes,
-} from './data/waves-and-signals-themes';
-import {
-  electricityDomainId,
-  electricityThemes,
-} from './data/electricity-themes';
-import {
-  thermodynamicsDomainId,
-  thermodynamicsThemes,
-} from './data/thermodynamics-themes';
-import {
-  matterConstitutionDomainId,
-  matterConstitutionThemes,
-} from './data/matter-constitution-themes';
-import { acidBaseDomainId, acidBaseThemes } from './data/acid-base-themes';
-import { redoxDomainId, redoxThemes } from './data/redox-themes';
-import {
-  chemicalKineticsDomainId,
-  chemicalKineticsThemes,
-} from './data/chemical-kinetics-themes';
+import { mechanicsThemes } from './data/mechanics-themes';
+import { wavesAndSignalsThemes } from './data/waves-and-signals-themes';
+import { electricityThemes } from './data/electricity-themes';
+import { thermodynamicsThemes } from './data/thermodynamics-themes';
+import { matterConstitutionThemes } from './data/matter-constitution-themes';
+import { acidBaseThemes } from './data/acid-base-themes';
+import { redoxThemes } from './data/redox-themes';
+import { chemicalKineticsThemes } from './data/chemical-kinetics-themes';
 
 interface Topic {
   longDescription: string;
@@ -68,49 +50,67 @@ type ManualThemeSeed = {
   description?: string;
 };
 
-const manualThemeGroups: Array<{
-  domainId: string;
-  domainLabel: string;
+type ManualThemeGroup = {
+  subjectLongDescription: string;
+  domainLongDescription: string;
   themes: ManualThemeSeed[];
-}> = [
+  resolveDomainLongDescription?: (theme: ManualThemeSeed) => string;
+};
+
+const resolveElectricityManualThemeDomain = (theme: ManualThemeSeed) =>
+  includesAnyNormalized(theme.title, [
+    'condensateur',
+    'circuit rc',
+    'charge et decharge d un condensateur',
+    'courant alternatif sinusoidal',
+    'valeur efficace',
+    'puissance electrique',
+    'energie electrique',
+    'effet joule',
+  ])
+    ? 'Énergie'
+    : 'Électricité';
+
+const manualThemeGroups: ManualThemeGroup[] = [
   {
-    domainId: mechanicsDomainId,
-    domainLabel: 'Mécanique',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Mouvement et interactions',
     themes: mechanicsThemes,
   },
   {
-    domainId: wavesAndSignalsDomainId,
-    domainLabel: 'Ondes et signaux',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Ondes et signaux',
     themes: wavesAndSignalsThemes,
   },
   {
-    domainId: electricityDomainId,
-    domainLabel: 'Électricité',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Électricité',
     themes: electricityThemes,
+    resolveDomainLongDescription: resolveElectricityManualThemeDomain,
   },
   {
-    domainId: thermodynamicsDomainId,
-    domainLabel: 'Thermodynamique',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Énergie',
     themes: thermodynamicsThemes,
   },
   {
-    domainId: matterConstitutionDomainId,
-    domainLabel: 'Constitution de la matière',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Constitution et transformations de la matière',
     themes: matterConstitutionThemes,
   },
   {
-    domainId: acidBaseDomainId,
-    domainLabel: 'Acide-base',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Constitution et transformations de la matière',
     themes: acidBaseThemes,
   },
   {
-    domainId: redoxDomainId,
-    domainLabel: 'Oxydoréduction',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Constitution et transformations de la matière',
     themes: redoxThemes,
   },
   {
-    domainId: chemicalKineticsDomainId,
-    domainLabel: 'Cinétique chimique',
+    subjectLongDescription: 'Sciences physiques',
+    domainLongDescription: 'Constitution et transformations de la matière',
     themes: chemicalKineticsThemes,
   },
 ];
@@ -125,56 +125,268 @@ const loadSeedThemes = (): SeedThemeExport[] | null => {
   return payload.themes;
 };
 
+const normalizeSeedText = (value: string) =>
+  value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, ' ')
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
+
+const includesAnyNormalized = (value: string, needles: string[]) => {
+  const normalizedValue = normalizeSeedText(value);
+  return needles.some((needle) => normalizedValue.includes(normalizeSeedText(needle)));
+};
+
+const buildThemeCandidateKeys = (theme: {
+  title: string;
+  shortTitle?: string | null;
+}) =>
+  Array.from(
+    new Set(
+      [theme.title, theme.shortTitle ?? null]
+        .filter((value): value is string => Boolean(value))
+        .map((value) => normalizeSeedText(value))
+    )
+  );
+
+const resolveMathCollegeDomainName = (label: string) =>
+  includesAnyNormalized(label, ['fraction', 'nombre', 'calcul', 'puissance', 'racine', 'equation', 'proportion'])
+    ? 'Nombres et calculs'
+    : includesAnyNormalized(label, ['thales', 'pythagore', 'triangle', 'cercle', 'symetrie', 'aire', 'volume'])
+      ? 'Géométrie plane'
+      : includesAnyNormalized(label, ['statistique', 'probabilite', 'fonction'])
+        ? 'Gestion de données'
+        : 'Nombres et calculs';
+
+const resolveMathLyceeDomainName = (label: string) =>
+  includesAnyNormalized(label, ['suite'])
+    ? 'Suites numériques'
+    : includesAnyNormalized(
+          label,
+          ['fonction', 'derivation', 'limite', 'primitive', 'integrale', 'exponentielle', 'logarithme']
+        )
+      ? 'Fonctions'
+      : includesAnyNormalized(label, ['vecteur', 'produit scalaire', 'geometrie', 'droite', 'trigonometrie'])
+        ? 'Géométrie analytique'
+        : includesAnyNormalized(
+              label,
+              ['probabilite', 'variable aleatoire', 'loi', 'echantillon', 'estimation']
+            )
+          ? 'Probabilités et statistiques'
+          : includesAnyNormalized(
+                label,
+                ['ensemble', 'intervalle', 'valeur absolue', 'equation', 'complexe', 'algorithme', 'logique']
+              )
+            ? 'Analyse'
+            : 'Analyse';
+
+const resolvePhysicsChemistryCollegeDomainName = (label: string) =>
+  includesAnyNormalized(
+    label,
+    ['etat', 'melange', 'masse', 'atome', 'molecule', 'formule', 'transformation', 'acide', 'ph', 'combustion']
+  )
+    ? 'Matière et ses états'
+    : includesAnyNormalized(
+          label,
+          ['circuit', 'intensite', 'tension', 'ohm', 'puissance', 'energie electrique']
+        )
+      ? 'Électricité'
+      : includesAnyNormalized(label, ['lumiere', 'couleur', 'spectre', 'lentille'])
+        ? 'Lumière et vision'
+        : includesAnyNormalized(label, ['energie', 'source'])
+          ? 'Énergie'
+          : includesAnyNormalized(label, ['mouvement', 'vitesse', 'force', 'poids', 'gravitation'])
+            ? 'Mouvement et interactions'
+            : 'Matière et ses états';
+
+const resolvePhysicsChemistryLyceeDomainName = (label: string) =>
+  includesAnyNormalized(
+    label,
+    [
+      'mouvement',
+      'vitesse',
+      'acceleration',
+      'chute',
+      'newton',
+      'force',
+      'travail',
+      'energie cinetique',
+      'energie potentielle',
+      'quantite de mouvement',
+      'kepler',
+      'gravitation',
+      'orbital',
+    ]
+  )
+    ? 'Mouvement et interactions'
+    : includesAnyNormalized(
+          label,
+          ['onde', 'sonore', 'electromagnetique', 'diffraction', 'doppler', 'interference', 'signal']
+        )
+      ? 'Ondes et signaux'
+      : includesAnyNormalized(
+            label,
+            [
+              'atome',
+              'electronique',
+              'periodique',
+              'liaison',
+              'molecule',
+              'oxydo',
+              'redox',
+              'avancement',
+              'equilibre',
+              'acide',
+              'base',
+              'bronsted',
+              'titrage',
+              'tampon',
+              'spectro',
+              'beer lambert',
+              'synthese',
+              'alcane',
+              'alcool',
+              'carbonyle',
+              'carboxylique',
+              'esterif',
+              'polymere',
+              'reactif limitant',
+              'rendement',
+              'mole',
+              'quantite de matiere',
+              'concentration',
+              'masse molaire',
+              'tableau d avancement',
+              'reaction chimique',
+              'transformation chimique',
+              'catalyse',
+              'cinetique',
+            ]
+          )
+        ? 'Constitution et transformations de la matière'
+        : includesAnyNormalized(
+              label,
+              [
+                'circuit',
+                'maille',
+                'nœud',
+                'noeud',
+                'condensateur',
+                'bobine',
+                'oscillation',
+                'transfert',
+                'capacite thermique',
+                'thermodynamique',
+                'chaleur',
+                'gaz parfait',
+                'equation d etat',
+                'effet joule',
+                'courant alternatif',
+                'valeur efficace',
+                'energie electrique',
+                'tension electrique',
+                'puissance electrique',
+              ]
+            )
+          ? 'Énergie'
+          : 'Constitution et transformations de la matière';
+
 const seedManualThemeGroups = async (prisma: PrismaClient) => {
   if (manualThemeGroups.length === 0) return;
 
-  const domainsById = new Map(
-    (await prisma.domain.findMany({
-      select: { id: true, longDescription: true },
-    })).map((domain) => [domain.id, domain])
+  const subjects = await prisma.subject.findMany({
+    select: { id: true, longDescription: true },
+  });
+  const subjectIdByLongDescription = new Map(
+    subjects.map((subject) => [subject.longDescription, subject.id])
   );
 
-  const domainsByLabel = new Map(
+  const domainsByKey = new Map(
     (await prisma.domain.findMany({
-      select: { id: true, longDescription: true },
-    })).map((domain) => [domain.longDescription, domain.id])
+      select: { id: true, longDescription: true, subjectId: true },
+    })).map((domain) => [`${domain.subjectId}::${domain.longDescription}`, domain.id])
   );
+
+  const existingThemesBySubjectId = new Map(
+    subjects.map((subject) => [subject.id, [] as Array<{
+      id: string;
+      title: string;
+      shortTitle: string | null;
+      domainId: string;
+    }>])
+  );
+
+  const existingThemes = await prisma.theme.findMany({
+    select: {
+      id: true,
+      title: true,
+      shortTitle: true,
+      domainId: true,
+      domain: {
+        select: {
+          subjectId: true,
+        },
+      },
+    },
+  });
+
+  for (const theme of existingThemes) {
+    const subjectThemes = existingThemesBySubjectId.get(theme.domain.subjectId);
+    if (!subjectThemes) continue;
+    subjectThemes.push({
+      id: theme.id,
+      title: theme.title,
+      shortTitle: theme.shortTitle,
+      domainId: theme.domainId,
+    });
+  }
 
   let createdCount = 0;
   let updatedCount = 0;
   let skippedCount = 0;
 
   for (const group of manualThemeGroups) {
-    const domainId =
-      domainsById.get(group.domainId)?.id ??
-      domainsByLabel.get(group.domainLabel);
-
-    if (!domainId) {
+    const subjectId = subjectIdByLongDescription.get(group.subjectLongDescription);
+    if (!subjectId) {
       console.warn(
-        `   ⚠️  Domaine introuvable pour le groupe: ${group.domainLabel}`
+        `   ⚠️  Matiere introuvable pour le groupe: ${group.subjectLongDescription}`
       );
       skippedCount += group.themes.length;
       continue;
     }
 
     for (const theme of group.themes) {
+      const targetDomainLongDescription =
+        group.resolveDomainLongDescription?.(theme) ?? group.domainLongDescription;
+      const domainId = domainsByKey.get(`${subjectId}::${targetDomainLongDescription}`);
+
+      if (!domainId) {
+        console.warn(
+          `   ⚠️  Domaine introuvable pour le theme manuel: ${theme.title} (${targetDomainLongDescription})`
+        );
+        skippedCount += 1;
+        continue;
+      }
+
       const title = theme.title.trim();
       const shortTitle = theme.shortTitle?.trim() || null;
       const shortDescription = theme.shortDescription.trim();
       const longDescription = theme.longDescription.trim();
       const description = theme.description?.trim() || null;
-
-      const existing = await prisma.theme.findFirst({
-        where: {
-          domainId,
-          title,
-        },
-      });
+      const candidateKeys = buildThemeCandidateKeys({ title, shortTitle });
+      const subjectThemes = existingThemesBySubjectId.get(subjectId) ?? [];
+      const existing = subjectThemes.find((candidate) =>
+        buildThemeCandidateKeys(candidate).some((key) => candidateKeys.includes(key))
+      );
 
       if (existing) {
         await prisma.theme.update({
           where: { id: existing.id },
           data: {
+            domainId,
             title,
             shortTitle,
             shortDescription,
@@ -182,9 +394,12 @@ const seedManualThemeGroups = async (prisma: PrismaClient) => {
             description,
           },
         });
+        existing.title = title;
+        existing.shortTitle = shortTitle;
+        existing.domainId = domainId;
         updatedCount += 1;
       } else {
-        await prisma.theme.create({
+        const createdTheme = await prisma.theme.create({
           data: {
             title,
             shortTitle,
@@ -193,6 +408,12 @@ const seedManualThemeGroups = async (prisma: PrismaClient) => {
             description,
             domainId,
           },
+        });
+        subjectThemes.push({
+          id: createdTheme.id,
+          title,
+          shortTitle,
+          domainId,
         });
         createdCount += 1;
       }
@@ -307,75 +528,61 @@ export async function seedThemes(prisma: PrismaClient) {
   const jsonData = fs.readFileSync(jsonPath, 'utf-8');
   const data: TopicsData = JSON.parse(jsonData);
 
-  // Récupérer les domaines pour associer les thèmes
-  const domains = await prisma.domain.findMany({
+  const subjects = await prisma.subject.findMany({
     select: { id: true, longDescription: true },
   });
-
-  const domainByName = Object.fromEntries(
-    domains.map((d) => [d.longDescription, d.id])
+  const subjectIdByLongDescription = new Map(
+    subjects.map((subject) => [subject.longDescription, subject.id])
   );
 
+  // Récupérer les domaines pour associer les thèmes
+  const domains = await prisma.domain.findMany({
+    select: { id: true, longDescription: true, subjectId: true },
+  });
+
+  const domainByKey = new Map(
+    domains.map((domain) => [`${domain.subjectId}::${domain.longDescription}`, domain.id])
+  );
+
+  const physicsChemistrySubjectId = subjectIdByLongDescription.get('Sciences physiques');
+  const mathematicsSubjectId = subjectIdByLongDescription.get('Mathématiques');
+
+  if (!physicsChemistrySubjectId || !mathematicsSubjectId) {
+    throw new Error('Sujets requis introuvables pour le seed des thèmes.');
+  }
+
   // Mapper les thèmes aux domaines appropriés
-  const themeMapping: Array<Topic & { domainName: string }> = [
+  const themeMapping: Array<Topic & { domainName: string; subjectId: string }> = [
     // Mathématiques Collège
     ...data.mathematics.college.map((t) => ({
       ...t,
-      domainName: t.longDescription.includes('fraction') || t.longDescription.includes('nombre') || t.longDescription.includes('calcul') || t.longDescription.includes('puissance') || t.longDescription.includes('racine') || t.longDescription.includes('équation') || t.longDescription.includes('proportion')
-        ? 'Nombres et calculs'
-        : t.longDescription.includes('Thalès') || t.longDescription.includes('Pythagore') || t.longDescription.includes('triangle') || t.longDescription.includes('cercle') || t.longDescription.includes('symétrie') || t.longDescription.includes('aire') || t.longDescription.includes('volume')
-        ? 'Géométrie plane'
-        : t.longDescription.includes('statistique') || t.longDescription.includes('probabilité') || t.longDescription.includes('fonction')
-        ? 'Gestion de données'
-        : 'Nombres et calculs',
+      subjectId: mathematicsSubjectId,
+      domainName: resolveMathCollegeDomainName(t.longDescription),
     })),
     // Mathématiques Lycée
     ...data.mathematics.lycee.map((t) => ({
       ...t,
-      domainName: t.longDescription.includes('suite')
-        ? 'Suites numériques'
-        : t.longDescription.includes('fonction') || t.longDescription.includes('dérivation') || t.longDescription.includes('limite') || t.longDescription.includes('primitive') || t.longDescription.includes('intégrale') || t.longDescription.includes('exponentielle') || t.longDescription.includes('logarithme')
-        ? 'Fonctions'
-        : t.longDescription.includes('vecteur') || t.longDescription.includes('produit scalaire') || t.longDescription.includes('géométrie') || t.longDescription.includes('droite') || t.longDescription.includes('trigonométrie')
-        ? 'Géométrie analytique'
-        : t.longDescription.includes('probabilité') || t.longDescription.includes('variable aléatoire') || t.longDescription.includes('loi') || t.longDescription.includes('échantillon') || t.longDescription.includes('estimation')
-        ? 'Probabilités et statistiques'
-        : t.longDescription.includes('ensemble') || t.longDescription.includes('intervalle') || t.longDescription.includes('valeur absolue') || t.longDescription.includes('équation') || t.longDescription.includes('complexe') || t.longDescription.includes('algorithme') || t.longDescription.includes('logique')
-        ? 'Analyse'
-        : 'Analyse',
+      subjectId: mathematicsSubjectId,
+      domainName: resolveMathLyceeDomainName(t.longDescription),
     })),
     // Physique-Chimie Collège
     ...data.physics_chemistry.college.map((t) => ({
       ...t,
-      domainName: t.longDescription.includes('état') || t.longDescription.includes('mélange') || t.longDescription.includes('masse') || t.longDescription.includes('atome') || t.longDescription.includes('molécule') || t.longDescription.includes('formule') || t.longDescription.includes('transformation') || t.longDescription.includes('acide') || t.longDescription.includes('pH') || t.longDescription.includes('combustion')
-        ? 'Matière et ses états'
-        : t.longDescription.includes('circuit') || t.longDescription.includes('intensité') || t.longDescription.includes('tension') || t.longDescription.includes('Ohm') || t.longDescription.includes('puissance') || t.longDescription.includes('énergie électrique')
-        ? 'Électricité'
-        : t.longDescription.includes('lumière') || t.longDescription.includes('couleur') || t.longDescription.includes('spectre') || t.longDescription.includes('lentille')
-        ? 'Lumière et vision'
-        : t.longDescription.includes('mouvement') || t.longDescription.includes('vitesse') || t.longDescription.includes('force') || t.longDescription.includes('poids') || t.longDescription.includes('gravitation') || t.longDescription.includes('énergie')
-        ? 'Mouvement et forces'
-        : 'Matière et ses états',
+      subjectId: physicsChemistrySubjectId,
+      domainName: resolvePhysicsChemistryCollegeDomainName(t.longDescription),
     })),
   // Physique-Chimie Lycée
     ...data.physics_chemistry.lycee.map((t) => ({
       ...t,
-      domainName: t.longDescription.includes('mouvement') || t.longDescription.includes('vitesse') || t.longDescription.includes('accélération') || t.longDescription.includes('chute') || t.longDescription.includes('Newton') || t.longDescription.includes('force') || t.longDescription.includes('travail') || t.longDescription.includes('énergie cinétique') || t.longDescription.includes('énergie potentielle') || t.longDescription.includes('quantité de mouvement')
-        ? 'Mécanique'
-        : t.longDescription.includes('onde') || t.longDescription.includes('sonore') || t.longDescription.includes('électromagnétique') || t.longDescription.includes('diffraction') || t.longDescription.includes('Doppler')
-        ? 'Ondes et signaux'
-        : t.longDescription.includes('atome') || t.longDescription.includes('électronique') || t.longDescription.includes('périodique') || t.longDescription.includes('liaison') || t.longDescription.includes('molécule') || t.longDescription.includes('oxydo') || t.longDescription.includes('avancement') || t.longDescription.includes('équilibre') || t.longDescription.includes('acide') || t.longDescription.includes('base') || t.longDescription.includes('Brønsted') || t.longDescription.includes('titrage') || t.longDescription.includes('tampon') || t.longDescription.includes('spectro') || t.longDescription.includes('Beer-Lambert') || t.longDescription.includes('synthèse') || t.longDescription.includes('alcane') || t.longDescription.includes('alcool') || t.longDescription.includes('carbonyle') || t.longDescription.includes('carboxylique') || t.longDescription.includes('estérif') || t.longDescription.includes('polymère')
-        ? 'Constitution et transformations de la matière'
-        : t.longDescription.includes('circuit') || t.longDescription.includes('maille') || t.longDescription.includes('nœud') || t.longDescription.includes('condensateur') || t.longDescription.includes('bobine') || t.longDescription.includes('oscillation') || t.longDescription.includes('transfert') || t.longDescription.includes('capacité thermique') || t.longDescription.includes('thermodynamique')
-        ? 'Énergie'
-        : 'Constitution et transformations de la matière',
+      subjectId: physicsChemistrySubjectId,
+      domainName: resolvePhysicsChemistryLyceeDomainName(t.longDescription),
     })),
   ];
 
   let createdCount = 0;
 
   for (const theme of themeMapping) {
-    const domainId = domainByName[theme.domainName];
+    const domainId = domainByKey.get(`${theme.subjectId}::${theme.domainName}`);
     if (!domainId) {
       console.warn(`   ⚠️  Domaine non trouvé pour le thème: ${theme.longDescription} (cherchait: ${theme.domainName})`);
       continue;

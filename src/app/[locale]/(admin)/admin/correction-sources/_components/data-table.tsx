@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/table";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
 import { TableToolbar } from "@/components/shared/table-toolbar";
+import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 
 interface DataTableProps<TData extends { id: string }, TValue> {
   title: string;
@@ -58,6 +59,7 @@ export function DataTable<TData extends { id: string }, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: handleSortingChange,
     getSortedRowModel: getSortedRowModel(),
+    globalFilterFn: accentInsensitiveIncludesString,
     initialState: {
       sorting: defaultSorting,
     },

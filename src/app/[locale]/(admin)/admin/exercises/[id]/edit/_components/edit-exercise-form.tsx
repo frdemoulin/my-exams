@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Save, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MultiSelect } from '@/components/ui/multi-select';
+import { Badge } from '@/components/ui/badge';
 import {
   Select,
   SelectContent,
@@ -43,7 +44,12 @@ type ExerciseWithRelations = Exercise & {
 
 interface EditExerciseFormProps {
   exercise: ExerciseWithRelations;
-  themes: Array<{ value: string; label: string }>;
+  themes: Array<{
+    value: string;
+    label: string;
+    description?: string;
+    domainLabel: string;
+  }>;
 }
 
 const EXERCISE_TYPE_OPTIONS: Array<{ value: ExerciseType; label: string }> = [
@@ -73,6 +79,19 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
     estimatedDifficulty: exercise.estimatedDifficulty || 3,
     exerciseUrl: exercise.exerciseUrl || '',
   });
+
+  const computedDomains = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          themes
+            .filter((theme) => formData.themeIds.includes(theme.value))
+            .map((theme) => theme.domainLabel)
+            .filter(Boolean)
+        )
+      ).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
+    [formData.themeIds, themes]
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -302,6 +321,26 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
               placeholder="Résumé généré par IA, modifiable..."
               rows={4}
             />
+          </div>
+
+          <div className="space-y-2">
+            <Label>Domaines calculés</Label>
+            {computedDomains.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {computedDomains.map((domain) => (
+                  <Badge key={domain} variant="outline">
+                    {domain}
+                  </Badge>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                Aucun domaine calculé tant qu&apos;aucun thème n&apos;est sélectionné.
+              </p>
+            )}
+            <p className="text-xs text-muted-foreground">
+              Les domaines sont déduits automatiquement des thèmes sélectionnés et ne sont pas éditables directement.
+            </p>
           </div>
 
           <div className="space-y-2">

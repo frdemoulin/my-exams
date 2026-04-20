@@ -3,6 +3,7 @@
  */
 
 import { PrismaClient, Prisma, ExerciseType } from '@prisma/client';
+import { includesNormalizedSearch, normalizeSearchText } from '@/lib/utils';
 
 const prisma = new PrismaClient();
 
@@ -125,6 +126,73 @@ export interface SearchExercisesResult {
   pageSize: number;
 }
 
+const matchesExerciseTextFilters = (
+  exercise: {
+    examPaper: {
+      diploma: { shortDescription: string; longDescription: string };
+      teaching: { subject: { shortDescription: string; longDescription: string } };
+    };
+  },
+  filters: {
+    diploma?: string;
+    subject?: string;
+  }
+) => {
+  const matchesDiploma = includesNormalizedSearch(
+    [
+      exercise.examPaper.diploma.shortDescription,
+      exercise.examPaper.diploma.longDescription,
+    ],
+    filters.diploma
+  );
+  const matchesSubject = includesNormalizedSearch(
+    [
+      exercise.examPaper.teaching.subject.shortDescription,
+      exercise.examPaper.teaching.subject.longDescription,
+    ],
+    filters.subject
+  );
+  return matchesDiploma && matchesSubject;
+};
+
+const compareNullableNumber = (
+  left: number | null | undefined,
+  right: number | null | undefined,
+  sortOrder: 'asc' | 'desc'
+) => {
+  if (left == null && right == null) return 0;
+  if (left == null) return 1;
+  if (right == null) return -1;
+  return sortOrder === 'asc' ? left - right : right - left;
+};
+
+const sortExercises = <T extends {
+  examPaper: { sessionYear: number };
+  estimatedDifficulty: number | null;
+  estimatedDuration: number | null;
+}>(items: T[], sortBy: 'year' | 'difficulty' | 'duration', sortOrder: 'asc' | 'desc') =>
+  [...items].sort((left, right) => {
+    switch (sortBy) {
+      case 'difficulty':
+        return compareNullableNumber(
+          left.estimatedDifficulty,
+          right.estimatedDifficulty,
+          sortOrder
+        );
+      case 'duration':
+        return compareNullableNumber(
+          left.estimatedDuration,
+          right.estimatedDuration,
+          sortOrder
+        );
+      case 'year':
+      default:
+        return sortOrder === 'asc'
+          ? left.examPaper.sessionYear - right.examPaper.sessionYear
+          : right.examPaper.sessionYear - left.examPaper.sessionYear;
+    }
+  });
+
 export type SearchSuggestion =
   | {
       type: 'exercise';
@@ -181,12 +249,6 @@ export async function searchExercises(
 
   // Filtre par diplôme (toujours actives côté public)
   const diplomaFilter: Prisma.DiplomaWhereInput = { isActive: true };
-  if (diploma) {
-    diplomaFilter.shortDescription = {
-      contains: diploma,
-      mode: 'insensitive',
-    };
-  }
   examPaperFilter.diploma = diplomaFilter;
 
   const teachingFilter: Prisma.TeachingWhereInput = { isActive: true };
@@ -194,10 +256,7 @@ export async function searchExercises(
   // Filtre par matière
   if (subject) {
     teachingFilter.subject = {
-      shortDescription: {
-        contains: subject,
-        mode: 'insensitive',
-      },
+      isActive: true,
     };
   }
 
@@ -246,7 +305,7 @@ export async function searchExercises(
   if (hasSearch) {
     const searchTerm = search!.trim();
 
-    const [commandResult, matchedThemes] = await Promise.all([
+    const [commandResult, allThemes] = await Promise.all([
       // Pipeline d'aggregation pour utiliser $text et récupérer un scoring
       prisma.$runCommandRaw({
         aggregate: 'Exercise',
@@ -281,15 +340,13 @@ export async function searchExercises(
         cursor: {},
       }),
       prisma.theme.findMany({
-        where: {
-          OR: [
-            { title: { contains: searchTerm, mode: 'insensitive' } },
-            { shortTitle: { contains: searchTerm, mode: 'insensitive' } },
-            { longDescription: { contains: searchTerm, mode: 'insensitive' } },
-            { shortDescription: { contains: searchTerm, mode: 'insensitive' } },
-          ],
+        select: {
+          id: true,
+          title: true,
+          shortTitle: true,
+          longDescription: true,
+          shortDescription: true,
         },
-        select: { id: true },
       }),
     ]);
 
@@ -303,7 +360,14 @@ export async function searchExercises(
 
     const idsOrdered = idsWithScore.map((d) => d.id);
 
-    const themeIdsFromSearch = matchedThemes.map((theme) => theme.id);
+    const themeIdsFromSearch = allThemes
+      .filter((theme) =>
+        includesNormalizedSearch(
+          [theme.title, theme.shortTitle, theme.longDescription, theme.shortDescription],
+          searchTerm
+        )
+      )
+      .map((theme) => theme.id);
     let themeExerciseIds: string[] = [];
     if (themeIdsFromSearch.length > 0) {
       const themeSearchWhere: Prisma.ExerciseWhereInput = {
@@ -359,7 +423,8 @@ export async function searchExercises(
     const byId = new Map(filteredExercises.map((ex) => [ex.id, ex]));
     const sorted = combinedIds
       .map((id) => byId.get(id))
-      .filter((ex): ex is NonNullable<typeof ex> => ex !== undefined);
+      .filter((ex): ex is NonNullable<typeof ex> => ex !== undefined)
+      .filter((exercise) => matchesExerciseTextFilters(exercise, { diploma, subject }));
 
     const total = sorted.length;
     const paginated = sorted.slice(offset, offset + safePageSize);
@@ -397,47 +462,37 @@ export async function searchExercises(
   }
 
   // Construction du tri (cas sans recherche textuelle)
-  let orderBy: any = {};
-  switch (sortBy) {
-    case 'year':
-      orderBy = { examPaper: { sessionYear: sortOrder } };
-      break;
-    case 'difficulty':
-      orderBy = { estimatedDifficulty: sortOrder };
-      break;
-    case 'duration':
-      orderBy = { estimatedDuration: sortOrder };
-      break;
-  }
-
-  const [exercises, total] = await Promise.all([
-    prisma.exercise.findMany({
-      where,
-      include: {
-        examPaper: {
-          include: {
-            diploma: true,
-            division: true,
-            grade: true,
-            curriculum: true,
-            teaching: {
-              include: {
-                subject: true,
-              },
+  const exercises = await prisma.exercise.findMany({
+    where,
+    include: {
+      examPaper: {
+        include: {
+          diploma: true,
+          division: true,
+          grade: true,
+          curriculum: true,
+          teaching: {
+            include: {
+              subject: true,
             },
           },
         },
-        corrections: true,
       },
-      orderBy,
-      take: limit ?? safePageSize,
-      skip: limit ? undefined : offset,
-    }),
-    prisma.exercise.count({ where }),
-  ]);
+      corrections: true,
+    },
+  });
+
+  const filteredExercises = exercises.filter((exercise) =>
+    matchesExerciseTextFilters(exercise, { diploma, subject })
+  );
+  const sortedExercises = sortExercises(filteredExercises, sortBy, sortOrder);
+  const total = sortedExercises.length;
+  const paginatedExercises = limit
+    ? sortedExercises.slice(0, limit)
+    : sortedExercises.slice(offset, offset + safePageSize);
 
   // Récupération des thèmes en batch
-  const allThemeIds = exercises.flatMap((ex) => ex.themeIds);
+  const allThemeIds = paginatedExercises.flatMap((ex) => ex.themeIds);
   const uniqueThemeIds = [...new Set(allThemeIds)];
 
   const themesList = await prisma.theme.findMany({
@@ -458,7 +513,7 @@ export async function searchExercises(
 
   const themesById = new Map(themesList.map((t) => [t.id, t]));
 
-  const items = exercises.map((exercise) => ({
+  const items = paginatedExercises.map((exercise) => ({
     ...exercise,
     themes: exercise.themeIds
       .map((id) => themesById.get(id))
@@ -478,7 +533,7 @@ export async function suggestExercises(
   const cleaned = query.trim();
   if (cleaned.length < 2) return [];
 
-  const lower = cleaned.toLowerCase();
+  const normalizedQuery = normalizeSearchText(cleaned);
 
   const themeLimit =
     limit <= 1 ? 0 : Math.min(3, Math.max(1, Math.round(limit / 4)));
@@ -489,11 +544,6 @@ export async function suggestExercises(
       ? prisma.exercise.findMany({
           where: {
             enrichmentStatus: 'completed',
-            OR: [
-              { title: { startsWith: cleaned, mode: 'insensitive' } },
-              { label: { startsWith: cleaned, mode: 'insensitive' } },
-              { keywords: { has: lower } },
-            ],
           },
           include: {
             examPaper: {
@@ -506,26 +556,41 @@ export async function suggestExercises(
               },
             },
           },
-          take: exerciseLimit,
         })
       : Promise.resolve([]),
     themeLimit > 0
       ? prisma.theme.findMany({
-          where: {
-            OR: [
-              { title: { contains: cleaned, mode: 'insensitive' } },
-              { shortTitle: { contains: cleaned, mode: 'insensitive' } },
-              { longDescription: { contains: cleaned, mode: 'insensitive' } },
-              { shortDescription: { contains: cleaned, mode: 'insensitive' } },
-            ],
+          select: {
+            id: true,
+            title: true,
+            shortTitle: true,
+            longDescription: true,
+            shortDescription: true,
           },
-          take: themeLimit,
         })
       : Promise.resolve([]),
   ]);
 
+  const filteredExerciseSuggestions = exerciseSuggestions
+    .filter((exercise) =>
+      includesNormalizedSearch(
+        [exercise.title, exercise.label, exercise.keywords],
+        normalizedQuery
+      )
+    )
+    .slice(0, exerciseLimit);
+
+  const filteredThemeSuggestions = themeSuggestions
+    .filter((theme) =>
+      includesNormalizedSearch(
+        [theme.title, theme.shortTitle, theme.longDescription, theme.shortDescription],
+        normalizedQuery
+      )
+    )
+    .slice(0, themeLimit);
+
   return [
-    ...exerciseSuggestions.map<SearchSuggestion>((s) => ({
+    ...filteredExerciseSuggestions.map<SearchSuggestion>((s) => ({
       type: 'exercise',
       id: s.id,
       title: s.title ?? s.label ?? 'Exercice',
@@ -534,7 +599,7 @@ export async function suggestExercises(
       sessionYear: s.examPaper.sessionYear,
       subject: s.examPaper.teaching.subject.shortDescription,
     })),
-    ...themeSuggestions.map<SearchSuggestion>((theme) => ({
+    ...filteredThemeSuggestions.map<SearchSuggestion>((theme) => ({
       type: 'theme',
       id: `theme:${theme.id}`,
       title: theme.title || theme.shortTitle || theme.shortDescription || 'Thème',

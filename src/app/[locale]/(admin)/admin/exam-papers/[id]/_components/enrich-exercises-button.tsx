@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { enrichExercisesByExamPaper } from "@/core/exercise";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
@@ -20,6 +21,7 @@ export function EnrichExercisesButton({
   pendingCount,
   failedCount,
 }: EnrichExercisesButtonProps) {
+  const router = useRouter();
   const [isEnriching, setIsEnriching] = useState(false);
   const pendingTotal = pendingCount + failedCount;
   const completedCount = Math.max(exerciseCount - pendingTotal, 0);
@@ -40,20 +42,22 @@ export function EnrichExercisesButton({
 
       if (result.total === 0) {
         toast.success("Aucun exercice à enrichir");
+        router.refresh();
         return;
       }
 
       if (result.failed && result.failed > 0) {
         const firstError = result.failures?.[0]?.error;
-        const suffix = result.failed > 1 ? ` (${result.failed} échecs)` : '';
+        const suffix = result.failed > 1 ? ` (${result.failed} échecs)` : "";
         toast.error(
           firstError
             ? `Échec : ${firstError}${suffix}`
-            : `${result.failed} exercice(s) en échec sur ${result.total} (voir logs)`
+            : `${result.failed} exercice(s) en échec sur ${result.total} (voir logs)`,
         );
       } else {
         toast.success(`${result.processed} exercice(s) enrichi(s)`);
       }
+      router.refresh();
     } catch (error) {
       if (
         error &&
@@ -70,13 +74,19 @@ export function EnrichExercisesButton({
   };
 
   const description = shouldReenrichAll
-    ? `Relancer l'enrichissement pour ${exerciseCount} exercice${exerciseCount > 1 ? 's' : ''} déjà enrichi${exerciseCount > 1 ? 's' : ''} ?`
+    ? `Relancer l'enrichissement pour ${exerciseCount} exercice${exerciseCount > 1 ? "s" : ""} déjà enrichi${exerciseCount > 1 ? "s" : ""} ?`
     : pendingTotal === 1
       ? "Lancer l'enrichissement pour 1 exercice ?"
-      : `Lancer l'enrichissement pour ${pendingTotal} exercices${completedCount > 0 ? ' en attente/échec' : ''} ?`;
-  const buttonLabel = shouldReenrichAll ? "Relancer l'enrichissement" : "Enrichir les exercices";
-  const confirmLabel = shouldReenrichAll ? "Relancer l'enrichissement" : "Lancer l'enrichissement";
-  const confirmLoadingLabel = shouldReenrichAll ? "Relance..." : "Enrichissement...";
+      : `Lancer l'enrichissement pour ${pendingTotal} exercices${completedCount > 0 ? " en attente/échec" : ""} ?`;
+  const buttonLabel = shouldReenrichAll
+    ? "Relancer l'enrichissement"
+    : "Enrichir les exercices";
+  const confirmLabel = shouldReenrichAll
+    ? "Relancer l'enrichissement"
+    : "Lancer l'enrichissement";
+  const confirmLoadingLabel = shouldReenrichAll
+    ? "Relance..."
+    : "Enrichissement...";
 
   return (
     <ConfirmDeleteDialog
@@ -88,11 +98,7 @@ export function EnrichExercisesButton({
       confirmVariant="ai"
       tooltip={buttonLabel}
       trigger={
-        <Button
-          variant="ai"
-          disabled={isEnriching}
-          aria-label={buttonLabel}
-        >
+        <Button variant="ai" disabled={isEnriching} aria-label={buttonLabel}>
           <Sparkles className="mr-2 h-4 w-4" />
           {isEnriching ? confirmLoadingLabel : buttonLabel}
         </Button>

@@ -1,25 +1,49 @@
-import { PrismaClient } from "@prisma/client";
-import 'dotenv/config';
-import { seedDiplomas } from "./seeds/diploma.seed";
-import { seedDivisions } from "./seeds/division.seed";
-import { seedExaminationCenters } from "./seeds/examination-center.seed";
-import { seedGrades } from "./seeds/grade.seed";
-import { seedSubjects } from "./seeds/subject.seed";
-import { seedTeachings } from "./seeds/teaching.seed";
-import { seedCurriculums } from "./seeds/curriculum.seed";
-import { seedDomains } from "./seeds/domain.seed";
-import { seedThemes } from "./seeds/theme.seed";
-import { seedUsers } from "./seeds/user.seed";
-import { seedExamPapers } from "./seeds/exam-paper.seed";
-import { seedCorrections } from "./seeds/correction.seed";
-import { seedExercises } from "./seeds/exercise.seed";
-import { seedEntitlements } from "./seeds/entitlement.seed";
-import { seedSubscriptionPlans } from "./seeds/subscription-plan.seed";
+import { loadProjectEnv } from "../scripts/lib/load-env";
 
-const prisma = new PrismaClient();
+loadProjectEnv();
 
 async function main() {
     console.log("🌱 Début du seeding...");
+
+    const [
+        { PrismaClient },
+        { seedDiplomas },
+        { seedDivisions },
+        { seedExaminationCenters },
+        { seedGrades },
+        { seedSubjects },
+        { seedTeachings },
+        { seedCurriculums },
+        { seedDomains },
+        { seedThemes },
+        { seedUsers },
+        { seedExamPapers },
+        { seedCorrections },
+        { seedExercises },
+        { seedEntitlements },
+        { seedSubscriptionPlans },
+        { seedTraining },
+    ] = await Promise.all([
+        import("@prisma/client"),
+        import("./seeds/diploma.seed"),
+        import("./seeds/division.seed"),
+        import("./seeds/examination-center.seed"),
+        import("./seeds/grade.seed"),
+        import("./seeds/subject.seed"),
+        import("./seeds/teaching.seed"),
+        import("./seeds/curriculum.seed"),
+        import("./seeds/domain.seed"),
+        import("./seeds/theme.seed"),
+        import("./seeds/user.seed"),
+        import("./seeds/exam-paper.seed"),
+        import("./seeds/correction.seed"),
+        import("./seeds/exercise.seed"),
+        import("./seeds/entitlement.seed"),
+        import("./seeds/subscription-plan.seed"),
+        import("./seeds/training.seed"),
+    ]);
+
+    const prisma = new PrismaClient();
 
     try {
         // 1. Entités sans dépendances
@@ -45,22 +69,27 @@ async function main() {
         // 6. Themes (dépend de Domains)
         await seedThemes(prisma);
 
-        // 7. Exam Papers (dépend de Diplomas, Divisions, Grades, Teachings, Curriculums, ExaminationCenters)
+        // 7. Training (dépend de Subjects et Domains)
+        await seedTraining(prisma);
+
+        // 8. Exam Papers (dépend de Diplomas, Divisions, Grades, Teachings, Curriculums, ExaminationCenters)
         await seedExamPapers(prisma);
 
-        // 8. Exercises (dépend de ExamPapers et Themes)
+        // 9. Exercises (dépend de ExamPapers et Themes)
         await seedExercises(prisma);
 
-        // 9. Corrections (dépend de ExamPapers)
+        // 10. Corrections (dépend de ExamPapers)
         await seedCorrections(prisma);
 
-        // 10. Utilisateurs (indépendants)
+        // 11. Utilisateurs (indépendants)
         await seedUsers(prisma);
 
         console.log('✅ Seeding terminé avec succès !');
     } catch (error) {
         console.error('❌ Erreur lors du seeding:', error);
         throw error;
+    } finally {
+        await prisma.$disconnect();
     }
 }
 
@@ -68,7 +97,4 @@ main()
     .catch((e) => {
         console.error(e);
         process.exit(1);
-    })
-    .finally(async () => {
-        await prisma.$disconnect();
     });

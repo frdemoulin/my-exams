@@ -7,6 +7,7 @@ import { fetchTeachingById } from "@/core/teaching";
 import getSession from "@/lib/auth/get-session";
 import { Button } from "@/components/ui/button";
 import { formatDateTime } from "@/lib/utils";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export const metadata: Metadata = {
     title: "Détails de l'enseignement",
@@ -35,9 +36,11 @@ const TeachingPage = async ({ params }: TeachingPageProps) => {
 
     return (
         <div className="w-full p-6">
-            <div className="flex justify-between items-center mb-6">
-                <h1 className="text-lg font-semibold md:text-2xl">Détails de l&apos;enseignement</h1>
-                <div className="flex items-center gap-2">
+            <AdminPageHeading
+                title="Détails de l'enseignement"
+                className="mb-6"
+                actions={
+                    <>
                     <Button asChild variant="outline">
                         <Link href="/admin/teachings">Retour</Link>
                     </Button>
@@ -46,8 +49,9 @@ const TeachingPage = async ({ params }: TeachingPageProps) => {
                             <Pencil className="h-4 w-4" />
                         </Link>
                     </Button>
-                </div>
-            </div>
+                    </>
+                }
+            />
 
             <div className="bg-card rounded-lg border p-6 space-y-4">
                 <div>

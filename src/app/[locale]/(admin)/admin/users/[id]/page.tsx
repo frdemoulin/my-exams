@@ -8,6 +8,7 @@ import { formatDateTime, getInternalOrigin, isExternalUrl } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export const metadata: Metadata = {
@@ -39,15 +40,15 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
 
   return (
     <div className="w-full space-y-6 p-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold text-heading">Détails utilisateur</h1>
-          <p className="text-sm text-muted-foreground">Toutes les informations disponibles sur ce compte.</p>
-        </div>
-        <Link href="/admin/users">
-          <Button variant="secondary">Retour à la liste</Button>
-        </Link>
-      </div>
+      <AdminPageHeading
+        title="Détails utilisateur"
+        description="Toutes les informations disponibles sur ce compte."
+        actions={
+          <Link href="/admin/users">
+            <Button variant="secondary">Retour à la liste</Button>
+          </Link>
+        }
+      />
 
       <Card>
         <CardHeader>

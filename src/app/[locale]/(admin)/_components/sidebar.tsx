@@ -42,19 +42,19 @@ export const Sidebar = () => {
       title: 'Scolarité',
       list: [
         {
-          title: 'Diplômes',
-          path: '/admin/diplomas',
-          icon: <FaBook className="mr-3" size={16} />
-        },
-        {
-          title: 'Domaines',
-          path: '/admin/domains',
+          title: 'Chapitres',
+          path: '/admin/chapters',
           icon: <FaList className="mr-3" size={16} />
         },
         {
           title: 'Enseignements',
           path: '/admin/teachings',
           icon: <FaGraduationCap className="mr-3" size={16} />
+        },
+        {
+          title: 'Domaines',
+          path: '/admin/domains',
+          icon: <FaList className="mr-3" size={16} />
         },
         {
           title: "Filières",
@@ -110,6 +110,21 @@ export const Sidebar = () => {
           title: "Sujets d'examen",
           path: '/admin/exam-papers',
           icon: <FaFileAudio className="mr-3" size={16} />
+        },
+      ]
+    },
+    {
+      title: 'Entraînements',
+      list: [
+        {
+          title: 'QCMs',
+          path: '/admin/training/qcms',
+          icon: <FaBook className="mr-3" size={16} />
+        },
+        {
+          title: 'Questions QCM',
+          path: '/admin/training/quiz-questions',
+          icon: <FaList className="mr-3" size={16} />
         },
       ]
     },

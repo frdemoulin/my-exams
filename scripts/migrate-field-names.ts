@@ -12,7 +12,11 @@
  * Usage: npx ts-node scripts/migrate-field-names.ts
  */
 
-import { PrismaClient } from '@prisma/client';
+import { loadProjectEnv } from './lib/load-env';
+
+loadProjectEnv();
+
+const { PrismaClient } = require('@prisma/client') as typeof import('@prisma/client');
 
 const prisma = new PrismaClient();
 

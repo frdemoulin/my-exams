@@ -7,6 +7,7 @@ import getSession from "@/lib/auth/get-session";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { formatDateTime } from "@/lib/utils";
+import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.curriculum');
@@ -50,19 +51,20 @@ const CurriculumPage = async ({ params }: CurriculumPageProps) => {
 
     return (
         <div className="w-full p-6">
-            <div>
-                <h1 className="text-lg font-semibold md:text-2xl mb-6">{t('actions.view')}</h1>
-            </div>
-            <div className="mb-6 flex items-center justify-end">
-                <div className="flex gap-2">
+            <AdminPageHeading
+                title={t('actions.view')}
+                className="mb-6"
+                actions={
+                    <div className="flex gap-2">
                     <Button asChild>
                         <Link href={`/admin/curriculums/${curriculum.id}/edit`}>{common('edit')}</Link>
                     </Button>
                     <Button asChild variant="outline">
                         <Link href="/admin/curriculums">{common('back')}</Link>
                     </Button>
-                </div>
-            </div>
+                    </div>
+                }
+            />
 
             <div className="space-y-6 rounded-lg border p-6">
                 {/* Name and Status */}

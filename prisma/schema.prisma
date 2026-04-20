@@ -5,9 +5,9 @@ generator client {
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
-  // Note: Prisma 6 requiert cette ligne `url` dans le schema.prisma
-  // Avec Prisma 7+, la configuration sera déplacée dans prisma.config.ts
-  // Le fichier prisma.config.ts est déjà prêt pour la migration future
+  // Note: this project stays on Prisma 6.19.x for now because MongoDB support for
+  // Prisma 7 is not available yet. Once MongoDB is supported in Prisma 7, move the
+  // connection URL fully to prisma.config.ts and remove this line.
 }
 
 model Account {
@@ -201,7 +201,7 @@ model Division {
 model ExaminationCenter {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   description String
-  isActive    Boolean  @default(true)
+  isActive    Boolean? @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -277,6 +277,23 @@ enum ExerciseType {
   QCM
   TRUE_FALSE
   OTHER
+}
+
+enum QuizDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum TrainingQuizStage {
+  DISCOVER
+  PRACTICE
+  MASTER
+}
+
+enum ChapterSectionKind {
+  THEME
+  SYNTHESIS
 }
 
 // Exercice d'annales (unité de recherche)
@@ -449,6 +466,7 @@ model Subject {
   // Relations
   teachings Teaching[]
   domains   Domain[]
+  chapters  Chapter[]
 
   @@unique([longDescription, shortDescription])
 }
@@ -468,6 +486,148 @@ model Theme {
   updatedAt DateTime @updatedAt
 }
 
+model Chapter {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String
+  level       String   @default("terminale")
+  order       Int
+  isActive    Boolean  @default(true)
+  isPublished Boolean  @default(true)
+
+  subjectId String  @db.ObjectId
+  subject   Subject @relation(fields: [subjectId], references: [id])
+
+  domainIds String[] @default([]) @db.ObjectId
+  themeIds  String[] @default([]) @db.ObjectId
+
+  quizQuestions   QuizQuestion[]
+  sections        ChapterSection[]
+  trainingQuizzes TrainingQuiz[]
+  trainingQuizProgressEntries UserTrainingQuizProgress[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([subjectId, slug])
+  @@unique([subjectId, order])
+  @@index([subjectId, isActive, isPublished])
+  @@index([level])
+}
+
+model ChapterSection {
+  id          String             @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  order       Int
+  kind        ChapterSectionKind @default(THEME)
+  isPublished Boolean            @default(true)
+  themeIds    String[]           @default([]) @db.ObjectId
+
+  chapterId String  @db.ObjectId
+  chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  quizzes TrainingQuiz[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([chapterId, order])
+  @@index([chapterId, kind, isPublished])
+}
+
+model TrainingQuiz {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug        String
+  title       String
+  description String?
+  order       Int
+  stage       TrainingQuizStage?
+  isPublished Boolean  @default(true)
+
+  chapterId String  @db.ObjectId
+  chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  sectionId String         @db.ObjectId
+  section   ChapterSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  questionGroups TrainingQuizQuestionGroup[]
+  questionLinks TrainingQuizQuestion[]
+  progressEntries UserTrainingQuizProgress[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([chapterId, slug])
+  @@unique([sectionId, order])
+  @@index([chapterId, isPublished])
+  @@index([sectionId, isPublished])
+}
+
+model TrainingQuizQuestionGroup {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  title           String?
+  sharedStatement String   @db.String
+  order           Int
+
+  quizId String       @db.ObjectId
+  quiz   TrainingQuiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  questionLinks TrainingQuizQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([quizId, order])
+  @@index([quizId])
+}
+
+model QuizQuestion {
+  id                 String         @id @default(auto()) @map("_id") @db.ObjectId
+  difficulty         QuizDifficulty
+  question           String         @db.String
+  choices            Json
+  correctChoiceIndex Int
+  explanation        String         @db.String
+  order              Int
+  isPublished        Boolean        @default(true)
+  themeIds           String[]       @default([]) @db.ObjectId
+
+  chapterId String  @db.ObjectId
+  chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  quizLinks TrainingQuizQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([chapterId, order])
+  @@index([chapterId, difficulty, isPublished])
+  @@index([difficulty])
+}
+
+model TrainingQuizQuestion {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  order      Int
+
+  quizId String       @db.ObjectId
+  quiz   TrainingQuiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  groupId String?                   @db.ObjectId
+  group   TrainingQuizQuestionGroup? @relation(fields: [groupId], references: [id])
+
+  questionId String       @db.ObjectId
+  question   QuizQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([quizId, order])
+  @@unique([quizId, questionId])
+  @@index([groupId])
+  @@index([questionId])
+}
+
 model User {
   id            String          @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
@@ -484,8 +644,32 @@ model User {
   entitlements  UserEntitlement[]
   subscriptions UserSubscription[]
   exerciseHistory UserExerciseHistory[]
+  trainingQuizProgressEntries UserTrainingQuizProgress[]
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
+}
+
+model UserTrainingQuizProgress {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String   @db.ObjectId
+  chapterId     String   @db.ObjectId
+  quizId        String   @db.ObjectId
+  bestScore     Int      @default(0)
+  totalQuestions Int     @default(0)
+  successRate   Int      @default(0)
+  attemptsCount Int      @default(0)
+  lastAttemptAt DateTime @default(now())
+  masteredAt    DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user    User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapter Chapter     @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  quiz    TrainingQuiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, quizId])
+  @@index([userId, chapterId])
+  @@index([quizId])
 }
 
 model UserActivity {
