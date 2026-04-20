@@ -1,3 +1,17 @@
+## [1.6.0](https://github.com/frdemoulin/my-exams/compare/v1.5.2...v1.6.0) (2026-04-20)
+
+### Features
+
+* **domains:** redesign domain and theme management ([4cfd0ee](https://github.com/frdemoulin/my-exams/commit/4cfd0eebd6682c21a68a8e5eafc3e4417425b22d))
+* **exercises:** improve enrichment and search ([bec5607](https://github.com/frdemoulin/my-exams/commit/bec5607169f6e70185e84cceef80679ce84602bf))
+* **taxonomy:** clean up sciences physiques data ([8bcbe90](https://github.com/frdemoulin/my-exams/commit/8bcbe90eab5a1c8e85ad73694131ea141c648f72))
+
+### Bug Fixes
+
+* mise à jour de sécurité des paquets npm ([953ad6c](https://github.com/frdemoulin/my-exams/commit/953ad6c3ba693a389e7818a2df879c189693bcec))
+* mise en place de la gestion des chapitres ([546cbc5](https://github.com/frdemoulin/my-exams/commit/546cbc545f708132d9221f7bb8a3a8f66a87025e))
+* mise en place des QCMs par chapitre ([a64a28d](https://github.com/frdemoulin/my-exams/commit/a64a28d0b9c41c0fd1d6df6edf32970559787f45))
+
 ## <small>1.5.2 (2026-01-19)</small>
 
 * Merge pull request #99 from frdemoulin/dev ([3f9b401](https://github.com/frdemoulin/my-exams/commit/3f9b401)), closes [#99](https://github.com/frdemoulin/my-exams/issues/99)
