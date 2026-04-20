@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import Script from "next/script";
-import { ThemeProvider } from "next-themes";
 import { Inter } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
@@ -9,6 +9,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { APP_DESCRIPTION, APP_NAME, APP_TITLE_TEMPLATE } from "@/config/app";
 import { ToastDisplay } from "@/components/shared/toast-display";
+import { ThemeProvider } from "@/components/shared/theme-provider";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
@@ -36,9 +37,11 @@ export default async function RootLayout({
 }) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const cookieStore = await cookies();
+  const theme = cookieStore.get("app-theme")?.value === "dark" ? "dark" : "light";
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className={theme} suppressHydrationWarning style={{ colorScheme: theme }}>
       <body className={`${inter.className} antialiased bg-background text-foreground`} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           {/* Récupère la session côté client après le chargement des pages */}
@@ -55,10 +58,7 @@ export default async function RootLayout({
               showSpinner={false}
             />
             <ThemeProvider
-              attribute="class"
-              defaultTheme="light"
-              enableSystem={false}
-              disableTransitionOnChange
+              defaultTheme={theme}
             >
               {children}
             </ThemeProvider>

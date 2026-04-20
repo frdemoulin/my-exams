@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import katex from 'katex';
 import { Fragment } from 'react';
 import { cn } from '@/lib/utils';
@@ -9,7 +10,38 @@ type MathContentProps = {
 
 type Segment =
   | { type: 'text'; value: string }
-  | { type: 'math'; value: string; displayMode: boolean };
+  | { type: 'math'; value: string; displayMode: boolean }
+  | { type: 'image'; alt: string; src: string };
+
+const isSafeImageSource = (value: string) => {
+  return value.startsWith('/');
+};
+
+const parseImageSegment = (value: string, startIndex: number) => {
+  if (!value.startsWith('![', startIndex)) return null;
+
+  const altEnd = value.indexOf('](', startIndex + 2);
+  if (altEnd < 0) return null;
+
+  const srcEnd = value.indexOf(')', altEnd + 2);
+  if (srcEnd < 0) return null;
+
+  const alt = value.slice(startIndex + 2, altEnd).trim() || 'Illustration';
+  const src = value.slice(altEnd + 2, srcEnd).trim();
+
+  if (!src || !isSafeImageSource(src)) {
+    return null;
+  }
+
+  return {
+    segment: {
+      type: 'image' as const,
+      alt,
+      src,
+    },
+    nextCursor: srcEnd + 1,
+  };
+};
 
 const parseMathSegments = (value: string): Segment[] => {
   const segments: Segment[] = [];
@@ -18,7 +50,8 @@ const parseMathSegments = (value: string): Segment[] => {
   while (cursor < value.length) {
     const blockStart = value.indexOf('$$', cursor);
     const inlineStart = value.indexOf('$', cursor);
-    const nextStart = [blockStart, inlineStart]
+    const imageStart = value.indexOf('![', cursor);
+    const nextStart = [blockStart, inlineStart, imageStart]
       .filter((index) => index >= 0)
       .sort((a, b) => a - b)[0];
 
@@ -29,6 +62,16 @@ const parseMathSegments = (value: string): Segment[] => {
 
     if (nextStart > cursor) {
       segments.push({ type: 'text', value: value.slice(cursor, nextStart) });
+    }
+
+    if (nextStart === imageStart) {
+      const imageSegment = parseImageSegment(value, nextStart);
+
+      if (imageSegment) {
+        segments.push(imageSegment.segment);
+        cursor = imageSegment.nextCursor;
+        continue;
+      }
     }
 
     const isBlock = value.startsWith('$$', nextStart);
@@ -79,6 +122,28 @@ const renderMath = (value: string, displayMode: boolean) => {
   return <span dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
+const renderImage = (alt: string, src: string) => {
+  return (
+    <span className="my-3 block overflow-hidden rounded-xl border border-border bg-background p-2">
+      <span className="relative mx-auto block h-[220px] w-full max-w-3xl overflow-hidden rounded-lg md:h-[320px]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          unoptimized
+          sizes="(min-width: 768px) 768px, 100vw"
+          className="object-contain"
+        />
+      </span>
+      {alt ? (
+        <span className="mt-2 block text-center text-xs text-muted-foreground">
+          {alt}
+        </span>
+      ) : null}
+    </span>
+  );
+};
+
 export function MathContent({ value, className }: MathContentProps) {
   const segments = parseMathSegments(value);
 
@@ -88,7 +153,9 @@ export function MathContent({ value, className }: MathContentProps) {
         <Fragment key={`${segment.type}-${index}`}>
           {segment.type === 'text'
             ? renderText(segment.value)
-            : renderMath(segment.value, segment.displayMode)}
+            : segment.type === 'math'
+              ? renderMath(segment.value, segment.displayMode)
+              : renderImage(segment.alt, segment.src)}
         </Fragment>
       ))}
     </span>

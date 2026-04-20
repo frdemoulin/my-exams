@@ -7,8 +7,6 @@ import { fetchChapterById } from "@/core/chapter";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChapterBreadcrumbOverride } from "../_components/chapter-breadcrumb-override";
 import { ChapterDetailTabs } from "../_components/chapter-detail-tabs";
 import { ChapterQuestionsTable } from "../_components/chapter-questions-table";
 
@@ -33,13 +31,7 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
   const publishedQuestionCount = chapter.quizQuestions.filter((question) => question.isPublished).length;
 
   return (
-    <div>
-      <ChapterBreadcrumbOverride
-        items={[
-          { label: "Chapitres", href: "/admin/chapters" },
-          { label: chapter.title },
-        ]}
-      />
+    <div className="w-full p-6">
       <AdminPageHeading
         title={chapter.title}
         description="Consulte les informations principales du chapitre et gère ses questions QCM."
@@ -64,63 +56,63 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
             id: "overview",
             label: "Aperçu",
             content: (
-              <Card>
-                <CardHeader className="mb-2">
-                  <CardTitle>Informations du chapitre</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground">Matière</h3>
-                      <p className="text-sm">{chapter.subject.longDescription}</p>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground">Slug</h3>
-                      <p className="text-sm">{chapter.slug}</p>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground">Niveau</h3>
-                      <p className="text-sm">{chapter.level}</p>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground">Ordre</h3>
-                      <p className="text-sm">{chapter.order}</p>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground">Statut métier</h3>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge variant={chapter.isActive !== false ? "default" : "secondary"}>
-                          {chapter.isActive !== false ? "Actif" : "Inactif"}
-                        </Badge>
-                        <Badge variant={chapter.isPublished ? "default" : "outline"}>
-                          {chapter.isPublished ? "Publié" : "Brouillon"}
-                        </Badge>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground">Questions</h3>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge variant="secondary">{chapter.quizQuestions.length} total</Badge>
-                        <Badge variant="outline">{publishedQuestionCount} publiées</Badge>
-                      </div>
-                    </div>
-                    <div className="md:col-span-2">
-                      <h3 className="text-sm font-semibold text-muted-foreground">Domaines associés</h3>
-                      {chapter.domains.length > 0 ? (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {chapter.domains.map((domain) => (
-                            <Badge key={domain.id} variant={domain.isActive ? "secondary" : "outline"}>
-                              {domain.longDescription}
-                            </Badge>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-sm">—</p>
-                      )}
+              <div className="space-y-6">
+                <div className="space-y-1.5">
+                  <h2 className="text-heading text-2xl font-semibold tracking-tight">
+                    Informations du chapitre
+                  </h2>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Matière</h3>
+                    <p className="text-sm">{chapter.subject.longDescription}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Slug</h3>
+                    <p className="text-sm">{chapter.slug}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Niveau</h3>
+                    <p className="text-sm">{chapter.level}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Ordre</h3>
+                    <p className="text-sm">{chapter.order}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Statut métier</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant={chapter.isActive !== false ? "default" : "secondary"}>
+                        {chapter.isActive !== false ? "Actif" : "Inactif"}
+                      </Badge>
+                      <Badge variant={chapter.isPublished ? "default" : "outline"}>
+                        {chapter.isPublished ? "Publié" : "Brouillon"}
+                      </Badge>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Questions</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary">{chapter.quizQuestions.length} total</Badge>
+                      <Badge variant="outline">{publishedQuestionCount} publiées</Badge>
+                    </div>
+                  </div>
+                  <div className="md:col-span-2">
+                    <h3 className="text-sm font-semibold text-muted-foreground">Domaines associés</h3>
+                    {chapter.domains.length > 0 ? (
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {chapter.domains.map((domain) => (
+                          <Badge key={domain.id} variant={domain.isActive ? "secondary" : "outline"}>
+                            {domain.longDescription}
+                          </Badge>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm">—</p>
+                    )}
+                  </div>
+                </div>
+              </div>
             ),
           },
           {

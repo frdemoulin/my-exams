@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
-import { ArrowRight, FlaskConical } from 'lucide-react';
-import { fetchSciencePhysicsTrainingChapters } from '@/core/training';
+import { ChevronLeft, FlaskConical, Layers3 } from 'lucide-react';
+import { redirect } from 'next/navigation';
+import {
+  fetchSciencePhysicsTrainingLevels,
+  getSciencePhysicsTrainingLevelPath,
+} from '@/core/training';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -24,9 +29,24 @@ export const metadata: Metadata = {
   alternates: canonical ? { canonical } : undefined,
 };
 
-export default async function SciencePhysicsTrainingPage() {
+type ResolvedSearchParams = {
+  niveau?: string;
+};
+
+type PageProps = {
+  searchParams?: Promise<ResolvedSearchParams>;
+};
+
+export default async function SciencePhysicsTrainingPage({ searchParams }: PageProps) {
   noStore();
-  const chapters = await fetchSciencePhysicsTrainingChapters();
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const requestedLevel = resolvedSearchParams?.niveau?.trim();
+
+  if (requestedLevel) {
+    redirect(getSciencePhysicsTrainingLevelPath(requestedLevel));
+  }
+
+  const levels = await fetchSciencePhysicsTrainingLevels();
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -35,24 +55,30 @@ export default async function SciencePhysicsTrainingPage() {
         <PublicBreadcrumb
           items={[
             { label: 'Accueil', href: '/' },
-            { label: 'Entraînement' },
+            { label: 'Entraînement', href: '/entrainement' },
+            { label: 'Sciences physiques' },
           ]}
         />
+
+        <Button asChild variant="ghost" size="sm" className="w-fit gap-2">
+          <Link href="/entrainement">
+            <ChevronLeft className="h-4 w-4" />
+            Retour aux matières
+          </Link>
+        </Button>
 
         <section className="overflow-hidden rounded-3xl border border-border bg-card">
           <div className="grid gap-6 p-6 md:grid-cols-[minmax(0,1fr)_260px] md:p-8">
             <div className="space-y-4">
               <Badge variant="secondary" className="w-fit">
-                Sciences physiques · Spé terminale
+                Matière · Étape 2
               </Badge>
               <div className="space-y-3">
                 <h1 className="text-3xl font-semibold tracking-tight text-heading md:text-4xl">
-                  Entra&icirc;nement par chapitre
+                  Choisir un niveau en sciences physiques
                 </h1>
                 <p className="max-w-2xl text-sm leading-6 text-muted-foreground md:text-base">
-                  Des QCM courts pour revoir les notions clés avant de revenir aux
-                  annales. Les questions acceptent les formules scientifiques en
-                  TeX.
+                  Sélectionne un niveau pour accéder à la liste des chapitres, puis entre dans les grands thèmes et les QCM du chapitre.
                 </p>
               </div>
             </div>
@@ -67,53 +93,49 @@ export default async function SciencePhysicsTrainingPage() {
         <section className="space-y-4">
           <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-xl font-semibold text-heading">Chapitres</h2>
+              <h2 className="text-xl font-semibold text-heading">Niveaux</h2>
               <p className="text-sm text-muted-foreground">
-                {chapters.length} chapitres disponibles.
+                {levels.length} niveau{levels.length > 1 ? 'x' : ''} publiés pour cette matière.
               </p>
             </div>
           </div>
 
-          {chapters.length === 0 ? (
+          {levels.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
-              Aucun chapitre d&apos;entra&icirc;nement n&apos;est publi&eacute; pour le moment.
+              Aucun niveau d&apos;entra&icirc;nement n&apos;est publi&eacute; pour le moment.
             </div>
           ) : (
-            <div className="grid gap-4 md:grid-cols-2">
-              {chapters.map((chapter) => (
-                <Link
-                  key={chapter.id}
-                  href={`/entrainement/sciences-physiques/${chapter.slug}`}
-                  className="group block h-full rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <Card className="flex h-full flex-col transition-colors group-hover:border-brand/50">
-                    <CardHeader>
-                      <div className="mb-2 flex items-start justify-between gap-3">
-                        <Badge variant="outline">Chapitre {chapter.order}</Badge>
-                        <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
-                      </div>
-                      <CardTitle className="text-base md:text-lg">
-                        {chapter.title}
-                      </CardTitle>
-                      <CardDescription>Terminale · Sciences physiques</CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-auto flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                      <Badge variant={chapter.questionCount > 0 ? 'secondary' : 'outline'}>
-                        {chapter.questionCount} QCM
-                      </Badge>
-                      {chapter.difficulties.map((difficulty) => (
-                        <Badge key={difficulty} variant="theme">
-                          {difficulty === 'EASY'
-                            ? 'Facile'
-                            : difficulty === 'MEDIUM'
-                              ? 'Moyen'
-                              : 'Difficile'}
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {levels.map((level) => {
+                const href = getSciencePhysicsTrainingLevelPath(level.value);
+
+                return (
+                  <Link
+                    key={level.value}
+                    href={href}
+                    className="group block h-full rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <Card className="flex h-full flex-col transition-colors group-hover:border-brand/50">
+                      <CardHeader>
+                        <div className="mb-2 flex items-start justify-between gap-3">
+                          <Badge variant="outline">Niveau</Badge>
+                          <Layers3 className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                        <CardTitle className="text-base md:text-lg">{level.label}</CardTitle>
+                        <CardDescription>
+                          {level.chapterCount} chapitre{level.chapterCount > 1 ? 's' : ''} disponibles.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="mt-auto flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                        <Badge variant="secondary">{level.quizCount} QCM</Badge>
+                        <Badge variant="outline">
+                          {level.questionCount} question{level.questionCount > 1 ? 's' : ''}
                         </Badge>
-                      ))}
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           )}
         </section>

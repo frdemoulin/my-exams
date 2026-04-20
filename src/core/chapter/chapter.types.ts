@@ -1,11 +1,19 @@
 import { Prisma, QuizDifficulty } from "@prisma/client";
 import { z } from "zod";
-import { createChapterSchema, createQuizQuestionSchema } from "@/lib/validation";
+import {
+  createChapterSchema,
+  createQuizQuestionSchema,
+  updateTrainingStructureSchema,
+} from "@/lib/validation";
 
 export type CreateChapterValues = z.infer<typeof createChapterSchema>;
 export type CreateChapterErrors = z.inferFormattedError<typeof createChapterSchema>;
 export type CreateQuizQuestionValues = z.infer<typeof createQuizQuestionSchema>;
 export type CreateQuizQuestionErrors = z.inferFormattedError<typeof createQuizQuestionSchema>;
+export type UpdateTrainingStructureValues = z.infer<typeof updateTrainingStructureSchema>;
+export type UpdateTrainingStructureErrors = z.inferFormattedError<
+  typeof updateTrainingStructureSchema
+>;
 
 export const chapterListInclude = {
   subject: {
@@ -45,6 +53,31 @@ export const chapterDetailInclude = {
       updatedAt: true,
     },
   },
+  sections: {
+    include: {
+      quizzes: {
+        include: {
+          questionGroups: {
+            include: {
+              questionLinks: {
+                select: {
+                  questionId: true,
+                  order: true,
+                },
+              },
+            },
+          },
+          questionLinks: {
+            select: {
+              questionId: true,
+              order: true,
+              groupId: true,
+            },
+          },
+        },
+      },
+    },
+  },
 } satisfies Prisma.ChapterInclude;
 
 export type ChapterDomainInfo = {
@@ -60,6 +93,29 @@ export type ChapterDetail = Prisma.ChapterGetPayload<{
 }> & {
   domains: ChapterDomainInfo[];
 };
+
+export const quizQuestionListInclude = {
+  chapter: {
+    select: {
+      id: true,
+      title: true,
+      slug: true,
+      isActive: true,
+      isPublished: true,
+      subject: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+        },
+      },
+    },
+  },
+} satisfies Prisma.QuizQuestionInclude;
+
+export type QuizQuestionListItem = Prisma.QuizQuestionGetPayload<{
+  include: typeof quizQuestionListInclude;
+}>;
 
 export type QuizQuestionFormData = {
   id: string;

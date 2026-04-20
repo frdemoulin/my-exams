@@ -114,6 +114,21 @@ export const Sidebar = () => {
       ]
     },
     {
+      title: 'Entraînements',
+      list: [
+        {
+          title: 'QCMs',
+          path: '/admin/training/qcms',
+          icon: <FaBook className="mr-3" size={16} />
+        },
+        {
+          title: 'Questions QCM',
+          path: '/admin/training/quiz-questions',
+          icon: <FaList className="mr-3" size={16} />
+        },
+      ]
+    },
+    {
       title: 'Statistiques',
       list: [
         {

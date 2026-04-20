@@ -1,0 +1,15 @@
+<svg width="960" height="360" viewBox="0 0 960 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="360" rx="32" fill="#F8FAFC"/>
+  <line x1="80" y1="180" x2="880" y2="180" stroke="#94A3B8" stroke-width="4" stroke-dasharray="10 10"/>
+  <text x="240" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#0F172A">Lentille A</text>
+  <text x="720" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#0F172A">Lentille B</text>
+  <path d="M208 88C176 118 176 242 208 272H272C304 242 304 118 272 88H208Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="6"/>
+  <path d="M646 88C680 122 680 238 646 272H682C654 238 654 122 682 88H646Z" fill="#FDE68A" stroke="#D97706" stroke-width="6"/>
+  <path d="M758 88C730 122 730 238 758 272H794C760 238 760 122 794 88H758Z" fill="#FDE68A" stroke="#D97706" stroke-width="6"/>
+  <line x1="240" y1="88" x2="240" y2="272" stroke="#1D4ED8" stroke-width="3"/>
+  <line x1="720" y1="88" x2="720" y2="272" stroke="#B45309" stroke-width="3"/>
+  <circle cx="240" cy="180" r="7" fill="#1E293B"/>
+  <circle cx="720" cy="180" r="7" fill="#1E293B"/>
+  <text x="240" y="314" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#334155">Plus épaisse au centre</text>
+  <text x="720" y="314" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#334155">Plus fine au centre</text>
+</svg>

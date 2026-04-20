@@ -195,6 +195,226 @@ export const createQuizQuestionSchema = z.object({
     isPublished: z.boolean().default(false),
 });
 
+const trainingQuizSlugSchema = z.string({
+    required_error: "Champ requis",
+    invalid_type_error: "Doit être une chaîne de caractère",
+})
+    .trim()
+    .min(1, { message: "Champ requis" })
+    .max(160, { message: "Ne peut pas dépasser 160 caractères" })
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+        message: "Utilise uniquement des lettres minuscules, chiffres et tirets",
+    });
+
+const trainingQuizItemOrderSchema = z.number({
+    required_error: "Champ requis",
+    invalid_type_error: "Doit être un nombre",
+})
+    .int({ message: "Doit être un entier" })
+    .min(1, { message: "Doit être supérieur ou égal à 1" })
+    .max(1000, { message: "Ne peut pas dépasser 1000" });
+
+const trainingQuizGroupItemSchema = z.object({
+    type: z.literal("GROUP"),
+    title: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" })
+        .optional()
+        .or(z.literal("")),
+    sharedStatement: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(4000, { message: "Ne peut pas dépasser 4000 caractères" }),
+    order: trainingQuizItemOrderSchema,
+    questionIds: z.array(z.string().trim().min(1, { message: "Question requise" }))
+        .min(1, { message: "Sélectionne au moins une question dans ce bloc" }),
+});
+
+const trainingQuizQuestionItemSchema = z.object({
+    type: z.literal("QUESTION"),
+    order: trainingQuizItemOrderSchema,
+    questionId: z.string({
+        required_error: "Question requise",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Question requise" }),
+});
+
+const trainingQuizItemSchema = z.discriminatedUnion("type", [
+    trainingQuizQuestionItemSchema,
+    trainingQuizGroupItemSchema,
+]);
+
+const trainingQuizSchema = z.object({
+    title: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" }),
+    slug: trainingQuizSlugSchema,
+    description: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(800, { message: "Ne peut pas dépasser 800 caractères" })
+        .optional()
+        .or(z.literal("")),
+    order: z.number({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être un nombre",
+    })
+        .int({ message: "Doit être un entier" })
+        .min(1, { message: "Doit être supérieur ou égal à 1" })
+        .max(1000, { message: "Ne peut pas dépasser 1000" }),
+    isPublished: z.boolean().default(true),
+    quizItems: z.array(trainingQuizItemSchema).default([]),
+}).superRefine((quiz, ctx) => {
+    const seenQuestionIds = new Set<string>();
+    const seenItemOrders = new Set<number>();
+
+    quiz.quizItems.forEach((item, index) => {
+        if (seenItemOrders.has(item.order)) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["quizItems", index, "order"],
+                message: "Deux items d'un même quiz ne peuvent pas partager le même ordre",
+            });
+        } else {
+            seenItemOrders.add(item.order);
+        }
+
+        if (item.type === "QUESTION") {
+            if (seenQuestionIds.has(item.questionId)) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    path: ["quizItems", index, "questionId"],
+                    message: "Une question ne peut apparaître qu'une seule fois dans un quiz",
+                });
+                return;
+            }
+
+            seenQuestionIds.add(item.questionId);
+        } else {
+            const seenQuestionIdsInGroup = new Set<string>();
+
+            item.questionIds.forEach((questionId: string, questionIndex: number) => {
+                if (seenQuestionIdsInGroup.has(questionId)) {
+                    ctx.addIssue({
+                        code: z.ZodIssueCode.custom,
+                        path: ["quizItems", index, "questionIds", questionIndex],
+                        message: "Une question ne peut apparaître qu'une seule fois dans un même bloc",
+                    });
+                    return;
+                }
+
+                seenQuestionIdsInGroup.add(questionId);
+
+                if (seenQuestionIds.has(questionId)) {
+                    ctx.addIssue({
+                        code: z.ZodIssueCode.custom,
+                        path: ["quizItems", index, "questionIds", questionIndex],
+                        message: "Une question ne peut apparaître qu'une seule fois dans un quiz",
+                    });
+                    return;
+                }
+
+                seenQuestionIds.add(questionId);
+            });
+        }
+    });
+
+    if (seenQuestionIds.size === 0) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["quizItems"],
+            message: "Ajoute au moins une question seule ou un bloc lié",
+        });
+    }
+});
+
+const chapterSectionSchema = z.object({
+    title: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" }),
+    description: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(800, { message: "Ne peut pas dépasser 800 caractères" })
+        .optional()
+        .or(z.literal("")),
+    kind: z.enum(["THEME", "SYNTHESIS"]),
+    themeIds: z.array(z.string().trim().min(1, { message: "Thème invalide" })).default([]),
+    order: z.number({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être un nombre",
+    })
+        .int({ message: "Doit être un entier" })
+        .min(1, { message: "Doit être supérieur ou égal à 1" })
+        .max(1000, { message: "Ne peut pas dépasser 1000" }),
+    isPublished: z.boolean().default(true),
+    quizzes: z.array(trainingQuizSchema),
+}).superRefine((section, ctx) => {
+    const seenOrders = new Set<number>();
+
+    section.quizzes.forEach((quiz, index) => {
+        if (seenOrders.has(quiz.order)) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["quizzes", index, "order"],
+                message: "Deux quiz d'une même section ne peuvent pas partager le même ordre",
+            });
+            return;
+        }
+
+        seenOrders.add(quiz.order);
+    });
+});
+
+export const updateTrainingStructureSchema = z.object({
+    sections: z.array(chapterSectionSchema).default([]),
+}).superRefine((values, ctx) => {
+    const seenSectionOrders = new Set<number>();
+    const seenQuizSlugs = new Set<string>();
+
+    values.sections.forEach((section, sectionIndex) => {
+        if (seenSectionOrders.has(section.order)) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["sections", sectionIndex, "order"],
+                message: "Deux sections d'un chapitre ne peuvent pas partager le même ordre",
+            });
+        } else {
+            seenSectionOrders.add(section.order);
+        }
+
+        section.quizzes.forEach((quiz, quizIndex) => {
+            if (seenQuizSlugs.has(quiz.slug)) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    path: ["sections", sectionIndex, "quizzes", quizIndex, "slug"],
+                    message: "Chaque quiz du chapitre doit avoir un slug unique",
+                });
+                return;
+            }
+
+            seenQuizSlugs.add(quiz.slug);
+        });
+    });
+});
+
 const optionSchema = z.object({
     label: z.string(),
     value: z.string()

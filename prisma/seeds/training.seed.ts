@@ -1,4 +1,12 @@
-import type { PrismaClient, QuizDifficulty } from '@prisma/client';
+import type {
+  ChapterSectionKind,
+  PrismaClient,
+  QuizDifficulty,
+  TrainingQuizStage,
+} from '@prisma/client';
+import { inferTrainingQuizStageFromOrder } from '../../src/core/training/training-stage';
+import { lunetteTrainingChapter } from './data/lunette-training-chapter';
+import { thermalTransfersTrainingChapter } from './data/thermal-transfers-training-chapter';
 
 type SeedQuizQuestion = {
   difficulty: QuizDifficulty;
@@ -9,13 +17,102 @@ type SeedQuizQuestion = {
   order: number;
 };
 
+type SeedTrainingQuizQuestionGroup = {
+  title?: string;
+  sharedStatement: string;
+  order: number;
+  questionOrders: number[];
+};
+
+type SeedTrainingQuizItem =
+  | {
+      type: 'QUESTION';
+      questionOrder: number;
+    }
+  | {
+      type: 'GROUP';
+      title?: string;
+      sharedStatement: string;
+      questionOrders: number[];
+    };
+
+type SeedTrainingQuiz = {
+  title: string;
+  slug: string;
+  description: string;
+  order: number;
+  stage?: TrainingQuizStage;
+  isPublished?: boolean;
+  questionOrders?: number[];
+  questionGroups?: SeedTrainingQuizQuestionGroup[];
+  items?: SeedTrainingQuizItem[];
+};
+
+type SeedChapterSection = {
+  title: string;
+  description: string;
+  order: number;
+  kind?: ChapterSectionKind;
+  quizzes: SeedTrainingQuiz[];
+};
+
 type SeedChapter = {
   title: string;
   slug: string;
   order: number;
   domainLongDescriptions: string[];
   questions: SeedQuizQuestion[];
+  sections?: SeedChapterSection[];
 };
+
+function normalizeSeedQuizItems(quiz: SeedTrainingQuiz) {
+  if (quiz.items?.length) {
+    return quiz.items.map((item, index) => ({
+      ...item,
+      order: index + 1,
+    }));
+  }
+
+  let itemOrder = 1;
+  const items: Array<
+    | {
+        type: 'QUESTION';
+        questionOrder: number;
+        order: number;
+      }
+    | {
+        type: 'GROUP';
+        title?: string;
+        sharedStatement: string;
+        questionOrders: number[];
+        order: number;
+      }
+  > = [];
+
+  for (const questionOrder of quiz.questionOrders ?? []) {
+    items.push({
+      type: 'QUESTION',
+      questionOrder,
+      order: itemOrder,
+    });
+    itemOrder += 1;
+  }
+
+  for (const questionGroup of [...(quiz.questionGroups ?? [])].sort(
+    (left, right) => left.order - right.order
+  )) {
+    items.push({
+      type: 'GROUP',
+      title: questionGroup.title,
+      sharedStatement: questionGroup.sharedStatement,
+      questionOrders: questionGroup.questionOrders,
+      order: itemOrder,
+    });
+    itemOrder += 1;
+  }
+
+  return items;
+}
 
 const subjectLongDescription = 'Sciences physiques';
 
@@ -265,22 +362,7 @@ const chapters: SeedChapter[] = [
       },
     ],
   },
-  {
-    title: "Transferts thermiques et bilans d'énergie",
-    slug: 'transferts-thermiques-et-bilans-d-energie',
-    order: 16,
-    domainLongDescriptions: ['Énergie'],
-    questions: [
-      {
-        difficulty: 'MEDIUM',
-        order: 1,
-        question: 'Pour chauffer une masse $m$ d’un corps de capacité thermique massique $c$ avec une variation de température $\\Delta T$, quelle relation donne l’énergie thermique transférée ?',
-        choices: ['$Q = mc\\Delta T$', '$Q = \\dfrac{m\\Delta T}{c}$', '$Q = \\dfrac{c}{m\\Delta T}$', '$Q = m + c + \\Delta T$'],
-        correctChoiceIndex: 0,
-        explanation: 'Pour un changement de température sans changement d’état, $Q = mc\\Delta T$.',
-      },
-    ],
-  },
+  thermalTransfersTrainingChapter,
   {
     title: 'Atténuations et effet Doppler',
     slug: 'attenuations-et-effet-doppler',
@@ -313,22 +395,7 @@ const chapters: SeedChapter[] = [
       },
     ],
   },
-  {
-    title: "Formation d'images par une lunette astronomique",
-    slug: 'formation-d-images-par-une-lunette-astronomique',
-    order: 19,
-    domainLongDescriptions: ['Ondes et signaux'],
-    questions: [
-      {
-        difficulty: 'HARD',
-        order: 1,
-        question: 'Pour une lunette astronomique afocale, quelle expression donne le grossissement angulaire en valeur absolue ?',
-        choices: ['$G = \\dfrac{f_{objectif}}{f_{oculaire}}$', '$G = f_{objectif} + f_{oculaire}$', '$G = \\dfrac{1}{f_{objectif}f_{oculaire}}$', '$G = \\dfrac{f_{oculaire}}{f_{objectif}}$'],
-        correctChoiceIndex: 0,
-        explanation: 'Pour une lunette afocale, le grossissement angulaire vaut en valeur absolue $G = f_{objectif}/f_{oculaire}$.',
-      },
-    ],
-  },
+  lunetteTrainingChapter,
   {
     title: 'La lumière : un flux de photons',
     slug: 'la-lumiere-un-flux-de-photons',
@@ -402,8 +469,21 @@ export async function seedTraining(prisma: PrismaClient) {
 
   let chapterCount = 0;
   let questionCount = 0;
+  let sectionCount = 0;
+  let quizCount = 0;
+  let questionGroupCount = 0;
+  let quizLinkCount = 0;
+  let updatedQuestionCount = 0;
+  let updatedSectionCount = 0;
+  let updatedQuizCount = 0;
+  let updatedQuestionGroupCount = 0;
+  let updatedQuizLinkCount = 0;
   let skippedChapterCount = 0;
   let skippedQuestionCount = 0;
+  let skippedSectionCount = 0;
+  let skippedQuizCount = 0;
+  let skippedQuestionGroupCount = 0;
+  let skippedQuizLinkCount = 0;
 
   for (const chapterSeed of chapters) {
     const domainIds = chapterSeed.domainLongDescriptions
@@ -435,7 +515,7 @@ export async function seedTraining(prisma: PrismaClient) {
             subjectId: subject.id,
             domainIds,
           },
-          select: {
+            select: {
             id: true,
           },
         });
@@ -460,7 +540,20 @@ export async function seedTraining(prisma: PrismaClient) {
       });
 
       if (existingQuestion) {
-        skippedQuestionCount++;
+        await prisma.quizQuestion.update({
+          where: {
+            id: existingQuestion.id,
+          },
+          data: {
+            difficulty: question.difficulty,
+            question: question.question,
+            choices: question.choices,
+            correctChoiceIndex: question.correctChoiceIndex,
+            explanation: question.explanation,
+            isPublished: true,
+          },
+        });
+        updatedQuestionCount++;
         continue;
       }
 
@@ -478,9 +571,282 @@ export async function seedTraining(prisma: PrismaClient) {
       });
       questionCount++;
     }
+
+    if (!chapterSeed.sections?.length) {
+      continue;
+    }
+
+    const chapterQuestions = await prisma.quizQuestion.findMany({
+      where: {
+        chapterId: chapter.id,
+      },
+      select: {
+        id: true,
+        order: true,
+      },
+    });
+
+    const questionIdByOrder = new Map(
+      chapterQuestions.map((question) => [question.order, question.id])
+    );
+
+    for (const sectionSeed of chapterSeed.sections) {
+      const existingSection = await prisma.chapterSection.findUnique({
+        where: {
+          chapterId_order: {
+            chapterId: chapter.id,
+            order: sectionSeed.order,
+          },
+        },
+        select: {
+          id: true,
+        },
+      });
+
+      const section = existingSection
+        ? await prisma.chapterSection.update({
+            where: {
+              id: existingSection.id,
+            },
+            data: {
+              title: sectionSeed.title,
+              description: sectionSeed.description,
+              order: sectionSeed.order,
+              kind: sectionSeed.kind ?? 'THEME',
+              isPublished: true,
+            },
+            select: {
+              id: true,
+            },
+          })
+        : await prisma.chapterSection.create({
+            data: {
+              chapterId: chapter.id,
+              title: sectionSeed.title,
+              description: sectionSeed.description,
+              order: sectionSeed.order,
+              kind: sectionSeed.kind ?? 'THEME',
+              isPublished: true,
+              themeIds: [],
+            },
+            select: {
+              id: true,
+            },
+          });
+
+      if (existingSection) {
+        updatedSectionCount++;
+      } else {
+        sectionCount++;
+      }
+
+      for (const quizSeed of sectionSeed.quizzes) {
+        const quizStage = quizSeed.stage ?? inferTrainingQuizStageFromOrder(quizSeed.order);
+        const existingQuiz = await prisma.trainingQuiz.findUnique({
+          where: {
+            chapterId_slug: {
+              chapterId: chapter.id,
+              slug: quizSeed.slug,
+            },
+          },
+          select: {
+            id: true,
+          },
+        });
+
+        const quiz = existingQuiz
+          ? await prisma.trainingQuiz.update({
+              where: {
+                id: existingQuiz.id,
+              },
+              data: {
+                sectionId: section.id,
+                title: quizSeed.title,
+                description: quizSeed.description,
+                order: quizSeed.order,
+                stage: quizStage,
+                isPublished: quizSeed.isPublished ?? true,
+              },
+              select: {
+                id: true,
+              },
+            })
+          : await prisma.trainingQuiz.create({
+              data: {
+                chapterId: chapter.id,
+                sectionId: section.id,
+                slug: quizSeed.slug,
+                title: quizSeed.title,
+                description: quizSeed.description,
+                order: quizSeed.order,
+                stage: quizStage,
+                isPublished: quizSeed.isPublished ?? true,
+              },
+              select: {
+                id: true,
+              },
+            });
+
+        if (existingQuiz) {
+          updatedQuizCount++;
+        } else {
+          quizCount++;
+        }
+
+        const normalizedQuizItems = normalizeSeedQuizItems(quizSeed);
+
+          let quizQuestionOrder = 1;
+
+        for (const item of normalizedQuizItems) {
+          if (item.type === 'QUESTION') {
+            const questionId = questionIdByOrder.get(item.questionOrder);
+            const currentOrder = quizQuestionOrder;
+
+            quizQuestionOrder += 1;
+
+            if (!questionId) {
+              console.warn(
+                `   ⚠️  Question introuvable pour ${chapterSeed.slug} (ordre ${item.questionOrder})`
+              );
+              continue;
+            }
+
+            const existingQuizLink = await prisma.trainingQuizQuestion.findUnique({
+              where: {
+                quizId_questionId: {
+                  quizId: quiz.id,
+                  questionId,
+                },
+              },
+              select: {
+                id: true,
+              },
+            });
+
+            if (existingQuizLink) {
+              await prisma.trainingQuizQuestion.update({
+                where: {
+                  id: existingQuizLink.id,
+                },
+                data: {
+                  groupId: null,
+                  order: currentOrder,
+                },
+              });
+              updatedQuizLinkCount++;
+              continue;
+            }
+
+            await prisma.trainingQuizQuestion.create({
+              data: {
+                quizId: quiz.id,
+                questionId,
+                order: currentOrder,
+              },
+            });
+            quizLinkCount++;
+            continue;
+          }
+
+          const existingQuestionGroup = await prisma.trainingQuizQuestionGroup.findUnique({
+            where: {
+              quizId_order: {
+                quizId: quiz.id,
+                order: item.order,
+              },
+            },
+            select: {
+              id: true,
+            },
+          });
+
+          const questionGroup = existingQuestionGroup
+            ? await prisma.trainingQuizQuestionGroup.update({
+                where: {
+                  id: existingQuestionGroup.id,
+                },
+                data: {
+                  title: item.title?.trim() || null,
+                  sharedStatement: item.sharedStatement,
+                  order: item.order,
+                },
+                select: {
+                  id: true,
+                },
+              })
+            : await prisma.trainingQuizQuestionGroup.create({
+                data: {
+                  quizId: quiz.id,
+                  title: item.title?.trim() || null,
+                  sharedStatement: item.sharedStatement,
+                  order: item.order,
+                },
+                select: {
+                  id: true,
+                },
+              });
+
+          if (existingQuestionGroup) {
+            updatedQuestionGroupCount++;
+          } else {
+            questionGroupCount++;
+          }
+
+          for (const questionOrder of item.questionOrders) {
+            const questionId = questionIdByOrder.get(questionOrder);
+            const currentOrder = quizQuestionOrder;
+
+            quizQuestionOrder += 1;
+
+            if (!questionId) {
+              console.warn(
+                `   ⚠️  Question introuvable pour ${chapterSeed.slug} (ordre ${questionOrder})`
+              );
+              continue;
+            }
+
+            const existingQuizLink = await prisma.trainingQuizQuestion.findUnique({
+              where: {
+                quizId_questionId: {
+                  quizId: quiz.id,
+                  questionId,
+                },
+              },
+              select: {
+                id: true,
+              },
+            });
+
+            if (existingQuizLink) {
+              await prisma.trainingQuizQuestion.update({
+                where: {
+                  id: existingQuizLink.id,
+                },
+                data: {
+                  groupId: questionGroup.id,
+                  order: currentOrder,
+                },
+              });
+              updatedQuizLinkCount++;
+              continue;
+            }
+
+            await prisma.trainingQuizQuestion.create({
+              data: {
+                quizId: quiz.id,
+                groupId: questionGroup.id,
+                questionId,
+                order: currentOrder,
+              },
+            });
+            quizLinkCount++;
+          }
+        }
+      }
+    }
   }
 
   console.log(
-    `   ✓ ${chapterCount} chapitres et ${questionCount} QCM créés (${skippedChapterCount} chapitres, ${skippedQuestionCount} QCM déjà présents)`
+    `   ✓ ${chapterCount} chapitres, ${questionCount} questions, ${sectionCount} sections, ${quizCount} quiz, ${questionGroupCount} blocs liés et ${quizLinkCount} liaisons créés (${updatedQuestionCount} questions, ${updatedSectionCount} sections, ${updatedQuizCount} quiz, ${updatedQuestionGroupCount} blocs liés, ${updatedQuizLinkCount} liaisons mis à jour ; ${skippedChapterCount} chapitres déjà présents)`
   );
 }

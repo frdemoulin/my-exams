@@ -61,7 +61,7 @@ export function PublicHeader() {
               Annales
             </Link>
             <Link
-              href="/entrainement/sciences-physiques"
+              href="/entrainement"
               className={trainingLinkClass}
               aria-current={isTrainingActive ? 'page' : undefined}
             >
@@ -146,7 +146,7 @@ export function PublicHeader() {
               <span className="sr-only">Annales</span>
             </Link>
             <Link
-              href="/entrainement/sciences-physiques"
+              href="/entrainement"
               className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${trainingIconClass}`}
               aria-current={isTrainingActive ? 'page' : undefined}
             >

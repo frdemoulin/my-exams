@@ -16,7 +16,7 @@ export function SiteFooter({ className = '' }: SiteFooterProps) {
     <footer className={`border-t border-border bg-card ${className}`}>
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-[11px] text-muted-foreground md:flex-row">
         <p>
-          © {new Date().getFullYear()} Site d&apos;annales — plateforme de
+          © {new Date().getFullYear()}{' '}Site d&apos;annales — plateforme de
           révision.
         </p>
         <div className="flex items-center gap-4">
@@ -25,7 +25,7 @@ export function SiteFooter({ className = '' }: SiteFooterProps) {
             <Link href="/diplomes" className="hover:text-foreground">
               Annales
             </Link>
-            <Link href="/entrainement/sciences-physiques" className="hover:text-foreground">
+            <Link href="/entrainement" className="hover:text-foreground">
               Entra&icirc;nement
             </Link>
             <Link href="/mentions-legales" className="hover:text-foreground">

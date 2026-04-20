@@ -44,10 +44,10 @@ export default async function EditChapterQuestionPage({ params }: EditChapterQue
       />
       <QuizQuestionForm
         crudMode="edit"
-        chapterId={chapter.id}
         cancelHref={`/admin/chapters/${chapter.id}`}
         initialData={{
           id: question.id,
+          chapterId: question.chapterId,
           difficulty: question.difficulty,
           question: question.question,
           choices: question.choices,

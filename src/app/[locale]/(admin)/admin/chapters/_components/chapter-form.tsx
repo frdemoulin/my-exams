@@ -33,6 +33,9 @@ interface ChapterFormProps {
   subjects: Option[];
   domains: Option[];
   cancelHref?: string;
+  redirectTo?: string | null;
+  revalidatePaths?: string[];
+  entityLabel?: string;
 }
 
 export function ChapterForm({
@@ -41,9 +44,13 @@ export function ChapterForm({
   subjects,
   domains,
   cancelHref = "/admin/chapters",
+  redirectTo,
+  revalidatePaths,
+  entityLabel = "Chapitre",
 }: ChapterFormProps) {
   const common = useCommonTranslations();
   const [slugEdited, setSlugEdited] = useState(Boolean(initialData.id));
+  const entityLabelLower = entityLabel.toLowerCase();
 
   const subjectOptions = useMemo(
     () => [...subjects].sort((a, b) => a.label.localeCompare(b.label, "fr", { sensitivity: "base" })),
@@ -95,9 +102,9 @@ export function ChapterForm({
     formData.append("isPublished", String(values.isPublished));
 
     if (!initialData.id) {
-      await createChapter(formData);
+      await createChapter(formData, { redirectTo, revalidatePaths });
     } else {
-      await updateChapter(initialData.id, formData);
+      await updateChapter(initialData.id, formData, { redirectTo, revalidatePaths });
     }
   };
 
@@ -106,6 +113,8 @@ export function ChapterForm({
     control,
     formState: { isSubmitting },
   } = form;
+
+    const checkboxClassName = "h-4 w-4 rounded-xs border border-default-medium bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft";
 
   return (
     <Form {...form}>
@@ -117,7 +126,7 @@ export function ChapterForm({
             <FormItem>
               <FormLabel>Titre</FormLabel>
               <FormControl>
-                <Input type="text" placeholder="Nom du chapitre" {...field} />
+                <Input type="text" placeholder={`Nom du ${entityLabelLower}`} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -235,13 +244,13 @@ export function ChapterForm({
                     type="checkbox"
                     checked={field.value}
                     onChange={(event) => field.onChange(event.target.checked)}
-                    className="h-4 w-4 rounded-base border border-default accent-brand bg-neutral-primary-soft"
+                    className={checkboxClassName}
                   />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                  <FormLabel className="cursor-pointer">Chapitre actif</FormLabel>
+                    <FormLabel className="cursor-pointer">{entityLabel} actif</FormLabel>
                   <p className="text-xs text-muted-foreground">
-                    Un chapitre inactif reste dans le référentiel mais n&apos;est plus exploitable publiquement.
+                      Un {entityLabelLower} inactif reste dans le référentiel mais n&apos;est plus exploitable publiquement.
                   </p>
                 </div>
               </FormItem>
@@ -259,13 +268,13 @@ export function ChapterForm({
                     checked={field.value}
                     disabled={!watchedIsActive}
                     onChange={(event) => field.onChange(event.target.checked)}
-                    className="h-4 w-4 rounded-base border border-default accent-brand bg-neutral-primary-soft disabled:cursor-not-allowed disabled:opacity-50"
+                    className={`${checkboxClassName} disabled:cursor-not-allowed disabled:opacity-50`}
                   />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                  <FormLabel className="cursor-pointer">Chapitre publié</FormLabel>
+                  <FormLabel className="cursor-pointer">{entityLabel} publié</FormLabel>
                   <p className="text-xs text-muted-foreground">
-                    La publication contrôle la visibilité du chapitre dans l&apos;entraînement public.
+                    La publication contrôle la visibilité du {entityLabelLower} dans l&apos;entraînement public.
                   </p>
                 </div>
               </FormItem>

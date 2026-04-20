@@ -42,9 +42,9 @@ export default async function AddChapterQuestionPage({ params }: AddChapterQuest
       />
       <QuizQuestionForm
         crudMode="add"
-        chapterId={chapter.id}
         cancelHref={`/admin/chapters/${chapter.id}`}
         initialData={{
+          chapterId: chapter.id,
           difficulty: "EASY",
           question: "",
           choices: ["", "", "", ""],
