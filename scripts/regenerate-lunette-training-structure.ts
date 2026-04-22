@@ -1,5 +1,6 @@
 "use strict";
 
+import { inferTrainingQuizStageFromOrder } from "../src/core/training/training-stage";
 import { lunetteTrainingChapter } from "../prisma/seeds/data/lunette-training-chapter";
 import { loadProjectEnv } from "./lib/load-env";
 
@@ -57,6 +58,15 @@ async function main() {
   }
 
   await prisma.$transaction(async (transaction) => {
+    const expectedQuestionOrders = questionSeeds.map((question) => question.order);
+
+    await transaction.quizQuestion.deleteMany({
+      where: {
+        chapterId: chapter.id,
+        order: { notIn: expectedQuestionOrders },
+      },
+    });
+
     for (const questionSeed of questionSeeds) {
       const existingQuestion = await transaction.quizQuestion.findUnique({
         where: {
@@ -146,6 +156,7 @@ async function main() {
       });
 
       for (const quizSeed of sectionSeed.quizzes) {
+        const quizStage = quizSeed.stage ?? inferTrainingQuizStageFromOrder(quizSeed.order);
         const quiz = await transaction.trainingQuiz.create({
           data: {
             chapterId: chapter.id,
@@ -154,7 +165,8 @@ async function main() {
             title: quizSeed.title,
             description: quizSeed.description,
             order: quizSeed.order,
-            isPublished: true,
+            stage: quizStage,
+            isPublished: quizSeed.isPublished ?? true,
           },
           select: { id: true },
         });
@@ -218,6 +230,9 @@ async function main() {
         }
       }
     }
+  }, {
+    maxWait: 20_000,
+    timeout: 30_000,
   });
 
   console.log(

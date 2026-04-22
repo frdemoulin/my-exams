@@ -1,0 +1,53 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="32" fill="#F8FAFC"/>
+  <text x="600" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0F172A">Lunette de Kepler réglée afocale</text>
+  <text x="600" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#334155">Construction simplifiée des rayons pour un objet très lointain</text>
+
+  <line x1="80" y1="260" x2="1120" y2="260" stroke="#94A3B8" stroke-width="3" stroke-dasharray="10 10"/>
+
+  <path d="M250 110C220 145 220 375 250 410H290C320 375 320 145 290 110H250Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="6"/>
+  <path d="M660 110C630 145 630 375 660 410H700C730 375 730 145 700 110H660Z" fill="#E0F2FE" stroke="#0284C7" stroke-width="6"/>
+  <line x1="270" y1="110" x2="270" y2="410" stroke="#1D4ED8" stroke-width="3"/>
+  <line x1="680" y1="110" x2="680" y2="410" stroke="#0369A1" stroke-width="3"/>
+  <circle cx="270" cy="260" r="6" fill="#0F172A"/>
+  <circle cx="680" cy="260" r="6" fill="#0F172A"/>
+
+  <text x="270" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1D4ED8">Objectif</text>
+  <text x="680" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0369A1">Oculaire</text>
+
+  <line x1="90" y1="120" x2="270" y2="160" stroke="#DC2626" stroke-width="5"/>
+  <line x1="90" y1="170" x2="270" y2="210" stroke="#EA580C" stroke-width="5"/>
+  <polygon points="270,160 254,152 258,169" fill="#DC2626"/>
+  <polygon points="270,210 254,202 258,219" fill="#EA580C"/>
+
+  <line x1="270" y1="160" x2="500" y2="320" stroke="#DC2626" stroke-width="5"/>
+  <line x1="270" y1="210" x2="500" y2="320" stroke="#EA580C" stroke-width="5"/>
+  <polygon points="500,320 483,312 487,329" fill="#DC2626"/>
+  <polygon points="500,320 485,310 488,328" fill="#EA580C"/>
+
+  <line x1="500" y1="320" x2="680" y2="260" stroke="#DC2626" stroke-width="5"/>
+  <line x1="500" y1="320" x2="680" y2="310" stroke="#EA580C" stroke-width="5"/>
+
+  <line x1="680" y1="260" x2="1060" y2="132" stroke="#DC2626" stroke-width="5"/>
+  <line x1="680" y1="310" x2="1060" y2="182" stroke="#EA580C" stroke-width="5"/>
+  <polygon points="1060,132 1045,145 1062,149" fill="#DC2626"/>
+  <polygon points="1060,182 1045,195 1062,199" fill="#EA580C"/>
+
+  <line x1="500" y1="190" x2="500" y2="320" stroke="#7C3AED" stroke-width="4"/>
+  <polygon points="500,320 492,302 508,302" fill="#7C3AED"/>
+  <text x="500" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#6D28D9">Image intermédiaire</text>
+
+  <circle cx="500" cy="260" r="5" fill="#0F172A"/>
+  <circle cx="500" cy="320" r="5" fill="#0F172A"/>
+
+  <circle cx="500" cy="260" r="7" fill="#F59E0B"/>
+  <text x="500" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#B45309">F' objectif = F oculaire</text>
+
+  <path d="M150 250 A60 60 0 0 1 205 220" stroke="#475569" stroke-width="3" fill="none"/>
+  <text x="160" y="214" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#475569">alpha</text>
+  <path d="M990 250 A120 120 0 0 1 1090 185" stroke="#475569" stroke-width="3" fill="none"/>
+  <text x="1020" y="164" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#475569">alpha'</text>
+
+  <text x="148" y="108" font-family="Arial, sans-serif" font-size="20" fill="#334155">Rayons incidents quasi parallèles</text>
+  <text x="780" y="112" font-family="Arial, sans-serif" font-size="20" fill="#334155">Rayons émergents parallèles</text>
+</svg>
