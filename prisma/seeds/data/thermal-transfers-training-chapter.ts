@@ -155,7 +155,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       ],
       correctChoiceIndex: 0,
       explanation:
-        'En thermodynamique usuelle, on accède surtout à la variation $\Delta U$ entre deux états. La valeur absolue de $U$ dans un état donné n’est généralement pas directement calculée.',
+        'En thermodynamique usuelle, on accède surtout à la variation $\\Delta U$ entre deux états. La valeur absolue de $U$ dans un état donné n’est généralement pas directement calculée.',
     },
     {
       difficulty: 'EASY',
@@ -1081,7 +1081,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       difficulty: 'MEDIUM',
       order: 66,
       question:
-        'Dans une pièce à $19\,^{\circ}\mathrm{C}$, pourquoi un carrelage semble-t-il plus froid sous les pieds nus qu’un parquet placé depuis longtemps dans la même pièce ?',
+        'Dans une pièce à $19\\,^{\\circ}\\mathrm{C}$, pourquoi un carrelage semble-t-il plus froid sous les pieds nus qu’un parquet placé depuis longtemps dans la même pièce ?',
       choices: [
         'Parce que le carrelage conduit plus rapidement l’énergie thermique du pied vers le sol',
         'Parce que le carrelage est nécessairement à une température plus basse que l’air de la pièce',
@@ -1793,7 +1793,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       question:
         'Sur un cycle complet de réfrigérateur, si l’on étudie le fluide frigorigène comme système, quelle affirmation est correcte ?',
       choices: [
-        '$\Delta U = 0$',
+        '$\\Delta U = 0$',
         '$Q_{evap}+Q_{cond}=0$',
         '$W+Q_{evap}=0$',
         'La température du fluide reste constante à tout instant',
@@ -1936,7 +1936,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       difficulty: 'MEDIUM',
       order: 137,
       question:
-        'Une surface émet un flux surfacique radiatif modélisé par $\varphi = \sigma T^4$. Si sa température absolue double, le flux surfacique émis est :',
+        'Une surface émet un flux surfacique radiatif modélisé par $\\varphi = \\sigma T^4$. Si sa température absolue double, le flux surfacique émis est :',
       choices: [
         'Multiplié par 2',
         'Multiplié par 4',
@@ -1945,7 +1945,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       ],
       correctChoiceIndex: 2,
       explanation:
-        'La loi de Stefan-Boltzmann donne $\varphi \propto T^4$. Si $T$ est multipliée par 2, alors $\varphi$ est multiplié par $2^4=16$.',
+        'La loi de Stefan-Boltzmann donne $\\varphi \\propto T^4$. Si $T$ est multipliée par 2, alors $\\varphi$ est multiplié par $2^4=16$.',
     },
     {
       difficulty: 'MEDIUM',
@@ -1954,7 +1954,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
         'Une surface voit son flux surfacique radiatif doubler. Dans ce modèle, sa température absolue est alors multipliée par :',
       choices: [
         '2',
-        '$\sqrt{2}$',
+        '$\\sqrt{2}$',
         '$2^{1/4}$ environ',
         '4',
       ],
@@ -1981,12 +1981,12 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       difficulty: 'MEDIUM',
       order: 140,
       question:
-        'Quelle est l’unité SI d’un flux thermique surfacique radiatif $\varphi$ ?',
+        'Quelle est l’unité SI d’un flux thermique surfacique radiatif $\\varphi$ ?',
       choices: [
-        '$\mathrm{W}$',
-        '$\mathrm{W.m^{-1}.K^{-1}}$',
-        '$\mathrm{W.m^{-2}}$',
-        '$\mathrm{J.K^{-1}}$',
+        '$\\mathrm{W}$',
+        '$\\mathrm{W.m^{-1}.K^{-1}}$',
+        '$\\mathrm{W.m^{-2}}$',
+        '$\\mathrm{J.K^{-1}}$',
       ],
       correctChoiceIndex: 2,
       explanation:
@@ -2005,13 +2005,13 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       ],
       correctChoiceIndex: 2,
       explanation:
-        'Avec $\varphi \propto T^4$, une hausse de 10 % de $T$ donne un facteur $1{,}1^4 \approx 1{,}46$. Le flux augmente donc d’environ 46 %.',
+        'Avec $\\varphi \\propto T^4$, une hausse de 10 % de $T$ donne un facteur $1{,}1^4 \\approx 1{,}46$. Le flux augmente donc d’environ 46 %.',
     },
     {
       difficulty: 'MEDIUM',
       order: 142,
       question:
-        'Si l’albédo $\alpha$ du système Terre-atmosphère vaut 0,30, quelle fraction du flux solaire moyen reçu est absorbée par le système ?',
+        'Si l’albédo $\\alpha$ du système Terre-atmosphère vaut 0,30, quelle fraction du flux solaire moyen reçu est absorbée par le système ?',
       choices: [
         '0,30',
         '0,70',
@@ -2020,7 +2020,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       ],
       correctChoiceIndex: 1,
       explanation:
-        'La fraction absorbée vaut $1-\alpha$. Avec $\alpha=0{,}30$, on obtient $1-0{,}30=0{,}70$.',
+        'La fraction absorbée vaut $1-\\alpha$. Avec $\\alpha=0{,}30$, on obtient $1-0{,}30=0{,}70$.',
     },
     {
       difficulty: 'MEDIUM',
@@ -2028,29 +2028,29 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       question:
         'À l’équilibre radiatif global du système Terre-atmosphère, quelle relation est correcte dans ce modèle simplifié ?',
       choices: [
-        '$\varphi_{th}=\alpha\varphi_S$',
-        '$\varphi_{th}=(1-\alpha)\varphi_S$',
-        '$\varphi_{th}=\varphi_S$',
-        '$\varphi_{th}=(1+\alpha)\varphi_S$',
+        '$\\varphi_{th}=\\alpha\\varphi_S$',
+        '$\\varphi_{th}=(1-\\alpha)\\varphi_S$',
+        '$\\varphi_{th}=\\varphi_S$',
+        '$\\varphi_{th}=(1+\\alpha)\\varphi_S$',
       ],
       correctChoiceIndex: 1,
       explanation:
-        'À l’équilibre radiatif, le flux thermique émis compense le flux solaire absorbé, soit $\varphi_{th}=(1-\alpha)\varphi_S$.',
+        'À l’équilibre radiatif, le flux thermique émis compense le flux solaire absorbé, soit $\\varphi_{th}=(1-\\alpha)\\varphi_S$.',
     },
     {
       difficulty: 'MEDIUM',
       order: 144,
       question:
-        'Si l’albédo augmente alors que $\varphi_S$ reste constant, le flux solaire absorbé par le système Terre-atmosphère :',
+        'Si l’albédo augmente alors que $\\varphi_S$ reste constant, le flux solaire absorbé par le système Terre-atmosphère :',
       choices: [
         'Diminue',
         'Augmente',
         'Reste inchangé',
-        'Vaut $\alpha\varphi_S$',
+        'Vaut $\\alpha\\varphi_S$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'Le flux absorbé vaut $(1-\alpha)\varphi_S$. Si $\alpha$ augmente, la part réfléchie augmente et la part absorbée diminue.',
+        'Le flux absorbé vaut $(1-\\alpha)\\varphi_S$. Si $\\alpha$ augmente, la part réfléchie augmente et la part absorbée diminue.',
     },
     {
       difficulty: 'MEDIUM',
@@ -2080,37 +2080,37 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       ],
       correctChoiceIndex: 1,
       explanation:
-        'Comme $\varphi_{th}=kT^4$, on a $T_f/T_i=(1{,}10)^{1/4} \approx 1{,}024$. La température augmente donc d’environ 2,4 %.',
+        'Comme $\\varphi_{th}=kT^4$, on a $T_f/T_i=(1{,}10)^{1/4} \\approx 1{,}024$. La température augmente donc d’environ 2,4 %.',
     },
     {
       difficulty: 'HARD',
       order: 147,
       question:
-        'Dans ce modèle radiatif, quelle fraction du flux thermique $\varphi_T$ émis par la surface traverse directement l’atmosphère et s’échappe vers l’espace ?',
+        'Dans ce modèle radiatif, quelle fraction du flux thermique $\\varphi_T$ émis par la surface traverse directement l’atmosphère et s’échappe vers l’espace ?',
       choices: [
-        '$(1-p)\varphi_T$',
-        '$p\varphi_T$',
-        '$\dfrac{p\varphi_T}{2}$',
-        '$(1-A)\varphi_S$',
+        '$(1-p)\\varphi_T$',
+        '$p\\varphi_T$',
+        '$\\dfrac{p\\varphi_T}{2}$',
+        '$(1-A)\\varphi_S$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'L’atmosphère absorbe une fraction $p$ du rayonnement thermique émis par la surface. La fraction restante, soit $(1-p)\varphi_T$, traverse donc directement l’atmosphère vers l’espace.',
+        'L’atmosphère absorbe une fraction $p$ du rayonnement thermique émis par la surface. La fraction restante, soit $(1-p)\\varphi_T$, traverse donc directement l’atmosphère vers l’espace.',
     },
     {
       difficulty: 'HARD',
       order: 148,
       question:
-        'Si l’atmosphère absorbe le flux $p\varphi_T$ puis le réémet pour moitié vers la surface et pour moitié vers l’espace, quel flux thermique renvoie-t-elle vers la surface ?',
+        'Si l’atmosphère absorbe le flux $p\\varphi_T$ puis le réémet pour moitié vers la surface et pour moitié vers l’espace, quel flux thermique renvoie-t-elle vers la surface ?',
       choices: [
-        '$\dfrac{p\varphi_T}{2}$',
-        '$p\varphi_T$',
-        '$(1-p)\varphi_T$',
-        '$\dfrac{\varphi_T}{2}$',
+        '$\\dfrac{p\\varphi_T}{2}$',
+        '$p\\varphi_T$',
+        '$(1-p)\\varphi_T$',
+        '$\\dfrac{\\varphi_T}{2}$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'L’atmosphère réémet en parts égales le flux qu’elle a absorbé. Elle renvoie donc vers la surface la moitié de $p\varphi_T$, soit $p\varphi_T/2$.',
+        'L’atmosphère réémet en parts égales le flux qu’elle a absorbé. Elle renvoie donc vers la surface la moitié de $p\\varphi_T$, soit $p\\varphi_T/2$.',
     },
     {
       difficulty: 'HARD',
@@ -2118,14 +2118,14 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       question:
         'Quelle relation traduit le bilan radiatif de la surface terrestre dans ce modèle à l’équilibre ?',
       choices: [
-        '$(1-A)\varphi_S + \dfrac{p\varphi_T}{2} = \varphi_T$',
-        '$(1-A)\varphi_S = \varphi_T$',
-        '$(1-A)\varphi_S + p\varphi_T = \dfrac{\varphi_T}{2}$',
-        '$(1-A)\varphi_S = \dfrac{p\varphi_T}{2}$',
+        '$(1-A)\\varphi_S + \\dfrac{p\\varphi_T}{2} = \\varphi_T$',
+        '$(1-A)\\varphi_S = \\varphi_T$',
+        '$(1-A)\\varphi_S + p\\varphi_T = \\dfrac{\\varphi_T}{2}$',
+        '$(1-A)\\varphi_S = \\dfrac{p\\varphi_T}{2}$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'La surface absorbe le flux solaire $(1-A)\varphi_S$ et le flux infrarouge descendant $p\varphi_T/2$, puis elle émet $\varphi_T$. À l’équilibre, le flux total reçu compense le flux total émis.',
+        'La surface absorbe le flux solaire $(1-A)\\varphi_S$ et le flux infrarouge descendant $p\\varphi_T/2$, puis elle émet $\\varphi_T$. À l’équilibre, le flux total reçu compense le flux total émis.',
     },
     {
       difficulty: 'HARD',
@@ -2133,29 +2133,29 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       question:
         'En partant de la relation d’équilibre de la surface, quelle expression obtient-on pour le flux thermique surfacique émis par la surface ?',
       choices: [
-        '$\varphi_T = \dfrac{2(1-A)}{2-p}\varphi_S$',
-        '$\varphi_T = \dfrac{1-A}{1-p}\varphi_S$',
-        '$\varphi_T = (2-p)(1-A)\varphi_S$',
-        '$\varphi_T = \dfrac{2-p}{2(1-A)}\varphi_S$',
+        '$\\varphi_T = \\dfrac{2(1-A)}{2-p}\\varphi_S$',
+        '$\\varphi_T = \\dfrac{1-A}{1-p}\\varphi_S$',
+        '$\\varphi_T = (2-p)(1-A)\\varphi_S$',
+        '$\\varphi_T = \\dfrac{2-p}{2(1-A)}\\varphi_S$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'À partir de $(1-A)\varphi_S + p\varphi_T/2 = \varphi_T$, on factorise en $(1-p/2)\varphi_T = (1-A)\varphi_S$, soit $\varphi_T = \dfrac{2(1-A)}{2-p}\varphi_S$.',
+        'À partir de $(1-A)\\varphi_S + p\\varphi_T/2 = \\varphi_T$, on factorise en $(1-p/2)\\varphi_T = (1-A)\\varphi_S$, soit $\\varphi_T = \\dfrac{2(1-A)}{2-p}\\varphi_S$.',
     },
     {
       difficulty: 'HARD',
       order: 151,
       question:
-        'En utilisant $\varphi_T = \sigma T_S^4$, quelle expression obtient-on pour la température radiative moyenne de surface $T_S$ ?',
+        'En utilisant $\\varphi_T = \\sigma T_S^4$, quelle expression obtient-on pour la température radiative moyenne de surface $T_S$ ?',
       choices: [
-        '$T_S = \left(\dfrac{2(1-A)\varphi_S}{(2-p)\sigma}\right)^{1/4}$',
-        '$T_S = \dfrac{2(1-A)\varphi_S}{(2-p)\sigma}$',
-        '$T_S = \left(\dfrac{(1-A)\varphi_S}{(2-p)\sigma}\right)^{1/4}$',
-        '$T_S = \left(\dfrac{(2-p)\sigma}{2(1-A)\varphi_S}\right)^{1/4}$',
+        '$T_S = \\left(\\dfrac{2(1-A)\\varphi_S}{(2-p)\\sigma}\\right)^{1/4}$',
+        '$T_S = \\dfrac{2(1-A)\\varphi_S}{(2-p)\\sigma}$',
+        '$T_S = \\left(\\dfrac{(1-A)\\varphi_S}{(2-p)\\sigma}\\right)^{1/4}$',
+        '$T_S = \\left(\\dfrac{(2-p)\\sigma}{2(1-A)\\varphi_S}\\right)^{1/4}$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'On remplace $\varphi_T$ par $\sigma T_S^4$ dans l’expression précédente, puis on isole $T_S$ en prenant la racine quatrième.',
+        'On remplace $\\varphi_T$ par $\\sigma T_S^4$ dans l’expression précédente, puis on isole $T_S$ en prenant la racine quatrième.',
     },
     {
       difficulty: 'HARD',
@@ -2163,14 +2163,14 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       question:
         'Si l’atmosphère n’absorbe aucun rayonnement thermique de la surface ($p=0$), quelle expression retrouve-t-on pour le flux surfacique émis par la surface à l’équilibre ?',
       choices: [
-        '$\varphi_T = (1-A)\varphi_S$',
-        '$\varphi_T = 2(1-A)\varphi_S$',
-        '$\varphi_T = \dfrac{1-A}{2}\varphi_S$',
-        '$\varphi_T = \dfrac{\varphi_S}{1-A}$',
+        '$\\varphi_T = (1-A)\\varphi_S$',
+        '$\\varphi_T = 2(1-A)\\varphi_S$',
+        '$\\varphi_T = \\dfrac{1-A}{2}\\varphi_S$',
+        '$\\varphi_T = \\dfrac{\\varphi_S}{1-A}$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'En posant $p=0$ dans $\varphi_T = \dfrac{2(1-A)}{2-p}\varphi_S$, on obtient bien $\varphi_T = (1-A)\varphi_S$, c’est-à-dire le cas sans effet de serre dans ce modèle.',
+        'En posant $p=0$ dans $\\varphi_T = \\dfrac{2(1-A)}{2-p}\\varphi_S$, on obtient bien $\\varphi_T = (1-A)\\varphi_S$, c’est-à-dire le cas sans effet de serre dans ce modèle.',
     },
     {
       difficulty: 'HARD',
@@ -2181,7 +2181,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
         'Elle augmente',
         'Elle diminue car l’atmosphère absorbe davantage le rayonnement émis par la surface',
         'Elle reste inchangée puisque l’albédo $A$ est constant',
-        'Elle n’est modifiée que si $\varphi_S$ varie',
+        'Elle n’est modifiée que si $\\varphi_S$ varie',
       ],
       correctChoiceIndex: 0,
       explanation:
@@ -2196,17 +2196,17 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
         'Il augmente',
         'Il diminue',
         'Il reste constant',
-        'Il vaut $A\varphi_S$',
+        'Il vaut $A\\varphi_S$',
       ],
       correctChoiceIndex: 0,
       explanation:
-        'Le flux solaire absorbé vaut $(1-A)\varphi_S$. Si $A$ diminue, la part réfléchie diminue et la part absorbée augmente.',
+        'Le flux solaire absorbé vaut $(1-A)\\varphi_S$. Si $A$ diminue, la part réfléchie diminue et la part absorbée augmente.',
     },
     {
       difficulty: 'HARD',
       order: 155,
       question:
-        'On compare trois situations : référence $A=0{,}30$, $p=0{,}77$ ; glace fondue $A=0{,}25$, $p=0{,}77$ ; effet de serre renforcé $A=0{,}30$, $p=0{,}82$. Quel cas conduit au flux surfacique $\varphi_T$ le plus élevé dans ce modèle ?',
+        'On compare trois situations : référence $A=0{,}30$, $p=0{,}77$ ; glace fondue $A=0{,}25$, $p=0{,}77$ ; effet de serre renforcé $A=0{,}30$, $p=0{,}82$. Quel cas conduit au flux surfacique $\\varphi_T$ le plus élevé dans ce modèle ?',
       choices: [
         'La situation de référence',
         'Le cas glace fondue',
@@ -2215,7 +2215,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
       ],
       correctChoiceIndex: 1,
       explanation:
-        'On compare le facteur $\dfrac{1-A}{2-p}$. Il vaut environ $0{,}569$ pour la référence, $0{,}610$ pour le cas glace fondue et $0{,}593$ pour le cas effet de serre renforcé. Le cas glace fondue donne donc le plus grand flux surfacique.',
+        'On compare le facteur $\\dfrac{1-A}{2-p}$. Il vaut environ $0{,}569$ pour la référence, $0{,}610$ pour le cas glace fondue et $0{,}593$ pour le cas effet de serre renforcé. Le cas glace fondue donne donc le plus grand flux surfacique.',
     },
     {
       difficulty: 'HARD',
@@ -2382,7 +2382,7 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
               type: 'GROUP',
               title: 'Cas d’étude - Rendement d’une bouilloire électrique',
               sharedStatement:
-                'Une bouilloire électrique de puissance constante $P=2{,}2\,\mathrm{kW}$ chauffe $m=1{,}0\,\mathrm{kg}$ d’eau de $\theta_i=20\,^{\circ}\mathrm{C}$ à $\theta_f=90\,^{\circ}\mathrm{C}$ en $\Delta t=180\,\mathrm{s}$. On prend $c_{eau}=4{,}18\times10^3\,\mathrm{J.kg^{-1}.K^{-1}}$. On étudie d’abord l’eau seule comme système, puis on compare l’énergie utile gagnée par l’eau à l’énergie électrique reçue par la bouilloire.',
+                'Une bouilloire électrique de puissance constante $P=2{,}2\\,\\mathrm{kW}$ chauffe $m=1{,}0\\,\\mathrm{kg}$ d’eau de $\\theta_i=20\\,^{\\circ}\\mathrm{C}$ à $\\theta_f=90\\,^{\\circ}\\mathrm{C}$ en $\\Delta t=180\\,\\mathrm{s}$. On prend $c_{eau}=4{,}18\\times10^3\\,\\mathrm{J.kg^{-1}.K^{-1}}$. On étudie d’abord l’eau seule comme système, puis on compare l’énergie utile gagnée par l’eau à l’énergie électrique reçue par la bouilloire.',
               questionOrders: [132, 133, 134, 135, 136],
             },
           ],
@@ -2593,14 +2593,14 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
               type: 'GROUP',
               title: 'Cas d’étude - Loi de Stefan-Boltzmann pour une surface rayonnante',
               sharedStatement:
-                'On modélise une surface rayonnante de température absolue $T$ par la loi de Stefan-Boltzmann : le flux thermique surfacique émis vaut $\varphi = \sigma T^4$, avec $\sigma$ une constante positive. On compare plusieurs situations en supposant inchangée la nature de la surface.',
+                'On modélise une surface rayonnante de température absolue $T$ par la loi de Stefan-Boltzmann : le flux thermique surfacique émis vaut $\\varphi = \\sigma T^4$, avec $\\sigma$ une constante positive. On compare plusieurs situations en supposant inchangée la nature de la surface.',
               questionOrders: [137, 138, 139, 140, 141],
             },
             {
               type: 'GROUP',
               title: 'Cas d’étude - Bilan radiatif du système Terre-atmosphère',
               sharedStatement:
-                'On considère le système Terre-atmosphère recevant un flux solaire moyen $\varphi_S$. Une fraction $\alpha$ de ce flux est réfléchie vers l’espace : c’est l’albédo du système. Le flux solaire absorbé vaut donc $(1-\alpha)\varphi_S$. Le système réémet vers l’espace un flux thermique $\varphi_{th}$. À l’équilibre radiatif global, ces deux flux se compensent : $\varphi_{th} = (1-\alpha)\varphi_S$. On admet enfin que $\varphi_{th} = kT^4$ avec $k>0$ et $T$ la température radiative moyenne du système.',
+                'On considère le système Terre-atmosphère recevant un flux solaire moyen $\\varphi_S$. Une fraction $\\alpha$ de ce flux est réfléchie vers l’espace : c’est l’albédo du système. Le flux solaire absorbé vaut donc $(1-\\alpha)\\varphi_S$. Le système réémet vers l’espace un flux thermique $\\varphi_{th}$. À l’équilibre radiatif global, ces deux flux se compensent : $\\varphi_{th} = (1-\\alpha)\\varphi_S$. On admet enfin que $\\varphi_{th} = kT^4$ avec $k>0$ et $T$ la température radiative moyenne du système.',
               questionOrders: [142, 143, 144, 145, 146],
             },
           ],
@@ -2617,14 +2617,14 @@ export const thermalTransfersTrainingChapter: TrainingChapterSeed = {
               type: 'GROUP',
               title: 'Cas d’étude - Établir le modèle à une couche',
               sharedStatement:
-                'On considère un modèle simplifié du système Terre-atmosphère. Le système reçoit un flux solaire moyen $\varphi_S$. Une fraction $A$ de ce flux est réfléchie vers l’espace : c’est l’albédo. La surface absorbe donc $(1-A)\varphi_S$ et émet un flux thermique $\varphi_T = \sigma T_S^4$. L’atmosphère est supposée transparente au rayonnement solaire, mais absorbe une fraction $p$ du rayonnement thermique émis par la surface. Elle réémet alors ce qu’elle absorbe, pour moitié vers l’espace et pour moitié vers la surface. On raisonne à l’équilibre radiatif.',
+                'On considère un modèle simplifié du système Terre-atmosphère. Le système reçoit un flux solaire moyen $\\varphi_S$. Une fraction $A$ de ce flux est réfléchie vers l’espace : c’est l’albédo. La surface absorbe donc $(1-A)\\varphi_S$ et émet un flux thermique $\\varphi_T = \\sigma T_S^4$. L’atmosphère est supposée transparente au rayonnement solaire, mais absorbe une fraction $p$ du rayonnement thermique émis par la surface. Elle réémet alors ce qu’elle absorbe, pour moitié vers l’espace et pour moitié vers la surface. On raisonne à l’équilibre radiatif.',
               questionOrders: [147, 148, 149, 150, 151],
             },
             {
               type: 'GROUP',
               title: 'Cas d’étude - Comparer des scénarios climatiques',
               sharedStatement:
-                'On admet désormais que le modèle précédent conduit à $\varphi_T = \dfrac{2(1-A)}{2-p}\varphi_S$ et à $T_S = \left(\dfrac{2(1-A)\varphi_S}{(2-p)\sigma}\right)^{1/4}$. On compare trois situations : référence $A=0{,}30$, $p=0{,}77$ ; glace fondue $A=0{,}25$, $p=0{,}77$ ; effet de serre renforcé $A=0{,}30$, $p=0{,}82$.',
+                'On admet désormais que le modèle précédent conduit à $\\varphi_T = \\dfrac{2(1-A)}{2-p}\\varphi_S$ et à $T_S = \\left(\\dfrac{2(1-A)\\varphi_S}{(2-p)\\sigma}\\right)^{1/4}$. On compare trois situations : référence $A=0{,}30$, $p=0{,}77$ ; glace fondue $A=0{,}25$, $p=0{,}77$ ; effet de serre renforcé $A=0{,}30$, $p=0{,}82$.',
               questionOrders: [152, 153, 154, 155, 156],
             },
           ],

@@ -1,0 +1,41 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="32" fill="#FFFDF7"/>
+  <text x="600" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0F172A">Construction des rayons par l'objectif</text>
+  <text x="600" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#334155">Image réelle et renversée formée par une lentille convergente</text>
+
+  <line x1="80" y1="260" x2="1120" y2="260" stroke="#94A3B8" stroke-width="3" stroke-dasharray="10 10"/>
+
+  <line x1="160" y1="260" x2="160" y2="120" stroke="#7C3AED" stroke-width="5"/>
+  <polygon points="160,120 150,140 170,140" fill="#7C3AED"/>
+  <text x="160" y="104" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#6D28D9">Objet</text>
+
+  <path d="M430 110C400 145 400 375 430 410H470C500 375 500 145 470 110H430Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="6"/>
+  <line x1="450" y1="110" x2="450" y2="410" stroke="#1D4ED8" stroke-width="3"/>
+  <circle cx="450" cy="260" r="6" fill="#0F172A"/>
+  <text x="450" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1D4ED8">Objectif convergent</text>
+
+  <circle cx="320" cy="260" r="6" fill="#F59E0B"/>
+  <circle cx="580" cy="260" r="6" fill="#F59E0B"/>
+  <text x="320" y="236" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#B45309">F</text>
+  <text x="580" y="236" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#B45309">F'</text>
+
+  <line x1="160" y1="120" x2="450" y2="120" stroke="#DC2626" stroke-width="5"/>
+  <line x1="450" y1="120" x2="700" y2="330" stroke="#DC2626" stroke-width="5"/>
+  <polygon points="700,330 683,321 687,339" fill="#DC2626"/>
+
+  <line x1="160" y1="120" x2="450" y2="260" stroke="#0EA5E9" stroke-width="5"/>
+  <line x1="450" y1="260" x2="700" y2="381" stroke="#0EA5E9" stroke-width="5"/>
+  <polygon points="700,381 683,372 687,390" fill="#0EA5E9"/>
+
+  <line x1="320" y1="260" x2="450" y2="120" stroke="#16A34A" stroke-width="5"/>
+  <line x1="450" y1="120" x2="720" y2="120" stroke="#16A34A" stroke-width="5"/>
+  <polygon points="720,120 702,112 706,129" fill="#16A34A"/>
+
+  <line x1="700" y1="260" x2="700" y2="382" stroke="#7C3AED" stroke-width="5"/>
+  <polygon points="700,382 690,364 710,364" fill="#7C3AED"/>
+  <text x="700" y="404" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#6D28D9">Image réelle renversée</text>
+
+  <text x="174" y="156" font-family="Arial, sans-serif" font-size="20" fill="#334155">Rayon parallèle à l'axe</text>
+  <text x="515" y="214" font-family="Arial, sans-serif" font-size="20" fill="#334155">Rayon passant par le centre optique</text>
+  <text x="500" y="108" font-family="Arial, sans-serif" font-size="20" fill="#334155">Rayon passant par F ressort parallèle</text>
+</svg>

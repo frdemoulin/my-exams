@@ -1,4 +1,4 @@
-import type { ChapterSectionKind, QuizDifficulty } from '@prisma/client';
+import type { ChapterSectionKind, QuizDifficulty, TrainingQuizStage } from '@prisma/client';
 
 type SeedQuizQuestion = {
   difficulty: QuizDifficulty;
@@ -33,6 +33,8 @@ type SeedTrainingQuiz = {
   slug: string;
   description: string;
   order: number;
+  stage?: TrainingQuizStage;
+  isPublished?: boolean;
   questionOrders?: number[];
   questionGroups?: SeedTrainingQuizQuestionGroup[];
   items?: SeedTrainingQuizItem[];
@@ -145,7 +147,7 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
       difficulty: 'MEDIUM',
       order: 7,
       question:
-        'Un objet réel est placé au-delà de la distance focale d’une lentille convergente. Quelle image peut-on obtenir ?',
+        'Observe la construction de rayons suivante.\n![Rayons remarquables d une lentille convergente](/uploads/training/lentille-convergente-rayons-remarquables.svg)\nUn objet réel est placé au-delà de la distance focale d’une lentille convergente. Quelle image obtient-on dans ce cas ?',
       choices: [
         'Une image virtuelle et droite uniquement',
         'Aucune image nette',
@@ -154,7 +156,7 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
       ],
       correctChoiceIndex: 2,
       explanation:
-        'Si l’objet est placé au-delà du foyer objet d’une lentille convergente, l’image formée peut être réelle et renversée, donc observable sur un écran.',
+        'Sur le schéma, les trois rayons remarquables issus du point $B$ se coupent en $B\'$, sous l’axe optique. L’image obtenue est donc réelle et renversée, et elle peut être recueillie sur un écran.',
     },
     {
       difficulty: 'MEDIUM',
@@ -444,6 +446,211 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
       explanation:
         'On a $\\alpha\' = G\\alpha$, donc $\\alpha = \\dfrac{\\alpha\'}{G} = \\dfrac{0{,}060}{15} = 0{,}004\\,\\mathrm{rad}$.',
     },
+    {
+      difficulty: 'MEDIUM',
+      order: 31,
+      question:
+        'Première étape : une lunette de Kepler afocale possède un objectif de distance focale $f_{objectif}=1{,}20\\,\\mathrm{m}$ et un oculaire de distance focale $f_{oculaire}=25\\,\\mathrm{mm}$. Quelle est la valeur absolue de son grossissement angulaire ?',
+      choices: ['48', '25', '30', '$0{,}048$'],
+      correctChoiceIndex: 0,
+      explanation:
+        'On convertit d’abord $1{,}20\\,\\mathrm{m}$ en $1200\\,\\mathrm{mm}$, puis on applique $G = \\dfrac{f_{objectif}}{f_{oculaire}} = \\dfrac{1200}{25} = 48$.',
+    },
+    {
+      difficulty: 'HARD',
+      order: 32,
+      question:
+        'Deuxième étape : avec cette même lunette, un détail lunaire est vu à l’œil nu sous l’angle apparent $\\alpha = 2{,}5 \\times 10^{-4}\\,\\mathrm{rad}$. Sous quel angle apparent est-il vu avec la lunette ?',
+      choices: [
+        '$1{,}2 \\times 10^{-2}\\,\\mathrm{rad}$',
+        '$6{,}0 \\times 10^{-3}\\,\\mathrm{rad}$',
+        '$4{,}8 \\times 10^{-4}\\,\\mathrm{rad}$',
+        '$1{,}2 \\times 10^{-4}\\,\\mathrm{rad}$',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'On utilise $\\alpha^{\\prime} = G\\alpha = 48 \\times 2{,}5 \\times 10^{-4} = 1{,}2 \\times 10^{-2}\\,\\mathrm{rad}$.',
+    },
+    {
+      difficulty: 'MEDIUM',
+      order: 33,
+      question:
+        'Troisième étape : d’après le schéma de construction des rayons, quelle doit être la distance entre l’objectif et l’oculaire pour conserver le réglage afocal ?',
+      choices: ['$1{,}225\\,\\mathrm{m}$', '$1{,}175\\,\\mathrm{m}$', '$1{,}20\\,\\mathrm{m}$', '$0{,}025\\,\\mathrm{m}$'],
+      correctChoiceIndex: 0,
+      explanation:
+        'Pour une lunette afocale, la distance entre les deux lentilles vaut $f_{objectif} + f_{oculaire} = 1{,}20 + 0{,}025 = 1{,}225\\,\\mathrm{m}$.',
+    },
+    {
+      difficulty: 'HARD',
+      order: 34,
+      question:
+        'Quatrième étape : si l’on ne prend plus la valeur absolue du grossissement angulaire d’une lunette de Kepler, quel signe obtient-on ?',
+      choices: [
+        'Négatif, car l’image finale est renversée',
+        'Positif, car l’image finale est à l’infini',
+        'Nul, car l’objet est très éloigné',
+        'Le signe dépend uniquement du diamètre de l’objectif',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'Une lunette de Kepler renverse l’image finale par rapport à l’objet. Si l’on conserve le signe dans la définition, le grossissement angulaire est donc négatif.',
+    },
+    {
+      difficulty: 'MEDIUM',
+      order: 35,
+      question:
+        'Cinquième étape : sur le schéma, pourquoi règle-t-on la lunette pour que l’image intermédiaire se forme au foyer objet de l’oculaire ?',
+      choices: [
+        'Pour que les rayons ressortent parallèles et que l’œil observe sans accommodation',
+        'Pour rendre l’image intermédiaire plus lumineuse',
+        'Pour redresser l’image finale',
+        'Pour supprimer le rôle de l’objectif',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'Lorsque l’image intermédiaire est placée au foyer objet de l’oculaire, les rayons émergents sont parallèles. L’image finale est alors à l’infini, ce qui permet une observation sans accommodation.',
+    },
+    {
+      difficulty: 'MEDIUM',
+      order: 36,
+      question:
+        'Première étape : en lisant d’abord le schéma d’une lentille convergente puis celui de l’objectif seul, quelle est la nature de l’image intermédiaire formée par l’objectif ?',
+      choices: [
+        'Réelle et renversée',
+        'Virtuelle et droite',
+        'Réelle et droite',
+        'Virtuelle et renversée',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'Pour un objet situé à l’infini, l’objectif convergent forme dans son plan focal image une image réelle et renversée, qui sert ensuite d’objet pour l’oculaire.',
+    },
+    {
+      difficulty: 'EASY',
+      order: 37,
+      question:
+        'Deuxième étape : pourquoi l’image intermédiaire formée par l’objectif seul peut-elle être projetée sur un écran ?',
+      choices: [
+        'Parce qu’elle est réelle',
+        'Parce qu’elle est à l’infini',
+        'Parce qu’elle est toujours droite',
+        'Parce qu’elle n’est pas formée par une lentille',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'Une image ne peut être recueillie sur un écran que si elle est réelle. C’est précisément le cas de l’image intermédiaire produite par l’objectif d’une lunette de Kepler.',
+    },
+    {
+      difficulty: 'MEDIUM',
+      order: 38,
+      question:
+        'Troisième étape : dans le schéma complet de la lunette, quel rôle joue l’oculaire dans une lunette astronomique de Kepler ?',
+      choices: [
+        'Il agit comme une loupe qui permet d’observer l’image intermédiaire',
+        'Il forme à lui seul l’image réelle intermédiaire',
+        'Il modifie la fréquence de la lumière reçue',
+        'Il annule le renversement créé par l’objectif',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'L’oculaire joue le rôle d’une loupe : il permet à l’œil d’observer sous un angle plus grand l’image intermédiaire formée par l’objectif.',
+    },
+    {
+      difficulty: 'HARD',
+      order: 39,
+      question:
+        'Quatrième étape : dans l’expression $G = \\left|\\dfrac{\\alpha^{\\prime}}{\\alpha}\\right|$, pourquoi prend-on souvent la valeur absolue dans les exercices de lycée ?',
+      choices: [
+        'Parce qu’on veut surtout comparer l’agrandissement de l’angle apparent, indépendamment du renversement',
+        'Parce que le signe du grossissement n’existe jamais pour une lunette',
+        'Parce que l’oculaire rend toujours le grossissement positif',
+        'Parce que la valeur absolue permet de retrouver le diamètre réel de l’objet',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'Dans beaucoup d’exercices, on s’intéresse surtout au facteur d’agrandissement de l’angle apparent. La valeur absolue permet donc de se concentrer sur la taille apparente, sans discuter du renversement de l’image.',
+    },
+    {
+      difficulty: 'MEDIUM',
+      order: 40,
+      question:
+        'Cinquième étape : si l’on retire l’oculaire d’une lunette de Kepler pointée vers un objet très lointain, que peut-on encore observer au voisinage du foyer image de l’objectif ?',
+      choices: [
+        'Une image réelle renversée pouvant être recueillie sur un écran',
+        'Une image virtuelle droite observable seulement à l’œil',
+        'Aucune image nette',
+        'Une image finale déjà à l’infini',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'Sans l’oculaire, l’objectif continue à former seul une image réelle et renversée dans son plan focal image. Cette image peut donc être observée sur un écran placé au bon endroit.',
+    },
+    {
+      difficulty: 'HARD',
+      order: 41,
+      question:
+        'Première étape : on compare deux lunettes afocales. La lunette A a $f_{objectif}=900\\,\\mathrm{mm}$ et $f_{oculaire}=30\\,\\mathrm{mm}$. La lunette B a $f_{objectif}=1200\\,\\mathrm{mm}$ et $f_{oculaire}=24\\,\\mathrm{mm}$. Quelle lunette donne le plus grand grossissement angulaire en valeur absolue ?',
+      choices: [
+        'La lunette B',
+        'La lunette A',
+        'Les deux ont le même grossissement',
+        'On ne peut pas comparer sans connaître le diamètre des objectifs',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'On calcule $G_A = \\dfrac{900}{30} = 30$ et $G_B = \\dfrac{1200}{24} = 50$. La lunette B grossit donc davantage.',
+    },
+    {
+      difficulty: 'HARD',
+      order: 42,
+      question:
+        'Deuxième étape : un même détail est vu à l’œil nu sous l’angle apparent $\\alpha = 3{,}0 \\times 10^{-4}\\,\\mathrm{rad}$. Avec la lunette B, sous quel angle apparent est-il vu ?',
+      choices: [
+        '$1{,}5 \\times 10^{-2}\\,\\mathrm{rad}$',
+        '$9{,}0 \\times 10^{-3}\\,\\mathrm{rad}$',
+        '$6{,}0 \\times 10^{-4}\\,\\mathrm{rad}$',
+        '$5{,}0 \\times 10^{-2}\\,\\mathrm{rad}$',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'La lunette B a un grossissement $G_B = 50$, donc $\\alpha^{\\prime} = G_B\\alpha = 50 \\times 3{,}0 \\times 10^{-4} = 1{,}5 \\times 10^{-2}\\,\\mathrm{rad}$.',
+      },
+      {
+      difficulty: 'MEDIUM',
+      order: 43,
+      question:
+          'Troisième étape : avec l’objectif de la lunette A ($f_{objectif}=900\\,\\mathrm{mm}$), quelle distance focale d’oculaire faut-il choisir pour atteindre un grossissement angulaire en valeur absolue $G = 50$ ?',
+      choices: ['$18\\,\\mathrm{mm}$', '$30\\,\\mathrm{mm}$', '$45\\,\\mathrm{mm}$', '$50\\,\\mathrm{mm}$'],
+      correctChoiceIndex: 0,
+      explanation:
+        'On isole la distance focale de l’oculaire : $f_{oculaire} = \\dfrac{f_{objectif}}{G} = \\dfrac{900}{50} = 18\\,\\mathrm{mm}$.',
+    },
+    {
+      difficulty: 'MEDIUM',
+      order: 44,
+      question:
+        'Quatrième étape : un objet garde le même diamètre réel, mais sa distance à l’observateur double. À lunette inchangée, comment évolue l’angle apparent final sous lequel il est vu ?',
+      choices: [
+        'Il est divisé par deux',
+        'Il double',
+        'Il reste inchangé',
+        'Il est multiplié par quatre',
+      ],
+      correctChoiceIndex: 0,
+      explanation:
+        'Pour les petits angles, on a $\\alpha \\approx D/d$. Si la distance double, $\\alpha$ est divisée par deux. Comme $\\alpha^{\\prime} = G\\alpha$ avec la même lunette, l’angle apparent final est lui aussi divisé par deux.',
+    },
+    {
+      difficulty: 'HARD',
+      order: 45,
+      question:
+        'Cinquième étape : pour un même détail observé dans les mêmes conditions, quel est le rapport des angles apparents obtenus avec les lunettes B et A ?',
+      choices: ['$\\dfrac{5}{3}$', '$\\dfrac{3}{5}$', '$\\dfrac{5}{2}$', '$\\dfrac{2}{5}$'],
+      correctChoiceIndex: 0,
+      explanation:
+        'Pour un même objet, l’angle apparent final est proportionnel au grossissement. On a donc $\\dfrac{\\alpha^{\\prime}_B}{\\alpha^{\\prime}_A} = \\dfrac{G_B}{G_A} = \\dfrac{50}{30} = \\dfrac{5}{3}$.',
+    },
   ],
   sections: [
     {
@@ -458,6 +665,7 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           description:
             'Calculer le grossissement et relier les distances focales de l’objectif et de l’oculaire.',
           order: 1,
+          stage: 'DISCOVER',
           questionOrders: [1, 2, 3, 4, 5],
         },
         {
@@ -466,7 +674,25 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           description:
             'Comprendre la formation de l’image intermédiaire, le réglage afocal et la position de l’image finale.',
           order: 2,
+          stage: 'PRACTICE',
           questionOrders: [16, 17, 18, 19, 20],
+        },
+        {
+          title: 'Cas guidé - Observer un détail lunaire',
+          slug: 'cas-guide-observer-detail-lunaire',
+          description:
+            'QCM guidé pas à pas : calculer le grossissement, lire un schéma afocal, puis interpréter le signe du grossissement dans une lunette de Kepler.',
+          order: 3,
+          stage: 'MASTER',
+          items: [
+            {
+              type: 'GROUP',
+              title: 'Cas d’étude - Observation d’un détail lunaire',
+              sharedStatement:
+                'Une lunette de Kepler afocale est utilisée pour observer un détail lunaire. Son objectif a une distance focale $f_{objectif}=1{,}20\\,\\mathrm{m}$ et son oculaire une distance focale $f_{oculaire}=25\\,\\mathrm{mm}$. À l’œil nu, le détail est vu sous l’angle apparent $\\alpha = 2{,}5 \\times 10^{-4}\\,\\mathrm{rad}$. On procède par étapes : calcul du grossissement, lecture de l’angle apparent obtenu, condition afocale, puis interprétation du signe et du confort d’observation.\n![Construction des rayons dans une lunette de Kepler afocale](/uploads/training/lunette-construction-rayons-afocale.svg)',
+              questionOrders: [31, 32, 33, 34, 35],
+            },
+          ],
         },
       ],
     },
@@ -480,8 +706,9 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           title: 'Reconnaître une lentille convergente',
           slug: 'reconnaitre-lentille-convergente',
           description:
-            'Identifier une lentille convergente et prévoir la nature de l’image formée.',
+            'Identifier une lentille convergente, lire un schéma de rayons remarquables et prévoir la nature de l’image formée.',
           order: 1,
+          stage: 'DISCOVER',
           questionOrders: [6, 7, 8, 9, 10],
         },
         {
@@ -490,7 +717,25 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           description:
             'Exploiter la relation de grandissement et interpréter la taille de l’image formée.',
           order: 2,
+          stage: 'PRACTICE',
           questionOrders: [21, 22, 23, 24, 25],
+        },
+        {
+          title: 'Chaîne optique d’une lunette de Kepler',
+          slug: 'chaine-optique-lunette-de-kepler',
+          description:
+            'QCM guidé du plus simple au plus complet : lire d’abord le schéma d’une lentille convergente, puis celui de l’objectif seul, avant de conclure sur la lunette complète.',
+          order: 3,
+          stage: 'MASTER',
+          items: [
+            {
+              type: 'GROUP',
+              title: 'Cas d’étude - De l’objectif à l’oculaire',
+              sharedStatement:
+                'On analyse la chaîne optique d’une lunette de Kepler pointée vers un objet très lointain. On commence par lire le schéma classique d’une lentille convergente seule, puis on retrouve la même logique pour l’objectif de la lunette, avant de terminer par le rôle de l’oculaire dans la lunette complète.\n![Rayons remarquables d une lentille convergente](/uploads/training/lentille-convergente-rayons-remarquables.svg)\n![Construction des rayons par l objectif d une lunette](/uploads/training/lunette-objectif-image-intermediaire.svg)\n![Construction des rayons dans une lunette de Kepler afocale](/uploads/training/lunette-construction-rayons-afocale.svg)',
+              questionOrders: [36, 37, 38, 39, 40],
+            },
+          ],
         },
       ],
     },
@@ -506,6 +751,7 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           description:
             'Relier taille, distance et diamètre apparent dans l’approximation des petits angles.',
           order: 1,
+          stage: 'DISCOVER',
           questionOrders: [11, 12, 13, 14, 15],
         },
         {
@@ -514,7 +760,25 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           description:
             'Analyser comment une lunette modifie l’angle apparent et améliore la perception des détails.',
           order: 2,
+          stage: 'PRACTICE',
           questionOrders: [26, 27, 28, 29, 30],
+        },
+        {
+          title: 'Comparer deux lunettes astronomiques',
+          slug: 'comparer-deux-lunettes-astronomiques',
+          description:
+            'QCM guidé pas à pas pour comparer deux instruments : grossissements, angle apparent obtenu, choix d’oculaire, puis bilan.',
+          order: 3,
+          stage: 'MASTER',
+          items: [
+            {
+              type: 'GROUP',
+              title: 'Cas d’étude - Choisir entre deux lunettes',
+              sharedStatement:
+                'On compare deux lunettes astronomiques afocales utilisées pour observer le même détail lointain. La lunette A a $f_{objectif}=900\\,\\mathrm{mm}$ et $f_{oculaire}=30\\,\\mathrm{mm}$. La lunette B a $f_{objectif}=1200\\,\\mathrm{mm}$ et $f_{oculaire}=24\\,\\mathrm{mm}$. À l’œil nu, le détail est vu sous l’angle apparent $\\alpha = 3{,}0 \\times 10^{-4}\\,\\mathrm{rad}$. On avance ici par comparaison progressive : d’abord les grossissements, puis l’angle obtenu avec la lunette B, puis le choix d’un nouvel oculaire pour la lunette A, avant de terminer par une interprétation globale.',
+              questionOrders: [41, 42, 43, 44, 45],
+            },
+          ],
         },
       ],
     },
@@ -530,7 +794,8 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           description:
             'Révision transversale des définitions et relations essentielles du chapitre.',
           order: 1,
-          questionOrders: [2, 6, 11, 17, 26],
+          stage: 'PRACTICE',
+          questionOrders: [2, 6, 11, 19, 38],
         },
         {
           title: 'QCM de synthèse - calculs et interprétation',
@@ -538,6 +803,7 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
           description:
             'Réinvestir les calculs et interprétations physiques autour de la lunette astronomique.',
           order: 2,
+          stage: 'MASTER',
           items: [
             {
               type: 'QUESTION',
@@ -545,14 +811,18 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
             },
             {
               type: 'GROUP',
-              title: 'Cas d’étude - Observation à la lunette',
+              title: 'Cas d’étude - Choisir une lunette pour un détail lointain',
               sharedStatement:
-                'On étudie une série de raisonnements autour d’une lunette astronomique de Kepler utilisée en réglage afocal pour observer un astre très éloigné. Les questions suivantes mobilisent le grossissement angulaire et son effet sur l’angle apparent perçu.',
-              questionOrders: [18, 28, 30],
+                'On étudie une série de raisonnements autour de deux lunettes astronomiques afocales destinées à observer un même détail très lointain. Les questions suivantes mobilisent le réglage afocal, le calcul du grossissement et la comparaison des angles apparents obtenus.',
+              questionOrders: [33, 42, 45],
             },
             {
               type: 'QUESTION',
               questionOrder: 9,
+            },
+            {
+              type: 'QUESTION',
+              questionOrder: 39,
             },
           ],
         },
