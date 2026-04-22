@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/frdemoulin/my-exams/compare/v1.6.0...v1.6.1) (2026-04-22)
+
+### Bug Fixes
+
+* ajout de QCMs en optique ([0f383bb](https://github.com/frdemoulin/my-exams/commit/0f383bb19aa2fa44827c09362350d8e75c02e352))
+
 ## [1.6.0](https://github.com/frdemoulin/my-exams/compare/v1.5.2...v1.6.0) (2026-04-20)
 
 ### Features
