@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/frdemoulin/my-exams/compare/v1.6.1...v1.6.2) (2026-04-24)
+
+### Bug Fixes
+
+* ajout des QCMs sur la radioactivité ([db251b5](https://github.com/frdemoulin/my-exams/commit/db251b5501e42523f02cdf66051fd7e882d185da))
+* complétude des QCMs du chapitre Optimisation d'une synthèse ([ff01d45](https://github.com/frdemoulin/my-exams/commit/ff01d45dda530bac4d04df6ae0665c3db21d982f))
+
 ## [1.6.1](https://github.com/frdemoulin/my-exams/compare/v1.6.0...v1.6.1) (2026-04-22)
 
 ### Bug Fixes
