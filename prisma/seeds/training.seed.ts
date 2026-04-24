@@ -6,6 +6,7 @@ import type {
 } from '@prisma/client';
 import { inferTrainingQuizStageFromOrder } from '../../src/core/training/training-stage';
 import { lunetteTrainingChapter } from './data/lunette-training-chapter';
+import { optimisationSyntheseTrainingChapter } from './data/optimisation-synthese-training-chapter';
 import { thermalTransfersTrainingChapter } from './data/thermal-transfers-training-chapter';
 
 type SeedQuizQuestion = {
@@ -250,22 +251,7 @@ const chapters: SeedChapter[] = [
       },
     ],
   },
-  {
-    title: "Optimisation d'une synthèse",
-    slug: 'optimisation-d-une-synthese',
-    order: 9,
-    domainLongDescriptions: ['Constitution et transformations de la matière'],
-    questions: [
-      {
-        difficulty: 'EASY',
-        order: 1,
-        question: 'Quelle expression donne le rendement $\\eta$ d’une synthèse chimique ?',
-        choices: ['$\\eta = \\dfrac{n_{obtenu}}{n_{max}} \\times 100$', '$\\eta = \\dfrac{n_{max}}{n_{obtenu}} \\times 100$', '$\\eta = n_{obtenu} + n_{max}$', '$\\eta = \\dfrac{m_{réactif}}{m_{produit}}$'],
-        correctChoiceIndex: 0,
-        explanation: 'Le rendement compare la quantité obtenue à la quantité maximale attendue : $\\eta = \\dfrac{n_{obtenu}}{n_{max}} \\times 100$.',
-      },
-    ],
-  },
+  optimisationSyntheseTrainingChapter,
   {
     title: 'Stratégie de synthèse multi-étapes',
     slug: 'strategie-de-synthese-multi-etapes',

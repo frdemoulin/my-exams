@@ -177,6 +177,48 @@ Si tu dois le faire ponctuellement :
 CONFIRM_DB_MIGRATIONS=1 npm run db:migrate -- --prod
 ```
 
+### Scénario 6 — Réinitialiser complètement la PROD à partir de la DEV
+
+Quand tu veux retrouver **à l’identique** en PROD l’état courant de ta base DEV
+(par exemple pour récupérer tous les QCM, sections, questions, `trainingQuizzes`, `questionLinks`, etc.),
+**ne passe pas par `db:seed:prod`**.
+
+`db:seed:prod` rejoue seulement les seeds versionnés. Si ta DEV contient des données éditoriales ou des contenus régénérés qui ne sont pas entièrement décrits par les seeds, il faut faire un **miroir complet de base**.
+
+Recommandation : faire ça **manuellement, en one-shot**, depuis une machine de confiance ou un job CI dédié.
+Ne mets **pas** ce reset complet dans la Pre-deploy command Render.
+
+Pré-requis :
+
+```bash
+export MONGODB_URI_DEV="<URI_ATLAS_AVEC_DB_DEV>"
+export MONGODB_URI_PROD="<URI_ATLAS_AVEC_DB_PROD>"
+```
+
+Si les noms de base diffèrent entre DEV et PROD, passe-les explicitement :
+
+```bash
+npm run db:sync-dev-to-prod -- --dev-db my-exams-dev --prod-db my-exams-prod --yes
+```
+
+Ce script :
+- sauvegarde d’abord la PROD
+- supprime ensuite la base PROD cible
+- exporte la DEV
+- restaure la DEV dans la PROD
+
+Options utiles :
+- `--skip-backup` : saute la sauvegarde PROD
+- `--allow-same-cluster` : autorise DEV et PROD sur le même cluster Atlas
+
+⚠️ C’est un **reset destructif** de la PROD. À réserver à un besoin ponctuel de réalignement exact.
+
+### Scénario 7 — Choisir entre seed PROD et miroir DEV → PROD
+
+- **Tu veux juste initialiser une nouvelle base PROD avec le contenu versionné du repo** : utilise `db:seed:prod`
+- **Tu veux cloner exactement l’état actuel de la DEV** : utilise `db:sync-dev-to-prod`
+- **Tu veux seulement republier les changements de schéma / index / migrations data** : laisse Render exécuter `db:deploy`
+
 ---
 ## 5) Aide-mémoire (cheat-sheet)
 
@@ -188,3 +230,4 @@ CONFIRM_DB_MIGRATIONS=1 npm run db:migrate -- --prod
 - PROD (Render) : `DATABASE_URL` dans les env Render
   - Pre-deploy : `CONFIRM_DB_MIGRATIONS=1 npm run db:deploy`
   - seed prod (one-shot) : `CONFIRM_PROD_SEED=1 npm run db:seed:prod`
+  - miroir DEV -> PROD (manuel, destructif) : `npm run db:sync-dev-to-prod -- --dev-db <db_dev> --prod-db <db_prod> --yes`
