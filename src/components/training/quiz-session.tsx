@@ -835,14 +835,31 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
           >
             Pr&eacute;c&eacute;dent
           </Button>
-          <Button
-            type="button"
-            size="sm"
-            onClick={isComplete ? openSummary : goToNextQuestion}
-            disabled={!isComplete && currentIndex === sessionQuestions.length - 1}
-          >
-            {isComplete ? 'Voir la synthèse' : 'Suivant'}
-          </Button>
+          {isComplete ? (
+            <>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={goToNextQuestion}
+                disabled={currentIndex === sessionQuestions.length - 1}
+              >
+                Suivant
+              </Button>
+              <Button type="button" size="sm" onClick={openSummary}>
+                Voir la synthèse
+              </Button>
+            </>
+          ) : (
+            <Button
+              type="button"
+              size="sm"
+              onClick={goToNextQuestion}
+              disabled={currentIndex === sessionQuestions.length - 1}
+            >
+              Suivant
+            </Button>
+          )}
           {isComplete ? (
             <Button type="button" variant="secondary" size="sm" onClick={resetQuiz}>
               Recommencer

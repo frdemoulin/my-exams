@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Schéma simplifié de radioprotection</title>
+  <desc id="desc">Trois rayonnements alpha bêta gamma rencontrent respectivement du papier, de l’aluminium et du plomb.</desc>
+  <rect width="720" height="280" fill="#fbfcf7" rx="24" />
+  <g transform="translate(30 34)">
+    <text x="0" y="18" fill="#25332a" font-family="Georgia, serif" font-size="22">Rayonnements ionisants et écrans</text>
+    <g font-family="Georgia, serif" font-size="18" fill="#25332a">
+      <text x="0" y="78">α</text>
+      <text x="0" y="148">β</text>
+      <text x="0" y="218">γ</text>
+    </g>
+    <g fill="none" stroke-linecap="round" stroke-width="10">
+      <path d="M34 70H150" stroke="#f97316" />
+      <path d="M34 140H256" stroke="#0ea5e9" />
+      <path d="M34 210H540" stroke="#8b5cf6" stroke-dasharray="18 16" />
+    </g>
+    <g>
+      <rect x="150" y="42" width="30" height="56" fill="#fff4d6" stroke="#c29a2c" stroke-width="2" rx="4" />
+      <rect x="256" y="112" width="44" height="56" fill="#d9e2e8" stroke="#768a96" stroke-width="2" rx="4" />
+      <rect x="540" y="182" width="62" height="56" fill="#b7bcc2" stroke="#4b5563" stroke-width="2" rx="4" />
+    </g>
+    <g fill="#25332a" font-family="Georgia, serif" font-size="18">
+      <text x="136" y="124">papier</text>
+      <text x="236" y="194">aluminium</text>
+      <text x="538" y="264">plomb</text>
+      <text x="188" y="74">arrêté</text>
+      <text x="308" y="144">fortement atténué</text>
+      <text x="614" y="214">atténué</text>
+    </g>
+    <g fill="#64748b" font-family="Georgia, serif" font-size="16">
+      <text x="446" y="52">Plus le rayonnement est pénétrant,</text>
+      <text x="446" y="74">plus l’écran doit être dense et épais.</text>
+    </g>
+  </g>
+</svg>

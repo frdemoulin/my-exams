@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import katex from 'katex';
+import 'katex/contrib/mhchem';
 import { Fragment } from 'react';
 import { cn } from '@/lib/utils';
 

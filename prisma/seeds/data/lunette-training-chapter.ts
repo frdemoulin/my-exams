@@ -163,24 +163,24 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
       order: 8,
       question: 'Quelle relation exprime le grandissement d’une lentille mince ?',
       choices: [
-        '$\\gamma = \\dfrac{AB}{A\'B\'}$',
-        '$\\gamma = \\dfrac{A\'B\'}{AB}$',
-        '$\\gamma = AB \\times A\'B\'$ ',
-        '$\\gamma = \\dfrac{f\'}{AB}$',
+        '$\\gamma = \\dfrac{\\overline{AB}}{\\overline{A^{\\prime}B^{\\prime}}}$',
+        '$\\gamma = \\dfrac{\\overline{A^{\\prime}B^{\\prime}}}{\\overline{AB}}$',
+        '$\\gamma = \\overline{AB} \\times \\overline{A^{\\prime}B^{\\prime}}$ ',
+        '$\\gamma = \\dfrac{f\'}{\\overline{AB}}$',
       ],
       correctChoiceIndex: 1,
       explanation:
-        'Le grandissement algébrique s’écrit $\\gamma = \\dfrac{A\'B\'}{AB}$. Il peut aussi s’exprimer avec les distances orientées par $\\gamma = \\dfrac{OA\'}{OA}$.',
+        'Le grandissement algébrique s’écrit $\\gamma = \\dfrac{\\overline{A^{\\prime}B^{\\prime}}}{\\overline{AB}}$. Il peut aussi s’exprimer avec les distances algébriques par $\\gamma = \\dfrac{\\overline{OA^{\\prime}}}{\\overline{OA}}$.',
     },
     {
       difficulty: 'HARD',
       order: 9,
       question:
-        'Un objet de hauteur $AB = 2{,}0\\,\\mathrm{cm}$ donne une image de hauteur $A\'B\' = -6{,}0\\,\\mathrm{cm}$. Quel est le grandissement ?',
+        'Un objet de hauteur $\\overline{AB} = 2{,}0\\,\\mathrm{cm}$ donne une image de hauteur $\\overline{A^{\\prime}B^{\\prime}} = -6{,}0\\,\\mathrm{cm}$. Quel est le grandissement ?',
       choices: ['$-3$', '$3$', '$-\\dfrac{1}{3}$', '$\\dfrac{1}{3}$'],
       correctChoiceIndex: 0,
       explanation:
-        'On calcule $\\gamma = \\dfrac{A\'B\'}{AB} = \\dfrac{-6{,}0}{2{,}0} = -3$. Le signe négatif traduit une image renversée.',
+        'On calcule $\\gamma = \\dfrac{\\overline{A^{\\prime}B^{\\prime}}}{\\overline{AB}} = \\dfrac{-6{,}0}{2{,}0} = -3$. Le signe négatif traduit une image renversée.',
     },
     {
       difficulty: 'EASY',
@@ -335,21 +335,21 @@ export const lunetteTrainingChapter: TrainingChapterSeed = {
       difficulty: 'MEDIUM',
       order: 22,
       question:
-        'Un objet de hauteur $AB = 4{,}0\\,\\mathrm{cm}$ donne une image avec un grandissement $\\gamma = 0{,}5$. Quelle est la hauteur de l’image ?',
+        'Un objet de hauteur $\\overline{AB} = 4{,}0\\,\\mathrm{cm}$ donne une image avec un grandissement $\\gamma = 0{,}5$. Quelle est la hauteur de l’image ?',
       choices: ['$2{,}0\\,\\mathrm{cm}$', '$4{,}0\\,\\mathrm{cm}$', '$8{,}0\\,\\mathrm{cm}$', '$-2{,}0\\,\\mathrm{cm}$'],
       correctChoiceIndex: 0,
       explanation:
-        'On utilise $A\'B\' = \\gamma \\times AB = 0{,}5 \\times 4{,}0 = 2{,}0\\,\\mathrm{cm}$.',
+        'On utilise $\\overline{A^{\\prime}B^{\\prime}} = \\gamma \\times \\overline{AB} = 0{,}5 \\times 4{,}0 = 2{,}0\\,\\mathrm{cm}$.',
     },
     {
       difficulty: 'HARD',
       order: 23,
       question:
-        'Un objet de hauteur $AB = 4{,}0\\,\\mathrm{cm}$ donne une image de hauteur $A\'B\' = -2{,}0\\,\\mathrm{cm}$. Quelle est la valeur du grandissement ?',
+        'Un objet de hauteur $\\overline{AB} = 4{,}0\\,\\mathrm{cm}$ donne une image de hauteur $\\overline{A^{\\prime}B^{\\prime}} = -2{,}0\\,\\mathrm{cm}$. Quelle est la valeur du grandissement ?',
       choices: ['$-0{,}5$', '$0{,}5$', '$-2$', '$2$'],
       correctChoiceIndex: 0,
       explanation:
-        'Le grandissement vaut $\\gamma = \\dfrac{A\'B\'}{AB} = \\dfrac{-2{,}0}{4{,}0} = -0{,}5$. Le signe négatif traduit l’inversion de l’image.',
+        'Le grandissement vaut $\\gamma = \\dfrac{\\overline{A^{\\prime}B^{\\prime}}}{\\overline{AB}} = \\dfrac{-2{,}0}{4{,}0} = -0{,}5$. Le signe négatif traduit l’inversion de l’image.',
     },
     {
       difficulty: 'MEDIUM',

@@ -1,0 +1,13 @@
+<svg width="960" height="320" viewBox="0 0 960 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="320" rx="28" fill="#FAFAF9"/>
+  <text x="480" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0F172A">Formule semi-developpee</text>
+
+  <text x="190" y="200" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0F172A">CH3</text>
+  <line x1="262" y1="188" x2="342" y2="188" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+  <text x="362" y="200" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0F172A">C</text>
+  <line x1="376" y1="170" x2="376" y2="106" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+  <line x1="394" y1="170" x2="394" y2="106" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+  <text x="370" y="92" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#BE123C">O</text>
+  <line x1="404" y1="188" x2="484" y2="188" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+  <text x="504" y="200" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0F172A">NH2</text>
+</svg>

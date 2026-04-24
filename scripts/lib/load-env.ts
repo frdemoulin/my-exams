@@ -3,10 +3,10 @@ import path from 'node:path';
 import dotenv from 'dotenv';
 
 const envFiles = [
-  '.env.prod.local',
-  '.env.production.local',
   '.env.local',
   '.env',
+  '.env.prod.local',
+  '.env.production.local',
 ];
 
 export function loadProjectEnv() {
@@ -17,7 +17,10 @@ export function loadProjectEnv() {
     }
   }
 
-  if (!process.env.DATABASE_URL && process.env.MONGODB_URI) {
-    process.env.DATABASE_URL = process.env.MONGODB_URI;
+  if (!process.env.DATABASE_URL) {
+    process.env.DATABASE_URL =
+      process.env.DATABASE_URL_DEV ??
+      process.env.MONGODB_URI_DEV ??
+      process.env.MONGODB_URI;
   }
 }

@@ -39,7 +39,7 @@ Ce document décrit le workflow à suivre lorsque l’on souhaite enrichir les d
    - Aucune migration Prisma n’est nécessaire : le champ est nullable.
 
 4. **Répliquer en dev**
-   - Après avoir mis à jour prod, synchroniser la base de dev via `scripts/sync_prod_to_dev.sh --db my_exams`.
+  - Après avoir mis à jour prod, synchroniser la base de dev via `scripts/sync_prod_to_dev.sh --prod-db my_exams --dev-db my_exams_dev`.
    - Cela garantit que les environnements locale et CI restent en phase.
 
 5. **Vérifications**

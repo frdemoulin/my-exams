@@ -1,0 +1,13 @@
+<svg width="960" height="320" viewBox="0 0 960 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="320" rx="28" fill="#FAFAF9"/>
+  <text x="480" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0F172A">Formule topologique</text>
+
+  <path d="M180 210L300 130" stroke="#0F172A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M312 126L432 206" stroke="#0F172A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M296 146L416 226" stroke="#0F172A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M432 206L552 126L672 206" stroke="#0F172A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M552 126L624 72" stroke="#0F172A" stroke-width="8" stroke-linecap="round"/>
+
+  <text x="646" y="72" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#0F766E">Cl</text>
+
+</svg>
