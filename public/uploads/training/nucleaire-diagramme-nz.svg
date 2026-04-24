@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Diagramme simplifié N Z</title>
+  <desc id="desc">Repère avec N en abscisse, Z en ordonnée, droite N égale Z et bande de stabilité stylisée.</desc>
+  <rect width="640" height="420" fill="#fbfcf7" rx="24" />
+  <g transform="translate(72 42)">
+    <rect width="520" height="320" fill="#ffffff" stroke="#d7e2c3" stroke-width="2" rx="16" />
+    <g stroke="#dfe7d2" stroke-width="1">
+      <path d="M52 24v272" />
+      <path d="M104 24v272" />
+      <path d="M156 24v272" />
+      <path d="M208 24v272" />
+      <path d="M260 24v272" />
+      <path d="M312 24v272" />
+      <path d="M364 24v272" />
+      <path d="M416 24v272" />
+      <path d="M468 24v272" />
+      <path d="M24 272h468" />
+      <path d="M24 220h468" />
+      <path d="M24 168h468" />
+      <path d="M24 116h468" />
+      <path d="M24 64h468" />
+    </g>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 296H492" stroke="#31452c" stroke-width="4" />
+      <path d="M24 296V24" stroke="#31452c" stroke-width="4" />
+      <path d="M40 284L456 48" stroke="#d65d4a" stroke-width="4" stroke-dasharray="12 10" />
+      <path d="M54 262C108 236 168 204 222 176C278 148 336 120 408 92C434 82 454 74 474 66" stroke="#4f7d2e" stroke-width="34" opacity="0.18" />
+      <path d="M56 254C110 230 170 198 224 170C280 142 338 116 410 88C434 78 454 70 472 62" stroke="#90c43d" stroke-width="18" />
+      <path d="M48 270C92 246 124 232 166 214" stroke="#3b82f6" stroke-width="8" opacity="0.8" />
+      <path d="M368 120C404 104 436 90 474 74" stroke="#f59e0b" stroke-width="8" opacity="0.85" />
+    </g>
+    <g fill="#31452c" font-family="Georgia, serif" font-size="18">
+      <text x="478" y="326">N</text>
+      <text x="6" y="22">Z</text>
+      <text x="348" y="44" fill="#d65d4a">droite N = Z</text>
+      <text x="320" y="244" fill="#4f7d2e">bande de stabilité</text>
+      <text x="54" y="154" fill="#3b82f6">zone riche en protons</text>
+      <text x="348" y="136" fill="#f59e0b">zone riche en neutrons</text>
+    </g>
+  </g>
+</svg>
