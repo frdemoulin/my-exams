@@ -104,17 +104,55 @@ const renderText = (value: string) =>
     </Fragment>
   ));
 
+const shouldRenderAsBlockMath = (value: string, displayMode: boolean) => {
+  if (displayMode) {
+    return true;
+  }
+
+  const trimmedValue = value.trim();
+
+  if (!trimmedValue) {
+    return false;
+  }
+
+  const plusCount = (trimmedValue.match(/\+/g) ?? []).length;
+
+  const hasReactionArrow =
+    /\\(?:rightarrow|leftarrow|leftrightarrow|Rightarrow|to)\b|->|<=>/.test(
+      trimmedValue
+    ) || /\\ce\{.*(?:->|<=>).+\}/.test(trimmedValue);
+
+  if (hasReactionArrow) {
+    return false;
+  }
+
+  const relationCount = (trimmedValue.match(/=|\\approx|\\leq|\\geq|\\neq/g) ?? [])
+    .length;
+
+  if (relationCount === 0 || trimmedValue.length < 18) {
+    return false;
+  }
+
+  const parenthesisCount = (trimmedValue.match(/\(/g) ?? []).length;
+  const hasApproximation = /\\approx/.test(trimmedValue);
+
+  return (
+    relationCount > 1 || plusCount > 0 || parenthesisCount > 1 || hasApproximation
+  );
+};
+
 const renderMath = (value: string, displayMode: boolean) => {
+  const renderAsBlock = shouldRenderAsBlockMath(value, displayMode);
   const html = katex.renderToString(value, {
-    displayMode,
+    displayMode: renderAsBlock,
     throwOnError: false,
     trust: false,
   });
 
-  if (displayMode) {
+  if (renderAsBlock) {
     return (
       <span
-        className="my-3 block overflow-x-auto"
+        className="my-3 block overflow-x-auto rounded-lg border border-border bg-neutral-primary-soft px-3 py-3 shadow-xs"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );
