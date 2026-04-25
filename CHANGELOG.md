@@ -1,3 +1,9 @@
+## [1.6.4](https://github.com/frdemoulin/my-exams/compare/v1.6.3...v1.6.4) (2026-04-25)
+
+### Bug Fixes
+
+* mise à jour du QCM sur les alcools ([d9761b1](https://github.com/frdemoulin/my-exams/commit/d9761b19a3ef38af3ac5eecf40acd9c4c0839fd5))
+
 ## [1.6.3](https://github.com/frdemoulin/my-exams/compare/v1.6.2...v1.6.3) (2026-04-25)
 
 ### Bug Fixes
