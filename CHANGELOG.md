@@ -1,3 +1,9 @@
+## [1.6.3](https://github.com/frdemoulin/my-exams/compare/v1.6.2...v1.6.3) (2026-04-25)
+
+### Bug Fixes
+
+* ajout d'une navbar dans les QCMs ([ad23bd5](https://github.com/frdemoulin/my-exams/commit/ad23bd53279083f53ac596550ce148406666177e))
+
 ## [1.6.2](https://github.com/frdemoulin/my-exams/compare/v1.6.1...v1.6.2) (2026-04-24)
 
 ### Bug Fixes
