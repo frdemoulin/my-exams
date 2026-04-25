@@ -61,7 +61,196 @@ type TrainingChapterSeed = {
   sections?: SeedChapterSection[];
 };
 
-export const optimisationSyntheseTrainingChapter: TrainingChapterSeed = {
+const chemistryMathReplacements = [
+  {
+    source: 'N_2 + 3H_2 \\rightleftharpoons 2NH_3',
+    target: '\\ce{N2 + 3H2 <=> 2NH3}',
+  },
+  {
+    source: 'N_2+3H_2\\rightleftharpoons 2NH_3',
+    target: '\\ce{N2 + 3H2 <=> 2NH3}',
+  },
+  {
+    source: 'n_{H_2}/n_{N_2}',
+    target: 'n_{\\ce{H2}}/n_{\\ce{N2}}',
+  },
+  {
+    source: '(-CH_2-CH_2-)_n',
+    target: '\\ce{(-CH2-CH2-)_{n}}',
+  },
+  {
+    source: '(-CH_2-CHCl-)_n',
+    target: '\\ce{(-CH2-CHCl-)_{n}}',
+  },
+  {
+    source: 'CH_3-CH_2-CH_2-NH_2',
+    target: '\\ce{CH3-CH2-CH2-NH2}',
+  },
+  {
+    source: 'CH_3-CH_2-COO-CH_3',
+    target: '\\ce{CH3-CH2-COO-CH3}',
+  },
+  {
+    source: 'CH_3-CH_2-CH_2-OH',
+    target: '\\ce{CH3-CH2-CH2-OH}',
+  },
+  {
+    source: 'CH_3-CO-CH_2-CH_3',
+    target: '\\ce{CH3-CO-CH2-CH3}',
+  },
+  {
+    source: 'CH_3-COO-CH_2-CH_3',
+    target: '\\ce{CH3-COO-CH2-CH3}',
+  },
+  {
+    source: 'CH_3-CH_2-COOH',
+    target: '\\ce{CH3-CH2-COOH}',
+  },
+  {
+    source: 'CH_3-CH(OH)-CH_3',
+    target: '\\ce{CH3-CH(OH)-CH3}',
+  },
+  {
+    source: 'CH_3-CH_2-CHO',
+    target: '\\ce{CH3-CH2-CHO}',
+  },
+  {
+    source: 'CH_3-CHO',
+    target: '\\ce{CH3-CHO}',
+  },
+  {
+    source: 'CH_3-CH_2-NH_2',
+    target: '\\ce{CH3-CH2-NH2}',
+  },
+  {
+    source: 'CH_3-CH_2-OH',
+    target: '\\ce{CH3-CH2-OH}',
+  },
+  {
+    source: 'CH_3-CONH_2',
+    target: '\\ce{CH3-CONH2}',
+  },
+  {
+    source: 'CH_3-COO-CH_3',
+    target: '\\ce{CH3-COO-CH3}',
+  },
+  {
+    source: 'CH_3-CO-CH_3',
+    target: '\\ce{CH3-CO-CH3}',
+  },
+  {
+    source: 'CH_3-COOH',
+    target: '\\ce{CH3-COOH}',
+  },
+  {
+    source: 'C_3H_6O',
+    target: '\\ce{C3H6O}',
+  },
+  {
+    source: '-CH_2-CH_2-CH_2-',
+    target: '\\ce{-CH2-CH2-CH2-}',
+  },
+  {
+    source: '-CH_2-CHCl-',
+    target: '\\ce{-CH2-CHCl-}',
+  },
+  {
+    source: '-CH_2-CH_2-',
+    target: '\\ce{-CH2-CH2-}',
+  },
+  {
+    source: '-CH_2-Cl-',
+    target: '\\ce{-CH2-Cl-}',
+  },
+  {
+    source: '-CH=CH-',
+    target: '\\ce{-CH=CH-}',
+  },
+  {
+    source: '-CHCl-',
+    target: '\\ce{-CHCl-}',
+  },
+  {
+    source: '-CH_2-',
+    target: '\\ce{-CH2-}',
+  },
+  {
+    source: 'n_{NH_3}=2x',
+    target: 'n_{\\ce{NH3}}=2x',
+  },
+  {
+    source: 'y_{NH_3}=0{,}40',
+    target: 'y_{\\ce{NH3}}=0{,}40',
+  },
+  {
+    source: 'y_{NH_3}=0{,}25',
+    target: 'y_{\\ce{NH3}}=0{,}25',
+  },
+  {
+    source: 'NH_3',
+    target: '\\ce{NH3}',
+  },
+  {
+    source: 'H_2',
+    target: '\\ce{H2}',
+  },
+  {
+    source: 'N_2',
+    target: '\\ce{N2}',
+  },
+].sort((left, right) => right.source.length - left.source.length);
+
+const normalizeChemistryMathContent = (value: string) =>
+  chemistryMathReplacements.reduce(
+    (normalizedValue, { source, target }) => normalizedValue.split(source).join(target),
+    value
+  );
+
+const normalizeChemistryMarkup = (value: string) =>
+  value.replace(/(\$\$?|\$)([\s\S]*?)\1/g, (_, delimiter: string, content: string) => {
+    return `${delimiter}${normalizeChemistryMathContent(content)}${delimiter}`;
+  });
+
+const normalizeTrainingChapterSeed = (
+  chapter: TrainingChapterSeed
+): TrainingChapterSeed => ({
+  ...chapter,
+  title: normalizeChemistryMarkup(chapter.title),
+  domainLongDescriptions: chapter.domainLongDescriptions.map(normalizeChemistryMarkup),
+  questions: chapter.questions.map((question) => ({
+    ...question,
+    question: normalizeChemistryMarkup(question.question),
+    choices: question.choices.map(normalizeChemistryMarkup),
+    explanation: normalizeChemistryMarkup(question.explanation),
+  })),
+  sections: chapter.sections?.map((section) => ({
+    ...section,
+    title: normalizeChemistryMarkup(section.title),
+    description: normalizeChemistryMarkup(section.description),
+    quizzes: section.quizzes.map((quiz) => ({
+      ...quiz,
+      title: normalizeChemistryMarkup(quiz.title),
+      description: normalizeChemistryMarkup(quiz.description),
+      questionGroups: quiz.questionGroups?.map((group) => ({
+        ...group,
+        title: group.title ? normalizeChemistryMarkup(group.title) : undefined,
+        sharedStatement: normalizeChemistryMarkup(group.sharedStatement),
+      })),
+      items: quiz.items?.map((item) =>
+        item.type === 'GROUP'
+          ? {
+              ...item,
+              title: item.title ? normalizeChemistryMarkup(item.title) : undefined,
+              sharedStatement: normalizeChemistryMarkup(item.sharedStatement),
+            }
+          : item
+      ),
+    })),
+  })),
+});
+
+export const optimisationSyntheseTrainingChapter: TrainingChapterSeed =
+  normalizeTrainingChapterSeed({
   title: "Optimisation d'une synthèse",
   slug: 'optimisation-d-une-synthese',
   order: 9,
@@ -594,7 +783,7 @@ export const optimisationSyntheseTrainingChapter: TrainingChapterSeed = {
       difficulty: 'MEDIUM',
       order: 41,
       question:
-        'Pour la synthèse de l’ammoniac modélisée par $N_2 + 3H_2 \rightleftharpoons 2NH_3$, quel rapport initial $n_{H_2}/n_{N_2}$ correspond aux proportions stœchiométriques ?',
+        'Pour la synthèse de l’ammoniac modélisée par $N_2 + 3H_2 \\rightleftharpoons 2NH_3$, quel rapport initial $n_{H_2}/n_{N_2}$ correspond aux proportions stœchiométriques ?',
       choices: ['$1$', '$2$', '$3$', '$4$'],
       correctChoiceIndex: 2,
       explanation:
@@ -1975,7 +2164,7 @@ export const optimisationSyntheseTrainingChapter: TrainingChapterSeed = {
       difficulty: 'EASY',
       order: 148,
       question:
-        'Dans $N_2+3H_2\rightleftharpoons 2NH_3$, le coefficient de $H_2$ vaut :',
+        'Dans $N_2+3H_2\\rightleftharpoons 2NH_3$, le coefficient de $H_2$ vaut :',
       choices: ['$3$', '$1$', '$2$', '$4$'],
       correctChoiceIndex: 0,
       explanation: 'Le coefficient stoechiometrique de $H_2$ est 3.',
@@ -2678,7 +2867,7 @@ export const optimisationSyntheseTrainingChapter: TrainingChapterSeed = {
               type: 'GROUP',
               title: 'Cas d’étude - Synthèse gazeuse d’ammoniac',
               sharedStatement:
-                'On modélise une synthèse d’ammoniac par la transformation $N_2 + 3H_2 \rightleftharpoons 2NH_3$. On travaille à pression fixée et l’on sait que la transformation est exothermique. On compare différentes compositions initiales et l’on exploite parfois la fraction molaire de l’ammoniac à l’équilibre pour juger l’efficacité de la synthèse.',
+                'On modélise une synthèse d’ammoniac par la transformation $N_2 + 3H_2 \\rightleftharpoons 2NH_3$. On travaille à pression fixée et l’on sait que la transformation est exothermique. On compare différentes compositions initiales et l’on exploite parfois la fraction molaire de l’ammoniac à l’équilibre pour juger l’efficacité de la synthèse.',
               questionOrders: [41, 42, 43, 44, 45, 148, 149, 150, 151, 152],
             },
           ],
@@ -2816,4 +3005,4 @@ export const optimisationSyntheseTrainingChapter: TrainingChapterSeed = {
       ],
     },
   ],
-};
+});

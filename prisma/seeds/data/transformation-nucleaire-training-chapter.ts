@@ -100,16 +100,21 @@ const scientificMathCommands = [
 const scientificMathCommandPatterns = scientificMathCommands.map((command) => ({
   command,
   pattern: new RegExp(
-    `(^|[^\\A-Za-z])${command}(?=(?:\\s|\\{|\\}|_|\\^|\\(|\\)|\\[|\\]|$))`,
+    `(^|[^\\\\A-Za-z])${command}(?=(?:\\s|\\{|\\}|_|\\^|\\(|\\)|\\[|\\]|$))`,
     'g'
   ),
 }));
+
+const nuclearSpeciesPattern = /(?<!\\ce\{)(\^\{\d+\}_\{[-+]?\d+\}[A-Za-z][a-z]?)/g;
+
+const normalizeNuclearSpeciesContent = (value: string) =>
+  value.replace(nuclearSpeciesPattern, '\\ce{$1}');
 
 const normalizeScientificMathContent = (value: string) =>
   scientificMathCommandPatterns.reduce(
     (normalizedValue, { command, pattern }) =>
       normalizedValue.replace(pattern, (_, prefix: string) => `${prefix}\\${command}`),
-    value
+    normalizeNuclearSpeciesContent(value)
   );
 
 const normalizeScientificMarkup = (value: string) =>
@@ -269,28 +274,28 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       9,
       'MEDIUM',
-      'Pour les noyaux légers stables, quel ordre de grandeur relie souvent $N$ et $Z$ ?',
+      'Comment qualifie-t-on des noyaux situés sur une même ligne horizontale d’un diagramme $(N;Z)$ ?',
       [
-        '$N$ est souvent voisin de $Z$',
-        '$N$ vaut presque toujours $2Z$',
-        '$N$ est presque nul',
-        '$N$ est toujours inférieur à $Z/2$',
+        'Des isotopes',
+        'Des isobares',
+        'Des isotones',
+        'Des noyaux frères de demi-vie',
       ],
       0,
-      'Pour les petits noyaux stables, l’équilibre entre protons et neutrons correspond souvent à des valeurs proches de $N \approx Z$.',
+      'Sur une même ligne horizontale, l’ordonnée $Z$ est constante : ces noyaux ont donc le même nombre de protons. Ils appartiennent au même élément chimique et sont des isotopes s’ils diffèrent par leur nombre de neutrons.',
     ),
     createQuestion(
       10,
       'MEDIUM',
-      'Pour beaucoup de noyaux lourds stables, on observe plutôt :',
+      'Quel autre nom donne-t-on souvent à un diagramme $(N;Z)$ représentant les nucléides ?',
       [
-        '$N > Z$',
-        '$N = Z$',
-        '$N < Z$',
-        '$N = 0$',
+        'Diagramme de Segrè',
+        'Diagramme de Rutherford',
+        'Diagramme de Becquerel',
+        'Diagramme de Curie-Fermi',
       ],
       0,
-      'Quand $Z$ devient grand, il faut souvent davantage de neutrons que de protons pour assurer une meilleure stabilité du noyau.',
+      'Le diagramme $(N;Z)$ est aussi appelé diagramme de Segrè, ou carte des nucléides. Cette appellation rend hommage au physicien italien Emilio Segrè, associé à la diffusion de cette représentation des noyaux atomiques.',
     ),
     createQuestion(
       11,
@@ -381,7 +386,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
         '$A$ augmente et $Z$ diminue',
       ],
       0,
-      'Le rayonnement $\gamma$ traduit une désexcitation du noyau : il modifie son énergie, pas sa composition en nucléons ni sa charge.',
+      'Le rayonnement $\gamma$ traduit une désexcitation du noyau : il modifie son énergie, pas sa composition en nucléons ni son nombre de protons.',
     ),
     createQuestion(
       18,
@@ -399,7 +404,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       19,
       'EASY',
-      'La radioactivité $\beta^-$ s’accompagne de l’émission :',
+      'La radioactivité $\\beta^-$ s’accompagne de l’émission :',
       [
         'D’un électron et d’un antineutrino',
         'D’un positon et d’un neutrino',
@@ -407,12 +412,12 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
         'D’un photon gamma uniquement',
       ],
       0,
-      'Dans une désintégration $\beta^-$, on observe l’émission d’un électron et d’un antineutrino électronique.',
+      'Dans une désintégration $\\beta^-$, on observe l’émission d’un électron et d’un antineutrino électronique.',
     ),
     createQuestion(
       20,
       'EASY',
-      'La radioactivité $\beta^+$ s’accompagne de l’émission :',
+      'La radioactivité $\\beta^+$ s’accompagne de l’émission :',
       [
         'D’un positon et d’un neutrino',
         'D’un électron et d’un antineutrino',
@@ -420,7 +425,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
         'D’un proton libre uniquement',
       ],
       0,
-      'Dans une désintégration $\beta^+$, un positon et un neutrino sont émis.',
+      'Dans une désintégration $\\beta^+$, un positon et un neutrino sont émis.',
     ),
     createQuestion(
       21,
@@ -438,7 +443,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       22,
       'MEDIUM',
-      'Quelle particule complète l’écriture $^{238}_{92}U \rightarrow ^{234}_{90}Th + \ ?$',
+      'Quelle particule complète l’écriture $^{238}_{92}U \\rightarrow ^{234}_{90}Th + \\,\\ldots$ ?',
       [
         '$^{4}_{2}He$',
         '$^{0}_{-1}e$',
@@ -451,28 +456,28 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       23,
       'MEDIUM',
-      'Quelle écriture traduit une désintégration $\beta^-$ du carbone 14 ?',
+      'Quelle écriture traduit une désintégration $\\beta^-$ du carbone 14 ?',
       [
-        '$^{14}_{6}C \rightarrow ^{14}_{7}N + ^{0}_{-1}e + \bar{\nu}_e$',
-        '$^{14}_{6}C \rightarrow ^{10}_{4}Be + ^{4}_{2}He$',
-        '$^{14}_{6}C \rightarrow ^{14}_{5}B + ^{0}_{+1}e + \nu_e$',
-        '$^{14}_{6}C \rightarrow ^{13}_{6}C + ^{1}_{0}n$',
+        '$^{14}_{6}C \\rightarrow ^{14}_{7}N + ^{0}_{-1}e + \\bar{\\nu}_e$',
+        '$^{14}_{6}C \\rightarrow ^{10}_{4}Be + ^{4}_{2}He$',
+        '$^{14}_{6}C \\rightarrow ^{14}_{5}B + ^{0}_{+1}e + \\nu_e$',
+        '$^{14}_{6}C \\rightarrow ^{13}_{6}C + ^{1}_{0}n$',
       ],
       0,
-      'En radioactivité $\beta^-$, le nombre de masse reste constant et le numéro atomique augmente d’une unité.',
+      'En radioactivité $\\beta^-$, le nombre de masse reste constant et le numéro atomique augmente d’une unité.',
     ),
     createQuestion(
       24,
       'MEDIUM',
-      'Quelle écriture traduit une désintégration $\beta^+$ du fluor 18 ?',
+      'Quelle écriture traduit une désintégration $\\beta^+$ du fluor 18 ?',
       [
-        '$^{18}_{9}F \rightarrow ^{18}_{8}O + ^{0}_{+1}e + \nu_e$',
-        '$^{18}_{9}F \rightarrow ^{14}_{7}N + ^{4}_{2}He$',
-        '$^{18}_{9}F \rightarrow ^{18}_{10}Ne + ^{0}_{-1}e + \bar{\nu}_e$',
-        '$^{18}_{9}F \rightarrow ^{17}_{8}O + ^{1}_{1}p$',
+        '$^{18}_{9}F \\rightarrow ^{18}_{8}O + ^{0}_{+1}e + \\nu_e$',
+        '$^{18}_{9}F \\rightarrow ^{14}_{7}N + ^{4}_{2}He$',
+        '$^{18}_{9}F \\rightarrow ^{18}_{10}Ne + ^{0}_{-1}e + \\bar{\\nu}_e$',
+        '$^{18}_{9}F \\rightarrow ^{17}_{8}O + ^{1}_{1}p$',
       ],
       0,
-      'En radioactivité $\beta^+$, le nombre de masse reste inchangé et $Z$ diminue de 1.',
+      'En radioactivité $\\beta^+$, le nombre de masse reste inchangé et $Z$ diminue de 1.',
     ),
     createQuestion(
       25,
@@ -542,7 +547,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       30,
       'MEDIUM',
-      'Lors d’une désintégration $\beta^-$, le noyau fils possède :',
+      'Lors d’une désintégration $\\beta^-$, le noyau fils possède :',
       [
         'Le même $A$ et un $Z$ augmenté de 1',
         'Un $A$ diminué de 4 et un $Z$ diminué de 2',
@@ -550,7 +555,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
         'Un $A$ augmenté de 1 et le même $Z$',
       ],
       0,
-      'Dans le noyau, une transformation de type neutron $\rightarrow$ proton conduit à conserver $A$ tout en augmentant $Z$ de 1.',
+      'Dans le noyau, une transformation de type neutron $\\rightarrow$ proton conduit à conserver $A$ tout en augmentant $Z$ de 1.',
     ),
     createQuestion(
       31,
@@ -607,7 +612,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       35,
       'MEDIUM',
-      'Pourquoi observe-t-on parfois un rayonnement $\gamma$ après une émission $\alpha$ ou $\beta$ ?',
+      'Pourquoi observe-t-on parfois un rayonnement $\gamma$ après une émission $\alpha$ ou $\\beta$ ?',
       [
         'Parce que le noyau fils a été créé dans un état excité',
         'Parce qu’un proton a disparu du noyau',
@@ -620,15 +625,15 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       36,
       'MEDIUM',
-      'Parmi les rayonnements usuels $\alpha$, $\beta$ et $\gamma$, lequel est en général le moins pénétrant ?',
-      ['Le rayonnement $\alpha$', 'Le rayonnement $\gamma$', 'Le rayonnement $\beta$', 'Ils sont équivalents'],
+      'Parmi les rayonnements usuels $\alpha$, $\\beta$ et $\gamma$, lequel est en général le moins pénétrant ?',
+      ['Le rayonnement $\alpha$', 'Le rayonnement $\gamma$', 'Le rayonnement $\\beta$', 'Ils sont équivalents'],
       0,
       'Les particules $\alpha$ sont facilement arrêtées par quelques centimètres d’air ou une feuille légère.',
     ),
     createQuestion(
       37,
       'HARD',
-      'Dans une désintégration $\beta^-$, quelle transformation microscopique modélise le phénomène dans le noyau ?',
+      'Dans une désintégration $\\beta^-$, quelle transformation microscopique modélise le phénomène dans le noyau ?',
       [
         'Un neutron se transforme en proton',
         'Un proton se transforme en neutron',
@@ -636,12 +641,12 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
         'Un noyau d’hélium absorbe un électron',
       ],
       0,
-      'La radioactivité $\beta^-$ correspond à la transformation d’un neutron en proton, avec émission d’un électron et d’un antineutrino.',
+      'La radioactivité $\\beta^-$ correspond à la transformation d’un neutron en proton, avec émission d’un électron et d’un antineutrino.',
     ),
     createQuestion(
       38,
       'HARD',
-      'Dans une désintégration $\beta^+$, quelle transformation microscopique modélise le phénomène dans le noyau ?',
+      'Dans une désintégration $\\beta^+$, quelle transformation microscopique modélise le phénomène dans le noyau ?',
       [
         'Un proton se transforme en neutron',
         'Un neutron se transforme en proton',
@@ -649,7 +654,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
         'Le noyau perd quatre nucléons',
       ],
       0,
-      'La radioactivité $\beta^+$ s’interprète comme la transformation d’un proton en neutron, avec émission d’un positon et d’un neutrino.',
+      'La radioactivité $\\beta^+$ s’interprète comme la transformation d’un proton en neutron, avec émission d’un positon et d’un neutrino.',
     ),
     createQuestion(
       39,
@@ -1414,7 +1419,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
     createQuestion(
       104,
       'EASY',
-      'Quel type d’écran est souvent adapté pour atténuer efficacement un rayonnement $\beta$ ?',
+      'Quel type d’écran est souvent adapté pour atténuer efficacement un rayonnement $\\beta$ ?',
       [
         'Une plaque mince d’aluminium ou de plastique',
         'Une simple feuille de papier dans tous les cas',
@@ -1422,7 +1427,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
         'Uniquement un bloc de béton de plusieurs mètres',
       ],
       0,
-      'Le rayonnement $\beta$ est plus pénétrant que $\alpha$, mais il peut être atténué par des matériaux légers d’épaisseur modérée.',
+      'Le rayonnement $\\beta$ est plus pénétrant que $\alpha$, mais il peut être atténué par des matériaux légers d’épaisseur modérée.',
     ),
     createQuestion(
       105,
@@ -1533,7 +1538,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
       'MEDIUM',
       'Quelle affirmation est correcte à propos des écrans de protection ?',
       [
-        'On n’utilise pas le même type d’écran selon que le rayonnement est $\alpha$, $\beta$ ou $\gamma$',
+        'On n’utilise pas le même type d’écran selon que le rayonnement est $\alpha$, $\\beta$ ou $\gamma$',
         'Une feuille de papier convient toujours pour le rayonnement $\gamma$',
         'Le plomb est inutile pour le rayonnement $\gamma$',
         'L’épaisseur d’un écran n’a aucun rôle',
@@ -1644,7 +1649,7 @@ export const transformationNucleaireTrainingChapter: TrainingChapterSeed = norma
       'Avec $t_{1/2} = 5730$ ans, l’âge estimé de l’échantillon vaut environ :',
       ['11 460 ans', '5 730 ans', '2 865 ans', '22 920 ans'],
       0,
-      'Deux demi-vies correspondent à $2 \times 5730 = 11\,460$ ans.',
+      'Deux demi-vies correspondent à $2 \\times 5730 = 11\,460$ ans.',
     ),
     createQuestion(
       124,

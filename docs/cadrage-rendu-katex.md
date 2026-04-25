@@ -76,6 +76,7 @@ Règles :
 
 - ne jamais écrire H₂O en texte simple
 - toujours passer par \ce{}
+- tous les symboles d'éléments chimiques doivent être notés droit (romain), jamais en italique
 - gérer systématiquement :
   - indices
   - charges
@@ -97,6 +98,7 @@ Bonnes pratiques :
 
 - toujours équilibrer les équations
 - utiliser -> (ou <=> si équilibre)
+- tous les symboles d'éléments chimiques restent droits (romains), y compris dans les équations bilan
 - inclure états si pertinent :
   - \ce{H2O(l)}
   - \ce{NaCl(aq)}
@@ -212,6 +214,7 @@ Toujours :
 - \ce{}
 - pas de HTML manuel
 - pas de texte brut
+- tous les symboles d'éléments chimiques sont notés droit (romain), jamais en italique, dans et hors des équations bilan
 
 ---
 

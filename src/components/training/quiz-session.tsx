@@ -2,7 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, ListChecks, Target, XCircle } from 'lucide-react';
+import {
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  ListChecks,
+  Target,
+  XCircle,
+} from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -46,11 +53,80 @@ type QuestionReviewItem = {
   correctChoice: string | null;
 };
 
+type QuestionNavigationStatus = 'current' | 'correct' | 'incorrect' | 'unanswered';
+
 const difficultyFocusLabels = {
   EASY: 'Fondamentaux',
   MEDIUM: 'Mise en pratique',
   HARD: 'Raisonnement',
 } as const;
+
+const questionNavigationStatusLabels: Record<QuestionNavigationStatus, string> = {
+  current: 'Question en cours',
+  correct: 'Réponse correcte',
+  incorrect: 'Réponse à revoir',
+  unanswered: 'Non répondue',
+};
+
+const getQuestionNavigationStatus = ({
+  answer,
+  correctChoiceIndex,
+  index,
+  currentIndex,
+}: {
+  answer: number | null;
+  correctChoiceIndex: number;
+  index: number;
+  currentIndex: number;
+}): QuestionNavigationStatus => {
+  if (index === currentIndex) {
+    return 'current';
+  }
+
+  if (answer === null) {
+    return 'unanswered';
+  }
+
+  return answer === correctChoiceIndex ? 'correct' : 'incorrect';
+};
+
+const getQuestionNavigationButtonClassName = (
+  status: QuestionNavigationStatus
+) => {
+  switch (status) {
+    case 'current':
+      return 'border-brand bg-brand text-white hover:bg-brand-strong hover:text-white';
+    case 'correct':
+      return 'bg-success text-white shadow-xs hover:bg-success-strong hover:text-white';
+    case 'incorrect':
+      return 'bg-danger text-white shadow-xs hover:bg-danger-strong hover:text-white';
+    case 'unanswered':
+    default:
+      return 'bg-neutral-secondary-medium text-body hover:bg-neutral-tertiary-medium hover:text-heading';
+  }
+};
+
+const questionNavigationLegendItems: Array<{
+  status: QuestionNavigationStatus;
+  toneClassName: string;
+}> = [
+  {
+    status: 'current',
+    toneClassName: 'bg-brand',
+  },
+  {
+    status: 'correct',
+    toneClassName: 'bg-success',
+  },
+  {
+    status: 'incorrect',
+    toneClassName: 'bg-danger',
+  },
+  {
+    status: 'unanswered',
+    toneClassName: 'bg-neutral-secondary-medium',
+  },
+];
 
 const hashString = (value: string) => {
   let hash = 0;
@@ -463,6 +539,10 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
     setCurrentIndex((index) => Math.max(index - 1, 0));
   };
 
+  const goToQuestion = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   const resetQuiz = () => {
     const nextVariant = questionOrderVariant + 1;
 
@@ -738,17 +818,103 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
 
   return (
     <section className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6">
-      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Question {currentIndex + 1} / {sessionQuestions.length}
-          </p>
+      <div className="space-y-3">
+        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Question {currentIndex + 1} / {sessionQuestions.length}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="secondary">
+              Score {score}/{sessionQuestions.length}
+            </Badge>
+          </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary">
-            Score {score}/{sessionQuestions.length}
-          </Badge>
-        </div>
+
+        <nav
+          aria-label="Navigation entre les questions du QCM"
+          className="space-y-2"
+        >
+          <div className="flex overflow-hidden rounded-xl border border-border bg-background">
+            <button
+              type="button"
+              onClick={goToPreviousQuestion}
+              disabled={currentIndex === 0}
+              className={cn(
+                'flex h-10 w-10 shrink-0 items-center justify-center border-r border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-3',
+                currentIndex === 0
+                  ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
+                  : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
+              )}
+            >
+              <ChevronLeft className="h-4 w-4 md:hidden" />
+              <span className="sr-only md:not-sr-only">Précédent</span>
+            </button>
+
+            <div className="flex-1 overflow-x-auto">
+              <ol className="flex min-w-full">
+                {sessionQuestions.map((question, index) => {
+                  const answer = answers[index] ?? null;
+                  const status = getQuestionNavigationStatus({
+                    answer,
+                    correctChoiceIndex: question.correctChoiceIndex,
+                    index,
+                    currentIndex,
+                  });
+                  const statusLabel = questionNavigationStatusLabels[status];
+
+                  return (
+                    <li
+                      key={question.id}
+                      className="min-w-11 flex-1 border-r border-border last:border-r-0"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => goToQuestion(index)}
+                        aria-current={status === 'current' ? 'page' : undefined}
+                        aria-label={`Aller à la question ${index + 1} (${statusLabel.toLowerCase()})`}
+                        className={cn(
+                          'flex h-10 w-full items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset',
+                          getQuestionNavigationButtonClassName(status)
+                        )}
+                      >
+                        {index + 1}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+
+            <button
+              type="button"
+              onClick={goToNextQuestion}
+              disabled={currentIndex === sessionQuestions.length - 1}
+              className={cn(
+                'flex h-10 w-10 shrink-0 items-center justify-center border-l border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-3',
+                currentIndex === sessionQuestions.length - 1
+                  ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
+                  : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
+              )}
+            >
+              <span className="sr-only md:not-sr-only">Suivant</span>
+              <ChevronRight className="h-4 w-4 md:hidden" />
+            </button>
+          </div>
+
+          <div className="hidden flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground md:flex">
+            {questionNavigationLegendItems.map((item) => (
+              <span key={item.status} className="inline-flex items-center gap-2">
+                <span
+                  aria-hidden="true"
+                  className={cn('h-2.5 w-2.5 rounded-full', item.toneClassName)}
+                />
+                {questionNavigationStatusLabels[item.status]}
+              </span>
+            ))}
+          </div>
+        </nav>
       </div>
 
       {currentGroup ? (

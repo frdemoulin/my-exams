@@ -6,6 +6,7 @@ import type {
 } from '@prisma/client';
 import { inferTrainingQuizStageFromOrder } from '../../src/core/training/training-stage';
 import { lunetteTrainingChapter } from './data/lunette-training-chapter';
+import { mouvementsFluideTrainingChapter } from './data/mouvements-fluide-training-chapter';
 import { optimisationSyntheseTrainingChapter } from './data/optimisation-synthese-training-chapter';
 import { thermalTransfersTrainingChapter } from './data/thermal-transfers-training-chapter';
 import { transformationNucleaireTrainingChapter } from './data/transformation-nucleaire-training-chapter';
@@ -302,22 +303,7 @@ const chapters: SeedChapter[] = [
       },
     ],
   },
-  {
-    title: "Mouvements d'un fluide",
-    slug: 'mouvements-d-un-fluide',
-    order: 14,
-    domainLongDescriptions: ['Mouvement et interactions'],
-    questions: [
-      {
-        difficulty: 'MEDIUM',
-        order: 1,
-        question: 'Pour un fluide incompressible en régime permanent dans une conduite, quelle relation traduit la conservation du débit volumique ?',
-        choices: ['$S_1v_1 = S_2v_2$', '$S_1 + v_1 = S_2 + v_2$', '$\\dfrac{S_1}{v_1}=\\dfrac{S_2}{v_2}$', '$v_1 = v_2$ quelles que soient les sections'],
-        correctChoiceIndex: 0,
-        explanation: 'Le débit volumique vaut $D_v = Sv$. Pour un fluide incompressible en régime permanent, $S_1v_1 = S_2v_2$.',
-      },
-    ],
-  },
+  mouvementsFluideTrainingChapter,
   {
     title: 'Modèle du gaz parfait',
     slug: 'modele-du-gaz-parfait',
