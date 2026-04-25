@@ -26,6 +26,7 @@
     "db:import-domains-themes": "tsx scripts/import-domains-themes.ts",
     "db:sync-domains-themes": "tsx scripts/sync-domains-themes-from-prod.ts",
     "db:sync-dev-to-prod": "bash scripts/sync_dev_to_prod.sh",
+    "db:sync-training-qcms-to-prod": "tsx scripts/sync-training-qcms-dev-to-prod.ts",
     "db:reset": "npm run db:clear && npm run db:seed",
     "db:rename-domain": "tsx scripts/rename-chapter-to-domain.ts",
     "db:index:exercise-search": "tsx scripts/ensure-exercise-text-index.ts",
