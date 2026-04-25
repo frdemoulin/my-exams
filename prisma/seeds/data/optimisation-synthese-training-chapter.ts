@@ -539,7 +539,7 @@ export const optimisationSyntheseTrainingChapter: TrainingChapterSeed =
       difficulty: 'EASY',
       order: 21,
       question:
-        'Observe la formule semi-développée suivante.\n![Formule semi-developpee d un alcool](/uploads/training/organique-formule-semi-developpee-alcool.svg)\nQuel groupe caractéristique reconnaît-on sur cette espèce ?',
+        'Observe la formule semi-développée suivante : $\\ce{CH3-CH2-OH}$. Quel groupe caractéristique reconnaît-on sur cette espèce ?',
       choices: ['-OH', '-COOH', '-NH_2', '-COO-'],
       correctChoiceIndex: 0,
       explanation:
@@ -1098,21 +1098,26 @@ export const optimisationSyntheseTrainingChapter: TrainingChapterSeed =
       difficulty: 'EASY',
       order: 65,
       question:
-        'À quelle famille organique appartient l’espèce de formule $CH_3-CH_2-OH$ ?',
-      choices: ['Alcool', 'Aldéhyde', 'Acide carboxylique', 'Ester'],
+        'Quelle formule semi-développée correspond au propan-1-ol ?',
+      choices: [
+        '$CH_3-CH_2-CH_2-OH$',
+        '$CH_3-CH(OH)-CH_3$',
+        '$CH_3-CH_2-CHO$',
+        '$CH_3-CO-CH_3$',
+      ],
       correctChoiceIndex: 0,
       explanation:
-        'La formule fait apparaître un groupe hydroxyle -OH porté par une chaîne carbonée : c’est un alcool.',
+        'Le propan-1-ol possède une chaîne de trois carbones et un groupe -OH porté par le carbone 1, soit $CH_3-CH_2-CH_2-OH$.',
     },
     {
       difficulty: 'EASY',
       order: 66,
       question:
-        'Parmi les noms suivants, lequel correspond à un alcool ?',
-      choices: ['Éthanol', 'Propanal', 'Propanone', 'Éthanamide'],
+        'Quel nom correspond à la formule semi-développée $CH_3-CH_2-OH$ ?',
+      choices: ['Éthanol', 'Éthanal', 'Acide éthanoïque', 'Méthanol'],
       correctChoiceIndex: 0,
       explanation:
-        'Le nom éthanol se termine par -ol, suffixe caractéristique des alcools.',
+        'La chaîne comporte deux carbones et porte un groupe hydroxyle -OH : il s’agit de l’éthanol.',
     },
     {
       difficulty: 'MEDIUM',
