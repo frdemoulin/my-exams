@@ -1,3 +1,9 @@
+## [1.6.5](https://github.com/frdemoulin/my-exams/compare/v1.6.4...v1.6.5) (2026-05-02)
+
+### Bug Fixes
+
+* codification du niveau première ([dc64f04](https://github.com/frdemoulin/my-exams/commit/dc64f046b941f13eab1ac4095e481ba27992166e))
+
 ## [1.6.4](https://github.com/frdemoulin/my-exams/compare/v1.6.3...v1.6.4) (2026-04-25)
 
 ### Bug Fixes
