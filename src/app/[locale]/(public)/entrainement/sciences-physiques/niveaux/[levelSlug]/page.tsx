@@ -118,39 +118,45 @@ export default async function SciencePhysicsTrainingLevelPage({ params }: PagePr
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {level.chapters.map((chapter) => (
-              <Link
-                key={chapter.id}
-                href={`/entrainement/sciences-physiques/${chapter.slug}`}
-                className="group block h-full rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                <Card className="flex h-full flex-col transition-colors group-hover:border-brand/50">
-                  <CardHeader>
-                    <div className="mb-2 flex items-start justify-between gap-3">
-                      <Badge variant="outline">Chapitre {chapter.order}</Badge>
-                      <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
-                    </div>
-                    <CardTitle className="text-base md:text-lg">{chapter.title}</CardTitle>
-                    <CardDescription>{level.label} · Sciences physiques</CardDescription>
-                  </CardHeader>
-                  <CardContent className="mt-auto flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                    <Badge variant={chapter.questionCount > 0 ? 'secondary' : 'outline'}>
-                      {chapter.quizCount} QCM
-                    </Badge>
-                    <Badge variant="outline">
-                      {chapter.questionCount} question{chapter.questionCount > 1 ? 's' : ''}
-                    </Badge>
-                    {chapter.stages.map((stage) => (
-                      <Badge key={stage} variant="theme">
-                        {getTrainingQuizStageLabel(stage)}
+          {level.chapters.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
+              Les chapitres d&apos;entra&icirc;nement pour {level.label} arrivent bient&ocirc;t.
+            </div>
+          ) : (
+            <div className="grid gap-4 md:grid-cols-2">
+              {level.chapters.map((chapter) => (
+                <Link
+                  key={chapter.id}
+                  href={`/entrainement/sciences-physiques/${chapter.slug}`}
+                  className="group block h-full rounded-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  <Card className="flex h-full flex-col transition-colors group-hover:border-brand/50">
+                    <CardHeader>
+                      <div className="mb-2 flex items-start justify-between gap-3">
+                        <Badge variant="outline">Chapitre {chapter.displayOrder}</Badge>
+                        <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
+                      </div>
+                      <CardTitle className="text-base md:text-lg">{chapter.title}</CardTitle>
+                      <CardDescription>{level.label} · Sciences physiques</CardDescription>
+                    </CardHeader>
+                    <CardContent className="mt-auto flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                      <Badge variant={chapter.questionCount > 0 ? 'secondary' : 'outline'}>
+                        {chapter.quizCount} QCM
                       </Badge>
-                    ))}
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
+                      <Badge variant="outline">
+                        {chapter.questionCount} question{chapter.questionCount > 1 ? 's' : ''}
+                      </Badge>
+                      {chapter.stages.map((stage) => (
+                        <Badge key={stage} variant="theme">
+                          {getTrainingQuizStageLabel(stage)}
+                        </Badge>
+                      ))}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          )}
         </section>
       </main>
       <SiteFooter />

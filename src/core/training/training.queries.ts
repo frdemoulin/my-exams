@@ -17,13 +17,27 @@ import type {
 const TRAINING_SUBJECT_LONG_DESCRIPTION = 'Sciences physiques';
 const DEFAULT_QUESTIONS_PER_QUIZ = 5;
 
+export const SCIENCE_PHYSICS_TRAINING_LEVELS = ['premiere', 'terminale'] as const;
+
+const sciencePhysicsTrainingLevelOrder = new Map<string, number>(
+  SCIENCE_PHYSICS_TRAINING_LEVELS.map((level, index) => [level, index])
+);
+
 const visibleChapterWhere = {
   isPublished: true,
   isActive: { not: false as const },
 };
 
 export const formatTrainingLevelLabel = (level: string) => {
-  const normalized = level.trim();
+  const normalized = getCanonicalTrainingLevelValue(level);
+
+  if (normalized === 'premiere') {
+    return 'Première';
+  }
+
+  if (normalized === 'terminale') {
+    return 'Terminale';
+  }
 
   return normalized.length > 0
     ? normalized.charAt(0).toUpperCase() + normalized.slice(1)
@@ -40,6 +54,24 @@ const normalizeChoices = (choices: Prisma.JsonValue): string[] => {
 
   return choices.filter((choice): choice is string => typeof choice === 'string');
 };
+
+const getCanonicalTrainingLevelValue = (level: string) => {
+  const normalized = level.trim().toLowerCase();
+  const matchedLevel = SCIENCE_PHYSICS_TRAINING_LEVELS.find(
+    (candidate) => toTrainingLevelSlug(candidate) === toTrainingLevelSlug(normalized)
+  );
+
+  return matchedLevel ?? normalized;
+};
+
+const createTrainingLevelListItem = (value: string): TrainingLevelListItem => ({
+  value,
+  slug: toTrainingLevelSlug(value),
+  label: formatTrainingLevelLabel(value),
+  chapterCount: 0,
+  questionCount: 0,
+  quizCount: 0,
+});
 
 const simplifyTrainingQuizDescription = (description: string | null) => {
   if (!description) {
@@ -271,57 +303,81 @@ export async function fetchSciencePhysicsTrainingChapters(): Promise<TrainingCha
     },
   });
 
-  return chapters.map((chapter) => ({
-    id: chapter.id,
-    title: chapter.title,
-    slug: chapter.slug,
-    level: chapter.level,
-    order: chapter.order,
-    questionCount:
-      chapter.trainingQuizzes.length > 0
-        ? getStructuredQuestionCount(chapter.trainingQuizzes)
-        : chapter.quizQuestions.length,
-    quizCount:
-      chapter.trainingQuizzes.length > 0
-        ? chapter.trainingQuizzes.length
-        : Math.ceil(chapter.quizQuestions.length / DEFAULT_QUESTIONS_PER_QUIZ),
-    stages:
-      chapter.trainingQuizzes.length > 0
-        ? sortTrainingQuizStages(
-            Array.from(
-              new Set(
-                chapter.trainingQuizzes
-                  .map((quiz) => quiz.stage)
-                  .filter((stage): stage is TrainingQuizStage => Boolean(stage))
+  const displayOrderByLevel = new Map<string, number>();
+
+  return chapters.map((chapter) => {
+    const level = getCanonicalTrainingLevelValue(chapter.level);
+    const displayOrder = (displayOrderByLevel.get(level) ?? 0) + 1;
+    displayOrderByLevel.set(level, displayOrder);
+
+    return {
+      id: chapter.id,
+      title: chapter.title,
+      slug: chapter.slug,
+      level,
+      order: chapter.order,
+      displayOrder,
+      questionCount:
+        chapter.trainingQuizzes.length > 0
+          ? getStructuredQuestionCount(chapter.trainingQuizzes)
+          : chapter.quizQuestions.length,
+      quizCount:
+        chapter.trainingQuizzes.length > 0
+          ? chapter.trainingQuizzes.length
+          : Math.ceil(chapter.quizQuestions.length / DEFAULT_QUESTIONS_PER_QUIZ),
+      stages:
+        chapter.trainingQuizzes.length > 0
+          ? sortTrainingQuizStages(
+              Array.from(
+                new Set(
+                  chapter.trainingQuizzes
+                    .map((quiz) => quiz.stage)
+                    .filter((stage): stage is TrainingQuizStage => Boolean(stage))
+                )
               )
             )
-          )
-        : [],
-  }));
+          : [],
+    };
+  });
 }
 
 export async function fetchSciencePhysicsTrainingLevels(): Promise<TrainingLevelListItem[]> {
   const chapters = await fetchSciencePhysicsTrainingChapters();
 
+  const initialLevels = new Map<string, TrainingLevelListItem>(
+    SCIENCE_PHYSICS_TRAINING_LEVELS.map((level) => [level, createTrainingLevelListItem(level)])
+  );
+
   return Array.from(
     chapters.reduce((map, chapter) => {
-      const current = map.get(chapter.level) ?? {
-        value: chapter.level,
-        slug: toTrainingLevelSlug(chapter.level),
-        label: formatTrainingLevelLabel(chapter.level),
-        chapterCount: 0,
-        questionCount: 0,
-        quizCount: 0,
-      };
+      const levelValue = getCanonicalTrainingLevelValue(chapter.level);
+      const current = map.get(levelValue) ?? createTrainingLevelListItem(levelValue);
 
       current.chapterCount += 1;
       current.questionCount += chapter.questionCount;
       current.quizCount += chapter.quizCount;
-      map.set(chapter.level, current);
+      map.set(levelValue, current);
 
       return map;
-    }, new Map<string, TrainingLevelListItem>()).values()
-  ).sort((left, right) => left.label.localeCompare(right.label, 'fr', { sensitivity: 'base' }));
+    }, initialLevels).values()
+  ).sort((left, right) => {
+    const leftOrder = sciencePhysicsTrainingLevelOrder.get(left.value);
+    const rightOrder = sciencePhysicsTrainingLevelOrder.get(right.value);
+
+    if (leftOrder !== undefined && rightOrder !== undefined) {
+      return leftOrder - rightOrder;
+    }
+
+    if (leftOrder !== undefined) {
+      return -1;
+    }
+
+    if (rightOrder !== undefined) {
+      return 1;
+    }
+
+    return left.label.localeCompare(right.label, 'fr', { sensitivity: 'base' });
+  });
 }
 
 export async function fetchSciencePhysicsTrainingLevelBySlug(
@@ -332,11 +388,21 @@ export async function fetchSciencePhysicsTrainingLevelBySlug(
     (chapter) => toTrainingLevelSlug(chapter.level) === levelSlug
   );
 
-  if (matchedChapters.length === 0) {
+  const supportedLevel = SCIENCE_PHYSICS_TRAINING_LEVELS.find(
+    (level) => toTrainingLevelSlug(level) === levelSlug
+  );
+
+  if (matchedChapters.length === 0 && !supportedLevel) {
     return null;
   }
 
-  const level = matchedChapters[0].level;
+  const level = matchedChapters[0]
+    ? getCanonicalTrainingLevelValue(matchedChapters[0].level)
+    : supportedLevel;
+
+  if (!level) {
+    return null;
+  }
 
   return {
     value: level,
@@ -523,13 +589,25 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
         0
       )
     : publishedQuestions.length;
+  const canonicalLevel = getCanonicalTrainingLevelValue(chapter.level);
+  const displayOrder = await prisma.chapter.count({
+    where: {
+      subjectId: subject.id,
+      level: chapter.level,
+      ...visibleChapterWhere,
+      order: {
+        lte: chapter.order,
+      },
+    },
+  });
 
   return {
     id: chapter.id,
     title: chapter.title,
     slug: chapter.slug,
-    level: chapter.level,
+    level: canonicalLevel,
     order: chapter.order,
+    displayOrder,
     questionCount,
     quizCount: sections.reduce((sum, section) => sum + section.quizzes.length, 0),
     domainIds: chapter.domainIds,

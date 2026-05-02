@@ -66,6 +66,7 @@ export type TrainingChapterListItem = {
   slug: string;
   level: string;
   order: number;
+  displayOrder: number;
   questionCount: number;
   quizCount: number;
   stages: TrainingQuizStage[];
@@ -116,6 +117,7 @@ export type TrainingChapterDetail = {
   slug: string;
   level: string;
   order: number;
+  displayOrder: number;
   questionCount: number;
   quizCount: number;
   domainIds: string[];

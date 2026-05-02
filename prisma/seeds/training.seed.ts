@@ -8,6 +8,8 @@ import { inferTrainingQuizStageFromOrder } from '../../src/core/training/trainin
 import { lunetteTrainingChapter } from './data/lunette-training-chapter';
 import { mouvementsFluideTrainingChapter } from './data/mouvements-fluide-training-chapter';
 import { optimisationSyntheseTrainingChapter } from './data/optimisation-synthese-training-chapter';
+import { premiereSciencePhysicsTrainingChapters } from './data/premiere-science-physics-training-chapters';
+import { structureEspecesChimiquesOrganiquesTrainingChapter } from './data/structure-especes-chimiques-organiques-training-chapter';
 import { thermalTransfersTrainingChapter } from './data/thermal-transfers-training-chapter';
 import { transformationNucleaireTrainingChapter } from './data/transformation-nucleaire-training-chapter';
 
@@ -62,6 +64,7 @@ type SeedChapterSection = {
 type SeedChapter = {
   title: string;
   slug: string;
+  level?: string;
   order: number;
   domainLongDescriptions: string[];
   questions: SeedQuizQuestion[];
@@ -120,6 +123,10 @@ function normalizeSeedQuizItems(quiz: SeedTrainingQuiz) {
 const subjectLongDescription = 'Sciences physiques';
 
 const chapters: SeedChapter[] = [
+  ...premiereSciencePhysicsTrainingChapters.filter(
+    (chapter) => chapter.slug !== structureEspecesChimiquesOrganiquesTrainingChapter.slug
+  ),
+  structureEspecesChimiquesOrganiquesTrainingChapter,
   {
     title: 'Transformation acide-base et pH',
     slug: 'transformation-acide-base-et-ph',
@@ -466,7 +473,7 @@ export async function seedTraining(prisma: PrismaClient) {
           data: {
             title: chapterSeed.title,
             slug: chapterSeed.slug,
-            level: 'terminale',
+            level: chapterSeed.level ?? 'terminale',
             order: chapterSeed.order,
             isActive: true,
             isPublished: true,
