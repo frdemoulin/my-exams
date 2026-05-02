@@ -25,7 +25,7 @@ const canonical = buildCanonicalUrl('/entrainement/sciences-physiques');
 
 export const metadata: Metadata = {
   title: 'Entraînement Sciences physiques',
-  description: 'QCM courts par chapitre pour réviser la spécialité sciences physiques en terminale.',
+  description: 'QCM courts par chapitre pour réviser les sciences physiques en Première et Terminale.',
   alternates: canonical ? { canonical } : undefined,
 };
 

@@ -225,7 +225,7 @@ export default async function SciencePhysicsTrainingChapterPage({
           <div className="max-w-4xl space-y-4">
             <div className="space-y-3">
               <Badge variant="secondary" className="w-fit">
-                Chapitre {chapter.order} · {levelLabel}
+                Chapitre {chapter.displayOrder} · {levelLabel}
               </Badge>
               <h1 className="text-3xl font-semibold tracking-tight text-heading md:text-4xl">
                 {chapter.title}

@@ -1,4 +1,8 @@
 import type { MetadataRoute } from 'next';
+import {
+  SCIENCE_PHYSICS_TRAINING_LEVELS,
+  toTrainingLevelSlug,
+} from '@/core/training';
 import prisma from '@/lib/db/prisma';
 import { fetchActiveDiplomasWithExamPapers } from '@/core/exam-paper';
 import { getSeoBaseUrl, getSeoBaseUrlWithDefault } from '@/lib/seo';
@@ -205,8 +209,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const trainingLevelEntries: MetadataRoute.Sitemap = Array.from(
-    trainingChapters.reduce((map, chapter) => {
-      const key = chapter.level.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    trainingChapters.reduce(
+      (map, chapter) => {
+        const key = toTrainingLevelSlug(chapter.level);
       const previousDate = map.get(key);
 
       if (!previousDate || (chapter.updatedAt ?? now) > previousDate) {
@@ -214,7 +219,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
 
       return map;
-    }, new Map<string, Date>()).entries()
+      },
+      new Map<string, Date>(
+        SCIENCE_PHYSICS_TRAINING_LEVELS.map((level) => [toTrainingLevelSlug(level), now])
+      )
+    ).entries()
   ).map(([levelSlug, lastModified]) => ({
     url: `${baseUrl}/entrainement/sciences-physiques/niveaux/${levelSlug}`,
     lastModified,
