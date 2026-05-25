@@ -2,6 +2,7 @@
 
 - Par defaut, travailler uniquement sur l'environnement et la base de developpement.
 - Ne jamais lire, modifier, synchroniser ou valider la production sans demande explicite de l'utilisateur.
+- Dans les menus et sous-menus, trier les entrées par ordre alphabétique lors de toute intervention de l'IA via Copilot.
 - Pour synchroniser uniquement les QCMs d'entrainement de la dev vers la prod, utiliser le script cible `npm run db:sync-training-qcms-to-prod`.
 - Commencer par `npm run db:sync-training-qcms-to-prod -- --dry-run` pour verifier les mappings et le perimetre sans ecriture.
 - Pour executer la synchronisation apres demande explicite de l'utilisateur, lancer `npm run db:sync-training-qcms-to-prod -- --yes`.

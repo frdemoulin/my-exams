@@ -240,6 +240,7 @@ Retourne uniquement un JSON au format suivant :
     {
       "exerciseNumber": number, // entier > 0, utilise la numérotation du sujet si possible
       "label": string | null, // ex: "Exercice 1", null si inconnu
+      "title": string | null, // intitulé exact de l'exercice si visible dans le sujet, sinon null
       "pageStart": number, // page de début (1-indexée)
       "pageEnd": number, // page de fin (>= pageStart)
       "points": number | null, // points si explicitement indiqués (ex: "5 points"), sinon null
@@ -251,6 +252,7 @@ Règles :
 - Ne retourne aucun texte hors JSON.
 - Les exercices doivent être listés dans l'ordre du sujet.
 - Si la numérotation n'est pas explicite, propose 1, 2, 3...
+- Si un intitulé d'exercice est visible (après "Exercice n :" par exemple), recopie-le dans "title" sans le reformuler.
 - Si une page contient la fin d'un exercice et le début du suivant, pageStart/pageEnd peuvent être identiques.
 - Ne devine pas les points si le barème n'est pas explicitement indiqué.
 - Utilise un score de confiance bas si tu hésites.

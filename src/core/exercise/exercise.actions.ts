@@ -367,6 +367,20 @@ const roundDuration = (minutes: number) => {
   return Math.max(5, Math.round(minutes / 5) * 5);
 };
 
+const resolveDefaultMinutesPerPointBySubject = (
+  subjectLabels: Array<string | null | undefined>
+) => {
+  if (isMathSubject(subjectLabels)) {
+    return { minutesPerPoint: 12, subjectLabel: 'mathématiques' };
+  }
+
+  if (isPhysicsSubject(subjectLabels)) {
+    return { minutesPerPoint: 10.5, subjectLabel: 'sciences physiques' };
+  }
+
+  return { minutesPerPoint: null, subjectLabel: null };
+};
+
 const resolveMinutesPerPoint = (target: EnrichmentTarget) => {
   const totalDuration = target.examPaper.totalDuration;
   const totalPoints = target.examPaper.totalPoints;
@@ -381,9 +395,7 @@ const resolveMinutesPerPoint = (target: EnrichmentTarget) => {
     target.examPaper.teaching?.subject?.shortDescription,
   ];
 
-  if (isMathSubject(subjectLabels)) return 12;
-  if (isPhysicsSubject(subjectLabels)) return 10.5;
-  return null;
+  return resolveDefaultMinutesPerPointBySubject(subjectLabels).minutesPerPoint;
 };
 
 const resolveEstimatedDuration = (
@@ -657,6 +669,7 @@ const enrichExerciseRecord = async (ex: EnrichmentTarget, context: EnrichmentCon
 type SplitExerciseSuggestion = {
   exerciseNumber: number;
   label: string | null;
+  title?: string | null;
   pageStart: number | null;
   pageEnd: number | null;
   points?: number | null;
@@ -705,6 +718,22 @@ const parseExerciseNumber = (value: string): number | null => {
   return parseRomanNumeral(value);
 };
 
+const normalizeExerciseTitle = (value: string | null | undefined) => {
+  if (typeof value !== 'string') return null;
+
+  const cleaned = value
+    .replace(/\s+/g, ' ')
+    .replace(/^[:\-–—]\s*/, '')
+    .replace(/\s*[:\-–—]?\s*\(?\d{1,3}\s*points?\)?\s*$/i, '')
+    .trim();
+
+  if (!cleaned || /^exercice\s+([0-9]+|[IVX]+)$/i.test(cleaned)) {
+    return null;
+  }
+
+  return cleaned.slice(0, 180);
+};
+
 const extractPointsByExercise = (pageTexts: string[]) => {
   const pointsByExercise = new Map<number, number>();
   const regex =
@@ -724,6 +753,26 @@ const extractPointsByExercise = (pageTexts: string[]) => {
   }
 
   return pointsByExercise;
+};
+
+const extractTitlesByExercise = (pageTexts: string[]) => {
+  const titlesByExercise = new Map<number, string>();
+  const regex = /\bEXERCICE\s+([0-9]+|[IVX]+)\b\s*(?::|[-–—])\s*([^\n\r]+)/gi;
+
+  for (const text of pageTexts) {
+    let match: RegExpExecArray | null;
+    while ((match = regex.exec(text)) !== null) {
+      const exerciseNumber = parseExerciseNumber(match[1]);
+      if (!exerciseNumber || titlesByExercise.has(exerciseNumber)) continue;
+
+      const title = normalizeExerciseTitle(match[2]);
+      if (title) {
+        titlesByExercise.set(exerciseNumber, title);
+      }
+    }
+  }
+
+  return titlesByExercise;
 };
 
 const normalizeScanText = (text: string) =>
@@ -800,6 +849,7 @@ const normalizeSplitSuggestions = (
     const pageEnd = coercePositiveInt(exercise.pageEnd);
     const points = coercePositiveInt(exercise.points);
     const estimatedDuration = coercePositiveInt(exercise.estimatedDuration);
+    const title = normalizeExerciseTitle(exercise.title);
     const label =
       typeof exercise.label === 'string' && exercise.label.trim().length
         ? exercise.label.trim()
@@ -812,6 +862,7 @@ const normalizeSplitSuggestions = (
     return {
       exerciseNumber,
       label,
+      title,
       pageStart: pageStart && pageStart <= pageCount ? pageStart : pageStart,
       pageEnd: pageEnd && pageEnd <= pageCount ? pageEnd : pageEnd,
       points,
@@ -1321,27 +1372,30 @@ export async function suggestExerciseSplitByExamPaper(
       examPaper.teaching?.subject?.longDescription,
       examPaper.teaching?.subject?.shortDescription,
     ];
-    const mathSubject = isMathSubject(subjectLabels);
     const totalsText = pageTexts.slice(0, 2).join('\n');
     const totals = parseExamPaperTotals(totalsText);
-    const canUseMathFallback = mathSubject && (!totals.totalPoints || totals.totalPoints === 20);
-    const effectiveTotalPoints = totals.totalPoints ?? (canUseMathFallback ? 20 : null);
+    const defaultMinutesPerPoint = resolveDefaultMinutesPerPointBySubject(subjectLabels);
+    const canUseDefaultFallback =
+      defaultMinutesPerPoint.minutesPerPoint !== null &&
+      (!totals.totalPoints || totals.totalPoints === 20);
+    const effectiveTotalPoints = totals.totalPoints ?? (canUseDefaultFallback ? 20 : null);
     let minutesPerPoint: number | null = null;
     let usedDefaultMinutesPerPoint = false;
     let usedDefaultTotalPoints = false;
 
     if (totals.totalDurationMinutes && totals.totalPoints) {
       minutesPerPoint = totals.totalDurationMinutes / totals.totalPoints;
-    } else if (canUseMathFallback) {
-      minutesPerPoint = 12;
+    } else if (canUseDefaultFallback) {
+      minutesPerPoint = defaultMinutesPerPoint.minutesPerPoint;
       usedDefaultMinutesPerPoint = true;
     }
 
-    if (!totals.totalPoints && canUseMathFallback) {
+    if (!totals.totalPoints && canUseDefaultFallback) {
       usedDefaultTotalPoints = true;
     }
 
     const pointsByExercise = extractPointsByExercise(pageTexts);
+    const titlesByExercise = extractTitlesByExercise(pageTexts);
 
     const truncated = pageTexts.length > maxPages;
     const pages = (useMockLlm ? pageTexts : pageTexts.slice(0, maxPages)).map((text, idx) => ({
@@ -1367,7 +1421,12 @@ export async function suggestExerciseSplitByExamPaper(
       return { success: false, error: "L'IA n'a détecté aucun exercice." };
     }
 
-    const withPoints = normalized.map((exercise) => {
+    const withTitles = normalized.map((exercise) => {
+      const title = exercise.title ?? titlesByExercise.get(exercise.exerciseNumber) ?? null;
+      return { ...exercise, title };
+    });
+
+    const withPoints = withTitles.map((exercise) => {
       const points = exercise.points ?? pointsByExercise.get(exercise.exerciseNumber) ?? null;
       return { ...exercise, points };
     });
@@ -1390,10 +1449,14 @@ export async function suggestExerciseSplitByExamPaper(
     });
 
     if (usedDefaultMinutesPerPoint) {
-      flags.push('Durée estimée avec 12 min/point (mathématiques).');
+      flags.push(
+        `Durée estimée avec ${defaultMinutesPerPoint.minutesPerPoint} min/point (${defaultMinutesPerPoint.subjectLabel}).`
+      );
     }
     if (usedDefaultTotalPoints) {
-      flags.push('Total de points supposé à 20 (mathématiques).');
+      flags.push(
+        `Total de points supposé à 20 (${defaultMinutesPerPoint.subjectLabel}).`
+      );
     }
 
     return {

@@ -117,7 +117,7 @@ export function DataTable<TData extends { id: string }, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className={header.column.id === "isActive" ? "text-center" : undefined}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -142,7 +142,7 @@ export function DataTable<TData extends { id: string }, TValue>({
                   {row.getVisibleCells().map((cell) => {
                     const isActionCell = cell.column.id === "actions";
                     return (
-                      <TableCell key={cell.id} data-row-action={isActionCell || undefined}>
+                      <TableCell key={cell.id} className={cell.column.id === "isActive" ? "text-center" : undefined} data-row-action={isActionCell || undefined}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     );

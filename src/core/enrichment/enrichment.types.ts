@@ -53,6 +53,7 @@ export interface ExamPaperSplitInput {
 export interface ExamPaperSplitSuggestion {
   exerciseNumber: number;
   label?: string | null;
+  title?: string | null;
   pageStart: number;
   pageEnd: number;
   points?: number | null;

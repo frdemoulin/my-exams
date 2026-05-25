@@ -62,6 +62,11 @@ export const Sidebar = () => {
           icon: <FaChartPie className="mr-3" size={16} />
         },
         {
+          title: 'Diplômes',
+          path: '/admin/diplomas',
+          icon: <FaBook className="mr-3" size={16} />
+        },
+        {
           title: 'Matières',
           path: '/admin/subjects',
           icon: <FaBook className="mr-3" size={16} />
@@ -175,15 +180,22 @@ export const Sidebar = () => {
     }
   ];
 
+  const sortedMenuItems = menuItems.map((category) => ({
+    ...category,
+    list: [...category.list].sort((left, right) =>
+      left.title.localeCompare(right.title, 'fr', { sensitivity: 'base' })
+    ),
+  }));
+
   return (
     <div className="h-full w-64 sticky font-medium text-sm text-body p-4 mb-1 overflow-hidden">
       <div className="h-screen overflow-y-auto">
         <ul>
-          {menuItems.map((cat) => (
+          {sortedMenuItems.map((cat) => (
             <li key={cat.title}>
               {cat.title ? <div className="pt-1 pb-1 text-xs font-semibold uppercase tracking-wide text-heading">{cat.title}</div> : null}
               <ul className="border-l border-default">
-                {cat.list.map((item, index, array) => (
+                {cat.list.map((item) => (
                   <Link
                     href={item.path}
                     key={item.title}
