@@ -1,3 +1,9 @@
+## [1.6.6](https://github.com/frdemoulin/my-exams/compare/v1.6.5...v1.6.6) (2026-05-25)
+
+### Bug Fixes
+
+* amélioration du découpage IA des exercices ([f5e0e1b](https://github.com/frdemoulin/my-exams/commit/f5e0e1b630a534c1d595aa9f399cc3aaf35773a5))
+
 ## [1.6.5](https://github.com/frdemoulin/my-exams/compare/v1.6.4...v1.6.5) (2026-05-02)
 
 ### Bug Fixes
