@@ -10,6 +10,8 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env.local", override: true });
 dotenv.config();
 
+const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
+
 export default async function globalSetup(_config: FullConfig) {
   if (process.env.E2E_RESET_DB === "true") {
     execSync("npm run db:reset", { stdio: "inherit" });
@@ -38,6 +40,14 @@ export default async function globalSetup(_config: FullConfig) {
         roles: "ADMIN",
       },
     });
+  } else if (user.roles !== "ADMIN" || user.name !== name) {
+    user = await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        name,
+        roles: "ADMIN",
+      },
+    });
   }
 
   const token = await encode({
@@ -45,6 +55,11 @@ export default async function globalSetup(_config: FullConfig) {
       email: user.email || undefined,
       name: user.name || undefined,
       sub: user.id,
+      role: user.roles,
+      adminExpiresAt:
+        user.roles === "ADMIN"
+          ? Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000
+          : undefined,
     },
     secret: authSecret,
     salt: "authjs.session-token",

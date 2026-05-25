@@ -51,6 +51,12 @@ interface ExerciseFormData {
   flags?: string[];
 }
 
+type ExercisePageRange = {
+  exerciseNumber: number;
+  pageStart: number;
+  pageEnd: number;
+};
+
 interface SplitExercisesFormProps {
   examPaperId: string;
   examPaperLabel: string;
@@ -102,6 +108,27 @@ export function SplitExercisesForm({
     const updated = [...exercises];
     updated[index] = { ...updated[index], themeIds };
     setExercises(updated);
+  };
+
+  const fetchStatementByExercise = async (ranges: ExercisePageRange[]) => {
+    const result = await previewExerciseStatements({
+      examPaperId,
+      ranges,
+    });
+
+    if (!result.success) {
+      return {
+        success: false as const,
+        error: result.error || 'Erreur de previsualisation',
+      };
+    }
+
+    return {
+      success: true as const,
+      statementByExercise: new Map(
+        (result.items || []).map((item) => [item.exerciseNumber, item.statement])
+      ),
+    };
   };
 
   const handleSubmit = async () => {
@@ -168,28 +195,23 @@ export function SplitExercisesForm({
 
     setIsPreviewing(true);
     try {
-      const result = await previewExerciseStatements({
-        examPaperId,
-        ranges: exercises.map((ex) => ({
+      const preview = await fetchStatementByExercise(
+        exercises.map((ex) => ({
           exerciseNumber: ex.exerciseNumber,
           pageStart: ex.pageStart as number,
           pageEnd: ex.pageEnd as number,
-        })),
-      });
+        }))
+      );
 
-      if (!result.success) {
-        toast.error(result.error || 'Erreur de previsualisation');
+      if (!preview.success) {
+        toast.error(preview.error);
         return;
       }
-
-      const statementByExercise = new Map(
-        (result.items || []).map((item) => [item.exerciseNumber, item.statement])
-      );
 
       setExercises((prev) =>
         prev.map((ex) => ({
           ...ex,
-          statement: statementByExercise.get(ex.exerciseNumber) ?? ex.statement,
+          statement: preview.statementByExercise.get(ex.exerciseNumber) ?? ex.statement,
         }))
       );
 
@@ -221,14 +243,14 @@ export function SplitExercisesForm({
       }
 
       const defaultExerciseType: ExerciseType = 'NORMAL';
-      const suggested = (result.exercises ?? []).map((exercise) => ({
+      const suggested: ExerciseFormData[] = (result.exercises ?? []).map((exercise) => ({
         exerciseNumber: exercise.exerciseNumber,
         label: exercise.label || `Exercice ${exercise.exerciseNumber}`,
         points: exercise.points ?? undefined,
         pageStart: exercise.pageStart ?? undefined,
         pageEnd: exercise.pageEnd ?? undefined,
         exerciseType: defaultExerciseType,
-        title: undefined,
+        title: exercise.title ?? undefined,
         statement: undefined,
         themeIds: [],
         estimatedDuration: exercise.estimatedDuration ?? undefined,
@@ -242,13 +264,47 @@ export function SplitExercisesForm({
         return;
       }
 
-      setExercises(suggested);
-      setSplitWarnings(result.flags || []);
+      const ranges = suggested
+        .filter(
+          (exercise): exercise is typeof exercise & { pageStart: number; pageEnd: number } =>
+            typeof exercise.pageStart === 'number' && typeof exercise.pageEnd === 'number'
+        )
+        .map((exercise) => ({
+          exerciseNumber: exercise.exerciseNumber,
+          pageStart: exercise.pageStart,
+          pageEnd: exercise.pageEnd,
+        }));
 
-      if ((result.flags && result.flags.length > 0) || suggested.some((ex) => ex.flags?.length)) {
+      let autoStatementWarning: string | null = null;
+  let nextExercises: ExerciseFormData[] = suggested;
+      let statementsPrefilled = false;
+
+      if (ranges.length > 0) {
+        const preview = await fetchStatementByExercise(ranges);
+        if (preview.success) {
+          nextExercises = suggested.map((exercise) => ({
+            ...exercise,
+            statement: preview.statementByExercise.get(exercise.exerciseNumber) ?? exercise.statement,
+          }));
+          statementsPrefilled = preview.statementByExercise.size > 0;
+        } else {
+          autoStatementWarning = 'Énoncés non extraits automatiquement depuis le PDF.';
+        }
+      }
+
+      const nextWarnings = autoStatementWarning
+        ? [...(result.flags || []), autoStatementWarning]
+        : (result.flags || []);
+
+      setExercises(nextExercises);
+      setSplitWarnings(nextWarnings);
+
+      if (nextWarnings.length > 0 || nextExercises.some((ex) => ex.flags?.length)) {
         toast('Découpage proposé. Vérifiez les points signalés.', { icon: '⚠️' });
       } else {
-        toast.success('Découpage proposé par IA');
+        toast.success(
+          statementsPrefilled ? 'Découpage et énoncés proposés par IA' : 'Découpage proposé par IA'
+        );
       }
     } catch (error) {
       console.error('Error suggesting split:', error);

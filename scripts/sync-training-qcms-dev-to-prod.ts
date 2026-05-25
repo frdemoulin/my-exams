@@ -239,6 +239,53 @@ function buildThemeKey(theme: ThemeRef) {
   return `${theme.subjectLongDescription}::${theme.subjectShortDescription}::${theme.domainLongDescription}::${theme.longDescription}`;
 }
 
+function mergeStats(target: SyncStats, source: SyncStats) {
+  target.chaptersCreated += source.chaptersCreated;
+  target.chaptersUpdated += source.chaptersUpdated;
+  target.questionsCreated += source.questionsCreated;
+  target.questionsUpdated += source.questionsUpdated;
+  target.questionsDeleted += source.questionsDeleted;
+  target.sectionsCreated += source.sectionsCreated;
+  target.sectionsUpdated += source.sectionsUpdated;
+  target.sectionsDeleted += source.sectionsDeleted;
+  target.quizzesCreated += source.quizzesCreated;
+  target.quizzesUpdated += source.quizzesUpdated;
+  target.quizzesDeleted += source.quizzesDeleted;
+  target.questionGroupsCreated += source.questionGroupsCreated;
+  target.questionGroupsUpdated += source.questionGroupsUpdated;
+  target.questionGroupsDeleted += source.questionGroupsDeleted;
+  target.questionLinksCreated += source.questionLinksCreated;
+  target.questionLinksUpdated += source.questionLinksUpdated;
+  target.questionLinksDeleted += source.questionLinksDeleted;
+  target.progressEntriesDeleted += source.progressEntriesDeleted;
+}
+
+function isRetryableTransactionError(error: unknown) {
+  if (!(error instanceof Prisma.PrismaClientKnownRequestError)) {
+    return false;
+  }
+
+  if (error.code === "P2034") {
+    return true;
+  }
+
+  if (error.code !== "P2028") {
+    return false;
+  }
+
+  const metaError =
+    error.meta && typeof error.meta === "object" && "error" in error.meta
+      ? error.meta.error
+      : undefined;
+  const detail = typeof metaError === "string" ? metaError : error.message;
+
+  return /aborted|write conflict|deadlock|TransientTransactionError/i.test(detail);
+}
+
+function wait(milliseconds: number) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
 function getRequiredMapValue<K, T>(
   map: Map<K, T>,
   key: K,
@@ -323,7 +370,6 @@ async function exportFromDev(
     prisma.chapter.findMany({
       where: {
         ...(chapterSlugs.length > 0 ? { slug: { in: chapterSlugs } } : {}),
-        OR: [{ quizQuestions: { some: {} } }, { trainingQuizzes: { some: {} } }],
       },
       select: {
         title: true,
@@ -653,477 +699,495 @@ async function syncChapterToProd(
     `chapter ${chapter.slug}`
   );
 
-  await prisma.$transaction(async (transaction) => {
-    const existingChapter = await transaction.chapter.findUnique({
-      where: {
-        subjectId_slug: {
-          subjectId,
-          slug: chapter.slug,
-        },
-      },
-      select: {
-        id: true,
-      },
-    });
+  const maxAttempts = 4;
 
-    const prodChapter = existingChapter
-      ? await transaction.chapter.update({
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const chapterStats = emptyStats();
+
+    try {
+      {
+        const transaction = prisma;
+        const existingChapter = await transaction.chapter.findUnique({
           where: {
-            id: existingChapter.id,
-          },
-          data: {
-            title: chapter.title,
-            slug: chapter.slug,
-            level: chapter.level,
-            order: chapter.order,
-            isActive: chapter.isActive,
-            isPublished: chapter.isPublished,
-            domainIds: chapterDomainIds,
-            themeIds: chapterThemeIds,
-          },
-          select: {
-            id: true,
-          },
-        })
-      : await transaction.chapter.create({
-          data: {
-            title: chapter.title,
-            slug: chapter.slug,
-            level: chapter.level,
-            order: chapter.order,
-            isActive: chapter.isActive,
-            isPublished: chapter.isPublished,
-            subjectId,
-            domainIds: chapterDomainIds,
-            themeIds: chapterThemeIds,
+            subjectId_slug: {
+              subjectId,
+              slug: chapter.slug,
+            },
           },
           select: {
             id: true,
           },
         });
 
-    if (existingChapter) {
-      stats.chaptersUpdated += 1;
-    } else {
-      stats.chaptersCreated += 1;
-    }
-
-    const chapterId = prodChapter.id;
-
-    const [existingQuestions, existingSections, existingQuizzes] = await Promise.all([
-      transaction.quizQuestion.findMany({
-        where: {
-          chapterId,
-        },
-        select: {
-          id: true,
-          order: true,
-        },
-      }),
-      transaction.chapterSection.findMany({
-        where: {
-          chapterId,
-        },
-        select: {
-          id: true,
-          order: true,
-        },
-      }),
-      transaction.trainingQuiz.findMany({
-        where: {
-          chapterId,
-        },
-        select: {
-          id: true,
-          slug: true,
-        },
-      }),
-    ]);
-
-    const existingQuestionByOrder = new Map(
-      existingQuestions.map((question) => [question.order, question])
-    );
-    const existingSectionByOrder = new Map(
-      existingSections.map((section) => [section.order, section])
-    );
-    const existingQuizBySlug = new Map(
-      existingQuizzes.map((quiz) => [quiz.slug, quiz])
-    );
-
-    const questionIdByOrder = new Map<number, string>();
-    const keptQuestionOrders = new Set<number>();
-    const keptSectionIds = new Set<string>();
-    const keptQuizIds = new Set<string>();
-
-    for (const question of chapter.questions) {
-      const existingQuestion = existingQuestionByOrder.get(question.order);
-      const questionThemeIds = resolveThemeIds(
-        question.themeRefs,
-        refs,
-        `question ${chapter.slug}#${question.order}`
-      );
-
-      keptQuestionOrders.add(question.order);
-
-      if (existingQuestion) {
-        await transaction.quizQuestion.update({
-          where: {
-            id: existingQuestion.id,
-          },
-          data: {
-            difficulty: question.difficulty as never,
-            question: question.question,
-            choices: toInputJson(question.choices),
-            correctChoiceIndex: question.correctChoiceIndex,
-            explanation: question.explanation,
-            isPublished: question.isPublished,
-            themeIds: questionThemeIds,
-          },
-        });
-        questionIdByOrder.set(question.order, existingQuestion.id);
-        stats.questionsUpdated += 1;
-        continue;
-      }
-
-      const createdQuestion = await transaction.quizQuestion.create({
-        data: {
-          chapterId,
-          order: question.order,
-          difficulty: question.difficulty as never,
-          question: question.question,
-          choices: toInputJson(question.choices),
-          correctChoiceIndex: question.correctChoiceIndex,
-          explanation: question.explanation,
-          isPublished: question.isPublished,
-          themeIds: questionThemeIds,
-        },
-        select: {
-          id: true,
-        },
-      });
-
-      questionIdByOrder.set(question.order, createdQuestion.id);
-      stats.questionsCreated += 1;
-    }
-
-    for (const section of chapter.sections) {
-      const existingSection = existingSectionByOrder.get(section.order);
-      const sectionThemeIds = resolveThemeIds(
-        section.themeRefs,
-        refs,
-        `section ${chapter.slug}#${section.order}`
-      );
-
-      const prodSection = existingSection
-        ? await transaction.chapterSection.update({
-            where: {
-              id: existingSection.id,
-            },
-            data: {
-              title: section.title,
-              description: section.description,
-              kind: section.kind as never,
-              isPublished: section.isPublished,
-              themeIds: sectionThemeIds,
-            },
-            select: {
-              id: true,
-            },
-          })
-        : await transaction.chapterSection.create({
-            data: {
-              chapterId,
-              order: section.order,
-              title: section.title,
-              description: section.description,
-              kind: section.kind as never,
-              isPublished: section.isPublished,
-              themeIds: sectionThemeIds,
-            },
-            select: {
-              id: true,
-            },
-          });
-
-      keptSectionIds.add(prodSection.id);
-
-      if (existingSection) {
-        stats.sectionsUpdated += 1;
-      } else {
-        stats.sectionsCreated += 1;
-      }
-
-      for (const quiz of section.quizzes) {
-        const existingQuiz = existingQuizBySlug.get(quiz.slug);
-        const prodQuiz = existingQuiz
-          ? await transaction.trainingQuiz.update({
+        const prodChapter = existingChapter
+          ? await transaction.chapter.update({
               where: {
-                id: existingQuiz.id,
+                id: existingChapter.id,
               },
               data: {
-                sectionId: prodSection.id,
-                title: quiz.title,
-                description: quiz.description,
-                order: quiz.order,
-                stage: quiz.stage as never,
-                isPublished: quiz.isPublished,
+                title: chapter.title,
+                slug: chapter.slug,
+                level: chapter.level,
+                order: chapter.order,
+                isActive: chapter.isActive,
+                isPublished: chapter.isPublished,
+                domainIds: chapterDomainIds,
+                themeIds: chapterThemeIds,
               },
               select: {
                 id: true,
               },
             })
-          : await transaction.trainingQuiz.create({
+          : await transaction.chapter.create({
               data: {
-                chapterId,
-                sectionId: prodSection.id,
-                slug: quiz.slug,
-                title: quiz.title,
-                description: quiz.description,
-                order: quiz.order,
-                stage: quiz.stage as never,
-                isPublished: quiz.isPublished,
+                title: chapter.title,
+                slug: chapter.slug,
+                level: chapter.level,
+                order: chapter.order,
+                isActive: chapter.isActive,
+                isPublished: chapter.isPublished,
+                subjectId,
+                domainIds: chapterDomainIds,
+                themeIds: chapterThemeIds,
               },
               select: {
                 id: true,
               },
             });
 
-        keptQuizIds.add(prodQuiz.id);
-
-        if (existingQuiz) {
-          stats.quizzesUpdated += 1;
+        if (existingChapter) {
+          chapterStats.chaptersUpdated += 1;
         } else {
-          stats.quizzesCreated += 1;
+          chapterStats.chaptersCreated += 1;
         }
 
-        const [existingGroups, existingLinks] = await Promise.all([
-          transaction.trainingQuizQuestionGroup.findMany({
+        const chapterId = prodChapter.id;
+
+        const [existingQuestions, existingSections, existingQuizzes] = await Promise.all([
+          transaction.quizQuestion.findMany({
             where: {
-              quizId: prodQuiz.id,
+              chapterId,
             },
             select: {
               id: true,
               order: true,
             },
           }),
-          transaction.trainingQuizQuestion.findMany({
+          transaction.chapterSection.findMany({
             where: {
-              quizId: prodQuiz.id,
+              chapterId,
             },
             select: {
               id: true,
-              questionId: true,
+              order: true,
+            },
+          }),
+          transaction.trainingQuiz.findMany({
+            where: {
+              chapterId,
+            },
+            select: {
+              id: true,
+              slug: true,
             },
           }),
         ]);
 
-        const existingGroupByOrder = new Map(
-          existingGroups.map((group) => [group.order, group])
+        const existingQuestionByOrder = new Map(
+          existingQuestions.map((question) => [question.order, question])
         );
-        const existingLinkByQuestionId = new Map(
-          existingLinks.map((link) => [link.questionId, link])
+        const existingSectionByOrder = new Map(
+          existingSections.map((section) => [section.order, section])
         );
-        const keptGroupIds = new Set<string>();
-        const keptLinkIds = new Set<string>();
-        const groupIdByOrder = new Map<number, string>();
+        const existingQuizBySlug = new Map(
+          existingQuizzes.map((quiz) => [quiz.slug, quiz])
+        );
 
-        for (const questionGroup of quiz.questionGroups) {
-          const existingGroup = existingGroupByOrder.get(questionGroup.order);
-          const prodGroup = existingGroup
-            ? await transaction.trainingQuizQuestionGroup.update({
+        const questionIdByOrder = new Map<number, string>();
+        const keptQuestionOrders = new Set<number>();
+        const keptSectionIds = new Set<string>();
+        const keptQuizIds = new Set<string>();
+
+        for (const question of chapter.questions) {
+          const existingQuestion = existingQuestionByOrder.get(question.order);
+          const questionThemeIds = resolveThemeIds(
+            question.themeRefs,
+            refs,
+            `question ${chapter.slug}#${question.order}`
+          );
+
+          keptQuestionOrders.add(question.order);
+
+          if (existingQuestion) {
+            await transaction.quizQuestion.update({
+              where: {
+                id: existingQuestion.id,
+              },
+              data: {
+                difficulty: question.difficulty as never,
+                question: question.question,
+                choices: toInputJson(question.choices),
+                correctChoiceIndex: question.correctChoiceIndex,
+                explanation: question.explanation,
+                isPublished: question.isPublished,
+                themeIds: questionThemeIds,
+              },
+            });
+            questionIdByOrder.set(question.order, existingQuestion.id);
+            chapterStats.questionsUpdated += 1;
+            continue;
+          }
+
+          const createdQuestion = await transaction.quizQuestion.create({
+            data: {
+              chapterId,
+              order: question.order,
+              difficulty: question.difficulty as never,
+              question: question.question,
+              choices: toInputJson(question.choices),
+              correctChoiceIndex: question.correctChoiceIndex,
+              explanation: question.explanation,
+              isPublished: question.isPublished,
+              themeIds: questionThemeIds,
+            },
+            select: {
+              id: true,
+            },
+          });
+
+          questionIdByOrder.set(question.order, createdQuestion.id);
+          chapterStats.questionsCreated += 1;
+        }
+
+        for (const section of chapter.sections) {
+          const existingSection = existingSectionByOrder.get(section.order);
+          const sectionThemeIds = resolveThemeIds(
+            section.themeRefs,
+            refs,
+            `section ${chapter.slug}#${section.order}`
+          );
+
+          const prodSection = existingSection
+            ? await transaction.chapterSection.update({
                 where: {
-                  id: existingGroup.id,
+                  id: existingSection.id,
                 },
                 data: {
-                  title: questionGroup.title,
-                  sharedStatement: questionGroup.sharedStatement,
+                  title: section.title,
+                  description: section.description,
+                  kind: section.kind as never,
+                  isPublished: section.isPublished,
+                  themeIds: sectionThemeIds,
                 },
                 select: {
                   id: true,
                 },
               })
-            : await transaction.trainingQuizQuestionGroup.create({
+            : await transaction.chapterSection.create({
                 data: {
-                  quizId: prodQuiz.id,
-                  order: questionGroup.order,
-                  title: questionGroup.title,
-                  sharedStatement: questionGroup.sharedStatement,
+                  chapterId,
+                  order: section.order,
+                  title: section.title,
+                  description: section.description,
+                  kind: section.kind as never,
+                  isPublished: section.isPublished,
+                  themeIds: sectionThemeIds,
                 },
                 select: {
                   id: true,
                 },
               });
 
-          keptGroupIds.add(prodGroup.id);
-          groupIdByOrder.set(questionGroup.order, prodGroup.id);
+          keptSectionIds.add(prodSection.id);
 
-          if (existingGroup) {
-            stats.questionGroupsUpdated += 1;
+          if (existingSection) {
+            chapterStats.sectionsUpdated += 1;
           } else {
-            stats.questionGroupsCreated += 1;
+            chapterStats.sectionsCreated += 1;
+          }
+
+          for (const quiz of section.quizzes) {
+            const existingQuiz = existingQuizBySlug.get(quiz.slug);
+            const prodQuiz = existingQuiz
+              ? await transaction.trainingQuiz.update({
+                  where: {
+                    id: existingQuiz.id,
+                  },
+                  data: {
+                    sectionId: prodSection.id,
+                    title: quiz.title,
+                    description: quiz.description,
+                    order: quiz.order,
+                    stage: quiz.stage as never,
+                    isPublished: quiz.isPublished,
+                  },
+                  select: {
+                    id: true,
+                  },
+                })
+              : await transaction.trainingQuiz.create({
+                  data: {
+                    chapterId,
+                    sectionId: prodSection.id,
+                    slug: quiz.slug,
+                    title: quiz.title,
+                    description: quiz.description,
+                    order: quiz.order,
+                    stage: quiz.stage as never,
+                    isPublished: quiz.isPublished,
+                  },
+                  select: {
+                    id: true,
+                  },
+                });
+
+            keptQuizIds.add(prodQuiz.id);
+
+            if (existingQuiz) {
+              chapterStats.quizzesUpdated += 1;
+            } else {
+              chapterStats.quizzesCreated += 1;
+            }
+
+            const [existingGroups, existingLinks] = await Promise.all([
+              transaction.trainingQuizQuestionGroup.findMany({
+                where: {
+                  quizId: prodQuiz.id,
+                },
+                select: {
+                  id: true,
+                  order: true,
+                },
+              }),
+              transaction.trainingQuizQuestion.findMany({
+                where: {
+                  quizId: prodQuiz.id,
+                },
+                select: {
+                  id: true,
+                  questionId: true,
+                },
+              }),
+            ]);
+
+            const existingGroupByOrder = new Map(
+              existingGroups.map((group) => [group.order, group])
+            );
+            const existingLinkByQuestionId = new Map(
+              existingLinks.map((link) => [link.questionId, link])
+            );
+            const keptGroupIds = new Set<string>();
+            const keptLinkIds = new Set<string>();
+            const groupIdByOrder = new Map<number, string>();
+
+            for (const questionGroup of quiz.questionGroups) {
+              const existingGroup = existingGroupByOrder.get(questionGroup.order);
+              const prodGroup = existingGroup
+                ? await transaction.trainingQuizQuestionGroup.update({
+                    where: {
+                      id: existingGroup.id,
+                    },
+                    data: {
+                      title: questionGroup.title,
+                      sharedStatement: questionGroup.sharedStatement,
+                    },
+                    select: {
+                      id: true,
+                    },
+                  })
+                : await transaction.trainingQuizQuestionGroup.create({
+                    data: {
+                      quizId: prodQuiz.id,
+                      order: questionGroup.order,
+                      title: questionGroup.title,
+                      sharedStatement: questionGroup.sharedStatement,
+                    },
+                    select: {
+                      id: true,
+                    },
+                  });
+
+              keptGroupIds.add(prodGroup.id);
+              groupIdByOrder.set(questionGroup.order, prodGroup.id);
+
+              if (existingGroup) {
+                chapterStats.questionGroupsUpdated += 1;
+              } else {
+                chapterStats.questionGroupsCreated += 1;
+              }
+            }
+
+            for (const questionLink of quiz.questionLinks) {
+              const questionId = questionIdByOrder.get(questionLink.questionOrder);
+              if (!questionId) {
+                throw new Error(
+                  `Missing prod question for ${chapter.slug}/${quiz.slug} question order ${questionLink.questionOrder}.`
+                );
+              }
+
+              const groupId =
+                questionLink.groupOrder === null
+                  ? null
+                  : getRequiredMapValue(
+                      groupIdByOrder,
+                      questionLink.groupOrder,
+                      `Missing prod question group for ${chapter.slug}/${quiz.slug} group order ${questionLink.groupOrder}.`
+                    );
+
+              const existingLink = existingLinkByQuestionId.get(questionId);
+              if (existingLink) {
+                await transaction.trainingQuizQuestion.update({
+                  where: {
+                    id: existingLink.id,
+                  },
+                  data: {
+                    order: questionLink.order,
+                    groupId,
+                  },
+                });
+                keptLinkIds.add(existingLink.id);
+                chapterStats.questionLinksUpdated += 1;
+                continue;
+              }
+
+              const createdLink = await transaction.trainingQuizQuestion.create({
+                data: {
+                  quizId: prodQuiz.id,
+                  questionId,
+                  groupId,
+                  order: questionLink.order,
+                },
+                select: {
+                  id: true,
+                },
+              });
+
+              keptLinkIds.add(createdLink.id);
+              chapterStats.questionLinksCreated += 1;
+            }
+
+            const staleLinkIds = existingLinks
+              .filter((link) => !keptLinkIds.has(link.id))
+              .map((link) => link.id);
+
+            if (staleLinkIds.length > 0) {
+              await transaction.trainingQuizQuestion.deleteMany({
+                where: {
+                  id: {
+                    in: staleLinkIds,
+                  },
+                },
+              });
+              chapterStats.questionLinksDeleted += staleLinkIds.length;
+            }
+
+            const staleGroupIds = existingGroups
+              .filter((group) => !keptGroupIds.has(group.id))
+              .map((group) => group.id);
+
+            if (staleGroupIds.length > 0) {
+              await transaction.trainingQuizQuestionGroup.deleteMany({
+                where: {
+                  id: {
+                    in: staleGroupIds,
+                  },
+                },
+              });
+              chapterStats.questionGroupsDeleted += staleGroupIds.length;
+            }
           }
         }
 
-        for (const questionLink of quiz.questionLinks) {
-          const questionId = questionIdByOrder.get(questionLink.questionOrder);
-          if (!questionId) {
-            throw new Error(
-              `Missing prod question for ${chapter.slug}/${quiz.slug} question order ${questionLink.questionOrder}.`
-            );
-          }
+        const staleQuizIds = existingQuizzes
+          .filter((quiz) => !keptQuizIds.has(quiz.id))
+          .map((quiz) => quiz.id);
 
-          const groupId =
-            questionLink.groupOrder === null
-              ? null
-              : getRequiredMapValue(
-                  groupIdByOrder,
-                  questionLink.groupOrder,
-                  `Missing prod question group for ${chapter.slug}/${quiz.slug} group order ${questionLink.groupOrder}.`
-                );
-
-          const existingLink = existingLinkByQuestionId.get(questionId);
-          if (existingLink) {
-            await transaction.trainingQuizQuestion.update({
-              where: {
-                id: existingLink.id,
+        if (staleQuizIds.length > 0) {
+          const progressDeleteResult = await transaction.userTrainingQuizProgress.deleteMany({
+            where: {
+              quizId: {
+                in: staleQuizIds,
               },
-              data: {
-                order: questionLink.order,
-                groupId,
-              },
-            });
-            keptLinkIds.add(existingLink.id);
-            stats.questionLinksUpdated += 1;
-            continue;
-          }
-
-          const createdLink = await transaction.trainingQuizQuestion.create({
-            data: {
-              quizId: prodQuiz.id,
-              questionId,
-              groupId,
-              order: questionLink.order,
-            },
-            select: {
-              id: true,
             },
           });
 
-          keptLinkIds.add(createdLink.id);
-          stats.questionLinksCreated += 1;
-        }
-
-        const staleLinkIds = existingLinks
-          .filter((link) => !keptLinkIds.has(link.id))
-          .map((link) => link.id);
-
-        if (staleLinkIds.length > 0) {
           await transaction.trainingQuizQuestion.deleteMany({
             where: {
-              id: {
-                in: staleLinkIds,
+              quizId: {
+                in: staleQuizIds,
               },
             },
           });
-          stats.questionLinksDeleted += staleLinkIds.length;
-        }
-
-        const staleGroupIds = existingGroups
-          .filter((group) => !keptGroupIds.has(group.id))
-          .map((group) => group.id);
-
-        if (staleGroupIds.length > 0) {
           await transaction.trainingQuizQuestionGroup.deleteMany({
             where: {
-              id: {
-                in: staleGroupIds,
+              quizId: {
+                in: staleQuizIds,
               },
             },
           });
-          stats.questionGroupsDeleted += staleGroupIds.length;
+          await transaction.trainingQuiz.deleteMany({
+            where: {
+              id: {
+                in: staleQuizIds,
+              },
+            },
+          });
+
+          chapterStats.progressEntriesDeleted += progressDeleteResult.count;
+          chapterStats.quizzesDeleted += staleQuizIds.length;
+        }
+
+        const staleSectionIds = existingSections
+          .filter((section) => !keptSectionIds.has(section.id))
+          .map((section) => section.id);
+
+        if (staleSectionIds.length > 0) {
+          await transaction.chapterSection.deleteMany({
+            where: {
+              id: {
+                in: staleSectionIds,
+              },
+            },
+          });
+          chapterStats.sectionsDeleted += staleSectionIds.length;
+        }
+
+        const staleQuestionIds = existingQuestions
+          .filter((question) => !keptQuestionOrders.has(question.order))
+          .map((question) => question.id);
+
+        if (staleQuestionIds.length > 0) {
+          await transaction.trainingQuizQuestion.deleteMany({
+            where: {
+              questionId: {
+                in: staleQuestionIds,
+              },
+            },
+          });
+          await transaction.quizQuestion.deleteMany({
+            where: {
+              id: {
+                in: staleQuestionIds,
+              },
+            },
+          });
+          chapterStats.questionsDeleted += staleQuestionIds.length;
         }
       }
+
+      mergeStats(stats, chapterStats);
+      return;
+    } catch (error) {
+      if (attempt === maxAttempts || !isRetryableTransactionError(error)) {
+        throw error;
+      }
+
+      console.warn(
+        `Transient transaction error while syncing ${chapter.slug}; retrying (${attempt}/${maxAttempts})...`
+      );
+      await wait(attempt * 1_000);
     }
-
-    const staleQuizIds = existingQuizzes
-      .filter((quiz) => !keptQuizIds.has(quiz.id))
-      .map((quiz) => quiz.id);
-
-    if (staleQuizIds.length > 0) {
-      const progressDeleteResult = await transaction.userTrainingQuizProgress.deleteMany({
-        where: {
-          quizId: {
-            in: staleQuizIds,
-          },
-        },
-      });
-
-      await transaction.trainingQuizQuestion.deleteMany({
-        where: {
-          quizId: {
-            in: staleQuizIds,
-          },
-        },
-      });
-      await transaction.trainingQuizQuestionGroup.deleteMany({
-        where: {
-          quizId: {
-            in: staleQuizIds,
-          },
-        },
-      });
-      await transaction.trainingQuiz.deleteMany({
-        where: {
-          id: {
-            in: staleQuizIds,
-          },
-        },
-      });
-
-      stats.progressEntriesDeleted += progressDeleteResult.count;
-      stats.quizzesDeleted += staleQuizIds.length;
-    }
-
-    const staleSectionIds = existingSections
-      .filter((section) => !keptSectionIds.has(section.id))
-      .map((section) => section.id);
-
-    if (staleSectionIds.length > 0) {
-      await transaction.chapterSection.deleteMany({
-        where: {
-          id: {
-            in: staleSectionIds,
-          },
-        },
-      });
-      stats.sectionsDeleted += staleSectionIds.length;
-    }
-
-    const staleQuestionIds = existingQuestions
-      .filter((question) => !keptQuestionOrders.has(question.order))
-      .map((question) => question.id);
-
-    if (staleQuestionIds.length > 0) {
-      await transaction.trainingQuizQuestion.deleteMany({
-        where: {
-          questionId: {
-            in: staleQuestionIds,
-          },
-        },
-      });
-      await transaction.quizQuestion.deleteMany({
-        where: {
-          id: {
-            in: staleQuestionIds,
-          },
-        },
-      });
-      stats.questionsDeleted += staleQuestionIds.length;
-    }
-  }, {
-    maxWait: 10_000,
-    timeout: 120_000,
-  });
+  }
 }
 
 function printSummary(stats: SyncStats) {

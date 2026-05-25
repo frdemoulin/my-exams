@@ -1,6 +1,17 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+type SearchExercise = {
+  examPaper?: {
+    teaching?: {
+      subject?: {
+        shortDescription?: string | null;
+        longDescription?: string | null;
+      };
+    };
+  };
+};
+
 test.describe("smoke", () => {
   test("API search renvoie des exercices", async ({ request }) => {
     const res = await request.get("/api/exercises/search");
@@ -23,8 +34,28 @@ test.describe("smoke", () => {
     expect(body?.count ?? 0).toBeGreaterThan(0);
   });
 
-  test("API search filtrée par matière (Français) renvoie des résultats", async ({ request }) => {
-    const res = await request.get("/api/exercises/search?subject=Fran%C3%A7ais");
+  test("API search filtrée par une matière existante renvoie des résultats", async ({ request }) => {
+    const initialRes = await request.get("/api/exercises/search");
+    expect(initialRes.ok()).toBeTruthy();
+
+    const initialBody = await initialRes.json();
+    const exercises = Array.isArray(initialBody?.exercises)
+      ? (initialBody.exercises as SearchExercise[])
+      : [];
+    const subjectLabels = exercises
+      .map(
+        (exercise) =>
+          exercise.examPaper?.teaching?.subject?.shortDescription ||
+          exercise.examPaper?.teaching?.subject?.longDescription ||
+          null,
+      )
+      .filter((value): value is string => Boolean(value));
+    const subject =
+      subjectLabels.find((value) => value !== "Maths") || subjectLabels[0] || "Maths";
+
+    const res = await request.get(
+      `/api/exercises/search?subject=${encodeURIComponent(subject)}`,
+    );
     expect(res.ok()).toBeTruthy();
     const body = await res.json();
     expect(body?.count ?? 0).toBeGreaterThan(0);

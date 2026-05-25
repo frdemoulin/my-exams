@@ -17,6 +17,7 @@ async function run() {
     shortDescription: "Domain Test Court",
   };
   const testTheme = {
+    title: "Theme Test Title",
     longDescription: "Theme Test Long",
     shortDescription: "Theme Test Court",
   };

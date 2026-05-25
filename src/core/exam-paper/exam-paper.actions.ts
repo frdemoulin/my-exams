@@ -6,12 +6,17 @@ import { redirect } from "next/navigation";
 import prisma from "@/lib/db/prisma";
 import { createExamPaperSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
-import { CreateExamPaperErrors } from "./exam-paper.types";
+import { CreateExamPaperErrors, CreateExamPaperValues } from "./exam-paper.types";
 
 type DeleteExamPaperOptions = {
     redirectTo?: string | null;
     revalidatePaths?: string[];
     skipSuccessToast?: boolean;
+};
+
+export type ExamPaperActionResult = {
+    error?: string;
+    fieldErrors?: CreateExamPaperErrors;
 };
 
 const normalizeExamPaperSource = (value: unknown): string => {
@@ -32,22 +37,22 @@ const normalizeExamPaperSource = (value: unknown): string => {
     }
 };
 
-export const createExamPaper = async (formData: FormData) => {
-    const values = Object.fromEntries(formData.entries());
+const normalizeExamPaperValues = (values: CreateExamPaperValues) => ({
+    ...values,
+    source: normalizeExamPaperSource(values.source),
+    sourceUrl: values.sourceUrl || undefined,
+    sessionDay: values.sessionDay || undefined,
+    divisionId: values.divisionId || undefined,
+    examinationCenterIds: values.examinationCenterIds ?? [],
+    domainIds: values.domainIds ?? [],
+    themeIds: values.themeIds ?? [],
+    subjectUrl: values.subjectUrl || undefined,
+});
 
-    // Convert domainIds, themeIds and examinationCenterIds from comma-separated strings to arrays
-    const parsedValues = {
-        ...values,
-        sessionYear: values.sessionYear ? parseInt(values.sessionYear as string) : undefined,
-        examDay: values.examDay ? parseInt(values.examDay as string) : undefined,
-        examMonth: values.examMonth ? parseInt(values.examMonth as string) : undefined,
-        examYear: values.examYear ? parseInt(values.examYear as string) : undefined,
-        source: normalizeExamPaperSource(values.source),
-        sourceUrl: values.sourceUrl || undefined,
-        examinationCenterIds: values.examinationCenterIds ? (values.examinationCenterIds as string).split(',').filter(Boolean) : [],
-        domainIds: values.domainIds ? (values.domainIds as string).split(',').filter(Boolean) : [],
-        themeIds: values.themeIds ? (values.themeIds as string).split(',').filter(Boolean) : [],
-    };
+export const createExamPaper = async (
+    values: CreateExamPaperValues
+): Promise<ExamPaperActionResult | void> => {
+    const parsedValues = normalizeExamPaperValues(values);
 
     const result = createExamPaperSchema.safeParse(parsedValues);
 
@@ -77,13 +82,18 @@ export const createExamPaper = async (formData: FormData) => {
                 }
             });
         } catch (error: any) {
+            if (error?.code === 'P2002') {
+                return {
+                    error: "Un sujet d'examen existe déjà pour ce libellé, cette session et cet enseignement.",
+                };
+            }
             console.error('Error creating exam paper:', error);
             throw error;
         }
     } else {
         const errors: CreateExamPaperErrors = result.error.format();
         console.error('Error creating exam paper: ', errors);
-        throw errors;
+        return { fieldErrors: errors };
     }
 
     revalidatePath("/admin/exam-papers");
@@ -91,22 +101,11 @@ export const createExamPaper = async (formData: FormData) => {
     redirect("/admin/exam-papers");
 }
 
-export const updateExamPaper = async (id: string | undefined, formData: FormData) => {
-    const values = Object.fromEntries(formData.entries());
-
-    // Convert arrays from comma-separated strings
-    const parsedValues = {
-        ...values,
-        sessionYear: values.sessionYear ? parseInt(values.sessionYear as string) : undefined,
-        examDay: values.examDay ? parseInt(values.examDay as string) : undefined,
-        examMonth: values.examMonth ? parseInt(values.examMonth as string) : undefined,
-        examYear: values.examYear ? parseInt(values.examYear as string) : undefined,
-        source: normalizeExamPaperSource(values.source),
-        sourceUrl: values.sourceUrl || undefined,
-        examinationCenterIds: values.examinationCenterIds ? (values.examinationCenterIds as string).split(',').filter(Boolean) : [],
-        domainIds: values.domainIds ? (values.domainIds as string).split(',').filter(Boolean) : [],
-        themeIds: values.themeIds ? (values.themeIds as string).split(',').filter(Boolean) : [],
-    };
+export const updateExamPaper = async (
+    id: string | undefined,
+    values: CreateExamPaperValues
+): Promise<ExamPaperActionResult | void> => {
+    const parsedValues = normalizeExamPaperValues(values);
 
     const result = createExamPaperSchema.safeParse(parsedValues);
 
@@ -138,7 +137,12 @@ export const updateExamPaper = async (id: string | undefined, formData: FormData
             });
 
             revalidatePath('/admin/exam-papers');
-        } catch (error) {
+        } catch (error: any) {
+            if (error?.code === 'P2002') {
+                return {
+                    error: "Un sujet d'examen existe déjà pour ce libellé, cette session et cet enseignement.",
+                };
+            }
             console.error('Error updating exam paper: ', error);
             throw error;
         }
@@ -146,9 +150,9 @@ export const updateExamPaper = async (id: string | undefined, formData: FormData
         await setCrudSuccessToast("examPaper", "updated");
         redirect('/admin/exam-papers');
     } else {
-        const errors = result.error.format();
+        const errors: CreateExamPaperErrors = result.error.format();
         console.error('Invalid exam paper data: ', errors);
-        throw errors;
+        return { fieldErrors: errors };
     }
 }
 

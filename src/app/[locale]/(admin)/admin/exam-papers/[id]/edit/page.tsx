@@ -3,11 +3,13 @@ import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
 import { ExamPaperForm } from "../../_components/exam-paper-form";
+import { ExamPaperBreadcrumbOverride } from "../../_components/exam-paper-breadcrumb-override";
 import { fetchExamPaperById } from "@/core/exam-paper";
 import getSession from "@/lib/auth/get-session";
 import prisma from "@/lib/db/prisma";
 import { fetchCorrectionSources } from "@/core/correction-source";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
+import { normalizeExamPaperLabel } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('entities.examPaper');
@@ -43,6 +45,13 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
         prisma.grade.findMany({ orderBy: { shortDescription: 'asc' } }),
         prisma.teaching.findMany({
             where: { isActive: { not: false } },
+            include: {
+                grade: {
+                    select: {
+                        shortDescription: true,
+                    },
+                },
+            },
             orderBy: { longDescription: 'asc' },
         }),
         prisma.curriculum.findMany({
@@ -57,9 +66,18 @@ const EditExamPaperPage = async ({ params }: { params: Promise<{ id: string }> }
     ]);
 
     const t = await getTranslations('entities.examPaper');
+    const examPaperLabel =
+        normalizeExamPaperLabel(examPaper.label) ??
+        examPaper.label ??
+        'Sujet';
 
     return (
         <div className="w-full p-6">
+            <ExamPaperBreadcrumbOverride
+                examPaperId={id}
+                examPaperLabel={examPaperLabel}
+                currentLabel={t('actions.edit')}
+            />
             <AdminPageHeading title={t('actions.edit')} className="mb-6" />
             <div>
                 <ExamPaperForm

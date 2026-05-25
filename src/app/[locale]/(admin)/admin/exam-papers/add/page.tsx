@@ -34,6 +34,13 @@ const AddExamPaperPage = async () => {
         prisma.grade.findMany({ orderBy: { shortDescription: 'asc' } }),
         prisma.teaching.findMany({
             where: { isActive: { not: false } },
+            include: {
+                grade: {
+                    select: {
+                        shortDescription: true,
+                    },
+                },
+            },
             orderBy: { longDescription: 'asc' },
         }),
         prisma.curriculum.findMany({

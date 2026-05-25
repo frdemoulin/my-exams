@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MultiSelect } from "@/components/ui/multi-select";
 
 import { createExamPaper, updateExamPaper } from "@/core/exam-paper";
-import { CreateExamPaperValues } from "@/core/exam-paper";
+import { CreateExamPaperErrors, CreateExamPaperValues } from "@/core/exam-paper";
 import { createExamPaperSchema } from "@/lib/validation";
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import { useEntityTranslation, useCommonTranslations } from "@/hooks/use-translations";
@@ -42,8 +42,13 @@ interface ExamPaperFormProps {
     diplomas: { id: string; longDescription: string }[];
     divisions: { id: string; longDescription: string }[];
     grades: { id: string; shortDescription: string }[];
-    teachings: { id: string; longDescription: string }[];
-    curriculums: { id: string; longDescription: string; shortDescription: string | null }[];
+    teachings: { id: string; longDescription: string; grade: { shortDescription: string } }[];
+    curriculums: {
+        id: string;
+        longDescription: string;
+        shortDescription: string | null;
+        startDate: Date | string;
+    }[];
     examinationCenters: { id: string; description: string }[];
     sources: { id: string; label: string; isActive: boolean }[];
 }
@@ -61,6 +66,16 @@ export const ExamPaperForm = ({
 }: ExamPaperFormProps) => {
     const entity = useEntityTranslation('examPaper');
     const common = useCommonTranslations();
+
+    const formatCurriculumLabel = (
+        curriculum: ExamPaperFormProps["curriculums"][number]
+    ) => {
+        const baseLabel = curriculum.shortDescription || curriculum.longDescription;
+        const startDate = new Date(curriculum.startDate);
+        const entryYear = Number.isNaN(startDate.getTime()) ? null : startDate.getFullYear();
+
+        return entryYear ? `${baseLabel} (${entryYear})` : baseLabel;
+    };
 
     const normalizeSourceLabel = (value?: string | null) => {
         const raw = value?.trim();
@@ -225,23 +240,55 @@ export const ExamPaperForm = ({
         form.setValue('examinationCenterIds', ids);
     };
 
-    const onSubmit = async (values: CreateExamPaperValues) => {
-        const formData = new FormData();
+    const applyServerErrors = (errors: CreateExamPaperErrors) => {
+        const fieldNames: Array<keyof CreateExamPaperValues> = [
+            'label',
+            'sessionYear',
+            'sessionDay',
+            'source',
+            'sourceUrl',
+            'examDay',
+            'examMonth',
+            'examYear',
+            'diplomaId',
+            'divisionId',
+            'gradeId',
+            'teachingId',
+            'curriculumId',
+            'examinationCenterIds',
+            'domainIds',
+            'themeIds',
+            'subjectUrl',
+        ];
 
-        Object.entries(values).forEach(([key, value]) => {
-            if (Array.isArray(value)) {
-                formData.append(key, value.join(','));
-            } else if (value === undefined || value === null) {
-                formData.append(key, '');
-            } else {
-                formData.append(key, String(value));
+        fieldNames.forEach((fieldName) => {
+            const fieldError = errors[fieldName];
+            const message = fieldError?._errors?.[0];
+            if (message) {
+                form.setError(fieldName, { type: 'server', message });
             }
         });
-        
-        if (!initialData.id) {
-            await createExamPaper(formData);
-        } else {
-            await updateExamPaper(initialData.id, formData);
+
+        const rootMessage = errors._errors?.[0];
+        if (rootMessage) {
+            form.setError('root.serverError', { type: 'server', message: rootMessage });
+        }
+    };
+
+    const onSubmit = async (values: CreateExamPaperValues) => {
+        form.clearErrors();
+
+        const result = !initialData.id
+            ? await createExamPaper(values)
+            : await updateExamPaper(initialData.id, values);
+
+        if (result?.fieldErrors) {
+            applyServerErrors(result.fieldErrors);
+            return;
+        }
+
+        if (result?.error) {
+            form.setError('root.serverError', { type: 'server', message: result.error });
         }
     }
 
@@ -545,7 +592,7 @@ export const ExamPaperForm = ({
                                 <SelectContent>
                                     {teachings.map((teaching) => (
                                         <SelectItem key={teaching.id} value={teaching.id}>
-                                            {teaching.longDescription}
+                                            {`${teaching.longDescription} (${teaching.grade.shortDescription})`}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
@@ -570,7 +617,7 @@ export const ExamPaperForm = ({
                                 <SelectContent>
                                     {curriculums.map((curriculum) => (
                                         <SelectItem key={curriculum.id} value={curriculum.id}>
-                                            {curriculum.shortDescription || curriculum.longDescription}
+                                            {formatCurriculumLabel(curriculum)}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
@@ -648,6 +695,11 @@ export const ExamPaperForm = ({
                         loading={isSubmitting}
                     />
                 </div>
+                {form.formState.errors.root?.serverError?.message && (
+                    <p className="text-sm text-fg-danger">
+                        {form.formState.errors.root.serverError.message}
+                    </p>
+                )}
             </form>
         </Form>
     )
