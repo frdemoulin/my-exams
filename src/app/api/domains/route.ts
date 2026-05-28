@@ -96,20 +96,19 @@ export async function GET(request: NextRequest) {
     const themes = await prisma.theme.findMany({
       where: {
         id: { in: themeIds },
-        domain: { isActive: { not: false } },
+        domains: { some: { isActive: { not: false } } },
       },
       select: {
         id: true,
         title: true,
         shortTitle: true,
-        shortDescription: true,
-        longDescription: true,
-        domain: {
+        domains: {
           select: {
             id: true,
             longDescription: true,
             shortDescription: true,
             order: true,
+            isActive: true,
           },
         },
       },
@@ -127,24 +126,27 @@ export async function GET(request: NextRequest) {
     >();
 
     themes.forEach((theme) => {
-      const domain = theme.domain;
-      const existing =
-        domainsMap.get(domain.id) ||
-        {
-          id: domain.id,
-          label: domain.longDescription,
-          shortLabel: domain.shortDescription,
-          order: domain.order ?? null,
-          themes: [],
-        };
+      theme.domains
+        .filter((domain) => domain.isActive !== false)
+        .forEach((domain) => {
+          const existing =
+            domainsMap.get(domain.id) ||
+            {
+              id: domain.id,
+              label: domain.longDescription,
+              shortLabel: domain.shortDescription,
+              order: domain.order ?? null,
+              themes: [],
+            };
 
-      existing.themes.push({
-        id: theme.id,
-        label: theme.title,
-        shortLabel: theme.shortTitle ?? null,
-      });
+          existing.themes.push({
+            id: theme.id,
+            label: theme.title,
+            shortLabel: theme.shortTitle ?? null,
+          });
 
-      domainsMap.set(domain.id, existing);
+          domainsMap.set(domain.id, existing);
+        });
     });
 
     const domains = Array.from(domainsMap.values())

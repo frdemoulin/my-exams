@@ -56,7 +56,6 @@ export default async function EditTrainingQcmPage({ params }: EditTrainingQcmPag
           {
             value: theme.id,
             label: theme.title,
-            description: theme.description ?? undefined,
           },
         ])
     ).values()

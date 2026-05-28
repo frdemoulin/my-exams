@@ -491,9 +491,7 @@ const buildEnrichmentContext = async (): Promise<EnrichmentContext> => {
       id: true,
       title: true,
       shortTitle: true,
-      shortDescription: true,
-      longDescription: true,
-      domain: {
+      domains: {
         select: {
           subjectId: true,
           longDescription: true,
@@ -504,24 +502,31 @@ const buildEnrichmentContext = async (): Promise<EnrichmentContext> => {
   });
 
   const themeAliasToIds = new Map<string, string[]>();
-  const availableThemes = themes.map((t) => {
-    const domainLabel = t.domain.shortDescription || t.domain.longDescription || null;
+  const availableThemes = themes.flatMap((t) => {
+    const primaryDomain = t.domains[0];
+    if (!primaryDomain) {
+      return [];
+    }
+
+    const domainLabels = t.domains
+      .map((domain) => domain.shortDescription || domain.longDescription)
+      .filter((value): value is string => Boolean(value?.trim()));
+    const domainLabel = domainLabels[0] ?? null;
     const aliases = expandThemeAliases([
       t.title,
       t.shortTitle,
-      t.shortDescription,
-      t.longDescription,
+      ...domainLabels,
     ].filter((value): value is string => Boolean(value?.trim())));
 
     aliases.forEach((alias) => addThemeAlias(themeAliasToIds, alias, t.id));
 
-    return {
+    return [{
       id: t.id,
-      label: t.title || t.shortTitle || t.shortDescription || t.id,
+      label: t.title || t.shortTitle || domainLabel || t.id,
       domainLabel,
       aliases,
-      subjectId: t.domain.subjectId,
-    };
+      subjectId: primaryDomain.subjectId,
+    }];
   });
 
   return {

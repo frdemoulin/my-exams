@@ -82,7 +82,7 @@ const ViewExamPaperPage = async ({
       ? await prisma.theme.findMany({
           where: { id: { in: themeIds } },
           include: {
-            domain: {
+            domains: {
               select: {
                 id: true,
                 longDescription: true,
@@ -140,26 +140,27 @@ const ViewExamPaperPage = async ({
 
   const buildExerciseDomains = (
     exerciseThemes: Array<{
-      domain?: {
+      domains: Array<{
         id: string;
         longDescription: string;
         shortDescription: string;
         order: number | null;
-      } | null;
+      }>;
     }>,
   ) =>
     Array.from(
       new Map(
         exerciseThemes
-          .filter((theme) => theme.domain)
-          .map((theme) => [
-            theme.domain!.id,
-            {
-              id: theme.domain!.id,
-              label: theme.domain!.longDescription,
-              order: theme.domain!.order ?? Number.POSITIVE_INFINITY,
-            },
-          ]),
+          .flatMap((theme) =>
+            theme.domains.map((domain) => [
+              domain.id,
+              {
+                id: domain.id,
+                label: domain.longDescription,
+                order: domain.order ?? Number.POSITIVE_INFINITY,
+              },
+            ] as const)
+          ),
       ).values(),
     ).sort((a, b) => {
       if (a.order !== b.order) return a.order - b.order;

@@ -16,8 +16,9 @@ type DomainRef = {
 type ThemeRef = {
   subjectLongDescription: string;
   subjectShortDescription: string;
-  domainLongDescription: string;
-  longDescription: string;
+  domainLongDescriptions: string[];
+  title: string;
+  shortTitle: string | null;
 };
 
 type ExportQuizQuestion = {
@@ -236,7 +237,56 @@ function buildDomainKey(domain: DomainRef) {
 }
 
 function buildThemeKey(theme: ThemeRef) {
-  return `${theme.subjectLongDescription}::${theme.subjectShortDescription}::${theme.domainLongDescription}::${theme.longDescription}`;
+  const domainKey = [...theme.domainLongDescriptions]
+    .sort((left, right) => left.localeCompare(right, "fr", { sensitivity: "base" }))
+    .join("|");
+
+  return `${theme.subjectLongDescription}::${theme.subjectShortDescription}::${domainKey}::${theme.title}::${theme.shortTitle ?? ""}`;
+}
+
+function buildThemeRefFromTheme(
+  theme: {
+    title: string;
+    shortTitle: string | null;
+    domains: Array<{
+      longDescription: string;
+      subject: {
+        longDescription: string;
+        shortDescription: string;
+      };
+    }>;
+  },
+  owner: string
+): ThemeRef {
+  const primaryDomain = theme.domains[0];
+
+  if (!primaryDomain) {
+    throw new Error(`Theme without domain for ${owner}: ${theme.title}`);
+  }
+
+  const subjectLongDescription = primaryDomain.subject.longDescription;
+  const subjectShortDescription = primaryDomain.subject.shortDescription;
+
+  for (const domain of theme.domains) {
+    if (
+      domain.subject.longDescription !== subjectLongDescription ||
+      domain.subject.shortDescription !== subjectShortDescription
+    ) {
+      throw new Error(
+        `Theme spans multiple subjects for ${owner}: ${theme.title}`
+      );
+    }
+  }
+
+  return {
+    subjectLongDescription,
+    subjectShortDescription,
+    domainLongDescriptions: [...theme.domains]
+      .map((domain) => domain.longDescription)
+      .sort((left, right) => left.localeCompare(right, "fr", { sensitivity: "base" })),
+    title: theme.title,
+    shortTitle: theme.shortTitle ?? null,
+  };
 }
 
 function mergeStats(target: SyncStats, source: SyncStats) {
@@ -353,8 +403,9 @@ async function exportFromDev(
     prisma.theme.findMany({
       select: {
         id: true,
-        longDescription: true,
-        domain: {
+        title: true,
+        shortTitle: true,
+        domains: {
           select: {
             longDescription: true,
             subject: {
@@ -473,12 +524,7 @@ async function exportFromDev(
   const themeRefById = new Map<string, ThemeRef>(
     themes.map((theme) => [
       theme.id,
-      {
-        longDescription: theme.longDescription,
-        domainLongDescription: theme.domain.longDescription,
-        subjectLongDescription: theme.domain.subject.longDescription,
-        subjectShortDescription: theme.domain.subject.shortDescription,
-      },
+      buildThemeRefFromTheme(theme, `dev theme ${theme.id}`),
     ])
   );
 
@@ -592,8 +638,9 @@ async function loadProdReferenceMaps(
     prisma.theme.findMany({
       select: {
         id: true,
-        longDescription: true,
-        domain: {
+        title: true,
+        shortTitle: true,
+        domains: {
           select: {
             longDescription: true,
             subject: {
@@ -632,13 +679,7 @@ async function loadProdReferenceMaps(
     ),
     themeIdByKey: createUniqueStringMap(
       themes,
-      (theme) =>
-        buildThemeKey({
-          longDescription: theme.longDescription,
-          domainLongDescription: theme.domain.longDescription,
-          subjectLongDescription: theme.domain.subject.longDescription,
-          subjectShortDescription: theme.domain.subject.shortDescription,
-        }),
+      (theme) => buildThemeKey(buildThemeRefFromTheme(theme, `prod theme ${theme.id}`)),
       (theme) => theme.id,
       "theme"
     ),
@@ -676,7 +717,7 @@ function resolveThemeIds(
     getRequiredMapValue(
       refs.themeIdByKey,
       buildThemeKey(themeRef),
-      `Missing prod theme mapping for ${owner}: ${themeRef.longDescription}.`
+      `Missing prod theme mapping for ${owner}: ${themeRef.title}.`
     )
   );
 }

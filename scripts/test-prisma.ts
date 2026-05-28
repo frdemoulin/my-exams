@@ -18,8 +18,7 @@ async function run() {
   };
   const testTheme = {
     title: "Theme Test Title",
-    longDescription: "Theme Test Long",
-    shortDescription: "Theme Test Court",
+    shortTitle: "Theme Test Court",
   };
   const testGrades = [
     { longDescription: "Grade Long A", shortDescription: "Grade Court A" },
@@ -33,7 +32,7 @@ async function run() {
     }
   });
   await prisma.theme.deleteMany({
-    where: { longDescription: testTheme.longDescription }
+    where: { title: testTheme.title }
   });
   await prisma.domain.deleteMany({
     where: { longDescription: testDomain.longDescription }
@@ -86,7 +85,7 @@ async function run() {
     console.log("Contrainte unique OK:", e.code || e.message);
   }
 
-  // 5. Relation Domain / Theme (1-N)
+  // 5. Relation Domain / Theme (N-N)
   const subject = await prisma.subject.create({ data: testSubject });
   const domain = await prisma.domain.create({
     data: {
@@ -97,7 +96,9 @@ async function run() {
   await prisma.theme.create({
     data: {
       ...testTheme,
-      domainId: domain.id,
+      domains: {
+        connect: [{ id: domain.id }],
+      },
     }
   });
 
@@ -116,7 +117,7 @@ async function run() {
 
   // 7. DELETE
   await prisma.diploma.delete({ where: { id: diploma.id } });
-  await prisma.theme.deleteMany({ where: { domainId: domain.id } });
+  await prisma.theme.deleteMany({ where: { domainIds: { has: domain.id } } });
   await prisma.domain.delete({ where: { id: domain.id } });
   await prisma.subject.delete({ where: { id: subject.id } });
   await prisma.grade.deleteMany({ where: { id: { in: tx.map((g: any) => g.id) } } });

@@ -436,32 +436,24 @@ export const createThemeSchema = z.object({
         .max(40, { message: "Ne peut pas dépasser 40 caractères" })
         .optional()
         .or(z.literal("")),
-    longDescription: z.string({
-        required_error: "Champ requis",
-        invalid_type_error: "Doit être une chaîne de caractère",
-    })
-        .trim()
-        .min(1, { message: "Champ requis" })
-        .max(600, { message: "Ne peut pas dépasser 600 caractères" }),
-    shortDescription: z.string({
-        required_error: "Champ requis",
-        invalid_type_error: "Doit être une chaîne de caractère",
-    })
-        .trim()
-        .min(1, { message: "Champ requis" })
-        .max(140, { message: "Ne peut pas dépasser 140 caractères" }),
-    description: z
-        .string({
-            invalid_type_error: "Doit être une chaîne de caractère",
+    domainIds: z.array(
+        z.string({
+            required_error: "Champ requis",
         })
-        .trim()
-        .max(800, { message: "Ne peut pas dépasser 800 caractères" })
-        .optional()
-        .or(z.literal("")),
-    domainId: z.string({
-        required_error: "Champ requis",
-    })
-        .min(1, { message: "Champ requis" })
+            .trim()
+            .min(1, { message: "Domaine invalide" })
+    )
+        .min(1, { message: "Sélectionne au moins un domaine" })
+        .default([]),
+    chapterIds: z.array(
+        z.string({
+            required_error: "Champ requis",
+        })
+            .trim()
+            .min(1, { message: "Chapitre invalide" })
+    )
+        .min(1, { message: "Sélectionne au moins un chapitre" })
+        .default([]),
 }).superRefine((values, ctx) => {
     const shortTitle = values.shortTitle?.trim();
     if (shortTitle && shortTitle.length >= values.title.trim().length) {
@@ -480,7 +472,7 @@ export const createDomainSchema = z.object({
     })
         .trim()
         .min(1, { message: "Champ requis" })
-        .max(255, { message: "Ne peut pas dépasser 255 caractères" }),
+        .max(600, { message: "Ne peut pas dépasser 600 caractères" }),
     shortDescription: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",

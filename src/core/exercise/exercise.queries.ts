@@ -7,6 +7,17 @@ import { includesNormalizedSearch, normalizeSearchText } from '@/lib/utils';
 
 const prisma = new PrismaClient();
 
+const themeDomainsInclude = {
+  domains: {
+    select: {
+      id: true,
+      longDescription: true,
+      shortDescription: true,
+      order: true,
+    },
+  },
+} satisfies Prisma.ThemeInclude;
+
 export interface ExerciseWithRelations {
   id: string;
   exerciseNumber: number;
@@ -83,14 +94,12 @@ export interface ExerciseWithRelations {
     id: string;
     title: string;
     shortTitle: string | null;
-    shortDescription: string;
-    longDescription: string;
-    domain?: {
+    domains: Array<{
       id: string;
       longDescription: string;
       shortDescription: string;
       order: number | null;
-    };
+    }>;
   }>;
   
   corrections: Array<{
@@ -344,8 +353,6 @@ export async function searchExercises(
           id: true,
           title: true,
           shortTitle: true,
-          longDescription: true,
-          shortDescription: true,
         },
       }),
     ]);
@@ -363,7 +370,7 @@ export async function searchExercises(
     const themeIdsFromSearch = allThemes
       .filter((theme) =>
         includesNormalizedSearch(
-          [theme.title, theme.shortTitle, theme.longDescription, theme.shortDescription],
+          [theme.title, theme.shortTitle],
           searchTerm
         )
       )
@@ -437,16 +444,7 @@ export async function searchExercises(
       where: {
         id: { in: uniqueThemeIds },
       },
-      include: {
-        domain: {
-          select: {
-            id: true,
-            longDescription: true,
-            shortDescription: true,
-            order: true,
-          },
-        },
-      },
+      include: themeDomainsInclude,
     });
 
     const themesById = new Map(themesList.map((t) => [t.id, t]));
@@ -499,16 +497,7 @@ export async function searchExercises(
     where: {
       id: { in: uniqueThemeIds },
     },
-    include: {
-      domain: {
-        select: {
-          id: true,
-          longDescription: true,
-          shortDescription: true,
-          order: true,
-        },
-      },
-    },
+    include: themeDomainsInclude,
   });
 
   const themesById = new Map(themesList.map((t) => [t.id, t]));
@@ -564,8 +553,6 @@ export async function suggestExercises(
             id: true,
             title: true,
             shortTitle: true,
-            longDescription: true,
-            shortDescription: true,
           },
         })
       : Promise.resolve([]),
@@ -583,7 +570,7 @@ export async function suggestExercises(
   const filteredThemeSuggestions = themeSuggestions
     .filter((theme) =>
       includesNormalizedSearch(
-        [theme.title, theme.shortTitle, theme.longDescription, theme.shortDescription],
+        [theme.title, theme.shortTitle],
         normalizedQuery
       )
     )
@@ -602,7 +589,7 @@ export async function suggestExercises(
     ...filteredThemeSuggestions.map<SearchSuggestion>((theme) => ({
       type: 'theme',
       id: `theme:${theme.id}`,
-      title: theme.title || theme.shortTitle || theme.shortDescription || 'Thème',
+      title: theme.title || theme.shortTitle || 'Thème',
     })),
   ];
 }
@@ -642,16 +629,7 @@ export async function fetchExerciseById(
     where: {
       id: { in: exercise.themeIds },
     },
-    include: {
-      domain: {
-        select: {
-          id: true,
-          longDescription: true,
-          shortDescription: true,
-          order: true,
-        },
-      },
-    },
+    include: themeDomainsInclude,
   });
 
   return {
@@ -696,16 +674,7 @@ export async function fetchExercisesByExamPaperId(
     where: {
       id: { in: uniqueThemeIds },
     },
-    include: {
-      domain: {
-        select: {
-          id: true,
-          longDescription: true,
-          shortDescription: true,
-          order: true,
-        },
-      },
-    },
+    include: themeDomainsInclude,
   });
 
   const themesById = new Map(themesList.map((t) => [t.id, t]));

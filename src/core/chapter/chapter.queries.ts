@@ -228,7 +228,7 @@ export async function fetchQuizQuestions(
   });
 }
 
-export async function fetchQuizQuestionChapterOptions(): Promise<Option[]> {
+export async function fetchChapterOptions(): Promise<Option[]> {
   const chapters = await prisma.chapter.findMany({
     include: {
       subject: {
@@ -262,6 +262,10 @@ export async function fetchQuizQuestionChapterOptions(): Promise<Option[]> {
       value: chapter.id,
       label: `${chapter.title} · ${chapter.subject.longDescription}`,
     }));
+}
+
+export async function fetchQuizQuestionChapterOptions(): Promise<Option[]> {
+  return fetchChapterOptions();
 }
 
 export async function fetchChapterSubjectOptions(): Promise<Option[]> {

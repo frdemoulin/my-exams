@@ -7,7 +7,7 @@ export type CreateThemeValues = z.infer<typeof createThemeSchema>;
 export type CreateThemeErrors = z.inferFormattedError<typeof createThemeSchema>;
 
 export const themeDataInclude = {
-    domain: {
+    domains: {
         select: {
             id: true,
             longDescription: true,
@@ -19,6 +19,20 @@ export const themeDataInclude = {
                 },
             },
         }
+    },
+    chapters: {
+        select: {
+            id: true,
+            title: true,
+            slug: true,
+            subject: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
+        },
     }
 } satisfies Prisma.ThemeInclude;
 

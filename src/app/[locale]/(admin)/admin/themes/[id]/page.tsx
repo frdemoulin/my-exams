@@ -17,20 +17,21 @@ const ThemeDetailPage = async ({ params }: ThemeDetailPageProps) => {
     const { id } = await params;
 
     const theme = await fetchThemeById(id);
+    const domainLabels = (theme?.domains ?? [])
+        .map((domain) => domain.longDescription)
+        .sort((left, right) => left.localeCompare(right, "fr", { sensitivity: "base" }));
+    const chapterLabels = (theme?.chapters ?? [])
+        .map((chapter) => chapter.title)
+        .sort((left, right) => left.localeCompare(right, "fr", { sensitivity: "base" }));
     
     return (
         <div>
             <AdminPageHeading title="Détails du thème" className="mb-4" />
             <div className="mt-3 space-y-1 text-sm text-muted-foreground">
                 <p>Titre : {theme?.title ?? "Aucun"}</p>
-                <p>Description courte : {theme?.shortDescription ?? "Aucune"}</p>
-                <p>Description longue : {theme?.longDescription ?? "Aucune"}</p>
-            </div>
-            <div className="mt-4 rounded-lg border border-border bg-card p-4 shadow-sm">
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">Description (guidage admin)</p>
-                <p className="mt-1 text-base text-foreground">
-                    {theme?.description ? theme.description : "Pas encore de description détaillée pour ce thème."}
-                </p>
+                <p>Titre court : {theme?.shortTitle ?? "Aucun"}</p>
+                <p>Domaines associés : {domainLabels.length > 0 ? domainLabels.join(", ") : "Aucun"}</p>
+                <p>Chapitres associés : {chapterLabels.length > 0 ? chapterLabels.join(", ") : "Aucun"}</p>
             </div>
         </div>
     )

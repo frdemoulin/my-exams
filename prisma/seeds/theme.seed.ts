@@ -152,6 +152,102 @@ const buildThemeCandidateKeys = (theme: {
     )
   );
 
+type ExistingThemeEntry = {
+  id: string;
+  title: string;
+  shortTitle: string | null;
+  domainIds: string[];
+};
+
+const buildExistingThemesBySubjectId = async (
+  prisma: PrismaClient,
+  subjectIds: string[]
+) => {
+  const existingThemesBySubjectId = new Map(
+    subjectIds.map((subjectId) => [subjectId, [] as ExistingThemeEntry[]])
+  );
+
+  const existingThemes = await prisma.theme.findMany({
+    select: {
+      id: true,
+      title: true,
+      shortTitle: true,
+      domainIds: true,
+      domains: {
+        select: {
+          subjectId: true,
+        },
+      },
+    },
+  });
+
+  for (const theme of existingThemes) {
+    for (const domain of theme.domains) {
+      const subjectThemes = existingThemesBySubjectId.get(domain.subjectId);
+      if (!subjectThemes) continue;
+      subjectThemes.push({
+        id: theme.id,
+        title: theme.title,
+        shortTitle: theme.shortTitle,
+        domainIds: [...theme.domainIds],
+      });
+    }
+  }
+
+  return existingThemesBySubjectId;
+};
+
+const upsertThemeAssociation = async (input: {
+  prisma: PrismaClient;
+  subjectThemes: ExistingThemeEntry[];
+  title: string;
+  shortTitle: string | null;
+  domainId: string;
+}) => {
+  const { prisma, subjectThemes, title, shortTitle, domainId } = input;
+  const candidateKeys = buildThemeCandidateKeys({ title, shortTitle });
+  const existing = subjectThemes.find((candidate) =>
+    buildThemeCandidateKeys(candidate).some((key) => candidateKeys.includes(key))
+  );
+
+  if (existing) {
+    const nextDomainIds = Array.from(new Set([...existing.domainIds, domainId]));
+    await prisma.theme.update({
+      where: { id: existing.id },
+      data: {
+        title,
+        shortTitle,
+        domains: {
+          set: nextDomainIds.map((value) => ({ id: value })),
+        },
+      },
+    });
+    existing.title = title;
+    existing.shortTitle = shortTitle;
+    existing.domainIds = nextDomainIds;
+    return 'updated' as const;
+  }
+
+  const createdTheme = await prisma.theme.create({
+    data: {
+      title,
+      shortTitle,
+      domains: {
+        connect: [{ id: domainId }],
+      },
+    },
+  });
+
+  subjectThemes.push({
+    id: createdTheme.id,
+    title,
+    shortTitle,
+    domainIds: [domainId],
+  });
+
+  return 'created' as const;
+};
+
 const resolveMathCollegeDomainName = (label: string) =>
   includesAnyNormalized(label, ['fraction', 'nombre', 'calcul', 'puissance', 'racine', 'equation', 'proportion'])
     ? 'Nombres et calculs'
@@ -310,39 +406,10 @@ const seedManualThemeGroups = async (prisma: PrismaClient) => {
     })).map((domain) => [`${domain.subjectId}::${domain.longDescription}`, domain.id])
   );
 
-  const existingThemesBySubjectId = new Map(
-    subjects.map((subject) => [subject.id, [] as Array<{
-      id: string;
-      title: string;
-      shortTitle: string | null;
-      domainId: string;
-    }>])
+  const existingThemesBySubjectId = await buildExistingThemesBySubjectId(
+    prisma,
+    subjects.map((subject) => subject.id)
   );
-
-  const existingThemes = await prisma.theme.findMany({
-    select: {
-      id: true,
-      title: true,
-      shortTitle: true,
-      domainId: true,
-      domain: {
-        select: {
-          subjectId: true,
-        },
-      },
-    },
-  });
-
-  for (const theme of existingThemes) {
-    const subjectThemes = existingThemesBySubjectId.get(theme.domain.subjectId);
-    if (!subjectThemes) continue;
-    subjectThemes.push({
-      id: theme.id,
-      title: theme.title,
-      shortTitle: theme.shortTitle,
-      domainId: theme.domainId,
-    });
-  }
 
   let createdCount = 0;
   let updatedCount = 0;
@@ -373,48 +440,19 @@ const seedManualThemeGroups = async (prisma: PrismaClient) => {
 
       const title = theme.title.trim();
       const shortTitle = theme.shortTitle?.trim() || null;
-      const shortDescription = theme.shortDescription.trim();
-      const longDescription = theme.longDescription.trim();
-      const description = theme.description?.trim() || null;
-      const candidateKeys = buildThemeCandidateKeys({ title, shortTitle });
       const subjectThemes = existingThemesBySubjectId.get(subjectId) ?? [];
-      const existing = subjectThemes.find((candidate) =>
-        buildThemeCandidateKeys(candidate).some((key) => candidateKeys.includes(key))
-      );
 
-      if (existing) {
-        await prisma.theme.update({
-          where: { id: existing.id },
-          data: {
-            domainId,
-            title,
-            shortTitle,
-            shortDescription,
-            longDescription,
-            description,
-          },
-        });
-        existing.title = title;
-        existing.shortTitle = shortTitle;
-        existing.domainId = domainId;
+      const status = await upsertThemeAssociation({
+        prisma,
+        subjectThemes,
+        title,
+        shortTitle,
+        domainId,
+      });
+
+      if (status === 'updated') {
         updatedCount += 1;
       } else {
-        const createdTheme = await prisma.theme.create({
-          data: {
-            title,
-            shortTitle,
-            shortDescription,
-            longDescription,
-            description,
-            domainId,
-          },
-        });
-        subjectThemes.push({
-          id: createdTheme.id,
-          title,
-          shortTitle,
-          domainId,
-        });
         createdCount += 1;
       }
     }
@@ -428,12 +466,14 @@ const seedManualThemeGroups = async (prisma: PrismaClient) => {
 export async function seedThemes(prisma: PrismaClient) {
   console.log('🧩 Seeding Themes...');
 
+  const subjects = await prisma.subject.findMany({
+    select: { id: true, longDescription: true, shortDescription: true },
+  });
+  const subjectIds = subjects.map((subject) => subject.id);
+  const existingThemesBySubjectId = await buildExistingThemesBySubjectId(prisma, subjectIds);
+
   const seedThemes = loadSeedThemes();
   if (seedThemes) {
-    const subjects = await prisma.subject.findMany({
-      select: { id: true, longDescription: true, shortDescription: true },
-    });
-
     const subjectsByKey = new Map(
       subjects.map((s) => [`${s.longDescription}::${s.shortDescription}`, s.id])
     );
@@ -466,6 +506,7 @@ export async function seedThemes(prisma: PrismaClient) {
     );
 
     let createdCount = 0;
+    let updatedCount = 0;
 
     for (const theme of seedThemes) {
       const subjectId = resolveSubjectId(theme);
@@ -484,41 +525,25 @@ export async function seedThemes(prisma: PrismaClient) {
         continue;
       }
 
-      const existingTheme = await prisma.theme.findFirst({
-        where: {
-          longDescription: theme.longDescription,
-          domainId,
-        },
-      });
-
       const title = theme.title?.trim() || theme.longDescription;
       const shortTitle = theme.shortTitle?.trim() || theme.shortDescription?.trim() || null;
-      const shortDescription = theme.shortDescription?.trim() || theme.longDescription;
 
-      if (existingTheme) {
-        await prisma.theme.update({
-          where: { id: existingTheme.id },
-          data: {
-            title,
-            shortTitle,
-            shortDescription,
-          },
-        });
+      const status = await upsertThemeAssociation({
+        prisma,
+        subjectThemes: existingThemesBySubjectId.get(subjectId) ?? [],
+        title,
+        shortTitle,
+        domainId,
+      });
+
+      if (status === 'updated') {
+        updatedCount += 1;
       } else {
-        await prisma.theme.create({
-          data: {
-            title,
-            shortTitle,
-            longDescription: theme.longDescription,
-            shortDescription,
-            domainId,
-          },
-        });
+        createdCount += 1;
       }
-      createdCount++;
     }
 
-    console.log(`   ✓ ${createdCount} thèmes créés (fichier JSON)`);
+    console.log(`   ✓ Thèmes JSON: created=${createdCount}, updated=${updatedCount}`);
     await seedManualThemeGroups(prisma);
     return;
   }
@@ -528,9 +553,6 @@ export async function seedThemes(prisma: PrismaClient) {
   const jsonData = fs.readFileSync(jsonPath, 'utf-8');
   const data: TopicsData = JSON.parse(jsonData);
 
-  const subjects = await prisma.subject.findMany({
-    select: { id: true, longDescription: true },
-  });
   const subjectIdByLongDescription = new Map(
     subjects.map((subject) => [subject.longDescription, subject.id])
   );
@@ -580,6 +602,7 @@ export async function seedThemes(prisma: PrismaClient) {
   ];
 
   let createdCount = 0;
+  let updatedCount = 0;
 
   for (const theme of themeMapping) {
     const domainId = domainByKey.get(`${theme.subjectId}::${theme.domainName}`);
@@ -588,43 +611,24 @@ export async function seedThemes(prisma: PrismaClient) {
       continue;
     }
 
-    // Chercher si le thème existe déjà
-    const existingTheme = await prisma.theme.findFirst({
-      where: {
-        longDescription: theme.longDescription,
-        domainId: domainId,
-      },
+    const title = theme.longDescription;
+    const shortTitle = theme.shortDescription || null;
+
+    const status = await upsertThemeAssociation({
+      prisma,
+      subjectThemes: existingThemesBySubjectId.get(theme.subjectId) ?? [],
+      title,
+      shortTitle,
+      domainId,
     });
 
-  const title = theme.longDescription;
-  const shortTitle = theme.shortDescription || null;
-  const shortDescription = theme.shortDescription || theme.longDescription;
-
-    if (existingTheme) {
-      // Mettre à jour si existe
-      await prisma.theme.update({
-        where: { id: existingTheme.id },
-        data: {
-          title,
-          shortTitle,
-          shortDescription,
-        },
-      });
+    if (status === 'updated') {
+      updatedCount += 1;
     } else {
-      // Créer si n'existe pas
-      await prisma.theme.create({
-        data: {
-          title,
-          shortTitle,
-          longDescription: theme.longDescription,
-          shortDescription,
-          domainId: domainId,
-        },
-      });
+      createdCount += 1;
     }
-    createdCount++;
   }
 
-  console.log(`   ✓ ${createdCount} thèmes créés`);
+  console.log(`   ✓ Thèmes topics.json: created=${createdCount}, updated=${updatedCount}`);
   await seedManualThemeGroups(prisma);
 }

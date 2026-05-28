@@ -1,5 +1,16 @@
 import prisma from "@/lib/db/prisma";
-import { ExamPaper } from "@prisma/client";
+import { ExamPaper, Prisma } from "@prisma/client";
+
+const themeDomainsInclude = {
+    domains: {
+        select: {
+            id: true,
+            longDescription: true,
+            shortDescription: true,
+            order: true,
+        },
+    },
+} satisfies Prisma.ThemeInclude;
 
 export type ExamPaperWithRelations = ExamPaper & {
     diploma: { longDescription: string; shortDescription?: string | null };
@@ -15,8 +26,8 @@ export type ExamPaperWithRelations = ExamPaper & {
     examinationCenters?: Array<{ id: string; description: string }>;
     themes: Array<{
         id: string;
-        shortDescription: string | null;
-        longDescription: string;
+        title: string;
+        shortTitle: string | null;
     }>;
     corrections: Array<{
         id: string;
@@ -74,8 +85,8 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
         where: { id: { in: uniqueThemeIds } },
         select: {
             id: true,
-            shortDescription: true,
-            longDescription: true,
+            title: true,
+            shortTitle: true,
         }
     });
     const centers = await prisma.examinationCenter.findMany({
@@ -94,7 +105,7 @@ export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
         themes: paper.themeIds
             .map(id => themesById.get(id))
             .filter((t): t is NonNullable<typeof t> => t !== undefined)
-            .sort((a, b) => (a.shortDescription ?? a.longDescription).localeCompare(b.shortDescription ?? b.longDescription))
+            .sort((a, b) => a.title.localeCompare(b.title, "fr", { sensitivity: "base" }))
     }));
 }
 
@@ -144,8 +155,8 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
         where: { id: { in: uniqueThemeIds } },
         select: {
             id: true,
-            shortDescription: true,
-            longDescription: true,
+            title: true,
+            shortTitle: true,
         }
     });
     const centers = await prisma.examinationCenter.findMany({
@@ -165,7 +176,7 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
         themes: paper.themeIds
             .map(id => themesById.get(id))
             .filter((t): t is NonNullable<typeof t> => t !== undefined)
-            .sort((a, b) => (a.shortDescription ?? a.longDescription).localeCompare(b.shortDescription ?? b.longDescription))
+            .sort((a, b) => a.title.localeCompare(b.title, "fr", { sensitivity: "base" }))
     }));
 }
 
@@ -209,11 +220,11 @@ export async function fetchExamPaperById(id: string): Promise<ExamPaperWithRelat
         where: { id: { in: paper.themeIds } },
         select: {
             id: true,
-            shortDescription: true,
-            longDescription: true,
+            title: true,
+            shortTitle: true,
         },
         orderBy: {
-            shortDescription: "asc"
+            title: "asc"
         }
     });
     const centers = paper.examinationCenterIds?.length
@@ -437,22 +448,8 @@ export async function fetchExamPapersByScope(params: {
         where: {
             id: { in: themeIds },
         },
-        select: {
-            id: true,
-            domain: {
-                select: {
-                    id: true,
-                    longDescription: true,
-                    shortDescription: true,
-                    order: true,
-                },
-            },
-        },
+        include: themeDomainsInclude,
     });
-
-    const domainByThemeId = new Map(
-        themes.map((theme) => [theme.id, theme.domain])
-    );
 
     type DomainInfo = {
         id: string;
@@ -464,9 +461,11 @@ export async function fetchExamPapersByScope(params: {
     const buildDomainMap = (themeIds: string[]) => {
         const domainMap = new Map<string, DomainInfo>();
         themeIds.forEach((themeId) => {
-            const domain = domainByThemeId.get(themeId);
-            if (!domain) return;
-            domainMap.set(domain.id, domain);
+            const theme = themes.find((entry) => entry.id === themeId);
+            if (!theme) return;
+            theme.domains.forEach((domain) => {
+                domainMap.set(domain.id, domain);
+            });
         });
         return domainMap;
     };

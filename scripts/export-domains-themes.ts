@@ -15,15 +15,18 @@ type ExportDomain = {
 };
 
 type ExportTheme = {
+  title: string;
+  shortTitle: string | null;
   longDescription: string;
   shortDescription: string | null;
   domainLongDescription: string;
   subjectLongDescription: string;
   subjectShortDescription: string;
+  chapterSlugs?: string[];
 };
 
 type ExportPayload = {
-  version: 1;
+  version: number;
   exportedAt: string;
   domains: ExportDomain[];
   themes: ExportTheme[];
@@ -126,9 +129,9 @@ async function main() {
 
     const themes = await prisma.theme.findMany({
       select: {
-        longDescription: true,
-        shortDescription: true,
-        domain: {
+        title: true,
+        shortTitle: true,
+        domains: {
           select: {
             longDescription: true,
             subject: {
@@ -137,6 +140,11 @@ async function main() {
                 shortDescription: true,
               },
             },
+          },
+        },
+        chapters: {
+          select: {
+            slug: true,
           },
         },
       },
@@ -157,24 +165,31 @@ async function main() {
       return a.longDescription.localeCompare(b.longDescription);
     });
 
-    const themeExports: ExportTheme[] = themes.map((theme) => ({
-      longDescription: theme.longDescription,
-      shortDescription: theme.shortDescription ?? null,
-      domainLongDescription: theme.domain.longDescription,
-      subjectLongDescription: theme.domain.subject.longDescription,
-      subjectShortDescription: theme.domain.subject.shortDescription,
-    }));
+    const themeExports: ExportTheme[] = themes.flatMap((theme) =>
+      theme.domains.map((domain) => ({
+        title: theme.title,
+        shortTitle: theme.shortTitle ?? null,
+        longDescription: theme.title,
+        shortDescription: theme.shortTitle ?? null,
+        domainLongDescription: domain.longDescription,
+        subjectLongDescription: domain.subject.longDescription,
+        subjectShortDescription: domain.subject.shortDescription,
+        chapterSlugs: [...theme.chapters]
+          .map((chapter) => chapter.slug)
+          .sort((left, right) => left.localeCompare(right, 'fr', { sensitivity: 'base' })),
+      }))
+    );
 
     themeExports.sort((a, b) => {
       const bySubject = a.subjectLongDescription.localeCompare(b.subjectLongDescription);
       if (bySubject !== 0) return bySubject;
       const byDomain = a.domainLongDescription.localeCompare(b.domainLongDescription);
       if (byDomain !== 0) return byDomain;
-      return a.longDescription.localeCompare(b.longDescription);
+      return a.title.localeCompare(b.title);
     });
 
     const payload: ExportPayload = {
-      version: 1,
+      version: 2,
       exportedAt: new Date().toISOString(),
       domains: domainExports,
       themes: themeExports,

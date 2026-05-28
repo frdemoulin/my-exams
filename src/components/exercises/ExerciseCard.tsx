@@ -91,13 +91,13 @@ export function ExerciseCard({
   const domains = Array.from(
     new Map(
       themes
-        .filter((t) => t.domain)
-        .map((t) => [
-          t.domain!.id,
+        .flatMap((theme) => theme.domains)
+        .map((domain) => [
+          domain.id,
           {
-            short: t.domain!.shortDescription || t.domain!.longDescription,
-            long: t.domain!.longDescription,
-            key: t.domain!.id,
+            short: domain.shortDescription || domain.longDescription,
+            long: domain.longDescription,
+            key: domain.id,
           },
         ])
     ).values()

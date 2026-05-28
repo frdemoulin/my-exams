@@ -25,27 +25,28 @@ function buildGroupedDomains(exercise: ExerciseWithRelations) {
   const orphanThemes: string[] = [];
 
   exercise.themes.forEach((theme) => {
-    const themeLabel = theme.title ?? theme.shortTitle ?? theme.shortDescription;
+    const themeLabel = theme.title ?? theme.shortTitle;
     if (!themeLabel) return;
 
-    if (!theme.domain) {
+    if (!theme.domains || theme.domains.length === 0) {
       orphanThemes.push(themeLabel);
       return;
     }
 
-    const domainLabel = theme.domain.longDescription;
-    const domainEntry =
-      domainMap.get(theme.domain.id) ?? {
-        info: {
-          id: theme.domain.id,
-          label: domainLabel,
-          order: theme.domain.order ?? null,
-        },
-        themes: [],
-      };
+    theme.domains.forEach((domain) => {
+      const domainEntry =
+        domainMap.get(domain.id) ?? {
+          info: {
+            id: domain.id,
+            label: domain.longDescription,
+            order: domain.order ?? null,
+          },
+          themes: [],
+        };
 
-    domainEntry.themes.push(themeLabel);
-    domainMap.set(theme.domain.id, domainEntry);
+      domainEntry.themes.push(themeLabel);
+      domainMap.set(domain.id, domainEntry);
+    });
   });
 
   if (orphanThemes.length > 0) {

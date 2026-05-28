@@ -9,7 +9,6 @@ import toast from "react-hot-toast";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { MultiSelect } from "@/components/ui/multi-select";
 
@@ -27,12 +26,11 @@ interface ThemeFormProps {
         id?: string;
         title: string;
         shortTitle?: string;
-        longDescription: string;
-        shortDescription: string;
-        description?: string;
-        domainId?: string;
+        domainIds?: string[];
+        chapterIds?: string[];
     };
-    options: Option[];
+    domainOptions: Option[];
+    chapterOptions: Option[];
     cancelHref?: string;
     submitRedirectTo?: string | null;
     revalidatePaths?: string[];
@@ -41,13 +39,17 @@ interface ThemeFormProps {
 export const ThemeForm = ({
     crudMode,
     initialData,
-    options,
+    domainOptions,
+    chapterOptions,
     cancelHref = "/admin/themes",
     submitRedirectTo,
     revalidatePaths,
 }: ThemeFormProps) => {
     const common = useCommonTranslations();
-    const sortedOptions = [...options].sort((a, b) =>
+    const sortedDomainOptions = [...domainOptions].sort((a, b) =>
+        a.label.localeCompare(b.label, "fr", { sensitivity: "base" })
+    );
+    const sortedChapterOptions = [...chapterOptions].sort((a, b) =>
         a.label.localeCompare(b.label, "fr", { sensitivity: "base" })
     );
     
@@ -55,21 +57,21 @@ export const ThemeForm = ({
         defaultValues: {
             ...initialData,
             shortTitle: initialData.shortTitle ?? undefined,
+            domainIds: initialData.domainIds ?? [],
+            chapterIds: initialData.chapterIds ?? [],
         },
         resolver: zodResolver(createThemeSchema)
     });
     const [isSuggesting, setIsSuggesting] = React.useState(false);
     const watchedTitle = form.watch("title");
-    const watchedDomainId = form.watch("domainId");
+    const watchedDomainIds = form.watch("domainIds");
 
     const onSubmit = async (values: CreateThemeValues) => {
         const formData = new FormData();
         formData.append('title', values.title);
         formData.append('shortTitle', values.shortTitle || '');
-        formData.append('longDescription', values.longDescription);
-        formData.append('shortDescription', values.shortDescription);
-        formData.append('description', values.description || '');
-        formData.append('domainId', values.domainId);
+        values.domainIds.forEach((domainId) => formData.append('domainIds', domainId));
+        values.chapterIds.forEach((chapterId) => formData.append('chapterIds', chapterId));
         
         if (!initialData.id) {
             await createTheme(formData, {
@@ -86,7 +88,7 @@ export const ThemeForm = ({
 
     const handleSuggest = async () => {
         const title = form.getValues("title")?.trim() ?? "";
-        const domainId = form.getValues("domainId")?.trim() || undefined;
+        const domainIds = form.getValues("domainIds") ?? [];
 
         if (!title) {
             toast.error("Renseigne un titre avant de lancer l'enrichissement.");
@@ -95,7 +97,7 @@ export const ThemeForm = ({
 
         try {
             setIsSuggesting(true);
-            const result = await suggestThemeDraftFromTitle({ title, domainId });
+            const result = await suggestThemeDraftFromTitle({ title, domainIds });
 
             if (!result.success) {
                 toast.error(result.error);
@@ -104,25 +106,22 @@ export const ThemeForm = ({
 
             form.setValue("title", result.data.title, { shouldDirty: true, shouldValidate: true });
             form.setValue("shortTitle", result.data.shortTitle, { shouldDirty: true, shouldValidate: true });
-            form.setValue("shortDescription", result.data.shortDescription, { shouldDirty: true, shouldValidate: true });
-            form.setValue("longDescription", result.data.longDescription, { shouldDirty: true, shouldValidate: true });
-            form.setValue("description", result.data.description, { shouldDirty: true, shouldValidate: true });
-            if (!domainId && result.data.suggestedDomainId) {
-                form.setValue("domainId", result.data.suggestedDomainId, {
+            if (domainIds.length === 0 && result.data.suggestedDomainIds.length > 0) {
+                form.setValue("domainIds", result.data.suggestedDomainIds, {
                     shouldDirty: true,
                     shouldValidate: true,
                 });
             }
 
-            const autoSelectedDomain = !domainId && result.data.suggestedDomainId;
+            const autoSelectedDomain = domainIds.length === 0 && result.data.suggestedDomainIds.length > 0;
             toast.success(
                 result.source === "openai"
                     ? autoSelectedDomain
-                        ? "Champs enrichis par IA, domaine préselectionné"
-                        : "Champs enrichis par IA"
+                        ? "Titre court suggéré, domaines préselectionnés"
+                        : "Titre court suggéré par IA"
                     : autoSelectedDomain
-                        ? "Suggestion générée (mode mock), domaine préselectionné"
-                        : "Suggestion générée (mode mock)"
+                        ? "Suggestion générée, domaines préselectionnés"
+                        : "Suggestion générée"
             );
         } catch (error) {
             if (
@@ -158,8 +157,8 @@ export const ThemeForm = ({
                             {crudMode === "add" ? "Préremplissage IA" : "Aide IA"}
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            À partir du titre saisi, l&apos;IA peut proposer un titre court, des
-                            descriptions modifiables et, si besoin, un domaine plausible.
+                            À partir du titre saisi, l&apos;IA peut proposer un titre court et,
+                            si besoin, un ou plusieurs domaines plausibles.
                         </p>
                     </div>
                     <Button
@@ -207,62 +206,24 @@ export const ThemeForm = ({
                     }}
                 />
                 <FormField
-                    name="shortDescription"
+                    name="domainIds"
                     control={control}
                     render={({ field }) => {
                         return <FormItem>
-                                <FormLabel>Description courte</FormLabel>
-                            <FormControl>
-                                <Input
-                                    type="text"
-                                    placeholder="Phrase courte orientée élève"
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    }}
-                />
-                <FormField
-                    name="longDescription"
-                    control={control}
-                    render={({ field }) => {
-                        return <FormItem>
-                                <FormLabel>Description longue</FormLabel>
-                            <FormControl>
-                                <Textarea
-                                    placeholder="Description pédagogique (2–5 lignes)"
-                                    rows={4}
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    }}
-                />
-                <FormField
-                    name="domainId"
-                    control={control}
-                    render={({ field }) => {
-                        const selectedDomain = field.value ? [field.value] : [];
-                        return <FormItem>
-                                <FormLabel>Domaine</FormLabel>
+                                <FormLabel>Domaines associés</FormLabel>
                             <FormControl>
                                 <MultiSelect
-                                    options={sortedOptions}
-                                    selected={selectedDomain}
-                                    onChange={(selected) => {
-                                        const next = selected[selected.length - 1];
-                                        field.onChange(next ?? "");
-                                    }}
-                                    placeholder="Sélectionner un domaine"
+                                    options={sortedDomainOptions}
+                                    selected={field.value ?? []}
+                                    onChange={field.onChange}
+                                    placeholder="Sélectionner un ou plusieurs domaines"
                                     searchPlaceholder="Rechercher un domaine..."
                                     emptyText="Aucun domaine trouvé."
                                 />
                             </FormControl>
-                            {!watchedDomainId ? (
+                            {!watchedDomainIds?.length ? (
                                 <p className="text-xs text-muted-foreground">
-                                    Le domaine améliore la qualité de la suggestion IA.
+                                    Les domaines améliorent la qualité de la suggestion IA.
                                 </p>
                             ) : null}
                             <FormMessage />
@@ -270,22 +231,23 @@ export const ThemeForm = ({
                     }}
                 />
                 <FormField
-                    name="description"
+                    name="chapterIds"
                     control={control}
                     render={({ field }) => {
-                        return (
-                            <FormItem>
-                                <FormLabel>Description (guidage admin, optionnelle)</FormLabel>
-                                <FormControl>
-                                    <Textarea
-                                        placeholder="À utiliser lorsque..."
-                                        rows={4}
-                                        {...field}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        );
+                        return <FormItem>
+                                <FormLabel>Chapitres associés</FormLabel>
+                            <FormControl>
+                                <MultiSelect
+                                    options={sortedChapterOptions}
+                                    selected={field.value ?? []}
+                                    onChange={field.onChange}
+                                    placeholder="Sélectionner un ou plusieurs chapitres"
+                                    searchPlaceholder="Rechercher un chapitre..."
+                                    emptyText="Aucun chapitre trouvé."
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
                     }}
                 />
                 <div className="mt-2 flex justify-end">

@@ -44,8 +44,8 @@ async function run() {
   const themes = await prisma.theme.findMany({
     select: {
       id: true,
-      shortDescription: true,
-      longDescription: true,
+      title: true,
+      shortTitle: true,
     },
   });
 
@@ -83,7 +83,7 @@ async function run() {
         statement: ex.statement ?? ocrResult.text,
         availableThemes: themes.map((t) => ({
           id: t.id,
-          label: t.shortDescription || t.longDescription || t.id,
+          label: t.title || t.shortTitle || t.id,
         })),
       });
 
