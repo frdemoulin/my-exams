@@ -1,3 +1,9 @@
+## [1.6.7](https://github.com/frdemoulin/my-exams/compare/v1.6.6...v1.6.7) (2026-05-28)
+
+### Bug Fixes
+
+* simplification dans la gestion des thèmes ([0c4c2b6](https://github.com/frdemoulin/my-exams/commit/0c4c2b692f6ca6f87b41880fa631c5cb3263cd11))
+
 ## [1.6.6](https://github.com/frdemoulin/my-exams/compare/v1.6.5...v1.6.6) (2026-05-25)
 
 ### Bug Fixes
