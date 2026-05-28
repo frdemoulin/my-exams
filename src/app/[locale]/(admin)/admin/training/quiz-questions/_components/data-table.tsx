@@ -22,6 +22,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 import { Button } from "@/components/ui/button";
@@ -111,6 +112,13 @@ export function DataTable<TData extends { id: string }, TValue>({
         placeholder="Rechercher une question..."
         value={globalFilter}
         onChange={setGlobalFilter}
+        actions={
+          <DataTableExportButton
+            filename={title}
+            sheetName={title}
+            table={table}
+          />
+        }
         addHref={addHref}
         addLabel="Ajouter une question"
       >

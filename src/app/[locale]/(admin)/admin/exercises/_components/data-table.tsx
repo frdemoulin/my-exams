@@ -24,6 +24,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 import type { ExerciseListItem } from "./columns";
@@ -104,6 +105,13 @@ export function DataTable({ title, columns, data }: DataTableProps) {
         placeholder="Rechercher un exercice..."
         value={globalFilter}
         onChange={setGlobalFilter}
+        actions={
+          <DataTableExportButton
+            filename={title}
+            sheetName={title}
+            table={table}
+          />
+        }
       />
       <div>
         <Table>

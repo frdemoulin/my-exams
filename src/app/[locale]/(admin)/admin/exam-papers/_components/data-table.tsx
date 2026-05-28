@@ -32,6 +32,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 
@@ -115,6 +116,13 @@ export function DataTable<TData extends { id: string }, TValue>({
         placeholder="Rechercher un sujet (label, enseignement, diplôme)..."
         value={globalFilter}
         onChange={setGlobalFilter}
+        actions={
+          <DataTableExportButton
+            filename={title}
+            sheetName={title}
+            table={table}
+          />
+        }
         addHref="/admin/exam-papers/add"
         addLabel="Ajouter un sujet"
       >

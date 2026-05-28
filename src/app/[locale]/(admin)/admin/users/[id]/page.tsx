@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 
 export const metadata: Metadata = {
   title: "Détails utilisateur",
@@ -106,9 +107,29 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
       </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Comptes OAuth</CardTitle>
-          <CardDescription>Providers connectés au compte.</CardDescription>
+        <CardHeader className="flex flex-row items-start justify-between gap-3">
+          <div>
+            <CardTitle className="text-lg">Comptes OAuth</CardTitle>
+            <CardDescription>Providers connectés au compte.</CardDescription>
+          </div>
+          <DataTableExportButton
+            filename="comptes-oauth"
+            headers={[
+              { header: "Provider", width: 18 },
+              { header: "Type", width: 18 },
+              { header: "Compte provider", width: 42 },
+              { header: "Créé le", width: 24 },
+              { header: "Mise à jour", width: 24 },
+            ]}
+            sheetName="Comptes OAuth"
+            values={user.accounts.map((account) => [
+              account.provider,
+              account.type,
+              account.providerAccountId,
+              formatDateTime(account.createdAt),
+              formatDateTime(account.updatedAt),
+            ])}
+          />
         </CardHeader>
         <CardContent>
           <Table>
@@ -145,9 +166,25 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
       </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Sessions actives</CardTitle>
-          <CardDescription>Dernières sessions connues pour ce compte.</CardDescription>
+        <CardHeader className="flex flex-row items-start justify-between gap-3">
+          <div>
+            <CardTitle className="text-lg">Sessions actives</CardTitle>
+            <CardDescription>Dernières sessions connues pour ce compte.</CardDescription>
+          </div>
+          <DataTableExportButton
+            filename="sessions-actives"
+            headers={[
+              { header: "Expire le", width: 24 },
+              { header: "Créée le", width: 24 },
+              { header: "Mise à jour", width: 24 },
+            ]}
+            sheetName="Sessions actives"
+            values={user.sessions.map((session) => [
+              formatDateTime(session.expires),
+              formatDateTime(session.createdAt),
+              formatDateTime(session.updatedAt),
+            ])}
+          />
         </CardHeader>
         <CardContent>
           <Table>
@@ -180,9 +217,29 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
       </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">WebAuthn / Passkeys</CardTitle>
-          <CardDescription>Appareils d&apos;authentification enregistrés.</CardDescription>
+        <CardHeader className="flex flex-row items-start justify-between gap-3">
+          <div>
+            <CardTitle className="text-lg">WebAuthn / Passkeys</CardTitle>
+            <CardDescription>Appareils d&apos;authentification enregistrés.</CardDescription>
+          </div>
+          <DataTableExportButton
+            filename="webauthn-passkeys"
+            headers={[
+              { header: "Compte provider", width: 42 },
+              { header: "Type d'appareil", width: 20 },
+              { header: "Sauvegardé", width: 14 },
+              { header: "Compteur", width: 14 },
+              { header: "Transports", width: 30 },
+            ]}
+            sheetName="WebAuthn Passkeys"
+            values={user.Authenticator.map((authenticator) => [
+              authenticator.providerAccountId,
+              authenticator.credentialDeviceType,
+              authenticator.credentialBackedUp ? "Oui" : "Non",
+              authenticator.counter,
+              authenticator.transports || "Non renseigné",
+            ])}
+          />
         </CardHeader>
         <CardContent>
           <Table>

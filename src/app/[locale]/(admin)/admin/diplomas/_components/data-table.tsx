@@ -26,6 +26,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 
 interface DataTableProps<TData extends { id: string }, TValue> {
@@ -107,6 +108,13 @@ export function DataTable<TData extends { id: string }, TValue>({
         placeholder="Rechercher un diplôme..."
         value={globalFilter}
         onChange={setGlobalFilter}
+        actions={
+          <DataTableExportButton
+            filename={title}
+            sheetName={title}
+            table={table}
+          />
+        }
         addHref="/admin/diplomas/add"
         addLabel="Ajouter un diplôme"
       />

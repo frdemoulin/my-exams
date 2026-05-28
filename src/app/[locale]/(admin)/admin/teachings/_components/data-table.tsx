@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 
@@ -107,6 +108,13 @@ export function DataTable<TData extends { id: string }, TValue>({
         placeholder="Rechercher un enseignement..."
         value={globalFilter}
         onChange={setGlobalFilter}
+        actions={
+          <DataTableExportButton
+            filename={title}
+            sheetName={title}
+            table={table}
+          />
+        }
         addHref="/admin/teachings/add"
         addLabel="Ajouter un enseignement"
       />

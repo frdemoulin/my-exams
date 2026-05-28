@@ -80,6 +80,7 @@
     "react-icons": "^5.5.0",
     "tailwind-merge": "^2.6.1",
     "tsx": "^4.21.0",
+    "write-excel-file": "^4.0.7",
     "zod": "^3.25.76"
   },
   "devDependencies": {
