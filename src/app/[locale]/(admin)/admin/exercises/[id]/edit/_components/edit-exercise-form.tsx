@@ -48,7 +48,7 @@ interface EditExerciseFormProps {
     value: string;
     label: string;
     description?: string;
-    domainLabel: string;
+    domainLabels: string[];
   }>;
 }
 
@@ -86,7 +86,7 @@ export default function EditExerciseForm({ exercise, themes }: EditExerciseFormP
         new Set(
           themes
             .filter((theme) => formData.themeIds.includes(theme.value))
-            .map((theme) => theme.domainLabel)
+            .flatMap((theme) => theme.domainLabels)
             .filter(Boolean)
         )
       ).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),

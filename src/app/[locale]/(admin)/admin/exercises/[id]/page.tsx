@@ -68,8 +68,6 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
           id: true,
           title: true,
           shortTitle: true,
-          shortDescription: true,
-          longDescription: true,
         },
       })
     : [];

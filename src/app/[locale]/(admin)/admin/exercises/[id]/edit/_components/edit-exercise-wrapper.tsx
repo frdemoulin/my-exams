@@ -20,7 +20,7 @@ type ExerciseWithRelations = Exercise & {
 
 interface EditExerciseWrapperProps {
   exercise: ExerciseWithRelations;
-  themes: Array<{ value: string; label: string; description?: string; domainLabel: string }>;
+  themes: Array<{ value: string; label: string; description?: string; domainLabels: string[] }>;
 }
 
 export default function EditExerciseWrapper({ exercise, themes }: EditExerciseWrapperProps) {

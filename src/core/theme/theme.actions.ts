@@ -14,13 +14,28 @@ type CreateThemeOptions = {
     revalidatePaths?: string[];
 };
 
+const buildThemeRevalidatePaths = (input: {
+    domainIds?: string[];
+    chapterIds?: string[];
+    extraPaths?: string[];
+}) => {
+    const paths = new Set(["/admin/themes", ...(input.extraPaths ?? [])]);
+
+    for (const domainId of input.domainIds ?? []) {
+        paths.add(`/admin/domains/${domainId}`);
+    }
+
+    for (const chapterId of input.chapterIds ?? []) {
+        paths.add(`/admin/chapters/${chapterId}`);
+    }
+
+    return paths;
+};
+
 type ThemeDraftSuggestion = {
     title: string;
     shortTitle: string;
-    shortDescription: string;
-    longDescription: string;
-    description: string;
-    suggestedDomainId: string | null;
+    suggestedDomainIds: string[];
 };
 
 type SuggestThemeDraftResult =
@@ -64,6 +79,15 @@ const inferShortTitle = (title: string) => {
     const truncated = clipText(normalizedTitle, 40);
     return truncated.length < normalizedTitle.length ? truncated : "";
 };
+
+const normalizeIdList = (values: FormDataEntryValue[]) =>
+    Array.from(
+        new Set(
+            values
+                .map((value) => String(value).trim())
+                .filter((value) => value.length > 0)
+        )
+    );
 
 const DOMAIN_STOP_WORDS = new Set([
     "de",
@@ -137,47 +161,22 @@ const inferDomainFromTitle = (
 
 const buildMockThemeDraft = (input: {
     title: string;
-    domainLabel?: string | null;
-    subjectLabel?: string | null;
-    suggestedDomainId?: string | null;
+    domainLabels?: string[];
+    subjectLabels?: string[];
+    suggestedDomainIds?: string[];
 }): ThemeDraftSuggestion => {
     const title = normalizeText(input.title);
     const shortTitle = inferShortTitle(title);
-    const domainLabel = input.domainLabel ? normalizeText(input.domainLabel) : null;
-    const subjectLabel = input.subjectLabel ? normalizeText(input.subjectLabel) : null;
-    const scopedContext = [domainLabel, subjectLabel].filter(Boolean).join(" / ");
-    const lowerTitle = title.charAt(0).toLowerCase() + title.slice(1);
+    const domainLabels = (input.domainLabels ?? []).map((value) => normalizeText(value)).filter(Boolean);
+    const subjectLabels = (input.subjectLabels ?? []).map((value) => normalizeText(value)).filter(Boolean);
+    const scopedContext = [...domainLabels, ...subjectLabels].filter(Boolean).join(" / ");
 
-    const shortDescription = clipText(
-        domainLabel
-            ? `${title} dans le domaine ${domainLabel}, avec les notions et usages essentiels.`
-            : `${title}, avec les notions clés et les usages essentiels.`,
-        140
-    );
-    const longDescription = clipText(
-        [
-            `Thème centré sur ${lowerTitle}.`,
-            scopedContext
-                ? `Il s'inscrit dans ${scopedContext} et sert à regrouper les exercices qui mobilisent principalement cette notion.`
-                : "Il sert à regrouper les exercices qui mobilisent principalement cette notion.",
-            "Le périmètre couvre les propriétés usuelles, les interprétations attendues et les applications classiques sans se disperser sur des notions trop périphériques.",
-        ].join(" "),
-        600
-    );
-    const description = clipText(
-        domainLabel
-            ? `À utiliser lorsque l'exercice porte principalement sur ${lowerTitle} dans le domaine ${domainLabel}, même si d'autres notions secondaires apparaissent.`
-            : `À utiliser lorsque l'exercice porte principalement sur ${lowerTitle}, même si d'autres notions secondaires apparaissent.`,
-        800
-    );
+    const contextualShortTitle = scopedContext ? clipText(`${shortTitle || title} · ${scopedContext}`, 40) : shortTitle;
 
     return {
         title,
-        shortTitle,
-        shortDescription,
-        longDescription,
-        description,
-        suggestedDomainId: input.suggestedDomainId ?? null,
+        shortTitle: contextualShortTitle && contextualShortTitle.length < title.length ? contextualShortTitle : shortTitle,
+        suggestedDomainIds: normalizeIdList((input.suggestedDomainIds ?? []).map((value) => String(value))),
     };
 };
 
@@ -192,16 +191,15 @@ const sanitizeThemeDraft = (
     return {
         title,
         shortTitle,
-        shortDescription: clipText(data?.shortDescription?.trim() || fallback.shortDescription, 140),
-        longDescription: clipText(data?.longDescription?.trim() || fallback.longDescription, 600),
-        description: clipText(data?.description?.trim() || fallback.description, 800),
-        suggestedDomainId: data?.suggestedDomainId?.trim() || fallback.suggestedDomainId,
+        suggestedDomainIds: normalizeIdList(
+            (data?.suggestedDomainIds ?? fallback.suggestedDomainIds).map((value) => String(value))
+        ),
     };
 };
 
 export const suggestThemeDraftFromTitle = async (input: {
     title: string;
-    domainId?: string;
+    domainIds?: string[];
 }): Promise<SuggestThemeDraftResult> => {
     const title = normalizeText(input.title);
 
@@ -212,10 +210,12 @@ export const suggestThemeDraftFromTitle = async (input: {
         };
     }
 
-    const domain = input.domainId
-        ? await prisma.domain.findUnique({
-              where: { id: input.domainId },
+    const selectedDomainIds = normalizeIdList((input.domainIds ?? []).map((value) => String(value)));
+    const selectedDomains = selectedDomainIds.length
+        ? await prisma.domain.findMany({
+              where: { id: { in: selectedDomainIds } },
               select: {
+                  id: true,
                   longDescription: true,
                   shortDescription: true,
                   subject: {
@@ -226,7 +226,7 @@ export const suggestThemeDraftFromTitle = async (input: {
                   },
               },
           })
-        : null;
+        : [];
     const domains = await prisma.domain.findMany({
         select: {
             id: true,
@@ -242,10 +242,8 @@ export const suggestThemeDraftFromTitle = async (input: {
         orderBy: [{ order: "asc" }, { longDescription: "asc" }],
     });
 
-    const domainLabel = domain?.longDescription ?? domain?.shortDescription ?? null;
-    const subjectLabel = domain?.subject?.longDescription ?? domain?.subject?.shortDescription ?? null;
     const suggestedDomainId =
-        input.domainId ??
+        selectedDomainIds[0] ??
         inferDomainFromTitle(
             title,
             domains.map((candidate) => ({
@@ -258,9 +256,11 @@ export const suggestThemeDraftFromTitle = async (input: {
         );
     const mockDraft = buildMockThemeDraft({
         title,
-        domainLabel,
-        subjectLabel,
-        suggestedDomainId,
+        domainLabels: selectedDomains.map((domain) => domain.longDescription || domain.shortDescription),
+        subjectLabels: selectedDomains.map(
+            (domain) => domain.subject?.longDescription || domain.subject?.shortDescription || ""
+        ),
+        suggestedDomainIds: suggestedDomainId ? [suggestedDomainId] : selectedDomainIds,
     });
 
     const useMockLlm =
@@ -280,16 +280,13 @@ export const suggestThemeDraftFromTitle = async (input: {
         const model = process.env.LLM_MODEL ?? "gpt-4o-mini";
         const prompt = `
 Tu aides à préparer une fiche de thème pédagogique pour classer des exercices d'annales.
-À partir d'un titre de thème et de son contexte éventuel (domaine, matière), tu proposes des champs de formulaire cohérents.
+À partir d'un titre de thème et de son contexte éventuel (domaines, matières), tu proposes des champs de formulaire cohérents.
 
 Retourne uniquement un JSON conforme à ce schéma :
 {
   "title": string,
   "shortTitle": string,
-  "shortDescription": string,
-  "longDescription": string,
-  "description": string,
-  "suggestedDomainId": string | null
+    "suggestedDomainIds": string[]
 }
 
 Règles :
@@ -297,13 +294,10 @@ Règles :
 - Aucun texte hors JSON.
 - Conserve le titre saisi comme base, en ne corrigeant que d'éventuelles maladresses minimes.
 - "shortTitle" doit faire 40 caractères maximum et rester plus court que "title".
-- "shortDescription" doit faire 140 caractères maximum, en une phrase claire.
-- "longDescription" doit faire 2 à 4 phrases, 600 caractères maximum, avec un périmètre pédagogique précis.
-- "description" doit être une aide admin, idéalement formulée à partir de "À utiliser lorsque...".
 - Pas de markdown, pas de listes, pas de banalités du type "thème important".
-- Si un domaine est fourni, ancre bien la proposition dans ce domaine.
-- Si aucun domaine n'est fourni, propose "suggestedDomainId" uniquement à partir de la liste autorisée ci-dessous. Sinon retourne null.
-- Si un domaine est déjà fourni, retourne ce même id dans "suggestedDomainId".
+- Si des domaines sont fournis, ancre bien la proposition dans ces domaines.
+- Si aucun domaine n'est fourni, propose 0 ou 1 identifiant dans "suggestedDomainIds", uniquement à partir de la liste autorisée ci-dessous.
+- Si des domaines sont déjà fournis, retourne exactement ces mêmes ids dans "suggestedDomainIds".
 
 Liste des domaines autorisés :
 ${domains
@@ -325,8 +319,25 @@ ${domains
                     role: "user",
                     content: [
                         `TITRE DU THÈME:\n${title}`,
-                        domainLabel ? `DOMAINE:\n${domainLabel}` : null,
-                        subjectLabel ? `MATIÈRE:\n${subjectLabel}` : null,
+                        selectedDomains.length > 0
+                            ? `DOMAINES:\n${selectedDomains
+                                  .map((domain) => domain.longDescription || domain.shortDescription)
+                                  .join("\n")}`
+                            : null,
+                        selectedDomains.length > 0
+                            ? `MATIÈRES:\n${Array.from(
+                                  new Set(
+                                      selectedDomains
+                                          .map(
+                                              (domain) =>
+                                                  domain.subject?.longDescription ||
+                                                  domain.subject?.shortDescription ||
+                                                  ""
+                                          )
+                                          .filter(Boolean)
+                                  )
+                              ).join("\n")}`
+                            : null,
                     ]
                         .filter(Boolean)
                         .join("\n\n"),
@@ -353,30 +364,35 @@ ${domains
 };
 
 export const createTheme = async (formData: FormData, options?: CreateThemeOptions) => {
-    const values = Object.fromEntries(formData.entries());
+    const values = {
+        title: String(formData.get("title") ?? ""),
+        shortTitle: String(formData.get("shortTitle") ?? ""),
+        domainIds: normalizeIdList(formData.getAll("domainIds")),
+        chapterIds: normalizeIdList(formData.getAll("chapterIds")),
+    };
     
     const result = createThemeSchema.safeParse(values);
 
     if (result.success) {
-        const { title, shortTitle, longDescription, shortDescription, domainId, description } = result.data;
-        const normalizedDescription = description?.trim() ? description.trim() : null;
+        const { title, shortTitle, domainIds, chapterIds } = result.data;
         const normalizedShortTitle = shortTitle?.trim() ? shortTitle.trim() : null;
 
-        // create theme in database
         try {
             await prisma.theme.create({
                 data: {
                     title,
                     shortTitle: normalizedShortTitle,
-                    longDescription,
-                    shortDescription,
-                    domainId,
-                    description: normalizedDescription
+                    domains: {
+                        connect: domainIds.map((domainId) => ({ id: domainId })),
+                    },
+                    chapters: {
+                        connect: chapterIds.map((chapterId) => ({ id: chapterId })),
+                    },
                 }
             });
         } catch (error: any) {
             if (error.code === 'P2002') {
-                throw new Error('Un thème avec ces descriptions existe déjà');
+                throw new Error('Un thème avec ces associations existe déjà');
             }
             throw error;
         }
@@ -388,7 +404,11 @@ export const createTheme = async (formData: FormData, options?: CreateThemeOptio
         throw errors;
     }
 
-    const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
+    const paths = buildThemeRevalidatePaths({
+        domainIds: result.success ? result.data.domainIds : [],
+        chapterIds: result.success ? result.data.chapterIds : [],
+        extraPaths: options?.revalidatePaths,
+    });
     paths.forEach((path) => revalidatePath(path));
     await setCrudSuccessToast("theme", "created");
     if (options?.redirectTo !== null) {
@@ -406,14 +426,27 @@ export const updateTheme = async (
     formData: FormData,
     options?: UpdateThemeOptions
 ) => {
-    const values = Object.fromEntries(formData.entries());
+    const values = {
+        title: String(formData.get("title") ?? ""),
+        shortTitle: String(formData.get("shortTitle") ?? ""),
+        domainIds: normalizeIdList(formData.getAll("domainIds")),
+        chapterIds: normalizeIdList(formData.getAll("chapterIds")),
+    };
 
     const result = createThemeSchema.safeParse(values);
 
     if (result.success) {
-        const { title, shortTitle, longDescription, shortDescription, domainId, description } = result.data;
-        const normalizedDescription = description?.trim() ? description.trim() : null;
+        const { title, shortTitle, domainIds, chapterIds } = result.data;
         const normalizedShortTitle = shortTitle?.trim() ? shortTitle.trim() : null;
+        const existingTheme = id
+            ? await prisma.theme.findUnique({
+                  where: { id },
+                  select: {
+                      domainIds: true,
+                      chapterIds: true,
+                  },
+              })
+            : null;
 
         try {
             await prisma.theme.update({
@@ -423,14 +456,24 @@ export const updateTheme = async (
                 data: {
                     title,
                     shortTitle: normalizedShortTitle,
-                    longDescription,
-                    shortDescription,
-                    domainId,
-                    description: normalizedDescription
+                    domains: {
+                        set: domainIds.map((domainId) => ({ id: domainId })),
+                    },
+                    chapters: {
+                        set: chapterIds.map((chapterId) => ({ id: chapterId })),
+                    },
                 }
             });
 
-            const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
+            const paths = buildThemeRevalidatePaths({
+                domainIds: Array.from(
+                    new Set([...(existingTheme?.domainIds ?? []), ...domainIds])
+                ),
+                chapterIds: Array.from(
+                    new Set([...(existingTheme?.chapterIds ?? []), ...chapterIds])
+                ),
+                extraPaths: options?.revalidatePaths,
+            });
             paths.forEach((path) => revalidatePath(path));
             await setCrudSuccessToast("theme", "updated");
             if (options?.redirectTo !== null) {
@@ -454,6 +497,14 @@ type DeleteThemeOptions = {
 };
 
 export const deleteTheme = async (id: string, options?: DeleteThemeOptions) => {
+    const theme = await prisma.theme.findUnique({
+        where: { id },
+        select: {
+            domainIds: true,
+            chapterIds: true,
+        },
+    });
+
     try {
         await prisma.theme.delete({
             where: {
@@ -466,7 +517,11 @@ export const deleteTheme = async (id: string, options?: DeleteThemeOptions) => {
         throw error;
     }
 
-    const paths = new Set(["/admin/themes", ...(options?.revalidatePaths ?? [])]);
+    const paths = buildThemeRevalidatePaths({
+        domainIds: theme?.domainIds ?? [],
+        chapterIds: theme?.chapterIds ?? [],
+        extraPaths: options?.revalidatePaths,
+    });
     paths.forEach((path) => revalidatePath(path));
     if (!options?.skipSuccessToast) {
         await setCrudSuccessToast("theme", "deleted");

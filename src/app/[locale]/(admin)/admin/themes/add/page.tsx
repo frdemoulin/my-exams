@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ThemeForm } from "../_components/theme-form";
 import { fetchDomainsOptions } from "@/core/domain";
+import { fetchChapterOptions } from "@/core/chapter";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,7 +18,10 @@ interface AddThemePageProps {
 }
 
 const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
-    const domainsOptions = await fetchDomainsOptions({ includeInactive: true });
+    const [domainsOptions, chapterOptions] = await Promise.all([
+        fetchDomainsOptions({ includeInactive: true }),
+        fetchChapterOptions(),
+    ]);
     const t = await getTranslations('entities.theme');
     const resolvedSearchParams = searchParams ? await searchParams : undefined;
     const domainId = typeof resolvedSearchParams?.domainId === "string"
@@ -36,15 +40,14 @@ const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
                     initialData={{
                         title: "",
                         shortTitle: "",
-                        shortDescription: "",
-                        longDescription: "",
-                        description: "",
-                        domainId,
+                        domainIds: domainId ? [domainId] : [],
+                        chapterIds: [],
                     }}
-                    options={domainsOptions}
+                    domainOptions={domainsOptions}
+                    chapterOptions={chapterOptions}
                     cancelHref={returnTo}
                     submitRedirectTo={returnTo}
-                    revalidatePaths={domainId ? [returnTo, `/admin/domains/${domainId}`] : [returnTo]}
+                    revalidatePaths={[returnTo]}
                 />
             </div>
         </div>

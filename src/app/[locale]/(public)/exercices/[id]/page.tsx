@@ -213,16 +213,16 @@ export default function ExerciseDetailPage() {
   const domains = Array.from(
     new Map(
       themes
-        .filter((theme) => theme.domain)
-        .map((theme) => [
-          theme.domain!.id,
-          {
-            id: theme.domain!.id,
-            short:
-              theme.domain!.shortDescription || theme.domain!.longDescription,
-            long: theme.domain!.longDescription,
-          },
-        ])
+        .flatMap((theme) =>
+          theme.domains.map((domain) => [
+            domain.id,
+            {
+              id: domain.id,
+              short: domain.shortDescription || domain.longDescription,
+              long: domain.longDescription,
+            },
+          ] as const)
+        )
     ).values()
   ).sort((a, b) =>
     a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' })

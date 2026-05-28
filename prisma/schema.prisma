@@ -59,7 +59,8 @@ model Domain {
   subjectId String  @db.ObjectId
   subject   Subject @relation(fields: [subjectId], references: [id])
 
-  themes Theme[]
+  themeIds String[] @default([]) @db.ObjectId
+  themes   Theme[]  @relation(fields: [themeIds], references: [id])
   scopes DomainScope[]
 
   createdAt DateTime @default(now())
@@ -472,15 +473,15 @@ model Subject {
 }
 
 model Theme {
-  id               String  @id @default(auto()) @map("_id") @db.ObjectId
-  title            String
-  shortTitle       String?
-  longDescription  String
-  shortDescription String
-  description      String?
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  shortTitle String?
 
-  domainId String  @db.ObjectId
-  domain   Domain @relation(fields: [domainId], references: [id])
+  domainIds String[] @default([]) @db.ObjectId
+  domains   Domain[] @relation(fields: [domainIds], references: [id])
+
+  chapterIds String[]  @default([]) @db.ObjectId
+  chapters   Chapter[] @relation(fields: [chapterIds], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -500,6 +501,7 @@ model Chapter {
 
   domainIds String[] @default([]) @db.ObjectId
   themeIds  String[] @default([]) @db.ObjectId
+  themes    Theme[]  @relation(fields: [themeIds], references: [id])
 
   quizQuestions   QuizQuestion[]
   sections        ChapterSection[]

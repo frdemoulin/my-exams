@@ -22,6 +22,7 @@ type ImportTheme = {
   domainLongDescription: string;
   subjectLongDescription: string;
   subjectShortDescription: string;
+  chapterSlugs?: string[];
 };
 
 type ImportPayload = {
@@ -29,6 +30,24 @@ type ImportPayload = {
   exportedAt?: string;
   domains: ImportDomain[];
   themes: ImportTheme[];
+};
+
+type DomainRecord = {
+  id: string;
+  subjectId: string;
+  longDescription: string;
+  shortDescription: string;
+  order: number | null;
+  discipline: DomainDiscipline | null;
+};
+
+type ThemeRecord = {
+  id: string;
+  title: string;
+  shortTitle: string | null;
+  domainIds: string[];
+  chapterIds: string[];
+  domains: Array<{ subjectId: string }>;
 };
 
 loadProjectEnv();
@@ -63,6 +82,68 @@ function printHelp() {
 
 function buildSubjectKey(longDescription: string, shortDescription: string) {
   return `${longDescription}::${shortDescription}`;
+}
+
+function normalizeText(value: string | null | undefined) {
+  const normalized = value?.trim();
+  return normalized ? normalized : null;
+}
+
+function arraysEqual(left: string[], right: string[]) {
+  if (left.length !== right.length) {
+    return false;
+  }
+
+  return left.every((value, index) => value === right[index]);
+}
+
+function mergeUniqueIds(existingIds: string[], nextIds: string[]) {
+  return Array.from(new Set([...existingIds, ...nextIds]));
+}
+
+function resolveThemeTitle(theme: ImportTheme) {
+  return normalizeText(theme.title) ?? theme.longDescription.trim();
+}
+
+function resolveThemeShortTitle(theme: ImportTheme) {
+  return normalizeText(theme.shortTitle) ?? normalizeText(theme.shortDescription);
+}
+
+function findMatchingTheme(
+  subjectThemes: ThemeRecord[],
+  nextTitle: string,
+  nextShortTitle: string | null
+) {
+  return subjectThemes.find((candidate) => {
+    if (candidate.title !== nextTitle) {
+      return false;
+    }
+
+    if (nextShortTitle !== null) {
+      return candidate.shortTitle === nextShortTitle;
+    }
+
+    return candidate.shortTitle === null;
+  });
+}
+
+function indexThemeBySubjects(
+  themesBySubjectId: Map<string, ThemeRecord[]>,
+  theme: ThemeRecord
+) {
+  const subjectIds = new Set(theme.domains.map((domain) => domain.subjectId));
+
+  for (const subjectId of subjectIds) {
+    const subjectThemes = themesBySubjectId.get(subjectId);
+    if (subjectThemes) {
+      if (!subjectThemes.some((candidate) => candidate.id === theme.id)) {
+        subjectThemes.push(theme);
+      }
+      continue;
+    }
+
+    themesBySubjectId.set(subjectId, [theme]);
+  }
 }
 
 async function main() {
@@ -138,14 +219,18 @@ async function main() {
       }
     }
 
-    const resolveSubjectId = (domain: ImportDomain | ImportTheme): string | null => {
-      const key = buildSubjectKey(domain.subjectLongDescription, domain.subjectShortDescription);
+    const resolveSubjectId = (entry: ImportDomain | ImportTheme): string | null => {
+      const key = buildSubjectKey(entry.subjectLongDescription, entry.subjectShortDescription);
       const direct = subjectsByKey.get(key);
-      if (direct) return direct;
-      const byLong = subjectsByLong.get(domain.subjectLongDescription);
+      if (direct) {
+        return direct;
+      }
+
+      const byLong = subjectsByLong.get(entry.subjectLongDescription);
       if (byLong?.length === 1) {
         return byLong[0];
       }
+
       return null;
     };
 
@@ -160,7 +245,7 @@ async function main() {
       },
     });
 
-    const domainByKey = new Map<string, typeof existingDomains[number]>();
+    const domainByKey = new Map<string, DomainRecord>();
     for (const domain of existingDomains) {
       domainByKey.set(`${domain.subjectId}::${domain.longDescription}`, domain);
     }
@@ -168,6 +253,7 @@ async function main() {
     let domainsCreated = 0;
     let domainsUpdated = 0;
     let domainsSkipped = 0;
+    let dryRunDomainCounter = 0;
 
     for (const domain of payload.domains) {
       const subjectId = resolveSubjectId(domain);
@@ -191,55 +277,87 @@ async function main() {
           (existing.discipline ?? null) !== nextDiscipline;
 
         if (needsUpdate) {
-          if (!dryRun) {
-            const updated = await prisma.domain.update({
-              where: { id: existing.id },
-              data: {
+          const updated: DomainRecord = dryRun
+            ? {
+                ...existing,
                 shortDescription: domain.shortDescription,
                 order: nextOrder,
                 discipline: nextDiscipline,
-              },
-            });
-            domainByKey.set(key, updated);
-          }
+              }
+            : await prisma.domain.update({
+                where: { id: existing.id },
+                data: {
+                  shortDescription: domain.shortDescription,
+                  order: nextOrder,
+                  discipline: nextDiscipline,
+                },
+              });
+
+          domainByKey.set(key, updated);
           domainsUpdated += 1;
         }
       } else {
-        if (!dryRun) {
-          const created = await prisma.domain.create({
-            data: {
+        const created: DomainRecord = dryRun
+          ? {
+              id: `dry-run-domain-${++dryRunDomainCounter}`,
               longDescription: domain.longDescription,
               shortDescription: domain.shortDescription,
               order: nextOrder,
               discipline: nextDiscipline,
               subjectId,
-            },
-          });
-          domainByKey.set(key, created);
-        }
+            }
+          : await prisma.domain.create({
+              data: {
+                longDescription: domain.longDescription,
+                shortDescription: domain.shortDescription,
+                order: nextOrder,
+                discipline: nextDiscipline,
+                subjectId,
+              },
+            });
+
+        domainByKey.set(key, created);
         domainsCreated += 1;
       }
+    }
+
+    const chapters = await prisma.chapter.findMany({
+      select: {
+        id: true,
+        slug: true,
+        subjectId: true,
+      },
+    });
+
+    const chapterIdByKey = new Map<string, string>();
+    for (const chapter of chapters) {
+      chapterIdByKey.set(`${chapter.subjectId}::${chapter.slug}`, chapter.id);
     }
 
     const existingThemes = await prisma.theme.findMany({
       select: {
         id: true,
-        domainId: true,
         title: true,
         shortTitle: true,
-        longDescription: true,
-        shortDescription: true,
+        domainIds: true,
+        chapterIds: true,
+        domains: {
+          select: {
+            subjectId: true,
+          },
+        },
       },
     });
 
-    const themeByKey = new Map<string, typeof existingThemes[number]>();
+    const themesBySubjectId = new Map<string, ThemeRecord[]>();
     for (const theme of existingThemes) {
-      themeByKey.set(`${theme.domainId}::${theme.longDescription}`, theme);
+      indexThemeBySubjects(themesBySubjectId, theme);
     }
 
     let themesCreated = 0;
     let themesUpdated = 0;
     let themesSkipped = 0;
+    let dryRunThemeCounter = 0;
 
     for (const theme of payload.themes) {
       const subjectId = resolveSubjectId(theme);
@@ -261,44 +379,117 @@ async function main() {
         continue;
       }
 
-      const key = `${domain.id}::${theme.longDescription}`;
-      const existing = themeByKey.get(key);
-      const nextTitle = theme.title?.trim() || theme.longDescription;
-      const nextShortTitle = theme.shortTitle?.trim() || null;
-      const nextShort = theme.shortDescription?.trim() || theme.longDescription;
+      const nextTitle = resolveThemeTitle(theme);
+      const nextShortTitle = resolveThemeShortTitle(theme);
+      const resolvedChapterIds = (theme.chapterSlugs ?? []).flatMap((chapterSlug) => {
+        const chapterId = chapterIdByKey.get(`${subjectId}::${chapterSlug}`);
+        if (!chapterId) {
+          console.warn(
+            `Skip chapter association: chapter not found (${chapterSlug} for ${theme.subjectLongDescription})`
+          );
+          return [];
+        }
+
+        return [chapterId];
+      });
+
+      const subjectThemes = themesBySubjectId.get(subjectId) ?? [];
+      const existing = findMatchingTheme(subjectThemes, nextTitle, nextShortTitle);
 
       if (existing) {
+        const nextDomainIds = mergeUniqueIds(existing.domainIds, [domain.id]);
+        const nextChapterIds = mergeUniqueIds(existing.chapterIds, resolvedChapterIds);
+        const nextDomains = existing.domains.some(
+          (candidateDomain) => candidateDomain.subjectId === subjectId
+        )
+          ? existing.domains
+          : [...existing.domains, { subjectId }];
         const needsUpdate =
           existing.title !== nextTitle ||
           existing.shortTitle !== nextShortTitle ||
-          existing.shortDescription !== nextShort;
+          !arraysEqual(existing.domainIds, nextDomainIds) ||
+          !arraysEqual(existing.chapterIds, nextChapterIds);
+
         if (needsUpdate) {
-          if (!dryRun) {
-            const updated = await prisma.theme.update({
-              where: { id: existing.id },
-              data: {
+          const updated: ThemeRecord = dryRun
+            ? {
+                ...existing,
                 title: nextTitle,
                 shortTitle: nextShortTitle,
-                shortDescription: nextShort,
-              },
-            });
-            themeByKey.set(key, updated);
-          }
+                domainIds: nextDomainIds,
+                chapterIds: nextChapterIds,
+                domains: nextDomains,
+              }
+            : await prisma.theme.update({
+                where: { id: existing.id },
+                data: {
+                  title: nextTitle,
+                  shortTitle: nextShortTitle,
+                  domains: {
+                    set: nextDomainIds.map((id) => ({ id })),
+                  },
+                  chapters: {
+                    set: nextChapterIds.map((id) => ({ id })),
+                  },
+                },
+                select: {
+                  id: true,
+                  title: true,
+                  shortTitle: true,
+                  domainIds: true,
+                  chapterIds: true,
+                  domains: {
+                    select: {
+                      subjectId: true,
+                    },
+                  },
+                },
+              });
+
+          existing.title = updated.title;
+          existing.shortTitle = updated.shortTitle;
+          existing.domainIds = updated.domainIds;
+          existing.chapterIds = updated.chapterIds;
+          existing.domains = updated.domains;
+          indexThemeBySubjects(themesBySubjectId, existing);
           themesUpdated += 1;
         }
       } else {
-        if (!dryRun) {
-          const created = await prisma.theme.create({
-            data: {
+        const created: ThemeRecord = dryRun
+          ? {
+              id: `dry-run-theme-${++dryRunThemeCounter}`,
               title: nextTitle,
               shortTitle: nextShortTitle,
-              longDescription: theme.longDescription,
-              shortDescription: nextShort,
-              domainId: domain.id,
-            },
-          });
-          themeByKey.set(key, created);
-        }
+              domainIds: [domain.id],
+              chapterIds: resolvedChapterIds,
+              domains: [{ subjectId }],
+            }
+          : await prisma.theme.create({
+              data: {
+                title: nextTitle,
+                shortTitle: nextShortTitle,
+                domains: {
+                  connect: [{ id: domain.id }],
+                },
+                chapters: {
+                  connect: resolvedChapterIds.map((id) => ({ id })),
+                },
+              },
+              select: {
+                id: true,
+                title: true,
+                shortTitle: true,
+                domainIds: true,
+                chapterIds: true,
+                domains: {
+                  select: {
+                    subjectId: true,
+                  },
+                },
+              },
+            });
+
+        indexThemeBySubjects(themesBySubjectId, created);
         themesCreated += 1;
       }
     }

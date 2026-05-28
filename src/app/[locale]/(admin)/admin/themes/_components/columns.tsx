@@ -81,6 +81,27 @@ const ThemeActions = ({ theme }: { theme: ThemeData }) => {
 
 const localeSort = localeStringSort<ThemeData>();
 
+const sortLabels = (values: string[]) =>
+  [...values].sort((left, right) => left.localeCompare(right, "fr", { sensitivity: "base" }));
+
+const getDomainLabels = (theme: ThemeData) =>
+  sortLabels(theme.domains.map((domain) => domain.longDescription));
+
+const getSubjectLabels = (theme: ThemeData) =>
+  sortLabels(
+    Array.from(
+      new Set(
+        theme.domains.map(
+          (domain) =>
+            domain.subject?.shortDescription || domain.subject?.longDescription || ""
+        )
+      )
+    ).filter(Boolean)
+  );
+
+const getChapterLabels = (theme: ThemeData) =>
+  sortLabels(theme.chapters.map((chapter) => chapter.title));
+
 export const columns: ColumnDef<ThemeData>[] = [
   {
     accessorKey: "title",
@@ -92,24 +113,22 @@ export const columns: ColumnDef<ThemeData>[] = [
     },
   },
   {
-    accessorKey: "domain",
+    id: "domains",
+    accessorFn: (row) => getDomainLabels(row).join(", "),
     header: ({ column }) => {
       return (
-        <SortableHeader label="DOMAINE" column={column} />
+        <SortableHeader label="DOMAINES" column={column} />
       )
     },
     cell: ({ row }) => {
       return <div>
-        {row.original.domain?.longDescription || 'N/A'}
+        {getDomainLabels(row.original).join(", ") || 'N/A'}
       </div>
     },
   },
   {
     id: "subject",
-    accessorFn: (row) =>
-      row.domain?.subject?.shortDescription ||
-      row.domain?.subject?.longDescription ||
-      "N/A",
+    accessorFn: (row) => getSubjectLabels(row).join(", ") || "N/A",
     sortingFn: localeSort,
     header: ({ column }) => {
       return (
@@ -119,11 +138,22 @@ export const columns: ColumnDef<ThemeData>[] = [
     cell: ({ row }) => {
       return (
         <div>
-          {row.original.domain?.subject?.shortDescription ||
-            row.original.domain?.subject?.longDescription ||
-            "N/A"}
+          {getSubjectLabels(row.original).join(", ") || "N/A"}
         </div>
       )
+    },
+  },
+  {
+    id: "chapters",
+    accessorFn: (row) => getChapterLabels(row).join(", "),
+    sortingFn: localeSort,
+    header: ({ column }) => {
+      return (
+        <SortableHeader label="CHAPITRES" column={column} />
+      )
+    },
+    cell: ({ row }) => {
+      return <div>{getChapterLabels(row.original).join(", ") || "N/A"}</div>
     },
   },
   {
