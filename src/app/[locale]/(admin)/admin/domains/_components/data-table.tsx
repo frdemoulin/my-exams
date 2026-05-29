@@ -31,10 +31,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
 import { Option } from "@/types/option";
 import { DomainData } from "@/core/domain";
+import { formatDateTime } from "@/lib/utils";
+import { XlsxExportColumn } from "@/lib/xlsx-export";
 
 interface DataTableProps {
   title: string;
@@ -109,6 +112,39 @@ export function DataTable({
   const currentPageCount = table.getRowModel().rows.length;
   const pageFrom = filteredCount === 0 ? 0 : Math.min(pageIndex * pageSize + 1, filteredCount);
   const pageTo = filteredCount === 0 ? 0 : Math.min(pageFrom + currentPageCount - 1, filteredCount);
+  const exportRows = table.getPrePaginationRowModel().rows.map((row) => row.original);
+  const exportColumns: XlsxExportColumn<DomainData>[] = [
+    {
+      header: "Description longue",
+      value: (domain) => domain.longDescription,
+      width: 34,
+    },
+    {
+      header: "Description courte",
+      value: (domain) => domain.shortDescription,
+      width: 24,
+    },
+    {
+      header: "Matière",
+      value: (domain) => domain.subject?.longDescription ?? "N/A",
+      width: 28,
+    },
+    {
+      header: "Nombre de thèmes",
+      value: (domain) => domain._count?.themes ?? 0,
+      width: 18,
+    },
+    {
+      header: "Statut",
+      value: (domain) => (domain.isActive ? "Actif" : "Inactif"),
+      width: 12,
+    },
+    {
+      header: "Date de dernière modification",
+      value: (domain) => formatDateTime(domain.updatedAt),
+      width: 28,
+    },
+  ];
 
   return (
     <div>
@@ -122,6 +158,14 @@ export function DataTable({
         onChange={setGlobalFilter}
         addHref="/admin/domains/add"
         addLabel="Ajouter un domaine"
+        actions={
+          <DataTableExportButton
+            columns={exportColumns}
+            filename="domaines.xlsx"
+            rows={exportRows}
+            sheetName="Domaines"
+          />
+        }
       >
         <Select
           value={(table.getColumn("subject")?.getFilterValue() as string) ?? "all"}

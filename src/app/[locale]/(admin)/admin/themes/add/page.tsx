@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { ThemeForm } from "../_components/theme-form";
 import { fetchDomainsOptions } from "@/core/domain";
 import { fetchChapterOptions } from "@/core/chapter";
+import { fetchSubdomainsOptionsWithMeta } from "@/core/subdomain";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,9 +19,10 @@ interface AddThemePageProps {
 }
 
 const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
-    const [domainsOptions, chapterOptions] = await Promise.all([
+    const [domainsOptions, chapterOptions, subdomainOptions] = await Promise.all([
         fetchDomainsOptions({ includeInactive: true }),
         fetchChapterOptions(),
+        fetchSubdomainsOptionsWithMeta({ includeInactive: false }),
     ]);
     const t = await getTranslations('entities.theme');
     const resolvedSearchParams = searchParams ? await searchParams : undefined;
@@ -42,9 +44,11 @@ const AddThemePage = async ({ searchParams }: AddThemePageProps) => {
                         shortTitle: "",
                         domainIds: domainId ? [domainId] : [],
                         chapterIds: [],
+                        subdomainIds: [],
                     }}
                     domainOptions={domainsOptions}
                     chapterOptions={chapterOptions}
+                    subdomainOptions={subdomainOptions}
                     cancelHref={returnTo}
                     submitRedirectTo={returnTo}
                     revalidatePaths={[returnTo]}

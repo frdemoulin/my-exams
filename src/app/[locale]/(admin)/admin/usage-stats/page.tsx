@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 
 export const metadata: Metadata = {
   title: "Statistiques d'usage",
@@ -21,8 +22,17 @@ const normalizeCounts = (items: Record<string, number>): CountItem[] =>
 
 const renderTable = (title: string, rows: CountItem[], emptyLabel = "Aucune donnée") => (
   <Card>
-    <CardHeader>
+    <CardHeader className="flex flex-row items-center justify-between gap-3">
       <CardTitle className="text-lg">{title}</CardTitle>
+      <DataTableExportButton
+        filename={title}
+        headers={[
+          { header: "Libellé", width: 36 },
+          { header: "Total", width: 14 },
+        ]}
+        sheetName={title}
+        values={rows.map((row) => [row.label, row.count])}
+      />
     </CardHeader>
     <CardContent>
       <Table>
@@ -252,8 +262,17 @@ const UsageStatsPage = async ({ searchParams }: UsageStatsPageProps) => {
       <div className="grid gap-4 lg:grid-cols-2">
         <div>{renderTable("Par session", bySession)}</div>
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between gap-3">
             <CardTitle className="text-lg">Latences élevées</CardTitle>
+            <DataTableExportButton
+              filename="Latences élevées"
+              headers={[
+                { header: "Route", width: 48 },
+                { header: "Occurrences", width: 16 },
+              ]}
+              sheetName="Latences élevées"
+              values={slowApiByRoute.slice(0, 20).map((row) => [row.label, row.count])}
+            />
           </CardHeader>
           <CardContent>
             <div className="mb-3 flex items-center justify-between text-sm text-muted-foreground">

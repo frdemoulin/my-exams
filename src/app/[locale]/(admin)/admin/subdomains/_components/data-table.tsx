@@ -23,11 +23,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { DataTablePagination } from "@/components/shared/data-table-pagination";
-import { DataTableExportButton } from "@/components/shared/data-table-export-button";
-import { TableToolbar } from "@/components/shared/table-toolbar";
-import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
-import type { EditorialExerciseListItem } from "./columns";
 import {
   Select,
   SelectContent,
@@ -35,16 +30,27 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { DataTablePagination } from "@/components/shared/data-table-pagination";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
+import { TableToolbar } from "@/components/shared/table-toolbar";
+import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
+import { Option } from "@/types/option";
+import { formatDateTime } from "@/lib/utils";
+import { XlsxExportColumn } from "@/lib/xlsx-export";
+
+import { SubdomainData } from "@/core/subdomain";
 
 interface DataTableProps {
   title: string;
-  columns: ColumnDef<EditorialExerciseListItem, unknown>[];
-  data: EditorialExerciseListItem[];
+  columns: ColumnDef<SubdomainData, unknown>[];
+  data: SubdomainData[];
+  subjects: Option[];
+  domains: Option[];
 }
 
-export function DataTable({ title, columns, data }: DataTableProps) {
+export function DataTable({ title, columns, data, subjects, domains }: DataTableProps) {
   const router = useRouter();
-  const defaultSorting: SortingState = [{ id: "updatedAt", desc: true }];
+  const defaultSorting: SortingState = [{ id: "title", desc: false }];
   const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = React.useState("");
@@ -68,14 +74,8 @@ export function DataTable({ title, columns, data }: DataTableProps) {
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     globalFilterFn: accentInsensitiveIncludesString,
-    initialState: {
-      sorting: defaultSorting,
-    },
-    state: {
-      sorting,
-      columnFilters,
-      globalFilter,
-    },
+    initialState: { sorting: defaultSorting },
+    state: { sorting, columnFilters, globalFilter },
   });
 
   const handleRowClick = (
@@ -90,7 +90,7 @@ export function DataTable({ title, columns, data }: DataTableProps) {
     ) {
       return;
     }
-    router.push(`/admin/exercises/${rowId}`);
+    router.push(`/admin/subdomains/${rowId}`);
   };
 
   const filteredCount = table.getFilteredRowModel().rows.length;
@@ -101,6 +101,26 @@ export function DataTable({ title, columns, data }: DataTableProps) {
   const currentPageCount = table.getRowModel().rows.length;
   const pageFrom = filteredCount === 0 ? 0 : Math.min(pageIndex * pageSize + 1, filteredCount);
   const pageTo = filteredCount === 0 ? 0 : Math.min(pageFrom + currentPageCount - 1, filteredCount);
+  const exportRows = table.getPrePaginationRowModel().rows.map((row) => row.original);
+  const exportColumns: XlsxExportColumn<SubdomainData>[] = [
+    { header: "Titre", value: (s) => s.title, width: 30 },
+    { header: "Slug", value: (s) => s.slug, width: 24 },
+    { header: "Matière", value: (s) => s.subject?.longDescription ?? "N/A", width: 26 },
+    { header: "Domaine", value: (s) => s.domain?.longDescription ?? "N/A", width: 30 },
+    { header: "Nombre de thèmes", value: (s) => s._count?.themes ?? 0, width: 18 },
+    { header: "Ordre", value: (s) => s.order ?? "", width: 8 },
+    { header: "Statut", value: (s) => (s.isActive ? "Actif" : "Inactif"), width: 12 },
+    {
+      header: "Date de dernière modification",
+      value: (s) => formatDateTime(s.updatedAt),
+      width: 28,
+    },
+  ];
+
+  const subjectFilterValue =
+    (table.getColumn("subject")?.getFilterValue() as string) ?? "all";
+  const domainFilterValue =
+    (table.getColumn("domain")?.getFilterValue() as string) ?? "all";
 
   return (
     <div>
@@ -109,54 +129,54 @@ export function DataTable({ title, columns, data }: DataTableProps) {
         pageFrom={pageFrom}
         pageTo={pageTo}
         totalCount={totalCount}
-        placeholder="Rechercher un exercice..."
+        placeholder="Rechercher un sous-domaine..."
         value={globalFilter}
         onChange={setGlobalFilter}
+        addHref="/admin/subdomains/add"
+        addLabel="Ajouter un sous-domaine"
         actions={
           <DataTableExportButton
-            filename={title}
-            sheetName={title}
-            table={table}
+            columns={exportColumns}
+            filename="sous-domaines.xlsx"
+            rows={exportRows}
+            sheetName="Sous-domaines"
           />
         }
       >
         <Select
-          value={(table.getColumn("enrichmentStatus")?.getFilterValue() as string) ?? "all"}
+          value={subjectFilterValue}
           onValueChange={(value) =>
-            table.getColumn("enrichmentStatus")?.setFilterValue(value === "all" ? undefined : value)
+            table.getColumn("subject")?.setFilterValue(value === "all" ? undefined : value)
           }
         >
           <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="Statut IA" />
+            <SelectValue placeholder="Filtrer par matière" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Tous les statuts IA</SelectItem>
-            <SelectItem value="pending">En attente</SelectItem>
-            <SelectItem value="failed">Échec</SelectItem>
-            <SelectItem value="completed">Enrichi</SelectItem>
+            <SelectItem value="all">Toutes les matières</SelectItem>
+            {subjects.map((subject) => (
+              <SelectItem key={subject.value} value={subject.value}>
+                {subject.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
         <Select
-          value={(table.getColumn("qualityIssues")?.getFilterValue() as string) ?? "all"}
+          value={domainFilterValue}
           onValueChange={(value) =>
-            table.getColumn("qualityIssues")?.setFilterValue(value === "all" ? undefined : value)
+            table.getColumn("domain")?.setFilterValue(value === "all" ? undefined : value)
           }
         >
           <SelectTrigger className="w-[220px]">
-            <SelectValue placeholder="Filtrer par problème" />
+            <SelectValue placeholder="Filtrer par domaine" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Tous les problèmes</SelectItem>
-            <SelectItem value="needs-review">À traiter</SelectItem>
-            <SelectItem value="summary">Résumé manquant</SelectItem>
-            <SelectItem value="summary-short">Résumé trop court</SelectItem>
-            <SelectItem value="summary-long">Résumé trop long</SelectItem>
-            <SelectItem value="themes">Thèmes manquants</SelectItem>
-            <SelectItem value="duration">Durée manquante</SelectItem>
-            <SelectItem value="difficulty">Difficulté manquante</SelectItem>
-            <SelectItem value="statement">Énoncé manquant</SelectItem>
-            <SelectItem value="statement-short">Énoncé trop court</SelectItem>
-            <SelectItem value="keywords">Mots-clés manquants</SelectItem>
+            <SelectItem value="all">Tous les domaines</SelectItem>
+            {domains.map((domain) => (
+              <SelectItem key={domain.value} value={domain.value}>
+                {domain.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </TableToolbar>
@@ -166,13 +186,13 @@ export function DataTable({ title, columns, data }: DataTableProps) {
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
+                  <TableHead
+                    key={header.id}
+                    className={header.column.id === "isActive" ? "text-center" : undefined}
+                  >
                     {header.isPlaceholder
                       ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                      : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
               </TableRow>
@@ -190,7 +210,11 @@ export function DataTable({ title, columns, data }: DataTableProps) {
                   {row.getVisibleCells().map((cell) => {
                     const isActionCell = cell.column.id === "actions";
                     return (
-                      <TableCell key={cell.id} data-row-action={isActionCell || undefined}>
+                      <TableCell
+                        key={cell.id}
+                        className={cell.column.id === "isActive" ? "text-center" : undefined}
+                        data-row-action={isActionCell || undefined}
+                      >
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     );

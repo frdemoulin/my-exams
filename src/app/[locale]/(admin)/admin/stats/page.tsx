@@ -6,6 +6,7 @@ import { fetchUsageStats } from "@/core/stats";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 
 export const metadata: Metadata = {
   title: "Statistiques de contenu",
@@ -23,8 +24,17 @@ const StatsPage = async () => {
 
   const renderTable = (title: string, rows: Array<{ label: string; count: number }>) => (
     <Card>
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between gap-3">
         <CardTitle className="text-lg">{title}</CardTitle>
+        <DataTableExportButton
+          filename={title}
+          headers={[
+            { header: "Libellé", width: 32 },
+            { header: "Total", width: 14 },
+          ]}
+          sheetName={title}
+          values={rows.map((row) => [row.label, row.count])}
+        />
       </CardHeader>
       <CardContent>
         <Table>

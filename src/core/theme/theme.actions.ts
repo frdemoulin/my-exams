@@ -363,19 +363,40 @@ ${domains
     }
 };
 
+const ensureSubdomainsCoherence = async (subdomainIds: string[], domainIds: string[]) => {
+    if (subdomainIds.length === 0) return;
+    const subdomains = await prisma.subdomain.findMany({
+        where: { id: { in: subdomainIds } },
+        select: { id: true, domainId: true },
+    });
+    if (subdomains.length !== subdomainIds.length) {
+        throw new Error("Sous-domaine introuvable");
+    }
+    const domainSet = new Set(domainIds);
+    const orphan = subdomains.find((s) => !domainSet.has(s.domainId));
+    if (orphan) {
+        throw new Error(
+            "Incohérence : un sous-domaine sélectionné n'appartient à aucun des domaines du thème."
+        );
+    }
+};
+
 export const createTheme = async (formData: FormData, options?: CreateThemeOptions) => {
     const values = {
         title: String(formData.get("title") ?? ""),
         shortTitle: String(formData.get("shortTitle") ?? ""),
         domainIds: normalizeIdList(formData.getAll("domainIds")),
         chapterIds: normalizeIdList(formData.getAll("chapterIds")),
+        subdomainIds: normalizeIdList(formData.getAll("subdomainIds")),
     };
     
     const result = createThemeSchema.safeParse(values);
 
     if (result.success) {
-        const { title, shortTitle, domainIds, chapterIds } = result.data;
+        const { title, shortTitle, domainIds, chapterIds, subdomainIds } = result.data;
         const normalizedShortTitle = shortTitle?.trim() ? shortTitle.trim() : null;
+
+        await ensureSubdomainsCoherence(subdomainIds, domainIds);
 
         try {
             await prisma.theme.create({
@@ -387,6 +408,9 @@ export const createTheme = async (formData: FormData, options?: CreateThemeOptio
                     },
                     chapters: {
                         connect: chapterIds.map((chapterId) => ({ id: chapterId })),
+                    },
+                    subdomains: {
+                        connect: subdomainIds.map((subdomainId) => ({ id: subdomainId })),
                     },
                 }
             });
@@ -431,12 +455,13 @@ export const updateTheme = async (
         shortTitle: String(formData.get("shortTitle") ?? ""),
         domainIds: normalizeIdList(formData.getAll("domainIds")),
         chapterIds: normalizeIdList(formData.getAll("chapterIds")),
+        subdomainIds: normalizeIdList(formData.getAll("subdomainIds")),
     };
 
     const result = createThemeSchema.safeParse(values);
 
     if (result.success) {
-        const { title, shortTitle, domainIds, chapterIds } = result.data;
+        const { title, shortTitle, domainIds, chapterIds, subdomainIds } = result.data;
         const normalizedShortTitle = shortTitle?.trim() ? shortTitle.trim() : null;
         const existingTheme = id
             ? await prisma.theme.findUnique({
@@ -447,6 +472,8 @@ export const updateTheme = async (
                   },
               })
             : null;
+
+        await ensureSubdomainsCoherence(subdomainIds, domainIds);
 
         try {
             await prisma.theme.update({
@@ -461,6 +488,9 @@ export const updateTheme = async (
                     },
                     chapters: {
                         set: chapterIds.map((chapterId) => ({ id: chapterId })),
+                    },
+                    subdomains: {
+                        set: subdomainIds.map((subdomainId) => ({ id: subdomainId })),
                     },
                 }
             });

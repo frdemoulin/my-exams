@@ -30,7 +30,9 @@ import {
   actionMenuItem,
   actionMenuTrigger,
 } from "@/components/shared/table-action-menu";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { formatDateTime } from "@/lib/utils";
+import { XlsxExportColumn } from "@/lib/xlsx-export";
 
 interface ChapterQuestionsTableProps {
   chapterId: string;
@@ -58,6 +60,33 @@ export function ChapterQuestionsTable({
   const router = useRouter();
   const [rows, setRows] = useState(questions);
   const sortedRows = useMemo(() => [...rows].sort((a, b) => a.order - b.order), [rows]);
+  const exportColumns: XlsxExportColumn<(typeof sortedRows)[number]>[] = [
+    {
+      header: "Ordre",
+      value: (question) => question.order,
+      width: 12,
+    },
+    {
+      header: "Difficulté",
+      value: (question) => difficultyLabels[question.difficulty] ?? question.difficulty,
+      width: 16,
+    },
+    {
+      header: "Question",
+      value: (question) => toExcerpt(question.question),
+      width: 60,
+    },
+    {
+      header: "Statut",
+      value: (question) => (question.isPublished ? "Publiée" : "Brouillon"),
+      width: 16,
+    },
+    {
+      header: "Dernière modification",
+      value: (question) => formatDateTime(question.updatedAt),
+      width: 28,
+    },
+  ];
 
   const handleDelete = async (questionId: string) => {
     try {
@@ -92,9 +121,17 @@ export function ChapterQuestionsTable({
               Ajoute des QCM directement rattachés à ce chapitre.
             </p>
           </div>
-          <Button asChild>
-            <Link href={addHref}>Ajouter une question</Link>
-          </Button>
+          <div className="flex flex-wrap items-center gap-2">
+            <DataTableExportButton
+              columns={exportColumns}
+              filename="questions"
+              rows={sortedRows}
+              sheetName="Questions"
+            />
+            <Button asChild>
+              <Link href={addHref}>Ajouter une question</Link>
+            </Button>
+          </div>
         </div>
 
         <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
@@ -113,9 +150,17 @@ export function ChapterQuestionsTable({
             Gère les QCM de ce chapitre sans quitter sa fiche.
           </p>
         </div>
-        <Button asChild>
-          <Link href={addHref}>Ajouter une question</Link>
-        </Button>
+        <div className="flex flex-wrap items-center gap-2">
+          <DataTableExportButton
+            columns={exportColumns}
+            filename="questions"
+            rows={sortedRows}
+            sheetName="Questions"
+          />
+          <Button asChild>
+            <Link href={addHref}>Ajouter une question</Link>
+          </Button>
+        </div>
       </div>
 
       <Table>

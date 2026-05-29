@@ -3,6 +3,7 @@ import { Plus, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type TableToolbarProps = {
+  actions?: React.ReactNode;
   title: string;
   description?: string;
   pageFrom: number;
@@ -17,6 +18,7 @@ type TableToolbarProps = {
 };
 
 export function TableToolbar({
+  actions,
   title,
   description,
   pageFrom,
@@ -41,13 +43,18 @@ export function TableToolbar({
           </h1>
           <p className="text-sm text-muted-foreground">{resolvedDescription}</p>
         </div>
-        {addHref && addLabel ? (
-          <Button asChild size="sm" variant="success" className="font-semibold gap-2">
-            <Link href={addHref}>
-              <Plus className="h-4 w-4" />
-              {addLabel}
-            </Link>
-          </Button>
+        {actions || (addHref && addLabel) ? (
+          <div className="flex flex-wrap items-center gap-2">
+            {actions}
+            {addHref && addLabel ? (
+              <Button asChild size="sm" variant="success" className="font-semibold gap-2">
+                <Link href={addHref}>
+                  <Plus className="h-4 w-4" />
+                  {addLabel}
+                </Link>
+              </Button>
+            ) : null}
+          </div>
         ) : null}
       </div>
 

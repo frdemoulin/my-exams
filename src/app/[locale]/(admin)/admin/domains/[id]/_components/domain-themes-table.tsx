@@ -40,7 +40,9 @@ import {
     actionMenuTrigger,
 } from "@/components/shared/table-action-menu";
 import { TableToolbar } from "@/components/shared/table-toolbar";
+import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { normalizeSearchText } from "@/lib/utils";
+import { XlsxExportColumn } from "@/lib/xlsx-export";
 
 interface DomainThemesTableProps {
     domainId: string;
@@ -184,6 +186,23 @@ export const DomainThemesTable = ({ domainId, themes, addHref }: DomainThemesTab
     const pageTo = sortedRows.length === 0
         ? 0
         : Math.min(pageFrom + paginatedRows.length - 1, sortedRows.length);
+    const exportColumns: XlsxExportColumn<Theme>[] = [
+        {
+            header: "Titre",
+            value: (theme) => theme.title,
+            width: 32,
+        },
+        {
+            header: "Titre court",
+            value: (theme) => theme.shortTitle ?? "",
+            width: 24,
+        },
+        {
+            header: "Date de dernière modification",
+            value: (theme) => formatDateTime(theme.updatedAt),
+            width: 28,
+        },
+    ];
 
     React.useEffect(() => {
         if (pageIndex !== safePageIndex) {
@@ -297,6 +316,14 @@ export const DomainThemesTable = ({ domainId, themes, addHref }: DomainThemesTab
                 onChange={setGlobalFilter}
                 addHref={addHref}
                 addLabel="Ajouter un thème"
+                actions={
+                    <DataTableExportButton
+                        columns={exportColumns}
+                        filename="themes-associes"
+                        rows={sortedRows}
+                        sheetName="Thèmes associés"
+                    />
+                }
             />
             {rows.length === 0 ? (
                 <div className="rounded-base border border-dashed border-default bg-neutral-primary-medium p-6 text-sm text-muted-foreground">

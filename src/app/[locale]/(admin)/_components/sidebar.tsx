@@ -57,6 +57,11 @@ export const Sidebar = () => {
           icon: <FaList className="mr-3" size={16} />
         },
         {
+          title: 'Sous-domaines',
+          path: '/admin/subdomains',
+          icon: <FaList className="mr-3" size={16} />
+        },
+        {
           title: "Filières",
           path: '/admin/divisions',
           icon: <FaChartPie className="mr-3" size={16} />
