@@ -15,6 +15,7 @@ async function main() {
         { seedTeachings },
         { seedCurriculums },
         { seedDomains },
+        { seedSubdomains },
         { seedThemes },
         { seedUsers },
         { seedExamPapers },
@@ -33,6 +34,7 @@ async function main() {
         import("./seeds/teaching.seed"),
         import("./seeds/curriculum.seed"),
         import("./seeds/domain.seed"),
+        import("./seeds/subdomain.seed"),
         import("./seeds/theme.seed"),
         import("./seeds/user.seed"),
         import("./seeds/exam-paper.seed"),
@@ -65,6 +67,9 @@ async function main() {
 
         // 5. Domains (dépend de Subjects)
         await seedDomains(prisma);
+
+        // 5b. Subdomains (dépend de Subjects et Domains)
+        await seedSubdomains(prisma);
 
         // 6. Themes (dépend de Domains)
         await seedThemes(prisma);

@@ -17,6 +17,7 @@ export type ToastEntityKey =
   | "grade"
   | "quizQuestion"
   | "subject"
+  | "subdomain"
   | "teaching"
   | "theme";
 

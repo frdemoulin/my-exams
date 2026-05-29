@@ -20,6 +20,8 @@ import FormSubmitButton from "@/components/ui/form-submit-button";
 import { Option } from "@/types/option";
 import { useCommonTranslations } from "@/hooks/use-translations";
 
+export type SubdomainOption = Option & { subjectId: string; domainId: string };
+
 interface ThemeFormProps {
     crudMode: "add" | "edit";
     initialData: {
@@ -28,9 +30,11 @@ interface ThemeFormProps {
         shortTitle?: string;
         domainIds?: string[];
         chapterIds?: string[];
+        subdomainIds?: string[];
     };
     domainOptions: Option[];
     chapterOptions: Option[];
+    subdomainOptions?: SubdomainOption[];
     cancelHref?: string;
     submitRedirectTo?: string | null;
     revalidatePaths?: string[];
@@ -41,6 +45,7 @@ export const ThemeForm = ({
     initialData,
     domainOptions,
     chapterOptions,
+    subdomainOptions = [],
     cancelHref = "/admin/themes",
     submitRedirectTo,
     revalidatePaths,
@@ -59,12 +64,33 @@ export const ThemeForm = ({
             shortTitle: initialData.shortTitle ?? undefined,
             domainIds: initialData.domainIds ?? [],
             chapterIds: initialData.chapterIds ?? [],
+            subdomainIds: initialData.subdomainIds ?? [],
         },
         resolver: zodResolver(createThemeSchema)
     });
     const [isSuggesting, setIsSuggesting] = React.useState(false);
     const watchedTitle = form.watch("title");
     const watchedDomainIds = form.watch("domainIds");
+    const watchedSubdomainIds = form.watch("subdomainIds");
+
+    const filteredSubdomainOptions = React.useMemo(() => {
+        const allowedDomains = new Set(watchedDomainIds ?? []);
+        const filtered = allowedDomains.size === 0
+            ? subdomainOptions
+            : subdomainOptions.filter((option) => allowedDomains.has(option.domainId));
+        return [...filtered].sort((a, b) =>
+            a.label.localeCompare(b.label, "fr", { sensitivity: "base" })
+        );
+    }, [subdomainOptions, watchedDomainIds]);
+
+    React.useEffect(() => {
+        if (!watchedSubdomainIds?.length) return;
+        const allowed = new Set(filteredSubdomainOptions.map((o) => o.value));
+        const next = watchedSubdomainIds.filter((id) => allowed.has(id));
+        if (next.length !== watchedSubdomainIds.length) {
+            form.setValue("subdomainIds", next, { shouldDirty: true, shouldValidate: true });
+        }
+    }, [filteredSubdomainOptions, watchedSubdomainIds, form]);
 
     const onSubmit = async (values: CreateThemeValues) => {
         const formData = new FormData();
@@ -72,6 +98,9 @@ export const ThemeForm = ({
         formData.append('shortTitle', values.shortTitle || '');
         values.domainIds.forEach((domainId) => formData.append('domainIds', domainId));
         values.chapterIds.forEach((chapterId) => formData.append('chapterIds', chapterId));
+        (values.subdomainIds ?? []).forEach((subdomainId) =>
+            formData.append('subdomainIds', subdomainId)
+        );
         
         if (!initialData.id) {
             await createTheme(formData, {
@@ -246,6 +275,33 @@ export const ThemeForm = ({
                                     emptyText="Aucun chapitre trouvé."
                                 />
                             </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    }}
+                />
+                <FormField
+                    name="subdomainIds"
+                    control={control}
+                    render={({ field }) => {
+                        return <FormItem>
+                                <FormLabel>Sous-domaines associés</FormLabel>
+                            <FormControl>
+                                <MultiSelect
+                                    options={filteredSubdomainOptions}
+                                    selected={field.value ?? []}
+                                    onChange={field.onChange}
+                                    placeholder={
+                                        filteredSubdomainOptions.length === 0
+                                            ? "Aucun sous-domaine disponible pour les domaines choisis"
+                                            : "Sélectionner un ou plusieurs sous-domaines"
+                                    }
+                                    searchPlaceholder="Rechercher un sous-domaine..."
+                                    emptyText="Aucun sous-domaine trouvé."
+                                />
+                            </FormControl>
+                            <p className="text-xs text-muted-foreground">
+                                Les sous-domaines servent au filtrage transversal des exercices d&apos;annales. Le domaine est déduit du ou des sous-domaines sélectionnés.
+                            </p>
                             <FormMessage />
                         </FormItem>
                     }}

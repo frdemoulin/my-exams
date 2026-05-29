@@ -63,10 +63,41 @@ model Domain {
   themes   Theme[]  @relation(fields: [themeIds], references: [id])
   scopes DomainScope[]
 
+  subdomains Subdomain[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@unique([longDescription, subjectId])
+}
+
+model Subdomain {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  title       String
+  shortTitle  String?
+  slug        String
+  description String?
+  order       Int?
+  isActive    Boolean @default(true)
+
+  subjectId String  @db.ObjectId
+  subject   Subject @relation(fields: [subjectId], references: [id])
+
+  domainId String @db.ObjectId
+  domain   Domain @relation(fields: [domainId], references: [id])
+
+  themeIds String[] @default([]) @db.ObjectId
+  themes   Theme[]  @relation(fields: [themeIds], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([subjectId, slug])
+  @@index([subjectId])
+  @@index([domainId])
+  @@index([subjectId, domainId])
+  @@index([isActive])
 }
 
 model DomainScope {
@@ -467,6 +498,7 @@ model Subject {
   // Relations
   teachings Teaching[]
   domains   Domain[]
+  subdomains Subdomain[]
   chapters  Chapter[]
 
   @@unique([longDescription, shortDescription])
@@ -477,8 +509,12 @@ model Theme {
   title      String
   shortTitle String?
 
+  // DEPRECATED à terme : préférer Theme → Subdomain → Domain
   domainIds String[] @default([]) @db.ObjectId
   domains   Domain[] @relation(fields: [domainIds], references: [id])
+
+  subdomainIds String[]    @default([]) @db.ObjectId
+  subdomains   Subdomain[] @relation(fields: [subdomainIds], references: [id])
 
   chapterIds String[]  @default([]) @db.ObjectId
   chapters   Chapter[] @relation(fields: [chapterIds], references: [id])

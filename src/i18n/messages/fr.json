@@ -150,6 +150,21 @@
         "list": "Liste des domaines"
       }
     },
+    "subdomain": {
+      "singular": "Sous-domaine",
+      "plural": "Sous-domaines",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un sous-domaine",
+        "edit": "Éditer le sous-domaine",
+        "delete": "Supprimer le sous-domaine",
+        "view": "Voir le sous-domaine",
+        "list": "Liste des sous-domaines"
+      }
+    },
     "teaching": {
       "singular": "Enseignement",
       "plural": "Enseignements",

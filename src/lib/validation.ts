@@ -454,6 +454,14 @@ export const createThemeSchema = z.object({
     )
         .min(1, { message: "Sélectionne au moins un chapitre" })
         .default([]),
+    subdomainIds: z.array(
+        z.string({
+            required_error: "Champ requis",
+        })
+            .trim()
+            .min(1, { message: "Sous-domaine invalide" })
+    )
+        .default([]),
 }).superRefine((values, ctx) => {
     const shortTitle = values.shortTitle?.trim();
     if (shortTitle && shortTitle.length >= values.title.trim().length) {
@@ -463,6 +471,42 @@ export const createThemeSchema = z.object({
             message: "Doit être plus court que le titre",
         });
     }
+});
+
+export const createSubdomainSchema = z.object({
+    title: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(120, { message: "Ne peut pas dépasser 120 caractères" }),
+    shortTitle: z
+        .string({ invalid_type_error: "Doit être une chaîne de caractère" })
+        .trim()
+        .max(60, { message: "Ne peut pas dépasser 60 caractères" })
+        .optional()
+        .or(z.literal("")),
+    slug: z.string({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .min(1, { message: "Champ requis" })
+        .max(80, { message: "Ne peut pas dépasser 80 caractères" })
+        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+            message: "Utilise uniquement des lettres minuscules, chiffres et tirets",
+        }),
+    description: z
+        .string({ invalid_type_error: "Doit être une chaîne de caractère" })
+        .trim()
+        .max(500, { message: "Ne peut pas dépasser 500 caractères" })
+        .optional()
+        .or(z.literal("")),
+    order: z.number().int().min(1).max(1000).optional(),
+    subjectId: z.string({ required_error: "Champ requis" }).min(1, { message: "Champ requis" }),
+    domainId: z.string({ required_error: "Champ requis" }).min(1, { message: "Champ requis" }),
+    isActive: z.boolean().default(true),
 });
 
 export const createDomainSchema = z.object({

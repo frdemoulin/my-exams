@@ -5,6 +5,7 @@ import { ThemeForm } from "../../_components/theme-form";
 import { fetchThemeById } from "@/core/theme";
 import { fetchDomainsOptions } from "@/core/domain";
 import { fetchChapterOptions } from "@/core/chapter";
+import { fetchSubdomainsOptionsWithMeta } from "@/core/subdomain";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -21,10 +22,11 @@ interface ThemeEditProps {
 const EditThemePage = async ({ params }: ThemeEditProps) => {
     const { id } = await params;
 
-    const [theme, domainsOptions, chapterOptions] = await Promise.all([
+    const [theme, domainsOptions, chapterOptions, subdomainOptions] = await Promise.all([
         fetchThemeById(id),
         fetchDomainsOptions({ includeInactive: true }),
         fetchChapterOptions(),
+        fetchSubdomainsOptionsWithMeta({ includeInactive: false }),
     ]);
     const t = await getTranslations('entities.theme');
 
@@ -40,9 +42,11 @@ const EditThemePage = async ({ params }: ThemeEditProps) => {
                         shortTitle: theme?.shortTitle ?? "",
                         domainIds: theme?.domainIds ?? [],
                         chapterIds: theme?.chapterIds ?? [],
+                        subdomainIds: theme?.subdomainIds ?? [],
                     }}
                     domainOptions={domainsOptions}
                     chapterOptions={chapterOptions}
+                    subdomainOptions={subdomainOptions}
                 />
             </div>
         </div>
