@@ -1,3 +1,10 @@
+## [1.6.8](https://github.com/frdemoulin/my-exams/compare/v1.6.7...v1.6.8) (2026-05-29)
+
+### Bug Fixes
+
+* implémentation des boutons d'export xlsx dans le BO ([d0c215d](https://github.com/frdemoulin/my-exams/commit/d0c215d8c95a219c996c6134c9ba08beff561819))
+* refonte des domaines et création des sous-domaines ([46c4654](https://github.com/frdemoulin/my-exams/commit/46c46544e3e205f22e839be18158da8d3fba87ec))
+
 ## [1.6.7](https://github.com/frdemoulin/my-exams/compare/v1.6.6...v1.6.7) (2026-05-28)
 
 ### Bug Fixes
