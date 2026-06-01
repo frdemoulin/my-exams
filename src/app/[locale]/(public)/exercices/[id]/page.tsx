@@ -8,7 +8,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { Heart, ChevronLeft } from 'lucide-react';
+import { Heart, ChevronLeft, ExternalLink } from 'lucide-react';
 import {
   Card,
   CardHeader,
@@ -21,7 +21,6 @@ import { PublicHeader } from '@/components/shared/public-header';
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { AccountContinuityCta } from '@/components/shared/account-continuity-cta';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
-import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
 import { ExerciseChaptersCard } from '@/components/exercises/ExerciseChaptersCard';
 import { SiteFooter } from '@/components/shared/site-footer';
@@ -196,15 +195,26 @@ export default function ExerciseDetailPage() {
   const examPaperCorrections = examPaper.corrections ?? [];
   const exerciseCorrections = exercise.corrections ?? [];
   const officialStatementUrl = exerciseUrl ?? examPaper.subjectUrl ?? null;
-  const statementLabel = exerciseUrl ? "Énoncé de l'exercice (PDF)" : "Sujet officiel (PDF)";
-  const emptyStatementLabel = exerciseUrl
-    ? "Énoncé indisponible pour le moment."
-    : "Sujet officiel non disponible pour le moment.";
+  const statementLabel = exerciseUrl ? "Ouvrir l'énoncé" : "Ouvrir le sujet";
   const correctionsToDisplay =
     exerciseCorrections.length > 0 ? exerciseCorrections : examPaperCorrections;
-  const emptyCorrectionsLabel = exerciseCorrections.length > 0
-    ? "Pas encore de correction pour cet exercice."
-    : "Pas encore de correction pour ce sujet.";
+  const actionLinks = [
+    officialStatementUrl
+      ? {
+          label: statementLabel,
+          href: officialStatementUrl,
+          variant: 'default' as const,
+        }
+      : null,
+    ...correctionsToDisplay.map((correction) => ({
+      label: `Ouvrir le corrigé (${correction.source})`,
+      href: correction.url,
+      variant: 'success' as const,
+    })),
+  ].filter(
+    (link): link is { label: string; href: string; variant: 'default' | 'success' } =>
+      Boolean(link)
+  );
   const previewPdfUrl = exerciseUrl || examPaper.subjectUrl || null;
   const displayTitle = title || label || `Exercice ${exerciseNumber}`;
   const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
@@ -286,25 +296,36 @@ export default function ExerciseDetailPage() {
                 />
               </div>
             </div>
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
               <div className="flex-1">
                 <h1 className="text-3xl font-bold leading-tight">{displayTitle}</h1>
                 <p className="mt-2 text-muted-foreground">{traceability}</p>
               </div>
 
-              {/* Bouton favoris */}
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={toggleFavorite}
-                className="shrink-0"
-              >
-                <Heart
-                  className={`h-5 w-5 ${
-                    isFavorite ? 'fill-fg-danger text-fg-danger' : 'text-body'
-                  }`}
-                />
-              </Button>
+              <div className="flex w-full flex-wrap items-center gap-2 lg:w-auto lg:justify-end lg:self-center">
+                {actionLinks.map((link) => (
+                  <Button key={`${link.label}-${link.href}`} asChild size="sm" variant={link.variant}>
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">
+                      {link.label}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                ))}
+
+                {/* Bouton favoris */}
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={toggleFavorite}
+                  className="shrink-0"
+                >
+                  <Heart
+                    className={`h-5 w-5 ${
+                      isFavorite ? 'fill-fg-danger text-fg-danger' : 'text-body'
+                    }`}
+                  />
+                </Button>
+              </div>
             </div>
 
             {/* Chapitres */}
@@ -322,16 +343,6 @@ export default function ExerciseDetailPage() {
               )}
             </div>
           </div>
-
-          <div className="h-px w-full bg-border" />
-
-        <ExamPaperDocumentsCard
-          officialStatementUrl={officialStatementUrl}
-          corrections={correctionsToDisplay}
-          statementLabel={statementLabel}
-          emptyStatementLabel={emptyStatementLabel}
-          emptyCorrectionsLabel={emptyCorrectionsLabel}
-        />
 
           <AccountContinuityCta kind="exercise" />
 
