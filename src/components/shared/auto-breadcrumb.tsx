@@ -70,6 +70,7 @@ export function AutoBreadcrumb() {
     'divisions': 'Filières',
     'themes': 'Thèmes',
     'domains': 'Domaines',
+    'subdomains': 'Sous-domaines',
     'chapters': 'Chapitres',
     'training': 'Entraînements',
     'qcms': 'QCMs',

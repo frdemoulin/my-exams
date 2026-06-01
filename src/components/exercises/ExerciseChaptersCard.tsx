@@ -4,51 +4,51 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { ExerciseWithRelations } from '@/core/exercise';
 
-type ExerciseDomainsCardProps = {
+type ExerciseChaptersCardProps = {
   exercise: ExerciseWithRelations;
   title?: string;
   emptyLabel?: string;
 };
 
-type DomainGroup = {
+type ChapterGroup = {
   id: string;
   label: string;
-  order: number | null;
+  order: number;
   themes: Array<{
     long: string;
     short: string;
   }>;
 };
 
-function buildDomainGroups(exercise: ExerciseWithRelations): DomainGroup[] {
-  const domainMap = new Map<string, DomainGroup>();
-  const orphanThemes: DomainGroup['themes'] = [];
+function buildChapterGroups(exercise: ExerciseWithRelations): ChapterGroup[] {
+  const chapterMap = new Map<string, ChapterGroup>();
+  const orphanThemes: ChapterGroup['themes'] = [];
 
   exercise.themes.forEach((theme) => {
     const longLabel = theme.title ?? theme.shortTitle;
     const shortLabel = theme.shortTitle ?? theme.title;
     if (!longLabel || !shortLabel) return;
 
-    if (!theme.domains || theme.domains.length === 0) {
+    if (!theme.chapters || theme.chapters.length === 0) {
       orphanThemes.push({ long: longLabel, short: shortLabel });
       return;
     }
 
-    theme.domains.forEach((domain) => {
-      const entry = domainMap.get(domain.id) ?? {
-        id: domain.id,
-        label: domain.longDescription,
-        order: domain.order ?? null,
+    theme.chapters.forEach((chapter) => {
+      const entry = chapterMap.get(chapter.id) ?? {
+        id: chapter.id,
+        label: chapter.title,
+        order: chapter.order,
         themes: [],
       };
 
       entry.themes.push({ long: longLabel, short: shortLabel });
-      domainMap.set(domain.id, entry);
+      chapterMap.set(chapter.id, entry);
     });
   });
 
   if (orphanThemes.length > 0) {
-    domainMap.set('orphan', {
+    chapterMap.set('orphan', {
       id: 'orphan',
       label: 'Autres thèmes',
       order: Number.POSITIVE_INFINITY,
@@ -56,7 +56,7 @@ function buildDomainGroups(exercise: ExerciseWithRelations): DomainGroup[] {
     });
   }
 
-  return Array.from(domainMap.values())
+  return Array.from(chapterMap.values())
     .map((entry) => ({
       ...entry,
       themes: entry.themes.sort((a, b) =>
@@ -64,31 +64,29 @@ function buildDomainGroups(exercise: ExerciseWithRelations): DomainGroup[] {
       ),
     }))
     .sort((a, b) => {
-      const orderA = a.order ?? Number.POSITIVE_INFINITY;
-      const orderB = b.order ?? Number.POSITIVE_INFINITY;
-      if (orderA !== orderB) return orderA - orderB;
+      if (a.order !== b.order) return a.order - b.order;
       return a.label.localeCompare(b.label, 'fr', { sensitivity: 'base' });
     });
 }
 
-export function ExerciseDomainsCard({
+export function ExerciseChaptersCard({
   exercise,
-  title = 'Domaines abordés',
-  emptyLabel = 'Domaines et thèmes non renseignés.',
-}: ExerciseDomainsCardProps) {
-  const domainGroups = buildDomainGroups(exercise);
+  title = 'Chapitres abordés',
+  emptyLabel = 'Chapitres et thèmes non renseignés.',
+}: ExerciseChaptersCardProps) {
+  const chapterGroups = buildChapterGroups(exercise);
 
   return (
     <section className="space-y-2">
       <h2 className="text-base font-semibold">{title}</h2>
 
-      {domainGroups.length === 0 ? (
+      {chapterGroups.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
           {emptyLabel}
         </div>
       ) : (
         <div className="space-y-3">
-          {domainGroups.map((group) => (
+          {chapterGroups.map((group) => (
             <Card key={group.id}>
               <CardHeader className="pb-2">
                 <CardTitle className="text-base">{group.label}</CardTitle>

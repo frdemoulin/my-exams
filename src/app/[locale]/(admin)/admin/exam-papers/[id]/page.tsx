@@ -82,11 +82,10 @@ const ViewExamPaperPage = async ({
       ? await prisma.theme.findMany({
           where: { id: { in: themeIds } },
           include: {
-            domains: {
+            chapters: {
               select: {
                 id: true,
-                longDescription: true,
-                shortDescription: true,
+                title: true,
                 order: true,
               },
             },
@@ -138,12 +137,11 @@ const ViewExamPaperPage = async ({
     return exerciseType;
   };
 
-  const buildExerciseDomains = (
+  const buildExerciseChapters = (
     exerciseThemes: Array<{
-      domains: Array<{
+      chapters: Array<{
         id: string;
-        longDescription: string;
-        shortDescription: string;
+        title: string;
         order: number | null;
       }>;
     }>,
@@ -152,12 +150,12 @@ const ViewExamPaperPage = async ({
       new Map(
         exerciseThemes
           .flatMap((theme) =>
-            theme.domains.map((domain) => [
-              domain.id,
+            theme.chapters.map((chapter) => [
+              chapter.id,
               {
-                id: domain.id,
-                label: domain.longDescription,
-                order: domain.order ?? Number.POSITIVE_INFINITY,
+                id: chapter.id,
+                label: chapter.title,
+                order: chapter.order ?? Number.POSITIVE_INFINITY,
               },
             ] as const)
           ),
@@ -374,7 +372,7 @@ const ViewExamPaperPage = async ({
           </div>
           <div className="space-y-4">
             {exercisesWithThemes.map((exercise) => {
-              const exerciseDomains = buildExerciseDomains(exercise.themes);
+              const exerciseChapters = buildExerciseChapters(exercise.themes);
 
               return (
                 <Card key={exercise.id}>
@@ -525,15 +523,15 @@ const ViewExamPaperPage = async ({
                     )}
                     {exercise.themes.length > 0 && (
                       <div>
-                        {exerciseDomains.length > 0 && (
+                        {exerciseChapters.length > 0 && (
                           <div className="mb-2">
                             <h4 className="font-medium text-sm mb-1">
-                              Domaines
+                              Chapitres
                             </h4>
                             <div className="flex flex-wrap gap-1">
-                              {exerciseDomains.map((domain) => (
-                                <Badge key={domain.id} variant="outline">
-                                  {domain.label}
+                              {exerciseChapters.map((chapter) => (
+                                <Badge key={chapter.id} variant="outline">
+                                  {chapter.label}
                                 </Badge>
                               ))}
                             </div>

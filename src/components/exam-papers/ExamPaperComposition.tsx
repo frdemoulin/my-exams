@@ -14,43 +14,43 @@ type ExamPaperCompositionProps = {
   emptyLabel?: string;
 };
 
-type DomainInfo = {
+type ChapterInfo = {
   id: string;
   label: string;
-  order: number | null;
+  order: number;
 };
 
-function buildGroupedDomains(exercise: ExerciseWithRelations) {
-  const domainMap = new Map<string, { info: DomainInfo; themes: string[] }>();
+function buildGroupedChapters(exercise: ExerciseWithRelations) {
+  const chapterMap = new Map<string, { info: ChapterInfo; themes: string[] }>();
   const orphanThemes: string[] = [];
 
   exercise.themes.forEach((theme) => {
     const themeLabel = theme.title ?? theme.shortTitle;
     if (!themeLabel) return;
 
-    if (!theme.domains || theme.domains.length === 0) {
+    if (!theme.chapters || theme.chapters.length === 0) {
       orphanThemes.push(themeLabel);
       return;
     }
 
-    theme.domains.forEach((domain) => {
-      const domainEntry =
-        domainMap.get(domain.id) ?? {
+    theme.chapters.forEach((chapter) => {
+      const chapterEntry =
+        chapterMap.get(chapter.id) ?? {
           info: {
-            id: domain.id,
-            label: domain.longDescription,
-            order: domain.order ?? null,
+            id: chapter.id,
+            label: chapter.title,
+            order: chapter.order,
           },
           themes: [],
         };
 
-      domainEntry.themes.push(themeLabel);
-      domainMap.set(domain.id, domainEntry);
+      chapterEntry.themes.push(themeLabel);
+      chapterMap.set(chapter.id, chapterEntry);
     });
   });
 
   if (orphanThemes.length > 0) {
-    domainMap.set('orphan', {
+    chapterMap.set('orphan', {
       info: {
         id: 'orphan',
         label: 'Autres thèmes',
@@ -60,17 +60,17 @@ function buildGroupedDomains(exercise: ExerciseWithRelations) {
     });
   }
 
-  return Array.from(domainMap.values())
+  return Array.from(chapterMap.values())
     .map((entry) => ({
-      domainLabel: entry.info.label,
-      order: entry.info.order ?? Number.POSITIVE_INFINITY,
+      chapterLabel: entry.info.label,
+      order: entry.info.order,
       themes: entry.themes.sort((a, b) =>
         a.localeCompare(b, 'fr', { sensitivity: 'base' })
       ),
     }))
     .sort((a, b) => {
       if (a.order !== b.order) return a.order - b.order;
-      return a.domainLabel.localeCompare(b.domainLabel, 'fr', { sensitivity: 'base' });
+      return a.chapterLabel.localeCompare(b.chapterLabel, 'fr', { sensitivity: 'base' });
     });
 }
 
@@ -110,7 +110,7 @@ export function ExamPaperComposition({
               displayTitle === `Exercice ${exercise.exerciseNumber}`
                 ? null
                 : `Exercice ${exercise.exerciseNumber}`;
-            const groupedDomains = buildGroupedDomains(exercise);
+            const groupedChapters = buildGroupedChapters(exercise);
             const href = returnTo
               ? {
                   pathname: `/exercices/${exercise.id}`,
@@ -135,28 +135,28 @@ export function ExamPaperComposition({
                     )}
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm">
-                    {groupedDomains.length > 0 ? (
+                    {groupedChapters.length > 0 ? (
                       <div className="space-y-3">
-                        {groupedDomains.map((domain) => (
-                          <div key={domain.domainLabel} className="space-y-1">
+                        {groupedChapters.map((chapter) => (
+                          <div key={chapter.chapterLabel} className="space-y-1">
                             <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
                               <span className="font-semibold text-muted-foreground">
-                                Domaine :
+                                Chapitre :
                               </span>
                               <Badge variant="outline" className="gap-1.5 text-xs">
                                 <span
                                   className="h-1.5 w-1.5 rounded-full bg-brand"
                                   aria-hidden="true"
                                 />
-                                {domain.domainLabel}
+                                {chapter.chapterLabel}
                               </Badge>
                             </div>
-                            {domain.themes.length > 0 ? (
+                            {chapter.themes.length > 0 ? (
                               <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
                                 <span className="font-semibold text-muted-foreground">
                                   Th&egrave;mes :
                                 </span>
-                                {domain.themes.map((theme) => (
+                                {chapter.themes.map((theme) => (
                                   <Badge key={theme} variant="outline" className="text-xs">
                                     {theme}
                                   </Badge>
@@ -172,7 +172,7 @@ export function ExamPaperComposition({
                       </div>
                     ) : (
                       <p className="text-xs text-muted-foreground">
-                        Domaines et th&egrave;mes non renseign&eacute;s.
+                        Chapitres et th&egrave;mes non renseign&eacute;s.
                       </p>
                     )}
                   </CardContent>

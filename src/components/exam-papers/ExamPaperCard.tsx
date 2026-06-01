@@ -107,7 +107,7 @@ export function ExamPaperCard({
                     </div>
                     <div className="flex flex-wrap items-baseline gap-2 text-[11px] text-muted-foreground">
                       <span className="font-semibold text-muted-foreground">
-                        Domaines abord&eacute;s :
+                        Chapitres abord&eacute;s :
                       </span>
                       {exercise.domains.length > 0 ? (
                         exercise.domains.map((domain) => (

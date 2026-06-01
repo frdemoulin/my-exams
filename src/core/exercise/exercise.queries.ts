@@ -16,6 +16,13 @@ const themeDomainsInclude = {
       order: true,
     },
   },
+  chapters: {
+    select: {
+      id: true,
+      title: true,
+      order: true,
+    },
+  },
 } satisfies Prisma.ThemeInclude;
 
 export interface ExerciseWithRelations {
@@ -99,6 +106,11 @@ export interface ExerciseWithRelations {
       longDescription: string;
       shortDescription: string;
       order: number | null;
+    }>;
+    chapters: Array<{
+      id: string;
+      title: string;
+      order: number;
     }>;
   }>;
   
