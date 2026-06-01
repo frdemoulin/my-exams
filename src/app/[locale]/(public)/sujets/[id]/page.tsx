@@ -124,7 +124,7 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
         }
       : null,
     ...corrections.map((correction) => ({
-      label: `Corrigé ${correction.source}`,
+      label: `Ouvrir le corrigé (${correction.source})`,
       href: correction.url,
       external: true,
     })),
@@ -181,7 +181,12 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
             {actionLinks.length > 0 && (
               <div className="flex flex-wrap items-center gap-2 md:justify-end">
                 {actionLinks.map((link) => (
-                  <Button key={link.label} asChild size="sm" variant={link.label.startsWith('Corrigé') ? 'success' : 'default'}>
+                  <Button
+                    key={`${link.label}-${link.href}`}
+                    asChild
+                    size="sm"
+                    variant={link.label.startsWith('Ouvrir le corrigé') ? 'success' : 'default'}
+                  >
                     <a href={link.href} target="_blank" rel="noopener noreferrer">
                       {link.label}
                       {link.external && <ExternalLink className="ml-2 h-4 w-4" />}
