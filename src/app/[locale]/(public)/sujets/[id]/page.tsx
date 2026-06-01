@@ -14,11 +14,11 @@ import { AccountContinuityCta } from '@/components/shared/account-continuity-cta
 import { SiteFooter } from '@/components/shared/site-footer';
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { ExamPaperComposition } from '@/components/exam-papers/ExamPaperComposition';
-import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
 import getSession from '@/lib/auth/get-session';
 import { buildCanonicalUrl } from '@/lib/seo';
 import { normalizeExamPaperLabel } from '@/lib/utils';
+import { ExternalLink } from 'lucide-react';
 
 type PageProps = {
   params: Promise<{
@@ -112,24 +112,23 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
     return <>Retour</>;
   })();
 
-  const corrections = examPaper.corrections ?? [];
   const officialStatementUrl = examPaper.subjectUrl ?? null;
   const previewPdfUrl = examPaper.subjectUrl ?? null;
-  const hasCorrections = corrections.length > 0;
-  const exerciseStatements = exercises
-    .filter((exercise) => exercise.exerciseUrl)
-    .map((exercise) => ({
-      exerciseNumber: exercise.exerciseNumber,
-      label: exercise.title || exercise.label,
-      url: exercise.exerciseUrl as string,
-    }));
-  const exerciseCorrections = exercises
-    .filter((exercise) => exercise.corrections && exercise.corrections.length > 0)
-    .map((exercise) => ({
-      exerciseNumber: exercise.exerciseNumber,
-      label: exercise.title || exercise.label,
-      corrections: exercise.corrections,
-    }));
+  const corrections = examPaper.corrections ?? [];
+  const actionLinks = [
+    officialStatementUrl
+      ? {
+          label: 'Ouvrir le sujet',
+          href: officialStatementUrl,
+          external: true,
+        }
+      : null,
+    ...corrections.map((correction) => ({
+      label: `Corrigé ${correction.source}`,
+      href: correction.url,
+      external: true,
+    })),
+  ].filter((link): link is { label: string; href: string; external: boolean } => Boolean(link));
 
   const subjectBreadcrumbLabel =
     teachingLong && teachingLong !== subjectLabel
@@ -174,18 +173,25 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
         </div>
 
         <div className="space-y-2">
-          <div className="space-y-1">
-            <h1 className="text-2xl font-semibold">{subjectLabel}</h1>
-            <p className="text-sm text-muted-foreground">{normalizedLabel}</p>
+          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div className="space-y-1">
+              <h1 className="text-2xl font-semibold">{subjectLabel}</h1>
+              <p className="text-sm text-muted-foreground">{normalizedLabel}</p>
+            </div>
+            {actionLinks.length > 0 && (
+              <div className="flex flex-wrap items-center gap-2 md:justify-end">
+                {actionLinks.map((link) => (
+                  <Button key={link.label} asChild size="sm" variant={link.label.startsWith('Corrigé') ? 'success' : 'default'}>
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">
+                      {link.label}
+                      {link.external && <ExternalLink className="ml-2 h-4 w-4" />}
+                    </a>
+                  </Button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
-
-        <ExamPaperDocumentsCard
-          officialStatementUrl={officialStatementUrl}
-          corrections={corrections}
-          exerciseStatements={exerciseStatements}
-          exerciseCorrections={exerciseCorrections}
-        />
 
         <AccountContinuityCta kind="examPaper" />
 

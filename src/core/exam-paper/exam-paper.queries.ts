@@ -10,6 +10,13 @@ const themeDomainsInclude = {
             order: true,
         },
     },
+    chapters: {
+        select: {
+            id: true,
+            title: true,
+            order: true,
+        },
+    },
 } satisfies Prisma.ThemeInclude;
 
 export type ExamPaperWithRelations = ExamPaper & {
@@ -463,8 +470,13 @@ export async function fetchExamPapersByScope(params: {
         themeIds.forEach((themeId) => {
             const theme = themes.find((entry) => entry.id === themeId);
             if (!theme) return;
-            theme.domains.forEach((domain) => {
-                domainMap.set(domain.id, domain);
+            theme.chapters.forEach((chapter) => {
+                domainMap.set(chapter.id, {
+                    id: chapter.id,
+                    longDescription: chapter.title,
+                    shortDescription: chapter.title,
+                    order: chapter.order,
+                });
             });
         });
         return domainMap;

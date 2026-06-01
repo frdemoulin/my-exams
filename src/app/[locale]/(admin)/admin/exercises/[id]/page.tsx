@@ -68,9 +68,34 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
           id: true,
           title: true,
           shortTitle: true,
+          chapters: {
+            select: {
+              id: true,
+              title: true,
+              order: true,
+            },
+          },
         },
       })
     : [];
+
+  const chapters = Array.from(
+    new Map(
+      themes.flatMap((theme) =>
+        theme.chapters.map((chapter) => [
+          chapter.id,
+          {
+            id: chapter.id,
+            title: chapter.title,
+            order: chapter.order,
+          },
+        ] as const)
+      )
+    ).values()
+  ).sort((a, b) => {
+    if (a.order !== b.order) return a.order - b.order;
+    return a.title.localeCompare(b.title, "fr", { sensitivity: "base" });
+  });
 
   const status = statusLabels[exercise.enrichmentStatus] ?? {
     label: exercise.enrichmentStatus,
@@ -174,6 +199,14 @@ const ExerciseDetailPage = async ({ params }: { params: Promise<{ id: string }> 
           <div>
             <h3 className="text-sm font-semibold text-muted-foreground">Difficulté estimée</h3>
             <p className="text-sm">{exercise.estimatedDifficulty ?? "—"}</p>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-muted-foreground">Chapitres</h3>
+            <p className="text-sm">
+              {chapters.length > 0
+                ? chapters.map((chapter) => chapter.title).join(", ")
+                : "—"}
+            </p>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-muted-foreground">Thèmes</h3>

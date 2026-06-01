@@ -23,7 +23,7 @@ import { AccountContinuityCta } from '@/components/shared/account-continuity-cta
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ExamPaperDocumentsCard } from '@/components/exam-papers/ExamPaperDocumentsCard';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
-import { ExerciseDomainsCard } from '@/components/exercises/ExerciseDomainsCard';
+import { ExerciseChaptersCard } from '@/components/exercises/ExerciseChaptersCard';
 import { SiteFooter } from '@/components/shared/site-footer';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
@@ -210,23 +210,24 @@ export default function ExerciseDetailPage() {
   const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
   const paperLabelDisplay = normalizedPaperLabel || paperLabel;
   const traceability = paperLabelDisplay || `Session ${sessionYear}`;
-  const domains = Array.from(
+  const chapters = Array.from(
     new Map(
       themes
         .flatMap((theme) =>
-          theme.domains.map((domain) => [
-            domain.id,
+          theme.chapters.map((chapter) => [
+            chapter.id,
             {
-              id: domain.id,
-              short: domain.shortDescription || domain.longDescription,
-              long: domain.longDescription,
+              id: chapter.id,
+              label: chapter.title,
+              order: chapter.order,
             },
           ] as const)
         )
     ).values()
-  ).sort((a, b) =>
-    a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' })
-  );
+  ).sort((a, b) => {
+    if (a.order !== b.order) return a.order - b.order;
+    return a.label.localeCompare(b.label, 'fr', { sensitivity: 'base' });
+  });
   const breadcrumbItems = [
     { label: 'Accueil', href: '/' },
     { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
@@ -306,15 +307,14 @@ export default function ExerciseDetailPage() {
               </Button>
             </div>
 
-            {/* Domaines */}
+            {/* Chapitres */}
             <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
-              <span className="font-semibold text-muted-foreground">Domaines :</span>
-              {domains.length > 0 ? (
-                domains.map((domain) => (
-                  <Badge key={domain.id} variant="outline" className="gap-1.5 text-xs">
+              <span className="font-semibold text-muted-foreground">Chapitres :</span>
+              {chapters.length > 0 ? (
+                chapters.map((chapter) => (
+                  <Badge key={chapter.id} variant="outline" className="gap-1.5 text-xs">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
-                    <span className="hidden md:inline">{domain.long}</span>
-                    <span className="md:hidden">{domain.short}</span>
+                    <span>{chapter.label}</span>
                   </Badge>
                 ))
               ) : (
@@ -355,7 +355,7 @@ export default function ExerciseDetailPage() {
               />
             </div>
 
-            <ExerciseDomainsCard exercise={exercise} />
+            <ExerciseChaptersCard exercise={exercise} />
           </div>
         </div>
       </main>
