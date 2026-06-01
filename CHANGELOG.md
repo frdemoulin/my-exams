@@ -1,3 +1,9 @@
+## [1.6.9](https://github.com/frdemoulin/my-exams/compare/v1.6.8...v1.6.9) (2026-06-01)
+
+### Bug Fixes
+
+* mise en avant des chapitres dans les pages d'annales ([16a8199](https://github.com/frdemoulin/my-exams/commit/16a819922024c406eb496bdee49dff808a4cde87))
+
 ## [1.6.8](https://github.com/frdemoulin/my-exams/compare/v1.6.7...v1.6.8) (2026-05-29)
 
 ### Bug Fixes
