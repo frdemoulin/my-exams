@@ -22,7 +22,6 @@ import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { AccountContinuityCta } from '@/components/shared/account-continuity-cta';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
-import { ExerciseChaptersCard } from '@/components/exercises/ExerciseChaptersCard';
 import { SiteFooter } from '@/components/shared/site-footer';
 import Link from 'next/link';
 import type { ExerciseWithRelations } from '@/core/exercise';
@@ -238,6 +237,17 @@ export default function ExerciseDetailPage() {
     if (a.order !== b.order) return a.order - b.order;
     return a.label.localeCompare(b.label, 'fr', { sensitivity: 'base' });
   });
+  const themeLabels = Array.from(
+    new Map(
+      themes.map((theme) => [
+        theme.id,
+        {
+          id: theme.id,
+          label: theme.title,
+        },
+      ])
+    ).values()
+  ).sort((a, b) => a.label.localeCompare(b.label, 'fr', { sensitivity: 'base' }));
   const breadcrumbItems = [
     { label: 'Accueil', href: '/' },
     { label: <>Dipl&ocirc;mes</>, href: '/diplomes' },
@@ -328,46 +338,64 @@ export default function ExerciseDetailPage() {
               </div>
             </div>
 
-            {/* Chapitres */}
-            <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
-              <span className="font-semibold text-muted-foreground">Chapitres :</span>
-              {chapters.length > 0 ? (
-                chapters.map((chapter) => (
-                  <Badge key={chapter.id} variant="outline" className="gap-1.5 text-xs">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
-                    <span>{chapter.label}</span>
-                  </Badge>
-                ))
-              ) : (
-                <span className="text-xs text-muted-foreground">Non renseignés</span>
-              )}
-            </div>
           </div>
+
+          {summary && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Résumé</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{summary}</p>
+              </CardContent>
+            </Card>
+          )}
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Chapitres et thèmes abordés</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="space-y-2">
+                <h2 className="text-sm font-semibold text-muted-foreground">Chapitres</h2>
+                {chapters.length > 0 ? (
+                  <div className="flex flex-wrap gap-2">
+                    {chapters.map((chapter) => (
+                      <Badge key={chapter.id} variant="outline" className="gap-1.5 text-xs">
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+                        <span>{chapter.label}</span>
+                      </Badge>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-sm text-muted-foreground">Non renseignés.</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <h2 className="text-sm font-semibold text-muted-foreground">Thèmes</h2>
+                {themeLabels.length > 0 ? (
+                  <div className="flex flex-wrap gap-2">
+                    {themeLabels.map((theme) => (
+                      <Badge key={theme.id} variant="outline" className="text-xs">
+                        {theme.label}
+                      </Badge>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-sm text-muted-foreground">Non renseignés.</p>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          <ExamPaperPdfPreview
+            pdfUrl={previewPdfUrl}
+            fallbackUrl={examPaper.sourceUrl ?? null}
+            frameTitle={`Énoncé ${displayTitle}`}
+          />
 
           <AccountContinuityCta kind="exercise" />
-
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-            <div className="space-y-6">
-              {summary && (
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Résumé</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{summary}</p>
-                  </CardContent>
-                </Card>
-              )}
-
-              <ExamPaperPdfPreview
-                pdfUrl={previewPdfUrl}
-                fallbackUrl={examPaper.sourceUrl ?? null}
-                frameTitle={`Énoncé ${displayTitle}`}
-              />
-            </div>
-
-            <ExerciseChaptersCard exercise={exercise} />
-          </div>
         </div>
       </main>
       <SiteFooter />
