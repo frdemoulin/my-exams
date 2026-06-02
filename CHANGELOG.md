@@ -1,3 +1,9 @@
+## [1.6.11](https://github.com/frdemoulin/my-exams/compare/v1.6.10...v1.6.11) (2026-06-02)
+
+### Bug Fixes
+
+* refonte du détail d'un exercice sur une unique colonne ([00844b6](https://github.com/frdemoulin/my-exams/commit/00844b6141d5108ddda67c18272a49121f0ef01e))
+
 ## [1.6.10](https://github.com/frdemoulin/my-exams/compare/v1.6.9...v1.6.10) (2026-06-01)
 
 ### Bug Fixes
