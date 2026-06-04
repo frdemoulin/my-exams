@@ -1,3 +1,9 @@
+## [1.6.13](https://github.com/frdemoulin/my-exams/compare/v1.6.12...v1.6.13) (2026-06-04)
+
+### Bug Fixes
+
+* debug de la validation d'un thème ([df1d6a8](https://github.com/frdemoulin/my-exams/commit/df1d6a842f2a25ee6eab9a6dba88684e89e1b7dc))
+
 ## [1.6.12](https://github.com/frdemoulin/my-exams/compare/v1.6.11...v1.6.12) (2026-06-04)
 
 ### Bug Fixes
