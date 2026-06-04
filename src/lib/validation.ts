@@ -464,11 +464,11 @@ export const createThemeSchema = z.object({
         .default([]),
 }).superRefine((values, ctx) => {
     const shortTitle = values.shortTitle?.trim();
-    if (shortTitle && shortTitle.length >= values.title.trim().length) {
+    if (shortTitle && shortTitle.length > values.title.trim().length) {
         ctx.addIssue({
             code: z.ZodIssueCode.custom,
             path: ["shortTitle"],
-            message: "Doit être plus court que le titre",
+            message: "Ne doit pas être plus long que le titre",
         });
     }
 });

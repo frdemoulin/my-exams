@@ -81,7 +81,8 @@ export function ExerciseCard({
   const sourceUrlIsExternal = isExternalUrl(sourceUrl, internalOrigin);
 
   const baseTitle = `Exercice ${exerciseNumber}`;
-  const displayTitleRaw = title || label || baseTitle;
+  const explicitTitle = title?.trim() || null;
+  const displayTitleRaw = explicitTitle || label || baseTitle;
   const normalize = (s: string) =>
     s
       .replace(/\s+/g, ' ')
@@ -113,10 +114,11 @@ export function ExerciseCard({
   const traceabilityFooter = normalizedPaperLabel
     ? `Issu du sujet ${normalizedPaperLabel}`
     : `Session ${sessionYear}`;
-  const fullTitle =
+  const accessibleTitle =
     normalize(displayTitleRaw).startsWith(normalize(baseTitle))
       ? displayTitleRaw
       : `${baseTitle} – ${displayTitleRaw}`;
+  const cardTitle = explicitTitle || accessibleTitle;
   const normalizeSourceLabel = (value?: string | null) => {
     const raw = value?.trim();
     if (!raw) return "Officiel";
@@ -153,7 +155,7 @@ export function ExerciseCard({
     <Card className="group relative overflow-hidden transition-all hover:border-brand/50 focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2 focus-within:ring-offset-background">
       <Link
         href={exerciseHref}
-        aria-label={`Ouvrir ${fullTitle}`}
+        aria-label={`Ouvrir ${accessibleTitle}`}
         className="absolute inset-0 z-0 focus-visible:outline-none"
         onClick={() => {
           try {
@@ -200,7 +202,7 @@ export function ExerciseCard({
         </div>
         <div className="flex items-center gap-2">
           <CardTitle className="text-lg text-fg-brand hover:text-heading hover:underline">
-            {fullTitle}
+            {cardTitle}
           </CardTitle>
         </div>
       </CardHeader>

@@ -175,7 +175,7 @@ const buildMockThemeDraft = (input: {
 
     return {
         title,
-        shortTitle: contextualShortTitle && contextualShortTitle.length < title.length ? contextualShortTitle : shortTitle,
+        shortTitle: contextualShortTitle && contextualShortTitle.length <= title.length ? contextualShortTitle : shortTitle,
         suggestedDomainIds: normalizeIdList((input.suggestedDomainIds ?? []).map((value) => String(value))),
     };
 };
@@ -186,7 +186,7 @@ const sanitizeThemeDraft = (
 ): ThemeDraftSuggestion => {
     const title = clipText(data?.title?.trim() || fallback.title, 80);
     const rawShortTitle = clipText(data?.shortTitle?.trim() || fallback.shortTitle, 40);
-    const shortTitle = rawShortTitle && rawShortTitle.length < title.length ? rawShortTitle : "";
+    const shortTitle = rawShortTitle && rawShortTitle.length <= title.length ? rawShortTitle : "";
 
     return {
         title,
@@ -293,7 +293,7 @@ Règles :
 - Réponse en français.
 - Aucun texte hors JSON.
 - Conserve le titre saisi comme base, en ne corrigeant que d'éventuelles maladresses minimes.
-- "shortTitle" doit faire 40 caractères maximum et rester plus court que "title".
+- "shortTitle" doit faire 40 caractères maximum et ne pas être plus long que "title".
 - Pas de markdown, pas de listes, pas de banalités du type "thème important".
 - Si des domaines sont fournis, ancre bien la proposition dans ces domaines.
 - Si aucun domaine n'est fourni, propose 0 ou 1 identifiant dans "suggestedDomainIds", uniquement à partir de la liste autorisée ci-dessous.
