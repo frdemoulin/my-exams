@@ -1,3 +1,9 @@
+## [1.6.14](https://github.com/frdemoulin/my-exams/compare/v1.6.13...v1.6.14) (2026-06-04)
+
+### Bug Fixes
+
+* mise à jour de la liste des chapitres dans le CRUD d'un thème ([b47eed9](https://github.com/frdemoulin/my-exams/commit/b47eed92c9c6a926380eceba5de1804641129bee))
+
 ## [1.6.13](https://github.com/frdemoulin/my-exams/compare/v1.6.12...v1.6.13) (2026-06-04)
 
 ### Bug Fixes
