@@ -229,6 +229,17 @@ export async function fetchQuizQuestions(
 }
 
 export async function fetchChapterOptions(): Promise<Option[]> {
+  const getChapterLevelLabel = (level: string) => {
+    switch (level) {
+      case "premiere":
+        return "1re";
+      case "terminale":
+        return "Tle";
+      default:
+        return level;
+    }
+  };
+
   const chapters = await prisma.chapter.findMany({
     include: {
       subject: {
@@ -260,7 +271,7 @@ export async function fetchChapterOptions(): Promise<Option[]> {
     })
     .map((chapter) => ({
       value: chapter.id,
-      label: `${chapter.title} · ${chapter.subject.longDescription}`,
+      label: `${chapter.title} - ${chapter.subject.longDescription} - ${getChapterLevelLabel(chapter.level)}`,
     }));
 }
 
