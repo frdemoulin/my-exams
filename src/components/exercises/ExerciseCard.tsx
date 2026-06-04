@@ -88,20 +88,26 @@ export function ExerciseCard({
       .replace(/–/g, '-')
       .trim()
       .toLowerCase();
-  const domains = Array.from(
+  const chapters = Array.from(
     new Map(
       themes
-        .flatMap((theme) => theme.domains)
-        .map((domain) => [
-          domain.id,
+        .flatMap((theme) => theme.chapters)
+        .map((chapter) => [
+          chapter.id,
           {
-            short: domain.shortDescription || domain.longDescription,
-            long: domain.longDescription,
-            key: domain.id,
+            key: chapter.id,
+            label: chapter.title,
+            order: chapter.order,
           },
         ])
     ).values()
-  ).sort((a, b) => a.long.localeCompare(b.long, 'fr', { sensitivity: 'base' }));
+  ).sort((a, b) => {
+    if (a.order !== b.order) {
+      return a.order - b.order;
+    }
+
+    return a.label.localeCompare(b.label, 'fr', { sensitivity: 'base' });
+  });
   const summaryText = exercise.summary?.trim() || '';
   const normalizedPaperLabel = normalizeExamPaperLabel(paperLabel);
   const traceabilityFooter = normalizedPaperLabel
@@ -225,18 +231,18 @@ export function ExerciseCard({
         )}
 
         <div className="flex flex-wrap items-baseline gap-2 text-xs md:text-sm">
-          {domains.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="font-semibold text-muted-foreground">Domaines :</span>
-              {domains.map((domain) => (
-                <Badge key={domain.key} variant="outline" className="gap-1.5 text-xs">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
-                  <span className="hidden md:inline">{domain.long}</span>
-                  <span className="md:hidden">{domain.short}</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-semibold text-muted-foreground">Chapitres :</span>
+            {chapters.length > 0 ? (
+              chapters.map((chapter) => (
+                <Badge key={chapter.key} variant="outline" className="text-xs">
+                  {chapter.label}
                 </Badge>
-              ))}
-            </div>
-          )}
+              ))
+            ) : (
+              <span className="text-muted-foreground">aucun renseigné</span>
+            )}
+          </div>
         </div>
 
         <div className="flex items-baseline justify-between gap-2 pt-1 text-sm">

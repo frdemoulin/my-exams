@@ -175,7 +175,9 @@ export const columns: ColumnDef<ExerciseListItem>[] = [
   {
     accessorKey: "enrichmentStatus",
     header: ({ column }) => (
-      <SortableHeader label="STATUT IA" column={column} />
+      <div className="flex justify-center">
+        <SortableHeader label="STATUT IA" column={column} />
+      </div>
     ),
     cell: ({ row }) => {
       const status = row.original.enrichmentStatus;
@@ -183,7 +185,11 @@ export const columns: ColumnDef<ExerciseListItem>[] = [
         label: status,
         variant: "secondary",
       };
-      return <Badge variant={metadata.variant}>{metadata.label}</Badge>;
+      return (
+        <div className="flex justify-center">
+          <Badge variant={metadata.variant}>{metadata.label}</Badge>
+        </div>
+      );
     },
   },
   {
