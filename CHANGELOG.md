@@ -1,3 +1,9 @@
+## [1.6.12](https://github.com/frdemoulin/my-exams/compare/v1.6.11...v1.6.12) (2026-06-04)
+
+### Bug Fixes
+
+* amélioration des cartes de résultats des recherches d'annales ([2bc2ce4](https://github.com/frdemoulin/my-exams/commit/2bc2ce4c38f71212ffa2ddca83ae7d0dd7f418d7))
+
 ## [1.6.11](https://github.com/frdemoulin/my-exams/compare/v1.6.10...v1.6.11) (2026-06-02)
 
 ### Bug Fixes
