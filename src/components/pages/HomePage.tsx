@@ -73,6 +73,7 @@ export default function HomePage({
   const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
   const [loading, setLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [hasUserSearched, setHasUserSearched] = useState(false);
   const [sortBy, setSortBy] = useState<'year' | 'difficulty' | 'duration' | undefined>('year');
@@ -183,6 +184,7 @@ export default function HomePage({
   const performSearch = useCallback(() => {
     if (!hasActiveSearch && !hasUserSearched) {
       setIsSearching(false);
+      setSearchError(null);
       setShowResults(false);
       setFilteredExercises([]);
       setTotal(0);
@@ -190,6 +192,7 @@ export default function HomePage({
     }
 
     setIsSearching(true);
+    setSearchError(null);
 
     // Construction des query params
     const params = new URLSearchParams();
@@ -213,15 +216,30 @@ export default function HomePage({
     params.append('pageSize', pageSize.toString());
 
     fetch(`/api/exercises/search?${params.toString()}`)
-      .then(res => res.json())
+      .then(async (res) => {
+        const data = await res.json().catch(() => null);
+        if (!res.ok || !data?.success) {
+          throw new Error(
+            data?.message || data?.error || 'Erreur lors de la recherche'
+          );
+        }
+        return data;
+      })
       .then(data => {
         setFilteredExercises(data.exercises || []);
         setTotal(data.count || 0);
+        setSearchError(null);
         setShowResults(true);
         setIsSearching(false);
       })
       .catch(err => {
         console.error('Error searching exercises:', err);
+        setFilteredExercises([]);
+        setTotal(0);
+        setSearchError(
+          err instanceof Error ? err.message : 'Erreur lors de la recherche'
+        );
+        setShowResults(true);
         setIsSearching(false);
       });
   }, [
@@ -425,7 +443,9 @@ export default function HomePage({
   const hasPrevPage = page > 1;
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const resultsCountLabel =
-    totalPages > 1
+    searchError
+      ? 'Erreur'
+      : totalPages > 1
       ? `${total} exercice${total > 1 ? 's' : ''} · page ${page}/${totalPages}`
       : `${total} exercice${total > 1 ? 's' : ''}`;
   const resultsFilterBadges = [
@@ -1395,6 +1415,36 @@ export default function HomePage({
                         </div>
                       </div>
                     ))}
+                  </div>
+                ) : searchError ? (
+                  <div className="flex min-h-100 items-center justify-center rounded-2xl border border-fg-danger/20 bg-card">
+                    <div className="text-center space-y-3">
+                      <div className="mb-4 text-5xl">⚠️</div>
+                      <p className="mb-2 text-lg font-medium">
+                        La recherche a échoué
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {searchError}
+                      </p>
+                      <div className="flex flex-wrap justify-center gap-2 pt-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => performSearch()}
+                        >
+                          Réessayer
+                        </Button>
+                        {(activeFiltersCount > 0 || search) && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={handleResetFilters}
+                          >
+                            Réinitialiser
+                          </Button>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 ) : filteredExercises.length === 0 ? (
                   <div className="flex min-h-100 items-center justify-center rounded-2xl border border-border bg-card">
