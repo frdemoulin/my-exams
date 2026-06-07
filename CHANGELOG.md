@@ -1,3 +1,9 @@
+## [1.6.15](https://github.com/frdemoulin/my-exams/compare/v1.6.14...v1.6.15) (2026-06-07)
+
+### Bug Fixes
+
+* correction de la recherche sur la page d'accueil ([e36e648](https://github.com/frdemoulin/my-exams/commit/e36e64822dbd9ed037a29ef6d1421a9e4bb83cdf))
+
 ## [1.6.14](https://github.com/frdemoulin/my-exams/compare/v1.6.13...v1.6.14) (2026-06-04)
 
 ### Bug Fixes
