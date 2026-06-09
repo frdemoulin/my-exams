@@ -1,6 +1,13 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+const healthBaseUrl =
+  process.env.E2E_HEALTH_BASE_URL ??
+  `http://sante.lvh.me:${process.env.E2E_PORT ?? "3000"}`;
+const healthRootUrl = new URL("/", healthBaseUrl).toString();
+const healthCollesUrl = new URL("/colles", healthBaseUrl).toString();
+const healthUeUrl = new URL("/ue", healthBaseUrl).toString();
+
 type SearchExercise = {
   examPaper?: {
     teaching?: {
@@ -69,6 +76,41 @@ test.describe("smoke", () => {
     // Scan a11y rapide
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
+  });
+
+  test("Page publique /sante se rend", async ({ page }) => {
+    const response = await page.goto("/sante");
+    expect(response?.ok()).toBeTruthy();
+    await expect(
+      page.getByRole("heading", { name: /My Exams Santé/i }),
+    ).toBeVisible();
+  });
+
+  test("Le sous-domaine Santé local rend la page d’accueil dédiée", async ({ page }) => {
+    const response = await page.goto(healthRootUrl);
+    expect(response?.ok()).toBeTruthy();
+    await expect(page).toHaveURL(healthRootUrl);
+    await expect(
+      page.getByRole("heading", { name: /My Exams Santé/i }),
+    ).toBeVisible();
+  });
+
+  test("Le sous-domaine Santé expose la section colles", async ({ page }) => {
+    const response = await page.goto(healthCollesUrl);
+    expect(response?.ok()).toBeTruthy();
+    await expect(page).toHaveURL(healthCollesUrl);
+    await expect(
+      page.getByRole("heading", { name: /Colles Santé/i }),
+    ).toBeVisible();
+  });
+
+  test("Le sous-domaine Santé réécrit aussi les sous-routes préparées", async ({ page }) => {
+    const response = await page.goto(healthUeUrl);
+    expect(response?.ok()).toBeTruthy();
+    await expect(page).toHaveURL(healthUeUrl);
+    await expect(
+      page.getByRole("heading", { name: /Réviser par UE/i }),
+    ).toBeVisible();
   });
 
   test("Page admin diplômes ne plante pas (accès ou redirection)", async ({ page }) => {
