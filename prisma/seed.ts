@@ -24,6 +24,7 @@ async function main() {
         { seedEntitlements },
         { seedSubscriptionPlans },
         { seedTraining },
+        { seedHealth },
     ] = await Promise.all([
         import("@prisma/client"),
         import("./seeds/diploma.seed"),
@@ -43,6 +44,7 @@ async function main() {
         import("./seeds/entitlement.seed"),
         import("./seeds/subscription-plan.seed"),
         import("./seeds/training.seed"),
+        import("./seeds/health.seed"),
     ]);
 
     const prisma = new PrismaClient();
@@ -74,19 +76,22 @@ async function main() {
         // 6. Themes (dépend de Domains)
         await seedThemes(prisma);
 
-        // 7. Training (dépend de Subjects et Domains)
+        // 7. Santé (les UE pourront ensuite être rattachées aux thèmes)
+        await seedHealth(prisma);
+
+        // 8. Training (dépend de Subjects et Domains)
         await seedTraining(prisma);
 
-        // 8. Exam Papers (dépend de Diplomas, Divisions, Grades, Teachings, Curriculums, ExaminationCenters)
+        // 9. Exam Papers (dépend de Diplomas, Divisions, Grades, Teachings, Curriculums, ExaminationCenters)
         await seedExamPapers(prisma);
 
-        // 9. Exercises (dépend de ExamPapers et Themes)
+        // 10. Exercises (dépend de ExamPapers et Themes)
         await seedExercises(prisma);
 
-        // 10. Corrections (dépend de ExamPapers)
+        // 11. Corrections (dépend de ExamPapers)
         await seedCorrections(prisma);
 
-        // 11. Utilisateurs (indépendants)
+        // 12. Utilisateurs (indépendants)
         await seedUsers(prisma);
 
         console.log('✅ Seeding terminé avec succès !');

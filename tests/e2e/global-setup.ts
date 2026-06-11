@@ -18,9 +18,15 @@ export default async function globalSetup(_config: FullConfig) {
   }
 
   const authStatePath = process.env.E2E_AUTH_STATE ?? "playwright/.auth/admin.json";
+  const healthAuthStatePath =
+    process.env.E2E_HEALTH_AUTH_STATE ?? "playwright/.auth/health-admin.json";
   const email = process.env.E2E_TEST_EMAIL ?? "admin-e2e@example.com";
   const name = process.env.E2E_TEST_NAME ?? "E2E Admin";
   const baseURL = process.env.E2E_BASE_URL ?? "http://localhost:3000";
+  const healthBaseURL =
+    process.env.E2E_HEALTH_BASE_URL ??
+    `http://sante.lvh.me:${process.env.E2E_PORT ?? "3000"}`;
+  const sharedCookieDomain = process.env.AUTH_COOKIE_DOMAIN?.trim();
   const authSecret = process.env.AUTH_SECRET?.toString().trim();
 
   if (!authSecret) {
@@ -66,34 +72,43 @@ export default async function globalSetup(_config: FullConfig) {
     maxAge: 60 * 60 * 24,
   });
 
-  const url = new URL(baseURL);
-  const cookieDomain = url.hostname;
+  async function writeStorageState(
+    filePath: string,
+    urlValue: string,
+    cookieDomain?: string,
+  ) {
+    const url = new URL(urlValue);
+    const cookieBase = {
+      value: token,
+      domain: cookieDomain || url.hostname,
+      path: "/",
+      httpOnly: true,
+      secure: url.protocol === "https:",
+      sameSite: "Lax" as const,
+      expires: Math.floor(Date.now() / 1000 + 60 * 60 * 24),
+    };
 
-  const cookieBase = {
-    value: token,
-    domain: cookieDomain,
-    path: "/",
-    httpOnly: true,
-    secure: url.protocol === "https:",
-    sameSite: "Lax" as const,
-    expires: Math.floor(Date.now() / 1000 + 60 * 60 * 24),
-  };
+    const cookies = [
+      { name: "next-auth.session-token", ...cookieBase },
+      { name: "authjs.session-token", ...cookieBase },
+    ];
+    if (cookieBase.secure) {
+      cookies.push(
+        { name: "__Secure-next-auth.session-token", ...cookieBase },
+        { name: "__Secure-authjs.session-token", ...cookieBase },
+      );
+    }
 
-  const cookies = [
-    { name: "next-auth.session-token", ...cookieBase },
-    { name: "authjs.session-token", ...cookieBase },
-  ];
-  if (cookieBase.secure) {
-    cookies.push(
-      { name: "__Secure-next-auth.session-token", ...cookieBase },
-      { name: "__Secure-authjs.session-token", ...cookieBase },
+    await fs.mkdir(path.dirname(filePath), { recursive: true });
+    await fs.writeFile(
+      filePath,
+      JSON.stringify({ cookies, origins: [] }, null, 2),
+      "utf8",
     );
   }
 
-  const storageState = {
-    cookies,
-    origins: [],
-  };
-
-  await fs.writeFile(authStatePath, JSON.stringify(storageState, null, 2), "utf8");
+  await Promise.all([
+    writeStorageState(authStatePath, baseURL),
+    writeStorageState(healthAuthStatePath, healthBaseURL, sharedCookieDomain),
+  ]);
 }

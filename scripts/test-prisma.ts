@@ -108,14 +108,79 @@ async function run() {
   });
   console.log("Domain avec themes:", domainWithThemes);
 
-  // 6. Transaction (test Replica Set)
+  // 6. Référentiel santé et relation UE / Theme
+  const healthInstitution = await prisma.healthInstitution.create({
+    data: {
+      name: "Université Santé Test",
+      slug: `universite-sante-test-${Date.now()}`,
+    },
+  });
+  const healthProgram = await prisma.healthProgram.create({
+    data: {
+      type: "OTHER",
+      code: `HEALTH_TEST_${Date.now()}`,
+      label: "Programme santé test",
+    },
+  });
+  const healthVersion = await prisma.healthProgramVersion.create({
+    data: {
+      institutionId: healthInstitution.id,
+      programId: healthProgram.id,
+      label: "Maquette santé test",
+      slug: "maquette-sante-test",
+      academicYear: "2025-2026",
+      studyLevel: "L1",
+    },
+  });
+  const healthPathway = await prisma.healthPathway.create({
+    data: {
+      programVersionId: healthVersion.id,
+      name: "Parcours santé test",
+      slug: "parcours-sante-test",
+    },
+  });
+  const healthBlock = await prisma.healthBlock.create({
+    data: {
+      programVersionId: healthVersion.id,
+      pathwayId: healthPathway.id,
+      type: "HEALTH",
+      title: "Bloc santé test",
+      slug: "bloc-sante-test",
+    },
+  });
+  const healthCourseUnit = await prisma.healthCourseUnit.create({
+    data: {
+      programVersion: { connect: { id: healthVersion.id } },
+      pathway: { connect: { id: healthPathway.id } },
+      block: { connect: { id: healthBlock.id } },
+      title: "UE santé test",
+      slug: "ue-sante-test",
+      themes: { connect: [{ id: domainWithThemes!.themes[0].id }] },
+    },
+    include: { themes: true },
+  });
+  const themeWithHealthUnits = await prisma.theme.findUnique({
+    where: { id: domainWithThemes!.themes[0].id },
+    include: { healthCourseUnits: true },
+  });
+  if (healthCourseUnit.themes.length !== 1 || themeWithHealthUnits?.healthCourseUnits.length !== 1) {
+    throw new Error("La relation bidirectionnelle UE santé / Theme est invalide");
+  }
+  await prisma.healthInstitution.delete({ where: { id: healthInstitution.id } });
+  await prisma.healthProgram.delete({ where: { id: healthProgram.id } });
+  if (await prisma.healthCourseUnit.findUnique({ where: { id: healthCourseUnit.id } })) {
+    throw new Error("La suppression en cascade de la maquette santé a échoué");
+  }
+  console.log("Référentiel santé et relation Theme OK");
+
+  // 7. Transaction (test Replica Set)
   const tx = await prisma.$transaction([
     prisma.grade.create({ data: testGrades[0] }),
     prisma.grade.create({ data: testGrades[1] }),
   ]);
   console.log("Transaction OK (grades créés):", tx.map((g: any) => g.id));
 
-  // 7. DELETE
+  // 8. DELETE
   await prisma.diploma.delete({ where: { id: diploma.id } });
   await prisma.theme.deleteMany({ where: { domainIds: { has: domain.id } } });
   await prisma.domain.delete({ where: { id: domain.id } });
@@ -123,7 +188,7 @@ async function run() {
   await prisma.grade.deleteMany({ where: { id: { in: tx.map((g: any) => g.id) } } });
   console.log("Diplôme supprimé");
 
-  // 8. Déconnexion
+  // 9. Déconnexion
   await prisma.$disconnect();
   console.log("== Fin test Prisma ==");
 }

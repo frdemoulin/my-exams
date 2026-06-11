@@ -1,10 +1,12 @@
-import NextAuth from "next-auth";
+import NextAuth, { type NextAuthConfig } from "next-auth";
 import AppleProvider from "next-auth/providers/apple";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import MicrosoftEntraIDProvider from "next-auth/providers/microsoft-entra-id";
 import EmailProvider from "next-auth/providers/email";
 import type { Provider } from "next-auth/providers";
+import { headers } from "next/headers";
+import type { NextRequest } from "next/server";
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "@/lib/db/prisma";
@@ -13,6 +15,61 @@ import { sendVerificationRequest } from "@/lib/auth/auth-send-request";
 const MAGIC_LINK_MAX_AGE_SECONDS = 15 * 60;
 const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
+const sharedCookieDomain = process.env.AUTH_COOKIE_DOMAIN?.trim() || undefined;
+
+function normalizeHostname(value?: string | null) {
+    return value?.split(",")[0]?.trim().toLowerCase().replace(/:\d+$/, "") ?? "";
+}
+
+async function getRequestHostname(request?: NextRequest) {
+    if (request) return normalizeHostname(request.nextUrl.hostname);
+
+    try {
+        const headerList = await headers();
+        return normalizeHostname(
+            headerList.get("x-forwarded-host") || headerList.get("host"),
+        );
+    } catch {
+        return "";
+    }
+}
+
+function getSharedSessionCookieOptions(hostname: string) {
+    if (!sharedCookieDomain) return undefined;
+
+    const parentDomain = sharedCookieDomain.replace(/^\./, "").toLowerCase();
+    const belongsToParentDomain =
+        hostname === parentDomain || hostname.endsWith(`.${parentDomain}`);
+
+    return belongsToParentDomain
+        ? { sessionToken: { options: { domain: sharedCookieDomain } } }
+        : undefined;
+}
+
+function getOrigin(value?: string) {
+    if (!value) return null;
+
+    try {
+        return new URL(value).origin;
+    } catch {
+        return null;
+    }
+}
+
+function getHealthOrigin() {
+    const configuredOrigin = getOrigin(process.env.HEALTH_PUBLIC_URL);
+    if (configuredOrigin) return configuredOrigin;
+
+    const healthHost = process.env.HEALTH_HOST?.trim();
+    const authOrigin = getOrigin(process.env.AUTH_URL ?? process.env.NEXTAUTH_URL);
+    if (!healthHost || !authOrigin) return null;
+
+    const url = new URL(authOrigin);
+    url.hostname = healthHost;
+    return url.origin;
+}
+
+const healthOrigin = getHealthOrigin();
 
 // définition des providers
 const providers: Provider[] = [];
@@ -89,7 +146,7 @@ export const providerMap = providers.map((provider) => {
 });
 
 // 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+const authConfig = {
     adapter: (() => {
         const baseAdapter = PrismaAdapter(prisma) as any;
         const createVerificationToken = baseAdapter.createVerificationToken?.bind(baseAdapter);
@@ -108,6 +165,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         };
     })(),
     callbacks: {
+        async redirect({ url, baseUrl }) {
+            if (url.startsWith("/")) return new URL(url, baseUrl).toString();
+
+            try {
+                const target = new URL(url);
+                if (target.origin === baseUrl || target.origin === healthOrigin) {
+                    return target.toString();
+                }
+            } catch {
+                // Auth.js retombera sur l'origine principale.
+            }
+
+            return baseUrl;
+        },
         async session({ session, token }) {
             if (session.user) {
                 session.user.id = token.sub ?? session.user.id;
@@ -187,4 +258,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         maxAge: USER_SESSION_MAX_AGE_SECONDS,
     },
     trustHost: true,
-});
+} satisfies NextAuthConfig;
+
+export const { handlers, signIn, signOut, auth } = NextAuth(async (request) => ({
+    ...authConfig,
+    cookies: getSharedSessionCookieOptions(await getRequestHostname(request)),
+}));

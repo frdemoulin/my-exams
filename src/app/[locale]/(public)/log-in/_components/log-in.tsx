@@ -15,6 +15,22 @@ import { Input } from "@/components/ui/input";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { APP_NAME } from "@/config/app";
 
+function normalizeForwardedHeader(value: string | null) {
+  return value?.split(",")[0]?.trim() ?? "";
+}
+
+async function getAbsoluteCallbackUrl(callbackPath: string) {
+  const headerList = await headers();
+  const host =
+    normalizeForwardedHeader(headerList.get("x-forwarded-host")) ||
+    normalizeForwardedHeader(headerList.get("host"));
+  const protocol =
+    normalizeForwardedHeader(headerList.get("x-forwarded-proto")) ||
+    (host.startsWith("localhost") || host.includes(".lvh.me") ? "http" : "https");
+
+  return host ? `${protocol}://${host}${callbackPath}` : callbackPath;
+}
+
 async function getMagicLinkRedirectPath() {
   const headerList = await headers();
   const referer = headerList.get("referer");
@@ -37,9 +53,10 @@ function getClientIp(headerList: Headers) {
   return headerList.get("x-real-ip") || headerList.get("cf-connecting-ip");
 }
 
-export async function LogIn() {
+export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
   const hasMagicLink = providerMap.some((provider) => provider.id === "email");
   const oauthProviders = providerMap.filter((provider) => provider.id !== "email");
+  const callbackUrl = await getAbsoluteCallbackUrl(callbackPath);
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4 py-10">
@@ -71,7 +88,7 @@ export async function LogIn() {
                     "use server";
 
                     try {
-                      await signIn(provider.id);
+                      await signIn(provider.id, { redirectTo: callbackUrl });
                     } catch (error) {
                       // Signin can fail for a number of reasons, such as the user
                       // not existing, or the user not having the correct role.
@@ -148,7 +165,11 @@ export async function LogIn() {
                       redirect(redirectTo);
                     }
 
-                    await signIn("email", { email, redirect: false });
+                    await signIn("email", {
+                      email,
+                      redirect: false,
+                      redirectTo: callbackUrl,
+                    });
                     await setToastCookie("success", successMessage);
                   } catch (error) {
                     // Signin can fail for a number of reasons, such as the user
