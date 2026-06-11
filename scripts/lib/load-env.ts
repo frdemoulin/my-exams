@@ -9,6 +9,21 @@ const envFiles = [
   '.env.production.local',
 ];
 
+function isMongoUrl(value: string | undefined) {
+  return value?.startsWith('mongodb://') || value?.startsWith('mongodb+srv://');
+}
+
+function resolveMongoDatabaseUrl() {
+  const candidates = [
+    process.env.DATABASE_URL,
+    process.env.DATABASE_URL_DEV,
+    process.env.MONGODB_URI_DEV,
+    process.env.MONGODB_URI,
+  ];
+
+  return candidates.find(isMongoUrl);
+}
+
 export function loadProjectEnv() {
   for (const relativePath of envFiles) {
     const filePath = path.resolve(process.cwd(), relativePath);
@@ -17,10 +32,9 @@ export function loadProjectEnv() {
     }
   }
 
-  if (!process.env.DATABASE_URL) {
-    process.env.DATABASE_URL =
-      process.env.DATABASE_URL_DEV ??
-      process.env.MONGODB_URI_DEV ??
-      process.env.MONGODB_URI;
+  const mongoDatabaseUrl = resolveMongoDatabaseUrl();
+
+  if (mongoDatabaseUrl && process.env.DATABASE_URL !== mongoDatabaseUrl) {
+    process.env.DATABASE_URL = mongoDatabaseUrl;
   }
 }
