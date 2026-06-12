@@ -48,20 +48,20 @@ model Authenticator {
 }
 
 model Domain {
-  id               String @id @default(auto()) @map("_id") @db.ObjectId
+  id               String            @id @default(auto()) @map("_id") @db.ObjectId
   longDescription  String
   shortDescription String
   order            Int? // Ordre dans le programme
   discipline       DomainDiscipline? // Discipline dominante pour Physique-Chimie
-  isActive         Boolean @default(true)
+  isActive         Boolean           @default(true)
 
   // Relations
   subjectId String  @db.ObjectId
   subject   Subject @relation(fields: [subjectId], references: [id])
 
-  themeIds String[] @default([]) @db.ObjectId
-  themes   Theme[]  @relation(fields: [themeIds], references: [id])
-  scopes DomainScope[]
+  themeIds String[]      @default([]) @db.ObjectId
+  themes   Theme[]       @relation(fields: [themeIds], references: [id])
+  scopes   DomainScope[]
 
   subdomains Subdomain[]
 
@@ -152,7 +152,7 @@ model Teaching {
   subjectId String  @db.ObjectId
   subject   Subject @relation(fields: [subjectId], references: [id])
 
-  examPapers ExamPaper[]
+  examPapers   ExamPaper[]
   domainScopes DomainScope[]
 
   @@unique([longDescription, gradeId])
@@ -170,6 +170,194 @@ enum DomainDiscipline {
   PHYSIQUE
   CHIMIE
   TRANSVERSAL
+}
+
+enum HealthProgramType {
+  PASS
+  LAS
+  LAS_SPS
+  HEALTH_LICENSE_2027
+  OTHER
+}
+
+enum HealthStudyLevel {
+  L1
+  L2
+  L3
+  OTHER
+}
+
+enum HealthBlockType {
+  HEALTH
+  DISCIPLINARY
+  TRANSVERSAL
+  SPECIALTY
+  OTHER
+}
+
+model HealthInstitution {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  shortName   String?
+  slug        String  @unique
+  uaiCode     String?
+  city        String?
+  academy     String?
+  region      String?
+  department  String?
+  websiteUrl  String?
+  isActive    Boolean @default(true)
+  isPublished Boolean @default(true)
+
+  programVersions HealthProgramVersion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive, isPublished])
+  @@index([uaiCode])
+  @@index([city])
+}
+
+model HealthProgram {
+  id          String            @id @default(auto()) @map("_id") @db.ObjectId
+  type        HealthProgramType
+  code        String            @unique
+  label       String
+  description String?
+  isActive    Boolean           @default(true)
+  isPublished Boolean           @default(true)
+
+  versions HealthProgramVersion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([type])
+  @@index([isActive, isPublished])
+}
+
+model HealthProgramVersion {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  institutionId   String            @db.ObjectId
+  institution     HealthInstitution @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  programId       String            @db.ObjectId
+  program         HealthProgram     @relation(fields: [programId], references: [id], onDelete: Cascade)
+  label           String
+  slug            String
+  academicYear    String
+  studyLevel      HealthStudyLevel  @default(L1)
+  sourceUrl       String?
+  sourceLabel     String?
+  sourceCheckedAt DateTime?
+  notes           String?
+  isCurrent       Boolean           @default(false)
+  isActive        Boolean           @default(true)
+  isPublished     Boolean           @default(false)
+
+  pathways    HealthPathway[]
+  blocks      HealthBlock[]
+  courseUnits HealthCourseUnit[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([institutionId, slug])
+  @@index([institutionId])
+  @@index([programId])
+  @@index([academicYear])
+  @@index([isCurrent])
+  @@index([isActive, isPublished])
+}
+
+model HealthPathway {
+  id               String               @id @default(auto()) @map("_id") @db.ObjectId
+  programVersionId String               @db.ObjectId
+  programVersion   HealthProgramVersion @relation(fields: [programVersionId], references: [id], onDelete: Cascade)
+  name             String
+  slug             String
+  campus           String?
+  parcoursupCode   String?
+  sourceUrl        String?
+  description      String?
+  order            Int                  @default(0)
+  isDefault        Boolean              @default(false)
+  isActive         Boolean              @default(true)
+  isPublished      Boolean              @default(false)
+
+  blocks      HealthBlock[]
+  courseUnits HealthCourseUnit[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([programVersionId, slug])
+  @@index([programVersionId])
+  @@index([isActive, isPublished])
+  @@index([order])
+}
+
+model HealthBlock {
+  id               String               @id @default(auto()) @map("_id") @db.ObjectId
+  programVersionId String               @db.ObjectId
+  programVersion   HealthProgramVersion @relation(fields: [programVersionId], references: [id], onDelete: Cascade)
+  pathwayId        String?              @db.ObjectId
+  pathway          HealthPathway?       @relation(fields: [pathwayId], references: [id], onDelete: SetNull)
+  type             HealthBlockType
+  title            String
+  slug             String
+  description      String?
+  ects             Int?
+  order            Int                  @default(0)
+  isActive         Boolean              @default(true)
+  isPublished      Boolean              @default(false)
+
+  courseUnits HealthCourseUnit[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([programVersionId, pathwayId, slug])
+  @@index([programVersionId])
+  @@index([pathwayId])
+  @@index([type])
+  @@index([isActive, isPublished])
+  @@index([order])
+}
+
+model HealthCourseUnit {
+  id                     String               @id @default(auto()) @map("_id") @db.ObjectId
+  programVersionId       String               @db.ObjectId
+  programVersion         HealthProgramVersion @relation(fields: [programVersionId], references: [id], onDelete: Cascade)
+  pathwayId              String?              @db.ObjectId
+  pathway                HealthPathway?       @relation(fields: [pathwayId], references: [id], onDelete: SetNull)
+  blockId                String               @db.ObjectId
+  block                  HealthBlock          @relation(fields: [blockId], references: [id], onDelete: Cascade)
+  code                   String?
+  title                  String
+  shortTitle             String?
+  slug                   String
+  description            String?
+  semester               Int?
+  ects                   Int?
+  order                  Int                  @default(0)
+  isCommonToAllPathways  Boolean              @default(false)
+  isHealthAccessRelevant Boolean              @default(true)
+  themeIds               String[]             @default([]) @db.ObjectId
+  themes                 Theme[]              @relation(fields: [themeIds], references: [id])
+  isActive               Boolean              @default(true)
+  isPublished            Boolean              @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([programVersionId, pathwayId, slug])
+  @@index([programVersionId])
+  @@index([pathwayId])
+  @@index([blockId])
+  @@index([semester])
+  @@index([isActive, isPublished])
+  @@index([order])
 }
 
 // Programme scolaire (ex: Programmes 2019, Réforme 2020, etc.)
@@ -194,7 +382,7 @@ model Curriculum {
   updatedAt DateTime @updatedAt
 
   // Relations
-  examPapers ExamPaper[]
+  examPapers   ExamPaper[]
   domainScopes DomainScope[]
 
   @@unique([longDescription, startDate])
@@ -209,7 +397,7 @@ model Diploma {
   updatedAt        DateTime @updatedAt
 
   // Relations
-  examPapers ExamPaper[]
+  examPapers   ExamPaper[]
   domainScopes DomainScope[]
 
   @@unique([longDescription, shortDescription])
@@ -224,7 +412,7 @@ model Division {
   updatedAt        DateTime @updatedAt
 
   // Relations
-  examPapers ExamPaper[]
+  examPapers   ExamPaper[]
   domainScopes DomainScope[]
 
   @@unique([longDescription, shortDescription])
@@ -248,7 +436,7 @@ model ExamPaper {
   label       String // ex : "Métropole juin 2024 Jour 1"
   sessionYear Int // ex : 2024 (année scolaire de la session)
   sessionDay  String? // ex : "Jour 1", "Jour 2", "Sujet A", optionnel
-  source      String @default("Officiel") // Source standardisée (liste admin)
+  source      String  @default("Officiel") // Source standardisée (liste admin)
   sourceUrl   String? // URL de la source si disponible (APMEP, Labolycee, etc.)
 
   // Date réelle de l'examen
@@ -365,7 +553,7 @@ model Exercise {
   enrichedAt       DateTime? // Date d'enrichissement
 
   // Relations
-  corrections ExerciseCorrection[]
+  corrections    ExerciseCorrection[]
   historyEntries UserExerciseHistory[]
 
   createdAt DateTime @default(now())
@@ -437,8 +625,8 @@ model Grade {
   updatedAt        DateTime @updatedAt
 
   // Relations
-  teachings  Teaching[]
-  examPapers ExamPaper[]
+  teachings    Teaching[]
+  examPapers   ExamPaper[]
   domainScopes DomainScope[]
 
   @@unique([longDescription, shortDescription])
@@ -496,10 +684,10 @@ model Subject {
   updatedAt        DateTime @updatedAt
 
   // Relations
-  teachings Teaching[]
-  domains   Domain[]
+  teachings  Teaching[]
+  domains    Domain[]
   subdomains Subdomain[]
-  chapters  Chapter[]
+  chapters   Chapter[]
 
   @@unique([longDescription, shortDescription])
 }
@@ -519,18 +707,21 @@ model Theme {
   chapterIds String[]  @default([]) @db.ObjectId
   chapters   Chapter[] @relation(fields: [chapterIds], references: [id])
 
+  healthCourseUnitIds String[]           @default([]) @db.ObjectId
+  healthCourseUnits   HealthCourseUnit[] @relation(fields: [healthCourseUnitIds], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Chapter {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   slug        String
-  level       String   @default("terminale")
+  level       String  @default("terminale")
   order       Int
-  isActive    Boolean  @default(true)
-  isPublished Boolean  @default(true)
+  isActive    Boolean @default(true)
+  isPublished Boolean @default(true)
 
   subjectId String  @db.ObjectId
   subject   Subject @relation(fields: [subjectId], references: [id])
@@ -539,9 +730,9 @@ model Chapter {
   themeIds  String[] @default([]) @db.ObjectId
   themes    Theme[]  @relation(fields: [themeIds], references: [id])
 
-  quizQuestions   QuizQuestion[]
-  sections        ChapterSection[]
-  trainingQuizzes TrainingQuiz[]
+  quizQuestions               QuizQuestion[]
+  sections                    ChapterSection[]
+  trainingQuizzes             TrainingQuiz[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
 
   createdAt DateTime @default(now())
@@ -575,13 +766,13 @@ model ChapterSection {
 }
 
 model TrainingQuiz {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String             @id @default(auto()) @map("_id") @db.ObjectId
   slug        String
   title       String
   description String?
   order       Int
   stage       TrainingQuizStage?
-  isPublished Boolean  @default(true)
+  isPublished Boolean            @default(true)
 
   chapterId String  @db.ObjectId
   chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
@@ -589,8 +780,8 @@ model TrainingQuiz {
   sectionId String         @db.ObjectId
   section   ChapterSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
 
-  questionGroups TrainingQuizQuestionGroup[]
-  questionLinks TrainingQuizQuestion[]
+  questionGroups  TrainingQuizQuestionGroup[]
+  questionLinks   TrainingQuizQuestion[]
   progressEntries UserTrainingQuizProgress[]
 
   createdAt DateTime @default(now())
@@ -603,9 +794,9 @@ model TrainingQuiz {
 }
 
 model TrainingQuizQuestionGroup {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  id              String  @id @default(auto()) @map("_id") @db.ObjectId
   title           String?
-  sharedStatement String   @db.String
+  sharedStatement String  @db.String
   order           Int
 
   quizId String       @db.ObjectId
@@ -645,13 +836,13 @@ model QuizQuestion {
 }
 
 model TrainingQuizQuestion {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  order      Int
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  order Int
 
   quizId String       @db.ObjectId
   quiz   TrainingQuiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
 
-  groupId String?                   @db.ObjectId
+  groupId String?                    @db.ObjectId
   group   TrainingQuizQuestionGroup? @relation(fields: [groupId], references: [id])
 
   questionId String       @db.ObjectId
@@ -667,42 +858,42 @@ model TrainingQuizQuestion {
 }
 
 model User {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?         @unique
-  emailVerified DateTime?       @map("email_verified")
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  roles         Role            @default(USER)
+  id                          String                     @id @default(auto()) @map("_id") @db.ObjectId
+  name                        String?
+  email                       String?                    @unique
+  emailVerified               DateTime?                  @map("email_verified")
+  image                       String?
+  accounts                    Account[]
+  sessions                    Session[]
+  roles                       Role                       @default(USER)
   // Optional for WebAuthn support
-  Authenticator Authenticator[]
-  authLogs      AuthLog[]
-  activity      UserActivity?
-  entitlements  UserEntitlement[]
-  subscriptions UserSubscription[]
-  exerciseHistory UserExerciseHistory[]
+  Authenticator               Authenticator[]
+  authLogs                    AuthLog[]
+  activity                    UserActivity?
+  entitlements                UserEntitlement[]
+  subscriptions               UserSubscription[]
+  exerciseHistory             UserExerciseHistory[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
+  createdAt                   DateTime                   @default(now())
+  updatedAt                   DateTime                   @updatedAt
 }
 
 model UserTrainingQuizProgress {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId        String   @db.ObjectId
-  chapterId     String   @db.ObjectId
-  quizId        String   @db.ObjectId
-  bestScore     Int      @default(0)
-  totalQuestions Int     @default(0)
-  successRate   Int      @default(0)
-  attemptsCount Int      @default(0)
-  lastAttemptAt DateTime @default(now())
-  masteredAt    DateTime?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String    @db.ObjectId
+  chapterId      String    @db.ObjectId
+  quizId         String    @db.ObjectId
+  bestScore      Int       @default(0)
+  totalQuestions Int       @default(0)
+  successRate    Int       @default(0)
+  attemptsCount  Int       @default(0)
+  lastAttemptAt  DateTime  @default(now())
+  masteredAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
-  user    User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  chapter Chapter     @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  user    User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapter Chapter      @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   quiz    TrainingQuiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
 
   @@unique([userId, quizId])
@@ -711,16 +902,16 @@ model UserTrainingQuizProgress {
 }
 
 model UserActivity {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId          String   @db.ObjectId
-  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  lastExamPaperId String?  @db.ObjectId
-  lastExerciseId  String?  @db.ObjectId
-  lastSubjectId   String?  @db.ObjectId
-  lastSessionYear Int?
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String   @db.ObjectId
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lastExamPaperId  String?  @db.ObjectId
+  lastExerciseId   String?  @db.ObjectId
+  lastSubjectId    String?  @db.ObjectId
+  lastSessionYear  Int?
   currentGoalLabel String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   @@unique([userId])
   @@index([lastExamPaperId])
@@ -730,11 +921,11 @@ model UserActivity {
 }
 
 model UserExerciseHistory {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId     String   @db.ObjectId
-  exerciseId String   @db.ObjectId
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId       String   @db.ObjectId
+  exerciseId   String   @db.ObjectId
   lastViewedAt DateTime @default(now())
-  createdAt  DateTime @default(now())
+  createdAt    DateTime @default(now())
 
   user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
@@ -754,7 +945,7 @@ model Entitlement {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  planLinks      SubscriptionPlanEntitlement[]
+  planLinks        SubscriptionPlanEntitlement[]
   userEntitlements UserEntitlement[]
 }
 
@@ -767,7 +958,7 @@ model SubscriptionPlan {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  entitlements     SubscriptionPlanEntitlement[]
+  entitlements      SubscriptionPlanEntitlement[]
   userSubscriptions UserSubscription[]
 }
 
@@ -825,12 +1016,12 @@ enum SubscriptionStatus {
 }
 
 model AuthLog {
-  id       String        @id @default(auto()) @map("_id") @db.ObjectId
-  userId   String        @db.ObjectId
-  user     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  action   AuthLogAction
-  provider String?
-  createdAt DateTime     @default(now())
+  id        String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String        @db.ObjectId
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  action    AuthLogAction
+  provider  String?
+  createdAt DateTime      @default(now())
 
   @@index([userId])
   @@index([action])
@@ -838,7 +1029,7 @@ model AuthLog {
 }
 
 model UsageEvent {
-  id           String          @id @default(auto()) @map("_id") @db.ObjectId
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
   type         UsageEventType
   searchTerm   String?
   resultsCount Int
@@ -846,8 +1037,8 @@ model UsageEvent {
   subject      String?
   teachingId   String?
   sessionYear  Int?
-  themeIds     String[]        @default([]) @db.ObjectId
-  createdAt    DateTime        @default(now())
+  themeIds     String[]       @default([]) @db.ObjectId
+  createdAt    DateTime       @default(now())
 
   @@index([type])
   @@index([createdAt])
@@ -855,13 +1046,13 @@ model UsageEvent {
 }
 
 model ErrorLog {
-  id         String        @id @default(auto()) @map("_id") @db.ObjectId
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
   type       ErrorLogType
   path       String?
   statusCode Int?
   durationMs Int?
   message    String?
-  createdAt  DateTime      @default(now())
+  createdAt  DateTime     @default(now())
 
   @@index([type])
   @@index([createdAt])
@@ -869,12 +1060,12 @@ model ErrorLog {
 }
 
 model UsageDailyStat {
-  id       String            @id @default(auto()) @map("_id") @db.ObjectId
-  date     DateTime
-  category UsageDailyCategory
-  label    String
-  count    Int
-  createdAt DateTime         @default(now())
+  id        String             @id @default(auto()) @map("_id") @db.ObjectId
+  date      DateTime
+  category  UsageDailyCategory
+  label     String
+  count     Int
+  createdAt DateTime           @default(now())
 
   @@unique([date, category, label])
   @@index([date, category])
@@ -882,13 +1073,13 @@ model UsageDailyStat {
 }
 
 model ErrorDailyStat {
-  id             String           @id @default(auto()) @map("_id") @db.ObjectId
-  date           DateTime
-  category       ErrorDailyCategory
-  label          String
-  count          Int
+  id              String             @id @default(auto()) @map("_id") @db.ObjectId
+  date            DateTime
+  category        ErrorDailyCategory
+  label           String
+  count           Int
   totalDurationMs Int?
-  createdAt      DateTime        @default(now())
+  createdAt       DateTime           @default(now())
 
   @@unique([date, category, label])
   @@index([date, category])

@@ -7,6 +7,7 @@ const intlMiddleware = createIntlMiddleware(routing);
 
 const PUBLIC_FILE = /\.[a-z0-9]+$/i;
 const DEFAULT_HEALTH_HOST = 'sante.lvh.me';
+const SHARED_APP_PATHS = ['/admin', '/log-in'];
 
 function normalizeHost(value?: string | null) {
   return value?.split(',')[0]?.trim().toLowerCase() ?? '';
@@ -40,6 +41,12 @@ function getHealthInternalPath(pathname: string) {
   return pathname === '/' ? '/sante' : `/sante${pathname}`;
 }
 
+function isSharedAppPath(pathname: string) {
+  return SHARED_APP_PATHS.some(
+    (path) => pathname === path || pathname.startsWith(`${path}/`)
+  );
+}
+
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -65,7 +72,7 @@ export default function proxy(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  if (isHealthSubdomainRequest(request)) {
+  if (isHealthSubdomainRequest(request) && !isSharedAppPath(pathname)) {
     request.nextUrl.pathname = getHealthInternalPath(pathname);
   }
 

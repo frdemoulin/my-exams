@@ -29,7 +29,7 @@ const DashboardLayout = async ({
     const homePath = `${localePrefix}/`;
 
     if (!session?.user) {
-        redirect(loginPath);
+        redirect(`${loginPath}?callbackUrl=${encodeURIComponent(`${localePrefix}/admin`)}`);
     }
 
     const role = (session.user as any).role;

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Shield, LogIn, BookOpen, FlaskConical } from 'lucide-react';
+import { Shield, LogIn, BookOpen, FlaskConical, Stethoscope } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
@@ -16,11 +16,18 @@ export function PublicHeader() {
   const isAnnalesActive = pathname?.startsWith('/diplomes')
     || pathname?.startsWith('/sujets')
     || pathname?.startsWith('/exercices');
+  const isHealthActive = pathname?.startsWith('/sante');
   const isTrainingActive = pathname?.startsWith('/entrainement');
   const annalesLinkClass = isAnnalesActive
     ? 'font-semibold text-foreground'
     : 'hover:text-foreground';
   const annalesIconClass = isAnnalesActive
+    ? 'border-brand/40 bg-brand/10 text-fg-brand'
+    : '';
+  const healthLinkClass = isHealthActive
+    ? 'font-semibold text-foreground'
+    : 'hover:text-foreground';
+  const healthIconClass = isHealthActive
     ? 'border-brand/40 bg-brand/10 text-fg-brand'
     : '';
   const trainingLinkClass = isTrainingActive
@@ -59,6 +66,13 @@ export function PublicHeader() {
               aria-current={isAnnalesActive ? 'page' : undefined}
             >
               Annales
+            </Link>
+            <Link
+              href="/sante"
+              className={healthLinkClass}
+              aria-current={isHealthActive ? 'page' : undefined}
+            >
+              Santé
             </Link>
             <Link
               href="/entrainement"
@@ -144,6 +158,14 @@ export function PublicHeader() {
             >
               <BookOpen className="h-4 w-4" />
               <span className="sr-only">Annales</span>
+            </Link>
+            <Link
+              href="/sante"
+              className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${healthIconClass}`}
+              aria-current={isHealthActive ? 'page' : undefined}
+            >
+              <Stethoscope className="h-4 w-4" />
+              <span className="sr-only">Santé</span>
             </Link>
             <Link
               href="/entrainement"
