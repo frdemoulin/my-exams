@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
-import dotenv from "dotenv";
+import { loadProjectEnv } from "./scripts/lib/load-env";
 
-dotenv.config();
+loadProjectEnv();
 
 const port = Number(process.env.E2E_PORT ?? "3000");
 const baseURL = process.env.E2E_BASE_URL ?? `http://localhost:${port}`;

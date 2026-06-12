@@ -4,11 +4,9 @@ import { execSync } from "child_process";
 import type { FullConfig, BrowserContextOptions } from "@playwright/test";
 import { encode } from "next-auth/jwt";
 import prisma from "../../src/lib/db/prisma";
-import dotenv from "dotenv";
+import { loadProjectEnv } from "../../scripts/lib/load-env";
 
-// Charge les variables locales avant tout
-dotenv.config({ path: ".env.local", override: true });
-dotenv.config();
+loadProjectEnv();
 
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
