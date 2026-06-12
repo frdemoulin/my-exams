@@ -1,3 +1,9 @@
+## [1.6.16](https://github.com/frdemoulin/my-exams/compare/v1.6.15...v1.6.16) (2026-06-12)
+
+### Bug Fixes
+
+* mise en place de la page d'accueil Santé ([7679525](https://github.com/frdemoulin/my-exams/commit/767952599729e79a273a1db5f1c9ac010b6abac6))
+
 ## [1.6.15](https://github.com/frdemoulin/my-exams/compare/v1.6.14...v1.6.15) (2026-06-07)
 
 ### Bug Fixes
