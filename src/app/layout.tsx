@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import Script from "next/script";
 import { Inter } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
@@ -16,6 +15,36 @@ import "katex/dist/katex.min.css";
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
 const umamiHost = process.env.NEXT_PUBLIC_UMAMI_HOST;
+const defaultTheme = "light";
+const themeInitScript = `
+(() => {
+  const storageKey = "app-theme";
+  const cookieKey = "app-theme";
+  const fallbackTheme = "${defaultTheme}";
+  const parseTheme = (value) => (value === "dark" || value === "light" ? value : null);
+
+  let theme = null;
+
+  try {
+    theme = parseTheme(window.localStorage.getItem(storageKey));
+  } catch {}
+
+  if (!theme) {
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((entry) => entry.startsWith(cookieKey + "="))
+      ?.split("=")[1];
+
+    theme = parseTheme(cookieValue);
+  }
+
+  const resolvedTheme = theme || fallbackTheme;
+  const root = document.documentElement;
+  root.classList.remove("light", "dark");
+  root.classList.add(resolvedTheme);
+  root.style.colorScheme = resolvedTheme;
+})();
+`;
 
 export const metadata: Metadata = {
   title: {
@@ -37,12 +66,13 @@ export default async function RootLayout({
 }) {
   const locale = await getLocale();
   const messages = await getMessages();
-  const cookieStore = await cookies();
-  const theme = cookieStore.get("app-theme")?.value === "dark" ? "dark" : "light";
 
   return (
-    <html lang={locale} className={theme} suppressHydrationWarning style={{ colorScheme: theme }}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-background text-foreground`} suppressHydrationWarning={true}>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInitScript}
+        </Script>
         <NextIntlClientProvider messages={messages}>
           {/* Récupère la session côté client après le chargement des pages */}
           <SessionProvider>
@@ -58,7 +88,7 @@ export default async function RootLayout({
               showSpinner={false}
             />
             <ThemeProvider
-              defaultTheme={theme}
+              defaultTheme={defaultTheme}
             >
               {children}
             </ThemeProvider>
