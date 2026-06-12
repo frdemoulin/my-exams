@@ -1,0 +1,106 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [active]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - navigation [ref=e7]:
+            - button "previous" [disabled] [ref=e8]:
+              - img "previous" [ref=e9]
+            - generic [ref=e11]:
+              - generic [ref=e12]: 1/
+              - text: "2"
+            - button "next" [ref=e13] [cursor=pointer]:
+              - img "next" [ref=e14]
+          - img
+        - generic [ref=e16]:
+          - link "Next.js 16.2.6 (stale) Turbopack" [ref=e17] [cursor=pointer]:
+            - /url: https://nextjs.org/docs/messages/version-staleness
+            - img [ref=e18]
+            - generic "There is a newer version (16.2.9) available, upgrade recommended!" [ref=e20]: Next.js 16.2.6 (stale)
+            - generic [ref=e21]: Turbopack
+          - img
+      - generic [ref=e22]:
+        - dialog "Console Error" [ref=e23]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic [ref=e28]:
+                - generic [ref=e30]: Console Error
+                - generic [ref=e31]:
+                  - button "Copy Error Info" [ref=e32] [cursor=pointer]:
+                    - img [ref=e33]
+                  - button "No related documentation found" [disabled] [ref=e35]:
+                    - img [ref=e36]
+                  - button "Attach Node.js inspector" [ref=e38] [cursor=pointer]:
+                    - img [ref=e39]
+              - generic [ref=e48]:
+                - text: Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (
+                - link "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template" [ref=e49] [cursor=pointer]:
+                  - /url: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+                - text: ).
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - paragraph [ref=e53]:
+                  - img [ref=e55]
+                  - generic [ref=e58]: src/app/layout.tsx (73:9) @ RootLayout
+                  - button "Open in editor" [ref=e59] [cursor=pointer]:
+                    - img [ref=e61]
+                - generic [ref=e64]:
+                  - generic [ref=e65]: "71 | <html lang={locale} suppressHydrationWarning>"
+                  - generic [ref=e66]: "72 | <body className={`${inter.className} antialiased bg-background text-foreground`} sup..."
+                  - generic [ref=e67]: "> 73 | <Script id=\"theme-init\" strategy=\"beforeInteractive\">"
+                  - generic [ref=e68]: "| ^"
+                  - generic [ref=e69]: "74 | {themeInitScript}"
+                  - generic [ref=e70]: 75 | </Script>
+                  - generic [ref=e71]: "76 | <NextIntlClientProvider messages={messages}>"
+              - generic [ref=e72]:
+                - generic [ref=e73]:
+                  - paragraph [ref=e74]:
+                    - text: Call Stack
+                    - generic [ref=e75]: "14"
+                  - button "Show 12 ignore-listed frame(s)" [ref=e76] [cursor=pointer]:
+                    - text: Show 12 ignore-listed frame(s)
+                    - img [ref=e77]
+                - generic [ref=e79]:
+                  - generic [ref=e80]: script
+                  - text: <anonymous>
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - text: RootLayout
+                    - button "Open RootLayout in editor" [ref=e83] [cursor=pointer]:
+                      - img [ref=e84]
+                  - text: src/app/layout.tsx (73:9)
+          - generic [ref=e86]: "1"
+          - generic [ref=e87]: "2"
+        - contentinfo [ref=e88]:
+          - region "Error feedback" [ref=e89]:
+            - paragraph [ref=e90]:
+              - link "Was this helpful?" [ref=e91] [cursor=pointer]:
+                - /url: https://nextjs.org/telemetry#error-feedback
+            - button "Mark as helpful" [ref=e92] [cursor=pointer]:
+              - img [ref=e93]
+            - button "Mark as not helpful" [ref=e96] [cursor=pointer]:
+              - img [ref=e97]
+    - generic [ref=e103] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e104]:
+        - img [ref=e105]
+      - generic [ref=e108]:
+        - button "Open issues overlay" [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: "1"
+            - generic [ref=e112]: "2"
+          - generic [ref=e113]:
+            - text: Issue
+            - generic [ref=e114]: s
+        - button "Collapse issues badge" [ref=e115]:
+          - img [ref=e116]
+  - generic [ref=e119]:
+    - img [ref=e120]
+    - heading "This page couldn’t load" [level=1] [ref=e122]
+    - paragraph [ref=e123]: Reload to try again, or go back.
+    - generic [ref=e124]:
+      - button "Reload" [ref=e126] [cursor=pointer]
+      - button "Back" [ref=e127] [cursor=pointer]
+```

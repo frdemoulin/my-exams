@@ -9,3 +9,11 @@ Accès rapide > API et services > Clients > Modifier le client OAuth
 URIs de redirection autorisés :
 - `http://localhost:3000/api/auth/callback/google`
 - `https://<domaine-public>/api/auth/callback/google`
+
+Pour les sous-domaines locaux `*.lvh.me`, conserver le callback `localhost` et
+définir :
+
+```bash
+AUTH_REDIRECT_PROXY_URL=http://localhost:3000/api/auth
+AUTH_COOKIE_DOMAIN=.lvh.me
+```

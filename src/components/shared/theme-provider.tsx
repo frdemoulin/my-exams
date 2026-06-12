@@ -41,26 +41,50 @@ function disableTransitionsTemporarily() {
   };
 }
 
+function parseTheme(value: string | null): Theme | null {
+  return value === "light" || value === "dark" ? value : null;
+}
+
+function getCookieTheme(): Theme | null {
+  if (typeof document === "undefined") return null;
+
+  const cookieValue = document.cookie
+    .split("; ")
+    .find((entry) => entry.startsWith(`${COOKIE_KEY}=`))
+    ?.split("=")[1] ?? null;
+
+  return parseTheme(cookieValue);
+}
+
+function getStoredTheme(defaultTheme: Theme): Theme {
+  if (typeof window === "undefined") return defaultTheme;
+
+  const localStorageTheme = parseTheme(window.localStorage.getItem(STORAGE_KEY));
+  if (localStorageTheme) return localStorageTheme;
+
+  return getCookieTheme() ?? defaultTheme;
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = "light",
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = React.useState<Theme>(defaultTheme);
+  const [theme, setThemeState] = React.useState<Theme>(() => getStoredTheme(defaultTheme));
 
   React.useEffect(() => {
-    applyTheme(defaultTheme);
-    window.localStorage.setItem(STORAGE_KEY, defaultTheme);
-    setThemeState(defaultTheme);
+    setThemeState(getStoredTheme(defaultTheme));
   }, [defaultTheme]);
+
+  React.useEffect(() => {
+    applyTheme(theme);
+    window.localStorage.setItem(STORAGE_KEY, theme);
+    document.cookie = `${COOKIE_KEY}=${theme}; path=/; max-age=31536000; samesite=lax`;
+  }, [theme]);
 
   const setTheme = (nextTheme: Theme) => {
     const cleanupTransitions = disableTransitionsTemporarily();
 
     setThemeState(nextTheme);
-    applyTheme(nextTheme);
-    window.localStorage.setItem(STORAGE_KEY, nextTheme);
-    document.cookie = `${COOKIE_KEY}=${nextTheme}; path=/; max-age=31536000; samesite=lax`;
-
     window.setTimeout(cleanupTransitions, 0);
   };
 

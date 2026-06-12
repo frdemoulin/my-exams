@@ -15,6 +15,7 @@ import {
   FaLink,
   FaList,
   FaRightToBracket,
+  FaHeartPulse,
   FaSliders,
   FaStairs,
   FaUsers,
@@ -90,6 +91,41 @@ export const Sidebar = () => {
           title: 'Thèmes',
           path: '/admin/themes',
           icon: <FaList className="mr-3" size={16} />
+        },
+      ]
+    },
+    {
+      title: 'Santé',
+      list: [
+        {
+          title: 'Établissements',
+          path: '/admin/health/institutions',
+          icon: <FaHeartPulse className="mr-3" size={16} />
+        },
+        {
+          title: 'Programmes',
+          path: '/admin/health/programs',
+          icon: <FaHeartPulse className="mr-3" size={16} />
+        },
+        {
+          title: 'Maquettes',
+          path: '/admin/health/program-versions',
+          icon: <FaHeartPulse className="mr-3" size={16} />
+        },
+        {
+          title: 'Parcours',
+          path: '/admin/health/pathways',
+          icon: <FaHeartPulse className="mr-3" size={16} />
+        },
+        {
+          title: 'Blocs',
+          path: '/admin/health/blocks',
+          icon: <FaHeartPulse className="mr-3" size={16} />
+        },
+        {
+          title: 'UE',
+          path: '/admin/health/course-units',
+          icon: <FaHeartPulse className="mr-3" size={16} />
         },
       ]
     },

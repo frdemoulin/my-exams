@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import Script from "next/script";
 import { Inter } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
@@ -16,6 +15,7 @@ import "katex/dist/katex.min.css";
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
 const umamiHost = process.env.NEXT_PUBLIC_UMAMI_HOST;
+const defaultTheme = "light";
 
 export const metadata: Metadata = {
   title: {
@@ -37,11 +37,9 @@ export default async function RootLayout({
 }) {
   const locale = await getLocale();
   const messages = await getMessages();
-  const cookieStore = await cookies();
-  const theme = cookieStore.get("app-theme")?.value === "dark" ? "dark" : "light";
 
   return (
-    <html lang={locale} className={theme} suppressHydrationWarning style={{ colorScheme: theme }}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-background text-foreground`} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           {/* Récupère la session côté client après le chargement des pages */}
@@ -58,7 +56,7 @@ export default async function RootLayout({
               showSpinner={false}
             />
             <ThemeProvider
-              defaultTheme={theme}
+              defaultTheme={defaultTheme}
             >
               {children}
             </ThemeProvider>

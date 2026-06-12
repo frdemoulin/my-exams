@@ -15,6 +15,8 @@ Ce document explique comment peupler la base (dev ou prod) avec des données coh
 - `scripts/import-domains-themes.ts` : import domaines/themes depuis JSON
 - `scripts/sync-domains-themes-from-prod.ts` : reset dev + import depuis prod
 - `prisma/seeds/data/domains-themes.json` : dataset domaines/themes (source prod, généré si besoin)
+- `prisma/seeds/data/health-parcoursup-2025.json` : référentiel PASS/L.AS
+  2025-2026 issu de la cartographie officielle Parcoursup
 
 ## Seed dev (base locale)
 
@@ -139,6 +141,24 @@ npm run db:export-domains-themes -- --prod --out ./prisma/seeds/data/domains-the
 
 Une fois ce fichier present, les seeders `Domain` et `Theme` l'utiliseront automatiquement.
 Si le fichier est absent, les thèmes sont générés depuis `prisma/seeds/data/topics.json`.
+
+## Référentiel santé Parcoursup
+
+La fixture `prisma/seeds/data/health-parcoursup-2025.json` est générée depuis la
+[Cartographie des formations Parcoursup](https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-cartographie_formations_parcoursup/information/)
+pour la session 2025 :
+
+```bash
+npm run db:fixture:health
+```
+
+Le générateur conserve uniquement les offres explicitement marquées PASS ou
+L.AS. Il rattache les écoles, universités partenaires et campus à l'université
+qui porte l'accès santé ; ces structures restent visibles sur les parcours mais
+ne deviennent pas des établissements santé. Il conserve les codes UAI et
+Parcoursup, la fiche officielle, le campus, la région, le département et les
+mentions. Il ne génère pas de blocs ou d'UE : leur détail doit provenir d'une
+maquette universitaire officielle vérifiée.
 
 ## Déploiement (prod) – schéma & migrations data
 
