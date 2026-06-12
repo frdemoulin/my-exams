@@ -16,35 +16,6 @@ const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
 const umamiHost = process.env.NEXT_PUBLIC_UMAMI_HOST;
 const defaultTheme = "light";
-const themeInitScript = `
-(() => {
-  const storageKey = "app-theme";
-  const cookieKey = "app-theme";
-  const fallbackTheme = "${defaultTheme}";
-  const parseTheme = (value) => (value === "dark" || value === "light" ? value : null);
-
-  let theme = null;
-
-  try {
-    theme = parseTheme(window.localStorage.getItem(storageKey));
-  } catch {}
-
-  if (!theme) {
-    const cookieValue = document.cookie
-      .split("; ")
-      .find((entry) => entry.startsWith(cookieKey + "="))
-      ?.split("=")[1];
-
-    theme = parseTheme(cookieValue);
-  }
-
-  const resolvedTheme = theme || fallbackTheme;
-  const root = document.documentElement;
-  root.classList.remove("light", "dark");
-  root.classList.add(resolvedTheme);
-  root.style.colorScheme = resolvedTheme;
-})();
-`;
 
 export const metadata: Metadata = {
   title: {
@@ -70,9 +41,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-background text-foreground`} suppressHydrationWarning={true}>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {themeInitScript}
-        </Script>
         <NextIntlClientProvider messages={messages}>
           {/* Récupère la session côté client après le chargement des pages */}
           <SessionProvider>
