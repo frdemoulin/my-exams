@@ -68,7 +68,12 @@ test.describe("Admin - Référentiel santé", () => {
   test("toute l'entrée du menu d'actions est cliquable", async ({ page }) => {
     await page.goto("/admin/health/institutions");
 
-    await page.getByRole("button", { name: "Ouvrir le menu" }).click();
+    const actionMenuButton = page
+      .getByRole("button", { name: "Ouvrir le menu" })
+      .first();
+
+    await expect(actionMenuButton).toBeVisible();
+    await actionMenuButton.click();
     const viewLink = page.getByRole("link", { name: "Voir" });
     const viewEntry = viewLink.locator("..");
     const [linkBox, entryBox] = await Promise.all([
