@@ -1,3 +1,15 @@
+## [1.6.17](https://github.com/frdemoulin/my-exams/compare/v1.6.16...v1.6.17) (2026-06-12)
+
+### Bug Fixes
+
+* debug de l'erreur DYNAMIC_SERVER_USAGE ([2dc80a7](https://github.com/frdemoulin/my-exams/commit/2dc80a7f01b3e9db29f7a03b5e71f6566bc8117b))
+* debug de l'erreur DYNAMIC_SERVER_USAGE ([9e24335](https://github.com/frdemoulin/my-exams/commit/9e24335f64961d3c3919f1dcbe0b08104ae7e3c5))
+* debug de l'erreur DYNAMIC_SERVER_USAGE ([5ee8634](https://github.com/frdemoulin/my-exams/commit/5ee86346090d4f11467ad7e7bff410dbb14b0238))
+* debug de l'erreur DYNAMIC_SERVER_USAGE ([58e41c9](https://github.com/frdemoulin/my-exams/commit/58e41c9065a25a8c1bb755c5e23e2e2692d6255f))
+* mise en place de l'accueil santé ([030c721](https://github.com/frdemoulin/my-exams/commit/030c72123fdf5c6b0b69bb6289a976bde28d9bf0))
+* mise en place du bloc santé dans le BO ([56be6d5](https://github.com/frdemoulin/my-exams/commit/56be6d5f4e49092816547ef48a704a9a04d35676))
+* mise en place du bloc santé dans le BO ([03f1321](https://github.com/frdemoulin/my-exams/commit/03f1321beb5e62b4d25aa01054c34eaae55c8759))
+
 ## [1.6.16](https://github.com/frdemoulin/my-exams/compare/v1.6.15...v1.6.16) (2026-06-12)
 
 ### Bug Fixes
