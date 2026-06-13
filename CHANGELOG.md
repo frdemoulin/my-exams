@@ -1,3 +1,9 @@
+## [1.6.18](https://github.com/frdemoulin/my-exams/compare/v1.6.17...v1.6.18) (2026-06-13)
+
+### Bug Fixes
+
+* modélisation des facs, blocs et parcours ([6859341](https://github.com/frdemoulin/my-exams/commit/685934131fa15cbaf74764da91e1057602c00fee))
+
 ## [1.6.17](https://github.com/frdemoulin/my-exams/compare/v1.6.16...v1.6.17) (2026-06-12)
 
 ### Bug Fixes
