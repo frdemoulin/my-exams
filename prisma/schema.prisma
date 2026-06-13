@@ -195,6 +195,13 @@ enum HealthBlockType {
   OTHER
 }
 
+enum HealthCourseUnitCoverageStatus {
+  STRUCTURE_ONLY
+  THEMES_MAPPED
+  QUESTIONS_AVAILABLE
+  READY
+}
+
 model HealthInstitution {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   name        String
@@ -343,6 +350,10 @@ model HealthCourseUnit {
   order                  Int                  @default(0)
   isCommonToAllPathways  Boolean              @default(false)
   isHealthAccessRelevant Boolean              @default(true)
+  coverageStatus         HealthCourseUnitCoverageStatus @default(STRUCTURE_ONLY)
+  sourceUrl              String?
+  sourceLabel            String?
+  sourceCheckedAt        DateTime?
   themeIds               String[]             @default([]) @db.ObjectId
   themes                 Theme[]              @relation(fields: [themeIds], references: [id])
   isActive               Boolean              @default(true)

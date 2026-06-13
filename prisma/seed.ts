@@ -25,6 +25,7 @@ async function main() {
         { seedSubscriptionPlans },
         { seedTraining },
         { seedHealth },
+        { seedHealthCourseUnits },
     ] = await Promise.all([
         import("@prisma/client"),
         import("./seeds/diploma.seed"),
@@ -45,6 +46,7 @@ async function main() {
         import("./seeds/subscription-plan.seed"),
         import("./seeds/training.seed"),
         import("./seeds/health.seed"),
+        import("./seeds/health-course-units.seed"),
     ]);
 
     const prisma = new PrismaClient();
@@ -78,6 +80,7 @@ async function main() {
 
         // 7. Santé (les UE pourront ensuite être rattachées aux thèmes)
         await seedHealth(prisma);
+        await seedHealthCourseUnits(prisma);
 
         // 8. Training (dépend de Subjects et Domains)
         await seedTraining(prisma);

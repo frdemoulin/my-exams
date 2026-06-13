@@ -22,6 +22,8 @@ import {
     HealthFormOptions,
     HealthRecord,
     healthEntityLabels,
+    healthCourseUnitCoverageStatusLabels,
+    healthCourseUnitCoverageStatusValues,
     saveHealthEntity,
 } from "@/core/health";
 import { slugifyText } from "@/lib/utils";
@@ -32,7 +34,7 @@ const initialDefaults: Record<HealthEntity, HealthRecord> = {
     "program-versions": { institutionId: "", programId: "", label: "", slug: "", academicYear: "", studyLevel: "L1", sourceUrl: "", sourceLabel: "", sourceCheckedAt: "", notes: "", isCurrent: false, isActive: true, isPublished: false },
     pathways: { programVersionId: "", name: "", slug: "", campus: "", parcoursupCode: "", sourceUrl: "", description: "", order: 0, isDefault: false, isActive: true, isPublished: false },
     blocks: { programVersionId: "", pathwayId: "", type: "HEALTH", title: "", slug: "", description: "", ects: "", order: 0, isActive: true, isPublished: false },
-    "course-units": { programVersionId: "", pathwayId: "", blockId: "", code: "", title: "", shortTitle: "", slug: "", description: "", semester: "", ects: "", order: 0, isCommonToAllPathways: false, isHealthAccessRelevant: true, themeIds: [], isActive: true, isPublished: false },
+    "course-units": { programVersionId: "", pathwayId: "", blockId: "", code: "", title: "", shortTitle: "", slug: "", description: "", semester: "", ects: "", order: 0, isCommonToAllPathways: false, isHealthAccessRelevant: true, coverageStatus: "STRUCTURE_ONLY", sourceUrl: "", sourceLabel: "", sourceCheckedAt: "", themeIds: [], isActive: true, isPublished: false },
 };
 
 export function HealthForm({
@@ -241,6 +243,10 @@ export function HealthForm({
                         {input("semester", "Semestre", "number")}
                         {input("ects", "ECTS", "number")}
                         {input("order", "Ordre", "number", true)}
+                        {input("sourceUrl", "URL source", "url")}
+                        {input("sourceLabel", "Libellé source")}
+                        {input("sourceCheckedAt", "Date de vérification", "date")}
+                        {select("coverageStatus", "Niveau de couverture", healthCourseUnitCoverageStatusValues.map((value) => ({ value, label: healthCourseUnitCoverageStatusLabels[value] })), true)}
                         <div className="md:col-span-2">
                             <Field label="Thèmes associés">
                                 <MultipleSelector

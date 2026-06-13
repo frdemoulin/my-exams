@@ -17,6 +17,10 @@ Ce document explique comment peupler la base (dev ou prod) avec des données coh
 - `prisma/seeds/data/domains-themes.json` : dataset domaines/themes (source prod, généré si besoin)
 - `prisma/seeds/data/health-parcoursup-2025.json` : référentiel PASS/L.AS
   2025-2026 issu de la cartographie officielle Parcoursup
+- `prisma/seeds/data/health-blocks.json` : blocs santé locaux complétant une
+  maquette déjà existante
+- `prisma/seeds/data/health-course-units-reims-strasbourg.json` : UE santé
+  locales Reims / Strasbourg avec sources éditoriales
 
 ## Seed dev (base locale)
 
@@ -159,6 +163,13 @@ ne deviennent pas des établissements santé. Il conserve les codes UAI et
 Parcoursup, la fiche officielle, le campus, la région, le département et les
 mentions. Il ne génère pas de blocs ou d'UE : leur détail doit provenir d'une
 maquette universitaire officielle vérifiée.
+
+Les blocs locaux peuvent être ajoutés via `prisma/seeds/data/health-blocks.json`
+et sont rejoués par le seed santé si la maquette ciblée existe déjà.
+
+Les UE locales Reims / Strasbourg sont rejouées par
+`prisma/seeds/health-course-units.seed.ts` et par la migration data versionnée
+`scripts/migrations/2026-06-12-0007-health-course-units-reims-strasbourg.ts`.
 
 ## Déploiement (prod) – schéma & migrations data
 

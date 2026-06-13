@@ -1,0 +1,471 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "My Exams" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]: Connecté en tant que E2E Admin
+      - generic [ref=e7]:
+        - button "Changer le thème" [ref=e8]:
+          - img [ref=e9]
+          - generic [ref=e11]: Changer le thème
+        - button "EA" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: EA
+    - main [ref=e14]:
+      - generic [ref=e15]:
+        - list [ref=e19]:
+          - listitem [ref=e20]:
+            - list [ref=e21]:
+              - link "Accueil" [ref=e22] [cursor=pointer]:
+                - /url: /admin
+                - listitem [ref=e23]:
+                  - img [ref=e24]
+                  - text: Accueil
+          - listitem [ref=e26]:
+            - generic [ref=e27]: Scolarité
+            - list [ref=e28]:
+              - link "Chapitres" [ref=e29] [cursor=pointer]:
+                - /url: /admin/chapters
+                - listitem [ref=e30]:
+                  - img [ref=e31]
+                  - text: Chapitres
+              - link "Diplômes" [ref=e33] [cursor=pointer]:
+                - /url: /admin/diplomas
+                - listitem [ref=e34]:
+                  - img [ref=e35]
+                  - text: Diplômes
+              - link "Domaines" [ref=e37] [cursor=pointer]:
+                - /url: /admin/domains
+                - listitem [ref=e38]:
+                  - img [ref=e39]
+                  - text: Domaines
+              - link "Enseignements" [ref=e41] [cursor=pointer]:
+                - /url: /admin/teachings
+                - listitem [ref=e42]:
+                  - img [ref=e43]
+                  - text: Enseignements
+              - link "Filières" [ref=e45] [cursor=pointer]:
+                - /url: /admin/divisions
+                - listitem [ref=e46]:
+                  - img [ref=e47]
+                  - text: Filières
+              - link "Matières" [ref=e49] [cursor=pointer]:
+                - /url: /admin/subjects
+                - listitem [ref=e50]:
+                  - img [ref=e51]
+                  - text: Matières
+              - link "Niveaux scolaires" [ref=e53] [cursor=pointer]:
+                - /url: /admin/grades
+                - listitem [ref=e54]:
+                  - img [ref=e55]
+                  - text: Niveaux scolaires
+              - link "Programmes" [ref=e57] [cursor=pointer]:
+                - /url: /admin/curriculums
+                - listitem [ref=e58]:
+                  - img [ref=e59]
+                  - text: Programmes
+              - link "Sous-domaines" [ref=e61] [cursor=pointer]:
+                - /url: /admin/subdomains
+                - listitem [ref=e62]:
+                  - img [ref=e63]
+                  - text: Sous-domaines
+              - link "Thèmes" [ref=e65] [cursor=pointer]:
+                - /url: /admin/themes
+                - listitem [ref=e66]:
+                  - img [ref=e67]
+                  - text: Thèmes
+          - listitem [ref=e69]:
+            - generic [ref=e70]: Santé
+            - list [ref=e71]:
+              - link "Blocs" [ref=e72] [cursor=pointer]:
+                - /url: /admin/health/blocks
+                - listitem [ref=e73]:
+                  - img [ref=e74]
+                  - text: Blocs
+              - link "Établissements" [ref=e76] [cursor=pointer]:
+                - /url: /admin/health/institutions
+                - listitem [ref=e77]:
+                  - img [ref=e78]
+                  - text: Établissements
+              - link "Maquettes" [ref=e80] [cursor=pointer]:
+                - /url: /admin/health/program-versions
+                - listitem [ref=e81]:
+                  - img [ref=e82]
+                  - text: Maquettes
+              - link "Parcours" [ref=e84] [cursor=pointer]:
+                - /url: /admin/health/pathways
+                - listitem [ref=e85]:
+                  - img [ref=e86]
+                  - text: Parcours
+              - link "Programmes" [ref=e88] [cursor=pointer]:
+                - /url: /admin/health/programs
+                - listitem [ref=e89]:
+                  - img [ref=e90]
+                  - text: Programmes
+              - link "UE" [ref=e92] [cursor=pointer]:
+                - /url: /admin/health/course-units
+                - listitem [ref=e93]:
+                  - img [ref=e94]
+                  - text: UE
+          - listitem [ref=e96]:
+            - generic [ref=e97]: Annales
+            - list [ref=e98]:
+              - link "Centres d'examen" [ref=e99] [cursor=pointer]:
+                - /url: /admin/examination-centers
+                - listitem [ref=e100]:
+                  - img [ref=e101]
+                  - text: Centres d'examen
+              - link "Contrôle éditorial" [ref=e103] [cursor=pointer]:
+                - /url: /admin/editorial
+                - listitem [ref=e104]:
+                  - img [ref=e105]
+                  - text: Contrôle éditorial
+              - link "Exercices" [ref=e107] [cursor=pointer]:
+                - /url: /admin/exercises
+                - listitem [ref=e108]:
+                  - img [ref=e109]
+                  - text: Exercices
+              - link "Sources de correction" [ref=e111] [cursor=pointer]:
+                - /url: /admin/correction-sources
+                - listitem [ref=e112]:
+                  - img [ref=e113]
+                  - text: Sources de correction
+              - link "Sujets d'examen" [ref=e115] [cursor=pointer]:
+                - /url: /admin/exam-papers
+                - listitem [ref=e116]:
+                  - img [ref=e117]
+                  - text: Sujets d'examen
+          - listitem [ref=e119]:
+            - generic [ref=e120]: Entraînements
+            - list [ref=e121]:
+              - link "QCMs" [ref=e122] [cursor=pointer]:
+                - /url: /admin/training/qcms
+                - listitem [ref=e123]:
+                  - img [ref=e124]
+                  - text: QCMs
+              - link "Questions QCM" [ref=e126] [cursor=pointer]:
+                - /url: /admin/training/quiz-questions
+                - listitem [ref=e127]:
+                  - img [ref=e128]
+                  - text: Questions QCM
+          - listitem [ref=e130]:
+            - generic [ref=e131]: Statistiques
+            - list [ref=e132]:
+              - link "Statistiques d'usage" [ref=e133] [cursor=pointer]:
+                - /url: /admin/usage-stats
+                - listitem [ref=e134]:
+                  - img [ref=e135]
+                  - text: Statistiques d'usage
+              - link "Statistiques de contenu" [ref=e137] [cursor=pointer]:
+                - /url: /admin/stats
+                - listitem [ref=e138]:
+                  - img [ref=e139]
+                  - text: Statistiques de contenu
+              - link "Statistiques Umami" [ref=e141] [cursor=pointer]:
+                - /url: /admin/umami
+                - listitem [ref=e142]:
+                  - img [ref=e143]
+                  - text: Statistiques Umami
+          - listitem [ref=e145]:
+            - generic [ref=e146]: Paramétrage
+            - list [ref=e147]:
+              - link "Accordages" [ref=e148] [cursor=pointer]:
+                - /url: /tunings
+                - listitem [ref=e149]:
+                  - img [ref=e150]
+                  - text: Accordages
+          - listitem [ref=e152]:
+            - generic [ref=e153]: Utilisateurs
+            - list [ref=e154]:
+              - link "Journal de connexion" [ref=e155] [cursor=pointer]:
+                - /url: /admin/log-users
+                - listitem [ref=e156]:
+                  - img [ref=e157]
+                  - text: Journal de connexion
+              - link "Utilisateurs" [ref=e159] [cursor=pointer]:
+                - /url: /admin/users
+                - listitem [ref=e160]:
+                  - img [ref=e161]
+                  - text: Utilisateurs
+        - generic [ref=e163]:
+          - navigation "breadcrumb" [ref=e165]:
+            - list [ref=e166]:
+              - listitem [ref=e167]:
+                - link "Administration" [ref=e168] [cursor=pointer]:
+                  - /url: /admin
+              - listitem [ref=e169]:
+                - img [ref=e170]
+              - listitem [ref=e172]:
+                - link "Santé" [ref=e173] [cursor=pointer]:
+                  - /url: /admin/health
+              - listitem [ref=e174]:
+                - img [ref=e175]
+              - listitem [ref=e177]:
+                - link "Établissements" [disabled] [ref=e178]
+          - generic [ref=e181]:
+            - generic [ref=e182]:
+              - generic [ref=e183]:
+                - generic [ref=e184]:
+                  - generic [ref=e185]:
+                    - heading "Liste des établissements" [level=1] [ref=e186]
+                    - button "En savoir plus sur Liste des établissements" [ref=e187]:
+                      - img [ref=e188]
+                  - paragraph [ref=e190]: Consulte, filtre et gère les établissements du référentiel santé.
+                - generic [ref=e191]:
+                  - button "Exporter XLSX" [ref=e192] [cursor=pointer]:
+                    - img [ref=e193]
+                    - text: Exporter XLSX
+                  - link "Ajouter un établissement" [ref=e196] [cursor=pointer]:
+                    - /url: /admin/health/institutions/add
+                    - img [ref=e197]
+                    - text: Ajouter un établissement
+              - generic [ref=e198]:
+                - generic [ref=e199]: Affichage 1 à 10 sur 36 entrées
+                - generic [ref=e200]:
+                  - generic [ref=e201]:
+                    - generic:
+                      - img
+                    - textbox "Rechercher un établissement..." [ref=e202]
+                  - generic [ref=e203]:
+                    - combobox [ref=e204]:
+                      - generic: Tous les statuts
+                      - img [ref=e205]
+                    - combobox [ref=e207]:
+                      - generic: Toutes les publications
+                      - img [ref=e208]
+            - table [ref=e211]:
+              - rowgroup [ref=e212]:
+                - row "NOM CONTEXTE DÉTAILS ACTIF PUBLIÉ DERNIÈRE MODIFICATION Actions" [ref=e213]:
+                  - columnheader "NOM" [ref=e214]:
+                    - button "NOM" [ref=e215] [cursor=pointer]:
+                      - text: NOM
+                      - img [ref=e216]
+                  - columnheader "CONTEXTE" [ref=e218]:
+                    - button "CONTEXTE" [ref=e219] [cursor=pointer]:
+                      - text: CONTEXTE
+                      - img [ref=e220]
+                  - columnheader "DÉTAILS" [ref=e222]:
+                    - button "DÉTAILS" [ref=e223] [cursor=pointer]:
+                      - text: DÉTAILS
+                      - img [ref=e224]
+                  - columnheader "ACTIF" [ref=e226]:
+                    - button "ACTIF" [ref=e227] [cursor=pointer]:
+                      - text: ACTIF
+                      - img [ref=e228]
+                  - columnheader "PUBLIÉ" [ref=e230]:
+                    - button "PUBLIÉ" [ref=e231] [cursor=pointer]:
+                      - text: PUBLIÉ
+                      - img [ref=e232]
+                  - columnheader "DERNIÈRE MODIFICATION" [ref=e234]:
+                    - button "DERNIÈRE MODIFICATION" [ref=e235] [cursor=pointer]:
+                      - text: DERNIÈRE MODIFICATION
+                      - img [ref=e236]
+                  - columnheader "Actions" [ref=e238]
+              - rowgroup [ref=e239]:
+                - 'row "Aix-Marseille Université Marseille · 0134248X Région : Provence-Alpes-Côte d''Azur Département : Bouches-du-Rhône 2 maquette(s) Oui Oui 12/06/2026 17:50:28 Ouvrir le menu" [ref=e240] [cursor=pointer]':
+                  - cell "Aix-Marseille Université" [ref=e241]:
+                    - generic [ref=e242]: Aix-Marseille Université
+                  - cell "Marseille · 0134248X" [ref=e243]
+                  - 'cell "Région : Provence-Alpes-Côte d''Azur Département : Bouches-du-Rhône 2 maquette(s)" [ref=e244]':
+                    - generic [ref=e245]:
+                      - generic [ref=e246]: "Région : Provence-Alpes-Côte d'Azur"
+                      - generic [ref=e247]: "Département : Bouches-du-Rhône"
+                      - generic [ref=e248]: 2 maquette(s)
+                  - cell "Oui" [ref=e249]:
+                    - generic [ref=e250]: Oui
+                  - cell "Oui" [ref=e251]:
+                    - generic [ref=e252]: Oui
+                  - cell "12/06/2026 17:50:28" [ref=e253]
+                  - cell "Ouvrir le menu" [ref=e254]:
+                    - button "Ouvrir le menu" [ref=e255]:
+                      - generic [ref=e256]: Ouvrir le menu
+                      - img [ref=e257]
+                - 'row "Faculté de Médecine, Maïeutique, Sciences de la Santé - Institut catholique de Lille Lille · 0592807F Région : Hauts-de-France Département : Nord 1 maquette(s) Oui Oui 12/06/2026 17:50:32 Ouvrir le menu" [ref=e261] [cursor=pointer]':
+                  - cell "Faculté de Médecine, Maïeutique, Sciences de la Santé - Institut catholique de Lille" [ref=e262]:
+                    - generic [ref=e263]: Faculté de Médecine, Maïeutique, Sciences de la Santé - Institut catholique de Lille
+                  - cell "Lille · 0592807F" [ref=e264]
+                  - 'cell "Région : Hauts-de-France Département : Nord 1 maquette(s)" [ref=e265]':
+                    - generic [ref=e266]:
+                      - generic [ref=e267]: "Région : Hauts-de-France"
+                      - generic [ref=e268]: "Département : Nord"
+                      - generic [ref=e269]: 1 maquette(s)
+                  - cell "Oui" [ref=e270]:
+                    - generic [ref=e271]: Oui
+                  - cell "Oui" [ref=e272]:
+                    - generic [ref=e273]: Oui
+                  - cell "12/06/2026 17:50:32" [ref=e274]
+                  - cell "Ouvrir le menu" [ref=e275]:
+                    - button "Ouvrir le menu" [ref=e276]:
+                      - generic [ref=e277]: Ouvrir le menu
+                      - img [ref=e278]
+                - 'row "Nantes Université Nantes · 0442953W Région : Pays de la Loire Département : Loire-Atlantique 2 maquette(s) Oui Oui 12/06/2026 17:50:32 Ouvrir le menu" [ref=e282] [cursor=pointer]':
+                  - cell "Nantes Université" [ref=e283]:
+                    - generic [ref=e284]: Nantes Université
+                  - cell "Nantes · 0442953W" [ref=e285]
+                  - 'cell "Région : Pays de la Loire Département : Loire-Atlantique 2 maquette(s)" [ref=e286]':
+                    - generic [ref=e287]:
+                      - generic [ref=e288]: "Région : Pays de la Loire"
+                      - generic [ref=e289]: "Département : Loire-Atlantique"
+                      - generic [ref=e290]: 2 maquette(s)
+                  - cell "Oui" [ref=e291]:
+                    - generic [ref=e292]: Oui
+                  - cell "Oui" [ref=e293]:
+                    - generic [ref=e294]: Oui
+                  - cell "12/06/2026 17:50:32" [ref=e295]
+                  - cell "Ouvrir le menu" [ref=e296]:
+                    - button "Ouvrir le menu" [ref=e297]:
+                      - generic [ref=e298]: Ouvrir le menu
+                      - img [ref=e299]
+                - 'row "Sorbonne université Paris · 0755890V Région : Île-de-France Département : Paris 2 maquette(s) Oui Oui 12/06/2026 17:50:34 Ouvrir le menu" [ref=e303] [cursor=pointer]':
+                  - cell "Sorbonne université" [ref=e304]:
+                    - generic [ref=e305]: Sorbonne université
+                  - cell "Paris · 0755890V" [ref=e306]
+                  - 'cell "Région : Île-de-France Département : Paris 2 maquette(s)" [ref=e307]':
+                    - generic [ref=e308]:
+                      - generic [ref=e309]: "Région : Île-de-France"
+                      - generic [ref=e310]: "Département : Paris"
+                      - generic [ref=e311]: 2 maquette(s)
+                  - cell "Oui" [ref=e312]:
+                    - generic [ref=e313]: Oui
+                  - cell "Oui" [ref=e314]:
+                    - generic [ref=e315]: Oui
+                  - cell "12/06/2026 17:50:34" [ref=e316]
+                  - cell "Ouvrir le menu" [ref=e317]:
+                    - button "Ouvrir le menu" [ref=e318]:
+                      - generic [ref=e319]: Ouvrir le menu
+                      - img [ref=e320]
+                - 'row "Université Angers Angers · 0490970N Région : Pays de la Loire Département : Maine-et-Loire 2 maquette(s) Oui Oui 12/06/2026 17:50:36 Ouvrir le menu" [ref=e324] [cursor=pointer]':
+                  - cell "Université Angers" [ref=e325]:
+                    - generic [ref=e326]: Université Angers
+                  - cell "Angers · 0490970N" [ref=e327]
+                  - 'cell "Région : Pays de la Loire Département : Maine-et-Loire 2 maquette(s)" [ref=e328]':
+                    - generic [ref=e329]:
+                      - generic [ref=e330]: "Région : Pays de la Loire"
+                      - generic [ref=e331]: "Département : Maine-et-Loire"
+                      - generic [ref=e332]: 2 maquette(s)
+                  - cell "Oui" [ref=e333]:
+                    - generic [ref=e334]: Oui
+                  - cell "Oui" [ref=e335]:
+                    - generic [ref=e336]: Oui
+                  - cell "12/06/2026 17:50:36" [ref=e337]
+                  - cell "Ouvrir le menu" [ref=e338]:
+                    - button "Ouvrir le menu" [ref=e339]:
+                      - generic [ref=e340]: Ouvrir le menu
+                      - img [ref=e341]
+                - 'row "Université Bourgogne Europe Dijon · 0212296G Région : Bourgogne-Franche-Comté Département : Côte-d''Or 2 maquette(s) Oui Oui 12/06/2026 17:50:40 Ouvrir le menu" [ref=e345] [cursor=pointer]':
+                  - cell "Université Bourgogne Europe" [ref=e346]:
+                    - generic [ref=e347]: Université Bourgogne Europe
+                  - cell "Dijon · 0212296G" [ref=e348]
+                  - 'cell "Région : Bourgogne-Franche-Comté Département : Côte-d''Or 2 maquette(s)" [ref=e349]':
+                    - generic [ref=e350]:
+                      - generic [ref=e351]: "Région : Bourgogne-Franche-Comté"
+                      - generic [ref=e352]: "Département : Côte-d'Or"
+                      - generic [ref=e353]: 2 maquette(s)
+                  - cell "Oui" [ref=e354]:
+                    - generic [ref=e355]: Oui
+                  - cell "Oui" [ref=e356]:
+                    - generic [ref=e357]: Oui
+                  - cell "12/06/2026 17:50:40" [ref=e358]
+                  - cell "Ouvrir le menu" [ref=e359]:
+                    - button "Ouvrir le menu" [ref=e360]:
+                      - generic [ref=e361]: Ouvrir le menu
+                      - img [ref=e362]
+                - 'row "Université Claude Bernard Lyon 1 Lyon · 0691774D Région : Auvergne-Rhône-Alpes Département : Rhône 2 maquette(s) Oui Oui 12/06/2026 17:50:43 Ouvrir le menu" [ref=e366] [cursor=pointer]':
+                  - cell "Université Claude Bernard Lyon 1" [ref=e367]:
+                    - generic [ref=e368]: Université Claude Bernard Lyon 1
+                  - cell "Lyon · 0691774D" [ref=e369]
+                  - 'cell "Région : Auvergne-Rhône-Alpes Département : Rhône 2 maquette(s)" [ref=e370]':
+                    - generic [ref=e371]:
+                      - generic [ref=e372]: "Région : Auvergne-Rhône-Alpes"
+                      - generic [ref=e373]: "Département : Rhône"
+                      - generic [ref=e374]: 2 maquette(s)
+                  - cell "Oui" [ref=e375]:
+                    - generic [ref=e376]: Oui
+                  - cell "Oui" [ref=e377]:
+                    - generic [ref=e378]: Oui
+                  - cell "12/06/2026 17:50:43" [ref=e379]
+                  - cell "Ouvrir le menu" [ref=e380]:
+                    - button "Ouvrir le menu" [ref=e381]:
+                      - generic [ref=e382]: Ouvrir le menu
+                      - img [ref=e383]
+                - 'row "Université Clermont Auvergne Beaumont · 0632084Y Région : Auvergne-Rhône-Alpes Département : Puy-de-Dôme 2 maquette(s) Oui Oui 12/06/2026 17:50:45 Ouvrir le menu" [ref=e387] [cursor=pointer]':
+                  - cell "Université Clermont Auvergne" [ref=e388]:
+                    - generic [ref=e389]: Université Clermont Auvergne
+                  - cell "Beaumont · 0632084Y" [ref=e390]
+                  - 'cell "Région : Auvergne-Rhône-Alpes Département : Puy-de-Dôme 2 maquette(s)" [ref=e391]':
+                    - generic [ref=e392]:
+                      - generic [ref=e393]: "Région : Auvergne-Rhône-Alpes"
+                      - generic [ref=e394]: "Département : Puy-de-Dôme"
+                      - generic [ref=e395]: 2 maquette(s)
+                  - cell "Oui" [ref=e396]:
+                    - generic [ref=e397]: Oui
+                  - cell "Oui" [ref=e398]:
+                    - generic [ref=e399]: Oui
+                  - cell "12/06/2026 17:50:45" [ref=e400]
+                  - cell "Ouvrir le menu" [ref=e401]:
+                    - button "Ouvrir le menu" [ref=e402]:
+                      - generic [ref=e403]: Ouvrir le menu
+                      - img [ref=e404]
+                - 'row "Université Côte d''Azur Nice · 0062205P Région : Provence-Alpes-Côte d''Azur Département : Alpes-Maritimes 1 maquette(s) Oui Oui 12/06/2026 17:50:47 Ouvrir le menu" [ref=e408] [cursor=pointer]':
+                  - cell "Université Côte d'Azur" [ref=e409]:
+                    - generic [ref=e410]: Université Côte d'Azur
+                  - cell "Nice · 0062205P" [ref=e411]
+                  - 'cell "Région : Provence-Alpes-Côte d''Azur Département : Alpes-Maritimes 1 maquette(s)" [ref=e412]':
+                    - generic [ref=e413]:
+                      - generic [ref=e414]: "Région : Provence-Alpes-Côte d'Azur"
+                      - generic [ref=e415]: "Département : Alpes-Maritimes"
+                      - generic [ref=e416]: 1 maquette(s)
+                  - cell "Oui" [ref=e417]:
+                    - generic [ref=e418]: Oui
+                  - cell "Oui" [ref=e419]:
+                    - generic [ref=e420]: Oui
+                  - cell "12/06/2026 17:50:47" [ref=e421]
+                  - cell "Ouvrir le menu" [ref=e422]:
+                    - button "Ouvrir le menu" [ref=e423]:
+                      - generic [ref=e424]: Ouvrir le menu
+                      - img [ref=e425]
+                - 'row "Université d''Amiens Amiens · 0801344B Région : Hauts-de-France Département : Somme 2 maquette(s) Oui Oui 12/06/2026 17:50:48 Ouvrir le menu" [ref=e429] [cursor=pointer]':
+                  - cell "Université d'Amiens" [ref=e430]:
+                    - generic [ref=e431]: Université d'Amiens
+                  - cell "Amiens · 0801344B" [ref=e432]
+                  - 'cell "Région : Hauts-de-France Département : Somme 2 maquette(s)" [ref=e433]':
+                    - generic [ref=e434]:
+                      - generic [ref=e435]: "Région : Hauts-de-France"
+                      - generic [ref=e436]: "Département : Somme"
+                      - generic [ref=e437]: 2 maquette(s)
+                  - cell "Oui" [ref=e438]:
+                    - generic [ref=e439]: Oui
+                  - cell "Oui" [ref=e440]:
+                    - generic [ref=e441]: Oui
+                  - cell "12/06/2026 17:50:48" [ref=e442]
+                  - cell "Ouvrir le menu" [ref=e443]:
+                    - button "Ouvrir le menu" [ref=e444]:
+                      - generic [ref=e445]: Ouvrir le menu
+                      - img [ref=e446]
+            - generic [ref=e450]:
+              - generic [ref=e451]: Page 1 / 4
+              - navigation "Pagination" [ref=e452]:
+                - list [ref=e453]:
+                  - listitem [ref=e454]:
+                    - button "Précédent" [disabled] [ref=e455]
+                  - listitem [ref=e456]:
+                    - button "1" [ref=e457]
+                  - listitem [ref=e458]:
+                    - button "2" [ref=e459]
+                  - listitem [ref=e460]:
+                    - button "3" [ref=e461]
+                  - listitem [ref=e462]:
+                    - button "4" [ref=e463]
+                  - listitem [ref=e464]:
+                    - button "Suivant" [ref=e465]
+  - button "Open Next.js Dev Tools" [ref=e471] [cursor=pointer]:
+    - generic [ref=e474]:
+      - text: Rendering
+      - generic [ref=e475]:
+        - generic [ref=e476]: .
+        - generic [ref=e477]: .
+        - generic [ref=e478]: .
+  - alert [ref=e479]
+```

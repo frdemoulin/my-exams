@@ -155,6 +155,7 @@ async function run() {
       block: { connect: { id: healthBlock.id } },
       title: "UE santé test",
       slug: "ue-sante-test",
+      coverageStatus: "STRUCTURE_ONLY",
       themes: { connect: [{ id: domainWithThemes!.themes[0].id }] },
     },
     include: { themes: true },
