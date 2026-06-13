@@ -1,3 +1,10 @@
+## [1.6.19](https://github.com/frdemoulin/my-exams/compare/v1.6.18...v1.6.19) (2026-06-13)
+
+### Bug Fixes
+
+* mise à jour de Next.js et des paquets npm ([46003da](https://github.com/frdemoulin/my-exams/commit/46003da1cbb0166c2a55027b82e203659fed9d4f))
+* mise à jour des chapitres ([9a380f5](https://github.com/frdemoulin/my-exams/commit/9a380f59bceb9d77108d59f3d9a32b6bbda69d12))
+
 ## [1.6.18](https://github.com/frdemoulin/my-exams/compare/v1.6.17...v1.6.18) (2026-06-13)
 
 ### Bug Fixes
