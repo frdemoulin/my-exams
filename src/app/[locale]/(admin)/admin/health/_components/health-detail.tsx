@@ -7,6 +7,7 @@ import {
   HealthEntity,
   HealthFormOptions,
   HealthRecord,
+  healthCourseUnitCoverageStatusLabels,
 } from "@/core/health";
 import { formatDateTime } from "@/lib/utils";
 import type { Option } from "@/types/option";
@@ -16,7 +17,7 @@ type DetailField = {
   label: string;
   option?: keyof HealthFormOptions;
   optionList?: keyof HealthFormOptions;
-  type?: "date" | "external-link" | "boolean" | "multiline";
+  type?: "date" | "external-link" | "boolean" | "multiline" | "coverage-status";
 };
 
 const fieldsByEntity: Record<HealthEntity, DetailField[]> = {
@@ -82,6 +83,9 @@ const fieldsByEntity: Record<HealthEntity, DetailField[]> = {
     { key: "semester", label: "Semestre" },
     { key: "ects", label: "ECTS" },
     { key: "order", label: "Ordre" },
+    { key: "sourceLabel", label: "Libellé de la source" },
+    { key: "sourceUrl", label: "Source", type: "external-link" },
+    { key: "sourceCheckedAt", label: "Source vérifiée le", type: "date" },
     {
       key: "isCommonToAllPathways",
       label: "Commune à tous les parcours",
@@ -92,6 +96,7 @@ const fieldsByEntity: Record<HealthEntity, DetailField[]> = {
       label: "Pertinente pour l'accès santé",
       type: "boolean",
     },
+    { key: "coverageStatus", label: "Niveau de couverture", type: "coverage-status" },
     { key: "themeIds", label: "Thèmes associés", optionList: "themes" },
     { key: "description", label: "Description", type: "multiline" },
   ],
@@ -198,6 +203,22 @@ function renderValue(
     return (
       <Badge variant={value ? "default" : "secondary"}>
         {value ? "Oui" : "Non"}
+      </Badge>
+    );
+  }
+
+  if (field.type === "coverage-status") {
+    const status = typeof value === "string" && value ? value : "STRUCTURE_ONLY";
+    const variant =
+      status === "STRUCTURE_ONLY"
+        ? "secondary"
+        : status === "THEMES_MAPPED"
+          ? "outline"
+          : "default";
+
+    return (
+      <Badge variant={variant}>
+        {healthCourseUnitCoverageStatusLabels[status as keyof typeof healthCourseUnitCoverageStatusLabels] ?? status}
       </Badge>
     );
   }

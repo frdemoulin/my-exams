@@ -42,7 +42,7 @@ export function HealthHomePage() {
                   Une future plateforme d’entraînement pour les études de santé :
                   UE, colles, examens blancs et annales corrigées.
                 </p>
-                <p className="max-w-2xl text-sm leading-6 text-muted-foreground md:text-base">
+                <p className="w-full text-sm leading-6 text-muted-foreground md:text-base">
                   Cette section est en cours de construction. Elle servira à
                   tester une expérience dédiée aux étudiants en PASS, LAS et aux
                   futurs parcours d’accès aux études de santé.

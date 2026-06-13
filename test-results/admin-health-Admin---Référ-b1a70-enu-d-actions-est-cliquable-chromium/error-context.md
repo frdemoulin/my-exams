@@ -1,0 +1,492 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - generic:
+      - link:
+        - /url: /
+        - text: My Exams
+      - generic:
+        - generic: Connecté en tant que E2E Admin
+      - generic:
+        - button:
+          - img
+          - generic: Changer le thème
+        - button:
+          - generic: EA
+    - main:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - list:
+                - listitem:
+                  - list:
+                    - link:
+                      - /url: /admin
+                      - listitem:
+                        - img
+                        - text: Accueil
+                - listitem:
+                  - generic: Scolarité
+                  - list:
+                    - link:
+                      - /url: /admin/chapters
+                      - listitem:
+                        - img
+                        - text: Chapitres
+                    - link:
+                      - /url: /admin/diplomas
+                      - listitem:
+                        - img
+                        - text: Diplômes
+                    - link:
+                      - /url: /admin/domains
+                      - listitem:
+                        - img
+                        - text: Domaines
+                    - link:
+                      - /url: /admin/teachings
+                      - listitem:
+                        - img
+                        - text: Enseignements
+                    - link:
+                      - /url: /admin/divisions
+                      - listitem:
+                        - img
+                        - text: Filières
+                    - link:
+                      - /url: /admin/subjects
+                      - listitem:
+                        - img
+                        - text: Matières
+                    - link:
+                      - /url: /admin/grades
+                      - listitem:
+                        - img
+                        - text: Niveaux scolaires
+                    - link:
+                      - /url: /admin/curriculums
+                      - listitem:
+                        - img
+                        - text: Programmes
+                    - link:
+                      - /url: /admin/subdomains
+                      - listitem:
+                        - img
+                        - text: Sous-domaines
+                    - link:
+                      - /url: /admin/themes
+                      - listitem:
+                        - img
+                        - text: Thèmes
+                - listitem:
+                  - generic: Santé
+                  - list:
+                    - link:
+                      - /url: /admin/health/blocks
+                      - listitem:
+                        - img
+                        - text: Blocs
+                    - link:
+                      - /url: /admin/health/institutions
+                      - listitem:
+                        - img
+                        - text: Établissements
+                    - link:
+                      - /url: /admin/health/program-versions
+                      - listitem:
+                        - img
+                        - text: Maquettes
+                    - link:
+                      - /url: /admin/health/pathways
+                      - listitem:
+                        - img
+                        - text: Parcours
+                    - link:
+                      - /url: /admin/health/programs
+                      - listitem:
+                        - img
+                        - text: Programmes
+                    - link:
+                      - /url: /admin/health/course-units
+                      - listitem:
+                        - img
+                        - text: UE
+                - listitem:
+                  - generic: Annales
+                  - list:
+                    - link:
+                      - /url: /admin/examination-centers
+                      - listitem:
+                        - img
+                        - text: Centres d'examen
+                    - link:
+                      - /url: /admin/editorial
+                      - listitem:
+                        - img
+                        - text: Contrôle éditorial
+                    - link:
+                      - /url: /admin/exercises
+                      - listitem:
+                        - img
+                        - text: Exercices
+                    - link:
+                      - /url: /admin/correction-sources
+                      - listitem:
+                        - img
+                        - text: Sources de correction
+                    - link:
+                      - /url: /admin/exam-papers
+                      - listitem:
+                        - img
+                        - text: Sujets d'examen
+                - listitem:
+                  - generic: Entraînements
+                  - list:
+                    - link:
+                      - /url: /admin/training/qcms
+                      - listitem:
+                        - img
+                        - text: QCMs
+                    - link:
+                      - /url: /admin/training/quiz-questions
+                      - listitem:
+                        - img
+                        - text: Questions QCM
+                - listitem:
+                  - generic: Statistiques
+                  - list:
+                    - link:
+                      - /url: /admin/usage-stats
+                      - listitem:
+                        - img
+                        - text: Statistiques d'usage
+                    - link:
+                      - /url: /admin/stats
+                      - listitem:
+                        - img
+                        - text: Statistiques de contenu
+                    - link:
+                      - /url: /admin/umami
+                      - listitem:
+                        - img
+                        - text: Statistiques Umami
+                - listitem:
+                  - generic: Paramétrage
+                  - list:
+                    - link:
+                      - /url: /tunings
+                      - listitem:
+                        - img
+                        - text: Accordages
+                - listitem:
+                  - generic: Utilisateurs
+                  - list:
+                    - link:
+                      - /url: /admin/log-users
+                      - listitem:
+                        - img
+                        - text: Journal de connexion
+                    - link:
+                      - /url: /admin/users
+                      - listitem:
+                        - img
+                        - text: Utilisateurs
+        - generic:
+          - generic:
+            - navigation:
+              - list:
+                - listitem:
+                  - link:
+                    - /url: /admin
+                    - text: Administration
+                - listitem:
+                  - img
+                - listitem:
+                  - link:
+                    - /url: /admin/health
+                    - text: Santé
+                - listitem:
+                  - img
+                - listitem:
+                  - link [disabled]: Établissements
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=1]: Liste des établissements
+                        - button:
+                          - img
+                      - paragraph: Consulte, filtre et gère les établissements du référentiel santé.
+                    - generic:
+                      - button:
+                        - img
+                        - text: Exporter XLSX
+                      - link:
+                        - /url: /admin/health/institutions/add
+                        - img
+                        - text: Ajouter un établissement
+                  - generic:
+                    - generic: Affichage 1 à 10 sur 36 entrées
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                        - textbox:
+                          - /placeholder: Rechercher un établissement...
+                      - generic:
+                        - combobox:
+                          - generic: Tous les statuts
+                          - img
+                        - combobox:
+                          - generic: Toutes les publications
+                          - img
+                - generic:
+                  - table:
+                    - rowgroup:
+                      - row:
+                        - columnheader:
+                          - button:
+                            - text: NOM
+                            - img
+                        - columnheader:
+                          - button:
+                            - text: CONTEXTE
+                            - img
+                        - columnheader:
+                          - button:
+                            - text: DÉTAILS
+                            - img
+                        - columnheader:
+                          - button:
+                            - text: ACTIF
+                            - img
+                        - columnheader:
+                          - button:
+                            - text: PUBLIÉ
+                            - img
+                        - columnheader:
+                          - button:
+                            - text: DERNIÈRE MODIFICATION
+                            - img
+                        - columnheader: Actions
+                    - rowgroup:
+                      - row:
+                        - cell:
+                          - generic: Aix-Marseille Université
+                        - cell: Marseille · 0134248X
+                        - cell:
+                          - generic:
+                            - generic: "Région : Provence-Alpes-Côte d'Azur"
+                            - generic: "Département : Bouches-du-Rhône"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:28
+                        - cell:
+                          - button [expanded]:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Faculté de Médecine, Maïeutique, Sciences de la Santé - Institut catholique de Lille
+                        - cell: Lille · 0592807F
+                        - cell:
+                          - generic:
+                            - generic: "Région : Hauts-de-France"
+                            - generic: "Département : Nord"
+                            - generic: 1 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:32
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Nantes Université
+                        - cell: Nantes · 0442953W
+                        - cell:
+                          - generic:
+                            - generic: "Région : Pays de la Loire"
+                            - generic: "Département : Loire-Atlantique"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:32
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Sorbonne université
+                        - cell: Paris · 0755890V
+                        - cell:
+                          - generic:
+                            - generic: "Région : Île-de-France"
+                            - generic: "Département : Paris"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:34
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Université Angers
+                        - cell: Angers · 0490970N
+                        - cell:
+                          - generic:
+                            - generic: "Région : Pays de la Loire"
+                            - generic: "Département : Maine-et-Loire"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:36
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Université Bourgogne Europe
+                        - cell: Dijon · 0212296G
+                        - cell:
+                          - generic:
+                            - generic: "Région : Bourgogne-Franche-Comté"
+                            - generic: "Département : Côte-d'Or"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:40
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Université Claude Bernard Lyon 1
+                        - cell: Lyon · 0691774D
+                        - cell:
+                          - generic:
+                            - generic: "Région : Auvergne-Rhône-Alpes"
+                            - generic: "Département : Rhône"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:43
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Université Clermont Auvergne
+                        - cell: Beaumont · 0632084Y
+                        - cell:
+                          - generic:
+                            - generic: "Région : Auvergne-Rhône-Alpes"
+                            - generic: "Département : Puy-de-Dôme"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:45
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Université Côte d'Azur
+                        - cell: Nice · 0062205P
+                        - cell:
+                          - generic:
+                            - generic: "Région : Provence-Alpes-Côte d'Azur"
+                            - generic: "Département : Alpes-Maritimes"
+                            - generic: 1 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:47
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                      - row:
+                        - cell:
+                          - generic: Université d'Amiens
+                        - cell: Amiens · 0801344B
+                        - cell:
+                          - generic:
+                            - generic: "Région : Hauts-de-France"
+                            - generic: "Département : Somme"
+                            - generic: 2 maquette(s)
+                        - cell:
+                          - generic: Oui
+                        - cell:
+                          - generic: Oui
+                        - cell: 12/06/2026 17:50:48
+                        - cell:
+                          - button:
+                            - generic: Ouvrir le menu
+                            - img
+                - generic:
+                  - generic: Page 1 / 4
+                  - navigation:
+                    - list:
+                      - listitem:
+                        - button [disabled]: Précédent
+                      - listitem:
+                        - button: "1"
+                      - listitem:
+                        - button: "2"
+                      - listitem:
+                        - button: "3"
+                      - listitem:
+                        - button: "4"
+                      - listitem:
+                        - button: Suivant
+  - button [ref=e6] [cursor=pointer]:
+    - generic [ref=e9]:
+      - text: Rendering
+      - generic [ref=e10]:
+        - generic [ref=e11]: .
+        - generic [ref=e12]: .
+        - generic [ref=e13]: .
+  - alert
+  - menu "Ouvrir le menu" [ref=e14]:
+    - generic [ref=e15]: Actions
+    - menuitem "Voir" [ref=e16] [cursor=pointer]:
+      - link "Voir" [active] [ref=e17]:
+        - /url: /admin/health/institutions/6a2b1c1309861ef06972b546
+    - menuitem "Éditer" [ref=e18] [cursor=pointer]:
+      - link "Éditer" [ref=e19]:
+        - /url: /admin/health/institutions/6a2b1c1309861ef06972b546/edit
+    - menuitem "Supprimer" [ref=e20] [cursor=pointer]
+```

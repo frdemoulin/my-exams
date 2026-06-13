@@ -6,11 +6,14 @@ import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Button } from "@/components/ui/button";
 import {
     fetchHealthFormOptions,
+    fetchHealthProgramVersionBlocks,
+    fetchHealthProgramVersionPathways,
     fetchHealthRecord,
     healthEntityLabels,
     isHealthEntity,
 } from "@/core/health";
 import { getHealthRecordTitle, HealthDetail } from "../../_components/health-detail";
+import { ProgramVersionDetailTabs } from "../../_components/program-version-detail-tabs";
 
 export default async function HealthEntityDetailPage({
     params,
@@ -25,6 +28,14 @@ export default async function HealthEntityDetailPage({
     ]);
     if (!record) notFound();
     const title = getHealthRecordTitle(entity, record);
+
+    const programVersionTabs =
+        entity === "program-versions"
+            ? await Promise.all([
+                  fetchHealthProgramVersionPathways(id),
+                  fetchHealthProgramVersionBlocks(id),
+              ])
+            : null;
 
     return (
         <div className="w-full p-6">
@@ -44,7 +55,16 @@ export default async function HealthEntityDetailPage({
                     </>
                 }
             />
-            <HealthDetail entity={entity} record={record} options={options} />
+            {entity === "program-versions" && programVersionTabs ? (
+                <ProgramVersionDetailTabs
+                    record={record}
+                    options={options}
+                    pathways={programVersionTabs[0]}
+                    blocks={programVersionTabs[1]}
+                />
+            ) : (
+                <HealthDetail entity={entity} record={record} options={options} />
+            )}
         </div>
     );
 }

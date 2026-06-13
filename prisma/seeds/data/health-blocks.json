@@ -1,0 +1,40 @@
+{
+  "healthBlocks": [
+    {
+      "programVersionSlug": "urca-las-sps-l1-2025-2026",
+      "pathwaySlug": null,
+      "type": "HEALTH",
+      "title": "Bloc santé",
+      "slug": "bloc-sante",
+      "description": "Bloc regroupant les enseignements spécifiques à l'accès aux études de santé. Ce bloc est prioritaire dans My Exams Santé pour les QCM, colles, examens blancs et annales par UE.",
+      "ects": null,
+      "order": 1,
+      "isActive": true,
+      "isPublished": true
+    },
+    {
+      "programVersionSlug": "urca-las-sps-l1-2025-2026",
+      "pathwaySlug": null,
+      "type": "TRANSVERSAL",
+      "title": "Bloc transversal",
+      "slug": "bloc-transversal",
+      "description": "Bloc regroupant les enseignements transversaux associés au parcours : méthodologie, compétences numériques, anglais, sciences humaines et sociales ou santé publique selon la maquette locale.",
+      "ects": null,
+      "order": 2,
+      "isActive": true,
+      "isPublished": false
+    },
+    {
+      "programVersionSlug": "urca-las-sps-l1-2025-2026",
+      "pathwaySlug": "sciences-appliquees-a-la-sante",
+      "type": "DISCIPLINARY",
+      "title": "Bloc disciplinaire",
+      "slug": "bloc-disciplinaire",
+      "description": "Bloc regroupant les enseignements disciplinaires propres au parcours de licence. Pour cette première modélisation, ce bloc est conservé en structure mais n'est pas encore exploité côté étudiant.",
+      "ects": null,
+      "order": 3,
+      "isActive": true,
+      "isPublished": false
+    }
+  ]
+}

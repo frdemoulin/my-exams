@@ -1,5 +1,11 @@
-import { HealthProgramType, HealthStudyLevel, PrismaClient } from "@prisma/client";
+import {
+    HealthBlockType,
+    HealthProgramType,
+    HealthStudyLevel,
+    PrismaClient,
+} from "@prisma/client";
 
+import blockFixture from "./data/health-blocks.json";
 import fixture from "./data/health-parcoursup-2025.json";
 
 const slugify = (value: string, maxLength = 160) =>
@@ -57,6 +63,83 @@ const pathwayDescription = (
             ? `Mentions ou spécialités indiquées par Parcoursup :\n${mentions.map((mention) => `- ${mention}`).join("\n")}`
             : "Aucune mention ou spécialité complémentaire n'est indiquée dans la cartographie Parcoursup.",
     ].join("\n\n");
+
+type SeedHealthBlock = {
+    programVersionSlug: string;
+    pathwaySlug: string | null;
+    type: HealthBlockType;
+    title: string;
+    slug: string;
+    description?: string | null;
+    ects?: number | null;
+    order: number;
+    isActive?: boolean;
+    isPublished?: boolean;
+};
+
+const seedHealthBlocks = async (prisma: PrismaClient) => {
+    const healthBlocks = (blockFixture as { healthBlocks?: SeedHealthBlock[] }).healthBlocks ?? [];
+    if (healthBlocks.length === 0) return;
+
+    for (const blockFixtureEntry of healthBlocks) {
+        const version = await prisma.healthProgramVersion.findFirst({
+            where: { slug: blockFixtureEntry.programVersionSlug },
+        });
+        if (!version) {
+            console.warn(
+                `⚠️  Maquette santé introuvable pour le bloc "${blockFixtureEntry.slug}" ` +
+                    `(version ${blockFixtureEntry.programVersionSlug}), bloc ignoré.`
+            );
+            continue;
+        }
+
+        const pathway = blockFixtureEntry.pathwaySlug
+            ? await prisma.healthPathway.findFirst({
+                  where: {
+                      programVersionId: version.id,
+                      slug: blockFixtureEntry.pathwaySlug,
+                  },
+              })
+            : null;
+        if (blockFixtureEntry.pathwaySlug && !pathway) {
+            console.warn(
+                `⚠️  Parcours santé introuvable pour le bloc "${blockFixtureEntry.slug}" ` +
+                    `(parcours ${blockFixtureEntry.pathwaySlug}), bloc ignoré.`
+            );
+            continue;
+        }
+
+        const data = {
+            programVersionId: version.id,
+            pathwayId: pathway?.id ?? null,
+            type: blockFixtureEntry.type,
+            title: blockFixtureEntry.title,
+            slug: blockFixtureEntry.slug,
+            description: blockFixtureEntry.description ?? undefined,
+            ects: blockFixtureEntry.ects ?? undefined,
+            order: blockFixtureEntry.order,
+            isActive: blockFixtureEntry.isActive ?? true,
+            isPublished: blockFixtureEntry.isPublished ?? false,
+        };
+
+        const existingBlock = await prisma.healthBlock.findFirst({
+            where: {
+                programVersionId: version.id,
+                pathwayId: pathway?.id ?? null,
+                slug: blockFixtureEntry.slug,
+            },
+        });
+
+        if (existingBlock) {
+            await prisma.healthBlock.update({
+                where: { id: existingBlock.id },
+                data,
+            });
+        } else {
+            await prisma.healthBlock.create({ data });
+        }
+    }
+};
 
 export async function seedHealth(prisma: PrismaClient) {
     console.log(
@@ -239,4 +322,6 @@ export async function seedHealth(prisma: PrismaClient) {
             }
         }
     }
+
+    await seedHealthBlocks(prisma);
 }

@@ -18,6 +18,21 @@ const activeAndPublished = {
     isPublished: z.boolean().default(false),
 };
 
+export const healthCourseUnitCoverageStatusValues = [
+    "STRUCTURE_ONLY",
+    "THEMES_MAPPED",
+    "QUESTIONS_AVAILABLE",
+    "READY",
+] as const;
+export const HealthCourseUnitCoverageStatusSchema = z.enum(healthCourseUnitCoverageStatusValues);
+export type HealthCourseUnitCoverageStatus = z.infer<typeof HealthCourseUnitCoverageStatusSchema>;
+export const healthCourseUnitCoverageStatusLabels: Record<HealthCourseUnitCoverageStatus, string> = {
+    STRUCTURE_ONLY: "Structure seule",
+    THEMES_MAPPED: "Thèmes reliés",
+    QUESTIONS_AVAILABLE: "QCM disponibles",
+    READY: "Prête à l'emploi",
+};
+
 export const HealthInstitutionSchema = z.object({
     name: requiredText(),
     shortName: optionalShortText,
@@ -99,6 +114,10 @@ export const HealthCourseUnitSchema = z.object({
     order,
     isCommonToAllPathways: z.boolean().default(false),
     isHealthAccessRelevant: z.boolean().default(true),
+    coverageStatus: HealthCourseUnitCoverageStatusSchema.default("STRUCTURE_ONLY"),
+    sourceUrl: optionalUrl,
+    sourceLabel: optionalShortText,
+    sourceCheckedAt: z.date().optional(),
     themeIds: z.array(z.string()).default([]),
     ...activeAndPublished,
 });

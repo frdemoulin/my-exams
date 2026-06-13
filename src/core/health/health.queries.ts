@@ -1,5 +1,9 @@
 import prisma from "@/lib/db/prisma";
-import { HealthEntity, healthEntityLabels } from "./health.schemas";
+import {
+    HealthEntity,
+    healthCourseUnitCoverageStatusLabels,
+    healthEntityLabels,
+} from "./health.schemas";
 import { HealthAdminRow, HealthFormOptions, HealthRecord } from "./health.types";
 
 const row = (
@@ -127,6 +131,9 @@ export async function fetchHealthAdminRows(entity: HealthEntity): Promise<Health
                     secondary: [item.code, item.block.title, item.programVersion.label].filter(Boolean).join(" · "),
                     details: [
                         item.pathway?.name ?? "Commune à la maquette",
+                        `Couverture : ${healthCourseUnitCoverageStatusLabels[item.coverageStatus ?? "STRUCTURE_ONLY"]}`,
+                        item.sourceLabel ? `Source : ${item.sourceLabel}` : item.sourceUrl ?? "",
+                        item.sourceCheckedAt ? `Source vérifiée le : ${item.sourceCheckedAt.toISOString().slice(0, 10)}` : "",
                         item.semester != null ? `Semestre ${item.semester}` : "",
                         item.ects != null ? `${item.ects} ECTS` : "",
                         item.themes.length ? `Thèmes : ${item.themes.map((theme) => theme.shortTitle ?? theme.title).join(", ")}` : "Aucun thème",
@@ -140,6 +147,56 @@ export async function fetchHealthAdminRows(entity: HealthEntity): Promise<Health
         }
     }
 }
+
+export type HealthProgramVersionPathwaySummary = {
+    id: string;
+    name: string;
+    slug: string;
+    campus: string | null;
+    parcoursupCode: string | null;
+    description: string | null;
+    order: number;
+    isDefault: boolean;
+    isActive: boolean;
+    isPublished: boolean;
+    blockCount: number;
+    courseUnitCount: number;
+};
+
+export type HealthProgramVersionCourseUnitSummary = {
+    id: string;
+    title: string;
+    shortTitle: string | null;
+    code: string | null;
+    slug: string;
+    description: string | null;
+    semester: number | null;
+    ects: number | null;
+    order: number;
+    isCommonToAllPathways: boolean;
+    isHealthAccessRelevant: boolean;
+    coverageStatus: keyof typeof healthCourseUnitCoverageStatusLabels;
+    sourceLabel: string | null;
+    sourceUrl: string | null;
+    sourceCheckedAt: string | null;
+    pathwayName: string | null;
+    pathwaySlug: string | null;
+    themes: { id: string; title: string; shortTitle: string | null }[];
+};
+
+export type HealthProgramVersionBlockSummary = {
+    id: string;
+    title: string;
+    slug: string;
+    type: string;
+    description: string | null;
+    ects: number | null;
+    order: number;
+    isActive: boolean;
+    isPublished: boolean;
+    pathwayName: string | null;
+    courseUnits: HealthProgramVersionCourseUnitSummary[];
+};
 
 export async function fetchHealthRecord(entity: HealthEntity, id: string): Promise<HealthRecord | null> {
     if (!/^[a-f0-9]{24}$/i.test(id)) return null;
@@ -160,8 +217,94 @@ export async function fetchHealthRecord(entity: HealthEntity, id: string): Promi
         case "blocks":
             return prisma.healthBlock.findUnique({ where: { id } });
         case "course-units":
-            return prisma.healthCourseUnit.findUnique({ where: { id } });
+            {
+                const item = await prisma.healthCourseUnit.findUnique({ where: { id } });
+                return item
+                    ? {
+                          ...item,
+                          sourceCheckedAt: item.sourceCheckedAt?.toISOString().slice(0, 10) ?? "",
+                      }
+                    : null;
+            }
     }
+}
+
+export async function fetchHealthProgramVersionPathways(
+    programVersionId: string,
+): Promise<HealthProgramVersionPathwaySummary[]> {
+    const records = await prisma.healthPathway.findMany({
+        where: { programVersionId },
+        include: { _count: { select: { blocks: true, courseUnits: true } } },
+        orderBy: [{ order: "asc" }, { name: "asc" }],
+    });
+
+    return records.map((item) => ({
+        id: item.id,
+        name: item.name,
+        slug: item.slug,
+        campus: item.campus ?? null,
+        parcoursupCode: item.parcoursupCode ?? null,
+        description: item.description ?? null,
+        order: item.order,
+        isDefault: item.isDefault,
+        isActive: item.isActive,
+        isPublished: item.isPublished,
+        blockCount: item._count.blocks,
+        courseUnitCount: item._count.courseUnits,
+    }));
+}
+
+export async function fetchHealthProgramVersionBlocks(
+    programVersionId: string,
+): Promise<HealthProgramVersionBlockSummary[]> {
+    const records = await prisma.healthBlock.findMany({
+        where: { programVersionId, type: "HEALTH" },
+        include: {
+            pathway: true,
+            courseUnits: {
+                include: { pathway: true, themes: true },
+                orderBy: [{ order: "asc" }, { title: "asc" }],
+            },
+        },
+        orderBy: [{ order: "asc" }, { title: "asc" }],
+    });
+
+    return records.map((item) => ({
+        id: item.id,
+        title: item.title,
+        slug: item.slug,
+        type: item.type,
+        description: item.description ?? null,
+        ects: item.ects ?? null,
+        order: item.order,
+        isActive: item.isActive,
+        isPublished: item.isPublished,
+        pathwayName: item.pathway?.name ?? null,
+        courseUnits: item.courseUnits.map((courseUnit) => ({
+            id: courseUnit.id,
+            title: courseUnit.title,
+            shortTitle: courseUnit.shortTitle ?? null,
+            code: courseUnit.code ?? null,
+            slug: courseUnit.slug,
+            description: courseUnit.description ?? null,
+            semester: courseUnit.semester ?? null,
+            ects: courseUnit.ects ?? null,
+            order: courseUnit.order,
+            isCommonToAllPathways: courseUnit.isCommonToAllPathways,
+            isHealthAccessRelevant: courseUnit.isHealthAccessRelevant,
+            coverageStatus: courseUnit.coverageStatus ?? "STRUCTURE_ONLY",
+            sourceLabel: courseUnit.sourceLabel ?? null,
+            sourceUrl: courseUnit.sourceUrl ?? null,
+            sourceCheckedAt: courseUnit.sourceCheckedAt?.toISOString().slice(0, 10) ?? null,
+            pathwayName: courseUnit.pathway?.name ?? null,
+            pathwaySlug: courseUnit.pathway?.slug ?? null,
+            themes: courseUnit.themes.map((theme) => ({
+                id: theme.id,
+                title: theme.title,
+                shortTitle: theme.shortTitle ?? null,
+            })),
+        })),
+    }));
 }
 
 export async function fetchHealthFormOptions(): Promise<HealthFormOptions> {
