@@ -128,12 +128,19 @@ export default async function EditTrainingQcmPage({ params }: EditTrainingQcmPag
         revalidatePaths={["/admin/training/qcms", "/admin/training/quiz-questions"]}
         initialData={{
           id: chapter.id,
+          vertical: chapter.vertical,
           title: chapter.title,
           slug: chapter.slug,
+          shortTitle: chapter.shortTitle ?? "",
+          description: chapter.description ?? "",
           level: chapter.level,
           order: chapter.order,
           subjectId: chapter.subjectId,
           domainIds: chapter.domainIds,
+          coverageStatus: chapter.coverageStatus,
+          sourceUrl: chapter.sourceUrl ?? "",
+          sourceLabel: chapter.sourceLabel ?? "",
+          sourceCheckedAt: chapter.sourceCheckedAt?.toISOString().slice(0, 10) ?? "",
           isActive: chapter.isActive ?? true,
           isPublished: chapter.isPublished,
         }}

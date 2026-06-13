@@ -1,19 +1,83 @@
 import { Prisma, QuizDifficulty } from "@prisma/client";
 import { z } from "zod";
+
 import {
+  createChapterAssignmentSchema,
   createChapterSchema,
   createQuizQuestionSchema,
   updateTrainingStructureSchema,
 } from "@/lib/validation";
+import {
+  chapterAssignmentContextTypeLabels,
+  contentVerticalLabels,
+} from "./chapter.constants";
+import { healthCourseUnitCoverageStatusLabels } from "@/core/health/health.schemas";
 
 export type CreateChapterValues = z.infer<typeof createChapterSchema>;
 export type CreateChapterErrors = z.inferFormattedError<typeof createChapterSchema>;
+export type CreateChapterAssignmentValues = z.infer<typeof createChapterAssignmentSchema>;
+export type CreateChapterAssignmentErrors = z.inferFormattedError<
+  typeof createChapterAssignmentSchema
+>;
 export type CreateQuizQuestionValues = z.infer<typeof createQuizQuestionSchema>;
 export type CreateQuizQuestionErrors = z.inferFormattedError<typeof createQuizQuestionSchema>;
 export type UpdateTrainingStructureValues = z.infer<typeof updateTrainingStructureSchema>;
 export type UpdateTrainingStructureErrors = z.inferFormattedError<
   typeof updateTrainingStructureSchema
 >;
+
+export const chapterAssignmentEmbeddedSelect = {
+  id: true,
+  chapterId: true,
+  vertical: true,
+  contextType: true,
+  contextId: true,
+  titleOverride: true,
+  shortTitleOverride: true,
+  slugOverride: true,
+  descriptionOverride: true,
+  order: true,
+  coverageStatus: true,
+  sourceUrl: true,
+  sourceLabel: true,
+  sourceCheckedAt: true,
+  isActive: true,
+  isPublished: true,
+  createdAt: true,
+  updatedAt: true,
+} satisfies Prisma.ChapterAssignmentSelect;
+
+export type ChapterAssignmentEmbedded = Prisma.ChapterAssignmentGetPayload<{
+  select: typeof chapterAssignmentEmbeddedSelect;
+}>;
+
+export const chapterAssignmentDetailSelect = {
+  ...chapterAssignmentEmbeddedSelect,
+  chapter: {
+    select: {
+      id: true,
+      title: true,
+      slug: true,
+      level: true,
+      vertical: true,
+      subject: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+        },
+      },
+    },
+  },
+} satisfies Prisma.ChapterAssignmentSelect;
+
+export type ChapterAssignmentDetail = Prisma.ChapterAssignmentGetPayload<{
+  select: typeof chapterAssignmentDetailSelect;
+}>;
+
+export type ChapterAssignmentItem = ChapterAssignmentEmbedded & {
+  contextLabel: string;
+};
 
 export const chapterListInclude = {
   subject: {
@@ -53,6 +117,10 @@ export const chapterDetailInclude = {
       updatedAt: true,
     },
   },
+  assignments: {
+    select: chapterAssignmentEmbeddedSelect,
+    orderBy: [{ order: "asc" }, { createdAt: "asc" }],
+  },
   sections: {
     include: {
       quizzes: {
@@ -88,10 +156,14 @@ export type ChapterDomainInfo = {
   isActive: boolean;
 };
 
-export type ChapterDetail = Prisma.ChapterGetPayload<{
-  include: typeof chapterDetailInclude;
-}> & {
+export type ChapterDetail = Omit<
+  Prisma.ChapterGetPayload<{
+    include: typeof chapterDetailInclude;
+  }>,
+  "assignments"
+> & {
   domains: ChapterDomainInfo[];
+  assignments: ChapterAssignmentItem[];
 };
 
 export const quizQuestionListInclude = {
@@ -128,3 +200,5 @@ export type QuizQuestionFormData = {
   order: number;
   isPublished: boolean;
 };
+
+export { chapterAssignmentContextTypeLabels, contentVerticalLabels, healthCourseUnitCoverageStatusLabels };

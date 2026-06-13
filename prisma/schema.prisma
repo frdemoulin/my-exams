@@ -195,6 +195,21 @@ enum HealthBlockType {
   OTHER
 }
 
+enum ContentVertical {
+  SECONDARY
+  BTS
+  HEALTH
+  COMMON
+}
+
+enum ChapterAssignmentContextType {
+  SUBJECT
+  HEALTH_COURSE_UNIT
+  HEALTH_TEACHING_ELEMENT
+  BTS_TEACHING
+  GENERIC
+}
+
 enum HealthCourseUnitCoverageStatus {
   STRUCTURE_ONLY
   THEMES_MAPPED
@@ -727,10 +742,19 @@ model Theme {
 
 model Chapter {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  vertical    ContentVertical @default(SECONDARY)
   title       String
+  shortTitle  String?
   slug        String
+  description String?
+  /// @deprecated Niveau historique libre. Ne pas utiliser pour les nouveaux développements.
+  /// Le niveau doit être déduit du contexte via ChapterAssignment -> Teaching -> Grade.
   level       String  @default("terminale")
   order       Int
+  coverageStatus HealthCourseUnitCoverageStatus @default(STRUCTURE_ONLY)
+  sourceUrl   String?
+  sourceLabel String?
+  sourceCheckedAt DateTime?
   isActive    Boolean @default(true)
   isPublished Boolean @default(true)
 
@@ -745,6 +769,7 @@ model Chapter {
   sections                    ChapterSection[]
   trainingQuizzes             TrainingQuiz[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
+  assignments                 ChapterAssignment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -753,6 +778,45 @@ model Chapter {
   @@unique([subjectId, order])
   @@index([subjectId, isActive, isPublished])
   @@index([level])
+}
+
+model ChapterAssignment {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  chapterId String  @db.ObjectId
+  chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  vertical ContentVertical
+
+  contextType ChapterAssignmentContextType
+  contextId   String @db.ObjectId
+
+  titleOverride      String?
+  shortTitleOverride String?
+  slugOverride       String?
+  descriptionOverride String?
+
+  order Int @default(0)
+
+  coverageStatus HealthCourseUnitCoverageStatus @default(STRUCTURE_ONLY)
+
+  sourceUrl       String?
+  sourceLabel     String?
+  sourceCheckedAt DateTime?
+
+  isActive    Boolean @default(true)
+  isPublished Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([contextType, contextId, chapterId])
+  @@unique([contextType, contextId, order])
+  @@index([chapterId])
+  @@index([vertical])
+  @@index([contextType, contextId])
+  @@index([isActive, isPublished])
+  @@index([order])
 }
 
 model ChapterSection {

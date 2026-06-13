@@ -1,6 +1,10 @@
 import type { Prisma, QuizDifficulty, TrainingQuizStage } from '@prisma/client';
 import prisma from '@/lib/db/prisma';
 import { slugifyText } from '@/lib/utils';
+import {
+  chapterLevelValues,
+  getChapterLevelLabel,
+} from '@/core/chapter/chapter.constants';
 import { reorderCatchAllChoices } from './training-choice-ordering';
 import { sortTrainingQuizStages } from './training-stage';
 import type {
@@ -17,7 +21,7 @@ import type {
 const TRAINING_SUBJECT_LONG_DESCRIPTION = 'Sciences physiques';
 const DEFAULT_QUESTIONS_PER_QUIZ = 5;
 
-export const SCIENCE_PHYSICS_TRAINING_LEVELS = ['premiere', 'terminale'] as const;
+export const SCIENCE_PHYSICS_TRAINING_LEVELS = chapterLevelValues;
 
 const sciencePhysicsTrainingLevelOrder = new Map<string, number>(
   SCIENCE_PHYSICS_TRAINING_LEVELS.map((level, index) => [level, index])
@@ -29,19 +33,7 @@ const visibleChapterWhere = {
 };
 
 export const formatTrainingLevelLabel = (level: string) => {
-  const normalized = getCanonicalTrainingLevelValue(level);
-
-  if (normalized === 'premiere') {
-    return 'Première';
-  }
-
-  if (normalized === 'terminale') {
-    return 'Terminale';
-  }
-
-  return normalized.length > 0
-    ? normalized.charAt(0).toUpperCase() + normalized.slice(1)
-    : level;
+  return getChapterLevelLabel(getCanonicalTrainingLevelValue(level));
 };
 
 export const toTrainingLevelSlug = (level: string) => slugifyText(level);

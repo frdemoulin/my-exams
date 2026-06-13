@@ -2,6 +2,16 @@ import { Prisma } from "@prisma/client";
 import prisma from "@/lib/db/prisma";
 import { Option } from "@/types/option";
 import {
+  chapterAssignmentContextTypeLabels,
+  getChapterLevelLabel,
+  contentVerticalLabels,
+} from "./chapter.constants";
+import {
+  ChapterAssignmentEmbedded,
+  ChapterAssignmentDetail,
+  ChapterAssignmentItem,
+  chapterAssignmentDetailSelect,
+  chapterAssignmentEmbeddedSelect,
   ChapterDetail,
   chapterDetailInclude,
   ChapterListItem,
@@ -89,6 +99,99 @@ function isObjectId(value: string) {
   return /^[a-f0-9]{24}$/i.test(value);
 }
 
+export function getContentVerticalLabel(vertical: keyof typeof contentVerticalLabels) {
+  return contentVerticalLabels[vertical] ?? vertical;
+}
+
+export function getChapterAssignmentContextTypeLabel(
+  contextType: keyof typeof chapterAssignmentContextTypeLabels
+) {
+  return chapterAssignmentContextTypeLabels[contextType] ?? contextType;
+}
+
+async function resolveChapterAssignmentContextLabel(
+  contextType: ChapterAssignmentEmbedded["contextType"],
+  contextId: string
+) {
+  switch (contextType) {
+    case "SUBJECT": {
+      const subject = await prisma.subject.findUnique({
+        where: { id: contextId },
+        select: {
+          longDescription: true,
+        },
+      });
+
+      return subject?.longDescription ?? `Matière introuvable (${contextId})`;
+    }
+    case "HEALTH_COURSE_UNIT": {
+      const courseUnit = await prisma.healthCourseUnit.findUnique({
+        where: { id: contextId },
+        select: {
+          title: true,
+          code: true,
+          programVersion: {
+            select: {
+              label: true,
+              institution: {
+                select: {
+                  name: true,
+                  shortName: true,
+                },
+              },
+            },
+          },
+          block: {
+            select: {
+              title: true,
+            },
+          },
+        },
+      });
+
+      if (!courseUnit) {
+        return `UE santé introuvable (${contextId})`;
+      }
+
+      const institutionLabel =
+        courseUnit.programVersion.institution.shortName ??
+        courseUnit.programVersion.institution.name;
+      const parts = [
+        institutionLabel,
+        courseUnit.programVersion.label,
+        courseUnit.block.title,
+        courseUnit.code ? `${courseUnit.code}` : null,
+        courseUnit.title,
+      ].filter(Boolean);
+
+      return parts.join(" — ");
+    }
+    case "HEALTH_TEACHING_ELEMENT":
+      return `EC santé indisponible (${contextId})`;
+    case "BTS_TEACHING":
+      return `Enseignement BTS indisponible (${contextId})`;
+    case "GENERIC":
+      return `Contexte générique (${contextId})`;
+    default:
+      return `Contexte inconnu (${contextId})`;
+  }
+}
+
+async function enrichChapterAssignments(
+  assignments: ChapterAssignmentEmbedded[]
+): Promise<ChapterAssignmentItem[]> {
+  const contextLabels = await Promise.all(
+    assignments.map((assignment) =>
+      resolveChapterAssignmentContextLabel(assignment.contextType, assignment.contextId)
+    )
+  );
+
+  return assignments.map((assignment, index) => ({
+    ...assignment,
+    contextLabel: contextLabels[index] ?? assignment.contextId,
+  }));
+}
+
 export async function fetchChapters(
   options: ChapterQueryOptions = {}
 ): Promise<ChapterListItem[]> {
@@ -129,6 +232,13 @@ export async function fetchChapterById(id: string): Promise<ChapterDetail | null
       })
     : [];
 
+  const assignments = await enrichChapterAssignments(
+    [...chapter.assignments].sort((left, right) => {
+      if (left.order !== right.order) return left.order - right.order;
+      return left.createdAt.getTime() - right.createdAt.getTime();
+    })
+  );
+
   return {
     ...chapter,
     quizQuestions: [...chapter.quizQuestions].sort((a, b) => a.order - b.order),
@@ -147,9 +257,10 @@ export async function fetchChapterById(id: string): Promise<ChapterDetail | null
                 questionLinks: [...group.questionLinks].sort((left, right) => left.order - right.order),
               })),
             questionLinks: [...quiz.questionLinks].sort((left, right) => left.order - right.order),
-          })),
+      })),
       })),
     domains,
+    assignments,
   };
 }
 
@@ -191,6 +302,54 @@ export async function fetchQuizQuestionById(
   });
 }
 
+export async function getChapterAssignmentContextLabel(
+  contextType: ChapterAssignmentEmbedded["contextType"],
+  contextId: string
+) {
+  return resolveChapterAssignmentContextLabel(contextType, contextId);
+}
+
+export async function fetchChapterAssignments(
+  chapterId?: string
+): Promise<ChapterAssignmentItem[]> {
+  if (chapterId && !isObjectId(chapterId)) {
+    return [];
+  }
+
+  const assignments = await prisma.chapterAssignment.findMany({
+    where: chapterId ? { chapterId } : undefined,
+    select: chapterAssignmentEmbeddedSelect,
+    orderBy: [{ order: "asc" }, { createdAt: "asc" }],
+  });
+
+  return enrichChapterAssignments(assignments);
+}
+
+export async function fetchChapterAssignmentById(
+  id: string
+): Promise<(ChapterAssignmentDetail & { contextLabel: string }) | null> {
+  if (!isObjectId(id)) {
+    return null;
+  }
+
+  const assignment = await prisma.chapterAssignment.findUnique({
+    where: { id },
+    select: chapterAssignmentDetailSelect,
+  });
+
+  if (!assignment) {
+    return null;
+  }
+
+  return {
+    ...assignment,
+    contextLabel: await resolveChapterAssignmentContextLabel(
+      assignment.contextType,
+      assignment.contextId
+    ),
+  };
+}
+
 export async function fetchQuizQuestions(
   options: QuizQuestionQueryOptions = {}
 ): Promise<QuizQuestionListItem[]> {
@@ -229,16 +388,8 @@ export async function fetchQuizQuestions(
 }
 
 export async function fetchChapterOptions(): Promise<Option[]> {
-  const getChapterLevelLabel = (level: string) => {
-    switch (level) {
-      case "premiere":
-        return "1re";
-      case "terminale":
-        return "Tle";
-      default:
-        return level;
-    }
-  };
+  const getChapterVerticalLabel = (vertical: string) =>
+    getContentVerticalLabel(vertical as keyof typeof contentVerticalLabels);
 
   const chapters = await prisma.chapter.findMany({
     include: {
@@ -271,12 +422,89 @@ export async function fetchChapterOptions(): Promise<Option[]> {
     })
     .map((chapter) => ({
       value: chapter.id,
-      label: `${chapter.title} - ${chapter.subject.longDescription} - ${getChapterLevelLabel(chapter.level)}`,
+      label: `${chapter.title} - ${chapter.subject.longDescription} - ${getChapterLevelLabel(chapter.level)} - ${getChapterVerticalLabel(chapter.vertical)}`,
     }));
 }
 
 export async function fetchQuizQuestionChapterOptions(): Promise<Option[]> {
   return fetchChapterOptions();
+}
+
+export async function fetchChapterAssignmentFormOptions(): Promise<{
+  subjects: Option[];
+  healthCourseUnits: Option[];
+}> {
+  const [subjects, healthCourseUnits] = await Promise.all([
+    prisma.subject.findMany({
+      orderBy: [{ longDescription: "asc" }],
+      select: {
+        id: true,
+        longDescription: true,
+      },
+    }),
+    prisma.healthCourseUnit.findMany({
+      include: {
+        programVersion: {
+          include: {
+            institution: true,
+          },
+        },
+        block: true,
+      },
+      orderBy: [{ order: "asc" }, { title: "asc" }],
+    }),
+  ]);
+
+  return {
+    subjects: subjects.map((subject) => ({
+      value: subject.id,
+      label: subject.longDescription,
+    })),
+    healthCourseUnits: healthCourseUnits
+      .sort((left, right) => {
+        const byInstitution = (left.programVersion.institution.shortName ?? left.programVersion.institution.name).localeCompare(
+          right.programVersion.institution.shortName ?? right.programVersion.institution.name,
+          "fr",
+          { sensitivity: "base" }
+        );
+        if (byInstitution !== 0) return byInstitution;
+
+        const byProgram = left.programVersion.label.localeCompare(
+          right.programVersion.label,
+          "fr",
+          { sensitivity: "base", numeric: true }
+        );
+        if (byProgram !== 0) return byProgram;
+
+        const byBlock = left.block.title.localeCompare(right.block.title, "fr", {
+          sensitivity: "base",
+          numeric: true,
+        });
+        if (byBlock !== 0) return byBlock;
+
+        if (left.order !== right.order) {
+          return left.order - right.order;
+        }
+
+        return left.title.localeCompare(right.title, "fr", {
+          sensitivity: "base",
+          numeric: true,
+        });
+      })
+      .map((courseUnit) => ({
+        value: courseUnit.id,
+        label: [
+          courseUnit.programVersion.institution.shortName ??
+            courseUnit.programVersion.institution.name,
+          courseUnit.programVersion.label,
+          courseUnit.block.title,
+          courseUnit.code ?? null,
+          courseUnit.title,
+        ]
+          .filter(Boolean)
+          .join(" — "),
+      })),
+  };
 }
 
 export async function fetchChapterSubjectOptions(): Promise<Option[]> {

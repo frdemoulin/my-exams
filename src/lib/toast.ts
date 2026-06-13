@@ -7,6 +7,7 @@ export type ToastType = "success" | "error" | "info";
 export type CrudSuccessAction = "created" | "updated" | "deleted";
 export type ToastEntityKey =
   | "chapter"
+  | "chapterAssignment"
   | "correctionSource"
   | "curriculum"
   | "diploma"

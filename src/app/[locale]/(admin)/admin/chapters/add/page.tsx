@@ -23,12 +23,19 @@ export default async function AddChapterPage() {
       <ChapterForm
         crudMode="add"
         initialData={{
+          vertical: "SECONDARY",
           title: "",
           slug: "",
+          shortTitle: "",
+          description: "",
           level: "terminale",
           order: undefined,
           subjectId: "",
           domainIds: [],
+          coverageStatus: "STRUCTURE_ONLY",
+          sourceUrl: "",
+          sourceLabel: "",
+          sourceCheckedAt: "",
           isActive: true,
           isPublished: false,
         }}
