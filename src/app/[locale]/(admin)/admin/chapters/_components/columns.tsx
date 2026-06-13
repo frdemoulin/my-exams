@@ -26,6 +26,10 @@ import {
   actionMenuItem,
   actionMenuTrigger,
 } from "@/components/shared/table-action-menu";
+import {
+  contentVerticalLabels,
+  getChapterLevelLabel,
+} from "@/core/chapter/chapter.constants";
 
 const localeSort = localeStringSort<ChapterListItem>();
 
@@ -94,9 +98,20 @@ export const columns: ColumnDef<ChapterListItem>[] = [
     header: ({ column }) => <SortableHeader label="MATIÈRE" column={column} align="left" />,
   },
   {
+    accessorKey: "vertical",
+    sortingFn: localeSort,
+    header: ({ column }) => <SortableHeader label="VERTICALE" column={column} />,
+    cell: ({ row }) => (
+      <Badge variant="outline">
+        {contentVerticalLabels[row.original.vertical] ?? row.original.vertical}
+      </Badge>
+    ),
+  },
+  {
     accessorKey: "level",
     sortingFn: localeSort,
-    header: ({ column }) => <SortableHeader label="NIVEAU" column={column} align="left" />,
+    header: ({ column }) => <SortableHeader label="NIVEAU HÉRITÉ" column={column} align="left" />,
+    cell: ({ row }) => getChapterLevelLabel(row.original.level),
   },
   {
     accessorKey: "order",

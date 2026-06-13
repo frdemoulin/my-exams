@@ -15,6 +15,21 @@
         "list": "Liste des chapitres"
       }
     },
+    "chapterAssignment": {
+      "singular": "Rattachement de chapitre",
+      "plural": "Rattachements de chapitre",
+      "article": {
+        "definite": "le",
+        "indefinite": "un"
+      },
+      "actions": {
+        "add": "Ajouter un rattachement",
+        "edit": "Éditer le rattachement",
+        "delete": "Supprimer le rattachement",
+        "view": "Voir le rattachement",
+        "list": "Liste des rattachements"
+      }
+    },
     "diploma": {
       "singular": "Diplôme",
       "plural": "Diplômes",

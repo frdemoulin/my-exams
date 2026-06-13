@@ -1,4 +1,9 @@
 import { z } from "zod";
+import {
+    chapterAssignmentContextTypeValues,
+    contentVerticalValues,
+} from "@/core/chapter/chapter.constants";
+import { healthCourseUnitCoverageStatusValues } from "@/core/health/health.schemas";
 
 // schémas de validation des formulaires avec zod
 const urlOrPathSchema = z.string().trim().refine((val) => {
@@ -10,6 +15,17 @@ const urlOrPathSchema = z.string().trim().refine((val) => {
         return val.startsWith('/');
     }
 }, { message: "URL invalide" });
+
+const optionalTrimmedTextSchema = (maxLength: number) =>
+    z.string().trim().max(maxLength).optional().or(z.literal("")).transform((value) => {
+        const normalized = value?.trim();
+        return normalized ? normalized : undefined;
+    });
+
+const optionalUrlOrPathSchema = urlOrPathSchema.optional().or(z.literal("")).transform((value) => {
+    const normalized = value?.trim();
+    return normalized ? normalized : undefined;
+});
 
 export const createExaminationCenterSchema = z.object({
     description: z.string({
@@ -105,6 +121,7 @@ export const createSubjectSchema = z.object({
 });
 
 export const createChapterSchema = z.object({
+    vertical: z.enum(contentVerticalValues).default("SECONDARY"),
     title: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
@@ -122,6 +139,8 @@ export const createChapterSchema = z.object({
         .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
             message: "Utilise uniquement des lettres minuscules, chiffres et tirets",
         }),
+    shortTitle: optionalTrimmedTextSchema(255),
+    description: optionalTrimmedTextSchema(4000),
     level: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
@@ -140,6 +159,19 @@ export const createChapterSchema = z.object({
         required_error: "Champ requis",
     }).min(1, { message: "Champ requis" }),
     domainIds: z.array(z.string()).default([]),
+    coverageStatus: z.enum(healthCourseUnitCoverageStatusValues).default("STRUCTURE_ONLY"),
+    sourceUrl: optionalUrlOrPathSchema,
+    sourceLabel: optionalTrimmedTextSchema(255),
+    sourceCheckedAt: z
+        .string()
+        .trim()
+        .regex(/^\d{4}-\d{2}-\d{2}$/, { message: "Format attendu : YYYY-MM-DD" })
+        .optional()
+        .or(z.literal(""))
+        .transform((value) => {
+            const normalized = value?.trim();
+            return normalized ? normalized : undefined;
+        }),
     isActive: z.boolean().default(true),
     isPublished: z.boolean().default(false),
 }).superRefine((values, ctx) => {
@@ -148,6 +180,87 @@ export const createChapterSchema = z.object({
             code: z.ZodIssueCode.custom,
             path: ["isPublished"],
             message: "Un chapitre inactif ne peut pas être publié",
+        });
+    }
+});
+
+export const createChapterAssignmentSchema = z.object({
+    chapterId: z.string({
+        required_error: "Champ requis",
+    }).min(1, { message: "Champ requis" }),
+    vertical: z.enum(contentVerticalValues).default("SECONDARY"),
+    contextType: z.enum(chapterAssignmentContextTypeValues),
+    contextId: z.string({
+        required_error: "Champ requis",
+    }).trim().min(1, { message: "Champ requis" }),
+    titleOverride: optionalTrimmedTextSchema(255),
+    shortTitleOverride: optionalTrimmedTextSchema(255),
+    slugOverride: z.string()
+        .trim()
+        .max(160, { message: "Ne peut pas dépasser 160 caractères" })
+        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+            message: "Utilise uniquement des lettres minuscules, chiffres et tirets",
+        })
+        .optional()
+        .or(z.literal(""))
+        .transform((value) => {
+            const normalized = value?.trim();
+            return normalized ? normalized : undefined;
+        }),
+    descriptionOverride: optionalTrimmedTextSchema(4000),
+    order: z.number({
+        required_error: "Champ requis",
+        invalid_type_error: "Doit être un nombre",
+    })
+        .int({ message: "Doit être un entier" })
+        .min(0, { message: "Doit être supérieur ou égal à 0" })
+        .max(1000, { message: "Ne peut pas dépasser 1000" })
+        .default(0),
+    coverageStatus: z.enum(healthCourseUnitCoverageStatusValues).default("STRUCTURE_ONLY"),
+    sourceUrl: optionalUrlOrPathSchema,
+    sourceLabel: optionalTrimmedTextSchema(255),
+    sourceCheckedAt: z
+        .string()
+        .trim()
+        .regex(/^\d{4}-\d{2}-\d{2}$/, { message: "Format attendu : YYYY-MM-DD" })
+        .optional()
+        .or(z.literal(""))
+        .transform((value) => {
+            const normalized = value?.trim();
+            return normalized ? normalized : undefined;
+        }),
+    isActive: z.boolean().default(true),
+    isPublished: z.boolean().default(true),
+}).superRefine((values, ctx) => {
+    if (values.vertical === "SECONDARY" && values.contextType !== "SUBJECT") {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["contextType"],
+            message: "Une verticale secondaire doit être rattachée à une matière",
+        });
+    }
+
+    if (values.vertical === "HEALTH" && !["HEALTH_COURSE_UNIT", "HEALTH_TEACHING_ELEMENT"].includes(values.contextType)) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["contextType"],
+            message: "Une verticale santé doit être rattachée à une UE ou à un EC santé",
+        });
+    }
+
+    if (values.vertical === "BTS" && values.contextType !== "BTS_TEACHING") {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["contextType"],
+            message: "Une verticale BTS doit être rattachée à un enseignement BTS",
+        });
+    }
+
+    if (!values.isActive && values.isPublished) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["isPublished"],
+            message: "Un rattachement inactif ne peut pas être publié",
         });
     }
 });

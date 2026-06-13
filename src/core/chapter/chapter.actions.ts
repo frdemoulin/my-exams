@@ -9,11 +9,13 @@ import { setCrudSuccessToast, setToastCookie } from "@/lib/toast";
 import { slugifyText } from "@/lib/utils";
 import {
   createChapterSchema,
+  createChapterAssignmentSchema,
   createQuizQuestionSchema,
   updateTrainingStructureSchema,
 } from "@/lib/validation";
 import {
   CreateChapterErrors,
+  CreateChapterAssignmentErrors,
   CreateQuizQuestionErrors,
   UpdateTrainingStructureErrors,
 } from "./chapter.types";
@@ -61,6 +63,94 @@ function parseNumber(value: FormDataEntryValue | null) {
   return Number(value);
 }
 
+function parseOptionalDate(value: FormDataEntryValue | null) {
+  const rawValue = String(value ?? "").trim();
+  if (!rawValue) return undefined;
+
+  const parsedDate = new Date(`${rawValue}T12:00:00.000Z`);
+  if (Number.isNaN(parsedDate.getTime())) {
+    throw new Error("Date invalide");
+  }
+
+  return parsedDate;
+}
+
+function parseOptionalText(value: unknown) {
+  const normalized = String(value ?? "").trim();
+  return normalized.length > 0 ? normalized : undefined;
+}
+
+async function ensureChapterAssignmentContextExists(
+  contextType: "SUBJECT" | "HEALTH_COURSE_UNIT" | "HEALTH_TEACHING_ELEMENT" | "BTS_TEACHING" | "GENERIC",
+  contextId: string
+) {
+  switch (contextType) {
+    case "SUBJECT": {
+      const subject = await prisma.subject.findUnique({
+        where: { id: contextId },
+        select: { id: true, longDescription: true },
+      });
+
+      if (!subject) {
+        throw new Error("Matière de contexte introuvable");
+      }
+      return subject;
+    }
+    case "HEALTH_COURSE_UNIT": {
+      const courseUnit = await prisma.healthCourseUnit.findUnique({
+        where: { id: contextId },
+        select: { id: true, title: true },
+      });
+
+      if (!courseUnit) {
+        throw new Error("UE santé de contexte introuvable");
+      }
+      return courseUnit;
+    }
+    case "HEALTH_TEACHING_ELEMENT":
+      throw new Error(
+        "Le modèle HealthTeachingElement n'est pas encore disponible dans cette branche"
+      );
+    case "BTS_TEACHING":
+      throw new Error("Le modèle BTS n'est pas encore disponible dans cette branche");
+    case "GENERIC":
+      return { id: contextId };
+    default:
+      throw new Error("Type de contexte de rattachement invalide");
+  }
+}
+
+function normalizeChapterAssignmentData(data: {
+  chapterId: string;
+  vertical: "SECONDARY" | "BTS" | "HEALTH" | "COMMON";
+  contextType: "SUBJECT" | "HEALTH_COURSE_UNIT" | "HEALTH_TEACHING_ELEMENT" | "BTS_TEACHING" | "GENERIC";
+  contextId: string;
+  titleOverride?: string;
+  shortTitleOverride?: string;
+  slugOverride?: string;
+  descriptionOverride?: string;
+  order: number;
+  coverageStatus: "STRUCTURE_ONLY" | "THEMES_MAPPED" | "QUESTIONS_AVAILABLE" | "READY";
+  sourceUrl?: string;
+  sourceLabel?: string;
+  sourceCheckedAt?: string;
+  isActive: boolean;
+  isPublished: boolean;
+}) {
+  return {
+    ...data,
+    titleOverride: parseOptionalText(data.titleOverride),
+    shortTitleOverride: parseOptionalText(data.shortTitleOverride),
+    slugOverride: parseOptionalText(data.slugOverride),
+    descriptionOverride: parseOptionalText(data.descriptionOverride),
+    sourceUrl: parseOptionalText(data.sourceUrl),
+    sourceLabel: parseOptionalText(data.sourceLabel),
+    sourceCheckedAt: data.sourceCheckedAt
+      ? new Date(`${data.sourceCheckedAt}T12:00:00.000Z`)
+      : undefined,
+  };
+}
+
 function parseChoices(formData: FormData) {
   return formData
     .getAll("choices")
@@ -106,13 +196,76 @@ function revalidatePaths(paths: string[]) {
   new Set(paths).forEach((path) => revalidatePath(path));
 }
 
+async function syncCanonicalChapterAssignment(
+  chapterId: string,
+  chapter: {
+    vertical: "SECONDARY" | "BTS" | "HEALTH" | "COMMON";
+    subjectId: string;
+    order: number;
+    coverageStatus: "STRUCTURE_ONLY" | "THEMES_MAPPED" | "QUESTIONS_AVAILABLE" | "READY";
+    sourceUrl?: string | undefined;
+    sourceLabel?: string | undefined;
+    sourceCheckedAt?: string | undefined;
+    isActive: boolean;
+    isPublished: boolean;
+  }
+) {
+  const existingSubjectAssignment = await prisma.chapterAssignment.findFirst({
+    where: {
+      chapterId,
+      contextType: "SUBJECT",
+    },
+    select: { id: true },
+  });
+
+  if (chapter.vertical !== "SECONDARY") {
+    if (existingSubjectAssignment) {
+      await prisma.chapterAssignment.delete({ where: { id: existingSubjectAssignment.id } });
+    }
+    return;
+  }
+
+  const normalizedData = normalizeChapterAssignmentData({
+    chapterId,
+    vertical: "SECONDARY",
+    contextType: "SUBJECT",
+    contextId: chapter.subjectId,
+    order: chapter.order,
+    coverageStatus: chapter.coverageStatus,
+    sourceUrl: chapter.sourceUrl,
+    sourceLabel: chapter.sourceLabel,
+    sourceCheckedAt: chapter.sourceCheckedAt,
+    isActive: chapter.isActive,
+    isPublished: chapter.isPublished,
+  });
+
+  if (existingSubjectAssignment) {
+    await prisma.chapterAssignment.update({
+      where: { id: existingSubjectAssignment.id },
+      data: normalizedData,
+    });
+    return;
+  }
+
+  await prisma.chapterAssignment.create({
+    data: normalizedData,
+  });
+}
+
 export async function createChapter(
   formData: FormData,
   options?: ChapterActionOptions
 ) {
+  const vertical = String(formData.get("vertical") ?? "SECONDARY").trim() as
+    | "SECONDARY"
+    | "BTS"
+    | "HEALTH"
+    | "COMMON";
   const title = String(formData.get("title") ?? "").trim();
   const rawSlug = String(formData.get("slug") ?? "").trim();
   const slug = slugifyText(rawSlug || title);
+  const shortTitle = parseOptionalText(formData.get("shortTitle"));
+  const description = parseOptionalText(formData.get("description"));
   const level = String(formData.get("level") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const subjectId = String(formData.get("subjectId") ?? "").trim();
@@ -120,16 +273,31 @@ export async function createChapter(
     .getAll("domainIds")
     .map((domainId) => String(domainId))
     .filter(Boolean);
+  const coverageStatus = String(formData.get("coverageStatus") ?? "STRUCTURE_ONLY").trim() as
+    | "STRUCTURE_ONLY"
+    | "THEMES_MAPPED"
+    | "QUESTIONS_AVAILABLE"
+    | "READY";
+  const sourceUrl = parseOptionalText(formData.get("sourceUrl"));
+  const sourceLabel = parseOptionalText(formData.get("sourceLabel"));
+  const sourceCheckedAt = parseOptionalDate(formData.get("sourceCheckedAt"));
   const isActive = parseBoolean(formData.get("isActive"), true);
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
   const result = createChapterSchema.safeParse({
+    vertical,
     title,
     slug,
+    shortTitle,
+    description,
     level,
     order,
     subjectId,
     domainIds,
+    coverageStatus,
+    sourceUrl,
+    sourceLabel,
+    sourceCheckedAt: sourceCheckedAt ? sourceCheckedAt.toISOString().slice(0, 10) : undefined,
     isActive,
     isPublished,
   });
@@ -141,13 +309,31 @@ export async function createChapter(
 
   try {
     const chapter = await prisma.chapter.create({
-      data: result.data,
+      data: {
+        ...result.data,
+        sourceCheckedAt: result.data.sourceCheckedAt
+          ? new Date(`${result.data.sourceCheckedAt}T12:00:00.000Z`)
+          : undefined,
+      },
       select: { id: true },
+    });
+
+    await syncCanonicalChapterAssignment(chapter.id, {
+      vertical: result.data.vertical,
+      subjectId: result.data.subjectId,
+      order: result.data.order,
+      coverageStatus: result.data.coverageStatus,
+      sourceUrl: result.data.sourceUrl,
+      sourceLabel: result.data.sourceLabel,
+      sourceCheckedAt: result.data.sourceCheckedAt,
+      isActive: result.data.isActive,
+      isPublished: result.data.isPublished,
     });
 
     const publicPaths = await resolveChapterPublicPaths(chapter.id);
     revalidatePaths([
       "/admin/chapters",
+      `/admin/chapters/${chapter.id}`,
       "/sitemap.xml",
       ...publicPaths,
       ...(options?.revalidatePaths ?? []),
@@ -192,6 +378,13 @@ export async function updateChapter(
   const title = String(formData.get("title") ?? "").trim();
   const rawSlug = String(formData.get("slug") ?? "").trim();
   const slug = slugifyText(rawSlug || title);
+  const vertical = String(formData.get("vertical") ?? "SECONDARY").trim() as
+    | "SECONDARY"
+    | "BTS"
+    | "HEALTH"
+    | "COMMON";
+  const shortTitle = parseOptionalText(formData.get("shortTitle"));
+  const description = parseOptionalText(formData.get("description"));
   const level = String(formData.get("level") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const subjectId = String(formData.get("subjectId") ?? "").trim();
@@ -199,16 +392,31 @@ export async function updateChapter(
     .getAll("domainIds")
     .map((domainId) => String(domainId))
     .filter(Boolean);
+  const coverageStatus = String(formData.get("coverageStatus") ?? "STRUCTURE_ONLY").trim() as
+    | "STRUCTURE_ONLY"
+    | "THEMES_MAPPED"
+    | "QUESTIONS_AVAILABLE"
+    | "READY";
+  const sourceUrl = parseOptionalText(formData.get("sourceUrl"));
+  const sourceLabel = parseOptionalText(formData.get("sourceLabel"));
+  const sourceCheckedAt = parseOptionalDate(formData.get("sourceCheckedAt"));
   const isActive = parseBoolean(formData.get("isActive"), true);
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
   const result = createChapterSchema.safeParse({
+    vertical,
     title,
     slug,
+    shortTitle,
+    description,
     level,
     order,
     subjectId,
     domainIds,
+    coverageStatus,
+    sourceUrl,
+    sourceLabel,
+    sourceCheckedAt: sourceCheckedAt ? sourceCheckedAt.toISOString().slice(0, 10) : undefined,
     isActive,
     isPublished,
   });
@@ -221,7 +429,24 @@ export async function updateChapter(
   try {
     await prisma.chapter.update({
       where: { id },
-      data: result.data,
+      data: {
+        ...result.data,
+        sourceCheckedAt: result.data.sourceCheckedAt
+          ? new Date(`${result.data.sourceCheckedAt}T12:00:00.000Z`)
+          : undefined,
+      },
+    });
+
+    await syncCanonicalChapterAssignment(id, {
+      vertical: result.data.vertical,
+      subjectId: result.data.subjectId,
+      order: result.data.order,
+      coverageStatus: result.data.coverageStatus,
+      sourceUrl: result.data.sourceUrl,
+      sourceLabel: result.data.sourceLabel,
+      sourceCheckedAt: result.data.sourceCheckedAt,
+      isActive: result.data.isActive,
+      isPublished: result.data.isPublished,
     });
 
     const oldPublicPaths = resolveSciencePhysicsPaths(currentChapter);
@@ -268,6 +493,241 @@ export async function deleteChapter(id: string, options?: ChapterActionOptions) 
   }
   if (options?.redirectTo !== null) {
     redirect(options?.redirectTo ?? "/admin/chapters");
+  }
+}
+
+export async function createChapterAssignment(
+  chapterId: string,
+  formData: FormData,
+  options?: ChapterActionOptions
+) {
+  const chapter = await prisma.chapter.findUnique({
+    where: { id: chapterId },
+    select: { id: true, subjectId: true },
+  });
+
+  if (!chapter) {
+    throw new Error("Chapitre introuvable");
+  }
+
+  const vertical = String(formData.get("vertical") ?? "SECONDARY").trim() as
+    | "SECONDARY"
+    | "BTS"
+    | "HEALTH"
+    | "COMMON";
+  const contextType = String(formData.get("contextType") ?? "").trim() as
+    | "SUBJECT"
+    | "HEALTH_COURSE_UNIT"
+    | "HEALTH_TEACHING_ELEMENT"
+    | "BTS_TEACHING"
+    | "GENERIC";
+  const contextId = String(formData.get("contextId") ?? "").trim();
+  const titleOverride = parseOptionalText(formData.get("titleOverride"));
+  const shortTitleOverride = parseOptionalText(formData.get("shortTitleOverride"));
+  const slugOverride = parseOptionalText(formData.get("slugOverride"));
+  const descriptionOverride = parseOptionalText(formData.get("descriptionOverride"));
+  const order = parseNumber(formData.get("order"));
+  const coverageStatus = String(formData.get("coverageStatus") ?? "STRUCTURE_ONLY").trim() as
+    | "STRUCTURE_ONLY"
+    | "THEMES_MAPPED"
+    | "QUESTIONS_AVAILABLE"
+    | "READY";
+  const sourceUrl = parseOptionalText(formData.get("sourceUrl"));
+  const sourceLabel = parseOptionalText(formData.get("sourceLabel"));
+  const sourceCheckedAt = parseOptionalDate(formData.get("sourceCheckedAt"));
+  const isActive = parseBoolean(formData.get("isActive"), true);
+  const isPublished = parseBoolean(formData.get("isPublished"), true);
+
+  const result = createChapterAssignmentSchema.safeParse({
+    chapterId: chapter.id,
+    vertical,
+    contextType,
+    contextId,
+    titleOverride,
+    shortTitleOverride,
+    slugOverride,
+    descriptionOverride,
+    order,
+    coverageStatus,
+    sourceUrl,
+    sourceLabel,
+    sourceCheckedAt: sourceCheckedAt ? sourceCheckedAt.toISOString().slice(0, 10) : undefined,
+    isActive,
+    isPublished,
+  });
+
+  if (!result.success) {
+    const errors: CreateChapterAssignmentErrors = result.error.format();
+    throw errors;
+  }
+
+  await ensureChapterAssignmentContextExists(result.data.contextType, result.data.contextId);
+
+  try {
+    const assignment = await prisma.chapterAssignment.create({
+      data: {
+        ...normalizeChapterAssignmentData(result.data),
+        sourceCheckedAt: result.data.sourceCheckedAt
+          ? new Date(`${result.data.sourceCheckedAt}T12:00:00.000Z`)
+          : undefined,
+      },
+      select: { id: true },
+    });
+
+    revalidatePaths([
+      "/admin/chapters",
+      `/admin/chapters/${chapterId}`,
+      `/admin/chapters/${chapterId}/assignments/${assignment.id}/edit`,
+      ...(options?.revalidatePaths ?? []),
+    ]);
+
+    if (!options?.skipSuccessToast) {
+      await setCrudSuccessToast("chapterAssignment", "created");
+    }
+    if (options?.redirectTo !== null) {
+      redirect(options?.redirectTo ?? `/admin/chapters/${chapterId}`);
+    }
+  } catch (error: any) {
+    if (error?.code === "P2002") {
+      throw new Error("Un rattachement avec ce contexte et cet ordre existe déjà");
+    }
+    throw error;
+  }
+}
+
+export async function updateChapterAssignment(
+  id: string,
+  formData: FormData,
+  options?: ChapterActionOptions
+) {
+  const currentAssignment = await prisma.chapterAssignment.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      chapterId: true,
+    },
+  });
+
+  if (!currentAssignment) {
+    throw new Error("Rattachement introuvable");
+  }
+
+  const vertical = String(formData.get("vertical") ?? "SECONDARY").trim() as
+    | "SECONDARY"
+    | "BTS"
+    | "HEALTH"
+    | "COMMON";
+  const contextType = String(formData.get("contextType") ?? "").trim() as
+    | "SUBJECT"
+    | "HEALTH_COURSE_UNIT"
+    | "HEALTH_TEACHING_ELEMENT"
+    | "BTS_TEACHING"
+    | "GENERIC";
+  const contextId = String(formData.get("contextId") ?? "").trim();
+  const titleOverride = parseOptionalText(formData.get("titleOverride"));
+  const shortTitleOverride = parseOptionalText(formData.get("shortTitleOverride"));
+  const slugOverride = parseOptionalText(formData.get("slugOverride"));
+  const descriptionOverride = parseOptionalText(formData.get("descriptionOverride"));
+  const order = parseNumber(formData.get("order"));
+  const coverageStatus = String(formData.get("coverageStatus") ?? "STRUCTURE_ONLY").trim() as
+    | "STRUCTURE_ONLY"
+    | "THEMES_MAPPED"
+    | "QUESTIONS_AVAILABLE"
+    | "READY";
+  const sourceUrl = parseOptionalText(formData.get("sourceUrl"));
+  const sourceLabel = parseOptionalText(formData.get("sourceLabel"));
+  const sourceCheckedAt = parseOptionalDate(formData.get("sourceCheckedAt"));
+  const isActive = parseBoolean(formData.get("isActive"), true);
+  const isPublished = parseBoolean(formData.get("isPublished"), true);
+
+  const result = createChapterAssignmentSchema.safeParse({
+    chapterId: currentAssignment.chapterId,
+    vertical,
+    contextType,
+    contextId,
+    titleOverride,
+    shortTitleOverride,
+    slugOverride,
+    descriptionOverride,
+    order,
+    coverageStatus,
+    sourceUrl,
+    sourceLabel,
+    sourceCheckedAt: sourceCheckedAt ? sourceCheckedAt.toISOString().slice(0, 10) : undefined,
+    isActive,
+    isPublished,
+  });
+
+  if (!result.success) {
+    const errors: CreateChapterAssignmentErrors = result.error.format();
+    throw errors;
+  }
+
+  await ensureChapterAssignmentContextExists(result.data.contextType, result.data.contextId);
+
+  try {
+    await prisma.chapterAssignment.update({
+      where: { id },
+      data: {
+        ...normalizeChapterAssignmentData(result.data),
+        sourceCheckedAt: result.data.sourceCheckedAt
+          ? new Date(`${result.data.sourceCheckedAt}T12:00:00.000Z`)
+          : undefined,
+      },
+    });
+
+    revalidatePaths([
+      "/admin/chapters",
+      `/admin/chapters/${currentAssignment.chapterId}`,
+      `/admin/chapters/${currentAssignment.chapterId}/assignments/${id}/edit`,
+      ...(options?.revalidatePaths ?? []),
+    ]);
+
+    if (!options?.skipSuccessToast) {
+      await setCrudSuccessToast("chapterAssignment", "updated");
+    }
+    if (options?.redirectTo !== null) {
+      redirect(options?.redirectTo ?? `/admin/chapters/${currentAssignment.chapterId}`);
+    }
+  } catch (error: any) {
+    if (error?.code === "P2002") {
+      throw new Error("Un rattachement avec ce contexte et cet ordre existe déjà");
+    }
+    throw error;
+  }
+}
+
+export async function deleteChapterAssignment(
+  id: string,
+  options?: ChapterActionOptions
+) {
+  const currentAssignment = await prisma.chapterAssignment.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      chapterId: true,
+    },
+  });
+
+  if (!currentAssignment) {
+    throw new Error("Rattachement introuvable");
+  }
+
+  await prisma.chapterAssignment.delete({
+    where: { id },
+  });
+
+  revalidatePaths([
+    "/admin/chapters",
+    `/admin/chapters/${currentAssignment.chapterId}`,
+    ...(options?.revalidatePaths ?? []),
+  ]);
+
+  if (!options?.skipSuccessToast) {
+    await setCrudSuccessToast("chapterAssignment", "deleted");
+  }
+  if (options?.redirectTo !== null) {
+    redirect(options?.redirectTo ?? `/admin/chapters/${currentAssignment.chapterId}`);
   }
 }
 

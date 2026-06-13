@@ -7,8 +7,14 @@ import { fetchChapterById } from "@/core/chapter";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ChapterAssignmentsTable } from "../_components/chapter-assignments-table";
 import { ChapterDetailTabs } from "../_components/chapter-detail-tabs";
 import { ChapterQuestionsTable } from "../_components/chapter-questions-table";
+import {
+  contentVerticalLabels,
+  getChapterLevelLabel,
+} from "@/core/chapter/chapter.constants";
+import { healthCourseUnitCoverageStatusLabels } from "@/core/health/health.schemas";
 
 interface ChapterDetailPageProps {
   params: Promise<{
@@ -34,7 +40,7 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
     <div className="w-full p-6">
       <AdminPageHeading
         title={chapter.title}
-        description="Consulte les informations principales du chapitre et gère ses questions QCM."
+        description="Consulte les informations principales du chapitre et gère ses rattachements et ses questions QCM."
         actions={
           <>
             <Button asChild variant="outline">
@@ -64,16 +70,32 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Verticale</h3>
+                    <p className="text-sm">
+                      {contentVerticalLabels[chapter.vertical] ?? chapter.vertical}
+                    </p>
+                  </div>
+                  <div>
                     <h3 className="text-sm font-semibold text-muted-foreground">Matière</h3>
                     <p className="text-sm">{chapter.subject.longDescription}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Titre court</h3>
+                    <p className="text-sm">{chapter.shortTitle ?? "—"}</p>
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-muted-foreground">Slug</h3>
                     <p className="text-sm">{chapter.slug}</p>
                   </div>
+                  <div className="md:col-span-2">
+                    <h3 className="text-sm font-semibold text-muted-foreground">Description</h3>
+                    <p className="text-sm whitespace-pre-line">
+                      {chapter.description ?? "—"}
+                    </p>
+                  </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-muted-foreground">Niveau</h3>
-                    <p className="text-sm">{chapter.level}</p>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Niveau hérité</h3>
+                    <p className="text-sm">{getChapterLevelLabel(chapter.level)}</p>
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-muted-foreground">Ordre</h3>
@@ -97,6 +119,26 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
                       <Badge variant="outline">{publishedQuestionCount} publiées</Badge>
                     </div>
                   </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Couverture</h3>
+                    <Badge variant="outline">
+                      {healthCourseUnitCoverageStatusLabels[chapter.coverageStatus] ??
+                        chapter.coverageStatus}
+                    </Badge>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Rattachements</h3>
+                    <Badge variant="secondary">{chapter.assignments.length}</Badge>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">Source</h3>
+                    <p className="text-sm">{chapter.sourceLabel ?? chapter.sourceUrl ?? "—"}</p>
+                    {chapter.sourceCheckedAt ? (
+                      <p className="text-xs text-muted-foreground">
+                        Vérifiée le {chapter.sourceCheckedAt.toISOString().slice(0, 10)}
+                      </p>
+                    ) : null}
+                  </div>
                   <div className="md:col-span-2">
                     <h3 className="text-sm font-semibold text-muted-foreground">Domaines associés</h3>
                     {chapter.domains.length > 0 ? (
@@ -113,6 +155,18 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
                   </div>
                 </div>
               </div>
+            ),
+          },
+          {
+            id: "assignments",
+            label: "Rattachements",
+            badge: chapter.assignments.length,
+            content: (
+              <ChapterAssignmentsTable
+                chapterId={chapter.id}
+                assignments={chapter.assignments}
+                addHref={`/admin/chapters/${chapter.id}/assignments/add`}
+              />
             ),
           },
           {

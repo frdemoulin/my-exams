@@ -26,12 +26,19 @@ export default async function AddTrainingQcmPage() {
         redirectTo="/admin/training/qcms"
         revalidatePaths={["/admin/training/qcms", "/admin/training/quiz-questions"]}
         initialData={{
+          vertical: "SECONDARY",
           title: "",
           slug: "",
+          shortTitle: "",
+          description: "",
           level: "terminale",
           order: undefined,
           subjectId: "",
           domainIds: [],
+          coverageStatus: "STRUCTURE_ONLY",
+          sourceUrl: "",
+          sourceLabel: "",
+          sourceCheckedAt: "",
           isActive: true,
           isPublished: false,
         }}

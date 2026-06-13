@@ -48,12 +48,19 @@ export default async function EditChapterPage({ params }: EditChapterPageProps) 
         crudMode="edit"
         initialData={{
           id: chapter.id,
+          vertical: chapter.vertical,
           title: chapter.title,
           slug: chapter.slug,
+          shortTitle: chapter.shortTitle ?? "",
+          description: chapter.description ?? "",
           level: chapter.level,
           order: chapter.order,
           subjectId: chapter.subjectId,
           domainIds: chapter.domainIds,
+          coverageStatus: chapter.coverageStatus,
+          sourceUrl: chapter.sourceUrl ?? "",
+          sourceLabel: chapter.sourceLabel ?? "",
+          sourceCheckedAt: chapter.sourceCheckedAt?.toISOString().slice(0, 10) ?? "",
           isActive: chapter.isActive ?? true,
           isPublished: chapter.isPublished,
         }}
