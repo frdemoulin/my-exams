@@ -1,3 +1,10 @@
+## [1.6.20](https://github.com/frdemoulin/my-exams/compare/v1.6.19...v1.6.20) (2026-06-14)
+
+### Bug Fixes
+
+* mise en place des EC ([766e2e6](https://github.com/frdemoulin/my-exams/commit/766e2e6fa1279d2ea7c86e29d7eb293ee8b09b6b))
+* mise en place des EC ([d330818](https://github.com/frdemoulin/my-exams/commit/d3308185b8fa70080d679e8b6fb2bf75414c4945))
+
 ## [1.6.19](https://github.com/frdemoulin/my-exams/compare/v1.6.18...v1.6.19) (2026-06-13)
 
 ### Bug Fixes
