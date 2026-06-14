@@ -145,6 +145,47 @@ export async function fetchHealthAdminRows(entity: HealthEntity): Promise<Health
                 })
             );
         }
+        case "teaching-elements": {
+            const records = await prisma.healthTeachingElement.findMany({
+                include: {
+                    courseUnit: {
+                        include: {
+                            programVersion: {
+                                include: { institution: true },
+                            },
+                            block: true,
+                        },
+                    },
+                    themes: true,
+                },
+                orderBy: [{ order: "asc" }, { title: "asc" }],
+            });
+            return records.map((item) =>
+                row({
+                    id: item.id,
+                    primary: item.title,
+                    secondary: [
+                        item.code,
+                        item.courseUnit.code,
+                        item.courseUnit.title,
+                    ]
+                        .filter(Boolean)
+                        .join(" · "),
+                    details: [
+                        item.courseUnit.programVersion.label,
+                        item.courseUnit.block.title,
+                        `Couverture : ${healthCourseUnitCoverageStatusLabels[item.coverageStatus ?? "STRUCTURE_ONLY"]}`,
+                        item.themes.length
+                            ? `Thèmes : ${item.themes.map((theme) => theme.shortTitle ?? theme.title).join(", ")}`
+                            : "Aucun thème",
+                        `Ordre : ${item.order}`,
+                    ].filter(Boolean),
+                    isActive: item.isActive,
+                    isPublished: item.isPublished,
+                    updatedAt: item.updatedAt,
+                })
+            );
+        }
     }
 }
 
@@ -181,6 +222,33 @@ export type HealthProgramVersionCourseUnitSummary = {
     sourceCheckedAt: string | null;
     pathwayName: string | null;
     pathwaySlug: string | null;
+    themes: { id: string; title: string; shortTitle: string | null }[];
+    teachingElements: {
+        id: string;
+        title: string;
+        shortTitle: string | null;
+        code: string | null;
+        slug: string;
+        order: number;
+        isActive: boolean;
+        isPublished: boolean;
+    }[];
+};
+
+export type HealthCourseUnitTeachingElementSummary = {
+    id: string;
+    title: string;
+    shortTitle: string | null;
+    code: string | null;
+    slug: string;
+    description: string | null;
+    order: number;
+    coverageStatus: keyof typeof healthCourseUnitCoverageStatusLabels;
+    sourceLabel: string | null;
+    sourceUrl: string | null;
+    sourceCheckedAt: string | null;
+    isActive: boolean;
+    isPublished: boolean;
     themes: { id: string; title: string; shortTitle: string | null }[];
 };
 
@@ -226,6 +294,15 @@ export async function fetchHealthRecord(entity: HealthEntity, id: string): Promi
                       }
                     : null;
             }
+        case "teaching-elements": {
+            const item = await prisma.healthTeachingElement.findUnique({ where: { id } });
+            return item
+                ? {
+                      ...item,
+                      sourceCheckedAt: item.sourceCheckedAt?.toISOString().slice(0, 10) ?? "",
+                  }
+                : null;
+        }
     }
 }
 
@@ -262,7 +339,13 @@ export async function fetchHealthProgramVersionBlocks(
         include: {
             pathway: true,
             courseUnits: {
-                include: { pathway: true, themes: true },
+                include: {
+                    pathway: true,
+                    themes: true,
+                    teachingElements: {
+                        orderBy: [{ order: "asc" }, { title: "asc" }],
+                    },
+                },
                 orderBy: [{ order: "asc" }, { title: "asc" }],
             },
         },
@@ -303,12 +386,55 @@ export async function fetchHealthProgramVersionBlocks(
                 title: theme.title,
                 shortTitle: theme.shortTitle ?? null,
             })),
+            teachingElements: courseUnit.teachingElements.map((teachingElement) => ({
+                id: teachingElement.id,
+                title: teachingElement.title,
+                shortTitle: teachingElement.shortTitle ?? null,
+                code: teachingElement.code ?? null,
+                slug: teachingElement.slug,
+                order: teachingElement.order,
+                isActive: teachingElement.isActive,
+                isPublished: teachingElement.isPublished,
+            })),
+        })),
+    }));
+}
+
+export async function fetchHealthCourseUnitTeachingElements(
+    courseUnitId: string,
+): Promise<HealthCourseUnitTeachingElementSummary[]> {
+    if (!/^[a-f0-9]{24}$/i.test(courseUnitId)) return [];
+
+    const records = await prisma.healthTeachingElement.findMany({
+        where: { courseUnitId },
+        include: { themes: true },
+        orderBy: [{ order: "asc" }, { title: "asc" }],
+    });
+
+    return records.map((item) => ({
+        id: item.id,
+        title: item.title,
+        shortTitle: item.shortTitle ?? null,
+        code: item.code ?? null,
+        slug: item.slug,
+        description: item.description ?? null,
+        order: item.order,
+        coverageStatus: item.coverageStatus ?? "STRUCTURE_ONLY",
+        sourceLabel: item.sourceLabel ?? null,
+        sourceUrl: item.sourceUrl ?? null,
+        sourceCheckedAt: item.sourceCheckedAt?.toISOString().slice(0, 10) ?? null,
+        isActive: item.isActive,
+        isPublished: item.isPublished,
+        themes: item.themes.map((theme) => ({
+            id: theme.id,
+            title: theme.title,
+            shortTitle: theme.shortTitle ?? null,
         })),
     }));
 }
 
 export async function fetchHealthFormOptions(): Promise<HealthFormOptions> {
-    const [institutions, programs, versions, pathways, blocks, themes] = await Promise.all([
+    const [institutions, programs, versions, pathways, blocks, courseUnits, themes] = await Promise.all([
         prisma.healthInstitution.findMany({ orderBy: { name: "asc" } }),
         prisma.healthProgram.findMany({ orderBy: { label: "asc" } }),
         prisma.healthProgramVersion.findMany({
@@ -317,6 +443,17 @@ export async function fetchHealthFormOptions(): Promise<HealthFormOptions> {
         }),
         prisma.healthPathway.findMany({ orderBy: [{ order: "asc" }, { name: "asc" }] }),
         prisma.healthBlock.findMany({ orderBy: [{ order: "asc" }, { title: "asc" }] }),
+        prisma.healthCourseUnit.findMany({
+            include: {
+                programVersion: {
+                    include: {
+                        institution: true,
+                    },
+                },
+                block: true,
+            },
+            orderBy: [{ order: "asc" }, { title: "asc" }],
+        }),
         prisma.theme.findMany({ orderBy: { title: "asc" } }),
     ]);
 
@@ -337,6 +474,19 @@ export async function fetchHealthFormOptions(): Promise<HealthFormOptions> {
             label: `${item.title} (${item.type})`,
             programVersionId: item.programVersionId,
             pathwayId: item.pathwayId ?? undefined,
+        })),
+        courseUnits: courseUnits.map((item) => ({
+            value: item.id,
+            label: [
+                item.programVersion.institution.shortName ?? item.programVersion.institution.name,
+                item.programVersion.label,
+                item.block.title,
+                item.code ?? "UE",
+                item.title,
+            ].join(" — "),
+            programVersionId: item.programVersionId,
+            pathwayId: item.pathwayId ?? undefined,
+            blockId: item.blockId,
         })),
         themes: themes.map((item) => ({ value: item.id, label: item.shortTitle ?? item.title })),
     };

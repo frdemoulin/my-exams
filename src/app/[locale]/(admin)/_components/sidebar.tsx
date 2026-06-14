@@ -127,6 +127,11 @@ export const Sidebar = () => {
           path: '/admin/health/course-units',
           icon: <FaHeartPulse className="mr-3" size={16} />
         },
+        {
+          title: 'EC',
+          path: '/admin/health/teaching-elements',
+          icon: <FaHeartPulse className="mr-3" size={16} />
+        },
       ]
     },
     {

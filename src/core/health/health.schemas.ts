@@ -122,13 +122,30 @@ export const HealthCourseUnitSchema = z.object({
     ...activeAndPublished,
 });
 
+export const HealthTeachingElementSchema = z.object({
+    courseUnitId: requiredText(),
+    code: optionalShortText,
+    title: requiredText(),
+    shortTitle: optionalShortText,
+    slug,
+    description: optionalText,
+    order,
+    coverageStatus: HealthCourseUnitCoverageStatusSchema.default("STRUCTURE_ONLY"),
+    sourceUrl: optionalUrl,
+    sourceLabel: optionalShortText,
+    sourceCheckedAt: z.date().optional(),
+    themeIds: z.array(z.string()).default([]),
+    ...activeAndPublished,
+});
+
 export type HealthEntity =
     | "institutions"
     | "programs"
     | "program-versions"
     | "pathways"
     | "blocks"
-    | "course-units";
+    | "course-units"
+    | "teaching-elements";
 
 export const HEALTH_ENTITIES: HealthEntity[] = [
     "institutions",
@@ -137,6 +154,7 @@ export const HEALTH_ENTITIES: HealthEntity[] = [
     "pathways",
     "blocks",
     "course-units",
+    "teaching-elements",
 ];
 
 export const isHealthEntity = (value: string): value is HealthEntity =>
@@ -200,5 +218,13 @@ export const healthEntityLabels: Record<
         indefinite: "une UE",
         definite: "l'UE",
         demonstrative: "cette UE",
+    },
+    "teaching-elements": {
+        singular: "élément constitutif",
+        plural: "Éléments constitutifs",
+        listTitle: "Liste des éléments constitutifs",
+        indefinite: "un élément constitutif",
+        definite: "l'élément constitutif",
+        demonstrative: "cet élément constitutif",
     },
 };

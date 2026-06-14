@@ -100,6 +100,20 @@ const fieldsByEntity: Record<HealthEntity, DetailField[]> = {
     { key: "themeIds", label: "Thèmes associés", optionList: "themes" },
     { key: "description", label: "Description", type: "multiline" },
   ],
+  "teaching-elements": [
+    { key: "title", label: "Titre" },
+    { key: "shortTitle", label: "Titre court" },
+    { key: "code", label: "Code" },
+    { key: "courseUnitId", label: "UE", option: "courseUnits" },
+    { key: "slug", label: "Slug" },
+    { key: "order", label: "Ordre" },
+    { key: "sourceLabel", label: "Libellé de la source" },
+    { key: "sourceUrl", label: "Source", type: "external-link" },
+    { key: "sourceCheckedAt", label: "Source vérifiée le", type: "date" },
+    { key: "coverageStatus", label: "Niveau de couverture", type: "coverage-status" },
+    { key: "themeIds", label: "Thèmes associés", optionList: "themes" },
+    { key: "description", label: "Description", type: "multiline" },
+  ],
 };
 
 export function getHealthRecordTitle(
@@ -113,6 +127,7 @@ export function getHealthRecordTitle(
     pathways: "name",
     blocks: "title",
     "course-units": "title",
+    "teaching-elements": "title",
   };
 
   return String(record[titleKey[entity]] ?? "");

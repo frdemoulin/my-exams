@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { FormEvent, useMemo, useState } from "react";
+import { format, isValid, parse } from "date-fns";
 import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/button";
+import { DatePicker } from "@/components/ui/date-picker";
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -35,6 +37,7 @@ const initialDefaults: Record<HealthEntity, HealthRecord> = {
     pathways: { programVersionId: "", name: "", slug: "", campus: "", parcoursupCode: "", sourceUrl: "", description: "", order: 0, isDefault: false, isActive: true, isPublished: false },
     blocks: { programVersionId: "", pathwayId: "", type: "HEALTH", title: "", slug: "", description: "", ects: "", order: 0, isActive: true, isPublished: false },
     "course-units": { programVersionId: "", pathwayId: "", blockId: "", code: "", title: "", shortTitle: "", slug: "", description: "", semester: "", ects: "", order: 0, isCommonToAllPathways: false, isHealthAccessRelevant: true, coverageStatus: "STRUCTURE_ONLY", sourceUrl: "", sourceLabel: "", sourceCheckedAt: "", themeIds: [], isActive: true, isPublished: false },
+    "teaching-elements": { courseUnitId: "", code: "", title: "", shortTitle: "", slug: "", description: "", order: 0, coverageStatus: "STRUCTURE_ONLY", sourceUrl: "", sourceLabel: "", sourceCheckedAt: "", themeIds: [], isActive: true, isPublished: false },
 };
 
 export function HealthForm({
@@ -51,6 +54,7 @@ export function HealthForm({
     const [submitting, setSubmitting] = useState(false);
     const programVersionId = String(values.programVersionId ?? "");
     const pathwayId = String(values.pathwayId ?? "");
+    const blockId = String(values.blockId ?? "");
 
     const pathwayOptions = useMemo(
         () => options.pathways.filter((option) => !programVersionId || option.programVersionId === programVersionId),
@@ -64,6 +68,16 @@ export function HealthForm({
                     (!pathwayId || !option.pathwayId || option.pathwayId === pathwayId)
             ),
         [options.blocks, pathwayId, programVersionId]
+    );
+    const courseUnitOptions = useMemo(
+        () =>
+            options.courseUnits.filter(
+                (option) =>
+                    (!programVersionId || option.programVersionId === programVersionId) &&
+                    (!pathwayId || !option.pathwayId || option.pathwayId === pathwayId) &&
+                    (!blockId || option.blockId === blockId)
+            ),
+        [options.courseUnits, blockId, pathwayId, programVersionId]
     );
 
     const set = (key: string, value: HealthRecord[string]) => setValues((current) => ({ ...current, [key]: value }));
@@ -91,9 +105,11 @@ export function HealthForm({
         }
     };
 
+    const fieldId = (key: string) => `health-${entity}-${key}`;
     const input = (key: string, label: string, type = "text", required = false) => (
-        <Field label={label} required={required}>
+        <Field label={label} required={required} htmlFor={fieldId(key)}>
             <Input
+                id={fieldId(key)}
                 name={key}
                 type={type}
                 required={required}
@@ -104,16 +120,18 @@ export function HealthForm({
     );
     const slugInput = (sourceKey: string, sourceLabel: string) => (
         <>
-            <Field label={sourceLabel} required>
+            <Field label={sourceLabel} required htmlFor={fieldId(sourceKey)}>
                 <Input
+                    id={fieldId(sourceKey)}
                     name={sourceKey}
                     required
                     value={String(values[sourceKey] ?? "")}
                     onChange={(event) => setSlugSource(sourceKey, event.target.value)}
                 />
             </Field>
-            <Field label="Slug" required>
+            <Field label="Slug" required htmlFor={fieldId("slug")}>
                 <Input
+                    id={fieldId("slug")}
                     name="slug"
                     required
                     value={String(values.slug ?? "")}
@@ -126,8 +144,9 @@ export function HealthForm({
         </>
     );
     const textarea = (key: string, label: string) => (
-        <Field label={label}>
+        <Field label={label} htmlFor={fieldId(key)}>
             <Textarea
+                id={fieldId(key)}
                 name={key}
                 className="min-h-24"
                 value={String(values[key] ?? "")}
@@ -136,13 +155,13 @@ export function HealthForm({
         </Field>
     );
     const select = (key: string, label: string, items: { value: string; label: string }[], required = false) => (
-        <Field label={label} required={required}>
+        <Field label={label} required={required} htmlFor={fieldId(key)}>
             <input type="hidden" name={key} value={String(values[key] ?? "")} />
             <Select
                 value={String(values[key] ?? "") || undefined}
                 onValueChange={(value) => set(key, value === "__none" ? "" : value)}
             >
-                <SelectTrigger>
+                <SelectTrigger id={fieldId(key)}>
                     <SelectValue placeholder="Sélectionner..." />
                 </SelectTrigger>
                 <SelectContent>
@@ -156,10 +175,20 @@ export function HealthForm({
             </Select>
         </Field>
     );
+    const datePicker = (key: string, label: string) => (
+        <DatePickerField
+            id={fieldId(key)}
+            label={label}
+            name={key}
+            value={String(values[key] ?? "")}
+            onChange={(value) => set(key, value)}
+        />
+    );
     const checkbox = (key: string, label: string, description: string) => (
-        <label className="flex items-start gap-3 text-sm">
+        <div className="flex items-start gap-3 text-sm">
             <input type="hidden" name={key} value="false" />
             <input
+                id={fieldId(key)}
                 name={key}
                 type="checkbox"
                 value="true"
@@ -168,10 +197,12 @@ export function HealthForm({
                 className="mt-0.5 h-4 w-4 rounded-xs border border-default-medium bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
             />
             <span className="space-y-1 leading-none">
-                <span className="block font-medium text-heading">{label}</span>
+                <Label htmlFor={fieldId(key)} className="block font-medium text-heading leading-none">
+                    {label}
+                </Label>
                 <span className="block text-xs leading-4 text-muted-foreground">{description}</span>
             </span>
-        </label>
+        </div>
     );
 
     return (
@@ -206,7 +237,7 @@ export function HealthForm({
                         {select("studyLevel", "Niveau", ["L1", "L2", "L3", "OTHER"].map((value) => ({ value, label: value })), true)}
                         {input("sourceUrl", "URL source", "url")}
                         {input("sourceLabel", "Libellé source")}
-                        {input("sourceCheckedAt", "Date de vérification", "date")}
+                        {datePicker("sourceCheckedAt", "Date de vérification")}
                         <div className="md:col-span-2">{textarea("notes", "Notes")}</div>
                     </>
                 ) : null}
@@ -224,7 +255,7 @@ export function HealthForm({
                 {entity === "blocks" ? (
                     <>
                         {select("programVersionId", "Maquette", options.programVersions, true)}
-                        {select("pathwayId", "Parcours optionnel", pathwayOptions)}
+                        {select("pathwayId", "Parcours", pathwayOptions)}
                         {select("type", "Type", ["HEALTH", "DISCIPLINARY", "TRANSVERSAL", "SPECIALTY", "OTHER"].map((value) => ({ value, label: value })), true)}
                         {slugInput("title", "Titre")}
                         {input("ects", "ECTS", "number")}
@@ -235,7 +266,7 @@ export function HealthForm({
                 {entity === "course-units" ? (
                     <>
                         {select("programVersionId", "Maquette", options.programVersions, true)}
-                        {select("pathwayId", "Parcours optionnel", pathwayOptions)}
+                        {select("pathwayId", "Parcours", pathwayOptions)}
                         {select("blockId", "Bloc", blockOptions, true)}
                         {input("code", "Code")}
                         {slugInput("title", "Titre")}
@@ -245,16 +276,43 @@ export function HealthForm({
                         {input("order", "Ordre", "number", true)}
                         {input("sourceUrl", "URL source", "url")}
                         {input("sourceLabel", "Libellé source")}
-                        {input("sourceCheckedAt", "Date de vérification", "date")}
+                        {datePicker("sourceCheckedAt", "Date de vérification")}
                         {select("coverageStatus", "Niveau de couverture", healthCourseUnitCoverageStatusValues.map((value) => ({ value, label: healthCourseUnitCoverageStatusLabels[value] })), true)}
                         <div className="md:col-span-2">
-                            <Field label="Thèmes associés">
+                            <Field label="Thèmes associés" htmlFor={fieldId("themeIds")}>
                                 <MultipleSelector
                                     options={options.themes}
                                     value={options.themes.filter((option) => ((values.themeIds as string[]) ?? []).includes(option.value))}
                                     onChange={(selected) => set("themeIds", selected.map((option) => option.value))}
                                     placeholder="Sélectionner des thèmes"
                                     emptyIndicator={<p className="py-4 text-center text-sm">Aucun thème trouvé.</p>}
+                                    inputProps={{ id: fieldId("themeIds") }}
+                                />
+                            </Field>
+                        </div>
+                        <div className="md:col-span-2">{textarea("description", "Description")}</div>
+                    </>
+                ) : null}
+                {entity === "teaching-elements" ? (
+                    <>
+                        {select("courseUnitId", "UE", courseUnitOptions.length > 0 ? courseUnitOptions : options.courseUnits, true)}
+                        {input("code", "Code")}
+                        {slugInput("title", "Titre")}
+                        {input("shortTitle", "Titre court")}
+                        {input("order", "Ordre", "number", true)}
+                        {input("sourceUrl", "URL source", "url")}
+                        {input("sourceLabel", "Libellé source")}
+                        {datePicker("sourceCheckedAt", "Date de vérification")}
+                        {select("coverageStatus", "Niveau de couverture", healthCourseUnitCoverageStatusValues.map((value) => ({ value, label: healthCourseUnitCoverageStatusLabels[value] })), true)}
+                        <div className="md:col-span-2">
+                            <Field label="Thèmes associés" htmlFor={fieldId("themeIds")}>
+                                <MultipleSelector
+                                    options={options.themes}
+                                    value={options.themes.filter((option) => ((values.themeIds as string[]) ?? []).includes(option.value))}
+                                    onChange={(selected) => set("themeIds", selected.map((option) => option.value))}
+                                    placeholder="Sélectionner des thèmes"
+                                    emptyIndicator={<p className="py-4 text-center text-sm">Aucun thème trouvé.</p>}
+                                    inputProps={{ id: fieldId("themeIds") }}
                                 />
                             </Field>
                         </div>
@@ -276,8 +334,8 @@ export function HealthForm({
                 {entity === "course-units"
                     ? checkbox("isHealthAccessRelevant", "Pertinente pour l'accès santé", "Cette UE contribue au parcours d'accès aux études de santé.")
                     : null}
-                {checkbox("isActive", `${healthEntityLabels[entity].singular} actif`, "Un élément inactif reste dans le référentiel mais n'est plus exploitable publiquement.")}
-                {checkbox("isPublished", `${healthEntityLabels[entity].singular} publié`, "La publication contrôle la visibilité de cet élément sur les pages publiques.")}
+                {checkbox("isActive", `${capitalizeLabel(healthEntityLabels[entity].singular)} actif`, "Un élément inactif reste dans le référentiel mais n'est plus exploitable publiquement.")}
+                {checkbox("isPublished", `${capitalizeLabel(healthEntityLabels[entity].singular)} publié`, "La publication contrôle la visibilité de cet élément sur les pages publiques.")}
             </div>
 
             <div className="mt-2 flex justify-end">
@@ -296,18 +354,53 @@ export function HealthForm({
 function Field({
     label,
     required = false,
+    htmlFor,
     children,
 }: {
     label: string;
     required?: boolean;
+    htmlFor?: string;
     children: React.ReactNode;
 }) {
+    const displayLabel = required || label.includes("(optionnel)") ? label : `${label} (optionnel)`;
+
     return (
         <div className="space-y-2">
-            <Label className={required ? 'after:ml-0.5 after:text-destructive after:content-["*"]' : undefined}>
-                {label}
-            </Label>
+            <Label htmlFor={htmlFor}>{displayLabel}</Label>
             {children}
         </div>
     );
+}
+
+function DatePickerField({
+    id,
+    label,
+    name,
+    value,
+    onChange,
+}: {
+    id: string;
+    label: string;
+    name: string;
+    value: string;
+    onChange: (value: string) => void;
+}) {
+    const selectedDate = value ? parse(value, "yyyy-MM-dd", new Date()) : undefined;
+    const pickerValue = Boolean(value) && !!selectedDate && isValid(selectedDate) ? selectedDate : undefined;
+
+    return (
+        <Field label={label} htmlFor={id}>
+            <input type="hidden" name={name} value={value} />
+            <DatePicker
+                id={id}
+                date={pickerValue}
+                onDateChange={(date) => onChange(date ? format(date, "yyyy-MM-dd") : "")}
+                placeholder="jj/mm/aaaa"
+            />
+        </Field>
+    );
+}
+
+function capitalizeLabel(value: string) {
+    return value.length > 0 ? `${value.charAt(0).toUpperCase()}${value.slice(1)}` : value;
 }
