@@ -94,8 +94,8 @@ test.describe("Admin - Référentiel santé", () => {
     await page.goto("/admin/health/institutions/add");
 
     await expect(page.getByRole("heading", { name: "Ajouter un établissement" })).toBeVisible();
-    await expect(page.getByText("établissement actif", { exact: true })).toBeVisible();
-    await expect(page.getByText("établissement publié", { exact: true })).toBeVisible();
+    await expect(page.getByText("Établissement actif", { exact: true })).toBeVisible();
+    await expect(page.getByText("Établissement publié", { exact: true })).toBeVisible();
     await expect(page.getByRole("link", { name: "Annuler" })).toBeVisible();
     await expect(page.locator('button[type="submit"]')).toBeVisible();
   });
