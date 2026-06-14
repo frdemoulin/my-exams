@@ -15,6 +15,7 @@ import {
     HealthPathwaySchema,
     HealthProgramSchema,
     HealthProgramVersionSchema,
+    HealthTeachingElementSchema,
     healthEntityLabels,
 } from "./health.schemas";
 
@@ -133,6 +134,23 @@ const parseInput = (entity: HealthEntity, formData: FormData) => {
                 isActive: bool(formData, "isActive", true),
                 isPublished: bool(formData, "isPublished"),
             });
+        case "teaching-elements":
+            return HealthTeachingElementSchema.parse({
+                courseUnitId: text(formData, "courseUnitId"),
+                code: optional(formData, "code"),
+                title: text(formData, "title"),
+                shortTitle: optional(formData, "shortTitle"),
+                slug: text(formData, "slug"),
+                description: optional(formData, "description"),
+                order: Number(text(formData, "order") || 0),
+                coverageStatus: text(formData, "coverageStatus"),
+                sourceUrl: optional(formData, "sourceUrl"),
+                sourceLabel: optional(formData, "sourceLabel"),
+                sourceCheckedAt: parseDate(formData, "sourceCheckedAt"),
+                themeIds: strings(formData, "themeIds"),
+                isActive: bool(formData, "isActive", true),
+                isPublished: bool(formData, "isPublished"),
+            });
     }
 };
 
@@ -164,6 +182,24 @@ const assertRelations = async (entity: HealthEntity, input: ReturnType<typeof pa
             throw new Error("Le parcours sélectionné n'appartient pas à cette maquette.");
         }
         if (themeCount !== (unit.themeIds as string[]).length) {
+            throw new Error("Un ou plusieurs thèmes sélectionnés n'existent plus.");
+        }
+    }
+
+    if (entity === "teaching-elements") {
+        const teachingElement = input as Prisma.HealthTeachingElementUncheckedCreateInput;
+        const [courseUnit, themeCount] = await Promise.all([
+            prisma.healthCourseUnit.findUnique({
+                where: { id: teachingElement.courseUnitId },
+                select: { id: true },
+            }),
+            prisma.theme.count({ where: { id: { in: teachingElement.themeIds as string[] } } }),
+        ]);
+
+        if (!courseUnit) {
+            throw new Error("L'UE sélectionnée n'existe plus.");
+        }
+        if (themeCount !== (teachingElement.themeIds as string[]).length) {
             throw new Error("Un ou plusieurs thèmes sélectionnés n'existent plus.");
         }
     }
@@ -257,6 +293,32 @@ const write = async (entity: HealthEntity, input: ReturnType<typeof parseInput>,
                 },
             });
         }
+        case "teaching-elements": {
+            const {
+                courseUnitId,
+                themeIds,
+                ...scalars
+            } = input as Prisma.HealthTeachingElementUncheckedCreateInput;
+
+            if (id) {
+                return prisma.healthTeachingElement.update({
+                    where: { id },
+                    data: {
+                        ...scalars,
+                        courseUnit: { connect: { id: courseUnitId } },
+                        themes: { set: (themeIds as string[]).map((themeId) => ({ id: themeId })) },
+                    },
+                });
+            }
+
+            return prisma.healthTeachingElement.create({
+                data: {
+                    ...scalars,
+                    courseUnit: { connect: { id: courseUnitId } },
+                    themes: { connect: (themeIds as string[]).map((themeId) => ({ id: themeId })) },
+                },
+            });
+        }
     }
 };
 
@@ -299,6 +361,9 @@ export async function deleteHealthEntity(entity: HealthEntity, id: string) {
             break;
         case "course-units":
             await prisma.healthCourseUnit.delete({ where: { id } });
+            break;
+        case "teaching-elements":
+            await prisma.healthTeachingElement.delete({ where: { id } });
             break;
     }
     revalidatePath(`/admin/health/${entity}`);

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Button } from "@/components/ui/button";
 import {
+    fetchHealthCourseUnitTeachingElements,
     fetchHealthFormOptions,
     fetchHealthProgramVersionBlocks,
     fetchHealthProgramVersionPathways,
@@ -12,6 +13,7 @@ import {
     healthEntityLabels,
     isHealthEntity,
 } from "@/core/health";
+import { CourseUnitDetailTabs } from "../../_components/course-unit-detail-tabs";
 import { getHealthRecordTitle, HealthDetail } from "../../_components/health-detail";
 import { ProgramVersionDetailTabs } from "../../_components/program-version-detail-tabs";
 
@@ -35,6 +37,10 @@ export default async function HealthEntityDetailPage({
                   fetchHealthProgramVersionPathways(id),
                   fetchHealthProgramVersionBlocks(id),
               ])
+            : null;
+    const teachingElements =
+        entity === "course-units"
+            ? await fetchHealthCourseUnitTeachingElements(id)
             : null;
 
     return (
@@ -61,6 +67,13 @@ export default async function HealthEntityDetailPage({
                     options={options}
                     pathways={programVersionTabs[0]}
                     blocks={programVersionTabs[1]}
+                />
+            ) : entity === "course-units" && teachingElements ? (
+                <CourseUnitDetailTabs
+                    courseUnitId={id}
+                    record={record}
+                    options={options}
+                    teachingElements={teachingElements}
                 />
             ) : (
                 <HealthDetail entity={entity} record={record} options={options} />

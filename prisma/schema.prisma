@@ -371,6 +371,7 @@ model HealthCourseUnit {
   sourceCheckedAt        DateTime?
   themeIds               String[]             @default([]) @db.ObjectId
   themes                 Theme[]              @relation(fields: [themeIds], references: [id])
+  teachingElements       HealthTeachingElement[]
   isActive               Boolean              @default(true)
   isPublished            Boolean              @default(false)
 
@@ -382,6 +383,34 @@ model HealthCourseUnit {
   @@index([pathwayId])
   @@index([blockId])
   @@index([semester])
+  @@index([isActive, isPublished])
+  @@index([order])
+}
+
+model HealthTeachingElement {
+  id              String                         @id @default(auto()) @map("_id") @db.ObjectId
+  courseUnitId    String                         @db.ObjectId
+  courseUnit      HealthCourseUnit               @relation(fields: [courseUnitId], references: [id], onDelete: Cascade)
+  code            String?
+  title           String
+  shortTitle      String?
+  slug            String
+  description     String?
+  order           Int                            @default(0)
+  coverageStatus  HealthCourseUnitCoverageStatus @default(STRUCTURE_ONLY)
+  sourceUrl       String?
+  sourceLabel     String?
+  sourceCheckedAt DateTime?
+  themeIds        String[]                       @default([]) @db.ObjectId
+  themes          Theme[]                        @relation(fields: [themeIds], references: [id])
+  isActive        Boolean                        @default(true)
+  isPublished     Boolean                        @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([courseUnitId, slug])
+  @@index([courseUnitId])
   @@index([isActive, isPublished])
   @@index([order])
 }
@@ -735,6 +764,9 @@ model Theme {
 
   healthCourseUnitIds String[]           @default([]) @db.ObjectId
   healthCourseUnits   HealthCourseUnit[] @relation(fields: [healthCourseUnitIds], references: [id])
+
+  healthTeachingElementIds String[]                @default([]) @db.ObjectId
+  healthTeachingElements   HealthTeachingElement[] @relation(fields: [healthTeachingElementIds], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

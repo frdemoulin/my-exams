@@ -18,6 +18,11 @@ export type HealthFormOptions = {
     programVersions: Option[];
     pathways: (Option & { programVersionId: string })[];
     blocks: (Option & { programVersionId: string; pathwayId?: string })[];
+    courseUnits: (Option & {
+        programVersionId: string;
+        pathwayId?: string;
+        blockId: string;
+    })[];
     themes: Option[];
 };
 

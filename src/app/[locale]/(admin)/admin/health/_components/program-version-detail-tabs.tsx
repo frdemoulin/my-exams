@@ -180,9 +180,43 @@ export function ProgramVersionDetailTabs({
                                                     {courseUnit.semester != null ? <span>Semestre {courseUnit.semester}</span> : null}
                                                     {courseUnit.ects != null ? <span>{courseUnit.ects} ECTS</span> : null}
                                                     <span>Ordre {courseUnit.order}</span>
+                                                    <span>{courseUnit.teachingElements.length} EC</span>
                                                 </div>
                                                 {courseUnit.description ? (
                                                     <p className="mt-2 text-sm text-body">{courseUnit.description}</p>
+                                                ) : null}
+                                                {courseUnit.teachingElements.length > 0 ? (
+                                                    <div className="mt-3 space-y-2">
+                                                        {courseUnit.teachingElements.map((teachingElement) => (
+                                                            <div
+                                                                key={teachingElement.id}
+                                                                className="rounded-base border border-default bg-background p-3"
+                                                            >
+                                                                <div className="flex flex-wrap items-center gap-2">
+                                                                    <span className="font-medium text-heading">
+                                                                        {teachingElement.title}
+                                                                    </span>
+                                                                    {teachingElement.code ? (
+                                                                        <span className="text-sm text-muted-foreground">
+                                                                            {teachingElement.code}
+                                                                        </span>
+                                                                    ) : null}
+                                                                    <Badge
+                                                                        variant={
+                                                                            teachingElement.isPublished
+                                                                                ? "default"
+                                                                                : "secondary"
+                                                                        }
+                                                                    >
+                                                                        {teachingElement.isPublished ? "Publié" : "Brouillon"}
+                                                                    </Badge>
+                                                                </div>
+                                                                <div className="mt-1 text-sm text-muted-foreground">
+                                                                    Ordre {teachingElement.order}
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
                                                 ) : null}
                                                 {courseUnit.themes.length > 0 ? (
                                                     <div className="mt-3 flex flex-wrap gap-2">

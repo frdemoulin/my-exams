@@ -74,6 +74,7 @@ export function AutoBreadcrumb() {
     'pathways': 'Parcours',
     'blocks': 'Blocs',
     'course-units': 'UE',
+    'teaching-elements': 'Éléments constitutifs',
     'divisions': 'Filières',
     'themes': 'Thèmes',
     'domains': 'Domaines',
