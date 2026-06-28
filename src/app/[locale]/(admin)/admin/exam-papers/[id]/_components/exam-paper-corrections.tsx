@@ -3,9 +3,10 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ExternalLink, Plus, Trash2 } from "lucide-react";
+import { ExternalLink, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { AddButton } from "@/components/shared/add-button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -312,10 +313,9 @@ export const ExamPaperCorrections = ({
                                 </Select>
                             </div>
                             <div className="flex items-end">
-                                <Button type="submit" variant="success" disabled={isSubmitting}>
-                                    <Plus className="mr-2 h-4 w-4" />
+                                <AddButton type="submit" disabled={isSubmitting}>
                                     Ajouter
-                                </Button>
+                                </AddButton>
                             </div>
                         </form>
                     )}

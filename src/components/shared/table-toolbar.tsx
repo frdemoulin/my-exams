@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { Plus, Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Search, X } from "lucide-react";
+import { AddButton } from "@/components/shared/add-button";
 import { InfoTooltip } from "@/components/shared/info-tooltip";
 
 type TableToolbarProps = {
@@ -56,12 +55,9 @@ export function TableToolbar({
           <div className="flex flex-wrap items-center gap-2">
             {actions}
             {addHref && addLabel ? (
-              <Button asChild size="sm" variant="success" className="font-semibold gap-2">
-                <Link href={addHref}>
-                  <Plus className="h-4 w-4" />
-                  {addLabel}
-                </Link>
-              </Button>
+              <AddButton href={addHref} size="sm">
+                {addLabel}
+              </AddButton>
             ) : null}
           </div>
         ) : null}

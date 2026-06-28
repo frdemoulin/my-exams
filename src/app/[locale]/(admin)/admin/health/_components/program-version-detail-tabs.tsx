@@ -11,6 +11,7 @@ import {
 } from "@/core/health";
 import { formatDateTime } from "@/lib/utils";
 
+import { healthCoverageStatusBadgeVariant, healthTabsTheme } from "./health-tabs.constants";
 import { HealthDetail } from "./health-detail";
 
 type ProgramVersionDetailTabsProps = {
@@ -18,43 +19,6 @@ type ProgramVersionDetailTabsProps = {
     options: HealthFormOptions;
     pathways: HealthProgramVersionPathwaySummary[];
     blocks: HealthProgramVersionBlockSummary[];
-};
-
-const coverageStatusVariant: Record<string, "default" | "outline" | "secondary"> = {
-    STRUCTURE_ONLY: "secondary",
-    THEMES_MAPPED: "outline",
-    QUESTIONS_AVAILABLE: "default",
-    READY: "default",
-};
-
-const programVersionTabsTheme = {
-    base: "flex flex-col gap-2",
-    tablist: {
-        base: "text-sm font-medium text-center text-body border-b border-default",
-        variant: {
-            underline: "flex flex-wrap -mb-px",
-        },
-        tabitem: {
-            base: "inline-block p-4 border-b border-transparent rounded-t-base focus:outline-none disabled:cursor-not-allowed disabled:text-body/50",
-            variant: {
-                underline: {
-                    base: "",
-                    active: {
-                        on: "text-fg-brand border-b border-brand rounded-t-base",
-                        off: "text-body hover:text-fg-brand hover:border-brand",
-                    },
-                },
-            },
-            icon: "mr-2 h-5 w-5",
-        },
-    },
-    tabitemcontainer: {
-        base: "",
-        variant: {
-            underline: "",
-        },
-    },
-    tabpanel: "pt-6",
 };
 
 export function ProgramVersionDetailTabs({
@@ -66,7 +30,7 @@ export function ProgramVersionDetailTabs({
     const totalCourseUnits = blocks.reduce((total, block) => total + block.courseUnits.length, 0);
 
     return (
-        <Tabs variant="underline" className="mt-6" theme={programVersionTabsTheme}>
+        <Tabs variant="underline" className="mt-6" theme={healthTabsTheme}>
             <TabItem active title="Informations générales">
                 <HealthDetail entity="program-versions" record={record} options={options} />
             </TabItem>
@@ -161,9 +125,7 @@ export function ProgramVersionDetailTabs({
                                                         </span>
                                                     ) : null}
                                                     <Badge
-                                                        variant={
-                                                            coverageStatusVariant[courseUnit.coverageStatus] ?? "secondary"
-                                                        }
+                                                        variant={healthCoverageStatusBadgeVariant[courseUnit.coverageStatus] ?? "secondary"}
                                                     >
                                                         {healthCourseUnitCoverageStatusLabels[courseUnit.coverageStatus]}
                                                     </Badge>

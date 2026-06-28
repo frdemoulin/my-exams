@@ -252,6 +252,32 @@ export type HealthCourseUnitTeachingElementSummary = {
     themes: { id: string; title: string; shortTitle: string | null }[];
 };
 
+export type HealthTeachingElementChapterAssignmentSummary = {
+    id: string;
+    chapterId: string;
+    chapterTitle: string;
+    chapterShortTitle: string | null;
+    chapterSlug: string;
+    chapterVertical: string;
+    chapterIsActive: boolean;
+    chapterIsPublished: boolean;
+    subjectTitle: string;
+    titleOverride: string | null;
+    shortTitleOverride: string | null;
+    displayGroupKey: string | null;
+    displayGroupLabel: string | null;
+    displayGroupOrder: number | null;
+    order: number;
+    coverageStatus: keyof typeof healthCourseUnitCoverageStatusLabels;
+    sourceLabel: string | null;
+    sourceUrl: string | null;
+    sourceCheckedAt: string | null;
+    isActive: boolean;
+    isPublished: boolean;
+    questionCount: number;
+    updatedAt: string;
+};
+
 export type HealthProgramVersionBlockSummary = {
     id: string;
     title: string;
@@ -430,6 +456,70 @@ export async function fetchHealthCourseUnitTeachingElements(
             title: theme.title,
             shortTitle: theme.shortTitle ?? null,
         })),
+    }));
+}
+
+export async function fetchHealthTeachingElementChapterAssignments(
+    teachingElementId: string,
+): Promise<HealthTeachingElementChapterAssignmentSummary[]> {
+    if (!/^[a-f0-9]{24}$/i.test(teachingElementId)) return [];
+
+    const records = await prisma.chapterAssignment.findMany({
+        where: {
+            contextType: "HEALTH_TEACHING_ELEMENT",
+            contextId: teachingElementId,
+        },
+        include: {
+            chapter: {
+                select: {
+                    id: true,
+                    title: true,
+                    shortTitle: true,
+                    slug: true,
+                    vertical: true,
+                    isActive: true,
+                    isPublished: true,
+                    subject: {
+                        select: {
+                            longDescription: true,
+                            shortDescription: true,
+                        },
+                    },
+                    _count: {
+                        select: {
+                            quizQuestions: true,
+                        },
+                    },
+                },
+            },
+        },
+        orderBy: [{ displayGroupOrder: "asc" }, { order: "asc" }, { updatedAt: "desc" }],
+    });
+
+    return records.map((item) => ({
+        id: item.id,
+        chapterId: item.chapter.id,
+        chapterTitle: item.chapter.title,
+        chapterShortTitle: item.chapter.shortTitle ?? null,
+        chapterSlug: item.chapter.slug,
+        chapterVertical: item.chapter.vertical,
+        chapterIsActive: item.chapter.isActive,
+        chapterIsPublished: item.chapter.isPublished,
+        subjectTitle: item.chapter.subject.longDescription ?? item.chapter.subject.shortDescription,
+        titleOverride: item.titleOverride ?? null,
+        shortTitleOverride: item.shortTitleOverride ?? null,
+        displayGroupKey: item.displayGroupKey ?? null,
+        displayGroupLabel: item.displayGroupLabel ?? null,
+        displayGroupOrder: item.displayGroupOrder ?? null,
+        order: item.order,
+        coverageStatus: item.coverageStatus ?? "STRUCTURE_ONLY",
+        sourceLabel: item.sourceLabel ?? null,
+        sourceUrl: item.sourceUrl ?? null,
+        sourceCheckedAt: item.sourceCheckedAt?.toISOString().slice(0, 10) ?? null,
+        isActive: item.isActive,
+        isPublished: item.isPublished,
+        questionCount: item.chapter._count.quizQuestions,
+        updatedAt: item.updatedAt.toISOString(),
     }));
 }
 

@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Plus, Trash2, Save } from 'lucide-react';
+import { Trash2, Save } from 'lucide-react';
+import { AddButton } from '@/components/shared/add-button';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -613,10 +614,9 @@ export function SplitExercisesForm({
 
       {/* Actions */}
       <div className="flex justify-between">
-        <Button variant="success" onClick={addExercise} disabled={isSubmitting}>
-          <Plus className="mr-2 h-4 w-4" />
+        <AddButton onClick={addExercise} disabled={isSubmitting}>
           Ajouter un exercice
-        </Button>
+        </AddButton>
 
         <div className="flex gap-2">
           <Button

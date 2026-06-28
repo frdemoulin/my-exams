@@ -27,6 +27,7 @@ async function main() {
         { seedHealth },
         { seedHealthCourseUnits },
         { seedHealthTeachingElements },
+        { seedHealthChapters },
         { seedChapterAssignments },
     ] = await Promise.all([
         import("@prisma/client"),
@@ -50,6 +51,7 @@ async function main() {
         import("./seeds/health.seed"),
         import("./seeds/health-course-units.seed"),
         import("./seeds/health-teaching-elements.seed"),
+        import("./seeds/health-chapters.seed"),
         import("./seeds/chapter-assignments.seed"),
     ]);
 
@@ -86,6 +88,7 @@ async function main() {
         await seedHealth(prisma);
         await seedHealthCourseUnits(prisma);
         await seedHealthTeachingElements(prisma);
+        await seedHealthChapters(prisma);
 
         // 8. Training (dépend de Subjects et Domains)
         await seedTraining(prisma);

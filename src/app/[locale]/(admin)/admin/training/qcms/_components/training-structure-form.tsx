@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowDown, ArrowUp, Plus, Trash2, Wand2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Trash2, Wand2 } from "lucide-react";
 import { useState } from "react";
 import {
   Controller,
@@ -17,6 +17,7 @@ import {
 } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { AddButton } from "@/components/shared/add-button";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import FormSubmitButton from "@/components/ui/form-submit-button";
@@ -509,14 +510,12 @@ function QuizEditor({
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button type="button" variant="outline" size="sm" onClick={appendQuestionItem}>
-              <Plus className="h-4 w-4" />
+            <AddButton type="button" size="sm" onClick={appendQuestionItem}>
               Ajouter une question seule
-            </Button>
-            <Button type="button" variant="outline" size="sm" onClick={appendGroupItem}>
-              <Plus className="h-4 w-4" />
+            </AddButton>
+            <AddButton type="button" size="sm" onClick={appendGroupItem}>
               Ajouter un bloc lié
-            </Button>
+            </AddButton>
           </div>
         </div>
 
@@ -755,15 +754,13 @@ function SectionEditor({
               Utilise des slugs stables: ils alimentent directement les URLs `?quiz=` publiques.
             </p>
           </div>
-          <Button
+          <AddButton
             type="button"
-            variant="outline"
             size="sm"
             onClick={() => quizzesFieldArray.append(buildEmptyQuiz(quizzesFieldArray.fields.length + 1))}
           >
-            <Plus className="h-4 w-4" />
             Ajouter un quiz
-          </Button>
+          </AddButton>
         </div>
 
         {quizzesFieldArray.fields.length === 0 ? (
@@ -892,14 +889,12 @@ export function TrainingStructureForm({
 
         <form className="space-y-6" noValidate onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button type="button" variant="outline" onClick={() => appendSection("THEME")}>
-              <Plus className="h-4 w-4" />
+            <AddButton type="button" onClick={() => appendSection("THEME")}>
               Ajouter un grand thème
-            </Button>
-            <Button type="button" variant="outline" onClick={() => appendSection("SYNTHESIS")}>
-              <Plus className="h-4 w-4" />
+            </AddButton>
+            <AddButton type="button" onClick={() => appendSection("SYNTHESIS")}>
               Ajouter une synthèse
-            </Button>
+            </AddButton>
           </div>
 
           {sectionFieldArray.fields.length === 0 ? (

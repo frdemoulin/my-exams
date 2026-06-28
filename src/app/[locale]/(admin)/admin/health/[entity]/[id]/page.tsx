@@ -10,12 +10,14 @@ import {
     fetchHealthProgramVersionBlocks,
     fetchHealthProgramVersionPathways,
     fetchHealthRecord,
+    fetchHealthTeachingElementChapterAssignments,
     healthEntityLabels,
     isHealthEntity,
 } from "@/core/health";
 import { CourseUnitDetailTabs } from "../../_components/course-unit-detail-tabs";
 import { getHealthRecordTitle, HealthDetail } from "../../_components/health-detail";
 import { ProgramVersionDetailTabs } from "../../_components/program-version-detail-tabs";
+import { TeachingElementDetailTabs } from "../../_components/teaching-element-detail-tabs";
 
 export default async function HealthEntityDetailPage({
     params,
@@ -41,6 +43,10 @@ export default async function HealthEntityDetailPage({
     const teachingElements =
         entity === "course-units"
             ? await fetchHealthCourseUnitTeachingElements(id)
+            : null;
+    const chapterAssignments =
+        entity === "teaching-elements"
+            ? await fetchHealthTeachingElementChapterAssignments(id)
             : null;
 
     return (
@@ -75,8 +81,16 @@ export default async function HealthEntityDetailPage({
                     options={options}
                     teachingElements={teachingElements}
                 />
+            ) : entity === "teaching-elements" && chapterAssignments ? (
+                <TeachingElementDetailTabs
+                    record={record}
+                    options={options}
+                    chapterAssignments={chapterAssignments}
+                />
             ) : (
-                <HealthDetail entity={entity} record={record} options={options} />
+                <div className="mt-6">
+                    <HealthDetail entity={entity} record={record} options={options} />
+                </div>
             )}
         </div>
     );

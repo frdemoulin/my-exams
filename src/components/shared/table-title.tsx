@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { AddButton } from "@/components/shared/add-button";
 
 export function TableTitle({
     title,
@@ -18,17 +17,9 @@ export function TableTitle({
         <div className="w-full flex justify-between items-baseline">
             <h1 className="text-2xl font-bold text-fg-brand">{title}</h1>
             {showButton ? (
-                <Button
-                    asChild
-                    variant="success"
-                >
-                    <Link
-                        href={buttonPath}
-                        id={buttonId}
-                    >
-                        {buttonLabel}
-                    </Link>
-                </Button>
+                <AddButton href={buttonPath} id={buttonId}>
+                    {buttonLabel}
+                </AddButton>
             ) : null}
         </div>
     )

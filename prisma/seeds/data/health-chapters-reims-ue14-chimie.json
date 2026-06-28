@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "label": "Chapitres — Reims UE14 — EC Chimie",
+    "description": "Chapitres de l'EC Chimie de l'UE14 Santé de Reims, structurés en chimie générale / atomistique et chimie organique.",
+    "academicYear": "2025-2026",
+    "sourceLabel": "Capture des fichiers de cours UE14 Chimie Reims",
+    "sourceCheckedAt": "2026-06-18"
+  },
+  "context": {
+    "institutionNameContains": "Reims Champagne-Ardenne",
+    "programVersionSlug": "las-2025-2026",
+    "courseUnitSlug": "ue14-biochimie-biologie-cellulaire-chimie",
+    "teachingElementSlug": "chimie"
+  },
+  "displayGroups": [
+    {
+      "key": "chimie-generale-atomistique",
+      "label": "Chimie générale / atomistique",
+      "order": 1
+    },
+    {
+      "key": "chimie-organique",
+      "label": "Chimie organique",
+      "order": 2
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Éléments chimiques et classification périodique",
+      "shortTitle": "Éléments chimiques",
+      "slug": "elements-chimiques-classification-periodique",
+      "description": "Éléments chimiques, classification périodique et propriétés associées.",
+      "order": 1,
+      "displayGroupKey": "chimie-generale-atomistique",
+      "displayGroupLabel": "Chimie générale / atomistique",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "UE14-Chimie-1.1-Éléments-chimiques-Classification.pdf"
+    },
+    {
+      "title": "Formation des ions, électronégativité et liaisons chimiques",
+      "shortTitle": "Ions et liaisons chimiques",
+      "slug": "formation-ions-electronegativite-liaisons-chimiques",
+      "description": "Formation des ions, électronégativité et grands types de liaisons chimiques.",
+      "order": 2,
+      "displayGroupKey": "chimie-generale-atomistique",
+      "displayGroupLabel": "Chimie générale / atomistique",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "UE14-Chimie-1.2-Formation-des-ions-Électronégativité-Liaisons-chimiques.pdf"
+    },
+    {
+      "title": "Orbitales moléculaires",
+      "shortTitle": "Orbitales moléculaires",
+      "slug": "orbitales-moleculaires",
+      "description": "Notions d'orbitales moléculaires et description des liaisons.",
+      "order": 3,
+      "displayGroupKey": "chimie-generale-atomistique",
+      "displayGroupLabel": "Chimie générale / atomistique",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "UE14-Chimie-1.3-Orbitales-moléculaires.pdf"
+    },
+    {
+      "title": "Forces intermoléculaires",
+      "shortTitle": "Forces intermoléculaires",
+      "slug": "forces-intermoleculaires",
+      "description": "Interactions et forces intermoléculaires.",
+      "order": 4,
+      "displayGroupKey": "chimie-generale-atomistique",
+      "displayGroupLabel": "Chimie générale / atomistique",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "UE14-Chimie-1.4-Forces-intermoléculaires.pdf"
+    },
+    {
+      "title": "Nomenclature chimique et fonctions organiques",
+      "shortTitle": "Nomenclature chimique",
+      "slug": "nomenclature-chimique-fonctions-organiques",
+      "description": "Nomenclature chimique et notion de fonction chimique.",
+      "order": 5,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.1-Nomenclature-chimique-Notion-de-fonction-chimique.pdf"
+    },
+    {
+      "title": "Isomérie et énantiomérie",
+      "shortTitle": "Isomérie et énantiomérie",
+      "slug": "isomerie-enantiomerie",
+      "description": "Isomérie, stéréoisomérie et énantiomérie.",
+      "order": 6,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.2-Isomérie-et-Enantiomérie.pdf"
+    },
+    {
+      "title": "Hydrocarbures",
+      "shortTitle": "Hydrocarbures",
+      "slug": "hydrocarbures",
+      "description": "Structure, nomenclature et propriétés des hydrocarbures.",
+      "order": 7,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.3-Les-hydrocarbures.pdf"
+    },
+    {
+      "title": "Dérivés monofonctionnels : alcools, amines et dérivés halogénés",
+      "shortTitle": "Dérivés monofonctionnels",
+      "slug": "derives-monofonctionnels-alcools-amines-halogenes",
+      "description": "Alcools, amines, dérivés halogénés et autres dérivés monofonctionnels.",
+      "order": 8,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.4-Les-dérivés-monofonctionnels-à-fonction-alcool-amine-halogénée.pdf"
+    },
+    {
+      "title": "Esters et amides",
+      "shortTitle": "Esters et amides",
+      "slug": "esters-amides",
+      "description": "Structure, nomenclature et propriétés des esters et amides.",
+      "order": 9,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.5-Les-esters-et-amides.pdf"
+    },
+    {
+      "title": "Aldéhydes et cétones",
+      "shortTitle": "Aldéhydes et cétones",
+      "slug": "aldehydes-cetones",
+      "description": "Structure, nomenclature et propriétés des aldéhydes et cétones.",
+      "order": 10,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.6-Les-aldéhydes-et-les-cétones.pdf"
+    },
+    {
+      "title": "Acides carboxyliques et fonctions diverses",
+      "shortTitle": "Acides et fonctions diverses",
+      "slug": "acides-carboxyliques-fonctions-diverses",
+      "description": "Acides carboxyliques et autres fonctions organiques diverses.",
+      "order": 11,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.7-Les-acides-et-divers.pdf"
+    }
+  ]
+}
