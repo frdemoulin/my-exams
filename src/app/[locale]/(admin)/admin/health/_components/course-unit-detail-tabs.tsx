@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { TabItem, Tabs } from "flowbite-react";
-import { Plus } from "lucide-react";
 
+import { AddButton } from "@/components/shared/add-button";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
     HealthCourseUnitTeachingElementSummary,
@@ -14,6 +13,7 @@ import {
     healthCourseUnitCoverageStatusLabels,
 } from "@/core/health";
 
+import { healthCoverageStatusBadgeVariant, healthTabsTheme } from "./health-tabs.constants";
 import { HealthDetail } from "./health-detail";
 
 type CourseUnitDetailTabsProps = {
@@ -21,43 +21,6 @@ type CourseUnitDetailTabsProps = {
     record: HealthRecord;
     options: HealthFormOptions;
     teachingElements: HealthCourseUnitTeachingElementSummary[];
-};
-
-const coverageStatusVariant: Record<string, "default" | "outline" | "secondary"> = {
-    STRUCTURE_ONLY: "secondary",
-    THEMES_MAPPED: "outline",
-    QUESTIONS_AVAILABLE: "default",
-    READY: "default",
-};
-
-const healthTabsTheme = {
-    base: "flex flex-col gap-2",
-    tablist: {
-        base: "text-sm font-medium text-center text-body border-b border-default",
-        variant: {
-            underline: "flex flex-wrap -mb-px",
-        },
-        tabitem: {
-            base: "inline-block p-4 border-b border-transparent rounded-t-base focus:outline-none disabled:cursor-not-allowed disabled:text-body/50",
-            variant: {
-                underline: {
-                    base: "",
-                    active: {
-                        on: "text-fg-brand border-b border-brand rounded-t-base",
-                        off: "text-body hover:text-fg-brand hover:border-brand",
-                    },
-                },
-            },
-            icon: "mr-2 h-5 w-5",
-        },
-    },
-    tabitemcontainer: {
-        base: "",
-        variant: {
-            underline: "",
-        },
-    },
-    tabpanel: "pt-6",
 };
 
 export function CourseUnitDetailTabs({
@@ -84,12 +47,9 @@ export function CourseUnitDetailTabs({
                         <div>
                             <CardTitle>Éléments constitutifs</CardTitle>
                         </div>
-                        <Button asChild variant="success" className="font-semibold">
-                            <Link href={`/admin/health/teaching-elements/add?courseUnitId=${courseUnitId}`}>
-                                <Plus className="h-4 w-4" />
-                                Ajouter un EC à cette UE
-                            </Link>
-                        </Button>
+                        <AddButton href={`/admin/health/teaching-elements/add?courseUnitId=${courseUnitId}`}>
+                            Ajouter un EC à cette UE
+                        </AddButton>
                     </CardHeader>
                     <CardContent>
                         {teachingElements.length > 0 ? (
@@ -116,7 +76,8 @@ export function CourseUnitDetailTabs({
                                                 ) : null}
                                                 <Badge
                                                     variant={
-                                                        coverageStatusVariant[teachingElement.coverageStatus] ?? "secondary"
+                                                        healthCoverageStatusBadgeVariant[teachingElement.coverageStatus] ??
+                                                        "secondary"
                                                     }
                                                 >
                                                     {healthCourseUnitCoverageStatusLabels[teachingElement.coverageStatus]}

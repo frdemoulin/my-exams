@@ -7,8 +7,8 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import { deleteQuizQuestion, type ChapterDetail } from "@/core/chapter";
+import { AddButton } from "@/components/shared/add-button";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import {
   DropdownMenu,
@@ -128,9 +128,9 @@ export function ChapterQuestionsTable({
               rows={sortedRows}
               sheetName="Questions"
             />
-            <Button asChild>
-              <Link href={addHref}>Ajouter une question</Link>
-            </Button>
+            <AddButton href={addHref} size="sm">
+              Ajouter une question
+            </AddButton>
           </div>
         </div>
 
@@ -157,9 +157,9 @@ export function ChapterQuestionsTable({
             rows={sortedRows}
             sheetName="Questions"
           />
-          <Button asChild>
-            <Link href={addHref}>Ajouter une question</Link>
-          </Button>
+          <AddButton href={addHref} size="sm">
+            Ajouter une question
+          </AddButton>
         </div>
       </div>
 

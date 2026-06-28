@@ -143,7 +143,7 @@ export function HealthDetail({
   options: HealthFormOptions;
 }) {
   return (
-    <div className="mt-6 grid gap-4">
+    <div className="grid gap-4">
       <Card>
         <CardHeader>
           <CardTitle>Informations générales</CardTitle>

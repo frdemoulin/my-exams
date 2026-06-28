@@ -167,7 +167,50 @@ async function resolveChapterAssignmentContextLabel(
       return parts.join(" — ");
     }
     case "HEALTH_TEACHING_ELEMENT":
-      return `EC santé indisponible (${contextId})`;
+      {
+        const teachingElement = await prisma.healthTeachingElement.findUnique({
+          where: { id: contextId },
+          select: {
+            title: true,
+            code: true,
+            courseUnit: {
+              select: {
+                title: true,
+                code: true,
+                programVersion: {
+                  select: {
+                    label: true,
+                    institution: {
+                      select: {
+                        name: true,
+                        shortName: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        if (!teachingElement) {
+          return `EC santé introuvable (${contextId})`;
+        }
+
+        const institutionLabel =
+          teachingElement.courseUnit.programVersion.institution.shortName ??
+          teachingElement.courseUnit.programVersion.institution.name;
+        const parts = [
+          institutionLabel,
+          teachingElement.courseUnit.programVersion.label,
+          teachingElement.courseUnit.code ? `${teachingElement.courseUnit.code}` : null,
+          teachingElement.courseUnit.title,
+          teachingElement.code ? `${teachingElement.code}` : null,
+          teachingElement.title,
+        ].filter(Boolean);
+
+        return parts.join(" — ");
+      }
     case "BTS_TEACHING":
       return `Enseignement BTS indisponible (${contextId})`;
     case "GENERIC":

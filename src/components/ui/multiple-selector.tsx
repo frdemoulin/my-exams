@@ -432,7 +432,7 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
           handleKeyDown(e);
           commandProps?.onKeyDown?.(e);
         }}
-        className={cn('h-auto overflow-visible bg-transparent', commandProps?.className)}
+        className={cn('h-auto overflow-visible rounded-none bg-transparent text-body', commandProps?.className)}
         shouldFilter={
           commandProps?.shouldFilter !== undefined ? commandProps.shouldFilter : !onSearch
         } // When onSearch is provided, we don't want to filter the options. You can still override it.
@@ -440,10 +440,12 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
       >
         <div
           className={cn(
-            'min-h-10 rounded-md border border-input text-sm ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2',
+            'w-full rounded-base border border-default bg-neutral-primary-soft text-sm text-body transition-colors focus-within:border-brand focus-within:outline-none focus-within:ring-2 focus-within:ring-brand',
             {
-              'px-3 py-2': selected.length !== 0,
-              'cursor-text': !disabled && selected.length !== 0,
+              'flex h-10 items-center px-3 py-2': selected.length === 0,
+              'min-h-10 px-3 py-2': selected.length !== 0,
+              'cursor-text': !disabled,
+              'opacity-50 cursor-not-allowed': disabled,
             },
             className,
           )}
@@ -452,7 +454,7 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
             inputRef?.current?.focus();
           }}
         >
-          <div className="relative flex flex-wrap gap-1">
+          <div className="relative flex w-full flex-wrap items-center gap-1">
             {selected.map((option) => {
               return (
                 <Badge
@@ -510,10 +512,9 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
               }}
               placeholder={hidePlaceholderWhenSelected && selected.length !== 0 ? '' : placeholder}
               className={cn(
-                'flex-1 bg-transparent outline-none placeholder:text-muted-foreground',
+                'min-w-0 flex-1 !rounded-none !border-0 !bg-transparent !p-0 !text-sm text-body !shadow-none !outline-none !ring-0 placeholder:!text-sm placeholder:text-body/70 focus:!border-0 focus:!ring-0',
                 {
                   'w-full': hidePlaceholderWhenSelected,
-                  'px-3 py-2': selected.length === 0,
                   'ml-1': selected.length !== 0,
                 },
                 inputProps?.className,
@@ -541,7 +542,7 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
         <div className="relative">
           {open && (
             <CommandList
-              className="absolute top-1 z-10 w-full rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in"
+              className="absolute top-1 z-10 w-full overflow-hidden rounded-base border border-default bg-neutral-primary-soft text-body shadow-lg outline-none animate-in"
               onMouseLeave={() => {
                 setOnScrollbar(false);
               }}

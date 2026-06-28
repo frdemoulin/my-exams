@@ -827,6 +827,9 @@ model ChapterAssignment {
   shortTitleOverride String?
   slugOverride       String?
   descriptionOverride String?
+  displayGroupKey    String?
+  displayGroupLabel  String?
+  displayGroupOrder  Int?
 
   order Int @default(0)
 

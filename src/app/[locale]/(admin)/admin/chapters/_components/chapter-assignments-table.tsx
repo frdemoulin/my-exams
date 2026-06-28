@@ -7,13 +7,13 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 import { deleteChapterAssignment, type ChapterDetail } from "@/core/chapter";
+import { AddButton } from "@/components/shared/add-button";
 import {
   chapterAssignmentContextTypeLabels,
   contentVerticalLabels,
 } from "@/core/chapter/chapter.constants";
 import { healthCourseUnitCoverageStatusLabels } from "@/core/health/health.schemas";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import {
   DropdownMenu,
@@ -126,9 +126,9 @@ export function ChapterAssignmentsTable({
               Rattache ce chapitre à un contexte pédagogique précis.
             </p>
           </div>
-          <Button asChild>
-            <Link href={addHref}>Ajouter un rattachement</Link>
-          </Button>
+          <AddButton href={addHref} size="sm">
+            Ajouter un rattachement
+          </AddButton>
         </div>
 
         <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
@@ -154,9 +154,9 @@ export function ChapterAssignmentsTable({
             rows={sortedRows}
             sheetName="Rattachements"
           />
-          <Button asChild>
-            <Link href={addHref}>Ajouter un rattachement</Link>
-          </Button>
+          <AddButton href={addHref} size="sm">
+            Ajouter un rattachement
+          </AddButton>
         </div>
       </div>
 

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Plus, Save, Trash2 } from "lucide-react";
+import { Save, Trash2 } from "lucide-react";
 
+import { AddButton } from "@/components/shared/add-button";
 import { updateDomainScopes } from "@/core/domain";
 import type { Option } from "@/types/option";
 import { Button } from "@/components/ui/button";
@@ -116,10 +117,9 @@ export const DomainScopesForm = ({
           <p className="text-xs text-muted-foreground">
             Définis où ce domaine s&apos;applique (diplôme, niveau, enseignement, programme).
           </p>
-          <Button type="button" variant="success" size="sm" onClick={addScope}>
-            <Plus className="h-4 w-4" />
+          <AddButton type="button" size="sm" onClick={addScope}>
             Ajouter un scope
-          </Button>
+          </AddButton>
         </div>
 
         {rows.length === 0 ? (

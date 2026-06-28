@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useState } from "react";
-import { Plus, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
+import { AddButton } from "@/components/shared/add-button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -287,10 +288,9 @@ export const DomainForm = ({
                 Associe le domaine à un diplôme / niveau / enseignement / programme (optionnel).
               </p>
             </div>
-            <Button type="button" variant="success" size="sm" onClick={addScope}>
-              <Plus className="h-4 w-4" />
+            <AddButton type="button" size="sm" onClick={addScope}>
               Ajouter un scope
-            </Button>
+            </AddButton>
           </div>
 
           {scopes.length === 0 ? (
