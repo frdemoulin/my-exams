@@ -1,3 +1,9 @@
+## [1.6.21](https://github.com/frdemoulin/my-exams/compare/v1.6.20...v1.6.21) (2026-06-28)
+
+### Bug Fixes
+
+* factorisation du bouton d'ajout ([d96e272](https://github.com/frdemoulin/my-exams/commit/d96e27237d8c37afa9f169fc45ed95919375966f))
+
 ## [1.6.20](https://github.com/frdemoulin/my-exams/compare/v1.6.19...v1.6.20) (2026-06-14)
 
 ### Bug Fixes
