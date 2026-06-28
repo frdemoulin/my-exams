@@ -1,3 +1,9 @@
+## [1.6.22](https://github.com/frdemoulin/my-exams/compare/v1.6.21...v1.6.22) (2026-06-28)
+
+### Bug Fixes
+
+* création de la migration des données de santé ([0b066e7](https://github.com/frdemoulin/my-exams/commit/0b066e71f7755ae62bbeb7c0a43d4206184a6051))
+
 ## [1.6.21](https://github.com/frdemoulin/my-exams/compare/v1.6.20...v1.6.21) (2026-06-28)
 
 ### Bug Fixes
