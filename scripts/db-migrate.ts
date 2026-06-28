@@ -42,6 +42,32 @@ type Migration = {
   up: (prisma: PrismaClient) => Promise<void>;
 };
 
+function resolveMigrationModule(rawModule: unknown): Partial<MigrationModule> {
+  if (!rawModule || typeof rawModule !== "object") {
+    return {};
+  }
+
+  const candidates = [
+    rawModule,
+    (rawModule as { default?: unknown }).default,
+    (rawModule as { ["module.exports"]?: unknown })["module.exports"],
+  ];
+
+  for (const candidate of candidates) {
+    if (!candidate || typeof candidate !== "object") continue;
+    const record = candidate as Partial<MigrationModule>;
+    if (
+      typeof record.up === "function" ||
+      typeof record.id === "string" ||
+      typeof record.description === "string"
+    ) {
+      return record;
+    }
+  }
+
+  return {};
+}
+
 function getErrorCode(err: unknown): string | undefined {
   if (typeof err !== "object" || err === null) return undefined;
   const record = err as Record<string, unknown>;
@@ -97,7 +123,7 @@ async function loadMigrations(migrationsDir: string): Promise<Migration[]> {
     for (const fileName of migrationFiles) {
       const filePath = path.join(migrationsDir, fileName);
       const checksum = sha256(await fs.promises.readFile(filePath));
-      const mod = (await import(pathToFileURL(filePath).href)) as Partial<MigrationModule>;
+      const mod = resolveMigrationModule(await import(pathToFileURL(filePath).href));
       const up = mod.up;
 
       if (typeof up !== "function") {
