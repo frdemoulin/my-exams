@@ -56,6 +56,7 @@ export default async function AddChapterAssignmentPage({ params }: AddChapterAss
         }}
         subjects={options.subjects}
         healthCourseUnits={options.healthCourseUnits}
+        healthTeachingElements={options.healthTeachingElements}
       />
     </div>
   );

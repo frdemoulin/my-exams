@@ -108,9 +108,17 @@ async function ensureChapterAssignmentContextExists(
       return courseUnit;
     }
     case "HEALTH_TEACHING_ELEMENT":
-      throw new Error(
-        "Le modèle HealthTeachingElement n'est pas encore disponible dans cette branche"
-      );
+      {
+        const teachingElement = await prisma.healthTeachingElement.findUnique({
+          where: { id: contextId },
+          select: { id: true, title: true },
+        });
+
+        if (!teachingElement) {
+          throw new Error("EC santé de contexte introuvable");
+        }
+        return teachingElement;
+      }
     case "BTS_TEACHING":
       throw new Error("Le modèle BTS n'est pas encore disponible dans cette branche");
     case "GENERIC":

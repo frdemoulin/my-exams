@@ -93,6 +93,11 @@ function HealthActions({
         <DropdownMenuItem className={actionMenuItem}>
           <Link href={`/admin/health/${entity}/${row.id}`}>Voir</Link>
         </DropdownMenuItem>
+        {entity === "institutions" ? (
+          <DropdownMenuItem className={actionMenuItem}>
+            <Link href={`/admin/health/institutions/${row.id}/content`}>Contenu</Link>
+          </DropdownMenuItem>
+        ) : null}
         <DropdownMenuItem className={actionMenuItem}>
           <Link href={`/admin/health/${entity}/${row.id}/edit`}>Éditer</Link>
         </DropdownMenuItem>

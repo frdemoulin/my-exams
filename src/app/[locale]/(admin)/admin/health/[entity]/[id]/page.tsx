@@ -59,6 +59,11 @@ export default async function HealthEntityDetailPage({
                         <Button asChild variant="outline">
                             <Link href={`/admin/health/${entity}`}>Retour</Link>
                         </Button>
+                        {entity === "institutions" ? (
+                            <Button asChild variant="outline">
+                                <Link href={`/admin/health/institutions/${id}/content`}>Contenu</Link>
+                            </Button>
+                        ) : null}
                         <Button asChild variant="warning" size="icon" aria-label={`Éditer ${healthEntityLabels[entity].singular}`}>
                             <Link href={`/admin/health/${entity}/${id}/edit`}>
                                 <Pencil className="h-4 w-4" />
