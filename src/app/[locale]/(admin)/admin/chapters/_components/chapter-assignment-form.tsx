@@ -48,6 +48,7 @@ interface ChapterAssignmentFormProps {
   };
   subjects: Option[];
   healthCourseUnits: Option[];
+  healthTeachingElements: Option[];
   cancelHref?: string;
   redirectTo?: string | null;
   revalidatePaths?: string[];
@@ -58,7 +59,7 @@ const getAllowedContextTypes = (vertical: CreateChapterAssignmentValues["vertica
     case "SECONDARY":
       return ["SUBJECT"] as const;
     case "HEALTH":
-      return ["HEALTH_COURSE_UNIT"] as const;
+      return ["HEALTH_COURSE_UNIT", "HEALTH_TEACHING_ELEMENT"] as const;
     case "BTS":
       return ["BTS_TEACHING"] as const;
     case "COMMON":
@@ -73,6 +74,7 @@ export function ChapterAssignmentForm({
   initialData,
   subjects,
   healthCourseUnits,
+  healthTeachingElements,
   cancelHref = `/admin/chapters/${initialData.chapterId}`,
   redirectTo,
   revalidatePaths,
@@ -103,6 +105,13 @@ export function ChapterAssignmentForm({
     () =>
       [...healthCourseUnits].sort((a, b) => a.label.localeCompare(b.label, "fr", { sensitivity: "base" })),
     [healthCourseUnits]
+  );
+  const healthTeachingElementOptions = useMemo(
+    () =>
+      [...healthTeachingElements].sort((a, b) =>
+        a.label.localeCompare(b.label, "fr", { sensitivity: "base" })
+      ),
+    [healthTeachingElements]
   );
 
   const form = useForm<CreateChapterAssignmentValues>({
@@ -230,6 +239,33 @@ export function ChapterAssignmentForm({
                     </SelectTrigger>
                     <SelectContent>
                       {healthCourseUnitOptions.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        );
+      case "HEALTH_TEACHING_ELEMENT":
+        return (
+          <FormField
+            name="contextId"
+            control={control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Contexte</FormLabel>
+                <FormControl>
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Sélectionner un EC santé" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {healthTeachingElementOptions.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>

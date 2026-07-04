@@ -69,6 +69,7 @@ export default async function EditChapterAssignmentPage({
         }}
         subjects={options.subjects}
         healthCourseUnits={options.healthCourseUnits}
+        healthTeachingElements={options.healthTeachingElements}
       />
     </div>
   );

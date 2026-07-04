@@ -476,8 +476,9 @@ export async function fetchQuizQuestionChapterOptions(): Promise<Option[]> {
 export async function fetchChapterAssignmentFormOptions(): Promise<{
   subjects: Option[];
   healthCourseUnits: Option[];
+  healthTeachingElements: Option[];
 }> {
-  const [subjects, healthCourseUnits] = await Promise.all([
+  const [subjects, healthCourseUnits, healthTeachingElements] = await Promise.all([
     prisma.subject.findMany({
       orderBy: [{ longDescription: "asc" }],
       select: {
@@ -493,6 +494,20 @@ export async function fetchChapterAssignmentFormOptions(): Promise<{
           },
         },
         block: true,
+      },
+      orderBy: [{ order: "asc" }, { title: "asc" }],
+    }),
+    prisma.healthTeachingElement.findMany({
+      include: {
+        courseUnit: {
+          include: {
+            programVersion: {
+              include: {
+                institution: true,
+              },
+            },
+          },
+        },
       },
       orderBy: [{ order: "asc" }, { title: "asc" }],
     }),
@@ -543,6 +558,51 @@ export async function fetchChapterAssignmentFormOptions(): Promise<{
           courseUnit.block.title,
           courseUnit.code ?? null,
           courseUnit.title,
+        ]
+        .filter(Boolean)
+        .join(" — "),
+      })),
+    healthTeachingElements: healthTeachingElements
+      .sort((left, right) => {
+        const byInstitution = (left.courseUnit.programVersion.institution.shortName ?? left.courseUnit.programVersion.institution.name).localeCompare(
+          right.courseUnit.programVersion.institution.shortName ?? right.courseUnit.programVersion.institution.name,
+          "fr",
+          { sensitivity: "base" }
+        );
+        if (byInstitution !== 0) return byInstitution;
+
+        const byProgram = left.courseUnit.programVersion.label.localeCompare(
+          right.courseUnit.programVersion.label,
+          "fr",
+          { sensitivity: "base", numeric: true }
+        );
+        if (byProgram !== 0) return byProgram;
+
+        const byCourseUnit = left.courseUnit.title.localeCompare(right.courseUnit.title, "fr", {
+          sensitivity: "base",
+          numeric: true,
+        });
+        if (byCourseUnit !== 0) return byCourseUnit;
+
+        if (left.order !== right.order) {
+          return left.order - right.order;
+        }
+
+        return left.title.localeCompare(right.title, "fr", {
+          sensitivity: "base",
+          numeric: true,
+        });
+      })
+      .map((teachingElement) => ({
+        value: teachingElement.id,
+        label: [
+          teachingElement.courseUnit.programVersion.institution.shortName ??
+            teachingElement.courseUnit.programVersion.institution.name,
+          teachingElement.courseUnit.programVersion.label,
+          teachingElement.courseUnit.code ?? null,
+          teachingElement.courseUnit.title,
+          teachingElement.code ?? null,
+          teachingElement.title,
         ]
           .filter(Boolean)
           .join(" — "),

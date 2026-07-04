@@ -292,6 +292,155 @@ export type HealthProgramVersionBlockSummary = {
     courseUnits: HealthProgramVersionCourseUnitSummary[];
 };
 
+export type HealthInstitutionContentQuiz = {
+    id: string;
+    title: string;
+    slug: string;
+    order: number;
+    stage: string | null;
+    isPublished: boolean;
+    questionCount: number;
+    updatedAt: string;
+};
+
+export type HealthInstitutionContentSection = {
+    id: string;
+    title: string;
+    kind: string;
+    order: number;
+    isPublished: boolean;
+    themeIds: string[];
+    quizzes: HealthInstitutionContentQuiz[];
+};
+
+export type HealthInstitutionContentChapterAssignment = {
+    id: string;
+    contextType: "HEALTH_COURSE_UNIT" | "HEALTH_TEACHING_ELEMENT";
+    contextId: string;
+    title: string;
+    sourceTitle: string;
+    slug: string;
+    shortTitle: string | null;
+    order: number;
+    displayGroupKey: string | null;
+    displayGroupLabel: string | null;
+    displayGroupOrder: number | null;
+    coverageStatus: keyof typeof healthCourseUnitCoverageStatusLabels;
+    isActive: boolean;
+    isPublished: boolean;
+    chapterId: string;
+    chapterIsActive: boolean;
+    chapterIsPublished: boolean;
+    questionCount: number;
+    themeIds: string[];
+    sections: HealthInstitutionContentSection[];
+    updatedAt: string;
+};
+
+export type HealthInstitutionContentTeachingElement = {
+    id: string;
+    code: string | null;
+    title: string;
+    shortTitle: string | null;
+    slug: string;
+    order: number;
+    coverageStatus: keyof typeof healthCourseUnitCoverageStatusLabels;
+    isActive: boolean;
+    isPublished: boolean;
+    themeIds: string[];
+    chapterAssignments: HealthInstitutionContentChapterAssignment[];
+};
+
+export type HealthInstitutionContentCourseUnit = {
+    id: string;
+    code: string | null;
+    title: string;
+    shortTitle: string | null;
+    slug: string;
+    order: number;
+    pathwayId: string | null;
+    blockId: string;
+    blockTitle: string;
+    blockType: string;
+    semester: number | null;
+    ects: number | null;
+    isCommonToAllPathways: boolean;
+    isHealthAccessRelevant: boolean;
+    coverageStatus: keyof typeof healthCourseUnitCoverageStatusLabels;
+    isActive: boolean;
+    isPublished: boolean;
+    themeIds: string[];
+    teachingElements: HealthInstitutionContentTeachingElement[];
+    chapterAssignments: HealthInstitutionContentChapterAssignment[];
+};
+
+export type HealthInstitutionContentPathway = {
+    id: string;
+    name: string;
+    slug: string;
+    campus: string | null;
+    order: number;
+    isDefault: boolean;
+    isActive: boolean;
+    isPublished: boolean;
+};
+
+export type HealthInstitutionContentProgramVersion = {
+    id: string;
+    label: string;
+    slug: string;
+    academicYear: string;
+    studyLevel: string;
+    isCurrent: boolean;
+    isActive: boolean;
+    isPublished: boolean;
+    program: {
+        id: string;
+        code: string;
+        label: string;
+        type: string;
+    };
+    pathways: HealthInstitutionContentPathway[];
+    courseUnits: HealthInstitutionContentCourseUnit[];
+};
+
+export type HealthInstitutionContentExamExercise = {
+    id: string;
+    title: string;
+    label: string;
+    exerciseNumber: number;
+    exerciseType: string | null;
+    themeIds: string[];
+    enrichmentStatus: string;
+    updatedAt: string;
+    examPaper: {
+        id: string;
+        label: string;
+        sessionYear: number;
+        source: string;
+        teaching: string;
+        subject: string;
+    };
+};
+
+export type HealthInstitutionContentWorkspace = {
+    institution: {
+        id: string;
+        name: string;
+        shortName: string | null;
+        city: string | null;
+    };
+    currentAcademicYear: string;
+    programVersions: HealthInstitutionContentProgramVersion[];
+    examExercises: HealthInstitutionContentExamExercise[];
+};
+
+function getCurrentAcademicYear(now = new Date()) {
+    const calendarYear = now.getFullYear();
+    const academicStartYear = now.getMonth() >= 8 ? calendarYear : calendarYear - 1;
+    return `${academicStartYear}-${academicStartYear + 1}`;
+}
+
 export async function fetchHealthRecord(entity: HealthEntity, id: string): Promise<HealthRecord | null> {
     if (!/^[a-f0-9]{24}$/i.test(id)) return null;
 
@@ -330,6 +479,360 @@ export async function fetchHealthRecord(entity: HealthEntity, id: string): Promi
                 : null;
         }
     }
+}
+
+export async function fetchHealthInstitutionContentWorkspace(
+    institutionId: string,
+): Promise<HealthInstitutionContentWorkspace | null> {
+    if (!/^[a-f0-9]{24}$/i.test(institutionId)) return null;
+
+    const institution = await prisma.healthInstitution.findUnique({
+        where: { id: institutionId },
+        select: {
+            id: true,
+            name: true,
+            shortName: true,
+            city: true,
+        },
+    });
+
+    if (!institution) return null;
+
+    const programVersions = await prisma.healthProgramVersion.findMany({
+        where: { institutionId },
+        include: {
+            program: {
+                select: {
+                    id: true,
+                    code: true,
+                    label: true,
+                    type: true,
+                },
+            },
+            pathways: {
+                select: {
+                    id: true,
+                    name: true,
+                    slug: true,
+                    campus: true,
+                    order: true,
+                    isDefault: true,
+                    isActive: true,
+                    isPublished: true,
+                },
+                orderBy: [{ order: "asc" }, { name: "asc" }],
+            },
+            courseUnits: {
+                include: {
+                    block: {
+                        select: {
+                            id: true,
+                            title: true,
+                            type: true,
+                        },
+                    },
+                    teachingElements: {
+                        select: {
+                            id: true,
+                            code: true,
+                            title: true,
+                            shortTitle: true,
+                            slug: true,
+                            order: true,
+                            coverageStatus: true,
+                            isActive: true,
+                            isPublished: true,
+                            themeIds: true,
+                        },
+                        orderBy: [{ order: "asc" }, { title: "asc" }],
+                    },
+                },
+                orderBy: [{ order: "asc" }, { title: "asc" }],
+            },
+        },
+        orderBy: [{ isCurrent: "desc" }, { academicYear: "desc" }, { label: "asc" }],
+    });
+
+    const courseUnitIds = programVersions.flatMap((version) =>
+        version.courseUnits.map((courseUnit) => courseUnit.id)
+    );
+    const teachingElementIds = programVersions.flatMap((version) =>
+        version.courseUnits.flatMap((courseUnit) =>
+            courseUnit.teachingElements.map((teachingElement) => teachingElement.id)
+        )
+    );
+
+    const chapterAssignments =
+        courseUnitIds.length > 0 || teachingElementIds.length > 0
+            ? await prisma.chapterAssignment.findMany({
+                  where: {
+                      vertical: "HEALTH",
+                      OR: [
+                          ...(courseUnitIds.length > 0
+                              ? [
+                                    {
+                                        contextType: "HEALTH_COURSE_UNIT" as const,
+                                        contextId: { in: courseUnitIds },
+                                    },
+                                ]
+                              : []),
+                          ...(teachingElementIds.length > 0
+                              ? [
+                                    {
+                                        contextType: "HEALTH_TEACHING_ELEMENT" as const,
+                                        contextId: { in: teachingElementIds },
+                                    },
+                                ]
+                              : []),
+                      ],
+                  },
+                  include: {
+                      chapter: {
+                          select: {
+                              id: true,
+                              title: true,
+                              shortTitle: true,
+                              slug: true,
+                              themeIds: true,
+                              isActive: true,
+                              isPublished: true,
+                              _count: {
+                                  select: {
+                                      quizQuestions: true,
+                                  },
+                              },
+                              sections: {
+                                  select: {
+                                      id: true,
+                                      title: true,
+                                      kind: true,
+                                      order: true,
+                                      isPublished: true,
+                                      themeIds: true,
+                                      quizzes: {
+                                          select: {
+                                              id: true,
+                                              title: true,
+                                              slug: true,
+                                              order: true,
+                                              stage: true,
+                                              isPublished: true,
+                                              updatedAt: true,
+                                              _count: {
+                                                  select: {
+                                                      questionLinks: true,
+                                                  },
+                                              },
+                                          },
+                                          orderBy: [{ order: "asc" }, { title: "asc" }],
+                                      },
+                                  },
+                                  orderBy: [{ order: "asc" }, { title: "asc" }],
+                              },
+                          },
+                      },
+                  },
+                  orderBy: [
+                      { displayGroupOrder: "asc" },
+                      { order: "asc" },
+                      { updatedAt: "desc" },
+                  ],
+              })
+            : [];
+
+    const chapterAssignmentsByContextId = new Map<
+        string,
+        HealthInstitutionContentChapterAssignment[]
+    >();
+    const workspaceThemeIds = new Set<string>();
+
+    for (const version of programVersions) {
+        for (const courseUnit of version.courseUnits) {
+            courseUnit.themeIds.forEach((themeId) => workspaceThemeIds.add(themeId));
+            for (const teachingElement of courseUnit.teachingElements) {
+                teachingElement.themeIds.forEach((themeId) => workspaceThemeIds.add(themeId));
+            }
+        }
+    }
+
+    for (const assignment of chapterAssignments) {
+        const chapterThemeIds = new Set([
+            ...assignment.chapter.themeIds,
+            ...assignment.chapter.sections.flatMap((section) => section.themeIds),
+        ]);
+        chapterThemeIds.forEach((themeId) => workspaceThemeIds.add(themeId));
+
+        const mappedAssignment: HealthInstitutionContentChapterAssignment = {
+            id: assignment.id,
+            contextType: assignment.contextType as "HEALTH_COURSE_UNIT" | "HEALTH_TEACHING_ELEMENT",
+            contextId: assignment.contextId,
+            title: assignment.titleOverride?.trim() || assignment.chapter.title,
+            sourceTitle: assignment.chapter.title,
+            slug: assignment.slugOverride?.trim() || assignment.chapter.slug,
+            shortTitle: assignment.shortTitleOverride ?? assignment.chapter.shortTitle ?? null,
+            order: assignment.order,
+            displayGroupKey: assignment.displayGroupKey ?? null,
+            displayGroupLabel: assignment.displayGroupLabel ?? null,
+            displayGroupOrder: assignment.displayGroupOrder ?? null,
+            coverageStatus: assignment.coverageStatus ?? "STRUCTURE_ONLY",
+            isActive: assignment.isActive,
+            isPublished: assignment.isPublished,
+            chapterId: assignment.chapter.id,
+            chapterIsActive: assignment.chapter.isActive,
+            chapterIsPublished: assignment.chapter.isPublished,
+            questionCount: assignment.chapter._count.quizQuestions,
+            themeIds: [...chapterThemeIds],
+            sections: assignment.chapter.sections.map((section) => ({
+                id: section.id,
+                title: section.title,
+                kind: section.kind,
+                order: section.order,
+                isPublished: section.isPublished,
+                themeIds: section.themeIds,
+                quizzes: section.quizzes.map((quiz) => ({
+                    id: quiz.id,
+                    title: quiz.title,
+                    slug: quiz.slug,
+                    order: quiz.order,
+                    stage: quiz.stage ?? null,
+                    isPublished: quiz.isPublished,
+                    questionCount: quiz._count.questionLinks,
+                    updatedAt: quiz.updatedAt.toISOString(),
+                })),
+            })),
+            updatedAt: assignment.updatedAt.toISOString(),
+        };
+
+        const existingAssignments = chapterAssignmentsByContextId.get(assignment.contextId) ?? [];
+        existingAssignments.push(mappedAssignment);
+        chapterAssignmentsByContextId.set(assignment.contextId, existingAssignments);
+    }
+
+    const examExercises =
+        workspaceThemeIds.size > 0
+            ? await prisma.exercise.findMany({
+                  where: {
+                      exerciseType: "QCM",
+                      themeIds: {
+                          hasSome: [...workspaceThemeIds],
+                      },
+                  },
+                  select: {
+                      id: true,
+                      title: true,
+                      label: true,
+                      exerciseNumber: true,
+                      exerciseType: true,
+                      themeIds: true,
+                      enrichmentStatus: true,
+                      updatedAt: true,
+                      examPaper: {
+                          select: {
+                              id: true,
+                              label: true,
+                              sessionYear: true,
+                              source: true,
+                              teaching: {
+                                  select: {
+                                      longDescription: true,
+                                      shortDescription: true,
+                                      subject: {
+                                          select: {
+                                              longDescription: true,
+                                              shortDescription: true,
+                                          },
+                                      },
+                                  },
+                              },
+                          },
+                      },
+                  },
+                  orderBy: [{ updatedAt: "desc" }],
+              })
+            : [];
+
+    return {
+        institution,
+        currentAcademicYear: getCurrentAcademicYear(),
+        programVersions: programVersions.map((version) => ({
+            id: version.id,
+            label: version.label,
+            slug: version.slug,
+            academicYear: version.academicYear,
+            studyLevel: version.studyLevel,
+            isCurrent: version.isCurrent,
+            isActive: version.isActive,
+            isPublished: version.isPublished,
+            program: version.program,
+            pathways: version.pathways.map((pathway) => ({
+                id: pathway.id,
+                name: pathway.name,
+                slug: pathway.slug,
+                campus: pathway.campus ?? null,
+                order: pathway.order,
+                isDefault: pathway.isDefault,
+                isActive: pathway.isActive,
+                isPublished: pathway.isPublished,
+            })),
+            courseUnits: version.courseUnits.map((courseUnit) => ({
+                id: courseUnit.id,
+                code: courseUnit.code ?? null,
+                title: courseUnit.title,
+                shortTitle: courseUnit.shortTitle ?? null,
+                slug: courseUnit.slug,
+                order: courseUnit.order,
+                pathwayId: courseUnit.pathwayId ?? null,
+                blockId: courseUnit.blockId,
+                blockTitle: courseUnit.block.title,
+                blockType: courseUnit.block.type,
+                semester: courseUnit.semester ?? null,
+                ects: courseUnit.ects ?? null,
+                isCommonToAllPathways: courseUnit.isCommonToAllPathways,
+                isHealthAccessRelevant: courseUnit.isHealthAccessRelevant,
+                coverageStatus: courseUnit.coverageStatus ?? "STRUCTURE_ONLY",
+                isActive: courseUnit.isActive,
+                isPublished: courseUnit.isPublished,
+                themeIds: courseUnit.themeIds,
+                teachingElements: courseUnit.teachingElements.map((teachingElement) => ({
+                    id: teachingElement.id,
+                    code: teachingElement.code ?? null,
+                    title: teachingElement.title,
+                    shortTitle: teachingElement.shortTitle ?? null,
+                    slug: teachingElement.slug,
+                    order: teachingElement.order,
+                    coverageStatus: teachingElement.coverageStatus ?? "STRUCTURE_ONLY",
+                    isActive: teachingElement.isActive,
+                    isPublished: teachingElement.isPublished,
+                    themeIds: teachingElement.themeIds,
+                    chapterAssignments:
+                        chapterAssignmentsByContextId.get(teachingElement.id) ?? [],
+                })),
+                chapterAssignments: chapterAssignmentsByContextId.get(courseUnit.id) ?? [],
+            })),
+        })),
+        examExercises: examExercises.map((exercise) => ({
+            id: exercise.id,
+            title: exercise.title ?? exercise.label ?? `Exercice ${exercise.exerciseNumber}`,
+            label: exercise.label ?? `Exercice ${exercise.exerciseNumber}`,
+            exerciseNumber: exercise.exerciseNumber,
+            exerciseType: exercise.exerciseType ?? null,
+            themeIds: exercise.themeIds,
+            enrichmentStatus: exercise.enrichmentStatus,
+            updatedAt: exercise.updatedAt.toISOString(),
+            examPaper: {
+                id: exercise.examPaper.id,
+                label: exercise.examPaper.label,
+                sessionYear: exercise.examPaper.sessionYear,
+                source: exercise.examPaper.source,
+                teaching:
+                    exercise.examPaper.teaching.shortDescription ??
+                    exercise.examPaper.teaching.longDescription,
+                subject:
+                    exercise.examPaper.teaching.subject.shortDescription ??
+                    exercise.examPaper.teaching.subject.longDescription,
+            },
+        })),
+    };
 }
 
 export async function fetchHealthProgramVersionPathways(
