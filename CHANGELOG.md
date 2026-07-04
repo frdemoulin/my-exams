@@ -1,3 +1,9 @@
+## [1.6.23](https://github.com/frdemoulin/my-exams/compare/v1.6.22...v1.6.23) (2026-07-04)
+
+### Bug Fixes
+
+* ajout d'un écran santé de pilotage par fac ([b4ec1b1](https://github.com/frdemoulin/my-exams/commit/b4ec1b1382ee809bc121d34d6f1968bdbae42dda))
+
 ## [1.6.22](https://github.com/frdemoulin/my-exams/compare/v1.6.21...v1.6.22) (2026-06-28)
 
 ### Bug Fixes
