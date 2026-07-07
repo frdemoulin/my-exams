@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/db/prisma';
 import { auth } from '@/lib/auth/auth';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { fetchSciencePhysicsTrainingPathProgressForChapter } from '@/core/training';
 
 type TrainingPathProgressPayload = {
@@ -22,7 +23,7 @@ const parseTrainingPathProgressPayload = async (request: Request) => {
 
 export async function POST(request: Request) {
   const session = await auth();
-  const userId = session?.user?.id;
+  const userId = getSessionEffectiveUserId(session);
 
   if (!userId) {
     return NextResponse.json(
@@ -150,7 +151,7 @@ export async function POST(request: Request) {
 
 export async function DELETE(request: Request) {
   const session = await auth();
-  const userId = session?.user?.id;
+  const userId = getSessionEffectiveUserId(session);
 
   if (!userId) {
     return NextResponse.json(

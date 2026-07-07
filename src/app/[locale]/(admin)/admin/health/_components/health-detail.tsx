@@ -8,6 +8,7 @@ import {
   HealthFormOptions,
   HealthRecord,
   healthCourseUnitCoverageStatusLabels,
+  healthQuizAnswerFormatLabels,
 } from "@/core/health";
 import { formatDateTime } from "@/lib/utils";
 import type { Option } from "@/types/option";
@@ -17,7 +18,7 @@ type DetailField = {
   label: string;
   option?: keyof HealthFormOptions;
   optionList?: keyof HealthFormOptions;
-  type?: "date" | "external-link" | "boolean" | "multiline" | "coverage-status";
+  type?: "date" | "external-link" | "boolean" | "multiline" | "coverage-status" | "quiz-answer-format";
 };
 
 const fieldsByEntity: Record<HealthEntity, DetailField[]> = {
@@ -107,6 +108,7 @@ const fieldsByEntity: Record<HealthEntity, DetailField[]> = {
     { key: "courseUnitId", label: "UE", option: "courseUnits" },
     { key: "slug", label: "Slug" },
     { key: "order", label: "Ordre" },
+    { key: "quizAnswerFormatDefault", label: "Format de réponse QCM par défaut", type: "quiz-answer-format" },
     { key: "sourceLabel", label: "Libellé de la source" },
     { key: "sourceUrl", label: "Source", type: "external-link" },
     { key: "sourceCheckedAt", label: "Source vérifiée le", type: "date" },
@@ -234,6 +236,16 @@ function renderValue(
     return (
       <Badge variant={variant}>
         {healthCourseUnitCoverageStatusLabels[status as keyof typeof healthCourseUnitCoverageStatusLabels] ?? status}
+      </Badge>
+    );
+  }
+
+  if (field.type === "quiz-answer-format") {
+    const format = typeof value === "string" && value ? value : "SINGLE";
+
+    return (
+      <Badge variant={format === "MULTIPLE" ? "outline" : "secondary"}>
+        {healthQuizAnswerFormatLabels[format as keyof typeof healthQuizAnswerFormatLabels] ?? format}
       </Badge>
     );
   }

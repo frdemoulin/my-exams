@@ -116,6 +116,8 @@ export function DataTable({ title, columns, data }: DataTableProps) {
             <SelectItem value="all">Toutes les actions</SelectItem>
             <SelectItem value="SIGN_IN">Connexion</SelectItem>
             <SelectItem value="SIGN_OUT">Déconnexion</SelectItem>
+            <SelectItem value="IMPERSONATION_START">Début de bascule</SelectItem>
+            <SelectItem value="IMPERSONATION_STOP">Fin de bascule</SelectItem>
           </SelectContent>
         </Select>
       </TableToolbar>

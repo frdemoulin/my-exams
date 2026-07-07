@@ -3,6 +3,7 @@ import {
     chapterAssignmentContextTypeValues,
     contentVerticalValues,
 } from "@/core/chapter/chapter.constants";
+import { quizAnswerFormatValues } from "@/core/quiz/quiz-answer-format";
 import { healthCourseUnitCoverageStatusValues } from "@/core/health/health.schemas";
 
 // schémas de validation des formulaires avec zod
@@ -267,6 +268,7 @@ export const createChapterAssignmentSchema = z.object({
 
 export const createQuizQuestionSchema = z.object({
     difficulty: z.enum(["EASY", "MEDIUM", "HARD"]),
+    answerFormat: z.enum(quizAnswerFormatValues),
     question: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
@@ -284,13 +286,17 @@ export const createQuizQuestionSchema = z.object({
             .max(500, { message: "Ne peut pas dépasser 500 caractères" })
     )
         .length(4, { message: "Quatre choix sont requis" }),
-    correctChoiceIndex: z.number({
-        required_error: "Champ requis",
-        invalid_type_error: "Doit être un nombre",
-    })
-        .int({ message: "Doit être un entier" })
-        .min(0, { message: "Réponse correcte invalide" })
-        .max(3, { message: "Réponse correcte invalide" }),
+    correctChoiceIndexes: z.array(
+        z.number({
+            required_error: "Champ requis",
+            invalid_type_error: "Doit être un nombre",
+        })
+            .int({ message: "Doit être un entier" })
+            .min(0, { message: "Réponse correcte invalide" })
+            .max(3, { message: "Réponse correcte invalide" })
+    )
+        .min(1, { message: "Sélectionne au moins une bonne réponse" })
+        .max(4, { message: "Réponse correcte invalide" }),
     explanation: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
@@ -306,6 +312,24 @@ export const createQuizQuestionSchema = z.object({
         .min(1, { message: "Doit être supérieur ou égal à 1" })
         .max(1000, { message: "Ne peut pas dépasser 1000" }),
     isPublished: z.boolean().default(false),
+}).superRefine((values, ctx) => {
+    const uniqueCorrectChoiceIndexes = new Set(values.correctChoiceIndexes);
+
+    if (uniqueCorrectChoiceIndexes.size !== values.correctChoiceIndexes.length) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["correctChoiceIndexes"],
+            message: "Chaque bonne réponse ne peut être sélectionnée qu'une seule fois",
+        });
+    }
+
+    if (values.answerFormat === "SINGLE" && values.correctChoiceIndexes.length !== 1) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["correctChoiceIndexes"],
+            message: "Une question à réponse unique doit avoir exactement une bonne réponse",
+        });
+    }
 });
 
 const trainingQuizSlugSchema = z.string({

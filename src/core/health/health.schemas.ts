@@ -1,4 +1,8 @@
 import { z } from "zod";
+import {
+    quizAnswerFormatLabels,
+    quizAnswerFormatValues,
+} from "@/core/quiz/quiz-answer-format";
 
 const requiredText = (label = "Champ requis") =>
     z.string({ required_error: label }).trim().min(1, label).max(255);
@@ -31,6 +35,13 @@ export const healthCourseUnitCoverageStatusLabels: Record<HealthCourseUnitCovera
     THEMES_MAPPED: "Thèmes reliés",
     QUESTIONS_AVAILABLE: "QCM disponibles",
     READY: "Prête à l'emploi",
+};
+
+export const HealthQuizAnswerFormatSchema = z.enum(quizAnswerFormatValues);
+export type HealthQuizAnswerFormat = z.infer<typeof HealthQuizAnswerFormatSchema>;
+export const healthQuizAnswerFormatLabels: Record<HealthQuizAnswerFormat, string> = {
+    SINGLE: quizAnswerFormatLabels.SINGLE,
+    MULTIPLE: quizAnswerFormatLabels.MULTIPLE,
 };
 
 export const HealthInstitutionSchema = z.object({
@@ -131,6 +142,7 @@ export const HealthTeachingElementSchema = z.object({
     description: optionalText,
     order,
     coverageStatus: HealthCourseUnitCoverageStatusSchema.default("STRUCTURE_ONLY"),
+    quizAnswerFormatDefault: HealthQuizAnswerFormatSchema.default("SINGLE"),
     sourceUrl: optionalUrl,
     sourceLabel: optionalShortText,
     sourceCheckedAt: z.date().optional(),

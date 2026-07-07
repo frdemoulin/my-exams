@@ -1,6 +1,6 @@
 type ReorderedQuestionChoices = {
   choices: string[];
-  correctChoiceIndex: number;
+  correctChoiceIndexes: number[];
 };
 
 const normalizeCatchAllChoice = (choice: string) =>
@@ -23,10 +23,10 @@ export const isCatchAllChoice = (choice: string) => {
 
 export const reorderCatchAllChoices = (
   choices: string[],
-  correctChoiceIndex: number
+  correctChoiceIndexes: number[]
 ): ReorderedQuestionChoices => {
   if (choices.length <= 1) {
-    return { choices, correctChoiceIndex };
+    return { choices, correctChoiceIndexes };
   }
 
   const indexedChoices = choices.map((choice, index) => ({
@@ -36,7 +36,7 @@ export const reorderCatchAllChoices = (
   }));
 
   if (!indexedChoices.some((entry) => entry.isCatchAllChoice)) {
-    return { choices, correctChoiceIndex };
+    return { choices, correctChoiceIndexes };
   }
 
   const reorderedChoices = [
@@ -44,15 +44,15 @@ export const reorderCatchAllChoices = (
     ...indexedChoices.filter((entry) => entry.isCatchAllChoice),
   ];
 
-  const reorderedCorrectChoiceIndex = reorderedChoices.findIndex(
-    (entry) => entry.index === correctChoiceIndex
-  );
+  const reorderedCorrectChoiceIndexes = correctChoiceIndexes
+    .map((correctChoiceIndex) =>
+      reorderedChoices.findIndex((entry) => entry.index === correctChoiceIndex)
+    )
+    .filter((index) => index >= 0)
+    .sort((left, right) => left - right);
 
   return {
     choices: reorderedChoices.map((entry) => entry.choice),
-    correctChoiceIndex:
-      reorderedCorrectChoiceIndex >= 0
-        ? reorderedCorrectChoiceIndex
-        : correctChoiceIndex,
+    correctChoiceIndexes: reorderedCorrectChoiceIndexes,
   };
 };

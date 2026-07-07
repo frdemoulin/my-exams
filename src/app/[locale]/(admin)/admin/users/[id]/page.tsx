@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 
 import { fetchUserById } from "@/core/user";
+import { getRoleLabel } from "@/lib/auth/roles";
 import { formatDateTime, getInternalOrigin, isExternalUrl } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -34,7 +35,7 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
     redirect("/admin/users");
   }
 
-  const roleLabel = user.roles === "ADMIN" ? "Administrateur" : "Utilisateur";
+  const roleLabel = getRoleLabel(user.roles);
   const roleVariant = user.roles === "ADMIN" ? "default" : "secondary";
   const internalOrigin = getInternalOrigin();
   const imageIsExternal = isExternalUrl(user.image, internalOrigin);

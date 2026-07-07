@@ -11,6 +11,7 @@ import {
     HealthFormOptions,
     HealthRecord,
     healthCourseUnitCoverageStatusLabels,
+    healthQuizAnswerFormatLabels,
 } from "@/core/health";
 
 import { healthCoverageStatusBadgeVariant, healthTabsTheme } from "./health-tabs.constants";
@@ -84,6 +85,9 @@ export function CourseUnitDetailTabs({
                                                 </Badge>
                                                 <Badge variant={teachingElement.isPublished ? "default" : "outline"}>
                                                     {teachingElement.isPublished ? "Publié" : "Brouillon"}
+                                                </Badge>
+                                                <Badge variant={teachingElement.quizAnswerFormatDefault === "MULTIPLE" ? "outline" : "secondary"}>
+                                                    {healthQuizAnswerFormatLabels[teachingElement.quizAnswerFormatDefault]}
                                                 </Badge>
                                                 <Badge variant="secondary">
                                                     {teachingElement.themes.length} thème

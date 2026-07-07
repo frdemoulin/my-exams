@@ -3,6 +3,7 @@ import {
     HealthEntity,
     healthCourseUnitCoverageStatusLabels,
     healthEntityLabels,
+    healthQuizAnswerFormatLabels,
 } from "./health.schemas";
 import { HealthAdminRow, HealthFormOptions, HealthRecord } from "./health.types";
 
@@ -175,6 +176,7 @@ export async function fetchHealthAdminRows(entity: HealthEntity): Promise<Health
                         item.courseUnit.programVersion.label,
                         item.courseUnit.block.title,
                         `Couverture : ${healthCourseUnitCoverageStatusLabels[item.coverageStatus ?? "STRUCTURE_ONLY"]}`,
+                        `Format QCM par défaut : ${healthQuizAnswerFormatLabels[item.quizAnswerFormatDefault ?? "SINGLE"]}`,
                         item.themes.length
                             ? `Thèmes : ${item.themes.map((theme) => theme.shortTitle ?? theme.title).join(", ")}`
                             : "Aucun thème",
@@ -244,6 +246,7 @@ export type HealthCourseUnitTeachingElementSummary = {
     description: string | null;
     order: number;
     coverageStatus: keyof typeof healthCourseUnitCoverageStatusLabels;
+    quizAnswerFormatDefault: keyof typeof healthQuizAnswerFormatLabels;
     sourceLabel: string | null;
     sourceUrl: string | null;
     sourceCheckedAt: string | null;
@@ -433,6 +436,69 @@ export type HealthInstitutionContentWorkspace = {
     currentAcademicYear: string;
     programVersions: HealthInstitutionContentProgramVersion[];
     examExercises: HealthInstitutionContentExamExercise[];
+};
+
+export type HealthStudentHomeBlockCourseUnit = {
+    id: string;
+    code: string | null;
+    title: string;
+    shortTitle: string | null;
+    slug: string;
+    semester: number | null;
+    ects: number | null;
+    isPathwaySpecific: boolean;
+    qcmCount: number;
+};
+
+export type HealthStudentHomeBlock = {
+    id: string;
+    title: string;
+    type: "HEALTH" | "DISCIPLINARY" | "TRANSVERSAL" | "SPECIALTY" | "OTHER";
+    description: string | null;
+    pathwayName: string | null;
+    courseUnits: HealthStudentHomeBlockCourseUnit[];
+};
+
+export type HealthStudentHomeContext = {
+    institution: {
+        id: string;
+        name: string;
+        shortName: string | null;
+    } | null;
+    programVersion: {
+        id: string;
+        label: string;
+        academicYear: string;
+        studyLevel: string;
+        programCode: string;
+    } | null;
+    pathway: {
+        id: string;
+        name: string;
+    } | null;
+    blocks: HealthStudentHomeBlock[];
+    hasSpecificContent: boolean;
+};
+
+export type HealthStudentCourseUnitDetail = {
+    id: string;
+    code: string | null;
+    title: string;
+    shortTitle: string | null;
+    description: string | null;
+    semester: number | null;
+    ects: number | null;
+    blockTitle: string;
+    blockType: "HEALTH" | "DISCIPLINARY" | "TRANSVERSAL" | "SPECIALTY" | "OTHER";
+    institutionName: string;
+    programVersionLabel: string;
+    pathwayName: string | null;
+    teachingElements: Array<{
+        id: string;
+        code: string | null;
+        title: string;
+        shortTitle: string | null;
+    }>;
 };
 
 function getCurrentAcademicYear(now = new Date()) {
@@ -835,6 +901,328 @@ export async function fetchHealthInstitutionContentWorkspace(
     };
 }
 
+export async function fetchHealthStudentHomeContext(input: {
+    institutionId?: string | null;
+    programVersionId?: string | null;
+    pathwayId?: string | null;
+}): Promise<HealthStudentHomeContext | null> {
+    const { institutionId, programVersionId, pathwayId } = input;
+
+    if (!institutionId || !/^[a-f0-9]{24}$/i.test(institutionId)) {
+        return null;
+    }
+
+    const institution = await prisma.healthInstitution.findUnique({
+        where: { id: institutionId },
+        select: {
+            id: true,
+            name: true,
+            shortName: true,
+        },
+    });
+
+    if (!institution) {
+        return null;
+    }
+
+    const selectedProgramVersion = programVersionId && /^[a-f0-9]{24}$/i.test(programVersionId)
+        ? await prisma.healthProgramVersion.findFirst({
+              where: {
+                  id: programVersionId,
+                  institutionId,
+                  isActive: true,
+              },
+              include: {
+                  program: {
+                      select: {
+                          code: true,
+                      },
+                  },
+              },
+          })
+        : null;
+
+    const fallbackProgramVersion = selectedProgramVersion
+        ? null
+        : await prisma.healthProgramVersion.findFirst({
+              where: {
+                  institutionId,
+                  isActive: true,
+              },
+              include: {
+                  program: {
+                      select: {
+                          code: true,
+                      },
+                  },
+              },
+              orderBy: [{ isCurrent: "desc" }, { academicYear: "desc" }, { label: "asc" }],
+          });
+
+    const programVersion = selectedProgramVersion ?? fallbackProgramVersion;
+
+    if (!programVersion) {
+        return {
+            institution,
+            programVersion: null,
+            pathway: null,
+            blocks: [],
+            hasSpecificContent: false,
+        };
+    }
+
+    const selectedPathway = pathwayId && /^[a-f0-9]{24}$/i.test(pathwayId)
+        ? await prisma.healthPathway.findFirst({
+              where: {
+                  id: pathwayId,
+                  programVersionId: programVersion.id,
+                  isActive: true,
+              },
+              select: {
+                  id: true,
+                  name: true,
+              },
+          })
+        : null;
+
+    const blockPathwayFilter = selectedPathway
+        ? [{ pathwayId: null }, { pathwayId: selectedPathway.id }]
+        : [{ pathwayId: null }];
+
+    const courseUnitPathwayFilter = selectedPathway
+        ? [
+              { isCommonToAllPathways: true },
+              { pathwayId: null },
+              { pathwayId: selectedPathway.id },
+          ]
+        : [{ isCommonToAllPathways: true }, { pathwayId: null }];
+
+    const blocks = await prisma.healthBlock.findMany({
+        where: {
+            programVersionId: programVersion.id,
+            isActive: true,
+            OR: blockPathwayFilter,
+        },
+        select: {
+            id: true,
+            title: true,
+            type: true,
+            description: true,
+            pathway: {
+                select: {
+                    name: true,
+                },
+            },
+            courseUnits: {
+                where: {
+                    isActive: true,
+                    OR: courseUnitPathwayFilter,
+                },
+                select: {
+                    id: true,
+                    code: true,
+                    title: true,
+                    shortTitle: true,
+                    slug: true,
+                    semester: true,
+                    ects: true,
+                    pathwayId: true,
+                    teachingElements: {
+                        where: {
+                            isActive: true,
+                        },
+                        select: {
+                            id: true,
+                        },
+                    },
+                },
+                orderBy: [{ order: "asc" }, { title: "asc" }],
+            },
+        },
+        orderBy: [{ order: "asc" }, { title: "asc" }],
+    });
+
+    const courseUnitIds = blocks.flatMap((block) => block.courseUnits.map((courseUnit) => courseUnit.id));
+    const teachingElementIds = blocks.flatMap((block) =>
+        block.courseUnits.flatMap((courseUnit) =>
+            courseUnit.teachingElements.map((teachingElement) => teachingElement.id)
+        )
+    );
+
+    const chapterAssignments =
+        courseUnitIds.length > 0 || teachingElementIds.length > 0
+            ? await prisma.chapterAssignment.findMany({
+                  where: {
+                      vertical: "HEALTH",
+                      OR: [
+                          ...(courseUnitIds.length > 0
+                              ? [
+                                    {
+                                        contextType: "HEALTH_COURSE_UNIT" as const,
+                                        contextId: { in: courseUnitIds },
+                                    },
+                                ]
+                              : []),
+                          ...(teachingElementIds.length > 0
+                              ? [
+                                    {
+                                        contextType: "HEALTH_TEACHING_ELEMENT" as const,
+                                        contextId: { in: teachingElementIds },
+                                    },
+                                ]
+                              : []),
+                      ],
+                  },
+                  select: {
+                      contextType: true,
+                      contextId: true,
+                      chapter: {
+                          select: {
+                              _count: {
+                                  select: {
+                                      quizQuestions: true,
+                                  },
+                              },
+                          },
+                      },
+                  },
+              })
+            : [];
+
+    const courseUnitQcmCounts = new Map<string, number>();
+    const teachingElementQcmCounts = new Map<string, number>();
+
+    for (const assignment of chapterAssignments) {
+        const questionCount = assignment.chapter._count.quizQuestions;
+
+        if (assignment.contextType === "HEALTH_COURSE_UNIT") {
+            courseUnitQcmCounts.set(
+                assignment.contextId,
+                (courseUnitQcmCounts.get(assignment.contextId) ?? 0) + questionCount
+            );
+            continue;
+        }
+
+        if (assignment.contextType === "HEALTH_TEACHING_ELEMENT") {
+            teachingElementQcmCounts.set(
+                assignment.contextId,
+                (teachingElementQcmCounts.get(assignment.contextId) ?? 0) + questionCount
+            );
+        }
+    }
+
+    const normalizedBlocks = blocks
+        .map((block) => ({
+            id: block.id,
+            title: block.title,
+            type: block.type,
+            description: block.description ?? null,
+            pathwayName: block.pathway?.name ?? null,
+            courseUnits: block.courseUnits.map((courseUnit) => ({
+                id: courseUnit.id,
+                code: courseUnit.code ?? null,
+                title: courseUnit.title,
+                shortTitle: courseUnit.shortTitle ?? null,
+                slug: courseUnit.slug,
+                semester: courseUnit.semester ?? null,
+                ects: courseUnit.ects ?? null,
+                isPathwaySpecific: Boolean(courseUnit.pathwayId),
+                qcmCount:
+                    (courseUnitQcmCounts.get(courseUnit.id) ?? 0) +
+                    courseUnit.teachingElements.reduce(
+                        (total, teachingElement) =>
+                            total + (teachingElementQcmCounts.get(teachingElement.id) ?? 0),
+                        0
+                    ),
+            })),
+        }))
+        .filter((block) => block.courseUnits.length > 0);
+
+    return {
+        institution,
+        programVersion: {
+            id: programVersion.id,
+            label: programVersion.label,
+            academicYear: programVersion.academicYear,
+            studyLevel: programVersion.studyLevel,
+            programCode: programVersion.program.code,
+        },
+        pathway: selectedPathway,
+        blocks: normalizedBlocks,
+        hasSpecificContent: normalizedBlocks.length > 0,
+    };
+}
+
+export async function fetchHealthStudentCourseUnitDetail(
+    courseUnitId: string,
+): Promise<HealthStudentCourseUnitDetail | null> {
+    if (!/^[a-f0-9]{24}$/i.test(courseUnitId)) {
+        return null;
+    }
+
+    const courseUnit = await prisma.healthCourseUnit.findUnique({
+        where: { id: courseUnitId },
+        include: {
+            block: {
+                select: {
+                    title: true,
+                    type: true,
+                },
+            },
+            programVersion: {
+                select: {
+                    label: true,
+                    institution: {
+                        select: {
+                            name: true,
+                        },
+                    },
+                },
+            },
+            pathway: {
+                select: {
+                    name: true,
+                },
+            },
+            teachingElements: {
+                where: { isActive: true },
+                select: {
+                    id: true,
+                    code: true,
+                    title: true,
+                    shortTitle: true,
+                },
+                orderBy: [{ order: "asc" }, { title: "asc" }],
+            },
+        },
+    });
+
+    if (!courseUnit || !courseUnit.isActive) {
+        return null;
+    }
+
+    return {
+        id: courseUnit.id,
+        code: courseUnit.code ?? null,
+        title: courseUnit.title,
+        shortTitle: courseUnit.shortTitle ?? null,
+        description: courseUnit.description ?? null,
+        semester: courseUnit.semester ?? null,
+        ects: courseUnit.ects ?? null,
+        blockTitle: courseUnit.block.title,
+        blockType: courseUnit.block.type,
+        institutionName: courseUnit.programVersion.institution.name,
+        programVersionLabel: courseUnit.programVersion.label,
+        pathwayName: courseUnit.pathway?.name ?? null,
+        teachingElements: courseUnit.teachingElements.map((teachingElement) => ({
+            id: teachingElement.id,
+            code: teachingElement.code ?? null,
+            title: teachingElement.title,
+            shortTitle: teachingElement.shortTitle ?? null,
+        })),
+    };
+}
+
 export async function fetchHealthProgramVersionPathways(
     programVersionId: string,
 ): Promise<HealthProgramVersionPathwaySummary[]> {
@@ -949,6 +1337,7 @@ export async function fetchHealthCourseUnitTeachingElements(
         description: item.description ?? null,
         order: item.order,
         coverageStatus: item.coverageStatus ?? "STRUCTURE_ONLY",
+        quizAnswerFormatDefault: item.quizAnswerFormatDefault ?? "SINGLE",
         sourceLabel: item.sourceLabel ?? null,
         sourceUrl: item.sourceUrl ?? null,
         sourceCheckedAt: item.sourceCheckedAt?.toISOString().slice(0, 10) ?? null,

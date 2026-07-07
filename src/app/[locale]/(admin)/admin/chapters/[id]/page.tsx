@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ChapterAssignmentsTable } from "../_components/chapter-assignments-table";
 import { ChapterDetailTabs } from "../_components/chapter-detail-tabs";
 import { ChapterQuestionsTable } from "../_components/chapter-questions-table";
+import { ChapterTrainingStructurePanel } from "../_components/chapter-training-structure-panel";
 import {
   contentVerticalLabels,
   getChapterLevelLabel,
@@ -35,16 +36,24 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
   }
 
   const publishedQuestionCount = chapter.quizQuestions.filter((question) => question.isPublished).length;
+  const trainingSectionCount = chapter.sections.length;
+  const trainingQuizCount = chapter.sections.reduce(
+    (total, section) => total + section.quizzes.length,
+    0
+  );
 
   return (
     <div className="w-full p-6">
       <AdminPageHeading
         title={chapter.title}
-        description="Consulte les informations principales du chapitre et gère ses rattachements et ses questions QCM."
+        description="Consulte les informations principales du chapitre et gère sa structure pédagogique, ses rattachements et ses questions QCM."
         actions={
           <>
             <Button asChild variant="outline">
               <Link href="/admin/chapters">Retour</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href={`/admin/training/qcms/${chapter.id}/edit`}>Structure QCM</Link>
             </Button>
             <Button asChild variant="warning" size="icon" aria-label="Éditer le chapitre">
               <Link href={`/admin/chapters/${chapter.id}/edit`}>
@@ -120,6 +129,15 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
                     </div>
                   </div>
                   <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground">
+                      Structure pédagogique
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary">{trainingSectionCount} sections</Badge>
+                      <Badge variant="outline">{trainingQuizCount} séries QCM</Badge>
+                    </div>
+                  </div>
+                  <div>
                     <h3 className="text-sm font-semibold text-muted-foreground">Couverture</h3>
                     <Badge variant="outline">
                       {healthCourseUnitCoverageStatusLabels[chapter.coverageStatus] ??
@@ -155,6 +173,17 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
                   </div>
                 </div>
               </div>
+            ),
+          },
+          {
+            id: "structure",
+            label: "Structure QCM",
+            badge: trainingSectionCount,
+            content: (
+              <ChapterTrainingStructurePanel
+                chapterId={chapter.id}
+                sections={chapter.sections}
+              />
             ),
           },
           {

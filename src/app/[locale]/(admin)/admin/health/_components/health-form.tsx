@@ -26,6 +26,7 @@ import {
     healthEntityLabels,
     healthCourseUnitCoverageStatusLabels,
     healthCourseUnitCoverageStatusValues,
+    healthQuizAnswerFormatLabels,
     saveHealthEntity,
 } from "@/core/health";
 import { slugifyText } from "@/lib/utils";
@@ -37,7 +38,7 @@ const initialDefaults: Record<HealthEntity, HealthRecord> = {
     pathways: { programVersionId: "", name: "", slug: "", campus: "", parcoursupCode: "", sourceUrl: "", description: "", order: 0, isDefault: false, isActive: true, isPublished: false },
     blocks: { programVersionId: "", pathwayId: "", type: "HEALTH", title: "", slug: "", description: "", ects: "", order: 0, isActive: true, isPublished: false },
     "course-units": { programVersionId: "", pathwayId: "", blockId: "", code: "", title: "", shortTitle: "", slug: "", description: "", semester: "", ects: "", order: 0, isCommonToAllPathways: false, isHealthAccessRelevant: true, coverageStatus: "STRUCTURE_ONLY", sourceUrl: "", sourceLabel: "", sourceCheckedAt: "", themeIds: [], isActive: true, isPublished: false },
-    "teaching-elements": { courseUnitId: "", code: "", title: "", shortTitle: "", slug: "", description: "", order: 0, coverageStatus: "STRUCTURE_ONLY", sourceUrl: "", sourceLabel: "", sourceCheckedAt: "", themeIds: [], isActive: true, isPublished: false },
+    "teaching-elements": { courseUnitId: "", code: "", title: "", shortTitle: "", slug: "", description: "", order: 0, coverageStatus: "STRUCTURE_ONLY", quizAnswerFormatDefault: "SINGLE", sourceUrl: "", sourceLabel: "", sourceCheckedAt: "", themeIds: [], isActive: true, isPublished: false },
 };
 
 export function HealthForm({
@@ -300,6 +301,31 @@ export function HealthForm({
                         {slugInput("title", "Titre")}
                         {input("shortTitle", "Titre court")}
                         {input("order", "Ordre", "number", true)}
+                        <Field label="Format de réponse QCM par défaut" required htmlFor={fieldId("quizAnswerFormatDefault")}>
+                            <input
+                                type="hidden"
+                                name="quizAnswerFormatDefault"
+                                value={String(values.quizAnswerFormatDefault ?? "SINGLE")}
+                            />
+                            <Select
+                                value={String(values.quizAnswerFormatDefault ?? "SINGLE")}
+                                onValueChange={(value) => set("quizAnswerFormatDefault", value)}
+                            >
+                                <SelectTrigger id={fieldId("quizAnswerFormatDefault")}>
+                                    <SelectValue placeholder="Sélectionner un format" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {Object.entries(healthQuizAnswerFormatLabels).map(([value, label]) => (
+                                        <SelectItem key={value} value={value}>
+                                            {label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            <p className="text-xs text-muted-foreground">
+                                Ce format sert de convention par défaut pour l&apos;EC. Chaque question peut ensuite définir sa propre règle.
+                            </p>
+                        </Field>
                         {input("sourceUrl", "URL source", "url")}
                         {input("sourceLabel", "Libellé source")}
                         {datePicker("sourceCheckedAt", "Date de vérification")}

@@ -1,17 +1,22 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { Shield, LogIn, BookOpen, FlaskConical, Stethoscope } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
 
+import { isAdminRole } from '@/lib/auth/roles';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { APP_NAME } from '@/config/app';
 
 export function PublicHeader() {
   const { data: session } = useSession();
+  const effectiveRole = session?.impersonation?.viewerRole ?? session?.user?.role ?? null;
+  const canAccessAdmin = isAdminRole(effectiveRole);
+  const [viewerAudience, setViewerAudience] = useState<'SECONDARY' | 'HEALTH' | null>(null);
   const pathname = usePathname();
   const isAnnalesActive = pathname?.startsWith('/diplomes')
     || pathname?.startsWith('/sujets')
@@ -37,6 +42,46 @@ export function PublicHeader() {
     ? 'border-brand/40 bg-brand/10 text-fg-brand'
     : '';
   const topbarIconButtonClass = 'inline-flex items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm font-semibold transition-colors hover:bg-neutral-secondary-soft hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1';
+  const canAccessHealth = viewerAudience !== 'SECONDARY';
+
+  useEffect(() => {
+    if (!session?.user) {
+      setViewerAudience(null);
+      return;
+    }
+
+    let isMounted = true;
+
+    const loadViewerAudience = async () => {
+      try {
+        const response = await fetch('/api/me/viewer-profile');
+        const payload = (await response.json().catch(() => null)) as
+          | { audience?: 'SECONDARY' | 'HEALTH' | null }
+          | null;
+
+        if (!isMounted) {
+          return;
+        }
+
+        if (!response.ok) {
+          setViewerAudience(null);
+          return;
+        }
+
+        setViewerAudience(payload?.audience ?? null);
+      } catch {
+        if (isMounted) {
+          setViewerAudience(null);
+        }
+      }
+    };
+
+    void loadViewerAudience();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [session?.user]);
 
   return (
     <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
@@ -55,7 +100,7 @@ export function PublicHeader() {
 
         <div className="flex items-center gap-3">
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            {session?.user && (
+            {session?.user && canAccessAdmin && (
               <Link href="/admin" className="hover:text-foreground">
                 Administration
               </Link>
@@ -67,13 +112,15 @@ export function PublicHeader() {
             >
               Annales
             </Link>
-            <Link
-              href="/sante"
-              className={healthLinkClass}
-              aria-current={isHealthActive ? 'page' : undefined}
-            >
-              Santé
-            </Link>
+            {canAccessHealth ? (
+              <Link
+                href="/sante"
+                className={healthLinkClass}
+                aria-current={isHealthActive ? 'page' : undefined}
+              >
+                Santé
+              </Link>
+            ) : null}
             <Link
               href="/entrainement"
               className={trainingLinkClass}
@@ -142,7 +189,7 @@ export function PublicHeader() {
             )}
           </div>
           <div className="flex items-center gap-3 md:hidden">
-            {session?.user && (
+            {session?.user && canAccessAdmin && (
               <Link
                 href="/admin"
                 className={`${topbarIconButtonClass} h-10 w-10 p-2.5`}
@@ -159,14 +206,16 @@ export function PublicHeader() {
               <BookOpen className="h-4 w-4" />
               <span className="sr-only">Annales</span>
             </Link>
-            <Link
-              href="/sante"
-              className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${healthIconClass}`}
-              aria-current={isHealthActive ? 'page' : undefined}
-            >
-              <Stethoscope className="h-4 w-4" />
-              <span className="sr-only">Santé</span>
-            </Link>
+            {canAccessHealth ? (
+              <Link
+                href="/sante"
+                className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${healthIconClass}`}
+                aria-current={isHealthActive ? 'page' : undefined}
+              >
+                <Stethoscope className="h-4 w-4" />
+                <span className="sr-only">Santé</span>
+              </Link>
+            ) : null}
             <Link
               href="/entrainement"
               className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${trainingIconClass}`}

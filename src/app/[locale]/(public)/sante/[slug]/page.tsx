@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 import {
   HealthSectionPlaceholderPage,
@@ -9,6 +9,9 @@ import {
   healthSectionSlugs,
   isHealthSectionSlug,
 } from '@/components/health/health-content';
+import { fetchUserPedagogicalProfileSummary } from '@/core/user';
+import { auth } from '@/lib/auth/auth';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { buildCanonicalUrl } from '@/lib/seo';
 
 type PageProps = {
@@ -47,6 +50,17 @@ export default async function HealthSectionPage({ params }: PageProps) {
 
   if (!isHealthSectionSlug(slug)) {
     notFound();
+  }
+
+  const session = await auth();
+  const effectiveUserId = getSessionEffectiveUserId(session);
+
+  if (effectiveUserId) {
+    const viewerProfile = await fetchUserPedagogicalProfileSummary(effectiveUserId);
+
+    if (viewerProfile?.audience === 'SECONDARY') {
+      redirect('/dashboard');
+    }
   }
 
   return <HealthSectionPlaceholderPage section={slug} />;

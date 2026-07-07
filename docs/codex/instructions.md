@@ -129,6 +129,8 @@ Codex peut implémenter, sans impact visible pour l’utilisateur :
 - respecter strictement les priorités P0 / P1 / P2
 - ne pas sur-architecturer
 - privilégier des implémentations simples et robustes
+- garder une UI simple, efficace et légère ; éviter d’ajouter des blocs, cartes, badges ou textes d’aide redondants qui alourdissent les écrans
+- pour tout tableau visible en front, privilégier un rendu aligné sur Flowbite, avec état de survol explicite de type `hover-state`
 - signaler toute divergence avec le PRD ou le backlog avant implémentation
 
 ---

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 import prisma from '@/lib/db/prisma';
 import { auth } from '@/lib/auth/auth';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { upsertUserActivity } from '@/core/user-activity';
 import { RESUME_ACTIVITY_TTL_DAYS } from '@/config/app';
 import { normalizeExamPaperLabel } from '@/lib/utils';
@@ -16,7 +17,7 @@ type UserActivityPayload = {
 
 export async function POST(request: Request) {
   const session = await auth();
-  const userId = session?.user?.id;
+  const userId = getSessionEffectiveUserId(session);
 
   if (!userId) {
     return NextResponse.json(
@@ -90,7 +91,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   const session = await auth();
-  const userId = session?.user?.id;
+  const userId = getSessionEffectiveUserId(session);
 
   if (!userId) {
     return NextResponse.json(

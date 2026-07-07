@@ -4,6 +4,11 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import prisma from "@/lib/db/prisma";
+import {
+  getPrimaryCorrectChoiceIndex,
+  resolveCorrectChoiceIndexes,
+  resolveQuizAnswerFormat,
+} from "@/core/quiz/quiz-answer-format";
 import { inferTrainingQuizStageFromOrder } from "@/core/training/training-stage";
 import { setCrudSuccessToast, setToastCookie } from "@/lib/toast";
 import { slugifyText } from "@/lib/utils";
@@ -163,6 +168,25 @@ function parseChoices(formData: FormData) {
   return formData
     .getAll("choices")
     .map((choice) => String(choice).trim());
+}
+
+function parseCorrectChoiceIndexes(formData: FormData) {
+  const values = formData
+    .getAll("correctChoiceIndexes")
+    .map((value) => Number(value))
+    .filter((value) => Number.isInteger(value));
+
+  if (values.length > 0) {
+    return values;
+  }
+
+  const legacyEntry = formData.get("correctChoiceIndex");
+  if (legacyEntry == null) {
+    return [];
+  }
+
+  const legacyValue = Number(legacyEntry);
+  return Number.isInteger(legacyValue) ? [legacyValue] : [];
 }
 
 function parseTrainingStructurePayload(formData: FormData) {
@@ -745,18 +769,20 @@ export async function createQuizQuestion(
   options?: QuizQuestionActionOptions
 ) {
   const difficulty = String(formData.get("difficulty") ?? "").trim();
+  const answerFormat = String(formData.get("answerFormat") ?? "SINGLE").trim();
   const question = String(formData.get("question") ?? "").trim();
   const choices = parseChoices(formData);
-  const correctChoiceIndex = parseNumber(formData.get("correctChoiceIndex"));
+  const correctChoiceIndexes = parseCorrectChoiceIndexes(formData);
   const explanation = String(formData.get("explanation") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
   const result = createQuizQuestionSchema.safeParse({
     difficulty,
+    answerFormat,
     question,
     choices,
-    correctChoiceIndex,
+    correctChoiceIndexes,
     explanation,
     order,
     isPublished,
@@ -768,10 +794,29 @@ export async function createQuizQuestion(
   }
 
   try {
+    const normalizedAnswerFormat = resolveQuizAnswerFormat(result.data.answerFormat);
+    const normalizedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
+      answerFormat: normalizedAnswerFormat,
+      correctChoiceIndexes: result.data.correctChoiceIndexes,
+      choiceCount: result.data.choices.length,
+    });
+
     await prisma.quizQuestion.create({
       data: {
         chapterId,
-        ...result.data,
+        difficulty: result.data.difficulty,
+        answerFormat: normalizedAnswerFormat,
+        question: result.data.question,
+        choices: result.data.choices,
+        correctChoiceIndexes: normalizedCorrectChoiceIndexes,
+        correctChoiceIndex: getPrimaryCorrectChoiceIndex({
+          answerFormat: normalizedAnswerFormat,
+          correctChoiceIndexes: normalizedCorrectChoiceIndexes,
+          choiceCount: result.data.choices.length,
+        }),
+        explanation: result.data.explanation,
+        order: result.data.order,
+        isPublished: result.data.isPublished,
       },
     });
 
@@ -812,18 +857,20 @@ export async function updateQuizQuestion(
 
   const difficulty = String(formData.get("difficulty") ?? "").trim();
   const chapterId = String(formData.get("chapterId") ?? currentQuestion.chapterId).trim() || currentQuestion.chapterId;
+  const answerFormat = String(formData.get("answerFormat") ?? "SINGLE").trim();
   const question = String(formData.get("question") ?? "").trim();
   const choices = parseChoices(formData);
-  const correctChoiceIndex = parseNumber(formData.get("correctChoiceIndex"));
+  const correctChoiceIndexes = parseCorrectChoiceIndexes(formData);
   const explanation = String(formData.get("explanation") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
   const result = createQuizQuestionSchema.safeParse({
     difficulty,
+    answerFormat,
     question,
     choices,
-    correctChoiceIndex,
+    correctChoiceIndexes,
     explanation,
     order,
     isPublished,
@@ -835,11 +882,30 @@ export async function updateQuizQuestion(
   }
 
   try {
+    const normalizedAnswerFormat = resolveQuizAnswerFormat(result.data.answerFormat);
+    const normalizedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
+      answerFormat: normalizedAnswerFormat,
+      correctChoiceIndexes: result.data.correctChoiceIndexes,
+      choiceCount: result.data.choices.length,
+    });
+
     await prisma.quizQuestion.update({
       where: { id },
       data: {
         chapterId,
-        ...result.data,
+        difficulty: result.data.difficulty,
+        answerFormat: normalizedAnswerFormat,
+        question: result.data.question,
+        choices: result.data.choices,
+        correctChoiceIndexes: normalizedCorrectChoiceIndexes,
+        correctChoiceIndex: getPrimaryCorrectChoiceIndex({
+          answerFormat: normalizedAnswerFormat,
+          correctChoiceIndexes: normalizedCorrectChoiceIndexes,
+          choiceCount: result.data.choices.length,
+        }),
+        explanation: result.data.explanation,
+        order: result.data.order,
+        isPublished: result.data.isPublished,
       },
     });
 

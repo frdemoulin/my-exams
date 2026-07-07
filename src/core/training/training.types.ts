@@ -3,6 +3,7 @@ import type {
   QuizDifficulty,
   TrainingQuizStage,
 } from '@prisma/client';
+import type { QuizAnswerFormatValue } from '@/core/quiz/quiz-answer-format';
 
 export type TrainingPathStepStatus =
   | 'locked'
@@ -75,9 +76,10 @@ export type TrainingChapterListItem = {
 export type TrainingQuestion = {
   id: string;
   difficulty: QuizDifficulty;
+  answerFormat: QuizAnswerFormatValue;
   question: string;
   choices: string[];
-  correctChoiceIndex: number;
+  correctChoiceIndexes: number[];
   explanation: string;
   order: number;
   group: TrainingQuestionGroup | null;

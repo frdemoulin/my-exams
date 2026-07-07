@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 
 import type { QuizQuestionListItem } from "@/core/chapter";
 import { deleteQuizQuestion } from "@/core/chapter";
+import { quizAnswerFormatShortLabels } from "@/core/quiz/quiz-answer-format";
 import { Badge } from "@/components/ui/badge";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import {
@@ -128,6 +129,15 @@ export const columns: ColumnDef<QuizQuestionListItem>[] = [
     accessorKey: "difficulty",
     header: ({ column }) => <SortableHeader label="DIFFICULTÉ" column={column} align="left" />,
     cell: ({ row }) => <Badge variant="outline">{difficultyLabels[row.original.difficulty] ?? row.original.difficulty}</Badge>,
+  },
+  {
+    accessorKey: "answerFormat",
+    header: ({ column }) => <SortableHeader label="FORMAT" column={column} align="left" />,
+    cell: ({ row }) => (
+      <Badge variant={row.original.answerFormat === "MULTIPLE" ? "outline" : "secondary"}>
+        {quizAnswerFormatShortLabels[row.original.answerFormat ?? "SINGLE"]}
+      </Badge>
+    ),
   },
   {
     accessorKey: "order",

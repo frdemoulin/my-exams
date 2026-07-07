@@ -92,6 +92,7 @@ export function AutoBreadcrumb() {
     'stats': 'Statistiques de contenu',
     'usage-stats': 'Statistiques d\'usage',
     'umami': 'Statistiques Umami',
+    'content': 'Contenu',
     'add': 'Ajouter',
     'edit': 'Modifier',
     'split': 'Découpage',

@@ -11,6 +11,7 @@ export async function seedGrades(prisma: PrismaClient) {
     { longDescription: 'Seconde', shortDescription: '2de' },
     { longDescription: 'Première', shortDescription: '1re' },
     { longDescription: 'Terminale', shortDescription: 'Tle' },
+    { longDescription: 'Brevet de technicien supérieur', shortDescription: 'BTS' },
   ];
 
   for (const grade of grades) {

@@ -1,5 +1,11 @@
 import { Prisma } from "@prisma/client";
 import prisma from "@/lib/db/prisma";
+import {
+  getPrimaryCorrectChoiceIndex,
+  resolveCorrectChoiceIndexes,
+  resolveQuizAnswerFormat,
+} from "@/core/quiz/quiz-answer-format";
+import { reorderCatchAllChoices } from "@/core/training/training-choice-ordering";
 import { Option } from "@/types/option";
 import {
   chapterAssignmentContextTypeLabels,
@@ -28,60 +34,6 @@ function normalizeChoices(value: Prisma.JsonValue): string[] {
 
   return value.filter((choice): choice is string => typeof choice === "string");
 }
-
-const normalizeCatchAllChoice = (choice: string) =>
-  choice
-    .trim()
-    .toLocaleLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[.!?]/g, "")
-    .replace(/\s+/g, " ");
-
-const isCatchAllChoice = (choice: string) => {
-  const normalizedChoice = normalizeCatchAllChoice(choice);
-
-  return (
-    normalizedChoice === "aucune de ces reponses" ||
-    normalizedChoice === "toutes ces reponses"
-  );
-};
-
-const reorderCatchAllChoices = (
-  choices: string[],
-  correctChoiceIndex: number
-) => {
-  if (choices.length <= 1) {
-    return { choices, correctChoiceIndex };
-  }
-
-  const indexedChoices = choices.map((choice, index) => ({
-    choice,
-    index,
-    isCatchAllChoice: isCatchAllChoice(choice),
-  }));
-
-  if (!indexedChoices.some((entry) => entry.isCatchAllChoice)) {
-    return { choices, correctChoiceIndex };
-  }
-
-  const reorderedChoices = [
-    ...indexedChoices.filter((entry) => !entry.isCatchAllChoice),
-    ...indexedChoices.filter((entry) => entry.isCatchAllChoice),
-  ];
-
-  const reorderedCorrectChoiceIndex = reorderedChoices.findIndex(
-    (entry) => entry.index === correctChoiceIndex
-  );
-
-  return {
-    choices: reorderedChoices.map((entry) => entry.choice),
-    correctChoiceIndex:
-      reorderedCorrectChoiceIndex >= 0
-        ? reorderedCorrectChoiceIndex
-        : correctChoiceIndex,
-  };
-};
 
 type ChapterQueryOptions = {
   includeInactive?: boolean;
@@ -322,6 +274,8 @@ export async function fetchQuizQuestionById(
       difficulty: true,
       question: true,
       choices: true,
+      answerFormat: true,
+      correctChoiceIndexes: true,
       correctChoiceIndex: true,
       explanation: true,
       order: true,
@@ -334,13 +288,25 @@ export async function fetchQuizQuestionById(
 
     const normalizedQuestionChoices = reorderCatchAllChoices(
       normalizeChoices(question.choices),
-      question.correctChoiceIndex
+      resolveCorrectChoiceIndexes({
+        answerFormat: question.answerFormat,
+        correctChoiceIndex: question.correctChoiceIndex,
+        correctChoiceIndexes: question.correctChoiceIndexes,
+        choiceCount: normalizeChoices(question.choices).length,
+      })
     );
 
     return {
       ...question,
+      answerFormat: resolveQuizAnswerFormat(question.answerFormat),
       choices: normalizedQuestionChoices.choices,
-      correctChoiceIndex: normalizedQuestionChoices.correctChoiceIndex,
+      correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
+      correctChoiceIndex: getPrimaryCorrectChoiceIndex({
+        answerFormat: question.answerFormat,
+        correctChoiceIndex: question.correctChoiceIndex,
+        correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
+        choiceCount: normalizedQuestionChoices.choices.length,
+      }),
     };
   });
 }

@@ -7,6 +7,7 @@ import {
   createQuizQuestionSchema,
   updateTrainingStructureSchema,
 } from "@/lib/validation";
+import type { QuizAnswerFormatValue } from "@/core/quiz/quiz-answer-format";
 import {
   chapterAssignmentContextTypeLabels,
   contentVerticalLabels,
@@ -114,6 +115,8 @@ export const chapterDetailInclude = {
       id: true,
       difficulty: true,
       question: true,
+      answerFormat: true,
+      correctChoiceIndexes: true,
       correctChoiceIndex: true,
       order: true,
       isPublished: true,
@@ -196,8 +199,10 @@ export type QuizQuestionFormData = {
   id: string;
   chapterId: string;
   difficulty: QuizDifficulty;
+  answerFormat: QuizAnswerFormatValue;
   question: string;
   choices: string[];
+  correctChoiceIndexes: number[];
   correctChoiceIndex: number;
   explanation: string;
   order: number;

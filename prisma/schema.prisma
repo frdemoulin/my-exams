@@ -217,6 +217,11 @@ enum HealthCourseUnitCoverageStatus {
   READY
 }
 
+enum QuizAnswerFormat {
+  SINGLE
+  MULTIPLE
+}
+
 model HealthInstitution {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   name        String
@@ -398,6 +403,7 @@ model HealthTeachingElement {
   description     String?
   order           Int                            @default(0)
   coverageStatus  HealthCourseUnitCoverageStatus @default(STRUCTURE_ONLY)
+  quizAnswerFormatDefault QuizAnswerFormat?      @default(SINGLE)
   sourceUrl       String?
   sourceLabel     String?
   sourceCheckedAt DateTime?
@@ -692,9 +698,16 @@ enum Role {
   ADMIN
 }
 
+enum UserPedagogicalAudience {
+  SECONDARY
+  HEALTH
+}
+
 enum AuthLogAction {
   SIGN_IN
   SIGN_OUT
+  IMPERSONATION_START
+  IMPERSONATION_STOP
 }
 
 enum UsageEventType {
@@ -926,6 +939,8 @@ model QuizQuestion {
   difficulty         QuizDifficulty
   question           String         @db.String
   choices            Json
+  answerFormat       QuizAnswerFormat? @default(SINGLE)
+  correctChoiceIndexes Int[]        @default([])
   correctChoiceIndex Int
   explanation        String         @db.String
   order              Int
@@ -980,12 +995,38 @@ model User {
   Authenticator               Authenticator[]
   authLogs                    AuthLog[]
   activity                    UserActivity?
+  pedagogicalProfile          UserPedagogicalProfile?
   entitlements                UserEntitlement[]
   subscriptions               UserSubscription[]
   exerciseHistory             UserExerciseHistory[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
   createdAt                   DateTime                   @default(now())
   updatedAt                   DateTime                   @updatedAt
+}
+
+model UserPedagogicalProfile {
+  id                    String                   @id @default(auto()) @map("_id") @db.ObjectId
+  userId                String                   @unique @db.ObjectId
+  audience              UserPedagogicalAudience?
+  secondaryGradeId      String?                  @db.ObjectId
+  secondaryTeachingIds  String[]                 @default([]) @db.ObjectId
+  healthInstitutionId   String?                  @db.ObjectId
+  healthProgramVersionId String?                 @db.ObjectId
+  healthPathwayId       String?                  @db.ObjectId
+  healthCourseUnitId    String?                  @db.ObjectId
+  healthTeachingElementId String?                @db.ObjectId
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([audience])
+  @@index([secondaryGradeId])
+  @@index([healthInstitutionId])
+  @@index([healthProgramVersionId])
+  @@index([healthPathwayId])
+  @@index([healthCourseUnitId])
+  @@index([healthTeachingElementId])
 }
 
 model UserTrainingQuizProgress {

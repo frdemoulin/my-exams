@@ -14,13 +14,20 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import { MathContent } from "@/components/training/math-content";
 import { createQuizQuestion, updateQuizQuestion } from "@/core/chapter";
+import {
+  quizAnswerFormatLabels,
+  resolveCorrectChoiceIndexes,
+  type QuizAnswerFormatValue,
+} from "@/core/quiz/quiz-answer-format";
 import { createQuizQuestionSchema } from "@/lib/validation";
 import { useCommonTranslations } from "@/hooks/use-translations";
 import type { Option } from "@/types/option";
 
-const quizQuestionFormSchema = createQuizQuestionSchema.extend({
-  chapterId: z.string().trim().min(1, { message: "Chapitre requis" }),
-});
+const quizQuestionFormSchema = createQuizQuestionSchema.and(
+  z.object({
+    chapterId: z.string().trim().min(1, { message: "Chapitre requis" }),
+  })
+);
 
 type QuizQuestionFormValues = z.infer<typeof quizQuestionFormSchema>;
 
@@ -30,8 +37,10 @@ interface QuizQuestionFormProps {
     id?: string;
     chapterId: string;
     difficulty: "EASY" | "MEDIUM" | "HARD";
+    answerFormat: QuizAnswerFormatValue;
     question: string;
     choices: string[];
+    correctChoiceIndexes: number[];
     correctChoiceIndex: number;
     explanation: string;
     order?: number;
@@ -61,14 +70,22 @@ export function QuizQuestionForm({
     ),
     [chapterOptions]
   );
+  const initialCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
+    answerFormat: initialData.answerFormat,
+    correctChoiceIndex: initialData.correctChoiceIndex,
+    correctChoiceIndexes: initialData.correctChoiceIndexes,
+    choiceCount: choiceLabels.length,
+  });
 
   const form = useForm<QuizQuestionFormValues>({
     defaultValues: {
       chapterId: initialData.chapterId,
       difficulty: initialData.difficulty,
+      answerFormat: initialData.answerFormat,
       question: initialData.question,
       choices: initialData.choices.length === 4 ? initialData.choices : ["", "", "", ""],
-      correctChoiceIndex: initialData.correctChoiceIndex,
+      correctChoiceIndexes:
+        initialCorrectChoiceIndexes.length > 0 ? initialCorrectChoiceIndexes : [0],
       explanation: initialData.explanation,
       order: initialData.order,
       isPublished: initialData.isPublished,
@@ -80,9 +97,12 @@ export function QuizQuestionForm({
     const formData = new FormData();
     formData.append("chapterId", values.chapterId);
     formData.append("difficulty", values.difficulty);
+    formData.append("answerFormat", values.answerFormat);
     formData.append("question", values.question);
     values.choices.forEach((choice) => formData.append("choices", choice));
-    formData.append("correctChoiceIndex", String(values.correctChoiceIndex));
+    values.correctChoiceIndexes.forEach((choiceIndex) =>
+      formData.append("correctChoiceIndexes", String(choiceIndex))
+    );
     formData.append("explanation", values.explanation);
     formData.append("order", String(values.order));
     formData.append("isPublished", String(values.isPublished));
@@ -100,10 +120,11 @@ export function QuizQuestionForm({
     formState: { isSubmitting },
   } = form;
   const previewQuestion = form.watch("question");
+  const previewAnswerFormat = form.watch("answerFormat");
   const previewChoices = form.watch("choices");
+  const previewCorrectChoiceIndexes = form.watch("correctChoiceIndexes");
   const previewExplanation = form.watch("explanation");
-
-    const checkboxClassName = "h-4 w-4 rounded-xs border border-default-medium bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft";
+  const checkboxClassName = "h-4 w-4 rounded-xs border border-default-medium bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft";
 
   return (
     <Form {...form}>
@@ -160,6 +181,49 @@ export function QuizQuestionForm({
           />
 
           <FormField
+            name="answerFormat"
+            control={control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Format de réponse</FormLabel>
+                <Select
+                  value={field.value}
+                  onValueChange={(value) => {
+                    field.onChange(value);
+                    const nextCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
+                      answerFormat: value as QuizAnswerFormatValue,
+                      correctChoiceIndexes: form.getValues("correctChoiceIndexes"),
+                      choiceCount: choiceLabels.length,
+                    });
+                    form.setValue(
+                      "correctChoiceIndexes",
+                      nextCorrectChoiceIndexes.length > 0 ? nextCorrectChoiceIndexes : [0],
+                      { shouldDirty: true, shouldValidate: true }
+                    );
+                  }}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Choisir un format" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {Object.entries(quizAnswerFormatLabels).map(([value, label]) => (
+                      <SelectItem key={value} value={value}>
+                        {label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormDescription>
+                  Le format de la question prime sur la convention définie au niveau de l&apos;EC.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
             name="order"
             control={control}
             render={({ field }) => (
@@ -178,35 +242,97 @@ export function QuizQuestionForm({
               </FormItem>
             )}
           />
+        </div>
 
-          <FormField
-            name="correctChoiceIndex"
-            control={control}
-            render={({ field }) => (
+        <FormField
+          name="correctChoiceIndexes"
+          control={control}
+          render={({ field }) => {
+            const selectedIndexes = field.value ?? [];
+
+            return (
               <FormItem>
-                <FormLabel>Bonne réponse</FormLabel>
-                <Select
-                  value={String(field.value)}
-                  onValueChange={(value) => field.onChange(Number(value))}
-                >
-                  <FormControl>
-                    <SelectTrigger>
+                <FormLabel>
+                  {previewAnswerFormat === "MULTIPLE"
+                    ? "Bonnes réponses"
+                    : "Bonne réponse"}
+                </FormLabel>
+                {previewAnswerFormat === "MULTIPLE" ? (
+                  <div className="grid gap-3 md:grid-cols-2">
+                    {choiceLabels.map((label, index) => {
+                      const isChecked = selectedIndexes.includes(index);
+
+                      return (
+                        <label
+                          key={`correct-choice-${label}`}
+                          className="flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-sm"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={(event) => {
+                              const nextIndexes = event.target.checked
+                                ? [...selectedIndexes, index]
+                                : selectedIndexes.filter((value) => value !== index);
+                              field.onChange(
+                                resolveCorrectChoiceIndexes({
+                                  answerFormat: previewAnswerFormat,
+                                  correctChoiceIndexes: nextIndexes,
+                                  choiceCount: choiceLabels.length,
+                                })
+                              );
+                            }}
+                            className={checkboxClassName}
+                          />
+                          <span className="space-y-1">
+                            <span className="block font-medium text-heading">
+                              Choix {label}
+                            </span>
+                            <span className="block text-xs text-muted-foreground">
+                              Coche toutes les bonnes réponses attendues.
+                            </span>
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <Select
+                    value={String(selectedIndexes[0] ?? 0)}
+                    onValueChange={(value) =>
+                      field.onChange(
+                        resolveCorrectChoiceIndexes({
+                          answerFormat: previewAnswerFormat,
+                          correctChoiceIndexes: [Number(value)],
+                          choiceCount: choiceLabels.length,
+                        })
+                      )
+                    }
+                  >
+                    <FormControl>
+                      <SelectTrigger>
                       <SelectValue placeholder="Choisir la bonne réponse" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {choiceLabels.map((label, index) => (
-                      <SelectItem key={label} value={String(index)}>
-                        {label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {choiceLabels.map((label, index) => (
+                        <SelectItem key={label} value={String(index)}>
+                          {label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+                <FormDescription>
+                  {previewAnswerFormat === "MULTIPLE"
+                    ? "La question sera validée uniquement si l'ensemble exact des bonnes réponses est coché."
+                    : "La question attend exactement une bonne réponse."}
+                </FormDescription>
                 <FormMessage />
               </FormItem>
-            )}
-          />
-        </div>
+            );
+          }}
+        />
 
         <FormField
           name="question"
@@ -300,6 +426,11 @@ export function QuizQuestionForm({
                         {label}
                       </span>
                       <div className="min-w-0 flex-1 pt-0.5">
+                        {previewCorrectChoiceIndexes.includes(index) ? (
+                          <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-emerald-600">
+                            {previewAnswerFormat === "MULTIPLE" ? "Bonne réponse attendue" : "Bonne réponse"}
+                          </p>
+                        ) : null}
                         {previewChoice.trim() ? (
                           <MathContent value={previewChoice} />
                         ) : (

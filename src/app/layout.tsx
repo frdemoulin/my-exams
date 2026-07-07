@@ -7,6 +7,7 @@ import NextTopLoader from 'nextjs-toploader';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { APP_DESCRIPTION, APP_NAME, APP_TITLE_TEMPLATE } from "@/config/app";
+import { ImpersonationBanner } from "@/components/shared/impersonation-banner";
 import { ToastDisplay } from "@/components/shared/toast-display";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import "./globals.css";
@@ -58,6 +59,7 @@ export default async function RootLayout({
             <ThemeProvider
               defaultTheme={defaultTheme}
             >
+              <ImpersonationBanner />
               {children}
             </ThemeProvider>
           </SessionProvider>

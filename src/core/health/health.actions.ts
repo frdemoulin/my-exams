@@ -5,6 +5,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { auth } from "@/lib/auth/auth";
+import { isAdminRole } from "@/lib/auth/roles";
+import { getSessionEffectiveRole } from "@/lib/auth/session";
 import prisma from "@/lib/db/prisma";
 import { setToastCookie } from "@/lib/toast";
 import {
@@ -38,7 +40,7 @@ const strings = (formData: FormData, key: string) =>
 
 const assertAdmin = async () => {
     const session = await auth();
-    if ((session?.user as { role?: string } | undefined)?.role !== "ADMIN") {
+    if (!isAdminRole(getSessionEffectiveRole(session))) {
         throw new Error("Accès administrateur requis.");
     }
 };
@@ -144,6 +146,7 @@ const parseInput = (entity: HealthEntity, formData: FormData) => {
                 description: optional(formData, "description"),
                 order: Number(text(formData, "order") || 0),
                 coverageStatus: text(formData, "coverageStatus"),
+                quizAnswerFormatDefault: text(formData, "quizAnswerFormatDefault") || "SINGLE",
                 sourceUrl: optional(formData, "sourceUrl"),
                 sourceLabel: optional(formData, "sourceLabel"),
                 sourceCheckedAt: parseDate(formData, "sourceCheckedAt"),

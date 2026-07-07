@@ -23,10 +23,12 @@ export type AuthLogListItem = Prisma.AuthLogGetPayload<{
 
 const actionLabels: Record<
   string,
-  { label: string; variant: "default" | "secondary" }
+  { label: string; variant: "default" | "secondary" | "outline" }
 > = {
   SIGN_IN: { label: "Connexion", variant: "default" },
   SIGN_OUT: { label: "Déconnexion", variant: "secondary" },
+  IMPERSONATION_START: { label: "Début de bascule", variant: "outline" },
+  IMPERSONATION_STOP: { label: "Fin de bascule", variant: "outline" },
 };
 
 const localeSort = localeStringSort<AuthLogListItem>();
