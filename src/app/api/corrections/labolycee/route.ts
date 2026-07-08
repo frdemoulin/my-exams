@@ -3,11 +3,13 @@ import { NextResponse } from "next/server";
 import getSession from "@/lib/auth/get-session";
 import prisma from "@/lib/db/prisma";
 import { extractLabolyceePdfData } from "@/lib/corrections/labolycee";
+import { isAdminRole } from "@/lib/auth/roles";
+import { getSessionEffectiveRole } from "@/lib/auth/session";
 
 export async function POST(request: Request) {
     const session = await getSession();
-    const role = (session?.user as any)?.role;
-    if (!session?.user || role !== "ADMIN") {
+    const role = getSessionEffectiveRole(session);
+    if (!session?.user || !isAdminRole(role)) {
         return NextResponse.json(
             { success: false, subjectPdfs: [], correctionPdfs: [] },
             { status: 403 }

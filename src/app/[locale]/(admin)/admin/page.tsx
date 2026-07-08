@@ -7,6 +7,7 @@ import {
     FaChartPie,
     FaCity,
     FaGraduationCap,
+    FaHeartPulse,
     FaList,
     FaStairs,
     FaUsers,
@@ -34,6 +35,15 @@ const DashboardPage = async () => {
     const stats = await fetchDashboardStats();
     const recentCurriculums = await fetchRecentCurriculums();
     const recentTeachings = await fetchRecentTeachings();
+    const favoriteLinks = [
+        {
+            title: "Admin santé · Reims",
+            description: "Accéder directement au pilotage du contenu santé de la fac de Reims.",
+            link: "/admin/health/institutions/6a2b1c3209861ef06972b6ce/content",
+            icon: <FaHeartPulse className="h-4 w-4" />,
+            badge: "Favori",
+        },
+    ];
 
     const statCards = [
         {
@@ -115,8 +125,39 @@ const DashboardPage = async () => {
         <div className="w-full p-6 space-y-6">
             <AdminPageHeading
                 title="Tableau de bord"
-                description="Accède rapidement aux principaux indicateurs et aux derniers contenus créés dans l'administration."
+                description="Accède rapidement aux principaux indicateurs et aux derniers contenus créés dans l&apos;administration."
             />
+
+            <section className="space-y-3">
+                <div>
+                    <h2 className="text-sm font-semibold uppercase tracking-wide text-heading">
+                        Favoris
+                    </h2>
+                    <p className="text-sm text-muted-foreground">
+                        Raccourcis vers les pages d&apos;administration les plus utiles.
+                    </p>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {favoriteLinks.map((favorite) => (
+                        <Link key={favorite.title} href={favorite.link}>
+                            <Card className="cursor-pointer border-default hover:bg-accent transition-colors">
+                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle className="text-sm font-medium">
+                                        {favorite.title}
+                                    </CardTitle>
+                                    {favorite.icon}
+                                </CardHeader>
+                                <CardContent className="space-y-2">
+                                    <Badge variant="outline">{favorite.badge}</Badge>
+                                    <p className="text-sm text-muted-foreground">
+                                        {favorite.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </Link>
+                    ))}
+                </div>
+            </section>
 
             {/* Stats Grid */}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

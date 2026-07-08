@@ -7,12 +7,14 @@ import {
   ChevronLeft,
   ChevronRight,
   ListChecks,
+  Pencil,
   Target,
   XCircle,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { areChoiceIndexSetsEqual } from '@/core/quiz/quiz-answer-format';
 import type { TrainingQuestion } from '@/core/training';
 import {
   isCatchAllChoice,
@@ -24,6 +26,8 @@ import { MathContent } from './math-content';
 type QuizSessionProps = {
   questions: TrainingQuestion[];
   pathContext?: QuizSessionPathContext;
+  correctionMode?: 'instant' | 'final';
+  canEditQuestions?: boolean;
 };
 
 type QuizSessionPathContext = {
@@ -49,11 +53,16 @@ type SummaryFeedback = {
 type QuestionReviewItem = {
   index: number;
   question: TrainingQuestion;
-  selectedChoice: string | null;
-  correctChoice: string | null;
+  selectedChoices: string[];
+  correctChoices: string[];
 };
 
-type QuestionNavigationStatus = 'current' | 'correct' | 'incorrect' | 'unanswered';
+type QuestionNavigationStatus =
+  | 'current'
+  | 'correct'
+  | 'incorrect'
+  | 'answered'
+  | 'unanswered';
 
 const difficultyFocusLabels = {
   EASY: 'Fondamentaux',
@@ -65,17 +74,22 @@ const questionNavigationStatusLabels: Record<QuestionNavigationStatus, string> =
   current: 'Question en cours',
   correct: 'Réponse correcte',
   incorrect: 'Réponse à revoir',
+  answered: 'Réponse enregistrée',
   unanswered: 'Non répondue',
 };
 
 const getQuestionNavigationStatus = ({
-  answer,
-  correctChoiceIndex,
+  correctionMode,
+  isAnswered,
+  selectedChoiceIndexes,
+  correctChoiceIndexes,
   index,
   currentIndex,
 }: {
-  answer: number | null;
-  correctChoiceIndex: number;
+  correctionMode: 'instant' | 'final';
+  isAnswered: boolean;
+  selectedChoiceIndexes: number[];
+  correctChoiceIndexes: number[];
   index: number;
   currentIndex: number;
 }): QuestionNavigationStatus => {
@@ -83,11 +97,17 @@ const getQuestionNavigationStatus = ({
     return 'current';
   }
 
-  if (answer === null) {
+  if (!isAnswered) {
     return 'unanswered';
   }
 
-  return answer === correctChoiceIndex ? 'correct' : 'incorrect';
+  if (correctionMode === 'final') {
+    return 'answered';
+  }
+
+  return areChoiceIndexSetsEqual(selectedChoiceIndexes, correctChoiceIndexes)
+    ? 'correct'
+    : 'incorrect';
 };
 
 const getQuestionNavigationButtonClassName = (
@@ -100,13 +120,15 @@ const getQuestionNavigationButtonClassName = (
       return 'bg-success text-white shadow-xs hover:bg-success-strong hover:text-white';
     case 'incorrect':
       return 'bg-danger text-white shadow-xs hover:bg-danger-strong hover:text-white';
+    case 'answered':
+      return 'bg-slate-300 text-slate-950 hover:bg-slate-400 hover:text-slate-950 dark:bg-slate-600 dark:text-white dark:hover:bg-slate-500 dark:hover:text-white';
     case 'unanswered':
     default:
-      return 'bg-neutral-secondary-medium text-body hover:bg-neutral-tertiary-medium hover:text-heading';
+      return 'bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200';
   }
 };
 
-const questionNavigationLegendItems: Array<{
+const instantQuestionNavigationLegendItems: Array<{
   status: QuestionNavigationStatus;
   toneClassName: string;
 }> = [
@@ -128,6 +150,24 @@ const questionNavigationLegendItems: Array<{
   },
 ];
 
+const finalQuestionNavigationLegendItems: Array<{
+  status: QuestionNavigationStatus;
+  toneClassName: string;
+}> = [
+  {
+    status: 'current',
+    toneClassName: 'bg-brand',
+  },
+  {
+    status: 'answered',
+    toneClassName: 'bg-slate-400 dark:bg-slate-500',
+  },
+  {
+    status: 'unanswered',
+    toneClassName: 'border border-slate-300 bg-transparent dark:border-slate-600 dark:bg-transparent',
+  },
+];
+
 const hashString = (value: string) => {
   let hash = 0;
 
@@ -137,6 +177,9 @@ const hashString = (value: string) => {
 
   return hash || 1;
 };
+
+const getAdminQuestionEditHref = (questionId: string) =>
+  `/admin/training/quiz-questions/${questionId}/edit`;
 
 const seededShuffle = <T,>(items: T[], seed: number) => {
   const nextItems = [...items];
@@ -157,24 +200,24 @@ const seededShuffle = <T,>(items: T[], seed: number) => {
 
 const rotateQuestionChoices = (
   choices: string[],
-  correctChoiceIndex: number,
+  correctChoiceIndexes: number[],
   variant: number
 ) => {
   if (variant === 0) {
-    return { choices, correctChoiceIndex };
+    return { choices, correctChoiceIndexes };
   }
 
   const regularChoices = choices.filter((choice) => !isCatchAllChoice(choice));
   const catchAllChoices = choices.filter((choice) => isCatchAllChoice(choice));
 
   if (regularChoices.length <= 1) {
-    return { choices: [...regularChoices, ...catchAllChoices], correctChoiceIndex };
+    return { choices: [...regularChoices, ...catchAllChoices], correctChoiceIndexes };
   }
 
   const rotationOffset = variant % regularChoices.length;
 
   if (rotationOffset === 0) {
-    return { choices: [...regularChoices, ...catchAllChoices], correctChoiceIndex };
+    return { choices: [...regularChoices, ...catchAllChoices], correctChoiceIndexes };
   }
 
   const rotatedRegularChoices = regularChoices.map(
@@ -186,10 +229,13 @@ const rotateQuestionChoices = (
 
   return {
     choices: [...rotatedRegularChoices, ...catchAllChoices],
-    correctChoiceIndex:
-      correctChoiceIndex < regularChoices.length
-        ? (correctChoiceIndex + rotationOffset) % regularChoices.length
-        : correctChoiceIndex,
+    correctChoiceIndexes: correctChoiceIndexes
+      .map((correctChoiceIndex) =>
+        correctChoiceIndex < regularChoices.length
+          ? (correctChoiceIndex + rotationOffset) % regularChoices.length
+          : correctChoiceIndex
+      )
+      .sort((left, right) => left - right),
   };
 };
 
@@ -205,20 +251,20 @@ const prepareQuestions = (questions: TrainingQuestion[], variant: number) => {
     );
     const reorderedShuffledChoices = reorderCatchAllChoices(
       shuffledChoices.map(({ choice }) => choice),
-      shuffledChoices.findIndex(
-        ({ choiceIndex }) => choiceIndex === question.correctChoiceIndex
-      )
+      shuffledChoices
+        .filter(({ choiceIndex }) => question.correctChoiceIndexes.includes(choiceIndex))
+        .map((entry) => shuffledChoices.indexOf(entry))
     );
     const rotatedQuestionChoices = rotateQuestionChoices(
       reorderedShuffledChoices.choices,
-      reorderedShuffledChoices.correctChoiceIndex,
+      reorderedShuffledChoices.correctChoiceIndexes,
       variant
     );
 
     return {
       ...question,
       choices: rotatedQuestionChoices.choices,
-      correctChoiceIndex: rotatedQuestionChoices.correctChoiceIndex,
+      correctChoiceIndexes: rotatedQuestionChoices.correctChoiceIndexes,
     };
   });
 };
@@ -417,14 +463,22 @@ const getImprovementSuggestions = ({
   return suggestions.slice(0, 3);
 };
 
-export function QuizSession({ questions, pathContext }: QuizSessionProps) {
+export function QuizSession({
+  questions,
+  pathContext,
+  correctionMode = 'instant',
+  canEditQuestions = false,
+}: QuizSessionProps) {
   const [questionOrderVariant, setQuestionOrderVariant] = useState(0);
   const [sessionQuestions, setSessionQuestions] = useState(() =>
     prepareQuestions(questions, 0)
   );
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState<Array<number | null>>(
-    () => questions.map(() => null)
+  const [selectedChoiceIndexesByQuestion, setSelectedChoiceIndexesByQuestion] = useState<Array<number[]>>(
+    () => questions.map(() => [])
+  );
+  const [submittedAnswers, setSubmittedAnswers] = useState<boolean[]>(
+    () => questions.map(() => false)
   );
   const [showSummary, setShowSummary] = useState(false);
 
@@ -438,23 +492,46 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
 
   const currentQuestion = sessionQuestions[currentIndex];
   const currentGroup = currentQuestion.group;
-  const currentAnswer = answers[currentIndex] ?? null;
-  const hasAnswered = currentAnswer !== null;
-  const isCorrect = currentAnswer === currentQuestion.correctChoiceIndex;
-  const answeredCount = answers.filter((answer) => answer !== null).length;
+  const isPathMode = Boolean(pathContext);
+  const isFinalCorrectionOnly = correctionMode === 'final';
+  const effectiveAnsweredByQuestion = isFinalCorrectionOnly
+    ? selectedChoiceIndexesByQuestion.map((selections) => selections.length > 0)
+    : submittedAnswers;
+  const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
+  const hasAnswered = effectiveAnsweredByQuestion[currentIndex] ?? false;
+  const isAnswerLocked =
+    !isFinalCorrectionOnly && (submittedAnswers[currentIndex] ?? false);
+  const isCorrect = areChoiceIndexSetsEqual(
+    currentSelections,
+    currentQuestion.correctChoiceIndexes
+  );
+  const answeredCount = effectiveAnsweredByQuestion.filter(Boolean).length;
   const score = sessionQuestions.reduce((total, question, index) => {
-    return answers[index] === question.correctChoiceIndex ? total + 1 : total;
+    return effectiveAnsweredByQuestion[index] &&
+      areChoiceIndexSetsEqual(
+        selectedChoiceIndexesByQuestion[index] ?? [],
+        question.correctChoiceIndexes
+      )
+      ? total + 1
+      : total;
   }, 0);
   const isComplete = answeredCount === sessionQuestions.length;
   const successRate = Math.round((score / sessionQuestions.length) * 100);
   const clampedSuccessRate = Math.max(0, Math.min(successRate, 100));
-  const isPathMode = Boolean(pathContext);
+  const questionNavigationLegendItems = isFinalCorrectionOnly
+    ? finalQuestionNavigationLegendItems
+    : instantQuestionNavigationLegendItems;
+  const selectedChoiceClassName =
+    'border-brand bg-brand-soft/15 !text-foreground shadow-xs ring-2 ring-brand/20 dark:border-brand/70 dark:bg-brand/10 dark:!text-white dark:ring-brand/30';
   const targetScore = pathContext?.targetScore ?? 70;
   const hasReachedTarget = successRate >= targetScore;
   const incorrectQuestions: QuestionReviewItem[] = sessionQuestions.flatMap((question, index) => {
-    const selectedChoiceIndex = answers[index];
+    const selectedChoiceIndexes = selectedChoiceIndexesByQuestion[index] ?? [];
 
-    if (selectedChoiceIndex === question.correctChoiceIndex) {
+    if (
+      effectiveAnsweredByQuestion[index] &&
+      areChoiceIndexSetsEqual(selectedChoiceIndexes, question.correctChoiceIndexes)
+    ) {
       return [];
     }
 
@@ -462,9 +539,12 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
       {
         index,
         question,
-        selectedChoice:
-          selectedChoiceIndex === null ? null : question.choices[selectedChoiceIndex] ?? null,
-        correctChoice: question.choices[question.correctChoiceIndex] ?? null,
+        selectedChoices: selectedChoiceIndexes
+          .map((choiceIndex) => question.choices[choiceIndex] ?? null)
+          .filter((choice): choice is string => Boolean(choice)),
+        correctChoices: question.correctChoiceIndexes
+          .map((choiceIndex) => question.choices[choiceIndex] ?? null)
+          .filter((choice): choice is string => Boolean(choice)),
       },
     ];
   });
@@ -521,13 +601,55 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
         }
     : summaryFeedback;
 
-  const selectAnswer = (choiceIndex: number) => {
-    if (hasAnswered) return;
+  const updateCurrentSelections = (nextSelections: number[]) => {
+    setSelectedChoiceIndexesByQuestion((previousSelections) => {
+      const nextSelectionsByQuestion = [...previousSelections];
+      nextSelectionsByQuestion[currentIndex] = nextSelections;
+      return nextSelectionsByQuestion;
+    });
+  };
 
-    setAnswers((previousAnswers) => {
+  const submitCurrentAnswer = () => {
+    if (isFinalCorrectionOnly || isAnswerLocked) return;
+
+    setSubmittedAnswers((previousAnswers) => {
       const nextAnswers = [...previousAnswers];
-      nextAnswers[currentIndex] = choiceIndex;
+      nextAnswers[currentIndex] = true;
       return nextAnswers;
+    });
+  };
+
+  const selectAnswer = (choiceIndex: number) => {
+    if (isAnswerLocked) return;
+
+    if (currentQuestion.answerFormat === 'SINGLE') {
+      updateCurrentSelections([choiceIndex]);
+
+      if (!isFinalCorrectionOnly) {
+        setSubmittedAnswers((previousAnswers) => {
+          const nextAnswers = [...previousAnswers];
+          nextAnswers[currentIndex] = true;
+          return nextAnswers;
+        });
+      }
+
+      return;
+    }
+
+    updateCurrentSelections(
+      currentSelections.includes(choiceIndex)
+        ? currentSelections.filter((value) => value !== choiceIndex)
+        : [...currentSelections, choiceIndex].sort((left, right) => left - right)
+    );
+  };
+
+  const clearCurrentSelections = () => {
+    if (isAnswerLocked) return;
+
+    setSelectedChoiceIndexesByQuestion((previousSelections) => {
+      const nextSelections = [...previousSelections];
+      nextSelections[currentIndex] = [];
+      return nextSelections;
     });
   };
 
@@ -549,7 +671,8 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
     setQuestionOrderVariant(nextVariant);
     setSessionQuestions(prepareQuestions(questions, nextVariant));
     setCurrentIndex(0);
-    setAnswers(questions.map(() => null));
+    setSelectedChoiceIndexesByQuestion(questions.map(() => []));
+    setSubmittedAnswers(questions.map(() => false));
     setShowSummary(false);
   };
 
@@ -739,6 +862,16 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
 
                   <div className="mt-4 space-y-4">
                     <div className="rounded-xl border border-border bg-background p-4 text-sm text-heading">
+                      {canEditQuestions ? (
+                        <div className="mb-3 flex justify-end">
+                          <Button asChild variant="outline" size="xs">
+                            <Link href={getAdminQuestionEditHref(item.question.id)}>
+                              <Pencil className="h-3.5 w-3.5" />
+                              Éditer la question
+                            </Link>
+                          </Button>
+                        </div>
+                      ) : null}
                       <MathContent value={item.question.question} />
                     </div>
 
@@ -746,8 +879,16 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
                       <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-950 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-100">
                         <p className="font-semibold">Ta réponse</p>
                         <div className="mt-2 leading-6">
-                          {item.selectedChoice ? (
-                            <MathContent value={item.selectedChoice} />
+                          {item.selectedChoices.length > 0 ? (
+                            <div className="space-y-2">
+                              {item.selectedChoices.map((selectedChoice, choiceIndex) => (
+                                <MathContent
+                                  key={`${item.question.id}-selected-${choiceIndex}`}
+                                  className="block"
+                                  value={selectedChoice}
+                                />
+                              ))}
+                            </div>
                           ) : (
                             <span>Aucune réponse enregistrée.</span>
                           )}
@@ -757,8 +898,16 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
                       <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-100">
                         <p className="font-semibold">Réponse attendue</p>
                         <div className="mt-2 leading-6">
-                          {item.correctChoice ? (
-                            <MathContent value={item.correctChoice} />
+                          {item.correctChoices.length > 0 ? (
+                            <div className="space-y-2">
+                              {item.correctChoices.map((correctChoice, choiceIndex) => (
+                                <MathContent
+                                  key={`${item.question.id}-correct-${choiceIndex}`}
+                                  className="block"
+                                  value={correctChoice}
+                                />
+                              ))}
+                            </div>
                           ) : (
                             <span>Réponse correcte indisponible.</span>
                           )}
@@ -827,7 +976,9 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">
-              Score {score}/{sessionQuestions.length}
+              {isFinalCorrectionOnly
+                ? `${answeredCount}/${sessionQuestions.length} traitée${answeredCount > 1 ? 's' : ''}`
+                : `Score ${score}/${sessionQuestions.length}`}
             </Badge>
           </div>
         </div>
@@ -855,10 +1006,12 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
             <div className="flex-1 overflow-x-auto">
               <ol className="flex min-w-full">
                 {sessionQuestions.map((question, index) => {
-                  const answer = answers[index] ?? null;
                   const status = getQuestionNavigationStatus({
-                    answer,
-                    correctChoiceIndex: question.correctChoiceIndex,
+                    correctionMode,
+                    isAnswered: effectiveAnsweredByQuestion[index] ?? false,
+                    selectedChoiceIndexes:
+                      selectedChoiceIndexesByQuestion[index] ?? [],
+                    correctChoiceIndexes: question.correctChoiceIndexes,
                     index,
                     currentIndex,
                   });
@@ -929,26 +1082,41 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
       ) : null}
 
       <div className="rounded-xl border border-border bg-background p-4 text-base font-medium text-heading">
+        {canEditQuestions ? (
+          <div className="mb-3 flex justify-end">
+            <Button asChild variant="outline" size="xs">
+              <Link href={getAdminQuestionEditHref(currentQuestion.id)}>
+                <Pencil className="h-3.5 w-3.5" />
+                Éditer la question
+              </Link>
+            </Button>
+          </div>
+        ) : null}
         <MathContent value={currentQuestion.question} />
       </div>
 
       <div className="grid gap-3">
         {currentQuestion.choices.map((choice, choiceIndex) => {
-          const isSelected = currentAnswer === choiceIndex;
-          const isRightChoice = currentQuestion.correctChoiceIndex === choiceIndex;
+          const isSelected = currentSelections.includes(choiceIndex);
+          const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
+          const showSelectedAsIncorrect =
+            !isFinalCorrectionOnly && hasAnswered && isSelected && !isRightChoice;
+          const showSelectedAsAnswered = isFinalCorrectionOnly && hasAnswered && isSelected;
 
           return (
             <button
               key={`${currentQuestion.id}-${choiceIndex}`}
               type="button"
-              disabled={hasAnswered}
+              disabled={isAnswerLocked}
               onClick={() => selectAnswer(choiceIndex)}
               className={cn(
                 'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                !hasAnswered && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
-                hasAnswered && isRightChoice && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
-                hasAnswered && isSelected && !isRightChoice && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100'
+                !isAnswerLocked && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
+                !isFinalCorrectionOnly && isAnswerLocked && isRightChoice && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
+                showSelectedAsIncorrect && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
+                showSelectedAsAnswered && selectedChoiceClassName,
+                !isAnswerLocked && isSelected && selectedChoiceClassName
               )}
             >
               <span className="flex min-w-0 flex-1 items-baseline gap-3">
@@ -959,10 +1127,10 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
                   <MathContent value={choice} />
                 </span>
               </span>
-              {hasAnswered && isRightChoice ? (
+              {!isFinalCorrectionOnly && isAnswerLocked && isRightChoice ? (
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
               ) : null}
-              {hasAnswered && isSelected && !isRightChoice ? (
+              {showSelectedAsIncorrect ? (
                 <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
               ) : null}
             </button>
@@ -970,7 +1138,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
         })}
       </div>
 
-      {hasAnswered ? (
+      {isAnswerLocked && !isFinalCorrectionOnly ? (
         <div
           className={cn(
             'rounded-xl border p-4 text-sm',
@@ -989,7 +1157,11 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
       <div className="flex flex-col gap-3 border-t border-border pt-4 md:flex-row md:items-center md:justify-between">
         <p className="text-sm text-muted-foreground">
           {answeredCount} {answeredCount > 1 ? 'questions traitées.' : 'question traitée.'}
-          {isComplete ? ` Score final : ${score}/${sessionQuestions.length}.` : null}
+          {isComplete
+            ? isFinalCorrectionOnly
+              ? ' QCM terminé.'
+              : ` Score final : ${score}/${sessionQuestions.length}.`
+            : null}
         </p>
         <div className="flex flex-wrap gap-2">
           <Button
@@ -1001,6 +1173,29 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
           >
             Pr&eacute;c&eacute;dent
           </Button>
+          {!isAnswerLocked && currentQuestion.answerFormat === 'MULTIPLE' ? (
+            <>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={clearCurrentSelections}
+                disabled={currentSelections.length === 0}
+              >
+                Effacer la sélection
+              </Button>
+              {!isFinalCorrectionOnly ? (
+                <Button
+                  type="button"
+                  size="sm"
+                  onClick={submitCurrentAnswer}
+                  disabled={currentSelections.length === 0}
+                >
+                  Valider la réponse
+                </Button>
+              ) : null}
+            </>
+          ) : null}
           {isComplete ? (
             <>
               <Button

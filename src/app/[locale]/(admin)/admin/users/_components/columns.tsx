@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import { useSession } from "next-auth/react";
 
 import {
   DropdownMenu,
@@ -33,10 +34,48 @@ const localeSort = localeStringSort<User>();
 
 const UserActions = ({ user }: { user: User }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const { data: session } = useSession();
+  const canImpersonate = session?.user?.role === "ADMIN";
+  const actorId = session?.actor?.id ?? session?.user?.id;
+  const isSelf = actorId === user.id;
+  const isActiveViewer = session?.impersonation?.viewerId === user.id;
 
   const handleDelete = async () => {
     await handleOnClickDeleteButton(user.id);
     setMenuOpen(false);
+  };
+
+  const handleImpersonation = () => {
+    startTransition(async () => {
+      try {
+        const response = await fetch("/api/admin/impersonation/start", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userId: user.id }),
+        });
+        const payload = (await response.json().catch(() => null)) as
+          | { error?: string; redirectTo?: string }
+          | null;
+
+        if (!response.ok) {
+          throw new Error(payload?.error || "Impossible de lancer la bascule utilisateur.");
+        }
+
+        toast.success("Bascule utilisateur activée");
+        window.location.assign(payload?.redirectTo || "/dashboard");
+      } catch (error) {
+        toast.error(
+          error instanceof Error
+            ? error.message
+            : "Impossible de lancer la bascule utilisateur."
+        );
+      } finally {
+        setMenuOpen(false);
+      }
+    });
   };
 
   return (
@@ -55,6 +94,20 @@ const UserActions = ({ user }: { user: User }) => {
         <DropdownMenuItem className={actionMenuItem}>
           <Link href={`/admin/users/${user.id}/edit`}>Éditer</Link>
         </DropdownMenuItem>
+        {canImpersonate && !isSelf ? (
+          <DropdownMenuItem
+            className={actionMenuItem}
+            disabled={isPending || isActiveViewer}
+            onSelect={(event) => {
+              event.preventDefault();
+              if (!isActiveViewer) {
+                handleImpersonation();
+              }
+            }}
+          >
+            {isActiveViewer ? "Vue active" : isPending ? "Bascule..." : "Voir comme cet utilisateur"}
+          </DropdownMenuItem>
+        ) : null}
         <ConfirmDeleteDialog
           onConfirm={handleDelete}
           trigger={

@@ -6,6 +6,7 @@ import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Button } from "@/components/ui/button";
 import { fetchHealthInstitutionContentWorkspace } from "@/core/health";
 
+import { HealthInstitutionContentBreadcrumbOverride } from "./breadcrumb-override";
 import { HealthInstitutionContentWorkspace } from "./workspace";
 
 export const metadata: Metadata = {
@@ -28,6 +29,10 @@ export default async function HealthInstitutionContentPage({
 
   return (
     <div className="w-full p-6">
+      <HealthInstitutionContentBreadcrumbOverride
+        institutionId={workspace.institution.id}
+        institutionLabel={institutionLabel}
+      />
       <AdminPageHeading
         title={`${institutionLabel} · Contenu santé`}
         description={`Pilotage des QCM par maquette, parcours, UE, EC et chapitre pour l'année ${workspace.currentAcademicYear}.`}

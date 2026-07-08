@@ -2,6 +2,8 @@ import { Navbar } from "./_components/navbar";
 import { Sidebar } from "./_components/sidebar";
 import { BreadcrumbWrapper } from "./_components/breadcrumb-wrapper";
 import { auth } from "@/lib/auth/auth";
+import { isAdminRole } from "@/lib/auth/roles";
+import { getSessionActorRole } from "@/lib/auth/session";
 import { redirect } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
@@ -32,8 +34,8 @@ const DashboardLayout = async ({
         redirect(`${loginPath}?callbackUrl=${encodeURIComponent(`${localePrefix}/admin`)}`);
     }
 
-    const role = (session.user as any).role;
-    if (role !== "ADMIN") {
+    const role = getSessionActorRole(session);
+    if (!isAdminRole(role)) {
         redirect(homePath);
     }
 

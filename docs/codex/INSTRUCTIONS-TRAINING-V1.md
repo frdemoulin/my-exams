@@ -23,6 +23,18 @@ Il doit rester cohérent avec la logique Examens existante.
 
 ---
 
+## Convention de saisie des seeds QCM santé
+
+Pour les seeds de QCM santé, respecter la convention suivante :
+
+- utiliser les backticks pour les libellés longs : `question`, `explanation`, `correction`, `statement`
+- saisir les apostrophes avec le caractère clavier standard `'`
+- ne pas utiliser `\'` sauf contrainte ponctuelle dans une chaîne entourée de quotes simples
+- ne pas imposer la saisie manuelle de l’apostrophe typographique `’`
+- si l’interface doit afficher une typographie plus soignée, prévoir éventuellement une normalisation à l’affichage ou à l’import
+
+---
+
 ## Périmètre v1
 
 ### Entrée utilisateur

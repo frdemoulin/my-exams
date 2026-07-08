@@ -46,8 +46,10 @@ export default async function AddChapterQuestionPage({ params }: AddChapterQuest
         initialData={{
           chapterId: chapter.id,
           difficulty: "EASY",
+          answerFormat: "SINGLE",
           question: "",
           choices: ["", "", "", ""],
+          correctChoiceIndexes: [0],
           correctChoiceIndex: 0,
           explanation: "",
           order: nextOrder,

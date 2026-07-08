@@ -12,6 +12,15 @@ export const trainingQuizStageLabels: Record<TrainingQuizStage, string> = {
   MASTER: 'Maîtriser',
 };
 
+export const trainingQuizStageBadgeClassNames: Record<TrainingQuizStage, string> = {
+  DISCOVER:
+    'border border-success/30 bg-success/10 text-fg-success-strong dark:border-success/40 dark:bg-success/15 dark:text-success-foreground',
+  PRACTICE:
+    'border border-warning/30 bg-warning/10 text-fg-warning-strong dark:border-warning/40 dark:bg-warning/15 dark:text-warning-foreground',
+  MASTER:
+    'border border-danger/30 bg-danger/10 text-fg-danger-strong dark:border-danger/40 dark:bg-danger/15 dark:text-danger-foreground',
+};
+
 export const inferTrainingQuizStageFromOrder = (
   order: number
 ): TrainingQuizStage => {
@@ -34,6 +43,16 @@ export const getTrainingQuizStageLabel = (
   }
 
   return trainingQuizStageLabels[stage];
+};
+
+export const getTrainingQuizStageBadgeClassName = (
+  stage: TrainingQuizStage | null | undefined
+) => {
+  if (!stage) {
+    return null;
+  }
+
+  return trainingQuizStageBadgeClassNames[stage];
 };
 
 export const sortTrainingQuizStages = (stages: TrainingQuizStage[]) => {

@@ -8,6 +8,7 @@ import {
   fetchSciencePhysicsTrainingChapterBySlug,
   fetchSciencePhysicsTrainingPathProgressForChapter,
   formatTrainingLevelLabel,
+  getTrainingQuizStageBadgeClassName,
   getSciencePhysicsTrainingLevelPath,
   type TrainingChapterSection,
   type TrainingPathOverviewSection,
@@ -26,10 +27,13 @@ import {
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
+import { TrainingQuizInstructions } from '@/components/training/training-quiz-instructions';
 import { TrainingPathOverview } from '@/components/training/training-path-overview';
 import { TrainingPathProgressCard } from '@/components/training/training-path-progress-card';
 import { TrainingPathQuizSession } from '@/components/training/training-path-quiz-session';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { isAdminRole } from '@/lib/auth/roles';
+import { getSessionActorRole } from '@/lib/auth/session';
 import { cn } from '@/lib/utils';
 
 type ResolvedSearchParams = {
@@ -40,20 +44,6 @@ type ResolvedSearchParams = {
 type QuizWithSection = {
   quiz: TrainingQuiz;
   section: TrainingChapterSection;
-};
-
-const quizStageBadgeColors = {
-  DISCOVER: 'border border-default-medium bg-neutral-secondary-medium text-heading',
-  PRACTICE: 'border border-brand/20 bg-brand/10 text-fg-brand',
-  MASTER: 'border border-success-subtle bg-success-soft text-fg-success-strong',
-} as const;
-
-const getQuizStageBadgeClassName = (stage: TrainingQuiz['stage']) => {
-  if (!stage) {
-    return undefined;
-  }
-
-  return quizStageBadgeColors[stage];
 };
 
 const getSectionLabel = (index: number) => {
@@ -125,6 +115,7 @@ export default async function SciencePhysicsTrainingChapterPage({
   const { chapterSlug } = await params;
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const session = await getSession();
+  const canEditQuestions = isAdminRole(getSessionActorRole(session));
   const chapter = await fetchSciencePhysicsTrainingChapterBySlug(chapterSlug);
 
   if (!chapter) {
@@ -260,7 +251,7 @@ export default async function SciencePhysicsTrainingChapterPage({
               {selectedQuizStage ? (
                 <Badge
                   variant="outline"
-                  className={getQuizStageBadgeClassName(selectedQuizStage)}
+                  className={getTrainingQuizStageBadgeClassName(selectedQuizStage) ?? undefined}
                 >
                   {getTrainingQuizStageLabel(selectedQuizStage)}
                 </Badge>
@@ -309,7 +300,7 @@ export default async function SciencePhysicsTrainingChapterPage({
                             variant="outline"
                             className={cn(
                               'w-fit',
-                              getQuizStageBadgeClassName(selectedQuizStage)
+                              getTrainingQuizStageBadgeClassName(selectedQuizStage)
                             )}
                           >
                             {getTrainingQuizStageLabel(selectedQuizStage)}
@@ -327,6 +318,7 @@ export default async function SciencePhysicsTrainingChapterPage({
                         {sectionLabelById.get(selectedQuiz.section.id)} - {selectedQuiz.section.title}
                       </Badge>
                     </div>
+                    <TrainingQuizInstructions />
                   </div>
                 </CardHeader>
               </Card>
@@ -336,6 +328,7 @@ export default async function SciencePhysicsTrainingChapterPage({
               chapterId={chapter.id}
               chapterHref={chapterHref}
               chapterSlug={chapter.slug}
+              canEditQuestions={canEditQuestions}
               initialProgress={initialProgress}
               isAuthenticated={isAuthenticated}
               sections={pathSections}

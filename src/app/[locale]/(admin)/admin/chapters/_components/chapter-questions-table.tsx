@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import { deleteQuizQuestion, type ChapterDetail } from "@/core/chapter";
+import { quizAnswerFormatShortLabels } from "@/core/quiz/quiz-answer-format";
 import { AddButton } from "@/components/shared/add-button";
 import { Badge } from "@/components/ui/badge";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
@@ -70,6 +71,11 @@ export function ChapterQuestionsTable({
       header: "Difficulté",
       value: (question) => difficultyLabels[question.difficulty] ?? question.difficulty,
       width: 16,
+    },
+    {
+      header: "Format",
+      value: (question) => quizAnswerFormatShortLabels[question.answerFormat ?? "SINGLE"],
+      width: 20,
     },
     {
       header: "Question",
@@ -168,6 +174,7 @@ export function ChapterQuestionsTable({
           <TableRow>
             <TableHead>Ordre</TableHead>
             <TableHead>Difficulté</TableHead>
+            <TableHead>Format</TableHead>
             <TableHead>Question</TableHead>
             <TableHead>Statut</TableHead>
             <TableHead>Dernière modification</TableHead>
@@ -180,6 +187,11 @@ export function ChapterQuestionsTable({
               <TableCell>{question.order}</TableCell>
               <TableCell>
                 <Badge variant="outline">{difficultyLabels[question.difficulty] ?? question.difficulty}</Badge>
+              </TableCell>
+              <TableCell>
+                <Badge variant={question.answerFormat === "MULTIPLE" ? "outline" : "secondary"}>
+                  {quizAnswerFormatShortLabels[question.answerFormat ?? "SINGLE"]}
+                </Badge>
               </TableCell>
               <TableCell className="max-w-xl">{toExcerpt(question.question)}</TableCell>
               <TableCell>

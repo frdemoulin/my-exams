@@ -51,7 +51,10 @@ function parseCli(): CliOptions {
     throw new Error("Paramètre manquant: ajoute `--email <email>` (ou `--user-id <id>`).");
   }
 
-  if (!roleRaw || (roleRaw !== "USER" && roleRaw !== "ADMIN")) {
+  if (
+    !roleRaw ||
+    (roleRaw !== "USER" && roleRaw !== "ADMIN")
+  ) {
     throw new Error("Paramètre invalide: `--role` doit valoir USER ou ADMIN.");
   }
 
@@ -116,4 +119,3 @@ main().catch((err) => {
   console.error("❌ set-user-role:", err instanceof Error ? err.message : err);
   process.exit(1);
 });
-

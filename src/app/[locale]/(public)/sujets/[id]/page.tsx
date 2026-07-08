@@ -16,6 +16,7 @@ import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { ExamPaperComposition } from '@/components/exam-papers/ExamPaperComposition';
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
 import getSession from '@/lib/auth/get-session';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { buildCanonicalUrl } from '@/lib/seo';
 import { normalizeExamPaperLabel } from '@/lib/utils';
 import { ExternalLink } from 'lucide-react';
@@ -70,10 +71,12 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
   }
 
   const session = await getSession();
-  if (session?.user?.id) {
+  const effectiveUserId = getSessionEffectiveUserId(session);
+
+  if (effectiveUserId) {
     try {
       await upsertUserActivity({
-        userId: session.user.id,
+        userId: effectiveUserId,
         examPaperId: examPaper.id,
         subjectId: examPaper.teaching.subjectId ?? null,
         sessionYear: examPaper.sessionYear,

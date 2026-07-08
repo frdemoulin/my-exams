@@ -35,8 +35,10 @@ export default async function AddTrainingQuizQuestionPage({ searchParams }: AddT
         initialData={{
           chapterId: initialChapterId,
           difficulty: "EASY",
+          answerFormat: "SINGLE",
           question: "",
           choices: ["", "", "", ""],
+          correctChoiceIndexes: [0],
           correctChoiceIndex: 0,
           explanation: "",
           order: 1,

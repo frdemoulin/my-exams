@@ -11,6 +11,7 @@ import type { NextRequest } from "next/server";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "@/lib/db/prisma";
 import { sendVerificationRequest } from "@/lib/auth/auth-send-request";
+import { isAdminRole, normalizeRole } from "@/lib/auth/roles";
 
 const MAGIC_LINK_MAX_AGE_SECONDS = 15 * 60;
 const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
@@ -70,6 +71,17 @@ function getHealthOrigin() {
 }
 
 const healthOrigin = getHealthOrigin();
+
+async function getStoredRole(userId?: string | null) {
+    if (!userId) return null;
+
+    const user = await prisma.user.findUnique({
+        where: { id: userId },
+        select: { roles: true },
+    });
+
+    return user?.roles ?? null;
+}
 
 // définition des providers
 const providers: Provider[] = [];
@@ -180,17 +192,54 @@ const authConfig = {
             return baseUrl;
         },
         async session({ session, token }) {
+            const effectiveRole =
+                normalizeRole(token.actorRole ?? token.role) ??
+                normalizeRole(session.user?.role);
+
             if (session.user) {
                 session.user.id = token.sub ?? session.user.id;
-                // @ts-expect-error role is added to the session user
-                session.user.role = token.role ?? session.user.role;
+                session.user.role = effectiveRole ?? "USER";
             }
 
-            if (token?.role === "ADMIN") {
-                const adminExpiresAt =
-                    typeof (token as any).adminExpiresAt === "number"
-                        ? (token as any).adminExpiresAt
-                        : null;
+            const actorId = token.actorId ?? token.sub;
+            const actorRole = normalizeRole(token.actorRole ?? token.role);
+            const adminExpiresAt =
+                typeof token.adminExpiresAt === "number" ? token.adminExpiresAt : null;
+
+            if (actorId && actorRole) {
+                session.actor = {
+                    id: actorId,
+                    role: actorRole,
+                    name: token.actorName ?? session.user?.name ?? null,
+                    email: token.actorEmail ?? session.user?.email ?? null,
+                    image: token.actorImage ?? session.user?.image ?? null,
+                    adminExpiresAt,
+                };
+            }
+
+            if (
+                token.impersonatedUserId &&
+                actorId &&
+                token.impersonatedUserId !== actorId
+            ) {
+                const viewerRole = normalizeRole(token.impersonatedUserRole) ?? "USER";
+                session.impersonation = {
+                    isActive: true,
+                    actorId,
+                    actorRole: actorRole ?? "USER",
+                    actorName: token.actorName ?? null,
+                    viewerId: token.impersonatedUserId,
+                    viewerRole,
+                    viewerName: token.impersonatedUserName ?? session.user?.name ?? null,
+                    viewerEmail: token.impersonatedUserEmail ?? session.user?.email ?? null,
+                    startedAt:
+                        typeof token.impersonationStartedAt === "number"
+                            ? token.impersonationStartedAt
+                            : null,
+                };
+            }
+
+            if (isAdminRole(actorRole)) {
                 if (adminExpiresAt && Date.now() > adminExpiresAt) {
                     session.expires = new Date(0) as any;
                 }
@@ -200,11 +249,70 @@ const authConfig = {
         },
         async jwt({ token, user }) {
             if (user) {
-                token.role = (user as any).roles ?? token.role;
+                const normalizedUserRole =
+                    normalizeRole((user as any).roles ?? token.role) ?? token.role;
+
+                token.role = normalizedUserRole;
+                token.actorId = user.id ?? token.sub;
+                token.actorRole = normalizedUserRole;
+                token.actorName = user.name ?? token.name ?? null;
+                token.actorEmail = user.email ?? token.email ?? null;
+                token.actorImage = user.image ?? token.picture ?? null;
+                delete token.impersonatedUserId;
+                delete token.impersonatedUserRole;
+                delete token.impersonatedUserName;
+                delete token.impersonatedUserEmail;
+                delete token.impersonatedUserImage;
+                delete token.impersonationStartedAt;
             }
 
-            if (token.role === "ADMIN" && !(token as any).adminExpiresAt) {
-                (token as any).adminExpiresAt =
+            const actorId =
+                typeof token.actorId === "string" ? token.actorId : token.sub ?? null;
+            const actorRole = normalizeRole(token.actorRole);
+            const sessionRole = normalizeRole(token.role);
+
+            if (!token.actorId && actorId) {
+                token.actorId = actorId;
+            }
+
+            if (!token.role && actorRole) {
+                token.role = actorRole;
+            }
+
+            if (!token.actorRole && sessionRole) {
+                token.actorRole = sessionRole;
+            }
+
+            if (actorId && (!normalizeRole(token.actorRole) || !normalizeRole(token.role))) {
+                const storedActorRole = await getStoredRole(actorId);
+
+                if (storedActorRole) {
+                    token.role = storedActorRole;
+                    token.actorRole = storedActorRole;
+                }
+            }
+
+            const impersonatedUserId =
+                typeof token.impersonatedUserId === "string"
+                    ? token.impersonatedUserId
+                    : null;
+
+            if (impersonatedUserId && !normalizeRole(token.impersonatedUserRole)) {
+                const storedViewerRole = await getStoredRole(impersonatedUserId);
+
+                if (storedViewerRole) {
+                    token.impersonatedUserRole = storedViewerRole;
+                }
+            }
+
+            if (token.actorId && !token.actorName) {
+                token.actorName = token.name ?? null;
+                token.actorEmail = token.email ?? null;
+                token.actorImage = token.picture ?? null;
+            }
+
+            if (isAdminRole(token.actorRole ?? token.role) && !token.adminExpiresAt) {
+                token.adminExpiresAt =
                     Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000;
             }
 

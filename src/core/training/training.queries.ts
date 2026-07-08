@@ -1,5 +1,9 @@
 import type { Prisma, QuizDifficulty, TrainingQuizStage } from '@prisma/client';
 import prisma from '@/lib/db/prisma';
+import {
+  resolveCorrectChoiceIndexes,
+  resolveQuizAnswerFormat,
+} from '@/core/quiz/quiz-answer-format';
 import { slugifyText } from '@/lib/utils';
 import {
   chapterLevelValues,
@@ -117,8 +121,10 @@ const getQuestionThemeLabels = ({
 const toTrainingQuestion = (question: {
   id: string;
   difficulty: QuizDifficulty;
+  answerFormat: 'SINGLE' | 'MULTIPLE' | null;
   question: string;
   choices: Prisma.JsonValue;
+  correctChoiceIndexes: number[];
   correctChoiceIndex: number;
   explanation: string;
   order: number;
@@ -129,17 +135,24 @@ const toTrainingQuestion = (question: {
   sharedStatement: string;
   order: number;
 } | null, themeLabelById: Map<string, string> = new Map()): TrainingQuestion => {
+  const resolvedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
+    answerFormat: question.answerFormat,
+    correctChoiceIndex: question.correctChoiceIndex,
+    correctChoiceIndexes: question.correctChoiceIndexes,
+    choiceCount: normalizeChoices(question.choices).length,
+  });
   const normalizedQuestionChoices = reorderCatchAllChoices(
     normalizeChoices(question.choices),
-    question.correctChoiceIndex
+    resolvedCorrectChoiceIndexes
   );
 
   return {
     id: question.id,
     difficulty: question.difficulty,
+    answerFormat: resolveQuizAnswerFormat(question.answerFormat),
     question: question.question,
     choices: normalizedQuestionChoices.choices,
-    correctChoiceIndex: normalizedQuestionChoices.correctChoiceIndex,
+    correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
     explanation: question.explanation,
     order: question.order,
     themeLabels: getQuestionThemeLabels({
@@ -174,8 +187,10 @@ const toTrainingQuiz = (quiz: {
     question: {
       id: string;
       difficulty: QuizDifficulty;
+      answerFormat: 'SINGLE' | 'MULTIPLE' | null;
       question: string;
       choices: Prisma.JsonValue;
+      correctChoiceIndexes: number[];
       correctChoiceIndex: number;
       explanation: string;
       order: number;
@@ -476,8 +491,10 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
                     select: {
                       id: true,
                       difficulty: true,
+                      answerFormat: true,
                       question: true,
                       choices: true,
+                      correctChoiceIndexes: true,
                       correctChoiceIndex: true,
                       explanation: true,
                       order: true,
@@ -506,8 +523,10 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
         select: {
           id: true,
           difficulty: true,
+          answerFormat: true,
           question: true,
           choices: true,
+          correctChoiceIndexes: true,
           correctChoiceIndex: true,
           explanation: true,
           order: true,

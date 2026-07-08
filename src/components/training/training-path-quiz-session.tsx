@@ -30,6 +30,7 @@ type TrainingPathQuizSessionProps = {
   chapterId: string;
   chapterHref: string;
   chapterSlug: string;
+  canEditQuestions?: boolean;
   initialProgress?: TrainingPathProgress;
   isAuthenticated: boolean;
   sections: TrainingPathOverviewSection[];
@@ -43,6 +44,7 @@ export function TrainingPathQuizSession({
   chapterId,
   chapterHref,
   chapterSlug,
+  canEditQuestions = false,
   initialProgress,
   isAuthenticated,
   sections,
@@ -262,6 +264,7 @@ export function TrainingPathQuizSession({
     <QuizSession
       key={quizSlug}
       questions={questions}
+      canEditQuestions={canEditQuestions}
       pathContext={{
         chapterHref,
         hasLockedSections: derivedState.hasLockedSections,
