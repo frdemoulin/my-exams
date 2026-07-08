@@ -1,3 +1,11 @@
+## [1.6.24](https://github.com/frdemoulin/my-exams/compare/v1.6.23...v1.6.24) (2026-07-08)
+
+### Bug Fixes
+
+* debug de la page d'accueil santé ([d7def8f](https://github.com/frdemoulin/my-exams/commit/d7def8f01d3fdc8e52382ab489c73a407c2cb6d4))
+* debug de la page d'accueil santé ([df10178](https://github.com/frdemoulin/my-exams/commit/df10178984d0bdb0da5c616a392739c540a373f5))
+* mise en place des QCMs pour le chapitre Atomes ([42a3933](https://github.com/frdemoulin/my-exams/commit/42a3933fc15b366341895fe6aded628a5558cb28))
+
 ## [1.6.23](https://github.com/frdemoulin/my-exams/compare/v1.6.22...v1.6.23) (2026-07-04)
 
 ### Bug Fixes
