@@ -131,7 +131,9 @@ Codex peut implémenter, sans impact visible pour l’utilisateur :
 - privilégier des implémentations simples et robustes
 - garder une UI simple, efficace et légère ; éviter d’ajouter des blocs, cartes, badges ou textes d’aide redondants qui alourdissent les écrans
 - pour tout tableau visible en front, privilégier un rendu aligné sur Flowbite, avec état de survol explicite de type `hover-state`
+- tous les intitulés d'en-tête de colonnes de tableau doivent être affichés en majuscules
 - signaler toute divergence avec le PRD ou le backlog avant implémentation
+- pour les seeds QCM santé, respecter aussi la convention de saisie définie dans `docs/codex/INSTRUCTIONS-TRAINING-V1.md`
 
 ---
 

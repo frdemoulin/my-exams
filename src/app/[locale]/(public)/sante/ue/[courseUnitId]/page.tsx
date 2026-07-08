@@ -5,7 +5,7 @@ import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { HealthCourseUnitTabs } from '@/components/health/HealthCourseUnitTabs';
 import { fetchHealthStudentCourseUnitDetail } from '@/core/health';
 import { fetchUserPedagogicalProfileSummary } from '@/core/user';
 import { auth } from '@/lib/auth/auth';
@@ -15,6 +15,21 @@ type PageProps = {
   params: Promise<{
     courseUnitId: string;
   }>;
+};
+
+const buildCourseUnitSubtitle = (institutionName: string, programVersionLabel: string) => {
+  const normalizedInstitution = institutionName.trim();
+  const normalizedProgramVersion = programVersionLabel.trim();
+
+  if (
+    normalizedProgramVersion
+      .toLocaleLowerCase('fr-FR')
+      .startsWith(normalizedInstitution.toLocaleLowerCase('fr-FR'))
+  ) {
+    return normalizedProgramVersion;
+  }
+
+  return `${normalizedInstitution} · ${normalizedProgramVersion}`;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -52,6 +67,11 @@ export default async function HealthCourseUnitDetailPage({ params }: PageProps) 
     notFound();
   }
 
+  const subtitle = buildCourseUnitSubtitle(
+    courseUnit.institutionName,
+    courseUnit.programVersionLabel,
+  );
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <PublicHeader />
@@ -60,7 +80,6 @@ export default async function HealthCourseUnitDetailPage({ params }: PageProps) 
           items={[
             { label: 'Accueil', href: '/' },
             { label: 'Santé', href: '/sante' },
-            { label: 'UE' },
             { label: courseUnit.code ? `${courseUnit.code} · ${courseUnit.title}` : courseUnit.title },
           ]}
         />
@@ -75,9 +94,7 @@ export default async function HealthCourseUnitDetailPage({ params }: PageProps) 
           <h1 className="text-3xl font-semibold tracking-tight text-heading">
             {courseUnit.code ? `${courseUnit.code} · ${courseUnit.title}` : courseUnit.title}
           </h1>
-          <p className="text-sm text-muted-foreground">
-            {courseUnit.institutionName} · {courseUnit.programVersionLabel}
-          </p>
+          <p className="text-sm text-muted-foreground">{subtitle}</p>
           {courseUnit.description ? (
             <p className="max-w-3xl text-sm text-muted-foreground">
               {courseUnit.description}
@@ -85,30 +102,7 @@ export default async function HealthCourseUnitDetailPage({ params }: PageProps) 
           ) : null}
         </section>
 
-        <Card className="rounded-3xl border-border bg-card hover:bg-card">
-          <CardHeader>
-            <CardTitle className="text-xl text-heading">Éléments constitutifs</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {courseUnit.teachingElements.length > 0 ? (
-              <ul className="space-y-3 text-sm">
-                {courseUnit.teachingElements.map((teachingElement) => (
-                  <li key={teachingElement.id} className="text-muted-foreground">
-                    <span className="font-medium text-heading">
-                      {teachingElement.code
-                        ? `${teachingElement.code} · ${teachingElement.shortTitle ?? teachingElement.title}`
-                        : (teachingElement.shortTitle ?? teachingElement.title)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-sm text-muted-foreground">
-                Aucun EC publié pour cette UE pour le moment.
-              </p>
-            )}
-          </CardContent>
-        </Card>
+        <HealthCourseUnitTabs courseUnit={courseUnit} />
       </main>
       <SiteFooter />
     </div>

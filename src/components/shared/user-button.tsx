@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, useTransition } from 'react';
 import { useSession } from 'next-auth/react';
-import { LogOut, Settings } from "lucide-react";
+import { ChevronDown, LogOut, Mail, Settings } from "lucide-react";
 import { User } from "next-auth";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { signOut } from "next-auth/react";
 import toast from 'react-hot-toast';
 
-import { canImpersonateRole, isAdminRole } from '@/lib/auth/roles';
+import { canImpersonateRole, getRoleLabel, isAdminRole } from '@/lib/auth/roles';
 
 interface UserButtonProps {
     user: User;
@@ -42,6 +42,9 @@ export default function UserButton({ user }: UserButtonProps) {
     const canImpersonate = canImpersonateRole(actorRole);
     const currentViewerId = impersonation?.viewerId ?? actorId ?? '';
     const actorLabel = session?.actor?.name || session?.actor?.email || 'Mon compte';
+    const viewerLabel = impersonation?.viewerName || user.name || user.email || 'Utilisateur';
+    const viewerEmail = impersonation?.viewerEmail || user.email || null;
+    const viewerRoleLabel = getRoleLabel(impersonation?.viewerRole ?? user.role);
 
     useEffect(() => {
         if (!isAdmin) {
@@ -154,17 +157,25 @@ export default function UserButton({ user }: UserButtonProps) {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button
-                    className="flex-none h-9 w-9 rounded-full border border-default bg-neutral-primary shadow-xs p-0 hover:bg-neutral-secondary-soft focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
+                    className="h-10 gap-2 rounded-full border border-default bg-neutral-primary-soft pl-1 pr-3 text-body shadow-xs hover:bg-neutral-secondary-soft hover:text-heading focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
                     variant="ghost"
                 >
                     <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-xs font-semibold uppercase text-white">
                         {initials}
                     </span>
+                    <ChevronDown className="h-4 w-4" />
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="z-50 w-56 overflow-hidden rounded-base border border-default bg-neutral-primary-medium p-0 text-body shadow-lg">
-                <div className="border-b border-default px-4 py-3 text-sm text-heading">
-                    <div className="font-semibold">{user.name || "Utilisateur"}</div>
+            <DropdownMenuContent
+                align="end"
+                className="z-50 w-72 overflow-hidden rounded-base border border-default bg-neutral-primary-medium p-0 text-body shadow-lg"
+            >
+                <div className="border-b border-default px-4 py-3 text-sm">
+                    <div className="font-semibold text-heading">{viewerLabel}</div>
+                    {viewerEmail ? (
+                        <div className="truncate text-xs text-muted-foreground">{viewerEmail}</div>
+                    ) : null}
+                    <div className="mt-1 text-xs text-muted-foreground">{viewerRoleLabel}</div>
                 </div>
                 <div className="p-2 text-sm font-medium text-body">
                     {isAdmin ? (
@@ -211,6 +222,12 @@ export default function UserButton({ user }: UserButtonProps) {
                             <DropdownMenuSeparator />
                         </>
                     ) : null}
+                    <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-body hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
+                        <Link href="/contact" className="flex items-center gap-2">
+                            <Mail className="h-4 w-4" />
+                            Contact
+                        </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-body hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
                         <Link href="/settings" className="flex items-center gap-2">
                             <Settings className="h-4 w-4" />

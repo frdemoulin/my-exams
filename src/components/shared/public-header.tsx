@@ -4,18 +4,18 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Shield, LogIn, BookOpen, FlaskConical, Stethoscope } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
 
 import { isAdminRole } from '@/lib/auth/roles';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
+import UserButton from '@/components/shared/user-button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { APP_NAME } from '@/config/app';
 
 export function PublicHeader() {
   const { data: session } = useSession();
-  const effectiveRole = session?.impersonation?.viewerRole ?? session?.user?.role ?? null;
-  const canAccessAdmin = isAdminRole(effectiveRole);
+  const actorRole = session?.actor?.role ?? session?.user?.role ?? null;
+  const canAccessAdmin = isAdminRole(actorRole);
   const [viewerAudience, setViewerAudience] = useState<'SECONDARY' | 'HEALTH' | null>(null);
   const pathname = usePathname();
   const isAnnalesActive = pathname?.startsWith('/diplomes')
@@ -128,9 +128,11 @@ export function PublicHeader() {
             >
               Entra&icirc;nement
             </Link>
-            <Link href="/contact" className="hover:text-foreground">
-              Contact
-            </Link>
+            {!session?.user ? (
+              <Link href="/contact" className="hover:text-foreground">
+                Contact
+              </Link>
+            ) : null}
           </nav>
           <div className="hidden items-center gap-3 md:flex">
             <TooltipProvider>
@@ -157,36 +159,7 @@ export function PublicHeader() {
                 </Tooltip>
               </TooltipProvider>
             )}
-            {session?.user && (
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      type="button"
-                      onClick={() => signOut({ callbackUrl: '/' })}
-                      className={`${topbarIconButtonClass} h-9 w-9`}
-                    >
-                      <span className="sr-only">Se d&eacute;connecter</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3"
-                        />
-                      </svg>
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent>Se d&eacute;connecter</TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            )}
+            {session?.user ? <UserButton user={session.user} /> : null}
           </div>
           <div className="flex items-center gap-3 md:hidden">
             {session?.user && canAccessAdmin && (
@@ -226,27 +199,7 @@ export function PublicHeader() {
             </Link>
             <ThemeToggle className={`${topbarIconButtonClass} h-10 w-10 p-2.5`} />
             {session?.user ? (
-              <button
-                type="button"
-                onClick={() => signOut({ callbackUrl: '/' })}
-                className={`${topbarIconButtonClass} h-9 w-9`}
-              >
-                <span className="sr-only">Se d&eacute;connecter</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 9V5.75A2.75 2.75 0 0 0 13 3H6.75A2.75 2.75 0 0 0 4 5.75v12.5A2.75 2.75 0 0 0 6.75 21H13a2.75 2.75 0 0 0 2.75-2.75V15M10 12h10m0 0-3-3m3 3-3 3"
-                  />
-                </svg>
-              </button>
+              <UserButton user={session.user} />
             ) : (
               <Link
                 href="/log-in"

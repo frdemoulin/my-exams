@@ -7,16 +7,14 @@ import {
   ChevronLeft,
   ChevronRight,
   ListChecks,
+  Pencil,
   Target,
   XCircle,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import {
-  areChoiceIndexSetsEqual,
-  quizAnswerFormatLabels,
-} from '@/core/quiz/quiz-answer-format';
+import { areChoiceIndexSetsEqual } from '@/core/quiz/quiz-answer-format';
 import type { TrainingQuestion } from '@/core/training';
 import {
   isCatchAllChoice,
@@ -28,6 +26,8 @@ import { MathContent } from './math-content';
 type QuizSessionProps = {
   questions: TrainingQuestion[];
   pathContext?: QuizSessionPathContext;
+  correctionMode?: 'instant' | 'final';
+  canEditQuestions?: boolean;
 };
 
 type QuizSessionPathContext = {
@@ -57,7 +57,12 @@ type QuestionReviewItem = {
   correctChoices: string[];
 };
 
-type QuestionNavigationStatus = 'current' | 'correct' | 'incorrect' | 'unanswered';
+type QuestionNavigationStatus =
+  | 'current'
+  | 'correct'
+  | 'incorrect'
+  | 'answered'
+  | 'unanswered';
 
 const difficultyFocusLabels = {
   EASY: 'Fondamentaux',
@@ -69,16 +74,19 @@ const questionNavigationStatusLabels: Record<QuestionNavigationStatus, string> =
   current: 'Question en cours',
   correct: 'Réponse correcte',
   incorrect: 'Réponse à revoir',
+  answered: 'Réponse enregistrée',
   unanswered: 'Non répondue',
 };
 
 const getQuestionNavigationStatus = ({
+  correctionMode,
   isAnswered,
   selectedChoiceIndexes,
   correctChoiceIndexes,
   index,
   currentIndex,
 }: {
+  correctionMode: 'instant' | 'final';
   isAnswered: boolean;
   selectedChoiceIndexes: number[];
   correctChoiceIndexes: number[];
@@ -91,6 +99,10 @@ const getQuestionNavigationStatus = ({
 
   if (!isAnswered) {
     return 'unanswered';
+  }
+
+  if (correctionMode === 'final') {
+    return 'answered';
   }
 
   return areChoiceIndexSetsEqual(selectedChoiceIndexes, correctChoiceIndexes)
@@ -108,13 +120,15 @@ const getQuestionNavigationButtonClassName = (
       return 'bg-success text-white shadow-xs hover:bg-success-strong hover:text-white';
     case 'incorrect':
       return 'bg-danger text-white shadow-xs hover:bg-danger-strong hover:text-white';
+    case 'answered':
+      return 'bg-slate-300 text-slate-950 hover:bg-slate-400 hover:text-slate-950 dark:bg-slate-600 dark:text-white dark:hover:bg-slate-500 dark:hover:text-white';
     case 'unanswered':
     default:
-      return 'bg-neutral-secondary-medium text-body hover:bg-neutral-tertiary-medium hover:text-heading';
+      return 'bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200';
   }
 };
 
-const questionNavigationLegendItems: Array<{
+const instantQuestionNavigationLegendItems: Array<{
   status: QuestionNavigationStatus;
   toneClassName: string;
 }> = [
@@ -136,6 +150,24 @@ const questionNavigationLegendItems: Array<{
   },
 ];
 
+const finalQuestionNavigationLegendItems: Array<{
+  status: QuestionNavigationStatus;
+  toneClassName: string;
+}> = [
+  {
+    status: 'current',
+    toneClassName: 'bg-brand',
+  },
+  {
+    status: 'answered',
+    toneClassName: 'bg-slate-400 dark:bg-slate-500',
+  },
+  {
+    status: 'unanswered',
+    toneClassName: 'border border-slate-300 bg-transparent dark:border-slate-600 dark:bg-transparent',
+  },
+];
+
 const hashString = (value: string) => {
   let hash = 0;
 
@@ -145,6 +177,9 @@ const hashString = (value: string) => {
 
   return hash || 1;
 };
+
+const getAdminQuestionEditHref = (questionId: string) =>
+  `/admin/training/quiz-questions/${questionId}/edit`;
 
 const seededShuffle = <T,>(items: T[], seed: number) => {
   const nextItems = [...items];
@@ -428,7 +463,12 @@ const getImprovementSuggestions = ({
   return suggestions.slice(0, 3);
 };
 
-export function QuizSession({ questions, pathContext }: QuizSessionProps) {
+export function QuizSession({
+  questions,
+  pathContext,
+  correctionMode = 'instant',
+  canEditQuestions = false,
+}: QuizSessionProps) {
   const [questionOrderVariant, setQuestionOrderVariant] = useState(0);
   const [sessionQuestions, setSessionQuestions] = useState(() =>
     prepareQuestions(questions, 0)
@@ -452,15 +492,22 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
 
   const currentQuestion = sessionQuestions[currentIndex];
   const currentGroup = currentQuestion.group;
+  const isPathMode = Boolean(pathContext);
+  const isFinalCorrectionOnly = correctionMode === 'final';
+  const effectiveAnsweredByQuestion = isFinalCorrectionOnly
+    ? selectedChoiceIndexesByQuestion.map((selections) => selections.length > 0)
+    : submittedAnswers;
   const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
-  const hasAnswered = submittedAnswers[currentIndex] ?? false;
+  const hasAnswered = effectiveAnsweredByQuestion[currentIndex] ?? false;
+  const isAnswerLocked =
+    !isFinalCorrectionOnly && (submittedAnswers[currentIndex] ?? false);
   const isCorrect = areChoiceIndexSetsEqual(
     currentSelections,
     currentQuestion.correctChoiceIndexes
   );
-  const answeredCount = submittedAnswers.filter(Boolean).length;
+  const answeredCount = effectiveAnsweredByQuestion.filter(Boolean).length;
   const score = sessionQuestions.reduce((total, question, index) => {
-    return submittedAnswers[index] &&
+    return effectiveAnsweredByQuestion[index] &&
       areChoiceIndexSetsEqual(
         selectedChoiceIndexesByQuestion[index] ?? [],
         question.correctChoiceIndexes
@@ -471,14 +518,18 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
   const isComplete = answeredCount === sessionQuestions.length;
   const successRate = Math.round((score / sessionQuestions.length) * 100);
   const clampedSuccessRate = Math.max(0, Math.min(successRate, 100));
-  const isPathMode = Boolean(pathContext);
+  const questionNavigationLegendItems = isFinalCorrectionOnly
+    ? finalQuestionNavigationLegendItems
+    : instantQuestionNavigationLegendItems;
+  const selectedChoiceClassName =
+    'border-brand bg-brand-soft/15 !text-foreground shadow-xs ring-2 ring-brand/20 dark:border-brand/70 dark:bg-brand/10 dark:!text-white dark:ring-brand/30';
   const targetScore = pathContext?.targetScore ?? 70;
   const hasReachedTarget = successRate >= targetScore;
   const incorrectQuestions: QuestionReviewItem[] = sessionQuestions.flatMap((question, index) => {
     const selectedChoiceIndexes = selectedChoiceIndexesByQuestion[index] ?? [];
 
     if (
-      submittedAnswers[index] &&
+      effectiveAnsweredByQuestion[index] &&
       areChoiceIndexSetsEqual(selectedChoiceIndexes, question.correctChoiceIndexes)
     ) {
       return [];
@@ -559,7 +610,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
   };
 
   const submitCurrentAnswer = () => {
-    if (hasAnswered) return;
+    if (isFinalCorrectionOnly || isAnswerLocked) return;
 
     setSubmittedAnswers((previousAnswers) => {
       const nextAnswers = [...previousAnswers];
@@ -569,15 +620,19 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
   };
 
   const selectAnswer = (choiceIndex: number) => {
-    if (hasAnswered) return;
+    if (isAnswerLocked) return;
 
     if (currentQuestion.answerFormat === 'SINGLE') {
       updateCurrentSelections([choiceIndex]);
-      setSubmittedAnswers((previousAnswers) => {
-        const nextAnswers = [...previousAnswers];
-        nextAnswers[currentIndex] = true;
-        return nextAnswers;
-      });
+
+      if (!isFinalCorrectionOnly) {
+        setSubmittedAnswers((previousAnswers) => {
+          const nextAnswers = [...previousAnswers];
+          nextAnswers[currentIndex] = true;
+          return nextAnswers;
+        });
+      }
+
       return;
     }
 
@@ -589,7 +644,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
   };
 
   const clearCurrentSelections = () => {
-    if (hasAnswered) return;
+    if (isAnswerLocked) return;
 
     setSelectedChoiceIndexesByQuestion((previousSelections) => {
       const nextSelections = [...previousSelections];
@@ -807,6 +862,16 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
 
                   <div className="mt-4 space-y-4">
                     <div className="rounded-xl border border-border bg-background p-4 text-sm text-heading">
+                      {canEditQuestions ? (
+                        <div className="mb-3 flex justify-end">
+                          <Button asChild variant="outline" size="xs">
+                            <Link href={getAdminQuestionEditHref(item.question.id)}>
+                              <Pencil className="h-3.5 w-3.5" />
+                              Éditer la question
+                            </Link>
+                          </Button>
+                        </div>
+                      ) : null}
                       <MathContent value={item.question.question} />
                     </div>
 
@@ -819,6 +884,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
                               {item.selectedChoices.map((selectedChoice, choiceIndex) => (
                                 <MathContent
                                   key={`${item.question.id}-selected-${choiceIndex}`}
+                                  className="block"
                                   value={selectedChoice}
                                 />
                               ))}
@@ -837,6 +903,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
                               {item.correctChoices.map((correctChoice, choiceIndex) => (
                                 <MathContent
                                   key={`${item.question.id}-correct-${choiceIndex}`}
+                                  className="block"
                                   value={correctChoice}
                                 />
                               ))}
@@ -909,7 +976,9 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">
-              Score {score}/{sessionQuestions.length}
+              {isFinalCorrectionOnly
+                ? `${answeredCount}/${sessionQuestions.length} traitée${answeredCount > 1 ? 's' : ''}`
+                : `Score ${score}/${sessionQuestions.length}`}
             </Badge>
           </div>
         </div>
@@ -938,7 +1007,8 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
               <ol className="flex min-w-full">
                 {sessionQuestions.map((question, index) => {
                   const status = getQuestionNavigationStatus({
-                    isAnswered: submittedAnswers[index] ?? false,
+                    correctionMode,
+                    isAnswered: effectiveAnsweredByQuestion[index] ?? false,
                     selectedChoiceIndexes:
                       selectedChoiceIndexesByQuestion[index] ?? [],
                     correctChoiceIndexes: question.correctChoiceIndexes,
@@ -1012,38 +1082,41 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
       ) : null}
 
       <div className="rounded-xl border border-border bg-background p-4 text-base font-medium text-heading">
+        {canEditQuestions ? (
+          <div className="mb-3 flex justify-end">
+            <Button asChild variant="outline" size="xs">
+              <Link href={getAdminQuestionEditHref(currentQuestion.id)}>
+                <Pencil className="h-3.5 w-3.5" />
+                Éditer la question
+              </Link>
+            </Button>
+          </div>
+        ) : null}
         <MathContent value={currentQuestion.question} />
-        <div className="mt-3 flex flex-wrap gap-2">
-          <Badge variant="outline">
-            {quizAnswerFormatLabels[currentQuestion.answerFormat]}
-          </Badge>
-          {currentQuestion.answerFormat === 'MULTIPLE' ? (
-            <Badge variant="secondary">Coche l&apos;ensemble exact des bonnes réponses.</Badge>
-          ) : (
-            <Badge variant="secondary">Choisis une seule réponse.</Badge>
-          )}
-        </div>
       </div>
 
       <div className="grid gap-3">
         {currentQuestion.choices.map((choice, choiceIndex) => {
           const isSelected = currentSelections.includes(choiceIndex);
           const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
-          const showSelectedAsIncorrect = hasAnswered && isSelected && !isRightChoice;
+          const showSelectedAsIncorrect =
+            !isFinalCorrectionOnly && hasAnswered && isSelected && !isRightChoice;
+          const showSelectedAsAnswered = isFinalCorrectionOnly && hasAnswered && isSelected;
 
           return (
             <button
               key={`${currentQuestion.id}-${choiceIndex}`}
               type="button"
-              disabled={hasAnswered}
+              disabled={isAnswerLocked}
               onClick={() => selectAnswer(choiceIndex)}
               className={cn(
                 'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                !hasAnswered && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
-                hasAnswered && isRightChoice && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
+                !isAnswerLocked && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
+                !isFinalCorrectionOnly && isAnswerLocked && isRightChoice && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
                 showSelectedAsIncorrect && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
-                !hasAnswered && isSelected && 'border-brand/50 bg-brand-soft/10 text-heading'
+                showSelectedAsAnswered && selectedChoiceClassName,
+                !isAnswerLocked && isSelected && selectedChoiceClassName
               )}
             >
               <span className="flex min-w-0 flex-1 items-baseline gap-3">
@@ -1054,7 +1127,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
                   <MathContent value={choice} />
                 </span>
               </span>
-              {hasAnswered && isRightChoice ? (
+              {!isFinalCorrectionOnly && isAnswerLocked && isRightChoice ? (
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
               ) : null}
               {showSelectedAsIncorrect ? (
@@ -1065,7 +1138,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
         })}
       </div>
 
-      {hasAnswered ? (
+      {isAnswerLocked && !isFinalCorrectionOnly ? (
         <div
           className={cn(
             'rounded-xl border p-4 text-sm',
@@ -1084,7 +1157,11 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
       <div className="flex flex-col gap-3 border-t border-border pt-4 md:flex-row md:items-center md:justify-between">
         <p className="text-sm text-muted-foreground">
           {answeredCount} {answeredCount > 1 ? 'questions traitées.' : 'question traitée.'}
-          {isComplete ? ` Score final : ${score}/${sessionQuestions.length}.` : null}
+          {isComplete
+            ? isFinalCorrectionOnly
+              ? ' QCM terminé.'
+              : ` Score final : ${score}/${sessionQuestions.length}.`
+            : null}
         </p>
         <div className="flex flex-wrap gap-2">
           <Button
@@ -1096,7 +1173,7 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
           >
             Pr&eacute;c&eacute;dent
           </Button>
-          {!hasAnswered && currentQuestion.answerFormat === 'MULTIPLE' ? (
+          {!isAnswerLocked && currentQuestion.answerFormat === 'MULTIPLE' ? (
             <>
               <Button
                 type="button"
@@ -1107,14 +1184,16 @@ export function QuizSession({ questions, pathContext }: QuizSessionProps) {
               >
                 Effacer la sélection
               </Button>
-              <Button
-                type="button"
-                size="sm"
-                onClick={submitCurrentAnswer}
-                disabled={currentSelections.length === 0}
-              >
-                Valider la réponse
-              </Button>
+              {!isFinalCorrectionOnly ? (
+                <Button
+                  type="button"
+                  size="sm"
+                  onClick={submitCurrentAnswer}
+                  disabled={currentSelections.length === 0}
+                >
+                  Valider la réponse
+                </Button>
+              ) : null}
             </>
           ) : null}
           {isComplete ? (

@@ -1,0 +1,348 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound, redirect } from 'next/navigation';
+import { ChevronLeft } from 'lucide-react';
+
+import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
+import { PublicHeader } from '@/components/shared/public-header';
+import { SiteFooter } from '@/components/shared/site-footer';
+import { TrainingQuizInstructions } from '@/components/training/training-quiz-instructions';
+import { QuizSession } from '@/components/training/quiz-session';
+import { TrainingQuizActionButton } from '@/components/training/training-quiz-action-button';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { fetchHealthStudentChapterDetail } from '@/core/health';
+import { getTrainingQuizStageBadgeClassName, getTrainingQuizStageLabel } from '@/core/training/training-stage';
+import { fetchUserPedagogicalProfileSummary } from '@/core/user';
+import { auth } from '@/lib/auth/auth';
+import { isAdminRole } from '@/lib/auth/roles';
+import { getSessionActorRole, getSessionEffectiveUserId } from '@/lib/auth/session';
+
+type PageProps = {
+  params: Promise<{
+    courseUnitId: string;
+    chapterSlug: string;
+  }>;
+  searchParams?: Promise<{
+    quiz?: string;
+  }>;
+};
+
+type HealthChapterDetail = NonNullable<
+  Awaited<ReturnType<typeof fetchHealthStudentChapterDetail>>
+>;
+type HealthChapterSection = HealthChapterDetail['sections'][number];
+type HealthChapterQuiz = HealthChapterSection['quizzes'][number];
+
+const formatCourseUnitLabel = (
+  courseUnit: HealthChapterDetail['courseUnit'],
+) =>
+  courseUnit.code
+    ? `${courseUnit.code} · ${courseUnit.shortTitle ?? courseUnit.title}`
+    : (courseUnit.shortTitle ?? courseUnit.title);
+
+const formatTeachingElementLabel = (
+  teachingElement: HealthChapterDetail['teachingElement'],
+) =>
+  teachingElement.code
+    ? `${teachingElement.code} · ${teachingElement.title}`
+    : teachingElement.title;
+
+const formatTeachingElementBreadcrumbLabel = (
+  teachingElement: HealthChapterDetail['teachingElement'],
+) =>
+  teachingElement.code
+    ? `${teachingElement.code} ${teachingElement.title}`
+    : typeof teachingElement.order === 'number'
+      ? `EC${teachingElement.order} ${teachingElement.title}`
+    : teachingElement.title;
+
+const getQuizHref = ({
+  courseUnitId,
+  chapterSlug,
+  quizSlug,
+}: {
+  courseUnitId: string;
+  chapterSlug: string;
+  quizSlug: string;
+}) => `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}?quiz=${quizSlug}#quiz-session`;
+
+const getSectionLabel = (index: number) => {
+  let value = index + 1;
+  let label = '';
+
+  while (value > 0) {
+    const remainder = (value - 1) % 26;
+    label = String.fromCharCode(65 + remainder) + label;
+    value = Math.floor((value - 1) / 26);
+  }
+
+  return label;
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { courseUnitId, chapterSlug } = await params;
+  const chapter = await fetchHealthStudentChapterDetail({ courseUnitId, chapterSlug });
+
+  if (!chapter) {
+    return {
+      title: 'Chapitre Santé introuvable',
+    };
+  }
+
+  return {
+    title: `${chapter.title ?? chapter.shortTitle} - Santé`,
+  };
+}
+
+export default async function HealthChapterDetailPage({
+  params,
+  searchParams,
+}: PageProps) {
+  const { courseUnitId, chapterSlug } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+
+  const session = await auth();
+  const effectiveUserId = getSessionEffectiveUserId(session);
+  const canEditQuestions = isAdminRole(getSessionActorRole(session));
+
+  if (effectiveUserId) {
+    const viewerProfile = await fetchUserPedagogicalProfileSummary(effectiveUserId);
+
+    if (viewerProfile?.audience === 'SECONDARY') {
+      redirect('/dashboard');
+    }
+  }
+
+  const chapter = await fetchHealthStudentChapterDetail({ courseUnitId, chapterSlug });
+
+  if (!chapter) {
+    notFound();
+  }
+
+  const courseUnitLabel = formatCourseUnitLabel(chapter.courseUnit);
+  const teachingElementLabel = formatTeachingElementLabel(chapter.teachingElement);
+  const teachingElementBreadcrumbLabel = formatTeachingElementBreadcrumbLabel(
+    chapter.teachingElement
+  );
+  const quizCount = chapter.sections.reduce(
+    (total, section) => total + section.quizzes.length,
+    0
+  );
+  const selectedQuizSlug = resolvedSearchParams?.quiz ?? null;
+  const chapterHref = `/sante/ue/${chapter.courseUnit.id}/chapitres/${chapter.slug}`;
+  const courseUnitHref = `/sante/ue/${chapter.courseUnit.id}`;
+  const sectionLabelById = new Map(
+    chapter.sections.map((section, index) => [section.id, getSectionLabel(index)])
+  );
+  const availableQuizzes = chapter.sections.flatMap((section) =>
+    section.quizzes.map((quiz, quizIndex) => ({ quiz, quizIndex, section }))
+  );
+  const selectedQuiz =
+    selectedQuizSlug
+      ? availableQuizzes.find(({ quiz }) => quiz.slug === selectedQuizSlug) ?? null
+      : null;
+  const selectedQuizNumber = selectedQuiz
+    ? String(selectedQuiz.quizIndex + 1)
+    : null;
+
+  return (
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <PublicHeader />
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-4 pb-16 pt-10">
+        <PublicBreadcrumb
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: 'Santé', href: '/sante' },
+            { label: courseUnitLabel, href: courseUnitHref },
+            { label: teachingElementBreadcrumbLabel },
+            { label: chapter.title },
+          ]}
+        />
+
+        <section className="space-y-4">
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="outline">{teachingElementLabel}</Badge>
+            <Badge variant="secondary">
+              {chapter.sections.length} section
+              {chapter.sections.length > 1 ? 's' : ''}
+            </Badge>
+            <Badge variant="secondary">{quizCount} QCM</Badge>
+            <Badge variant="secondary">
+              {chapter.questionCount} question
+              {chapter.questionCount > 1 ? 's' : ''}
+            </Badge>
+          </div>
+          <h1 className="text-3xl font-semibold tracking-tight text-heading md:text-4xl">
+            {chapter.title}
+          </h1>
+          {chapter.description ? (
+            <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+              {chapter.description}
+            </p>
+          ) : (
+            <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+              Retrouve les sections du chapitre et ouvre directement le QCM utile pour ta révision.
+            </p>
+          )}
+        </section>
+
+        {selectedQuiz ? (
+          <section id="quiz-session" className="space-y-3">
+            <Button asChild variant="outline" size="sm" className="w-fit gap-2">
+              <Link href={chapterHref}>
+                <ChevronLeft className="h-4 w-4" />
+                Retour au chapitre
+              </Link>
+            </Button>
+
+            <Card className="rounded-3xl border-border bg-card hover:bg-card">
+              <CardHeader>
+                <div className="space-y-3">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="space-y-1">
+                      <CardTitle className="text-xl text-heading">QCM #{selectedQuizNumber}</CardTitle>
+                    </div>
+                    <div className="flex flex-wrap items-start gap-2 sm:justify-end">
+                      <Badge variant="outline" className="w-fit">
+                        Section {sectionLabelById.get(selectedQuiz.section.id)} -{' '}
+                        {selectedQuiz.section.title}
+                      </Badge>
+                      <Badge variant="secondary" className="w-fit">
+                        {selectedQuiz.quiz.questionCount} question
+                        {selectedQuiz.quiz.questionCount > 1 ? 's' : ''}
+                      </Badge>
+                      {getTrainingQuizStageLabel(selectedQuiz.quiz.stage) ? (
+                        <Badge
+                          variant="outline"
+                          className={getTrainingQuizStageBadgeClassName(selectedQuiz.quiz.stage) ?? undefined}
+                        >
+                          {getTrainingQuizStageLabel(selectedQuiz.quiz.stage)}
+                        </Badge>
+                      ) : null}
+                    </div>
+                  </div>
+                  <TrainingQuizInstructions />
+                </div>
+              </CardHeader>
+            </Card>
+            <QuizSession
+              questions={selectedQuiz.quiz.questions}
+              correctionMode="final"
+              canEditQuestions={canEditQuestions}
+            />
+          </section>
+        ) : null}
+
+        <section className="space-y-6">
+          <div className="space-y-1">
+            <h2 className="text-2xl font-semibold tracking-tight text-heading">
+              Parcours du chapitre
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Les QCM sont regroupés par section pour te permettre d&apos;aller vite vers la bonne partie du cours.
+            </p>
+          </div>
+
+          {chapter.sections.length > 0 ? (
+            chapter.sections.map((section, sectionIndex) => (
+              <Card key={section.id} className="rounded-3xl border-border bg-card hover:bg-card">
+                <CardHeader>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <CardTitle className="min-w-0 flex-1 text-lg text-heading">
+                      {sectionLabelById.get(section.id) ?? getSectionLabel(sectionIndex)} - {section.title}
+                    </CardTitle>
+                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                      <Badge variant="outline" className="w-fit">
+                        {section.kind === 'SYNTHESIS' ? 'Synthèse' : 'Section'}
+                      </Badge>
+                      <Badge variant="secondary" className="w-fit">
+                        {section.quizzes.length} QCM
+                      </Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  {section.quizzes.length > 0 ? (
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="w-[72px] text-center">#</TableHead>
+                          <TableHead className="w-[140px] text-center">QUESTIONS</TableHead>
+                          <TableHead className="w-[180px] text-center">ÉTAPE</TableHead>
+                          <TableHead className="w-[160px] text-center">ACTION</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {section.quizzes.map((quiz, quizIndex) => {
+                          const isSelected = selectedQuizSlug === quiz.slug;
+
+                          return (
+                            <TableRow
+                              id={`quiz-${quiz.slug}`}
+                              key={quiz.id}
+                              data-state={isSelected ? 'selected' : undefined}
+                            >
+                              <TableCell className="text-center font-medium text-muted-foreground">
+                                #{quizIndex + 1}
+                              </TableCell>
+                              <TableCell className="text-center">
+                                <Badge variant="outline" className="w-fit">
+                                  {quiz.questionCount} question
+                                  {quiz.questionCount > 1 ? 's' : ''}
+                                </Badge>
+                              </TableCell>
+                              <TableCell className="text-center">
+                                {getTrainingQuizStageLabel(quiz.stage) ? (
+                                  <Badge
+                                    variant="outline"
+                                    className={getTrainingQuizStageBadgeClassName(quiz.stage) ?? undefined}
+                                  >
+                                    {getTrainingQuizStageLabel(quiz.stage)}
+                                  </Badge>
+                                ) : (
+                                  <span className="text-sm text-muted-foreground">Non définie</span>
+                                )}
+                              </TableCell>
+                              <TableCell className="text-center">
+                                <TrainingQuizActionButton
+                                  href={getQuizHref({
+                                    courseUnitId,
+                                    chapterSlug: chapter.slug,
+                                    quizSlug: quiz.slug,
+                                  })}
+                                />
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <p className="text-sm text-muted-foreground">
+                      Aucun QCM publié dans cette section.
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              Aucune section publiée pour ce chapitre.
+            </p>
+          )}
+        </section>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}

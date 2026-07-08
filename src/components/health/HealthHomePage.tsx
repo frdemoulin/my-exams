@@ -30,10 +30,10 @@ const blockTypeLabels: Record<HealthStudentHomeBlock['type'], string> = {
 };
 
 const blockTypeBadgeClassNames: Record<HealthStudentHomeBlock['type'], string> = {
-  HEALTH: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200',
-  DISCIPLINARY: 'border-cyan-500/30 bg-cyan-500/10 text-cyan-200',
-  TRANSVERSAL: 'border-amber-500/30 bg-amber-500/10 text-amber-200',
-  SPECIALTY: 'border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-200',
+  HEALTH: 'border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-200',
+  DISCIPLINARY: 'border-cyan-300 bg-cyan-50 text-cyan-700 dark:border-cyan-500/30 dark:bg-cyan-500/10 dark:text-cyan-200',
+  TRANSVERSAL: 'border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200',
+  SPECIALTY: 'border-fuchsia-300 bg-fuchsia-50 text-fuchsia-700 dark:border-fuchsia-500/30 dark:bg-fuchsia-500/10 dark:text-fuchsia-200',
   OTHER: 'border-border bg-secondary text-secondary-foreground',
 };
 

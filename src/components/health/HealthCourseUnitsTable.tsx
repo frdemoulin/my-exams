@@ -1,12 +1,12 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import Link from 'next/link';
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { HealthStudentHomeBlock } from '@/core/health';
+import { HealthViewButton } from './HealthViewButton';
 
 type HealthCourseUnitsTableRow = {
   id: string;
@@ -28,7 +28,7 @@ type SortDirection = 'asc' | 'desc';
 
 const headerLabels: Record<SortKey, string> = {
   label: 'UE',
-  blockLabel: 'Bloc',
+  blockLabel: 'BLOC',
 };
 
 export function HealthCourseUnitsTable({
@@ -76,7 +76,7 @@ export function HealthCourseUnitsTable({
   return (
     <div className="relative overflow-x-auto sm:rounded-lg">
       <table className="w-full text-left text-sm text-body rtl:text-right">
-        <thead className="bg-neutral-secondary-soft text-xs uppercase tracking-wide text-muted-foreground">
+        <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
           <tr>
             {(['label', 'blockLabel'] as const).map((key) => (
               <th
@@ -98,7 +98,7 @@ export function HealthCourseUnitsTable({
                 </Button>
               </th>
             ))}
-            <th className="px-5 py-4 text-right font-medium">Actions</th>
+            <th className="px-5 py-4 text-center font-medium">ACTIONS</th>
           </tr>
         </thead>
         <tbody>
@@ -118,8 +118,8 @@ export function HealthCourseUnitsTable({
                     .join(' · ')}
                 </p>
               </td>
-              <td className="px-5 py-4 align-top text-center">
-                <div className="flex justify-center">
+              <td className="px-5 py-4 align-middle text-center">
+                <div className="flex items-center justify-center">
                   <Badge
                     variant="outline"
                     className={blockTypeBadgeClassNames[row.blockType]}
@@ -128,10 +128,8 @@ export function HealthCourseUnitsTable({
                   </Badge>
                 </div>
               </td>
-              <td className="px-5 py-4 text-right align-top">
-                <Button asChild size="sm">
-                  <Link href={row.href}>Voir</Link>
-                </Button>
+              <td className="px-5 py-4 text-center align-top">
+                <HealthViewButton href={row.href} />
               </td>
             </tr>
           ))}

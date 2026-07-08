@@ -20,6 +20,7 @@
     "db:migration:new": "tsx scripts/create-migration.ts",
     "db:deploy": "npm run db:push && npm run db:migrate",
     "db:seed": "tsx prisma/seed.ts",
+    "db:seed:ue14": "tsx scripts/seed-health-training-ue14.ts",
     "db:fixture:health": "tsx scripts/generate-health-parcoursup-fixture.ts",
     "db:seed:prod": "ts-node scripts/seed-prod.ts",
     "db:clear": "ts-node scripts/clear-database.ts",

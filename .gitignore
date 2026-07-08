@@ -21,6 +21,7 @@
 
 # docs
 /docs/chapters/**
+/docs/resources/**
 
 # misc
 .DS_Store

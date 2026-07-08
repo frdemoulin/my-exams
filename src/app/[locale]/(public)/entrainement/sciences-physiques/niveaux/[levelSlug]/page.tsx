@@ -7,7 +7,10 @@ import {
   fetchSciencePhysicsTrainingLevelBySlug,
   getSciencePhysicsTrainingLevelPath,
 } from '@/core/training';
-import { getTrainingQuizStageLabel } from '@/core/training/training-stage';
+import {
+  getTrainingQuizStageBadgeClassName,
+  getTrainingQuizStageLabel,
+} from '@/core/training/training-stage';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -147,7 +150,11 @@ export default async function SciencePhysicsTrainingLevelPage({ params }: PagePr
                         {chapter.questionCount} question{chapter.questionCount > 1 ? 's' : ''}
                       </Badge>
                       {chapter.stages.map((stage) => (
-                        <Badge key={stage} variant="theme">
+                        <Badge
+                          key={stage}
+                          variant="outline"
+                          className={getTrainingQuizStageBadgeClassName(stage) ?? undefined}
+                        >
                           {getTrainingQuizStageLabel(stage)}
                         </Badge>
                       ))}

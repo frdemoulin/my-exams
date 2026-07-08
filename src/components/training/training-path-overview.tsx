@@ -24,9 +24,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { getTrainingQuizStageLabel } from '@/core/training/training-stage';
+import {
+  getTrainingQuizStageBadgeClassName,
+  getTrainingQuizStageLabel,
+} from '@/core/training/training-stage';
 import { cn } from '@/lib/utils';
 import { deriveTrainingPathState } from './training-path-state';
+import { TrainingQuizActionButton } from './training-quiz-action-button';
 import {
   createEmptyTrainingPathProgress,
   emitTrainingPathProgressChange,
@@ -46,20 +50,10 @@ type TrainingPathOverviewProps = {
   targetScore: number;
 };
 
-const stageBadgeClassNames = {
-  DISCOVER: 'border border-default-medium bg-neutral-secondary-medium text-heading',
-  PRACTICE: 'border border-brand/20 bg-brand/10 text-fg-brand',
-  MASTER: 'border border-success-subtle bg-success-soft text-fg-success-strong',
-} as const;
-
 const getStageBadgeClassName = (
   stage: TrainingPathOverviewSection['quizzes'][number]['stage']
 ) => {
-  if (!stage) {
-    return null;
-  }
-
-  return stageBadgeClassNames[stage];
+  return getTrainingQuizStageBadgeClassName(stage);
 };
 
 const getSectionStatusLabel = (status: ReturnType<typeof deriveTrainingPathState>['sections'][number]['status']) => {
@@ -589,7 +583,6 @@ export function TrainingPathOverview({
                   <TableHeader>
                     <TableRow>
                       <TableHead className="w-[72px] text-center">#</TableHead>
-                      <TableHead>QCM</TableHead>
                       <TableHead className="w-[140px] text-center">Questions</TableHead>
                       <TableHead className="w-[180px] text-center">Étape</TableHead>
                       <TableHead className="w-[160px] text-center">Statut</TableHead>
@@ -602,16 +595,6 @@ export function TrainingPathOverview({
                       <TableRow key={quiz.id}>
                         <TableCell className="text-center font-medium text-muted-foreground">
                           #{quizIndex + 1}
-                        </TableCell>
-                        <TableCell>
-                          <div className="space-y-1">
-                            <p className="font-semibold text-heading">{quiz.title}</p>
-                            {quiz.description ? (
-                              <p className="text-sm text-muted-foreground">
-                                {quiz.description}
-                              </p>
-                            ) : null}
-                          </div>
                         </TableCell>
                         <TableCell className="text-center">
                           <Badge variant="outline" className="w-fit">
@@ -676,17 +659,11 @@ export function TrainingPathOverview({
                               Étape suivante
                             </Badge>
                           ) : (
-                            <Button
-                              asChild
-                              size="sm"
+                            <TrainingQuizActionButton
+                              href={quiz.href}
+                              label={quiz.status === 'mastered' ? 'Revoir' : 'Commencer'}
                               variant={quiz.status === 'mastered' ? 'outline' : 'default'}
-                              className="gap-2"
-                            >
-                              <Link href={quiz.href}>
-                                {quiz.status === 'mastered' ? 'Revoir' : 'Commencer'}
-                                <ArrowRight className="h-4 w-4" />
-                              </Link>
-                            </Button>
+                            />
                           )}
                         </TableCell>
                       </TableRow>
