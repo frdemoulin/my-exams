@@ -1,3 +1,9 @@
+## [1.6.26](https://github.com/frdemoulin/my-exams/compare/v1.6.25...v1.6.26) (2026-07-11)
+
+### Bug Fixes
+
+* amélioration de la page de résultats d'un QCM ([ea03245](https://github.com/frdemoulin/my-exams/commit/ea032452489dffece513811aa163834ca7b71e3a))
+
 ## [1.6.25](https://github.com/frdemoulin/my-exams/compare/v1.6.24...v1.6.25) (2026-07-11)
 
 ### Bug Fixes
