@@ -1,6 +1,6 @@
 const trainingQuizInstructionParagraphs = [
   `Dans ce QCM, chaque question est accompagnée de 4 propositions. Sans consigne particulière dans l'énoncé d'une question, il faut systématiquement déterminer la ou les propositions correctes. Pour chaque question, le nombre d'items à sélectionner varie de 1 à 4.`,
-  `L'utilisation d'une calculatrice n'est pas autorisée. Avant de vous lancer, munissez-vous d'un brouillon et d’un crayon.`,
+  `L'utilisation d'une calculatrice n'est pas autorisée. Avant de vous lancer, vous pouvez vous munir d'un brouillon et d’un crayon.`,
 ] as const;
 
 export function TrainingQuizInstructions() {

@@ -14,6 +14,7 @@ export type XlsxExportHeader = {
 };
 
 type ExportRowsToXlsxOptions<TData> = {
+  autoFilter?: boolean;
   columns: XlsxExportColumn<TData>[];
   filename: string;
   rows: TData[];
@@ -21,6 +22,7 @@ type ExportRowsToXlsxOptions<TData> = {
 };
 
 type ExportMatrixToXlsxOptions = {
+  autoFilter?: boolean;
   filename: string;
   headers: XlsxExportHeader[];
   rows: XlsxCellValue[][];
@@ -32,6 +34,18 @@ const ensureXlsxExtension = (filename: string) =>
 
 const sanitizeSheetName = (sheetName: string) =>
   sheetName.replace(/[\\/?*:[\]]/g, " ").trim().slice(0, 31) || "Export";
+
+const getSpreadsheetColumnLabel = (index: number) => {
+  let currentIndex = index;
+  let label = "";
+
+  while (currentIndex >= 0) {
+    label = String.fromCharCode(65 + (currentIndex % 26)) + label;
+    currentIndex = Math.floor(currentIndex / 26) - 1;
+  }
+
+  return label;
+};
 
 const toXlsxCell = (value: XlsxCellValue): Cell => {
   if (value === null || value === undefined) {
@@ -54,6 +68,7 @@ const toXlsxCell = (value: XlsxCellValue): Cell => {
 };
 
 export async function exportRowsToXlsx<TData>({
+  autoFilter = false,
   columns,
   filename,
   rows,
@@ -69,13 +84,23 @@ export async function exportRowsToXlsx<TData>({
     columns.map((column) => toXlsxCell(column.value(row)))
   );
 
-  await writeXlsxFile([headerRow, ...dataRows], {
-    columns: columns.map((column) => ({ width: column.width ?? 18 })),
-    sheet: sanitizeSheetName(sheetName),
-  }).toFile(ensureXlsxExtension(filename));
+  const autoFilterRef =
+    autoFilter && columns.length > 0
+      ? `A1:${getSpreadsheetColumnLabel(columns.length - 1)}${rows.length + 1}`
+      : null;
+
+  await writeXlsxFile(
+    [headerRow, ...dataRows],
+    {
+      columns: columns.map((column) => ({ width: column.width ?? 18 })),
+      sheet: sanitizeSheetName(sheetName),
+      stickyRowsCount: autoFilterRef ? 1 : undefined,
+    }
+  ).toFile(ensureXlsxExtension(filename));
 }
 
 export async function exportMatrixToXlsx({
+  autoFilter = false,
   filename,
   headers,
   rows,
@@ -89,8 +114,17 @@ export async function exportMatrixToXlsx({
   }));
   const dataRows: Row[] = rows.map((row) => row.map(toXlsxCell));
 
-  await writeXlsxFile([headerRow, ...dataRows], {
-    columns: headers.map((header) => ({ width: header.width ?? 18 })),
-    sheet: sanitizeSheetName(sheetName),
-  }).toFile(ensureXlsxExtension(filename));
+  const autoFilterRef =
+    autoFilter && headers.length > 0
+      ? `A1:${getSpreadsheetColumnLabel(headers.length - 1)}${rows.length + 1}`
+      : null;
+
+  await writeXlsxFile(
+    [headerRow, ...dataRows],
+    {
+      columns: headers.map((header) => ({ width: header.width ?? 18 })),
+      sheet: sanitizeSheetName(sheetName),
+      stickyRowsCount: autoFilterRef ? 1 : undefined,
+    }
+  ).toFile(ensureXlsxExtension(filename));
 }

@@ -751,7 +751,7 @@ function SectionEditor({
           <div>
             <h4 className="text-sm font-semibold text-foreground">Quiz de la section</h4>
             <p className="text-xs text-muted-foreground">
-              Utilise des slugs stables: ils alimentent directement les URLs `?quiz=` publiques.
+              Utilise des slugs stables : ils alimentent directement les URLs publiques des pages de quiz.
             </p>
           </div>
           <AddButton

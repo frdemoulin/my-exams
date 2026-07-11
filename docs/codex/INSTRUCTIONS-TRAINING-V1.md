@@ -32,6 +32,13 @@ Pour les seeds de QCM santé, respecter la convention suivante :
 - ne pas utiliser `\'` sauf contrainte ponctuelle dans une chaîne entourée de quotes simples
 - ne pas imposer la saisie manuelle de l’apostrophe typographique `’`
 - si l’interface doit afficher une typographie plus soignée, prévoir éventuellement une normalisation à l’affichage ou à l’import
+- pour le texte affiché à l’utilisateur, utiliser le tiret demi-cadratin `–`
+- pour les identifiants techniques, slugs, routes et noms de fichiers, utiliser le tiret simple `-`
+- pour les cases quantiques en chimie / atomistique, ne jamais stocker du HTML, du JSX ni des pseudo-cases en texte brut dans les seeds ; utiliser la structure de données dédiée du projet (type `quantum-boxes`) afin que le rendu passe par le composant React prévu
+- rattacher chaque question à au moins un thème pédagogique précis décrivant la notion évaluée ; ce thème ne doit pas être un simple niveau de difficulté et doit permettre de calculer localement les réussites et les échecs par notion sans solliciter un LLM
+- dans les notations de couches électroniques affichées à l’utilisateur, écrire les noms de couches en lettres droites via `\mathrm{...}` : `\mathrm{K}`, `\mathrm{L}`, `\mathrm{M}`, `\mathrm{N}`
+- dans les configurations électroniques et les notations de sous-couches affichées à l’utilisateur, écrire les lettres de sous-couche en lettres droites via `\mathrm{...}` : `1\mathrm{s}^2`, `2\mathrm{p}^6`, `3\mathrm{d}^5`, `4\mathrm{f}`
+- dans les notations de nombres quantiques affichées à l’utilisateur, écrire le nombre quantique secondaire avec la commande `\ell`, et les autres en lettres droites : `\mathrm{n}`, `\ell`, `\mathrm{m}`, `\mathrm{s}`, `\mathrm{m}_{\ell}`, `\mathrm{m}_{\mathrm{s}}`
 
 ---
 

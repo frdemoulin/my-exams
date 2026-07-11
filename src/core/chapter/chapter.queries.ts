@@ -6,7 +6,13 @@ import {
   resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
 import { reorderCatchAllChoices } from "@/core/training/training-choice-ordering";
+import {
+  getTrainingChoicePlainText,
+  normalizeTrainingChoiceContents,
+} from "@/core/training/training-choice-content";
+import { getTrainingQuizStageLabel } from "@/core/training/training-stage";
 import { Option } from "@/types/option";
+import { normalizeSearchText } from "@/lib/utils";
 import {
   chapterAssignmentContextTypeLabels,
   getChapterLevelLabel,
@@ -28,11 +34,9 @@ import {
 } from "./chapter.types";
 
 function normalizeChoices(value: Prisma.JsonValue): string[] {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-
-  return value.filter((choice): choice is string => typeof choice === "string");
+  return normalizeTrainingChoiceContents(value).map((choice) =>
+    getTrainingChoicePlainText(choice)
+  );
 }
 
 type ChapterQueryOptions = {
@@ -45,6 +49,166 @@ type QuizQuestionQueryOptions = {
 
 const activeChapterFilter = {
   isActive: { not: false as const },
+};
+
+const quizDifficultyLabels: Record<string, string> = {
+  EASY: "Facile",
+  MEDIUM: "Moyen",
+  HARD: "Difficile",
+};
+
+const stripLatexMarkers = (value: string) =>
+  value
+    .replace(/\$+/g, "")
+    .replace(/\\mathrm\{([^}]*)\}/g, "$1")
+    .replace(/\\text\{([^}]*)\}/g, "$1")
+    .replace(/\\ce\{([^}]*)\}/g, "$1")
+    .replace(/\\,/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const toDisplayThemeLabel = (value: string) => {
+  const cleaned = stripLatexMarkers(value).replace(/\s*:\s*$/g, "").trim();
+  if (!cleaned) {
+    return "";
+  }
+
+  return cleaned.charAt(0).toLocaleUpperCase("fr-FR") + cleaned.slice(1);
+};
+
+const inferQuestionTopicLabel = ({
+  question,
+  choices,
+}: {
+  question: string;
+  choices: string[];
+}) => {
+  const sourceText = [question, ...choices].join(" ");
+  const normalized = normalizeSearchText(sourceText);
+
+  const explicitPatterns: Array<{ label: string; test: (text: string) => boolean }> = [
+    {
+      label: "Calcul de masse atomique moyenne",
+      test: (text) =>
+        text.includes("masse atomique moyenne") ||
+        (text.includes("echantillon naturel") && text.includes(" bore ")) ||
+        (text.includes("isotope") && text.includes("majoritaire") && text.includes("u")),
+    },
+    {
+      label: "Unité de masse atomique",
+      test: (text) =>
+        text.includes("unite de masse atomique") ||
+        (text.includes("dalton") && text.includes("carbone 12")),
+    },
+    {
+      label: "Ordres de grandeur en médecine",
+      test: (text) =>
+        text.includes("ordres de grandeur") ||
+        text.includes("globule rouge") ||
+        text.includes("hemoglobine") ||
+        text.includes("peptide"),
+    },
+    {
+      label: "Nombres quantiques et remplissage",
+      test: (text) =>
+        text.includes("nombres quantiques") ||
+        text.includes("remplissage") ||
+        text.includes("regle de hund"),
+    },
+    {
+      label: "Couches, sous-couches et orbitales",
+      test: (text) =>
+        text.includes("couches") ||
+        text.includes("sous-couches") ||
+        text.includes("sous couches") ||
+        text.includes("orbitales"),
+    },
+    {
+      label: "Configuration électronique",
+      test: (text) =>
+        text.includes("configurations electroniques") ||
+        text.includes("configuration electronique") ||
+        text.includes("couche de valence"),
+    },
+    {
+      label: "Classification périodique",
+      test: (text) =>
+        text.includes("classification periodique") ||
+        text.includes("periode correspond a une colonne"),
+    },
+    {
+      label: "Familles d'éléments",
+      test: (text) =>
+        text.includes("familles d elements") ||
+        text.includes("metalloides") ||
+        text.includes("gaz rares") ||
+        text.includes("non-metaux") ||
+        text.includes("non metaux"),
+    },
+    {
+      label: "Éléments naturels et artificiels",
+      test: (text) =>
+        text.includes("elements naturels et artificiels") ||
+        text.includes("transuraniens") ||
+        text.includes("z <= 92") ||
+        text.includes("z > 92"),
+    },
+    {
+      label: "Isotopes",
+      test: (text) =>
+        text.includes("isotopes") ||
+        (text.includes("meme numero atomique") && text.includes("neutrons")),
+    },
+    {
+      label: "Nucléides",
+      test: (text) =>
+        text.includes("nucleide") ||
+        text.includes("^a_zx") ||
+        text.includes("nombre de masse"),
+    },
+    {
+      label: "Structure de l'atome",
+      test: (text) =>
+        text.includes("notion d'atome") ||
+        text.includes("constituants") ||
+        text.includes("masse et structure de l'atome") ||
+        text.includes("quasi-totalite de la masse"),
+    },
+  ];
+
+  for (const pattern of explicitPatterns) {
+    if (pattern.test(normalized)) {
+      return pattern.label;
+    }
+  }
+
+  const aboutMatch = question.match(/^À propos d['e]\s+(.+?)\s*:\s*$/i);
+  if (aboutMatch?.[1]) {
+    return toDisplayThemeLabel(aboutMatch[1]);
+  }
+
+  const aboutPluralMatch = question.match(/^À propos des?\s+(.+?)\s*:\s*$/i);
+  if (aboutPluralMatch?.[1]) {
+    return toDisplayThemeLabel(aboutPluralMatch[1]);
+  }
+
+  return "";
+};
+
+export type ChapterQuizQuestionExportRow = {
+  quizId: string;
+  quizOrder: number;
+  questionId: string;
+  questionOrderInQuiz: number;
+  questionTheme: string;
+  answerNature: "single" | "multiple";
+  quizDifficulty: string;
+  questionDifficulty: string;
+  facultyPrecision: string;
+  courseUnitPrecision: string;
+  teachingElementPrecision: string;
+  chapterPrecision: string;
+  sectionPrecision: string;
 };
 
 function isObjectId(value: string) {
@@ -259,6 +423,288 @@ export async function fetchChapterById(id: string): Promise<ChapterDetail | null
   };
 }
 
+export async function fetchChapterQuizQuestionExportRows(
+  chapterId: string
+): Promise<ChapterQuizQuestionExportRow[]> {
+  if (!isObjectId(chapterId)) {
+    return [];
+  }
+
+  const chapter = await prisma.chapter.findUnique({
+    where: { id: chapterId },
+    select: {
+      id: true,
+      title: true,
+      domainIds: true,
+      assignments: {
+        select: {
+          contextType: true,
+          contextId: true,
+        },
+      },
+      sections: {
+        select: {
+          title: true,
+          order: true,
+          quizzes: {
+            select: {
+              id: true,
+              order: true,
+              stage: true,
+              questionLinks: {
+                select: {
+                  order: true,
+                  question: {
+                    select: {
+                      id: true,
+                      question: true,
+                      choices: true,
+                      answerFormat: true,
+                      difficulty: true,
+                      themeIds: true,
+                    },
+                  },
+                },
+              },
+            },
+            orderBy: [{ order: "asc" }],
+          },
+        },
+        orderBy: [{ order: "asc" }],
+      },
+    },
+  });
+
+  if (!chapter) {
+    return [];
+  }
+
+  const healthCourseUnitIds = Array.from(
+    new Set(
+      chapter.assignments
+        .filter((assignment) => assignment.contextType === "HEALTH_COURSE_UNIT")
+        .map((assignment) => assignment.contextId)
+    )
+  );
+  const healthTeachingElementIds = Array.from(
+    new Set(
+      chapter.assignments
+        .filter((assignment) => assignment.contextType === "HEALTH_TEACHING_ELEMENT")
+        .map((assignment) => assignment.contextId)
+    )
+  );
+
+  const [courseUnits, teachingElements] = await Promise.all([
+    healthCourseUnitIds.length > 0
+      ? prisma.healthCourseUnit.findMany({
+          where: { id: { in: healthCourseUnitIds } },
+          select: {
+            id: true,
+            code: true,
+            title: true,
+            programVersion: {
+              select: {
+                institution: {
+                  select: {
+                    name: true,
+                    shortName: true,
+                  },
+                },
+              },
+            },
+          },
+        })
+      : Promise.resolve([]),
+    healthTeachingElementIds.length > 0
+      ? prisma.healthTeachingElement.findMany({
+          where: { id: { in: healthTeachingElementIds } },
+          select: {
+            id: true,
+            code: true,
+            title: true,
+            courseUnit: {
+              select: {
+                id: true,
+                code: true,
+                title: true,
+                programVersion: {
+                  select: {
+                    institution: {
+                      select: {
+                        name: true,
+                        shortName: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        })
+      : Promise.resolve([]),
+  ]);
+
+  const courseUnitLabelById = new Map(
+    courseUnits.map((courseUnit) => [
+      courseUnit.id,
+      [courseUnit.code?.trim() || null, courseUnit.title.trim()].filter(Boolean).join(" "),
+    ])
+  );
+  const facultyLabelByCourseUnitId = new Map(
+    courseUnits.map((courseUnit) => [
+      courseUnit.id,
+      courseUnit.programVersion.institution.shortName?.trim() ||
+        courseUnit.programVersion.institution.name.trim(),
+    ])
+  );
+  const teachingElementById = new Map(
+    teachingElements.map((teachingElement) => [
+      teachingElement.id,
+      {
+        teachingElementLabel: [
+          teachingElement.code?.trim() || null,
+          teachingElement.title.trim(),
+        ]
+          .filter(Boolean)
+          .join(" "),
+        courseUnitLabel: [
+          teachingElement.courseUnit.code?.trim() || null,
+          teachingElement.courseUnit.title.trim(),
+        ]
+          .filter(Boolean)
+          .join(" "),
+        facultyLabel:
+          teachingElement.courseUnit.programVersion.institution.shortName?.trim() ||
+          teachingElement.courseUnit.programVersion.institution.name.trim(),
+      },
+    ])
+  );
+
+  const facultyLabels = Array.from(
+    new Set([
+      ...healthCourseUnitIds
+        .map((courseUnitId) => facultyLabelByCourseUnitId.get(courseUnitId) ?? "")
+        .filter((label) => label.length > 0),
+      ...healthTeachingElementIds
+        .map((teachingElementId) => teachingElementById.get(teachingElementId)?.facultyLabel ?? "")
+        .filter((label) => label.length > 0),
+    ])
+  );
+  const courseUnitLabels = Array.from(
+    new Set([
+      ...healthCourseUnitIds
+        .map((courseUnitId) => courseUnitLabelById.get(courseUnitId) ?? "")
+        .filter((label) => label.length > 0),
+      ...healthTeachingElementIds
+        .map((teachingElementId) => teachingElementById.get(teachingElementId)?.courseUnitLabel ?? "")
+        .filter((label) => label.length > 0),
+    ])
+  );
+  const teachingElementLabels = Array.from(
+    new Set(
+      healthTeachingElementIds
+        .map(
+          (teachingElementId) =>
+            teachingElementById.get(teachingElementId)?.teachingElementLabel ?? ""
+        )
+        .filter((label) => label.length > 0)
+    )
+  );
+
+  const themeIds = Array.from(
+    new Set(
+      chapter.sections.flatMap((section) =>
+        section.quizzes.flatMap((quiz) =>
+          quiz.questionLinks.flatMap((link) => link.question.themeIds)
+        )
+      )
+    )
+  );
+  const inferredThemeCandidates = chapter.domainIds.length
+    ? await prisma.theme.findMany({
+        where: {
+          domainIds: {
+            hasSome: chapter.domainIds,
+          },
+        },
+        select: {
+          id: true,
+          title: true,
+          shortTitle: true,
+        },
+        orderBy: [{ title: "asc" }],
+      })
+    : [];
+  const themes = themeIds.length
+    ? await prisma.theme.findMany({
+        where: {
+          id: {
+            in: themeIds,
+          },
+        },
+        select: {
+          id: true,
+          title: true,
+          shortTitle: true,
+        },
+      })
+    : [];
+  const allThemes = Array.from(
+    new Map(
+      [...themes, ...inferredThemeCandidates].map((theme) => [theme.id, theme] as const)
+    ).values()
+  );
+  const themeLabelById = new Map(
+    allThemes.map((theme) => [theme.id, theme.shortTitle?.trim() || theme.title.trim()] as const)
+  );
+
+  return chapter.sections.flatMap((section) =>
+    section.quizzes.flatMap((quiz) =>
+      quiz.questionLinks
+        .slice()
+        .sort((left, right) => left.order - right.order)
+        .map((link) => {
+          const normalizedChoices = Array.isArray(link.question.choices)
+            ? link.question.choices.filter((choice): choice is string => typeof choice === "string")
+            : [];
+          const explicitThemeLabels = link.question.themeIds
+            .map((themeId) => themeLabelById.get(themeId) ?? themeId)
+            .filter((label) => label.length > 0);
+          const inferredTopicLabel =
+            explicitThemeLabels.length > 0
+              ? ""
+              : inferQuestionTopicLabel({
+                  question: link.question.question,
+                  choices: normalizedChoices,
+                });
+
+          return {
+            quizId: quiz.id,
+            quizOrder: quiz.order,
+            questionId: link.question.id,
+            questionOrderInQuiz: link.order,
+            questionTheme: [...explicitThemeLabels, inferredTopicLabel]
+              .filter((label, index, array) => array.indexOf(label) === index)
+              .filter((label) => label.length > 0)
+              .join(" | ") || section.title,
+            answerNature:
+              resolveQuizAnswerFormat(link.question.answerFormat) === "MULTIPLE"
+                ? "multiple"
+                : "single",
+            quizDifficulty: getTrainingQuizStageLabel(quiz.stage) ?? "",
+            questionDifficulty:
+              quizDifficultyLabels[link.question.difficulty] ?? link.question.difficulty,
+            facultyPrecision: facultyLabels.join(" | "),
+            courseUnitPrecision: courseUnitLabels.join(" | "),
+            teachingElementPrecision: teachingElementLabels.join(" | "),
+            chapterPrecision: chapter.title,
+            sectionPrecision: section.title,
+          };
+        })
+    )
+  );
+}
+
 export async function fetchQuizQuestionById(
   id: string
 ): Promise<QuizQuestionFormData | null> {
@@ -299,7 +745,9 @@ export async function fetchQuizQuestionById(
     return {
       ...question,
       answerFormat: resolveQuizAnswerFormat(question.answerFormat),
-      choices: normalizedQuestionChoices.choices,
+      choices: normalizedQuestionChoices.choices.map((choice) =>
+        getTrainingChoicePlainText(choice)
+      ),
       correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
       correctChoiceIndex: getPrimaryCorrectChoiceIndex({
         answerFormat: question.answerFormat,

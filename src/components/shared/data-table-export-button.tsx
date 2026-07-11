@@ -15,6 +15,7 @@ import {
 } from "@/lib/xlsx-export";
 
 type DataTableExportButtonProps<TData> = {
+  autoFilter?: boolean;
   columns?: XlsxExportColumn<TData>[];
   disabled?: boolean;
   filename: string;
@@ -75,6 +76,7 @@ const buildColumnsFromTable = <TData,>(table: TanstackTable<TData>): XlsxExportC
 };
 
 export function DataTableExportButton<TData>({
+  autoFilter = true,
   columns,
   disabled,
   filename,
@@ -99,9 +101,15 @@ export function DataTableExportButton<TData>({
     setIsExporting(true);
     try {
       if (values && headers) {
-        await exportMatrixToXlsx({ filename, headers, rows: values, sheetName });
+        await exportMatrixToXlsx({ autoFilter, filename, headers, rows: values, sheetName });
       } else {
-        await exportRowsToXlsx({ columns: exportColumns, filename, rows: exportRows, sheetName });
+        await exportRowsToXlsx({
+          autoFilter,
+          columns: exportColumns,
+          filename,
+          rows: exportRows,
+          sheetName,
+        });
       }
       toast.success(`${exportCount} ligne${exportCount > 1 ? "s" : ""} exportée${exportCount > 1 ? "s" : ""}`);
     } catch {

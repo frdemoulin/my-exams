@@ -6,6 +6,12 @@ import {
 } from "@/core/quiz/quiz-answer-format";
 import { reorderCatchAllChoices } from "@/core/training/training-choice-ordering";
 import {
+    normalizeTrainingChoiceContents,
+    normalizeTrainingQuantumBoxesChoice,
+    type TrainingChoiceContent,
+    type TrainingQuantumBoxesChoice,
+} from "@/core/training/training-choice-content";
+import {
     HealthEntity,
     healthCourseUnitCoverageStatusLabels,
     healthEntityLabels,
@@ -552,12 +558,21 @@ export type HealthStudentChapterDetail = {
             order: number;
             stage: TrainingQuizStage | null;
             questionCount: number;
+            progress: {
+                attemptsCount: number;
+                successRate: number;
+                bestScore: number;
+                totalQuestions: number;
+                lastAttemptAt: string | null;
+                masteredAt: string | null;
+            } | null;
             questions: Array<{
                 id: string;
                 difficulty: "EASY" | "MEDIUM" | "HARD";
                 answerFormat: "SINGLE" | "MULTIPLE";
                 question: string;
-                choices: string[];
+                questionDiagram: TrainingQuantumBoxesChoice | null;
+                choices: TrainingChoiceContent[];
                 correctChoiceIndexes: number[];
                 explanation: string;
                 order: number;
@@ -573,13 +588,8 @@ export type HealthStudentChapterDetail = {
     }>;
 };
 
-const normalizeQuizChoices = (choices: unknown): string[] => {
-    if (!Array.isArray(choices)) {
-        return [];
-    }
-
-    return choices.filter((choice): choice is string => typeof choice === "string");
-};
+const normalizeQuizChoices = (choices: unknown): TrainingChoiceContent[] =>
+    normalizeTrainingChoiceContents(choices);
 
 function getCurrentAcademicYear(now = new Date()) {
     const calendarYear = now.getFullYear();
@@ -1399,8 +1409,9 @@ export async function fetchHealthStudentCourseUnitDetail(
 export async function fetchHealthStudentChapterDetail(input: {
     courseUnitId: string;
     chapterSlug: string;
+    userId?: string | null;
 }): Promise<HealthStudentChapterDetail | null> {
-    const { courseUnitId, chapterSlug } = input;
+    const { courseUnitId, chapterSlug, userId } = input;
 
     if (!/^[a-f0-9]{24}$/i.test(courseUnitId) || !chapterSlug.trim()) {
         return null;
@@ -1485,6 +1496,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                                                     difficulty: true,
                                                     answerFormat: true,
                                                     question: true,
+                                                    questionDiagram: true,
                                                     choices: true,
                                                     correctChoiceIndexes: true,
                                                     correctChoiceIndex: true,
@@ -1537,6 +1549,66 @@ export async function fetchHealthStudentChapterDetail(input: {
         return null;
     }
 
+    const quizIds = assignment.chapter.sections.flatMap((section) =>
+        section.quizzes.map((quiz) => quiz.id)
+    );
+    const questionThemeIds = Array.from(
+        new Set(
+            assignment.chapter.sections.flatMap((section) =>
+                section.quizzes.flatMap((quiz) =>
+                    quiz.questionLinks.flatMap((questionLink) => questionLink.question.themeIds)
+                )
+            )
+        )
+    );
+
+    const [progressEntries, questionThemes] = await Promise.all([
+        userId && quizIds.length > 0
+            ? prisma.userTrainingQuizProgress.findMany({
+                  where: {
+                      userId,
+                      chapterId: assignment.chapter.id,
+                      quizId: { in: quizIds },
+                  },
+                  select: {
+                      quizId: true,
+                      attemptsCount: true,
+                      successRate: true,
+                      bestScore: true,
+                      totalQuestions: true,
+                      lastAttemptAt: true,
+                      masteredAt: true,
+                  },
+              })
+            : Promise.resolve([]),
+        questionThemeIds.length > 0
+            ? prisma.theme.findMany({
+                  where: { id: { in: questionThemeIds } },
+                  select: { id: true, title: true, shortTitle: true },
+              })
+            : Promise.resolve([]),
+    ]);
+    const questionThemeLabelById = new Map(
+        questionThemes.map((theme) => [
+            theme.id,
+            theme.shortTitle?.trim() || theme.title.trim(),
+        ] as const)
+    );
+
+    const progressByQuizId = new Map(
+        progressEntries.map((entry) => [
+            entry.quizId,
+            {
+                attemptsCount: entry.attemptsCount,
+                successRate: entry.successRate,
+                bestScore: entry.bestScore,
+                totalQuestions: entry.totalQuestions,
+                lastAttemptAt: entry.lastAttemptAt.toISOString(),
+                masteredAt: entry.masteredAt?.toISOString() ?? null,
+            },
+        ])
+    );
+
     return {
         id: assignment.chapter.id,
         title: assignment.titleOverride?.trim() || assignment.chapter.title,
@@ -1582,6 +1654,9 @@ export async function fetchHealthStudentChapterDetail(input: {
                             difficulty: questionLink.question.difficulty,
                             answerFormat: resolveQuizAnswerFormat(questionLink.question.answerFormat),
                             question: questionLink.question.question,
+                            questionDiagram: normalizeTrainingQuantumBoxesChoice(
+                                questionLink.question.questionDiagram ?? null
+                            ),
                             choices: reorderedQuestionChoices.choices,
                             correctChoiceIndexes: reorderedQuestionChoices.correctChoiceIndexes,
                             explanation: questionLink.question.explanation,
@@ -1594,7 +1669,9 @@ export async function fetchHealthStudentChapterDetail(input: {
                                       order: questionLink.group.order,
                                   }
                                 : null,
-                            themeLabels: [],
+                            themeLabels: questionLink.question.themeIds
+                                .map((themeId) => questionThemeLabelById.get(themeId) ?? "")
+                                .filter((label) => label.length > 0),
                         };
                     })
                     .sort((left, right) => left.order - right.order);
@@ -1606,6 +1683,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                     order: quiz.order,
                     stage: quiz.stage ?? null,
                     questionCount: questions.length,
+                    progress: progressByQuizId.get(quiz.id) ?? null,
                     questions,
                 };
             }),
