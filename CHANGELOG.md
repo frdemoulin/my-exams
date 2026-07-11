@@ -1,3 +1,9 @@
+## [1.6.25](https://github.com/frdemoulin/my-exams/compare/v1.6.24...v1.6.25) (2026-07-11)
+
+### Bug Fixes
+
+* refonte de la page de bilan d'un quiz ([87ba621](https://github.com/frdemoulin/my-exams/commit/87ba621a68cb79916da344ceb8774a5d54d039fa))
+
 ## [1.6.24](https://github.com/frdemoulin/my-exams/compare/v1.6.23...v1.6.24) (2026-07-08)
 
 ### Bug Fixes
