@@ -10,6 +10,7 @@ type TrainingPathProgressEventDetail = {
 };
 
 type TrainingPathProgressSyncPayload = {
+  attemptsCount: number;
   quizId: string;
   quizSlug: string;
   score: number;
@@ -110,6 +111,7 @@ const sanitizeTrainingPathProgress = (
           const bestScore = Number(value.bestScore);
           const totalQuestions = Number(value.totalQuestions);
           const successRate = Number(value.successRate);
+          const attemptsCount = Number(value.attemptsCount);
           const completedAt =
             typeof value.completedAt === 'string' ? value.completedAt : null;
           const validatedAt =
@@ -128,6 +130,8 @@ const sanitizeTrainingPathProgress = (
             [
               quizSlug,
               {
+                attemptsCount:
+                  Number.isFinite(attemptsCount) && attemptsCount > 0 ? attemptsCount : 1,
                 bestScore,
                 totalQuestions,
                 successRate,
@@ -235,6 +239,7 @@ export const applyTrainingQuizAttempt = ({
     quizProgressBySlug: {
       ...progress.quizProgressBySlug,
       [quizSlug]: {
+        attemptsCount: (previousQuizProgress?.attemptsCount ?? 0) + 1,
         bestScore,
         totalQuestions,
         successRate: bestSuccessRate,
@@ -287,6 +292,10 @@ export const mergeTrainingPathProgress = ({
     }
 
     mergedQuizProgressBySlug[quizSlug] = {
+      attemptsCount: Math.max(
+        existingEntry.attemptsCount,
+        incomingEntry.attemptsCount
+      ),
       bestScore: Math.max(existingEntry.bestScore, incomingEntry.bestScore),
       totalQuestions: Math.max(
         existingEntry.totalQuestions,
@@ -338,6 +347,7 @@ const getTrainingPathProgressSyncPayloads = ({
       const serverEntry = serverProgress.quizProgressBySlug[quizSlug];
       const shouldSync =
         !serverEntry ||
+        guestEntry.attemptsCount > 0 ||
         guestEntry.bestScore > serverEntry.bestScore ||
         guestEntry.successRate > serverEntry.successRate ||
         guestEntry.totalQuestions > serverEntry.totalQuestions ||
@@ -349,6 +359,7 @@ const getTrainingPathProgressSyncPayloads = ({
 
       return [
         {
+          attemptsCount: guestEntry.attemptsCount,
           quizId,
           quizSlug,
           score: guestEntry.bestScore,
@@ -404,6 +415,7 @@ export const syncGuestTrainingPathProgressToAccount = async ({
       body: JSON.stringify({
         chapterId,
         chapterSlug,
+        attemptsCount: syncPayload.attemptsCount,
         quizId: syncPayload.quizId,
         score: syncPayload.score,
         targetScore,

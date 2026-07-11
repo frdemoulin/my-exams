@@ -211,6 +211,9 @@ const formatProgressDate = (value: string | null) => {
   }).format(parsedDate);
 };
 
+const formatAttemptsLabel = (attemptsCount: number) =>
+  `${attemptsCount} tentative${attemptsCount > 1 ? 's' : ''}`;
+
 export function TrainingPathOverview({
   chapterId,
   chapterHref,
@@ -585,6 +588,7 @@ export function TrainingPathOverview({
                       <TableHead className="w-[72px] text-center">#</TableHead>
                       <TableHead className="w-[140px] text-center">Questions</TableHead>
                       <TableHead className="w-[180px] text-center">Étape</TableHead>
+                      <TableHead className="w-[180px] text-center">Stats</TableHead>
                       <TableHead className="w-[160px] text-center">Statut</TableHead>
                       <TableHead className="w-[220px]">Progression</TableHead>
                       <TableHead className="w-[160px] text-center">Action</TableHead>
@@ -613,6 +617,22 @@ export function TrainingPathOverview({
                           ) : (
                             <span className="text-sm text-muted-foreground">
                               Non définie
+                            </span>
+                          )}
+                        </TableCell>
+                        <TableCell className="text-center">
+                          {quiz.progress ? (
+                            <div className="flex flex-col items-center gap-1 text-sm">
+                              <Badge variant="outline" className="w-fit">
+                                {formatAttemptsLabel(quiz.progress.attemptsCount)}
+                              </Badge>
+                              <span className="text-muted-foreground">
+                                {quiz.progress.successRate}% max
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="text-sm text-muted-foreground">
+                              Aucune tentative
                             </span>
                           )}
                         </TableCell>

@@ -1,10 +1,15 @@
+import {
+  getTrainingChoicePlainText,
+  type TrainingChoiceContent,
+} from './training-choice-content';
+
 type ReorderedQuestionChoices = {
-  choices: string[];
+  choices: TrainingChoiceContent[];
   correctChoiceIndexes: number[];
 };
 
-const normalizeCatchAllChoice = (choice: string) =>
-  choice
+const normalizeCatchAllChoice = (choice: TrainingChoiceContent) =>
+  getTrainingChoicePlainText(choice)
     .trim()
     .toLocaleLowerCase()
     .normalize('NFD')
@@ -12,7 +17,7 @@ const normalizeCatchAllChoice = (choice: string) =>
     .replace(/[.!?]/g, '')
     .replace(/\s+/g, ' ');
 
-export const isCatchAllChoice = (choice: string) => {
+export const isCatchAllChoice = (choice: TrainingChoiceContent) => {
   const normalizedChoice = normalizeCatchAllChoice(choice);
 
   return (
@@ -22,7 +27,7 @@ export const isCatchAllChoice = (choice: string) => {
 };
 
 export const reorderCatchAllChoices = (
-  choices: string[],
+  choices: TrainingChoiceContent[],
   correctChoiceIndexes: number[]
 ): ReorderedQuestionChoices => {
   if (choices.length <= 1) {

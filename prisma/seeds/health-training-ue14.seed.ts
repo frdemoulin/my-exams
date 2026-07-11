@@ -13,13 +13,45 @@ const FIRST_QUIZ_ORDER = 1;
 const FIRST_QUIZ_SLUG = 'decouvrir-elements-chimiques-classification';
 const SECOND_QUIZ_ORDER = 2;
 const SECOND_QUIZ_SLUG = 'sentrainer-generalites-atome';
+const SECOND_SECTION_ORDER = 2;
+const SECOND_SECTION_DISCOVER_QUIZ_ORDER = 1;
+const SECOND_SECTION_DISCOVER_QUIZ_SLUG = 'decouvrir-organisation-configuration-electronique';
+const SECOND_SECTION_PRACTICE_QUIZ_ORDER = 2;
+const SECOND_SECTION_PRACTICE_QUIZ_SLUG = 'sentrainer-organisation-configuration-electronique';
+const SECOND_SECTION_MASTER_QUIZ_ORDER = 3;
+const SECOND_SECTION_MASTER_QUIZ_SLUG = 'maitriser-organisation-configuration-electronique';
+const THIRD_SECTION_ORDER = 3;
+const THIRD_SECTION_DISCOVER_QUIZ_ORDER = 1;
+const THIRD_SECTION_DISCOVER_QUIZ_SLUG = 'decouvrir-classification-periodique';
+const THIRD_SECTION_PRACTICE_QUIZ_ORDER = 2;
+const THIRD_SECTION_PRACTICE_QUIZ_SLUG = 'sentrainer-classification-periodique';
+const THIRD_SECTION_MASTER_QUIZ_ORDER = 3;
+const THIRD_SECTION_MASTER_QUIZ_SLUG = 'maitriser-classification-periodique';
+const SYNTHESIS_QUIZ_ORDER = 1;
+const SYNTHESIS_QUIZ_SLUG = 'synthese-atomes';
 
 type SeedQuestion = {
   order: number;
   difficulty: QuizDifficulty;
   answerFormat: QuizAnswerFormat;
   question: string;
-  choices: string[];
+  questionDiagram?: {
+    type: 'quantum-boxes';
+    orbitals: Array<{
+      label: string;
+      boxes: Array<'empty' | 'up' | 'down' | 'pair'>;
+    }>;
+  };
+  choices: Array<
+    | string
+    | {
+        type: 'quantum-boxes';
+        orbitals: Array<{
+          label: string;
+          boxes: Array<'empty' | 'up' | 'down' | 'pair'>;
+        }>;
+      }
+  >;
   correctChoiceIndexes: number[];
   explanation: string;
 };
@@ -39,6 +71,63 @@ type SeedQuiz = {
   stage: TrainingQuizStage;
   sectionOrder: number;
   questionOrders: number[];
+};
+
+const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
+  1: [`Structure et constituants de l'atome`],
+  2: [`Numéro atomique et nombre de masse`],
+  3: [`Définition des isotopes`],
+  4: [`Unités atomiques et ordres de grandeur`],
+  5: [`Couches, sous-couches et orbitales`],
+  6: [`Nombres quantiques et règles de remplissage`],
+  7: [`Configurations électroniques usuelles`],
+  8: [`Organisation de la classification périodique`],
+  9: [`Familles d'éléments chimiques`],
+  10: [`Éléments chimiques du vivant`],
+  11: [`Notation et définition d'un nucléide`],
+  12: [`Composition d'un atome à partir de A et Z`],
+  13: [`Vocabulaire : atome, élément, nucléide et isotope`],
+  14: [`Propriétés physiques et chimiques des isotopes`],
+  15: [`Calcul de masse atomique moyenne`],
+  16: [`Masse et stabilité du noyau atomique`],
+  17: [`Cohérence de la notation d'un nucléide`],
+  18: [`Comparaison des nombres de protons, neutrons et électrons`],
+  19: [`Ordres de grandeur et masse de l'atome`],
+  20: [`Nucléides, isotopes et numéro atomique`],
+  21: [`Éléments naturels et éléments artificiels`],
+  22: [`Constituants et neutralité de l'atome`],
+  23: [`Définition de l'unité de masse atomique`],
+  24: [`Ordres de grandeur biologiques et médicaux`],
+  25: [`Conversions entre mètre, nanomètre et ångström`],
+  26: [`Composition d'un ion à partir de A, Z et de sa charge`],
+  27: [`Modèle atomique, radioactivité et défaut de masse`],
+  28: [`Signification des quatre nombres quantiques`],
+  29: [`Sous-couches, orbitales et capacité électronique`],
+  30: [`Notation des quatre nombres quantiques`],
+  31: [`Rôle du nombre quantique secondaire ℓ`],
+  32: [`Configurations électroniques des premiers éléments`],
+  33: [`Rôle du nombre quantique principal n`],
+  34: [`Configuration électronique en cases quantiques`],
+  35: [`Correspondance entre ℓ et les sous-couches s, p, d, f`],
+  36: [`Couche de valence d'un métal de transition`],
+  37: [`Valeurs autorisées de ℓ pour une couche donnée`],
+  38: [`Définition et capacité d'une orbitale atomique`],
+  39: [`Règle de Hund`],
+  40: [`Configuration électronique en cases quantiques`],
+  41: [`Identification d'une règle de remplissage non respectée`],
+  42: [`Orbitale atomique et probabilité de présence`],
+  43: [`Forme et symétrie des orbitales atomiques`],
+  44: [`Configuration électronique d'un métal de transition`],
+  45: [`Couche de valence d'un métal de transition`],
+  46: [`Validité d'un quadruplet de nombres quantiques`],
+  47: [`Ordre énergétique de remplissage des sous-couches`],
+  48: [`Répartition des électrons dans les sous-couches s, p et d`],
+  49: [`Forme, symétrie et plans nodaux des orbitales`],
+  50: [`Énergie des niveaux électroniques dans le modèle de Bohr`],
+  51: [`Configurations électroniques des atomes et des ions`],
+  52: [`Configuration électronique d'un métal de transition`],
+  53: [`Couche de valence d'un métal de transition`],
+  54: [`Détermination d'une formule brute par analyse massique`],
 };
 
 const questions: SeedQuestion[] = [
@@ -110,14 +199,14 @@ const questions: SeedQuestion[] = [
     question:
       `À propos des couches, sous-couches et orbitales :`,
     choices: [
-      `La couche $M$ comporte les sous-couches $3s$, $3p$ et $3d$.`,
-      `Une sous-couche $p$ contient trois orbitales.`,
+      `La couche $\\mathrm{M}$ comporte les sous-couches $3\\mathrm{s}$, $3\\mathrm{p}$ et $3\\mathrm{d}$.`,
+      `Une sous-couche $\\mathrm{p}$ contient trois orbitales.`,
       `Une orbitale peut contenir au maximum deux électrons.`,
-      `Une sous-couche $s$ correspond à $\\ell = 1$.`,
+      `Une sous-couche $\\mathrm{s}$ correspond à $\\ell = 1$.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `Pour une sous-couche $s$, $\\ell = 0$. Une sous-couche $p$ compte 3 orbitales et chaque orbitale peut accueillir 2 électrons.`,
+      `Pour une sous-couche $\\mathrm{s}$, $\\ell = 0$. Une sous-couche $\\mathrm{p}$ compte 3 orbitales et chaque orbitale peut accueillir 2 électrons.`,
   },
   {
     order: 6,
@@ -126,14 +215,14 @@ const questions: SeedQuestion[] = [
     question:
       `À propos des nombres quantiques et du remplissage :`,
     choices: [
-      `Le nombre quantique principal $n$ définit la couche électronique.`,
-      `Une couche $n$ comporte $n$ sous-couches.`,
-      `En cas d'égalité de $n + \\ell$, la sous-couche de plus grand $n$ se remplit d'abord.`,
+      `Le nombre quantique principal $\\mathrm{n}$ définit la couche électronique.`,
+      `Une couche $\\mathrm{n}$ comporte $\\mathrm{n}$ sous-couches.`,
+      `En cas d'égalité de $\\mathrm{n} + \\ell$, la sous-couche de plus grand $\\mathrm{n}$ se remplit d'abord.`,
       `La règle de Hund conduit d'abord à placer un électron par orbitale dans une sous-couche donnée.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation:
-      `Le critère énergétique retient d'abord le plus petit $n + \\ell$, puis le plus petit $n$ en cas d'égalité. La règle de Hund privilégie l'occupation simple avant l'appariement.`,
+      `Le critère énergétique retient d'abord le plus petit $\\mathrm{n} + \\ell$, puis le plus petit $\\mathrm{n}$ en cas d'égalité. La règle de Hund privilégie l'occupation simple avant l'appariement.`,
   },
   {
     order: 7,
@@ -142,14 +231,14 @@ const questions: SeedQuestion[] = [
     question:
       `À propos des configurations électroniques données dans le cours :`,
     choices: [
-      `$\\ce{H}$ a pour configuration $1s^1$.`,
-      `$\\ce{Ne}$ a pour configuration $K^2L^8$.`,
+      `$\\ce{H}$ a pour configuration $1\\mathrm{s}^1$.`,
+      `$\\ce{Ne}$ a pour configuration $\\mathrm{K}\\,\\mathrm{L}$.`,
       `$\\ce{Li}$ possède deux électrons sur sa couche de valence.`,
-      `Pour $\\ce{Fe}$ dans le cours, la couche de valence est $4s^2$.`,
+      `Pour $\\ce{Fe}$ dans le cours, la couche de valence est $4\\mathrm{s}^2$.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation:
-      `Le lithium a une couche de valence $2s^1$. Le cours identifie la valence du fer par $4s^2$.`,
+      `Le lithium a une couche de valence $2\\mathrm{s}^1$. Le cours identifie la valence du fer par $4\\mathrm{s}^2$.`,
   },
   {
     order: 8,
@@ -282,7 +371,7 @@ const questions: SeedQuestion[] = [
     question: `À propos de l'atome :`,
     choices: [
       `Le noyau d'un atome, au repos, a une masse toujours plus faible que celle de ses constituants séparés et au repos.`,
-      `Un électron est environ 1000 fois moins massif qu'un nucléon.`,
+      `Un électron est environ $1\\,000$ fois moins massif qu'un nucléon.`,
       `Le noyau d'un atome contient nécessairement au moins un proton et au moins un neutron.`,
       `Un atome contient toujours autant d'électrons que de nucléons.`,
     ],
@@ -410,6 +499,528 @@ const questions: SeedQuestion[] = [
     explanation:
       `Seule la proposition D est exacte.\n\nUn petit peptide est de l'ordre de $1\\,\\mathrm{nm}$, alors qu'une cellule ou une hématie est de l'ordre de quelques à dix micromètres : le rapport n'est donc pas de $10$, mais plutôt de $10^4$.\n\nPour les conversions, il faut garder en tête que $1\\,\\text{Å} = 0{,}1\\,\\mathrm{nm}$, donc $1\\,\\mathrm{nm} = 10\\,\\text{Å}$. Ainsi, $10\\,\\mathrm{nm}$ correspondent à $100\\,\\text{Å}$, et non à $10\\,\\text{Å}$, tandis que $10\\,\\mathrm{\\mu m} = 10^{-5}\\,\\mathrm{m} = 100\\,000\\,\\text{Å}$.\n\nAutrement dit : A est fausse, B est fausse, C est fausse, et D est vraie.`,
   },
+  {
+    order: 25,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `À propos des conversions de longueur :`,
+    choices: [
+      `Une longueur de $1\\,\\mathrm{nm}$ correspond à $10\\,\\text{Å}$, soit $10^{-9}\\,\\mathrm{m}$.`,
+      `Une longueur de $1\\,\\text{Å}$ correspond à $10\\,\\mathrm{nm}$, soit $10^{-8}\\,\\mathrm{m}$.`,
+      `Une longueur de $50\\,\\text{Å}$ correspond à $5\\,\\mathrm{nm}$, soit $5 \\times 10^{-9}\\,\\mathrm{m}$.`,
+      `Une longueur de $10^{-10}\\,\\mathrm{m}$ correspond à $1\\,\\mathrm{nm}$, soit $10\\,\\text{Å}$.`,
+    ],
+    correctChoiceIndexes: [0, 2],
+    explanation:
+      `La proposition A est vraie : $1\\,\\mathrm{nm} = 10\\,\\text{Å} = 10^{-9}\\,\\mathrm{m}$. La proposition B est fausse car $1\\,\\text{Å} = 0{,}1\\,\\mathrm{nm} = 10^{-10}\\,\\mathrm{m}$. La proposition C est vraie : $50\\,\\text{Å} = 5\\,\\mathrm{nm} = 5 \\times 10^{-9}\\,\\mathrm{m}$. La proposition D est fausse car $10^{-10}\\,\\mathrm{m}$ correspond à $1\\,\\text{Å}$, donc à $0{,}1\\,\\mathrm{nm}$.`,
+  },
+  {
+    order: 26,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `À propos de l'ion $^{27}_{13}\\mathrm{Al}^{3+}$ :`,
+    choices: [
+      `Il présente 13 protons.`,
+      `Il présente 27 nucléons.`,
+      `Il présente 13 électrons.`,
+      `Il présente 14 neutrons.`,
+    ],
+    correctChoiceIndexes: [0, 1, 3],
+    explanation:
+      `Pour $^{27}_{13}\\mathrm{Al}^{3+}$, on lit $Z = 13$ et $A = 27$. Le noyau contient donc 13 protons et $27 - 13 = 14$ neutrons, soit 27 nucléons. Comme l'ion est chargé $3+$, il a perdu 3 électrons : il n'en possède donc que 10, et non 13.`,
+  },
+  {
+    order: 27,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `À propos du modèle atomique :`,
+    choices: [
+      `Le nucléide $^{1}_{3}\\mathrm{X}$ est un isotope de l'hydrogène.`,
+      `La masse d'un noyau au repos est supérieure à la somme des masses des nucléons isolés et au repos qui le constituent.`,
+      `Certains nucléides présents dans la nature sont radioactifs.`,
+      `Les noyaux atomiques ont une dimension de l'ordre de $1\\,\\mathrm{nm}$.`,
+    ],
+    correctChoiceIndexes: [2],
+    explanation:
+      `La proposition A est fausse : l'écriture $^{1}_{3}\\mathrm{X}$ n'est pas celle d'un isotope de l'hydrogène. Un isotope de l'hydrogène doit avoir $Z = 1$, et ici on lit en plus une écriture incohérente puisque $A < Z$. La proposition B est fausse : à cause du défaut de masse, un noyau lié a au contraire une masse inférieure à la somme des masses des nucléons isolés. La proposition C est vraie : il existe dans la nature des nucléides radioactifs, comme le potassium 40 ou l'uranium 238. La proposition D est fausse : un noyau atomique est bien plus petit qu'un nanomètre ; l'ordre de grandeur de $1\\,\\mathrm{nm}$ est beaucoup trop grand pour un noyau.`,
+  },
+  {
+    order: 28,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos des nombres quantiques :`,
+    choices: [
+      `Le nombre quantique principal $\\mathrm{n}$ repère la couche électronique.`,
+      `Pour $\\mathrm{n} = 2$, le nombre quantique $\\ell$ peut prendre les valeurs $0$, $1$ et $2$.`,
+      `Pour $\\ell = 1$, le nombre quantique magnétique $\\mathrm{m}$ peut prendre trois valeurs : $-1$, $0$ et $+1$.`,
+      `Le spin d'un électron ne peut prendre que la valeur $+\\dfrac{1}{2}$.`,
+    ],
+    correctChoiceIndexes: [0, 2],
+    explanation:
+      `La proposition A est vraie : $\\mathrm{n}$ repère la couche électronique. La proposition B est fausse : pour une couche donnée, $\\ell$ varie de $0$ à $\\mathrm{n} - 1$, donc pour $\\mathrm{n} = 2$ on a seulement $\\ell = 0$ ou $1$. La proposition C est vraie : si $\\ell = 1$, alors $\\mathrm{m}$ peut valoir $-1$, $0$ ou $+1$. La proposition D est fausse : le spin de l'électron peut valoir $+\\dfrac{1}{2}$ ou $-\\dfrac{1}{2}$.`,
+  },
+  {
+    order: 29,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos des sous-couches et des orbitales :`,
+    choices: [
+      `L'écriture $4\\mathrm{f}$ signifie que $\\mathrm{n} = 4$ et $\\ell = 3$.`,
+      `Une sous-couche $\\mathrm{d}$ contient $2\\ell$ orbitales, soit 4 orbitales.`,
+      `Une sous-couche $\\mathrm{p}$ comporte trois orbitales.`,
+      `Une orbitale peut contenir au maximum 3 électrons.`,
+    ],
+    correctChoiceIndexes: [0, 2],
+    explanation:
+      `La proposition A est vraie : dans $4\\mathrm{f}$, on lit $\\mathrm{n} = 4$ et la lettre $\\mathrm{f}$ correspond à $\\ell = 3$. La proposition B est fausse : une sous-couche de nombre quantique $\\ell$ contient $2\\ell + 1$ orbitales ; pour $\\mathrm{d}$, avec $\\ell = 2$, cela fait 5 orbitales. La proposition C est vraie : une sous-couche $\\mathrm{p}$ contient 3 orbitales. La proposition D est fausse : une orbitale peut accueillir au maximum 2 électrons.`,
+  },
+  {
+    order: 30,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos des nombres quantiques :`,
+    choices: [
+      `Le nombre quantique principal $\\mathrm{n}$ indique la couche électronique occupée par l'électron.`,
+      `Le nombre quantique secondaire $\\ell$ indique le nombre total d'électrons de l'atome.`,
+      `Le nombre quantique magnétique $\\mathrm{m}$ indique la charge électrique de l'électron.`,
+      `Le nombre quantique de spin $\\mathrm{s}$ indique la distance exacte entre l'électron et le noyau.`,
+    ],
+    correctChoiceIndexes: [0],
+    explanation:
+      `La proposition A est vraie : le nombre quantique principal $\\mathrm{n}$ repère la couche électronique. La proposition B est fausse : $\\ell$ renseigne sur la sous-couche, pas sur le nombre total d'électrons de l'atome. La proposition C est fausse : $\\mathrm{m}$ décrit l'orientation de l'orbitale dans l'espace, et non la charge de l'électron. La proposition D est fausse : $\\mathrm{s}$ décrit le spin de l'électron, pas sa distance au noyau.`,
+  },
+  {
+    order: 31,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos du nombre quantique secondaire $\\ell$ :`,
+    choices: [
+      `Il précise le type de sous-couche occupée par l'électron : $\\mathrm{s}$, $\\mathrm{p}$, $\\mathrm{d}$ ou $\\mathrm{f}$.`,
+      `Il intervient dans la forme générale de l'orbitale associée.`,
+      `Il donne le nombre de protons contenus dans le noyau.`,
+      `Il précise le sens du spin de l'électron.`,
+    ],
+    correctChoiceIndexes: [0, 1],
+    explanation:
+      `La proposition A est vraie : le nombre quantique secondaire $\\ell$ détermine la sous-couche, donc le type $\\mathrm{s}$, $\\mathrm{p}$, $\\mathrm{d}$ ou $\\mathrm{f}$. La proposition B est vraie : cette valeur est aussi liée à la forme générale de l'orbitale. La proposition C est fausse : le nombre de protons relève du numéro atomique $Z$, pas des nombres quantiques de l'électron. La proposition D est fausse : le sens du spin est donné par $\\mathrm{m}_{\\mathrm{s}}$, pas par $\\ell$.`,
+  },
+  {
+    order: 32,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `Parmi les configurations électroniques suivantes :`,
+    choices: [
+      `$\\mathrm{C}\\,(Z = 6) : \\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$.`,
+      `$\\mathrm{F}\\,(Z = 9) : \\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6$.`,
+      `$\\mathrm{Na}\\,(Z = 11) : \\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^1$.`,
+      `$\\mathrm{Al}\\,(Z = 13) : \\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^2\\,3\\mathrm{p}^2$.`,
+    ],
+    correctChoiceIndexes: [0, 2],
+    explanation:
+      `Les propositions A et C sont exactes. La proposition A est vraie : le carbone a $Z = 6$, donc sa configuration est bien $\\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$. La proposition B est fausse : le fluor a $Z = 9$, donc sa configuration est $\\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^5$ ; la configuration $2\\mathrm{p}^6$ correspond au néon. La proposition C est vraie : le sodium a $Z = 11$, donc sa configuration est bien $\\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^1$. La proposition D est fausse : l'aluminium a $Z = 13$, donc sa configuration est $\\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^2\\,3\\mathrm{p}^1$, et non $3\\mathrm{p}^2$. Les pièges classiques ici sont de confondre le fluor avec le néon, ou d'ajouter un électron de trop à l'aluminium.`,
+  },
+  {
+    order: 33,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos du nombre quantique principal $\\mathrm{n}$ :`,
+    choices: [
+      `Il indique la couche électronique occupée par l'électron.`,
+      `Il donne une indication sur le niveau d'énergie de l'électron.`,
+      `Il indique la position exacte de l'électron autour du noyau.`,
+      `Il donne le nombre de neutrons de l'atome.`,
+    ],
+    correctChoiceIndexes: [0, 1],
+    explanation:
+      `La proposition A est vraie : $\\mathrm{n}$ repère la couche électronique. La proposition B est vraie : il est lié au niveau d'énergie de l'électron. La proposition C est fausse : en mécanique quantique, on ne décrit pas une trajectoire ou une position exacte de l'électron. La proposition D est fausse : le nombre de neutrons dépend du noyau, pas des nombres quantiques électroniques.`,
+  },
+  {
+    order: 34,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `Choisir la configuration électronique correspondant à un atome d'azote dans son état fondamental :`,
+    choices: [
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['empty'] },
+          { label: '2\\mathrm{p}', boxes: ['pair', 'pair', 'up'] },
+        ],
+      },
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['up'] },
+          { label: '2\\mathrm{p}', boxes: ['pair', 'pair', 'empty'] },
+        ],
+      },
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{p}', boxes: ['pair', 'up', 'empty'] },
+        ],
+      },
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{p}', boxes: ['up', 'up', 'up'] },
+        ],
+      },
+    ],
+    correctChoiceIndexes: [3],
+    explanation:
+      `La proposition D est correcte : l'azote a pour numéro atomique $Z = 7$, donc 7 électrons, soit la configuration $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^3$. Dans la sous-couche $2\\mathrm{p}$, la règle de Hund impose de placer d'abord un électron dans chacune des trois orbitales, avec des spins parallèles, avant tout appariement : on obtient donc $[↑][↑][↑]$. La proposition A est fausse : la sous-couche $2\\mathrm{s}$ ne peut pas rester vide alors que des électrons occupent déjà $2\\mathrm{p}$. La proposition B est fausse : elle laisse $2\\mathrm{s}$ incomplète et apparie trop tôt les électrons dans $2\\mathrm{p}$. La proposition C est fausse : elle respecte le nombre total d'électrons, mais ne correspond pas à l'état fondamental car elle forme un doublet dans $2\\mathrm{p}$ au lieu d'occuper d'abord séparément les trois orbitales.`,
+  },
+  {
+    order: 35,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos des correspondances entre $\\ell$ et les sous-couches :`,
+    choices: [
+      `$\\ell = 0$ correspond à une sous-couche $\\mathrm{s}$.`,
+      `$\\ell = 1$ correspond à une sous-couche $\\mathrm{p}$.`,
+      `$\\ell = 2$ correspond à une sous-couche $\\mathrm{d}$.`,
+      `Tous les items précédents sont faux.`,
+    ],
+    correctChoiceIndexes: [0, 1, 2],
+    explanation:
+      `Les propositions A, B et C sont vraies : les correspondances usuelles sont bien $\\ell = 0 \\to \\mathrm{s}$, $\\ell = 1 \\to \\mathrm{p}$, $\\ell = 2 \\to \\mathrm{d}$, puis $\\ell = 3 \\to \\mathrm{f}$. La proposition D est donc fausse. C'est le piège classique de lecture : dès qu'un des items précédents est vrai, une proposition globale comme celle-ci tombe.`,
+  },
+  {
+    order: 36,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question:
+      `On donne la configuration électronique simplifiée du zinc : $\\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,4\\mathrm{s}^2\\,3\\mathrm{d}^{10}$. À propos de sa couche de valence :`,
+    choices: [
+      `La couche de valence du zinc est la couche $\\mathrm{N}$.`,
+      `La couche de valence du zinc est la couche $\\mathrm{M}$, car la dernière sous-couche remplie est $3\\mathrm{d}^{10}$.`,
+      `Dans cette approche, le zinc possède 2 électrons de valence.`,
+      `La couche de valence correspond à la couche de nombre $\\mathrm{n}$ le plus élevé.`,
+    ],
+    correctChoiceIndexes: [0, 2, 3],
+    explanation:
+      `Les propositions A, C et D sont exactes. Dans cette approche, la couche de valence correspond à la couche de nombre quantique principal $\\mathrm{n}$ le plus élevé. Ici, les électrons $4\\mathrm{s}^2$ appartiennent à la couche $\\mathrm{n} = 4$, c'est-à-dire à la couche $\\mathrm{N}$ : c'est donc la couche de valence du zinc. Le zinc possède alors 2 électrons de valence. La proposition B est fausse : même si la sous-couche $3\\mathrm{d}^{10}$ est écrite en fin de configuration simplifiée, elle appartient à la couche $\\mathrm{n} = 3$, donc à la couche $\\mathrm{M}$. Elle ne définit donc pas la couche de valence dans cette approche.`,
+  },
+  {
+    order: 37,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `Pour une couche de nombre quantique principal $\\mathrm{n} = 2$ :`,
+    choices: [
+      `La sous-couche $2\\mathrm{s}$ peut exister.`,
+      `La sous-couche $2\\mathrm{p}$ peut exister.`,
+      `La sous-couche $2\\mathrm{d}$ peut exister.`,
+      `Pour $\\mathrm{n} = 2$, $\\ell$ peut valoir $0$ ou $1$.`,
+    ],
+    correctChoiceIndexes: [0, 1, 3],
+    explanation:
+      `Pour une couche donnée, $\\ell$ prend les valeurs entières de $0$ à $\\mathrm{n} - 1$. Pour $\\mathrm{n} = 2$, on a donc seulement $\\ell = 0$ et $\\ell = 1$, ce qui correspond aux sous-couches $2\\mathrm{s}$ et $2\\mathrm{p}$. La sous-couche $2\\mathrm{d}$ n'existe donc pas.`,
+  },
+  {
+    order: 38,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos d'une orbitale atomique :`,
+    choices: [
+      `Elle peut contenir au maximum 2 électrons.`,
+      `Elle peut contenir au maximum 6 électrons.`,
+      `Elle correspond toujours à une couche complète.`,
+      `Elle correspond toujours à un électron célibataire.`,
+    ],
+    correctChoiceIndexes: [0],
+    explanation:
+      `La proposition A est vraie : une orbitale peut contenir au maximum 2 électrons, avec des spins opposés. La proposition B est fausse : 6 électrons correspond à la capacité maximale d'une sous-couche $\\mathrm{p}$, pas d'une orbitale unique. Les propositions C et D sont fausses : une orbitale n'est ni une couche complète, ni nécessairement occupée par un seul électron.`,
+  },
+  {
+    order: 39,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos de la règle de Hund :`,
+    choices: [
+      `Les électrons occupent d'abord séparément les orbitales d'une même sous-couche.`,
+      `Les doublets se forment après occupation simple des orbitales disponibles.`,
+      `On place obligatoirement deux électrons dans la première orbitale avant de passer à la suivante.`,
+      `Une orbitale peut contenir trois électrons si la sous-couche n'est pas pleine.`,
+    ],
+    correctChoiceIndexes: [0, 1],
+    explanation:
+      `La proposition A est vraie : dans une même sous-couche, les électrons occupent d'abord séparément les orbitales disponibles. La proposition B est vraie : les doublets ne se forment qu'après cette occupation simple initiale. La proposition C est fausse : ce serait contraire à la règle de Hund. La proposition D est fausse : une orbitale ne peut jamais contenir plus de 2 électrons.`,
+  },
+  {
+    order: 40,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `Choisir la configuration électronique correspondant à un atome d'oxygène dans son état fondamental :`,
+    choices: [
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{p}', boxes: ['pair', 'up', 'up'] },
+        ],
+      },
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{p}', boxes: ['pair', 'pair', 'empty'] },
+        ],
+      },
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['up'] },
+          { label: '2\\mathrm{p}', boxes: ['pair', 'pair', 'up'] },
+        ],
+      },
+      {
+        type: 'quantum-boxes',
+        orbitals: [
+          { label: '1\\mathrm{s}', boxes: ['pair'] },
+          { label: '2\\mathrm{s}', boxes: ['empty'] },
+          { label: '2\\mathrm{p}', boxes: ['pair', 'pair', 'pair'] },
+        ],
+      },
+    ],
+    correctChoiceIndexes: [0],
+    explanation:
+      `La proposition A est correcte : l'oxygène possède 8 électrons, soit la configuration $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^4$. Dans les trois orbitales $2\\mathrm{p}$, la règle de Hund impose d'occuper d'abord séparément les orbitales avant de former un doublet, d'où la répartition $[↑↓][↑][↑]$. La proposition B est fausse : elle ne respecte pas l'état fondamental attendu pour $2\\mathrm{p}^4$, car elle forme trop tôt un second doublet. La proposition C est fausse : elle place mal les électrons entre $2\\mathrm{s}$ et $2\\mathrm{p}$ et ne correspond donc pas à la configuration fondamentale. La proposition D est fausse : elle laisse la sous-couche $2\\mathrm{s}$ vide alors qu'elle doit être remplie avant la fin du remplissage de $2\\mathrm{p}$.`,
+  },
+  {
+    order: 41,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Dans l'hypothèse où la configuration électronique $\\mathrm{K}\\,\\mathrm{L}$ [[QUESTION_DIAGRAM]] correspond à un atome dans son état fondamental, quel principe ou quelle règle permettant d'établir une configuration électronique n'est pas respecté(e) ?`,
+    questionDiagram: {
+      type: 'quantum-boxes',
+      orbitals: [
+        { label: '3\\mathrm{s}', boxes: ['pair'] },
+        { label: '3\\mathrm{p}', boxes: ['pair', 'up', 'empty'] },
+      ],
+    },
+    choices: [
+      `Hund`,
+      `Klechkowski`,
+      `Pauli`,
+      `Bohr`,
+    ],
+    correctChoiceIndexes: [0],
+    explanation:
+      `La bonne réponse est la règle de Hund. Ici, $3\\mathrm{s}$ est correctement rempli, mais la sous-couche $3\\mathrm{p}^3$ ne l'est pas : dans l'état fondamental, les trois électrons doivent d'abord occuper séparément les trois orbitales $\\mathrm{p}$, avec des spins parallèles, avant tout appariement. La représentation $3\\mathrm{p}\\ [↑↓][↑][\\ ]$ forme donc un doublet trop tôt et laisse une orbitale vide : elle viole Hund. Le principe de Pauli n'est pas violé ici, car l'orbitale doublée contient bien deux électrons de spins opposés. La règle de Klechkowski n'est pas non plus en cause, puisque l'ordre global de remplissage $\\mathrm{K}$, $\\mathrm{L}$, $3\\mathrm{s}$, puis $3\\mathrm{p}$ reste cohérent.`,
+  },
+  {
+    order: 42,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos d'une orbitale atomique, quelles propositions sont exactes ?`,
+    choices: [
+      `Une orbitale atomique correspond à une zone où la probabilité de présence de l'électron est élevée.`,
+      `Une orbitale atomique décrit la trajectoire précise suivie par l'électron autour du noyau.`,
+      `Une orbitale atomique permet de connaître avec certitude la position exacte de l'électron à chaque instant.`,
+      `Une orbitale atomique peut contenir au maximum deux électrons.`,
+    ],
+    correctChoiceIndexes: [0, 3],
+    explanation:
+      `La proposition A est vraie : une orbitale atomique correspond à une région de l'espace dans laquelle la probabilité de présence de l'électron est élevée. La proposition B est fausse : une orbitale n'est pas une trajectoire, contrairement à l'image classique d'une planète en orbite. La proposition C est fausse : la mécanique quantique ne permet pas de connaître avec certitude la position exacte de l'électron à chaque instant. La proposition D est vraie : une orbitale peut contenir au maximum deux électrons, qui diffèrent alors par leur spin.`,
+  },
+  {
+    order: 43,
+    difficulty: 'EASY',
+    answerFormat: 'MULTIPLE',
+    question: `À propos de la forme des orbitales atomiques, quelles propositions sont exactes ?`,
+    choices: [
+      `Une orbitale $\\mathrm{s}$ a une forme globalement sphérique.`,
+      `Une orbitale $\\mathrm{p}$ est généralement représentée par deux lobes orientés dans l'espace.`,
+      `Toutes les orbitales atomiques ont exactement la même forme.`,
+      `La forme de l'orbitale dépend notamment du type de sous-couche : $\\mathrm{s}$, $\\mathrm{p}$, $\\mathrm{d}$ ou $\\mathrm{f}$.`,
+    ],
+    correctChoiceIndexes: [0, 1, 3],
+    explanation:
+      `La proposition A est vraie : une orbitale $\\mathrm{s}$ est globalement sphérique. La proposition B est vraie : une orbitale $\\mathrm{p}$ est classiquement représentée par deux lobes orientés dans l'espace. La proposition C est fausse : les orbitales atomiques n'ont pas toutes la même forme. La proposition D est vraie : la forme dépend notamment de la sous-couche, donc de la valeur de $\\ell$, ce qui distingue les orbitales $\\mathrm{s}$, $\\mathrm{p}$, $\\mathrm{d}$ et $\\mathrm{f}$. Une orbitale reste un volume de l'espace associé à une probabilité de présence de l'électron, et non une trajectoire.`,
+  },
+  {
+    order: 44,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Les énoncés des questions 7 et 8 sont liés, ils concernent l'élément fer ($Z = 26$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
+    choices: [
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^0$.`,
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$.`,
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^8\\,3\\mathrm{d}^4\\,4\\mathrm{s}^2$.`,
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^4\\,4\\mathrm{s}^2\\,4\\mathrm{p}^2$.`,
+    ],
+    correctChoiceIndexes: [1],
+    explanation:
+      `La bonne réponse est la proposition B. Le fer a pour numéro atomique $Z = 26$ : il possède donc 26 électrons à répartir. En état fondamental, sa configuration électronique est $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$, soit $[\\mathrm{Ar}]\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$. La proposition A est fausse : elle correspondrait à un remplissage $3\\mathrm{d}^8\\,4\\mathrm{s}^0$ qui ne décrit pas l'état fondamental attendu. La proposition C est fausse car une sous-couche $3\\mathrm{p}$ ne peut pas contenir 8 électrons : sa capacité maximale est de 6. La proposition D est fausse : elle fait intervenir $4\\mathrm{p}$ alors que cette sous-couche n'est pas occupée dans l'état fondamental du fer.`,
+  },
+  {
+    order: 45,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Les énoncés des questions 7 et 8 sont liés, ils concernent l'élément fer ($Z = 26$).\n\nParmi les propositions suivantes, quelle est la couche de valence de cet élément ?`,
+    choices: [
+      `N.`,
+      `L.`,
+      `K.`,
+      `M.`,
+    ],
+    correctChoiceIndexes: [0],
+    explanation:
+      `La bonne réponse est la proposition A : la couche de valence du fer est la couche $\\mathrm{N}$, car le plus grand nombre quantique principal présent dans sa configuration fondamentale est $\\mathrm{n} = 4$ avec les électrons $4\\mathrm{s}^2$. Les couches $\\mathrm{K}$, $\\mathrm{L}$, $\\mathrm{M}$, $\\mathrm{N}$ correspondent respectivement à $\\mathrm{n} = 1$, $2$, $3$, $4$. Même si la sous-couche $3\\mathrm{d}$ intervient aussi dans les propriétés chimiques du fer, la couche la plus externe reste ici la couche $\\mathrm{N}$.`,
+  },
+  {
+    order: 46,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Déterminer le(s) quadruplet(s) $(\\mathrm{n} ; \\ell ; \\mathrm{m} ; \\mathrm{s})$ de nombres quantiques inexact(s) :`,
+    choices: [
+      `$(5 ; 2 ; -1 ; +\\dfrac{1}{2})$.`,
+      `$(3 ; 3 ; 0 ; -\\dfrac{1}{2})$.`,
+      `$(4 ; 1 ; 2 ; +\\dfrac{1}{2})$.`,
+      `$(2 ; 0 ; 0 ; -\\dfrac{1}{2})$.`,
+    ],
+    correctChoiceIndexes: [1, 2],
+    explanation:
+      `Les propositions B et C sont inexactes. Pour un électron, le nombre quantique principal $\\mathrm{n}$ est un entier strictement positif, puis $\\ell$ doit vérifier $0 \\leq \\ell \\leq \\mathrm{n} - 1$. Ensuite, $\\mathrm{m}$ doit être compris entre $-\\ell$ et $+\\ell$. Enfin, le spin $\\mathrm{s}$ ne peut valoir que $+\\dfrac{1}{2}$ ou $-\\dfrac{1}{2}$. La proposition A est donc correcte : avec $\\mathrm{n} = 5$ et $\\ell = 2$, la valeur $\\mathrm{m} = -1$ est possible et le spin aussi. La proposition B est fausse car pour $\\mathrm{n} = 3$, on ne peut pas avoir $\\ell = 3$ ; les valeurs possibles sont $0$, $1$ ou $2$. La proposition C est fausse car si $\\ell = 1$, alors $\\mathrm{m}$ ne peut valoir que $-1$, $0$ ou $+1$, et non $2$. La proposition D est correcte : pour $\\mathrm{n} = 2$, le quadruplet $(2 ; 0 ; 0 ; -\\dfrac{1}{2})$ est parfaitement admissible.`,
+  },
+  {
+    order: 47,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `À propos du remplissage des sous-couches électroniques, quelles propositions sont exactes ?`,
+    choices: [
+      `Les sous-couches se remplissent toujours dans l'ordre croissant de $\\mathrm{n}$, quelle que soit leur énergie.`,
+      `La sous-couche $2\\mathrm{p}$ se remplit avant la sous-couche $3\\mathrm{s}$, car elles ont le même $\\mathrm{n} + \\ell$, mais $2\\mathrm{p}$ a le plus petit $\\mathrm{n}$.`,
+      `La sous-couche $4\\mathrm{s}$ se remplit avant la sous-couche $3\\mathrm{d}$, même si $4\\mathrm{s}$ appartient à une couche de nombre $\\mathrm{n}$ plus élevé.`,
+      `En cas d'égalité de $\\mathrm{n} + \\ell$, la sous-couche ayant le plus grand $\\mathrm{n}$ est remplie en premier.`,
+    ],
+    correctChoiceIndexes: [1, 2],
+    explanation:
+      `Les propositions B et C sont exactes. Le remplissage ne suit pas simplement l'ordre des couches $\\mathrm{n} = 1$, $2$, $3$, $4$, mais l'ordre des niveaux d'énergie. On remplit d'abord la sous-couche ayant le plus petit $\\mathrm{n} + \\ell$. En cas d'égalité, c'est la sous-couche ayant le plus petit $\\mathrm{n}$ qui est remplie en premier. Ainsi, $2\\mathrm{p}$ se remplit avant $3\\mathrm{s}$ car, dans les deux cas, $\\mathrm{n} + \\ell = 3$, mais $2\\mathrm{p}$ a le plus petit $\\mathrm{n}$. De même, $4\\mathrm{s}$ se remplit avant $3\\mathrm{d}$ car $4\\mathrm{s}$ a $\\mathrm{n} + \\ell = 4$, alors que $3\\mathrm{d}$ a $\\mathrm{n} + \\ell = 5$. La proposition A est donc fausse, et la proposition D inverse la règle de départage.`,
+  },
+  {
+    order: 48,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `Le rhodium ($\\mathrm{Rh}$, $Z = 45$) possède :`,
+    choices: [
+      `9 électrons $\\mathrm{s}$, 18 électrons $\\mathrm{p}$ et 18 électrons $\\mathrm{d}$.`,
+      `10 électrons $\\mathrm{s}$, 18 électrons $\\mathrm{p}$ et 17 électrons $\\mathrm{d}$.`,
+      `8 électrons $\\mathrm{s}$, 18 électrons $\\mathrm{p}$ et 19 électrons $\\mathrm{d}$.`,
+      `9 électrons $\\mathrm{s}$, 24 électrons $\\mathrm{p}$ et 12 électrons $\\mathrm{d}$.`,
+    ],
+    correctChoiceIndexes: [0],
+    explanation:
+      `La bonne réponse est la proposition A. Le rhodium a pour numéro atomique $Z = 45$, donc 45 électrons. Sa configuration électronique fondamentale s'écrit $[\\mathrm{Kr}]\\,4\\mathrm{d}^8\\,5\\mathrm{s}^1$. En développant, on compte $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,3\\mathrm{s}^2\\,4\\mathrm{s}^2\\,5\\mathrm{s}^1$, soit 9 électrons $\\mathrm{s}$ ; $2\\mathrm{p}^6\\,3\\mathrm{p}^6\\,4\\mathrm{p}^6$, soit 18 électrons $\\mathrm{p}$ ; et $3\\mathrm{d}^{10}\\,4\\mathrm{d}^8$, soit 18 électrons $\\mathrm{d}$. On retrouve bien $9 + 18 + 18 = 45$.`,
+  },
+  {
+    order: 49,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `À propos des orbitales atomiques :`,
+    choices: [
+      `Une orbitale atomique $\\mathrm{s}$ possède une symétrie axiale, alors qu'une orbitale atomique $\\mathrm{p}$ possède une symétrie centrale.`,
+      `Une orbitale atomique $\\mathrm{s}$ a une forme sphérique.`,
+      `Contrairement à une orbitale $\\mathrm{s}$, une orbitale $\\mathrm{p}$ possède un plan nodal.`,
+      `Les orbitales atomiques $2\\mathrm{p}_x$, $2\\mathrm{p}_y$ et $2\\mathrm{p}_z$ possèdent un axe de symétrie en commun.`,
+    ],
+    correctChoiceIndexes: [1, 2],
+    explanation:
+      `Les propositions B et C sont exactes. Une orbitale $\\mathrm{s}$ est globalement sphérique ; elle présente donc une symétrie centrale, et non une simple symétrie axiale. Une orbitale $\\mathrm{p}$ est orientée selon un axe donné et présente un plan nodal passant par le noyau. La proposition A inverse donc les propriétés de symétrie de $\\mathrm{s}$ et de $\\mathrm{p}$. La proposition D est fausse : $2\\mathrm{p}_x$, $2\\mathrm{p}_y$ et $2\\mathrm{p}_z$ sont orientées selon trois axes perpendiculaires différents ; elles n'ont pas un axe de symétrie commun.`,
+  },
+  {
+    order: 50,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Dans le modèle de l'atome d'hydrogène de Bohr, l'énergie, exprimée en $\\mathrm{eV}$, d'un électron se trouvant dans la couche de nombre $\\mathrm{n}$ est donnée par la formule $E_{\\mathrm{n}} = -\\dfrac{13{,}6}{\\mathrm{n}^2}$. Un électron de la couche $\\mathrm{L}$ a une énergie égale à :`,
+    choices: [
+      `$4{,}3\\,\\mathrm{eV}$.`,
+      `$3{,}6\\,\\mathrm{eV}$.`,
+      `$-4{,}3\\,\\mathrm{eV}$.`,
+      `$-3{,}4\\,\\mathrm{eV}$.`,
+    ],
+    correctChoiceIndexes: [3],
+    explanation:
+      `La bonne réponse est la proposition D. La couche $\\mathrm{L}$ correspond à $\\mathrm{n} = 2$. On obtient donc $E_{\\mathrm{n}} = -\\dfrac{13{,}6}{2^2} = -\\dfrac{13{,}6}{4} = -3{,}4\\,\\mathrm{eV}$. Les propositions A et B oublient le signe négatif. La proposition C correspond à une valeur numériquement proche, mais le calcul correct donne bien $-3{,}4\\,\\mathrm{eV}$.`,
+  },
+  {
+    order: 51,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question: `On rappelle qu'un édifice atomique désigne un atome ou un ion :`,
+    choices: [
+      `Deux édifices atomiques ayant des configurations électroniques différentes correspondent obligatoirement à des éléments chimiques différents.`,
+      `Deux édifices atomiques correspondant à des éléments chimiques différents ne peuvent pas présenter la même configuration électronique.`,
+      `Si deux édifices atomiques présentent la même configuration électronique, alors ils appartiennent forcément au même élément chimique.`,
+      `Un édifice atomique peut avoir différentes configurations électroniques.`,
+    ],
+    correctChoiceIndexes: [3],
+    explanation:
+      `La seule proposition exacte est D. La proposition A est fausse : un même élément chimique peut donner plusieurs édifices atomiques de configurations différentes, par exemple un atome neutre et l'un de ses ions. La proposition B est fausse : deux éléments chimiques différents peuvent conduire à des espèces isoélectroniques, donc de même configuration électronique, comme $\\mathrm{Ne}$ et $\\mathrm{Na}^+$. La proposition C est donc fausse elle aussi : partager la même configuration électronique n'impose pas d'appartenir au même élément chimique. Enfin, la proposition D est vraie : un même édifice atomique peut être rencontré dans l'état fondamental ou dans un état excité, avec des configurations électroniques différentes selon l'état considéré.`,
+  },
+  {
+    order: 52,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Les énoncés des questions 6 et 7 sont liés, ils concernent l'élément nickel ($Z = 28$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
+    choices: [
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^{10}\\,4\\mathrm{s}^0$.`,
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$.`,
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^8\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$.`,
+      `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2\\,4\\mathrm{p}^2$.`,
+    ],
+    correctChoiceIndexes: [1],
+    explanation:
+      `La bonne réponse est la proposition B. Le nickel a pour numéro atomique $Z = 28$ : il possède donc 28 électrons. En état fondamental, sa configuration électronique est $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$, soit $[\\mathrm{Ar}]\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$. La proposition A est fausse : elle ferait disparaître les électrons $4\\mathrm{s}$ au profit d'une sous-couche $3\\mathrm{d}$ saturée, ce qui ne correspond pas ici à l'état fondamental. La proposition C est fausse car une sous-couche $3\\mathrm{p}$ ne peut pas contenir 8 électrons : sa capacité maximale est de 6. La proposition D est fausse : elle fait intervenir $4\\mathrm{p}$ alors que cette sous-couche n'est pas occupée dans l'état fondamental du nickel.`,
+  },
+  {
+    order: 53,
+    difficulty: 'MEDIUM',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Les énoncés des questions 6 et 7 sont liés, ils concernent l'élément nickel ($Z = 28$).\n\nParmi les propositions suivantes, quelle est la couche de valence de cet élément ?`,
+    choices: [
+      `$\\mathrm{N}$.`,
+      `$\\mathrm{L}$.`,
+      `$\\mathrm{K}$.`,
+      `$\\mathrm{M}$.`,
+    ],
+    correctChoiceIndexes: [0],
+    explanation:
+      `La bonne réponse est la proposition A. Dans la configuration fondamentale du nickel, le plus grand nombre quantique principal présent est $\\mathrm{n} = 4$ avec les électrons $4\\mathrm{s}^2$. La couche de valence est donc la couche $\\mathrm{N}$. Les couches $\\mathrm{K}$, $\\mathrm{L}$, $\\mathrm{M}$, $\\mathrm{N}$ correspondent respectivement à $\\mathrm{n} = 1$, $2$, $3$, $4$. Même si la sous-couche $3\\mathrm{d}$ participe aussi aux propriétés chimiques du nickel, la couche la plus externe reste ici la couche $\\mathrm{N}$.`,
+  },
+  {
+    order: 54,
+    difficulty: 'HARD',
+    answerFormat: 'MULTIPLE',
+    question:
+      `Un composé organique inconnu est formé des éléments $\\mathrm{C}$, $\\mathrm{H}$ et $\\mathrm{Cl}$. La détermination expérimentale de sa masse molaire donne $M = 50\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ et une analyse montre qu'un échantillon de masse quelconque les contient dans les proportions massiques respectives 24 %, 6 % et 70 %. Déterminer la formule brute correspondant à cette espèce chimique.\n\nDonnées : $M_{\\mathrm{C}} = 12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ ; $M_{\\mathrm{H}} = 1{,}0\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ ; $M_{\\mathrm{Cl}} = 35\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.`,
+    choices: [
+      `$\\mathrm{C}_2\\mathrm{H}_5\\mathrm{Cl}$.`,
+      `$\\mathrm{C}_2\\mathrm{H}_4\\mathrm{Cl}_2$.`,
+      `$\\mathrm{CH}_3\\mathrm{Cl}$.`,
+      `$\\mathrm{CH}_2\\mathrm{Cl}_2$.`,
+    ],
+    correctChoiceIndexes: [2],
+    explanation:
+      `La bonne réponse est la proposition C. En raisonnant sur 100 g de composé, on obtient 24 g de carbone, 6 g d'hydrogène et 70 g de chlore. Cela correspond à $\\dfrac{24}{12} = 2$ mol de $\\mathrm{C}$, $\\dfrac{6}{1} = 6$ mol de $\\mathrm{H}$ et $\\dfrac{70}{35} = 2$ mol de $\\mathrm{Cl}$. Le rapport molaire est donc $2 : 6 : 2$, soit $1 : 3 : 1$ après simplification : la formule empirique est $\\mathrm{CH}_3\\mathrm{Cl}$. Sa masse molaire vaut $12 + 3 \\times 1 + 35 = 50\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, exactement la valeur mesurée. La formule brute est donc elle aussi $\\mathrm{CH}_3\\mathrm{Cl}$.`,
+  },
 ];
 
 const sections: SeedSection[] = [
@@ -444,15 +1055,18 @@ const sections: SeedSection[] = [
 ];
 
 const firstQuizQuestionOrders = [1, 22, 2, 11, 12, 13, 21, 15, 3, 4];
-const secondQuizQuestionOrders = [14, 16, 17, 18, 19, 20, 23, 24];
+const secondQuizQuestionOrders = [25, 14, 26, 16, 17, 18, 19, 20, 23, 24];
+const secondSectionDiscoverQuestionOrders = [28, 29];
+const secondSectionPracticeQuestionOrders = [28, 29, 40, 41, 42, 43, 44, 45, 46, 47];
+const secondSectionSecondDiscoverQuestionOrders = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39];
 
 const quizSeeds: SeedQuiz[] = [
   {
     order: FIRST_QUIZ_ORDER,
     slug: FIRST_QUIZ_SLUG,
-    title: `Découvrir - Atomes`,
+    title: `Découvrir – Atomes`,
     description:
-      `Premier niveau d'entraînement limité à la section A - Atomes, au format UE1 avec 4 items par question.`,
+      `Premier niveau d'entraînement limité à la section A – Atomes, au format UE1 avec 4 items par question.`,
     stage: 'DISCOVER',
     sectionOrder: FIRST_SECTION_ORDER,
     questionOrders: firstQuizQuestionOrders,
@@ -460,12 +1074,82 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: SECOND_QUIZ_ORDER,
     slug: SECOND_QUIZ_SLUG,
-    title: `S'entraîner - Généralités sur l'atome`,
+    title: `S'entraîner – Généralités sur l'atome`,
     description:
-      `Niveau 2 d'entraînement sur la section A - Atomes, centré sur les généralités, les nucléides et les isotopes.`,
+      `Niveau 2 d'entraînement sur la section A – Atomes, centré sur les généralités, les nucléides et les isotopes.`,
     stage: 'PRACTICE',
     sectionOrder: FIRST_SECTION_ORDER,
     questionOrders: secondQuizQuestionOrders,
+  },
+  {
+    order: SECOND_SECTION_DISCOVER_QUIZ_ORDER,
+    slug: SECOND_SECTION_DISCOVER_QUIZ_SLUG,
+    title: `Découvrir – Organisation et configuration électronique`,
+    description:
+      `Premier niveau d'entraînement sur la section B – Organisation et configuration électronique.`,
+    stage: 'DISCOVER',
+    sectionOrder: SECOND_SECTION_ORDER,
+    questionOrders: secondSectionSecondDiscoverQuestionOrders,
+  },
+  {
+    order: SECOND_SECTION_PRACTICE_QUIZ_ORDER,
+    slug: SECOND_SECTION_PRACTICE_QUIZ_SLUG,
+    title: `S'entraîner – Organisation et configuration électronique`,
+    description:
+      `Niveau intermédiaire d'entraînement sur la section B – Organisation et configuration électronique.`,
+    stage: 'PRACTICE',
+    sectionOrder: SECOND_SECTION_ORDER,
+    questionOrders: secondSectionPracticeQuestionOrders,
+  },
+  {
+    order: SECOND_SECTION_MASTER_QUIZ_ORDER,
+    slug: SECOND_SECTION_MASTER_QUIZ_SLUG,
+    title: `Maîtriser – Organisation et configuration électronique`,
+    description:
+      `Niveau avancé d'entraînement sur la section B – Organisation et configuration électronique.`,
+    stage: 'MASTER',
+    sectionOrder: SECOND_SECTION_ORDER,
+    questionOrders: [],
+  },
+  {
+    order: THIRD_SECTION_DISCOVER_QUIZ_ORDER,
+    slug: THIRD_SECTION_DISCOVER_QUIZ_SLUG,
+    title: `Découvrir – Classification périodique`,
+    description:
+      `Premier niveau d'entraînement sur la section C – Classification périodique des éléments.`,
+    stage: 'DISCOVER',
+    sectionOrder: THIRD_SECTION_ORDER,
+    questionOrders: [],
+  },
+  {
+    order: THIRD_SECTION_PRACTICE_QUIZ_ORDER,
+    slug: THIRD_SECTION_PRACTICE_QUIZ_SLUG,
+    title: `S'entraîner – Classification périodique`,
+    description:
+      `Niveau intermédiaire d'entraînement sur la section C – Classification périodique des éléments.`,
+    stage: 'PRACTICE',
+    sectionOrder: THIRD_SECTION_ORDER,
+    questionOrders: [],
+  },
+  {
+    order: THIRD_SECTION_MASTER_QUIZ_ORDER,
+    slug: THIRD_SECTION_MASTER_QUIZ_SLUG,
+    title: `Maîtriser – Classification périodique`,
+    description:
+      `Niveau avancé d'entraînement sur la section C – Classification périodique des éléments.`,
+    stage: 'MASTER',
+    sectionOrder: THIRD_SECTION_ORDER,
+    questionOrders: [],
+  },
+  {
+    order: SYNTHESIS_QUIZ_ORDER,
+    slug: SYNTHESIS_QUIZ_SLUG,
+    title: `Synthèse – Atomes`,
+    description:
+      `QCM de synthèse transversal sur les notions d'atome, de nucléide, d'isotope et d'ordres de grandeur.`,
+    stage: 'MASTER',
+    sectionOrder: 4,
+    questionOrders: [27, 48, 49, 50, 51, 52, 53, 54],
   },
 ];
 
@@ -489,12 +1173,66 @@ export async function seedHealthTrainingUe14(prisma: PrismaClient) {
         slug: CHAPTER_SLUG,
       },
     },
-    select: { id: true, title: true, isActive: true },
+    select: { id: true, title: true, isActive: true, domainIds: true },
   });
 
   if (!chapter?.isActive) {
     console.warn(`   ⚠️  Chapitre introuvable ou inactif : ${CHAPTER_SLUG}`);
     return;
+  }
+
+  if (chapter.domainIds.length === 0) {
+    throw new Error(`Le chapitre ${CHAPTER_SLUG} doit être rattaché au domaine Chimie avant le seed des thèmes.`);
+  }
+
+  const questionThemeLabels = Array.from(
+    new Set(Object.values(QUESTION_THEME_LABELS_BY_ORDER).flat())
+  );
+  const existingThemes = await prisma.theme.findMany({
+    where: { title: { in: questionThemeLabels } },
+    select: { id: true, title: true, chapterIds: true, domainIds: true },
+  });
+  const existingThemeByTitle = new Map(
+    existingThemes.map((theme) => [theme.title, theme] as const)
+  );
+  const themeIdByLabel = new Map<string, string>();
+
+  for (const label of questionThemeLabels) {
+    const existingTheme = existingThemeByTitle.get(label);
+
+    if (existingTheme) {
+      const missingDomainIds = chapter.domainIds.filter(
+        (domainId) => !existingTheme.domainIds.includes(domainId)
+      );
+
+      if (!existingTheme.chapterIds.includes(chapter.id) || missingDomainIds.length > 0) {
+        await prisma.theme.update({
+          where: { id: existingTheme.id },
+          data: {
+            chapters: { connect: [{ id: chapter.id }] },
+            domains: {
+              connect: missingDomainIds.map((domainId) => ({ id: domainId })),
+            },
+          },
+        });
+      }
+
+      themeIdByLabel.set(label, existingTheme.id);
+      continue;
+    }
+
+    const createdTheme = await prisma.theme.create({
+      data: {
+        title: label,
+        shortTitle: label,
+        chapters: { connect: [{ id: chapter.id }] },
+        domains: {
+          connect: chapter.domainIds.map((domainId) => ({ id: domainId })),
+        },
+      },
+      select: { id: true },
+    });
+    themeIdByLabel.set(label, createdTheme.id);
   }
 
   for (const entry of questions) {
@@ -512,6 +1250,7 @@ export async function seedHealthTrainingUe14(prisma: PrismaClient) {
       chapterId: chapter.id,
       difficulty: entry.difficulty,
       question: entry.question,
+      questionDiagram: entry.questionDiagram,
       choices: entry.choices,
       answerFormat: entry.answerFormat,
       correctChoiceIndexes: entry.correctChoiceIndexes,
@@ -519,6 +1258,9 @@ export async function seedHealthTrainingUe14(prisma: PrismaClient) {
       explanation: entry.explanation,
       order: entry.order,
       isPublished: true,
+      themeIds: (QUESTION_THEME_LABELS_BY_ORDER[entry.order] ?? [])
+        .map((label) => themeIdByLabel.get(label))
+        .filter((themeId): themeId is string => Boolean(themeId)),
     };
 
     if (existingQuestion) {

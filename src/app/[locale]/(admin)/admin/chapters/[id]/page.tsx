@@ -3,12 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Pencil } from "lucide-react";
 
-import { fetchChapterById } from "@/core/chapter";
+import { fetchChapterById, fetchChapterQuizQuestionExportRows } from "@/core/chapter";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChapterAssignmentsTable } from "../_components/chapter-assignments-table";
 import { ChapterDetailTabs } from "../_components/chapter-detail-tabs";
+import { ChapterQuizQuestionsExportButton } from "../_components/chapter-quiz-questions-export-button";
 import { ChapterQuestionsTable } from "../_components/chapter-questions-table";
 import { ChapterTrainingStructurePanel } from "../_components/chapter-training-structure-panel";
 import {
@@ -27,9 +28,23 @@ export const metadata: Metadata = {
   title: "Détail du chapitre",
 };
 
+const formatDownloadTimestamp = (date: Date) => {
+  const year = String(date.getFullYear());
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+
+  return `${year}${month}${day}-${hours}${minutes}${seconds}`;
+};
+
 export default async function ChapterDetailPage({ params }: ChapterDetailPageProps) {
   const { id } = await params;
-  const chapter = await fetchChapterById(id);
+  const [chapter, quizQuestionExportRows] = await Promise.all([
+    fetchChapterById(id),
+    fetchChapterQuizQuestionExportRows(id),
+  ]);
 
   if (!chapter) {
     notFound();
@@ -41,6 +56,8 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
     (total, section) => total + section.quizzes.length,
     0
   );
+  const chapterQuizQuestionsExportHref = `/api/admin/chapters/${chapter.id}/quiz-questions-export?v=${chapter.updatedAt.getTime()}`;
+  const chapterQuizQuestionsExportFallbackFilename = `chapitre-${chapter.slug}-questions-qcm-${formatDownloadTimestamp(new Date())}.xlsx`;
 
   return (
     <div className="w-full p-6">
@@ -52,6 +69,11 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
             <Button asChild variant="outline">
               <Link href="/admin/chapters">Retour</Link>
             </Button>
+            <ChapterQuizQuestionsExportButton
+              disabled={quizQuestionExportRows.length === 0}
+              fallbackFilename={chapterQuizQuestionsExportFallbackFilename}
+              href={chapterQuizQuestionsExportHref}
+            />
             <Button asChild variant="outline">
               <Link href={`/admin/training/qcms/${chapter.id}/edit`}>Structure QCM</Link>
             </Button>

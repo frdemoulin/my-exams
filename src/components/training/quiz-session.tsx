@@ -16,12 +16,15 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { areChoiceIndexSetsEqual } from '@/core/quiz/quiz-answer-format';
 import type { TrainingQuestion } from '@/core/training';
+import type { TrainingChoiceContent } from '@/core/training/training-choice-content';
 import {
   isCatchAllChoice,
   reorderCatchAllChoices,
 } from '@/core/training/training-choice-ordering';
 import { cn } from '@/lib/utils';
 import { MathContent } from './math-content';
+import { TrainingChoiceContentView } from './training-choice-content-view';
+import { TrainingQuestionContentView } from './training-question-content-view';
 
 type QuizSessionProps = {
   questions: TrainingQuestion[];
@@ -53,8 +56,6 @@ type SummaryFeedback = {
 type QuestionReviewItem = {
   index: number;
   question: TrainingQuestion;
-  selectedChoices: string[];
-  correctChoices: string[];
 };
 
 type QuestionNavigationStatus =
@@ -64,11 +65,7 @@ type QuestionNavigationStatus =
   | 'answered'
   | 'unanswered';
 
-const difficultyFocusLabels = {
-  EASY: 'Fondamentaux',
-  MEDIUM: 'Mise en pratique',
-  HARD: 'Raisonnement',
-} as const;
+type QuizViewMode = 'taking' | 'summary' | 'review';
 
 const questionNavigationStatusLabels: Record<QuestionNavigationStatus, string> = {
   current: 'Question en cours',
@@ -80,6 +77,7 @@ const questionNavigationStatusLabels: Record<QuestionNavigationStatus, string> =
 
 const getQuestionNavigationStatus = ({
   correctionMode,
+  isReviewMode,
   isAnswered,
   selectedChoiceIndexes,
   correctChoiceIndexes,
@@ -87,6 +85,7 @@ const getQuestionNavigationStatus = ({
   currentIndex,
 }: {
   correctionMode: 'instant' | 'final';
+  isReviewMode: boolean;
   isAnswered: boolean;
   selectedChoiceIndexes: number[];
   correctChoiceIndexes: number[];
@@ -101,7 +100,7 @@ const getQuestionNavigationStatus = ({
     return 'unanswered';
   }
 
-  if (correctionMode === 'final') {
+  if (correctionMode === 'final' && !isReviewMode) {
     return 'answered';
   }
 
@@ -178,6 +177,13 @@ const hashString = (value: string) => {
   return hash || 1;
 };
 
+const formatChoiceLetters = (choiceIndexes: number[]) =>
+  choiceIndexes.length > 0
+    ? choiceIndexes
+        .map((choiceIndex) => String.fromCharCode(65 + choiceIndex))
+        .join(', ')
+    : 'Aucune';
+
 const getAdminQuestionEditHref = (questionId: string) =>
   `/admin/training/quiz-questions/${questionId}/edit`;
 
@@ -199,7 +205,7 @@ const seededShuffle = <T,>(items: T[], seed: number) => {
 };
 
 const rotateQuestionChoices = (
-  choices: string[],
+  choices: TrainingChoiceContent[],
   correctChoiceIndexes: number[],
   variant: number
 ) => {
@@ -335,132 +341,74 @@ const getSummaryProgressBarClassName = (successRate: number) => {
   return 'bg-rose-500 dark:bg-rose-400';
 };
 
-const getTopThemeLabels = (items: QuestionReviewItem[]) => {
-  const counts = new Map<string, number>();
-
-  items.forEach((item) => {
-    Array.from(new Set(item.question.themeLabels)).forEach((label) => {
-      counts.set(label, (counts.get(label) ?? 0) + 1);
-    });
-  });
-
-  return Array.from(counts.entries())
-    .sort((left, right) => {
-      if (right[1] !== left[1]) {
-        return right[1] - left[1];
-      }
-
-      return left[0].localeCompare(right[0], 'fr-FR');
-    })
-    .slice(0, 3)
-    .map(([label]) => label);
-};
-
-const getDominantDifficultyFocus = (items: QuestionReviewItem[]) => {
-  if (items.length === 0) {
-    return null;
-  }
-
-  const counts = items.reduce(
-    (accumulator, item) => {
-      accumulator[item.question.difficulty] += 1;
-      return accumulator;
-    },
-    {
-      EASY: 0,
-      MEDIUM: 0,
-      HARD: 0,
-    }
-  );
-
-  const dominantDifficulty = (Object.entries(counts) as Array<
-    [keyof typeof counts, number]
-  >)
-    .sort((left, right) => {
-      if (right[1] !== left[1]) {
-        return right[1] - left[1];
-      }
-
-      return ['EASY', 'MEDIUM', 'HARD'].indexOf(left[0]) - ['EASY', 'MEDIUM', 'HARD'].indexOf(right[0]);
-    })[0]?.[0];
-
-  return dominantDifficulty ? difficultyFocusLabels[dominantDifficulty] : null;
-};
-
-const getImprovementSuggestions = ({
-  groupedErrorCount,
-  hasReachedTarget,
-  incorrectQuestions,
-  isPathMode,
-  topThemeLabels,
-  targetScore,
+const getThemePerformance = ({
+  correctItems,
+  incorrectItems,
 }: {
-  groupedErrorCount: number;
-  hasReachedTarget: boolean;
-  incorrectQuestions: QuestionReviewItem[];
-  isPathMode: boolean;
-  topThemeLabels: string[];
-  targetScore: number;
+  correctItems: QuestionReviewItem[];
+  incorrectItems: QuestionReviewItem[];
 }) => {
-  if (incorrectQuestions.length === 0) {
-    return [
-      'Aucune erreur n’apparaît sur cette tentative : garde cette même rigueur de lecture et de vérification pour la suite.',
-      'Si tu veux ancrer durablement les automatismes, refais ce QCM une seconde fois sans relire les corrections.',
-    ];
-  }
+  const performanceByTheme = new Map<string, {
+    correctQuestionNumbers: number[];
+    incorrectQuestionNumbers: number[];
+  }>();
 
-  const suggestions: string[] = [];
-  const dominantDifficultyFocus = getDominantDifficultyFocus(incorrectQuestions);
+  const increment = (
+    items: QuestionReviewItem[],
+    key: 'correctQuestionNumbers' | 'incorrectQuestionNumbers'
+  ) => {
+    items.forEach((item) => {
+      const labels = item.question.themeLabels.length > 0
+        ? item.question.themeLabels
+        : ['Notion non renseignée'];
 
-  if (topThemeLabels.length > 0) {
-    suggestions.push(
-      `Concentre d’abord ta reprise sur ${topThemeLabels.join(', ')}.`
+      Array.from(new Set(labels)).forEach((label) => {
+        const performance = performanceByTheme.get(label) ?? {
+          correctQuestionNumbers: [],
+          incorrectQuestionNumbers: [],
+        };
+        performance[key].push(item.index + 1);
+        performanceByTheme.set(label, performance);
+      });
+    });
+  };
+
+  increment(correctItems, 'correctQuestionNumbers');
+  increment(incorrectItems, 'incorrectQuestionNumbers');
+
+  const items = Array.from(performanceByTheme.entries())
+    .map(([label, performance]) => {
+      const correct = performance.correctQuestionNumbers.length;
+      const incorrect = performance.incorrectQuestionNumbers.length;
+      const total = correct + incorrect;
+
+      return {
+        label,
+        correct,
+        incorrect,
+        total,
+        successRate: total > 0 ? Math.round((correct / total) * 100) : 0,
+        correctQuestionNumbers: performance.correctQuestionNumbers,
+        incorrectQuestionNumbers: performance.incorrectQuestionNumbers,
+      };
+    })
+    .sort((left, right) =>
+      right.incorrect - left.incorrect ||
+      left.successRate - right.successRate ||
+      left.label.localeCompare(right.label, 'fr-FR')
     );
-  }
 
-  if (dominantDifficultyFocus === 'Fondamentaux') {
-    suggestions.push(
-      'Reprends d’abord les définitions, conventions de signe et relations de base : les erreurs portent surtout sur les fondamentaux.'
-    );
-  }
-
-  if (dominantDifficultyFocus === 'Mise en pratique') {
-    suggestions.push(
-      'Les bases sont là, mais leur mise en application reste à stabiliser : retravaille les questions intermédiaires avant une nouvelle tentative complète.'
-    );
-  }
-
-  if (dominantDifficultyFocus === 'Raisonnement') {
-    suggestions.push(
-      'Les difficultés se concentrent sur les cas les plus exigeants : sécurise d’abord la méthode et les étapes du raisonnement avant d’y revenir.'
-    );
-  }
-
-  if (groupedErrorCount > 0) {
-    suggestions.push(
-      'Relis attentivement les énoncés communs : une mauvaise lecture du contexte se répercute souvent sur plusieurs réponses.'
-    );
-  }
-
-  if (isPathMode && !hasReachedTarget) {
-    suggestions.push(
-      `Commence par relire les corrections ci-dessous, puis refais ce QCM pour viser ${targetScore}% et ouvrir la suite du parcours.`
-    );
-  }
-
-  if (isPathMode && hasReachedTarget) {
-    suggestions.push(
-      'La suite est accessible, mais une nouvelle tentative peut être utile pour stabiliser les points encore fragiles avant d’avancer.'
-    );
-  }
-
-  if (!isPathMode) {
-    suggestions.push(
-      'Après relecture des corrections, refais une tentative complète sans aide pour vérifier que les erreurs d’aujourd’hui sont bien levées.'
-    );
-  }
-
-  return suggestions.slice(0, 3);
+  return {
+    items,
+    validatedThemes: items
+      .filter((item) => item.correct > 0 && item.incorrect === 0)
+      .slice(0, 3)
+      .map((item) => item.label),
+    themesToReview: items
+      .filter((item) => item.incorrect > 0)
+      .slice(0, 3)
+      .map((item) => item.label),
+  };
 };
 
 export function QuizSession({
@@ -480,7 +428,7 @@ export function QuizSession({
   const [submittedAnswers, setSubmittedAnswers] = useState<boolean[]>(
     () => questions.map(() => false)
   );
-  const [showSummary, setShowSummary] = useState(false);
+  const [viewMode, setViewMode] = useState<QuizViewMode>('taking');
 
   if (sessionQuestions.length === 0) {
     return (
@@ -494,13 +442,20 @@ export function QuizSession({
   const currentGroup = currentQuestion.group;
   const isPathMode = Boolean(pathContext);
   const isFinalCorrectionOnly = correctionMode === 'final';
+  const isReviewMode = viewMode === 'review';
   const effectiveAnsweredByQuestion = isFinalCorrectionOnly
     ? selectedChoiceIndexesByQuestion.map((selections) => selections.length > 0)
     : submittedAnswers;
   const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
   const hasAnswered = effectiveAnsweredByQuestion[currentIndex] ?? false;
+  const missedChoiceIndexes = currentQuestion.correctChoiceIndexes.filter(
+    (choiceIndex) => !currentSelections.includes(choiceIndex)
+  );
+  const extraChoiceIndexes = currentSelections.filter(
+    (choiceIndex) => !currentQuestion.correctChoiceIndexes.includes(choiceIndex)
+  );
   const isAnswerLocked =
-    !isFinalCorrectionOnly && (submittedAnswers[currentIndex] ?? false);
+    isReviewMode || (!isFinalCorrectionOnly && (submittedAnswers[currentIndex] ?? false));
   const isCorrect = areChoiceIndexSetsEqual(
     currentSelections,
     currentQuestion.correctChoiceIndexes
@@ -518,7 +473,7 @@ export function QuizSession({
   const isComplete = answeredCount === sessionQuestions.length;
   const successRate = Math.round((score / sessionQuestions.length) * 100);
   const clampedSuccessRate = Math.max(0, Math.min(successRate, 100));
-  const questionNavigationLegendItems = isFinalCorrectionOnly
+  const questionNavigationLegendItems = isFinalCorrectionOnly && !isReviewMode
     ? finalQuestionNavigationLegendItems
     : instantQuestionNavigationLegendItems;
   const selectedChoiceClassName =
@@ -539,47 +494,37 @@ export function QuizSession({
       {
         index,
         question,
-        selectedChoices: selectedChoiceIndexes
-          .map((choiceIndex) => question.choices[choiceIndex] ?? null)
-          .filter((choice): choice is string => Boolean(choice)),
-        correctChoices: question.correctChoiceIndexes
-          .map((choiceIndex) => question.choices[choiceIndex] ?? null)
-          .filter((choice): choice is string => Boolean(choice)),
+      },
+    ];
+  });
+  const correctQuestions: QuestionReviewItem[] = sessionQuestions.flatMap((question, index) => {
+    const selectedChoiceIndexes = selectedChoiceIndexesByQuestion[index] ?? [];
+
+    if (
+      !effectiveAnsweredByQuestion[index] ||
+      !areChoiceIndexSetsEqual(selectedChoiceIndexes, question.correctChoiceIndexes)
+    ) {
+      return [];
+    }
+
+    return [
+      {
+        index,
+        question,
       },
     ];
   });
   const groupedErrorCount = incorrectQuestions.filter(
     (item) => item.question.group !== null
   ).length;
-  const dominantErrorDifficultyFocus = getDominantDifficultyFocus(incorrectQuestions);
-  const topFailedThemeLabels = getTopThemeLabels(incorrectQuestions);
-  const improvementSuggestions = getImprovementSuggestions({
-    groupedErrorCount,
-    hasReachedTarget,
-    incorrectQuestions,
-    isPathMode,
-    topThemeLabels: topFailedThemeLabels,
-    targetScore,
+  const {
+    items: themePerformanceItems,
+    themesToReview: topFailedThemeLabels,
+    validatedThemes: topValidatedThemeLabels,
+  } = getThemePerformance({
+    correctItems: correctQuestions,
+    incorrectItems: incorrectQuestions,
   });
-  const diagnosisPoints = incorrectQuestions.length === 0
-    ? [
-        'Toutes les questions de ce QCM sont validées : aucun point faible immédiat n’apparaît sur cette tentative.',
-        isPathMode
-          ? 'Tu peux avancer sereinement dans le parcours et garder ce QCM comme repère de maîtrise.'
-          : 'Tu peux passer à un autre QCM ou refaire celui-ci plus tard pour entretenir les automatismes.',
-      ]
-    : [
-        `${score} réponse${score > 1 ? 's sont justes' : ' est juste'} sur ${sessionQuestions.length}. ${incorrectQuestions.length} question${incorrectQuestions.length > 1 ? 's demandent encore' : ' demande encore'} un retravail ciblé.`,
-        topFailedThemeLabels.length > 0
-          ? `Les notions qui reviennent le plus dans les erreurs sont : ${topFailedThemeLabels.join(', ')}.`
-          : 'Aucune notion dominante claire ne se dégage encore des erreurs de cette tentative.',
-        dominantErrorDifficultyFocus
-          ? `Les erreurs se concentrent surtout sur ${dominantErrorDifficultyFocus.toLowerCase()}.`
-          : 'Les erreurs se répartissent sur plusieurs types de questions.',
-        groupedErrorCount > 0
-          ? `${groupedErrorCount} erreur${groupedErrorCount > 1 ? 's sont liées' : ' est liée'} à un énoncé commun : relis d’abord le contexte avant de recalculer.`
-          : 'Les erreurs portent surtout sur des questions isolées : un retravail ciblé devrait être efficace.',
-      ];
   const summaryFeedback = getSummaryFeedback(score, sessionQuestions.length);
   const effectiveSummaryFeedback = isPathMode
     ? hasReachedTarget
@@ -673,7 +618,7 @@ export function QuizSession({
     setCurrentIndex(0);
     setSelectedChoiceIndexesByQuestion(questions.map(() => []));
     setSubmittedAnswers(questions.map(() => false));
-    setShowSummary(false);
+    setViewMode('taking');
   };
 
   const openSummary = () => {
@@ -685,25 +630,41 @@ export function QuizSession({
       });
     }
 
-    setShowSummary(true);
+    setViewMode('summary');
   };
 
-  if (showSummary && isComplete) {
+  const openReview = () => {
+    setCurrentIndex(incorrectQuestions[0]?.index ?? 0);
+    setViewMode('review');
+  };
+
+  if (viewMode === 'summary' && isComplete) {
     return (
       <section className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6">
         <div className={cn('overflow-hidden rounded-2xl border', effectiveSummaryFeedback.toneClassName)}>
           <div className="space-y-5 p-5 md:p-6">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-current/80">
-                <Target className="h-4 w-4" />
-                <p className="text-xs font-semibold uppercase tracking-wide">Bilan du QCM</p>
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-current/80">
+                  <Target className="h-4 w-4" />
+                  <p className="text-xs font-semibold uppercase tracking-wide">Bilan du QCM</p>
+                </div>
+                <h2 className="text-xl font-semibold text-heading">
+                  {effectiveSummaryFeedback.title}
+                </h2>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  {effectiveSummaryFeedback.message}
+                </p>
               </div>
-              <h2 className="text-xl font-semibold text-heading">
-                {effectiveSummaryFeedback.title}
-              </h2>
-              <p className="text-sm leading-6 text-muted-foreground">
-                {effectiveSummaryFeedback.message}
-              </p>
+              <Button
+                type="button"
+                size="sm"
+                onClick={openReview}
+                className="shrink-0 self-start shadow-sm"
+              >
+                <ListChecks className="h-4 w-4" />
+                Revoir les questions et les corrections
+              </Button>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -714,11 +675,6 @@ export function QuizSession({
               {isPathMode ? (
                 <Badge variant={hasReachedTarget ? 'secondary' : 'outline'}>
                   {hasReachedTarget ? 'Étape validée' : `Objectif ${targetScore}%`}
-                </Badge>
-              ) : null}
-              {dominantErrorDifficultyFocus ? (
-                <Badge variant="outline">
-                  Zone à consolider : {dominantErrorDifficultyFocus}
                 </Badge>
               ) : null}
             </div>
@@ -779,167 +735,147 @@ export function QuizSession({
               </div>
             </div>
 
-            {topFailedThemeLabels.length > 0 ? (
-              <div className="rounded-xl border border-current/15 bg-background/60 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
-                  Notions à revoir
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="rounded-xl border border-emerald-300/70 bg-emerald-50/80 p-4 dark:border-emerald-900 dark:bg-emerald-950/30">
+                <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-200">
+                  Points validés
                 </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {topFailedThemeLabels.map((label) => (
-                    <Badge key={label} variant="outline" className="bg-background/80">
-                      {label}
-                    </Badge>
-                  ))}
-                </div>
+                {topValidatedThemeLabels.length > 0 ? (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {topValidatedThemeLabels.map((label) => (
+                      <Badge key={label} variant="outline" className="border-emerald-300 bg-background/80 dark:border-emerald-800">
+                        {label}
+                      </Badge>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Aucun thème n’est encore validé sur cette tentative.
+                  </p>
+                )}
               </div>
-            ) : null}
+
+              <div className="rounded-xl border border-amber-300/70 bg-amber-50/80 p-4 dark:border-amber-900 dark:bg-amber-950/30">
+                <p className="text-xs font-semibold uppercase tracking-wide text-amber-800 dark:text-amber-200">
+                  Points à retravailler
+                </p>
+                {topFailedThemeLabels.length > 0 ? (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {topFailedThemeLabels.map((label) => (
+                      <Badge key={label} variant="outline" className="border-amber-300 bg-background/80 dark:border-amber-800">
+                        {label}
+                      </Badge>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Aucun thème prioritaire à retravailler.
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
         <Separator />
 
-        <div className="grid gap-4 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-          <div className="rounded-2xl border border-border bg-background p-5">
-            <div className="flex items-center gap-2 text-heading">
-              <span aria-hidden="true" className="text-lg leading-none">🧭</span>
-              <h3 className="text-base font-semibold">Bilan de ta tentative</h3>
-            </div>
-            <div className="mt-3 space-y-3 text-sm leading-6 text-muted-foreground">
-              {diagnosisPoints.map((point) => (
-                <p key={point}>{point}</p>
-              ))}
+        <div className="rounded-2xl border border-border bg-background p-5">
+          <div className="flex items-start gap-3 text-heading">
+            <Target className="mt-0.5 h-5 w-5 text-brand" />
+            <div>
+              <h3 className="text-base font-semibold">Maîtrise par notion</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ce bilan est calculé directement à partir des notions associées aux questions.
+              </p>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-background p-5">
-            <div className="flex items-center gap-2 text-heading">
-              <span aria-hidden="true" className="text-lg leading-none">💡</span>
-              <h3 className="text-base font-semibold">Conseils pour progresser</h3>
-            </div>
-            <div className="mt-3 space-y-3 text-sm leading-6 text-muted-foreground">
-              {improvementSuggestions.map((suggestion) => (
-                <p key={suggestion}>{suggestion}</p>
-              ))}
-            </div>
+          <div className="mt-5 grid gap-3 lg:grid-cols-2">
+            {themePerformanceItems.map((item) => {
+              const isValidated = item.incorrect === 0;
+              const isPartiallyValidated = item.correct > 0 && item.incorrect > 0;
+              const statusLabel = isValidated
+                ? 'Notion validée'
+                : isPartiallyValidated
+                  ? 'À consolider'
+                  : 'À reprendre';
+
+              return (
+                <div
+                  key={item.label}
+                  className={cn(
+                    'rounded-xl border p-4',
+                    isValidated
+                      ? 'border-emerald-200 bg-emerald-50/60 dark:border-emerald-900 dark:bg-emerald-950/20'
+                      : isPartiallyValidated
+                        ? 'border-amber-200 bg-amber-50/60 dark:border-amber-900 dark:bg-amber-950/20'
+                        : 'border-rose-200 bg-rose-50/60 dark:border-rose-900 dark:bg-rose-950/20'
+                  )}
+                >
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <p className="font-semibold text-heading">{item.label}</p>
+                    <Badge variant="outline">
+                      {item.correct}/{item.total} · {statusLabel}
+                    </Badge>
+                  </div>
+                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-background">
+                    <div
+                      className={cn(
+                        'h-full rounded-full',
+                        getSummaryProgressBarClassName(item.successRate)
+                      )}
+                      style={{ width: `${item.successRate}%` }}
+                    />
+                  </div>
+                  <div className="mt-3 space-y-1 text-xs text-muted-foreground">
+                    {item.correctQuestionNumbers.length > 0 ? (
+                      <p>
+                        Réussie{item.correctQuestionNumbers.length > 1 ? 's' : ''} : question{item.correctQuestionNumbers.length > 1 ? 's' : ''} {item.correctQuestionNumbers.join(', ')}.
+                      </p>
+                    ) : null}
+                    {item.incorrectQuestionNumbers.length > 0 ? (
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <p>
+                          À revoir : question{item.incorrectQuestionNumbers.length > 1 ? 's' : ''} {item.incorrectQuestionNumbers.join(', ')}.
+                        </p>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="xs"
+                          onClick={() => {
+                            setCurrentIndex(item.incorrectQuestionNumbers[0] - 1);
+                            setViewMode('review');
+                          }}
+                        >
+                          <ListChecks className="h-3.5 w-3.5" />
+                          Revoir
+                        </Button>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {incorrectQuestions.length > 0 ? (
-          <div className="space-y-4">
-            <Separator />
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-heading">
-                <ListChecks className="h-4 w-4" />
-                <h3 className="text-base font-semibold">À retravailler en priorité</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Repars d’abord de ces questions avant de relancer une tentative complète.
-              </p>
-            </div>
-
-            <div className="grid gap-4">
-              {incorrectQuestions.map((item) => (
-                <div
-                  key={item.question.id}
-                  className="rounded-2xl border border-amber-200 bg-amber-50/60 p-5 dark:border-amber-900 dark:bg-amber-950/20"
-                >
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="outline">Question {item.index + 1}</Badge>
-                    <Badge variant="outline">
-                      Repère {difficultyFocusLabels[item.question.difficulty]}
-                    </Badge>
-                    {item.question.group ? (
-                      <Badge variant="outline">
-                        {item.question.group.title?.trim() || 'Énoncé commun'}
-                      </Badge>
-                    ) : null}
-                    {item.question.themeLabels.map((label) => (
-                      <Badge key={`${item.question.id}-${label}`} variant="secondary">
-                        {label}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="mt-4 space-y-4">
-                    <div className="rounded-xl border border-border bg-background p-4 text-sm text-heading">
-                      {canEditQuestions ? (
-                        <div className="mb-3 flex justify-end">
-                          <Button asChild variant="outline" size="xs">
-                            <Link href={getAdminQuestionEditHref(item.question.id)}>
-                              <Pencil className="h-3.5 w-3.5" />
-                              Éditer la question
-                            </Link>
-                          </Button>
-                        </div>
-                      ) : null}
-                      <MathContent value={item.question.question} />
-                    </div>
-
-                    <div className="grid gap-3 lg:grid-cols-2">
-                      <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-950 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-100">
-                        <p className="font-semibold">Ta réponse</p>
-                        <div className="mt-2 leading-6">
-                          {item.selectedChoices.length > 0 ? (
-                            <div className="space-y-2">
-                              {item.selectedChoices.map((selectedChoice, choiceIndex) => (
-                                <MathContent
-                                  key={`${item.question.id}-selected-${choiceIndex}`}
-                                  className="block"
-                                  value={selectedChoice}
-                                />
-                              ))}
-                            </div>
-                          ) : (
-                            <span>Aucune réponse enregistrée.</span>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-100">
-                        <p className="font-semibold">Réponse attendue</p>
-                        <div className="mt-2 leading-6">
-                          {item.correctChoices.length > 0 ? (
-                            <div className="space-y-2">
-                              {item.correctChoices.map((correctChoice, choiceIndex) => (
-                                <MathContent
-                                  key={`${item.question.id}-correct-${choiceIndex}`}
-                                  className="block"
-                                  value={correctChoice}
-                                />
-                              ))}
-                            </div>
-                          ) : (
-                            <span>Réponse correcte indisponible.</span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="rounded-xl border border-border bg-background p-4 text-sm text-muted-foreground">
-                      <p className="font-semibold text-heading">Explication à relire</p>
-                      <div className="mt-2 leading-6">
-                        <MathContent value={item.question.explanation} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {themePerformanceItems.some((item) => item.incorrect > 0) ? (
+          <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-5 dark:border-amber-900 dark:bg-amber-950/20">
+            <h3 className="text-base font-semibold text-heading">Plan de reprise</h3>
+            <ol className="mt-3 space-y-2 text-sm text-muted-foreground">
+              {themePerformanceItems
+                .filter((item) => item.incorrect > 0)
+                .map((item, index) => (
+                  <li key={item.label}>
+                    <span className="font-semibold text-heading">{index + 1}. {item.label}</span>
+                    {' '}– reprendre la correction des questions {item.incorrectQuestionNumbers.join(', ')}.
+                  </li>
+                ))}
+            </ol>
           </div>
         ) : null}
 
         <div className="flex flex-wrap gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={() => {
-              setCurrentIndex(0);
-              setShowSummary(false);
-            }}
-          >
-            Revoir les corrections
-          </Button>
           <Button type="button" variant="secondary" size="sm" onClick={resetQuiz}>
             {isPathMode ? 'Recommencer ce QCM' : 'Recommencer'}
           </Button>
@@ -971,12 +907,16 @@ export function QuizSession({
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Question {currentIndex + 1} / {sessionQuestions.length}
+              {isReviewMode ? 'Correction · ' : ''}Question {currentIndex + 1} / {sessionQuestions.length}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">
-              {isFinalCorrectionOnly
+              {isReviewMode
+                ? isCorrect
+                  ? 'Réponse correcte'
+                  : 'Réponse à revoir'
+                : isFinalCorrectionOnly
                 ? `${answeredCount}/${sessionQuestions.length} traitée${answeredCount > 1 ? 's' : ''}`
                 : `Score ${score}/${sessionQuestions.length}`}
             </Badge>
@@ -1008,6 +948,7 @@ export function QuizSession({
                 {sessionQuestions.map((question, index) => {
                   const status = getQuestionNavigationStatus({
                     correctionMode,
+                    isReviewMode,
                     isAnswered: effectiveAnsweredByQuestion[index] ?? false,
                     selectedChoiceIndexes:
                       selectedChoiceIndexesByQuestion[index] ?? [],
@@ -1092,16 +1033,56 @@ export function QuizSession({
             </Button>
           </div>
         ) : null}
-        <MathContent value={currentQuestion.question} />
+        <TrainingQuestionContentView
+          question={currentQuestion.question}
+          questionDiagram={currentQuestion.questionDiagram}
+        />
       </div>
+
+      {isReviewMode ? (
+        <div className="grid gap-3 rounded-xl border border-border bg-card p-4 text-sm md:grid-cols-2">
+          <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Ta réponse
+            </p>
+            <p className="mt-2 text-base font-semibold text-heading">
+              {formatChoiceLetters(currentSelections)}
+            </p>
+            {extraChoiceIndexes.length > 0 ? (
+              <p className="mt-1 text-xs text-rose-700 dark:text-rose-300">
+                Choix en trop : {formatChoiceLetters(extraChoiceIndexes)}.
+              </p>
+            ) : null}
+          </div>
+          <div className="rounded-lg border border-emerald-300/60 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950/40">
+            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-200">
+              Réponse attendue
+            </p>
+            <p className="mt-2 text-base font-semibold text-emerald-950 dark:text-emerald-100">
+              {formatChoiceLetters(currentQuestion.correctChoiceIndexes)}
+            </p>
+            {missedChoiceIndexes.length > 0 ? (
+              <p className="mt-1 text-xs text-amber-700 dark:text-amber-300">
+                À cocher aussi : {formatChoiceLetters(missedChoiceIndexes)}.
+              </p>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
 
       <div className="grid gap-3">
         {currentQuestion.choices.map((choice, choiceIndex) => {
           const isSelected = currentSelections.includes(choiceIndex);
           const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
           const showSelectedAsIncorrect =
-            !isFinalCorrectionOnly && hasAnswered && isSelected && !isRightChoice;
-          const showSelectedAsAnswered = isFinalCorrectionOnly && hasAnswered && isSelected;
+            hasAnswered && isSelected && !isRightChoice &&
+            (isReviewMode || !isFinalCorrectionOnly);
+          const showSelectedAsAnswered =
+            isFinalCorrectionOnly && !isReviewMode && hasAnswered && isSelected;
+          const showAsCorrect =
+            isRightChoice &&
+            ((isReviewMode && isSelected) || (!isReviewMode && !isFinalCorrectionOnly && isAnswerLocked));
+          const showAsMissedExpected = isReviewMode && isRightChoice && !isSelected;
 
           return (
             <button
@@ -1113,7 +1094,9 @@ export function QuizSession({
                 'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
                 !isAnswerLocked && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
-                !isFinalCorrectionOnly && isAnswerLocked && isRightChoice && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
+                showAsCorrect && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
+                isReviewMode && isSelected && isRightChoice && 'ring-2 ring-emerald-400/70',
+                showAsMissedExpected && 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100',
                 showSelectedAsIncorrect && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
                 showSelectedAsAnswered && selectedChoiceClassName,
                 !isAnswerLocked && isSelected && selectedChoiceClassName
@@ -1124,21 +1107,51 @@ export function QuizSession({
                   {String.fromCharCode(65 + choiceIndex)}
                 </span>
                 <span className="min-w-0 flex-1 self-baseline">
-                  <MathContent value={choice} />
+                  <TrainingChoiceContentView choice={choice} />
                 </span>
               </span>
-              {!isFinalCorrectionOnly && isAnswerLocked && isRightChoice ? (
+              {showAsCorrect ? (
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
               ) : null}
               {showSelectedAsIncorrect ? (
                 <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
+              ) : null}
+              {isReviewMode ? (
+                <span className="flex shrink-0 flex-wrap justify-end gap-1 self-start">
+                  {isSelected ? (
+                    <Badge
+                      variant="outline"
+                      className={cn(
+                        'text-[11px]',
+                        isRightChoice
+                          ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
+                          : 'border-rose-400 bg-rose-100 text-rose-900 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-100'
+                      )}
+                    >
+                      Ton choix
+                    </Badge>
+                  ) : null}
+                  {isRightChoice ? (
+                    <Badge
+                      variant="outline"
+                      className={cn(
+                        'text-[11px]',
+                        isSelected
+                          ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
+                          : 'border-amber-400 bg-amber-100 text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100'
+                      )}
+                    >
+                      Attendue
+                    </Badge>
+                  ) : null}
+                </span>
               ) : null}
             </button>
           );
         })}
       </div>
 
-      {isAnswerLocked && !isFinalCorrectionOnly ? (
+      {(isReviewMode || (isAnswerLocked && !isFinalCorrectionOnly)) ? (
         <div
           className={cn(
             'rounded-xl border p-4 text-sm',
@@ -1196,7 +1209,26 @@ export function QuizSession({
               ) : null}
             </>
           ) : null}
-          {isComplete ? (
+          {isReviewMode ? (
+            <>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => setViewMode('summary')}
+              >
+                Retour aux résultats
+              </Button>
+              <Button
+                type="button"
+                size="sm"
+                onClick={goToNextQuestion}
+                disabled={currentIndex === sessionQuestions.length - 1}
+              >
+                Suivant
+              </Button>
+            </>
+          ) : isComplete ? (
             <>
               <Button
                 type="button"
@@ -1208,7 +1240,7 @@ export function QuizSession({
                 Suivant
               </Button>
               <Button type="button" size="sm" onClick={openSummary}>
-                Voir la synthèse
+                Voir les résultats
               </Button>
             </>
           ) : (
@@ -1221,11 +1253,6 @@ export function QuizSession({
               Suivant
             </Button>
           )}
-          {isComplete ? (
-            <Button type="button" variant="secondary" size="sm" onClick={resetQuiz}>
-              Recommencer
-            </Button>
-          ) : null}
         </div>
       </div>
     </section>

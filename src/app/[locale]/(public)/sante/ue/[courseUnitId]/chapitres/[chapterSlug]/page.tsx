@@ -1,16 +1,11 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { ChevronLeft } from 'lucide-react';
 
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
-import { TrainingQuizInstructions } from '@/components/training/training-quiz-instructions';
-import { QuizSession } from '@/components/training/quiz-session';
 import { TrainingQuizActionButton } from '@/components/training/training-quiz-action-button';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
@@ -26,6 +21,14 @@ import { fetchUserPedagogicalProfileSummary } from '@/core/user';
 import { auth } from '@/lib/auth/auth';
 import { isAdminRole } from '@/lib/auth/roles';
 import { getSessionActorRole, getSessionEffectiveUserId } from '@/lib/auth/session';
+import {
+  formatCourseUnitLabel,
+  formatTeachingElementBreadcrumbLabel,
+  formatTeachingElementLabel,
+  getHealthChapterHref,
+  getHealthChapterQuizHref,
+  getSectionLabel,
+} from './chapter-page.utils';
 
 type PageProps = {
   params: Promise<{
@@ -37,57 +40,8 @@ type PageProps = {
   }>;
 };
 
-type HealthChapterDetail = NonNullable<
-  Awaited<ReturnType<typeof fetchHealthStudentChapterDetail>>
->;
-type HealthChapterSection = HealthChapterDetail['sections'][number];
-type HealthChapterQuiz = HealthChapterSection['quizzes'][number];
-
-const formatCourseUnitLabel = (
-  courseUnit: HealthChapterDetail['courseUnit'],
-) =>
-  courseUnit.code
-    ? `${courseUnit.code} · ${courseUnit.shortTitle ?? courseUnit.title}`
-    : (courseUnit.shortTitle ?? courseUnit.title);
-
-const formatTeachingElementLabel = (
-  teachingElement: HealthChapterDetail['teachingElement'],
-) =>
-  teachingElement.code
-    ? `${teachingElement.code} · ${teachingElement.title}`
-    : teachingElement.title;
-
-const formatTeachingElementBreadcrumbLabel = (
-  teachingElement: HealthChapterDetail['teachingElement'],
-) =>
-  teachingElement.code
-    ? `${teachingElement.code} ${teachingElement.title}`
-    : typeof teachingElement.order === 'number'
-      ? `EC${teachingElement.order} ${teachingElement.title}`
-    : teachingElement.title;
-
-const getQuizHref = ({
-  courseUnitId,
-  chapterSlug,
-  quizSlug,
-}: {
-  courseUnitId: string;
-  chapterSlug: string;
-  quizSlug: string;
-}) => `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}?quiz=${quizSlug}#quiz-session`;
-
-const getSectionLabel = (index: number) => {
-  let value = index + 1;
-  let label = '';
-
-  while (value > 0) {
-    const remainder = (value - 1) % 26;
-    label = String.fromCharCode(65 + remainder) + label;
-    value = Math.floor((value - 1) / 26);
-  }
-
-  return label;
-};
+const formatAttemptsLabel = (attemptsCount: number) =>
+  `${attemptsCount} tentative${attemptsCount > 1 ? 's' : ''}`;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { courseUnitId, chapterSlug } = await params;
@@ -123,7 +77,21 @@ export default async function HealthChapterDetailPage({
     }
   }
 
-  const chapter = await fetchHealthStudentChapterDetail({ courseUnitId, chapterSlug });
+  if (resolvedSearchParams?.quiz) {
+    redirect(
+      getHealthChapterQuizHref({
+        courseUnitId,
+        chapterSlug,
+        quizSlug: resolvedSearchParams.quiz,
+      })
+    );
+  }
+
+  const chapter = await fetchHealthStudentChapterDetail({
+    courseUnitId,
+    chapterSlug,
+    userId: effectiveUserId,
+  });
 
   if (!chapter) {
     notFound();
@@ -138,22 +106,14 @@ export default async function HealthChapterDetailPage({
     (total, section) => total + section.quizzes.length,
     0
   );
-  const selectedQuizSlug = resolvedSearchParams?.quiz ?? null;
-  const chapterHref = `/sante/ue/${chapter.courseUnit.id}/chapitres/${chapter.slug}`;
+  const chapterHref = getHealthChapterHref({
+    courseUnitId: chapter.courseUnit.id,
+    chapterSlug: chapter.slug,
+  });
   const courseUnitHref = `/sante/ue/${chapter.courseUnit.id}`;
   const sectionLabelById = new Map(
     chapter.sections.map((section, index) => [section.id, getSectionLabel(index)])
   );
-  const availableQuizzes = chapter.sections.flatMap((section) =>
-    section.quizzes.map((quiz, quizIndex) => ({ quiz, quizIndex, section }))
-  );
-  const selectedQuiz =
-    selectedQuizSlug
-      ? availableQuizzes.find(({ quiz }) => quiz.slug === selectedQuizSlug) ?? null
-      : null;
-  const selectedQuizNumber = selectedQuiz
-    ? String(selectedQuiz.quizIndex + 1)
-    : null;
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -196,53 +156,6 @@ export default async function HealthChapterDetailPage({
           )}
         </section>
 
-        {selectedQuiz ? (
-          <section id="quiz-session" className="space-y-3">
-            <Button asChild variant="outline" size="sm" className="w-fit gap-2">
-              <Link href={chapterHref}>
-                <ChevronLeft className="h-4 w-4" />
-                Retour au chapitre
-              </Link>
-            </Button>
-
-            <Card className="rounded-3xl border-border bg-card hover:bg-card">
-              <CardHeader>
-                <div className="space-y-3">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="space-y-1">
-                      <CardTitle className="text-xl text-heading">QCM #{selectedQuizNumber}</CardTitle>
-                    </div>
-                    <div className="flex flex-wrap items-start gap-2 sm:justify-end">
-                      <Badge variant="outline" className="w-fit">
-                        Section {sectionLabelById.get(selectedQuiz.section.id)} -{' '}
-                        {selectedQuiz.section.title}
-                      </Badge>
-                      <Badge variant="secondary" className="w-fit">
-                        {selectedQuiz.quiz.questionCount} question
-                        {selectedQuiz.quiz.questionCount > 1 ? 's' : ''}
-                      </Badge>
-                      {getTrainingQuizStageLabel(selectedQuiz.quiz.stage) ? (
-                        <Badge
-                          variant="outline"
-                          className={getTrainingQuizStageBadgeClassName(selectedQuiz.quiz.stage) ?? undefined}
-                        >
-                          {getTrainingQuizStageLabel(selectedQuiz.quiz.stage)}
-                        </Badge>
-                      ) : null}
-                    </div>
-                  </div>
-                  <TrainingQuizInstructions />
-                </div>
-              </CardHeader>
-            </Card>
-            <QuizSession
-              questions={selectedQuiz.quiz.questions}
-              correctionMode="final"
-              canEditQuestions={canEditQuestions}
-            />
-          </section>
-        ) : null}
-
         <section className="space-y-6">
           <div className="space-y-1">
             <h2 className="text-2xl font-semibold tracking-tight text-heading">
@@ -259,12 +172,11 @@ export default async function HealthChapterDetailPage({
                 <CardHeader>
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <CardTitle className="min-w-0 flex-1 text-lg text-heading">
-                      {sectionLabelById.get(section.id) ?? getSectionLabel(sectionIndex)} - {section.title}
+                      {section.kind === 'SYNTHESIS'
+                        ? `Synthèse – ${section.title}`
+                        : `Section ${sectionLabelById.get(section.id) ?? getSectionLabel(sectionIndex)} – ${section.title}`}
                     </CardTitle>
                     <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-                      <Badge variant="outline" className="w-fit">
-                        {section.kind === 'SYNTHESIS' ? 'Synthèse' : 'Section'}
-                      </Badge>
                       <Badge variant="secondary" className="w-fit">
                         {section.quizzes.length} QCM
                       </Badge>
@@ -279,52 +191,67 @@ export default async function HealthChapterDetailPage({
                           <TableHead className="w-[72px] text-center">#</TableHead>
                           <TableHead className="w-[140px] text-center">QUESTIONS</TableHead>
                           <TableHead className="w-[180px] text-center">ÉTAPE</TableHead>
+                          <TableHead className="w-[180px] text-center">STATS</TableHead>
                           <TableHead className="w-[160px] text-center">ACTION</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {section.quizzes.map((quiz, quizIndex) => {
-                          const isSelected = selectedQuizSlug === quiz.slug;
-
-                          return (
-                            <TableRow
-                              id={`quiz-${quiz.slug}`}
-                              key={quiz.id}
-                              data-state={isSelected ? 'selected' : undefined}
-                            >
-                              <TableCell className="text-center font-medium text-muted-foreground">
-                                #{quizIndex + 1}
-                              </TableCell>
-                              <TableCell className="text-center">
-                                <Badge variant="outline" className="w-fit">
-                                  {quiz.questionCount} question
-                                  {quiz.questionCount > 1 ? 's' : ''}
+                        {section.quizzes.map((quiz, quizIndex) => (
+                          <TableRow id={`quiz-${quiz.slug}`} key={quiz.id}>
+                            <TableCell className="text-center font-medium text-muted-foreground">
+                              #{quizIndex + 1}
+                            </TableCell>
+                            <TableCell className="text-center">
+                              <Badge variant="outline" className="w-fit">
+                                {quiz.questionCount} question
+                                {quiz.questionCount > 1 ? 's' : ''}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-center">
+                              {getTrainingQuizStageLabel(quiz.stage) ? (
+                                <Badge
+                                  variant="outline"
+                                  className={getTrainingQuizStageBadgeClassName(quiz.stage) ?? undefined}
+                                >
+                                  {getTrainingQuizStageLabel(quiz.stage)}
                                 </Badge>
-                              </TableCell>
-                              <TableCell className="text-center">
-                                {getTrainingQuizStageLabel(quiz.stage) ? (
-                                  <Badge
-                                    variant="outline"
-                                    className={getTrainingQuizStageBadgeClassName(quiz.stage) ?? undefined}
-                                  >
-                                    {getTrainingQuizStageLabel(quiz.stage)}
-                                  </Badge>
+                              ) : (
+                                <span className="text-sm text-muted-foreground">Non définie</span>
+                              )}
+                            </TableCell>
+                            <TableCell className="text-center">
+                              {effectiveUserId ? (
+                                quiz.progress && quiz.progress.attemptsCount > 0 ? (
+                                  <div className="flex flex-col items-center gap-1 text-sm">
+                                    <Badge variant="outline" className="w-fit">
+                                      {formatAttemptsLabel(quiz.progress.attemptsCount)}
+                                    </Badge>
+                                    <span className="text-muted-foreground">
+                                      {quiz.progress.successRate}% max
+                                    </span>
+                                  </div>
                                 ) : (
-                                  <span className="text-sm text-muted-foreground">Non définie</span>
-                                )}
-                              </TableCell>
-                              <TableCell className="text-center">
-                                <TrainingQuizActionButton
-                                  href={getQuizHref({
-                                    courseUnitId,
-                                    chapterSlug: chapter.slug,
-                                    quizSlug: quiz.slug,
-                                  })}
-                                />
-                              </TableCell>
-                            </TableRow>
-                          );
-                        })}
+                                  <span className="text-sm text-muted-foreground">
+                                    Aucune tentative
+                                  </span>
+                                )
+                              ) : (
+                                <span className="text-sm text-muted-foreground">
+                                  Non connecté
+                                </span>
+                              )}
+                            </TableCell>
+                            <TableCell className="text-center">
+                              <TrainingQuizActionButton
+                                href={getHealthChapterQuizHref({
+                                  courseUnitId,
+                                  chapterSlug: chapter.slug,
+                                  quizSlug: quiz.slug,
+                                })}
+                              />
+                            </TableCell>
+                          </TableRow>
+                        ))}
                       </TableBody>
                     </Table>
                   ) : (

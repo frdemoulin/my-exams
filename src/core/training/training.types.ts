@@ -4,6 +4,10 @@ import type {
   TrainingQuizStage,
 } from '@prisma/client';
 import type { QuizAnswerFormatValue } from '@/core/quiz/quiz-answer-format';
+import type {
+  TrainingChoiceContent,
+  TrainingQuantumBoxesChoice,
+} from './training-choice-content';
 
 export type TrainingPathStepStatus =
   | 'locked'
@@ -15,6 +19,7 @@ export type TrainingPathQuizProgress = {
   bestScore: number;
   totalQuestions: number;
   successRate: number;
+  attemptsCount: number;
   completedAt: string;
   validatedAt: string | null;
 };
@@ -78,7 +83,8 @@ export type TrainingQuestion = {
   difficulty: QuizDifficulty;
   answerFormat: QuizAnswerFormatValue;
   question: string;
-  choices: string[];
+  questionDiagram: TrainingQuantumBoxesChoice | null;
+  choices: TrainingChoiceContent[];
   correctChoiceIndexes: number[];
   explanation: string;
   order: number;

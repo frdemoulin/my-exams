@@ -938,6 +938,7 @@ model QuizQuestion {
   id                 String         @id @default(auto()) @map("_id") @db.ObjectId
   difficulty         QuizDifficulty
   question           String         @db.String
+  questionDiagram    Json?
   choices            Json
   answerFormat       QuizAnswerFormat? @default(SINGLE)
   correctChoiceIndexes Int[]        @default([])

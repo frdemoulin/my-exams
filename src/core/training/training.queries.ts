@@ -10,6 +10,10 @@ import {
   getChapterLevelLabel,
 } from '@/core/chapter/chapter.constants';
 import { reorderCatchAllChoices } from './training-choice-ordering';
+import {
+  normalizeTrainingChoiceContents,
+  normalizeTrainingQuantumBoxesChoice,
+} from './training-choice-content';
 import { sortTrainingQuizStages } from './training-stage';
 import type {
   TrainingChapterDetail,
@@ -45,11 +49,8 @@ export const toTrainingLevelSlug = (level: string) => slugifyText(level);
 export const getSciencePhysicsTrainingLevelPath = (level: string) =>
   `/entrainement/sciences-physiques/niveaux/${toTrainingLevelSlug(level)}`;
 
-const normalizeChoices = (choices: Prisma.JsonValue): string[] => {
-  if (!Array.isArray(choices)) return [];
-
-  return choices.filter((choice): choice is string => typeof choice === 'string');
-};
+const normalizeChoices = (choices: Prisma.JsonValue) =>
+  normalizeTrainingChoiceContents(choices);
 
 const getCanonicalTrainingLevelValue = (level: string) => {
   const normalized = level.trim().toLowerCase();
@@ -123,6 +124,7 @@ const toTrainingQuestion = (question: {
   difficulty: QuizDifficulty;
   answerFormat: 'SINGLE' | 'MULTIPLE' | null;
   question: string;
+  questionDiagram?: Prisma.JsonValue | null;
   choices: Prisma.JsonValue;
   correctChoiceIndexes: number[];
   correctChoiceIndex: number;
@@ -151,6 +153,9 @@ const toTrainingQuestion = (question: {
     difficulty: question.difficulty,
     answerFormat: resolveQuizAnswerFormat(question.answerFormat),
     question: question.question,
+    questionDiagram: normalizeTrainingQuantumBoxesChoice(
+      question.questionDiagram ?? null
+    ),
     choices: normalizedQuestionChoices.choices,
     correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
     explanation: question.explanation,
@@ -189,6 +194,7 @@ const toTrainingQuiz = (quiz: {
       difficulty: QuizDifficulty;
       answerFormat: 'SINGLE' | 'MULTIPLE' | null;
       question: string;
+      questionDiagram?: Prisma.JsonValue | null;
       choices: Prisma.JsonValue;
       correctChoiceIndexes: number[];
       correctChoiceIndex: number;
@@ -493,6 +499,7 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
                       difficulty: true,
                       answerFormat: true,
                       question: true,
+                      questionDiagram: true,
                       choices: true,
                       correctChoiceIndexes: true,
                       correctChoiceIndex: true,
@@ -525,6 +532,7 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
           difficulty: true,
           answerFormat: true,
           question: true,
+          questionDiagram: true,
           choices: true,
           correctChoiceIndexes: true,
           correctChoiceIndex: true,
@@ -641,6 +649,7 @@ export async function fetchSciencePhysicsTrainingPathProgressForChapter({
       userId,
     },
     select: {
+      attemptsCount: true,
       bestScore: true,
       lastAttemptAt: true,
       masteredAt: true,
@@ -676,6 +685,7 @@ export async function fetchSciencePhysicsTrainingPathProgressForChapter({
       progressEntries.map((entry) => [
         entry.quiz.slug,
         {
+          attemptsCount: entry.attemptsCount,
           bestScore: entry.bestScore,
           totalQuestions: entry.totalQuestions,
           successRate: entry.successRate,

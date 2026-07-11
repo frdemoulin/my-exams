@@ -5,6 +5,7 @@ import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { fetchSciencePhysicsTrainingPathProgressForChapter } from '@/core/training';
 
 type TrainingPathProgressPayload = {
+  attemptsCount?: number;
   chapterId?: string;
   chapterSlug?: string;
   quizId?: string;
@@ -46,6 +47,8 @@ export async function POST(request: Request) {
     typeof payload.chapterSlug === 'string' ? payload.chapterSlug : null;
   const quizId = typeof payload.quizId === 'string' ? payload.quizId : null;
   const score = typeof payload.score === 'number' ? payload.score : null;
+  const attemptsCount =
+    typeof payload.attemptsCount === 'number' ? payload.attemptsCount : 1;
   const targetScore =
     typeof payload.targetScore === 'number' ? payload.targetScore : null;
   const totalQuestions =
@@ -56,6 +59,7 @@ export async function POST(request: Request) {
     !chapterSlug ||
     !quizId ||
     score === null ||
+    attemptsCount < 1 ||
     targetScore === null ||
     totalQuestions === null ||
     totalQuestions < 0
@@ -92,6 +96,7 @@ export async function POST(request: Request) {
       },
     },
     select: {
+      attemptsCount: true,
       bestScore: true,
       masteredAt: true,
       successRate: true,
@@ -115,7 +120,7 @@ export async function POST(request: Request) {
     },
     update: {
       attemptsCount: {
-        increment: 1,
+        increment: attemptsCount,
       },
       bestScore,
       chapterId,
@@ -125,7 +130,7 @@ export async function POST(request: Request) {
       totalQuestions,
     },
     create: {
-      attemptsCount: 1,
+      attemptsCount,
       bestScore,
       chapterId,
       lastAttemptAt: now,
