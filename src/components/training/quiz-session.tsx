@@ -8,12 +8,21 @@ import {
   ChevronRight,
   ListChecks,
   Pencil,
+  RotateCcw,
   Target,
   XCircle,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import { areChoiceIndexSetsEqual } from '@/core/quiz/quiz-answer-format';
 import type { TrainingQuestion } from '@/core/training';
 import type { TrainingChoiceContent } from '@/core/training/training-choice-content';
@@ -66,6 +75,42 @@ type QuestionNavigationStatus =
   | 'unanswered';
 
 type QuizViewMode = 'taking' | 'summary' | 'review';
+
+const THEME_TABLE_PAGE_SIZE = 10;
+
+const buildPageList = (total: number, current: number): Array<number | '...'> => {
+  if (total <= 7) return Array.from({ length: total }, (_, index) => index);
+
+  const pages = new Set<number>();
+  pages.add(0);
+  pages.add(total - 1);
+  pages.add(current);
+  pages.add(current - 1);
+  pages.add(current + 1);
+  pages.add(current - 2);
+  pages.add(current + 2);
+
+  const sorted = Array.from(pages)
+    .filter((page) => page >= 0 && page < total)
+    .sort((left, right) => left - right);
+  const result: Array<number | '...'> = [];
+
+  for (let index = 0; index < sorted.length; index += 1) {
+    if (index === 0) {
+      result.push(sorted[index]);
+      continue;
+    }
+
+    if (sorted[index] - sorted[index - 1] === 1) {
+      result.push(sorted[index]);
+    } else {
+      result.push('...');
+      result.push(sorted[index]);
+    }
+  }
+
+  return result;
+};
 
 const questionNavigationStatusLabels: Record<QuestionNavigationStatus, string> = {
   current: 'Question en cours',
@@ -429,6 +474,7 @@ export function QuizSession({
     () => questions.map(() => false)
   );
   const [viewMode, setViewMode] = useState<QuizViewMode>('taking');
+  const [themePageIndex, setThemePageIndex] = useState(0);
 
   if (sessionQuestions.length === 0) {
     return (
@@ -526,6 +572,15 @@ export function QuizSession({
     incorrectItems: incorrectQuestions,
   });
   const summaryFeedback = getSummaryFeedback(score, sessionQuestions.length);
+  const themePageCount = Math.max(
+    1,
+    Math.ceil(themePerformanceItems.length / THEME_TABLE_PAGE_SIZE)
+  );
+  const safeThemePageIndex = Math.min(themePageIndex, themePageCount - 1);
+  const paginatedThemePerformanceItems = themePerformanceItems.slice(
+    safeThemePageIndex * THEME_TABLE_PAGE_SIZE,
+    (safeThemePageIndex + 1) * THEME_TABLE_PAGE_SIZE
+  );
   const effectiveSummaryFeedback = isPathMode
     ? hasReachedTarget
       ? {
@@ -619,6 +674,7 @@ export function QuizSession({
     setSelectedChoiceIndexesByQuestion(questions.map(() => []));
     setSubmittedAnswers(questions.map(() => false));
     setViewMode('taking');
+    setThemePageIndex(0);
   };
 
   const openSummary = () => {
@@ -643,28 +699,36 @@ export function QuizSession({
       <section className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6">
         <div className={cn('overflow-hidden rounded-2xl border', effectiveSummaryFeedback.toneClassName)}>
           <div className="space-y-5 p-5 md:p-6">
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-current/80">
-                  <Target className="h-4 w-4" />
-                  <p className="text-xs font-semibold uppercase tracking-wide">Bilan du QCM</p>
+            <div className="space-y-4">
+              <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-current/80">
+                    <Target className="h-4 w-4" />
+                    <p className="text-xs font-semibold uppercase tracking-wide">Bilan du QCM</p>
+                  </div>
+                  <h2 className="text-xl font-semibold text-heading">
+                    {effectiveSummaryFeedback.title}
+                  </h2>
                 </div>
-                <h2 className="text-xl font-semibold text-heading">
-                  {effectiveSummaryFeedback.title}
-                </h2>
-                <p className="text-sm leading-6 text-muted-foreground">
-                  {effectiveSummaryFeedback.message}
-                </p>
+                <div className="flex shrink-0 flex-wrap gap-2 self-start">
+                  <Button
+                    type="button"
+                    size="sm"
+                    onClick={openReview}
+                    className="shadow-sm"
+                  >
+                    <ListChecks className="h-4 w-4" />
+                    Voir la correction
+                  </Button>
+                  <Button type="button" variant="success" size="sm" onClick={resetQuiz}>
+                    <RotateCcw className="h-4 w-4" />
+                    Recommencer le QCM
+                  </Button>
+                </div>
               </div>
-              <Button
-                type="button"
-                size="sm"
-                onClick={openReview}
-                className="shrink-0 self-start shadow-sm"
-              >
-                <ListChecks className="h-4 w-4" />
-                Revoir les questions et les corrections
-              </Button>
+              <p className="text-sm leading-6 text-muted-foreground">
+                {effectiveSummaryFeedback.message}
+              </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -790,72 +854,166 @@ export function QuizSession({
             </div>
           </div>
 
-          <div className="mt-5 grid gap-3 lg:grid-cols-2">
-            {themePerformanceItems.map((item) => {
-              const isValidated = item.incorrect === 0;
-              const isPartiallyValidated = item.correct > 0 && item.incorrect > 0;
-              const statusLabel = isValidated
-                ? 'Notion validée'
-                : isPartiallyValidated
-                  ? 'À consolider'
-                  : 'À reprendre';
+          <div className="mt-5">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Notion</TableHead>
+                  <TableHead className="w-[150px] text-center">Statut</TableHead>
+                  <TableHead className="w-[110px] text-center">Score</TableHead>
+                  <TableHead className="min-w-[280px]">Questions</TableHead>
+                  <TableHead className="w-[120px] text-center">Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {paginatedThemePerformanceItems.map((item) => {
+                  const isValidated = item.incorrect === 0;
+                  const isPartiallyValidated = item.correct > 0 && item.incorrect > 0;
+                  const statusLabel = isValidated
+                    ? 'Notion validée'
+                    : isPartiallyValidated
+                      ? 'À consolider'
+                      : 'À reprendre';
 
-              return (
-                <div
-                  key={item.label}
-                  className={cn(
-                    'rounded-xl border p-4',
-                    isValidated
-                      ? 'border-emerald-200 bg-emerald-50/60 dark:border-emerald-900 dark:bg-emerald-950/20'
-                      : isPartiallyValidated
-                        ? 'border-amber-200 bg-amber-50/60 dark:border-amber-900 dark:bg-amber-950/20'
-                        : 'border-rose-200 bg-rose-50/60 dark:border-rose-900 dark:bg-rose-950/20'
-                  )}
-                >
-                  <div className="flex flex-wrap items-start justify-between gap-2">
-                    <p className="font-semibold text-heading">{item.label}</p>
-                    <Badge variant="outline">
-                      {item.correct}/{item.total} · {statusLabel}
-                    </Badge>
-                  </div>
-                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-background">
-                    <div
+                  return (
+                    <TableRow
+                      key={item.label}
                       className={cn(
-                        'h-full rounded-full',
-                        getSummaryProgressBarClassName(item.successRate)
+                        isValidated
+                          ? 'bg-emerald-50/40 dark:bg-emerald-950/10'
+                          : isPartiallyValidated
+                            ? 'bg-amber-50/40 dark:bg-amber-950/10'
+                            : 'bg-rose-50/40 dark:bg-rose-950/10'
                       )}
-                      style={{ width: `${item.successRate}%` }}
-                    />
-                  </div>
-                  <div className="mt-3 space-y-1 text-xs text-muted-foreground">
-                    {item.correctQuestionNumbers.length > 0 ? (
-                      <p>
-                        Réussie{item.correctQuestionNumbers.length > 1 ? 's' : ''} : question{item.correctQuestionNumbers.length > 1 ? 's' : ''} {item.correctQuestionNumbers.join(', ')}.
-                      </p>
-                    ) : null}
-                    {item.incorrectQuestionNumbers.length > 0 ? (
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <p>
-                          À revoir : question{item.incorrectQuestionNumbers.length > 1 ? 's' : ''} {item.incorrectQuestionNumbers.join(', ')}.
-                        </p>
-                        <Button
-                          type="button"
+                    >
+                      <TableCell className="font-semibold text-heading">
+                        {item.label}
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <Badge
                           variant="outline"
-                          size="xs"
-                          onClick={() => {
-                            setCurrentIndex(item.incorrectQuestionNumbers[0] - 1);
-                            setViewMode('review');
-                          }}
+                          className={cn(
+                            isValidated
+                              ? 'border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-200'
+                              : isPartiallyValidated
+                                ? 'border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200'
+                                : 'border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/30 dark:text-rose-200'
+                          )}
                         >
-                          <ListChecks className="h-3.5 w-3.5" />
-                          Revoir
-                        </Button>
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
-              );
-            })}
+                          {statusLabel}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <div className="space-y-2">
+                          <div className="text-sm font-medium text-heading">
+                            {item.correct}/{item.total}
+                          </div>
+                          <div className="h-2 overflow-hidden rounded-full bg-background">
+                            <div
+                              className={cn(
+                                'h-full rounded-full',
+                                getSummaryProgressBarClassName(item.successRate)
+                              )}
+                              style={{ width: `${item.successRate}%` }}
+                            />
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-sm text-muted-foreground">
+                        <div className="space-y-1">
+                          {item.correctQuestionNumbers.length > 0 ? (
+                            <p>
+                              Réussie{item.correctQuestionNumbers.length > 1 ? 's' : ''} : question{item.correctQuestionNumbers.length > 1 ? 's' : ''} {item.correctQuestionNumbers.join(', ')}.
+                            </p>
+                          ) : null}
+                          {item.incorrectQuestionNumbers.length > 0 ? (
+                            <p>
+                              À revoir : question{item.incorrectQuestionNumbers.length > 1 ? 's' : ''} {item.incorrectQuestionNumbers.join(', ')}.
+                            </p>
+                          ) : null}
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        {item.incorrectQuestionNumbers.length > 0 ? (
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="xs"
+                            onClick={() => {
+                              setCurrentIndex(item.incorrectQuestionNumbers[0] - 1);
+                              setViewMode('review');
+                            }}
+                          >
+                            <ListChecks className="h-3.5 w-3.5" />
+                            Revoir
+                          </Button>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">-</span>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+
+            <div className="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="text-sm text-muted-foreground">
+                {themePerformanceItems.length} notion
+                {themePerformanceItems.length > 1 ? 's' : ''} · Page {safeThemePageIndex + 1} / {themePageCount}
+              </div>
+              <nav aria-label="Pagination des notions">
+                <ul className="flex -space-x-px text-sm">
+                  <li>
+                    <button
+                      type="button"
+                      className="flex h-9 items-center justify-center rounded-s-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-medium text-body transition-colors hover:bg-neutral-tertiary-medium hover:text-heading disabled:cursor-not-allowed disabled:opacity-50"
+                      onClick={() => setThemePageIndex((page) => Math.max(0, page - 1))}
+                      disabled={safeThemePageIndex === 0}
+                    >
+                      Précédent
+                    </button>
+                  </li>
+                  {buildPageList(themePageCount, safeThemePageIndex).map((page, index) =>
+                    page === '...' ? (
+                      <li key={`theme-page-ellipsis-${index}`}>
+                        <span className="flex h-9 w-9 cursor-default items-center justify-center border border-default-medium bg-neutral-secondary-medium text-muted-foreground">
+                          …
+                        </span>
+                      </li>
+                    ) : (
+                      <li key={page}>
+                        <button
+                          type="button"
+                          className={cn(
+                            'flex h-9 w-9 items-center justify-center border border-default-medium bg-neutral-secondary-medium text-sm font-medium text-body transition-colors hover:bg-neutral-tertiary-medium hover:text-heading',
+                            page === safeThemePageIndex
+                              ? 'border-default-medium bg-neutral-tertiary-medium text-fg-brand hover:text-fg-brand'
+                              : null
+                          )}
+                          onClick={() => setThemePageIndex(page)}
+                          aria-current={page === safeThemePageIndex ? 'page' : undefined}
+                        >
+                          {page + 1}
+                        </button>
+                      </li>
+                    )
+                  )}
+                  <li>
+                    <button
+                      type="button"
+                      className="flex h-9 items-center justify-center rounded-e-base border border-default-medium bg-neutral-secondary-medium px-3 text-sm font-medium text-body transition-colors hover:bg-neutral-tertiary-medium hover:text-heading disabled:cursor-not-allowed disabled:opacity-50"
+                      onClick={() =>
+                        setThemePageIndex((page) => Math.min(themePageCount - 1, page + 1))
+                      }
+                      disabled={safeThemePageIndex >= themePageCount - 1}
+                    >
+                      Suivant
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
 
@@ -868,7 +1026,7 @@ export function QuizSession({
                 .map((item, index) => (
                   <li key={item.label}>
                     <span className="font-semibold text-heading">{index + 1}. {item.label}</span>
-                    {' '}– reprendre la correction des questions {item.incorrectQuestionNumbers.join(', ')}.
+                    {' '}– reprendre la correction de la question{item.incorrectQuestionNumbers.length > 1 ? 's' : ''} {item.incorrectQuestionNumbers.join(', ')}.
                   </li>
                 ))}
             </ol>
@@ -876,9 +1034,6 @@ export function QuizSession({
         ) : null}
 
         <div className="flex flex-wrap gap-2">
-          <Button type="button" variant="secondary" size="sm" onClick={resetQuiz}>
-            {isPathMode ? 'Recommencer ce QCM' : 'Recommencer'}
-          </Button>
           {isPathMode && pathContext?.nextQuizHref && hasReachedTarget ? (
             <Button asChild size="sm">
               <Link href={pathContext.nextQuizHref}>Continuer le parcours</Link>

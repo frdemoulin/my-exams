@@ -199,7 +199,7 @@ export default async function HealthChapterDetailPage({
                         {section.quizzes.map((quiz, quizIndex) => (
                           <TableRow id={`quiz-${quiz.slug}`} key={quiz.id}>
                             <TableCell className="text-center font-medium text-muted-foreground">
-                              #{quizIndex + 1}
+                              {quizIndex + 1}
                             </TableCell>
                             <TableCell className="text-center">
                               <Badge variant="outline" className="w-fit">

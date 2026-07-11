@@ -116,7 +116,7 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
             { label: courseUnitLabel, href: courseUnitHref },
             { label: teachingElementBreadcrumbLabel },
             { label: chapter.title, href: chapterHref },
-            { label: `QCM #${selectedQuizNumber}` },
+            { label: `QCM ${selectedQuizNumber}` },
           ]}
         />
 
@@ -133,7 +133,7 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
               <div className="space-y-3">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div className="space-y-1">
-                    <CardTitle className="text-xl text-heading">QCM #{selectedQuizNumber}</CardTitle>
+                    <CardTitle className="text-xl text-heading">QCM {selectedQuizNumber}</CardTitle>
                     <p className="text-sm text-muted-foreground">{chapter.title}</p>
                   </div>
                   <div className="flex flex-wrap items-start gap-2 sm:justify-end">

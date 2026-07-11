@@ -39,6 +39,7 @@ Pour les seeds de QCM santé, respecter la convention suivante :
 - dans les notations de couches électroniques affichées à l’utilisateur, écrire les noms de couches en lettres droites via `\mathrm{...}` : `\mathrm{K}`, `\mathrm{L}`, `\mathrm{M}`, `\mathrm{N}`
 - dans les configurations électroniques et les notations de sous-couches affichées à l’utilisateur, écrire les lettres de sous-couche en lettres droites via `\mathrm{...}` : `1\mathrm{s}^2`, `2\mathrm{p}^6`, `3\mathrm{d}^5`, `4\mathrm{f}`
 - dans les notations de nombres quantiques affichées à l’utilisateur, écrire le nombre quantique secondaire avec la commande `\ell`, et les autres en lettres droites : `\mathrm{n}`, `\ell`, `\mathrm{m}`, `\mathrm{s}`, `\mathrm{m}_{\ell}`, `\mathrm{m}_{\mathrm{s}}`
+- dans les notations atomistiques affichées à l’utilisateur, écrire `\mathrm{X}`, `\mathrm{A}`, `\mathrm{Z}` et `\mathrm{N}` en lettres droites : `^{\mathrm{A}}_{\mathrm{Z}}\mathrm{X}`, `\mathrm{A} = \mathrm{Z} + \mathrm{N}`
 
 ---
 
