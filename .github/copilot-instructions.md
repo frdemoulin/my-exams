@@ -20,6 +20,7 @@
 - Dans les notations de couches électroniques affichées à l'utilisateur, écrire les noms de couches en lettres droites via `\mathrm{...}` : `\mathrm{K}`, `\mathrm{L}`, `\mathrm{M}`, `\mathrm{N}`.
 - Dans les configurations électroniques et les notations de sous-couches affichées à l'utilisateur, écrire les lettres de sous-couche en lettres droites via `\mathrm{...}` : `1\mathrm{s}^2`, `2\mathrm{p}^6`, `3\mathrm{d}^5`, `4\mathrm{f}`.
 - Dans les notations de nombres quantiques affichées à l'utilisateur, écrire le nombre quantique secondaire avec la commande `\ell`, et les autres en lettres droites : `\mathrm{n}`, `\ell`, `\mathrm{m}`, `\mathrm{s}`, `\mathrm{m}_{\ell}`, `\mathrm{m}_{\mathrm{s}}`.
+- Dans les notations atomistiques affichées à l'utilisateur, écrire `\mathrm{X}`, `\mathrm{A}`, `\mathrm{Z}` et `\mathrm{N}` en lettres droites : `^{\mathrm{A}}_{\mathrm{Z}}\mathrm{X}`, `\mathrm{A} = \mathrm{Z} + \mathrm{N}`.
 - Pour synchroniser uniquement les QCMs d'entrainement de la dev vers la prod, utiliser le script cible `npm run db:sync-training-qcms-to-prod`.
 - Commencer par `npm run db:sync-training-qcms-to-prod -- --dry-run` pour verifier les mappings et le perimetre sans ecriture.
 - Pour executer la synchronisation apres demande explicite de l'utilisateur, lancer `npm run db:sync-training-qcms-to-prod -- --yes`.

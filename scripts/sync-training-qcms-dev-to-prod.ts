@@ -289,6 +289,20 @@ function buildThemeRefFromTheme(
   };
 }
 
+function hasAtLeastOneDomain(
+  theme: {
+    domains: Array<{
+      longDescription: string;
+      subject: {
+        longDescription: string;
+        shortDescription: string;
+      };
+    }>;
+  }
+) {
+  return theme.domains.length > 0;
+}
+
 function mergeStats(target: SyncStats, source: SyncStats) {
   target.chaptersCreated += source.chaptersCreated;
   target.chaptersUpdated += source.chaptersUpdated;
@@ -308,6 +322,26 @@ function mergeStats(target: SyncStats, source: SyncStats) {
   target.questionLinksUpdated += source.questionLinksUpdated;
   target.questionLinksDeleted += source.questionLinksDeleted;
   target.progressEntriesDeleted += source.progressEntriesDeleted;
+}
+
+function dedupeThemeRefs(themeRefs: ThemeRef[]) {
+  const result = new Map<string, ThemeRef>();
+
+  for (const themeRef of themeRefs) {
+    result.set(buildThemeKey(themeRef), themeRef);
+  }
+
+  return [...result.values()];
+}
+
+function collectThemeRefsFromChapters(chapters: ExportChapter[]) {
+  return dedupeThemeRefs(
+    chapters.flatMap((chapter) => [
+      ...chapter.themeRefs,
+      ...chapter.questions.flatMap((question) => question.themeRefs),
+      ...chapter.sections.flatMap((section) => section.themeRefs),
+    ])
+  );
 }
 
 function isRetryableTransactionError(error: unknown) {
@@ -387,8 +421,118 @@ async function exportFromDev(
   prisma: PrismaClient,
   chapterSlugs: string[]
 ): Promise<ExportChapter[]> {
-  const [domains, themes, chapters] = await Promise.all([
+  const chapters = await prisma.chapter.findMany({
+    where: {
+      ...(chapterSlugs.length > 0 ? { slug: { in: chapterSlugs } } : {}),
+    },
+    select: {
+      title: true,
+      slug: true,
+      level: true,
+      order: true,
+      isActive: true,
+      isPublished: true,
+      domainIds: true,
+      themeIds: true,
+      subject: {
+        select: {
+          longDescription: true,
+          shortDescription: true,
+        },
+      },
+      quizQuestions: {
+        orderBy: {
+          order: "asc",
+        },
+        select: {
+          order: true,
+          difficulty: true,
+          question: true,
+          choices: true,
+          correctChoiceIndex: true,
+          explanation: true,
+          isPublished: true,
+          themeIds: true,
+        },
+      },
+      sections: {
+        orderBy: {
+          order: "asc",
+        },
+        select: {
+          order: true,
+          title: true,
+          description: true,
+          kind: true,
+          isPublished: true,
+          themeIds: true,
+          quizzes: {
+            orderBy: {
+              order: "asc",
+            },
+            select: {
+              order: true,
+              slug: true,
+              title: true,
+              description: true,
+              stage: true,
+              isPublished: true,
+              questionGroups: {
+                orderBy: {
+                  order: "asc",
+                },
+                select: {
+                  order: true,
+                  title: true,
+                  sharedStatement: true,
+                },
+              },
+              questionLinks: {
+                orderBy: {
+                  order: "asc",
+                },
+                select: {
+                  order: true,
+                  question: {
+                    select: {
+                      order: true,
+                    },
+                  },
+                  group: {
+                    select: {
+                      order: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const relevantDomainIds = Array.from(
+    new Set(
+      chapters.flatMap((chapter) => chapter.domainIds)
+    )
+  );
+
+  const relevantThemeIds = Array.from(
+    new Set(
+      chapters.flatMap((chapter) => [
+        ...chapter.themeIds,
+        ...chapter.sections.flatMap((section) => section.themeIds),
+        ...chapter.quizQuestions.flatMap((question) => question.themeIds),
+      ])
+    )
+  );
+
+  const [domains, themes] = await Promise.all([
     prisma.domain.findMany({
+      where: {
+        ...(relevantDomainIds.length > 0 ? { id: { in: relevantDomainIds } } : {}),
+      },
       select: {
         id: true,
         longDescription: true,
@@ -401,6 +545,9 @@ async function exportFromDev(
       },
     }),
     prisma.theme.findMany({
+      where: {
+        ...(relevantThemeIds.length > 0 ? { id: { in: relevantThemeIds } } : {}),
+      },
       select: {
         id: true,
         title: true,
@@ -412,96 +559,6 @@ async function exportFromDev(
               select: {
                 longDescription: true,
                 shortDescription: true,
-              },
-            },
-          },
-        },
-      },
-    }),
-    prisma.chapter.findMany({
-      where: {
-        ...(chapterSlugs.length > 0 ? { slug: { in: chapterSlugs } } : {}),
-      },
-      select: {
-        title: true,
-        slug: true,
-        level: true,
-        order: true,
-        isActive: true,
-        isPublished: true,
-        domainIds: true,
-        themeIds: true,
-        subject: {
-          select: {
-            longDescription: true,
-            shortDescription: true,
-          },
-        },
-        quizQuestions: {
-          orderBy: {
-            order: "asc",
-          },
-          select: {
-            order: true,
-            difficulty: true,
-            question: true,
-            choices: true,
-            correctChoiceIndex: true,
-            explanation: true,
-            isPublished: true,
-            themeIds: true,
-          },
-        },
-        sections: {
-          orderBy: {
-            order: "asc",
-          },
-          select: {
-            order: true,
-            title: true,
-            description: true,
-            kind: true,
-            isPublished: true,
-            themeIds: true,
-            quizzes: {
-              orderBy: {
-                order: "asc",
-              },
-              select: {
-                order: true,
-                slug: true,
-                title: true,
-                description: true,
-                stage: true,
-                isPublished: true,
-                questionGroups: {
-                  orderBy: {
-                    order: "asc",
-                  },
-                  select: {
-                    order: true,
-                    title: true,
-                    sharedStatement: true,
-                  },
-                },
-                questionLinks: {
-                  orderBy: {
-                    order: "asc",
-                  },
-                  select: {
-                    order: true,
-                    question: {
-                      select: {
-                        order: true,
-                      },
-                    },
-                    group: {
-                      select: {
-                        order: true,
-                      },
-                    },
-                  },
-                },
               },
             },
           },
@@ -678,12 +735,61 @@ async function loadProdReferenceMaps(
       "domain"
     ),
     themeIdByKey: createUniqueStringMap(
-      themes,
+      themes.filter(hasAtLeastOneDomain),
       (theme) => buildThemeKey(buildThemeRefFromTheme(theme, `prod theme ${theme.id}`)),
       (theme) => theme.id,
       "theme"
     ),
   };
+}
+
+async function ensureProdThemeMappings(
+  prisma: PrismaClient,
+  refs: ProdReferenceMaps,
+  themeRefs: ThemeRef[],
+  dryRun: boolean
+) {
+  let createdCount = 0;
+
+  for (const themeRef of themeRefs) {
+    const themeKey = buildThemeKey(themeRef);
+
+    if (refs.themeIdByKey.has(themeKey)) {
+      continue;
+    }
+
+    const prodDomainIds = resolveDomainIds(
+      themeRef.domainLongDescriptions.map((longDescription) => ({
+        longDescription,
+        subjectLongDescription: themeRef.subjectLongDescription,
+        subjectShortDescription: themeRef.subjectShortDescription,
+      })),
+      refs,
+      `theme ${themeRef.title}`
+    );
+
+    if (dryRun) {
+      refs.themeIdByKey.set(themeKey, `dry-run-theme-${createdCount + 1}`);
+      createdCount += 1;
+      continue;
+    }
+
+    const createdTheme = await prisma.theme.create({
+      data: {
+        title: themeRef.title,
+        shortTitle: themeRef.shortTitle,
+        domainIds: prodDomainIds,
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    refs.themeIdByKey.set(themeKey, createdTheme.id);
+    createdCount += 1;
+  }
+
+  return createdCount;
 }
 
 function resolveSubjectId(chapter: ExportChapter, refs: ProdReferenceMaps) {
@@ -1014,11 +1120,7 @@ async function syncChapterToProd(
             const existingGroupByOrder = new Map(
               existingGroups.map((group) => [group.order, group])
             );
-            const existingLinkByQuestionId = new Map(
-              existingLinks.map((link) => [link.questionId, link])
-            );
             const keptGroupIds = new Set<string>();
-            const keptLinkIds = new Set<string>();
             const groupIdByOrder = new Map<number, string>();
 
             for (const questionGroup of quiz.questionGroups) {
@@ -1058,6 +1160,15 @@ async function syncChapterToProd(
               }
             }
 
+            if (existingLinks.length > 0) {
+              await transaction.trainingQuizQuestion.deleteMany({
+                where: {
+                  quizId: prodQuiz.id,
+                },
+              });
+              chapterStats.questionLinksDeleted += existingLinks.length;
+            }
+
             for (const questionLink of quiz.questionLinks) {
               const questionId = questionIdByOrder.get(questionLink.questionOrder);
               if (!questionId) {
@@ -1075,51 +1186,15 @@ async function syncChapterToProd(
                       `Missing prod question group for ${chapter.slug}/${quiz.slug} group order ${questionLink.groupOrder}.`
                     );
 
-              const existingLink = existingLinkByQuestionId.get(questionId);
-              if (existingLink) {
-                await transaction.trainingQuizQuestion.update({
-                  where: {
-                    id: existingLink.id,
-                  },
-                  data: {
-                    order: questionLink.order,
-                    groupId,
-                  },
-                });
-                keptLinkIds.add(existingLink.id);
-                chapterStats.questionLinksUpdated += 1;
-                continue;
-              }
-
-              const createdLink = await transaction.trainingQuizQuestion.create({
+              await transaction.trainingQuizQuestion.create({
                 data: {
                   quizId: prodQuiz.id,
                   questionId,
                   groupId,
                   order: questionLink.order,
                 },
-                select: {
-                  id: true,
-                },
               });
-
-              keptLinkIds.add(createdLink.id);
               chapterStats.questionLinksCreated += 1;
-            }
-
-            const staleLinkIds = existingLinks
-              .filter((link) => !keptLinkIds.has(link.id))
-              .map((link) => link.id);
-
-            if (staleLinkIds.length > 0) {
-              await transaction.trainingQuizQuestion.deleteMany({
-                where: {
-                  id: {
-                    in: staleLinkIds,
-                  },
-                },
-              });
-              chapterStats.questionLinksDeleted += staleLinkIds.length;
             }
 
             const staleGroupIds = existingGroups
@@ -1276,6 +1351,20 @@ async function main() {
     );
 
     const prodRefs = await loadProdReferenceMaps(prodPrisma);
+    const createdOrPreparedThemes = await ensureProdThemeMappings(
+      prodPrisma,
+      prodRefs,
+      collectThemeRefsFromChapters(chapters),
+      options.dryRun
+    );
+
+    if (createdOrPreparedThemes > 0) {
+      console.log(
+        options.dryRun
+          ? `Dry-run: ${createdOrPreparedThemes} theme(s) missing in prod could be created automatically.`
+          : `${createdOrPreparedThemes} theme(s) created in prod before QCM sync.`
+      );
+    }
 
     for (const chapter of chapters) {
       resolveSubjectId(chapter, prodRefs);

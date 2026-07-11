@@ -144,23 +144,23 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation:
-      `Le noyau contient protons et neutrons. Dans un atome, $Z$ électrons compensent $Z$ protons. Le nuage électronique est de l'ordre de $10^{-10}\\,\\mathrm{m}$, pas $10^{-15}\\,\\mathrm{m}$.`,
+      `Le noyau contient protons et neutrons. Dans un atome, $\\mathrm{Z}$ électrons compensent $\\mathrm{Z}$ protons. Le nuage électronique est de l'ordre de $10^{-10}\\,\\mathrm{m}$, pas $10^{-15}\\,\\mathrm{m}$.`,
   },
   {
     order: 2,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
     question:
-      `À propos du numéro atomique $Z$ et du nombre de masse $A$ :`,
+      `À propos du numéro atomique $\\mathrm{Z}$ et du nombre de masse $\\mathrm{A}$ :`,
     choices: [
-      `$Z$ correspond au nombre de protons du noyau.`,
-      `$A$ est égal à $Z + N$.`,
-      `Deux éléments chimiques différents peuvent avoir le même $Z$.`,
-      `Un nucléide est caractérisé par $Z$ protons et $N$ neutrons.`,
+      `$\\mathrm{Z}$ correspond au nombre de protons du noyau.`,
+      `$\\mathrm{A}$ est égal à $\\mathrm{Z} + \\mathrm{N}$.`,
+      `Deux éléments chimiques différents peuvent avoir le même $\\mathrm{Z}$.`,
+      `Un nucléide est caractérisé par $\\mathrm{Z}$ protons et $\\mathrm{N}$ neutrons.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation:
-      `$Z$ définit l'élément chimique. Le nombre de masse vaut $A = Z + N$. Deux éléments différents ne peuvent pas partager le même numéro atomique.`,
+      `$\\mathrm{Z}$ définit l'élément chimique. Le nombre de masse vaut $\\mathrm{A} = \\mathrm{Z} + \\mathrm{N}$. Deux éléments différents ne peuvent pas partager le même numéro atomique.`,
   },
   {
     order: 3,
@@ -175,7 +175,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 2, 3],
     explanation:
-      `Des isotopes ont le même $Z$, donc le même cortège électronique pour l'atome. Ils se distinguent par $N$, donc par $A$.`,
+      `Des isotopes ont le même $\\mathrm{Z}$, donc le même cortège électronique pour l'atome. Ils se distinguent par $\\mathrm{N}$, donc par $\\mathrm{A}$.`,
   },
   {
     order: 4,
@@ -291,16 +291,16 @@ const questions: SeedQuestion[] = [
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
     question:
-      `À propos du nucléide noté $^A_ZX$ :`,
+      `À propos du nucléide noté $^{\\mathrm{A}}_{\\mathrm{Z}}\\mathrm{X}$ :`,
     choices: [
-      `$A$ est le nombre de masse et $Z$ le numéro atomique.`,
-      `Écrire $^Z_AX$ revient au même : on a seulement changé la mise en page.`,
-      `Un nucléide est défini par son noyau, donc par $Z$ protons et $N = A - Z$ neutrons.`,
-      `Le symbole $X$ seul suffit à définir complètement un nucléide.`,
+      `$\\mathrm{A}$ est le nombre de masse et $\\mathrm{Z}$ le numéro atomique.`,
+      `Écrire $^{\\mathrm{Z}}_{\\mathrm{A}}\\mathrm{X}$ revient au même : on a seulement changé la mise en page.`,
+      `Un nucléide est défini par son noyau, donc par $\\mathrm{Z}$ protons et $\\mathrm{N} = \\mathrm{A} - \\mathrm{Z}$ neutrons.`,
+      `Le symbole $\\mathrm{X}$ seul suffit à définir complètement un nucléide.`,
     ],
     correctChoiceIndexes: [0, 2],
     explanation:
-      `Un nucléide est défini par la composition de son noyau. Dans $^A_ZX$, $A$ compte les nucléons et $Z$ les protons ; inverser $A$ et $Z$ change donc le sens physique de l'écriture.`,
+      `Un nucléide est défini par la composition de son noyau. Dans $^{\\mathrm{A}}_{\\mathrm{Z}}\\mathrm{X}$, $\\mathrm{A}$ compte les nucléons et $\\mathrm{Z}$ les protons ; inverser $\\mathrm{A}$ et $\\mathrm{Z}$ change donc le sens physique de l'écriture.`,
   },
   {
     order: 12,
@@ -315,7 +315,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 2],
     explanation:
-      `Pour $^{23}_{11}\\mathrm{Na}$, on lit $Z = 11$ et $A = 23$. L'atome possède donc 11 protons, 11 électrons et $A - Z = 12$ neutrons, soit 23 nucléons au total.`,
+      `Pour $^{23}_{11}\\mathrm{Na}$, on lit $\\mathrm{Z} = 11$ et $\\mathrm{A} = 23$. L'atome possède donc 11 protons, 11 électrons et $\\mathrm{A} - \\mathrm{Z} = 12$ neutrons, soit 23 nucléons au total.`,
   },
   {
     order: 13,
@@ -324,14 +324,14 @@ const questions: SeedQuestion[] = [
     question:
       `À propos des termes atome, élément chimique, nucléide et isotope :`,
     choices: [
-      `L'élément chimique carbone est défini par $Z = 6$.`,
+      `L'élément chimique carbone est défini par $\\mathrm{Z} = 6$.`,
       `Le nucléide $^{14}_{6}\\mathrm{C}$ et l'atome $^{14}_{6}\\mathrm{C}$ désignent exactement la même réalité.`,
       `Les nucléides $^{12}_{6}\\mathrm{C}$ et $^{14}_{6}\\mathrm{C}$ sont deux isotopes d'un même élément chimique.`,
       `Deux isotopes d'un même élément chimique ont nécessairement le même nombre de neutrons.`,
     ],
     correctChoiceIndexes: [0, 2],
     explanation:
-      `Un élément chimique est défini par son numéro atomique $Z$. Un nucléide décrit le noyau, alors qu'un atome ajoute le cortège électronique. Deux isotopes d'un même élément ont le même $Z$ mais des nombres de neutrons, donc des nombres de masse $A$, différents.`,
+      `Un élément chimique est défini par son numéro atomique $\\mathrm{Z}$. Un nucléide décrit le noyau, alors qu'un atome ajoute le cortège électronique. Deux isotopes d'un même élément ont le même $\\mathrm{Z}$ mais des nombres de neutrons, donc des nombres de masse $\\mathrm{A}$, différents.`,
   },
   {
     order: 14,
@@ -346,7 +346,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [2],
     explanation:
-      `Des isotopes appartiennent au même élément chimique : ils ont le même $Z$ et, pour des atomes, le même cortège électronique. Leurs propriétés chimiques sont donc voisines. En revanche, ils n'ont pas le même nombre de neutrons, donc pas la même masse, ce qui modifie leurs propriétés physiques.`,
+      `Des isotopes appartiennent au même élément chimique : ils ont le même $\\mathrm{Z}$ et, pour des atomes, le même cortège électronique. Leurs propriétés chimiques sont donc voisines. En revanche, ils n'ont pas le même nombre de neutrons, donc pas la même masse, ce qui modifie leurs propriétés physiques.`,
   },
   {
     order: 15,
@@ -392,7 +392,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [3],
     explanation:
-      `Dans $^A_ZX$, $A$ est le nombre de nucléons et $Z$ le nombre de protons. Ici, $A = 1$ et $Z = 3$ : on demanderait 3 protons pour seulement 1 nucléon, ce qui est impossible.`,
+      `Dans $^{\\mathrm{A}}_{\\mathrm{Z}}\\mathrm{X}$, $\\mathrm{A}$ est le nombre de nucléons et $\\mathrm{Z}$ le nombre de protons. Ici, $\\mathrm{A} = 1$ et $\\mathrm{Z} = 3$ : on demanderait 3 protons pour seulement 1 nucléon, ce qui est impossible.`,
   },
   {
     order: 18,
@@ -432,12 +432,12 @@ const questions: SeedQuestion[] = [
     choices: [
       `Le nucléide $^{222}_{86}\\mathrm{Rn}$ est composé de 86 protons, 136 neutrons et 86 électrons.`,
       `Les isotopes d'un élément chimique ont tous le même numéro atomique.`,
-      `Tous les nucléides d'un même élément chimique ont les mêmes valeurs du couple de nombres $A$ et $Z$.`,
+      `Tous les nucléides d'un même élément chimique ont les mêmes valeurs du couple de nombres $\\mathrm{A}$ et $\\mathrm{Z}$.`,
       `Les nucléides $^{73}_{38}\\mathrm{Sr}$ et $^{97}_{38}\\mathrm{Sr}$ ont des masses différentes.`,
     ],
     correctChoiceIndexes: [1, 3],
     explanation:
-      `Un nucléide est défini par son noyau : $^{222}_{86}\\mathrm{Rn}$ possède 86 protons et $222 - 86 = 136$ neutrons, mais les électrons relèvent de l'atome ou de l'ion. Des isotopes ont le même $Z$ et des nombres de masse $A$ différents, donc des masses différentes.`,
+      `Un nucléide est défini par son noyau : $^{222}_{86}\\mathrm{Rn}$ possède 86 protons et $222 - 86 = 136$ neutrons, mais les électrons relèvent de l'atome ou de l'ion. Des isotopes ont le même $\\mathrm{Z}$ et des nombres de masse $\\mathrm{A}$ différents, donc des masses différentes.`,
   },
   {
     order: 21,
@@ -445,14 +445,14 @@ const questions: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `À propos des éléments naturels et artificiels :`,
     choices: [
-      `Dans ce cours, les éléments naturels ont un numéro atomique $Z \\leq 92$.`,
-      `L'uranium, de numéro atomique $Z = 92$, est présenté comme la limite des éléments naturels.`,
-      `Les éléments de numéro atomique $Z > 92$ sont appelés transuraniens et sont artificiels.`,
+      `Dans ce cours, les éléments naturels ont un numéro atomique $\\mathrm{Z} \\leq 92$.`,
+      `L'uranium, de numéro atomique $\\mathrm{Z} = 92$, est présenté comme la limite des éléments naturels.`,
+      `Les éléments de numéro atomique $\\mathrm{Z} > 92$ sont appelés transuraniens et sont artificiels.`,
       `Un élément naturel est nécessairement stable : il ne peut pas être radioactif.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `Le cours retient les éléments naturels jusqu'à l'uranium, donc $Z \\leq 92$. Les éléments au-delà de l'uranium sont transuraniens, issus de réactions nucléaires, artificiels et instables. Naturel ne signifie pas forcément parfaitement stable : le cours mentionne aussi des durées de vie très longues.`,
+      `Le cours retient les éléments naturels jusqu'à l'uranium, donc $\\mathrm{Z} \\leq 92$. Les éléments au-delà de l'uranium sont transuraniens, issus de réactions nucléaires, artificiels et instables. Naturel ne signifie pas forcément parfaitement stable : le cours mentionne aussi des durées de vie très longues.`,
   },
   {
     order: 22,
@@ -527,7 +527,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation:
-      `Pour $^{27}_{13}\\mathrm{Al}^{3+}$, on lit $Z = 13$ et $A = 27$. Le noyau contient donc 13 protons et $27 - 13 = 14$ neutrons, soit 27 nucléons. Comme l'ion est chargé $3+$, il a perdu 3 électrons : il n'en possède donc que 10, et non 13.`,
+      `Pour $^{27}_{13}\\mathrm{Al}^{3+}$, on lit $\\mathrm{Z} = 13$ et $\\mathrm{A} = 27$. Le noyau contient donc 13 protons et $27 - 13 = 14$ neutrons, soit 27 nucléons. Comme l'ion est chargé $3+$, il a perdu 3 électrons : il n'en possède donc que 10, et non 13.`,
   },
   {
     order: 27,
@@ -542,7 +542,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [2],
     explanation:
-      `La proposition A est fausse : l'écriture $^{1}_{3}\\mathrm{X}$ n'est pas celle d'un isotope de l'hydrogène. Un isotope de l'hydrogène doit avoir $Z = 1$, et ici on lit en plus une écriture incohérente puisque $A < Z$. La proposition B est fausse : à cause du défaut de masse, un noyau lié a au contraire une masse inférieure à la somme des masses des nucléons isolés. La proposition C est vraie : il existe dans la nature des nucléides radioactifs, comme le potassium 40 ou l'uranium 238. La proposition D est fausse : un noyau atomique est bien plus petit qu'un nanomètre ; l'ordre de grandeur de $1\\,\\mathrm{nm}$ est beaucoup trop grand pour un noyau.`,
+      `La proposition A est fausse : l'écriture $^{1}_{3}\\mathrm{X}$ n'est pas celle d'un isotope de l'hydrogène. Un isotope de l'hydrogène doit avoir $\\mathrm{Z} = 1$, et ici on lit en plus une écriture incohérente puisque $\\mathrm{A} < \\mathrm{Z}$. La proposition B est fausse : à cause du défaut de masse, un noyau lié a au contraire une masse inférieure à la somme des masses des nucléons isolés. La proposition C est vraie : il existe dans la nature des nucléides radioactifs, comme le potassium 40 ou l'uranium 238. La proposition D est fausse : un noyau atomique est bien plus petit qu'un nanomètre ; l'ordre de grandeur de $1\\,\\mathrm{nm}$ est beaucoup trop grand pour un noyau.`,
   },
   {
     order: 28,
@@ -602,7 +602,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 1],
     explanation:
-      `La proposition A est vraie : le nombre quantique secondaire $\\ell$ détermine la sous-couche, donc le type $\\mathrm{s}$, $\\mathrm{p}$, $\\mathrm{d}$ ou $\\mathrm{f}$. La proposition B est vraie : cette valeur est aussi liée à la forme générale de l'orbitale. La proposition C est fausse : le nombre de protons relève du numéro atomique $Z$, pas des nombres quantiques de l'électron. La proposition D est fausse : le sens du spin est donné par $\\mathrm{m}_{\\mathrm{s}}$, pas par $\\ell$.`,
+      `La proposition A est vraie : le nombre quantique secondaire $\\ell$ détermine la sous-couche, donc le type $\\mathrm{s}$, $\\mathrm{p}$, $\\mathrm{d}$ ou $\\mathrm{f}$. La proposition B est vraie : cette valeur est aussi liée à la forme générale de l'orbitale. La proposition C est fausse : le nombre de protons relève du numéro atomique $\\mathrm{Z}$, pas des nombres quantiques de l'électron. La proposition D est fausse : le sens du spin est donné par $\\mathrm{m}_{\\mathrm{s}}$, pas par $\\ell$.`,
   },
   {
     order: 32,
@@ -610,14 +610,14 @@ const questions: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Parmi les configurations électroniques suivantes :`,
     choices: [
-      `$\\mathrm{C}\\,(Z = 6) : \\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$.`,
-      `$\\mathrm{F}\\,(Z = 9) : \\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6$.`,
-      `$\\mathrm{Na}\\,(Z = 11) : \\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^1$.`,
-      `$\\mathrm{Al}\\,(Z = 13) : \\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^2\\,3\\mathrm{p}^2$.`,
+      `$\\mathrm{C}\\,(\\mathrm{Z} = 6) : \\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$.`,
+      `$\\mathrm{F}\\,(\\mathrm{Z} = 9) : \\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6$.`,
+      `$\\mathrm{Na}\\,(\\mathrm{Z} = 11) : \\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^1$.`,
+      `$\\mathrm{Al}\\,(\\mathrm{Z} = 13) : \\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^2\\,3\\mathrm{p}^2$.`,
     ],
     correctChoiceIndexes: [0, 2],
     explanation:
-      `Les propositions A et C sont exactes. La proposition A est vraie : le carbone a $Z = 6$, donc sa configuration est bien $\\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$. La proposition B est fausse : le fluor a $Z = 9$, donc sa configuration est $\\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^5$ ; la configuration $2\\mathrm{p}^6$ correspond au néon. La proposition C est vraie : le sodium a $Z = 11$, donc sa configuration est bien $\\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^1$. La proposition D est fausse : l'aluminium a $Z = 13$, donc sa configuration est $\\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^2\\,3\\mathrm{p}^1$, et non $3\\mathrm{p}^2$. Les pièges classiques ici sont de confondre le fluor avec le néon, ou d'ajouter un électron de trop à l'aluminium.`,
+      `Les propositions A et C sont exactes. La proposition A est vraie : le carbone a $\\mathrm{Z} = 6$, donc sa configuration est bien $\\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$. La proposition B est fausse : le fluor a $\\mathrm{Z} = 9$, donc sa configuration est $\\mathrm{K}\\,2\\mathrm{s}^2\\,2\\mathrm{p}^5$ ; la configuration $2\\mathrm{p}^6$ correspond au néon. La proposition C est vraie : le sodium a $\\mathrm{Z} = 11$, donc sa configuration est bien $\\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^1$. La proposition D est fausse : l'aluminium a $\\mathrm{Z} = 13$, donc sa configuration est $\\mathrm{K}\\,\\mathrm{L}\\,3\\mathrm{s}^2\\,3\\mathrm{p}^1$, et non $3\\mathrm{p}^2$. Les pièges classiques ici sont de confondre le fluor avec le néon, ou d'ajouter un électron de trop à l'aluminium.`,
   },
   {
     order: 33,
@@ -675,7 +675,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [3],
     explanation:
-      `La proposition D est correcte : l'azote a pour numéro atomique $Z = 7$, donc 7 électrons, soit la configuration $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^3$. Dans la sous-couche $2\\mathrm{p}$, la règle de Hund impose de placer d'abord un électron dans chacune des trois orbitales, avec des spins parallèles, avant tout appariement : on obtient donc $[↑][↑][↑]$. La proposition A est fausse : la sous-couche $2\\mathrm{s}$ ne peut pas rester vide alors que des électrons occupent déjà $2\\mathrm{p}$. La proposition B est fausse : elle laisse $2\\mathrm{s}$ incomplète et apparie trop tôt les électrons dans $2\\mathrm{p}$. La proposition C est fausse : elle respecte le nombre total d'électrons, mais ne correspond pas à l'état fondamental car elle forme un doublet dans $2\\mathrm{p}$ au lieu d'occuper d'abord séparément les trois orbitales.`,
+      `La proposition D est correcte : l'azote a pour numéro atomique $\\mathrm{Z} = 7$, donc 7 électrons, soit la configuration $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^3$. Dans la sous-couche $2\\mathrm{p}$, la règle de Hund impose de placer d'abord un électron dans chacune des trois orbitales, avec des spins parallèles, avant tout appariement : on obtient donc $[↑][↑][↑]$. La proposition A est fausse : la sous-couche $2\\mathrm{s}$ ne peut pas rester vide alors que des électrons occupent déjà $2\\mathrm{p}$. La proposition B est fausse : elle laisse $2\\mathrm{s}$ incomplète et apparie trop tôt les électrons dans $2\\mathrm{p}$. La proposition C est fausse : elle respecte le nombre total d'électrons, mais ne correspond pas à l'état fondamental car elle forme un doublet dans $2\\mathrm{p}$ au lieu d'occuper d'abord séparément les trois orbitales.`,
   },
   {
     order: 35,
@@ -854,7 +854,7 @@ const questions: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Les énoncés des questions 7 et 8 sont liés, ils concernent l'élément fer ($Z = 26$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
+      `Les énoncés des questions 7 et 8 sont liés, ils concernent l'élément fer ($\\mathrm{Z} = 26$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
     choices: [
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^0$.`,
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$.`,
@@ -863,14 +863,14 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [1],
     explanation:
-      `La bonne réponse est la proposition B. Le fer a pour numéro atomique $Z = 26$ : il possède donc 26 électrons à répartir. En état fondamental, sa configuration électronique est $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$, soit $[\\mathrm{Ar}]\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$. La proposition A est fausse : elle correspondrait à un remplissage $3\\mathrm{d}^8\\,4\\mathrm{s}^0$ qui ne décrit pas l'état fondamental attendu. La proposition C est fausse car une sous-couche $3\\mathrm{p}$ ne peut pas contenir 8 électrons : sa capacité maximale est de 6. La proposition D est fausse : elle fait intervenir $4\\mathrm{p}$ alors que cette sous-couche n'est pas occupée dans l'état fondamental du fer.`,
+      `La bonne réponse est la proposition B. Le fer a pour numéro atomique $\\mathrm{Z} = 26$ : il possède donc 26 électrons à répartir. En état fondamental, sa configuration électronique est $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$, soit $[\\mathrm{Ar}]\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$. La proposition A est fausse : elle correspondrait à un remplissage $3\\mathrm{d}^8\\,4\\mathrm{s}^0$ qui ne décrit pas l'état fondamental attendu. La proposition C est fausse car une sous-couche $3\\mathrm{p}$ ne peut pas contenir 8 électrons : sa capacité maximale est de 6. La proposition D est fausse : elle fait intervenir $4\\mathrm{p}$ alors que cette sous-couche n'est pas occupée dans l'état fondamental du fer.`,
   },
   {
     order: 45,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Les énoncés des questions 7 et 8 sont liés, ils concernent l'élément fer ($Z = 26$).\n\nParmi les propositions suivantes, quelle est la couche de valence de cet élément ?`,
+      `Les énoncés des questions 7 et 8 sont liés, ils concernent l'élément fer ($\\mathrm{Z} = 26$).\n\nParmi les propositions suivantes, quelle est la couche de valence de cet élément ?`,
     choices: [
       `N.`,
       `L.`,
@@ -916,7 +916,7 @@ const questions: SeedQuestion[] = [
     order: 48,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `Le rhodium ($\\mathrm{Rh}$, $Z = 45$) possède :`,
+    question: `Le rhodium ($\\mathrm{Rh}$, $\\mathrm{Z} = 45$) possède :`,
     choices: [
       `9 électrons $\\mathrm{s}$, 18 électrons $\\mathrm{p}$ et 18 électrons $\\mathrm{d}$.`,
       `10 électrons $\\mathrm{s}$, 18 électrons $\\mathrm{p}$ et 17 électrons $\\mathrm{d}$.`,
@@ -925,7 +925,7 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0],
     explanation:
-      `La bonne réponse est la proposition A. Le rhodium a pour numéro atomique $Z = 45$, donc 45 électrons. Sa configuration électronique fondamentale s'écrit $[\\mathrm{Kr}]\\,4\\mathrm{d}^8\\,5\\mathrm{s}^1$. En développant, on compte $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,3\\mathrm{s}^2\\,4\\mathrm{s}^2\\,5\\mathrm{s}^1$, soit 9 électrons $\\mathrm{s}$ ; $2\\mathrm{p}^6\\,3\\mathrm{p}^6\\,4\\mathrm{p}^6$, soit 18 électrons $\\mathrm{p}$ ; et $3\\mathrm{d}^{10}\\,4\\mathrm{d}^8$, soit 18 électrons $\\mathrm{d}$. On retrouve bien $9 + 18 + 18 = 45$.`,
+      `La bonne réponse est la proposition A. Le rhodium a pour numéro atomique $\\mathrm{Z} = 45$, donc 45 électrons. Sa configuration électronique fondamentale s'écrit $[\\mathrm{Kr}]\\,4\\mathrm{d}^8\\,5\\mathrm{s}^1$. En développant, on compte $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,3\\mathrm{s}^2\\,4\\mathrm{s}^2\\,5\\mathrm{s}^1$, soit 9 électrons $\\mathrm{s}$ ; $2\\mathrm{p}^6\\,3\\mathrm{p}^6\\,4\\mathrm{p}^6$, soit 18 électrons $\\mathrm{p}$ ; et $3\\mathrm{d}^{10}\\,4\\mathrm{d}^8$, soit 18 électrons $\\mathrm{d}$. On retrouve bien $9 + 18 + 18 = 45$.`,
   },
   {
     order: 49,
@@ -978,7 +978,7 @@ const questions: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Les énoncés des questions 6 et 7 sont liés, ils concernent l'élément nickel ($Z = 28$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
+      `Les énoncés des questions 6 et 7 sont liés, ils concernent l'élément nickel ($\\mathrm{Z} = 28$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
     choices: [
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^{10}\\,4\\mathrm{s}^0$.`,
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$.`,
@@ -987,14 +987,14 @@ const questions: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [1],
     explanation:
-      `La bonne réponse est la proposition B. Le nickel a pour numéro atomique $Z = 28$ : il possède donc 28 électrons. En état fondamental, sa configuration électronique est $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$, soit $[\\mathrm{Ar}]\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$. La proposition A est fausse : elle ferait disparaître les électrons $4\\mathrm{s}$ au profit d'une sous-couche $3\\mathrm{d}$ saturée, ce qui ne correspond pas ici à l'état fondamental. La proposition C est fausse car une sous-couche $3\\mathrm{p}$ ne peut pas contenir 8 électrons : sa capacité maximale est de 6. La proposition D est fausse : elle fait intervenir $4\\mathrm{p}$ alors que cette sous-couche n'est pas occupée dans l'état fondamental du nickel.`,
+      `La bonne réponse est la proposition B. Le nickel a pour numéro atomique $\\mathrm{Z} = 28$ : il possède donc 28 électrons. En état fondamental, sa configuration électronique est $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$, soit $[\\mathrm{Ar}]\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$. La proposition A est fausse : elle ferait disparaître les électrons $4\\mathrm{s}$ au profit d'une sous-couche $3\\mathrm{d}$ saturée, ce qui ne correspond pas ici à l'état fondamental. La proposition C est fausse car une sous-couche $3\\mathrm{p}$ ne peut pas contenir 8 électrons : sa capacité maximale est de 6. La proposition D est fausse : elle fait intervenir $4\\mathrm{p}$ alors que cette sous-couche n'est pas occupée dans l'état fondamental du nickel.`,
   },
   {
     order: 53,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Les énoncés des questions 6 et 7 sont liés, ils concernent l'élément nickel ($Z = 28$).\n\nParmi les propositions suivantes, quelle est la couche de valence de cet élément ?`,
+      `Les énoncés des questions 6 et 7 sont liés, ils concernent l'élément nickel ($\\mathrm{Z} = 28$).\n\nParmi les propositions suivantes, quelle est la couche de valence de cet élément ?`,
     choices: [
       `$\\mathrm{N}$.`,
       `$\\mathrm{L}$.`,
