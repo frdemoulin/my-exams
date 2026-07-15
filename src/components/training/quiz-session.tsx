@@ -28,8 +28,8 @@ import type { TrainingQuestion } from '@/core/training';
 import type { TrainingChoiceContent } from '@/core/training/training-choice-content';
 import {
   isCatchAllChoice,
-  reorderCatchAllChoices,
 } from '@/core/training/training-choice-ordering';
+import { hasChoiceExplanations } from '@/core/training/training-choice-explanations';
 import { cn } from '@/lib/utils';
 import { MathContent } from './math-content';
 import { TrainingChoiceContentView } from './training-choice-content-view';
@@ -38,6 +38,11 @@ import { TrainingQuestionContentView } from './training-question-content-view';
 type QuizSessionProps = {
   questions: TrainingQuestion[];
   pathContext?: QuizSessionPathContext;
+  onAttemptComplete?: (payload: {
+    score: number;
+    targetScore: number;
+    totalQuestions: number;
+  }) => void | Promise<void>;
   correctionMode?: 'instant' | 'final';
   canEditQuestions?: boolean;
 };
@@ -75,6 +80,12 @@ type QuestionNavigationStatus =
   | 'unanswered';
 
 type QuizViewMode = 'taking' | 'summary' | 'review';
+
+type IndexedQuestionChoice = {
+  choice: TrainingChoiceContent;
+  choiceIndex: number;
+  choiceExplanation: string;
+};
 
 const THEME_TABLE_PAGE_SIZE = 10;
 
@@ -249,41 +260,76 @@ const seededShuffle = <T,>(items: T[], seed: number) => {
   return nextItems;
 };
 
-const rotateQuestionChoices = (
-  choices: TrainingChoiceContent[],
+const reorderCatchAllChoiceEntries = (
+  entries: IndexedQuestionChoice[],
+  correctChoiceIndexes: number[]
+) => {
+  const catchAllEntries = entries.filter((entry) => isCatchAllChoice(entry.choice));
+
+  if (catchAllEntries.length === 0) {
+    return { entries, correctChoiceIndexes };
+  }
+
+  const regularEntries = entries.filter((entry) => !isCatchAllChoice(entry.choice));
+  const reorderedEntries = [...regularEntries, ...catchAllEntries];
+  const indexByOriginalIndex = new Map(
+    entries.map((entry, index) => [entry.choiceIndex, index])
+  );
+  const nextIndexByOriginalIndex = new Map(
+    reorderedEntries.map((entry, index) => [entry.choiceIndex, index])
+  );
+
+  return {
+    entries: reorderedEntries,
+    correctChoiceIndexes: correctChoiceIndexes
+      .map((correctChoiceIndex) => {
+        const originalIndex = entries[correctChoiceIndex]?.choiceIndex;
+
+        if (originalIndex == null || !indexByOriginalIndex.has(originalIndex)) {
+          return correctChoiceIndex;
+        }
+
+        return nextIndexByOriginalIndex.get(originalIndex) ?? correctChoiceIndex;
+      })
+      .sort((left, right) => left - right),
+  };
+};
+
+const rotateQuestionChoiceEntries = (
+  entries: IndexedQuestionChoice[],
   correctChoiceIndexes: number[],
   variant: number
 ) => {
   if (variant === 0) {
-    return { choices, correctChoiceIndexes };
+    return { entries, correctChoiceIndexes };
   }
 
-  const regularChoices = choices.filter((choice) => !isCatchAllChoice(choice));
-  const catchAllChoices = choices.filter((choice) => isCatchAllChoice(choice));
+  const regularEntries = entries.filter((entry) => !isCatchAllChoice(entry.choice));
+  const catchAllEntries = entries.filter((entry) => isCatchAllChoice(entry.choice));
 
-  if (regularChoices.length <= 1) {
-    return { choices: [...regularChoices, ...catchAllChoices], correctChoiceIndexes };
+  if (regularEntries.length <= 1) {
+    return { entries: [...regularEntries, ...catchAllEntries], correctChoiceIndexes };
   }
 
-  const rotationOffset = variant % regularChoices.length;
+  const rotationOffset = variant % regularEntries.length;
 
   if (rotationOffset === 0) {
-    return { choices: [...regularChoices, ...catchAllChoices], correctChoiceIndexes };
+    return { entries: [...regularEntries, ...catchAllEntries], correctChoiceIndexes };
   }
 
-  const rotatedRegularChoices = regularChoices.map(
+  const rotatedRegularEntries = regularEntries.map(
     (_, index) =>
-      regularChoices[
-        (index - rotationOffset + regularChoices.length) % regularChoices.length
+      regularEntries[
+        (index - rotationOffset + regularEntries.length) % regularEntries.length
       ]
   );
 
   return {
-    choices: [...rotatedRegularChoices, ...catchAllChoices],
+    entries: [...rotatedRegularEntries, ...catchAllEntries],
     correctChoiceIndexes: correctChoiceIndexes
       .map((correctChoiceIndex) =>
-        correctChoiceIndex < regularChoices.length
-          ? (correctChoiceIndex + rotationOffset) % regularChoices.length
+        correctChoiceIndex < regularEntries.length
+          ? (correctChoiceIndex + rotationOffset) % regularEntries.length
           : correctChoiceIndex
       )
       .sort((left, right) => left - right),
@@ -295,26 +341,30 @@ const prepareQuestions = (questions: TrainingQuestion[], variant: number) => {
     const indexedChoices = question.choices.map((choice, choiceIndex) => ({
       choice,
       choiceIndex,
+      choiceExplanation: question.choiceExplanations[choiceIndex] ?? '',
     }));
     const shuffledChoices = seededShuffle(
       indexedChoices,
       hashString(`${question.id}-${questionIndex}`)
     );
-    const reorderedShuffledChoices = reorderCatchAllChoices(
-      shuffledChoices.map(({ choice }) => choice),
+    const reorderedShuffledChoices = reorderCatchAllChoiceEntries(
+      shuffledChoices,
       shuffledChoices
         .filter(({ choiceIndex }) => question.correctChoiceIndexes.includes(choiceIndex))
         .map((entry) => shuffledChoices.indexOf(entry))
     );
-    const rotatedQuestionChoices = rotateQuestionChoices(
-      reorderedShuffledChoices.choices,
+    const rotatedQuestionChoices = rotateQuestionChoiceEntries(
+      reorderedShuffledChoices.entries,
       reorderedShuffledChoices.correctChoiceIndexes,
       variant
     );
 
     return {
       ...question,
-      choices: rotatedQuestionChoices.choices,
+      choices: rotatedQuestionChoices.entries.map(({ choice }) => choice),
+      choiceExplanations: rotatedQuestionChoices.entries.map(
+        ({ choiceExplanation }) => choiceExplanation
+      ),
       correctChoiceIndexes: rotatedQuestionChoices.correctChoiceIndexes,
     };
   });
@@ -459,6 +509,7 @@ const getThemePerformance = ({
 export function QuizSession({
   questions,
   pathContext,
+  onAttemptComplete,
   correctionMode = 'instant',
   canEditQuestions = false,
 }: QuizSessionProps) {
@@ -505,6 +556,9 @@ export function QuizSession({
   const isCorrect = areChoiceIndexSetsEqual(
     currentSelections,
     currentQuestion.correctChoiceIndexes
+  );
+  const hasCurrentChoiceExplanations = hasChoiceExplanations(
+    currentQuestion.choiceExplanations
   );
   const answeredCount = effectiveAnsweredByQuestion.filter(Boolean).length;
   const score = sessionQuestions.reduce((total, question, index) => {
@@ -684,13 +738,19 @@ export function QuizSession({
         targetScore,
         totalQuestions: sessionQuestions.length,
       });
+    } else {
+      void onAttemptComplete?.({
+        score,
+        targetScore,
+        totalQuestions: sessionQuestions.length,
+      });
     }
 
     setViewMode('summary');
   };
 
   const openReview = () => {
-    setCurrentIndex(incorrectQuestions[0]?.index ?? 0);
+    setCurrentIndex(0);
     setViewMode('review');
   };
 
@@ -1177,7 +1237,7 @@ export function QuizSession({
         </div>
       ) : null}
 
-      <div className="rounded-xl border border-border bg-background p-4 text-base font-medium text-heading">
+      <div className="rounded-xl border border-border bg-background p-4 text-sm font-medium text-heading">
         {canEditQuestions ? (
           <div className="mb-3 flex justify-end">
             <Button asChild variant="outline" size="xs">
@@ -1309,16 +1369,59 @@ export function QuizSession({
       {(isReviewMode || (isAnswerLocked && !isFinalCorrectionOnly)) ? (
         <div
           className={cn(
-            'rounded-xl border p-4 text-sm',
+            'space-y-4 rounded-xl border p-4 text-sm',
             isCorrect
               ? 'border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100'
               : 'border-amber-200 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-100'
           )}
         >
-          <p className="mb-1 font-semibold">
-            {isCorrect ? 'Bonne réponse.' : 'Correction.'}
-          </p>
-          <MathContent value={currentQuestion.explanation} />
+          <div>
+            <p className="mb-1 font-semibold">
+              {isCorrect ? 'Bonne réponse.' : 'Correction.'}
+            </p>
+            {currentQuestion.explanation.trim() ? (
+              <MathContent value={currentQuestion.explanation} />
+            ) : !hasCurrentChoiceExplanations ? (
+              <p className="text-muted-foreground">
+                Relis le détail des propositions ci-dessous.
+              </p>
+            ) : null}
+          </div>
+          {hasCurrentChoiceExplanations ? (
+            <div className="space-y-2 border-t border-current/15 pt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
+                Détail par proposition
+              </p>
+              <div className="space-y-2">
+                {currentQuestion.choiceExplanations.map((choiceExplanation, choiceIndex) => {
+                  if (!choiceExplanation.trim()) {
+                    return null;
+                  }
+
+                  const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
+
+                  return (
+                    <div
+                      key={`${currentQuestion.id}-choice-explanation-${choiceIndex}`}
+                      className="flex gap-3 rounded-lg border border-current/10 bg-background/60 p-3"
+                    >
+                      {isRightChoice ? (
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-300" />
+                      ) : (
+                        <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600 dark:text-rose-300" />
+                      )}
+                      <div className="min-w-0 flex-1">
+                        <p className="mb-1 text-xs font-semibold uppercase tracking-wide opacity-70">
+                          Proposition {String.fromCharCode(65 + choiceIndex)}
+                        </p>
+                        <MathContent value={choiceExplanation} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
         </div>
       ) : null}
 
@@ -1332,15 +1435,6 @@ export function QuizSession({
             : null}
         </p>
         <div className="flex flex-wrap gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={goToPreviousQuestion}
-            disabled={currentIndex === 0}
-          >
-            Pr&eacute;c&eacute;dent
-          </Button>
           {!isAnswerLocked && currentQuestion.answerFormat === 'MULTIPLE' ? (
             <>
               <Button
@@ -1376,6 +1470,15 @@ export function QuizSession({
               </Button>
               <Button
                 type="button"
+                variant="outline"
+                size="sm"
+                onClick={goToPreviousQuestion}
+                disabled={currentIndex === 0}
+              >
+                Pr&eacute;c&eacute;dent
+              </Button>
+              <Button
+                type="button"
                 size="sm"
                 onClick={goToNextQuestion}
                 disabled={currentIndex === sessionQuestions.length - 1}
@@ -1385,6 +1488,15 @@ export function QuizSession({
             </>
           ) : isComplete ? (
             <>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={goToPreviousQuestion}
+                disabled={currentIndex === 0}
+              >
+                Pr&eacute;c&eacute;dent
+              </Button>
               <Button
                 type="button"
                 variant="outline"
@@ -1399,14 +1511,25 @@ export function QuizSession({
               </Button>
             </>
           ) : (
-            <Button
-              type="button"
-              size="sm"
-              onClick={goToNextQuestion}
-              disabled={currentIndex === sessionQuestions.length - 1}
-            >
-              Suivant
-            </Button>
+            <>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={goToPreviousQuestion}
+                disabled={currentIndex === 0}
+              >
+                Pr&eacute;c&eacute;dent
+              </Button>
+              <Button
+                type="button"
+                size="sm"
+                onClick={goToNextQuestion}
+                disabled={currentIndex === sessionQuestions.length - 1}
+              >
+                Suivant
+              </Button>
+            </>
           )}
         </div>
       </div>

@@ -41,6 +41,7 @@ export default async function AddTrainingQuizQuestionPage({ searchParams }: AddT
           correctChoiceIndexes: [0],
           correctChoiceIndex: 0,
           explanation: "",
+          choiceExplanations: ["", "", "", ""],
           order: 1,
           isPublished: false,
         }}

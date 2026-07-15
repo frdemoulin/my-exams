@@ -11,6 +11,8 @@ type TrainingPathProgressEventDetail = {
 
 type TrainingPathProgressSyncPayload = {
   attemptsCount: number;
+  cumulativeSuccessRate: number;
+  minSuccessRate: number;
   quizId: string;
   quizSlug: string;
   score: number;
@@ -111,6 +113,9 @@ const sanitizeTrainingPathProgress = (
           const bestScore = Number(value.bestScore);
           const totalQuestions = Number(value.totalQuestions);
           const successRate = Number(value.successRate);
+          const minSuccessRate = Number(value.minSuccessRate);
+          const averageSuccessRate = Number(value.averageSuccessRate);
+          const cumulativeSuccessRate = Number(value.cumulativeSuccessRate);
           const attemptsCount = Number(value.attemptsCount);
           const completedAt =
             typeof value.completedAt === 'string' ? value.completedAt : null;
@@ -135,6 +140,28 @@ const sanitizeTrainingPathProgress = (
                 bestScore,
                 totalQuestions,
                 successRate,
+                minSuccessRate:
+                  Number.isFinite(minSuccessRate) && minSuccessRate >= 0
+                    ? minSuccessRate
+                    : successRate,
+                averageSuccessRate:
+                  Number.isFinite(averageSuccessRate) && averageSuccessRate >= 0
+                    ? averageSuccessRate
+                    : Number.isFinite(cumulativeSuccessRate) && cumulativeSuccessRate >= 0
+                      ? Math.round(
+                          cumulativeSuccessRate /
+                            (Number.isFinite(attemptsCount) && attemptsCount > 0
+                              ? attemptsCount
+                              : 1)
+                        )
+                      : successRate,
+                cumulativeSuccessRate:
+                  Number.isFinite(cumulativeSuccessRate) && cumulativeSuccessRate >= 0
+                    ? cumulativeSuccessRate
+                    : successRate *
+                      (Number.isFinite(attemptsCount) && attemptsCount > 0
+                        ? attemptsCount
+                        : 1),
                 completedAt,
                 validatedAt,
               },
@@ -226,11 +253,23 @@ export const applyTrainingQuizAttempt = ({
   const previousQuizProgress = progress.quizProgressBySlug[quizSlug];
   const successRate =
     totalQuestions === 0 ? 0 : Math.round((score / totalQuestions) * 100);
+  const nextAttemptsCount = (previousQuizProgress?.attemptsCount ?? 0) + 1;
   const bestScore = Math.max(previousQuizProgress?.bestScore ?? 0, score);
   const bestSuccessRate = Math.max(
     previousQuizProgress?.successRate ?? 0,
     successRate
   );
+  const minSuccessRate = Math.min(
+    previousQuizProgress?.minSuccessRate ?? successRate,
+    successRate
+  );
+  const cumulativeSuccessRate =
+    (previousQuizProgress?.averageSuccessRate ??
+      previousQuizProgress?.successRate ??
+      0) *
+      (previousQuizProgress?.attemptsCount ?? 0) +
+    successRate;
+  const averageSuccessRate = Math.round(cumulativeSuccessRate / nextAttemptsCount);
   const shouldValidate =
     bestSuccessRate >= targetScore || Boolean(previousQuizProgress?.validatedAt);
 
@@ -239,11 +278,14 @@ export const applyTrainingQuizAttempt = ({
     quizProgressBySlug: {
       ...progress.quizProgressBySlug,
       [quizSlug]: {
-        attemptsCount: (previousQuizProgress?.attemptsCount ?? 0) + 1,
+        attemptsCount: nextAttemptsCount,
         bestScore,
         totalQuestions,
         successRate: bestSuccessRate,
+        minSuccessRate,
+        averageSuccessRate,
         completedAt,
+        cumulativeSuccessRate,
         validatedAt: shouldValidate
           ? previousQuizProgress?.validatedAt ?? completedAt
           : null,
@@ -291,6 +333,16 @@ export const mergeTrainingPathProgress = ({
       continue;
     }
 
+    const preferredStatsEntry =
+      incomingEntry.attemptsCount > existingEntry.attemptsCount
+        ? incomingEntry
+        : incomingEntry.attemptsCount < existingEntry.attemptsCount
+          ? existingEntry
+          : toIsoStringOrFallback(incomingEntry.completedAt, fallbackCompletedAt) >=
+              toIsoStringOrFallback(existingEntry.completedAt, fallbackCompletedAt)
+            ? incomingEntry
+            : existingEntry;
+
     mergedQuizProgressBySlug[quizSlug] = {
       attemptsCount: Math.max(
         existingEntry.attemptsCount,
@@ -302,6 +354,10 @@ export const mergeTrainingPathProgress = ({
         incomingEntry.totalQuestions
       ),
       successRate: Math.max(existingEntry.successRate, incomingEntry.successRate),
+      minSuccessRate: preferredStatsEntry.minSuccessRate,
+      averageSuccessRate: preferredStatsEntry.averageSuccessRate,
+      cumulativeSuccessRate:
+        preferredStatsEntry.averageSuccessRate * preferredStatsEntry.attemptsCount,
       completedAt: getLatestIsoString(
         toIsoStringOrFallback(existingEntry.completedAt, fallbackCompletedAt),
         toIsoStringOrFallback(incomingEntry.completedAt, fallbackCompletedAt)
@@ -360,6 +416,9 @@ const getTrainingPathProgressSyncPayloads = ({
       return [
         {
           attemptsCount: guestEntry.attemptsCount,
+          cumulativeSuccessRate:
+            guestEntry.averageSuccessRate * guestEntry.attemptsCount,
+          minSuccessRate: guestEntry.minSuccessRate,
           quizId,
           quizSlug,
           score: guestEntry.bestScore,
@@ -416,6 +475,8 @@ export const syncGuestTrainingPathProgressToAccount = async ({
         chapterId,
         chapterSlug,
         attemptsCount: syncPayload.attemptsCount,
+        cumulativeSuccessRate: syncPayload.cumulativeSuccessRate,
+        minSuccessRate: syncPayload.minSuccessRate,
         quizId: syncPayload.quizId,
         score: syncPayload.score,
         targetScore,

@@ -104,42 +104,7 @@ const renderText = (value: string) =>
     </Fragment>
   ));
 
-const shouldRenderAsBlockMath = (value: string, displayMode: boolean) => {
-  if (displayMode) {
-    return true;
-  }
-
-  const trimmedValue = value.trim();
-
-  if (!trimmedValue) {
-    return false;
-  }
-
-  const plusCount = (trimmedValue.match(/\+/g) ?? []).length;
-
-  const hasReactionArrow =
-    /\\(?:rightarrow|leftarrow|leftrightarrow|Rightarrow|to)\b|->|<=>/.test(
-      trimmedValue
-    ) || /\\ce\{.*(?:->|<=>).+\}/.test(trimmedValue);
-
-  if (hasReactionArrow) {
-    return false;
-  }
-
-  const relationCount = (trimmedValue.match(/=|\\approx|\\leq|\\geq|\\neq/g) ?? [])
-    .length;
-
-  if (relationCount === 0 || trimmedValue.length < 18) {
-    return false;
-  }
-
-  const parenthesisCount = (trimmedValue.match(/\(/g) ?? []).length;
-  const hasApproximation = /\\approx/.test(trimmedValue);
-
-  return (
-    relationCount > 1 || plusCount > 0 || parenthesisCount > 1 || hasApproximation
-  );
-};
+const shouldRenderAsBlockMath = (_value: string, displayMode: boolean) => displayMode;
 
 const renderMath = (value: string, displayMode: boolean) => {
   const renderAsBlock = shouldRenderAsBlockMath(value, displayMode);

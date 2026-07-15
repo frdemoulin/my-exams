@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 
+import { HealthChapterQuizSession } from '@/components/health/health-chapter-quiz-session';
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
-import { QuizSession } from '@/components/training/quiz-session';
 import { TrainingQuizInstructions } from '@/components/training/training-quiz-instructions';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -15,6 +15,7 @@ import { fetchHealthStudentChapterDetail } from '@/core/health';
 import {
   getTrainingQuizStageBadgeClassName,
   getTrainingQuizStageLabel,
+  getTrainingQuizStageStarsCount,
 } from '@/core/training/training-stage';
 import { fetchUserPedagogicalProfileSummary } from '@/core/user';
 import { auth } from '@/lib/auth/auth';
@@ -90,6 +91,7 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
     chapterSlug: chapter.slug,
   });
   const courseUnitHref = `/sante/ue/${chapter.courseUnit.id}`;
+  const teachingElementHref = `${courseUnitHref}?ec=${chapter.teachingElement.id}`;
   const sectionLabelById = new Map(
     chapter.sections.map((section, index) => [section.id, getSectionLabel(index)])
   );
@@ -114,7 +116,7 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
             { label: 'Accueil', href: '/' },
             { label: 'Santé', href: '/sante' },
             { label: courseUnitLabel, href: courseUnitHref },
-            { label: teachingElementBreadcrumbLabel },
+            { label: teachingElementBreadcrumbLabel, href: teachingElementHref },
             { label: chapter.title, href: chapterHref },
             { label: `QCM ${selectedQuizNumber}` },
           ]}
@@ -138,20 +140,29 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
                   </div>
                   <div className="flex flex-wrap items-start gap-2 sm:justify-end">
                     <Badge variant="outline" className="w-fit">
-                      Section {sectionLabelById.get(selectedQuiz.section.id)} –{' '}
-                      {selectedQuiz.section.title}
+                      {selectedQuiz.section.kind === 'SYNTHESIS'
+                        ? 'Synthèse'
+                        : `Section ${sectionLabelById.get(selectedQuiz.section.id)} – ${selectedQuiz.section.title}`}
                     </Badge>
                     <Badge variant="secondary" className="w-fit">
                       {selectedQuiz.quiz.questionCount} question
                       {selectedQuiz.quiz.questionCount > 1 ? 's' : ''}
                     </Badge>
                     {getTrainingQuizStageLabel(selectedQuiz.quiz.stage) ? (
-                      <Badge
-                        variant="outline"
-                        className={getTrainingQuizStageBadgeClassName(selectedQuiz.quiz.stage) ?? undefined}
-                      >
-                        {getTrainingQuizStageLabel(selectedQuiz.quiz.stage)}
-                      </Badge>
+                      <div className="inline-flex items-center gap-2">
+                        <Badge
+                          variant="outline"
+                          className={getTrainingQuizStageBadgeClassName(selectedQuiz.quiz.stage) ?? undefined}
+                        >
+                          {getTrainingQuizStageLabel(selectedQuiz.quiz.stage)}
+                        </Badge>
+                        <span
+                          className="text-sm tracking-[0.12em] text-yellow-400 dark:text-yellow-300"
+                          aria-label={`${getTrainingQuizStageStarsCount(selectedQuiz.quiz.stage)} étoile${getTrainingQuizStageStarsCount(selectedQuiz.quiz.stage) > 1 ? 's' : ''}`}
+                        >
+                          {'★'.repeat(getTrainingQuizStageStarsCount(selectedQuiz.quiz.stage))}
+                        </span>
+                      </div>
                     ) : null}
                   </div>
                 </div>
@@ -160,7 +171,11 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
             </CardHeader>
           </Card>
 
-          <QuizSession
+          <HealthChapterQuizSession
+            chapterId={chapter.id}
+            chapterSlug={chapter.slug}
+            quizId={selectedQuiz.quiz.id}
+            isAuthenticated={Boolean(effectiveUserId)}
             questions={selectedQuiz.quiz.questions}
             correctionMode="final"
             canEditQuestions={canEditQuestions}

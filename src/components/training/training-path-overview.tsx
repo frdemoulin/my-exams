@@ -27,6 +27,7 @@ import {
 import {
   getTrainingQuizStageBadgeClassName,
   getTrainingQuizStageLabel,
+  getTrainingQuizStageStarsCount,
 } from '@/core/training/training-stage';
 import { cn } from '@/lib/utils';
 import { deriveTrainingPathState } from './training-path-state';
@@ -213,6 +214,16 @@ const formatProgressDate = (value: string | null) => {
 
 const formatAttemptsLabel = (attemptsCount: number) =>
   `${attemptsCount} tentative${attemptsCount > 1 ? 's' : ''}`;
+
+const formatQuizStatsSummary = ({
+  averageSuccessRate,
+  minSuccessRate,
+  successRate,
+}: {
+  averageSuccessRate: number;
+  minSuccessRate: number;
+  successRate: number;
+}) => `Min ${minSuccessRate}% · Moy ${averageSuccessRate}% · Max ${successRate}%`;
 
 export function TrainingPathOverview({
   chapterId,
@@ -608,12 +619,20 @@ export function TrainingPathOverview({
                         </TableCell>
                         <TableCell className="text-center">
                           {quiz.stage ? (
-                            <Badge
-                              variant="outline"
-                              className={getStageBadgeClassName(quiz.stage) ?? undefined}
-                            >
-                              {getTrainingQuizStageLabel(quiz.stage)}
-                            </Badge>
+                            <div className="inline-flex items-center gap-2">
+                              <Badge
+                                variant="outline"
+                                className={getStageBadgeClassName(quiz.stage) ?? undefined}
+                              >
+                                {getTrainingQuizStageLabel(quiz.stage)}
+                              </Badge>
+                              <span
+                                className="text-sm tracking-[0.12em] text-yellow-400 dark:text-yellow-300"
+                                aria-label={`${getTrainingQuizStageStarsCount(quiz.stage)} étoile${getTrainingQuizStageStarsCount(quiz.stage) > 1 ? 's' : ''}`}
+                              >
+                                {'★'.repeat(getTrainingQuizStageStarsCount(quiz.stage))}
+                              </span>
+                            </div>
                           ) : (
                             <span className="text-sm text-muted-foreground">
                               Non définie
@@ -626,8 +645,8 @@ export function TrainingPathOverview({
                               <Badge variant="outline" className="w-fit">
                                 {formatAttemptsLabel(quiz.progress.attemptsCount)}
                               </Badge>
-                              <span className="text-muted-foreground">
-                                {quiz.progress.successRate}% max
+                              <span className="text-center text-xs text-muted-foreground">
+                                {formatQuizStatsSummary(quiz.progress)}
                               </span>
                             </div>
                           ) : (

@@ -10,6 +10,7 @@ import {
   getTrainingChoicePlainText,
   normalizeTrainingChoiceContents,
 } from "@/core/training/training-choice-content";
+import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
 import { getTrainingQuizStageLabel } from "@/core/training/training-stage";
 import { Option } from "@/types/option";
 import { normalizeSearchText } from "@/lib/utils";
@@ -724,6 +725,7 @@ export async function fetchQuizQuestionById(
       correctChoiceIndexes: true,
       correctChoiceIndex: true,
       explanation: true,
+      choiceExplanations: true,
       order: true,
       isPublished: true,
     },
@@ -741,14 +743,21 @@ export async function fetchQuizQuestionById(
         choiceCount: normalizeChoices(question.choices).length,
       })
     );
+    const resolvedCorrectionContent = resolveChoiceCorrectionContent({
+      explanation: question.explanation,
+      choiceExplanations: question.choiceExplanations,
+      choiceCount: normalizedQuestionChoices.choices.length,
+    });
 
     return {
       ...question,
+      explanation: resolvedCorrectionContent.explanation,
       answerFormat: resolveQuizAnswerFormat(question.answerFormat),
       choices: normalizedQuestionChoices.choices.map((choice) =>
         getTrainingChoicePlainText(choice)
       ),
       correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
+      choiceExplanations: resolvedCorrectionContent.choiceExplanations,
       correctChoiceIndex: getPrimaryCorrectChoiceIndex({
         answerFormat: question.answerFormat,
         correctChoiceIndex: question.correctChoiceIndex,

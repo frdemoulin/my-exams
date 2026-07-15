@@ -28,6 +28,7 @@ type ExportQuizQuestion = {
   choices: Prisma.JsonValue;
   correctChoiceIndex: number;
   explanation: string;
+  choiceExplanations: Prisma.JsonValue | null;
   isPublished: boolean;
   themeRefs: ThemeRef[];
 };
@@ -451,6 +452,7 @@ async function exportFromDev(
           choices: true,
           correctChoiceIndex: true,
           explanation: true,
+          choiceExplanations: true,
           isPublished: true,
           themeIds: true,
         },
@@ -630,6 +632,7 @@ async function exportFromDev(
         choices: question.choices,
         correctChoiceIndex: question.correctChoiceIndex,
         explanation: question.explanation,
+        choiceExplanations: question.choiceExplanations,
         isPublished: question.isPublished,
         themeRefs: toThemeRefs(
           question.themeIds,
@@ -976,6 +979,7 @@ async function syncChapterToProd(
                 choices: toInputJson(question.choices),
                 correctChoiceIndex: question.correctChoiceIndex,
                 explanation: question.explanation,
+                choiceExplanations: question.choiceExplanations ?? [],
                 isPublished: question.isPublished,
                 themeIds: questionThemeIds,
               },
@@ -994,6 +998,7 @@ async function syncChapterToProd(
               choices: toInputJson(question.choices),
               correctChoiceIndex: question.correctChoiceIndex,
               explanation: question.explanation,
+              choiceExplanations: question.choiceExplanations ?? [],
               isPublished: question.isPublished,
               themeIds: questionThemeIds,
             },

@@ -41,6 +41,7 @@ const healthTabsTheme = {
 
 type HealthCourseUnitTabsProps = {
   courseUnit: HealthStudentCourseUnitDetail;
+  activeTeachingElementId?: string | null;
 };
 
 const formatTeachingElementLabel = (
@@ -53,13 +54,20 @@ const formatTeachingElementLabel = (
 const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
   `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}`;
 
-export function HealthCourseUnitTabs({ courseUnit }: HealthCourseUnitTabsProps) {
+export function HealthCourseUnitTabs({
+  courseUnit,
+  activeTeachingElementId,
+}: HealthCourseUnitTabsProps) {
   return (
     <Tabs variant="underline" theme={healthTabsTheme}>
       {courseUnit.teachingElements.map((teachingElement) => (
         <TabItem
           key={teachingElement.id}
-          active={courseUnit.teachingElements[0]?.id === teachingElement.id}
+          active={
+            activeTeachingElementId
+              ? activeTeachingElementId === teachingElement.id
+              : courseUnit.teachingElements[0]?.id === teachingElement.id
+          }
           title={teachingElement.code ?? teachingElement.shortTitle ?? teachingElement.title}
         >
           <div className="space-y-4">

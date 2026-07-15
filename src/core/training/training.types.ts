@@ -19,6 +19,9 @@ export type TrainingPathQuizProgress = {
   bestScore: number;
   totalQuestions: number;
   successRate: number;
+  minSuccessRate: number;
+  averageSuccessRate: number;
+  cumulativeSuccessRate: number;
   attemptsCount: number;
   completedAt: string;
   validatedAt: string | null;
@@ -87,6 +90,7 @@ export type TrainingQuestion = {
   choices: TrainingChoiceContent[];
   correctChoiceIndexes: number[];
   explanation: string;
+  choiceExplanations: string[];
   order: number;
   group: TrainingQuestionGroup | null;
   themeLabels: string[];

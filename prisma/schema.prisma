@@ -944,6 +944,7 @@ model QuizQuestion {
   correctChoiceIndexes Int[]        @default([])
   correctChoiceIndex Int
   explanation        String         @db.String
+  choiceExplanations Json?
   order              Int
   isPublished        Boolean        @default(true)
   themeIds           String[]       @default([]) @db.ObjectId
@@ -1038,6 +1039,8 @@ model UserTrainingQuizProgress {
   bestScore      Int       @default(0)
   totalQuestions Int       @default(0)
   successRate    Int       @default(0)
+  minSuccessRate Int       @default(0)
+  cumulativeSuccessRate Int @default(0)
   attemptsCount  Int       @default(0)
   lastAttemptAt  DateTime  @default(now())
   masteredAt     DateTime?

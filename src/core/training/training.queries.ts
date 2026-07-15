@@ -10,6 +10,7 @@ import {
   getChapterLevelLabel,
 } from '@/core/chapter/chapter.constants';
 import { reorderCatchAllChoices } from './training-choice-ordering';
+import { resolveChoiceCorrectionContent } from './training-choice-explanations';
 import {
   normalizeTrainingChoiceContents,
   normalizeTrainingQuantumBoxesChoice,
@@ -129,6 +130,7 @@ const toTrainingQuestion = (question: {
   correctChoiceIndexes: number[];
   correctChoiceIndex: number;
   explanation: string;
+  choiceExplanations?: Prisma.JsonValue | null;
   order: number;
   themeIds: string[];
 }, group?: {
@@ -147,6 +149,11 @@ const toTrainingQuestion = (question: {
     normalizeChoices(question.choices),
     resolvedCorrectChoiceIndexes
   );
+  const resolvedCorrectionContent = resolveChoiceCorrectionContent({
+    explanation: question.explanation,
+    choiceExplanations: question.choiceExplanations,
+    choiceCount: normalizedQuestionChoices.choices.length,
+  });
 
   return {
     id: question.id,
@@ -158,7 +165,8 @@ const toTrainingQuestion = (question: {
     ),
     choices: normalizedQuestionChoices.choices,
     correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
-    explanation: question.explanation,
+    explanation: resolvedCorrectionContent.explanation,
+    choiceExplanations: resolvedCorrectionContent.choiceExplanations,
     order: question.order,
     themeLabels: getQuestionThemeLabels({
       themeIds: question.themeIds,
@@ -504,6 +512,7 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
                       correctChoiceIndexes: true,
                       correctChoiceIndex: true,
                       explanation: true,
+                      choiceExplanations: true,
                       order: true,
                       themeIds: true,
                     },
@@ -537,6 +546,7 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
           correctChoiceIndexes: true,
           correctChoiceIndex: true,
           explanation: true,
+          choiceExplanations: true,
           order: true,
           themeIds: true,
         },
@@ -651,8 +661,10 @@ export async function fetchSciencePhysicsTrainingPathProgressForChapter({
     select: {
       attemptsCount: true,
       bestScore: true,
+      cumulativeSuccessRate: true,
       lastAttemptAt: true,
       masteredAt: true,
+      minSuccessRate: true,
       successRate: true,
       totalQuestions: true,
       updatedAt: true,
@@ -682,17 +694,37 @@ export async function fetchSciencePhysicsTrainingPathProgressForChapter({
     version: 1,
     chapterSlug,
     quizProgressBySlug: Object.fromEntries(
-      progressEntries.map((entry) => [
-        entry.quiz.slug,
-        {
-          attemptsCount: entry.attemptsCount,
-          bestScore: entry.bestScore,
-          totalQuestions: entry.totalQuestions,
-          successRate: entry.successRate,
-          completedAt: entry.lastAttemptAt.toISOString(),
-          validatedAt: entry.masteredAt?.toISOString() ?? null,
-        },
-      ])
+      progressEntries.map((entry) => {
+          const fallbackMinSuccessRate = entry.successRate;
+          const minSuccessRate =
+            entry.attemptsCount > 0 &&
+            (entry.minSuccessRate > 0 || entry.successRate === 0)
+              ? entry.minSuccessRate
+              : fallbackMinSuccessRate;
+          const cumulativeSuccessRate =
+            entry.attemptsCount > 0 &&
+            (entry.cumulativeSuccessRate > 0 || entry.successRate === 0)
+              ? entry.cumulativeSuccessRate
+              : entry.successRate * entry.attemptsCount;
+
+          return [
+            entry.quiz.slug,
+            {
+              attemptsCount: entry.attemptsCount,
+              bestScore: entry.bestScore,
+              totalQuestions: entry.totalQuestions,
+              successRate: entry.successRate,
+              minSuccessRate,
+              averageSuccessRate:
+                entry.attemptsCount > 0
+                  ? Math.round(cumulativeSuccessRate / entry.attemptsCount)
+                  : 0,
+              cumulativeSuccessRate,
+              completedAt: entry.lastAttemptAt.toISOString(),
+              validatedAt: entry.masteredAt?.toISOString() ?? null,
+            },
+          ] as const;
+      })
     ),
     validatedQuizSlugs: progressEntries
       .filter((entry) => entry.masteredAt)

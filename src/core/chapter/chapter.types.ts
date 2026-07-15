@@ -205,6 +205,7 @@ export type QuizQuestionFormData = {
   correctChoiceIndexes: number[];
   correctChoiceIndex: number;
   explanation: string;
+  choiceExplanations: string[];
   order: number;
   isPublished: boolean;
 };

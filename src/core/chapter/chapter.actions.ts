@@ -170,6 +170,14 @@ function parseChoices(formData: FormData) {
     .map((choice) => String(choice).trim());
 }
 
+function parseChoiceExplanations(formData: FormData) {
+  const values = formData
+    .getAll("choiceExplanations")
+    .map((choiceExplanation) => String(choiceExplanation).trim());
+
+  return Array.from({ length: 4 }, (_, index) => values[index] ?? "");
+}
+
 function parseCorrectChoiceIndexes(formData: FormData) {
   const values = formData
     .getAll("correctChoiceIndexes")
@@ -774,6 +782,7 @@ export async function createQuizQuestion(
   const choices = parseChoices(formData);
   const correctChoiceIndexes = parseCorrectChoiceIndexes(formData);
   const explanation = String(formData.get("explanation") ?? "").trim();
+  const choiceExplanations = parseChoiceExplanations(formData);
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
@@ -784,6 +793,7 @@ export async function createQuizQuestion(
     choices,
     correctChoiceIndexes,
     explanation,
+    choiceExplanations,
     order,
     isPublished,
   });
@@ -815,6 +825,7 @@ export async function createQuizQuestion(
           choiceCount: result.data.choices.length,
         }),
         explanation: result.data.explanation,
+        choiceExplanations: result.data.choiceExplanations,
         order: result.data.order,
         isPublished: result.data.isPublished,
       },
@@ -862,6 +873,7 @@ export async function updateQuizQuestion(
   const choices = parseChoices(formData);
   const correctChoiceIndexes = parseCorrectChoiceIndexes(formData);
   const explanation = String(formData.get("explanation") ?? "").trim();
+  const choiceExplanations = parseChoiceExplanations(formData);
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
@@ -872,6 +884,7 @@ export async function updateQuizQuestion(
     choices,
     correctChoiceIndexes,
     explanation,
+    choiceExplanations,
     order,
     isPublished,
   });
@@ -904,6 +917,7 @@ export async function updateQuizQuestion(
           choiceCount: result.data.choices.length,
         }),
         explanation: result.data.explanation,
+        choiceExplanations: result.data.choiceExplanations,
         order: result.data.order,
         isPublished: result.data.isPublished,
       },

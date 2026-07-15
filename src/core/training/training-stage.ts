@@ -55,6 +55,16 @@ export const getTrainingQuizStageBadgeClassName = (
   return trainingQuizStageBadgeClassNames[stage];
 };
 
+export const getTrainingQuizStageStarsCount = (
+  stage: TrainingQuizStage | null | undefined
+) => {
+  if (!stage) {
+    return 0;
+  }
+
+  return trainingQuizStageOrder[stage];
+};
+
 export const sortTrainingQuizStages = (stages: TrainingQuizStage[]) => {
   return [...stages].sort(
     (left, right) => trainingQuizStageOrder[left] - trainingQuizStageOrder[right]

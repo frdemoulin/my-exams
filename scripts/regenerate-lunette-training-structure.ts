@@ -89,6 +89,8 @@ async function main() {
             choices: questionSeed.choices,
             correctChoiceIndex: questionSeed.correctChoiceIndex,
             explanation: questionSeed.explanation,
+            choiceExplanations:
+              (questionSeed as { choiceExplanations?: string[] }).choiceExplanations ?? [],
             isPublished: true,
           },
         });
@@ -101,6 +103,8 @@ async function main() {
             choices: questionSeed.choices,
             correctChoiceIndex: questionSeed.correctChoiceIndex,
             explanation: questionSeed.explanation,
+            choiceExplanations:
+              (questionSeed as { choiceExplanations?: string[] }).choiceExplanations ?? [],
             order: questionSeed.order,
             isPublished: true,
           },

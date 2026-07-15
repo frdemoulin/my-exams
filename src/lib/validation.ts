@@ -302,8 +302,16 @@ export const createQuizQuestionSchema = z.object({
         invalid_type_error: "Doit être une chaîne de caractère",
     })
         .trim()
-        .min(1, { message: "Champ requis" })
         .max(4000, { message: "Ne peut pas dépasser 4000 caractères" }),
+    choiceExplanations: z.array(
+        z.string({
+            invalid_type_error: "Doit être une chaîne de caractère",
+        })
+            .trim()
+            .max(1200, { message: "Ne peut pas dépasser 1200 caractères" })
+    )
+        .length(4, { message: "Quatre corrections d'items sont requises" })
+        .default(["", "", "", ""]),
     order: z.number({
         required_error: "Champ requis",
         invalid_type_error: "Doit être un nombre",
@@ -328,6 +336,17 @@ export const createQuizQuestionSchema = z.object({
             code: z.ZodIssueCode.custom,
             path: ["correctChoiceIndexes"],
             message: "Une question à réponse unique doit avoir exactement une bonne réponse",
+        });
+    }
+
+    if (
+        !values.explanation.trim() &&
+        !values.choiceExplanations.some((choiceExplanation) => choiceExplanation.trim())
+    ) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["explanation"],
+            message: "Ajoute une correction globale ou au moins une correction par item",
         });
     }
 });
