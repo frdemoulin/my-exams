@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
+import Link from 'next/link';
+import { ChevronLeft } from 'lucide-react';
 
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { TrainingQuizActionButton } from '@/components/training/training-quiz-action-button';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
@@ -16,7 +19,11 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { fetchHealthStudentChapterDetail } from '@/core/health';
-import { getTrainingQuizStageBadgeClassName, getTrainingQuizStageLabel } from '@/core/training/training-stage';
+import {
+  getTrainingQuizStageBadgeClassName,
+  getTrainingQuizStageLabel,
+  getTrainingQuizStageStarsCount,
+} from '@/core/training/training-stage';
 import { fetchUserPedagogicalProfileSummary } from '@/core/user';
 import { auth } from '@/lib/auth/auth';
 import { isAdminRole } from '@/lib/auth/roles';
@@ -42,6 +49,16 @@ type PageProps = {
 
 const formatAttemptsLabel = (attemptsCount: number) =>
   `${attemptsCount} tentative${attemptsCount > 1 ? 's' : ''}`;
+
+const formatQuizStatsSummary = ({
+  averageSuccessRate,
+  minSuccessRate,
+  successRate,
+}: {
+  averageSuccessRate: number;
+  minSuccessRate: number;
+  successRate: number;
+}) => `Min ${minSuccessRate}% · Moy ${averageSuccessRate}% · Max ${successRate}%`;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { courseUnitId, chapterSlug } = await params;
@@ -111,6 +128,7 @@ export default async function HealthChapterDetailPage({
     chapterSlug: chapter.slug,
   });
   const courseUnitHref = `/sante/ue/${chapter.courseUnit.id}`;
+  const teachingElementHref = `${courseUnitHref}?ec=${chapter.teachingElement.id}`;
   const sectionLabelById = new Map(
     chapter.sections.map((section, index) => [section.id, getSectionLabel(index)])
   );
@@ -124,12 +142,18 @@ export default async function HealthChapterDetailPage({
             { label: 'Accueil', href: '/' },
             { label: 'Santé', href: '/sante' },
             { label: courseUnitLabel, href: courseUnitHref },
-            { label: teachingElementBreadcrumbLabel },
+            { label: teachingElementBreadcrumbLabel, href: teachingElementHref },
             { label: chapter.title },
           ]}
         />
 
         <section className="space-y-4">
+          <Button asChild variant="outline" size="sm" className="w-fit gap-2">
+            <Link href={teachingElementHref}>
+              <ChevronLeft className="h-4 w-4" />
+              Retour à l&apos;EC
+            </Link>
+          </Button>
           <div className="flex flex-wrap gap-2">
             <Badge variant="outline">{teachingElementLabel}</Badge>
             <Badge variant="secondary">
@@ -173,7 +197,7 @@ export default async function HealthChapterDetailPage({
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <CardTitle className="min-w-0 flex-1 text-lg text-heading">
                       {section.kind === 'SYNTHESIS'
-                        ? `Synthèse – ${section.title}`
+                        ? 'Synthèse'
                         : `Section ${sectionLabelById.get(section.id) ?? getSectionLabel(sectionIndex)} – ${section.title}`}
                     </CardTitle>
                     <div className="flex flex-wrap items-center gap-2 sm:justify-end">
@@ -209,12 +233,20 @@ export default async function HealthChapterDetailPage({
                             </TableCell>
                             <TableCell className="text-center">
                               {getTrainingQuizStageLabel(quiz.stage) ? (
-                                <Badge
-                                  variant="outline"
-                                  className={getTrainingQuizStageBadgeClassName(quiz.stage) ?? undefined}
-                                >
-                                  {getTrainingQuizStageLabel(quiz.stage)}
-                                </Badge>
+                                <div className="inline-flex items-center gap-2">
+                                  <Badge
+                                    variant="outline"
+                                    className={getTrainingQuizStageBadgeClassName(quiz.stage) ?? undefined}
+                                  >
+                                    {getTrainingQuizStageLabel(quiz.stage)}
+                                  </Badge>
+                                  <span
+                                    className="text-sm tracking-[0.12em] text-yellow-400 dark:text-yellow-300"
+                                    aria-label={`${getTrainingQuizStageStarsCount(quiz.stage)} étoile${getTrainingQuizStageStarsCount(quiz.stage) > 1 ? 's' : ''}`}
+                                  >
+                                    {'★'.repeat(getTrainingQuizStageStarsCount(quiz.stage))}
+                                  </span>
+                                </div>
                               ) : (
                                 <span className="text-sm text-muted-foreground">Non définie</span>
                               )}
@@ -226,8 +258,8 @@ export default async function HealthChapterDetailPage({
                                     <Badge variant="outline" className="w-fit">
                                       {formatAttemptsLabel(quiz.progress.attemptsCount)}
                                     </Badge>
-                                    <span className="text-muted-foreground">
-                                      {quiz.progress.successRate}% max
+                                    <span className="text-center text-xs text-muted-foreground">
+                                      {formatQuizStatsSummary(quiz.progress)}
                                     </span>
                                   </div>
                                 ) : (

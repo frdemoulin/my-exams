@@ -52,6 +52,7 @@ export default async function AddChapterQuestionPage({ params }: AddChapterQuest
           correctChoiceIndexes: [0],
           correctChoiceIndex: 0,
           explanation: "",
+          choiceExplanations: ["", "", "", ""],
           order: nextOrder,
           isPublished: false,
         }}

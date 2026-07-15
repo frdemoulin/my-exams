@@ -15,6 +15,9 @@ type PageProps = {
   params: Promise<{
     courseUnitId: string;
   }>;
+  searchParams?: Promise<{
+    ec?: string;
+  }>;
 };
 
 const buildCourseUnitSubtitle = (institutionName: string, programVersionLabel: string) => {
@@ -47,8 +50,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function HealthCourseUnitDetailPage({ params }: PageProps) {
+export default async function HealthCourseUnitDetailPage({
+  params,
+  searchParams,
+}: PageProps) {
   const { courseUnitId } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
 
   const session = await auth();
   const effectiveUserId = getSessionEffectiveUserId(session);
@@ -102,7 +109,10 @@ export default async function HealthCourseUnitDetailPage({ params }: PageProps) 
           ) : null}
         </section>
 
-        <HealthCourseUnitTabs courseUnit={courseUnit} />
+        <HealthCourseUnitTabs
+          courseUnit={courseUnit}
+          activeTeachingElementId={resolvedSearchParams?.ec ?? null}
+        />
       </main>
       <SiteFooter />
     </div>

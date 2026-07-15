@@ -5,6 +5,7 @@ import {
     resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
 import { reorderCatchAllChoices } from "@/core/training/training-choice-ordering";
+import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
 import {
     normalizeTrainingChoiceContents,
     normalizeTrainingQuantumBoxesChoice,
@@ -561,6 +562,8 @@ export type HealthStudentChapterDetail = {
             progress: {
                 attemptsCount: number;
                 successRate: number;
+                minSuccessRate: number;
+                averageSuccessRate: number;
                 bestScore: number;
                 totalQuestions: number;
                 lastAttemptAt: string | null;
@@ -575,6 +578,7 @@ export type HealthStudentChapterDetail = {
                 choices: TrainingChoiceContent[];
                 correctChoiceIndexes: number[];
                 explanation: string;
+                choiceExplanations: string[];
                 order: number;
                 group: {
                     id: string;
@@ -1501,6 +1505,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                                                     correctChoiceIndexes: true,
                                                     correctChoiceIndex: true,
                                                     explanation: true,
+                                                    choiceExplanations: true,
                                                     order: true,
                                                     themeIds: true,
                                                     isPublished: true,
@@ -1574,6 +1579,8 @@ export async function fetchHealthStudentChapterDetail(input: {
                       quizId: true,
                       attemptsCount: true,
                       successRate: true,
+                      minSuccessRate: true,
+                      cumulativeSuccessRate: true,
                       bestScore: true,
                       totalQuestions: true,
                       lastAttemptAt: true,
@@ -1601,12 +1608,37 @@ export async function fetchHealthStudentChapterDetail(input: {
             {
                 attemptsCount: entry.attemptsCount,
                 successRate: entry.successRate,
+                minSuccessRate:
+                    entry.attemptsCount > 0 &&
+                    (entry.minSuccessRate > 0 || entry.successRate === 0)
+                        ? entry.minSuccessRate
+                        : entry.successRate,
+                averageSuccessRate:
+                    entry.attemptsCount > 0
+                        ? Math.round(
+                              (
+                                  entry.attemptsCount > 0 &&
+                                  (entry.cumulativeSuccessRate > 0 || entry.successRate === 0)
+                                      ? entry.cumulativeSuccessRate
+                                      : entry.successRate * entry.attemptsCount
+                              ) / entry.attemptsCount
+                          )
+                        : 0,
                 bestScore: entry.bestScore,
                 totalQuestions: entry.totalQuestions,
                 lastAttemptAt: entry.lastAttemptAt.toISOString(),
                 masteredAt: entry.masteredAt?.toISOString() ?? null,
             },
         ])
+    );
+    const publishedStructuredQuestionCount = assignment.chapter.sections.reduce(
+        (sectionTotal, section) =>
+            sectionTotal +
+            section.quizzes.reduce(
+                (quizTotal, quiz) => quizTotal + quiz.questionLinks.length,
+                0
+            ),
+        0
     );
 
     return {
@@ -1615,7 +1647,10 @@ export async function fetchHealthStudentChapterDetail(input: {
         shortTitle: assignment.shortTitleOverride ?? assignment.chapter.shortTitle ?? null,
         slug: assignment.slugOverride?.trim() || assignment.chapter.slug,
         description: assignment.descriptionOverride ?? assignment.chapter.description ?? null,
-        questionCount: assignment.chapter._count.quizQuestions,
+        questionCount:
+            publishedStructuredQuestionCount > 0
+                ? publishedStructuredQuestionCount
+                : assignment.chapter._count.quizQuestions,
         courseUnit: {
             id: courseUnit.id,
             code: courseUnit.code ?? null,
@@ -1648,6 +1683,11 @@ export async function fetchHealthStudentChapterDetail(input: {
                             normalizedChoices,
                             resolvedCorrectChoiceIndexes,
                         );
+                        const resolvedCorrectionContent = resolveChoiceCorrectionContent({
+                            explanation: questionLink.question.explanation,
+                            choiceExplanations: questionLink.question.choiceExplanations,
+                            choiceCount: reorderedQuestionChoices.choices.length,
+                        });
 
                         return {
                             id: questionLink.question.id,
@@ -1659,7 +1699,8 @@ export async function fetchHealthStudentChapterDetail(input: {
                             ),
                             choices: reorderedQuestionChoices.choices,
                             correctChoiceIndexes: reorderedQuestionChoices.correctChoiceIndexes,
-                            explanation: questionLink.question.explanation,
+                            explanation: resolvedCorrectionContent.explanation,
+                            choiceExplanations: resolvedCorrectionContent.choiceExplanations,
                             order: questionLink.order,
                             group: questionLink.group
                                 ? {

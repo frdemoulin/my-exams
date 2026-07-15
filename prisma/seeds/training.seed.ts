@@ -19,6 +19,7 @@ type SeedQuizQuestion = {
   choices: string[];
   correctChoiceIndex: number;
   explanation: string;
+  choiceExplanations?: string[];
   order: number;
 };
 
@@ -515,6 +516,7 @@ export async function seedTraining(prisma: PrismaClient) {
             choices: question.choices,
             correctChoiceIndex: question.correctChoiceIndex,
             explanation: question.explanation,
+            choiceExplanations: question.choiceExplanations ?? [],
             isPublished: true,
           },
         });
@@ -530,6 +532,7 @@ export async function seedTraining(prisma: PrismaClient) {
           choices: question.choices,
           correctChoiceIndex: question.correctChoiceIndex,
           explanation: question.explanation,
+          choiceExplanations: question.choiceExplanations ?? [],
           order: question.order,
           isPublished: true,
         },

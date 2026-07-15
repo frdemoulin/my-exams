@@ -8,6 +8,8 @@ type TrainingPathProgressPayload = {
   attemptsCount?: number;
   chapterId?: string;
   chapterSlug?: string;
+  cumulativeSuccessRate?: number;
+  minSuccessRate?: number;
   quizId?: string;
   score?: number;
   targetScore?: number;
@@ -49,6 +51,12 @@ export async function POST(request: Request) {
   const score = typeof payload.score === 'number' ? payload.score : null;
   const attemptsCount =
     typeof payload.attemptsCount === 'number' ? payload.attemptsCount : 1;
+  const payloadMinSuccessRate =
+    typeof payload.minSuccessRate === 'number' ? payload.minSuccessRate : null;
+  const payloadCumulativeSuccessRate =
+    typeof payload.cumulativeSuccessRate === 'number'
+      ? payload.cumulativeSuccessRate
+      : null;
   const targetScore =
     typeof payload.targetScore === 'number' ? payload.targetScore : null;
   const totalQuestions =
@@ -98,7 +106,9 @@ export async function POST(request: Request) {
     select: {
       attemptsCount: true,
       bestScore: true,
+      cumulativeSuccessRate: true,
       masteredAt: true,
+      minSuccessRate: true,
       successRate: true,
     },
   });
@@ -106,8 +116,29 @@ export async function POST(request: Request) {
   const now = new Date();
   const successRate =
     totalQuestions === 0 ? 0 : Math.round((score / totalQuestions) * 100);
+  const incomingMinSuccessRate = Math.max(
+    0,
+    Math.min(100, payloadMinSuccessRate ?? successRate)
+  );
+  const incomingCumulativeSuccessRate = Math.max(
+    0,
+    payloadCumulativeSuccessRate ?? successRate * attemptsCount
+  );
   const bestScore = Math.max(existingProgress?.bestScore ?? 0, score);
   const bestSuccessRate = Math.max(existingProgress?.successRate ?? 0, successRate);
+  const currentMinSuccessRate =
+    existingProgress?.attemptsCount && (existingProgress.minSuccessRate > 0 || existingProgress.successRate === 0)
+      ? existingProgress.minSuccessRate
+      : existingProgress?.successRate ?? incomingMinSuccessRate;
+  const currentCumulativeSuccessRate =
+    existingProgress?.attemptsCount &&
+    (existingProgress.cumulativeSuccessRate > 0 || existingProgress.successRate === 0)
+      ? existingProgress.cumulativeSuccessRate
+      : (existingProgress?.successRate ?? 0) * (existingProgress?.attemptsCount ?? 0);
+  const minSuccessRate = Math.min(
+    currentMinSuccessRate,
+    incomingMinSuccessRate
+  );
   const masteredAt =
     bestSuccessRate >= targetScore ? existingProgress?.masteredAt ?? now : null;
 
@@ -124,8 +155,10 @@ export async function POST(request: Request) {
       },
       bestScore,
       chapterId,
+      cumulativeSuccessRate: currentCumulativeSuccessRate + incomingCumulativeSuccessRate,
       lastAttemptAt: now,
       masteredAt,
+      minSuccessRate,
       successRate: bestSuccessRate,
       totalQuestions,
     },
@@ -133,8 +166,10 @@ export async function POST(request: Request) {
       attemptsCount,
       bestScore,
       chapterId,
+      cumulativeSuccessRate: incomingCumulativeSuccessRate,
       lastAttemptAt: now,
       masteredAt,
+      minSuccessRate: incomingMinSuccessRate,
       quizId,
       successRate: bestSuccessRate,
       totalQuestions,

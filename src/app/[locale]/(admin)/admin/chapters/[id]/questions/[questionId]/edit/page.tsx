@@ -55,6 +55,7 @@ export default async function EditChapterQuestionPage({ params }: EditChapterQue
           correctChoiceIndexes: question.correctChoiceIndexes,
           correctChoiceIndex: question.correctChoiceIndex,
           explanation: question.explanation,
+          choiceExplanations: question.choiceExplanations,
           order: question.order,
           isPublished: question.isPublished,
         }}

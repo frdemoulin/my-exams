@@ -46,6 +46,7 @@ export default async function EditTrainingQuizQuestionPage({ params }: EditTrain
           correctChoiceIndexes: question.correctChoiceIndexes,
           correctChoiceIndex: question.correctChoiceIndex,
           explanation: question.explanation,
+          choiceExplanations: question.choiceExplanations,
           order: question.order,
           isPublished: question.isPublished,
         }}

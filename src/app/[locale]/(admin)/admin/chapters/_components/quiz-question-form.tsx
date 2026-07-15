@@ -43,6 +43,7 @@ interface QuizQuestionFormProps {
     correctChoiceIndexes: number[];
     correctChoiceIndex: number;
     explanation: string;
+    choiceExplanations: string[];
     order?: number;
     isPublished: boolean;
   };
@@ -87,6 +88,10 @@ export function QuizQuestionForm({
       correctChoiceIndexes:
         initialCorrectChoiceIndexes.length > 0 ? initialCorrectChoiceIndexes : [0],
       explanation: initialData.explanation,
+      choiceExplanations:
+        initialData.choiceExplanations.length === 4
+          ? initialData.choiceExplanations
+          : ["", "", "", ""],
       order: initialData.order,
       isPublished: initialData.isPublished,
     },
@@ -104,6 +109,9 @@ export function QuizQuestionForm({
       formData.append("correctChoiceIndexes", String(choiceIndex))
     );
     formData.append("explanation", values.explanation);
+    values.choiceExplanations.forEach((choiceExplanation) =>
+      formData.append("choiceExplanations", choiceExplanation)
+    );
     formData.append("order", String(values.order));
     formData.append("isPublished", String(values.isPublished));
 
@@ -124,6 +132,7 @@ export function QuizQuestionForm({
   const previewChoices = form.watch("choices");
   const previewCorrectChoiceIndexes = form.watch("correctChoiceIndexes");
   const previewExplanation = form.watch("explanation");
+  const previewChoiceExplanations = form.watch("choiceExplanations");
   const checkboxClassName = "h-4 w-4 rounded-xs border border-default-medium bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft";
 
   return (
@@ -381,19 +390,47 @@ export function QuizQuestionForm({
           control={control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Explication</FormLabel>
+              <FormLabel>Correction globale</FormLabel>
               <FormControl>
                 <Textarea
                   rows={5}
-                  placeholder="Explication affichée après la réponse, avec TeX ou image si besoin"
+                  placeholder="Introduction ou synthèse globale affichée avant les corrections par item"
                   {...field}
                 />
               </FormControl>
-              <FormDescription>{richContentHelpText}</FormDescription>
+              <FormDescription>
+                Optionnel si une correction par item est renseignée. {richContentHelpText}
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {choiceLabels.map((label, index) => (
+            <FormField
+              key={`choice-explanation-${label}`}
+              name={`choiceExplanations.${index}`}
+              control={control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Correction du choix {label}</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      rows={3}
+                      placeholder={`Pourquoi le choix ${label} est vrai ou faux`}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    La lettre sera recalculée si les items sont permutés côté étudiant.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          ))}
+        </div>
 
         <div className="space-y-4 rounded-xl border border-dashed border-border bg-background/60 p-4">
           <div className="space-y-1">
@@ -445,13 +482,37 @@ export function QuizQuestionForm({
 
             <div className="rounded-lg border border-border bg-background p-4">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Explication
+                Correction
               </p>
               {previewExplanation.trim() ? (
-                <MathContent value={previewExplanation} />
+                <div className="mb-3">
+                  <MathContent value={previewExplanation} />
+                </div>
               ) : (
-                <p className="text-sm text-muted-foreground">L&apos;explication apparaîtra ici.</p>
+                <p className="text-sm text-muted-foreground">Aucune correction globale.</p>
               )}
+              {previewChoiceExplanations.some((choiceExplanation) => choiceExplanation.trim()) ? (
+                <div className="space-y-2 border-t border-border pt-3">
+                  {choiceLabels.map((label, index) => {
+                    const choiceExplanation = previewChoiceExplanations[index] ?? "";
+
+                    if (!choiceExplanation.trim()) {
+                      return null;
+                    }
+
+                    return (
+                      <div key={`preview-choice-explanation-${label}`} className="flex gap-2 text-sm">
+                        <span className="font-semibold text-heading">
+                          {previewCorrectChoiceIndexes.includes(index) ? "✓" : "✗"} {label}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <MathContent value={choiceExplanation} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
