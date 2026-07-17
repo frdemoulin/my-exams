@@ -1,3 +1,9 @@
+## [1.6.28](https://github.com/frdemoulin/my-exams/compare/v1.6.27...v1.6.28) (2026-07-17)
+
+### Bug Fixes
+
+* mise en place des QCM sur la formation des ions ([d506d19](https://github.com/frdemoulin/my-exams/commit/d506d1973018e1874730b06276959d7fdab621b8))
+
 ## [1.6.27](https://github.com/frdemoulin/my-exams/compare/v1.6.26...v1.6.27) (2026-07-15)
 
 ### Bug Fixes
