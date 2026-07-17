@@ -53,6 +53,7 @@ type SeedHealthTrainingChapterParams = {
   sections: SeedSection[];
   quizSeeds: SeedQuiz[];
   masterCleanupSectionOrders?: number[];
+  cleanupSectionOrders?: number[];
 };
 
 export async function seedHealthTrainingChapter({
@@ -65,6 +66,7 @@ export async function seedHealthTrainingChapter({
   sections,
   quizSeeds,
   masterCleanupSectionOrders = [],
+  cleanupSectionOrders = [],
 }: SeedHealthTrainingChapterParams) {
   console.log(`Seeding health training quiz (${logLabel})...`);
 
@@ -222,6 +224,27 @@ export async function seedHealthTrainingChapter({
     sectionIdByOrder.set(sectionSeed.order, section.id);
   }
 
+  const declaredSectionOrders = sections.map((section) => section.order);
+  const obsoleteSections = await prisma.chapterSection.findMany({
+    where: {
+      chapterId: chapter.id,
+      order: { notIn: declaredSectionOrders },
+    },
+    select: { id: true },
+  });
+
+  if (obsoleteSections.length > 0) {
+    const obsoleteSectionIds = obsoleteSections.map((section) => section.id);
+
+    await prisma.trainingQuiz.deleteMany({
+      where: { sectionId: { in: obsoleteSectionIds } },
+    });
+
+    await prisma.chapterSection.deleteMany({
+      where: { id: { in: obsoleteSectionIds } },
+    });
+  }
+
   const chapterQuestions =
     questions.length > 0
       ? await prisma.quizQuestion.findMany({
@@ -231,6 +254,18 @@ export async function seedHealthTrainingChapter({
         })
       : [];
   const declaredQuizSlugs = quizSeeds.map((quizSeed) => quizSeed.slug);
+
+  if (cleanupSectionOrders.length > 0) {
+    await prisma.trainingQuiz.deleteMany({
+      where: {
+        chapterId: chapter.id,
+        slug: { notIn: declaredQuizSlugs },
+        section: {
+          order: { in: cleanupSectionOrders },
+        },
+      },
+    });
+  }
 
   if (masterCleanupSectionOrders.length > 0) {
     await prisma.trainingQuiz.deleteMany({

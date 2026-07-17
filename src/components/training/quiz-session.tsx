@@ -756,7 +756,10 @@ export function QuizSession({
 
   if (viewMode === 'summary' && isComplete) {
     return (
-      <section className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6">
+      <section
+        data-testid="quiz-summary"
+        className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
+      >
         <div className={cn('overflow-hidden rounded-2xl border', effectiveSummaryFeedback.toneClassName)}>
           <div className="space-y-5 p-5 md:p-6">
             <div className="space-y-4">
@@ -776,11 +779,18 @@ export function QuizSession({
                     size="sm"
                     onClick={openReview}
                     className="shadow-sm"
+                    data-testid="quiz-open-review"
                   >
                     <ListChecks className="h-4 w-4" />
                     Voir la correction
                   </Button>
-                  <Button type="button" variant="success" size="sm" onClick={resetQuiz}>
+                  <Button
+                    type="button"
+                    variant="success"
+                    size="sm"
+                    onClick={resetQuiz}
+                    data-testid="quiz-restart"
+                  >
                     <RotateCcw className="h-4 w-4" />
                     Recommencer le QCM
                   </Button>
@@ -1117,11 +1127,17 @@ export function QuizSession({
   }
 
   return (
-    <section className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6">
+    <section
+      data-testid={isReviewMode ? 'quiz-review' : 'quiz-taking'}
+      className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
+    >
       <div className="space-y-3">
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <p
+              data-testid="quiz-question-counter"
+              className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
+            >
               {isReviewMode ? 'Correction · ' : ''}Question {currentIndex + 1} / {sessionQuestions.length}
             </p>
           </div>
@@ -1183,6 +1199,7 @@ export function QuizSession({
                         onClick={() => goToQuestion(index)}
                         aria-current={status === 'current' ? 'page' : undefined}
                         aria-label={`Aller à la question ${index + 1} (${statusLabel.toLowerCase()})`}
+                        data-testid={`quiz-nav-question-${index + 1}`}
                         className={cn(
                           'flex h-10 w-full items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset',
                           getQuestionNavigationButtonClassName(status)
@@ -1237,7 +1254,10 @@ export function QuizSession({
         </div>
       ) : null}
 
-      <div className="rounded-xl border border-border bg-background p-4 text-sm font-medium text-heading">
+      <div
+        data-testid="quiz-question-panel"
+        className="rounded-xl border border-border bg-background p-4 text-sm font-medium text-heading"
+      >
         {canEditQuestions ? (
           <div className="mb-3 flex justify-end">
             <Button asChild variant="outline" size="xs">
@@ -1305,6 +1325,7 @@ export function QuizSession({
               type="button"
               disabled={isAnswerLocked}
               onClick={() => selectAnswer(choiceIndex)}
+              data-testid={`quiz-choice-${choiceIndex}`}
               className={cn(
                 'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
@@ -1443,6 +1464,7 @@ export function QuizSession({
                 size="sm"
                 onClick={clearCurrentSelections}
                 disabled={currentSelections.length === 0}
+                data-testid="quiz-clear-selection"
               >
                 Effacer la sélection
               </Button>
@@ -1465,6 +1487,7 @@ export function QuizSession({
                 variant="outline"
                 size="sm"
                 onClick={() => setViewMode('summary')}
+                data-testid="quiz-back-to-summary"
               >
                 Retour aux résultats
               </Button>
@@ -1474,6 +1497,7 @@ export function QuizSession({
                 size="sm"
                 onClick={goToPreviousQuestion}
                 disabled={currentIndex === 0}
+                data-testid="quiz-previous"
               >
                 Pr&eacute;c&eacute;dent
               </Button>
@@ -1482,6 +1506,7 @@ export function QuizSession({
                 size="sm"
                 onClick={goToNextQuestion}
                 disabled={currentIndex === sessionQuestions.length - 1}
+                data-testid="quiz-next"
               >
                 Suivant
               </Button>
@@ -1494,6 +1519,7 @@ export function QuizSession({
                 size="sm"
                 onClick={goToPreviousQuestion}
                 disabled={currentIndex === 0}
+                data-testid="quiz-previous"
               >
                 Pr&eacute;c&eacute;dent
               </Button>
@@ -1503,10 +1529,16 @@ export function QuizSession({
                 size="sm"
                 onClick={goToNextQuestion}
                 disabled={currentIndex === sessionQuestions.length - 1}
+                data-testid="quiz-next"
               >
                 Suivant
               </Button>
-              <Button type="button" size="sm" onClick={openSummary}>
+              <Button
+                type="button"
+                size="sm"
+                onClick={openSummary}
+                data-testid="quiz-open-summary"
+              >
                 Voir les résultats
               </Button>
             </>
@@ -1518,6 +1550,7 @@ export function QuizSession({
                 size="sm"
                 onClick={goToPreviousQuestion}
                 disabled={currentIndex === 0}
+                data-testid="quiz-previous"
               >
                 Pr&eacute;c&eacute;dent
               </Button>
@@ -1526,6 +1559,7 @@ export function QuizSession({
                 size="sm"
                 onClick={goToNextQuestion}
                 disabled={currentIndex === sessionQuestions.length - 1}
+                data-testid="quiz-next"
               >
                 Suivant
               </Button>

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import katex from 'katex';
 import 'katex/contrib/mhchem';
 import { Fragment } from 'react';
+import { normalizeFrenchPunctuationSpacing } from '@/lib/french-typography';
 import { cn } from '@/lib/utils';
 
 type MathContentProps = {
@@ -97,12 +98,14 @@ const parseMathSegments = (value: string): Segment[] => {
 };
 
 const renderText = (value: string) =>
-  value.split('\n').map((line, index, lines) => (
-    <Fragment key={`${index}-${line}`}>
-      {line}
-      {index < lines.length - 1 ? <br /> : null}
-    </Fragment>
-  ));
+  normalizeFrenchPunctuationSpacing(value)
+    .split('\n')
+    .map((line, index, lines) => (
+      <Fragment key={`${index}-${line}`}>
+        {line}
+        {index < lines.length - 1 ? <br /> : null}
+      </Fragment>
+    ));
 
 const shouldRenderAsBlockMath = (_value: string, displayMode: boolean) => displayMode;
 
