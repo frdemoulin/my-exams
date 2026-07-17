@@ -3,10 +3,11 @@ import path from "path";
 import { execSync } from "child_process";
 import type { FullConfig, BrowserContextOptions } from "@playwright/test";
 import { encode } from "next-auth/jwt";
-import prisma from "../../src/lib/db/prisma";
 import { loadProjectEnv } from "../../scripts/lib/load-env";
 
 loadProjectEnv();
+
+const prisma = require("../../src/lib/db/prisma").default;
 
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
