@@ -1,3 +1,9 @@
+## [1.6.29](https://github.com/frdemoulin/my-exams/compare/v1.6.28...v1.6.29) (2026-07-18)
+
+### Bug Fixes
+
+* finalisation des questions du chapitre sur les liaisons chimiques ([c8115ad](https://github.com/frdemoulin/my-exams/commit/c8115ad143e58e3d7292e3c89ba82f7e76ce91f0))
+
 ## [1.6.28](https://github.com/frdemoulin/my-exams/compare/v1.6.27...v1.6.28) (2026-07-17)
 
 ### Bug Fixes
