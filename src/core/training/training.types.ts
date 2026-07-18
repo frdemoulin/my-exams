@@ -6,7 +6,7 @@ import type {
 import type { QuizAnswerFormatValue } from '@/core/quiz/quiz-answer-format';
 import type {
   TrainingChoiceContent,
-  TrainingQuantumBoxesChoice,
+  TrainingQuestionDiagramContent,
 } from './training-choice-content';
 
 export type TrainingPathStepStatus =
@@ -86,7 +86,7 @@ export type TrainingQuestion = {
   difficulty: QuizDifficulty;
   answerFormat: QuizAnswerFormatValue;
   question: string;
-  questionDiagram: TrainingQuantumBoxesChoice | null;
+  questionDiagram: TrainingQuestionDiagramContent | null;
   choices: TrainingChoiceContent[];
   correctChoiceIndexes: number[];
   explanation: string;

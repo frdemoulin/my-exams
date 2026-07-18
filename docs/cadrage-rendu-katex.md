@@ -82,6 +82,15 @@ Règles :
   - charges
   - états (optionnel : (aq), (s), etc.)
 
+##### Référence typographique
+
+- Les symboles d'éléments, les formules, les indices, les charges et les lettres grecques de nomenclature sont en romain droit.
+- Les grandeurs physiques et variables mathématiques restent en italique.
+- La référence de rendu dans l'application est `KaTeX_Main, Times New Roman, serif` : c'est la famille romaine déjà chargée par KaTeX.
+- Les diagrammes chimiques SVG, notamment les représentations de Lewis, utilisent cette même famille pour leurs symboles d'éléments et charges. Le texte courant de l'interface conserve la police sans sérif de l'application.
+
+Cette convention suit la règle IUPAC : les symboles des éléments du tableau périodique sont des labels et s'écrivent en romain droit, à la différence des grandeurs physiques.
+
 ---
 
 #### 3.4 Équations bilan (réactions chimiques)
