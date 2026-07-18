@@ -7,6 +7,7 @@ import {
 import { QuantumBoxDiagram } from './quantum-box-diagram';
 import { MathContent } from './math-content';
 import { cn } from '@/lib/utils';
+import { LewisAtomDiagram } from './lewis-atom-diagram';
 
 type TrainingChoiceContentViewProps = {
   choice: TrainingChoiceContent;
@@ -23,13 +24,17 @@ export function TrainingChoiceContentView({
 
   const plainText = getTrainingChoicePlainText(choice);
 
+  if (choice.type === 'quantum-boxes') {
+    return (
+      <span aria-label={plainText} className={cn('inline-flex items-end', className)}>
+        <QuantumBoxDiagram orbitals={choice.orbitals} />
+      </span>
+    );
+  }
+
   return (
-    <span
-      aria-label={`${plainText}.`}
-      className={cn('inline-flex items-end', className)}
-    >
-      <QuantumBoxDiagram orbitals={choice.orbitals} />
-      <span aria-hidden="true">.</span>
+    <span className={cn('inline-flex items-center', className)}>
+      <LewisAtomDiagram value={choice} ariaLabel={plainText} />
     </span>
   );
 }

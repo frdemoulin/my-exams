@@ -24,6 +24,16 @@ type HealthQcmFixture = {
   quizQuestionCount: number;
 };
 
+type PublishedQuiz = {
+  id: string;
+  slug: string;
+  questionLinks: Array<{ id: string }>;
+};
+
+type PublishedSection = {
+  quizzes: PublishedQuiz[];
+};
+
 async function getFixture(): Promise<HealthQcmFixture> {
   const chapter = await prisma.chapter.findFirst({
     where: { slug: chapterSlug },
@@ -79,8 +89,8 @@ async function getFixture(): Promise<HealthQcmFixture> {
   }
 
   const quiz = chapter.sections
-    .flatMap((section) => section.quizzes)
-    .find((item) => item.questionLinks.length > 0);
+    .flatMap((section: PublishedSection) => section.quizzes)
+    .find((item: PublishedQuiz) => item.questionLinks.length > 0);
 
   if (!quiz) {
     throw new Error(`Aucun quiz publié avec questions trouvé pour ${chapterSlug}.`);

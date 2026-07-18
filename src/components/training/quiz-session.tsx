@@ -436,6 +436,34 @@ const getSummaryProgressBarClassName = (successRate: number) => {
   return 'bg-rose-500 dark:bg-rose-400';
 };
 
+const formatQuestionNumbers = (questionNumbers: number[]) => {
+  if (questionNumbers.length === 0) return '';
+  if (questionNumbers.length === 1) return String(questionNumbers[0]);
+  if (questionNumbers.length === 2) {
+    return `${questionNumbers[0]} et ${questionNumbers[1]}`;
+  }
+
+  return `${questionNumbers.slice(0, -1).join(', ')} et ${questionNumbers.at(-1)}`;
+};
+
+const getSharedStatementTitle = (
+  questions: TrainingQuestion[],
+  groupId: string,
+  title: string | null
+) => {
+  const questionNumbers = questions.flatMap((question, index) =>
+    question.group?.id === groupId ? [index + 1] : []
+  );
+  const normalizedTitle = title
+    ?.trim()
+    .replace(/^énoncé commun\s*(?:[-–—:]\s*)?/i, '')
+    .trim();
+  const questionLabel = questionNumbers.length === 1 ? 'à la question' : 'aux questions';
+  const heading = `Énoncé commun ${questionLabel} ${formatQuestionNumbers(questionNumbers)}`;
+
+  return normalizedTitle ? `${heading} – ${normalizedTitle}` : heading;
+};
+
 const getThemePerformance = ({
   correctItems,
   incorrectItems,
@@ -537,6 +565,9 @@ export function QuizSession({
 
   const currentQuestion = sessionQuestions[currentIndex];
   const currentGroup = currentQuestion.group;
+  const currentGroupTitle = currentGroup
+    ? getSharedStatementTitle(sessionQuestions, currentGroup.id, currentGroup.title)
+    : null;
   const isPathMode = Boolean(pathContext);
   const isFinalCorrectionOnly = correctionMode === 'final';
   const isReviewMode = viewMode === 'review';
@@ -1141,7 +1172,7 @@ export function QuizSession({
               {isReviewMode ? 'Correction · ' : ''}Question {currentIndex + 1} / {sessionQuestions.length}
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-end gap-2">
             <Badge variant="secondary">
               {isReviewMode
                 ? isCorrect
@@ -1151,6 +1182,14 @@ export function QuizSession({
                 ? `${answeredCount}/${sessionQuestions.length} traitée${answeredCount > 1 ? 's' : ''}`
                 : `Score ${score}/${sessionQuestions.length}`}
             </Badge>
+            {canEditQuestions ? (
+              <Button asChild variant="outline" size="xs">
+                <Link href={getAdminQuestionEditHref(currentQuestion.id)}>
+                  <Pencil className="h-3.5 w-3.5" />
+                  Éditer la question
+                </Link>
+              </Button>
+            ) : null}
           </div>
         </div>
 
@@ -1246,10 +1285,10 @@ export function QuizSession({
       {currentGroup ? (
         <div className="rounded-xl border border-brand/15 bg-brand-soft/10 p-4 text-sm text-heading">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            {currentGroup.title?.trim() ? currentGroup.title : 'Énoncé commun'}
+            {currentGroupTitle}
           </p>
           <div className="mt-2 leading-6">
-            <MathContent value={currentGroup.sharedStatement} />
+            <MathContent value={currentGroup.sharedStatement} blockMathVariant="compact" />
           </div>
         </div>
       ) : null}
@@ -1258,16 +1297,6 @@ export function QuizSession({
         data-testid="quiz-question-panel"
         className="rounded-xl border border-border bg-background p-4 text-sm font-medium text-heading"
       >
-        {canEditQuestions ? (
-          <div className="mb-3 flex justify-end">
-            <Button asChild variant="outline" size="xs">
-              <Link href={getAdminQuestionEditHref(currentQuestion.id)}>
-                <Pencil className="h-3.5 w-3.5" />
-                Éditer la question
-              </Link>
-            </Button>
-          </div>
-        ) : null}
         <TrainingQuestionContentView
           question={currentQuestion.question}
           questionDiagram={currentQuestion.questionDiagram}
@@ -1339,10 +1368,20 @@ export function QuizSession({
               )}
             >
               <span className="flex min-w-0 flex-1 items-baseline gap-3">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center self-baseline rounded-full border border-brand bg-brand text-xs font-semibold leading-none text-white shadow-xs">
+                <span
+                  className={cn(
+                    'flex h-6 w-6 shrink-0 items-center justify-center self-baseline rounded-full border border-brand bg-brand text-xs font-semibold leading-none text-white shadow-xs',
+                    typeof choice !== 'string' && 'self-center',
+                  )}
+                >
                   {String.fromCharCode(65 + choiceIndex)}
                 </span>
-                <span className="min-w-0 flex-1 self-baseline">
+                <span
+                  className={cn(
+                    'min-w-0 flex-1 self-baseline',
+                    typeof choice !== 'string' && 'self-center',
+                  )}
+                >
                   <TrainingChoiceContentView choice={choice} />
                 </span>
               </span>

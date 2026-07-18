@@ -8,9 +8,9 @@ import { reorderCatchAllChoices } from "@/core/training/training-choice-ordering
 import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
 import {
     normalizeTrainingChoiceContents,
-    normalizeTrainingQuantumBoxesChoice,
+    normalizeTrainingQuestionDiagramContent,
     type TrainingChoiceContent,
-    type TrainingQuantumBoxesChoice,
+    type TrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
 import {
     HealthEntity,
@@ -574,7 +574,7 @@ export type HealthStudentChapterDetail = {
                 difficulty: "EASY" | "MEDIUM" | "HARD";
                 answerFormat: "SINGLE" | "MULTIPLE";
                 question: string;
-                questionDiagram: TrainingQuantumBoxesChoice | null;
+                questionDiagram: TrainingQuestionDiagramContent | null;
                 choices: TrainingChoiceContent[];
                 correctChoiceIndexes: number[];
                 explanation: string;
@@ -1694,7 +1694,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                             difficulty: questionLink.question.difficulty,
                             answerFormat: resolveQuizAnswerFormat(questionLink.question.answerFormat),
                             question: questionLink.question.question,
-                            questionDiagram: normalizeTrainingQuantumBoxesChoice(
+                            questionDiagram: normalizeTrainingQuestionDiagramContent(
                                 questionLink.question.questionDiagram ?? null
                             ),
                             choices: reorderedQuestionChoices.choices,

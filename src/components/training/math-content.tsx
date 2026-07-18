@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 type MathContentProps = {
   value: string;
   className?: string;
+  blockMathVariant?: 'card' | 'compact';
 };
 
 type Segment =
@@ -109,7 +110,11 @@ const renderText = (value: string) =>
 
 const shouldRenderAsBlockMath = (_value: string, displayMode: boolean) => displayMode;
 
-const renderMath = (value: string, displayMode: boolean) => {
+const renderMath = (
+  value: string,
+  displayMode: boolean,
+  blockMathVariant: MathContentProps['blockMathVariant']
+) => {
   const renderAsBlock = shouldRenderAsBlockMath(value, displayMode);
   const html = katex.renderToString(value, {
     displayMode: renderAsBlock,
@@ -118,6 +123,15 @@ const renderMath = (value: string, displayMode: boolean) => {
   });
 
   if (renderAsBlock) {
+    if (blockMathVariant === 'compact') {
+      return (
+        <span
+          className="my-2 block overflow-x-auto text-center"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      );
+    }
+
     return (
       <span
         className="my-3 block overflow-x-auto rounded-lg border border-border bg-neutral-primary-soft px-3 py-3 shadow-xs"
@@ -151,7 +165,11 @@ const renderImage = (alt: string, src: string) => {
   );
 };
 
-export function MathContent({ value, className }: MathContentProps) {
+export function MathContent({
+  value,
+  className,
+  blockMathVariant = 'card',
+}: MathContentProps) {
   const segments = parseMathSegments(value);
 
   return (
@@ -161,7 +179,7 @@ export function MathContent({ value, className }: MathContentProps) {
           {segment.type === 'text'
             ? renderText(segment.value)
             : segment.type === 'math'
-              ? renderMath(segment.value, segment.displayMode)
+              ? renderMath(segment.value, segment.displayMode, blockMathVariant)
               : renderImage(segment.alt, segment.src)}
         </Fragment>
       ))}

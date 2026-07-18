@@ -13,7 +13,7 @@ import { reorderCatchAllChoices } from './training-choice-ordering';
 import { resolveChoiceCorrectionContent } from './training-choice-explanations';
 import {
   normalizeTrainingChoiceContents,
-  normalizeTrainingQuantumBoxesChoice,
+  normalizeTrainingQuestionDiagramContent,
 } from './training-choice-content';
 import { sortTrainingQuizStages } from './training-stage';
 import type {
@@ -160,7 +160,7 @@ const toTrainingQuestion = (question: {
     difficulty: question.difficulty,
     answerFormat: resolveQuizAnswerFormat(question.answerFormat),
     question: question.question,
-    questionDiagram: normalizeTrainingQuantumBoxesChoice(
+    questionDiagram: normalizeTrainingQuestionDiagramContent(
       question.questionDiagram ?? null
     ),
     choices: normalizedQuestionChoices.choices,

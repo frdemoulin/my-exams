@@ -27,6 +27,17 @@ type ChapterFixture = {
   }>;
 };
 
+type RawQuiz = {
+  title: string;
+  questionLinks: Array<{ id: string }>;
+};
+
+type RawSection = {
+  title: string;
+  kind: "THEME" | "SYNTHESIS";
+  quizzes: RawQuiz[];
+};
+
 function formatQuestionCountLabel(count: number) {
   return `${count} question${count > 1 ? "s" : ""}`;
 }
@@ -95,10 +106,10 @@ async function getChapterFixture(chapterSlug: string): Promise<ChapterFixture> {
     throw new Error(`Chapitre introuvable: ${chapterSlug}`);
   }
 
-  const sections = chapter.sections.map((section) => ({
+  const sections: ChapterFixture["sections"] = chapter.sections.map((section: RawSection) => ({
     title: section.title,
     kind: section.kind,
-    quizzes: section.quizzes.map((quiz) => ({
+    quizzes: section.quizzes.map((quiz: RawQuiz) => ({
       title: quiz.title,
       questionCount: quiz.questionLinks.length,
     })),
@@ -107,10 +118,14 @@ async function getChapterFixture(chapterSlug: string): Promise<ChapterFixture> {
   return {
     title: chapter.title,
     sectionCount: sections.length,
-    quizCount: sections.reduce((total, section) => total + section.quizzes.length, 0),
+    quizCount: sections.reduce((total: number, section) => total + section.quizzes.length, 0),
     questionCount: sections.reduce(
-      (total, section) =>
-        total + section.quizzes.reduce((quizTotal, quiz) => quizTotal + quiz.questionCount, 0),
+      (total: number, section) =>
+        total +
+        section.quizzes.reduce(
+          (quizTotal: number, quiz) => quizTotal + quiz.questionCount,
+          0,
+        ),
       0,
     ),
     sections,

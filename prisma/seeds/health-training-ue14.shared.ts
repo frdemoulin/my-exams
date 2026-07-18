@@ -14,13 +14,42 @@ export type QuantumBoxesDiagram = {
   }>;
 };
 
+export type LewisAtomDiagram = {
+  type: 'lewis-atom';
+  element: string;
+  charge?: number;
+  electrons: {
+    top: 'none' | 'single' | 'pair';
+    right: 'none' | 'single' | 'pair';
+    bottom: 'none' | 'single' | 'pair';
+    left: 'none' | 'single' | 'pair';
+  };
+};
+
+export type LewisResonanceDiagram = {
+  type: 'lewis-resonance';
+  forms: Array<{
+    atoms: Array<{
+      element: string;
+      charge?: number;
+      lonePairs: Array<'top' | 'right' | 'bottom' | 'left'>;
+    }>;
+    bonds: Array<'single' | 'double' | 'triple'>;
+  }>;
+};
+
+export type BenzeneKekuleDiagram = {
+  type: 'benzene-kekule';
+  showAromaticHybrid?: boolean;
+};
+
 export type SeedQuestion = {
   order: number;
   difficulty: QuizDifficulty;
   answerFormat: QuizAnswerFormat;
   question: string;
-  questionDiagram?: QuantumBoxesDiagram;
-  choices: Array<string | QuantumBoxesDiagram>;
+  questionDiagram?: QuantumBoxesDiagram | LewisResonanceDiagram | BenzeneKekuleDiagram;
+  choices: Array<string | QuantumBoxesDiagram | LewisAtomDiagram>;
   correctChoiceIndexes: number[];
   explanation: string | null;
   choiceExplanations?: string[];
@@ -40,7 +69,61 @@ export type SeedQuiz = {
   description: string;
   stage: TrainingQuizStage;
   sectionOrder: number;
-  questionOrders: number[];
+  questionOrders?: number[];
+  questionGroups?: Array<{
+    title?: string;
+    order: number;
+    sharedStatement: string;
+    questionOrders: number[];
+  }>;
+  items?: SeedQuizItem[];
+};
+
+type SeedQuizItem =
+  | {
+      type: 'QUESTION';
+      questionOrder: number;
+    }
+  | {
+      type: 'GROUP';
+      title?: string;
+      sharedStatement: string;
+      questionOrders: number[];
+    };
+
+type NormalizedSeedQuizItem = SeedQuizItem & { order: number };
+
+const normalizeSeedQuizItems = (quizSeed: SeedQuiz): NormalizedSeedQuizItem[] => {
+  if (quizSeed.items?.length) {
+    return quizSeed.items.map((item, index) => ({ ...item, order: index + 1 }));
+  }
+
+  let itemOrder = 1;
+  const items: NormalizedSeedQuizItem[] = [];
+
+  for (const questionOrder of quizSeed.questionOrders ?? []) {
+    items.push({
+      type: 'QUESTION',
+      questionOrder,
+      order: itemOrder,
+    });
+    itemOrder += 1;
+  }
+
+  for (const questionGroup of [...(quizSeed.questionGroups ?? [])].sort(
+    (left, right) => left.order - right.order
+  )) {
+    items.push({
+      type: 'GROUP',
+      title: questionGroup.title,
+      sharedStatement: questionGroup.sharedStatement,
+      questionOrders: questionGroup.questionOrders,
+      order: itemOrder,
+    });
+    itemOrder += 1;
+  }
+
+  return items;
 };
 
 type SeedHealthTrainingChapterParams = {
@@ -331,24 +414,62 @@ export async function seedHealthTrainingChapter({
     });
 
     let linkedQuestionCount = 0;
+    let quizQuestionOrder = 1;
 
-    for (const [index, questionOrder] of quizSeed.questionOrders.entries()) {
-      const questionId = questionIdByOrder.get(questionOrder);
+    for (const item of normalizeSeedQuizItems(quizSeed)) {
+      if (item.type === 'QUESTION') {
+        const questionId = questionIdByOrder.get(item.questionOrder);
 
-      if (!questionId) {
-        console.warn(`   ⚠️  Question introuvable pour ${chapter.title} (ordre ${questionOrder})`);
+        if (!questionId) {
+          console.warn(
+            `   ⚠️  Question introuvable pour ${chapter.title} (ordre ${item.questionOrder})`
+          );
+          continue;
+        }
+
+        await prisma.trainingQuizQuestion.create({
+          data: {
+            quizId: quiz.id,
+            questionId,
+            order: quizQuestionOrder,
+          },
+        });
+
+        quizQuestionOrder += 1;
+        linkedQuestionCount += 1;
         continue;
       }
 
-      await prisma.trainingQuizQuestion.create({
+      const questionGroup = await prisma.trainingQuizQuestionGroup.create({
         data: {
           quizId: quiz.id,
-          questionId,
-          order: index + 1,
+          title: item.title?.trim() || null,
+          sharedStatement: item.sharedStatement,
+          order: item.order,
         },
+        select: { id: true },
       });
 
-      linkedQuestionCount += 1;
+      for (const questionOrder of item.questionOrders) {
+        const questionId = questionIdByOrder.get(questionOrder);
+
+        if (!questionId) {
+          console.warn(`   ⚠️  Question introuvable pour ${chapter.title} (ordre ${questionOrder})`);
+          continue;
+        }
+
+        await prisma.trainingQuizQuestion.create({
+          data: {
+            quizId: quiz.id,
+            groupId: questionGroup.id,
+            questionId,
+            order: quizQuestionOrder,
+          },
+        });
+
+        quizQuestionOrder += 1;
+        linkedQuestionCount += 1;
+      }
     }
 
     console.log(

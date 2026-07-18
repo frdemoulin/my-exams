@@ -68,7 +68,19 @@ type SeedQuiz = {
   description: string;
   stage: TrainingQuizStage;
   sectionOrder: number;
-  questionOrders: number[];
+  questionOrders?: number[];
+  items?: Array<
+    | {
+        type: 'QUESTION';
+        questionOrder: number;
+      }
+    | {
+        type: 'GROUP';
+        title: string;
+        sharedStatement: string;
+        questionOrders: number[];
+      }
+  >;
 };
 
 const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
@@ -1121,7 +1133,7 @@ const questions: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Les deux questions qui suivent sont liées. Elles concernent l'élément fer ($\\mathrm{Z} = 26$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
+      `Parmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
     choices: [
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^0$.`,
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^6\\,4\\mathrm{s}^2$.`,
@@ -1288,7 +1300,7 @@ const questions: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Les deux questions qui suivent sont liées. Elles concernent l'élément nickel ($\\mathrm{Z} = 28$).\n\nParmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
+      `Parmi les propositions suivantes, laquelle correspond à la configuration électronique de cet élément dans son état fondamental :`,
     choices: [
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^{10}\\,4\\mathrm{s}^0$.`,
       `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,3\\mathrm{d}^8\\,4\\mathrm{s}^2$.`,
@@ -1567,7 +1579,7 @@ const questions: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Les deux questions qui suivent sont liées. À propos de la distinction entre métaux, non-métaux et métalloïdes :`,
+      `Quelles propositions décrivent correctement les métaux, les non-métaux et les métalloïdes ?`,
     choices: [
       `Les métaux sont tous solides à température ambiante et conduisent le courant électrique.`,
       `Les non-métaux sont moins nombreux que les métaux ; ils peuvent être solides, liquides ou gazeux et tendent à former des anions.`,
@@ -1794,10 +1806,8 @@ const sections: SeedSection[] = [
 const firstQuizQuestionOrders = [1, 22, 2, 11, 12, 13, 21, 15, 3, 4];
 const secondQuizQuestionOrders = [25, 14, 26, 16, 17, 18, 19, 20, 23, 24];
 const secondSectionDiscoverQuestionOrders = [28, 29];
-const secondSectionPracticeQuestionOrders = [28, 29, 40, 41, 42, 43, 44, 45, 46, 47];
 const secondSectionSecondDiscoverQuestionOrders = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39];
 const thirdSectionDiscoverQuestionOrders = [8, 57, 56, 9, 58, 59, 60, 61, 62, 10];
-const thirdSectionPracticeQuestionOrders = [55, 64, 66, 67, 65, 68, 69, 70, 72, 73];
 
 const quizSeeds: SeedQuiz[] = [
   {
@@ -1838,7 +1848,22 @@ const quizSeeds: SeedQuiz[] = [
       `Niveau intermédiaire d'entraînement sur la section B – Organisation et configuration électronique.`,
     stage: 'PRACTICE',
     sectionOrder: SECOND_SECTION_ORDER,
-    questionOrders: secondSectionPracticeQuestionOrders,
+    items: [
+      { type: 'QUESTION', questionOrder: 28 },
+      { type: 'QUESTION', questionOrder: 29 },
+      { type: 'QUESTION', questionOrder: 40 },
+      { type: 'QUESTION', questionOrder: 41 },
+      { type: 'QUESTION', questionOrder: 42 },
+      { type: 'QUESTION', questionOrder: 43 },
+      {
+        type: 'GROUP',
+        title: `Élément fer`,
+        sharedStatement: `On considère l'élément fer ($\\mathrm{Z} = 26$).`,
+        questionOrders: [44, 45],
+      },
+      { type: 'QUESTION', questionOrder: 46 },
+      { type: 'QUESTION', questionOrder: 47 },
+    ],
   },
   {
     order: THIRD_SECTION_DISCOVER_QUIZ_ORDER,
@@ -1858,7 +1883,23 @@ const quizSeeds: SeedQuiz[] = [
       `Niveau intermédiaire d'entraînement sur la section C – Classification périodique des éléments.`,
     stage: 'PRACTICE',
     sectionOrder: THIRD_SECTION_ORDER,
-    questionOrders: thirdSectionPracticeQuestionOrders,
+    items: [
+      { type: 'QUESTION', questionOrder: 55 },
+      { type: 'QUESTION', questionOrder: 64 },
+      {
+        type: 'GROUP',
+        title: `Métaux, non-métaux et métalloïdes`,
+        sharedStatement:
+          `On distingue les métaux, les non-métaux et les métalloïdes dans la classification périodique.`,
+        questionOrders: [66, 67],
+      },
+      { type: 'QUESTION', questionOrder: 65 },
+      { type: 'QUESTION', questionOrder: 68 },
+      { type: 'QUESTION', questionOrder: 69 },
+      { type: 'QUESTION', questionOrder: 70 },
+      { type: 'QUESTION', questionOrder: 72 },
+      { type: 'QUESTION', questionOrder: 73 },
+    ],
   },
   {
     order: SYNTHESIS_QUIZ_ORDER,
@@ -1868,7 +1909,22 @@ const quizSeeds: SeedQuiz[] = [
       `QCM de synthèse transversal sur les notions d'atome, de nucléide, d'isotope et d'ordres de grandeur.`,
     stage: 'MASTER',
     sectionOrder: 4,
-    questionOrders: [27, 48, 49, 50, 51, 52, 53, 54, 71, 74],
+    items: [
+      { type: 'QUESTION', questionOrder: 27 },
+      { type: 'QUESTION', questionOrder: 48 },
+      { type: 'QUESTION', questionOrder: 49 },
+      { type: 'QUESTION', questionOrder: 50 },
+      { type: 'QUESTION', questionOrder: 51 },
+      {
+        type: 'GROUP',
+        title: `Élément nickel`,
+        sharedStatement: `On considère l'élément nickel ($\\mathrm{Z} = 28$).`,
+        questionOrders: [52, 53],
+      },
+      { type: 'QUESTION', questionOrder: 54 },
+      { type: 'QUESTION', questionOrder: 71 },
+      { type: 'QUESTION', questionOrder: 74 },
+    ],
   },
 ];
 
