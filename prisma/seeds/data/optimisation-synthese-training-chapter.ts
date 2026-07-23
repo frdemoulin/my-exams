@@ -2504,7 +2504,7 @@ export const optimisationSyntheseTrainingChapter: TrainingChapterSeed =
       order: 172,
       question:
         'Dans le cas etudie, les protocoles A et B diffèrent surtout par :',
-      choices: ['La temperature', 'La formule du produit', 'Le nombre de reactifs', 'Le chapitre du cours'],
+      choices: ['La temperature', 'La formule du produit', 'Le nombre de reactifs', 'Le type de verrerie'],
       correctChoiceIndex: 0,
       explanation:
         'Le cas d etude isole l effet de la temperature.',

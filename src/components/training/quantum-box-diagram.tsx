@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 
 type QuantumBoxDiagramProps = {
   orbitals: TrainingQuantumBoxOrbital[];
+  suffix?: string;
   className?: string;
 };
 
@@ -34,6 +35,7 @@ function QuantumBox({
 
 export function QuantumBoxDiagram({
   orbitals,
+  suffix,
   className,
 }: QuantumBoxDiagramProps) {
   return (
@@ -58,6 +60,7 @@ export function QuantumBoxDiagram({
           </span>
         </span>
       ))}
+      {suffix ? <span className="ml-0.5">{suffix}</span> : null}
     </span>
   );
 }
