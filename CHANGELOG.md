@@ -1,3 +1,9 @@
+## [1.6.30](https://github.com/frdemoulin/my-exams/compare/v1.6.29...v1.6.30) (2026-07-23)
+
+### Bug Fixes
+
+* ajout des QCMs sur les orbitales moléculaires ([24dc2ab](https://github.com/frdemoulin/my-exams/commit/24dc2ab4e4d5e54a59a775b5e73da54f99bf1b42))
+
 ## [1.6.29](https://github.com/frdemoulin/my-exams/compare/v1.6.28...v1.6.29) (2026-07-18)
 
 ### Bug Fixes
