@@ -7,6 +7,7 @@ export type TrainingQuantumBoxOrbital = {
 
 export type TrainingQuantumBoxesChoice = {
   type: 'quantum-boxes';
+  suffix?: string;
   orbitals: TrainingQuantumBoxOrbital[];
 };
 
@@ -46,7 +47,13 @@ export type TrainingLewisResonanceDiagram = {
 
 export type TrainingBenzeneKekuleDiagram = {
   type: 'benzene-kekule';
+  variant?: 'kekule' | 'single-kekule' | 'aromatic' | 'kekule-with-aromatic';
   showAromaticHybrid?: boolean;
+};
+
+export type TrainingMoleculeDiagram = {
+  type: 'molecule';
+  molecule: 'aspirin-topological' | 'salicylic-acid-topological';
 };
 
 export type TrainingChoiceContent =
@@ -59,7 +66,8 @@ export type TrainingDiagramContent = TrainingQuantumBoxesChoice | TrainingLewisA
 export type TrainingQuestionDiagramContent =
   | TrainingQuantumBoxesChoice
   | TrainingLewisResonanceDiagram
-  | TrainingBenzeneKekuleDiagram;
+  | TrainingBenzeneKekuleDiagram
+  | TrainingMoleculeDiagram;
 
 const allowedQuantumBoxFills = new Set<TrainingQuantumBoxFill>([
   'empty',
@@ -108,6 +116,10 @@ export const isTrainingQuantumBoxesChoice = (
     return false;
   }
 
+  if ('suffix' in value && value.suffix !== undefined && typeof value.suffix !== 'string') {
+    return false;
+  }
+
   return value.orbitals.every((orbital) => {
     if (!isRecord(orbital) || typeof orbital.label !== 'string' || !Array.isArray(orbital.boxes)) {
       return false;
@@ -129,6 +141,7 @@ export const normalizeTrainingQuantumBoxesChoice = (
 
   return {
     type: 'quantum-boxes',
+    ...(value.suffix === undefined ? {} : { suffix: value.suffix }),
     orbitals: value.orbitals.map((orbital) => ({
       label: orbital.label,
       boxes: [...orbital.boxes],
@@ -246,7 +259,12 @@ export const isTrainingBenzeneKekuleDiagram = (
   value: unknown
 ): value is TrainingBenzeneKekuleDiagram =>
   isRecord(value) &&
-  value.type === 'benzene-kekule' &&
+    value.type === 'benzene-kekule' &&
+  (!('variant' in value) ||
+    value.variant === 'kekule' ||
+    value.variant === 'single-kekule' ||
+    value.variant === 'aromatic' ||
+    value.variant === 'kekule-with-aromatic') &&
   (!('showAromaticHybrid' in value) || typeof value.showAromaticHybrid === 'boolean');
 
 export const normalizeTrainingBenzeneKekuleDiagram = (
@@ -258,9 +276,28 @@ export const normalizeTrainingBenzeneKekuleDiagram = (
 
   return {
     type: 'benzene-kekule',
+    ...(value.variant === undefined ? {} : { variant: value.variant }),
     ...(value.showAromaticHybrid === undefined
       ? {}
       : { showAromaticHybrid: value.showAromaticHybrid }),
+  };
+};
+
+export const isTrainingMoleculeDiagram = (value: unknown): value is TrainingMoleculeDiagram =>
+  isRecord(value) &&
+  value.type === 'molecule' &&
+  (value.molecule === 'aspirin-topological' || value.molecule === 'salicylic-acid-topological');
+
+export const normalizeTrainingMoleculeDiagram = (
+  value: unknown
+): TrainingMoleculeDiagram | null => {
+  if (!isTrainingMoleculeDiagram(value)) {
+    return null;
+  }
+
+  return {
+    type: 'molecule',
+    molecule: value.molecule,
   };
 };
 
@@ -269,7 +306,8 @@ export const normalizeTrainingQuestionDiagramContent = (
 ): TrainingQuestionDiagramContent | null =>
   normalizeTrainingQuantumBoxesChoice(value) ??
   normalizeTrainingLewisResonanceDiagram(value) ??
-  normalizeTrainingBenzeneKekuleDiagram(value);
+  normalizeTrainingBenzeneKekuleDiagram(value) ??
+  normalizeTrainingMoleculeDiagram(value);
 
 export const normalizeTrainingLewisAtomChoice = (
   value: unknown
@@ -353,7 +391,7 @@ export const getTrainingChoicePlainText = (choice: TrainingChoiceContent): strin
   }
 
   if (choice.type === 'quantum-boxes') {
-    return choice.orbitals
+    const diagramText = choice.orbitals
       .map(
         (orbital) =>
           `${getQuantumBoxLabelPlainText(orbital.label)} ${orbital.boxes
@@ -361,6 +399,8 @@ export const getTrainingChoicePlainText = (choice: TrainingChoiceContent): strin
             .join('')}`.trim()
       )
       .join('   ');
+
+    return `${diagramText}${choice.suffix ?? ''}`;
   }
 
   return getTrainingLewisAtomPlainText(choice);

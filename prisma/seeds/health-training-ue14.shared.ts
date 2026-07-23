@@ -8,6 +8,7 @@ import type {
 
 export type QuantumBoxesDiagram = {
   type: 'quantum-boxes';
+  suffix?: string;
   orbitals: Array<{
     label: string;
     boxes: Array<'empty' | 'up' | 'down' | 'pair'>;
@@ -40,7 +41,13 @@ export type LewisResonanceDiagram = {
 
 export type BenzeneKekuleDiagram = {
   type: 'benzene-kekule';
+  variant?: 'kekule' | 'single-kekule' | 'aromatic' | 'kekule-with-aromatic';
   showAromaticHybrid?: boolean;
+};
+
+export type MoleculeDiagram = {
+  type: 'molecule';
+  molecule: 'aspirin-topological' | 'salicylic-acid-topological';
 };
 
 export type SeedQuestion = {
@@ -48,7 +55,7 @@ export type SeedQuestion = {
   difficulty: QuizDifficulty;
   answerFormat: QuizAnswerFormat;
   question: string;
-  questionDiagram?: QuantumBoxesDiagram | LewisResonanceDiagram | BenzeneKekuleDiagram;
+  questionDiagram?: QuantumBoxesDiagram | LewisResonanceDiagram | BenzeneKekuleDiagram | MoleculeDiagram;
   choices: Array<string | QuantumBoxesDiagram | LewisAtomDiagram>;
   correctChoiceIndexes: number[];
   explanation: string | null;
@@ -139,6 +146,21 @@ type SeedHealthTrainingChapterParams = {
   cleanupSectionOrders?: number[];
 };
 
+const trainingQuizStageLogLabels: Record<TrainingQuizStage, string> = {
+  DISCOVER: 'Découvrir',
+  PRACTICE: "S'entraîner",
+  MASTER: 'Maîtriser',
+};
+
+const formatOptionalPrefixLabel = (
+  prefix: string | null | undefined,
+  label: string | null | undefined
+) => {
+  if (!prefix) return label ?? '';
+  if (!label) return prefix;
+  return label.includes(prefix) ? label : `${prefix} - ${label}`;
+};
+
 export async function seedHealthTrainingChapter({
   prisma,
   subjectLongDescription,
@@ -151,8 +173,6 @@ export async function seedHealthTrainingChapter({
   masterCleanupSectionOrders = [],
   cleanupSectionOrders = [],
 }: SeedHealthTrainingChapterParams) {
-  console.log(`Seeding health training quiz (${logLabel})...`);
-
   const subject = await prisma.subject.findFirst({
     where: { longDescription: subjectLongDescription },
     select: { id: true },
@@ -183,6 +203,62 @@ export async function seedHealthTrainingChapter({
       `Le chapitre ${chapterSlug} doit être rattaché au domaine Chimie avant le seed des thèmes.`
     );
   }
+
+  const healthAssignment = await prisma.chapterAssignment.findFirst({
+    where: {
+      chapterId: chapter.id,
+      vertical: 'HEALTH',
+      contextType: 'HEALTH_TEACHING_ELEMENT',
+      isActive: true,
+    },
+    select: {
+      order: true,
+      contextId: true,
+    },
+    orderBy: { order: 'asc' },
+  });
+
+  const healthTeachingElement = healthAssignment
+    ? await prisma.healthTeachingElement.findUnique({
+        where: { id: healthAssignment.contextId },
+        select: {
+          code: true,
+          title: true,
+          shortTitle: true,
+          courseUnit: {
+            select: {
+              code: true,
+              title: true,
+              shortTitle: true,
+            },
+          },
+        },
+      })
+    : null;
+
+  const courseUnitLabel =
+    healthTeachingElement?.courseUnit
+      ? formatOptionalPrefixLabel(
+          healthTeachingElement.courseUnit.code,
+          healthTeachingElement.courseUnit.shortTitle ?? healthTeachingElement.courseUnit.title
+        )
+      : logLabel;
+  const teachingElementLabel = healthTeachingElement
+    ? formatOptionalPrefixLabel(
+        healthTeachingElement.code,
+        healthTeachingElement.shortTitle ?? healthTeachingElement.title
+      )
+    : subjectLongDescription;
+  const chapterLabel = healthAssignment
+    ? `Chapitre ${healthAssignment.order} - ${chapter.title}`
+    : chapter.title;
+
+  console.log('');
+  console.log(`UE        ${courseUnitLabel}`);
+  console.log(`  EC      ${teachingElementLabel}`);
+  console.log(`    ${chapterLabel}`);
+  console.log(`      Questions : ${questions.length}`);
+  console.log(`      Sections  : ${sections.length}`);
 
   const questionThemeLabels = Array.from(
     new Set(Object.values(questionThemeLabelsByOrder).flat())
@@ -277,6 +353,7 @@ export async function seedHealthTrainingChapter({
   }
 
   const sectionIdByOrder = new Map<number, string>();
+  const sectionLabelByOrder = new Map<number, string>();
 
   for (const sectionSeed of sections) {
     const section = await prisma.chapterSection.upsert({
@@ -305,6 +382,7 @@ export async function seedHealthTrainingChapter({
     });
 
     sectionIdByOrder.set(sectionSeed.order, section.id);
+    sectionLabelByOrder.set(sectionSeed.order, sectionSeed.title);
   }
 
   const declaredSectionOrders = sections.map((section) => section.order);
@@ -361,6 +439,45 @@ export async function seedHealthTrainingChapter({
         },
       },
     });
+  }
+
+  const targetSectionIds = [...new Set(quizSeeds.map((quizSeed) => sectionIdByOrder.get(quizSeed.sectionOrder)).filter((sectionId): sectionId is string => Boolean(sectionId)))];
+
+  if (targetSectionIds.length > 0) {
+    const existingQuizzesInTargetSections = await prisma.trainingQuiz.findMany({
+      where: {
+        chapterId: chapter.id,
+        sectionId: { in: targetSectionIds },
+      },
+      select: { id: true, sectionId: true, order: true },
+      orderBy: [{ sectionId: 'asc' }, { order: 'asc' }],
+    });
+
+    const maxOrderBySectionId = new Map<string, number>();
+
+    for (const quiz of existingQuizzesInTargetSections) {
+      const currentMaxOrder = maxOrderBySectionId.get(quiz.sectionId) ?? 0;
+      maxOrderBySectionId.set(quiz.sectionId, Math.max(currentMaxOrder, quiz.order));
+    }
+
+    const nextTempOrderBySectionId = new Map(
+      [...maxOrderBySectionId.entries()].map(([sectionId, maxOrder]) => [sectionId, maxOrder + 1] as const)
+    );
+
+    for (const quiz of existingQuizzesInTargetSections) {
+      const nextTempOrder = nextTempOrderBySectionId.get(quiz.sectionId);
+
+      if (!nextTempOrder) {
+        continue;
+      }
+
+      await prisma.trainingQuiz.update({
+        where: { id: quiz.id },
+        data: { order: nextTempOrder },
+      });
+
+      nextTempOrderBySectionId.set(quiz.sectionId, nextTempOrder + 1);
+    }
   }
 
   const questionIdByOrder = new Map(
@@ -472,8 +589,12 @@ export async function seedHealthTrainingChapter({
       }
     }
 
+    const sectionLabel =
+      sectionLabelByOrder.get(quizSeed.sectionOrder) ?? `section ${quizSeed.sectionOrder}`;
+    const stageLabel = quizSeed.stage ? trainingQuizStageLogLabels[quizSeed.stage] : 'Sans niveau';
+
     console.log(
-      `   ✓ Quiz "${quizSeed.title}" publié pour ${chapter.title} (${linkedQuestionCount} questions liées, format MULTIPLE)`
+      `      QCM ${quizSeed.order} | ${sectionLabel} | ${stageLabel} | ${linkedQuestionCount} question${linkedQuestionCount > 1 ? 's' : ''} | ${quizSeed.slug}`
     );
   }
 }

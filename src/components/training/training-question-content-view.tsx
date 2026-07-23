@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { BenzeneKekuleDiagram } from './benzene-kekule-diagram';
 import { LewisResonanceDiagram } from './lewis-resonance-diagram';
 import { MathContent } from './math-content';
+import { MoleculeDiagram } from './molecule-diagram';
 import { QuantumBoxDiagram } from './quantum-box-diagram';
 
 export const TRAINING_QUESTION_DIAGRAM_MARKER = '[[QUESTION_DIAGRAM]]';
@@ -33,12 +34,18 @@ export function TrainingQuestionContentView({
 
   const segments = question.split(TRAINING_QUESTION_DIAGRAM_MARKER);
 
-  if (questionDiagram.type === 'lewis-resonance' || questionDiagram.type === 'benzene-kekule') {
+  if (
+    questionDiagram.type === 'lewis-resonance' ||
+    questionDiagram.type === 'benzene-kekule' ||
+    questionDiagram.type === 'molecule'
+  ) {
     const diagram =
       questionDiagram.type === 'lewis-resonance' ? (
         <LewisResonanceDiagram value={questionDiagram} />
-      ) : (
+      ) : questionDiagram.type === 'benzene-kekule' ? (
         <BenzeneKekuleDiagram value={questionDiagram} />
+      ) : (
+        <MoleculeDiagram value={questionDiagram} />
       );
 
     return (
@@ -64,7 +71,7 @@ export function TrainingQuestionContentView({
     return (
       <div className={cn('space-y-3', className)}>
         <MathContent value={question} blockMathVariant="compact" />
-        <QuantumBoxDiagram orbitals={questionDiagram.orbitals} />
+        <QuantumBoxDiagram orbitals={questionDiagram.orbitals} suffix={questionDiagram.suffix} />
       </div>
     );
   }
@@ -77,6 +84,7 @@ export function TrainingQuestionContentView({
           {index < segments.length - 1 ? (
             <QuantumBoxDiagram
               orbitals={questionDiagram.orbitals}
+              suffix={questionDiagram.suffix}
               className="mx-2 inline-flex align-middle"
             />
           ) : null}

@@ -122,9 +122,30 @@ function AromaticStructure() {
 }
 
 export function BenzeneKekuleDiagram({ value, className }: BenzeneKekuleDiagramProps) {
-  const ariaLabel = value.showAromaticHybrid
-    ? 'Deux formes de Kekulé du benzène reliées par une flèche de mésomérie, suivies de la représentation aromatique avec six électrons pi délocalisés.'
-    : 'Deux formes de Kekulé du benzène reliées par une flèche de mésomérie. Elles conservent le même cycle de six carbones et diffèrent par la position des trois doubles liaisons.';
+  const variant = value.variant ?? (value.showAromaticHybrid ? 'kekule-with-aromatic' : 'kekule');
+  const ariaLabel =
+    variant === 'aromatic'
+      ? 'Formule topologique aromatique du benzène, représentée par un hexagone contenant un cercle.'
+      : variant === 'single-kekule'
+        ? 'Formule de Kekulé du benzène, représentée par un hexagone avec trois doubles liaisons alternées.'
+      : variant === 'kekule-with-aromatic'
+        ? 'Deux formes de Kekulé du benzène reliées par une flèche de mésomérie, suivies de la représentation aromatique avec six électrons pi délocalisés.'
+        : 'Deux formes de Kekulé du benzène reliées par une flèche de mésomérie. Elles conservent le même cycle de six carbones et diffèrent par la position des trois doubles liaisons.';
+
+  if (variant === 'aromatic' || variant === 'single-kekule') {
+    return (
+      <div
+        role="img"
+        aria-label={ariaLabel}
+        className={cn(
+          'flex max-w-full items-center justify-center overflow-x-auto py-1 text-foreground',
+          className
+        )}
+      >
+        {variant === 'aromatic' ? <AromaticStructure /> : <KekuleStructure form="A" index={0} />}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -140,7 +161,7 @@ export function BenzeneKekuleDiagram({ value, className }: BenzeneKekuleDiagramP
         ↔
       </span>
       <KekuleStructure form="B" index={1} />
-      {value.showAromaticHybrid ? (
+      {variant === 'kekule-with-aromatic' ? (
         <>
           <span aria-hidden="true" className="shrink-0 text-xl leading-none">
             →

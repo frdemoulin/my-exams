@@ -14,6 +14,7 @@ const normalizeCatchAllChoice = (choice: TrainingChoiceContent) =>
     .toLocaleLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, ' ')
     .replace(/[.!?]/g, '')
     .replace(/\s+/g, ' ');
 
@@ -22,7 +23,16 @@ export const isCatchAllChoice = (choice: TrainingChoiceContent) => {
 
   return (
     normalizedChoice === 'aucune de ces reponses' ||
-    normalizedChoice === 'toutes ces reponses'
+    normalizedChoice === 'toutes ces reponses' ||
+    normalizedChoice === 'tous les items precedents sont faux' ||
+    normalizedChoice === 'tous les items precedents sont vrais' ||
+    normalizedChoice === 'toutes les propositions precedentes sont fausses' ||
+    normalizedChoice === 'toutes les propositions precedentes sont vraies' ||
+    normalizedChoice === 'toutes les affirmations precedentes sont fausses' ||
+    normalizedChoice === 'toutes les affirmations precedentes sont vraies' ||
+    normalizedChoice.startsWith('aucun des items precedents n est') ||
+    normalizedChoice.startsWith('aucune des propositions precedentes n est') ||
+    normalizedChoice.startsWith('aucune des affirmations precedentes n est')
   );
 };
 

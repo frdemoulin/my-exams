@@ -27,7 +27,7 @@ export function TrainingChoiceContentView({
   if (choice.type === 'quantum-boxes') {
     return (
       <span aria-label={plainText} className={cn('inline-flex items-end', className)}>
-        <QuantumBoxDiagram orbitals={choice.orbitals} />
+        <QuantumBoxDiagram orbitals={choice.orbitals} suffix={choice.suffix} />
       </span>
     );
   }
