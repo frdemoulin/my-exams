@@ -460,7 +460,9 @@ export type HealthStudentHomeBlockCourseUnit = {
     semester: number | null;
     ects: number | null;
     isPathwaySpecific: boolean;
+    teachingElementCount: number;
     qcmCount: number;
+    questionCount: number;
 };
 
 export type HealthStudentHomeBlock = {
@@ -1172,9 +1174,28 @@ export async function fetchHealthStudentHomeContext(input: {
                       contextId: true,
                       chapter: {
                           select: {
-                              _count: {
+                              sections: {
+                                  where: {
+                                      isPublished: true,
+                                  },
                                   select: {
-                                      quizQuestions: true,
+                                      quizzes: {
+                                          where: {
+                                              isPublished: true,
+                                          },
+                                          select: {
+                                              questionLinks: {
+                                                  where: {
+                                                      question: {
+                                                          isPublished: true,
+                                                      },
+                                                  },
+                                                  select: {
+                                                      id: true,
+                                                  },
+                                              },
+                                          },
+                                      },
                                   },
                               },
                           },
@@ -1184,15 +1205,28 @@ export async function fetchHealthStudentHomeContext(input: {
             : [];
 
     const courseUnitQcmCounts = new Map<string, number>();
+    const courseUnitQuestionCounts = new Map<string, number>();
     const teachingElementQcmCounts = new Map<string, number>();
+    const teachingElementQuestionCounts = new Map<string, number>();
 
     for (const assignment of chapterAssignments) {
-        const questionCount = assignment.chapter._count.quizQuestions;
+        const quizQuestionCounts = assignment.chapter.sections.flatMap((section) =>
+            section.quizzes.map((quiz) => quiz.questionLinks.length)
+        );
+        const qcmCount = quizQuestionCounts.filter((questionCount) => questionCount > 0).length;
+        const questionCount = quizQuestionCounts.reduce(
+            (total, currentQuestionCount) => total + currentQuestionCount,
+            0
+        );
 
         if (assignment.contextType === "HEALTH_COURSE_UNIT") {
             courseUnitQcmCounts.set(
                 assignment.contextId,
-                (courseUnitQcmCounts.get(assignment.contextId) ?? 0) + questionCount
+                (courseUnitQcmCounts.get(assignment.contextId) ?? 0) + qcmCount
+            );
+            courseUnitQuestionCounts.set(
+                assignment.contextId,
+                (courseUnitQuestionCounts.get(assignment.contextId) ?? 0) + questionCount
             );
             continue;
         }
@@ -1200,7 +1234,11 @@ export async function fetchHealthStudentHomeContext(input: {
         if (assignment.contextType === "HEALTH_TEACHING_ELEMENT") {
             teachingElementQcmCounts.set(
                 assignment.contextId,
-                (teachingElementQcmCounts.get(assignment.contextId) ?? 0) + questionCount
+                (teachingElementQcmCounts.get(assignment.contextId) ?? 0) + qcmCount
+            );
+            teachingElementQuestionCounts.set(
+                assignment.contextId,
+                (teachingElementQuestionCounts.get(assignment.contextId) ?? 0) + questionCount
             );
         }
     }
@@ -1221,11 +1259,19 @@ export async function fetchHealthStudentHomeContext(input: {
                 semester: courseUnit.semester ?? null,
                 ects: courseUnit.ects ?? null,
                 isPathwaySpecific: Boolean(courseUnit.pathwayId),
+                teachingElementCount: courseUnit.teachingElements.length,
                 qcmCount:
                     (courseUnitQcmCounts.get(courseUnit.id) ?? 0) +
                     courseUnit.teachingElements.reduce(
                         (total, teachingElement) =>
                             total + (teachingElementQcmCounts.get(teachingElement.id) ?? 0),
+                        0
+                    ),
+                questionCount:
+                    (courseUnitQuestionCounts.get(courseUnit.id) ?? 0) +
+                    courseUnit.teachingElements.reduce(
+                        (total, teachingElement) =>
+                            total + (teachingElementQuestionCounts.get(teachingElement.id) ?? 0),
                         0
                     ),
             })),
@@ -1319,6 +1365,16 @@ export async function fetchHealthStudentCourseUnitDetail(
                                       quizzes: {
                                           select: {
                                               id: true,
+                                              questionLinks: {
+                                                  select: {
+                                                      id: true,
+                                                  },
+                                                  where: {
+                                                      question: {
+                                                          isPublished: true,
+                                                      },
+                                                  },
+                                              },
                                           },
                                           where: {
                                               isPublished: true,
@@ -1368,18 +1424,23 @@ export async function fetchHealthStudentCourseUnitDetail(
 
     for (const assignment of chapterAssignments) {
         const chapters = chapterAssignmentsByTeachingElementId.get(assignment.contextId) ?? [];
+        const publishedQuizQuestionCounts = assignment.chapter.sections.flatMap((section) =>
+            section.quizzes.map((quiz) => quiz.questionLinks.length)
+        );
+
         chapters.push({
             id: assignment.chapter.id,
             order: assignment.order,
             title: assignment.titleOverride?.trim() || assignment.chapter.title,
             shortTitle: assignment.shortTitleOverride ?? assignment.chapter.shortTitle ?? null,
             slug: assignment.slugOverride?.trim() || assignment.chapter.slug,
-            questionCount: assignment.chapter._count.quizQuestions,
-            sectionCount: assignment.chapter.sections.length,
-            quizCount: assignment.chapter.sections.reduce(
-                (total, section) => total + section.quizzes.length,
+            questionCount: publishedQuizQuestionCounts.reduce(
+                (total, questionCount) => total + questionCount,
                 0
             ),
+            sectionCount: assignment.chapter.sections.length,
+            quizCount: publishedQuizQuestionCounts.filter((questionCount) => questionCount > 0)
+                .length,
             displayGroupKey: assignment.displayGroupKey ?? null,
             displayGroupLabel: assignment.displayGroupLabel ?? null,
             displayGroupOrder: assignment.displayGroupOrder ?? null,

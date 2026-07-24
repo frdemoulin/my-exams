@@ -12,7 +12,7 @@ import type { HealthStudentCourseUnitDetail } from '@/core/health';
 const healthTabsTheme = {
   base: 'flex flex-col gap-2',
   tablist: {
-    base: 'text-sm font-medium text-center text-body border-b border-default',
+    base: 'text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-body dark:border-default',
     variant: {
       underline: 'flex flex-wrap -mb-px',
     },
@@ -22,8 +22,8 @@ const healthTabsTheme = {
         underline: {
           base: '',
           active: {
-            on: 'text-fg-brand border-b border-brand rounded-t-base',
-            off: 'text-body hover:text-fg-brand hover:border-brand',
+            on: 'text-blue-600 border-b border-blue-600 rounded-t-base dark:text-fg-brand dark:border-brand',
+            off: 'text-gray-500 hover:text-gray-600 hover:border-gray-300 dark:text-body dark:hover:text-fg-brand dark:hover:border-brand',
           },
         },
       },
@@ -100,68 +100,87 @@ export function HealthCourseUnitTabs({
                 }, {})
               )
                 .sort((left, right) => left.order - right.order)
-                .map((group) => (
-                  <Card
-                    key={group.label}
-                    className="rounded-3xl border-border bg-card hover:bg-card"
-                  >
-                    <CardHeader>
-                      <div className="flex flex-wrap items-center justify-between gap-3">
-                        <CardTitle className="text-lg text-heading">{group.label}</CardTitle>
-                        <Badge variant="outline">
-                          {group.chapters.length} chapitre
-                          {group.chapters.length > 1 ? 's' : ''}
-                        </Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="relative overflow-x-auto rounded-lg border border-default">
-                        <table className="w-full text-left text-sm text-body rtl:text-right">
-                          <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
-                            <tr>
-                              <th className="w-20 px-5 py-4 font-medium">#</th>
-                              <th className="px-5 py-4 font-medium">CHAPITRE</th>
-                              <th className="px-5 py-4 font-medium">CONTENU</th>
-                              <th className="px-5 py-4 text-center font-medium">ACTION</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {group.chapters.map((chapter, index) => (
-                              <tr
-                                key={chapter.id}
-                                className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
-                              >
-                                <td className="px-5 py-4 align-middle font-medium text-heading">
-                                  {index + 1}
-                                </td>
-                                <td className="px-5 py-4 align-middle">
-                                  <Link
-                                    href={getChapterHref(courseUnit.id, chapter.slug)}
-                                    className="font-medium text-heading hover:text-fg-brand"
-                                  >
-                                    {chapter.title}
-                                  </Link>
-                                </td>
-                                <td className="px-5 py-4 align-middle text-muted-foreground">
-                                  {chapter.sectionCount} section
-                                  {chapter.sectionCount > 1 ? 's' : ''} · {chapter.quizCount} QCM
-                                </td>
-                                <td className="px-5 py-4 text-center align-middle">
-                                  <Button asChild size="sm" className="gap-2">
-                                    <Link href={getChapterHref(courseUnit.id, chapter.slug)}>
-                                      Voir
-                                      <ArrowRight className="h-4 w-4" />
-                                    </Link>
-                                  </Button>
-                                </td>
+                .map((group) => {
+                  const chapterCount = group.chapters.length;
+                  const quizCount = group.chapters.reduce(
+                    (total, chapter) => total + chapter.quizCount,
+                    0,
+                  );
+                  const questionCount = group.chapters.reduce(
+                    (total, chapter) => total + chapter.questionCount,
+                    0,
+                  );
+
+                  return (
+                    <Card
+                      key={group.label}
+                      className="rounded-3xl border-border bg-card hover:bg-card"
+                    >
+                      <CardHeader>
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                          <CardTitle className="text-lg text-heading">{group.label}</CardTitle>
+                          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                            <Badge variant="outline">
+                              {chapterCount} chapitre
+                              {chapterCount > 1 ? 's' : ''}
+                            </Badge>
+                            <Badge variant="outline">{quizCount} QCM</Badge>
+                            <Badge variant="outline">
+                              {questionCount} question
+                              {questionCount > 1 ? 's' : ''}
+                            </Badge>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="relative overflow-x-auto rounded-lg border border-default">
+                          <table className="w-full text-left text-sm text-body rtl:text-right">
+                            <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
+                              <tr>
+                                <th className="w-20 px-5 py-4 font-medium">#</th>
+                                <th className="px-5 py-4 font-medium">CHAPITRE</th>
+                                <th className="px-5 py-4 font-medium">CONTENU</th>
+                                <th className="px-5 py-4 text-center font-medium">ACTION</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))
+                            </thead>
+                            <tbody>
+                              {group.chapters.map((chapter, index) => (
+                                <tr
+                                  key={chapter.id}
+                                  className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
+                                >
+                                  <td className="px-5 py-4 align-middle font-medium text-heading">
+                                    {index + 1}
+                                  </td>
+                                  <td className="px-5 py-4 align-middle">
+                                    <Link
+                                      href={getChapterHref(courseUnit.id, chapter.slug)}
+                                      className="font-medium text-heading hover:text-fg-brand"
+                                    >
+                                      {chapter.title}
+                                    </Link>
+                                  </td>
+                                  <td className="px-5 py-4 align-middle text-muted-foreground">
+                                    {chapter.sectionCount} section
+                                    {chapter.sectionCount > 1 ? 's' : ''} · {chapter.quizCount} QCM
+                                  </td>
+                                  <td className="px-5 py-4 text-center align-middle">
+                                    <Button asChild size="sm" className="gap-2">
+                                      <Link href={getChapterHref(courseUnit.id, chapter.slug)}>
+                                        Voir
+                                        <ArrowRight className="h-4 w-4" />
+                                      </Link>
+                                    </Button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })
             ) : (
               <p className="text-sm text-muted-foreground">
                 Aucun chapitre n&apos;est encore rattaché à cet EC.

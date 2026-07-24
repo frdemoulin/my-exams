@@ -81,7 +81,7 @@ export function AutoBreadcrumb() {
     'subdomains': 'Sous-domaines',
     'chapters': 'Chapitres',
     'training': 'Entraînements',
-    'qcms': 'QCMs',
+    'qcms': 'QCM',
     'quiz-questions': 'Questions QCM',
     'curriculums': 'Programmes',
     'examination-centers': 'Centres d\'examen',

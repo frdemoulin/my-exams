@@ -42,6 +42,8 @@ export function PedagogicalProfileForm({
   const [selectedSchoolLevelValue, setSelectedSchoolLevelValue] = useState(
     context.profile.audience === 'SECONDARY'
       ? context.profile.secondaryGradeId
+      : context.profile.audience === 'HEALTH'
+        ? '__health_l1'
       : ''
   );
 

@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState, useTransition } from 'react';
 import { useSession } from 'next-auth/react';
-import { ChevronDown, LogOut, Mail, Settings } from "lucide-react";
-import { User } from "next-auth";
+import { ChevronDown, LogOut, Mail, Settings, UserRound } from "lucide-react";
+import type { User as AuthUser } from "next-auth";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -14,7 +14,7 @@ import toast from 'react-hot-toast';
 import { canImpersonateRole, getRoleLabel, isAdminRole } from '@/lib/auth/roles';
 
 interface UserButtonProps {
-    user: User;
+    user: AuthUser;
 }
 
 export default function UserButton({ user }: UserButtonProps) {
@@ -222,6 +222,12 @@ export default function UserButton({ user }: UserButtonProps) {
                             <DropdownMenuSeparator />
                         </>
                     ) : null}
+                    <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-body hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
+                        <Link href="/dashboard/profil-pedagogique" className="flex items-center gap-2">
+                            <UserRound className="h-4 w-4" />
+                            Mon profil
+                        </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-body hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
                         <Link href="/contact" className="flex items-center gap-2">
                             <Mail className="h-4 w-4" />

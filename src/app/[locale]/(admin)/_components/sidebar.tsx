@@ -168,7 +168,7 @@ export const Sidebar = () => {
       title: 'Entraînements',
       list: [
         {
-          title: 'QCMs',
+          title: 'QCM',
           path: '/admin/training/qcms',
           icon: <FaBook className="mr-3" size={16} />
         },

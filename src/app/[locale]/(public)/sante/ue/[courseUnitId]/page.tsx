@@ -78,6 +78,22 @@ export default async function HealthCourseUnitDetailPage({
     courseUnit.institutionName,
     courseUnit.programVersionLabel,
   );
+  const teachingElementCount = courseUnit.teachingElements.length;
+  const quizCount = courseUnit.teachingElements.reduce(
+    (teachingElementTotal, teachingElement) =>
+      teachingElementTotal +
+      teachingElement.chapters.reduce((chapterTotal, chapter) => chapterTotal + chapter.quizCount, 0),
+    0
+  );
+  const questionCount = courseUnit.teachingElements.reduce(
+    (teachingElementTotal, teachingElement) =>
+      teachingElementTotal +
+      teachingElement.chapters.reduce(
+        (chapterTotal, chapter) => chapterTotal + chapter.questionCount,
+        0
+      ),
+    0
+  );
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -97,16 +113,29 @@ export default async function HealthCourseUnitDetailPage({
             {courseUnit.semester ? <Badge variant="secondary">S{courseUnit.semester}</Badge> : null}
             {courseUnit.ects ? <Badge variant="secondary">{courseUnit.ects} ECTS</Badge> : null}
             {courseUnit.pathwayName ? <Badge variant="secondary">{courseUnit.pathwayName}</Badge> : null}
+            <Badge variant="secondary">
+              {teachingElementCount} EC
+            </Badge>
+            <Badge variant="secondary">{quizCount} QCM</Badge>
+            <Badge variant="secondary">
+              {questionCount} question
+              {questionCount > 1 ? 's' : ''}
+            </Badge>
           </div>
           <h1 className="text-3xl font-semibold tracking-tight text-heading">
             {courseUnit.code ? `${courseUnit.code} · ${courseUnit.title}` : courseUnit.title}
           </h1>
-          <p className="text-sm text-muted-foreground">{subtitle}</p>
-          {courseUnit.description ? (
-            <p className="max-w-3xl text-sm text-muted-foreground">
-              {courseUnit.description}
-            </p>
-          ) : null}
+          <div className="flex flex-col gap-3 text-sm text-muted-foreground md:flex-row md:items-center md:gap-2">
+            <p>{subtitle}</p>
+            {courseUnit.description ? (
+              <>
+                <span className="hidden md:inline" aria-hidden="true">
+                  ·
+                </span>
+                <p>{courseUnit.description}</p>
+              </>
+            ) : null}
+          </div>
         </section>
 
         <HealthCourseUnitTabs
