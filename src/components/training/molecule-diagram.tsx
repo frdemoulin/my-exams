@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { TrainingMoleculeDiagram } from '@/core/training/training-choice-content';
 import { cn } from '@/lib/utils';
 
@@ -5,6 +6,37 @@ type MoleculeDiagramProps = {
   value: TrainingMoleculeDiagram;
   className?: string;
 };
+
+const staticMoleculeDiagrams = {
+  'dopamine-topological': {
+    src: '/training/molecules/dopamine-topological.svg',
+    alt: 'Formule topologique de la dopamine.',
+  },
+  'choline-topological': {
+    src: '/training/molecules/choline-topological.svg',
+    alt: 'Formule topologique de la choline.',
+  },
+  'acetylcholine-topological': {
+    src: '/training/molecules/acetylcholine-topological.svg',
+    alt: "Formule topologique de l'acétylcholine.",
+  },
+  'paracetamol-topological': {
+    src: '/training/molecules/paracetamol-topological.svg',
+    alt: 'Formule topologique du paracétamol.',
+  },
+  'cysteine-topological': {
+    src: '/training/molecules/cysteine-topological.svg',
+    alt: 'Formule topologique de la L-cystéine.',
+  },
+  'captopril-topological': {
+    src: '/training/molecules/captopril-topological.svg',
+    alt: 'Formule topologique du captopril.',
+  },
+  'n-acetylcysteine-topological': {
+    src: '/training/molecules/n-acetylcysteine-topological.svg',
+    alt: 'Formule topologique de la N-acétyl-L-cystéine.',
+  },
+} as const;
 
 type Point = {
   x: number;
@@ -172,6 +204,29 @@ function AspirinTopologicalDiagram({ className }: { className?: string }) {
 }
 
 export function MoleculeDiagram({ value, className }: MoleculeDiagramProps) {
+  const staticDiagram =
+    staticMoleculeDiagrams[value.molecule as keyof typeof staticMoleculeDiagrams];
+
+  if (staticDiagram) {
+    return (
+      <div
+        className={cn(
+          'flex max-w-full items-center justify-center overflow-x-auto py-1',
+          className
+        )}
+      >
+        <Image
+          src={staticDiagram.src}
+          alt={staticDiagram.alt}
+          width={520}
+          height={320}
+          unoptimized
+          className="h-40 w-auto max-w-full shrink-0 dark:invert"
+        />
+      </div>
+    );
+  }
+
   if (value.molecule === 'aspirin-topological') {
     return <AspirinTopologicalDiagram className={className} />;
   }

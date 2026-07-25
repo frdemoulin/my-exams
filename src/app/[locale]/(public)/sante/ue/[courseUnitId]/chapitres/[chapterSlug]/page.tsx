@@ -223,10 +223,11 @@ export default async function HealthChapterDetailPage({
                       <TableHeader>
                         <TableRow>
                           <TableHead className="w-[72px] text-center">#</TableHead>
+                          <TableHead className="min-w-[260px]">QCM</TableHead>
                           <TableHead className="w-[140px] text-center">QUESTIONS</TableHead>
-                          <TableHead className="w-[180px] text-center">ÉTAPE</TableHead>
+                          <TableHead className="w-[160px] text-center">ÉTAPE</TableHead>
                           <TableHead className="w-[180px] text-center">STATS</TableHead>
-                          <TableHead className="w-[160px] text-center">ACTION</TableHead>
+                          <TableHead className="w-[150px] text-center">ACTION</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -234,6 +235,16 @@ export default async function HealthChapterDetailPage({
                           <TableRow id={`quiz-${quiz.slug}`} key={quiz.id}>
                             <TableCell className="text-center font-medium text-muted-foreground">
                               {quizIndex + 1}
+                            </TableCell>
+                            <TableCell>
+                              <div className="max-w-[420px] text-sm font-medium leading-5 text-heading">
+                                {quiz.title}
+                              </div>
+                              {quiz.description ? (
+                                <div className="mt-1 line-clamp-2 max-w-[520px] text-xs leading-5 text-muted-foreground">
+                                  {quiz.description}
+                                </div>
+                              ) : null}
                             </TableCell>
                             <TableCell className="text-center">
                               <Badge variant="outline" className="w-fit">

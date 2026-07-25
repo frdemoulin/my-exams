@@ -557,6 +557,7 @@ export type HealthStudentChapterDetail = {
         quizzes: Array<{
             id: string;
             title: string;
+            description: string | null;
             slug: string;
             order: number;
             stage: TrainingQuizStage | null;
@@ -1540,6 +1541,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                                 select: {
                                     id: true,
                                     title: true,
+                                    description: true,
                                     slug: true,
                                     order: true,
                                     stage: true,
@@ -1781,6 +1783,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                 return {
                     id: quiz.id,
                     title: quiz.title,
+                    description: quiz.description,
                     slug: quiz.slug,
                     order: quiz.order,
                     stage: quiz.stage ?? null,

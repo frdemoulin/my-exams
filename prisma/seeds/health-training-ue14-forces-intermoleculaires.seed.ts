@@ -63,8 +63,8 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: DISCOVER_QUIZ_ORDER,
     slug: SECTION_A_DISCOVER_QUIZ_SLUG,
-    title: `Découvrir – Polarité des molécules`,
-    description: `Premier niveau d'entraînement sur la section A – Polarité des molécules.`,
+    title: `Polarité des molécules`,
+    description: `Entraînement sur la section A – Polarité des molécules.`,
     stage: 'DISCOVER',
     sectionOrder: SECTION_A_ORDER,
     questionOrders: SECTION_A_DISCOVER_QUESTION_ORDERS,
@@ -72,8 +72,8 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: PRACTICE_QUIZ_ORDER,
     slug: SECTION_A_PRACTICE_QUIZ_SLUG,
-    title: `S'entraîner – Polarité des molécules`,
-    description: `Niveau intermédiaire d'entraînement sur la section A – Polarité des molécules.`,
+    title: `Polarité des molécules`,
+    description: `Entraînement sur la section A – Polarité des molécules.`,
     stage: 'PRACTICE',
     sectionOrder: SECTION_A_ORDER,
     questionOrders: SECTION_A_PRACTICE_QUESTION_ORDERS,
@@ -81,8 +81,8 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: DISCOVER_QUIZ_ORDER,
     slug: SECTION_B_DISCOVER_QUIZ_SLUG,
-    title: `Découvrir – Interactions entre molécules`,
-    description: `Premier niveau d'entraînement sur la section B – Interactions entre molécules.`,
+    title: `Interactions entre molécules`,
+    description: `Entraînement sur la section B – Interactions entre molécules.`,
     stage: 'DISCOVER',
     sectionOrder: SECTION_B_ORDER,
     questionOrders: SECTION_B_DISCOVER_QUESTION_ORDERS,
@@ -90,8 +90,8 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: PRACTICE_QUIZ_ORDER,
     slug: SECTION_B_PRACTICE_QUIZ_SLUG,
-    title: `S'entraîner – Interactions entre molécules`,
-    description: `Niveau intermédiaire d'entraînement sur la section B – Interactions entre molécules.`,
+    title: `Interactions entre molécules`,
+    description: `Entraînement sur la section B – Interactions entre molécules.`,
     stage: 'PRACTICE',
     sectionOrder: SECTION_B_ORDER,
     questionOrders: SECTION_B_PRACTICE_QUESTION_ORDERS,
@@ -99,7 +99,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: MASTER_QUIZ_ORDER,
     slug: SYNTHESIS_MASTER_QUIZ_SLUG,
-    title: `Maîtriser – Synthèse`,
+    title: `Synthèse`,
     description: `QCM de synthèse avancée sur la polarité des molécules et les interactions intermoléculaires.`,
     stage: 'MASTER',
     sectionOrder: SYNTHESIS_SECTION_ORDER,

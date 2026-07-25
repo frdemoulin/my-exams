@@ -42,9 +42,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 1,
     slug: 'decouvrir-formation-ions',
-    title: `Découvrir – Formation des ions`,
+    title: `Formation des ions`,
     description:
-      `Premier niveau d'entraînement sur la section A – Formation des ions et électronégativité.`,
+      `Entraînement sur la section A – Formation des ions et électronégativité.`,
     stage: 'DISCOVER',
     sectionOrder: 1,
     questionOrders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -52,9 +52,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 2,
     slug: 'sentrainer-formation-ions',
-    title: `S'entraîner – Formation des ions`,
+    title: `Formation des ions`,
     description:
-      `Niveau intermédiaire d'entraînement sur la section A – Formation des ions et électronégativité.`,
+      `Entraînement sur la section A – Formation des ions et électronégativité.`,
     stage: 'PRACTICE',
     sectionOrder: 1,
     questionOrders: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -62,9 +62,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 1,
     slug: 'decouvrir-liaisons-chimiques',
-    title: `Découvrir – Liaisons chimiques`,
+    title: `Liaisons chimiques`,
     description:
-      `Premier niveau d'entraînement sur la section B – Liaisons chimiques.`,
+      `Entraînement sur la section B – Liaisons chimiques.`,
     stage: 'DISCOVER',
     sectionOrder: 2,
     questionOrders: [21, 22, 23, 26, 28, 30, 32, 33, 37, 38],
@@ -72,9 +72,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 2,
     slug: 'sentrainer-liaisons-chimiques',
-    title: `S'entraîner – Liaisons chimiques`,
+    title: `Liaisons chimiques`,
     description:
-      `Niveau intermédiaire d'entraînement sur la section B – Liaisons chimiques.`,
+      `Entraînement sur la section B – Liaisons chimiques.`,
     stage: 'PRACTICE',
     sectionOrder: 2,
     questionOrders: [25, 24, 27, 29, 31, 36, 39, 50],
@@ -91,9 +91,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 1,
     slug: 'sentrainer-synthese-ions-electronegativite-liaisons-chimiques',
-    title: `S'entraîner – Synthèse ions et liaisons chimiques`,
+    title: `Synthèse ions et liaisons chimiques`,
     description:
-      `Niveau intermédiaire de synthèse sur les ions, l'électronégativité, les liaisons chimiques et leurs applications médicales.`,
+      `Synthèse sur les ions, l'électronégativité, les liaisons chimiques et leurs applications médicales.`,
     stage: 'PRACTICE',
     sectionOrder: 3,
     items: [

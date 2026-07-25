@@ -47,7 +47,16 @@ export type BenzeneKekuleDiagram = {
 
 export type MoleculeDiagram = {
   type: 'molecule';
-  molecule: 'aspirin-topological' | 'salicylic-acid-topological';
+  molecule:
+    | 'aspirin-topological'
+    | 'salicylic-acid-topological'
+    | 'dopamine-topological'
+    | 'choline-topological'
+    | 'acetylcholine-topological'
+    | 'paracetamol-topological'
+    | 'cysteine-topological'
+    | 'captopril-topological'
+    | 'n-acetylcysteine-topological';
 };
 
 export type SeedQuestion = {
@@ -99,6 +108,10 @@ type SeedQuizItem =
     };
 
 type NormalizedSeedQuizItem = SeedQuizItem & { order: number };
+
+const ANSI_GREEN = '\u001b[32m';
+const ANSI_RESET = '\u001b[0m';
+const SUCCESS_TICK = `${ANSI_GREEN}✓${ANSI_RESET}`;
 
 const normalizeSeedQuizItems = (quizSeed: SeedQuiz): NormalizedSeedQuizItem[] => {
   if (quizSeed.items?.length) {
@@ -594,7 +607,7 @@ export async function seedHealthTrainingChapter({
     const stageLabel = quizSeed.stage ? trainingQuizStageLogLabels[quizSeed.stage] : 'Sans niveau';
 
     console.log(
-      `      QCM ${quizSeed.order} | ${sectionLabel} | ${stageLabel} | ${linkedQuestionCount} question${linkedQuestionCount > 1 ? 's' : ''} | ${quizSeed.slug}`
+      `      ${SUCCESS_TICK} QCM ${quizSeed.order} | ${sectionLabel} | ${stageLabel} | ${linkedQuestionCount} question${linkedQuestionCount > 1 ? 's' : ''} | ${quizSeed.slug}`
     );
   }
 }

@@ -164,9 +164,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: FIRST_QUIZ_ORDER,
     slug: FIRST_QUIZ_SLUG,
-    title: `Découvrir – Atomes`,
+    title: `Atomes`,
     description:
-      `Premier niveau d'entraînement limité à la section A – Atomes, au format UE1 avec 4 items par question.`,
+      `Entraînement limité à la section A – Atomes, au format UE1 avec 4 items par question.`,
     stage: 'DISCOVER',
     sectionOrder: FIRST_SECTION_ORDER,
     questionOrders: firstQuizQuestionOrders,
@@ -174,9 +174,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: SECOND_QUIZ_ORDER,
     slug: SECOND_QUIZ_SLUG,
-    title: `S'entraîner – Généralités sur l'atome`,
+    title: `Généralités sur l'atome`,
     description:
-      `Niveau 2 d'entraînement sur la section A – Atomes, centré sur les généralités, les nucléides et les isotopes.`,
+      `Entraînement sur la section A – Atomes, centré sur les généralités, les nucléides et les isotopes.`,
     stage: 'PRACTICE',
     sectionOrder: FIRST_SECTION_ORDER,
     questionOrders: secondQuizQuestionOrders,
@@ -184,9 +184,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: SECOND_SECTION_DISCOVER_QUIZ_ORDER,
     slug: SECOND_SECTION_DISCOVER_QUIZ_SLUG,
-    title: `Découvrir – Organisation et configuration électronique`,
+    title: `Organisation et configuration électronique`,
     description:
-      `Premier niveau d'entraînement sur la section B – Organisation et configuration électronique.`,
+      `Entraînement sur la section B – Organisation et configuration électronique.`,
     stage: 'DISCOVER',
     sectionOrder: SECOND_SECTION_ORDER,
     questionOrders: secondSectionSecondDiscoverQuestionOrders,
@@ -194,9 +194,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: SECOND_SECTION_PRACTICE_QUIZ_ORDER,
     slug: SECOND_SECTION_PRACTICE_QUIZ_SLUG,
-    title: `S'entraîner – Organisation et configuration électronique`,
+    title: `Organisation et configuration électronique`,
     description:
-      `Niveau intermédiaire d'entraînement sur la section B – Organisation et configuration électronique.`,
+      `Entraînement sur la section B – Organisation et configuration électronique.`,
     stage: 'PRACTICE',
     sectionOrder: SECOND_SECTION_ORDER,
     items: [
@@ -219,9 +219,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: THIRD_SECTION_DISCOVER_QUIZ_ORDER,
     slug: THIRD_SECTION_DISCOVER_QUIZ_SLUG,
-    title: `Découvrir – Classification périodique`,
+    title: `Classification périodique`,
     description:
-      `Premier niveau d'entraînement sur la section C – Classification périodique des éléments.`,
+      `Entraînement sur la section C – Classification périodique des éléments.`,
     stage: 'DISCOVER',
     sectionOrder: THIRD_SECTION_ORDER,
     questionOrders: thirdSectionDiscoverQuestionOrders,
@@ -229,9 +229,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: THIRD_SECTION_PRACTICE_QUIZ_ORDER,
     slug: THIRD_SECTION_PRACTICE_QUIZ_SLUG,
-    title: `S'entraîner – Classification périodique`,
+    title: `Classification périodique`,
     description:
-      `Niveau intermédiaire d'entraînement sur la section C – Classification périodique des éléments.`,
+      `Entraînement sur la section C – Classification périodique des éléments.`,
     stage: 'PRACTICE',
     sectionOrder: THIRD_SECTION_ORDER,
     items: [
@@ -255,9 +255,9 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 1,
     slug: 'sentrainer-synthese-atomes',
-    title: `S'entraîner – Synthèse éléments et classification`,
+    title: `Synthèse éléments et classification`,
     description:
-      `Niveau intermédiaire de synthèse transversal sur les nucléides, les ordres de grandeur, l'organisation électronique, la classification périodique et les éléments du vivant.`,
+      `Synthèse transversale sur les nucléides, les ordres de grandeur, l'organisation électronique, la classification périodique et les éléments du vivant.`,
     stage: 'PRACTICE',
     sectionOrder: 4,
     items: [
