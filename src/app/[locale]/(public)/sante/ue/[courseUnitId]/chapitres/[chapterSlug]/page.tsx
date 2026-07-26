@@ -191,32 +191,43 @@ export default async function HealthChapterDetailPage({
           </div>
 
           {chapter.sections.length > 0 ? (
-            chapter.sections.map((section, sectionIndex) => (
-              <Card key={section.id} className="rounded-3xl border-border bg-card hover:bg-card">
-                <CardHeader>
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <CardTitle className="min-w-0 flex-1 text-lg text-heading">
-                      {section.kind === 'SYNTHESIS'
-                        ? 'Synthèse'
-                        : `Section ${sectionLabelById.get(section.id) ?? getSectionLabel(sectionIndex)} – ${section.title}`}
-                    </CardTitle>
-                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-                      <Badge variant="secondary" className="w-fit">
-                        {section.quizzes.length} QCM
-                      </Badge>
+            chapter.sections.map((section, sectionIndex) => {
+              const sectionQuestionCount = section.quizzes.reduce(
+                (total, quiz) => total + quiz.questionCount,
+                0
+              );
+
+              return (
+                <Card key={section.id} className="rounded-3xl border-border bg-card hover:bg-card">
+                  <CardHeader>
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <CardTitle className="min-w-0 flex-1 text-lg text-heading">
+                        {section.kind === 'SYNTHESIS'
+                          ? 'Synthèse'
+                          : `Section ${sectionLabelById.get(section.id) ?? getSectionLabel(sectionIndex)} – ${section.title}`}
+                      </CardTitle>
+                      <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                        <Badge variant="secondary" className="w-fit">
+                          {section.quizzes.length} QCM
+                        </Badge>
+                        <Badge variant="secondary" className="w-fit">
+                          {sectionQuestionCount} question
+                          {sectionQuestionCount > 1 ? 's' : ''}
+                        </Badge>
+                      </div>
                     </div>
-                  </div>
-                </CardHeader>
+                  </CardHeader>
                 <CardContent>
                   {section.quizzes.length > 0 ? (
                     <Table>
                       <TableHeader>
                         <TableRow>
                           <TableHead className="w-[72px] text-center">#</TableHead>
+                          <TableHead className="min-w-[260px]">QCM</TableHead>
                           <TableHead className="w-[140px] text-center">QUESTIONS</TableHead>
-                          <TableHead className="w-[180px] text-center">ÉTAPE</TableHead>
+                          <TableHead className="w-[160px] text-center">ÉTAPE</TableHead>
                           <TableHead className="w-[180px] text-center">STATS</TableHead>
-                          <TableHead className="w-[160px] text-center">ACTION</TableHead>
+                          <TableHead className="w-[150px] text-center">ACTION</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -224,6 +235,16 @@ export default async function HealthChapterDetailPage({
                           <TableRow id={`quiz-${quiz.slug}`} key={quiz.id}>
                             <TableCell className="text-center font-medium text-muted-foreground">
                               {quizIndex + 1}
+                            </TableCell>
+                            <TableCell>
+                              <div className="max-w-[420px] text-sm font-medium leading-5 text-heading">
+                                {quiz.title}
+                              </div>
+                              {quiz.description ? (
+                                <div className="mt-1 line-clamp-2 max-w-[520px] text-xs leading-5 text-muted-foreground">
+                                  {quiz.description}
+                                </div>
+                              ) : null}
                             </TableCell>
                             <TableCell className="text-center">
                               <Badge variant="outline" className="w-fit">
@@ -292,8 +313,9 @@ export default async function HealthChapterDetailPage({
                     </p>
                   )}
                 </CardContent>
-              </Card>
-            ))
+                </Card>
+              );
+            })
           ) : (
             <p className="text-sm text-muted-foreground">
               Aucune section publiée pour ce chapitre.

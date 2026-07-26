@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { TrainingMoleculeDiagram } from '@/core/training/training-choice-content';
 import { cn } from '@/lib/utils';
 
@@ -5,6 +6,81 @@ type MoleculeDiagramProps = {
   value: TrainingMoleculeDiagram;
   className?: string;
 };
+
+const staticMoleculeDiagrams = {
+  '2-methylpropane-topological': {
+    src: '/training/molecules/2-methylpropane-topological.svg',
+    alt: 'Formule topologique du 2-méthylpropane.',
+  },
+  '2-2-dimethylpropane-topological': {
+    src: '/training/molecules/2-2-dimethylpropane-topological.svg',
+    alt: 'Formule topologique du 2,2-diméthylpropane.',
+  },
+  '2-methylbutane-topological': {
+    src: '/training/molecules/2-methylbutane-topological.svg',
+    alt: 'Formule topologique du 2-méthylbutane.',
+  },
+  'heptane-topological': {
+    src: '/training/molecules/heptane-topological.svg',
+    alt: "Formule topologique de l'heptane.",
+  },
+  '3-methylhexane-topological': {
+    src: '/training/molecules/3-methylhexane-topological.svg',
+    alt: 'Formule topologique du 3-méthylhexane.',
+  },
+  'isooctane-topological': {
+    src: '/training/molecules/isooctane-topological.svg',
+    alt: "Formule topologique de l'isooctane.",
+  },
+  'valine-topological': {
+    src: '/training/molecules/valine-topological.svg',
+    alt: 'Formule topologique de la L-valine.',
+  },
+  'leucine-topological': {
+    src: '/training/molecules/leucine-topological.svg',
+    alt: 'Formule topologique de la L-leucine.',
+  },
+  'isoleucine-topological': {
+    src: '/training/molecules/isoleucine-topological.svg',
+    alt: "Formule topologique de la L-isoleucine.",
+  },
+  'propofol-topological': {
+    src: '/training/molecules/propofol-topological.svg',
+    alt: 'Formule topologique du propofol.',
+  },
+  '3-methylhexan-2-ol-topological': {
+    src: '/training/molecules/3-methylhexan-2-ol-topological.svg',
+    alt: 'Formule topologique du 3-méthylhexan-2-ol.',
+  },
+  'dopamine-topological': {
+    src: '/training/molecules/dopamine-topological.svg',
+    alt: 'Formule topologique de la dopamine.',
+  },
+  'choline-topological': {
+    src: '/training/molecules/choline-topological.svg',
+    alt: 'Formule topologique de la choline.',
+  },
+  'acetylcholine-topological': {
+    src: '/training/molecules/acetylcholine-topological.svg',
+    alt: "Formule topologique de l'acétylcholine.",
+  },
+  'paracetamol-topological': {
+    src: '/training/molecules/paracetamol-topological.svg',
+    alt: 'Formule topologique du paracétamol.',
+  },
+  'cysteine-topological': {
+    src: '/training/molecules/cysteine-topological.svg',
+    alt: 'Formule topologique de la L-cystéine.',
+  },
+  'captopril-topological': {
+    src: '/training/molecules/captopril-topological.svg',
+    alt: 'Formule topologique du captopril.',
+  },
+  'n-acetylcysteine-topological': {
+    src: '/training/molecules/n-acetylcysteine-topological.svg',
+    alt: 'Formule topologique de la N-acétyl-L-cystéine.',
+  },
+} as const;
 
 type Point = {
   x: number;
@@ -172,6 +248,29 @@ function AspirinTopologicalDiagram({ className }: { className?: string }) {
 }
 
 export function MoleculeDiagram({ value, className }: MoleculeDiagramProps) {
+  const staticDiagram =
+    staticMoleculeDiagrams[value.molecule as keyof typeof staticMoleculeDiagrams];
+
+  if (staticDiagram) {
+    return (
+      <div
+        className={cn(
+          'flex max-w-full items-center justify-center overflow-x-auto py-1',
+          className
+        )}
+      >
+        <Image
+          src={staticDiagram.src}
+          alt={staticDiagram.alt}
+          width={520}
+          height={320}
+          unoptimized
+          className="h-40 w-auto max-w-full shrink-0 dark:invert"
+        />
+      </div>
+    );
+  }
+
   if (value.molecule === 'aspirin-topological') {
     return <AspirinTopologicalDiagram className={className} />;
   }

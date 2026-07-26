@@ -53,8 +53,51 @@ export type TrainingBenzeneKekuleDiagram = {
 
 export type TrainingMoleculeDiagram = {
   type: 'molecule';
-  molecule: 'aspirin-topological' | 'salicylic-acid-topological';
+  molecule:
+    | 'aspirin-topological'
+    | 'salicylic-acid-topological'
+    | 'dopamine-topological'
+    | 'choline-topological'
+    | 'acetylcholine-topological'
+    | 'paracetamol-topological'
+    | 'cysteine-topological'
+    | 'captopril-topological'
+    | 'n-acetylcysteine-topological'
+    | '2-methylpropane-topological'
+    | '2-2-dimethylpropane-topological'
+    | '2-methylbutane-topological'
+    | 'heptane-topological'
+    | '3-methylhexane-topological'
+    | 'isooctane-topological'
+    | 'valine-topological'
+    | 'leucine-topological'
+    | 'isoleucine-topological'
+    | 'propofol-topological'
+    | '3-methylhexan-2-ol-topological';
 };
+
+const allowedMoleculeDiagrams = new Set<TrainingMoleculeDiagram['molecule']>([
+  'aspirin-topological',
+  'salicylic-acid-topological',
+  'dopamine-topological',
+  'choline-topological',
+  'acetylcholine-topological',
+  'paracetamol-topological',
+  'cysteine-topological',
+  'captopril-topological',
+  'n-acetylcysteine-topological',
+  '2-methylpropane-topological',
+  '2-2-dimethylpropane-topological',
+  '2-methylbutane-topological',
+  'heptane-topological',
+  '3-methylhexane-topological',
+  'isooctane-topological',
+  'valine-topological',
+  'leucine-topological',
+  'isoleucine-topological',
+  'propofol-topological',
+  '3-methylhexan-2-ol-topological',
+]);
 
 export type TrainingChoiceContent =
   | string
@@ -286,7 +329,8 @@ export const normalizeTrainingBenzeneKekuleDiagram = (
 export const isTrainingMoleculeDiagram = (value: unknown): value is TrainingMoleculeDiagram =>
   isRecord(value) &&
   value.type === 'molecule' &&
-  (value.molecule === 'aspirin-topological' || value.molecule === 'salicylic-acid-topological');
+  typeof value.molecule === 'string' &&
+  allowedMoleculeDiagrams.has(value.molecule as TrainingMoleculeDiagram['molecule']);
 
 export const normalizeTrainingMoleculeDiagram = (
   value: unknown

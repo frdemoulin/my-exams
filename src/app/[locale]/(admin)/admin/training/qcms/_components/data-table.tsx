@@ -97,7 +97,7 @@ export function DataTable<TData extends { id: string }, TValue>({
     <div>
       <TableToolbar
         title={title}
-        description="Administre les QCMs d'entraînement sans déplacer les chapitres du référentiel transversal."
+        description="Administre les QCM d'entraînement sans déplacer les chapitres du référentiel transversal."
         pageFrom={pageFrom}
         pageTo={pageTo}
         totalCount={totalCount}

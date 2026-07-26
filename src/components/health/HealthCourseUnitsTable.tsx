@@ -12,7 +12,9 @@ type HealthCourseUnitsTableRow = {
   id: string;
   label: string;
   semester: number | null;
+  teachingElementCount: number;
   qcmCount: number;
+  questionCount: number;
   blockLabel: string;
   blockType: HealthStudentHomeBlock['type'];
   href: string;
@@ -30,6 +32,9 @@ const headerLabels: Record<SortKey, string> = {
   label: 'UE',
   blockLabel: 'BLOC',
 };
+
+const counterBadgeClassName =
+  'w-fit rounded-full border-default bg-transparent px-3 py-1 text-xs font-normal text-muted-foreground shadow-none hover:bg-transparent';
 
 export function HealthCourseUnitsTable({
   rows,
@@ -109,14 +114,21 @@ export function HealthCourseUnitsTable({
             >
               <td className="px-5 py-4 align-top">
                 <p className="font-medium text-heading">{row.label}</p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {[
-                    row.semester ? `S${row.semester}` : null,
-                    `${row.qcmCount} QCM${row.qcmCount > 1 ? 's' : ''}`,
-                  ]
-                    .filter(Boolean)
-                    .join(' · ')}
-                </p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  {row.semester ? (
+                    <span className="text-xs text-muted-foreground">S{row.semester}</span>
+                  ) : null}
+                  <Badge variant="outline" className={counterBadgeClassName}>
+                    {row.teachingElementCount} EC
+                  </Badge>
+                  <Badge variant="outline" className={counterBadgeClassName}>
+                    {row.qcmCount} QCM
+                  </Badge>
+                  <Badge variant="outline" className={counterBadgeClassName}>
+                    {row.questionCount} question
+                    {row.questionCount > 1 ? 's' : ''}
+                  </Badge>
+                </div>
               </td>
               <td className="px-5 py-4 align-middle text-center">
                 <div className="flex items-center justify-center">
@@ -128,7 +140,7 @@ export function HealthCourseUnitsTable({
                   </Badge>
                 </div>
               </td>
-              <td className="px-5 py-4 text-center align-top">
+              <td className="px-5 py-4 text-center align-middle">
                 <HealthViewButton href={row.href} />
               </td>
             </tr>

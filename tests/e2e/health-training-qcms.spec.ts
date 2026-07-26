@@ -163,10 +163,18 @@ test.describe.serial("Santé - QCM publics", () => {
     ).toBeVisible();
     await expect(page.getByRole("link", { name: "Retour à l'EC" })).toBeVisible();
     await expect(page.getByText("Parcours du chapitre")).toBeVisible();
-    await expect(page.getByText("Section A – Atomes")).toBeVisible();
-    await expect(page.getByText("Section B – Organisation et configuration électronique")).toBeVisible();
-    await expect(page.getByText("Section C – Classification périodique des éléments")).toBeVisible();
-    await expect(page.getByText("Synthèse")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Section A – Atomes" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "Section B – Organisation et configuration électronique",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "Section C – Classification périodique des éléments",
+      }),
+    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Synthèse" })).toBeVisible();
     await expect(page.getByRole("link", { name: /Commencer/i }).first()).toBeVisible();
   });
 

@@ -224,7 +224,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 1,
     slug: DISCOVER_SECTION_A_QUIZ_SLUG,
-    title: `Découvrir – Orbitales moléculaires et liaisons σ/π`,
+    title: `Orbitales moléculaires et liaisons σ/π`,
     description:
       `Définitions, vocabulaire et premières applications sur les orbitales moléculaires et les liaisons $\\sigma$ et $\\pi$.`,
     stage: 'DISCOVER',
@@ -234,7 +234,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 2,
     slug: PRACTICE_SECTION_A_QUIZ_SLUG,
-    title: `S'entraîner – Orbitales moléculaires et liaisons σ/π`,
+    title: `Orbitales moléculaires et liaisons σ/π`,
     description:
       `Situations concrètes, schémas, interprétation de profils et calculs sur les liaisons $\\sigma$ et $\\pi$.`,
     stage: 'PRACTICE',
@@ -244,7 +244,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 3,
     slug: DISCOVER_SECTION_B_QUIZ_SLUG,
-    title: `Découvrir – Hybridation et géométrie des molécules simples`,
+    title: `Hybridation et géométrie des molécules simples`,
     description:
       `Concepts fondamentaux de l'hybridation $\\mathrm{sp}$, $\\mathrm{sp}^2$ et $\\mathrm{sp}^3$ et premières géométries moléculaires.`,
     stage: 'DISCOVER',
@@ -254,7 +254,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 4,
     slug: PRACTICE_SECTION_B_QUIZ_SLUG,
-    title: `S'entraîner – Hybridation et géométrie des molécules simples`,
+    title: `Hybridation et géométrie des molécules simples`,
     description:
       `Applications intermédiaires sur l'hybridation $\\mathrm{sp}$, $\\mathrm{sp}^2$, $\\mathrm{sp}^3$ et les géométries moléculaires simples.`,
     stage: 'PRACTICE',
@@ -264,7 +264,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 5,
     slug: DISCOVER_SECTION_C_QUIZ_SLUG,
-    title: `Découvrir – Liaisons multiples, carbone et aromaticité`,
+    title: `Liaisons multiples, carbone et aromaticité`,
     description:
       `Premières notions sur les liaisons multiples, le carbone insaturé et l'aromaticité.`,
     stage: 'DISCOVER',
@@ -274,7 +274,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 6,
     slug: PRACTICE_SECTION_C_QUIZ_SLUG,
-    title: `S'entraîner – Liaisons multiples, carbone et aromaticité`,
+    title: `Liaisons multiples, carbone et aromaticité`,
     description:
       `Applications intermédiaires sur les liaisons multiples, les structures carbonées et l'aromaticité.`,
     stage: 'PRACTICE',
@@ -284,7 +284,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 7,
     slug: DISCOVER_SECTION_D_QUIZ_SLUG,
-    title: `Découvrir – Règle de Gillespie et géométrie moléculaire`,
+    title: `Règle de Gillespie et géométrie moléculaire`,
     description:
       `Premières notions sur la règle de Gillespie et la géométrie moléculaire.`,
     stage: 'DISCOVER',
@@ -294,7 +294,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 8,
     slug: PRACTICE_SECTION_D_QUIZ_SLUG,
-    title: `S'entraîner – Règle de Gillespie et géométrie moléculaire`,
+    title: `Règle de Gillespie et géométrie moléculaire`,
     description:
       `Applications intermédiaires sur la règle de Gillespie et la géométrie moléculaire.`,
     stage: 'PRACTICE',
@@ -304,7 +304,7 @@ const quizSeeds: SeedQuiz[] = [
   {
     order: 9,
     slug: MASTER_SYNTHESIS_QUIZ_SLUG,
-    title: `Maîtriser – Synthèse`,
+    title: `Synthèse`,
     description:
       `Synthèse transversale sur les orbitales moléculaires, l'hybridation et la géométrie moléculaire.`,
     stage: 'MASTER',

@@ -5,7 +5,7 @@ import { columns } from "./_components/columns";
 import { fetchChapters } from "@/core/chapter";
 
 export const metadata: Metadata = {
-  title: "QCMs",
+  title: "QCM",
 };
 
 export default async function TrainingQcmsPage() {
@@ -14,7 +14,7 @@ export default async function TrainingQcmsPage() {
   return (
     <div className="w-full p-6">
       <div className="container mx-auto">
-        <DataTable title="QCMs" columns={columns} data={chapters} />
+        <DataTable title="QCM" columns={columns} data={chapters} />
       </div>
     </div>
   );
