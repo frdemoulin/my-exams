@@ -1,3 +1,11 @@
+## [1.6.31](https://github.com/frdemoulin/my-exams/compare/v1.6.30...v1.6.31) (2026-07-26)
+
+### Bug Fixes
+
+* finalisation des QCM de chimie générale ([30fee01](https://github.com/frdemoulin/my-exams/commit/30fee013ce656e5253cda21d861016dd2115e1ec))
+* finalisation des QCM du chapitre Nomenclature chimique et fonctions organiques ([785a8e8](https://github.com/frdemoulin/my-exams/commit/785a8e896b7d2c33d50f6bc74a12c0ff44ef4833))
+* mise en place des QCM des sections A, B et C ([99666fd](https://github.com/frdemoulin/my-exams/commit/99666fd4b0dba9bcab6dc234d9189c5df9316e45))
+
 ## [1.6.30](https://github.com/frdemoulin/my-exams/compare/v1.6.29...v1.6.30) (2026-07-23)
 
 ### Bug Fixes
