@@ -56,7 +56,18 @@ export type MoleculeDiagram = {
     | 'paracetamol-topological'
     | 'cysteine-topological'
     | 'captopril-topological'
-    | 'n-acetylcysteine-topological';
+    | 'n-acetylcysteine-topological'
+    | '2-methylpropane-topological'
+    | '2-2-dimethylpropane-topological'
+    | '2-methylbutane-topological'
+    | 'heptane-topological'
+    | '3-methylhexane-topological'
+    | 'isooctane-topological'
+    | 'valine-topological'
+    | 'leucine-topological'
+    | 'isoleucine-topological'
+    | 'propofol-topological'
+    | '3-methylhexan-2-ol-topological';
 };
 
 export type SeedQuestion = {

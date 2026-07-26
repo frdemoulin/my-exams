@@ -23,8 +23,23 @@ import {
   SECTION_C_QUESTIONS,
   SECTION_C_QUIZZES,
 } from './health-training-ue14-nomenclature-chimique-fonctions-organiques.section-c.seed';
-import { SECTION_D_QUESTIONS } from './health-training-ue14-nomenclature-chimique-fonctions-organiques.section-d.seed';
-import { SYNTHESIS_QUESTIONS } from './health-training-ue14-nomenclature-chimique-fonctions-organiques.synthesis.seed';
+import {
+  SECTION_D_ALKYL_ALKANES_DISCOVERY_QUESTION_ORDERS,
+  SECTION_D_CARBON_DEGREE_DISCOVERY_QUESTION_ORDERS,
+  SECTION_D_CARBON_FUNCTIONS_PRACTICE_QUESTION_ORDERS,
+  SECTION_D_CHAIN_NOMENCLATURE_MASTER_QUESTION_ORDERS,
+  SECTION_D_CHAIN_NOMENCLATURE_PRACTICE_QUESTION_ORDERS,
+  SECTION_D_CHAIN_PREFIXES_DISCOVERY_QUESTION_ORDERS,
+  SECTION_D_QUESTIONS,
+  SECTION_D_QUIZZES,
+} from './health-training-ue14-nomenclature-chimique-fonctions-organiques.section-d.seed';
+import {
+  SYNTHESIS_COMPOSITION_STRUCTURE_QUESTION_ORDERS,
+  SYNTHESIS_MOCK_EXAM_QUESTION_ORDERS,
+  SYNTHESIS_POLYFUNCTIONAL_MOLECULES_QUESTION_ORDERS,
+  SYNTHESIS_QUESTIONS,
+  SYNTHESIS_QUIZZES,
+} from './health-training-ue14-nomenclature-chimique-fonctions-organiques.synthesis.seed';
 import { seedHealthTrainingChapter } from './health-training-ue14.shared';
 
 const SUBJECT_LONG_DESCRIPTION = 'Sciences physiques';
@@ -124,6 +139,42 @@ const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
     SECTION_C_NITROGEN_SULFUR_MASTER_QUESTION_ORDERS,
     `Fonctions azotées et soufrées : synthèse`
   ),
+  ...buildThemeLabelsByOrder(
+    SECTION_D_CARBON_DEGREE_DISCOVERY_QUESTION_ORDERS,
+    `Chaînes carbonées : degré des atomes de carbone`
+  ),
+  ...buildThemeLabelsByOrder(
+    SECTION_D_CARBON_FUNCTIONS_PRACTICE_QUESTION_ORDERS,
+    `Degré des carbones et fonctions chimiques`
+  ),
+  ...buildThemeLabelsByOrder(
+    SECTION_D_CHAIN_PREFIXES_DISCOVERY_QUESTION_ORDERS,
+    `Chaînes carbonées : préfixes de nomenclature`
+  ),
+  ...buildThemeLabelsByOrder(
+    SECTION_D_ALKYL_ALKANES_DISCOVERY_QUESTION_ORDERS,
+    `Groupes alkyles et alcanes`
+  ),
+  ...buildThemeLabelsByOrder(
+    SECTION_D_CHAIN_NOMENCLATURE_PRACTICE_QUESTION_ORDERS,
+    `Nomenclature des chaînes carbonées`
+  ),
+  ...buildThemeLabelsByOrder(
+    SECTION_D_CHAIN_NOMENCLATURE_MASTER_QUESTION_ORDERS,
+    `Chaînes carbonées : synthèse`
+  ),
+  ...buildThemeLabelsByOrder(
+    SYNTHESIS_COMPOSITION_STRUCTURE_QUESTION_ORDERS,
+    `Synthèse : composition et structure moléculaire`
+  ),
+  ...buildThemeLabelsByOrder(
+    SYNTHESIS_POLYFUNCTIONAL_MOLECULES_QUESTION_ORDERS,
+    `Synthèse : fonctions et molécules polyfonctionnelles`
+  ),
+  ...buildThemeLabelsByOrder(
+    SYNTHESIS_MOCK_EXAM_QUESTION_ORDERS,
+    `Synthèse : examen blanc de nomenclature organique`
+  ),
 };
 
 const questions: SeedQuestion[] = [
@@ -195,6 +246,8 @@ const quizSeeds: SeedQuiz[] = [
   },
   ...SECTION_B_QUIZZES,
   ...SECTION_C_QUIZZES,
+  ...SECTION_D_QUIZZES,
+  ...SYNTHESIS_QUIZZES,
 ];
 
 export async function seedHealthTrainingUe14NomenclatureChimiqueFonctionsOrganiques(

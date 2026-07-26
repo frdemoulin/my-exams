@@ -8,6 +8,50 @@ type MoleculeDiagramProps = {
 };
 
 const staticMoleculeDiagrams = {
+  '2-methylpropane-topological': {
+    src: '/training/molecules/2-methylpropane-topological.svg',
+    alt: 'Formule topologique du 2-méthylpropane.',
+  },
+  '2-2-dimethylpropane-topological': {
+    src: '/training/molecules/2-2-dimethylpropane-topological.svg',
+    alt: 'Formule topologique du 2,2-diméthylpropane.',
+  },
+  '2-methylbutane-topological': {
+    src: '/training/molecules/2-methylbutane-topological.svg',
+    alt: 'Formule topologique du 2-méthylbutane.',
+  },
+  'heptane-topological': {
+    src: '/training/molecules/heptane-topological.svg',
+    alt: "Formule topologique de l'heptane.",
+  },
+  '3-methylhexane-topological': {
+    src: '/training/molecules/3-methylhexane-topological.svg',
+    alt: 'Formule topologique du 3-méthylhexane.',
+  },
+  'isooctane-topological': {
+    src: '/training/molecules/isooctane-topological.svg',
+    alt: "Formule topologique de l'isooctane.",
+  },
+  'valine-topological': {
+    src: '/training/molecules/valine-topological.svg',
+    alt: 'Formule topologique de la L-valine.',
+  },
+  'leucine-topological': {
+    src: '/training/molecules/leucine-topological.svg',
+    alt: 'Formule topologique de la L-leucine.',
+  },
+  'isoleucine-topological': {
+    src: '/training/molecules/isoleucine-topological.svg',
+    alt: "Formule topologique de la L-isoleucine.",
+  },
+  'propofol-topological': {
+    src: '/training/molecules/propofol-topological.svg',
+    alt: 'Formule topologique du propofol.',
+  },
+  '3-methylhexan-2-ol-topological': {
+    src: '/training/molecules/3-methylhexan-2-ol-topological.svg',
+    alt: 'Formule topologique du 3-méthylhexan-2-ol.',
+  },
   'dopamine-topological': {
     src: '/training/molecules/dopamine-topological.svg',
     alt: 'Formule topologique de la dopamine.',
