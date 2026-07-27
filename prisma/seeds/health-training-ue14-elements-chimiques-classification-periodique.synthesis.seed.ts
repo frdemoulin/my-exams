@@ -26,7 +26,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
       order: 48,
       difficulty: 'MEDIUM',
       answerFormat: 'MULTIPLE',
-      question: `En mammographie, le rhodium (symbole $\\mathrm{Rh}$) peut entrer dans la composition de la cible ou du filtre du tube à rayons X, afin d’adapter l’énergie du faisceau à l’épaisseur et à la densité du sein examiné. De numéro atomique $\\mathrm{Z} = 45$, il possède :`,
+      question: `En mammographie, le rhodium (symbole $\\mathrm{Rh}$) peut entrer dans la composition de la cible ou du filtre du tube à rayons X, afin d'adapter l'énergie du faisceau à l'épaisseur et à la densité du sein examiné. De numéro atomique $\\mathrm{Z} = 45$, il possède :`,
       choices: [
         `9 électrons $\\mathrm{s}$, 18 électrons $\\mathrm{p}$ et 18 électrons $\\mathrm{d}$.`,
         `10 électrons $\\mathrm{s}$, 18 électrons $\\mathrm{p}$ et 17 électrons $\\mathrm{d}$.`,

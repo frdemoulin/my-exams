@@ -31,7 +31,7 @@ export const SECTION_B_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 37 },
       {
         type: 'GROUP',
-        title: `Hydrolyse de l’éthanoate d’éthyle`,
+        title: `Hydrolyse de l'''éthanoate d'''éthyle`,
         sharedStatement: `On étudie l'éthanoate d'éthyle $\mathrm{CH_3COOCH_2CH_3}$. Dans l'expérience **A**, il est chauffé avec de l'eau en milieu acide. Dans l'expérience **B**, il est traité en milieu basique.`,
         questionOrders: [38, 39, 40],
       },
@@ -63,7 +63,7 @@ export const SECTION_B_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 57 },
       {
         type: 'GROUP',
-        title: `Deux voies de réactivité d’un ester`,
+        title: `Deux voies de réactivité d'''un ester`,
         sharedStatement: `On considère l'ester $\mathrm{CH_3CH_2COOR}$. **Voie I** : réaction directe avec un nucléophile $\mathrm{Nu^-}$. **Voie II** : traitement préalable par une base forte, puis ajout d'un électrophile $\mathrm{E^+}$.`,
         questionOrders: [58, 59, 60],
       },
@@ -76,7 +76,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 31,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'hydrolyse d'un ester :`,
+    question: `�' propos de l'hydrolyse d'un ester :`,
     choices: [
       `La fonction ester est hydrolysable.`,
       `L'hydrolyse acide se déroule à pH acide.`,
@@ -249,7 +249,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
       `Le milieu basique stabilise la forme carboxylate.`,
       `Le fragment éthoxy devient alcool.`,
       `C'est une hydrolyse en milieu basique.`,
-      `La liaison acyle–oxygène est rompue.`,
+      `La liaison acyle''�oxygène est rompue.`,
     ],
   },
   {
@@ -436,7 +436,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 49,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des représentations limite évoquées pour un ester possédant un hydrogène en alpha :`,
+    question: `�' propos des représentations limite évoquées pour un ester possédant un hydrogène en alpha :`,
     choices: [
       `Une forme avec charge négative sur le carbone en alpha peut être envisagée.`,
       `Une forme présentant une liaison $\mathrm{C{=}C}$ et un groupe $\mathrm{OH}$ peut être dessinée.`,
@@ -496,7 +496,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 52,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `On fait réagir un ester avec une espèce nucléophile portant une charge négative. À propos de l'orientation de l'attaque :`,
+    question: `On fait réagir un ester avec une espèce nucléophile portant une charge négative. �' propos de l'orientation de l'attaque :`,
     choices: [
       `Le nucléophile est attiré par un centre électrophile.`,
       `Le carbone du carbonyle constitue ce centre.`,

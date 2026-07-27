@@ -164,7 +164,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 222,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la formule brute de X :`,
+    question: `�' propos de la formule brute de X :`,
     choices: [
       `La masse molaire de l'unité empirique $\\mathrm{CH_2O}$ vaut $30\\,\\mathrm{g\\cdot mol^{-1}}$.`,
       `Le facteur multiplicatif vaut 3.`,
@@ -206,7 +206,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 224,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de sa composition et de sa masse molaire :`,
+    question: `�' propos de sa composition et de sa masse molaire :`,
     choices: [
       `Sa formule brute est $\\mathrm{CH_4N_2O}$.`,
       `Sa masse molaire vaut $60\\,\\mathrm{g\\cdot mol^{-1}}$.`,
@@ -269,7 +269,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 227,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de leur composition :`,
+    question: `�' propos de leur composition :`,
     choices: [
       `Les deux molécules ont pour formule brute $\\mathrm{C_3H_6O}$.`,
       `Les deux molécules ont la même masse molaire.`,
@@ -332,7 +332,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 230,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la microanalyse et de la détermination d'une structure organique :`,
+    question: `�' propos de la microanalyse et de la détermination d'une structure organique :`,
     choices: [
       `La microanalyse permet d'établir des rapports entre les nombres d'atomes.`,
       `La masse molaire peut permettre de passer d'une formule empirique à une formule brute.`,
@@ -382,7 +382,7 @@ Quelles fonctions sont présentes ?`,
     answerFormat: 'MULTIPLE',
     question: `[[QUESTION_DIAGRAM]]
 
-À propos de sa composition :`,
+�' propos de sa composition :`,
     questionDiagram: {
       type: 'molecule',
       molecule: 'n-acetylcysteine-topological',
@@ -436,7 +436,7 @@ Concernant les valences et le degré des carbones selon le cours :`,
     answerFormat: 'MULTIPLE',
     question: `[[QUESTION_DIAGRAM]]
 
-À propos des fonctions présentes :`,
+�' propos des fonctions présentes :`,
     questionDiagram: {
       type: 'molecule',
       molecule: 'acetylcholine-topological',
@@ -463,7 +463,7 @@ Concernant les valences et le degré des carbones selon le cours :`,
     answerFormat: 'MULTIPLE',
     question: `[[QUESTION_DIAGRAM]]
 
-À propos de sa formule et de sa charge :`,
+�' propos de sa formule et de sa charge :`,
     questionDiagram: {
       type: 'molecule',
       molecule: 'acetylcholine-topological',
@@ -517,7 +517,7 @@ Concernant les valences :`,
     answerFormat: 'MULTIPLE',
     question: `[[QUESTION_DIAGRAM]]
 
-À propos de ses fonctions :`,
+�' propos de ses fonctions :`,
     questionDiagram: {
       type: 'molecule',
       molecule: 'paracetamol-topological',
@@ -544,7 +544,7 @@ Concernant les valences :`,
     answerFormat: 'MULTIPLE',
     question: `[[QUESTION_DIAGRAM]]
 
-À propos de sa composition :`,
+�' propos de sa composition :`,
     questionDiagram: {
       type: 'molecule',
       molecule: 'paracetamol-topological',
@@ -619,7 +619,7 @@ Concernant les valences :`,
     answerFormat: 'MULTIPLE',
     question: `[[QUESTION_DIAGRAM]]
 
-À propos de sa composition et de ses fonctions :`,
+�' propos de sa composition et de ses fonctions :`,
     questionDiagram: {
       type: 'molecule',
       molecule: 'valine-topological',
@@ -727,7 +727,7 @@ Concernant son nom :`,
     answerFormat: 'MULTIPLE',
     question: `[[QUESTION_DIAGRAM]]
 
-À propos de sa composition et de sa fonction :`,
+�' propos de sa composition et de sa fonction :`,
     questionDiagram: {
       type: 'molecule',
       molecule: '3-methylhexan-2-ol-topological',
@@ -800,7 +800,7 @@ Selon la convention du cours sur le degré des carbones :`,
     order: 248,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de leur composition et de leur fonction oxygénée :`,
+    question: `�' propos de leur composition et de leur fonction oxygénée :`,
     choices: [
       `Les deux molécules possèdent une fonction alcool primaire.`,
       `Le diméthylaminoéthanol a pour formule brute $\\mathrm{C_4H_{11}NO}$.`,
@@ -821,7 +821,7 @@ Selon la convention du cours sur le degré des carbones :`,
     order: 249,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `Parmi les associations structure–fonction suivantes :`,
+    question: `Parmi les associations structure''�fonction suivantes :`,
     choices: [
       `$\\mathrm{CH_3-CH_2-CHO}$ : aldéhyde.`,
       `$\\mathrm{CH_3-CO-CH_3}$ : cétone.`,

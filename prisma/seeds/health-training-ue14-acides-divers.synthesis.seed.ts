@@ -38,14 +38,14 @@ export const SECTION_E_QUIZZES: SeedQuiz[] = [
     order: 14,
     slug: SECTION_E_SYNTHESIS_MASTER_QUIZ_SLUG,
     title: `Synthèse type examen : les acides et divers`,
-    description: `Résoudre des questions transversales mêlant dérivés d’acides, bilan carbone, nucléotides et toxicologie.`,
+    description: `Résoudre des questions transversales mêlant dérivés d'''acides, bilan carbone, nucléotides et toxicologie.`,
     stage: 'MASTER',
     sectionOrder: SECTION_E_ORDER,
     items: [
       {
         type: 'GROUP',
-        title: `De l’acide butyrique à un amide`,
-        sharedStatement: `Un laboratoire dispose d’acide butyrique, souhaite caractériser sa base conjuguée puis préparer un amide à partir de cet acide.`,
+        title: `De l'''acide butyrique à un amide`,
+        sharedStatement: `Un laboratoire dispose d'''acide butyrique, souhaite caractériser sa base conjuguée puis préparer un amide à partir de cet acide.`,
         questionOrders: [131, 132, 133],
       },
       { type: 'QUESTION', questionOrder: 134 },
@@ -67,7 +67,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 121,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'acide éthanoïque :`,
+    question: `�' propos de l'acide éthanoïque :`,
     choices: [
       `Sa formule est $\\mathrm{CH_3COOH}$.`,
       `Sa base conjuguée est l'ion acétate.`,
@@ -227,7 +227,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 129,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos du mécanisme conceptuel :`,
+    question: `�' propos du mécanisme conceptuel :`,
     choices: [
       `Le carbone du fragment propyle est nucléophile.`,
       `Le carbone du $\\mathrm{CO_2}$ est électrophile.`,
@@ -237,7 +237,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     correctChoiceIndexes: [0, 1, 2],
     explanation: `La réaction est une addition nucléophile sur un carbone électrophile suivie de la formation de l'acide.`,
     choiceExplanations: [
-      `La liaison C–Mg lui confère un caractère riche en électrons.`,
+      `La liaison C''�Mg lui confère un caractère riche en électrons.`,
       `Les oxygènes attirent la densité électronique.`,
       `Elle relie le propyle au carbone carboxylique.`,
       `Il est l'accepteur d'électrons.`,
@@ -255,7 +255,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
       `Le produit final possède obligatoirement cinq carbones.`,
     ],
     correctChoiceIndexes: [0, 1],
-    explanation: `L'enchaînement carboxylation–décarboxylation permet de suivre précisément le devenir du carbone du $\\mathrm{CO_2}$.`,
+    explanation: `L'enchaînement carboxylation''�décarboxylation permet de suivre précisément le devenir du carbone du $\\mathrm{CO_2}$.`,
     choiceExplanations: [
       `Il constitue le carboxyle.`,
       `Le squelette propyle initial subsiste.`,
@@ -390,9 +390,9 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     question: `Parmi les énoncés suivants, lesquels associent correctement réaction et bilan carbone ?`,
     choices: [
       `Carboxylation d'un organomagnésien : +1 carbone.`,
-      `Décarboxylation : −1 carbone.`,
+      `Décarboxylation : '��1 carbone.`,
       `Hydrolyse d'un nitrile : nombre de carbones conservé.`,
-      `Oxydation d'un alcool primaire : −2 carbones.`,
+      `Oxydation d'un alcool primaire : '��2 carbones.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation: `Le suivi du nombre de carbones permet de résoudre de nombreux QCM de synthèse.`,
@@ -435,7 +435,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
       `Un groupe phosphate obligatoire.`,
     ],
     correctChoiceIndexes: [0, 1],
-    explanation: `Le motif carboxyle–carbonyle est le cas favorable mis en avant dans la fiche.`,
+    explanation: `Le motif carboxyle''�carbonyle est le cas favorable mis en avant dans la fiche.`,
     choiceExplanations: [
       `Il stabilise les électrons lors de la perte de $\\mathrm{CO_2}$.`,
       `Elle abaisse l'énergie de l'intermédiaire.`,

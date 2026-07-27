@@ -96,7 +96,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 81,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des alcynes :`,
+    question: `�' propos des alcynes :`,
     choices: [
       `Ce sont des hydrocarbures insaturés comportant au moins une triple liaison carbone-carbone.`,
       `Ils sont constitués uniquement de carbone et d'hydrogène.`,
@@ -159,7 +159,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 84,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la nomenclature des alcynes :`,
+    question: `�' propos de la nomenclature des alcynes :`,
     choices: [
       `L'éthyne est aussi appelé acétylène.`,
       `Un alcyne à trois carbones est le propyne.`,
@@ -222,7 +222,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 87,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À partir de la comparaison représentée ci-dessus :`,
+    question: `�' partir de la comparaison représentée ci-dessus :`,
     choices: [
       `Le but-1-yne est un alcyne vrai.`,
       `Le but-2-yne est un alcyne interne.`,
@@ -273,7 +273,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `La triple liaison possède deux degrés d'insaturation successivement réduits : alcyne → alcène → alcane. Chaque étape ajoute une molécule de dihydrogène.`,
+      `La triple liaison possède deux degrés d'insaturation successivement réduits : alcyne '�� alcène '�� alcane. Chaque étape ajoute une molécule de dihydrogène.`,
     choiceExplanations: [
       `La triple liaison est alors réduite en double liaison.`,
       `La double liaison résiduelle peut ensuite être réduite en liaison simple.`,
@@ -495,7 +495,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 100,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos du but-1-yne $\\mathrm{CH_3{-}CH_2{-}C{\\equiv}CH}$ :`,
+    question: `�' propos du but-1-yne $\\mathrm{CH_3{-}CH_2{-}C{\\equiv}CH}$ :`,
     choices: [
       `Sa formule brute est $\\mathrm{C_4H_6}$.`,
       `Une hydrogénation partielle peut conduire au but-1-ène.`,

@@ -70,7 +70,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 81,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du pouvoir rotatoire :`,
+    question: `�' propos du pouvoir rotatoire :`,
     choices: [
       `Il traduit la capacité d'une substance chirale à dévier le plan d'une lumière polarisée.`,
       `Il peut être mesuré à l'aide d'un polarimètre.`,
@@ -112,7 +112,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 83,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du montage de la figure précédente :`,
+    question: `�' propos du montage de la figure précédente :`,
     choices: [
       `Une source fournit une lumière polarisée de longueur d'onde définie.`,
       `La solution chirale est placée dans une cuve de longueur connue.`,
@@ -154,7 +154,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 85,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des termes dextrogyre et lévogyre :`,
+    question: `�' propos des termes dextrogyre et lévogyre :`,
     choices: [
       `Une substance dextrogyre possède un pouvoir rotatoire positif.`,
       `Une substance lévogyre possède un pouvoir rotatoire négatif.`,
@@ -196,7 +196,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 87,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des trois mélanges de la figure précédente :`,
+    question: `�' propos des trois mélanges de la figure précédente :`,
     choices: [
       `Le mélange A est racémique.`,
       `Le mélange B présente un excès de l'énantiomère (+).`,
@@ -259,7 +259,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 90,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du pouvoir rotatoire et des mélanges d'énantiomères :`,
+    question: `�' propos du pouvoir rotatoire et des mélanges d'énantiomères :`,
     choices: [
       `Un pouvoir rotatoire global nul peut résulter d'un mélange racémique.`,
       `Deux énantiomères purs ont des pouvoirs rotatoires opposés dans les mêmes conditions.`,
@@ -343,7 +343,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 94,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À partir des expériences de la figure précédente :`,
+    question: `�' partir des expériences de la figure précédente :`,
     choices: [
       `La comparaison A/B permet d'étudier l'effet de la concentration, les autres paramètres étant identiques.`,
       `La comparaison A/C permet d'étudier l'effet de la longueur de la cuve.`,
@@ -469,7 +469,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 100,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'une solution d'énantiomères et de sa caractérisation :`,
+    question: `�' propos d'une solution d'énantiomères et de sa caractérisation :`,
     choices: [
       `Un ee nul est compatible avec un mélange racémique.`,
       `Un pouvoir rotatoire nul suffit toujours à prouver que la solution est racémique, quelles que soient les autres espèces présentes.`,

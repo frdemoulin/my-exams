@@ -44,7 +44,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 21,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'isomérie géométrique des alcènes :`,
+    question: `�' propos de l'isomérie géométrique des alcènes :`,
     choices: [
       `Elle est liée à la rotation empêchée autour d'une double liaison $\\mathrm{C{=}C}$.`,
       `Elle concerne l'agencement des substituants de part et d'autre d'une double liaison.`,
@@ -86,7 +86,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 23,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des priorités utilisées pour définir E et Z :`,
+    question: `�' propos des priorités utilisées pour définir E et Z :`,
     choices: [
       `Le brome est prioritaire sur le chlore.`,
       `L'oxygène est prioritaire sur l'azote.`,
@@ -107,7 +107,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 24,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des notations stéréochimiques :`,
+    question: `�' propos des notations stéréochimiques :`,
     choices: [
       `La notation E/Z s'applique aux doubles liaisons.`,
       `La notation R/S s'applique aux centres asymétriques.`,
@@ -194,7 +194,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 28,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la distinction entre configuration et conformation :`,
+    question: `�' propos de la distinction entre configuration et conformation :`,
     choices: [
       `Deux conformères de l'éthane ne sont pas des isomères E/Z.`,
       `Une configuration E/Z correspond à une configuration et non à une conformation.`,
@@ -237,7 +237,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 30,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des configurations E et Z :`,
+    question: `�' propos des configurations E et Z :`,
     choices: [
       `Un alcène n'est E ou Z que si chacun de ses carbones vinyliques porte deux substituants différents.`,
       `La lettre Z signifie que les groupes prioritaires sont opposés.`,
@@ -280,7 +280,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 32,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'attribution des priorités autour d'une double liaison :`,
+    question: `�' propos de l'attribution des priorités autour d'une double liaison :`,
     choices: [
       `Le groupe $\\mathrm{NH_2}$ est prioritaire sur $\\mathrm{CH_3}$.`,
       `Le groupe $\\mathrm{OH}$ est prioritaire sur $\\mathrm{NH_2}$.`,
@@ -323,7 +323,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Pour les questions 34 et 35, on considère l'alcène M représenté ci-dessous.\n\n![Alcène M substitué par CH2OH, CH3, CH3 et Cl](${FIGURE_BASE_PATH}/section-b-q14-alkene-ch2oh-ch3-ch3-cl.png)\n\nÀ propos des priorités sur chaque carbone de la double liaison :`,
+      `Pour les questions 34 et 35, on considère l'alcène M représenté ci-dessous.\n\n![Alcène M substitué par CH2OH, CH3, CH3 et Cl](${FIGURE_BASE_PATH}/section-b-q14-alkene-ch2oh-ch3-ch3-cl.png)\n\n�' propos des priorités sur chaque carbone de la double liaison :`,
     choices: [
       `Sur le carbone de gauche, $\\mathrm{CH_2OH}$ est prioritaire sur $\\mathrm{CH_3}$.`,
       `Sur le carbone de gauche, $\\mathrm{CH_3}$ est prioritaire sur $\\mathrm{CH_2OH}$.`,
@@ -332,7 +332,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 2],
     explanation:
-      `À gauche, les deux substituants commencent par un carbone, puis la présence d'un oxygène au rang suivant donne la priorité à $\\mathrm{CH_2OH}$ sur $\\mathrm{CH_3}$. À droite, le chlore est directement lié au carbone vinylique et l'emporte sur le groupe $\\mathrm{CH_3}$.`,
+      `�' gauche, les deux substituants commencent par un carbone, puis la présence d'un oxygène au rang suivant donne la priorité à $\\mathrm{CH_2OH}$ sur $\\mathrm{CH_3}$. �' droite, le chlore est directement lié au carbone vinylique et l'emporte sur le groupe $\\mathrm{CH_3}$.`,
     choiceExplanations: [
       `La comparaison se poursuit au rang suivant : l'oxygène donne la priorité à $\\mathrm{CH_2OH}$.`,
       `Le groupe $\\mathrm{CH_3}$ ne possède que des hydrogènes au rang suivant.`,
@@ -366,7 +366,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `Pour les questions 36 et 37, on considère l'alcène N : sur le carbone de gauche de la double liaison se trouvent $\\mathrm{CH_2OH}$ en haut et $\\mathrm{CH_3}$ en bas ; sur le carbone de droite se trouvent H en haut et $\\mathrm{CH_2Cl}$ en bas. À propos des priorités :`,
+      `Pour les questions 36 et 37, on considère l'alcène N : sur le carbone de gauche de la double liaison se trouvent $\\mathrm{CH_2OH}$ en haut et $\\mathrm{CH_3}$ en bas ; sur le carbone de droite se trouvent H en haut et $\\mathrm{CH_2Cl}$ en bas. �' propos des priorités :`,
     choices: [
       `Sur le carbone de gauche, $\\mathrm{CH_2OH}$ est prioritaire sur $\\mathrm{CH_3}$.`,
       `Sur le carbone de droite, H est prioritaire sur $\\mathrm{CH_2Cl}$.`,
@@ -375,7 +375,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 2],
     explanation:
-      `À gauche, il faut comparer $\\mathrm{CH_2OH}$ et $\\mathrm{CH_3}$ : la présence de l'oxygène donne la priorité à $\\mathrm{CH_2OH}$. À droite, le carbone du groupe $\\mathrm{CH_2Cl}$ est prioritaire sur H.`,
+      `�' gauche, il faut comparer $\\mathrm{CH_2OH}$ et $\\mathrm{CH_3}$ : la présence de l'oxygène donne la priorité à $\\mathrm{CH_2OH}$. �' droite, le carbone du groupe $\\mathrm{CH_2Cl}$ est prioritaire sur H.`,
     choiceExplanations: [
       `Le groupe $\\mathrm{CH_2OH}$ est favorisé par la présence d'un oxygène au rang suivant.`,
       `H est le moins prioritaire.`,
@@ -430,7 +430,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 39,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des notations cis/trans et E/Z :`,
+    question: `�' propos des notations cis/trans et E/Z :`,
     choices: [
       `Pour le but-2-ène, cis correspond à Z et trans à E.`,
       `La notation E/Z est plus générale que la notation cis/trans.`,
@@ -452,7 +452,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `On considère trois alcènes :\n- A : $\\mathrm{CH_2{=}CHCl}$ ;\n- B : le but-2-ène avec les deux groupes $\\mathrm{CH_3}$ du même côté ;\n- C : l'alcène N des questions 36 et 37.\n\nÀ propos de ces trois composés :`,
+      `On considère trois alcènes :\n- A : $\\mathrm{CH_2{=}CHCl}$ ;\n- B : le but-2-ène avec les deux groupes $\\mathrm{CH_3}$ du même côté ;\n- C : l'alcène N des questions 36 et 37.\n\n�' propos de ces trois composés :`,
     choices: [
       `A ne présente pas d'isomérie E/Z.`,
       `B est de configuration Z.`,

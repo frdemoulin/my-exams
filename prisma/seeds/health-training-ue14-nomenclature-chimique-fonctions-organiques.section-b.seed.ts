@@ -100,7 +100,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 21,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction alcool :`,
+    question: `�' propos de la fonction alcool :`,
     choices: [
       `Elle comporte un groupe hydroxyle $\\mathrm{-OH}$.`,
       `Dans un alcool, le groupe $\\mathrm{-OH}$ est porté par un carbone saturé de la chaîne organique.`,
@@ -247,7 +247,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 28,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `Le glycérol est représenté par $\\mathrm{HO{-}CH_2{-}CH(OH){-}CH_2{-}OH}$. À son sujet :`,
+    question: `Le glycérol est représenté par $\\mathrm{HO{-}CH_2{-}CH(OH){-}CH_2{-}OH}$. �' son sujet :`,
     choices: [
       `Il possède trois groupes hydroxyle.`,
       `Il appartient à la famille des alcools.`,
@@ -332,7 +332,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 32,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la molécule $\\mathrm{CH_3{-}CH(OH){-}CH_2{-}CH_3}$ :`,
+    question: `�' propos de la molécule $\\mathrm{CH_3{-}CH(OH){-}CH_2{-}CH_3}$ :`,
     choices: [
       `Elle appartient à la famille des alcools.`,
       `Le carbone portant le groupe $\\mathrm{-OH}$ est un carbone secondaire.`,
@@ -353,7 +353,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 33,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `On considère l'acide lactique, représenté par $\\mathrm{CH_3{-}CH(OH){-}COOH}$. À son sujet :`,
+    question: `On considère l'acide lactique, représenté par $\\mathrm{CH_3{-}CH(OH){-}COOH}$. �' son sujet :`,
     choices: [
       `Il possède à la fois une fonction alcool et une fonction acide carboxylique.`,
       `Il appartient uniquement à la famille des alcools.`,
@@ -396,7 +396,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 35,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la formule brute $\\mathrm{C_3H_8O}$ :`,
+    question: `�' propos de la formule brute $\\mathrm{C_3H_8O}$ :`,
     choices: [
       `Elle peut correspondre au propan-1-ol.`,
       `Elle peut correspondre au butan-2-ol.`,
@@ -480,7 +480,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 39,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des polyalcools :`,
+    question: `�' propos des polyalcools :`,
     choices: [
       `Un diol possède deux groupes hydroxyle.`,
       `Un triol possède trois groupes hydroxyle.`,
@@ -522,7 +522,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 41,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du groupe carbonyle $\\mathrm{C=O}$ :`,
+    question: `�' propos du groupe carbonyle $\\mathrm{C=O}$ :`,
     choices: [
       `Il est présent dans les aldéhydes.`,
       `Il est présent dans les cétones.`,
@@ -627,7 +627,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 46,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `L'acétone, un corps cétonique pouvant être détecté lors d'un jeûne prolongé ou d'un diabète déséquilibré, est aussi appelée propanone. À son sujet :`,
+    question: `L'acétone, un corps cétonique pouvant être détecté lors d'un jeûne prolongé ou d'un diabète déséquilibré, est aussi appelée propanone. �' son sujet :`,
     choices: [
       `Elle appartient à la famille des cétones.`,
       `Elle possède la formule semi-développée $\\mathrm{CH_3-CO-CH_3}$.`,
@@ -670,7 +670,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
     question:
-      `À propos du glucose sous forme ouverte simplifiée $\\mathrm{CHO{-}CH(OH){-}CH(OH){-}CH(OH){-}CH(OH){-}CH_2OH}$ :`,
+      `�' propos du glucose sous forme ouverte simplifiée $\\mathrm{CHO{-}CH(OH){-}CH(OH){-}CH(OH){-}CH(OH){-}CH_2OH}$ :`,
     choices: [
       `Le glucose possède une fonction aldéhyde sous sa forme ouverte.`,
       `Le glucose possède aussi plusieurs fonctions alcool.`,
@@ -733,7 +733,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 51,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la formule brute $\\mathrm{C_3H_6O}$ :`,
+    question: `�' propos de la formule brute $\\mathrm{C_3H_6O}$ :`,
     choices: [
       `Elle peut correspondre au propanal.`,
       `Elle peut correspondre à la propanone.`,
@@ -840,7 +840,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 56,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la molécule $\\mathrm{HO{-}CH_2{-}CO{-}CH_3}$ :`,
+    question: `�' propos de la molécule $\\mathrm{HO{-}CH_2{-}CO{-}CH_3}$ :`,
     choices: [
       `Elle possède à la fois une fonction alcool et une fonction cétone.`,
       `Elle appartient uniquement à la famille des cétones.`,
@@ -903,7 +903,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 59,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la lecture des noms et des structures :`,
+    question: `�' propos de la lecture des noms et des structures :`,
     choices: [
       `Le suffixe -al oriente vers une fonction aldéhyde.`,
       `Le suffixe -one oriente vers une fonction cétone.`,
@@ -945,7 +945,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 61,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des acides carboxyliques :`,
+    question: `�' propos des acides carboxyliques :`,
     choices: [
       `Leur groupe caractéristique est $\\mathrm{-COOH}$.`,
       `Ils possèdent simultanément un carbonyle et un hydroxyle réunis dans un même groupe fonctionnel.`,
@@ -966,7 +966,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 62,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des esters :`,
+    question: `�' propos des esters :`,
     choices: [
       `Leur groupe caractéristique peut être repéré par le motif $\\mathrm{-COO-}$.`,
       `Ils dérivent conceptuellement de l'association d'un acide carboxylique et d'un alcool.`,
@@ -987,7 +987,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 63,
     difficulty: 'EASY',
     answerFormat: 'SINGLE',
-    question: `L'acide éthanoïque, dont le groupement carboxyle est un motif fréquent en biochimie, peut être écrit $\\mathrm{CH_3{-}COOH}$. À quelle famille appartient-il ?`,
+    question: `L'acide éthanoïque, dont le groupement carboxyle est un motif fréquent en biochimie, peut être écrit $\\mathrm{CH_3{-}COOH}$. �' quelle famille appartient-il ?`,
     choices: [
       `Alcool.`,
       `Acide carboxylique.`,
@@ -1050,7 +1050,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 66,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des triglycérides :`,
+    question: `�' propos des triglycérides :`,
     choices: [
       `Ils comportent des fonctions ester.`,
       `Ils dérivent du glycérol et d'acides gras.`,
@@ -1155,7 +1155,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 71,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `Certains médicaments possèdent un motif éther. À propos des éthers :`,
+    question: `Certains médicaments possèdent un motif éther. �' propos des éthers :`,
     choices: [
       `Leur motif simplifié est $\\mathrm{R-O-R'}$.`,
       `L'oxygène est placé entre deux fragments carbonés.`,
@@ -1176,7 +1176,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 72,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des peroxydes :`,
+    question: `�' propos des peroxydes :`,
     choices: [
       `Ils comportent une liaison $\\mathrm{O-O}$.`,
       `Le peroxyde d'hydrogène $\\mathrm{H-O-O-H}$, ou eau oxygénée, illustre ce motif.`,
@@ -1197,7 +1197,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 73,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des carbonates organiques :`,
+    question: `�' propos des carbonates organiques :`,
     choices: [
       `Ils possèdent un motif global comportant un carbone lié à trois oxygènes.`,
       `Leur motif peut être schématisé par $\\mathrm{R-O-CO-O-R'}$.`,
@@ -1323,7 +1323,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 79,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `La structure $\\mathrm{CH_3{-}O{-}CO{-}O{-}CH_3}$ correspond à un carbonate organique. À son sujet :`,
+    question: `La structure $\\mathrm{CH_3{-}O{-}CO{-}O{-}CH_3}$ correspond à un carbonate organique. �' son sujet :`,
     choices: [
       `Elle possède un groupe carbonyle.`,
       `Elle ne contient que deux atomes d'oxygène.`,
@@ -1408,7 +1408,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 83,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'aspirine, décrite ici comme une molécule possédant une fonction acide carboxylique et une fonction ester :`,
+    question: `�' propos de l'aspirine, décrite ici comme une molécule possédant une fonction acide carboxylique et une fonction ester :`,
     choices: [
       `Elle est un bon exemple de molécule polyfonctionnelle.`,
       `Elle ne contient aucune fonction oxygénée.`,
@@ -1429,7 +1429,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 84,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `La formule brute $\\mathrm{C_3H_8O}$ peut correspondre à plusieurs familles. À son sujet :`,
+    question: `La formule brute $\\mathrm{C_3H_8O}$ peut correspondre à plusieurs familles. �' son sujet :`,
     choices: [
       `Elle peut correspondre au propan-1-ol.`,
       `Elle peut correspondre au butan-2-ol.`,
@@ -1536,7 +1536,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 89,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des pièges de reconnaissance des fonctions :`,
+    question: `�' propos des pièges de reconnaissance des fonctions :`,
     choices: [
       `Un groupe $\\mathrm{-OH}$ isolé sur une chaîne peut orienter vers un alcool, mais le motif $\\mathrm{-COOH}$ correspond à un acide carboxylique.`,
       `Le motif $\\mathrm{-COO-}$ d'un ester est différent du motif $\\mathrm{R-O-R'}$ d'un éther.`,
@@ -1579,7 +1579,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
     question:
-      `L'aspirine, médicament notamment antalgique et antipyrétique, peut être représentée de façon condensée par $\\mathrm{C_6H_4(COOH)(OCOCH_3)}$. À propos de cette molécule :`,
+      `L'aspirine, médicament notamment antalgique et antipyrétique, peut être représentée de façon condensée par $\\mathrm{C_6H_4(COOH)(OCOCH_3)}$. �' propos de cette molécule :`,
     choices: [
       `Elle possède une fonction acide carboxylique.`,
       `Elle possède une fonction ester.`,
@@ -1732,7 +1732,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
     question:
-      `À propos de l'acide lactique $\\mathrm{CH_3{-}CH(OH){-}COOH}$, dont la concentration sanguine peut augmenter lors d'un effort intense :`,
+      `�' propos de l'acide lactique $\\mathrm{CH_3{-}CH(OH){-}COOH}$, dont la concentration sanguine peut augmenter lors d'un effort intense :`,
     choices: [
       `Sa formule brute est $\\mathrm{C_3H_6O_3}$.`,
       `La fonction alcool qu'il porte est secondaire.`,

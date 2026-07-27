@@ -42,7 +42,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 41,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la chiralité :`,
+    question: `�' propos de la chiralité :`,
     choices: [
       `Une molécule chirale n'est pas superposable à son image dans un miroir.`,
       `La chiralité se réduit toujours à la présence d'une double liaison $\\mathrm{C{=}C}$.`,
@@ -88,7 +88,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
 
 ![Centres candidats A à D](${FIGURE_BASE_PATH}/figure-c1-centres-candidats.svg)
 
-À propos des centres repérés A à D :`,
+�' propos des centres repérés A à D :`,
     choices: [
       `Le centre A est un carbone asymétrique.`,
       `Le centre B est un carbone asymétrique.`,
@@ -113,7 +113,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
 
 ![Glycine et alanine](${FIGURE_BASE_PATH}/figure-c2-glycine-alanine.svg)
 
-À propos de ces deux acides aminés :`,
+�' propos de ces deux acides aminés :`,
     choices: [
       `La glycine ne possède pas de carbone asymétrique au niveau du carbone $\alpha$.`,
       `L'alanine possède un carbone asymétrique au niveau du carbone $\alpha$.`,
@@ -138,7 +138,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
 
 ![Deux molécules images dans un miroir](${FIGURE_BASE_PATH}/figure-c3-images-miroir.svg)
 
-À propos de X et Y :`,
+�' propos de X et Y :`,
     choices: [
       `X et Y ont la même formule brute.`,
       `X et Y ont la même connectivité.`,
@@ -180,7 +180,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 47,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des énantiomères :`,
+    question: `�' propos des énantiomères :`,
     choices: [
       `Ils ont la même formule brute.`,
       `Ils ont le même enchaînement des atomes.`,
@@ -222,7 +222,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 49,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des notions de configuration et de conformation :`,
+    question: `�' propos des notions de configuration et de conformation :`,
     choices: [
       `Deux conformères peuvent s'interconvertir par rotation autour d'une liaison simple.`,
       `Deux énantiomères ne s'obtiennent pas, en général, par simple rotation autour d'une liaison simple.`,
@@ -243,7 +243,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 50,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'une molécule portant un unique carbone asymétrique :`,
+    question: `�' propos d'une molécule portant un unique carbone asymétrique :`,
     choices: [
       `Elle peut exister sous deux formes énantiomères.`,
       `Les deux formes ont la même formule brute.`,
@@ -268,7 +268,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
 
 ![Molécule à deux centres asymétriques](${FIGURE_BASE_PATH}/figure-c4-deux-centres-asymetriques.svg)
 
-À propos de la molécule représentée :`,
+�' propos de la molécule représentée :`,
     choices: [
       `Elle possède deux carbones asymétriques repérés par des astérisques.`,
       `Chaque carbone marqué d'un astérisque porte quatre substituants différents.`,
@@ -289,7 +289,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 52,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À partir de la figure précédente, qui montre une molécule à deux centres asymétriques :`,
+    question: `�' partir de la figure précédente, qui montre une molécule à deux centres asymétriques :`,
     choices: [
       `Le nombre maximal de stéréoisomères est de 4.`,
       `Le nombre maximal de stéréoisomères est donné par $2^n$ avec $n$ le nombre de centres asymétriques.`,
@@ -310,7 +310,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 53,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des diastéréoisomères :`,
+    question: `�' propos des diastéréoisomères :`,
     choices: [
       `Ce sont des stéréoisomères.`,
       `Ils sont images l'un de l'autre dans un miroir et non superposables.`,
@@ -356,7 +356,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
 
 ![Trois stéréoisomères d'une même constitution](${FIGURE_BASE_PATH}/figure-c5-trois-stereoisomeres.svg)
 
-À propos de A, B et C :`,
+�' propos de A, B et C :`,
     choices: [
       `A et B sont énantiomères.`,
       `A et B ont la même constitution.`,
@@ -423,7 +423,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
 
 ![Composé méso](${FIGURE_BASE_PATH}/figure-c6-compose-meso.svg)
 
-À propos de ce composé :`,
+�' propos de ce composé :`,
     choices: [
       `Le composé possède au moins deux centres asymétriques.`,
       `Le composé est achiral en raison d'un élément de symétrie interne.`,
@@ -444,7 +444,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 59,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos du nombre de stéréoisomères d'une molécule possédant trois centres asymétriques :`,
+    question: `�' propos du nombre de stéréoisomères d'une molécule possédant trois centres asymétriques :`,
     choices: [
       `Le nombre maximal de stéréoisomères est de 8.`,
       `La molécule possède nécessairement exactement 8 stéréoisomères.`,

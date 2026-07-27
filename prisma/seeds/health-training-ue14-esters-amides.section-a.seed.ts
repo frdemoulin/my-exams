@@ -40,7 +40,7 @@ export const SECTION_A_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 17 },
       {
         type: 'GROUP',
-        title: `Un chlorure d’acyle, deux nucléophiles`,
+        title: `Un chlorure d'''acyle, deux nucléophiles`,
         sharedStatement: `On dispose du chlorure d'éthanoyle $\mathrm{CH_3COCl}$. Dans l'expérience **I**, il réagit avec l'éthanol $\mathrm{CH_3CH_2OH}$. Dans l'expérience **II**, il réagit avec la méthylamine $\mathrm{CH_3NH_2}$.`,
         questionOrders: [18, 19, 20],
       },
@@ -63,7 +63,7 @@ export const SECTION_A_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 27 },
       {
         type: 'GROUP',
-        title: `Lecture d’un fragment peptidique contenant une proline`,
+        title: `Lecture d'''un fragment peptidique contenant une proline`,
         sharedStatement: `Un fragment peptidique contient deux liaisons amide. Le premier azote porte un hydrogène ; le second appartient au cycle d'un résidu proline et est lié à trois atomes de carbone dans le fragment.`,
         questionOrders: [28, 29, 30],
       },
@@ -76,7 +76,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 1,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction ester :`,
+    question: `�' propos de la fonction ester :`,
     choices: [
       `Elle contient un groupe carbonyle $\mathrm{C{=}O}$.`,
       `Elle comporte un oxygène lié au carbone carbonylé et à un radical carboné.`,
@@ -104,7 +104,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
       `Peut s'écrire sous la forme générale $\mathrm{RCOOR'}$.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
-    explanation: `Cette molécule contient le motif carbonyle–oxygène–radical caractéristique d'un ester.`,
+    explanation: `Cette molécule contient le motif carbonyle''�oxygène''�radical caractéristique d'un ester.`,
     choiceExplanations: [
       `Le motif $\mathrm{C(=O){-}O}$ est présent.`,
       `Un oxygène est carbonylé et l'autre est lié au radical éthyle.`,
@@ -136,7 +136,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 4,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction amide :`,
+    question: `�' propos de la fonction amide :`,
     choices: [
       `Elle contient un atome d'azote directement lié au carbone carbonylé.`,
       `L'azote peut porter deux hydrogènes.`,
@@ -158,10 +158,10 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La formule $\mathrm{CH_3CONH_2}$ correspond :`,
     choices: [
-      `À une amide.`,
-      `À une molécule contenant un groupe carbonyle.`,
-      `À une amine dépourvue de carbonyle.`,
-      `À une fonction pouvant être retrouvée dans une liaison peptidique.`,
+      `�' une amide.`,
+      `�' une molécule contenant un groupe carbonyle.`,
+      `�' une amine dépourvue de carbonyle.`,
+      `�' une fonction pouvant être retrouvée dans une liaison peptidique.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation: `Le motif $\mathrm{-C(=O){-}NH_2}$ est celui d'une fonction amide.`,
@@ -298,8 +298,8 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La préparation d'un ester selon la fiche repose sur le bilan :`,
     choices: [
-      `Acide activé + alcool → ester.`,
-      `Acide activé + amine → ester.`,
+      `Acide activé + alcool '�� ester.`,
+      `Acide activé + amine '�� ester.`,
       `Le terme activation concerne la fonction acide carboxylique.`,
       `Le partenaire alcool apporte l'oxygène lié au radical $\mathrm{R'}$.`,
     ],
@@ -318,7 +318,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La préparation d'une amide selon la fiche repose sur le bilan :`,
     choices: [
-      `Acide activé + amine → amide.`,
+      `Acide activé + amine '�� amide.`,
       `L'azote de l'amine se retrouve lié au carbone carbonylé.`,
       `Un alcool est indispensable à cette réaction.`,
       `Un chlorure d'acyle peut servir de réactif acylant.`,
@@ -376,7 +376,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 16,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `Un anhydride d'acide réagit avec un alcool dans une étape de synthèse pharmaceutique. À propos de cette transformation :`,
+    question: `Un anhydride d'acide réagit avec un alcool dans une étape de synthèse pharmaceutique. �' propos de cette transformation :`,
     choices: [
       `L'anhydride joue le rôle d'acide activé.`,
       `L'alcool est converti en ester.`,
@@ -396,7 +396,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 17,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `Un anhydride d'acide réagit avec une amine primaire. À propos du produit recherché :`,
+    question: `Un anhydride d'acide réagit avec une amine primaire. �' propos du produit recherché :`,
     choices: [
       `Il possède une fonction amide.`,
       `L'azote de l'amine est incorporé dans le produit.`,
@@ -459,8 +459,8 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     question: `Comparaison des expériences **I** et **II** :`,
     choices: [
       `Le chlorure d'éthanoyle est l'acide activé dans les deux cas.`,
-      `L'expérience I forme une liaison acyle–oxygène.`,
-      `L'expérience II forme une liaison acyle–azote.`,
+      `L'expérience I forme une liaison acyle''�oxygène.`,
+      `L'expérience II forme une liaison acyle''�azote.`,
       `Les deux expériences conduisent nécessairement au même produit.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
@@ -476,7 +476,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 21,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la liaison peptidique :`,
+    question: `�' propos de la liaison peptidique :`,
     choices: [
       `Elle comporte le motif $\mathrm{-C(=O){-}N-}$.`,
       `Elle est rencontrée dans les peptides et les protéines.`,
@@ -556,7 +556,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 25,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des substituants portés par l'azote d'une amide :`,
+    question: `�' propos des substituants portés par l'azote d'une amide :`,
     choices: [
       `Deux hydrogènes sont possibles.`,
       `Un hydrogène et un radical sont possibles.`,
@@ -656,7 +656,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 30,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'effet structural de la proline dans ce fragment :`,
+    question: `�' propos de l'effet structural de la proline dans ce fragment :`,
     choices: [
       `Le cycle rigidifie localement le squelette.`,
       `La proline peut influencer la structure secondaire.`,

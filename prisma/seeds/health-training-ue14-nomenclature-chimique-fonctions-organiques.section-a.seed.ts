@@ -5,7 +5,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 1,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la nomenclature chimique :`,
+    question: `�' propos de la nomenclature chimique :`,
     choices: [
       `Elle permet de désigner précisément les molécules.`,
       `Elle vise à faciliter la communication entre chimistes de langues différentes.`,
@@ -220,7 +220,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `À propos de la formule semi-développée $\\mathrm{CH_3{-}CH(OH){-}CH_2{-}NH_2}$ :`,
+      `�' propos de la formule semi-développée $\\mathrm{CH_3{-}CH(OH){-}CH_2{-}NH_2}$ :`,
     choices: [
       `Sa formule brute est $\\mathrm{C_3H_9NO}$.`,
       `Elle contient trois atomes de carbone et un atome d'azote.`,
@@ -350,7 +350,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 17,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la microanalyse et de la détermination d'une formule brute :`,
+    question: `�' propos de la microanalyse et de la détermination d'une formule brute :`,
     choices: [
       `La pureté de l'échantillon est importante pour obtenir des pourcentages fiables.`,
       `La microanalyse fournit directement la géométrie tridimensionnelle de la molécule.`,

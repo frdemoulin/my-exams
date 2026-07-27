@@ -31,7 +31,7 @@ export const SECTION_D_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 97 },
       {
         type: 'GROUP',
-        title: `Glucose et fructose dans un test d’oxydation`,
+        title: `Glucose et fructose dans un test d'''oxydation`,
         sharedStatement: `On compare les formes linéaires du glucose et du fructose selon le modèle simplifié de la fiche : le glucose porte une fonction aldéhyde, le fructose une fonction cétone.`,
         questionOrders: [98, 99, 100],
       },
@@ -41,7 +41,7 @@ export const SECTION_D_QUIZZES: SeedQuiz[] = [
     order: 11,
     slug: SECTION_D_REPRESENTATIONS_PRACTICE_QUIZ_SLUG,
     title: `Représentations plane et tridimensionnelle des sucres`,
-    description: `Interpréter une projection linéaire comme une représentation conventionnelle d’une molécule tétraédrique et la relier à une représentation en perspective.`,
+    description: `Interpréter une projection linéaire comme une représentation conventionnelle d'''une molécule tétraédrique et la relier à une représentation en perspective.`,
     stage: 'PRACTICE',
     sectionOrder: SECTION_D_ORDER,
     items: [
@@ -54,7 +54,7 @@ export const SECTION_D_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 107 },
       {
         type: 'GROUP',
-        title: `Lecture d’une projection linéaire du glucose`,
+        title: `Lecture d'''une projection linéaire du glucose`,
         sharedStatement: `On observe une projection du glucose avec le groupe $\\mathrm{CHO}$ en haut, la chaîne carbonée verticale et le groupe $\\mathrm{CH_2OH}$ en bas.`,
         questionOrders: [108, 109, 110],
       },
@@ -64,7 +64,7 @@ export const SECTION_D_QUIZZES: SeedQuiz[] = [
     order: 12,
     slug: SECTION_D_CYCLIZATION_MASTER_QUIZ_SLUG,
     title: `Cyclisation des sucres et hémiacétals`,
-    description: `Expliquer la cyclisation intramoléculaire d’un sucre aldéhydique et identifier les conséquences structurales de la formation d’un hémiacétal.`,
+    description: `Expliquer la cyclisation intramoléculaire d'''un sucre aldéhydique et identifier les conséquences structurales de la formation d'''un hémiacétal.`,
     stage: 'MASTER',
     sectionOrder: SECTION_D_ORDER,
     items: [
@@ -170,11 +170,11 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 95,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la projection linéaire utilisée pour les sucres :`,
+    question: `�' propos de la projection linéaire utilisée pour les sucres :`,
     choices: [
       `Elle représente une molécule tridimensionnelle sur un plan.`,
       `Les liaisons horizontales $\\mathrm{C{-}H}$ et $\\mathrm{C{-}OH}$ sont orientées vers l'observateur dans la convention présentée.`,
-      `Les liaisons de la chaîne carbone–carbone sont représentées vers l'arrière.`,
+      `Les liaisons de la chaîne carbone''�carbone sont représentées vers l'arrière.`,
       `Elle signifie que tous les carbones sont réellement plans.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
@@ -210,7 +210,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 97,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `Comparaison glucose–fructose dans la présentation du chapitre :`,
+    question: `Comparaison glucose''�fructose dans la présentation du chapitre :`,
     choices: [
       `Le glucose linéaire porte un aldéhyde.`,
       `Le fructose linéaire porte une cétone.`,
@@ -390,7 +390,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 106,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos du glucose linéaire :`,
+    question: `�' propos du glucose linéaire :`,
     choices: [
       `Le carbone de l'aldéhyde peut devenir un nouveau centre dans la forme cyclique.`,
       `Une fonction alcool de la chaîne peut attaquer le carbonyle.`,
@@ -538,7 +538,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
       `La chaîne perd nécessairement deux carbones.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fermeture du cycle reprend la réactivité générale alcool–aldéhyde au sein d'une même molécule.`,
+    explanation: `La fermeture du cycle reprend la réactivité générale alcool''�aldéhyde au sein d'une même molécule.`,
     choiceExplanations: [
       `Les deux fonctions appartiennent au glucose.`,
       `Son oxygène apporte un doublet.`,
@@ -640,7 +640,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     correctChoiceIndexes: [0, 2],
     explanation: `Un groupe hydroxyle interne fournit l'oxygène nucléophile qui attaque le carbone de l'aldéhyde.`,
     choiceExplanations: [
-      `La cyclisation est une réaction alcool–aldéhyde.`,
+      `La cyclisation est une réaction alcool''�aldéhyde.`,
       `L'aldéhyde joue l'électrophile.`,
       `Son doublet forme la nouvelle liaison.`,
       `Le glucose ne contient pas d'amide.`,

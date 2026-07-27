@@ -95,7 +95,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 41,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'une réaction d'addition sur une double liaison carbone-carbone :`,
+    question: `�' propos d'une réaction d'addition sur une double liaison carbone-carbone :`,
     choices: [
       `La liaison $\\pi$ de la double liaison est rompue.`,
       `Deux nouvelles liaisons simples peuvent se former sur les deux carbones de l'ancienne double liaison.`,
@@ -158,7 +158,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 44,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette hydrogénation catalytique :`,
+    question: `�' propos de cette hydrogénation catalytique :`,
     choices: [
       `Le réactif ajouté est $\\mathrm{H_2}$.`,
       `Un catalyseur est nécessaire dans le cadre de la réaction présentée.`,
@@ -221,7 +221,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 47,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette addition de $\\mathrm{Br_2}$ sur l'éthène :`,
+    question: `�' propos de cette addition de $\\mathrm{Br_2}$ sur l'éthène :`,
     choices: [
       `La double liaison disparaît.`,
       `Un atome de brome est ajouté sur chacun des deux carbones.`,
@@ -242,7 +242,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 48,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du produit représenté ci-dessus :`,
+    question: `�' propos du produit représenté ci-dessus :`,
     choices: [
       `Sa formule semi-développée est $\\mathrm{CH_2Br{-}CH_2Br}$.`,
       `Il peut être nommé 1,2-dibromoéthane.`,
@@ -284,7 +284,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 50,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des réactions d'addition sur les alcènes :`,
+    question: `�' propos des réactions d'addition sur les alcènes :`,
     choices: [
       `Elles consomment la double liaison.`,
       `L'hydrogénation catalytique conduit à un alcane.`,
@@ -305,7 +305,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 51,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette addition de $\\mathrm{HBr}$ :`,
+    question: `�' propos de cette addition de $\\mathrm{HBr}$ :`,
     choices: [
       `Un hydrogène et un brome s'ajoutent sur l'ancienne double liaison.`,
       `La double liaison disparaît.`,
@@ -368,7 +368,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 54,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos du produit principal représenté ci-dessus :`,
+    question: `�' propos du produit principal représenté ci-dessus :`,
     choices: [
       `Sa formule semi-développée est $\\mathrm{CH_3{-}CHBr{-}CH_3}$.`,
       `Il se nomme 2-bromopropane.`,
@@ -389,7 +389,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 55,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À partir de la comparaison représentée ci-dessus :`,
+    question: `�' partir de la comparaison représentée ci-dessus :`,
     choices: [
       `Avec $\\mathrm{Br_2}$, deux atomes de brome sont incorporés.`,
       `Avec $\\mathrm{HBr}$, un seul atome de brome est incorporé.`,
@@ -431,7 +431,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 57,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette hydratation du propène :`,
+    question: `�' propos de cette hydratation du propène :`,
     choices: [
       `L'hydratation ajoute $\\mathrm{H}$ et $\\mathrm{OH}$ sur les deux carbones de la double liaison.`,
       `La double liaison disparaît.`,
@@ -452,7 +452,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 58,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la relation entre hydratation et déshydratation représentée ci-dessus :`,
+    question: `�' propos de la relation entre hydratation et déshydratation représentée ci-dessus :`,
     choices: [
       `L'hydratation transforme un alcène en alcool.`,
       `La déshydratation transforme un alcool en alcène avec départ de $\\mathrm{H_2O}$.`,
@@ -473,7 +473,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 59,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `Un chimiste souhaite modifier sélectivement un alcène utilisé comme intermédiaire de synthèse. Quelles associations objectif–réactif sont correctes ?`,
+    question: `Un chimiste souhaite modifier sélectivement un alcène utilisé comme intermédiaire de synthèse. Quelles associations objectif''�réactif sont correctes ?`,
     choices: [
       `Obtenir un alcane : $\\mathrm{H_2}$ et catalyseur.`,
       `Obtenir un dérivé dibromé vicinal : $\\mathrm{Br_2}$.`,
@@ -494,7 +494,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 60,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `On considère le propène $\\mathrm{CH_3{-}CH{=}CH_2}$. À propos de ses réactions d'addition :`,
+    question: `On considère le propène $\\mathrm{CH_3{-}CH{=}CH_2}$. �' propos de ses réactions d'addition :`,
     choices: [
       `Avec $\\mathrm{H_2}$ et un catalyseur, il donne du propane.`,
       `Avec $\\mathrm{Br_2}$, il donne un dérivé portant un $\\mathrm{Br}$ sur chacun des carbones de l'ancienne double liaison.`,

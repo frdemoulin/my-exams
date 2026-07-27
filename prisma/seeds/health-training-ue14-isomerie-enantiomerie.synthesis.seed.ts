@@ -78,7 +78,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 101,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la molécule de la figure précédente :`,
+    question: `�' propos de la molécule de la figure précédente :`,
     choices: [
       `Elle possède un carbone asymétrique.`,
       `Sa double liaison peut recevoir un descripteur E ou Z.`,
@@ -108,7 +108,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `À gauche, Cl l'emporte sur H. À droite, le carbone de la chaîne chirale est comparé à celui du groupe méthyle : la chaîne chirale l'emporte au rang suivant. Les groupes prioritaires sont placés de part et d'autre de la double liaison, qui est donc E.`,
+      `�' gauche, Cl l'emporte sur H. �' droite, le carbone de la chaîne chirale est comparé à celui du groupe méthyle : la chaîne chirale l'emporte au rang suivant. Les groupes prioritaires sont placés de part et d'autre de la double liaison, qui est donc E.`,
     choiceExplanations: [
       `Le chlore a un numéro atomique supérieur à celui de l'hydrogène.`,
       `Le carbone de la chaîne est lié à O, C et H, contre H, H et H pour $\mathrm{CH_3}$.`,
@@ -124,12 +124,12 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     choices: [
       `L'ordre de priorité est $\mathrm{OH}$ > groupe alcényl > $\mathrm{CH_3}$ > H.`,
       `Le substituant H est orienté vers l'arrière.`,
-      `Le parcours 1→2→3 est antihoraire.`,
+      `Le parcours 1'��2'��3 est antihoraire.`,
       `La configuration représentée est R.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `$\mathrm{OH}$ est prioritaire, puis vient le groupe alcényl, puis $\mathrm{CH_3}$ et enfin H. Le groupe H est dirigé vers l'arrière et le parcours 1→2→3 est antihoraire : le centre représenté est S.`,
+      `$\mathrm{OH}$ est prioritaire, puis vient le groupe alcényl, puis $\mathrm{CH_3}$ et enfin H. Le groupe H est dirigé vers l'arrière et le parcours 1'��2'��3 est antihoraire : le centre représenté est S.`,
     choiceExplanations: [
       `O l'emporte sur C ; entre les deux groupes carbonés, le groupe alcényl est prioritaire sur $\mathrm{CH_3}$.`,
       `La liaison hachurée représente le groupe dirigé vers l'arrière.`,
@@ -141,7 +141,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 104,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des formes A, B et C de la figure précédente :`,
+    question: `�' propos des formes A, B et C de la figure précédente :`,
     choices: [
       `A et B sont énantiomères.`,
       `A et C sont diastéréoisomères.`,
@@ -227,7 +227,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 108,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'excès énantiomérique (ee) :`,
+    question: `�' propos de l'excès énantiomérique (ee) :`,
     choices: [
       `Un ee de 60 % correspond à un mélange 80 % / 20 %.`,
       `Un ee de 90 % correspond à un mélange 95 % / 5 %.`,
@@ -248,7 +248,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 109,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `Un principe actif existe sous deux formes énantiomères dont l'affinité pour une cible biologique chirale est différente. À propos de ces deux formes et de leur mélange racémique :`,
+    question: `Un principe actif existe sous deux formes énantiomères dont l'affinité pour une cible biologique chirale est différente. �' propos de ces deux formes et de leur mélange racémique :`,
     choices: [
       `Les deux énantiomères ont la même formule brute.`,
       `Ils peuvent présenter des activités pharmacologiques différentes.`,
@@ -269,7 +269,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 110,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des relations stéréochimiques :`,
+    question: `�' propos des relations stéréochimiques :`,
     choices: [
       `Deux molécules de même constitution dont toutes les configurations sont inversées sont énantiomères.`,
       `Les formes (R,R) et (R,S) sont énantiomères.`,
@@ -290,7 +290,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 111,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la structure représentée dans la figure précédente :`,
+    question: `�' propos de la structure représentée dans la figure précédente :`,
     choices: [
       `Elle possède deux centres asymétriques.`,
       `Elle peut présenter une isomérie géométrique autour de la double liaison $\mathrm{C4{=}C5}$.`,
@@ -353,7 +353,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 114,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des projections A, B et C de la figure précédente :`,
+    question: `�' propos des projections A, B et C de la figure précédente :`,
     choices: [
       `A et B sont énantiomères.`,
       `A et C sont diastéréoisomères.`,
@@ -416,7 +416,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 117,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'un mélange de deux énantiomères :`,
+    question: `�' propos d'un mélange de deux énantiomères :`,
     choices: [
       `Un mélange 86 % / 14 % possède un ee de 72 %.`,
       `Un ee de 72 % correspond à des proportions 86 % / 14 %.`,
@@ -485,7 +485,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
 
 ![Couple de molécules énantiomères](${FIGURE_BASE_PATH}/figure-s7-couple-enantiomeres.svg)
 
-À propos de ces deux molécules :`,
+�' propos de ces deux molécules :`,
     choices: [
       `Chaque molécule possède un seul carbone asymétrique.`,
       `L'ordre CIP est Cl > $\mathrm{OH}$ > $\mathrm{CH_3}$ > H.`,

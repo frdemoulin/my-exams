@@ -87,7 +87,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 1,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction alcool :`,
+    question: `�' propos de la fonction alcool :`,
     choices: [
       `Sa formule générale peut s'écrire $\mathrm{R{-}OH}$.`,
       `Le groupe $\mathrm{-OH}$ est appelé groupe hydroxyle.`,
@@ -151,7 +151,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
     question:
-      `L'éthanol $\mathrm{CH_3{-}CH_2{-}OH}$ est notamment utilisé comme antiseptique et comme solvant. À propos de sa structure :`,
+      `L'éthanol $\mathrm{CH_3{-}CH_2{-}OH}$ est notamment utilisé comme antiseptique et comme solvant. �' propos de sa structure :`,
     choices: [
       `Il possède une fonction alcool.`,
       `Le carbone portant $\mathrm{-OH}$ est lié à un seul autre carbone.`,
@@ -259,7 +259,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
     question:
-      `On compare le propan-1-ol et le propan-2-ol. À propos de ces deux molécules :`,
+      `On compare le propan-1-ol et le propan-2-ol. �' propos de ces deux molécules :`,
     choices: [
       `Elles possèdent chacune un groupe hydroxyle.`,
       `Elles peuvent toutes deux former des liaisons hydrogène.`,
@@ -280,7 +280,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 10,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des alcools monofonctionnels :`,
+    question: `�' propos des alcools monofonctionnels :`,
     choices: [
       `Ils comportent un groupe hydroxyle lié à un radical carboné.`,
       `Leur classe dépend de l'environnement du carbone portant $\mathrm{-OH}$.`,
@@ -515,7 +515,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 21,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des organomagnésiens utilisés pour préparer des alcools :`,
+    question: `�' propos des organomagnésiens utilisés pour préparer des alcools :`,
     choices: [
       `Leur formule générale peut s'écrire $\mathrm{RMgX}$.`,
       `Le groupe carboné $\mathrm{R}$ est transféré sur le carbone du groupe carbonyle.`,

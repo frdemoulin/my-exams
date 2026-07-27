@@ -27,7 +27,7 @@ export const SECTION_B_QUIZZES: SeedQuiz[] = [
     order: 5,
     slug: SECTION_B_HYDRIDE_PRACTICE_QUIZ_SLUG,
     title: `Réduction par les hydrures`,
-    description: `Prévoir la classe d’alcool obtenue lors de la réduction d’un aldéhyde ou d’une cétone par un hydrure tel que le borohydrure de sodium.`,
+    description: `Prévoir la classe d'''alcool obtenue lors de la réduction d'''un aldéhyde ou d'''une cétone par un hydrure tel que le borohydrure de sodium.`,
     stage: 'PRACTICE',
     sectionOrder: SECTION_B_ORDER,
     items: [
@@ -40,7 +40,7 @@ export const SECTION_B_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 47 },
       {
         type: 'GROUP',
-        title: `Réduction d’un intermédiaire pharmaceutique`,
+        title: `Réduction d'''un intermédiaire pharmaceutique`,
         sharedStatement: `Un intermédiaire de synthèse contient une cétone de type $\\mathrm{Ar{-}CO{-}CH_3}$. Il est traité par $\\mathrm{NaBH_4}$, puis le milieu est hydrolysé.`,
         questionOrders: [48, 49, 50],
       },
@@ -50,7 +50,7 @@ export const SECTION_B_QUIZZES: SeedQuiz[] = [
     order: 6,
     slug: SECTION_B_GRIGNARD_MASTER_QUIZ_SLUG,
     title: `Addition des organomagnésiens`,
-    description: `Construire une liaison carbone–carbone et déterminer la classe de l’alcool obtenu après addition d’un organomagnésien et hydrolyse.`,
+    description: `Construire une liaison carbone''�carbone et déterminer la classe de l'''alcool obtenu après addition d'''un organomagnésien et hydrolyse.`,
     stage: 'MASTER',
     sectionOrder: SECTION_B_ORDER,
     items: [
@@ -64,7 +64,7 @@ export const SECTION_B_QUIZZES: SeedQuiz[] = [
       {
         type: 'GROUP',
         title: `Un même organomagnésien, deux carbonyles`,
-        sharedStatement: `Le bromure d’éthylmagnésium $\\mathrm{CH_3CH_2MgBr}$ réagit séparément avec **I**, le propanal, et **II**, la butan-2-one. Chaque milieu est ensuite hydrolysé.`,
+        sharedStatement: `Le bromure d'''éthylmagnésium $\\mathrm{CH_3CH_2MgBr}$ réagit séparément avec **I**, le propanal, et **II**, la butan-2-one. Chaque milieu est ensuite hydrolysé.`,
         questionOrders: [58, 59, 60],
       },
     ],
@@ -196,7 +196,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 37,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `On considère $\\mathrm{CH_3COC(CH_3)_3}$. À propos des carbones voisins du carbonyle :`,
+    question: `On considère $\\mathrm{CH_3COC(CH_3)_3}$. �' propos des carbones voisins du carbonyle :`,
     choices: [
       `Le groupe $\\mathrm{CH_3}$ possède des hydrogènes en alpha.`,
       `Le carbone du groupe $\\mathrm{C(CH_3)_3}$ directement voisin ne porte aucun hydrogène.`,
@@ -216,7 +216,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 38,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'effet électroattracteur de l'oxygène :`,
+    question: `�' propos de l'effet électroattracteur de l'oxygène :`,
     choices: [
       `Il polarise la liaison $\\mathrm{C{=}O}$.`,
       `Il explique le caractère électrophile du carbone carbonylé.`,
@@ -318,10 +318,10 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La réduction d'un aldéhyde par $\\mathrm{NaBH_4}$ conduit :`,
     choices: [
-      `À un alcool primaire.`,
-      `À la transformation $\\mathrm{RCHO ightarrow RCH_2OH}$.`,
-      `À un alcool secondaire.`,
-      `À un acide carboxylique.`,
+      `�' un alcool primaire.`,
+      `�' la transformation $\\mathrm{RCHO ightarrow RCH_2OH}$.`,
+      `�' un alcool secondaire.`,
+      `�' un acide carboxylique.`,
     ],
     correctChoiceIndexes: [0, 1],
     explanation: `Le carbone terminal de l'aldéhyde devient le carbone d'un groupe $\\mathrm{CH_2OH}$.`,
@@ -338,10 +338,10 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La réduction d'une cétone par $\\mathrm{NaBH_4}$ conduit :`,
     choices: [
-      `À un alcool secondaire.`,
-      `À la transformation $\\mathrm{RCOR' ightarrow RCH(OH)R'}$.`,
-      `À un alcool primaire.`,
-      `À un aldéhyde.`,
+      `�' un alcool secondaire.`,
+      `�' la transformation $\\mathrm{RCOR' ightarrow RCH(OH)R'}$.`,
+      `�' un alcool primaire.`,
+      `�' un aldéhyde.`,
     ],
     correctChoiceIndexes: [0, 1],
     explanation: `Le carbone carbonylé reste lié à deux groupes carbonés et devient porteur du groupe hydroxyle.`,
@@ -456,7 +456,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 50,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos du rôle du $\\mathrm{NaBH_4}$ :`,
+    question: `�' propos du rôle du $\\mathrm{NaBH_4}$ :`,
     choices: [
       `Il fournit un hydrure nucléophile.`,
       `Il attaque le carbone carbonylé électrophile.`,
@@ -484,7 +484,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
       `Le magnésium transforme toujours le carbonyle en acide.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le caractère polarisé de la liaison carbone–magnésium rend le fragment carboné nucléophile.`,
+    explanation: `Le caractère polarisé de la liaison carbone''�magnésium rend le fragment carboné nucléophile.`,
     choiceExplanations: [
       `C'est l'équivalent réactif utile.`,
       `Il peut former une nouvelle liaison $\\mathrm{C{-}C}$.`,
@@ -500,7 +500,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     choices: [
       `Une hydrolyse est nécessaire.`,
       `L'hydrolyse permet d'obtenir la fonction alcool.`,
-      `Aucune nouvelle liaison carbone–carbone n'est formée.`,
+      `Aucune nouvelle liaison carbone''�carbone n'est formée.`,
       `Le fragment $\\mathrm{R}$ de l'organomagnésien est incorporé au produit.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
@@ -508,7 +508,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     choiceExplanations: [
       `Elle constitue l'étape finale.`,
       `Le groupe $\\mathrm{O^-}$ devient $\\mathrm{OH}$.`,
-      `Une liaison carbone–carbone est précisément créée.`,
+      `Une liaison carbone''�carbone est précisément créée.`,
       `Le nucléophile carboné devient un substituant.`,
     ],
   },
@@ -559,7 +559,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     question: `La réaction d'un organomagnésien sur un composé carbonylé :`,
     choices: [
       `Permet d'allonger ou de ramifier le squelette carboné.`,
-      `Crée une liaison carbone–carbone.`,
+      `Crée une liaison carbone''�carbone.`,
       `Est une réaction d'un nucléophile sur un électrophile.`,
       `Détruit obligatoirement tout le squelette carboné initial.`,
     ],
@@ -621,12 +621,12 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
       `Il agit comme nucléophile carboné.`,
       `Il attaque le carbone du groupe $\\mathrm{C{=}O}$.`,
       `Il est éliminé avant la formation du produit.`,
-      `Il forme une nouvelle liaison carbone–carbone.`,
+      `Il forme une nouvelle liaison carbone''�carbone.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation: `Le fragment éthyle est transféré sur le carbone carbonylé.`,
     choiceExplanations: [
-      `La liaison carbone–magnésium est fortement polarisée.`,
+      `La liaison carbone''�magnésium est fortement polarisée.`,
       `Le carbonyle est électrophile.`,
       `Il est au contraire incorporé.`,
       `C'est l'intérêt synthétique.`,

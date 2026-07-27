@@ -102,7 +102,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 61,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'oxydation d'un alcène :`,
+    question: `�' propos de l'oxydation d'un alcène :`,
     choices: [
       `La double liaison constitue le site principal de la transformation étudiée.`,
       `Les deux carbones de l'ancienne double liaison peuvent recevoir de nouvelles liaisons avec l'oxygène.`,
@@ -165,7 +165,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 64,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette transformation de l'éthène en cycle oxygéné à trois atomes :`,
+    question: `�' propos de cette transformation de l'éthène en cycle oxygéné à trois atomes :`,
     choices: [
       `Le produit est un époxyde.`,
       `Le cycle contient deux carbones et un oxygène.`,
@@ -207,7 +207,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 66,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À partir de l'éthène, une oxydation douce conduit au produit représenté ci-dessus. Parmi les propositions suivantes :`,
+    question: `�' partir de l'éthène, une oxydation douce conduit au produit représenté ci-dessus. Parmi les propositions suivantes :`,
     choices: [
       `Le produit contient toujours deux atomes de carbone.`,
       `Le produit appartient à la famille des époxydes.`,
@@ -228,7 +228,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 67,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette oxydation modérée de l'éthène en éthane-1,2-diol :`,
+    question: `�' propos de cette oxydation modérée de l'éthène en éthane-1,2-diol :`,
     choices: [
       `Le produit contient deux fonctions alcool.`,
       `Les deux groupes $\\mathrm{OH}$ sont portés par deux carbones voisins.`,
@@ -270,7 +270,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 69,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du produit $\\mathrm{HO{-}CH_2{-}CH_2{-}OH}$ représenté ci-dessus :`,
+    question: `�' propos du produit $\\mathrm{HO{-}CH_2{-}CH_2{-}OH}$ représenté ci-dessus :`,
     choices: [
       `Il possède la formule brute $\\mathrm{C_2H_6O_2}$.`,
       `Il peut être nommé éthane-1,2-diol.`,
@@ -291,7 +291,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 70,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des trois niveaux d'oxydation des alcènes :`,
+    question: `�' propos des trois niveaux d'oxydation des alcènes :`,
     choices: [
       `L'oxydation douce conduit à un époxyde.`,
       `L'oxydation modérée conduit à un 1,2-diol.`,
@@ -438,7 +438,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 77,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de ces produits de coupure oxydante :`,
+    question: `�' propos de ces produits de coupure oxydante :`,
     choices: [
       `Le carbone ayant donné l'éthanal portait $\\mathrm{H}$ et $\\mathrm{CH_3}$ dans l'alcène.`,
       `Le carbone ayant donné la propanone portait deux groupes $\\mathrm{CH_3}$.`,
@@ -459,7 +459,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 78,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À partir des produits représentés ci-dessus, l'alcène de départ peut être reconstitué :`,
+    question: `�' partir des produits représentés ci-dessus, l'alcène de départ peut être reconstitué :`,
     choices: [
       `Sa formule semi-développée est $\\mathrm{CH_3{-}CH{=}C(CH_3)_2}$.`,
       `Il peut être nommé 2-méthylbut-2-ène.`,
@@ -501,7 +501,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 80,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des réactions d'oxydation de ce 2-méthylbut-2-ène :`,
+    question: `�' propos des réactions d'oxydation de ce 2-méthylbut-2-ène :`,
     choices: [
       `Une oxydation douce conserve les cinq carbones dans un même époxyde.`,
       `Une oxydation modérée conserve les cinq carbones dans un 1,2-diol.`,

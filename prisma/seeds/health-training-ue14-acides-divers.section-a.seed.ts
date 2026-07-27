@@ -27,7 +27,7 @@ export const SECTION_A_QUIZZES: SeedQuiz[] = [
     order: 2,
     slug: SECTION_A_ACIDITY_PRACTICE_QUIZ_SLUG,
     title: `Acidité, carboxylate et mésomérie`,
-    description: `Relier la perte du proton à la stabilisation du carboxylate et comparer l’acidité des fonctions du cours.`,
+    description: `Relier la perte du proton à la stabilisation du carboxylate et comparer l'''acidité des fonctions du cours.`,
     stage: 'PRACTICE',
     sectionOrder: SECTION_A_ORDER,
     items: [
@@ -41,7 +41,7 @@ export const SECTION_A_QUIZZES: SeedQuiz[] = [
       {
         type: 'GROUP',
         title: `Comparer trois hydrogènes acides`,
-        sharedStatement: `On compare l’acide acétique, l’éthanol et l’acétone afin d’ordonner qualitativement la mobilité de leurs hydrogènes acides.`,
+        sharedStatement: `On compare l'''acide acétique, l'''éthanol et l'''acétone afin d'''ordonner qualitativement la mobilité de leurs hydrogènes acides.`,
         questionOrders: [18, 19, 20],
       },
     ],
@@ -49,8 +49,8 @@ export const SECTION_A_QUIZZES: SeedQuiz[] = [
   {
     order: 3,
     slug: SECTION_A_DERIVATIVES_MASTER_QUIZ_SLUG,
-    title: `Dérivés d’acides et activation`,
-    description: `Identifier chlorures d’acyle, anhydrides et esters, puis comprendre l’intérêt de l’activation pour les couplages.`,
+    title: `Dérivés d'''acides et activation`,
+    description: `Identifier chlorures d'''acyle, anhydrides et esters, puis comprendre l'''intérêt de l'''activation pour les couplages.`,
     stage: 'MASTER',
     sectionOrder: SECTION_A_ORDER,
     questionOrders: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
@@ -62,7 +62,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 1,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction acide carboxylique :`,
+    question: `�' propos de la fonction acide carboxylique :`,
     choices: [
       `Elle contient le motif $\\mathrm{-COOH}$.`,
       `Sa déprotonation conduit à un ion carboxylate.`,
@@ -104,10 +104,10 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La formule $\\mathrm{HCOOH}$ correspond :`,
     choices: [
-      `À l'acide méthanoïque.`,
-      `À l'acide formique.`,
-      `À l'acide éthanoïque.`,
-      `À une cétone.`,
+      `�' l'acide méthanoïque.`,
+      `�' l'acide formique.`,
+      `�' l'acide éthanoïque.`,
+      `�' une cétone.`,
     ],
     correctChoiceIndexes: [0, 1],
     explanation: `L'acide méthanoïque, ou formique, est le plus petit acide carboxylique.`,
@@ -124,10 +124,10 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La formule $\\mathrm{CH_3COOH}$ correspond :`,
     choices: [
-      `À l'acide éthanoïque.`,
-      `À l'acide acétique.`,
-      `À l'acide propionique.`,
-      `À un ester.`,
+      `�' l'acide éthanoïque.`,
+      `�' l'acide acétique.`,
+      `�' l'acide propionique.`,
+      `�' un ester.`,
     ],
     correctChoiceIndexes: [0, 1],
     explanation: `L'acide éthanoïque est couramment appelé acide acétique.`,
@@ -162,7 +162,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 6,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de $\\mathrm{CH_3CH_2CH_2COOH}$ :`,
+    question: `�' propos de $\\mathrm{CH_3CH_2CH_2COOH}$ :`,
     choices: [
       `Son nom systématique est acide butanoïque.`,
       `Son nom usuel est acide butyrique.`,
@@ -222,7 +222,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 9,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `Un flacon porte l'étiquette « acide acétique ». À propos de l'espèce indiquée :`,
+    question: `Un flacon porte l'étiquette « acide acétique ». �' propos de l'espèce indiquée :`,
     choices: [
       `Sa formule est $\\mathrm{CH_3COOH}$.`,
       `Elle peut former l'ion acétate $\\mathrm{CH_3COO^-}$.`,
@@ -282,7 +282,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 12,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du proton du groupe carboxyle :`,
+    question: `�' propos du proton du groupe carboxyle :`,
     choices: [
       `Il peut être libéré sous forme $\\mathrm{H^+}$.`,
       `Sa perte forme un ion carboxylate.`,
@@ -322,7 +322,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 14,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `Les deux liaisons carbone–oxygène d'un carboxylate :`,
+    question: `Les deux liaisons carbone''�oxygène d'un carboxylate :`,
     choices: [
       `Sont décrites par deux formes mésomères équivalentes.`,
       `Ont dans l'hybride réel un caractère intermédiaire entre simple et double.`,
@@ -382,7 +382,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 17,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'hydrogène d'un alcool :`,
+    question: `�' propos de l'hydrogène d'un alcool :`,
     choices: [
       `Il possède un certain caractère acide.`,
       `Il est moins acide que celui d'un acide carboxylique.`,
@@ -422,7 +422,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 19,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la réactivité d'un acide carboxylique non activé :`,
+    question: `�' propos de la réactivité d'un acide carboxylique non activé :`,
     choices: [
       `Il réagit moins facilement avec un nucléophile qu'un chlorure d'acyle.`,
       `Son groupe $\\mathrm{OH}$ est un mauvais groupe partant dans de nombreuses conditions.`,
@@ -565,7 +565,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     question: `Dans un chlorure d'acyle :`,
     choices: [
       `Le chlore est plus électronégatif que le carbone.`,
-      `La liaison acyle–chlore est plus facile à rompre lors d'une substitution que la liaison acide–OH non activée.`,
+      `La liaison acyle''�chlore est plus facile à rompre lors d'une substitution que la liaison acide''�OH non activée.`,
       `Le carbone carbonylé devient moins électrophile qu'un alcane.`,
       `Aucun nucléophile ne peut réagir.`,
     ],
@@ -615,7 +615,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
       `C'est le centre électrophile.`,
       `La réaction est une substitution nucléophile d'acyle.`,
       `Il est souvent conservé dans l'ester ou l'amide formé.`,
-      `Les esters et amides créent des liaisons C–O ou C–N.`,
+      `Les esters et amides créent des liaisons C''�O ou C''�N.`,
     ],
   },
   {
@@ -625,7 +625,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     question: `On souhaite former un amide à partir d'une amine. Le choix d'un acide activé plutôt que de l'acide libre :`,
     choices: [
       `Augmente la probabilité d'une attaque nucléophile de l'amine.`,
-      `Évite que la seule réaction dominante soit un simple équilibre acide–base.`,
+      `Évite que la seule réaction dominante soit un simple équilibre acide''�base.`,
       `Transforme l'amine en hydrocarbure.`,
       `Supprime le carbone carbonylé du produit.`,
     ],

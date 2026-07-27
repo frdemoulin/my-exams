@@ -28,7 +28,7 @@ export const SECTION_E_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 127 },
       {
         type: 'GROUP',
-        title: `Trois dérivés issus d’un même chlorure d’acyle`,
+        title: `Trois dérivés issus d'''un même chlorure d'''acyle`,
         sharedStatement: `Le chlorure de propanoyle $\mathrm{CH_3CH_2COCl}$ réagit séparément avec **A**, le méthanol ; **B**, la méthylamine ; **C**, le méthanethiol. Les trois réactions sont conduites dans des conditions adaptées.`,
         questionOrders: [128, 129, 130],
       },
@@ -37,14 +37,14 @@ export const SECTION_E_QUIZZES: SeedQuiz[] = [
   {
     order: 14,
     slug: SECTION_E_SYNTHESIS_MASTER_QUIZ_SLUG,
-    title: `Synthèse type examen : dérivés d’acide`,
+    title: `Synthèse type examen : dérivés d'''acide`,
     description: `Résoudre des questions transversales mêlant sélectivité d'hydrolyse, centres réactifs, liaison peptidique et acétyl-CoA.`,
     stage: 'MASTER',
     sectionOrder: SECTION_E_ORDER,
     items: [
       {
         type: 'GROUP',
-        title: `Hydrolyse sélective d’une molécule bifonctionnelle`,
+        title: `Hydrolyse sélective d'''une molécule bifonctionnelle`,
         sharedStatement: `Un intermédiaire pharmaceutique contient une fonction ester et une fonction amide. **Étape 1** : hydrolyse dans des conditions douces. **Étape 2** : traitement du produit en milieu très acide avec chauffage.`,
         questionOrders: [131, 132, 133],
       },
@@ -54,7 +54,7 @@ export const SECTION_E_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 137 },
       {
         type: 'GROUP',
-        title: `Cycle biologique d’un thioester`,
+        title: `Cycle biologique d'''un thioester`,
         sharedStatement: `Une enzyme forme $\mathrm{CH_3CO{-}SCoA}$ à partir de $\mathrm{HSCoA}$, puis une seconde enzyme hydrolyse le thioester en présence d'eau.`,
         questionOrders: [138, 139, 140],
       },
@@ -69,10 +69,10 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Parmi les associations suivantes, lesquelles sont correctes ?`,
     choices: [
-      `Acide activé + alcool → ester.`,
-      `Acide activé + amine → amide.`,
-      `Acide activé + thiol → thioester.`,
-      `Acide activé + alcane → liaison peptidique selon le cours.`,
+      `Acide activé + alcool '�� ester.`,
+      `Acide activé + amine '�� amide.`,
+      `Acide activé + thiol '�� thioester.`,
+      `Acide activé + alcane '�� liaison peptidique selon le cours.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation: `La nature du nucléophile détermine la fonction formée à partir d'un acide activé.`,
@@ -98,8 +98,8 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     explanation: `Les esters et thioesters sont hydrolysables ; les amides le sont aussi, mais demandent des conditions chimiques plus sévères.`,
     choiceExplanations: [
       `C'est le bilan de l'hydrolyse acide.`,
-      `La liaison acyle–soufre est rompue.`,
-      `La liaison acyle–azote est rompue.`,
+      `La liaison acyle''�soufre est rompue.`,
+      `La liaison acyle''�azote est rompue.`,
       `Toutes sont présentées comme hydrolysables.`,
     ],
   },
@@ -107,7 +107,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 123,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la sélectivité d'hydrolyse entre ester et amide :`,
+    question: `�' propos de la sélectivité d'hydrolyse entre ester et amide :`,
     choices: [
       `Des conditions douces peuvent cibler l'ester.`,
       `Des conditions permettant l'hydrolyse chimique de l'amide auront déjà affecté l'ester.`,
@@ -327,7 +327,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 134,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `On compare un ester et une amide portant le même groupe acyle. À propos de leur rotation :`,
+    question: `On compare un ester et une amide portant le même groupe acyle. �' propos de leur rotation :`,
     choices: [
       `La liaison amide possède un caractère partiel de double liaison.`,
       `Le doublet de l'azote est délocalisé.`,
@@ -387,7 +387,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 137,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'acétyl-CoA et d'un ester oxygéné :`,
+    question: `�' propos de l'acétyl-CoA et d'un ester oxygéné :`,
     choices: [
       `L'acétyl-CoA contient un soufre lié au carbonyle.`,
       `Un ester oxygéné contient un oxygène lié au carbonyle.`,
@@ -429,7 +429,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Concernant l'hydrolyse enzymatique suivante :`,
     choices: [
-      `La liaison acyle–soufre est rompue.`,
+      `La liaison acyle''�soufre est rompue.`,
       `$\mathrm{HSCoA}$ est régénérée.`,
       `$\mathrm{CH_3COOH}$ est formé.`,
       `L'eau n'intervient pas dans une hydrolyse.`,
@@ -447,7 +447,7 @@ export const SECTION_E_QUESTIONS: SeedQuestion[] = [
     order: 140,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `Le cycle formation–hydrolyse du thioester illustre :`,
+    question: `Le cycle formation''�hydrolyse du thioester illustre :`,
     choices: [
       `Une interconversion entre thiol et thioester.`,
       `La conservation de la coenzyme A au cours du cycle.`,

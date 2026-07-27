@@ -42,7 +42,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 61,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des notations R et S :`,
+    question: `�' propos des notations R et S :`,
     choices: [
       `Elles décrivent la configuration absolue d'un centre stéréogène.`,
       `Elles décrivent directement le sens du pouvoir rotatoire (+) ou (-).`,
@@ -105,7 +105,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 64,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des isotopes dans les règles de Cahn-Ingold-Prelog :`,
+    question: `�' propos des isotopes dans les règles de Cahn-Ingold-Prelog :`,
     choices: [
       `Si deux substituants ne diffèrent que par l'isotope, celui de masse la plus élevée est prioritaire.`,
       `Le deutérium $^{2}\\mathrm{H}$ est prioritaire sur le protium $^{1}\\mathrm{H}$.`,
@@ -174,10 +174,10 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
     answerFormat: 'MULTIPLE',
     question: `Avant d'attribuer R ou S, il faut prêter une attention particulière au substituant de rang 4 :`,
     choices: [
-      `Il doit être orienté vers l'arrière pour appliquer directement la lecture du parcours 1→2→3.`,
+      `Il doit être orienté vers l'arrière pour appliquer directement la lecture du parcours 1'��2'��3.`,
       `Si le substituant de rang 4 est orienté vers l'avant, il faut inverser la conclusion finale.`,
       `La position du substituant de rang 4 n'a aucune importance.`,
-      `Quand le substituant de rang 4 est vers l'arrière, un sens horaire pour 1→2→3 conduit à R.`,
+      `Quand le substituant de rang 4 est vers l'arrière, un sens horaire pour 1'��2'��3 conduit à R.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation:
@@ -197,7 +197,7 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
 
 ![Centre stéréogène simple pour attribution R/S](${FIGURE_BASE_PATH}/figure-d2-centre-simple-rs.svg)
 
-À propos des priorités autour du centre représenté :`,
+�' propos des priorités autour du centre représenté :`,
     choices: [
       `Cl est le substituant de rang 1.`,
       `$\mathrm{OH}$ est le substituant de rang 2.`,
@@ -221,16 +221,16 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
     question: `Toujours à partir de la figure précédente :`,
     choices: [
       `Le substituant de rang 4 est orienté vers l'arrière.`,
-      `Le parcours 1→2→3 est horaire.`,
+      `Le parcours 1'��2'��3 est horaire.`,
       `La configuration du centre représenté est R.`,
       `La configuration du centre représenté est S.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `Dans la figure précédente, H est dirigé vers l'arrière. Une fois l'ordre Cl > $\mathrm{OH}$ > $\mathrm{CH_3}$ > H établi, le parcours 1→2→3 est horaire ; la configuration est donc R.`,
+      `Dans la figure précédente, H est dirigé vers l'arrière. Une fois l'ordre Cl > $\mathrm{OH}$ > $\mathrm{CH_3}$ > H établi, le parcours 1'��2'��3 est horaire ; la configuration est donc R.`,
     choiceExplanations: [
       `La liaison hachurée de la figure correspond au groupe arrière.`,
-      `Le trajet Cl → $\mathrm{OH}$ → $\mathrm{CH_3}$ tourne dans le sens horaire dans cette vue.`,
+      `Le trajet Cl '�� $\mathrm{OH}$ '�� $\mathrm{CH_3}$ tourne dans le sens horaire dans cette vue.`,
       `Horaire avec le groupe 4 en arrière donne R.`,
       `S correspondrait à un trajet antihoraire dans ces conditions.`,
     ],
@@ -239,10 +239,10 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
     order: 70,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la méthode d'attribution R/S :`,
+    question: `�' propos de la méthode d'attribution R/S :`,
     choices: [
       `Elle suppose de classer les quatre substituants selon les règles de Cahn-Ingold-Prelog.`,
-      `Avec le substituant 4 vers l'arrière, un trajet antihoraire 1→2→3 conduit à S.`,
+      `Avec le substituant 4 vers l'arrière, un trajet antihoraire 1'��2'��3 conduit à S.`,
       `R correspond toujours à une molécule dextrogyre.`,
       `Si le substituant 4 est vers l'avant, il est souvent plus sûr de conclure d'abord comme s'il était vers l'arrière, puis d'inverser.`,
     ],
@@ -260,7 +260,7 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
     order: 71,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos du classement CIP des groupes $\mathrm{CH_2Cl}$, $\mathrm{CH_2OH}$, $\mathrm{CH_2CH_3}$ et $\mathrm{CH_3}$ :`,
+    question: `�' propos du classement CIP des groupes $\mathrm{CH_2Cl}$, $\mathrm{CH_2OH}$, $\mathrm{CH_2CH_3}$ et $\mathrm{CH_3}$ :`,
     choices: [
       `$\mathrm{CH_2Cl}$ est prioritaire sur $\mathrm{CH_2OH}$.`,
       `$\mathrm{CH_2OH}$ est prioritaire sur $\mathrm{CH_2CH_3}$.`,
@@ -306,7 +306,7 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
 
 ![Alanine et configuration absolue](${FIGURE_BASE_PATH}/figure-d3-alanine.svg)
 
-À propos des priorités autour du carbone asymétrique :`,
+�' propos des priorités autour du carbone asymétrique :`,
     choices: [
       `$\mathrm{NH_2}$ est le substituant de rang 1.`,
       `$\mathrm{COOH}$ est le substituant de rang 2.`,
@@ -330,13 +330,13 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
     question: `Toujours à partir de la figure précédente représentant l'alanine :`,
     choices: [
       `Le substituant de rang 4 est dirigé vers l'arrière.`,
-      `Le parcours 1→2→3 est antihoraire.`,
+      `Le parcours 1'��2'��3 est antihoraire.`,
       `La configuration représentée est S.`,
       `La configuration représentée est R.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `Dans la figure précédente, H est dirigé vers l'arrière. Le trajet $\mathrm{NH_2}$ → $\mathrm{COOH}$ → $\mathrm{CH_3}$ est antihoraire : l'alanine représentée est donc de configuration S.`,
+      `Dans la figure précédente, H est dirigé vers l'arrière. Le trajet $\mathrm{NH_2}$ '�� $\mathrm{COOH}$ '�� $\mathrm{CH_3}$ est antihoraire : l'alanine représentée est donc de configuration S.`,
     choiceExplanations: [
       `La liaison hachurée de la figure correspond à H.`,
       `Le sens de parcours est antihoraire.`,
@@ -352,7 +352,7 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
 
 ![Sérine et configuration absolue](${FIGURE_BASE_PATH}/figure-d4-serine.svg)
 
-À propos de ce centre asymétrique :`,
+�' propos de ce centre asymétrique :`,
     choices: [
       `L'ordre des priorités est $\mathrm{NH_2}$ > $\mathrm{COOH}$ > $\mathrm{CH_2OH}$ > H.`,
       `Le substituant H est le moins prioritaire.`,
@@ -361,7 +361,7 @@ Pour comparer $\mathrm{CH_3}$ et $\mathrm{CH_2OH}$, tous deux liés au centre st
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `Pour la sérine, on classe $\mathrm{NH_2}$ en premier, puis $\mathrm{COOH}$, puis $\mathrm{CH_2OH}$, enfin H. Dans la figure, H est vers l'arrière et le parcours 1→2→3 est antihoraire : la configuration représentée est S.`,
+      `Pour la sérine, on classe $\mathrm{NH_2}$ en premier, puis $\mathrm{COOH}$, puis $\mathrm{CH_2OH}$, enfin H. Dans la figure, H est vers l'arrière et le parcours 1'��2'��3 est antihoraire : la configuration représentée est S.`,
     choiceExplanations: [
       `C'est le classement classique attendu pour la sérine.`,
       `H est toujours dernier dans cette série.`,
@@ -401,13 +401,13 @@ Concernant l'ordre des priorités autour du carbone asymétrique :`,
     question: `Toujours à partir de la figure précédente représentant la cystéine :`,
     choices: [
       `Le substituant de rang 4 est orienté vers l'arrière.`,
-      `Le parcours 1→2→3 est horaire.`,
+      `Le parcours 1'��2'��3 est horaire.`,
       `La configuration représentée est R.`,
       `La configuration représentée est S.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `Dans la figure précédente, H est orienté vers l'arrière. En tenant compte du classement $\mathrm{NH_2}$ > $\mathrm{CH_2SH}$ > $\mathrm{COOH}$ > H, le trajet 1→2→3 est horaire : la configuration obtenue est R, ce qui constitue le cas particulier classique de la cystéine.`,
+      `Dans la figure précédente, H est orienté vers l'arrière. En tenant compte du classement $\mathrm{NH_2}$ > $\mathrm{CH_2SH}$ > $\mathrm{COOH}$ > H, le trajet 1'��2'��3 est horaire : la configuration obtenue est R, ce qui constitue le cas particulier classique de la cystéine.`,
     choiceExplanations: [
       `H est bien la liaison arrière sur le schéma.`,
       `Le sens apparent du parcours est horaire.`,
@@ -423,16 +423,16 @@ Concernant l'ordre des priorités autour du carbone asymétrique :`,
 
 ![Centre avec substituant de rang 4 vers l'avant](${FIGURE_BASE_PATH}/figure-d6-rang-4-vers-avant.svg)
 
-À propos de cette situation :`,
+�' propos de cette situation :`,
     choices: [
-      `Le parcours apparent 1→2→3 est horaire.`,
+      `Le parcours apparent 1'��2'��3 est horaire.`,
       `Si l'on appliquait la règle sans corriger l'orientation du groupe 4, on conclurait à tort à R.`,
       `Comme le substituant de rang 4 est vers l'avant, il faut inverser la conclusion apparente.`,
       `La configuration finale du centre représenté est S.`,
     ],
     correctChoiceIndexes: [0, 1, 2, 3],
     explanation:
-      `La figure a été choisie pour illustrer le piège du groupe 4 vers l'avant. Le parcours 1→2→3 paraît horaire, mais cette conclusion doit être inversée : la configuration réelle est S.`,
+      `La figure a été choisie pour illustrer le piège du groupe 4 vers l'avant. Le parcours 1'��2'��3 paraît horaire, mais cette conclusion doit être inversée : la configuration réelle est S.`,
     choiceExplanations: [
       `L'observation directe du schéma donne bien un trajet horaire.`,
       `Sans tenir compte de l'orientation du groupe 4, on ferait une erreur.`,
@@ -448,7 +448,7 @@ Concernant l'ordre des priorités autour du carbone asymétrique :`,
 
 ![Molécule à deux centres asymétriques pour attribution R/S](${FIGURE_BASE_PATH}/figure-d7-deux-centres-asymetriques.svg)
 
-À propos de cette molécule :`,
+�' propos de cette molécule :`,
     choices: [
       `La molécule possède deux centres asymétriques.`,
       `La nomenclature d'ensemble d'une telle molécule s'écrit en précisant la configuration de chaque centre, par exemple (2R,3S).`,

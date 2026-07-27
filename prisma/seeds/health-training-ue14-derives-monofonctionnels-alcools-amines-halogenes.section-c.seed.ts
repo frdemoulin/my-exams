@@ -90,7 +90,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 61,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des amines :`,
+    question: `�' propos des amines :`,
     choices: [
       `Une amine primaire peut s'écrire $\mathrm{RNH_2}$.`,
       `Une amine secondaire peut s'écrire $\mathrm{RR'NH}$.`,
@@ -173,9 +173,9 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     question: `Le caractère nucléophile d'une amine est principalement lié :`,
     choices: [
       `Au doublet d'électrons libre porté par l'azote.`,
-      `À la possibilité pour l'azote de former une nouvelle liaison.`,
-      `À l'absence totale d'électrons autour de l'azote.`,
-      `À la présence obligatoire d'un halogène dans toute amine.`,
+      `�' la possibilité pour l'azote de former une nouvelle liaison.`,
+      `�' l'absence totale d'électrons autour de l'azote.`,
+      `�' la présence obligatoire d'un halogène dans toute amine.`,
     ],
     correctChoiceIndexes: [0, 1],
     explanation: `Le doublet non liant de l'azote peut être donné à un centre électrophile pour former une liaison.`,
@@ -190,7 +190,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 66,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'un ammonium quaternaire $\mathrm{R_4N^+}$ :`,
+    question: `�' propos d'un ammonium quaternaire $\mathrm{R_4N^+}$ :`,
     choices: [
       `L'azote est lié à quatre substituants carbonés.`,
       `L'espèce porte une charge positive.`,
@@ -350,7 +350,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 74,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `On compare une amine et un amide. À propos de leur azote :`,
+    question: `On compare une amine et un amide. �' propos de leur azote :`,
     choices: [
       `Dans un amide, l'azote est directement lié à un groupe carbonyle.`,
       `Une amine ne possède pas nécessairement de groupe carbonyle voisin.`,
@@ -550,7 +550,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 84,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'une imine formée à partir d'une amine primaire :`,
+    question: `�' propos d'une imine formée à partir d'une amine primaire :`,
     choices: [
       `Elle comporte une liaison carbone-azote multiple dans la représentation simplifiée.`,
       `Elle provient d'une condensation avec un composé carbonylé.`,
@@ -570,7 +570,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 85,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'un ion iminium formé à partir d'une amine secondaire :`,
+    question: `�' propos d'un ion iminium formé à partir d'une amine secondaire :`,
     choices: [
       `L'azote porte une charge positive dans la représentation du cours.`,
       `Le produit résulte d'une réaction avec un composé carbonylé.`,

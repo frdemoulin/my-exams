@@ -117,7 +117,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 162,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du propane $\\mathrm{CH_3-CH_2-CH_3}$ :`,
+    question: `�' propos du propane $\\mathrm{CH_3-CH_2-CH_3}$ :`,
     choices: [
       `Il possède deux carbones primaires.`,
       `Il possède un carbone secondaire.`,
@@ -138,7 +138,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 163,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du butane $\\mathrm{CH_3-CH_2-CH_2-CH_3}$ :`,
+    question: `�' propos du butane $\\mathrm{CH_3-CH_2-CH_2-CH_3}$ :`,
     choices: [
       `Il possède deux carbones primaires.`,
       `Il possède deux carbones secondaires.`,
@@ -211,7 +211,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 166,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la propanone $\\mathrm{CH_3-CO-CH_3}$ :`,
+    question: `�' propos de la propanone $\\mathrm{CH_3-CO-CH_3}$ :`,
     choices: [
       `Les deux carbones des groupes méthyle sont primaires.`,
       `Le carbone du groupe carbonyle ne porte aucun hydrogène.`,
@@ -232,7 +232,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 167,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'éthène $\\mathrm{CH_2=CH_2}$ :`,
+    question: `�' propos de l'éthène $\\mathrm{CH_2=CH_2}$ :`,
     choices: [
       `Chaque carbone porte deux hydrogènes.`,
       `Les deux carbones sont secondaires selon la convention du cours.`,
@@ -253,7 +253,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 168,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'éthanal $\\mathrm{CH_3-CHO}$ :`,
+    question: `�' propos de l'éthanal $\\mathrm{CH_3-CHO}$ :`,
     choices: [
       `Le carbone du groupe $\\mathrm{CH_3}$ est primaire.`,
       `Le carbone du groupe aldéhyde porte un hydrogène et est donc tertiaire selon la convention du cours.`,
@@ -296,7 +296,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
     question:
-      `À propos de la lecture d'une formule topologique comme celle du 2-méthylbutane : [[QUESTION_DIAGRAM]]`,
+      `�' propos de la lecture d'une formule topologique comme celle du 2-méthylbutane : [[QUESTION_DIAGRAM]]`,
     questionDiagram: {
       type: 'molecule',
       molecule: '2-methylbutane-topological',
@@ -384,7 +384,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 174,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'acide éthanoïque $\\mathrm{CH_3-COOH}$ :`,
+    question: `�' propos de l'acide éthanoïque $\\mathrm{CH_3-COOH}$ :`,
     choices: [
       `Le carbone du groupe méthyle est primaire.`,
       `Le carbone du groupe carboxyle ne porte aucun hydrogène.`,
@@ -426,7 +426,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 176,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la propanone $\\mathrm{CH_3-CO-CH_3}$ :`,
+    question: `�' propos de la propanone $\\mathrm{CH_3-CO-CH_3}$ :`,
     choices: [
       `Le carbone carbonylé ne porte aucun hydrogène.`,
       `Il est quaternaire selon la convention de la fiche.`,
@@ -536,7 +536,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 181,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des premiers préfixes de nomenclature :`,
+    question: `�' propos des premiers préfixes de nomenclature :`,
     choices: [
       `Méth- correspond à un carbone.`,
       `Éth- correspond à deux carbones.`,
@@ -689,7 +689,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 188,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos du préfixe oct- :`,
+    question: `�' propos du préfixe oct- :`,
     choices: [
       `Il correspond à huit carbones.`,
       `L'octane est un alcane à huit carbones.`,
@@ -710,7 +710,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 189,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `La formule brute $\\mathrm{C_7H_{16}}$ peut correspondre à un alcane acyclique saturé. À son sujet :`,
+    question: `La formule brute $\\mathrm{C_7H_{16}}$ peut correspondre à un alcane acyclique saturé. �' son sujet :`,
     choices: [
       `Son nom non ramifié est heptane.`,
       `Il contient sept carbones.`,
@@ -752,7 +752,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 191,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'un groupe alkyle :`,
+    question: `�' propos d'un groupe alkyle :`,
     choices: [
       `Il peut être obtenu formellement en retirant un hydrogène à un alcane.`,
       `Son nom utilise le suffixe -yle.`,
@@ -794,7 +794,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 193,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'éthane et du groupe éthyle :`,
+    question: `�' propos de l'éthane et du groupe éthyle :`,
     choices: [
       `L'éthane possède la formule $\\mathrm{C_2H_6}$.`,
       `Le groupe éthyle possède la formule $\\mathrm{C_2H_5-}$.`,
@@ -836,7 +836,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 195,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `Parmi les associations formule–groupe :`,
+    question: `Parmi les associations formule''�groupe :`,
     choices: [
       `$\\mathrm{CH_3-}$ : méthyle.`,
       `$\\mathrm{C_2H_5-}$ : éthyle.`,
@@ -857,7 +857,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 196,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `Parmi les associations nom–formule :`,
+    question: `Parmi les associations nom''�formule :`,
     choices: [
       `Méthane : $\\mathrm{CH_4}$.`,
       `Éthane : $\\mathrm{C_2H_6}$.`,
@@ -962,7 +962,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 201,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de $\\mathrm{CH_3-CH(CH_3)-CH_2-CH_3}$ :`,
+    question: `�' propos de $\\mathrm{CH_3-CH(CH_3)-CH_2-CH_3}$ :`,
     choices: [
       `La chaîne principale la plus longue comporte quatre carbones.`,
       `Un substituant méthyle est porté par le carbone 2.`,
@@ -1171,7 +1171,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 210,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'une formule topologique :`,
+    question: `�' propos d'une formule topologique :`,
     choices: [
       `Elle permet de retrouver l'enchaînement des atomes de carbone.`,
       `Les symboles C et les hydrogènes portés par les carbones sont généralement omis.`,
@@ -1318,7 +1318,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 216,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos du 2,2-diméthylpropane $\\mathrm{C(CH_3)_4}$ :`,
+    question: `�' propos du 2,2-diméthylpropane $\\mathrm{C(CH_3)_4}$ :`,
     choices: [
       `Sa formule brute est $\\mathrm{C_5H_{12}}$.`,
       `Il possède quatre carbones primaires.`,
@@ -1387,7 +1387,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 219,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la valine, de la leucine et de l'isoleucine :`,
+    question: `�' propos de la valine, de la leucine et de l'isoleucine :`,
     choices: [
       `La valine utilise une chaîne principale dérivée de l'acide butanoïque.`,
       `La leucine utilise une chaîne principale dérivée de l'acide pentanoïque.`,

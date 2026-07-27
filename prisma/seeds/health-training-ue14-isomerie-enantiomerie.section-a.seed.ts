@@ -40,7 +40,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 1,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'isomérie :`,
+    question: `�' propos de l'isomérie :`,
     choices: [
       `Deux isomères possèdent la même formule brute.`,
       `Deux isomères possèdent nécessairement la même formule développée.`,
@@ -127,7 +127,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 5,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'isomérie de position :`,
+    question: `�' propos de l'isomérie de position :`,
     choices: [
       `Les molécules comparées possèdent la même formule brute.`,
       `Elles conservent la même chaîne carbonée et la même fonction chimique.`,
@@ -235,7 +235,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 10,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des relations entre formule brute, fonction et position :`,
+    question: `�' propos des relations entre formule brute, fonction et position :`,
     choices: [
       `Une formule brute unique peut correspondre à plusieurs molécules.`,
       `Deux isomères de position appartiennent nécessairement à des familles chimiques différentes.`,

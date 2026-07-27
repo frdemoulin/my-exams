@@ -18,7 +18,7 @@ export const SECTION_C_QUIZZES: SeedQuiz[] = [
     order: 7,
     slug: SECTION_C_AMINES_DISCOVERY_QUIZ_SLUG,
     title: `Réactions avec les amines`,
-    description: `Distinguer la formation d’une imine ou d’un iminium selon la classe de l’amine et comprendre le rôle de l’élimination d’eau.`,
+    description: `Distinguer la formation d'''une imine ou d'''un iminium selon la classe de l'''amine et comprendre le rôle de l'''élimination d'''eau.`,
     stage: 'DISCOVER',
     sectionOrder: SECTION_C_ORDER,
     items: [
@@ -31,8 +31,8 @@ export const SECTION_C_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 67 },
       {
         type: 'GROUP',
-        title: `Deux condensations carbone–azote`,
-        sharedStatement: `**Expérience I** : l’éthanal réagit avec la méthylamine $\\mathrm{CH_3NH_2}$. **Expérience II** : la propanone réagit avec la diméthylamine $\\mathrm{(CH_3)_2NH}$. L’eau formée est éliminée dans les deux cas.`,
+        title: `Deux condensations carbone''�azote`,
+        sharedStatement: `**Expérience I** : l'''éthanal réagit avec la méthylamine $\\mathrm{CH_3NH_2}$. **Expérience II** : la propanone réagit avec la diméthylamine $\\mathrm{(CH_3)_2NH}$. L'''eau formée est éliminée dans les deux cas.`,
         questionOrders: [68, 69, 70],
       },
     ],
@@ -41,7 +41,7 @@ export const SECTION_C_QUIZZES: SeedQuiz[] = [
     order: 8,
     slug: SECTION_C_ELECTROPHILES_PRACTICE_QUIZ_SLUG,
     title: `Fonctionnalisation en position alpha`,
-    description: `Mettre en valeur la nucléophilie d’un carbone voisin du carbonyle par une base forte, puis prévoir sa réaction avec un électrophile.`,
+    description: `Mettre en valeur la nucléophilie d'''un carbone voisin du carbonyle par une base forte, puis prévoir sa réaction avec un électrophile.`,
     stage: 'PRACTICE',
     sectionOrder: SECTION_C_ORDER,
     items: [
@@ -54,8 +54,8 @@ export const SECTION_C_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 77 },
       {
         type: 'GROUP',
-        title: `Méthylation d’une cétone en position alpha`,
-        sharedStatement: `Une cétone de type $\\mathrm{R{-}CO{-}CH_2R'}$ est d’abord traitée par une base forte, puis par un réactif apportant un groupe méthyle électrophile.`,
+        title: `Méthylation d'''une cétone en position alpha`,
+        sharedStatement: `Une cétone de type $\\mathrm{R{-}CO{-}CH_2R'}$ est d'''abord traitée par une base forte, puis par un réactif apportant un groupe méthyle électrophile.`,
         questionOrders: [78, 79, 80],
       },
     ],
@@ -64,7 +64,7 @@ export const SECTION_C_QUIZZES: SeedQuiz[] = [
     order: 9,
     slug: SECTION_C_OXIDATION_MASTER_QUIZ_SLUG,
     title: `Oxydabilité et choix de transformation`,
-    description: `Comparer l’oxydation des aldéhydes et des cétones et choisir entre oxydation, réduction ou addition nucléophile.`,
+    description: `Comparer l'''oxydation des aldéhydes et des cétones et choisir entre oxydation, réduction ou addition nucléophile.`,
     stage: 'MASTER',
     sectionOrder: SECTION_C_ORDER,
     items: [
@@ -77,8 +77,8 @@ export const SECTION_C_QUIZZES: SeedQuiz[] = [
       { type: 'QUESTION', questionOrder: 87 },
       {
         type: 'GROUP',
-        title: `Test comparatif d’oxydation`,
-        sharedStatement: `Dans les mêmes conditions d’oxydation, on traite **I**, du benzaldéhyde, et **II**, de la propanone.`,
+        title: `Test comparatif d'''oxydation`,
+        sharedStatement: `Dans les mêmes conditions d'''oxydation, on traite **I**, du benzaldéhyde, et **II**, de la propanone.`,
         questionOrders: [88, 89, 90],
       },
     ],
@@ -94,7 +94,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     choices: [
       `L'amine joue le rôle de nucléophile.`,
       `Le carbone carbonylé joue le rôle d'électrophile.`,
-      `Une liaison carbone–azote peut être formée.`,
+      `Une liaison carbone''�azote peut être formée.`,
       `L'amine agit obligatoirement comme oxydant.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
@@ -153,7 +153,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     question: `Pourquoi l'élimination d'eau est-elle importante lors de la réaction d'une amine avec un carbonyle ?`,
     choices: [
       `Elle favorise l'avancement vers le produit de condensation.`,
-      `Elle permet d'obtenir la liaison multiple carbone–azote décrite.`,
+      `Elle permet d'obtenir la liaison multiple carbone''�azote décrite.`,
       `Elle transforme obligatoirement l'amine en acide carboxylique.`,
       `Elle peut rendre la réaction plus complète.`,
     ],
@@ -195,7 +195,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
       `La diméthylamine est une amine secondaire.`,
       `Un iminium peut être obtenu.`,
       `Une imine issue d'une amine primaire est nécessairement formée.`,
-      `La cétone fournit le carbone du nouveau motif carbone–azote.`,
+      `La cétone fournit le carbone du nouveau motif carbone''�azote.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation: `Une amine secondaire se condense sur une cétone pour donner un iminium.`,
@@ -274,7 +274,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     choices: [
       `Le carbone carbonylé est attaqué par l'azote nucléophile.`,
       `L'élimination d'eau favorise la formation du produit final.`,
-      `La liaison carbone–azote formée est impossible avec une cétone.`,
+      `La liaison carbone''�azote formée est impossible avec une cétone.`,
       `La fonction carbonyle initiale est transformée.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
@@ -312,7 +312,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Le carbone activé par une base forte se situe :`,
     choices: [
-      `À côté du groupement carbonyle.`,
+      `�' côté du groupement carbonyle.`,
       `Sur un carbone portant initialement au moins un hydrogène.`,
       `Nécessairement sur l'oxygène du carbonyle.`,
       `En position alpha par rapport au carbonyle.`,
@@ -333,7 +333,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     question: `Après formation du centre nucléophile en position alpha :`,
     choices: [
       `Un électrophile peut se fixer sur ce carbone.`,
-      `Une nouvelle liaison carbone–électrophile est formée.`,
+      `Une nouvelle liaison carbone''�électrophile est formée.`,
       `Le carbonyle doit nécessairement être détruit.`,
       `Le squelette peut être fonctionnalisé au voisinage du carbonyle.`,
     ],
@@ -352,10 +352,10 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Dans $\\mathrm{RCH_2CHO}$, l'action successive d'une base forte puis de $\\mathrm{E^+}$ conduit, selon le schéma du cours :`,
     choices: [
-      `À $\\mathrm{RCH(E)CHO}$.`,
-      `À une substitution d'un hydrogène alpha par $\\mathrm{E}$.`,
-      `À la disparition obligatoire du groupe aldéhyde.`,
-      `À la formation d'une liaison entre le carbone alpha et l'électrophile.`,
+      `�' $\\mathrm{RCH(E)CHO}$.`,
+      `�' une substitution d'un hydrogène alpha par $\\mathrm{E}$.`,
+      `�' la disparition obligatoire du groupe aldéhyde.`,
+      `�' la formation d'une liaison entre le carbone alpha et l'électrophile.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation: `Le carbone voisin du groupe aldéhyde est déprotoné, puis fonctionnalisé par l'électrophile.`,
@@ -461,7 +461,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     explanation: `Le carbone alpha nucléophile attaque l'électrophile et devient méthylé.`,
     choiceExplanations: [
       `C'est le site activé.`,
-      `Le schéma du cours montre une liaison carbone–électrophile.`,
+      `Le schéma du cours montre une liaison carbone''�électrophile.`,
       `Il est adjacent au carbonyle.`,
       `La déprotonation puis la substitution conduisent à ce bilan.`,
     ],
@@ -473,7 +473,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     question: `Après la réaction :`,
     choices: [
       `Le groupe carbonyle est encore présent.`,
-      `Une nouvelle liaison carbone–carbone a été créée si $\\mathrm{E^+}$ est un groupe méthyle électrophile.`,
+      `Une nouvelle liaison carbone''�carbone a été créée si $\\mathrm{E^+}$ est un groupe méthyle électrophile.`,
       `Le produit est nécessairement un alcool.`,
       `Le squelette carboné a été fonctionnalisé en position alpha.`,
     ],
@@ -492,10 +492,10 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `L'oxydation d'un aldéhyde conduit :`,
     choices: [
-      `À un acide carboxylique.`,
-      `À la transformation $\\mathrm{RCHO ightarrow RCOOH}$.`,
-      `À une cétone sans changement du squelette.`,
-      `À un degré d'oxydation supérieur.`,
+      `�' un acide carboxylique.`,
+      `�' la transformation $\\mathrm{RCHO ightarrow RCOOH}$.`,
+      `�' une cétone sans changement du squelette.`,
+      `�' un degré d'oxydation supérieur.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation: `La fonction aldéhyde reste oxydable et donne l'acide carboxylique correspondant.`,

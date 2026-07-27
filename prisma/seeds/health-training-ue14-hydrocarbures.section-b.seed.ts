@@ -90,7 +90,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 21,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de ces structures :`,
+    question: `�' propos de ces structures :`,
     choices: [
       `A est un hydrocarbure saturé.`,
       `B contient une double liaison carbone-carbone.`,
@@ -153,7 +153,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 24,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la nomenclature des premiers alcènes :`,
+    question: `�' propos de la nomenclature des premiers alcènes :`,
     choices: [
       `L'éthène comporte deux atomes de carbone.`,
       `Le propène comporte trois atomes de carbone.`,
@@ -174,7 +174,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 25,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `Un laboratoire de chimie médicinale utilise un hexène acyclique comportant une seule double liaison comme intermédiaire de synthèse. À propos de sa formule brute :`,
+    question: `Un laboratoire de chimie médicinale utilise un hexène acyclique comportant une seule double liaison comme intermédiaire de synthèse. �' propos de sa formule brute :`,
     choices: [
       `Il comporte six atomes de carbone.`,
       `Il répond à la formule $\\mathrm{C_6H_{12}}$.`,
@@ -216,7 +216,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 27,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des hydrocarbures comportant plusieurs doubles liaisons :`,
+    question: `�' propos des hydrocarbures comportant plusieurs doubles liaisons :`,
     choices: [
       `Un diène possède deux doubles liaisons.`,
       `Un triène possède trois doubles liaisons.`,
@@ -237,7 +237,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 28,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À partir de la figure précédente :`,
+    question: `�' partir de la figure précédente :`,
     choices: [
       `A est le but-1-ène.`,
       `B est le but-2-ène.`,
@@ -279,7 +279,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 30,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'isomérie géométrique des alcènes représentés ci-dessus :`,
+    question: `�' propos de l'isomérie géométrique des alcènes représentés ci-dessus :`,
     choices: [
       `Il n'existe pas de libre rotation autour de la double liaison.`,
       `Le but-2-ène peut présenter deux configurations géométriques E et Z.`,
@@ -300,7 +300,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 31,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette transformation :`,
+    question: `�' propos de cette transformation :`,
     choices: [
       `Le réactif de départ est un alcool.`,
       `Le produit organique est un alcène.`,
@@ -342,7 +342,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 33,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À partir du propan-2-ol représenté ci-dessus :`,
+    question: `�' partir du propan-2-ol représenté ci-dessus :`,
     choices: [
       `Le produit alcénique compatible est le propène.`,
       `Le produit alcénique compatible est l'éthène.`,
@@ -363,7 +363,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 34,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette transformation :`,
+    question: `�' propos de cette transformation :`,
     choices: [
       `Le réactif de départ est un dérivé halogéné.`,
       `La transformation est une déshydrohalogénation.`,
@@ -426,16 +426,16 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 37,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de cette suite d'hydrogénations :`,
+    question: `�' propos de cette suite d'hydrogénations :`,
     choices: [
       `L'éthyne est un alcyne.`,
       `L'éthène est l'alcène intermédiaire.`,
       `L'éthane est l'alcane obtenu après hydrogénation complète.`,
-      `L'ordre des familles est alcane → alcène → alcyne.`,
+      `L'ordre des familles est alcane '�� alcène '�� alcyne.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
     explanation:
-      `L'ajout progressif de dihydrogène réduit d'abord la triple liaison en double liaison, puis la double liaison en liaison simple : alcyne → alcène → alcane.`,
+      `L'ajout progressif de dihydrogène réduit d'abord la triple liaison en double liaison, puis la double liaison en liaison simple : alcyne '�� alcène '�� alcane.`,
     choiceExplanations: [
       `L'éthyne contient une triple liaison.`,
       `Une première réduction conduit à l'éthène.`,
@@ -489,7 +489,7 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
     order: 40,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des alcènes et de leur préparation :`,
+    question: `�' propos des alcènes et de leur préparation :`,
     choices: [
       `Un monoalcène acyclique répond à la formule générale $\\mathrm{C_nH_{2n}}$.`,
       `Un alcène peut être préparé par déshydratation d'un alcool.`,

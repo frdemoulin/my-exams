@@ -20,7 +20,7 @@ export const SYNTHESIS_QUIZZES: SeedQuiz[] = [
   {
     order: 1,
     slug: SYNTHESIS_CONSOLIDATION_QUIZ_SLUG,
-    title: `Synthèse 1 – Consolidation des familles et réactions`,
+    title: `Synthèse 1 ''� Consolidation des familles et réactions`,
     description: `Reconnaître les hydrocarbures, mobiliser leurs formules générales et prévoir les principales transformations des alcènes et des alcynes.`,
     stage: 'MASTER',
     sectionOrder: SYNTHESIS_SECTION_ORDER,
@@ -55,7 +55,7 @@ export const SYNTHESIS_QUIZZES: SeedQuiz[] = [
   {
     order: 2,
     slug: SYNTHESIS_EXAM_QUIZ_SLUG,
-    title: `Synthèse 2 – Entraînement type examen`,
+    title: `Synthèse 2 ''� Entraînement type examen`,
     description: `Résoudre des chaînes de transformations, raisonner à rebours après une coupure oxydative et comparer la réactivité des alcynes internes et terminaux.`,
     stage: 'MASTER',
     sectionOrder: SYNTHESIS_SECTION_ORDER,
@@ -103,7 +103,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 101,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des composés A à D de la figure précédente :`,
+    question: `�' propos des composés A à D de la figure précédente :`,
     choices: [
       `A est un alcane acyclique saturé.`,
       `B est un cyclane ne comportant aucune double liaison.`,
@@ -145,7 +145,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 103,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la nomenclature des structures de la figure précédente :`,
+    question: `�' propos de la nomenclature des structures de la figure précédente :`,
     choices: [
       `A peut être nommé butane.`,
       `B peut être nommé cyclopentane.`,
@@ -166,7 +166,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 104,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des voies A à C de la figure précédente :`,
+    question: `�' propos des voies A à C de la figure précédente :`,
     choices: [
       `La voie A correspond à la déshydratation d'un alcool.`,
       `La voie B correspond à la déshydrohalogénation d'un dérivé halogéné.`,
@@ -292,7 +292,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 110,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des hydrocarbures et de leur réactivité :`,
+    question: `�' propos des hydrocarbures et de leur réactivité :`,
     choices: [
       `La formule $\\mathrm{C_5H_{10}}$ peut correspondre à un cyclane ou à un monoalcène acyclique.`,
       `L'addition de $\\mathrm{Br_2}$ sur un alcène ajoute un $\\mathrm{Br}$ sur chacun des anciens carbones de la double liaison.`,
@@ -313,7 +313,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 111,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la chaîne de synthèse représentée en figure précédente :`,
+    question: `�' propos de la chaîne de synthèse représentée en figure précédente :`,
     choices: [
       `Le but-2-yne est un alcyne interne.`,
       `Le but-2-ène est un alcène.`,
@@ -376,7 +376,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 114,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des produits de coupure présentés en figure précédente :`,
+    question: `�' propos des produits de coupure présentés en figure précédente :`,
     choices: [
       `L'éthanal est un aldéhyde.`,
       `La propanone est une cétone.`,
@@ -418,7 +418,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 116,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'hydratation des deux alcynes de la figure précédente :`,
+    question: `�' propos de l'hydratation des deux alcynes de la figure précédente :`,
     choices: [
       `L'addition d'eau conduit d'abord à un énol.`,
       `L'énol comporte à la fois une double liaison et un groupe $\\mathrm{OH}$.`,
@@ -460,7 +460,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 118,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos des cyclanes et de leur stabilité :`,
+    question: `�' propos des cyclanes et de leur stabilité :`,
     choices: [
       `Les cyclanes saturés répondent à la formule générale $\\mathrm{C_nH_{2n}}$.`,
       `Le cyclopropane et le cyclobutane sont des cycles tendus et relativement instables.`,
@@ -502,7 +502,7 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
     order: 120,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `La figure précédente représente le pent-1-yne utilisé comme précurseur dans une synthèse pharmaceutique. À propos de ce composé :`,
+    question: `La figure précédente représente le pent-1-yne utilisé comme précurseur dans une synthèse pharmaceutique. �' propos de ce composé :`,
     choices: [
       `Sa formule brute est $\\mathrm{C_5H_8}$.`,
       `Il s'agit d'un alcyne vrai terminal.`,

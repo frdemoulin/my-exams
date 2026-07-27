@@ -76,7 +76,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 61,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'hydrolyse d'une amide :`,
+    question: `�' propos de l'hydrolyse d'une amide :`,
     choices: [
       `Elle est possible.`,
       `Elle nécessite des conditions plus sévères que pour un ester.`,
@@ -436,7 +436,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 79,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'hydrolyse physiologique des esters :`,
+    question: `�' propos de l'hydrolyse physiologique des esters :`,
     choices: [
       `Elle peut être catalysée par des enzymes.`,
       `Elle peut libérer un alcool.`,
@@ -458,8 +458,8 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Synthèse sur les enzymes hydrolytiques :`,
     choices: [
-      `Estérase → fonction ester.`,
-      `Protéase → liaison peptidique.`,
+      `Estérase '�� fonction ester.`,
+      `Protéase '�� liaison peptidique.`,
       `Trypsine, chymotrypsine et pepsine sont des exemples de protéases.`,
       `Toutes les enzymes citées ont exactement le même substrat.`,
     ],
@@ -476,7 +476,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 81,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la liaison $\mathrm{C{-}N}$ dans une amide :`,
+    question: `�' propos de la liaison $\mathrm{C{-}N}$ dans une amide :`,
     choices: [
       `Elle possède un caractère partiel de double liaison.`,
       `Sa rotation est fortement perturbée.`,

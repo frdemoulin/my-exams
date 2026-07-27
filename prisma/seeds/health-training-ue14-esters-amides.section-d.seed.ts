@@ -62,7 +62,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 91,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'un thioester :`,
+    question: `�' propos d'un thioester :`,
     choices: [
       `Il contient le motif $\mathrm{R{-}C(=O){-}S{-}R'}$.`,
       `Il peut être décrit comme un ester soufré.`,
@@ -84,10 +84,10 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La formule $\mathrm{CH_3COSCH_3}$ correspond :`,
     choices: [
-      `À un thioester.`,
-      `À un composé possédant un carbonyle.`,
-      `À un thiol libre $\mathrm{RSH}$.`,
-      `À un ester soufré.`,
+      `�' un thioester.`,
+      `�' un composé possédant un carbonyle.`,
+      `�' un thiol libre $\mathrm{RSH}$.`,
+      `�' un ester soufré.`,
     ],
     correctChoiceIndexes: [0, 1, 3],
     explanation: `Le groupe $\mathrm{CH_3CO-}$ est lié au soufre, lui-même lié à un groupe méthyle : il s'agit d'un thioester.`,
@@ -124,7 +124,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Le bilan de préparation d'un thioester est :`,
     choices: [
-      `Acide activé + thiol → thioester.`,
+      `Acide activé + thiol '�� thioester.`,
       `Le thiol peut s'écrire $\mathrm{RSH}$.`,
       `Un chlorure d'acyle peut être l'acide activé.`,
       `La réaction donne nécessairement une amide.`,
@@ -244,9 +244,9 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Synthèse sur la préparation des dérivés d'acide :`,
     choices: [
-      `Alcool → ester.`,
-      `Amine → amide.`,
-      `Thiol → thioester.`,
+      `Alcool '�� ester.`,
+      `Amine '�� amide.`,
+      `Thiol '�� thioester.`,
       `Les trois nucléophiles conduisent obligatoirement à la même fonction.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
@@ -290,7 +290,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
       `Le seul produit est un alcène.`,
     ],
     correctChoiceIndexes: [0, 1, 2],
-    explanation: `L'eau rompt la liaison acyle–soufre et redonne l'acide carboxylique et le thiol.`,
+    explanation: `L'eau rompt la liaison acyle''�soufre et redonne l'acide carboxylique et le thiol.`,
     choiceExplanations: [
       `Cette équation résume la réaction.`,
       `Le fragment acyle est protoné.`,
@@ -442,7 +442,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 110,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos d'une transformation enzymatique d'un thioester :`,
+    question: `�' propos d'une transformation enzymatique d'un thioester :`,
     choices: [
       `L'hydrolyse peut redonner le thiol.`,
       `L'hydrolyse peut redonner l'acide carboxylique.`,

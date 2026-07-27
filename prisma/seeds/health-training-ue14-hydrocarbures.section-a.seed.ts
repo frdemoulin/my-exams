@@ -92,7 +92,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 1,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des hydrocarbures :`,
+    question: `�' propos des hydrocarbures :`,
     choices: [
       `Ils sont constitués uniquement d'atomes de carbone et d'hydrogène.`,
       `Un alcool est nécessairement un hydrocarbure.`,
@@ -239,7 +239,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 8,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des cyclanes :`,
+    question: `�' propos des cyclanes :`,
     choices: [
       `Ce sont des hydrocarbures cycliques ne comportant pas de double liaison.`,
       `Leur formule générale est $\\mathrm{C_nH_{2n}}$.`,
@@ -260,7 +260,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 9,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À partir de la figure précédente :`,
+    question: `�' partir de la figure précédente :`,
     choices: [
       `A représente le cyclopropane.`,
       `B représente le cyclobutane.`,
@@ -365,7 +365,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 14,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À partir de la figure précédente :`,
+    question: `�' partir de la figure précédente :`,
     choices: [
       `A est une chaîne saturée ouverte.`,
       `B est un cycle saturé.`,
@@ -449,7 +449,7 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
     order: 18,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos du cyclopentane et du cyclohexane représentés ci-dessus :`,
+    question: `�' propos du cyclopentane et du cyclohexane représentés ci-dessus :`,
     choices: [
       `Ils sont présentés comme très stables dans le support.`,
       `Ils sont plus stables que le cyclopropane et le cyclobutane.`,

@@ -95,7 +95,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 101,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction amine :`,
+    question: `�' propos de la fonction amine :`,
     choices: [
       `Elle comporte un atome d'azote lié par des liaisons simples à des hydrogènes et/ou à des groupes carbonés.`,
       `Une amine neutre usuelle possède un azote trivalent.`,
@@ -201,7 +201,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 106,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la triméthylamine $\\mathrm{N(CH_3)_3}$ :`,
+    question: `�' propos de la triméthylamine $\\mathrm{N(CH_3)_3}$ :`,
     choices: [
       `C'est une amine tertiaire.`,
       `Son azote est lié à trois groupes carbonés.`,
@@ -248,7 +248,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 108,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `La glycine, le plus simple des acides aminés qui entrent dans la composition des protéines, peut être représentée par $\\mathrm{H_2N-CH_2-COOH}$. À son sujet :`,
+    question: `La glycine, le plus simple des acides aminés qui entrent dans la composition des protéines, peut être représentée par $\\mathrm{H_2N-CH_2-COOH}$. �' son sujet :`,
     choices: [
       `Elle possède une fonction amine primaire.`,
       `Elle possède une fonction acide carboxylique.`,
@@ -356,10 +356,10 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'SINGLE',
     question: `La formule $\\mathrm{(CH_3)_4N^+}$ correspond :`,
     choices: [
-      `À la triméthylamine.`,
-      `À l'ion tétraméthylammonium.`,
-      `À une amide tertiaire.`,
-      `À un nitrile.`,
+      `�' la triméthylamine.`,
+      `�' l'ion tétraméthylammonium.`,
+      `�' une amide tertiaire.`,
+      `�' un nitrile.`,
     ],
     correctChoiceIndexes: [1],
     explanation:
@@ -513,7 +513,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 120,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des amines et des ammoniums quaternaires :`,
+    question: `�' propos des amines et des ammoniums quaternaires :`,
     choices: [
       `Une amine tertiaire et un ammonium quaternaire peuvent tous deux être liés à trois groupes méthyle.`,
       `L'absence ou la présence d'une quatrième liaison autour de l'azote aide à les distinguer.`,
@@ -534,7 +534,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 121,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction amide :`,
+    question: `�' propos de la fonction amide :`,
     choices: [
       `Elle comporte un atome d'azote directement lié au carbone d'un groupe carbonyle.`,
       `Le motif peut être schématisé par $\\mathrm{R-CO-NR'R''}$.`,
@@ -688,7 +688,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 128,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction carbamate, aussi appelée uréthane :`,
+    question: `�' propos de la fonction carbamate, aussi appelée uréthane :`,
     choices: [
       `Son motif peut être schématisé par $\\mathrm{R-O-CO-NR'R''}$.`,
       `Elle associe un oxygène et un azote autour d'un même groupe carbonyle.`,
@@ -752,7 +752,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 131,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction nitrile :`,
+    question: `�' propos de la fonction nitrile :`,
     choices: [
       `Elle comporte une triple liaison carbone-azote.`,
       `Son motif général est $\\mathrm{R-C\\equiv N}$.`,
@@ -815,7 +815,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 134,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la fonction thiol :`,
+    question: `�' propos de la fonction thiol :`,
     choices: [
       `Son motif général est $\\mathrm{R-SH}$.`,
       `Elle comporte un groupe sulfhydryle $\\mathrm{-SH}$.`,
@@ -904,7 +904,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 138,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `Les ponts disulfure contribuent à la stabilité de certaines protéines. À propos d'un motif $\\mathrm{R-S-S-R'}$ :`,
+    question: `Les ponts disulfure contribuent à la stabilité de certaines protéines. �' propos d'un motif $\\mathrm{R-S-S-R'}$ :`,
     choices: [
       `Il comporte une liaison soufre-soufre.`,
       `Il peut résulter de l'oxydation de deux groupes thiol.`,
@@ -1011,7 +1011,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
     question:
-      `La N-acétylcystéine, utilisée notamment comme mucolytique et antidote d'un surdosage en paracétamol, peut être écrite $\\mathrm{HS-CH_2-CH(NH-CO-CH_3)-COOH}$. À son sujet :`,
+      `La N-acétylcystéine, utilisée notamment comme mucolytique et antidote d'un surdosage en paracétamol, peut être écrite $\\mathrm{HS-CH_2-CH(NH-CO-CH_3)-COOH}$. �' son sujet :`,
     choices: [
       `Elle possède un thiol.`,
       `Elle possède une amide.`,
@@ -1096,7 +1096,7 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
     order: 147,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos des noms de fonctions :`,
+    question: `�' propos des noms de fonctions :`,
     choices: [
       `Le terme nitrile oriente vers un motif $\\mathrm{-C\\equiv N}$.`,
       `Le terme thiol oriente vers un motif $\\mathrm{-SH}$.`,

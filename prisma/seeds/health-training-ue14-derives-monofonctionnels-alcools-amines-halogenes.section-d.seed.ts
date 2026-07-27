@@ -90,7 +90,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 91,
     difficulty: 'EASY',
     answerFormat: 'MULTIPLE',
-    question: `À propos des dérivés halogénés :`,
+    question: `�' propos des dérivés halogénés :`,
     choices: [
       `Ils peuvent être notés $\mathrm{R{-}X}$.`,
       `$\mathrm{R}$ représente un radical carboné.`,
@@ -192,7 +192,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `La formation d'un organomagnésien à partir d'un dérivé halogéné peut s'écrire :`,
     choices: [
-      `$\mathrm{R{-}X + Mg → RMgX}$.`,
+      `$\mathrm{R{-}X + Mg '�� RMgX}$.`,
       `Le produit est appelé réactif de Grignard.`,
       `Le magnésium s'insère dans la liaison carbone-halogène dans l'écriture simplifiée.`,
       `Le produit est nécessairement un alcool.`,
@@ -292,7 +292,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     answerFormat: 'MULTIPLE',
     question: `Le bilan général d'une substitution nucléophile sur un dérivé halogéné peut s'écrire :`,
     choices: [
-      `$\mathrm{R{-}X + Nu^- → R{-}Nu + X^-}$.`,
+      `$\mathrm{R{-}X + Nu^- '�� R{-}Nu + X^-}$.`,
       `Le nucléophile remplace l'halogène.`,
       `L'halogène part sous forme d'ion $\mathrm{X^-}$ dans le bilan simplifié.`,
       `Le produit conserve nécessairement la liaison $\mathrm{C{-}X}$.`,
@@ -410,7 +410,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 107,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À propos de la stéréochimie d'une $\mathrm{S_N1}$ sur un centre asymétrique optiquement pur :`,
+    question: `�' propos de la stéréochimie d'une $\mathrm{S_N1}$ sur un centre asymétrique optiquement pur :`,
     choices: [
       `L'intermédiaire carbocationique est plan et non chiral au centre concerné.`,
       `Le produit peut être un mélange racémique.`,
@@ -470,7 +470,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 110,
     difficulty: 'MEDIUM',
     answerFormat: 'MULTIPLE',
-    question: `À l'issue de cette $\mathrm{S_N1}$ :`,
+    question: `�' l'issue de cette $\mathrm{S_N1}$ :`,
     choices: [
       `Le groupe $\mathrm{X}$ a été remplacé par $\mathrm{Nu}$.`,
       `Le produit peut être un mélange racémique.`,
@@ -550,7 +550,7 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
     order: 114,
     difficulty: 'HARD',
     answerFormat: 'MULTIPLE',
-    question: `À propos de l'intermédiaire réactionnel en $\mathrm{S_N2}$ :`,
+    question: `�' propos de l'intermédiaire réactionnel en $\mathrm{S_N2}$ :`,
     choices: [
       `Aucun carbocation libre n'est formé.`,
       `La réaction passe par un état de transition et non par deux étapes séparées.`,
