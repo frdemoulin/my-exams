@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect x="0" y="0" width="1200" height="720" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .dbl { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .arrow { stroke:#111; stroke-width:4; fill:none; marker-end:url(#arrowhead); }
+    .txt { font: 32px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 24px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .box { fill:#fff; stroke:#222; stroke-width:3; rx:16; }
+  </style>
+  <defs><marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0 0, 12 4, 0 8" fill="#111"/></marker></defs>
+  
+<text x="55" y="55" class="title">Figure C3 — Addition de Br2 sur l'éthène</text>
+<text x="90" y="290" class="txt">CH2</text>
+<line x1="175" y1="275" x2="330" y2="275" class="dbl"/><line x1="175" y1="295" x2="330" y2="295" class="dbl"/>
+<text x="345" y="290" class="txt">CH2</text>
+<text x="160" y="410" class="txt">+ Br2</text>
+<line x1="510" y1="290" x2="680" y2="290" class="arrow"/>
+<text x="740" y="300" class="txt">CH2Br–CH2Br</text>
+<text x="750" y="410" class="label">1,2-dibromoéthane</text>
+
+</svg>

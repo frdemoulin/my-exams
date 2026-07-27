@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:6; stroke-linecap:round; stroke-linejoin:round; fill:none; }
+    .double { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 40px Arial, Helvetica, sans-serif; fill:#111; }
+  </style>
+  
+<text x="70" y="65" class="title">Figure A2 — Quatre structures carbonées</text>
+
+<text x="95" y="145" class="label">A</text>
+<polyline points="110,330 230,240 350,330 470,240" class="bond"/>
+
+<text x="500" y="145" class="label">B</text>
+<rect x="520" y="220" width="230" height="230" class="bond"/>
+
+<text x="820" y="145" class="label">C</text>
+<line x1="840" y1="330" x2="970" y2="240" class="bond"/>
+<line x1="970" y1="240" x2="1090" y2="330" class="double"/>
+<line x1="980" y1="220" x2="1100" y2="310" class="double"/>
+<line x1="1090" y1="330" x2="1210" y2="240" class="bond"/>
+
+<text x="1180" y="145" class="label">D</text>
+<polygon points="1230,220 1340,285 1340,415 1230,480 1120,415 1120,285" class="bond"/>
+<line x1="1125" y1="285" x2="1230" y2="222" class="double"/>
+<line x1="1137" y1="306" x2="1235" y2="247" class="double"/>
+
+<text x="95" y="585" class="small">chaîne ouverte</text>
+<text x="515" y="585" class="small">cycle</text>
+<text x="835" y="585" class="small">chaîne avec C=C</text>
+<text x="1120" y="585" class="small">cycle avec C=C</text>
+
+</svg>

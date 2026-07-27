@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect x="0" y="0" width="1200" height="700" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db1 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .db2 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 28px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .thin { stroke:#333; stroke-width:2; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+  </style>
+  
+<text x="70" y="60" class="title">Figure C6 — Exemple de composé méso</text>
+<text x="75" y="120" class="small">Exemple schématique inspiré d'une molécule à deux centres asymétriques et plan de symétrie interne.</text>
+<line x1="600" y1="150" x2="600" y2="560" class="dash"/>
+<text x="520" y="145" class="small">plan de symétrie</text>
+
+<line x1="300" y1="350" x2="450" y2="350" class="bond"/>
+<line x1="450" y1="350" x2="600" y2="350" class="bond"/>
+<line x1="600" y1="350" x2="750" y2="350" class="bond"/>
+<line x1="750" y1="350" x2="900" y2="350" class="bond"/>
+<text x="220" y="362" class="txt">CH3</text>
+<text x="915" y="362" class="txt">CH3</text>
+
+<!-- left center -->
+<line x1="450" y1="350" x2="450" y2="240" class="bond"/>
+<polygon points="450,350 410,430 430,438" class="wedge"/>
+<text x="434" y="225" class="txt">Cl</text>
+<text x="355" y="468" class="txt">H</text>
+<text x="432" y="335" class="star">*</text>
+
+<!-- right center -->
+<line x1="750" y1="350" x2="750" y2="240" class="bond"/>
+<polygon points="750,350 790,430 770,438" class="wedge"/>
+<text x="734" y="225" class="txt">H</text>
+<text x="798" y="468" class="txt">Cl</text>
+<text x="732" y="335" class="star">*</text>
+
+</svg>

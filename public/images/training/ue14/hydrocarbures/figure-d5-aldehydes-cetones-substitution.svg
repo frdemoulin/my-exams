@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .thin { stroke:#111; stroke-width:3; stroke-linecap:round; fill:none; }
+    .arrow { stroke:#111; stroke-width:4; fill:none; marker-end:url(#arrowhead); }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 26px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .box { fill:#fff; stroke:#111; stroke-width:3; rx:16; }
+  </style>
+  <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111"/></marker></defs>
+  
+<text x="60" y="60" class="title">Figure D5 — Substitution de l'alcène et produits de coupure</text>
+
+<rect x="60" y="110" width="1280" height="180" class="box"/>
+<text x="85" y="155" class="label">Cas 1 : chaque carbone porte un H</text>
+<text x="100" y="220" class="txt">R–CH=CH–R′</text>
+<line x1="410" y1="205" x2="560" y2="205" class="arrow"/>
+<text x="600" y="220" class="txt">R–CHO + R′–CHO</text>
+<text x="1010" y="220" class="small">deux aldéhydes</text>
+
+<rect x="60" y="330" width="1280" height="180" class="box"/>
+<text x="85" y="375" class="label">Cas 2 : 2-méthylbut-2-ène</text>
+<text x="95" y="445" class="txt">(CH3)2C=CH–CH3</text>
+<line x1="450" y1="430" x2="600" y2="430" class="arrow"/>
+<text x="635" y="445" class="txt">CH3COCH3 + CH3CHO</text>
+<text x="1010" y="445" class="small">cétone + aldéhyde</text>
+
+<rect x="60" y="550" width="1280" height="180" class="box"/>
+<text x="85" y="595" class="label">Cas 3 : alcène tétrasubstitué</text>
+<text x="95" y="665" class="txt">(CH3)2C=C(CH3)2</text>
+<line x1="450" y1="650" x2="600" y2="650" class="arrow"/>
+<text x="670" y="665" class="txt">2 CH3COCH3</text>
+<text x="1010" y="665" class="small">deux cétones</text>
+
+</svg>

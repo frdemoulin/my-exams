@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <rect x="0" y="0" width="1400" height="820" fill="white"/>
+  <style>
+    .line { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .thin { stroke:#444; stroke-width:3; fill:none; }
+    .dash { stroke:#666; stroke-width:3; stroke-dasharray:10 10; fill:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 26px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 31px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 39px Arial, Helvetica, sans-serif; fill:#111; }
+    .box { fill:white; stroke:#111; stroke-width:4; }
+    .plus { fill:#efefef; stroke:#111; stroke-width:2; }
+    .minus { fill:white; stroke:#111; stroke-width:2; }
+  </style>
+  
+<text x="60" y="65" class="title">Figure E3 — Comparaison de quatre expériences de polarimétrie</text>
+<text x="70" y="115" class="small">Même substance, même solvant et même longueur d'onde dans les quatre expériences.</text>
+
+<!-- table -->
+<rect x="80" y="170" width="1240" height="500" class="box"/>
+<line x1="80" y1="260" x2="1320" y2="260" class="thin"/>
+<line x1="80" y1="365" x2="1320" y2="365" class="thin"/>
+<line x1="80" y1="470" x2="1320" y2="470" class="thin"/>
+<line x1="80" y1="575" x2="1320" y2="575" class="thin"/>
+<line x1="270" y1="170" x2="270" y2="670" class="thin"/>
+<line x1="610" y1="170" x2="610" y2="670" class="thin"/>
+<line x1="930" y1="170" x2="930" y2="670" class="thin"/>
+
+<text x="125" y="225" class="label">Expérience</text>
+<text x="350" y="225" class="label">Concentration</text>
+<text x="690" y="225" class="label">Longueur de cuve</text>
+<text x="1060" y="225" class="label">Température</text>
+
+<text x="155" y="325" class="title">A</text>
+<text x="405" y="325" class="txt">c</text>
+<text x="750" y="325" class="txt">l</text>
+<text x="1085" y="325" class="txt">20 °C</text>
+
+<text x="155" y="430" class="title">B</text>
+<text x="390" y="430" class="txt">2c</text>
+<text x="750" y="430" class="txt">l</text>
+<text x="1085" y="430" class="txt">20 °C</text>
+
+<text x="155" y="535" class="title">C</text>
+<text x="405" y="535" class="txt">c</text>
+<text x="735" y="535" class="txt">2l</text>
+<text x="1085" y="535" class="txt">20 °C</text>
+
+<text x="155" y="640" class="title">D</text>
+<text x="405" y="640" class="txt">c</text>
+<text x="750" y="640" class="txt">l</text>
+<text x="1085" y="640" class="txt">30 °C</text>
+
+<text x="110" y="750" class="small">Chaque comparaison A/B, A/C ou A/D isole un seul paramètre expérimental.</text>
+
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect x="0" y="0" width="1200" height="700" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db1 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .db2 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 28px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .thin { stroke:#333; stroke-width:2; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+  </style>
+  
+<text x="70" y="60" class="title">Figure C1 — Centres candidats à la chiralité</text>
+<text x="80" y="120" class="small">Un seul des centres A à D est un carbone asymétrique.</text>
+
+<!-- A -->
+<text x="110" y="190" class="label">A</text>
+<circle cx="180" cy="260" r="7" fill="#111"/>
+<line x1="180" y1="260" x2="180" y2="180" class="bond"/>
+<line x1="180" y1="260" x2="120" y2="340" class="bond"/>
+<line x1="180" y1="260" x2="250" y2="335" class="bond"/>
+<polygon points="180,260 240,210 225,195" class="wedge"/>
+<text x="160" y="165" class="txt">OH</text>
+<text x="65" y="375" class="txt">CH3</text>
+<text x="250" y="380" class="txt">H</text>
+<text x="245" y="205" class="txt">Cl</text>
+<text x="168" y="245" class="star">*</text>
+
+<!-- B -->
+<text x="410" y="190" class="label">B</text>
+<circle cx="480" cy="260" r="7" fill="#111"/>
+<line x1="480" y1="260" x2="480" y2="180" class="bond"/>
+<line x1="480" y1="260" x2="420" y2="340" class="bond"/>
+<line x1="480" y1="260" x2="550" y2="335" class="bond"/>
+<polygon points="480,260 540,210 525,195" class="wedge"/>
+<text x="445" y="165" class="txt">CH3</text>
+<text x="365" y="375" class="txt">CH3</text>
+<text x="550" y="380" class="txt">H</text>
+<text x="545" y="205" class="txt">OH</text>
+<text x="468" y="245" class="star">*</text>
+
+<!-- C -->
+<text x="710" y="190" class="label">C</text>
+<circle cx="780" cy="260" r="7" fill="#111"/>
+<line x1="780" y1="260" x2="780" y2="180" class="bond"/>
+<line x1="780" y1="260" x2="720" y2="340" class="bond"/>
+<line x1="780" y1="260" x2="850" y2="335" class="bond"/>
+<polygon points="780,260 840,210 825,195" class="wedge"/>
+<text x="760" y="165" class="txt">H</text>
+<text x="705" y="375" class="txt">H</text>
+<text x="850" y="380" class="txt">CH3</text>
+<text x="845" y="205" class="txt">Br</text>
+<text x="768" y="245" class="star">*</text>
+
+<!-- D -->
+<text x="1010" y="190" class="label">D</text>
+<circle cx="1080" cy="260" r="7" fill="#111"/>
+<line x1="1080" y1="260" x2="1015" y2="260" class="bond"/>
+<line x1="1086" y1="250" x2="1155" y2="250" class="db1"/>
+<line x1="1086" y1="270" x2="1155" y2="270" class="db2"/>
+<line x1="1080" y1="260" x2="1080" y2="340" class="bond"/>
+<text x="960" y="270" class="txt">H</text>
+<text x="1160" y="260" class="txt">CH2</text>
+<text x="1058" y="385" class="txt">CH3</text>
+<text x="1068" y="245" class="star">*</text>
+
+</svg>

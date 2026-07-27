@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:6; stroke-linecap:round; stroke-linejoin:round; fill:none; }
+    .double { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 40px Arial, Helvetica, sans-serif; fill:#111; }
+  </style>
+  
+<text x="70" y="65" class="title">Figure A3 — Stabilité relative des cyclanes dans le cadre du cours</text>
+<text x="90" y="130" class="small">Schéma qualitatif : plus la barre est haute, plus la stabilité présentée est grande.</text>
+
+<line x1="130" y1="650" x2="1280" y2="650" class="bond"/>
+<rect x="180" y="500" width="150" height="150" fill="#ddd" stroke="#111" stroke-width="4"/>
+<rect x="420" y="440" width="150" height="210" fill="#ddd" stroke="#111" stroke-width="4"/>
+<rect x="660" y="230" width="150" height="420" fill="#ddd" stroke="#111" stroke-width="4"/>
+<rect x="900" y="200" width="150" height="450" fill="#ddd" stroke="#111" stroke-width="4"/>
+<rect x="1140" y="350" width="150" height="300" fill="#ddd" stroke="#111" stroke-width="4"/>
+
+<text x="185" y="705" class="small">3 C</text>
+<text x="425" y="705" class="small">4 C</text>
+<text x="665" y="705" class="small">5 C</text>
+<text x="905" y="705" class="small">6 C</text>
+<text x="1120" y="705" class="small">cycles plus grands</text>
+
+</svg>

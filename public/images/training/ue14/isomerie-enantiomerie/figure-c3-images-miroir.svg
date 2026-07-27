@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect x="0" y="0" width="1200" height="700" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db1 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .db2 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 28px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .thin { stroke:#333; stroke-width:2; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+  </style>
+  
+<text x="70" y="60" class="title">Figure C3 — Deux images miroir</text>
+<text x="120" y="130" class="label">X</text>
+<text x="740" y="130" class="label">Y</text>
+<line x1="600" y1="120" x2="600" y2="580" class="dash"/>
+<text x="560" y="110" class="small">miroir</text>
+
+<!-- X molecule -->
+<circle cx="270" cy="320" r="7" fill="#111"/>
+<line x1="270" y1="320" x2="180" y2="320" class="bond"/>
+<line x1="270" y1="320" x2="270" y2="210" class="bond"/>
+<polygon points="270,320 360,280 355,305" class="wedge"/>
+<line x1="270" y1="320" x2="330" y2="410" class="dash"/>
+<text x="95" y="332" class="txt">COOH</text>
+<text x="245" y="190" class="txt">CH3</text>
+<text x="365" y="290" class="txt">OH</text>
+<text x="335" y="435" class="txt">H</text>
+<text x="255" y="305" class="star">*</text>
+
+<!-- Y molecule -->
+<circle cx="930" cy="320" r="7" fill="#111"/>
+<line x1="930" y1="320" x2="1020" y2="320" class="bond"/>
+<line x1="930" y1="320" x2="930" y2="210" class="bond"/>
+<polygon points="930,320 840,280 845,305" class="wedge"/>
+<line x1="930" y1="320" x2="870" y2="410" class="dash"/>
+<text x="1030" y="332" class="txt">COOH</text>
+<text x="905" y="190" class="txt">CH3</text>
+<text x="770" y="290" class="txt">OH</text>
+<text x="830" y="435" class="txt">H</text>
+<text x="915" y="305" class="star">*</text>
+
+</svg>

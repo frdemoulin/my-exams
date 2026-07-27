@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 25px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .card { fill:#fff; stroke:#111; stroke-width:3; }
+  </style>
+  
+<text x="60" y="60" class="title">Figure S2 — Trois formes d'une constitution symétrique</text>
+<rect x="100" y="170" width="330" height="360" class="card"/>
+<rect x="535" y="170" width="330" height="360" class="card"/>
+<rect x="970" y="170" width="330" height="360" class="card"/>
+<text x="245" y="225" class="label">A</text>
+<text x="680" y="225" class="label">B</text>
+<text x="1115" y="225" class="label">C</text>
+<text x="205" y="340" class="title">(R,R)</text>
+<text x="640" y="340" class="title">(S,S)</text>
+<text x="1070" y="340" class="title">(R,S)</text>
+<text x="1050" y="430" class="label">forme méso</text>
+<text x="180" y="600" class="small">A et B : inversion de tous les centres.</text>
+<text x="770" y="600" class="small">C : achirale par symétrie interne.</text>
+
+</svg>

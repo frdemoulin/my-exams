@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .thin { stroke:#111; stroke-width:3; stroke-linecap:round; fill:none; }
+    .arrow { stroke:#111; stroke-width:4; fill:none; marker-end:url(#arrowhead); }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 31px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 39px Arial, Helvetica, sans-serif; fill:#111; }
+    .formula { font: 32px 'DejaVu Sans Mono', 'Courier New', monospace; fill:#111; }
+    .box { fill:#fff; stroke:#111; stroke-width:3; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="9" refX="10" refY="4.5" orient="auto">
+      <polygon points="0 0, 12 4.5, 0 9" fill="#111"/>
+    </marker>
+  </defs>
+  
+<text x="55" y="60" class="title">Figure F6 — Hydratation et tautomérie des alcynes</text>
+
+<rect x="55" y="120" width="1290" height="280" class="box"/>
+<text x="80" y="170" class="label">A — Pent-2-yne, alcyne interne non symétrique</text>
+<text x="95" y="245" class="formula">CH3–C≡C–CH2–CH3</text>
+<line x1="505" y1="235" x2="740" y2="235" class="arrow"/>
+<text x="555" y="205" class="small">H2O → énols</text>
+<text x="800" y="225" class="formula">pentan-2-one</text>
+<text x="800" y="285" class="formula">pentan-3-one</text>
+<text x="790" y="345" class="small">deux cétones possibles dans le cadrage du cours</text>
+
+<rect x="55" y="465" width="1290" height="250" class="box"/>
+<text x="80" y="515" class="label">B — Propyne, alcyne vrai terminal</text>
+<text x="110" y="605" class="formula">CH3–C≡CH</text>
+<line x1="425" y1="595" x2="710" y2="595" class="arrow"/>
+<text x="485" y="565" class="small">H2O → énol → tautomérie</text>
+<text x="785" y="605" class="formula">CH3–CO–CH3</text>
+<text x="875" y="665" class="small">propanone, méthylcétone</text>
+
+</svg>

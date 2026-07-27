@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .double { stroke:#111; stroke-width:4; stroke-linecap:round; }
+    .triple { stroke:#111; stroke-width:4; stroke-linecap:round; }
+    .arrow { stroke:#111; stroke-width:4; fill:none; marker-end:url(#arrow); }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 39px Arial, Helvetica, sans-serif; fill:#111; }
+    .box { fill:white; stroke:#111; stroke-width:3; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#111"/>
+    </marker>
+  </defs>
+  
+<text x="70" y="60" class="title">Figure E1 — Reconnaître les familles d'hydrocarbures</text>
+
+<rect x="60" y="150" width="300" height="470" class="box"/>
+<text x="190" y="205" class="label">A</text>
+<text x="90" y="280" class="txt">CH3—CH2—CH3</text>
+<text x="105" y="370" class="small">liaisons simples</text>
+<text x="118" y="415" class="small">hydrocarbure saturé</text>
+
+<rect x="390" y="150" width="300" height="470" class="box"/>
+<text x="520" y="205" class="label">B</text>
+<text x="420" y="280" class="txt">CH2=CH—CH3</text>
+<text x="442" y="370" class="small">double liaison C=C</text>
+<text x="458" y="415" class="small">hydrocarbure insaturé</text>
+
+<rect x="720" y="150" width="300" height="470" class="box"/>
+<text x="850" y="205" class="label">C</text>
+<text x="750" y="280" class="txt">CH3—C≡C—CH3</text>
+<text x="760" y="370" class="small">alcyne interne</text>
+<text x="760" y="415" class="small">triple liaison C≡C</text>
+
+<rect x="1050" y="150" width="300" height="470" class="box"/>
+<text x="1180" y="205" class="label">D</text>
+<text x="1080" y="280" class="txt">CH3—CH2—C≡CH</text>
+<text x="1080" y="370" class="small">alcyne vrai (terminal)</text>
+<text x="1102" y="415" class="small">motif terminal C≡CH</text>
+
+</svg>
