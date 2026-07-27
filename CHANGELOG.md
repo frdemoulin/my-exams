@@ -1,3 +1,10 @@
+## [1.6.32](https://github.com/frdemoulin/my-exams/compare/v1.6.31...v1.6.32) (2026-07-27)
+
+### Bug Fixes
+
+* finalisation des QCM de la chimie organique ([2265358](https://github.com/frdemoulin/my-exams/commit/22653580f86e0116f53d9a2b30d3ec3fe14f1936))
+* normalisation des questions des QCM ([38c0863](https://github.com/frdemoulin/my-exams/commit/38c0863df372aee85aa6a2156fd1de8f0d03da3d))
+
 ## [1.6.31](https://github.com/frdemoulin/my-exams/compare/v1.6.30...v1.6.31) (2026-07-26)
 
 ### Bug Fixes
