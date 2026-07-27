@@ -175,7 +175,7 @@ test.describe.serial("Santé - QCM publics", () => {
       }),
     ).toBeVisible();
     await expect(page.getByRole("heading", { name: "Synthèse" })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Commencer/i }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Démarrer/i }).first()).toBeVisible();
   });
 
   test.describe("session et stats d'un QCM", () => {

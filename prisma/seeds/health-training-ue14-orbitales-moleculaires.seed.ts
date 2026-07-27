@@ -9,7 +9,6 @@ import { SECTION_B_QUESTIONS } from './health-training-ue14-orbitales-moleculair
 import { SECTION_C_QUESTIONS } from './health-training-ue14-orbitales-moleculaires.section-c.seed';
 import {
   SECTION_D_DISCOVER_QUESTION_ORDERS,
-  SECTION_D_PRACTICE_QUESTION_ORDERS,
   SECTION_D_QUESTIONS,
 } from './health-training-ue14-orbitales-moleculaires.section-d.seed';
 import {
@@ -31,12 +30,8 @@ const PRACTICE_SECTION_B_QUIZ_SLUG =
   'sentrainer-hybridation-geometrie-molecules-simples';
 const DISCOVER_SECTION_C_QUIZ_SLUG =
   'decouvrir-liaisons-multiples-carbone-aromaticite';
-const PRACTICE_SECTION_C_QUIZ_SLUG =
-  'sentrainer-liaisons-multiples-carbone-aromaticite';
 const DISCOVER_SECTION_D_QUIZ_SLUG =
   'decouvrir-regle-gillespie-geometrie-moleculaire';
-const PRACTICE_SECTION_D_QUIZ_SLUG =
-  'sentrainer-regle-gillespie-geometrie-moleculaire';
 const MASTER_SYNTHESIS_QUIZ_SLUG = 'maitriser-synthese-orbitales-moleculaires';
 const normalizeTrailingCatchAllChoice = (choice: string) =>
   choice
@@ -44,7 +39,7 @@ const normalizeTrailingCatchAllChoice = (choice: string) =>
     .toLocaleLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[’']/g, ' ')
+    .replace(/[\u2019']/g, ' ')
     .replace(/[.!?]/g, '')
     .replace(/\s+/g, ' ');
 
@@ -242,7 +237,7 @@ const quizSeeds: SeedQuiz[] = [
     questionOrders: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
   },
   {
-    order: 3,
+    order: 1,
     slug: DISCOVER_SECTION_B_QUIZ_SLUG,
     title: `Hybridation et géométrie des molécules simples`,
     description:
@@ -252,7 +247,7 @@ const quizSeeds: SeedQuiz[] = [
     questionOrders: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
   },
   {
-    order: 4,
+    order: 2,
     slug: PRACTICE_SECTION_B_QUIZ_SLUG,
     title: `Hybridation et géométrie des molécules simples`,
     description:
@@ -262,7 +257,7 @@ const quizSeeds: SeedQuiz[] = [
     questionOrders: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
   },
   {
-    order: 5,
+    order: 1,
     slug: DISCOVER_SECTION_C_QUIZ_SLUG,
     title: `Liaisons multiples, carbone et aromaticité`,
     description:
@@ -272,17 +267,7 @@ const quizSeeds: SeedQuiz[] = [
     questionOrders: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
   },
   {
-    order: 6,
-    slug: PRACTICE_SECTION_C_QUIZ_SLUG,
-    title: `Liaisons multiples, carbone et aromaticité`,
-    description:
-      `Applications intermédiaires sur les liaisons multiples, les structures carbonées et l'aromaticité.`,
-    stage: 'PRACTICE',
-    sectionOrder: 3,
-    questionOrders: [],
-  },
-  {
-    order: 7,
+    order: 1,
     slug: DISCOVER_SECTION_D_QUIZ_SLUG,
     title: `Règle de Gillespie et géométrie moléculaire`,
     description:
@@ -292,17 +277,7 @@ const quizSeeds: SeedQuiz[] = [
     questionOrders: SECTION_D_DISCOVER_QUESTION_ORDERS,
   },
   {
-    order: 8,
-    slug: PRACTICE_SECTION_D_QUIZ_SLUG,
-    title: `Règle de Gillespie et géométrie moléculaire`,
-    description:
-      `Applications intermédiaires sur la règle de Gillespie et la géométrie moléculaire.`,
-    stage: 'PRACTICE',
-    sectionOrder: 4,
-    questionOrders: SECTION_D_PRACTICE_QUESTION_ORDERS,
-  },
-  {
-    order: 9,
+    order: 1,
     slug: MASTER_SYNTHESIS_QUIZ_SLUG,
     title: `Synthèse`,
     description:

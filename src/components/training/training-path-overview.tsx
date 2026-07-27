@@ -700,7 +700,7 @@ export function TrainingPathOverview({
                           ) : (
                             <TrainingQuizActionButton
                               href={quiz.href}
-                              label={quiz.status === 'mastered' ? 'Revoir' : 'Commencer'}
+                              label={quiz.status === 'mastered' ? 'Revoir' : 'Démarrer'}
                               variant={quiz.status === 'mastered' ? 'outline' : 'default'}
                             />
                           )}

@@ -4,8 +4,6 @@ export const SECTION_D_DISCOVER_QUESTION_ORDERS: number[] = [
   51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
 ];
 
-export const SECTION_D_PRACTICE_QUESTION_ORDERS: number[] = [];
-
 export const SECTION_D_QUESTIONS: SeedQuestion[] = [
   {
       order: 51,

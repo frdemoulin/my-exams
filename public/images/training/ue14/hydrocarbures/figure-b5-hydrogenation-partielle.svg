@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .tb { stroke:#111; stroke-width:4; stroke-linecap:round; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 32px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 40px Arial, Helvetica, sans-serif; fill:#111; }
+    .arrow { stroke:#111; stroke-width:5; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111"/>
+    </marker>
+  </defs>
+  
+<text x="60" y="60" class="title">Figure B5 — Hydrogénation progressive d'un alcyne</text>
+<text x="90" y="370" class="txt">HC≡CH</text>
+<line x1="300" y1="355" x2="560" y2="355" class="arrow"/>
+<text x="360" y="300" class="small">H2 / catalyseur</text>
+<text x="620" y="370" class="txt">CH2=CH2</text>
+<line x1="870" y1="355" x2="1120" y2="355" class="arrow"/>
+<text x="925" y="300" class="small">H2 / catalyseur</text>
+<text x="1180" y="370" class="txt">CH3–CH3</text>
+<text x="115" y="470" class="small">éthyne</text>
+<text x="665" y="470" class="small">éthène</text>
+<text x="1210" y="470" class="small">éthane</text>
+<text x="95" y="570" class="small">alcyne</text>
+<text x="660" y="570" class="small">alcène</text>
+<text x="1210" y="570" class="small">alcane</text>
+
+</svg>

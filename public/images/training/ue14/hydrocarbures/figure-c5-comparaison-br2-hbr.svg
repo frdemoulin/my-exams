@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect x="0" y="0" width="1200" height="720" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .dbl { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .arrow { stroke:#111; stroke-width:4; fill:none; marker-end:url(#arrowhead); }
+    .txt { font: 32px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 24px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .box { fill:#fff; stroke:#222; stroke-width:3; rx:16; }
+  </style>
+  <defs><marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0 0, 12 4, 0 8" fill="#111"/></marker></defs>
+  
+<text x="55" y="55" class="title">Figure C5 — Comparaison Br2 / HBr sur le propène</text>
+<rect x="70" y="120" width="500" height="470" class="box"/>
+<text x="115" y="185" class="label">Propène + Br2</text>
+<text x="125" y="275" class="txt">CH3–CH=CH2</text>
+<line x1="185" y1="330" x2="390" y2="330" class="arrow"/>
+<text x="245" y="310" class="small">Br2</text>
+<text x="125" y="425" class="txt">CH3–CHBr–CH2Br</text>
+<text x="150" y="500" class="small">deux Br ajoutés</text>
+<rect x="630" y="120" width="500" height="470" class="box"/>
+<text x="675" y="185" class="label">Propène + HBr</text>
+<text x="685" y="275" class="txt">CH3–CH=CH2</text>
+<line x1="745" y1="330" x2="950" y2="330" class="arrow"/>
+<text x="805" y="310" class="small">HBr</text>
+<text x="685" y="425" class="txt">CH3–CHBr–CH3</text>
+<text x="720" y="500" class="small">un H et un Br ajoutés</text>
+
+</svg>

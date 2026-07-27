@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+  <rect x="0" y="0" width="1200" height="780" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .thin { stroke:#333; stroke-width:2; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 26px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .mono { font: 28px 'Courier New', monospace; fill:#111; }
+  </style>
+  
+<text x="70" y="60" class="title">Figure D1 — Aides de comparaison CIP</text>
+<text x="70" y="120" class="small">Rappel : en cas d'égalité au premier atome, on compare les atomes du rang suivant, classés par numéro atomique décroissant.</text>
+
+<rect x="80" y="180" width="300" height="180" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="110" y="230" class="label">CH3</text>
+<text x="110" y="280" class="mono">[ H , H , H ]</text>
+<text x="110" y="330" class="small">premier atome : C</text>
+
+<rect x="450" y="180" width="300" height="180" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="480" y="230" class="label">CH2OH</text>
+<text x="480" y="280" class="mono">[ O , H , H ]</text>
+<text x="480" y="330" class="small">premier atome : C</text>
+
+<rect x="820" y="180" width="300" height="180" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="850" y="230" class="label">COOH</text>
+<text x="850" y="280" class="mono">[ O , O , O ]</text>
+<text x="850" y="330" class="small">traitement de la liaison multiple</text>
+
+<text x="110" y="470" class="small">On obtient : COOH &gt; CH2OH &gt; CH3</text>
+<text x="110" y="540" class="small">Exemple isotope : D = ${}^2H$ &gt; H = ${}^1H$</text>
+
+</svg>

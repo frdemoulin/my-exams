@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 25px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .card { fill:#fff; stroke:#111; stroke-width:3; }
+  </style>
+  
+<text x="60" y="60" class="title">Figure S7 — Couple de molécules P et Q</text>
+<line x1="700" y1="120" x2="700" y2="700" class="dash"/>
+<text x="655" y="105" class="small">miroir</text>
+<text x="180" y="135" class="label">P</text>
+<text x="1100" y="135" class="label">Q</text>
+<!-- P -->
+<circle cx="350" cy="390" r="7" fill="#111"/>
+<line x1="350" y1="390" x2="350" y2="190" class="bond"/>
+<line x1="350" y1="390" x2="170" y2="560" class="bond"/>
+<polygon points="350,390 530,540 500,570" class="wedge"/>
+<line x1="350" y1="390" x2="200" y2="230" class="dash"/>
+<text x="320" y="170" class="txt">Cl</text>
+<text x="80" y="600" class="txt">CH3</text>
+<text x="545" y="575" class="txt">OH</text>
+<text x="140" y="225" class="txt">H</text>
+<text x="334" y="374" class="star">*</text>
+<!-- Q -->
+<circle cx="1050" cy="390" r="7" fill="#111"/>
+<line x1="1050" y1="390" x2="1050" y2="190" class="bond"/>
+<line x1="1050" y1="390" x2="1230" y2="560" class="bond"/>
+<polygon points="1050,390 870,540 900,570" class="wedge"/>
+<line x1="1050" y1="390" x2="1200" y2="230" class="dash"/>
+<text x="1020" y="170" class="txt">Cl</text>
+<text x="1235" y="600" class="txt">CH3</text>
+<text x="790" y="575" class="txt">OH</text>
+<text x="1210" y="225" class="txt">H</text>
+<text x="1034" y="374" class="star">*</text>
+
+</svg>

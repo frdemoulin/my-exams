@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .tb { stroke:#111; stroke-width:4; stroke-linecap:round; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 32px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 40px Arial, Helvetica, sans-serif; fill:#111; }
+    .arrow { stroke:#111; stroke-width:5; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111"/>
+    </marker>
+  </defs>
+  
+<text x="60" y="60" class="title">Figure B1 — Quatre hydrocarbures</text>
+
+<rect x="60" y="130" width="300" height="520" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="190" y="185" class="label">A</text>
+<text x="115" y="360" class="txt">CH3–CH2–CH3</text>
+<text x="150" y="570" class="small">propane</text>
+
+<rect x="390" y="130" width="300" height="520" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="520" y="185" class="label">B</text>
+<text x="440" y="360" class="txt">CH2=CH–CH3</text>
+<text x="480" y="570" class="small">propène</text>
+
+<rect x="720" y="130" width="300" height="520" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="850" y="185" class="label">C</text>
+<polygon points="870,270 770,470 970,470" fill="none" stroke="#111" stroke-width="6"/>
+<text x="785" y="570" class="small">cyclopropane</text>
+
+<rect x="1050" y="130" width="300" height="520" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="1180" y="185" class="label">D</text>
+<text x="1090" y="360" class="txt">HC≡C–CH3</text>
+<text x="1140" y="570" class="small">propyne</text>
+
+</svg>

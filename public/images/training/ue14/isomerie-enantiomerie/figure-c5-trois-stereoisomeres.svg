@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect x="0" y="0" width="1200" height="700" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db1 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .db2 { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 28px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .thin { stroke:#333; stroke-width:2; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+  </style>
+  
+<text x="70" y="60" class="title">Figure C5 — Trois stéréoisomères d'une même constitution</text>
+<rect x="120" y="160" width="250" height="280" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="475" y="160" width="250" height="280" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="830" y="160" width="250" height="280" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="235" y="210" class="label">A</text>
+<text x="590" y="210" class="label">B</text>
+<text x="945" y="210" class="label">C</text>
+<text x="188" y="300" class="title">(R,R)</text>
+<text x="543" y="300" class="title">(S,S)</text>
+<text x="898" y="300" class="title">(R,S)</text>
+<text x="172" y="375" class="small">Même constitution</text>
+<text x="526" y="375" class="small">Même constitution</text>
+<text x="881" y="375" class="small">Même constitution</text>
+
+</svg>

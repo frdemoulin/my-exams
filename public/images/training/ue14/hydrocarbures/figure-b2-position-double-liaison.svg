@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .tb { stroke:#111; stroke-width:4; stroke-linecap:round; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 32px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 40px Arial, Helvetica, sans-serif; fill:#111; }
+    .arrow { stroke:#111; stroke-width:5; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111"/>
+    </marker>
+  </defs>
+  
+<text x="60" y="60" class="title">Figure B2 — Position de la double liaison</text>
+
+<rect x="70" y="150" width="380" height="480" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="245" y="205" class="label">A</text>
+<text x="110" y="380" class="txt">CH2=CH–CH2–CH3</text>
+<text x="205" y="555" class="small">but-1-ène</text>
+
+<rect x="510" y="150" width="380" height="480" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="685" y="205" class="label">B</text>
+<text x="545" y="380" class="txt">CH3–CH=CH–CH3</text>
+<text x="645" y="555" class="small">but-2-ène</text>
+
+<rect x="950" y="150" width="380" height="480" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="1125" y="205" class="label">C</text>
+<text x="1000" y="350" class="txt">CH2=C(CH3)2</text>
+<text x="1030" y="555" class="small">2-méthylpropène</text>
+
+</svg>

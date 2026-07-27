@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .thin { stroke:#111; stroke-width:3; stroke-linecap:round; fill:none; }
+    .arrow { stroke:#111; stroke-width:4; fill:none; marker-end:url(#arrowhead); }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 31px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 39px Arial, Helvetica, sans-serif; fill:#111; }
+    .formula { font: 32px 'DejaVu Sans Mono', 'Courier New', monospace; fill:#111; }
+    .box { fill:#fff; stroke:#111; stroke-width:3; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="9" refX="10" refY="4.5" orient="auto">
+      <polygon points="0 0, 12 4.5, 0 9" fill="#111"/>
+    </marker>
+  </defs>
+  
+<text x="55" y="55" class="title">Figure F3 — Produits obtenus à partir du propène</text>
+<text x="485" y="110" class="formula">CH3–CH=CH2</text>
+
+<rect x="55" y="155" width="390" height="150" class="box"/>
+<text x="75" y="195" class="label">A — H2 / catalyseur</text>
+<text x="105" y="260" class="formula">CH3–CH2–CH3</text>
+
+<rect x="505" y="155" width="390" height="150" class="box"/>
+<text x="525" y="195" class="label">B — Br2</text>
+<text x="535" y="260" class="formula">CH3–CHBr–CH2Br</text>
+
+<rect x="955" y="155" width="390" height="150" class="box"/>
+<text x="975" y="195" class="label">C — HBr</text>
+<text x="1010" y="260" class="formula">CH3–CHBr–CH3</text>
+
+<rect x="55" y="345" width="390" height="150" class="box"/>
+<text x="75" y="385" class="label">D — H2O</text>
+<text x="100" y="450" class="formula">CH3–CH(OH)–CH3</text>
+
+<rect x="505" y="345" width="390" height="150" class="box"/>
+<text x="525" y="385" class="label">E — Oxydation douce</text>
+<polygon points="655,455 735,455 695,395" class="bond"/>
+<text x="680" y="390" class="txt">O</text>
+<text x="585" y="475" class="small">époxyde</text>
+
+<rect x="955" y="345" width="390" height="150" class="box"/>
+<text x="975" y="385" class="label">F — Oxydation modérée</text>
+<text x="975" y="450" class="formula">CH3–CH(OH)–CH2OH</text>
+
+<rect x="310" y="550" width="780" height="160" class="box"/>
+<text x="335" y="595" class="label">G — Oxydation forte</text>
+<text x="465" y="665" class="formula">CH3–CHO  +  H–CHO</text>
+
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <rect x="0" y="0" width="1400" height="820" fill="white"/>
+  <style>
+    .line { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .thin { stroke:#444; stroke-width:3; fill:none; }
+    .dash { stroke:#666; stroke-width:3; stroke-dasharray:10 10; fill:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 26px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 31px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 39px Arial, Helvetica, sans-serif; fill:#111; }
+    .box { fill:white; stroke:#111; stroke-width:4; }
+    .plus { fill:#efefef; stroke:#111; stroke-width:2; }
+    .minus { fill:white; stroke:#111; stroke-width:2; }
+  </style>
+  
+<text x="60" y="65" class="title">Figure E2 — Trois mélanges de deux énantiomères</text>
+<text x="70" y="120" class="small">Zone grisée : énantiomère (+) — zone blanche : énantiomère (-)</text>
+
+<!-- A -->
+<text x="170" y="215" class="label">Mélange A</text>
+<rect x="100" y="260" width="400" height="130" class="box"/>
+<rect x="100" y="260" width="200" height="130" class="plus"/>
+<rect x="300" y="260" width="200" height="130" class="minus"/>
+<text x="175" y="335" class="label">50 % (+)</text>
+<text x="365" y="335" class="label">50 % (-)</text>
+<text x="210" y="440" class="small">ee = 0 %</text>
+
+<!-- B -->
+<text x="170" y="535" class="label">Mélange B</text>
+<rect x="100" y="575" width="400" height="130" class="box"/>
+<rect x="100" y="575" width="300" height="130" class="plus"/>
+<rect x="400" y="575" width="100" height="130" class="minus"/>
+<text x="190" y="650" class="label">75 % (+)</text>
+<text x="405" y="650" class="small">25 % (-)</text>
+<text x="205" y="755" class="small">ee = 50 %</text>
+
+<!-- C -->
+<text x="850" y="215" class="label">Mélange C</text>
+<rect x="700" y="260" width="600" height="200" class="box"/>
+<rect x="700" y="260" width="570" height="200" class="plus"/>
+<rect x="1270" y="260" width="30" height="200" class="minus"/>
+<text x="900" y="370" class="title">95 % (+)</text>
+<text x="1195" y="510" class="small">5 % (-)</text>
+<text x="930" y="565" class="label">ee = 90 %</text>
+
+</svg>

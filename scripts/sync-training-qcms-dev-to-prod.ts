@@ -939,6 +939,12 @@ async function syncChapterToProd(
             select: {
               id: true,
               slug: true,
+              order: true,
+              section: {
+                select: {
+                  order: true,
+                },
+              },
             },
           }),
         ]);
@@ -951,6 +957,12 @@ async function syncChapterToProd(
         );
         const existingQuizBySlug = new Map(
           existingQuizzes.map((quiz) => [quiz.slug, quiz])
+        );
+        const existingQuizBySectionOrder = new Map(
+          existingQuizzes.map((quiz) => [
+            `${quiz.section.order}:${quiz.order}`,
+            quiz,
+          ])
         );
 
         const questionIdByOrder = new Map<number, string>();
@@ -1059,7 +1071,9 @@ async function syncChapterToProd(
           }
 
           for (const quiz of section.quizzes) {
-            const existingQuiz = existingQuizBySlug.get(quiz.slug);
+            const existingQuiz =
+              existingQuizBySlug.get(quiz.slug) ??
+              existingQuizBySectionOrder.get(`${section.order}:${quiz.order}`);
             const prodQuiz = existingQuiz
               ? await transaction.trainingQuiz.update({
                   where: {
@@ -1067,6 +1081,7 @@ async function syncChapterToProd(
                   },
                   data: {
                     sectionId: prodSection.id,
+                    slug: quiz.slug,
                     title: quiz.title,
                     description: quiz.description,
                     order: quiz.order,

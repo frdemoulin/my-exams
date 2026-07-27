@@ -13,7 +13,7 @@ type TrainingQuizActionButtonProps = {
 
 export function TrainingQuizActionButton({
   href,
-  label = 'Commencer',
+  label = 'Démarrer',
   variant = 'default',
 }: TrainingQuizActionButtonProps) {
   return (

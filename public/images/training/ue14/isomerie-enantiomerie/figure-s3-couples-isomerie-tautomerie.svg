@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .db { stroke:#111; stroke-width:5; stroke-linecap:round; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 25px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .card { fill:#fff; stroke:#111; stroke-width:3; }
+  </style>
+  
+<text x="60" y="60" class="title">Figure S3 — Isomérie et tautomérie</text>
+<rect x="70" y="130" width="590" height="260" class="card"/>
+<rect x="740" y="130" width="590" height="260" class="card"/>
+<rect x="70" y="450" width="590" height="260" class="card"/>
+<rect x="740" y="450" width="590" height="260" class="card"/>
+<text x="95" y="180" class="label">A</text>
+<text x="95" y="260" class="txt">CH3–CH2–CHO</text>
+<text x="410" y="260" class="txt">CH3–CO–CH3</text>
+<text x="765" y="180" class="label">B</text>
+<text x="765" y="260" class="txt">CH3–CH2–CH2OH</text>
+<text x="1080" y="260" class="txt">CH3–CH(OH)–CH3</text>
+<text x="95" y="500" class="label">C</text>
+<text x="95" y="580" class="txt">CH3–CH2–OH</text>
+<text x="410" y="580" class="txt">CH3–O–CH3</text>
+<text x="765" y="500" class="label">D</text>
+<text x="765" y="580" class="txt">CH3–CO–CH3</text>
+<text x="1080" y="580" class="txt">CH2=C(OH)–CH3</text>
+
+</svg>

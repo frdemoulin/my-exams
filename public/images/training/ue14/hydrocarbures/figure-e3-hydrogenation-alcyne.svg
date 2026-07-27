@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <rect x="0" y="0" width="1400" height="850" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .double { stroke:#111; stroke-width:4; stroke-linecap:round; }
+    .triple { stroke:#111; stroke-width:4; stroke-linecap:round; }
+    .arrow { stroke:#111; stroke-width:4; fill:none; marker-end:url(#arrow); }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 39px Arial, Helvetica, sans-serif; fill:#111; }
+    .box { fill:white; stroke:#111; stroke-width:3; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#111"/>
+    </marker>
+  </defs>
+  
+<text x="70" y="60" class="title">Figure E3 — Hydrogénation progressive d'un alcyne</text>
+
+<text x="70" y="315" class="txt">R—C≡C—R′</text>
+<line x1="320" y1="300" x2="540" y2="300" class="arrow"/>
+<text x="370" y="255" class="small">+ H2, catalyseur</text>
+<text x="590" y="315" class="txt">R—CH=CH—R′</text>
+<line x1="900" y1="300" x2="1120" y2="300" class="arrow"/>
+<text x="945" y="255" class="small">+ H2, catalyseur</text>
+<text x="1165" y="315" class="txt">R—CH2—CH2—R′</text>
+
+<text x="110" y="420" class="label">alcyne</text>
+<text x="665" y="420" class="label">alcène</text>
+<text x="1210" y="420" class="label">alcane</text>
+<text x="380" y="530" class="small">hydrogénation partielle</text>
+<text x="960" y="530" class="small">hydrogénation complète</text>
+
+</svg>

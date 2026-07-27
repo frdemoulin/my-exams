@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+  <rect x="0" y="0" width="1200" height="780" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .thin { stroke:#333; stroke-width:2; }
+    .dash { stroke:#111; stroke-width:3; stroke-dasharray:8 8; fill:none; }
+    .wedge { fill:#111; stroke:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 26px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 30px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 38px Arial, Helvetica, sans-serif; fill:#111; }
+    .star { font: bold 28px Arial, Helvetica, sans-serif; fill:#c20; }
+    .mono { font: 28px 'Courier New', monospace; fill:#111; }
+  </style>
+  
+<text x="70" y="60" class="title">Figure D4 — Sérine</text>
+<text x="70" y="120" class="small">Carbone asymétrique de la sérine.</text>
+<circle cx="260" cy="360" r="7" fill="#111"/>
+<line x1="260" y1="360" x2="100" y2="360" class="bond"/>
+<line x1="260" y1="360" x2="260" y2="190" class="bond"/>
+<polygon points="260,360 420,470 390,500" class="wedge"/>
+<line x1="260" y1="360" x2="420" y2="230" class="dash"/>
+<text x="35" y="372" class="txt">COOH</text>
+<text x="205" y="175" class="txt">CH2OH</text>
+<text x="435" y="505" class="txt">NH2</text>
+<text x="440" y="230" class="txt">H</text>
+<text x="245" y="345" class="star">*</text>
+
+</svg>

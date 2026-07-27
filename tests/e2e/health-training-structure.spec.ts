@@ -193,6 +193,6 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     await expect(page.getByText(formatQuestionCountLabel(0), { exact: true })).toHaveCount(
       zeroQuestionQuizCount,
     );
-    await expect(page.getByRole("link", { name: /Commencer/i })).toHaveCount(chapter.quizCount);
+    await expect(page.getByRole("link", { name: /Démarrer/i })).toHaveCount(chapter.quizCount);
   });
 });

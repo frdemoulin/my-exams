@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    .bond { stroke:#111; stroke-width:6; stroke-linecap:round; stroke-linejoin:round; fill:none; }
+    .double { stroke:#111; stroke-width:5; stroke-linecap:round; fill:none; }
+    .txt { font: 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .small { font: 27px Arial, Helvetica, sans-serif; fill:#111; }
+    .label { font: bold 34px Arial, Helvetica, sans-serif; fill:#111; }
+    .title { font: bold 40px Arial, Helvetica, sans-serif; fill:#111; }
+  </style>
+  
+<text x="70" y="65" class="title">Figure A1 — Quatre cyclanes</text>
+<text x="105" y="150" class="label">A</text>
+<polygon points="190,410 330,180 470,410" class="bond"/>
+
+<text x="465" y="150" class="label">B</text>
+<rect x="540" y="210" width="250" height="250" class="bond"/>
+
+<text x="830" y="150" class="label">C</text>
+<polygon points="1000,180 1145,285 1090,455 910,455 855,285" class="bond"/>
+
+<text x="1160" y="150" class="label">D</text>
+<polygon points="1200,210 1310,275 1310,405 1200,470 1090,405 1090,275" class="bond"/>
+
+<text x="135" y="560" class="small">3 sommets</text>
+<text x="590" y="560" class="small">4 sommets</text>
+<text x="930" y="560" class="small">5 sommets</text>
+<text x="1155" y="560" class="small">6 sommets</text>
+
+</svg>
