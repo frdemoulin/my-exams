@@ -156,7 +156,7 @@ const sections: SeedSection[] = [
 
 const firstQuizQuestionOrders = [1, 22, 2, 11, 12, 13, 21, 15, 3, 4];
 const secondQuizQuestionOrders = [25, 14, 26, 16, 17, 18, 19, 20, 23, 24];
-const secondSectionDiscoverQuestionOrders = [5, 6, 7, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39];
+const secondSectionDiscoverQuestionOrders = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39];
 const thirdSectionDiscoverQuestionOrders = [8, 57, 56, 9, 58, 59, 60, 61, 62, 10];
 
 const quizSeeds: SeedQuiz[] = [

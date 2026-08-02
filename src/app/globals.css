@@ -1,9 +1,10 @@
 /* Font principale (Flowbite utilise aussi Inter) */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 
-/* Évite les boucles de recompilation côté public en mode watch */
+/* Sources Tailwind explicites : évite que les outputs Next dev soient scannés. */
+@source "../";
 @source not "../../public";
 
 /* Thème Flowbite 4 (choisis-en un : default / minimal / enterprise) */
@@ -15,6 +16,7 @@
 /* Intégration Flowbite pour Tailwind v4 */
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
+@source "../../node_modules/flowbite-react";
 
 /* Variante dark basée sur la classe .dark portée par <html> ou <body> */
 @custom-variant dark (&:where(.dark, .dark *));

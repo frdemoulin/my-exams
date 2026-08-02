@@ -31,7 +31,7 @@ export function CourseUnitDetailTabs({
     teachingElements,
 }: CourseUnitDetailTabsProps) {
     return (
-        <Tabs variant="underline" className="mt-6" theme={healthTabsTheme}>
+        <Tabs applyTheme="replace" variant="underline" className="mt-6" theme={healthTabsTheme}>
             <TabItem active title="Informations générales">
                 <HealthDetail entity="course-units" record={record} options={options} />
             </TabItem>

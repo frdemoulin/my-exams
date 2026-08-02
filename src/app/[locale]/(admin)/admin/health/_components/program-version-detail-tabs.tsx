@@ -30,7 +30,7 @@ export function ProgramVersionDetailTabs({
     const totalCourseUnits = blocks.reduce((total, block) => total + block.courseUnits.length, 0);
 
     return (
-        <Tabs variant="underline" className="mt-6" theme={healthTabsTheme}>
+        <Tabs applyTheme="replace" variant="underline" className="mt-6" theme={healthTabsTheme}>
             <TabItem active title="Informations générales">
                 <HealthDetail entity="program-versions" record={record} options={options} />
             </TabItem>
