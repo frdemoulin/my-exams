@@ -12,7 +12,7 @@ import type { HealthStudentCourseUnitDetail } from '@/core/health';
 const healthTabsTheme = {
   base: 'flex flex-col gap-2',
   tablist: {
-    base: 'text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-body dark:border-default',
+    base: 'text-sm font-medium text-center text-body border-b border-default',
     variant: {
       underline: 'flex flex-wrap -mb-px',
     },
@@ -22,8 +22,8 @@ const healthTabsTheme = {
         underline: {
           base: '',
           active: {
-            on: 'text-blue-600 border-b border-blue-600 rounded-t-base dark:text-fg-brand dark:border-brand',
-            off: 'text-gray-500 hover:text-gray-600 hover:border-gray-300 dark:text-body dark:hover:text-fg-brand dark:hover:border-brand',
+            on: 'text-fg-brand border-b border-brand rounded-t-base',
+            off: 'text-body hover:text-fg-brand hover:border-brand',
           },
         },
       },
@@ -59,7 +59,7 @@ export function HealthCourseUnitTabs({
   activeTeachingElementId,
 }: HealthCourseUnitTabsProps) {
   return (
-    <Tabs variant="underline" theme={healthTabsTheme}>
+    <Tabs applyTheme="replace" variant="underline" theme={healthTabsTheme}>
       {courseUnit.teachingElements.map((teachingElement) => (
         <TabItem
           key={teachingElement.id}

@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "label": "Chapitres — Reims UE14 — EC Biochimie",
+    "description": "Chapitres de l'EC Biochimie de l'UE14 Santé de Reims, structurés en glucides, lipides, protéines et enzymologie.",
+    "academicYear": "2025-2026",
+    "sourceLabel": "Capture des fichiers de cours UE14 Biochimie Reims",
+    "sourceCheckedAt": "2026-07-28"
+  },
+  "context": {
+    "institutionNameContains": "Reims Champagne-Ardenne",
+    "programVersionSlug": "las-2025-2026",
+    "courseUnitSlug": "ue14-biochimie-biologie-cellulaire-chimie",
+    "teachingElementSlug": "biochimie",
+    "applyToAllMatchingCourseUnits": true,
+    "chapterOrderBase": 1200,
+    "subjectLongDescription": "Sciences de la Vie et de la Terre",
+    "domainShortDescription": "Biochimie"
+  },
+  "displayGroups": [
+    {
+      "key": "glucides",
+      "label": "Glucides",
+      "order": 1
+    },
+    {
+      "key": "lipides",
+      "label": "Lipides",
+      "order": 2
+    },
+    {
+      "key": "acides-amines-peptides-proteines",
+      "label": "Acides aminés, peptides et protéines",
+      "order": 3
+    },
+    {
+      "key": "enzymologie",
+      "label": "Enzymologie",
+      "order": 4
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les glucides : généralités et structure",
+      "shortTitle": "Glucides : généralités",
+      "slug": "glucides-generalites-structure",
+      "description": "Structure générale des glucides, classification et représentations.",
+      "order": 1,
+      "displayGroupKey": "glucides",
+      "displayGroupLabel": "Glucides",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 1"
+    },
+    {
+      "title": "Les oses simples et dérivés",
+      "shortTitle": "Oses simples et dérivés",
+      "slug": "oses-simples-derives",
+      "description": "Oses simples, dérivés et principaux repères structuraux.",
+      "order": 2,
+      "displayGroupKey": "glucides",
+      "displayGroupLabel": "Glucides",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 2"
+    },
+    {
+      "title": "Les osides",
+      "shortTitle": "Osides",
+      "slug": "osides",
+      "description": "Osides, liaisons osidiques et grands assemblages glucidiques.",
+      "order": 3,
+      "displayGroupKey": "glucides",
+      "displayGroupLabel": "Glucides",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 3"
+    },
+    {
+      "title": "Introduction générale aux lipides et acides gras",
+      "shortTitle": "Lipides et acides gras",
+      "slug": "introduction-lipides-acides-gras",
+      "description": "Panorama des lipides et propriétés générales des acides gras.",
+      "order": 4,
+      "displayGroupKey": "lipides",
+      "displayGroupLabel": "Lipides",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 4"
+    },
+    {
+      "title": "Les eicosanoïdes",
+      "shortTitle": "Eicosanoïdes",
+      "slug": "eicosanoides",
+      "description": "Eicosanoïdes, familles et rôles biologiques.",
+      "order": 5,
+      "displayGroupKey": "lipides",
+      "displayGroupLabel": "Lipides",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 5"
+    },
+    {
+      "title": "Glycérides et glycérophospholipides",
+      "shortTitle": "Glycérides et glycérophospholipides",
+      "slug": "glycerides-glycerophospholipides",
+      "description": "Glycérides, glycérophospholipides et organisation membranaire.",
+      "order": 6,
+      "displayGroupKey": "lipides",
+      "displayGroupLabel": "Lipides",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 6"
+    },
+    {
+      "title": "Les sphingolipides",
+      "shortTitle": "Sphingolipides",
+      "slug": "sphingolipides",
+      "description": "Sphingolipides et principaux rôles biologiques.",
+      "order": 7,
+      "displayGroupKey": "lipides",
+      "displayGroupLabel": "Lipides",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 7"
+    },
+    {
+      "title": "Stérols, stéroïdes et stérides",
+      "shortTitle": "Stérols, stéroïdes et stérides",
+      "slug": "sterols-steroides-sterides",
+      "description": "Stérols, stéroïdes et stérides du vivant.",
+      "order": 8,
+      "displayGroupKey": "lipides",
+      "displayGroupLabel": "Lipides",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 8"
+    },
+    {
+      "title": "Acides aminés : structure et rôles biologiques",
+      "shortTitle": "Acides aminés",
+      "slug": "acides-amines-structure-roles-biologiques",
+      "description": "Structure des acides aminés et principales fonctions biologiques.",
+      "order": 9,
+      "displayGroupKey": "acides-amines-peptides-proteines",
+      "displayGroupLabel": "Acides aminés, peptides et protéines",
+      "displayGroupOrder": 3,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 9"
+    },
+    {
+      "title": "Structure des peptides et protéines",
+      "shortTitle": "Structure des peptides et protéines",
+      "slug": "structure-peptides-proteines",
+      "description": "Organisation structurale des peptides et des protéines.",
+      "order": 10,
+      "displayGroupKey": "acides-amines-peptides-proteines",
+      "displayGroupLabel": "Acides aminés, peptides et protéines",
+      "displayGroupOrder": 3,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 10"
+    },
+    {
+      "title": "Rôles biologiques des acides aminés et des peptides",
+      "shortTitle": "Rôles biologiques des acides aminés",
+      "slug": "roles-biologiques-acides-amines-peptides",
+      "description": "Fonctions biologiques des acides aminés et des peptides.",
+      "order": 11,
+      "displayGroupKey": "acides-amines-peptides-proteines",
+      "displayGroupLabel": "Acides aminés, peptides et protéines",
+      "displayGroupOrder": 3,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 11"
+    },
+    {
+      "title": "Rôles biologiques des protéines — partie 1",
+      "shortTitle": "Rôles des protéines — partie 1",
+      "slug": "roles-biologiques-proteines-partie-1",
+      "description": "Rôles biologiques des protéines, première partie.",
+      "order": 12,
+      "displayGroupKey": "acides-amines-peptides-proteines",
+      "displayGroupLabel": "Acides aminés, peptides et protéines",
+      "displayGroupOrder": 3,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 12"
+    },
+    {
+      "title": "Rôles biologiques des protéines — partie 2",
+      "shortTitle": "Rôles des protéines — partie 2",
+      "slug": "roles-biologiques-proteines-partie-2",
+      "description": "Rôles biologiques des protéines, seconde partie.",
+      "order": 13,
+      "displayGroupKey": "acides-amines-peptides-proteines",
+      "displayGroupLabel": "Acides aminés, peptides et protéines",
+      "displayGroupOrder": 3,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 13"
+    },
+    {
+      "title": "Enzymes : propriétés, nomenclature, mécanisme d'action et régulation",
+      "shortTitle": "Enzymes et régulation",
+      "slug": "enzymes-proprietes-nomenclature-mecanisme-action-regulation",
+      "description": "Bases d'enzymologie : propriétés, nomenclature, mécanismes et régulation.",
+      "order": 14,
+      "displayGroupKey": "enzymologie",
+      "displayGroupLabel": "Enzymologie",
+      "displayGroupOrder": 4,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 14"
+    },
+    {
+      "title": "Mesure de l’activité enzymatique",
+      "shortTitle": "Mesure de l'activité enzymatique",
+      "slug": "mesure-activite-enzymatique",
+      "description": "Principes de mesure de l'activité enzymatique.",
+      "order": 15,
+      "displayGroupKey": "enzymologie",
+      "displayGroupLabel": "Enzymologie",
+      "displayGroupOrder": 4,
+      "sourceFileLabel": "Capture UE14 Biochimie Reims — chapitre 15"
+    }
+  ]
+}

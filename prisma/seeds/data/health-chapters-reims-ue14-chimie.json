@@ -10,7 +10,8 @@
     "institutionNameContains": "Reims Champagne-Ardenne",
     "programVersionSlug": "las-2025-2026",
     "courseUnitSlug": "ue14-biochimie-biologie-cellulaire-chimie",
-    "teachingElementSlug": "chimie"
+    "teachingElementSlug": "chimie",
+    "applyToAllMatchingCourseUnits": true
   },
   "displayGroups": [
     {

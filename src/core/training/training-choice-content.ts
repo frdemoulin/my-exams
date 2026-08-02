@@ -76,6 +76,270 @@ export type TrainingMoleculeDiagram = {
     | '3-methylhexan-2-ol-topological';
 };
 
+export type TrainingCarbohydrateDiagramName =
+  | 'glyceraldehyde-dihydroxyacetone-linear'
+  | 'glyceraldehyde-enantiomers-fischer'
+  | 'glyceraldehyde-configurations-newman'
+  | 'glucose-enantiomers-fischer'
+  | 'glucose-mannose-galactose-fischer'
+  | 'aldoses-d-filiation'
+  | 'ketoses-d-filiation'
+  | 'glucose-cyclization-anomers'
+  | 'glucose-fructose-ribose-fischer'
+  | 'glucose-to-glucuronic-acid'
+  | 'polyol-reductions'
+  | 'osamine-n-acetyl-osamine'
+  | 'nana-sialic-acid'
+  | 'phosphorylated-oses'
+  | 'sulfated-gag-charge'
+  | 'osides-classification'
+  | 'glycosidic-condensation'
+  | 'lactose-saccharose-maltose'
+  | 'starch-amylose-amylopectin'
+  | 'glycogen-branching'
+  | 'cellulose-cellobiose'
+  | 'gag-basic-repeat'
+  | 'hyaluronic-chondroitin'
+  | 'dermatan-keratan'
+  | 'heparan-heparin'
+  | 'proteoglycan-aggregate'
+  | 'glycoprotein-linkages';
+
+export type TrainingCarbohydrateDiagram = {
+  type: 'carbohydrate';
+  diagram: TrainingCarbohydrateDiagramName;
+};
+
+export type TrainingLipidDiagramName =
+  | 'carbon-numbering'
+  | 'cis-trans-double-bond'
+  | 'delta-omega-numbering'
+  | 'fatty-acid-amphiphile'
+  | 'fatty-acid-reactions'
+  | 'linoleic-linolenic'
+  | 'lipid-classification'
+  | 'melting-point-factors'
+  | 'monolayer-micelle'
+  | 'oleic-palmitoleic'
+  | 'omega3-pathway'
+  | 'palmitic-stearic'
+  | 'saturated-chain-lengths'
+  | 'glycerol-overview'
+  | 'glycerol-numbering'
+  | 'acylglycerol-types'
+  | 'triglyceride-types'
+  | 'triglyceride-example'
+  | 'triglyceride-storage'
+  | 'triglyceride-melting'
+  | 'triglyceride-roles'
+  | 'palm-oil'
+  | 'phosphatidic-acid'
+  | 'phospholipid-general'
+  | 'headgroups'
+  | 'phosphatidylinositol'
+  | 'bilayer'
+  | 'micelle-liposome'
+  | 'phospholipase-sites'
+  | 'pip2-plc'
+  | 'pi3k-akt'
+  | 'plasmalogen-paf'
+  | 'family-tree'
+  | 'sphingosine-functions'
+  | 'ceramide-formation'
+  | 'catabolism'
+  | 'skin-barrier'
+  | 'ceramide-signaling'
+  | 'sphingomyelin-structure'
+  | 'myelin'
+  | 'glyco-general'
+  | 'cerebrosides'
+  | 'gangliosides'
+  | 'metabolic-pathway'
+  | 'disease-table'
+  | 'sterane'
+  | 'sterane-numbering'
+  | 'families'
+  | 'cholesterol-structure'
+  | 'cholesterol-forms'
+  | 'cholesterol-roles'
+  | 'cholesterol-transport'
+  | 'bile-vitd'
+  | 'hormone-origins'
+  | 'steroid-nuclei'
+  | 'aldosterone-cortisol'
+  | 'aldosterone-kidney'
+  | 'cortisol'
+  | 'androgen-estrogen'
+  | 'progesterone'
+  | 'arachidonic-acid-20-4'
+  | 'cox-series2-pathway'
+  | 'eicosanoid-overview'
+  | 'eicosanoid-synthesis-pathways'
+  | 'leukotriene-cells-effects'
+  | 'leukotriene-lipoxin-pathways'
+  | 'lta4-structure'
+  | 'misoprostol-pge1'
+  | 'pge1-pge2-effects'
+  | 'prostaglandin-nomenclature'
+  | 'prostaglandin-series'
+  | 'prostanoic-acid-reference'
+  | 'txa2-pgi2-balance';
+
+export type TrainingLipidDiagram = {
+  type: 'lipid';
+  diagram: TrainingLipidDiagramName;
+};
+
+export type TrainingProteinDiagramName =
+  | "acid-basic-amino-acids"
+  | "amino-acid-chirality"
+  | "amino-acid-codes"
+  | "amino-acid-families"
+  | "amino-acid-general-structure"
+  | "amino-acid-ionization"
+  | "amino-acid-overview"
+  | "aromatic-amino-acids"
+  | "branched-amino-acids"
+  | "essential-amino-acids"
+  | "fischer-amino-acids"
+  | "hydroxyl-sulfur-amino-acids"
+  | "ninhydrin-reaction"
+  | "polarity-classes"
+  | "polarity-solubility"
+  | "proline-hydroxyproline"
+  | "uv-absorption"
+  | "alpha-helix"
+  | "beta-sheet"
+  | "ck-dimers"
+  | "disulfide-proteolysis"
+  | "four-levels-primary"
+  | "peptide-bond"
+  | "peptide-bond-rigidity"
+  | "peptide-size"
+  | "peptide-termini"
+  | "phi-psi-angles"
+  | "posttranslational-modifications"
+  | "proline-peptide-kink"
+  | "protein-denaturation-classification"
+  | "protein-domains"
+  | "protein-g-trimer"
+  | "quaternary-assemblies"
+  | "quaternary-structure"
+  | "tertiary-structure"
+  | "tetramer-examples"
+  | "aa-biological-precursors"
+  | "aa-neurotransmitter-precursors"
+  | "aa-structural-roles"
+  | "amyloid-app"
+  | "cyclosporine-aspartame"
+  | "cytokines-interleukins"
+  | "essential-aa-needs"
+  | "glucagon-insulin"
+  | "glucogenic-ketogenic-aa"
+  | "growth-factors"
+  | "insulin-maturation"
+  | "interferons-chemokines"
+  | "natriuretic-peptides"
+  | "opioid-peptides"
+  | "peptide-antibiotics"
+  | "peptide-biological-roles"
+  | "peptide-hormone-signaling"
+  | "pomc-glutathione"
+  | "transamination-methionine"
+  | "urea-cycle-aa"
+  | "abc-pgp"
+  | "adhesion-families"
+  | "antibody-classes"
+  | "antibody-epitope"
+  | "antibody-fab-fc"
+  | "antibody-h2l2"
+  | "antibody-multimers"
+  | "cftr-channel"
+  | "connexin-gap-junction"
+  | "gpcr-rhodopsin"
+  | "igcam"
+  | "insulin-receptor"
+  | "integrin-focal-adhesion"
+  | "ionotropic-channel"
+  | "metabotropic-receptor"
+  | "nuclear-receptor"
+  | "receptor-general"
+  | "selectin-cadherin"
+  | "serotonin-gaba-channels"
+  | "sodium-potassium-pump"
+  | "actin-microtubules"
+  | "collagen-alpha-chain"
+  | "collagen-classification"
+  | "collagen-crosslinks"
+  | "collagen-fibril"
+  | "collagen-gly-x-y"
+  | "collagen-overview"
+  | "collagen-triple-helix"
+  | "collagen-type-iv"
+  | "cytoskeleton-overview"
+  | "extracellular-matrix"
+  | "fibronectin"
+  | "hemoglobin-anomalies"
+  | "hemoglobin-conformations"
+  | "hemoglobin-structure"
+  | "laminin"
+  | "matrix-glycoproteins"
+  | "myosin-cycle"
+  | "protein-role-acronym"
+  | "sickle-albumin-lipoprotein";
+
+export type TrainingProteinDiagram = {
+  type: "protein";
+  diagram: TrainingProteinDiagramName;
+};
+
+export type TrainingEnzymeDiagramName =
+  | "activation-energy"
+  | "active-site-parts"
+  | "allosteric-regulation"
+  | "apoenzyme-holoenzyme"
+  | "catalyst-types"
+  | "catalytic-power"
+  | "chymotrypsin-mechanism"
+  | "coenzyme-vitamins"
+  | "covalent-regulation"
+  | "enzyme-nature"
+  | "enzyme-nomenclature-ec"
+  | "enzyme-substrate-affinity"
+  | "es-ep-cycle"
+  | "fisher-koshland"
+  | "isoenzymes-ck-ldh"
+  | "pka-camp"
+  | "prosthetic-labile"
+  | "protease-specificity"
+  | "ubiquitin-proteasome"
+  | "zymogen-cascade"
+  | "beer-lambert-rate"
+  | "catalytic-concentration"
+  | "competitive-inhibition"
+  | "enzyme-concentrations"
+  | "enzyme-kinetics-overview"
+  | "initial-rate-slope"
+  | "kcat-turnover"
+  | "km-affinity"
+  | "lineweaver-burk"
+  | "michaelis-curve"
+  | "michaelis-equation"
+  | "mixed-inhibition-percent"
+  | "noncompetitive-uncompetitive"
+  | "ph-temperature-effects"
+  | "reaction-orders"
+  | "reaction-phases"
+  | "specific-activities"
+  | "substrate-enzyme-effects"
+  | "ui-katal"
+  | "ui-katal-conversion";
+
+export type TrainingEnzymeDiagram = {
+  type: "enzyme";
+  diagram: TrainingEnzymeDiagramName;
+};
+
 const allowedMoleculeDiagrams = new Set<TrainingMoleculeDiagram['molecule']>([
   'aspirin-topological',
   'salicylic-acid-topological',
@@ -99,6 +363,254 @@ const allowedMoleculeDiagrams = new Set<TrainingMoleculeDiagram['molecule']>([
   '3-methylhexan-2-ol-topological',
 ]);
 
+const allowedCarbohydrateDiagrams = new Set<TrainingCarbohydrateDiagramName>([
+  'glyceraldehyde-dihydroxyacetone-linear',
+  'glyceraldehyde-enantiomers-fischer',
+  'glyceraldehyde-configurations-newman',
+  'glucose-enantiomers-fischer',
+  'glucose-mannose-galactose-fischer',
+  'aldoses-d-filiation',
+  'ketoses-d-filiation',
+  'glucose-cyclization-anomers',
+  'glucose-fructose-ribose-fischer',
+  'glucose-to-glucuronic-acid',
+  'polyol-reductions',
+  'osamine-n-acetyl-osamine',
+  'nana-sialic-acid',
+  'phosphorylated-oses',
+  'sulfated-gag-charge',
+  'osides-classification',
+  'glycosidic-condensation',
+  'lactose-saccharose-maltose',
+  'starch-amylose-amylopectin',
+  'glycogen-branching',
+  'cellulose-cellobiose',
+  'gag-basic-repeat',
+  'hyaluronic-chondroitin',
+  'dermatan-keratan',
+  'heparan-heparin',
+  'proteoglycan-aggregate',
+  'glycoprotein-linkages',
+]);
+
+const allowedLipidDiagrams = new Set<TrainingLipidDiagramName>([
+  'carbon-numbering',
+  'cis-trans-double-bond',
+  'delta-omega-numbering',
+  'fatty-acid-amphiphile',
+  'fatty-acid-reactions',
+  'linoleic-linolenic',
+  'lipid-classification',
+  'melting-point-factors',
+  'monolayer-micelle',
+  'oleic-palmitoleic',
+  'omega3-pathway',
+  'palmitic-stearic',
+  'saturated-chain-lengths',
+  'glycerol-overview',
+  'glycerol-numbering',
+  'acylglycerol-types',
+  'triglyceride-types',
+  'triglyceride-example',
+  'triglyceride-storage',
+  'triglyceride-melting',
+  'triglyceride-roles',
+  'palm-oil',
+  'phosphatidic-acid',
+  'phospholipid-general',
+  'headgroups',
+  'phosphatidylinositol',
+  'bilayer',
+  'micelle-liposome',
+  'phospholipase-sites',
+  'pip2-plc',
+  'pi3k-akt',
+  'plasmalogen-paf',
+  'family-tree',
+  'sphingosine-functions',
+  'ceramide-formation',
+  'catabolism',
+  'skin-barrier',
+  'ceramide-signaling',
+  'sphingomyelin-structure',
+  'myelin',
+  'glyco-general',
+  'cerebrosides',
+  'gangliosides',
+  'metabolic-pathway',
+  'disease-table',
+  'sterane',
+  'sterane-numbering',
+  'families',
+  'cholesterol-structure',
+  'cholesterol-forms',
+  'cholesterol-roles',
+  'cholesterol-transport',
+  'bile-vitd',
+  'hormone-origins',
+  'steroid-nuclei',
+  'aldosterone-cortisol',
+  'aldosterone-kidney',
+  'cortisol',
+  'androgen-estrogen',
+  'progesterone',
+  'arachidonic-acid-20-4',
+  'cox-series2-pathway',
+  'eicosanoid-overview',
+  'eicosanoid-synthesis-pathways',
+  'leukotriene-cells-effects',
+  'leukotriene-lipoxin-pathways',
+  'lta4-structure',
+  'misoprostol-pge1',
+  'pge1-pge2-effects',
+  'prostaglandin-nomenclature',
+  'prostaglandin-series',
+  'prostanoic-acid-reference',
+  'txa2-pgi2-balance',
+]);
+
+const allowedProteinDiagrams = new Set<TrainingProteinDiagramName>([
+  "acid-basic-amino-acids",
+  "amino-acid-chirality",
+  "amino-acid-codes",
+  "amino-acid-families",
+  "amino-acid-general-structure",
+  "amino-acid-ionization",
+  "amino-acid-overview",
+  "aromatic-amino-acids",
+  "branched-amino-acids",
+  "essential-amino-acids",
+  "fischer-amino-acids",
+  "hydroxyl-sulfur-amino-acids",
+  "ninhydrin-reaction",
+  "polarity-classes",
+  "polarity-solubility",
+  "proline-hydroxyproline",
+  "uv-absorption",
+  "alpha-helix",
+  "beta-sheet",
+  "ck-dimers",
+  "disulfide-proteolysis",
+  "four-levels-primary",
+  "peptide-bond",
+  "peptide-bond-rigidity",
+  "peptide-size",
+  "peptide-termini",
+  "phi-psi-angles",
+  "posttranslational-modifications",
+  "proline-peptide-kink",
+  "protein-denaturation-classification",
+  "protein-domains",
+  "protein-g-trimer",
+  "quaternary-assemblies",
+  "quaternary-structure",
+  "tertiary-structure",
+  "tetramer-examples",
+  "aa-biological-precursors",
+  "aa-neurotransmitter-precursors",
+  "aa-structural-roles",
+  "amyloid-app",
+  "cyclosporine-aspartame",
+  "cytokines-interleukins",
+  "essential-aa-needs",
+  "glucagon-insulin",
+  "glucogenic-ketogenic-aa",
+  "growth-factors",
+  "insulin-maturation",
+  "interferons-chemokines",
+  "natriuretic-peptides",
+  "opioid-peptides",
+  "peptide-antibiotics",
+  "peptide-biological-roles",
+  "peptide-hormone-signaling",
+  "pomc-glutathione",
+  "transamination-methionine",
+  "urea-cycle-aa",
+  "abc-pgp",
+  "adhesion-families",
+  "antibody-classes",
+  "antibody-epitope",
+  "antibody-fab-fc",
+  "antibody-h2l2",
+  "antibody-multimers",
+  "cftr-channel",
+  "connexin-gap-junction",
+  "gpcr-rhodopsin",
+  "igcam",
+  "insulin-receptor",
+  "integrin-focal-adhesion",
+  "ionotropic-channel",
+  "metabotropic-receptor",
+  "nuclear-receptor",
+  "receptor-general",
+  "selectin-cadherin",
+  "serotonin-gaba-channels",
+  "sodium-potassium-pump",
+  "actin-microtubules",
+  "collagen-alpha-chain",
+  "collagen-classification",
+  "collagen-crosslinks",
+  "collagen-fibril",
+  "collagen-gly-x-y",
+  "collagen-overview",
+  "collagen-triple-helix",
+  "collagen-type-iv",
+  "cytoskeleton-overview",
+  "extracellular-matrix",
+  "fibronectin",
+  "hemoglobin-anomalies",
+  "hemoglobin-conformations",
+  "hemoglobin-structure",
+  "laminin",
+  "matrix-glycoproteins",
+  "myosin-cycle",
+  "protein-role-acronym",
+  "sickle-albumin-lipoprotein",
+]);
+
+const allowedEnzymeDiagrams = new Set<TrainingEnzymeDiagramName>([
+  "activation-energy",
+  "active-site-parts",
+  "allosteric-regulation",
+  "apoenzyme-holoenzyme",
+  "catalyst-types",
+  "catalytic-power",
+  "chymotrypsin-mechanism",
+  "coenzyme-vitamins",
+  "covalent-regulation",
+  "enzyme-nature",
+  "enzyme-nomenclature-ec",
+  "enzyme-substrate-affinity",
+  "es-ep-cycle",
+  "fisher-koshland",
+  "isoenzymes-ck-ldh",
+  "pka-camp",
+  "prosthetic-labile",
+  "protease-specificity",
+  "ubiquitin-proteasome",
+  "zymogen-cascade",
+  "beer-lambert-rate",
+  "catalytic-concentration",
+  "competitive-inhibition",
+  "enzyme-concentrations",
+  "enzyme-kinetics-overview",
+  "initial-rate-slope",
+  "kcat-turnover",
+  "km-affinity",
+  "lineweaver-burk",
+  "michaelis-curve",
+  "michaelis-equation",
+  "mixed-inhibition-percent",
+  "noncompetitive-uncompetitive",
+  "ph-temperature-effects",
+  "reaction-orders",
+  "reaction-phases",
+  "specific-activities",
+  "substrate-enzyme-effects",
+  "ui-katal",
+  "ui-katal-conversion",
+]);
+
 export type TrainingChoiceContent =
   | string
   | TrainingQuantumBoxesChoice
@@ -110,7 +622,11 @@ export type TrainingQuestionDiagramContent =
   | TrainingQuantumBoxesChoice
   | TrainingLewisResonanceDiagram
   | TrainingBenzeneKekuleDiagram
-  | TrainingMoleculeDiagram;
+  | TrainingMoleculeDiagram
+  | TrainingCarbohydrateDiagram
+  | TrainingLipidDiagram
+  | TrainingProteinDiagram
+  | TrainingEnzymeDiagram;
 
 const allowedQuantumBoxFills = new Set<TrainingQuantumBoxFill>([
   'empty',
@@ -345,13 +861,99 @@ export const normalizeTrainingMoleculeDiagram = (
   };
 };
 
+export const isTrainingCarbohydrateDiagram = (
+  value: unknown
+): value is TrainingCarbohydrateDiagram =>
+  isRecord(value) &&
+  value.type === 'carbohydrate' &&
+  typeof value.diagram === 'string' &&
+  allowedCarbohydrateDiagrams.has(value.diagram as TrainingCarbohydrateDiagramName);
+
+export const normalizeTrainingCarbohydrateDiagram = (
+  value: unknown
+): TrainingCarbohydrateDiagram | null => {
+  if (!isTrainingCarbohydrateDiagram(value)) {
+    return null;
+  }
+
+  return {
+    type: 'carbohydrate',
+    diagram: value.diagram,
+  };
+};
+
+export const isTrainingLipidDiagram = (value: unknown): value is TrainingLipidDiagram =>
+  isRecord(value) &&
+  value.type === 'lipid' &&
+  typeof value.diagram === 'string' &&
+  allowedLipidDiagrams.has(value.diagram as TrainingLipidDiagramName);
+
+export const normalizeTrainingLipidDiagram = (
+  value: unknown
+): TrainingLipidDiagram | null => {
+  if (!isTrainingLipidDiagram(value)) {
+    return null;
+  }
+
+  return {
+    type: 'lipid',
+    diagram: value.diagram,
+  };
+};
+
+export const isTrainingProteinDiagram = (
+  value: unknown
+): value is TrainingProteinDiagram =>
+  isRecord(value) &&
+  value.type === "protein" &&
+  typeof value.diagram === "string" &&
+  allowedProteinDiagrams.has(value.diagram as TrainingProteinDiagramName);
+
+export const normalizeTrainingProteinDiagram = (
+  value: unknown
+): TrainingProteinDiagram | null => {
+  if (!isTrainingProteinDiagram(value)) {
+    return null;
+  }
+
+  return {
+    type: "protein",
+    diagram: value.diagram,
+  };
+};
+
+export const isTrainingEnzymeDiagram = (
+  value: unknown
+): value is TrainingEnzymeDiagram =>
+  isRecord(value) &&
+  value.type === "enzyme" &&
+  typeof value.diagram === "string" &&
+  allowedEnzymeDiagrams.has(value.diagram as TrainingEnzymeDiagramName);
+
+export const normalizeTrainingEnzymeDiagram = (
+  value: unknown
+): TrainingEnzymeDiagram | null => {
+  if (!isTrainingEnzymeDiagram(value)) {
+    return null;
+  }
+
+  return {
+    type: "enzyme",
+    diagram: value.diagram,
+  };
+};
+
 export const normalizeTrainingQuestionDiagramContent = (
   value: unknown
 ): TrainingQuestionDiagramContent | null =>
   normalizeTrainingQuantumBoxesChoice(value) ??
   normalizeTrainingLewisResonanceDiagram(value) ??
   normalizeTrainingBenzeneKekuleDiagram(value) ??
-  normalizeTrainingMoleculeDiagram(value);
+  normalizeTrainingMoleculeDiagram(value) ??
+  normalizeTrainingCarbohydrateDiagram(value) ??
+  normalizeTrainingLipidDiagram(value) ??
+  normalizeTrainingProteinDiagram(value) ??
+  normalizeTrainingEnzymeDiagram(value);
 
 export const normalizeTrainingLewisAtomChoice = (
   value: unknown

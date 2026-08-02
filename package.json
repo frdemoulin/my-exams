@@ -23,6 +23,7 @@
     "db:seed:ue14": "tsx scripts/seed-health-training-ue14.ts",
     "db:seed:ue14:chimie-generale": "tsx scripts/seed-health-training-ue14-chimie-generale.ts",
     "db:seed:ue14:chimie-organique": "tsx scripts/seed-health-training-ue14-chimie-organique.ts",
+    "db:seed:ue14:biochimie": "tsx scripts/seed-health-training-ue14-biochimie.ts",
     "db:fixture:health": "tsx scripts/generate-health-parcoursup-fixture.ts",
     "db:seed:prod": "ts-node scripts/seed-prod.ts",
     "db:clear": "ts-node scripts/clear-database.ts",

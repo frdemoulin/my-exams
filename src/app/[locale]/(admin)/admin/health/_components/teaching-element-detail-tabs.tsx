@@ -88,7 +88,7 @@ export function TeachingElementDetailTabs({
   const groupedAssignments = groupAssignments(chapterAssignments);
 
   return (
-    <Tabs variant="underline" className="mt-6" theme={healthTabsTheme}>
+    <Tabs applyTheme="replace" variant="underline" className="mt-6" theme={healthTabsTheme}>
       <TabItem active title="Informations générales">
         <HealthDetail entity="teaching-elements" record={record} options={options} />
       </TabItem>

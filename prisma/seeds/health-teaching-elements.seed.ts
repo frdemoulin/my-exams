@@ -6,6 +6,7 @@ type SeedTeachingElement = {
     institutionNameContains?: string | null;
     programVersionSlug: string;
     courseUnitSlug: string;
+    applyToAllMatchingCourseUnits?: boolean;
     code?: string | null;
     title: string;
     shortTitle?: string | null;
@@ -156,14 +157,25 @@ export async function seedHealthTeachingElements(prisma: PrismaClient) {
             continue;
         }
 
-        const courseUnit = await prisma.healthCourseUnit.findFirst({
-            where: {
-                programVersionId: version.id,
-                slug: entry.courseUnitSlug,
-            },
-        });
+        const courseUnits = entry.applyToAllMatchingCourseUnits
+            ? await prisma.healthCourseUnit.findMany({
+                  where: {
+                      programVersionId: version.id,
+                      slug: entry.courseUnitSlug,
+                  },
+              })
+            : [
+                  await prisma.healthCourseUnit.findFirst({
+                      where: {
+                          programVersionId: version.id,
+                          slug: entry.courseUnitSlug,
+                      },
+                  }),
+              ].filter((courseUnit): courseUnit is NonNullable<typeof courseUnit> =>
+                  Boolean(courseUnit)
+              );
 
-        if (!courseUnit) {
+        if (courseUnits.length === 0) {
             console.warn(`⚠️  UE introuvable pour "${entry.courseUnitSlug}" (EC ${entry.slug}), entrée ignorée.`);
             continue;
         }
@@ -174,39 +186,41 @@ export async function seedHealthTeachingElements(prisma: PrismaClient) {
             `EC ${entry.title}`
         );
 
-        const data = {
-            courseUnitId: courseUnit.id,
-            code: entry.code ?? undefined,
-            title: entry.title,
-            shortTitle: entry.shortTitle ?? undefined,
-            slug: entry.slug,
-            description: entry.description ?? undefined,
-            order: entry.order,
-            coverageStatus: entry.coverageStatus ?? "STRUCTURE_ONLY",
-            sourceUrl: entry.sourceUrl ?? undefined,
-            sourceLabel: entry.sourceLabel ?? undefined,
-            sourceCheckedAt: dateFromIso(entry.sourceCheckedAt),
-            themeIds,
-            isActive: entry.isActive ?? true,
-            isPublished: entry.isPublished ?? false,
-        };
-
-        const existingTeachingElement = await prisma.healthTeachingElement.findFirst({
-            where: {
+        for (const courseUnit of courseUnits) {
+            const data = {
                 courseUnitId: courseUnit.id,
+                code: entry.code ?? undefined,
+                title: entry.title,
+                shortTitle: entry.shortTitle ?? undefined,
                 slug: entry.slug,
-            },
-        });
+                description: entry.description ?? undefined,
+                order: entry.order,
+                coverageStatus: entry.coverageStatus ?? "STRUCTURE_ONLY",
+                sourceUrl: entry.sourceUrl ?? undefined,
+                sourceLabel: entry.sourceLabel ?? undefined,
+                sourceCheckedAt: dateFromIso(entry.sourceCheckedAt),
+                themeIds,
+                isActive: entry.isActive ?? true,
+                isPublished: entry.isPublished ?? false,
+            };
 
-        if (existingTeachingElement) {
-            await prisma.healthTeachingElement.update({
-                where: { id: existingTeachingElement.id },
-                data,
+            const existingTeachingElement = await prisma.healthTeachingElement.findFirst({
+                where: {
+                    courseUnitId: courseUnit.id,
+                    slug: entry.slug,
+                },
             });
-            continue;
-        }
 
-        await prisma.healthTeachingElement.create({ data });
+            if (existingTeachingElement) {
+                await prisma.healthTeachingElement.update({
+                    where: { id: existingTeachingElement.id },
+                    data,
+                });
+                continue;
+            }
+
+            await prisma.healthTeachingElement.create({ data });
+        }
     }
 
     console.log("✅ Fixtures des EC santé appliquées.");
