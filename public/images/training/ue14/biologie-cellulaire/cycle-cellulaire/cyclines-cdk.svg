@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+<rect width="1400" height="760" fill="white"/><text x="700" y="55" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#163b75">Cyclines, CDK et transitions du cycle</text>
+<line x1="100" y1="610" x2="1310" y2="610" stroke="#444" stroke-width="3"/><line x1="100" y1="610" x2="100" y2="120" stroke="#444" stroke-width="3"/>
+<text x="42" y="170" font-family="Arial" font-size="22" transform="rotate(-90 42,170)">Concentration relative</text>
+<rect x="120" y="630" width="280" height="60" rx="14" fill="#76b7eb"/><rect x="400" y="630" width="300" height="60" rx="14" fill="#f3b35f"/><rect x="700" y="630" width="270" height="60" rx="14" fill="#8fd3a8"/><rect x="970" y="630" width="300" height="60" rx="14" fill="#cf9be8"/>
+<text x="260" y="670" text-anchor="middle" font-family="Arial" font-size="27" font-weight="700">G1</text><text x="550" y="670" text-anchor="middle" font-family="Arial" font-size="27" font-weight="700">S</text><text x="835" y="670" text-anchor="middle" font-family="Arial" font-size="27" font-weight="700">G2</text><text x="1120" y="670" text-anchor="middle" font-family="Arial" font-size="27" font-weight="700">M</text>
+<path d="M120 580 C170 560 190 360 310 260 C350 230 380 300 430 540" fill="none" stroke="#2f77b5" stroke-width="9"/><text x="270" y="230" fill="#2f77b5" font-family="Arial" font-size="26" font-weight="700">Cycline D</text>
+<path d="M260 580 C340 570 390 470 455 350 C500 270 540 360 575 560" fill="none" stroke="#e07a1f" stroke-width="9"/><text x="455" y="320" fill="#e07a1f" font-family="Arial" font-size="26" font-weight="700">Cycline E</text>
+<path d="M430 580 C520 560 570 360 700 270 C790 210 880 330 960 555" fill="none" stroke="#3b9a61" stroke-width="9"/><text x="700" y="235" fill="#3b9a61" font-family="Arial" font-size="26" font-weight="700">Cycline A</text>
+<path d="M720 580 C830 565 900 470 1010 250 C1100 100 1210 250 1260 560" fill="none" stroke="#8e44ad" stroke-width="9"/><text x="1080" y="205" fill="#8e44ad" font-family="Arial" font-size="26" font-weight="700">Cycline B</text>
+<line x1="405" y1="120" x2="405" y2="610" stroke="#aaa" stroke-width="2" stroke-dasharray="7 7"/><line x1="700" y1="120" x2="700" y2="610" stroke="#aaa" stroke-width="2" stroke-dasharray="7 7"/><line x1="970" y1="120" x2="970" y2="610" stroke="#aaa" stroke-width="2" stroke-dasharray="7 7"/>
+<g font-family="Arial" font-size="22" font-weight="700"><text x="165" y="105" fill="#2f77b5">D/CDK4-6 : G1</text><text x="405" y="105" fill="#e07a1f">E/CDK2 : G1→S</text><text x="690" y="105" fill="#3b9a61">A/CDK2 puis A/CDK1</text><text x="1010" y="105" fill="#8e44ad">B/CDK1 = MPF : G2→M</text></g>
+<text x="700" y="735" text-anchor="middle" font-family="Arial" font-size="23" fill="#333">Les CDK restent globalement stables ; l’expression des cyclines varie puis elles sont dégradées.</text>
+</svg>

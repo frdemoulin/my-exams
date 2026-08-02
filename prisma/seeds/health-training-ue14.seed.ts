@@ -1,8 +1,20 @@
 import type { PrismaClient } from '@prisma/client';
 import { seedHealth } from './health.seed';
-import { seedHealthBiochemistryChapters } from './health-chapters.seed';
+import {
+  seedHealthBiochemistryChapters,
+  seedHealthCellularBiologyChapters,
+} from './health-chapters.seed';
+import { seedHealthTrainingUe14BiologieCellulaireOrganisationMethodesEtudeCellule } from './health-training-ue14-biologie-cellulaire-organisation-methodes-etude-cellule.seed';
+import { seedHealthTrainingUe14BiologieCellulaireMembranePlasmique } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.seed';
 import { seedHealthCourseUnits } from './health-course-units.seed';
 import { seedHealthTeachingElements } from './health-teaching-elements.seed';
+import { seedHealthTrainingUe14BiologieCellulaireCytosquelette } from './health-training-ue14-biologie-cellulaire-cytosquelette.seed';
+import { seedHealthTrainingUe14BiologieCellulaireSystemeEndomembranaire1 } from './health-training-ue14-biologie-cellulaire-systeme-endomembranaire-1.seed';
+import { seedHealthTrainingUe14BiologieCellulaireSystemeEndomembranaire2 } from './health-training-ue14-biologie-cellulaire-systeme-endomembranaire-2.seed';
+import { seedHealthTrainingUe14BiologieCellulairePeroxysomes } from './health-training-ue14-biologie-cellulaire-peroxysomes.seed';
+import { seedHealthTrainingUe14BiologieCellulaireMitochondrie } from './health-training-ue14-biologie-cellulaire-mitochondrie.seed';
+import { seedHealthTrainingUe14BiologieCellulaireNoyau } from './health-training-ue14-biologie-cellulaire-noyau.seed';
+import { seedHealthTrainingUe14BiologieCellulaireCycleCellulaire } from './health-training-ue14-biologie-cellulaire-cycle-cellulaire.seed';
 import { seedHealthTrainingUe14AcidesDivers } from './health-training-ue14-acides-divers.seed';
 import { seedHealthTrainingUe14AcidesAminesStructureRolesBiologiques } from './health-training-ue14-acides-amines-structure-roles-biologiques.seed';
 import { seedHealthTrainingUe14AldehydesCetones } from './health-training-ue14-aldehydes-cetones.seed';
@@ -73,8 +85,29 @@ export async function seedHealthTrainingUe14BiochimieContent(prisma: PrismaClien
   await seedHealthTrainingUe14EnzymeActivityMeasurement(prisma);
 }
 
+export async function seedHealthTrainingUe14BiologieCellulaire(prisma: PrismaClient) {
+  await seedHealth(prisma);
+  await seedHealthCourseUnits(prisma);
+  await seedHealthTeachingElements(prisma);
+  await seedHealthCellularBiologyChapters(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireContent(prisma);
+}
+
+export async function seedHealthTrainingUe14BiologieCellulaireContent(prisma: PrismaClient) {
+  await seedHealthTrainingUe14BiologieCellulaireOrganisationMethodesEtudeCellule(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireMembranePlasmique(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireCytosquelette(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireSystemeEndomembranaire1(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireSystemeEndomembranaire2(prisma);
+  await seedHealthTrainingUe14BiologieCellulairePeroxysomes(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireMitochondrie(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireNoyau(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireCycleCellulaire(prisma);
+}
+
 export async function seedHealthTrainingUe14(prisma: PrismaClient) {
   await seedHealthTrainingUe14ChimieGenerale(prisma);
   await seedHealthTrainingUe14ChimieOrganique(prisma);
   await seedHealthTrainingUe14BiochimieContent(prisma);
+  await seedHealthTrainingUe14BiologieCellulaireContent(prisma);
 }
