@@ -1,3 +1,9 @@
+## [1.6.34](https://github.com/frdemoulin/my-exams/compare/v1.6.33...v1.6.34) (2026-08-02)
+
+### Bug Fixes
+
+* ajout des QCM de Biologie cellulaire ([4c728cf](https://github.com/frdemoulin/my-exams/commit/4c728cf16ba1df9de194e50fcdc8e3c453224758))
+
 ## [1.6.33](https://github.com/frdemoulin/my-exams/compare/v1.6.32...v1.6.33) (2026-08-02)
 
 ### Bug Fixes
