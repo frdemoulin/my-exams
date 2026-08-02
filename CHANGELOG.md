@@ -1,3 +1,9 @@
+## [1.6.33](https://github.com/frdemoulin/my-exams/compare/v1.6.32...v1.6.33) (2026-08-02)
+
+### Bug Fixes
+
+* derniers quiz de Biochimie ([bd1dee0](https://github.com/frdemoulin/my-exams/commit/bd1dee029661e6bd1e9bf38df18455fd933ac737))
+
 ## [1.6.32](https://github.com/frdemoulin/my-exams/compare/v1.6.31...v1.6.32) (2026-07-27)
 
 ### Bug Fixes
