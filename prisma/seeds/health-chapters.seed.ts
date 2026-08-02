@@ -1,6 +1,7 @@
 import type { ContentVertical, HealthCourseUnitCoverageStatus, PrismaClient } from "@prisma/client";
 
 import biochemistryFixture from "./data/health-chapters-reims-ue14-biochimie.json";
+import cellularBiologyFixture from "./data/health-chapters-reims-ue14-biologie-cellulaire.json";
 import chemistryFixture from "./data/health-chapters-reims-ue14-chimie.json";
 
 const DEFAULT_CHAPTER_ORDER_BASE = 900;
@@ -51,8 +52,10 @@ type SeedFixture = {
 const ALL_HEALTH_CHAPTER_FIXTURES = [
   chemistryFixture,
   biochemistryFixture,
+  cellularBiologyFixture,
 ] as SeedFixture[];
 const BIOCHEMISTRY_CHAPTER_FIXTURES = [biochemistryFixture] as SeedFixture[];
+const CELLULAR_BIOLOGY_CHAPTER_FIXTURES = [cellularBiologyFixture] as SeedFixture[];
 
 const dateFromIso = (value?: string | null) =>
   value ? new Date(`${value}T12:00:00.000Z`) : undefined;
@@ -334,4 +337,8 @@ export async function seedHealthChapters(prisma: PrismaClient) {
 
 export async function seedHealthBiochemistryChapters(prisma: PrismaClient) {
   await seedHealthChapterFixtures(prisma, BIOCHEMISTRY_CHAPTER_FIXTURES);
+}
+
+export async function seedHealthCellularBiologyChapters(prisma: PrismaClient) {
+  await seedHealthChapterFixtures(prisma, CELLULAR_BIOLOGY_CHAPTER_FIXTURES);
 }

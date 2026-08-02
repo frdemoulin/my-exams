@@ -1,0 +1,228 @@
+/**
+ * UE14 – Biologie cellulaire – Chapitre 1
+ * Contenu pédagogique fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
+ */
+import type { PrismaClient } from '@prisma/client';
+import type { SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
+import { SECTION_A_QUESTIONS, SECTION_A_QUIZZES } from './health-training-ue14-biologie-cellulaire-organisation-methodes-etude-cellule.section-a.seed';
+import { SECTION_B_QUESTIONS, SECTION_B_QUIZZES } from './health-training-ue14-biologie-cellulaire-organisation-methodes-etude-cellule.section-b.seed';
+import { SECTION_C_QUESTIONS, SECTION_C_QUIZZES } from './health-training-ue14-biologie-cellulaire-organisation-methodes-etude-cellule.section-c.seed';
+import { SECTION_D_QUESTIONS, SECTION_D_QUIZZES } from './health-training-ue14-biologie-cellulaire-organisation-methodes-etude-cellule.section-d.seed';
+import { SYNTHESIS_QUESTIONS, SYNTHESIS_QUIZZES } from './health-training-ue14-biologie-cellulaire-organisation-methodes-etude-cellule.synthesis.seed';
+import { seedHealthTrainingChapter } from './health-training-ue14.shared';
+
+const SUBJECT_LONG_DESCRIPTION = 'Sciences de la Vie et de la Terre';
+const CHAPTER_SLUG = 'organisation-methodes-etude-cellule';
+
+const sections: SeedSection[] = [
+  {
+    order: 1,
+    title: `Généralités sur la cellule`,
+    description:
+      `Définition de la cellule, composition chimique, grandes structures cellulaires, fonctions cellulaires majeures et spécificités selon les types cellulaires.`,
+    kind: 'THEME',
+  },
+  {
+    order: 2,
+    title: `Culture cellulaire : principes`,
+    description:
+      `Définition, intérêt, conditions de culture, matériel, environnement, culture primaire, confluence, passage cellulaire, cultures secondaires et lignées cellulaires.`,
+    kind: 'THEME',
+  },
+  {
+    order: 3,
+    title: `Types de cultures et modèles`,
+    description:
+      `Cellules circulantes ou issues de tissus, explants, cellules dissociées, modèles 2D, modèles 3D et interface air-liquide.`,
+    kind: 'THEME',
+  },
+  {
+    order: 4,
+    title: `Marquages moléculaires`,
+    description:
+      `Objectifs des marquages, immunomarquage, hybridation in situ, protéines autofluorescentes, micro-injection de protéines marquées, cellules fixées et cellules vivantes.`,
+    kind: 'THEME',
+  },
+  {
+    order: 5,
+    title: `Synthèse du chapitre`,
+    description:
+      `Transversalité générale, comparaison des approches expérimentales, interprétation de protocoles simples et pièges fréquents type examen.`,
+    kind: 'SYNTHESIS',
+  },
+];
+
+const questions: SeedQuestion[] = [
+  ...SECTION_A_QUESTIONS,
+  ...SECTION_B_QUESTIONS,
+  ...SECTION_C_QUESTIONS,
+  ...SECTION_D_QUESTIONS,
+  ...SYNTHESIS_QUESTIONS,
+];
+
+const quizSeeds: SeedQuiz[] = [
+  ...SECTION_A_QUIZZES,
+  ...SECTION_B_QUIZZES,
+  ...SECTION_C_QUIZZES,
+  ...SECTION_D_QUIZZES,
+  ...SYNTHESIS_QUIZZES,
+];
+
+const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
+  1: [`Définition de la cellule`],
+  2: [`Composition chimique cellulaire`],
+  3: [`Éléments chimiques majeurs`],
+  4: [`Organisation générale de la cellule`],
+  5: [`Organites cellulaires`],
+  6: [`Fonctions cellulaires`],
+  7: [`Étapes de la vie cellulaire`],
+  8: [`Spécialisation cellulaire`],
+  9: [`Hématie et microscopie`],
+  10: [`Entérocyte et microvillosités`],
+  11: [`Lecture d'un schéma cellulaire`],
+  12: [`Répartition eau et macromolécules`],
+  13: [`Protéines et autres constituants`],
+  14: [`Membrane et échanges`],
+  15: [`Cytosquelette et forme`],
+  16: [`Noyau et activité cellulaire`],
+  17: [`Transport intracellulaire`],
+  18: [`Choix d'une stratégie d'étude`],
+  19: [`Microscopie MEB et MET`],
+  20: [`Relations entre structures et fonctions`],
+  21: [`Analyse d'une cellule spécialisée`],
+  22: [`Analyse d'un schéma cellulaire`],
+  23: [`Ordres de grandeur de composition`],
+  24: [`Vie cellulaire et méthodes`],
+  25: [`Cellule et tissu`],
+  26: [`Interprétation d'une observation`],
+  27: [`Pièges de vocabulaire cellulaire`],
+  28: [`Fonctions et étapes cellulaires`],
+  29: [`Approche expérimentale intégrée`],
+  30: [`Synthèse des généralités`],
+  31: [`Définition de la culture cellulaire`],
+  32: [`Supports de culture`],
+  33: [`Microscope inversé`],
+  34: [`Conditions d'incubation`],
+  35: [`Poste de sécurité microbiologique`],
+  36: [`Cryoconservation`],
+  37: [`Avantages de la culture`],
+  38: [`Origine des cellules circulantes`],
+  39: [`Isolement à partir d'un tissu`],
+  40: [`Culture primaire`],
+  41: [`Confluence`],
+  42: [`Passage cellulaire`],
+  43: [`Culture secondaire`],
+  44: [`Passages successifs`],
+  45: [`Cellules normales en culture`],
+  46: [`Lignées cellulaires tumorales`],
+  47: [`Interprétation d'un schéma de passage`],
+  48: [`Rôles distincts du matériel`],
+  49: [`Source d'un prélèvement tissulaire`],
+  50: [`Culture primaire et lignée`],
+  51: [`Conduite à tenir à confluence`],
+  52: [`Analyse d'une contamination potentielle`],
+  53: [`Interprétation d'une courbe de croissance`],
+  54: [`Comparaison normal-tumoral`],
+  55: [`Calcul simple de passage`],
+  56: [`Choix d'une source cellulaire`],
+  57: [`Critique d'un protocole`],
+  58: [`Cryothèque et reprise de culture`],
+  59: [`Figure et devenir des cultures`],
+  60: [`Synthèse de la culture cellulaire`],
+  61: [`Définition d'un explant`],
+  62: [`Exemples d'explants`],
+  63: [`Explant et dyskinésie ciliaire`],
+  64: [`Explant vasculaire`],
+  65: [`Culture 2D`],
+  66: [`Culture 3D`],
+  67: [`Sphéroïdes bronchiques`],
+  68: [`Interface air-liquide`],
+  69: [`Finalités des modèles de culture`],
+  70: [`Comparaison explant-cellules dissociées`],
+  71: [`Lecture de la comparaison des modèles`],
+  72: [`Choix d'un modèle 2D`],
+  73: [`Choix d'un modèle 3D`],
+  74: [`Polarité en interface air-liquide`],
+  75: [`Explant et fonction conservée`],
+  76: [`Complexité des modèles`],
+  77: [`Culture de cellules normales ou tumorales`],
+  78: [`Dissociation et réorganisation`],
+  79: [`Différenciation épithéliale`],
+  80: [`Utilité médicale des modèles`],
+  81: [`Choix de modèle pour dyskinésie`],
+  82: [`Choix de modèle pharmacologique`],
+  83: [`Interprétation d'un sphéroïde`],
+  84: [`Analyse d'un dispositif air-liquide`],
+  85: [`Limites d'une monocouche`],
+  86: [`Choix raisonné du modèle`],
+  87: [`Figure comparative et conclusions`],
+  88: [`Scénario de différenciation`],
+  89: [`Interprétation transversale des modèles`],
+  90: [`Synthèse des modèles de culture`],
+  91: [`Finalité des marquages moléculaires`],
+  92: [`Quatre méthodes de marquage`],
+  93: [`Cellules fixées ou vivantes`],
+  94: [`Anticorps et antigène`],
+  95: [`Production d'anticorps`],
+  96: [`Fluorochrome`],
+  97: [`Alexa 488`],
+  98: [`Or colloïdal`],
+  99: [`Fixation et perméabilisation`],
+  100: [`Lavage en immunomarquage`],
+  101: [`Hybridation in situ`],
+  102: [`Sondes d'hybridation`],
+  103: [`Cibles de l'hybridation in situ`],
+  104: [`Observation de l'hybridation`],
+  105: [`GFP et protéines auto-fluorescentes`],
+  106: [`Construction chimérique`],
+  107: [`Transfection`],
+  108: [`Électroporation`],
+  109: [`Observation des protéines auto-fluorescentes`],
+  110: [`Micro-injection de protéines marquées`],
+  111: [`Choix immunomarquage ou hybridation`],
+  112: [`Choix pour une dynamique cellulaire`],
+  113: [`Interprétation Alexa 488`],
+  114: [`Contrôle du bruit de fond`],
+  115: [`Choix du marqueur et microscope`],
+  116: [`Différence transfection-micro-injection`],
+  117: [`Critique d'un protocole d'immunomarquage`],
+  118: [`Choix d'une sonde`],
+  119: [`Tableau comparatif des marquages`],
+  120: [`Synthèse des marquages`],
+  121: [`Synthèse organisation cellulaire`],
+  122: [`Synthèse composition cellulaire`],
+  123: [`Synthèse protocole de culture`],
+  124: [`Synthèse passage cellulaire`],
+  125: [`Synthèse modèles de culture`],
+  126: [`Synthèse choix d'un marquage`],
+  127: [`Synthèse immunomarquage`],
+  128: [`Synthèse suivi vivant`],
+  129: [`Synthèse approche médicale`],
+  130: [`Synthèse attrape-tout`],
+  131: [`Cas expérimental cellules respiratoires`],
+  132: [`Cas expérimental comparaison de lignées`],
+  133: [`Cas expérimental localisation protéine-ARN`],
+  134: [`Cas expérimental contrôle de fluorescence`],
+  135: [`Cas expérimental choix du microscope`],
+  136: [`Cas expérimental GFP`],
+  137: [`Cas expérimental explant versus 3D`],
+  138: [`Cas expérimental confluence et fixation`],
+  139: [`Lecture croisée des figures`],
+  140: [`Synthèse générale du chapitre`],
+};
+
+export async function seedHealthTrainingUe14BiologieCellulaireOrganisationMethodesEtudeCellule(
+  prisma: PrismaClient
+) {
+  await seedHealthTrainingChapter({
+    prisma,
+    subjectLongDescription: SUBJECT_LONG_DESCRIPTION,
+    chapterSlug: CHAPTER_SLUG,
+    logLabel: 'UE14 Biologie cellulaire — chapitre 1',
+    questionThemeLabelsByOrder: QUESTION_THEME_LABELS_BY_ORDER,
+    questions,
+    sections,
+    quizSeeds,
+    cleanupSectionOrders: [1, 2, 3, 4, 5],
+  });
+}

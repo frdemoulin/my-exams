@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "label": "Chapitres — Reims UE14 — EC Biologie cellulaire",
+    "description": "Chapitres de l'EC Biologie cellulaire de l'UE14 Santé de Reims.",
+    "academicYear": "2025-2026",
+    "sourceLabel": "Capture utilisateur des chapitres UE14 Biologie cellulaire Reims",
+    "sourceCheckedAt": "2026-08-02"
+  },
+  "context": {
+    "institutionNameContains": "Reims Champagne-Ardenne",
+    "programVersionSlug": "las-2025-2026",
+    "courseUnitSlug": "ue14-biochimie-biologie-cellulaire-chimie",
+    "teachingElementSlug": "biologie-cellulaire",
+    "applyToAllMatchingCourseUnits": true,
+    "chapterOrderBase": 1300,
+    "subjectLongDescription": "Sciences de la Vie et de la Terre",
+    "domainShortDescription": "Biologie cellulaire"
+  },
+  "displayGroups": [
+    {
+      "key": "biologie-cellulaire",
+      "label": "Biologie cellulaire",
+      "order": 1
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Organisation et méthodes d’étude de la cellule",
+      "shortTitle": "Organisation et méthodes d’étude",
+      "slug": "organisation-methodes-etude-cellule",
+      "description": "Organisation générale de la cellule, compartimentation et principales méthodes d'observation et d'étude.",
+      "order": 1,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 1"
+    },
+    {
+      "title": "Membrane plasmique, communication et transports membranaires",
+      "shortTitle": "Membrane plasmique et transports",
+      "slug": "membrane-plasmique-communication-transports-membranaires",
+      "description": "Membrane plasmique, communication cellulaire et mécanismes de transport membranaire.",
+      "order": 2,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 2"
+    },
+    {
+      "title": "Le cytosquelette",
+      "shortTitle": "Cytosquelette",
+      "slug": "cytosquelette",
+      "description": "Structure, dynamique et fonctions des filaments du cytosquelette.",
+      "order": 3,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 3"
+    },
+    {
+      "title": "Système endomembranaire I – Flux vésiculaires, endocytose et exocytose",
+      "shortTitle": "Système endomembranaire I",
+      "slug": "systeme-endomembranaire-flux-vesiculaires-endocytose-exocytose",
+      "description": "Organisation du système endomembranaire, trafic vésiculaire, endocytose et exocytose.",
+      "order": 4,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 4"
+    },
+    {
+      "title": "Système endomembranaire II – Réticulum endoplasmique, Golgi et lysosomes",
+      "shortTitle": "Système endomembranaire II",
+      "slug": "systeme-endomembranaire-reticulum-endoplasmique-golgi-lysosomes",
+      "description": "Réticulum endoplasmique, appareil de Golgi, lysosomes et tri des constituants cellulaires.",
+      "order": 5,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 5"
+    },
+    {
+      "title": "Les peroxysomes",
+      "shortTitle": "Peroxysomes",
+      "slug": "peroxysomes",
+      "description": "Biogenèse, organisation et fonctions métaboliques des peroxysomes.",
+      "order": 6,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 6"
+    },
+    {
+      "title": "La mitochondrie",
+      "shortTitle": "Mitochondrie",
+      "slug": "mitochondrie",
+      "description": "Structure, dynamique et fonctions bioénergétiques de la mitochondrie.",
+      "order": 7,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 7"
+    },
+    {
+      "title": "Le noyau",
+      "shortTitle": "Noyau",
+      "slug": "noyau",
+      "description": "Organisation du noyau, enveloppe nucléaire et compartiments nucléaires.",
+      "order": 8,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 8"
+    },
+    {
+      "title": "Le cycle cellulaire",
+      "shortTitle": "Cycle cellulaire",
+      "slug": "cycle-cellulaire",
+      "description": "Phases du cycle cellulaire, contrôle de la prolifération et repères de division cellulaire.",
+      "order": 9,
+      "displayGroupKey": "biologie-cellulaire",
+      "displayGroupLabel": "Biologie cellulaire",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Capture UE14 Biologie cellulaire Reims — chapitre 9"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700">
+<rect width="1400" height="700" fill="white"/>
+<text x="700" y="55" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#163b75">Cycle cellulaire, chromosomes et quantité d’ADN</text>
+<line x1="110" y1="540" x2="1300" y2="540" stroke="#555" stroke-width="3"/>
+<line x1="110" y1="540" x2="110" y2="120" stroke="#555" stroke-width="3"/>
+<text x="65" y="155" font-family="Arial" font-size="25" fill="#333">4c</text><text x="65" y="510" font-family="Arial" font-size="25" fill="#333">2c</text>
+<line x1="110" y1="155" x2="1300" y2="155" stroke="#ddd" stroke-width="2" stroke-dasharray="8 8"/>
+<line x1="110" y1="500" x2="1300" y2="500" stroke="#ddd" stroke-width="2" stroke-dasharray="8 8"/>
+<rect x="130" y="570" width="250" height="70" rx="18" fill="#76b7eb"/><rect x="380" y="570" width="300" height="70" rx="18" fill="#f3b35f"/><rect x="680" y="570" width="260" height="70" rx="18" fill="#8fd3a8"/><rect x="940" y="570" width="260" height="70" rx="18" fill="#cf9be8"/><rect x="1200" y="570" width="90" height="70" rx="18" fill="#76b7eb"/>
+<text x="255" y="615" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700">G1</text><text x="530" y="615" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700">S</text><text x="810" y="615" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700">G2</text><text x="1070" y="615" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700">M</text><text x="1245" y="615" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700">G1</text>
+<polyline points="130,500 380,500 680,155 940,155 1200,500 1290,500" fill="none" stroke="#d23b3b" stroke-width="8"/>
+<text x="250" y="460" text-anchor="middle" font-family="Arial" font-size="23">2n chromosomes</text><text x="250" y="490" text-anchor="middle" font-family="Arial" font-size="23">1 chromatide/chromosome</text>
+<text x="530" y="345" text-anchor="middle" font-family="Arial" font-size="23">Réplication de l’ADN</text><text x="810" y="110" text-anchor="middle" font-family="Arial" font-size="23">2n chromosomes</text><text x="810" y="140" text-anchor="middle" font-family="Arial" font-size="23">2 chromatides/chromosome</text>
+<text x="1070" y="335" text-anchor="middle" font-family="Arial" font-size="23">Séparation des chromatides</text><text x="1070" y="365" text-anchor="middle" font-family="Arial" font-size="23">puis cytodiérèse</text>
+<circle cx="310" cy="225" r="68" fill="#eef6fd" stroke="#2f77b5" stroke-width="4"/><line x1="285" y1="190" x2="285" y2="260" stroke="#173d6a" stroke-width="10"/><line x1="335" y1="190" x2="335" y2="260" stroke="#173d6a" stroke-width="10"/><circle cx="810" cy="330" r="68" fill="#effaf2" stroke="#3b9a61" stroke-width="4"/><path d="M780 285 L840 375 M840 285 L780 375" stroke="#173d6a" stroke-width="10"/><path d="M850 285 L910 375 M910 285 L850 375" stroke="#5e2a84" stroke-width="10"/>
+</svg>
