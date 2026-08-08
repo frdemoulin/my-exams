@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "label": "Chapitres — Reims UE13 — EC Histologie",
+    "description": "Chapitres et sections de l'EC Histologie de l'UE13 Santé de Reims.",
+    "academicYear": "2025-2026",
+    "sourceLabel": "Structure utilisateur UE13 Histologie Reims",
+    "sourceCheckedAt": "2026-08-05"
+  },
+  "context": {
+    "institutionNameContains": "Reims Champagne-Ardenne",
+    "programVersionSlug": "las-2025-2026",
+    "courseUnitSlug": "ue13-anatomie-histologie-physiologie",
+    "teachingElementSlug": "histologie",
+    "applyToAllMatchingCourseUnits": true,
+    "chapterOrderBase": 1400,
+    "subjectLongDescription": "Sciences de la Vie et de la Terre",
+    "domainShortDescription": "Histologie"
+  },
+  "displayGroups": [
+    {
+      "key": "histologie",
+      "label": "Histologie",
+      "order": 1
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Définitions, techniques et microscopie",
+      "shortTitle": "Définitions et microscopie",
+      "slug": "definitions-techniques-microscopie",
+      "description": "Notions générales d'histologie, techniques de préparation, colorations et microscopie.",
+      "order": 1,
+      "displayGroupKey": "histologie",
+      "displayGroupLabel": "Histologie",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Structure UE13 Histologie Reims — chapitre 1",
+      "sections": [
+        {
+          "title": "Généralités sur l’histologie",
+          "order": 1
+        },
+        {
+          "title": "Technique histologique",
+          "order": 2
+        },
+        {
+          "title": "Colorations histologiques",
+          "order": 3
+        },
+        {
+          "title": "Technique cytologique",
+          "order": 4
+        },
+        {
+          "title": "Microscopie",
+          "order": 5
+        },
+        {
+          "title": "Synthèse du chapitre",
+          "order": 6,
+          "kind": "SYNTHESIS"
+        }
+      ]
+    },
+    {
+      "title": "Les épithéliums : structures et classifications",
+      "shortTitle": "Épithéliums",
+      "slug": "epitheliums-structures-classifications",
+      "description": "Définition, propriétés, différenciations et classifications des épithéliums.",
+      "order": 2,
+      "displayGroupKey": "histologie",
+      "displayGroupLabel": "Histologie",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Structure UE13 Histologie Reims — chapitre 2",
+      "sections": [
+        {
+          "title": "Définition et propriétés des épithéliums",
+          "order": 1
+        },
+        {
+          "title": "Différenciations apicales",
+          "order": 2
+        },
+        {
+          "title": "Épithéliums de revêtement",
+          "order": 3
+        },
+        {
+          "title": "Épithéliums glandulaires",
+          "order": 4
+        },
+        {
+          "title": "Synthèse du chapitre",
+          "order": 5,
+          "kind": "SYNTHESIS"
+        }
+      ]
+    },
+    {
+      "title": "Les tissus conjonctifs",
+      "shortTitle": "Tissus conjonctifs",
+      "slug": "tissus-conjonctifs",
+      "description": "Cellules, matrice extracellulaire et principaux tissus conjonctifs spécialisés ou non spécialisés.",
+      "order": 3,
+      "displayGroupKey": "histologie",
+      "displayGroupLabel": "Histologie",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Structure UE13 Histologie Reims — chapitre 3",
+      "sections": [
+        {
+          "title": "Cellules des tissus conjonctifs",
+          "order": 1
+        },
+        {
+          "title": "Matrice extracellulaire",
+          "order": 2
+        },
+        {
+          "title": "Classification et tissus conjonctifs non spécialisés",
+          "order": 3
+        },
+        {
+          "title": "Tissu cartilagineux",
+          "order": 4
+        },
+        {
+          "title": "Tissu osseux",
+          "order": 5
+        },
+        {
+          "title": "Synthèse du chapitre",
+          "order": 6,
+          "kind": "SYNTHESIS"
+        }
+      ]
+    },
+    {
+      "title": "Les tissus musculaires",
+      "shortTitle": "Tissus musculaires",
+      "slug": "tissus-musculaires",
+      "description": "Classification et caractéristiques des tissus musculaires squelettique, cardiaque et lisse.",
+      "order": 4,
+      "displayGroupKey": "histologie",
+      "displayGroupLabel": "Histologie",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Structure UE13 Histologie Reims — chapitre 4",
+      "sections": [
+        {
+          "title": "Généralités et classification",
+          "order": 1
+        },
+        {
+          "title": "Muscle strié squelettique",
+          "order": 2
+        },
+        {
+          "title": "Muscle strié cardiaque",
+          "order": 3
+        },
+        {
+          "title": "Muscle lisse",
+          "order": 4
+        },
+        {
+          "title": "Synthèse du chapitre",
+          "order": 5,
+          "kind": "SYNTHESIS"
+        }
+      ]
+    },
+    {
+      "title": "Les tissus nerveux",
+      "shortTitle": "Tissus nerveux",
+      "slug": "tissus-nerveux",
+      "description": "Organisation du tissu nerveux, neurones, synapses, névroglie et nerfs périphériques.",
+      "order": 5,
+      "displayGroupKey": "histologie",
+      "displayGroupLabel": "Histologie",
+      "displayGroupOrder": 1,
+      "sourceFileLabel": "Structure UE13 Histologie Reims — chapitre 5",
+      "sections": [
+        {
+          "title": "Organisation générale du tissu nerveux",
+          "order": 1
+        },
+        {
+          "title": "Neurones et synapses",
+          "order": 2
+        },
+        {
+          "title": "Névroglie du système nerveux central",
+          "order": 3
+        },
+        {
+          "title": "Névroglie du système nerveux périphérique",
+          "order": 4
+        },
+        {
+          "title": "Nerfs périphériques",
+          "order": 5
+        },
+        {
+          "title": "Synthèse du chapitre",
+          "order": 6,
+          "kind": "SYNTHESIS"
+        }
+      ]
+    }
+  ]
+}

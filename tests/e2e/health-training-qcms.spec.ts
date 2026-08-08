@@ -143,6 +143,18 @@ test.describe.serial("Santé - QCM publics", () => {
     await expect(page.getByRole("link", { name: /^Voir$/i }).first()).toBeVisible();
   });
 
+  test("l'onglet Synthèse expose l'état vide des examens blancs", async ({ page }) => {
+    const fixture = await getFixture();
+
+    await page.goto(`${appBaseUrl}/sante/ue/${fixture.courseUnitId}?ec=synthese`);
+
+    await expect(page.getByRole("tab", { name: /Synthèse/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Examens blancs" })).toBeVisible();
+    await expect(
+      page.getByText("Aucun examen blanc n'est disponible pour le moment."),
+    ).toBeVisible();
+  });
+
   test("la page chapitre expose les sections, le retour à l'EC et les QCM", async ({
     page,
   }) => {

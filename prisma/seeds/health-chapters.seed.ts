@@ -1,8 +1,14 @@
-import type { ContentVertical, HealthCourseUnitCoverageStatus, PrismaClient } from "@prisma/client";
+import type {
+  ChapterSectionKind,
+  ContentVertical,
+  HealthCourseUnitCoverageStatus,
+  PrismaClient,
+} from "@prisma/client";
 
 import biochemistryFixture from "./data/health-chapters-reims-ue14-biochimie.json";
 import cellularBiologyFixture from "./data/health-chapters-reims-ue14-biologie-cellulaire.json";
 import chemistryFixture from "./data/health-chapters-reims-ue14-chimie.json";
+import histologyFixture from "./data/health-chapters-reims-ue13-histologie.json";
 
 const DEFAULT_CHAPTER_ORDER_BASE = 900;
 const CHAPTER_LEVEL = "sante";
@@ -25,6 +31,15 @@ type SeedChapter = {
   displayGroupLabel?: string | null;
   displayGroupOrder?: number | null;
   sourceFileLabel: string;
+  sections?: SeedChapterSection[];
+};
+
+type SeedChapterSection = {
+  title: string;
+  description?: string | null;
+  order: number;
+  kind?: ChapterSectionKind;
+  isPublished?: boolean;
 };
 
 type SeedFixture = {
@@ -53,9 +68,11 @@ const ALL_HEALTH_CHAPTER_FIXTURES = [
   chemistryFixture,
   biochemistryFixture,
   cellularBiologyFixture,
+  histologyFixture,
 ] as SeedFixture[];
 const BIOCHEMISTRY_CHAPTER_FIXTURES = [biochemistryFixture] as SeedFixture[];
 const CELLULAR_BIOLOGY_CHAPTER_FIXTURES = [cellularBiologyFixture] as SeedFixture[];
+const HISTOLOGY_CHAPTER_FIXTURES = [histologyFixture] as SeedFixture[];
 
 const dateFromIso = (value?: string | null) =>
   value ? new Date(`${value}T12:00:00.000Z`) : undefined;
@@ -324,6 +341,31 @@ async function seedHealthChapterFixtures(
             isPublished: false,
           },
         });
+
+        for (const section of entry.sections ?? []) {
+          await prisma.chapterSection.upsert({
+            where: {
+              chapterId_order: {
+                chapterId: chapter.id,
+                order: section.order,
+              },
+            },
+            update: {
+              title: section.title,
+              description: section.description ?? undefined,
+              kind: section.kind ?? "THEME",
+              isPublished: section.isPublished ?? true,
+            },
+            create: {
+              chapterId: chapter.id,
+              title: section.title,
+              description: section.description ?? undefined,
+              order: section.order,
+              kind: section.kind ?? "THEME",
+              isPublished: section.isPublished ?? true,
+            },
+          });
+        }
       }
     }
   }
@@ -341,4 +383,8 @@ export async function seedHealthBiochemistryChapters(prisma: PrismaClient) {
 
 export async function seedHealthCellularBiologyChapters(prisma: PrismaClient) {
   await seedHealthChapterFixtures(prisma, CELLULAR_BIOLOGY_CHAPTER_FIXTURES);
+}
+
+export async function seedHealthHistologyChapters(prisma: PrismaClient) {
+  await seedHealthChapterFixtures(prisma, HISTOLOGY_CHAPTER_FIXTURES);
 }

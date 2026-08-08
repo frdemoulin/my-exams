@@ -12,6 +12,8 @@ import {
     type TrainingChoiceContent,
     type TrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
+import { fetchHealthMockExamSummaries } from "@/core/health-mock-exam/health-mock-exam.queries";
+import type { HealthMockExamSummary } from "@/core/health-mock-exam/health-mock-exam.types";
 import {
     HealthEntity,
     healthCourseUnitCoverageStatusLabels,
@@ -527,6 +529,7 @@ export type HealthStudentCourseUnitDetail = {
             displayGroupOrder: number | null;
         }>;
     }>;
+    mockExams: HealthMockExamSummary[];
 };
 
 export type HealthStudentChapterDetail = {
@@ -1296,6 +1299,7 @@ export async function fetchHealthStudentHomeContext(input: {
 
 export async function fetchHealthStudentCourseUnitDetail(
     courseUnitId: string,
+    options: { userId?: string | null } = {},
 ): Promise<HealthStudentCourseUnitDetail | null> {
     if (!/^[a-f0-9]{24}$/i.test(courseUnitId)) {
         return null;
@@ -1449,6 +1453,11 @@ export async function fetchHealthStudentCourseUnitDetail(
         chapterAssignmentsByTeachingElementId.set(assignment.contextId, chapters);
     }
 
+    const mockExams = await fetchHealthMockExamSummaries({
+        courseUnitId: courseUnit.id,
+        userId: options.userId,
+    });
+
     return {
         id: courseUnit.id,
         code: courseUnit.code ?? null,
@@ -1469,6 +1478,7 @@ export async function fetchHealthStudentCourseUnitDetail(
             shortTitle: teachingElement.shortTitle ?? null,
             chapters: chapterAssignmentsByTeachingElementId.get(teachingElement.id) ?? [],
         })),
+        mockExams,
     };
 }
 

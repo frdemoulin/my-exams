@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { TabItem, Tabs } from 'flowbite-react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BarChart3, Clock3, FileCheck2 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { HealthMockExamActionButton } from '@/components/health/HealthMockExamActionButton';
 import type { HealthStudentCourseUnitDetail } from '@/core/health';
 
 const healthTabsTheme = {
@@ -53,6 +54,9 @@ const formatTeachingElementLabel = (
 
 const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
   `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}`;
+
+const getMockExamResultsHref = (courseUnitId: string, examSlug: string, attemptId: string) =>
+  `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}`;
 
 export function HealthCourseUnitTabs({
   courseUnit,
@@ -191,7 +195,11 @@ export function HealthCourseUnitTabs({
       ))}
 
       <TabItem
-        active={courseUnit.teachingElements.length === 0}
+        active={
+          activeTeachingElementId
+            ? activeTeachingElementId === 'synthese'
+            : courseUnit.teachingElements.length === 0
+        }
         title={
           <span className="inline-flex items-center gap-2">
             <span>Synthèse</span>
@@ -223,40 +231,99 @@ export function HealthCourseUnitTabs({
             </CardContent>
           </Card>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <Card className="rounded-3xl border-border bg-card hover:bg-card">
-              <CardHeader>
-                <CardTitle className="text-lg text-heading">Colles UE</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Cette zone accueillera les colles couvrant l&apos;ensemble de l&apos;UE.
-                </p>
-              </CardContent>
-            </Card>
+          <section className="space-y-5" aria-labelledby="health-mock-exams-heading">
+            <div className="space-y-1">
+              <h2 id="health-mock-exams-heading" className="text-xl font-semibold text-heading">
+                Examens blancs
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Évaluez-vous sur l&apos;ensemble des enseignements constitutifs de l&apos;UE,
+                dans des conditions proches de l&apos;examen.
+              </p>
+            </div>
 
-            <Card className="rounded-3xl border-border bg-card hover:bg-card">
-              <CardHeader>
-                <CardTitle className="text-lg text-heading">Examens blancs UE</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Cette zone accueillera les examens blancs transversaux à l&apos;UE.
-                </p>
-              </CardContent>
-            </Card>
+            {courseUnit.mockExams.length > 0 ? (
+              <div className="space-y-4">
+                {courseUnit.mockExams.map((exam) => (
+                  <Card key={exam.id} className="rounded-base bg-card hover:bg-card">
+                    <CardHeader className="gap-3">
+                      <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+                        <div className="space-y-1">
+                          <CardTitle className="text-lg">{exam.title}</CardTitle>
+                          {exam.description ? (
+                            <p className="text-sm text-muted-foreground">{exam.description}</p>
+                          ) : null}
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          <Badge variant="outline" className="gap-1.5">
+                            <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
+                            {exam.durationMinutes === 150 ? '2 h 30' : `${exam.durationMinutes} min`}
+                          </Badge>
+                          <Badge variant="outline" className="gap-1.5">
+                            <FileCheck2 className="h-3.5 w-3.5" aria-hidden="true" />
+                            {exam.questionCount} questions
+                          </Badge>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-5">
+                      <ul className="grid gap-2 text-sm text-body sm:grid-cols-3">
+                        {exam.sections.map((section) => (
+                          <li key={section.teachingElementId} className="border-l-2 border-brand/30 pl-3">
+                            <span className="font-medium text-heading">{section.title}</span>
+                            <span className="block text-muted-foreground">
+                              Questions {section.firstQuestion} à {section.lastQuestion}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
 
-            <Card className="rounded-3xl border-border bg-card hover:bg-card">
-              <CardHeader>
-                <CardTitle className="text-lg text-heading">Annales UE</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Cette zone accueillera les annales et sujets couvrant toute l&apos;UE.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+                      <div className="flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="text-sm text-muted-foreground">
+                          {exam.currentAttemptId ? (
+                            <span>Une tentative est en cours.</span>
+                          ) : exam.attemptCount > 0 ? (
+                            <span className="inline-flex items-center gap-1.5">
+                              <BarChart3 className="h-4 w-4" aria-hidden="true" />
+                              {exam.attemptCount} tentative{exam.attemptCount > 1 ? 's' : ''} · meilleur résultat{' '}
+                              {exam.bestPercentage}%
+                            </span>
+                          ) : (
+                            <span>Aucune tentative pour le moment.</span>
+                          )}
+                        </div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          {exam.latestSubmittedAttemptId ? (
+                            <Button asChild variant="outline" size="sm">
+                              <Link
+                                href={getMockExamResultsHref(
+                                  courseUnit.id,
+                                  exam.slug,
+                                  exam.latestSubmittedAttemptId,
+                                )}
+                              >
+                                Voir les résultats
+                              </Link>
+                            </Button>
+                          ) : null}
+                          <HealthMockExamActionButton
+                            courseUnitId={courseUnit.id}
+                            examSlug={exam.slug}
+                            hasCurrentAttempt={Boolean(exam.currentAttemptId)}
+                            hasPreviousAttempt={exam.attemptCount > 0}
+                          />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="border border-dashed border-border p-6 text-sm text-muted-foreground">
+                Aucun examen blanc n&apos;est disponible pour le moment.
+              </div>
+            )}
+          </section>
         </div>
       </TabItem>
     </Tabs>

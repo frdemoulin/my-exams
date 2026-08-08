@@ -84,6 +84,7 @@ type ScriptOptions = {
   chapterSlugs: string[];
   confirmed: boolean;
   dryRun: boolean;
+  healthOnly: boolean;
 };
 
 type SyncStats = {
@@ -143,11 +144,13 @@ function printHelp() {
       "",
       "Usage:",
       "  tsx scripts/sync-training-qcms-dev-to-prod.ts --yes",
+      "  tsx scripts/sync-training-qcms-dev-to-prod.ts --yes --health",
       "  tsx scripts/sync-training-qcms-dev-to-prod.ts --yes --chapter transformation-nucleaire",
       "",
       "Options:",
       "  --yes              confirm prod writes",
       "  --dry-run          validate payload and prod mappings without writing",
+      "  --health           sync only health training chapters",
       "  --chapter <slug>   sync only one chapter slug (repeatable)",
       "  --help             show this help",
     ].join("\n")
@@ -158,6 +161,7 @@ function parseArgs(argv: string[]): ScriptOptions {
   const chapterSlugs: string[] = [];
   let confirmed = false;
   let dryRun = false;
+  let healthOnly = false;
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -174,6 +178,11 @@ function parseArgs(argv: string[]): ScriptOptions {
 
     if (arg === "--dry-run") {
       dryRun = true;
+      continue;
+    }
+
+    if (arg === "--health") {
+      healthOnly = true;
       continue;
     }
 
@@ -199,6 +208,7 @@ function parseArgs(argv: string[]): ScriptOptions {
     chapterSlugs,
     confirmed,
     dryRun,
+    healthOnly,
   };
 }
 
@@ -420,11 +430,13 @@ function sortChapters(chapters: ExportChapter[]) {
 
 async function exportFromDev(
   prisma: PrismaClient,
-  chapterSlugs: string[]
+  chapterSlugs: string[],
+  healthOnly: boolean
 ): Promise<ExportChapter[]> {
   const chapters = await prisma.chapter.findMany({
     where: {
       ...(chapterSlugs.length > 0 ? { slug: { in: chapterSlugs } } : {}),
+      ...(healthOnly ? { vertical: "HEALTH" } : {}),
     },
     select: {
       title: true,
@@ -1361,7 +1373,11 @@ async function main() {
   });
 
   try {
-    const chapters = await exportFromDev(devPrisma, options.chapterSlugs);
+    const chapters = await exportFromDev(
+      devPrisma,
+      options.chapterSlugs,
+      options.healthOnly
+    );
     if (chapters.length === 0) {
       throw new Error("No training chapters found to sync.");
     }

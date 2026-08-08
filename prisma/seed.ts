@@ -28,7 +28,9 @@ async function main() {
         { seedHealthCourseUnits },
         { seedHealthTeachingElements },
         { seedHealthChapters },
+        { seedHealthTrainingUe13HistologieContent },
         { seedHealthTrainingUe14 },
+        { seedHealthMockExams },
         { seedChapterAssignments },
     ] = await Promise.all([
         import("@prisma/client"),
@@ -53,7 +55,9 @@ async function main() {
         import("./seeds/health-course-units.seed"),
         import("./seeds/health-teaching-elements.seed"),
         import("./seeds/health-chapters.seed"),
+        import("./seeds/health-training-ue13.seed"),
         import("./seeds/health-training-ue14.seed"),
+        import("./seeds/health-mock-exams.seed"),
         import("./seeds/chapter-assignments.seed"),
     ]);
 
@@ -91,7 +95,9 @@ async function main() {
         await seedHealthCourseUnits(prisma);
         await seedHealthTeachingElements(prisma);
         await seedHealthChapters(prisma);
+        await seedHealthTrainingUe13HistologieContent(prisma);
         await seedHealthTrainingUe14(prisma);
+        await seedHealthMockExams(prisma);
 
         // 8. Training (dépend de Subjects et Domains)
         await seedTraining(prisma);

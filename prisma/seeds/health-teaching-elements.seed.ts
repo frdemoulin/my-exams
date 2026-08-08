@@ -1,6 +1,7 @@
 import type { HealthCourseUnitCoverageStatus, PrismaClient } from "@prisma/client";
 
-import fixture from "./data/health-teaching-elements-reims-ue14.json";
+import ue13Fixture from "./data/health-teaching-elements-reims-ue13.json";
+import ue14Fixture from "./data/health-teaching-elements-reims-ue14.json";
 
 type SeedTeachingElement = {
     institutionNameContains?: string | null;
@@ -125,8 +126,8 @@ const dateFromIso = (value?: string | null) =>
     value ? new Date(`${value}T12:00:00.000Z`) : undefined;
 
 export async function seedHealthTeachingElements(prisma: PrismaClient) {
-    const payload = fixture as SeedFixture;
-    const teachingElements = payload.teachingElements ?? [];
+    const fixtures = [ue13Fixture, ue14Fixture] as SeedFixture[];
+    const teachingElements = fixtures.flatMap((payload) => payload.teachingElements ?? []);
 
     if (teachingElements.length === 0) return;
 

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="100%" height="100%" fill="white"/>
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+.label { font-size: 34px; font-weight: 700; }
+.small { font-size: 22px; }
+.line { stroke:#111; stroke-width:5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.thin { stroke:#111; stroke-width:3; fill:none; }
+.cell { fill:#f7f7f7; stroke:#111; stroke-width:4; }
+.nucleus { fill:#ddd; stroke:#111; stroke-width:3; }
+</style>
+
+<text x="130" y="60" class="label">A</text><text x="545" y="60" class="label">B</text><text x="955" y="60" class="label">C</text>
+<!-- skeletal -->
+<rect x="55" y="210" width="330" height="250" rx="25" class="cell"/>
+<line x1="65" y1="235" x2="375" y2="235" class="thin"/><line x1="65" y1="263" x2="375" y2="263" class="thin"/><line x1="65" y1="291" x2="375" y2="291" class="thin"/><line x1="65" y1="319" x2="375" y2="319" class="thin"/><line x1="65" y1="347" x2="375" y2="347" class="thin"/><line x1="65" y1="375" x2="375" y2="375" class="thin"/><line x1="65" y1="403" x2="375" y2="403" class="thin"/><line x1="65" y1="431" x2="375" y2="431" class="thin"/><ellipse cx="85" cy="430" rx="18" ry="10" class="nucleus"/><ellipse cx="140" cy="430" rx="18" ry="10" class="nucleus"/><ellipse cx="195" cy="430" rx="18" ry="10" class="nucleus"/><ellipse cx="250" cy="430" rx="18" ry="10" class="nucleus"/><ellipse cx="305" cy="430" rx="18" ry="10" class="nucleus"/><ellipse cx="360" cy="430" rx="18" ry="10" class="nucleus"/>
+<!-- cardiac -->
+<path d="M455 260 L600 180 L760 270 L650 390 L500 470 Z" class="cell"/>
+<path d="M600 180 L620 120 M760 270 L820 235 M500 470 L455 530" class="line"/>
+<ellipse cx="610" cy="320" rx="30" ry="42" class="nucleus"/>
+<line x1="535" y1="230" x2="720" y2="405" class="thin"/><line x1="565" y1="205" x2="745" y2="365" class="thin"/>
+<!-- smooth -->
+<path d="M855 350 Q1010 190 1150 350 Q1010 510 855 350 Z" class="cell"/><ellipse cx="1005" cy="350" rx="70" ry="25" class="nucleus"/>
+
+</svg>
