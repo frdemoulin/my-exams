@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="100%" height="100%" fill="white"/>
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+.label { font-size: 34px; font-weight: 700; }
+.small { font-size: 22px; }
+.line { stroke:#111; stroke-width:5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.thin { stroke:#111; stroke-width:3; fill:none; }
+.cell { fill:#f7f7f7; stroke:#111; stroke-width:4; }
+.nucleus { fill:#ddd; stroke:#111; stroke-width:3; }
+</style>
+
+<text x="70" y="60" class="label">A</text><text x="360" y="60" class="label">B</text><text x="650" y="60" class="label">C</text><text x="940" y="60" class="label">D</text>
+<!-- cells -->
+<rect x="55" y="280" width="230" height="300" class="cell"/><ellipse cx="170" cy="450" rx="45" ry="55" class="nucleus"/>
+<rect x="345" y="280" width="230" height="300" class="cell"/><ellipse cx="460" cy="450" rx="45" ry="55" class="nucleus"/>
+<rect x="635" y="280" width="230" height="300" class="cell"/><ellipse cx="750" cy="450" rx="45" ry="55" class="nucleus"/>
+<rect x="925" y="280" width="230" height="300" class="cell"/><ellipse cx="1040" cy="450" rx="45" ry="55" class="nucleus"/>
+<!-- A microvilli -->
+<line x1="75" y1="280" x2="75" y2="225" class="thin"/><line x1="93" y1="280" x2="93" y2="225" class="thin"/><line x1="111" y1="280" x2="111" y2="225" class="thin"/><line x1="129" y1="280" x2="129" y2="225" class="thin"/><line x1="147" y1="280" x2="147" y2="225" class="thin"/><line x1="165" y1="280" x2="165" y2="225" class="thin"/><line x1="183" y1="280" x2="183" y2="225" class="thin"/><line x1="201" y1="280" x2="201" y2="225" class="thin"/><line x1="219" y1="280" x2="219" y2="225" class="thin"/><line x1="237" y1="280" x2="237" y2="225" class="thin"/><line x1="255" y1="280" x2="255" y2="225" class="thin"/>
+<!-- B cilia -->
+<path d="M 365 280 Q 370 190 360 120" class="line"/><path d="M 383 280 Q 388 190 378 120" class="line"/><path d="M 401 280 Q 406 190 396 120" class="line"/><path d="M 419 280 Q 424 190 414 120" class="line"/><path d="M 437 280 Q 442 190 432 120" class="line"/><path d="M 455 280 Q 460 190 450 120" class="line"/><path d="M 473 280 Q 478 190 468 120" class="line"/><path d="M 491 280 Q 496 190 486 120" class="line"/><path d="M 509 280 Q 514 190 504 120" class="line"/><path d="M 527 280 Q 532 190 522 120" class="line"/><path d="M 545 280 Q 550 190 540 120" class="line"/>
+<!-- C stereocilia -->
+<path d="M655 280 Q670 130 640 80 M685 280 Q700 170 690 115 M715 280 Q730 110 710 55 M745 280 Q760 150 755 90 M775 280 Q790 100 780 40 M805 280 Q820 180 815 120 M835 280 Q850 130 845 75" class="line"/>
+<!-- D cuticle -->
+<path d="M930 280 Q1040 210 1150 280 L1150 320 Q1040 255 930 320 Z" fill="#ddd" stroke="#111" stroke-width="4"/>
+<line x1="45" y1="600" x2="1165" y2="600" class="line"/>
+
+</svg>

@@ -8,6 +8,7 @@ const prisma = require("../../src/lib/db/prisma").default;
 const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
+const ue13Slug = "ue13-anatomie-histologie-physiologie";
 const ue14Id = "6a2c2b111af36bd83ac27ec2";
 const chapterOneSlug = "elements-chimiques-classification-periodique";
 const chapterTwoSlug = "formation-ions-electronegativite-liaisons-chimiques";
@@ -65,13 +66,27 @@ type ChapterFixture = {
   sectionCount: number;
   quizCount: number;
   questionCount: number;
-  sections: Array<{
+  sections: ChapterSectionFixture[];
+};
+
+type ChapterSectionFixture = {
+  title: string;
+  kind: "THEME" | "SYNTHESIS";
+  quizzes: Array<{
     title: string;
-    kind: "THEME" | "SYNTHESIS";
-    quizzes: Array<{
-      title: string;
-      questionCount: number;
-    }>;
+    questionCount: number;
+  }>;
+};
+
+type TeachingElementChapterSectionsFixture = {
+  id: string;
+  title: string;
+  chapters: Array<{
+    title: string;
+    slug: string;
+    distinctQuestionCount: number;
+    invalidQuestionCount: number;
+    sections: ChapterSectionFixture[];
   }>;
 };
 
@@ -82,6 +97,24 @@ type TeachingElementChapterGroupsFixture = {
     label: string;
     chapterTitles: string[];
   }>;
+};
+
+type CourseUnitFixture = {
+  id: string;
+  title: string;
+  teachingElements: Array<{
+    title: string;
+  }>;
+};
+
+type RawCourseUnitBySlug = CourseUnitFixture & {
+  programVersion: {
+    slug: string;
+    institution: {
+      name: string;
+      shortName: string | null;
+    };
+  };
 };
 
 type BiochimieCourseUnitCoverageFixture = {
@@ -101,9 +134,34 @@ type RawChapterAssignmentContext = {
   contextId: string;
 };
 
+type RawChapterGroupAssignment = {
+  displayGroupKey: string | null;
+  displayGroupLabel: string | null;
+  displayGroupOrder: number | null;
+  chapter: {
+    title: string;
+  };
+};
+
+type RawChapterSectionsAssignment = {
+  chapter: {
+    title: string;
+    slug: string;
+    sections: RawSection[];
+  };
+};
+
 type RawQuiz = {
   title: string;
-  questionLinks: Array<{ id: string }>;
+  questionLinks: Array<{
+    id: string;
+    question?: {
+      id: string;
+      choices: unknown;
+      correctChoiceIndexes: number[];
+      choiceExplanations: unknown;
+    };
+  }>;
 };
 
 type RawSection = {
@@ -116,8 +174,33 @@ function formatQuestionCountLabel(count: number) {
   return `${count} question${count > 1 ? "s" : ""}`;
 }
 
+function isValidSeededQuestion(question: NonNullable<RawQuiz["questionLinks"][number]["question"]>) {
+  const choices = question.choices;
+
+  if (!Array.isArray(choices) || choices.length < 4) {
+    return false;
+  }
+
+  if (
+    question.correctChoiceIndexes.length === 0 ||
+    question.correctChoiceIndexes.some(
+      (choiceIndex) =>
+        !Number.isInteger(choiceIndex) ||
+        choiceIndex < 0 ||
+        choiceIndex >= choices.length,
+    )
+  ) {
+    return false;
+  }
+
+  return (
+    Array.isArray(question.choiceExplanations) &&
+    question.choiceExplanations.length === choices.length
+  );
+}
+
 function getSectionHeadingLabel(
-  section: ChapterFixture["sections"][number],
+  section: ChapterSectionFixture,
   sectionIndex: number,
 ) {
   if (section.kind === "SYNTHESIS") {
@@ -127,10 +210,14 @@ function getSectionHeadingLabel(
   return `Section ${String.fromCharCode(65 + sectionIndex)} – ${section.title}`;
 }
 
-async function getCourseUnitFixture() {
+async function getCourseUnitFixture(
+  courseUnitId = ue14Id,
+  courseUnitLabel = "UE14",
+): Promise<CourseUnitFixture> {
   const courseUnit = await prisma.healthCourseUnit.findUnique({
-    where: { id: ue14Id },
+    where: { id: courseUnitId },
     select: {
+      id: true,
       title: true,
       teachingElements: {
         where: { isActive: true },
@@ -143,10 +230,62 @@ async function getCourseUnitFixture() {
   });
 
   if (!courseUnit) {
-    throw new Error(`UE14 introuvable (${ue14Id}).`);
+    throw new Error(`${courseUnitLabel} introuvable (${courseUnitId}).`);
   }
 
   return courseUnit;
+}
+
+async function getCourseUnitFixtureBySlug(
+  courseUnitSlug: string,
+  courseUnitLabel: string,
+): Promise<CourseUnitFixture> {
+  const courseUnits: RawCourseUnitBySlug[] = await prisma.healthCourseUnit.findMany({
+    where: { slug: courseUnitSlug },
+    select: {
+      id: true,
+      title: true,
+      programVersion: {
+        select: {
+          slug: true,
+          institution: {
+            select: {
+              name: true,
+              shortName: true,
+            },
+          },
+        },
+      },
+      teachingElements: {
+        where: { isActive: true },
+        orderBy: [{ order: "asc" }, { title: "asc" }],
+        select: {
+          title: true,
+        },
+      },
+    },
+  });
+  const courseUnit = courseUnits.find((entry) => {
+    const institutionName = entry.programVersion.institution.name.toLocaleLowerCase("fr-FR");
+    const institutionShortName =
+      entry.programVersion.institution.shortName?.toLocaleLowerCase("fr-FR") ?? "";
+
+    return (
+      entry.programVersion.slug === "las-2025-2026" &&
+      (institutionName.includes("reims champagne-ardenne") ||
+        institutionShortName.includes("reims"))
+    );
+  });
+
+  if (!courseUnit) {
+    throw new Error(`${courseUnitLabel} introuvable (${courseUnitSlug}).`);
+  }
+
+  return {
+    id: courseUnit.id,
+    title: courseUnit.title,
+    teachingElements: courseUnit.teachingElements,
+  };
 }
 
 async function getChapterFixture(chapterSlug: string): Promise<ChapterFixture> {
@@ -296,7 +435,7 @@ async function getTeachingElementChapterGroupsFixture(
     throw new Error(`EC introuvable: ${teachingElementSlug}`);
   }
 
-  const assignments = await prisma.chapterAssignment.findMany({
+  const assignments: RawChapterGroupAssignment[] = await prisma.chapterAssignment.findMany({
     where: {
       contextType: "HEALTH_TEACHING_ELEMENT",
       contextId: teachingElement.id,
@@ -354,6 +493,104 @@ async function getTeachingElementChapterGroupsFixture(
   };
 }
 
+async function getTeachingElementChapterSectionsFixture({
+  courseUnitId,
+  teachingElementSlug,
+}: {
+  courseUnitId: string;
+  teachingElementSlug: string;
+}): Promise<TeachingElementChapterSectionsFixture> {
+  const teachingElement = await prisma.healthTeachingElement.findFirst({
+    where: {
+      courseUnitId,
+      slug: teachingElementSlug,
+    },
+    select: {
+      id: true,
+      title: true,
+    },
+  });
+
+  if (!teachingElement) {
+    throw new Error(`EC introuvable: ${teachingElementSlug}`);
+  }
+
+  const assignments: RawChapterSectionsAssignment[] = await prisma.chapterAssignment.findMany({
+    where: {
+      contextType: "HEALTH_TEACHING_ELEMENT",
+      contextId: teachingElement.id,
+    },
+    select: {
+      order: true,
+      chapter: {
+        select: {
+          title: true,
+          slug: true,
+          sections: {
+            where: { isPublished: true },
+            orderBy: [{ order: "asc" }],
+            select: {
+              title: true,
+              kind: true,
+              quizzes: {
+                where: { isPublished: true },
+                select: {
+                  title: true,
+                  questionLinks: {
+                    where: { question: { isPublished: true } },
+                    select: {
+                      id: true,
+                      question: {
+                        select: {
+                          id: true,
+                          choices: true,
+                          correctChoiceIndexes: true,
+                          choiceExplanations: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    orderBy: [{ order: "asc" }, { updatedAt: "desc" }],
+  });
+
+  return {
+    id: teachingElement.id,
+    title: teachingElement.title,
+    chapters: assignments.map((assignment) => {
+      const questionLinks = assignment.chapter.sections.flatMap((section) =>
+        section.quizzes.flatMap((quiz) => quiz.questionLinks),
+      );
+
+      return {
+        title: assignment.chapter.title,
+        slug: assignment.chapter.slug,
+        distinctQuestionCount: new Set(
+          questionLinks.map((questionLink) => questionLink.question?.id),
+        ).size,
+        invalidQuestionCount: questionLinks.filter(
+          (questionLink) =>
+            !questionLink.question || !isValidSeededQuestion(questionLink.question),
+        ).length,
+        sections: assignment.chapter.sections.map((section: RawSection) => ({
+          title: section.title,
+          kind: section.kind,
+          quizzes: section.quizzes.map((quiz: RawQuiz) => ({
+            title: quiz.title,
+            questionCount: quiz.questionLinks.length,
+          })),
+        })),
+      };
+    }),
+  };
+}
+
 test.describe("Santé - structure UE/EC/chapitres", () => {
   test("la page UE14 expose bien les trois EC attendus", async ({ page }) => {
     const courseUnit = await getCourseUnitFixture();
@@ -367,6 +604,171 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     for (const teachingElement of courseUnit.teachingElements) {
       await expect(
         page.getByRole("tab", { name: teachingElement.title, exact: true }),
+      ).toBeVisible();
+    }
+  });
+
+  test("la page UE13 expose bien les trois EC attendus", async ({ page }) => {
+    const courseUnit = await getCourseUnitFixtureBySlug(ue13Slug, "UE13");
+    const teachingElementTitles = courseUnit.teachingElements.map(
+      (teachingElement) => teachingElement.title,
+    );
+
+    expect(teachingElementTitles).toEqual(["Anatomie", "Histologie", "Physiologie"]);
+
+    await page.goto(`${appBaseUrl}/sante/ue/${courseUnit.id}`);
+
+    await expect(
+      page.getByRole("heading", { name: new RegExp(courseUnit.title, "i") }),
+    ).toBeVisible();
+    await expect(page.getByText("3 EC", { exact: true }).first()).toBeVisible();
+
+    for (const teachingElement of courseUnit.teachingElements) {
+      await expect(
+        page.getByRole("tab", { name: teachingElement.title, exact: true }),
+      ).toBeVisible();
+    }
+  });
+
+  test("l'EC Histologie de l'UE13 expose les chapitres et sections attendus", async ({
+    page,
+  }) => {
+    const courseUnit = await getCourseUnitFixtureBySlug(ue13Slug, "UE13");
+    const histology = await getTeachingElementChapterSectionsFixture({
+      courseUnitId: courseUnit.id,
+      teachingElementSlug: "histologie",
+    });
+    const expectedChapters = [
+      {
+        title: "Définitions, techniques et microscopie",
+        quizCount: 11,
+        questionCount: 110,
+        sections: [
+          "Généralités sur l’histologie",
+          "Technique histologique",
+          "Colorations histologiques",
+          "Technique cytologique",
+          "Microscopie",
+          "Synthèse du chapitre",
+        ],
+      },
+      {
+        title: "Les épithéliums : structures et classifications",
+        quizCount: 9,
+        questionCount: 90,
+        sections: [
+          "Définition et propriétés des épithéliums",
+          "Différenciations apicales",
+          "Épithéliums de revêtement",
+          "Épithéliums glandulaires",
+          "Synthèse du chapitre",
+        ],
+      },
+      {
+        title: "Les tissus conjonctifs",
+        quizCount: 11,
+        questionCount: 110,
+        sections: [
+          "Cellules des tissus conjonctifs",
+          "Matrice extracellulaire",
+          "Classification et tissus conjonctifs non spécialisés",
+          "Tissu cartilagineux",
+          "Tissu osseux",
+          "Synthèse du chapitre",
+        ],
+      },
+      {
+        title: "Les tissus musculaires",
+        quizCount: 9,
+        questionCount: 90,
+        sections: [
+          "Généralités et classification",
+          "Muscle strié squelettique",
+          "Muscle strié cardiaque",
+          "Muscle lisse",
+          "Synthèse du chapitre",
+        ],
+      },
+      {
+        title: "Les tissus nerveux",
+        quizCount: 11,
+        questionCount: 110,
+        sections: [
+          "Organisation générale du tissu nerveux",
+          "Neurones et synapses",
+          "Névroglie du système nerveux central",
+          "Névroglie du système nerveux périphérique",
+          "Nerfs périphériques",
+          "Synthèse du chapitre",
+        ],
+      },
+    ];
+
+    expect(histology.title).toBe("Histologie");
+    expect(
+      histology.chapters.map((chapter) => ({
+        title: chapter.title,
+        quizCount: chapter.sections.reduce(
+          (total, section) => total + section.quizzes.length,
+          0,
+        ),
+        questionCount: chapter.sections.reduce(
+          (total, section) =>
+            total +
+            section.quizzes.reduce(
+              (quizTotal, quiz) => quizTotal + quiz.questionCount,
+              0,
+            ),
+          0,
+        ),
+        sections: chapter.sections.map((section) => section.title),
+      })),
+    ).toEqual(expectedChapters);
+    expect(histology.chapters.flatMap((chapter) => chapter.sections)).toHaveLength(28);
+
+    for (const [chapterIndex, chapter] of histology.chapters.entries()) {
+      expect(chapter.invalidQuestionCount).toBe(0);
+      expect(chapter.distinctQuestionCount).toBe(expectedChapters[chapterIndex].questionCount);
+
+      for (const quiz of chapter.sections.flatMap((section) => section.quizzes)) {
+        expect(quiz.questionCount).toBe(10);
+      }
+    }
+
+    await page.goto(`${appBaseUrl}/sante/ue/${courseUnit.id}?ec=${histology.id}`);
+
+    await expect(page.getByRole("tab", { name: "Histologie", exact: true })).toBeVisible();
+    await expect(page.getByText("Histologie", { exact: true }).first()).toBeVisible();
+
+    for (const [chapterIndex, chapter] of histology.chapters.entries()) {
+      await expect(page.getByRole("link", { name: chapter.title, exact: true })).toBeVisible();
+      await expect(
+        page
+          .getByText(
+            `${chapter.sections.length} sections · ${expectedChapters[chapterIndex].quizCount} QCM`,
+            { exact: true },
+          )
+          .first(),
+      ).toBeVisible();
+    }
+
+    const firstChapter = histology.chapters[0];
+    await page.goto(`${appBaseUrl}/sante/ue/${courseUnit.id}/chapitres/${firstChapter.slug}`);
+
+    await expect(page.getByRole("heading", { name: firstChapter.title })).toBeVisible();
+    await expect(page.getByText(`${firstChapter.sections.length} sections`)).toBeVisible();
+    await expect(page.getByText(`${expectedChapters[0].quizCount} QCM`)).toBeVisible();
+    await expect(page.getByText(`${expectedChapters[0].questionCount} questions`)).toBeVisible();
+    await expect(page.getByRole("link", { name: /Démarrer/i })).toHaveCount(
+      expectedChapters[0].quizCount,
+    );
+
+    for (const [sectionIndex, section] of firstChapter.sections.entries()) {
+      await expect(
+        page.getByRole("heading", {
+          name: getSectionHeadingLabel(section, sectionIndex),
+          exact: true,
+        }),
       ).toBeVisible();
     }
   });

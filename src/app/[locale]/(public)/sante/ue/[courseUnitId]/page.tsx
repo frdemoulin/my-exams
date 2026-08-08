@@ -68,7 +68,11 @@ export default async function HealthCourseUnitDetailPage({
     }
   }
 
-  const courseUnit = await fetchHealthStudentCourseUnitDetail(courseUnitId);
+  const courseUnit = await fetchHealthStudentCourseUnitDetail(courseUnitId, {
+    userId: effectiveUserId,
+  });
+
+  console.log('courseUnit', courseUnit);
 
   if (!courseUnit) {
     notFound();

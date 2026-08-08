@@ -1,12 +1,14 @@
 'use client';
 
 import { useTransition } from 'react';
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import toast from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
 
 export function ImpersonationBanner() {
+  const router = useRouter();
   const { data: session } = useSession();
   const [isPending, startTransition] = useTransition();
   const impersonation = session?.impersonation;
@@ -38,9 +40,10 @@ export function ImpersonationBanner() {
           );
         }
 
-        window.location.assign(
+        router.replace(
           `${window.location.pathname}${window.location.search}${window.location.hash}`
         );
+        router.refresh();
       } catch (error) {
         toast.error(
           error instanceof Error

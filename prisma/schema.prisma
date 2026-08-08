@@ -377,6 +377,7 @@ model HealthCourseUnit {
   themeIds               String[]             @default([]) @db.ObjectId
   themes                 Theme[]              @relation(fields: [themeIds], references: [id])
   teachingElements       HealthTeachingElement[]
+  mockExams              HealthMockExam[]
   isActive               Boolean              @default(true)
   isPublished            Boolean              @default(false)
 
@@ -409,6 +410,7 @@ model HealthTeachingElement {
   sourceCheckedAt DateTime?
   themeIds        String[]                       @default([]) @db.ObjectId
   themes          Theme[]                        @relation(fields: [themeIds], references: [id])
+  mockExamSections HealthMockExamSection[]
   isActive        Boolean                        @default(true)
   isPublished     Boolean                        @default(false)
 
@@ -570,6 +572,13 @@ enum TrainingQuizStage {
   DISCOVER
   PRACTICE
   MASTER
+}
+
+enum HealthMockExamAttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+  ABANDONED
 }
 
 enum ChapterSectionKind {
@@ -984,6 +993,176 @@ model TrainingQuizQuestion {
   @@index([questionId])
 }
 
+// Les examens blancs sont rattachés directement à une UE. Ils utilisent leurs
+// propres questions afin de ne jamais recycler les QCM d'entraînement.
+model HealthMockExam {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  courseUnitId    String   @db.ObjectId
+  title           String
+  slug            String
+  description     String?
+  instructions    String?  @db.String
+  durationMinutes Int      @default(150)
+  questionCount   Int      @default(100)
+  version         Int      @default(1)
+  order           Int      @default(0)
+  isPublished     Boolean  @default(false)
+
+  courseUnit HealthCourseUnit                 @relation(fields: [courseUnitId], references: [id], onDelete: Cascade)
+  sections   HealthMockExamSection[]
+  attempts   UserHealthMockExamAttempt[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([courseUnitId, slug])
+  @@index([courseUnitId, isPublished, order])
+}
+
+model HealthMockExamSection {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  mockExamId        String   @db.ObjectId
+  teachingElementId String   @db.ObjectId
+  title             String
+  order             Int
+  questionCount     Int
+  firstQuestion     Int
+  lastQuestion      Int
+
+  mockExam        HealthMockExam                    @relation(fields: [mockExamId], references: [id], onDelete: Cascade)
+  teachingElement HealthTeachingElement             @relation(fields: [teachingElementId], references: [id], onDelete: Restrict)
+  questionGroups  HealthMockExamQuestionGroup[]
+  questions       HealthMockExamQuestion[]
+  attemptQuestions UserHealthMockExamAttemptQuestion[]
+  results         UserHealthMockExamAttemptSectionResult[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([mockExamId, teachingElementId])
+  @@unique([mockExamId, order])
+  @@index([teachingElementId])
+}
+
+model HealthMockExamQuestionGroup {
+  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  examSectionId   String  @db.ObjectId
+  title           String?
+  sharedStatement String  @db.String
+  order           Int
+
+  examSection HealthMockExamSection   @relation(fields: [examSectionId], references: [id], onDelete: Cascade)
+  questions   HealthMockExamQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([examSectionId, order])
+  @@index([examSectionId])
+}
+
+model HealthMockExamQuestion {
+  id                   String             @id @default(auto()) @map("_id") @db.ObjectId
+  examSectionId        String             @db.ObjectId
+  groupId              String?            @db.ObjectId
+  slug                 String
+  difficulty           QuizDifficulty
+  question             String             @db.String
+  questionDiagram      Json?
+  choices              Json
+  answerFormat         QuizAnswerFormat?  @default(SINGLE)
+  correctChoiceIndexes Int[]              @default([])
+  correctChoiceIndex   Int
+  explanation          String             @db.String
+  choiceExplanations   Json?
+  order                Int
+  globalOrder          Int
+  isPublished          Boolean            @default(true)
+
+  examSection   HealthMockExamSection         @relation(fields: [examSectionId], references: [id], onDelete: Cascade)
+  group         HealthMockExamQuestionGroup?  @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  attemptQuestions UserHealthMockExamAttemptQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([examSectionId, order])
+  @@unique([examSectionId, globalOrder])
+  @@unique([examSectionId, slug])
+  @@index([groupId])
+  @@index([globalOrder])
+}
+
+model UserHealthMockExamAttempt {
+  id             String                       @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String                       @db.ObjectId
+  mockExamId     String                       @db.ObjectId
+  mockExamVersion Int                         @default(1)
+  status         HealthMockExamAttemptStatus  @default(IN_PROGRESS)
+  startedAt      DateTime                     @default(now())
+  deadlineAt     DateTime
+  submittedAt    DateTime?
+  elapsedSeconds Int?
+  score          Int?
+  maxScore       Int?
+  percentage     Int?
+  autoSubmitted  Boolean                      @default(false)
+
+  user             User                                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mockExam         HealthMockExam                        @relation(fields: [mockExamId], references: [id], onDelete: Cascade)
+  attemptQuestions UserHealthMockExamAttemptQuestion[]
+  sectionResults   UserHealthMockExamAttemptSectionResult[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, mockExamId, startedAt])
+  @@index([mockExamId, status])
+  @@index([userId, status])
+}
+
+model UserHealthMockExamAttemptQuestion {
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  attemptId             String   @db.ObjectId
+  examSectionId         String   @db.ObjectId
+  questionId            String   @db.ObjectId
+  order                 Int
+  globalOrder           Int
+  selectedChoiceIndexes Int[]    @default([])
+  markedForReview       Boolean  @default(false)
+  answeredAt            DateTime?
+
+  attempt     UserHealthMockExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  examSection HealthMockExamSection     @relation(fields: [examSectionId], references: [id], onDelete: Restrict)
+  question    HealthMockExamQuestion    @relation(fields: [questionId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([attemptId, questionId])
+  @@unique([attemptId, globalOrder])
+  @@index([attemptId, examSectionId])
+  @@index([questionId])
+}
+
+model UserHealthMockExamAttemptSectionResult {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  attemptId     String  @db.ObjectId
+  examSectionId String  @db.ObjectId
+  score         Int
+  maxScore      Int
+  percentage    Int
+
+  attempt     UserHealthMockExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  examSection HealthMockExamSection     @relation(fields: [examSectionId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([attemptId, examSectionId])
+  @@index([examSectionId])
+}
+
 model User {
   id                          String                     @id @default(auto()) @map("_id") @db.ObjectId
   name                        String?
@@ -1002,6 +1181,7 @@ model User {
   subscriptions               UserSubscription[]
   exerciseHistory             UserExerciseHistory[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
+  healthMockExamAttempts      UserHealthMockExamAttempt[]
   createdAt                   DateTime                   @default(now())
   updatedAt                   DateTime                   @updatedAt
 }

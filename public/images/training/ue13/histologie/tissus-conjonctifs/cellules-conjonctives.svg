@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="100%" height="100%" fill="white"/>
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+.label { font-size: 34px; font-weight: 700; }
+.small { font-size: 22px; }
+.line { stroke:#111; stroke-width:5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.thin { stroke:#111; stroke-width:3; fill:none; }
+.cell { fill:#f7f7f7; stroke:#111; stroke-width:4; }
+.nucleus { fill:#ddd; stroke:#111; stroke-width:3; }
+</style>
+
+<text x="95" y="60" class="label">A</text><text x="390" y="60" class="label">B</text><text x="690" y="60" class="label">C</text><text x="990" y="60" class="label">D</text>
+<!-- A fibrocyte -->
+<path d="M55 360 Q160 250 280 360 Q160 470 55 360 Z" class="cell"/><ellipse cx="165" cy="360" rx="65" ry="22" class="nucleus"/>
+<!-- B adipocyte -->
+<circle cx="465" cy="360" r="135" class="cell"/><circle cx="465" cy="360" r="105" fill="white" stroke="#111" stroke-width="3"/><ellipse cx="365" cy="445" rx="25" ry="38" class="nucleus"/>
+<!-- C macrophage -->
+<path d="M640 280 Q720 200 820 280 L860 350 Q820 470 700 480 L620 400 Z" class="cell"/><path d="M700 330 Q760 280 795 340 Q770 410 700 385 Z" class="nucleus"/><path d="M650 285 L600 220 M840 300 L900 230 M650 430 L585 500" class="line"/>
+<!-- D mastocyte -->
+<circle cx="1040" cy="360" r="135" class="cell"/><ellipse cx="1040" cy="360" rx="45" ry="55" class="nucleus"/>
+<circle cx="930" cy="250" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="985" cy="250" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1040" cy="250" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1095" cy="250" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1150" cy="250" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="930" cy="305" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="985" cy="305" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1040" cy="305" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1095" cy="305" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1150" cy="305" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="930" cy="360" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="985" cy="360" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1040" cy="360" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1095" cy="360" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1150" cy="360" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="930" cy="415" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="985" cy="415" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1040" cy="415" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1095" cy="415" r="12" fill="#bbb" stroke="#111" stroke-width="2"/><circle cx="1150" cy="415" r="12" fill="#bbb" stroke="#111" stroke-width="2"/>
+</svg>

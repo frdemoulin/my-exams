@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState, useTransition } from 'react';
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { ChevronDown, LogOut, Mail, Settings, UserRound } from "lucide-react";
 import type { User as AuthUser } from "next-auth";
@@ -18,6 +19,7 @@ interface UserButtonProps {
 }
 
 export default function UserButton({ user }: UserButtonProps) {
+    const router = useRouter();
     const { data: session } = useSession();
     const [isLoadingUsers, setIsLoadingUsers] = useState(false);
     const [impersonationOptions, setImpersonationOptions] = useState<
@@ -119,9 +121,10 @@ export default function UserButton({ user }: UserButtonProps) {
                         );
                     }
 
-                    window.location.assign(
+                    router.replace(
                         `${window.location.pathname}${window.location.search}${window.location.hash}`
                     );
+                    router.refresh();
                     return;
                 }
 
@@ -142,7 +145,8 @@ export default function UserButton({ user }: UserButtonProps) {
                     );
                 }
 
-                window.location.assign(payload?.redirectTo || '/dashboard');
+                router.push(payload?.redirectTo || '/dashboard');
+                router.refresh();
             } catch (error) {
                 toast.error(
                     error instanceof Error

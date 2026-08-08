@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "label": "EC — Reims UE13",
+    "description": "Éléments constitutifs de l’UE13 Santé de Reims : Anatomie, Histologie, Physiologie.",
+    "academicYear": "2025-2026",
+    "sourceCheckedAt": "2026-06-13",
+    "notes": [
+      "Les EC sont rattachés à l’UE13 de Reims.",
+      "Les thèmes suggérés ne doivent pas être créés automatiquement.",
+      "Si un thème existe déjà avec un slug correspondant, il peut être associé.",
+      "Sinon le seed doit laisser themeIds vide et journaliser les thèmes non résolus."
+    ]
+  },
+  "teachingElements": [
+    {
+      "institutionNameContains": "Reims Champagne-Ardenne",
+      "programVersionSlug": "las-2025-2026",
+      "courseUnitSlug": "ue13-anatomie-histologie-physiologie",
+      "applyToAllMatchingCourseUnits": true,
+      "code": null,
+      "title": "Anatomie",
+      "shortTitle": "Anatomie",
+      "slug": "anatomie",
+      "description": "Élément constitutif de l’UE13 consacré à l’anatomie.",
+      "order": 1,
+      "coverageStatus": "STRUCTURE_ONLY",
+      "isActive": true,
+      "isPublished": true,
+      "themeSuggestions": [
+        "anatomie"
+      ],
+      "sourceUrl": "https://www.studocu.com/fr/document/universite-de-reims-champagne-ardenne/droit-fiscal/maquette-las-sps-tronc-commun/66012603",
+      "sourceLabel": "Maquette L.AS SpS tronc commun — Reims",
+      "sourceCheckedAt": "2026-06-13"
+    },
+    {
+      "institutionNameContains": "Reims Champagne-Ardenne",
+      "programVersionSlug": "las-2025-2026",
+      "courseUnitSlug": "ue13-anatomie-histologie-physiologie",
+      "applyToAllMatchingCourseUnits": true,
+      "code": null,
+      "title": "Histologie",
+      "shortTitle": "Histologie",
+      "slug": "histologie",
+      "description": "Élément constitutif de l’UE13 consacré à l’histologie.",
+      "order": 2,
+      "coverageStatus": "STRUCTURE_ONLY",
+      "isActive": true,
+      "isPublished": true,
+      "themeSuggestions": [
+        "histologie"
+      ],
+      "sourceUrl": "https://www.studocu.com/fr/document/universite-de-reims-champagne-ardenne/droit-fiscal/maquette-las-sps-tronc-commun/66012603",
+      "sourceLabel": "Maquette L.AS SpS tronc commun — Reims",
+      "sourceCheckedAt": "2026-06-13"
+    },
+    {
+      "institutionNameContains": "Reims Champagne-Ardenne",
+      "programVersionSlug": "las-2025-2026",
+      "courseUnitSlug": "ue13-anatomie-histologie-physiologie",
+      "applyToAllMatchingCourseUnits": true,
+      "code": null,
+      "title": "Physiologie",
+      "shortTitle": "Physiologie",
+      "slug": "physiologie",
+      "description": "Élément constitutif de l’UE13 consacré à la physiologie.",
+      "order": 3,
+      "coverageStatus": "STRUCTURE_ONLY",
+      "isActive": true,
+      "isPublished": true,
+      "themeSuggestions": [
+        "physiologie"
+      ],
+      "sourceUrl": "https://www.studocu.com/fr/document/universite-de-reims-champagne-ardenne/droit-fiscal/maquette-las-sps-tronc-commun/66012603",
+      "sourceLabel": "Maquette L.AS SpS tronc commun — Reims",
+      "sourceCheckedAt": "2026-06-13"
+    }
+  ]
+}

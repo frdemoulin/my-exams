@@ -496,7 +496,7 @@ export async function seedHealthTrainingChapter({
 
   if (chapter.domainIds.length === 0) {
     throw new Error(
-      `Le chapitre ${chapterSlug} doit être rattaché au domaine Chimie avant le seed des thèmes.`
+      `Le chapitre ${chapterSlug} doit être rattaché à un domaine avant le seed des thèmes.`
     );
   }
 
@@ -563,16 +563,70 @@ export async function seedHealthTrainingChapter({
     questionThemeLabels.length > 0
       ? await prisma.theme.findMany({
           where: { title: { in: questionThemeLabels } },
-          select: { id: true, title: true, chapterIds: true, domainIds: true },
+          select: {
+            id: true,
+            title: true,
+            chapterIds: true,
+            domainIds: true,
+            domains: { select: { subjectId: true } },
+          },
         })
       : [];
-  const existingThemeByTitle = new Map(
-    existingThemes.map((theme) => [theme.title, theme] as const)
-  );
+  const existingThemesByTitle = new Map<string, typeof existingThemes>();
+
+  for (const theme of existingThemes) {
+    const themes = existingThemesByTitle.get(theme.title);
+    if (themes) {
+      themes.push(theme);
+    } else {
+      existingThemesByTitle.set(theme.title, [theme]);
+    }
+  }
+
+  const themeBelongsOnlyToCurrentSubject = (theme: (typeof existingThemes)[number]) => {
+    const subjectIds = new Set(theme.domains.map((domain) => domain.subjectId));
+
+    return subjectIds.size === 1 && subjectIds.has(subject.id);
+  };
+
   const themeIdByLabel = new Map<string, string>();
 
   for (const label of questionThemeLabels) {
-    const existingTheme = existingThemeByTitle.get(label);
+    const labelThemes = existingThemesByTitle.get(label) ?? [];
+    const existingTheme =
+      labelThemes
+        .filter(themeBelongsOnlyToCurrentSubject)
+        .find((theme) => chapter.domainIds.some((domainId) => theme.domainIds.includes(domainId))) ??
+      labelThemes.filter(themeBelongsOnlyToCurrentSubject)[0];
+
+    const staleThemeAssociations = labelThemes.filter(
+      (theme) =>
+        theme.id !== existingTheme?.id &&
+        (theme.chapterIds.includes(chapter.id) ||
+          chapter.domainIds.some((domainId) => theme.domainIds.includes(domainId)))
+    );
+
+    for (const staleTheme of staleThemeAssociations) {
+      const staleDomainIds = chapter.domainIds.filter((domainId) =>
+        staleTheme.domainIds.includes(domainId)
+      );
+
+      await prisma.theme.update({
+        where: { id: staleTheme.id },
+        data: {
+          ...(staleTheme.chapterIds.includes(chapter.id)
+            ? { chapters: { disconnect: [{ id: chapter.id }] } }
+            : {}),
+          ...(staleDomainIds.length > 0
+            ? {
+                domains: {
+                  disconnect: staleDomainIds.map((domainId) => ({ id: domainId })),
+                },
+              }
+            : {}),
+        },
+      });
+    }
 
     if (existingTheme) {
       const missingDomainIds = chapter.domainIds.filter(

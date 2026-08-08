@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="100%" height="100%" fill="white"/>
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+.label { font-size: 34px; font-weight: 700; }
+.small { font-size: 22px; }
+.line { stroke:#111; stroke-width:5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.thin { stroke:#111; stroke-width:3; fill:none; }
+.cell { fill:#f7f7f7; stroke:#111; stroke-width:4; }
+.nucleus { fill:#ddd; stroke:#111; stroke-width:3; }
+</style>
+
+<text x="135" y="60" class="label">A</text><text x="545" y="60" class="label">B</text><text x="960" y="60" class="label">C</text>
+<!-- triad -->
+<rect x="70" y="210" width="90" height="260" rx="35" class="cell"/><rect x="180" y="170" width="90" height="340" rx="35" fill="#ddd" stroke="#111" stroke-width="4"/><rect x="290" y="210" width="90" height="260" rx="35" class="cell"/>
+<text x="185" y="555" class="small">tubule T</text>
+<!-- diad -->
+<rect x="500" y="210" width="90" height="260" rx="35" class="cell"/><rect x="610" y="170" width="90" height="340" rx="35" fill="#ddd" stroke="#111" stroke-width="4"/>
+<text x="615" y="555" class="small">tubule T</text>
+<!-- caveolae -->
+<rect x="865" y="190" width="270" height="310" rx="40" class="cell"/>
+<path d="M900 190 Q925 245 950 190 M980 190 Q1005 245 1030 190 M1060 190 Q1085 245 1110 190" class="line"/>
+
+</svg>

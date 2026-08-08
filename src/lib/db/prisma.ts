@@ -1,5 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 
+// Bump this whenever Prisma models change so Turbopack does not retain a
+// development singleton generated from an older schema after hot reload.
+const prismaSchemaRevision = '2026-08-03-health-mock-exams-v1';
+
 function isMongoUrl(value: string | undefined) {
   return value?.startsWith('mongodb://') || value?.startsWith('mongodb+srv://');
 }
@@ -19,12 +23,23 @@ const prismaClientSingleton = () => {
   return new PrismaClient()
 }
 
-declare const globalThis: {
-  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
-} & typeof global;
+type PrismaGlobal = typeof globalThis & {
+  prismaGlobal?: ReturnType<typeof prismaClientSingleton>;
+  prismaGlobalSchemaRevision?: string;
+};
 
-const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
+const prismaGlobal = globalThis as PrismaGlobal;
+const cachedPrisma =
+  process.env.NODE_ENV !== 'production' &&
+  prismaGlobal.prismaGlobalSchemaRevision === prismaSchemaRevision
+    ? prismaGlobal.prismaGlobal
+    : undefined;
+
+const prisma = cachedPrisma ?? prismaClientSingleton();
 
 export default prisma;
 
-if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma;
+if (process.env.NODE_ENV !== 'production') {
+  prismaGlobal.prismaGlobal = prisma;
+  prismaGlobal.prismaGlobalSchemaRevision = prismaSchemaRevision;
+}
