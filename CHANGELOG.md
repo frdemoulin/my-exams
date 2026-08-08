@@ -1,3 +1,9 @@
+## [1.6.35](https://github.com/frdemoulin/my-exams/compare/v1.6.34...v1.6.35) (2026-08-08)
+
+### Bug Fixes
+
+* finalisation de l'histologie ([622de11](https://github.com/frdemoulin/my-exams/commit/622de1189c8ea96fbfee63fe2fd2e776ff547592))
+
 ## [1.6.34](https://github.com/frdemoulin/my-exams/compare/v1.6.33...v1.6.34) (2026-08-02)
 
 ### Bug Fixes
