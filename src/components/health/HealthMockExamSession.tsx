@@ -38,8 +38,12 @@ import {
   getChoiceIdFromIndex,
   getQuestionFormatStudentInstruction,
   getQuestionSelectionLimit,
+  type HotspotPoint,
+  type HotspotQuestion,
   type StudentAnswer,
 } from "@/core/questions";
+import { HotspotQuestionView } from "@/components/training/hotspot-question-view";
+import { LongChoiceListView } from "@/components/training/long-choice-list-view";
 import { cn } from "@/lib/utils";
 
 type HealthMockExamSessionProps = {
@@ -79,6 +83,13 @@ function getShortAnswerValue(answer: HealthMockExamSessionAnswer | undefined) {
     : "";
 }
 
+function getHotspotPoint(answer: HealthMockExamSessionAnswer | undefined): HotspotPoint | null {
+  if (answer?.responsePayload?.type === "hotspot" && answer.responsePayload.points.length > 0) {
+    return answer.responsePayload.points[0] ?? null;
+  }
+  return null;
+}
+
 function isAnswerRecorded(
   question: HealthMockExamPassageQuestion,
   answer: HealthMockExamSessionAnswer | undefined,
@@ -87,6 +98,10 @@ function isAnswerRecorded(
 
   if (question.questionType === "short-answer") {
     return getShortAnswerValue(answer).trim().length > 0;
+  }
+
+  if (question.questionType === "hotspot" || question.canonicalQuestion.type === "hotspot") {
+    return getHotspotPoint(answer) !== null;
   }
 
   return answer.selectedChoiceIndexes.length > 0;
@@ -262,6 +277,18 @@ export function HealthMockExamSession({
         questionId: currentQuestion.id,
         type: "short-answer",
         rawValue,
+      },
+    });
+  };
+
+  const updateCurrentHotspotPoint = (point: HotspotPoint | null) => {
+    updateCurrentAnswer({
+      ...currentAnswer,
+      selectedChoiceIndexes: [],
+      responsePayload: {
+        questionId: currentQuestion.id,
+        type: "hotspot",
+        points: point ? [point] : [],
       },
     });
   };
@@ -463,7 +490,14 @@ export function HealthMockExamSession({
           />
         </div>
 
-        {currentQuestion.questionType === "short-answer" ? (
+        {currentQuestion.canonicalQuestion.type === "hotspot" ? (
+          <HotspotQuestionView
+            question={currentQuestion.canonicalQuestion as HotspotQuestion}
+            selectedPoint={getHotspotPoint(currentAnswer)}
+            onPointSelect={updateCurrentHotspotPoint}
+            readOnly={isSubmitting}
+          />
+        ) : currentQuestion.questionType === "short-answer" ? (
           <div className="space-y-2">
             <label
               htmlFor={`health-mock-exam-short-answer-${currentQuestion.attemptQuestionId}`}
@@ -480,6 +514,15 @@ export function HealthMockExamSession({
               autoComplete="off"
             />
           </div>
+        ) : currentQuestion.canonicalQuestion.format === "QRPL" || currentQuestion.choices.length > 5 ? (
+          <LongChoiceListView
+            choices={currentQuestion.choices}
+            selectedIndexes={currentAnswer.selectedChoiceIndexes}
+            selectionLimit={currentSelectionLimit}
+            onSelectChoice={toggleChoice}
+            isAnswerLocked={isSubmitting}
+            testIdPrefix="health-mock-exam-choice"
+          />
         ) : (
           <div className="grid gap-3">
             {currentQuestion.choices.map((choice, choiceIndex) => {

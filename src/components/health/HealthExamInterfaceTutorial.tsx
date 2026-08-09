@@ -18,6 +18,7 @@ import type {
 import {
   evaluateQuestion,
   getChoiceIdFromIndex,
+  type HotspotQuestion,
   type MultipleChoiceQuestion,
   type Question,
   type ShortAnswerQuestion,
@@ -70,6 +71,35 @@ function buildShortAnswerQuestion(): ShortAnswerQuestion {
       value: 4,
       tolerance: 0,
     },
+    scoring: {
+      strategy: "all-or-nothing",
+    },
+  };
+}
+
+function buildHotspotQuestion(): HotspotQuestion {
+  return {
+    id: "tutorial-qzone",
+    type: "hotspot",
+    format: "QZONE",
+    statement:
+      "QZONE — Question à zone à pointer : pointez le cercle bleu au centre du schéma ci-dessous.",
+    explanation:
+      "Une QZONE demande de pointer une zone précise sur un schéma ou une image. Vos coordonnées sont enregistrées en relatif.",
+    image: {
+      src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%231e293b'/><circle cx='300' cy='200' r='60' fill='%233b82f6' stroke='%2360a5fa' stroke-width='4'/><text x='300' y='205' font-family='sans-serif' font-size='18' fill='white' text-anchor='middle'>Zone Cible (QZONE)</text></svg>",
+      alt: "Exemple de support visuel QZONE avec zone cible centrale",
+    },
+    expectedZones: [
+      {
+        id: "zone-centre",
+        label: "Zone Cible Centrale",
+        x: 0.5,
+        y: 0.5,
+        tolerance: 0.12,
+      },
+    ],
+    defaultTolerance: 0.12,
     scoring: {
       strategy: "all-or-nothing",
     },
@@ -134,6 +164,7 @@ const tutorialQuestions = [
     explanation: "Une QRP impose un nombre précis de réponses. Ici, deux propositions sont attendues.",
   }),
   buildShortAnswerQuestion(),
+  buildHotspotQuestion(),
 ] satisfies Question[];
 
 function toPassageQuestion(

@@ -103,7 +103,10 @@ export function normalizeShortAnswerText(
   let normalizedValue = value;
 
   if (normalization.normalizeUnicode) {
-    normalizedValue = normalizedValue.normalize("NFKC");
+    normalizedValue = normalizedValue
+      .normalize("NFKC")
+      .replace(/[\u00A0\u202F]/g, " ")
+      .replace(/[–—]/g, "-");
   }
   if (normalization.normalizeApostrophes) {
     normalizedValue = normalizedValue.replace(/[’‘`´]/g, "'");

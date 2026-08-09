@@ -299,7 +299,45 @@ function buildShortAnswerPayload(values: CreateQuizQuestionValues) {
   };
 }
 
+function buildHotspotPayload(values: CreateQuizQuestionValues) {
+  const x = parseOptionalFormNumber(values.hotspotTargetX) ?? 0.5;
+  const y = parseOptionalFormNumber(values.hotspotTargetY) ?? 0.5;
+  const tolerance = parseOptionalFormNumber(values.hotspotTolerance) ?? 0.05;
+  const imageSrc = values.hotspotImageSrc.trim();
+  const imageAlt = values.hotspotImageAlt.trim() || "Support visuel QZONE";
+  const label = values.hotspotTargetLabel.trim() || undefined;
+
+  return {
+    image: {
+      src: imageSrc,
+      alt: imageAlt,
+    },
+    zones: [
+      {
+        id: "zone-1",
+        label,
+        x,
+        y,
+        tolerance,
+      },
+    ],
+    defaultTolerance: tolerance,
+  };
+}
+
 function buildQuizQuestionPersistenceData(values: CreateQuizQuestionValues) {
+  if (values.questionFormat === "QZONE") {
+    return {
+      questionType: values.questionFormat,
+      answerFormat: "SINGLE" as const,
+      choices: [],
+      correctChoiceIndexes: [],
+      correctChoiceIndex: 0,
+      answerPayload: buildHotspotPayload(values),
+      choiceExplanations: [],
+    };
+  }
+
   if (values.questionFormat === "QROC") {
     return {
       questionType: values.questionFormat,
@@ -934,6 +972,12 @@ export async function createQuizQuestion(
   const numericAnswerTolerance = String(formData.get("numericAnswerTolerance") ?? "").trim();
   const numericAnswerUnit = String(formData.get("numericAnswerUnit") ?? "").trim();
   const numericAnswerAcceptedUnits = String(formData.get("numericAnswerAcceptedUnits") ?? "").trim();
+  const hotspotImageSrc = String(formData.get("hotspotImageSrc") ?? "").trim();
+  const hotspotImageAlt = String(formData.get("hotspotImageAlt") ?? "").trim();
+  const hotspotTargetX = String(formData.get("hotspotTargetX") ?? "").trim();
+  const hotspotTargetY = String(formData.get("hotspotTargetY") ?? "").trim();
+  const hotspotTolerance = String(formData.get("hotspotTolerance") ?? "0.05").trim();
+  const hotspotTargetLabel = String(formData.get("hotspotTargetLabel") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
@@ -952,6 +996,12 @@ export async function createQuizQuestion(
     numericAnswerTolerance,
     numericAnswerUnit,
     numericAnswerAcceptedUnits,
+    hotspotImageSrc,
+    hotspotImageAlt,
+    hotspotTargetX,
+    hotspotTargetY,
+    hotspotTolerance,
+    hotspotTargetLabel,
     order,
     isPublished,
   });
@@ -1030,6 +1080,12 @@ export async function updateQuizQuestion(
   const numericAnswerTolerance = String(formData.get("numericAnswerTolerance") ?? "").trim();
   const numericAnswerUnit = String(formData.get("numericAnswerUnit") ?? "").trim();
   const numericAnswerAcceptedUnits = String(formData.get("numericAnswerAcceptedUnits") ?? "").trim();
+  const hotspotImageSrc = String(formData.get("hotspotImageSrc") ?? "").trim();
+  const hotspotImageAlt = String(formData.get("hotspotImageAlt") ?? "").trim();
+  const hotspotTargetX = String(formData.get("hotspotTargetX") ?? "").trim();
+  const hotspotTargetY = String(formData.get("hotspotTargetY") ?? "").trim();
+  const hotspotTolerance = String(formData.get("hotspotTolerance") ?? "0.05").trim();
+  const hotspotTargetLabel = String(formData.get("hotspotTargetLabel") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
@@ -1048,6 +1104,12 @@ export async function updateQuizQuestion(
     numericAnswerTolerance,
     numericAnswerUnit,
     numericAnswerAcceptedUnits,
+    hotspotImageSrc,
+    hotspotImageAlt,
+    hotspotTargetX,
+    hotspotTargetY,
+    hotspotTolerance,
+    hotspotTargetLabel,
     order,
     isPublished,
   });

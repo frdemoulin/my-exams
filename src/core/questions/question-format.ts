@@ -13,12 +13,13 @@ export type UnessQuestionFormatCode = (typeof unessQuestionFormatCodes)[number];
 export type MyExamsQuestionFormatCode = "matching";
 export type QuestionFormatCode = UnessQuestionFormatCode | MyExamsQuestionFormatCode;
 
-export const editableChoiceQuestionFormatCodes = ["QRU", "QRM", "QRP"] as const;
+export const editableChoiceQuestionFormatCodes = ["QRU", "QRM", "QRP", "QRPL"] as const;
 export type EditableChoiceQuestionFormatCode =
   (typeof editableChoiceQuestionFormatCodes)[number];
 export const editableQuestionFormatCodes = [
   ...editableChoiceQuestionFormatCodes,
   "QROC",
+  "QZONE",
 ] as const;
 export type EditableQuestionFormatCode =
   (typeof editableQuestionFormatCodes)[number];
@@ -106,7 +107,7 @@ export const questionFormatRegistry = {
     family: "QCM",
     engineKind: "choice",
     runtimeType: "mcq",
-    supportStatus: "planned",
+    supportStatus: "supported",
     isUness: true,
   },
   QROC: {

@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   areChoiceIdSetsEqual,
+  calculateUnessFormatStats,
   createMcqStudentAnswerFromIndexes,
   evaluateHotspotQuestion,
   evaluateMcqIndexAnswer,
@@ -25,6 +26,8 @@ import {
   normalizePersistedQuestion,
   normalizePersistedQuestionType,
   type HotspotQuestion,
+  type MultipleChoiceQuestion,
+  type Question,
   type ShortAnswerQuestion,
 } from "../../src/core/questions";
 
@@ -71,6 +74,30 @@ test("exposes student instructions for UNESS question formats", () => {
     },
   });
 
+  const qzoneQuestion: HotspotQuestion = {
+    id: "instruction-qzone",
+    type: "hotspot",
+    format: "QZONE",
+    statement: "Pointez la structure.",
+    expectedZones: [{ id: "z1", x: 0.5, y: 0.5 }],
+    scoring: { strategy: "all-or-nothing" },
+  };
+
+  const qrplQuestion: MultipleChoiceQuestion = {
+    id: "instruction-qrpl",
+    type: "mcq",
+    format: "QRPL",
+    statement: "QRPL",
+    selectionMode: "multiple",
+    requiredSelectionCount: 3,
+    choices: Array.from({ length: 10 }, (_, index) => ({
+      id: `c-${index}`,
+      content: `Choix ${index + 1}`,
+      correct: index < 3,
+    })),
+    scoring: { strategy: "all-or-nothing" },
+  };
+
   assert.equal(
     getQuestionFormatStudentInstruction(qruQuestion),
     "Sélectionnez une seule proposition.",
@@ -83,6 +110,14 @@ test("exposes student instructions for UNESS question formats", () => {
   assert.equal(
     getQuestionFormatStudentInstruction(qrocQuestion),
     "Saisissez une réponse numérique courte, en chiffres.",
+  );
+  assert.equal(
+    getQuestionFormatStudentInstruction(qzoneQuestion),
+    "Pointez la zone demandée sur le support.",
+  );
+  assert.equal(
+    getQuestionFormatStudentInstruction(qrplQuestion),
+    "Sélectionnez exactement 3 propositions dans la liste longue.",
   );
 });
 
@@ -716,4 +751,67 @@ test("routes QZONE through the generic question evaluator", () => {
     }).status,
     "correct",
   );
+});
+
+test("normalizes typographical dashes, curved apostrophes and non-breaking spaces in QROC", () => {
+  assert.equal(
+    normalizeShortAnswerText("l’acide–base\u00A0amino–acide"),
+    normalizeShortAnswerText("l'acide-base amino-acide"),
+  );
+});
+
+test("calculates statistics broken down by UNESS question format", () => {
+  const qru: Question = {
+    id: "q1",
+    type: "mcq",
+    format: "QRU",
+    statement: "QRU",
+    selectionMode: "single",
+    choices: [
+      { id: "c0", content: "A", correct: true },
+      { id: "c1", content: "B", correct: false },
+    ],
+    scoring: { strategy: "all-or-nothing" },
+  };
+  const qzone: Question = {
+    id: "q2",
+    type: "hotspot",
+    format: "QZONE",
+    statement: "QZONE",
+    expectedZones: [{ id: "z1", x: 0.5, y: 0.5, tolerance: 0.1 }],
+    scoring: { strategy: "all-or-nothing" },
+  };
+
+  const stats = calculateUnessFormatStats([
+    {
+      question: qru,
+      evaluation: evaluateQuestion(qru, {
+        questionId: "q1",
+        type: "mcq",
+        selectedChoiceIds: ["c0"],
+      }),
+      answered: true,
+    },
+    {
+      question: qzone,
+      evaluation: evaluateQuestion(qzone, {
+        questionId: "q2",
+        type: "hotspot",
+        points: [{ x: 0.5, y: 0.5 }],
+      }),
+      answered: true,
+    },
+  ]);
+
+  assert.equal(stats.length, 2);
+  const qruStat = stats.find((s) => s.format === "QRU");
+  const qzoneStat = stats.find((s) => s.format === "QZONE");
+
+  assert.ok(qruStat);
+  assert.equal(qruStat.totalCount, 1);
+  assert.equal(qruStat.successRate, 100);
+
+  assert.ok(qzoneStat);
+  assert.equal(qzoneStat.totalCount, 1);
+  assert.equal(qzoneStat.successRate, 100);
 });

@@ -361,6 +361,39 @@ export const createQuizQuestionSchema = z.object({
         .trim()
         .max(1000, { message: "Ne peut pas dépasser 1000 caractères" })
         .default(""),
+    hotspotImageSrc: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(1000, { message: "Ne peut pas dépasser 1000 caractères" })
+        .default(""),
+    hotspotImageAlt: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" })
+        .default(""),
+    hotspotTargetX: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .default(""),
+    hotspotTargetY: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .default(""),
+    hotspotTolerance: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .default("0.05"),
+    hotspotTargetLabel: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" })
+        .default(""),
     order: z.number({
         required_error: "Champ requis",
         invalid_type_error: "Doit être un nombre",
@@ -370,6 +403,45 @@ export const createQuizQuestionSchema = z.object({
         .max(1000, { message: "Ne peut pas dépasser 1000" }),
     isPublished: z.boolean().default(false),
 }).superRefine((values, ctx) => {
+    if (values.questionFormat === "QZONE") {
+        if (!values.hotspotImageSrc.trim()) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotImageSrc"],
+                message: "Renseigne l'URL de l'image support",
+            });
+        }
+
+        const x = parseFormNumber(values.hotspotTargetX);
+        if (x === null || x < 0 || x > 1) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotTargetX"],
+                message: "Position X invalide (doit être un nombre entre 0 et 1)",
+            });
+        }
+
+        const y = parseFormNumber(values.hotspotTargetY);
+        if (y === null || y < 0 || y > 1) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotTargetY"],
+                message: "Position Y invalide (doit être un nombre entre 0 et 1)",
+            });
+        }
+
+        const tol = parseFormNumber(values.hotspotTolerance);
+        if (tol === null || tol <= 0) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotTolerance"],
+                message: "La tolérance doit être un nombre positif",
+            });
+        }
+
+        return;
+    }
+
     if (!isChoiceQuestionFormat(values.questionFormat)) {
         if (values.answerFormat !== "SINGLE") {
             ctx.addIssue({

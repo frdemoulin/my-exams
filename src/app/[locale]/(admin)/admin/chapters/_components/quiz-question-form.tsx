@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import FormSubmitButton from "@/components/ui/form-submit-button";
 import { MathContent } from "@/components/training/math-content";
+import { HotspotAdminEditor } from "@/components/admin/hotspot-admin-editor";
 import { createQuizQuestion, updateQuizQuestion } from "@/core/chapter";
 import {
   resolveCorrectChoiceIndexes,
@@ -57,6 +58,12 @@ interface QuizQuestionFormProps {
     numericAnswerTolerance: string;
     numericAnswerUnit: string;
     numericAnswerAcceptedUnits: string;
+    hotspotImageSrc?: string;
+    hotspotImageAlt?: string;
+    hotspotTargetX?: string;
+    hotspotTargetY?: string;
+    hotspotTolerance?: string;
+    hotspotTargetLabel?: string;
     order?: number;
     isPublished: boolean;
   };
@@ -122,6 +129,12 @@ export function QuizQuestionForm({
       numericAnswerTolerance: initialData.numericAnswerTolerance,
       numericAnswerUnit: initialData.numericAnswerUnit,
       numericAnswerAcceptedUnits: initialData.numericAnswerAcceptedUnits,
+      hotspotImageSrc: initialData.hotspotImageSrc ?? "",
+      hotspotImageAlt: initialData.hotspotImageAlt ?? "",
+      hotspotTargetX: initialData.hotspotTargetX ?? "0.50",
+      hotspotTargetY: initialData.hotspotTargetY ?? "0.50",
+      hotspotTolerance: initialData.hotspotTolerance ?? "0.05",
+      hotspotTargetLabel: initialData.hotspotTargetLabel ?? "",
       order: initialData.order,
       isPublished: initialData.isPublished,
     },
@@ -145,6 +158,13 @@ export function QuizQuestionForm({
       values.choiceExplanations.forEach((choiceExplanation) =>
         formData.append("choiceExplanations", choiceExplanation)
       );
+    } else if (values.questionFormat === "QZONE") {
+      formData.append("hotspotImageSrc", values.hotspotImageSrc);
+      formData.append("hotspotImageAlt", values.hotspotImageAlt);
+      formData.append("hotspotTargetX", values.hotspotTargetX);
+      formData.append("hotspotTargetY", values.hotspotTargetY);
+      formData.append("hotspotTolerance", values.hotspotTolerance);
+      formData.append("hotspotTargetLabel", values.hotspotTargetLabel);
     } else {
       formData.append("shortAnswerType", values.shortAnswerType);
       formData.append("acceptedAnswers", values.acceptedAnswers);
@@ -577,6 +597,23 @@ export function QuizQuestionForm({
             )}
           </div>
         )}
+
+        {previewQuestionFormat === "QZONE" ? (
+          <HotspotAdminEditor
+            imageSrc={form.watch("hotspotImageSrc")}
+            imageAlt={form.watch("hotspotImageAlt")}
+            targetX={form.watch("hotspotTargetX")}
+            targetY={form.watch("hotspotTargetY")}
+            tolerance={form.watch("hotspotTolerance")}
+            targetLabel={form.watch("hotspotTargetLabel")}
+            onImageSrcChange={(val) => form.setValue("hotspotImageSrc", val)}
+            onImageAltChange={(val) => form.setValue("hotspotImageAlt", val)}
+            onTargetXChange={(val) => form.setValue("hotspotTargetX", val)}
+            onTargetYChange={(val) => form.setValue("hotspotTargetY", val)}
+            onToleranceChange={(val) => form.setValue("hotspotTolerance", val)}
+            onTargetLabelChange={(val) => form.setValue("hotspotTargetLabel", val)}
+          />
+        ) : null}
 
         <FormField
           name="explanation"

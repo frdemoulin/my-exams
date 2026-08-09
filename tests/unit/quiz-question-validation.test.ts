@@ -57,3 +57,38 @@ test("la validation admin refuse une QROC sans réponse attendue", () => {
 
   assert.equal(result.success, false);
 });
+
+test("la validation admin accepte une question QZONE valide", () => {
+  const result = createQuizQuestionSchema.safeParse({
+    ...baseQuestionPayload,
+    questionFormat: "QZONE",
+    answerFormat: "SINGLE",
+    choices: [],
+    correctChoiceIndexes: [],
+    choiceExplanations: [],
+    hotspotImageSrc: "/uploads/organelle.png",
+    hotspotImageAlt: "Schéma d'une cellule",
+    hotspotTargetX: "0.45",
+    hotspotTargetY: "0.60",
+    hotspotTolerance: "0.05",
+    hotspotTargetLabel: "Mitochondrie",
+  });
+
+  assert.equal(result.success, true);
+});
+
+test("la validation admin refuse une QZONE sans image support", () => {
+  const result = createQuizQuestionSchema.safeParse({
+    ...baseQuestionPayload,
+    questionFormat: "QZONE",
+    answerFormat: "SINGLE",
+    choices: [],
+    correctChoiceIndexes: [],
+    choiceExplanations: [],
+    hotspotImageSrc: "",
+    hotspotTargetX: "0.45",
+    hotspotTargetY: "0.60",
+  });
+
+  assert.equal(result.success, false);
+});

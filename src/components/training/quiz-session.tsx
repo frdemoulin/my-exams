@@ -27,12 +27,14 @@ import {
 import {
   createMcqStudentAnswerFromIndexes,
   evaluateQuestion,
+  calculateUnessFormatStats,
   evaluateMcqQuestion,
   getQuestionFormatStudentInstruction,
   getQuestionSelectionLimit,
   normalizePersistedQuestion,
   type EvaluationResult,
   type EvaluationStatus,
+  type HotspotPoint,
   type Question,
   type ShortAnswerQuestion,
 } from '@/core/questions';
@@ -43,10 +45,13 @@ import {
 } from '@/core/training/training-choice-ordering';
 import { hasChoiceExplanations } from '@/core/training/training-choice-explanations';
 import { cn } from '@/lib/utils';
+import { HotspotQuestionView } from './hotspot-question-view';
+import { LongChoiceListView } from './long-choice-list-view';
 import { MathContent } from './math-content';
 import { QuestionFormatBadge } from './question-format-badge';
 import { TrainingChoiceContentView } from './training-choice-content-view';
 import { TrainingQuestionContentView } from './training-question-content-view';
+import { UnessFormatStatsView } from './uness-format-stats-view';
 
 type QuizSessionProps = {
   questions: TrainingQuestion[];
@@ -231,6 +236,17 @@ const finalQuestionNavigationLegendItems: Array<{
     toneClassName: 'border border-slate-300 bg-transparent dark:border-slate-600 dark:bg-transparent',
   },
 ];
+
+const getQuestionNavigationLegendItems = ({
+  correctionMode,
+  isReviewMode,
+}: {
+  correctionMode: 'instant' | 'final';
+  isReviewMode: boolean;
+}) =>
+  correctionMode === 'final' && !isReviewMode
+    ? finalQuestionNavigationLegendItems
+    : instantQuestionNavigationLegendItems;
 
 const hashString = (value: string) => {
   let hash = 0;
@@ -440,10 +456,12 @@ const isQuestionAnswered = ({
   question,
   selectedChoiceIndexes,
   shortAnswerValue,
+  hotspotPoint,
 }: {
   question: Question;
   selectedChoiceIndexes: readonly number[];
   shortAnswerValue: string;
+  hotspotPoint?: HotspotPoint | null;
 }) => {
   if (question.type === 'mcq') {
     return selectedChoiceIndexes.length > 0;
@@ -451,6 +469,10 @@ const isQuestionAnswered = ({
 
   if (question.type === 'short-answer') {
     return shortAnswerValue.trim().length > 0;
+  }
+
+  if (question.type === 'hotspot') {
+    return hotspotPoint !== null && hotspotPoint !== undefined;
   }
 
   return false;
@@ -638,6 +660,9 @@ export function QuizSession({
   const [shortAnswerValuesByQuestion, setShortAnswerValuesByQuestion] = useState<string[]>(
     () => questions.map(() => '')
   );
+  const [hotspotPointsByQuestion, setHotspotPointsByQuestion] = useState<Array<HotspotPoint | null>>(
+    () => questions.map(() => null)
+  );
   const [submittedAnswers, setSubmittedAnswers] = useState<boolean[]>(
     () => questions.map(() => false)
   );
@@ -668,9 +693,40 @@ export function QuizSession({
           });
         }
 
+        if (question.type === 'hotspot') {
+          const point = hotspotPointsByQuestion[index];
+          return evaluateQuestion(question, {
+            questionId: question.id,
+            type: 'hotspot',
+            points: point ? [point] : [],
+          });
+        }
+
         return getUnansweredEvaluation(question);
       }),
-    [canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion]
+    [canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion]
+  );
+
+  const isFinalCorrectionOnly = correctionMode === 'final';
+  const isReviewMode = viewMode === 'review';
+
+  const unessFormatStats = useMemo(
+    () =>
+      calculateUnessFormatStats(
+        canonicalQuestions.map((question, index) => ({
+          question,
+          evaluation: evaluationsByQuestion[index],
+          answered: (isFinalCorrectionOnly
+            ? isQuestionAnswered({
+                question,
+                selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
+                shortAnswerValue: shortAnswerValuesByQuestion[index] ?? '',
+                hotspotPoint: hotspotPointsByQuestion[index] ?? null,
+              })
+            : submittedAnswers[index]) ?? false,
+        }))
+      ),
+    [canonicalQuestions, evaluationsByQuestion, isFinalCorrectionOnly, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion, submittedAnswers]
   );
 
   if (sessionQuestions.length === 0) {
@@ -687,13 +743,12 @@ export function QuizSession({
     ? getSharedStatementTitle(sessionQuestions, currentGroup.id, currentGroup.title)
     : null;
   const isPathMode = Boolean(pathContext);
-  const isFinalCorrectionOnly = correctionMode === 'final';
-  const isReviewMode = viewMode === 'review';
   const answeredByQuestion = canonicalQuestions.map((question, index) =>
     isQuestionAnswered({
       question,
       selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
       shortAnswerValue: shortAnswerValuesByQuestion[index] ?? '',
+      hotspotPoint: hotspotPointsByQuestion[index] ?? null,
     })
   );
   const effectiveAnsweredByQuestion = isFinalCorrectionOnly
@@ -701,9 +756,14 @@ export function QuizSession({
     : submittedAnswers;
   const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
   const currentShortAnswerValue = shortAnswerValuesByQuestion[currentIndex] ?? '';
+  const currentHotspotPoint = hotspotPointsByQuestion[currentIndex] ?? null;
   const currentCanonicalQuestion = canonicalQuestions[currentIndex];
   const currentEvaluation = evaluationsByQuestion[currentIndex];
   const hasAnswered = effectiveAnsweredByQuestion[currentIndex] ?? false;
+  const questionNavigationLegendItems = getQuestionNavigationLegendItems({
+    correctionMode,
+    isReviewMode,
+  });
   const missedChoiceIndexes = currentQuestion.correctChoiceIndexes.filter(
     (choiceIndex) => !currentSelections.includes(choiceIndex)
   );
@@ -726,13 +786,17 @@ export function QuizSession({
     : null;
   const currentShortAnswerQuestion =
     currentCanonicalQuestion?.type === 'short-answer' ? currentCanonicalQuestion : null;
+  const currentHotspotQuestion =
+    currentCanonicalQuestion?.type === 'hotspot' ? currentCanonicalQuestion : null;
   const isCurrentMcqQuestion = currentMcqQuestion !== null;
   const isCurrentShortAnswerQuestion = currentShortAnswerQuestion !== null;
+  const isCurrentHotspotQuestion = currentHotspotQuestion !== null;
   const hasCurrentAnswer = currentCanonicalQuestion
     ? isQuestionAnswered({
         question: currentCanonicalQuestion,
         selectedChoiceIndexes: currentSelections,
         shortAnswerValue: currentShortAnswerValue,
+        hotspotPoint: currentHotspotPoint,
       })
     : false;
   const answeredCount = effectiveAnsweredByQuestion.filter(Boolean).length;
@@ -744,9 +808,6 @@ export function QuizSession({
   const isComplete = answeredCount === sessionQuestions.length;
   const successRate = Math.round((score / sessionQuestions.length) * 100);
   const clampedSuccessRate = Math.max(0, Math.min(successRate, 100));
-  const questionNavigationLegendItems = isFinalCorrectionOnly && !isReviewMode
-    ? finalQuestionNavigationLegendItems
-    : instantQuestionNavigationLegendItems;
   const selectedChoiceClassName =
     'border-brand bg-brand-soft/15 !text-foreground shadow-xs ring-2 ring-brand/20 dark:border-brand/70 dark:bg-brand/10 dark:!text-white dark:ring-brand/30';
   const targetScore = pathContext?.targetScore ?? 70;
@@ -914,6 +975,24 @@ export function QuizSession({
     setCurrentIndex(index);
   };
 
+  const updateCurrentHotspotPoint = (nextPoint: HotspotPoint | null) => {
+    if (isAnswerLocked || !isCurrentHotspotQuestion) return;
+
+    setHotspotPointsByQuestion((previousPoints) => {
+      const nextPoints = [...previousPoints];
+      nextPoints[currentIndex] = nextPoint;
+      return nextPoints;
+    });
+
+    if (!isFinalCorrectionOnly && nextPoint !== null) {
+      setSubmittedAnswers((previousAnswers) => {
+        const nextAnswers = [...previousAnswers];
+        nextAnswers[currentIndex] = true;
+        return nextAnswers;
+      });
+    }
+  };
+
   const resetQuiz = () => {
     const nextVariant = questionOrderVariant + 1;
 
@@ -922,6 +1001,7 @@ export function QuizSession({
     setCurrentIndex(0);
     setSelectedChoiceIndexesByQuestion(questions.map(() => []));
     setShortAnswerValuesByQuestion(questions.map(() => ''));
+    setHotspotPointsByQuestion(questions.map(() => null));
     setSubmittedAnswers(questions.map(() => false));
     setViewMode('taking');
     setThemePageIndex(0);
@@ -1106,6 +1186,8 @@ export function QuizSession({
             </div>
           </div>
         </div>
+
+        <UnessFormatStatsView stats={unessFormatStats} />
 
         <Separator />
 
@@ -1504,123 +1586,154 @@ export function QuizSession({
       ) : null}
 
       {isReviewMode && currentShortAnswerQuestion ? (
-        <div className="grid gap-3 rounded-xl border border-border bg-card p-4 text-sm md:grid-cols-2">
-          <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Ta réponse
-            </p>
-            <p className="mt-2 text-base font-semibold text-heading">
-              {formatShortAnswerUserAnswer(currentShortAnswerValue)}
-            </p>
+        <div className="space-y-3">
+          <div className="grid gap-3 rounded-xl border border-border bg-card p-4 text-sm md:grid-cols-2">
+            <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Ta réponse
+              </p>
+              <p className="mt-2 text-base font-semibold text-heading">
+                {formatShortAnswerUserAnswer(currentShortAnswerValue)}
+              </p>
+            </div>
+            <div className="rounded-lg border border-emerald-300/60 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950/40">
+              <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-200">
+                Réponse attendue
+              </p>
+              <p className="mt-2 text-base font-semibold text-emerald-950 dark:text-emerald-100">
+                {formatShortAnswerExpectedAnswer(currentShortAnswerQuestion)}
+              </p>
+            </div>
           </div>
-          <div className="rounded-lg border border-emerald-300/60 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950/40">
-            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-200">
-              Réponse attendue
-            </p>
-            <p className="mt-2 text-base font-semibold text-emerald-950 dark:text-emerald-100">
-              {formatShortAnswerExpectedAnswer(currentShortAnswerQuestion)}
-            </p>
-          </div>
+          {currentShortAnswerQuestion.answerType === 'text' && (currentShortAnswerQuestion.acceptedAnswers?.length ?? 0) > 1 ? (
+            <div className="p-3 bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-xl text-xs space-y-1.5">
+              <span className="font-semibold text-emerald-900 dark:text-emerald-200">
+                Variantes scientifiques acceptées :
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {currentShortAnswerQuestion.acceptedAnswers?.map((ans) => (
+                  <Badge key={ans.value} variant="outline" className="border-emerald-300 bg-background text-emerald-800 dark:border-emerald-800 dark:text-emerald-200">
+                    {ans.value}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
       ) : null}
 
       {isCurrentMcqQuestion ? (
-        <div className="grid gap-3">
-          {currentQuestion.choices.map((choice, choiceIndex) => {
-            const isSelected = currentSelections.includes(choiceIndex);
-            const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
-            const isDisabledBySelectionLimit =
-              !isSelected &&
-              currentSelectionLimit !== null &&
-              currentSelections.length >= currentSelectionLimit;
-            const showSelectedAsIncorrect =
-              hasAnswered && isSelected && !isRightChoice &&
-              (isReviewMode || !isFinalCorrectionOnly);
-            const showSelectedAsAnswered =
-              isFinalCorrectionOnly && !isReviewMode && hasAnswered && isSelected;
-            const showAsCorrect =
-              isRightChoice &&
-              ((isReviewMode && isSelected) || (!isReviewMode && !isFinalCorrectionOnly && isAnswerLocked));
-            const showAsMissedExpected = isReviewMode && isRightChoice && !isSelected;
+        currentCanonicalQuestion?.format === 'QRPL' || currentQuestion.choices.length > 5 ? (
+          <LongChoiceListView
+            choices={currentQuestion.choices}
+            selectedIndexes={currentSelections}
+            correctIndexes={currentQuestion.correctChoiceIndexes}
+            selectionLimit={currentSelectionLimit}
+            onSelectChoice={selectAnswer}
+            isAnswerLocked={isAnswerLocked}
+            isReviewMode={isReviewMode}
+            isFinalCorrectionOnly={isFinalCorrectionOnly}
+            showCorrection={isReviewMode || (!isFinalCorrectionOnly && isAnswerLocked)}
+            testIdPrefix="quiz-choice"
+          />
+        ) : (
+          <div className="grid gap-3">
+            {currentQuestion.choices.map((choice, choiceIndex) => {
+              const isSelected = currentSelections.includes(choiceIndex);
+              const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
+              const isDisabledBySelectionLimit =
+                !isSelected &&
+                currentSelectionLimit !== null &&
+                currentSelections.length >= currentSelectionLimit;
+              const showSelectedAsIncorrect =
+                hasAnswered && isSelected && !isRightChoice &&
+                (isReviewMode || !isFinalCorrectionOnly);
+              const showSelectedAsAnswered =
+                isFinalCorrectionOnly && !isReviewMode && hasAnswered && isSelected;
+              const showAsCorrect =
+                isRightChoice &&
+                ((isReviewMode && isSelected) || (!isReviewMode && !isFinalCorrectionOnly && isAnswerLocked));
+              const showAsMissedExpected = isReviewMode && isRightChoice && !isSelected;
 
-            return (
-              <button
-                key={`${currentQuestion.id}-${choiceIndex}`}
-                type="button"
-                disabled={isAnswerLocked || isDisabledBySelectionLimit}
-                onClick={() => selectAnswer(choiceIndex)}
-                data-testid={`quiz-choice-${choiceIndex}`}
-                className={cn(
-                  'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                  !isAnswerLocked && !isDisabledBySelectionLimit && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
-                  isDisabledBySelectionLimit && 'cursor-not-allowed opacity-50',
-                  showAsCorrect && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
-                  isReviewMode && isSelected && isRightChoice && 'ring-2 ring-emerald-400/70',
-                  showAsMissedExpected && 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100',
-                  showSelectedAsIncorrect && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
-                  showSelectedAsAnswered && selectedChoiceClassName,
-                  !isAnswerLocked && isSelected && selectedChoiceClassName
-                )}
-              >
-                <span className="flex min-w-0 flex-1 items-baseline gap-3">
-                  <span
-                    className={cn(
-                      'flex h-6 w-6 shrink-0 items-center justify-center self-baseline rounded-full border border-brand bg-brand text-xs font-semibold leading-none text-white shadow-xs',
-                      typeof choice !== 'string' && 'self-center',
-                    )}
-                  >
-                    {String.fromCharCode(65 + choiceIndex)}
+              return (
+                <button
+                  key={`${currentQuestion.id}-${choiceIndex}`}
+                  type="button"
+                  disabled={isAnswerLocked || isDisabledBySelectionLimit}
+                  onClick={() => selectAnswer(choiceIndex)}
+                  data-testid={`quiz-choice-${choiceIndex}`}
+                  className={cn(
+                    'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+                    !isAnswerLocked && !isDisabledBySelectionLimit && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
+                    isDisabledBySelectionLimit && 'cursor-not-allowed opacity-50',
+                    showAsCorrect && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
+                    isReviewMode && isSelected && isRightChoice && 'ring-2 ring-emerald-400/70',
+                    showAsMissedExpected && 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100',
+                    showSelectedAsIncorrect && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
+                    showSelectedAsAnswered && selectedChoiceClassName,
+                    !isAnswerLocked && isSelected && selectedChoiceClassName
+                  )}
+                >
+                  <span className="flex min-w-0 flex-1 items-baseline gap-3">
+                    <span
+                      className={cn(
+                        'flex h-6 w-6 shrink-0 items-center justify-center self-baseline rounded-full border border-brand bg-brand text-xs font-semibold leading-none text-white shadow-xs',
+                        typeof choice !== 'string' && 'self-center',
+                      )}
+                    >
+                      {String.fromCharCode(65 + choiceIndex)}
+                    </span>
+                    <span
+                      className={cn(
+                        'min-w-0 flex-1 self-baseline',
+                        typeof choice !== 'string' && 'self-center',
+                      )}
+                    >
+                      <TrainingChoiceContentView choice={choice} />
+                    </span>
                   </span>
-                  <span
-                    className={cn(
-                      'min-w-0 flex-1 self-baseline',
-                      typeof choice !== 'string' && 'self-center',
-                    )}
-                  >
-                    <TrainingChoiceContentView choice={choice} />
-                  </span>
-                </span>
-                {showAsCorrect ? (
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                ) : null}
-                {showSelectedAsIncorrect ? (
-                  <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
-                ) : null}
-                {isReviewMode ? (
-                  <span className="flex shrink-0 flex-wrap justify-end gap-1 self-start">
-                    {isSelected ? (
-                      <Badge
-                        variant="outline"
-                        className={cn(
-                          'text-[11px]',
-                          isRightChoice
-                            ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
-                            : 'border-rose-400 bg-rose-100 text-rose-900 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-100'
-                        )}
-                      >
-                        Ton choix
-                      </Badge>
-                    ) : null}
-                    {isRightChoice ? (
-                      <Badge
-                        variant="outline"
-                        className={cn(
-                          'text-[11px]',
-                          isSelected
-                            ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
-                            : 'border-amber-400 bg-amber-100 text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100'
-                        )}
-                      >
-                        Attendue
-                      </Badge>
-                    ) : null}
-                  </span>
-                ) : null}
-              </button>
-            );
-          })}
-        </div>
+                  {showAsCorrect ? (
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                  ) : null}
+                  {showSelectedAsIncorrect ? (
+                    <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
+                  ) : null}
+                  {isReviewMode ? (
+                    <span className="flex shrink-0 flex-wrap justify-end gap-1 self-start">
+                      {isSelected ? (
+                        <Badge
+                          variant="outline"
+                          className={cn(
+                            'text-[11px]',
+                            isRightChoice
+                              ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
+                              : 'border-rose-400 bg-rose-100 text-rose-900 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-100'
+                          )}
+                        >
+                          Ton choix
+                        </Badge>
+                      ) : null}
+                      {isRightChoice ? (
+                        <Badge
+                          variant="outline"
+                          className={cn(
+                            'text-[11px]',
+                            isSelected
+                              ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
+                              : 'border-amber-400 bg-amber-100 text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100'
+                          )}
+                        >
+                          Attendue
+                        </Badge>
+                      ) : null}
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
+        )
       ) : currentShortAnswerQuestion ? (
         <div
           className={cn(
