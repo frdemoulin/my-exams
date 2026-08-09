@@ -37,12 +37,34 @@ test.describe("Santé - tutoriel interface examen", () => {
     await expect(page.getByText("Saisissez une réponse numérique courte, en chiffres.", { exact: true })).toBeVisible();
     await expect(page.getByText("Répondez en chiffres, par exemple 4 et non quatre.", { exact: false })).toBeVisible();
     await page.getByTestId("health-mock-exam-short-answer-input").fill("4");
+    await page.getByRole("button", { name: "Suivante" }).click();
+
+    await expect(
+      page
+        .getByTestId("question-format-badge")
+        .filter({ hasText: "QZONE — Question à zone à pointer" })
+        .first(),
+    ).toBeVisible();
+    await expect(page.getByText("Pointez la zone demandée sur le support.", { exact: true })).toBeVisible();
+    const hotspotSurface = page.getByTestId("hotspot-question-surface");
+    const hotspotBox = await hotspotSurface.boundingBox();
+
+    if (!hotspotBox) {
+      throw new Error("La surface interactive QZONE est introuvable.");
+    }
+
+    await hotspotSurface.click({
+      position: {
+        x: hotspotBox.width / 2,
+        y: hotspotBox.height / 2,
+      },
+    });
 
     await page.getByRole("button", { name: "Terminer le tutoriel" }).click();
     await page.getByRole("button", { name: "Voir le récapitulatif" }).click();
 
     await expect(page.getByRole("heading", { name: "Récapitulatif pédagogique" })).toBeVisible();
-    await expect(page.getByText("4/5 questions répondues", { exact: true })).toBeVisible();
+    await expect(page.getByText("5/6 questions répondues", { exact: true })).toBeVisible();
     await expect(page.getByText("1 sans réponse", { exact: true })).toBeVisible();
     await expect(page.getByText("1 à revoir", { exact: true })).toBeVisible();
     await expect(page.getByText("Fin du tutoriel d'interface", { exact: true })).toBeVisible();

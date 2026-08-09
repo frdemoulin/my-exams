@@ -124,6 +124,7 @@ export function HotspotQuestionView({
             onClick={handleImageClick}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            data-testid="hotspot-question-surface"
             className={`relative w-full select-none ${
               readOnly ? 'cursor-default' : 'cursor-crosshair'
             }`}
