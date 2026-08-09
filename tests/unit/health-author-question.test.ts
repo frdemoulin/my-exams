@@ -109,6 +109,10 @@ test("compiles a valid QRPL author question", () => {
       { content: "Item 4", correct: false },
       { content: "Item 5", correct: false },
       { content: "Item 6", correct: false },
+      { content: "Item 7", correct: false },
+      { content: "Item 8", correct: false },
+      { content: "Item 9", correct: false },
+      { content: "Item 10", correct: false },
     ],
   };
 

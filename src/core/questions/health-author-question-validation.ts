@@ -107,9 +107,13 @@ export function validateHealthTrainingAuthorQuestion(
     }
 
     case "QRPL": {
-      if (!Array.isArray(question.choices) || question.choices.length < 6) {
+      if (
+        !Array.isArray(question.choices) ||
+        question.choices.length < 10 ||
+        question.choices.length > 25
+      ) {
         issues.push(
-          `${prefix} Format QRPL : doit comporter une liste longue d'au moins 6 propositions (${question.choices?.length ?? 0} trouvée(s)).`,
+          `${prefix} Format QRPL : doit comporter une liste longue de 10 à 25 propositions (${question.choices?.length ?? 0} trouvée(s)).`,
         );
         break;
       }
@@ -118,11 +122,12 @@ export function validateHealthTrainingAuthorQuestion(
       if (
         typeof reqCount !== "number" ||
         !Number.isInteger(reqCount) ||
-        reqCount <= 0 ||
+        reqCount < 1 ||
+        reqCount > 5 ||
         reqCount > question.choices.length
       ) {
         issues.push(
-          `${prefix} Format QRPL : 'requiredSelectionCount' (${reqCount}) doit être un entier > 0 et <= au nombre de choix (${question.choices.length}).`,
+          `${prefix} Format QRPL : 'requiredSelectionCount' (${reqCount}) doit être compris entre 1 et 5, et <= au nombre de choix (${question.choices.length}).`,
         );
       }
 

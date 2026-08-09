@@ -136,6 +136,16 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
         correct: false,
         explanation: "La proline est un iminoacide cyclique aliphatique.",
       },
+      {
+        content: "Valine",
+        correct: false,
+        explanation: "La valine est un acide aminé ramifié aliphatique.",
+      },
+      {
+        content: "Glutamate",
+        correct: false,
+        explanation: "Le glutamate est un acide aminé dicarboxylique acide.",
+      },
     ],
     explanation: "Les 3 acides aminés aromatiques sont la Phénylalanine, la Tyrosine et le Tryptophane. Ils absorbent les UV à 280 nm.",
   },

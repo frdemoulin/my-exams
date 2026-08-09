@@ -1130,14 +1130,14 @@ export function QuizSession({
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Bonnes réponses
                 </p>
-                <p className="mt-2 text-2xl font-semibold">{score}</p>
+                <p className="mt-2 text-2xl font-semibold">{correctQuestionsCount}</p>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Questions à retravailler
                 </p>
                 <p className="mt-2 text-2xl font-semibold">
-                  {sessionQuestions.length - score}
+                  {incorrectQuestions.length}
                 </p>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">

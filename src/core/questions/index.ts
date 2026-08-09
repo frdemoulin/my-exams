@@ -8,3 +8,4 @@ export * from "./question.types";
 export * from "./health-author-question.types";
 export * from "./health-author-question-validation";
 export * from "./health-author-question-compiler";
+export * from "./health-authoring";

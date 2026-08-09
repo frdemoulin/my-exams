@@ -3,6 +3,11 @@
 Ce document constitue la **source de vérité** pour la rédaction des contenus Santé multi-formats destinés à My Exams.
 Les contenus sont livrés sous forme de fichiers TypeScript (ou d'archives ZIP par chapitre) contenant des définitions typées respectant le contrat `HealthTrainingAuthorQuestion`.
 
+Les seeds peuvent importer directement la bibliothèque d'auteur depuis :
+```typescript
+import type { HealthTrainingAuthorQuestion } from '@/core/questions/health-authoring';
+```
+
 ---
 
 ## 1. Responsabilités éditoriales (ChatGPT) vs Responsabilités techniques (My Exams)
@@ -13,7 +18,7 @@ ChatGPT est responsable de :
 - La définition des objectifs pédagogiques et du choix du format UNESS (QRU, QRM, QRP, QRPL, QROC, QZONE).
 - La rédaction des énoncés, propositions, réponses correctes, explications transversales et corrections par item.
 - La définition des réponses admises et des tolérances pour les QROC (textuelles et numériques).
-- La définition des images et coordonnées des zones cibles pour les QZONE V1.
+- La définition des images et des cibles pour les QZONE V1.
 
 ### My Exams (Compilateur et infrastructure)
 Le moteur My Exams prend en charge :
@@ -30,7 +35,7 @@ Toute question d'auteur Santé partage le socle de champs suivants :
 - `difficulty` : `"EASY" | "MEDIUM" | "HARD"`.
 - `format` : `"QRU" | "QRM" | "QRP" | "QRPL" | "QROC" | "QZONE"`.
 - `question` : énoncé clair de la question en Markdown.
-- `explanation` : explication pédagogique transversale ou démarche globale de résolution.
+- `explanation` : explication pédagogique transversale ou démarche globale de résolution (centrée sur les notions scientifiques, sans mentionner les coordonnées techniques).
 - `questionDiagram` *(optionnel)* : diagramme structuré Santé (chimie, osides, lipides, protéines, enzymes).
 
 ---
@@ -41,13 +46,13 @@ Toute question d'auteur Santé partage le socle de champs suivants :
 Exactement **une seule** proposition doit avoir `correct: true`.
 
 ```typescript
-import type { HealthTrainingAuthorQuestion } from '@/core/questions';
+import type { HealthTrainingAuthorQuestion } from '@/core/questions/health-authoring';
 
 export const questionQru: HealthTrainingAuthorQuestion = {
   order: 1,
   difficulty: "EASY",
   format: "QRU",
-  question: "Quelle est la principale organite responsable de la synthèse d'ATP par phosphorylation oxydative ?",
+  question: "Quel est le principal organite responsable de la synthèse d'ATP par phosphorylation oxydative ?",
   choices: [
     {
       content: "Appareil de Golgi",
@@ -122,37 +127,39 @@ export const questionQrp: HealthTrainingAuthorQuestion = {
   difficulty: "MEDIUM",
   format: "QRP",
   requiredSelectionCount: 2,
-  question: "Sélectionnez les deux enzymes clés régulatrices et irréversibles de la glycolyse.",
+  question: "Parmi les acides aminés suivants, sélectionnez les deux acides aminés possédant une chaîne latérale dicarboxylique (acides).",
   choices: [
     {
-      content: "Phosphofructokinase-1 (PFK-1)",
+      content: "Acide aspartique (Aspartate)",
       correct: true,
-      explanation: "Vrai : étape clé majeure de la glycolyse.",
+      explanation: "Vrai : l'aspartate possède un groupement β-carboxyle (pKa ~ 3,9).",
     },
     {
-      content: "Phosphoglucose isomérase",
+      content: "Lysine",
       correct: false,
-      explanation: "Faux : réaction réversible proche de l'équilibre.",
+      explanation: "Faux : la lysine possède une chaîne latérale aliphatique basique.",
     },
     {
-      content: "Pyruvate kinase",
+      content: "Acide glutamique (Glutamate)",
       correct: true,
-      explanation: "Vrai : étape finale irréversible générant de l'ATP.",
+      explanation: "Vrai : le glutamate possède un groupement γ-carboxyle (pKa ~ 4,3).",
     },
     {
-      content: "Aldolase",
+      content: "Alanine",
       correct: false,
-      explanation: "Faux : réaction réversible.",
+      explanation: "Faux : l'alanine possède un groupement méthyle neutre.",
     },
   ],
-  explanation: "Les 3 réactions irréversibles de la glycolyse sont catalysées par la hexokinase, la PFK-1 et la pyruvate kinase.",
+  explanation: "L'aspartate et le glutamate sont les deux seuls acides aminés dicarboxyliques chargés négativement à pH physiologique.",
 };
 ```
 
 ---
 
-### 3.4. QRPL — Question à Nombre de Réponses Précisé Longue
-Même principe que la QRP, mais avec une liste longue de propositions (au moins 6 propositions).
+### 3.4. QRPL — Question à Nombre de Réponses Précisé Longue (Règles UNESS)
+Conformément au référentiel UNESS :
+- **Propositions** : la liste doit comporter **entre 10 et 25 propositions**.
+- **Sélection requise (`requiredSelectionCount`)** : doit être comprise **entre 1 et 5**.
 
 ```typescript
 export const questionQrpl: HealthTrainingAuthorQuestion = {
@@ -170,6 +177,8 @@ export const questionQrpl: HealthTrainingAuthorQuestion = {
     { content: "Lysine", correct: false, explanation: "Chaîne aliphatique basique." },
     { content: "Sérine", correct: false, explanation: "Chaîne aliphatique hydroxylée." },
     { content: "Proline", correct: false, explanation: "Iminoacide cyclique aliphatique." },
+    { content: "Valine", correct: false, explanation: "Chaîne aliphatique ramifiée." },
+    { content: "Glutamate", correct: false, explanation: "Chaîne aliphatique dicarboxylique." },
   ],
   explanation: "Les trois acides aminés aromatiques sont la Phénylalanine, la Tyrosine et le Tryptophane.",
 };
@@ -229,7 +238,12 @@ export const questionQrocNumber: HealthTrainingAuthorQuestion = {
 ---
 
 ### 3.7. QZONE V1 — Question à Zone à Pointer
-Définie avec une image support et des zones cibles représentées par leurs coordonnées normalisées $(x, y) \in [0, 1]$ et une tolérance de rayon.
+
+En QZONE V1 :
+- `image` fournit la source et la description.
+- `expectedZones` contient une ou plusieurs zones cibles en coordonnées normalisées $(x, y) \in [0, 1]$ et tolérance de rayon.
+- **IMPORTANT (Zones alternatives)** : Plusieurs `expectedZones` représentent **plusieurs cibles alternatives valides pour UN SEUL clic utilisateur** (ex: "Cliquez sur un lymphocyte" sur un frottis sanguin qui contient 3 lymphocytes). L'étudiant ne doit effectuer qu'un seul clic.
+- **Explication pédagogique** : L'explication doit décrire les caractéristiques biologiques de la structure ciblée (forme, membrane, coloration), sans mentionner les coordonnées numériques $x/y$.
 
 ```typescript
 export const questionQzone: HealthTrainingAuthorQuestion = {
@@ -252,7 +266,7 @@ export const questionQzone: HealthTrainingAuthorQuestion = {
       tolerance: 0.08,
     },
   ],
-  explanation: "La mitochondrie est localisée en (x=0.45, y=0.60), caractérisée par ses crêtes membranaires internes.",
+  explanation: "La mitochondrie se reconnaît notamment à sa double membrane et, sur une représentation schématique, à ses crêtes membranaires internes.",
 };
 ```
 
@@ -326,3 +340,28 @@ export const quizGroupExample = {
 
 ### Pas de quotas artificiels
 Ne pas appliquer de règles mécaniques (ex: "chaque quiz doit avoir 5 QCM et 2 QROC"). Le choix des formats dépend exclusivement de la compétence évaluée et de la nature de la matière (histologie, chimie, biochimie).
+
+---
+
+## 5. Procédure de validation d'un nouveau ZIP d'auteur (Codex / Gemini)
+
+Lorsqu'un nouveau ZIP de chapitre révisé est fourni par ChatGPT :
+
+1. Extraire l'archive et placer les fichiers sous `prisma/seeds/` (et les éventuels assets graphiques sous `public/images/training/`).
+2. Vérifier les imports :
+   ```typescript
+   import type { HealthTrainingAuthorQuestion } from '@/core/questions/health-authoring';
+   ```
+3. Exécuter la validation des types et du build :
+   ```bash
+   npm run check
+   ```
+4. Exécuter les tests unitaires :
+   ```bash
+   npm run test:unit
+   ```
+5. Tester le seeding du chapitre :
+   ```bash
+   npm run db:seed:training
+   ```
+6. Vérifier manuellement le rendu et le comportement des nouveaux formats dans le Player d'entraînement.
