@@ -242,6 +242,43 @@ export function HealthCourseUnitTabs({
               </p>
             </div>
 
+            <Card className="rounded-base border-brand/25 bg-brand-soft/10 hover:bg-brand-soft/10">
+              <CardHeader className="gap-3">
+                <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+                  <div className="space-y-1">
+                    <CardTitle className="text-lg">
+                      S&apos;entraîner à l&apos;interface d&apos;examen
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">
+                      Mini-parcours de 3 à 5 minutes pour pratiquer les gestes du mode examen et
+                      reconnaître les formats UNESS QRU, QRM, QRP et QROC.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="gap-1.5">
+                      <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
+                      5 min
+                    </Badge>
+                    <Badge variant="outline" className="gap-1.5">
+                      <FileCheck2 className="h-3.5 w-3.5" aria-hidden="true" />
+                      5 étapes
+                    </Badge>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm text-muted-foreground">
+                  Rejouable librement, sans tentative d&apos;examen et sans impact sur les statistiques.
+                </p>
+                <Button asChild>
+                  <Link href="/sante/interface-examen">
+                    Découvrir le mode examen
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
             {courseUnit.mockExams.length > 0 ? (
               <div className="space-y-4">
                 {courseUnit.mockExams.map((exam) => (

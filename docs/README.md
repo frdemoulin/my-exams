@@ -34,6 +34,13 @@ Guides pratiques et tutoriels pour comprendre les concepts clés.
 - **[translations.md](./guides/translations.md)** - Glossaire métier (termes techniques → vocabulaire produit)
 - **[seo.md](./guides/seo.md)** - SEO minimal (sitemap, robots, pages indexables)
 
+### 🧭 Produit
+Cadrages produit, pédagogiques et fonctionnels.
+
+- **[cadrage-moteur-questions-uness.md](./product/cadrage-moteur-questions-uness.md)** - Cadrage initial du moteur de questions UNESS, du mode examen et état d'avancement
+- **[cadrage-formats-uness-quiz-entrainement.md](./product/cadrage-formats-uness-quiz-entrainement.md)** - Cadrage complémentaire sur la généralisation des formats UNESS aux quiz d'entraînement
+- **[cadrage-synthese-restant-formats-uness.md](./product/cadrage-synthese-restant-formats-uness.md)** - Synthèse opérationnelle des chantiers restant à implémenter sur les formats UNESS
+
 ### 🗄️ Database
 Documentation liée à la base de données et Prisma.
 

@@ -21,12 +21,12 @@ function parsePayload(value: unknown) {
   const markedForReview = typeof payload.markedForReview === "boolean" ? payload.markedForReview : null;
   const selectedChoiceIndexes = Array.isArray(payload.selectedChoiceIndexes)
     ? payload.selectedChoiceIndexes
-    : null;
+    : [];
+  const responsePayload = "responsePayload" in payload ? payload.responsePayload : undefined;
 
   if (
     !attemptQuestionId ||
     markedForReview === null ||
-    !selectedChoiceIndexes ||
     selectedChoiceIndexes.some((value) => typeof value !== "number")
   ) {
     return null;
@@ -36,6 +36,7 @@ function parsePayload(value: unknown) {
     attemptQuestionId,
     markedForReview,
     selectedChoiceIndexes,
+    responsePayload,
   };
 }
 

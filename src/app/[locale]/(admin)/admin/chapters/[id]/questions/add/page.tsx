@@ -13,7 +13,7 @@ interface AddChapterQuestionPageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Ajouter une question QCM",
+  title: "Ajouter une question d'entraînement",
 };
 
 export default async function AddChapterQuestionPage({ params }: AddChapterQuestionPageProps) {
@@ -37,7 +37,7 @@ export default async function AddChapterQuestionPage({ params }: AddChapterQuest
         ]}
       />
       <AdminPageHeading
-        title="Ajouter une question QCM"
+        title="Ajouter une question d'entraînement"
         description={`Tu ajoutes une question au chapitre ${chapter.title}.`}
       />
       <QuizQuestionForm
@@ -46,6 +46,7 @@ export default async function AddChapterQuestionPage({ params }: AddChapterQuest
         initialData={{
           chapterId: chapter.id,
           difficulty: "EASY",
+          questionFormat: "QRU",
           answerFormat: "SINGLE",
           question: "",
           choices: ["", "", "", ""],
@@ -53,6 +54,12 @@ export default async function AddChapterQuestionPage({ params }: AddChapterQuest
           correctChoiceIndex: 0,
           explanation: "",
           choiceExplanations: ["", "", "", ""],
+          shortAnswerType: "text",
+          acceptedAnswers: "",
+          numericAnswerValue: "",
+          numericAnswerTolerance: "",
+          numericAnswerUnit: "",
+          numericAnswerAcceptedUnits: "",
           order: nextOrder,
           isPublished: false,
         }}

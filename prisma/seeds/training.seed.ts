@@ -1,6 +1,8 @@
 import type {
   ChapterSectionKind,
+  Prisma,
   PrismaClient,
+  QuizAnswerFormat,
   QuizDifficulty,
   TrainingQuizStage,
 } from '@prisma/client';
@@ -15,9 +17,13 @@ import { transformationNucleaireTrainingChapter } from './data/transformation-nu
 
 type SeedQuizQuestion = {
   difficulty: QuizDifficulty;
+  questionType?: string;
+  answerFormat?: QuizAnswerFormat;
   question: string;
   choices: string[];
   correctChoiceIndex: number;
+  correctChoiceIndexes?: number[];
+  answerPayload?: Prisma.InputJsonValue;
   explanation: string;
   choiceExplanations?: string[];
   order: number;
@@ -70,6 +76,10 @@ type SeedChapter = {
   domainLongDescriptions: string[];
   questions: SeedQuizQuestion[];
   sections?: SeedChapterSection[];
+};
+
+type SeedTrainingOptions = {
+  chapterSlugs?: string[];
 };
 
 function normalizeSeedQuizItems(quiz: SeedTrainingQuiz) {
@@ -141,6 +151,41 @@ const chapters: SeedChapter[] = [
         choices: ['$1$', '$3$', '$7$', '$11$'],
         correctChoiceIndex: 1,
         explanation: 'On utilise $pH = -\\log([H_3O^+])$. Donc $pH = -\\log(10^{-3}) = 3$.',
+      },
+      {
+        difficulty: 'EASY',
+        questionType: 'short-answer',
+        answerFormat: 'SINGLE',
+        order: 2,
+        question: 'Dans une solution aqueuse où $[H_3O^+] = 1{,}0 \\times 10^{-3}\\ \\mathrm{mol\\cdot L^{-1}}$, indique directement la valeur du pH.',
+        choices: [],
+        correctChoiceIndex: -1,
+        answerPayload: {
+          answerType: 'number',
+          numericAnswer: {
+            value: 3,
+            tolerance: 0,
+          },
+        },
+        explanation: 'On utilise $pH = -\\log([H_3O^+])$. Ici $pH = -\\log(10^{-3}) = 3$.',
+      },
+    ],
+    sections: [
+      {
+        title: 'Calculer un pH à partir de la concentration en ions oxonium',
+        description: 'Savoir passer de la concentration en ions oxonium à la valeur du pH.',
+        order: 1,
+        kind: 'THEME',
+        quizzes: [
+          {
+            title: 'QCM 1',
+            slug: 'calcul-direct-du-ph',
+            description: 'Vérifier la relation entre concentration en ions oxonium et pH.',
+            order: 1,
+            stage: 'DISCOVER',
+            questionOrders: [1, 2],
+          },
+        ],
       },
     ],
   },
@@ -396,8 +441,32 @@ const chapters: SeedChapter[] = [
   },
 ];
 
-export async function seedTraining(prisma: PrismaClient) {
+export async function seedTraining(
+  prisma: PrismaClient,
+  options: SeedTrainingOptions = {}
+) {
   console.log('🧠 Seeding Training chapters and quizzes...');
+
+  const selectedChapterSlugs = new Set(options.chapterSlugs ?? []);
+  const chaptersToSeed =
+    selectedChapterSlugs.size > 0
+      ? chapters.filter((chapter) => selectedChapterSlugs.has(chapter.slug))
+      : chapters;
+
+  if (selectedChapterSlugs.size > 0) {
+    const matchedChapterSlugs = new Set(chaptersToSeed.map((chapter) => chapter.slug));
+    const missingChapterSlugs = [...selectedChapterSlugs].filter(
+      (slug) => !matchedChapterSlugs.has(slug)
+    );
+
+    if (missingChapterSlugs.length > 0) {
+      throw new Error(
+        `Chapitre(s) training introuvable(s): ${missingChapterSlugs.join(', ')}`
+      );
+    }
+
+    console.log(`   Ciblage chapitre(s): ${[...selectedChapterSlugs].join(', ')}`);
+  }
 
   const subject = await prisma.subject.findFirst({
     where: {
@@ -415,7 +484,7 @@ export async function seedTraining(prisma: PrismaClient) {
   }
 
   const domainLongDescriptions = Array.from(
-    new Set(chapters.flatMap((chapter) => chapter.domainLongDescriptions))
+    new Set(chaptersToSeed.flatMap((chapter) => chapter.domainLongDescriptions))
   );
   const domains = await prisma.domain.findMany({
     where: {
@@ -451,7 +520,7 @@ export async function seedTraining(prisma: PrismaClient) {
   let skippedQuestionGroupCount = 0;
   let skippedQuizLinkCount = 0;
 
-  for (const chapterSeed of chapters) {
+  for (const chapterSeed of chaptersToSeed) {
     const domainIds = chapterSeed.domainLongDescriptions
       .map((longDescription) => domainIdByLongDescription.get(longDescription))
       .filter((id): id is string => Boolean(id));
@@ -512,9 +581,13 @@ export async function seedTraining(prisma: PrismaClient) {
           },
           data: {
             difficulty: question.difficulty,
+            questionType: question.questionType ?? 'mcq',
+            answerFormat: question.answerFormat ?? 'SINGLE',
             question: question.question,
             choices: question.choices,
+            correctChoiceIndexes: question.correctChoiceIndexes ?? [],
             correctChoiceIndex: question.correctChoiceIndex,
+            answerPayload: question.answerPayload ?? undefined,
             explanation: question.explanation,
             choiceExplanations: question.choiceExplanations ?? [],
             isPublished: true,
@@ -528,9 +601,13 @@ export async function seedTraining(prisma: PrismaClient) {
         data: {
           chapterId: chapter.id,
           difficulty: question.difficulty,
+          questionType: question.questionType ?? 'mcq',
+          answerFormat: question.answerFormat ?? 'SINGLE',
           question: question.question,
           choices: question.choices,
+          correctChoiceIndexes: question.correctChoiceIndexes ?? [],
           correctChoiceIndex: question.correctChoiceIndex,
+          answerPayload: question.answerPayload ?? undefined,
           explanation: question.explanation,
           choiceExplanations: question.choiceExplanations ?? [],
           order: question.order,
@@ -663,7 +740,7 @@ export async function seedTraining(prisma: PrismaClient) {
 
         const normalizedQuizItems = normalizeSeedQuizItems(quizSeed);
 
-          let quizQuestionOrder = 1;
+        let quizQuestionOrder = 1;
 
         for (const item of normalizedQuizItems) {
           if (item.type === 'QUESTION') {

@@ -15,6 +15,19 @@ export type HealthMockExamBlueprint = {
 // Les maquettes sont des données métier : une nouvelle UE peut déclarer la
 // sienne sans transformer les écrans de passage ou les tentatives.
 export const healthMockExamBlueprints: Record<string, HealthMockExamBlueprint> = {
+  "fixture-examen-blanc-sante": {
+    durationMinutes: 15,
+    questionCount: 4,
+    sections: [
+      {
+        teachingElementSlug: "interface-uness",
+        title: "Interface UNESS",
+        questionCount: 4,
+        firstQuestion: 1,
+        lastQuestion: 4,
+      },
+    ],
+  },
   "ue14-biochimie-biologie-cellulaire-chimie": {
     durationMinutes: 150,
     questionCount: 100,

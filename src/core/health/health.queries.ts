@@ -4,6 +4,12 @@ import {
     resolveCorrectChoiceIndexes,
     resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
+import {
+    normalizePersistedQuestion,
+    normalizePersistedQuestionType,
+    type Question,
+    type QuestionType,
+} from "@/core/questions";
 import { reorderCatchAllChoices } from "@/core/training/training-choice-ordering";
 import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
 import {
@@ -578,11 +584,14 @@ export type HealthStudentChapterDetail = {
             questions: Array<{
                 id: string;
                 difficulty: "EASY" | "MEDIUM" | "HARD";
+                questionType: QuestionType;
                 answerFormat: "SINGLE" | "MULTIPLE";
                 question: string;
                 questionDiagram: TrainingQuestionDiagramContent | null;
                 choices: TrainingChoiceContent[];
                 correctChoiceIndexes: number[];
+                answerPayload: unknown | null;
+                canonicalQuestion: Question;
                 explanation: string;
                 choiceExplanations: string[];
                 order: number;
@@ -1525,7 +1534,12 @@ export async function fetchHealthStudentChapterDetail(input: {
             contextType: "HEALTH_TEACHING_ELEMENT",
             contextId: { in: teachingElementIds },
         },
-        include: {
+        select: {
+            contextId: true,
+            titleOverride: true,
+            shortTitleOverride: true,
+            slugOverride: true,
+            descriptionOverride: true,
             chapter: {
                 select: {
                     id: true,
@@ -1535,75 +1549,6 @@ export async function fetchHealthStudentChapterDetail(input: {
                     description: true,
                     isActive: true,
                     isPublished: true,
-                    _count: {
-                        select: {
-                            quizQuestions: true,
-                        },
-                    },
-                    sections: {
-                        select: {
-                            id: true,
-                            title: true,
-                            order: true,
-                            kind: true,
-                            isPublished: true,
-                            quizzes: {
-                                select: {
-                                    id: true,
-                                    title: true,
-                                    description: true,
-                                    slug: true,
-                                    order: true,
-                                    stage: true,
-                                    isPublished: true,
-                                    questionLinks: {
-                                        select: {
-                                            order: true,
-                                            group: {
-                                                select: {
-                                                    id: true,
-                                                    title: true,
-                                                    sharedStatement: true,
-                                                    order: true,
-                                                },
-                                            },
-                                            question: {
-                                                select: {
-                                                    id: true,
-                                                    difficulty: true,
-                                                    answerFormat: true,
-                                                    question: true,
-                                                    questionDiagram: true,
-                                                    choices: true,
-                                                    correctChoiceIndexes: true,
-                                                    correctChoiceIndex: true,
-                                                    explanation: true,
-                                                    choiceExplanations: true,
-                                                    order: true,
-                                                    themeIds: true,
-                                                    isPublished: true,
-                                                },
-                                            },
-                                        },
-                                        where: {
-                                            question: {
-                                                isPublished: true,
-                                            },
-                                        },
-                                        orderBy: [{ order: "asc" }],
-                                    },
-                                },
-                                where: {
-                                    isPublished: true,
-                                },
-                                orderBy: [{ order: "asc" }, { title: "asc" }],
-                            },
-                        },
-                        where: {
-                            isPublished: true,
-                        },
-                        orderBy: [{ order: "asc" }, { title: "asc" }],
-                    },
                 },
             },
         },
@@ -1627,12 +1572,100 @@ export async function fetchHealthStudentChapterDetail(input: {
         return null;
     }
 
-    const quizIds = assignment.chapter.sections.flatMap((section) =>
+    const chapter = await prisma.chapter.findUnique({
+        where: { id: assignment.chapter.id },
+        select: {
+            id: true,
+            title: true,
+            shortTitle: true,
+            slug: true,
+            description: true,
+            isActive: true,
+            isPublished: true,
+            _count: {
+                select: {
+                    quizQuestions: true,
+                },
+            },
+            sections: {
+                select: {
+                    id: true,
+                    title: true,
+                    order: true,
+                    kind: true,
+                    isPublished: true,
+                    quizzes: {
+                        select: {
+                            id: true,
+                            title: true,
+                            description: true,
+                            slug: true,
+                            order: true,
+                            stage: true,
+                            isPublished: true,
+                            questionLinks: {
+                                select: {
+                                    order: true,
+                                    group: {
+                                        select: {
+                                            id: true,
+                                            title: true,
+                                            sharedStatement: true,
+                                            order: true,
+                                        },
+                                    },
+                                    question: {
+                                        select: {
+                                            id: true,
+                                            difficulty: true,
+                                            questionType: true,
+                                            answerFormat: true,
+                                            question: true,
+                                            questionDiagram: true,
+                                            choices: true,
+                                            correctChoiceIndexes: true,
+                                            correctChoiceIndex: true,
+                                            answerPayload: true,
+                                            explanation: true,
+                                            choiceExplanations: true,
+                                            order: true,
+                                            themeIds: true,
+                                            isPublished: true,
+                                        },
+                                    },
+                                },
+                                where: {
+                                    question: {
+                                        isPublished: true,
+                                    },
+                                },
+                                orderBy: [{ order: "asc" }],
+                            },
+                        },
+                        where: {
+                            isPublished: true,
+                        },
+                        orderBy: [{ order: "asc" }, { title: "asc" }],
+                    },
+                },
+                where: {
+                    isPublished: true,
+                },
+                orderBy: [{ order: "asc" }, { title: "asc" }],
+            },
+        },
+    });
+
+    if (!chapter?.isActive) {
+        return null;
+    }
+
+    const quizIds = chapter.sections.flatMap((section) =>
         section.quizzes.map((quiz) => quiz.id)
     );
     const questionThemeIds = Array.from(
         new Set(
-            assignment.chapter.sections.flatMap((section) =>
+            chapter.sections.flatMap((section) =>
                 section.quizzes.flatMap((quiz) =>
                     quiz.questionLinks.flatMap((questionLink) => questionLink.question.themeIds)
                 )
@@ -1645,7 +1678,7 @@ export async function fetchHealthStudentChapterDetail(input: {
             ? prisma.userTrainingQuizProgress.findMany({
                   where: {
                       userId,
-                      chapterId: assignment.chapter.id,
+                      chapterId: chapter.id,
                       quizId: { in: quizIds },
                   },
                   select: {
@@ -1704,7 +1737,7 @@ export async function fetchHealthStudentChapterDetail(input: {
             },
         ])
     );
-    const publishedStructuredQuestionCount = assignment.chapter.sections.reduce(
+    const publishedStructuredQuestionCount = chapter.sections.reduce(
         (sectionTotal, section) =>
             sectionTotal +
             section.quizzes.reduce(
@@ -1715,15 +1748,15 @@ export async function fetchHealthStudentChapterDetail(input: {
     );
 
     return {
-        id: assignment.chapter.id,
-        title: assignment.titleOverride?.trim() || assignment.chapter.title,
-        shortTitle: assignment.shortTitleOverride ?? assignment.chapter.shortTitle ?? null,
-        slug: assignment.slugOverride?.trim() || assignment.chapter.slug,
-        description: assignment.descriptionOverride ?? assignment.chapter.description ?? null,
+        id: chapter.id,
+        title: assignment.titleOverride?.trim() || chapter.title,
+        shortTitle: assignment.shortTitleOverride ?? chapter.shortTitle ?? null,
+        slug: assignment.slugOverride?.trim() || chapter.slug,
+        description: assignment.descriptionOverride ?? chapter.description ?? null,
         questionCount:
             publishedStructuredQuestionCount > 0
                 ? publishedStructuredQuestionCount
-                : assignment.chapter._count.quizQuestions,
+                : chapter._count.quizQuestions,
         courseUnit: {
             id: courseUnit.id,
             code: courseUnit.code ?? null,
@@ -1737,7 +1770,7 @@ export async function fetchHealthStudentChapterDetail(input: {
             shortTitle: teachingElement.shortTitle ?? null,
             order: teachingElement.order,
         },
-        sections: assignment.chapter.sections.map((section) => ({
+        sections: chapter.sections.map((section) => ({
             id: section.id,
             title: section.title,
             order: section.order,
@@ -1756,22 +1789,41 @@ export async function fetchHealthStudentChapterDetail(input: {
                             normalizedChoices,
                             resolvedCorrectChoiceIndexes,
                         );
+                        const answerFormat = resolveQuizAnswerFormat(questionLink.question.answerFormat);
                         const resolvedCorrectionContent = resolveChoiceCorrectionContent({
                             explanation: questionLink.question.explanation,
                             choiceExplanations: questionLink.question.choiceExplanations,
                             choiceCount: reorderedQuestionChoices.choices.length,
                         });
+                        const questionType = normalizePersistedQuestionType(
+                            questionLink.question.questionType,
+                        );
+                        const answerPayload = questionLink.question.answerPayload ?? null;
+                        const canonicalQuestion = normalizePersistedQuestion({
+                            id: questionLink.question.id,
+                            questionType,
+                            answerPayload,
+                            question: questionLink.question.question,
+                            choices: reorderedQuestionChoices.choices,
+                            answerFormat,
+                            correctChoiceIndexes: reorderedQuestionChoices.correctChoiceIndexes,
+                            explanation: resolvedCorrectionContent.explanation,
+                            choiceExplanations: resolvedCorrectionContent.choiceExplanations,
+                        });
 
                         return {
                             id: questionLink.question.id,
                             difficulty: questionLink.question.difficulty,
-                            answerFormat: resolveQuizAnswerFormat(questionLink.question.answerFormat),
+                            questionType,
+                            answerFormat,
                             question: questionLink.question.question,
                             questionDiagram: normalizeTrainingQuestionDiagramContent(
                                 questionLink.question.questionDiagram ?? null
                             ),
                             choices: reorderedQuestionChoices.choices,
                             correctChoiceIndexes: reorderedQuestionChoices.correctChoiceIndexes,
+                            answerPayload,
+                            canonicalQuestion,
                             explanation: resolvedCorrectionContent.explanation,
                             choiceExplanations: resolvedCorrectionContent.choiceExplanations,
                             order: questionLink.order,

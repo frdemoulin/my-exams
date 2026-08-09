@@ -9,6 +9,12 @@ import {
   resolveCorrectChoiceIndexes,
   resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
+import {
+  getAnswerFormatForChoiceQuestionFormat,
+  isEditableChoiceQuestionFormatCode,
+  normalizeEditableQuestionFormatCode,
+  type EditableChoiceQuestionFormatCode,
+} from "@/core/questions/question-format";
 import { inferTrainingQuizStageFromOrder } from "@/core/training/training-stage";
 import { setCrudSuccessToast, setToastCookie } from "@/lib/toast";
 import { slugifyText } from "@/lib/utils";
@@ -21,6 +27,7 @@ import {
 import {
   CreateChapterErrors,
   CreateChapterAssignmentErrors,
+  CreateQuizQuestionValues,
   CreateQuizQuestionErrors,
   UpdateTrainingStructureErrors,
 } from "./chapter.types";
@@ -195,6 +202,139 @@ function parseCorrectChoiceIndexes(formData: FormData) {
 
   const legacyValue = Number(legacyEntry);
   return Number.isInteger(legacyValue) ? [legacyValue] : [];
+}
+
+function parseLineSeparatedFormList(value: string) {
+  return value
+    .split(/\r?\n/)
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+}
+
+function parseOptionalFormNumber(value: string) {
+  const normalizedValue = value.trim().replace(",", ".");
+  if (!normalizedValue) {
+    return undefined;
+  }
+
+  const parsedValue = Number(normalizedValue);
+  return Number.isFinite(parsedValue) ? parsedValue : undefined;
+}
+
+function resolveQuestionFormatFromForm({
+  questionFormat,
+  answerFormat,
+}: {
+  questionFormat: string;
+  answerFormat: string;
+}) {
+  const explicitQuestionFormat =
+    normalizeEditableQuestionFormatCode(questionFormat);
+
+  if (explicitQuestionFormat) {
+    return explicitQuestionFormat;
+  }
+
+  const trimmedQuestionFormat = questionFormat.trim();
+  if (trimmedQuestionFormat) {
+    return trimmedQuestionFormat;
+  }
+
+  return resolveQuizAnswerFormat(
+    answerFormat as "SINGLE" | "MULTIPLE" | null,
+  ) === "MULTIPLE"
+    ? "QRM"
+    : "QRU";
+}
+
+function resolveQuestionAnswerFormat(questionFormat: string) {
+  return isEditableChoiceQuestionFormatCode(questionFormat)
+    ? getAnswerFormatForChoiceQuestionFormat(questionFormat)
+    : "SINGLE";
+}
+
+function buildChoiceQuestionAnswerPayload({
+  questionFormat,
+  correctChoiceIndexes,
+}: {
+  questionFormat: EditableChoiceQuestionFormatCode;
+  correctChoiceIndexes: number[];
+}) {
+  return questionFormat === "QRP"
+    ? { requiredSelectionCount: correctChoiceIndexes.length }
+    : null;
+}
+
+function buildShortAnswerPayload(values: CreateQuizQuestionValues) {
+  if (values.shortAnswerType === "number") {
+    const numericAnswer: {
+      value: number;
+      tolerance?: number;
+      unit?: string;
+      acceptedUnits: string[];
+    } = {
+      value: parseOptionalFormNumber(values.numericAnswerValue) ?? 0,
+      acceptedUnits: parseLineSeparatedFormList(values.numericAnswerAcceptedUnits),
+    };
+    const tolerance = parseOptionalFormNumber(values.numericAnswerTolerance);
+
+    if (tolerance !== undefined) {
+      numericAnswer.tolerance = tolerance;
+    }
+    if (values.numericAnswerUnit.trim()) {
+      numericAnswer.unit = values.numericAnswerUnit.trim();
+    }
+
+    return {
+      answerType: "number",
+      numericAnswer,
+    };
+  }
+
+  return {
+    answerType: "text",
+    acceptedAnswers: parseLineSeparatedFormList(values.acceptedAnswers).map((value) => ({
+      value,
+    })),
+  };
+}
+
+function buildQuizQuestionPersistenceData(values: CreateQuizQuestionValues) {
+  if (values.questionFormat === "QROC") {
+    return {
+      questionType: values.questionFormat,
+      answerFormat: "SINGLE" as const,
+      choices: [],
+      correctChoiceIndexes: [],
+      correctChoiceIndex: 0,
+      answerPayload: buildShortAnswerPayload(values),
+      choiceExplanations: [],
+    };
+  }
+
+  const normalizedAnswerFormat = resolveQuizAnswerFormat(values.answerFormat);
+  const normalizedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
+    answerFormat: normalizedAnswerFormat,
+    correctChoiceIndexes: values.correctChoiceIndexes,
+    choiceCount: values.choices.length,
+  });
+
+  return {
+    questionType: values.questionFormat,
+    answerFormat: normalizedAnswerFormat,
+    choices: values.choices,
+    correctChoiceIndexes: normalizedCorrectChoiceIndexes,
+    correctChoiceIndex: getPrimaryCorrectChoiceIndex({
+      answerFormat: normalizedAnswerFormat,
+      correctChoiceIndexes: normalizedCorrectChoiceIndexes,
+      choiceCount: values.choices.length,
+    }),
+    answerPayload: buildChoiceQuestionAnswerPayload({
+      questionFormat: values.questionFormat,
+      correctChoiceIndexes: normalizedCorrectChoiceIndexes,
+    }),
+    choiceExplanations: values.choiceExplanations,
+  };
 }
 
 function parseTrainingStructurePayload(formData: FormData) {
@@ -777,23 +917,41 @@ export async function createQuizQuestion(
   options?: QuizQuestionActionOptions
 ) {
   const difficulty = String(formData.get("difficulty") ?? "").trim();
-  const answerFormat = String(formData.get("answerFormat") ?? "SINGLE").trim();
+  const rawAnswerFormat = String(formData.get("answerFormat") ?? "SINGLE").trim();
+  const questionFormat = resolveQuestionFormatFromForm({
+    questionFormat: String(formData.get("questionFormat") ?? "").trim(),
+    answerFormat: rawAnswerFormat,
+  });
+  const answerFormat = resolveQuestionAnswerFormat(questionFormat);
   const question = String(formData.get("question") ?? "").trim();
   const choices = parseChoices(formData);
   const correctChoiceIndexes = parseCorrectChoiceIndexes(formData);
   const explanation = String(formData.get("explanation") ?? "").trim();
   const choiceExplanations = parseChoiceExplanations(formData);
+  const shortAnswerType = String(formData.get("shortAnswerType") ?? "text").trim();
+  const acceptedAnswers = String(formData.get("acceptedAnswers") ?? "").trim();
+  const numericAnswerValue = String(formData.get("numericAnswerValue") ?? "").trim();
+  const numericAnswerTolerance = String(formData.get("numericAnswerTolerance") ?? "").trim();
+  const numericAnswerUnit = String(formData.get("numericAnswerUnit") ?? "").trim();
+  const numericAnswerAcceptedUnits = String(formData.get("numericAnswerAcceptedUnits") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
   const result = createQuizQuestionSchema.safeParse({
     difficulty,
+    questionFormat,
     answerFormat,
     question,
     choices,
     correctChoiceIndexes,
     explanation,
     choiceExplanations,
+    shortAnswerType,
+    acceptedAnswers,
+    numericAnswerValue,
+    numericAnswerTolerance,
+    numericAnswerUnit,
+    numericAnswerAcceptedUnits,
     order,
     isPublished,
   });
@@ -804,28 +962,15 @@ export async function createQuizQuestion(
   }
 
   try {
-    const normalizedAnswerFormat = resolveQuizAnswerFormat(result.data.answerFormat);
-    const normalizedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
-      answerFormat: normalizedAnswerFormat,
-      correctChoiceIndexes: result.data.correctChoiceIndexes,
-      choiceCount: result.data.choices.length,
-    });
+    const questionPersistenceData = buildQuizQuestionPersistenceData(result.data);
 
     await prisma.quizQuestion.create({
       data: {
         chapterId,
         difficulty: result.data.difficulty,
-        answerFormat: normalizedAnswerFormat,
         question: result.data.question,
-        choices: result.data.choices,
-        correctChoiceIndexes: normalizedCorrectChoiceIndexes,
-        correctChoiceIndex: getPrimaryCorrectChoiceIndex({
-          answerFormat: normalizedAnswerFormat,
-          correctChoiceIndexes: normalizedCorrectChoiceIndexes,
-          choiceCount: result.data.choices.length,
-        }),
+        ...questionPersistenceData,
         explanation: result.data.explanation,
-        choiceExplanations: result.data.choiceExplanations,
         order: result.data.order,
         isPublished: result.data.isPublished,
       },
@@ -868,23 +1013,41 @@ export async function updateQuizQuestion(
 
   const difficulty = String(formData.get("difficulty") ?? "").trim();
   const chapterId = String(formData.get("chapterId") ?? currentQuestion.chapterId).trim() || currentQuestion.chapterId;
-  const answerFormat = String(formData.get("answerFormat") ?? "SINGLE").trim();
+  const rawAnswerFormat = String(formData.get("answerFormat") ?? "SINGLE").trim();
+  const questionFormat = resolveQuestionFormatFromForm({
+    questionFormat: String(formData.get("questionFormat") ?? "").trim(),
+    answerFormat: rawAnswerFormat,
+  });
+  const answerFormat = resolveQuestionAnswerFormat(questionFormat);
   const question = String(formData.get("question") ?? "").trim();
   const choices = parseChoices(formData);
   const correctChoiceIndexes = parseCorrectChoiceIndexes(formData);
   const explanation = String(formData.get("explanation") ?? "").trim();
   const choiceExplanations = parseChoiceExplanations(formData);
+  const shortAnswerType = String(formData.get("shortAnswerType") ?? "text").trim();
+  const acceptedAnswers = String(formData.get("acceptedAnswers") ?? "").trim();
+  const numericAnswerValue = String(formData.get("numericAnswerValue") ?? "").trim();
+  const numericAnswerTolerance = String(formData.get("numericAnswerTolerance") ?? "").trim();
+  const numericAnswerUnit = String(formData.get("numericAnswerUnit") ?? "").trim();
+  const numericAnswerAcceptedUnits = String(formData.get("numericAnswerAcceptedUnits") ?? "").trim();
   const order = parseNumber(formData.get("order"));
   const isPublished = parseBoolean(formData.get("isPublished"), false);
 
   const result = createQuizQuestionSchema.safeParse({
     difficulty,
+    questionFormat,
     answerFormat,
     question,
     choices,
     correctChoiceIndexes,
     explanation,
     choiceExplanations,
+    shortAnswerType,
+    acceptedAnswers,
+    numericAnswerValue,
+    numericAnswerTolerance,
+    numericAnswerUnit,
+    numericAnswerAcceptedUnits,
     order,
     isPublished,
   });
@@ -895,29 +1058,16 @@ export async function updateQuizQuestion(
   }
 
   try {
-    const normalizedAnswerFormat = resolveQuizAnswerFormat(result.data.answerFormat);
-    const normalizedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
-      answerFormat: normalizedAnswerFormat,
-      correctChoiceIndexes: result.data.correctChoiceIndexes,
-      choiceCount: result.data.choices.length,
-    });
+    const questionPersistenceData = buildQuizQuestionPersistenceData(result.data);
 
     await prisma.quizQuestion.update({
       where: { id },
       data: {
         chapterId,
         difficulty: result.data.difficulty,
-        answerFormat: normalizedAnswerFormat,
         question: result.data.question,
-        choices: result.data.choices,
-        correctChoiceIndexes: normalizedCorrectChoiceIndexes,
-        correctChoiceIndex: getPrimaryCorrectChoiceIndex({
-          answerFormat: normalizedAnswerFormat,
-          correctChoiceIndexes: normalizedCorrectChoiceIndexes,
-          choiceCount: result.data.choices.length,
-        }),
+        ...questionPersistenceData,
         explanation: result.data.explanation,
-        choiceExplanations: result.data.choiceExplanations,
         order: result.data.order,
         isPublished: result.data.isPublished,
       },

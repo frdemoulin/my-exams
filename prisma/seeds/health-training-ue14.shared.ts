@@ -1,5 +1,6 @@
 import type {
   ChapterSectionKind,
+  Prisma,
   PrismaClient,
   QuizAnswerFormat,
   QuizDifficulty,
@@ -337,6 +338,7 @@ export type EnzymeDiagram = {
 export type SeedQuestion = {
   order: number;
   difficulty: QuizDifficulty;
+  questionType?: string;
   answerFormat: QuizAnswerFormat;
   question: string;
   questionDiagram?:
@@ -350,6 +352,7 @@ export type SeedQuestion = {
     | EnzymeDiagram;
   choices: Array<string | QuantumBoxesDiagram | LewisAtomDiagram>;
   correctChoiceIndexes: number[];
+  answerPayload?: Prisma.InputJsonValue;
   explanation: string | null;
   choiceExplanations?: string[];
 };
@@ -677,12 +680,14 @@ export async function seedHealthTrainingChapter({
     const data = {
       chapterId: chapter.id,
       difficulty: entry.difficulty,
+      questionType: entry.questionType ?? 'mcq',
       question: entry.question,
       questionDiagram: entry.questionDiagram,
       choices: entry.choices,
       answerFormat: entry.answerFormat,
       correctChoiceIndexes: entry.correctChoiceIndexes,
       correctChoiceIndex: entry.correctChoiceIndexes[0] ?? 0,
+      answerPayload: entry.answerPayload ?? undefined,
       explanation: entry.explanation ?? '',
       choiceExplanations: entry.choiceExplanations ?? [],
       order: entry.order,

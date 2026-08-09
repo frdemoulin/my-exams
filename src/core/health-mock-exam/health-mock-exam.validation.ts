@@ -3,6 +3,10 @@ import {
   resolveQuizAnswerFormat,
   type QuizAnswerFormatValue,
 } from "@/core/quiz/quiz-answer-format";
+import {
+  normalizePersistedQuestion,
+  normalizePersistedQuestionType,
+} from "@/core/questions";
 import { normalizeTrainingChoiceContents } from "@/core/training/training-choice-content";
 
 import { getHealthMockExamBlueprint } from "./health-mock-exam.config";
@@ -14,11 +18,13 @@ export type HealthMockExamValidationQuestion = {
   globalOrder: number;
   groupId: string | null;
   isPublished: boolean;
+  questionType?: string | null;
   question: string;
   choices: unknown;
   answerFormat: QuizAnswerFormatValue | null;
   correctChoiceIndex: number;
   correctChoiceIndexes: number[];
+  answerPayload?: unknown;
   explanation: string;
   choiceExplanations: unknown;
 };
@@ -208,28 +214,54 @@ export function validateHealthMockExamForPublication(
         issues.push(`La question ${question.globalOrder} n'a pas d'explication transversale.`);
       }
 
-      const choices = normalizeTrainingChoiceContents(question.choices);
-      if (choices.length !== 4) {
-        issues.push(`La question ${question.globalOrder} doit comporter exactement quatre items.`);
-      }
+      const questionType = normalizePersistedQuestionType(question.questionType);
+      if (questionType === "mcq") {
+        const choices = normalizeTrainingChoiceContents(question.choices);
+        if (choices.length !== 4) {
+          issues.push(`La question ${question.globalOrder} doit comporter exactement quatre items.`);
+        }
 
-      const choiceExplanations = normalizeChoiceExplanations(question.choiceExplanations);
-      if (choiceExplanations.length !== 4 || choiceExplanations.some((entry) => !entry)) {
-        issues.push(`La question ${question.globalOrder} doit comporter une explication pour chacun des quatre items.`);
-      }
+        const choiceExplanations = normalizeChoiceExplanations(question.choiceExplanations);
+        if (choiceExplanations.length !== 4 || choiceExplanations.some((entry) => !entry)) {
+          issues.push(`La question ${question.globalOrder} doit comporter une explication pour chacun des quatre items.`);
+        }
 
-      const answerFormat = resolveQuizAnswerFormat(question.answerFormat);
-      const correctChoiceIndexes = resolveCorrectChoiceIndexes({
-        answerFormat,
-        correctChoiceIndex: question.correctChoiceIndex,
-        correctChoiceIndexes: question.correctChoiceIndexes,
-        choiceCount: choices.length,
-      });
-      if (correctChoiceIndexes.length === 0) {
-        issues.push(`La question ${question.globalOrder} ne possède pas de réponse attendue valide.`);
-      }
-      if (answerFormat === "SINGLE" && correctChoiceIndexes.length !== 1) {
-        issues.push(`La question ${question.globalOrder} est au format réponse unique mais comporte plusieurs réponses attendues.`);
+        const answerFormat = resolveQuizAnswerFormat(question.answerFormat);
+        const correctChoiceIndexes = resolveCorrectChoiceIndexes({
+          answerFormat,
+          correctChoiceIndex: question.correctChoiceIndex,
+          correctChoiceIndexes: question.correctChoiceIndexes,
+          choiceCount: choices.length,
+        });
+        if (correctChoiceIndexes.length === 0) {
+          issues.push(`La question ${question.globalOrder} ne possède pas de réponse attendue valide.`);
+        }
+        if (answerFormat === "SINGLE" && correctChoiceIndexes.length !== 1) {
+          issues.push(`La question ${question.globalOrder} est au format réponse unique mais comporte plusieurs réponses attendues.`);
+        }
+      } else if (questionType === "short-answer") {
+        const canonicalQuestion = normalizePersistedQuestion({
+          ...question,
+          choices: [],
+        });
+
+        if (canonicalQuestion.type !== "short-answer") {
+          issues.push(`La question ${question.globalOrder} n'a pas de type QROC exploitable.`);
+        } else if (
+          canonicalQuestion.answerType === "number" &&
+          !canonicalQuestion.numericAnswer
+        ) {
+          issues.push(`La question ${question.globalOrder} n'a pas de réponse numérique attendue valide.`);
+        } else if (
+          canonicalQuestion.answerType === "text" &&
+          (canonicalQuestion.acceptedAnswers ?? []).length === 0
+        ) {
+          issues.push(`La question ${question.globalOrder} n'a pas de réponse textuelle attendue valide.`);
+        }
+      } else {
+        issues.push(
+          `La question ${question.globalOrder} utilise un type « ${questionType} » non pris en charge dans l'examen blanc.`,
+        );
       }
 
       if (question.groupId) {

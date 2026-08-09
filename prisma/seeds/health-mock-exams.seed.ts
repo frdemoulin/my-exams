@@ -16,11 +16,13 @@ export type HealthMockExamSeedQuestion = {
   globalOrder: number;
   groupKey?: string;
   difficulty: QuizDifficulty;
+  questionType?: string;
   answerFormat: QuizAnswerFormat;
   question: string;
   questionDiagram?: unknown;
   choices: unknown[];
   correctChoiceIndexes: number[];
+  answerPayload?: Prisma.InputJsonValue;
   explanation: string;
   choiceExplanations: string[];
 };
@@ -165,11 +167,13 @@ function buildValidationInput(
           globalOrder: question.globalOrder,
           groupId: question.groupKey ?? null,
           isPublished: true,
+          questionType: question.questionType ?? null,
           question: question.question,
           choices: question.choices,
           answerFormat: question.answerFormat,
           correctChoiceIndex: question.correctChoiceIndexes[0] ?? -1,
           correctChoiceIndexes: question.correctChoiceIndexes,
+          answerPayload: question.answerPayload ?? null,
           explanation: question.explanation,
           choiceExplanations: question.choiceExplanations,
         })),
@@ -178,7 +182,7 @@ function buildValidationInput(
   };
 }
 
-async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockExamSeed) {
+export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockExamSeed) {
   const courseUnit = await resolveCourseUnit(prisma, seed);
 
   if (seed.isPublished) {
@@ -230,6 +234,21 @@ async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockExamSeed
         },
       });
 
+  const existingSections = await prisma.healthMockExamSection.findMany({
+    where: { mockExamId: exam.id },
+    select: { id: true },
+  });
+  const existingSectionIds = existingSections.map((section) => section.id);
+
+  if (existingSectionIds.length > 0) {
+    await prisma.healthMockExamQuestion.deleteMany({
+      where: { examSectionId: { in: existingSectionIds } },
+    });
+    await prisma.healthMockExamQuestionGroup.deleteMany({
+      where: { examSectionId: { in: existingSectionIds } },
+    });
+  }
+
   await prisma.healthMockExamSection.deleteMany({ where: { mockExamId: exam.id } });
 
   for (const sectionSeed of seed.sections) {
@@ -273,12 +292,14 @@ async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockExamSeed
         groupId: question.groupKey ? groupsByKey.get(question.groupKey) : undefined,
         slug: question.slug,
         difficulty: question.difficulty,
+        questionType: question.questionType ?? "mcq",
         question: question.question,
         questionDiagram: question.questionDiagram as Prisma.InputJsonValue | undefined,
         choices: question.choices as Prisma.InputJsonValue,
         answerFormat: question.answerFormat,
         correctChoiceIndexes: question.correctChoiceIndexes,
         correctChoiceIndex: question.correctChoiceIndexes[0] ?? -1,
+        answerPayload: question.answerPayload ?? undefined,
         explanation: question.explanation,
         choiceExplanations: question.choiceExplanations as Prisma.InputJsonValue,
         order: question.order,

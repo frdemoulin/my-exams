@@ -4,6 +4,10 @@ import {
   resolveCorrectChoiceIndexes,
   resolveQuizAnswerFormat,
 } from '@/core/quiz/quiz-answer-format';
+import {
+  normalizePersistedQuestion,
+  normalizePersistedQuestionType,
+} from '@/core/questions';
 import { slugifyText } from '@/lib/utils';
 import {
   chapterLevelValues,
@@ -123,12 +127,14 @@ const getQuestionThemeLabels = ({
 const toTrainingQuestion = (question: {
   id: string;
   difficulty: QuizDifficulty;
+  questionType?: string | null;
   answerFormat: 'SINGLE' | 'MULTIPLE' | null;
   question: string;
   questionDiagram?: Prisma.JsonValue | null;
   choices: Prisma.JsonValue;
   correctChoiceIndexes: number[];
   correctChoiceIndex: number;
+  answerPayload?: Prisma.JsonValue | null;
   explanation: string;
   choiceExplanations?: Prisma.JsonValue | null;
   order: number;
@@ -139,14 +145,16 @@ const toTrainingQuestion = (question: {
   sharedStatement: string;
   order: number;
 } | null, themeLabelById: Map<string, string> = new Map()): TrainingQuestion => {
+  const rawChoices = normalizeChoices(question.choices);
+  const answerFormat = resolveQuizAnswerFormat(question.answerFormat);
   const resolvedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
     answerFormat: question.answerFormat,
     correctChoiceIndex: question.correctChoiceIndex,
     correctChoiceIndexes: question.correctChoiceIndexes,
-    choiceCount: normalizeChoices(question.choices).length,
+    choiceCount: rawChoices.length,
   });
   const normalizedQuestionChoices = reorderCatchAllChoices(
-    normalizeChoices(question.choices),
+    rawChoices,
     resolvedCorrectChoiceIndexes
   );
   const resolvedCorrectionContent = resolveChoiceCorrectionContent({
@@ -154,17 +162,33 @@ const toTrainingQuestion = (question: {
     choiceExplanations: question.choiceExplanations,
     choiceCount: normalizedQuestionChoices.choices.length,
   });
+  const questionType = normalizePersistedQuestionType(question.questionType);
+  const answerPayload = question.answerPayload ?? null;
+  const canonicalQuestion = normalizePersistedQuestion({
+    id: question.id,
+    questionType,
+    answerPayload,
+    question: question.question,
+    choices: normalizedQuestionChoices.choices,
+    answerFormat,
+    correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
+    explanation: resolvedCorrectionContent.explanation,
+    choiceExplanations: resolvedCorrectionContent.choiceExplanations,
+  });
 
   return {
     id: question.id,
     difficulty: question.difficulty,
-    answerFormat: resolveQuizAnswerFormat(question.answerFormat),
+    questionType,
+    answerFormat,
     question: question.question,
     questionDiagram: normalizeTrainingQuestionDiagramContent(
       question.questionDiagram ?? null
     ),
     choices: normalizedQuestionChoices.choices,
     correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
+    answerPayload,
+    canonicalQuestion,
     explanation: resolvedCorrectionContent.explanation,
     choiceExplanations: resolvedCorrectionContent.choiceExplanations,
     order: question.order,
@@ -200,12 +224,14 @@ const toTrainingQuiz = (quiz: {
     question: {
       id: string;
       difficulty: QuizDifficulty;
+      questionType?: string | null;
       answerFormat: 'SINGLE' | 'MULTIPLE' | null;
       question: string;
       questionDiagram?: Prisma.JsonValue | null;
       choices: Prisma.JsonValue;
       correctChoiceIndexes: number[];
       correctChoiceIndex: number;
+      answerPayload?: Prisma.JsonValue | null;
       explanation: string;
       order: number;
       themeIds: string[];
@@ -505,12 +531,14 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
                     select: {
                       id: true,
                       difficulty: true,
+                      questionType: true,
                       answerFormat: true,
                       question: true,
                       questionDiagram: true,
                       choices: true,
                       correctChoiceIndexes: true,
                       correctChoiceIndex: true,
+                      answerPayload: true,
                       explanation: true,
                       choiceExplanations: true,
                       order: true,
@@ -539,12 +567,14 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
         select: {
           id: true,
           difficulty: true,
+          questionType: true,
           answerFormat: true,
           question: true,
           questionDiagram: true,
           choices: true,
           correctChoiceIndexes: true,
           correctChoiceIndex: true,
+          answerPayload: true,
           explanation: true,
           choiceExplanations: true,
           order: true,

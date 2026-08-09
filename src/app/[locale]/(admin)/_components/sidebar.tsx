@@ -168,12 +168,17 @@ export const Sidebar = () => {
       title: 'Entraînements',
       list: [
         {
+          title: 'Formats de questions',
+          path: '/admin/training/question-formats',
+          icon: <FaList className="mr-3" size={16} />
+        },
+        {
           title: 'QCM',
           path: '/admin/training/qcms',
           icon: <FaBook className="mr-3" size={16} />
         },
         {
-          title: 'Questions QCM',
+          title: "Questions d'entraînement",
           path: '/admin/training/quiz-questions',
           icon: <FaList className="mr-3" size={16} />
         },

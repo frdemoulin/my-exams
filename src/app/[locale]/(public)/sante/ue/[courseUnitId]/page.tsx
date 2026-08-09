@@ -72,8 +72,6 @@ export default async function HealthCourseUnitDetailPage({
     userId: effectiveUserId,
   });
 
-  console.log('courseUnit', courseUnit);
-
   if (!courseUnit) {
     notFound();
   }

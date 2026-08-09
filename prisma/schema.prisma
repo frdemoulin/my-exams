@@ -946,12 +946,14 @@ model TrainingQuizQuestionGroup {
 model QuizQuestion {
   id                 String         @id @default(auto()) @map("_id") @db.ObjectId
   difficulty         QuizDifficulty
+  questionType       String?        @default("mcq")
   question           String         @db.String
   questionDiagram    Json?
   choices            Json
   answerFormat       QuizAnswerFormat? @default(SINGLE)
   correctChoiceIndexes Int[]        @default([])
   correctChoiceIndex Int
+  answerPayload      Json?
   explanation        String         @db.String
   choiceExplanations Json?
   order              Int
@@ -1067,12 +1069,14 @@ model HealthMockExamQuestion {
   groupId              String?            @db.ObjectId
   slug                 String
   difficulty           QuizDifficulty
+  questionType         String?            @default("mcq")
   question             String             @db.String
   questionDiagram      Json?
   choices              Json
   answerFormat         QuizAnswerFormat?  @default(SINGLE)
   correctChoiceIndexes Int[]              @default([])
   correctChoiceIndex   Int
+  answerPayload        Json?
   explanation          String             @db.String
   choiceExplanations   Json?
   order                Int
@@ -1129,6 +1133,7 @@ model UserHealthMockExamAttemptQuestion {
   order                 Int
   globalOrder           Int
   selectedChoiceIndexes Int[]    @default([])
+  responsePayload       Json?
   markedForReview       Boolean  @default(false)
   answeredAt            DateTime?
 

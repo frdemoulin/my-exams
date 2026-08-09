@@ -5,6 +5,10 @@ import {
   resolveCorrectChoiceIndexes,
   resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
+import {
+  normalizePersistedQuestion,
+  normalizePersistedQuestionFormat,
+} from "@/core/questions/question-persistence";
 import { reorderCatchAllChoices } from "@/core/training/training-choice-ordering";
 import {
   getTrainingChoicePlainText,
@@ -38,6 +42,38 @@ function normalizeChoices(value: Prisma.JsonValue): string[] {
   return normalizeTrainingChoiceContents(value).map((choice) =>
     getTrainingChoicePlainText(choice)
   );
+}
+
+const shortAnswerFormDefaults = {
+  shortAnswerType: "text" as const,
+  acceptedAnswers: "",
+  numericAnswerValue: "",
+  numericAnswerTolerance: "",
+  numericAnswerUnit: "",
+  numericAnswerAcceptedUnits: "",
+};
+
+function stringifyOptionalNumber(value: number | undefined) {
+  return value === undefined ? "" : String(value);
+}
+
+function resolveShortAnswerFormValues(
+  question: ReturnType<typeof normalizePersistedQuestion>
+) {
+  if (question.type !== "short-answer") {
+    return shortAnswerFormDefaults;
+  }
+
+  return {
+    shortAnswerType: question.answerType,
+    acceptedAnswers: (question.acceptedAnswers ?? [])
+      .map((acceptedAnswer) => acceptedAnswer.value)
+      .join("\n"),
+    numericAnswerValue: stringifyOptionalNumber(question.numericAnswer?.value),
+    numericAnswerTolerance: stringifyOptionalNumber(question.numericAnswer?.tolerance),
+    numericAnswerUnit: question.numericAnswer?.unit ?? "",
+    numericAnswerAcceptedUnits: (question.numericAnswer?.acceptedUnits ?? []).join("\n"),
+  };
 }
 
 type ChapterQueryOptions = {
@@ -719,11 +755,13 @@ export async function fetchQuizQuestionById(
       id: true,
       chapterId: true,
       difficulty: true,
+      questionType: true,
       question: true,
       choices: true,
       answerFormat: true,
       correctChoiceIndexes: true,
       correctChoiceIndex: true,
+      answerPayload: true,
       explanation: true,
       choiceExplanations: true,
       order: true,
@@ -748,9 +786,13 @@ export async function fetchQuizQuestionById(
       choiceExplanations: question.choiceExplanations,
       choiceCount: normalizedQuestionChoices.choices.length,
     });
+    const canonicalQuestion = normalizePersistedQuestion(question);
+    const shortAnswerFormValues = resolveShortAnswerFormValues(canonicalQuestion);
 
     return {
       ...question,
+      questionFormat: normalizePersistedQuestionFormat(question),
+      ...shortAnswerFormValues,
       explanation: resolvedCorrectionContent.explanation,
       answerFormat: resolveQuizAnswerFormat(question.answerFormat),
       choices: normalizedQuestionChoices.choices.map((choice) =>

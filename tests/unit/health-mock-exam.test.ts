@@ -15,11 +15,13 @@ function makeQuestion(globalOrder: number, order: number) {
     globalOrder,
     groupId: null,
     isPublished: true,
+    questionType: "mcq",
     question: `Énoncé original ${globalOrder}.`,
     choices: ["A", "B", "C", "D"],
     answerFormat: "SINGLE" as const,
     correctChoiceIndex: 0,
     correctChoiceIndexes: [0],
+    answerPayload: null,
     explanation: "Explication transversale.",
     choiceExplanations: ["A", "B", "C", "D"],
   };
@@ -79,6 +81,49 @@ test("la maquette UE14 40/40/20 complète est publiable", () => {
   assert.equal(result.isValid, true, result.issues.join("\n"));
 });
 
+test("la validation accepte une QROC avec une réponse attendue configurée", () => {
+  const exam = makeValidExam();
+  exam.sections[0].questions[0] = {
+    ...exam.sections[0].questions[0],
+    questionType: "short-answer",
+    choices: [],
+    answerFormat: "SINGLE",
+    correctChoiceIndex: -1,
+    correctChoiceIndexes: [],
+    answerPayload: {
+      answerType: "number",
+      numericAnswer: {
+        value: 7.4,
+        tolerance: 0.1,
+        unit: "pH",
+      },
+    },
+    choiceExplanations: [],
+  };
+
+  const result = validateHealthMockExamForPublication(exam);
+  assert.equal(result.isValid, true, result.issues.join("\n"));
+});
+
+test("la validation refuse une QROC sans réponse attendue", () => {
+  const exam = makeValidExam();
+  exam.sections[0].questions[0] = {
+    ...exam.sections[0].questions[0],
+    questionType: "short-answer",
+    choices: [],
+    answerFormat: "SINGLE",
+    correctChoiceIndex: -1,
+    correctChoiceIndexes: [],
+    answerPayload: {
+      answerType: "text",
+      acceptedAnswers: [],
+    },
+    choiceExplanations: [],
+  };
+
+  assert.equal(validateHealthMockExamForPublication(exam).isValid, false);
+});
+
 test("la validation refuse les erreurs de structure et les groupes liés incomplets", () => {
   const missingQuestion = makeValidExam();
   missingQuestion.sections[2].questions.pop();
@@ -133,4 +178,59 @@ test("la notation applique une réponse exacte sans point partiel", () => {
     maxScore: 4,
     percentage: 25,
   });
+});
+
+test("la notation des examens blancs utilise le moteur global pour les QROC", () => {
+  const question = {
+    id: "qroc-number",
+    type: "short-answer" as const,
+    statement: "Donnez le pH physiologique.",
+    answerType: "number" as const,
+    numericAnswer: {
+      value: 7.4,
+      tolerance: 0.1,
+    },
+    scoring: {
+      strategy: "all-or-nothing" as const,
+    },
+  };
+
+  const result = scoreHealthMockExamAttempt([
+    {
+      examSectionId: "chemistry",
+      questions: [
+        {
+          question,
+          answer: {
+            questionId: "qroc-number",
+            type: "short-answer",
+            rawValue: "7,4",
+          },
+        },
+        {
+          question,
+          answer: {
+            questionId: "qroc-number",
+            type: "short-answer",
+            rawValue: "8",
+          },
+        },
+        {
+          question,
+          answer: {
+            questionId: "qroc-number",
+            type: "short-answer",
+            rawValue: "",
+          },
+        },
+      ],
+    },
+  ]);
+
+  assert.equal(result.score, 1);
+  assert.equal(result.maxScore, 3);
+  assert.equal(result.percentage, 33);
+  assert.equal(result.correctQuestionCount, 1);
+  assert.equal(result.incorrectQuestionCount, 1);
+  assert.equal(result.unansweredQuestionCount, 1);
 });
