@@ -19,7 +19,8 @@ import {
   type LegacyMcqQuestionInput,
 } from "./question-normalization";
 
-export type PersistedQuestionInput = LegacyMcqQuestionInput & {
+export type PersistedQuestionInput = Omit<LegacyMcqQuestionInput, "id"> & {
+  id?: string;
   questionFormat?: string | null;
   questionType?: string | null;
   format?: QuestionFormatCode | string | null;
@@ -183,7 +184,7 @@ export function normalizePersistedShortAnswerQuestion(
       : "text";
 
   return {
-    id: input.id,
+    id: input.id ?? "",
     type: "short-answer",
     format: normalizePersistedQuestionFormat(input),
     statement: input.statement ?? input.question ?? "",
@@ -279,7 +280,7 @@ export function normalizePersistedHotspotQuestion(
     normalizePositiveNumber(payload.tolerance);
 
   return {
-    id: input.id,
+    id: input.id ?? "",
     type: "hotspot",
     format: normalizePersistedQuestionFormat(input),
     statement: input.statement ?? input.question ?? "",
@@ -310,6 +311,7 @@ export function normalizePersistedQuestion(input: PersistedQuestionInput): Quest
 
     return normalizeLegacyMcqQuestion({
       ...input,
+      id: input.id ?? "",
       format: questionFormat,
       requiredSelectionCount,
     });
@@ -324,7 +326,7 @@ export function normalizePersistedQuestion(input: PersistedQuestionInput): Quest
   }
 
   return {
-    id: input.id,
+    id: input.id ?? "",
     type: questionType,
     format: questionFormat,
     statement: input.statement ?? input.question ?? "",

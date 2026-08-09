@@ -1,6 +1,7 @@
-import type { SeedQuestion } from './health-training-ue14.shared';
+import { compileHealthTrainingAuthorQuestion } from '@/core/questions';
+import type { LegacySeedQuestion, SeedQuestion } from './health-training-ue14.shared';
 
-export type { SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
+export type { LegacySeedQuestion, SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
 export { seedHealthTrainingChapter } from './health-training-ue14.shared';
 
 const noCorrectChoiceLabel = 'Aucune des propositions précédentes n’est exacte.';
@@ -10,14 +11,16 @@ const noCorrectChoiceExplanation =
 export function normalizeHealthTrainingQuestions(
   questions: SeedQuestion[]
 ): SeedQuestion[] {
-  return questions.map((question) => {
-    const correctChoiceIndexes = Array.from(new Set(question.correctChoiceIndexes)).sort(
+  return questions.map((rawQuestion) => {
+    const question = compileHealthTrainingAuthorQuestion(rawQuestion) as LegacySeedQuestion;
+    const choices = (question.choices ?? []) as unknown[];
+    const correctChoiceIndexes = Array.from(new Set(question.correctChoiceIndexes ?? [])).sort(
       (left, right) => left - right
     );
 
     if (
       correctChoiceIndexes.some(
-        (choiceIndex) => choiceIndex < 0 || choiceIndex >= question.choices.length
+        (choiceIndex) => choiceIndex < 0 || choiceIndex >= choices.length
       )
     ) {
       throw new Error(`Index de réponse invalide pour la question ${question.order}.`);
@@ -25,7 +28,7 @@ export function normalizeHealthTrainingQuestions(
 
     if (
       question.choiceExplanations &&
-      question.choiceExplanations.length !== question.choices.length
+      question.choiceExplanations.length !== choices.length
     ) {
       throw new Error(
         `La question ${question.order} doit fournir une explication par proposition.`
@@ -33,17 +36,17 @@ export function normalizeHealthTrainingQuestions(
     }
 
     if (correctChoiceIndexes.length > 0) {
-      return { ...question, correctChoiceIndexes };
+      return { ...question, choices, correctChoiceIndexes } as SeedQuestion;
     }
 
     return {
       ...question,
-      choices: [...question.choices, noCorrectChoiceLabel],
-      correctChoiceIndexes: [question.choices.length],
+      choices: [...choices, noCorrectChoiceLabel],
+      correctChoiceIndexes: [choices.length],
       choiceExplanations: [
-        ...(question.choiceExplanations ?? question.choices.map(() => '')),
+        ...(question.choiceExplanations ?? choices.map(() => '')),
         noCorrectChoiceExplanation,
       ],
-    };
+    } as SeedQuestion;
   });
 }

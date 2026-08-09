@@ -221,10 +221,9 @@ QZONE doit être ajoutée au tutoriel quand l'UI interactive de zonage sera disp
 | QROC textuelle | Réalisé V1 | Réponses admises multiples et normalisation déterministe. |
 | QROC numérique | Réalisé V1 | Virgule, point, tolérance et unités explicites préparées. |
 | Conservation de la réponse brute QROC | Réalisé V1 | `rawValue` conservé dans la réponse étudiant. |
-| QZONE modèle | Partiel | Type, payload et évaluation préparés. |
-| QZONE UI étudiant | A faire | Renderer interactif image non livré. |
-| QZONE outil rédacteur | A faire | Saisie graphique des zones non livrée. |
-| QRPL | A prévoir | Format référencé, pas encore éditable ni joué. |
+| QZONE modèle & UI étudiant | Réalisé V1 | HotspotQuestionView interactif disponible en entraînement et examen blanc. |
+| QRPL | Réalisé V1 | Prise en charge des questions à nombre de réponses précisé longue. |
+| Contrat d'auteur Santé & Seeds | Réalisé V1 | Contrat d'auteur typé (HealthTrainingAuthorQuestion), compilateur et validateur disponibles. |
 | QROL | A prévoir | Format référencé, moteur fonctionnel non livré. |
 | QTCS | Futur | Hors périmètre initial. |
 | Matching / association | Futur | Extension My Exams référencée uniquement. |

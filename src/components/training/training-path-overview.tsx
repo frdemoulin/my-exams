@@ -334,7 +334,7 @@ export function TrainingPathOverview({
   if (sections.length === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
-        Aucun QCM n&apos;est publié pour ce chapitre pour le moment.
+        Aucun quiz n&apos;est publié pour ce chapitre pour le moment.
       </div>
     );
   }

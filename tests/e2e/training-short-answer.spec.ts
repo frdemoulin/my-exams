@@ -120,7 +120,7 @@ test.describe("Entraînement - réponse courte", () => {
 
     await page.getByTestId("quiz-open-summary").click();
     await expect(page.getByTestId("quiz-summary")).toBeVisible();
-    await expect(page.getByText("Bilan du QCM", { exact: true })).toBeVisible();
+    await expect(page.getByText("Bilan du quiz", { exact: true })).toBeVisible();
 
     await page.getByTestId("quiz-open-review").click();
     await page.getByTestId("quiz-nav-question-2").click();

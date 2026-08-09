@@ -59,19 +59,25 @@ const shouldMoveChoiceLast = (choice: string) => {
   );
 };
 
-const moveTrailingCatchAllChoiceLast = (question: SeedQuestion): SeedQuestion => {
-  const trailingCatchAllChoiceIndex = question.choices.findIndex(
+import { compileHealthTrainingAuthorQuestion } from '@/core/questions';
+import type { LegacySeedQuestion } from './health-training-ue14.shared';
+
+const moveTrailingCatchAllChoiceLast = (rawQuestion: SeedQuestion): SeedQuestion => {
+  const question = compileHealthTrainingAuthorQuestion(rawQuestion) as LegacySeedQuestion;
+  const choices = (question.choices ?? []) as unknown[];
+
+  const trailingCatchAllChoiceIndex = choices.findIndex(
     (choice) => typeof choice === 'string' && shouldMoveChoiceLast(choice)
   );
 
   if (
     trailingCatchAllChoiceIndex === -1 ||
-    trailingCatchAllChoiceIndex === question.choices.length - 1
+    trailingCatchAllChoiceIndex === choices.length - 1
   ) {
-    return question;
+    return rawQuestion;
   }
 
-  const reorderedIndexes = question.choices
+  const reorderedIndexes = choices
     .map((_, index) => index)
     .filter((index) => index !== trailingCatchAllChoiceIndex);
   reorderedIndexes.push(trailingCatchAllChoiceIndex);
@@ -81,16 +87,19 @@ const moveTrailingCatchAllChoiceLast = (question: SeedQuestion): SeedQuestion =>
     newIndexByOldIndex.set(oldIndex, newIndex);
   });
 
+  const correctChoiceIndexes = question.correctChoiceIndexes ?? [];
+  const choiceExplanations = question.choiceExplanations;
+
   return {
     ...question,
-    choices: reorderedIndexes.map((index) => question.choices[index]),
-    correctChoiceIndexes: question.correctChoiceIndexes
+    choices: reorderedIndexes.map((index) => choices[index]),
+    correctChoiceIndexes: correctChoiceIndexes
       .map((index) => newIndexByOldIndex.get(index) ?? index)
       .sort((left, right) => left - right),
-    choiceExplanations: question.choiceExplanations
-      ? reorderedIndexes.map((index) => question.choiceExplanations?.[index] ?? '')
-      : question.choiceExplanations,
-  };
+    choiceExplanations: choiceExplanations
+      ? reorderedIndexes.map((index) => choiceExplanations[index] ?? '')
+      : choiceExplanations,
+  } as SeedQuestion;
 };
 
 const normalizeQuestionChoices = (questions: SeedQuestion[]) =>

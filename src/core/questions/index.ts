@@ -5,3 +5,6 @@ export * from "./question-normalization";
 export * from "./question-persistence";
 export * from "./question-stats";
 export * from "./question.types";
+export * from "./health-author-question.types";
+export * from "./health-author-question-validation";
+export * from "./health-author-question-compiler";

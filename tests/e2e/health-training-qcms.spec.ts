@@ -219,7 +219,7 @@ test.describe.serial("Santé - QCM publics", () => {
       await page.getByTestId("quiz-open-summary").click();
 
       await expect(page.getByTestId("quiz-summary")).toBeVisible();
-      await expect(page.getByText("Bilan du QCM")).toBeVisible();
+      await expect(page.getByText("Bilan du quiz")).toBeVisible();
       await expect(page.getByTestId("quiz-open-review")).toBeVisible();
       await expect(page.getByTestId("quiz-restart")).toBeVisible();
 

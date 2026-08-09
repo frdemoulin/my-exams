@@ -487,7 +487,7 @@ const getSummaryFeedback = (
   if (ratio === 1) {
     return {
       title: 'Maîtrise très solide.',
-      message: 'Toutes les réponses sont justes. Les notions de ce QCM sont bien installées.',
+      message: 'Toutes les réponses sont justes. Les notions de ce quiz sont bien installées.',
       toneClassName:
         'border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
     };
@@ -522,7 +522,7 @@ const getSummaryFeedback = (
 
   return {
     title: 'Repars pas à pas.',
-    message: 'Relis calmement les explications, puis refais le QCM question par question pour reconstruire la méthode.',
+    message: 'Relis calmement les explications, puis refais le quiz question par question pour reconstruire la méthode.',
     toneClassName:
       'border-rose-200 bg-rose-50 text-rose-950 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
   };
@@ -731,8 +731,10 @@ export function QuizSession({
 
   if (sessionQuestions.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
-        Aucun QCM publi&eacute; pour ce chapitre pour le moment.
+      <div className="rounded-2xl border border-dashed border-border bg-card p-6">
+        <p className="text-center text-sm text-muted-foreground">
+          Aucun quiz publié pour ce chapitre pour le moment.
+        </p>
       </div>
     );
   }
@@ -801,12 +803,16 @@ export function QuizSession({
     : false;
   const answeredCount = effectiveAnsweredByQuestion.filter(Boolean).length;
   const score = evaluationsByQuestion.reduce((total, evaluation, index) => {
-    return effectiveAnsweredByQuestion[index] && evaluation.status === 'correct'
-      ? total + evaluation.score
-      : total;
+    return effectiveAnsweredByQuestion[index] ? total + evaluation.score : total;
   }, 0);
+  const maxScore = evaluationsByQuestion.reduce((total, evaluation) => {
+    return total + evaluation.maxScore;
+  }, 0);
+  const correctQuestionsCount = sessionQuestions.filter(
+    (_, index) => effectiveAnsweredByQuestion[index] && evaluationsByQuestion[index]?.status === 'correct',
+  ).length;
   const isComplete = answeredCount === sessionQuestions.length;
-  const successRate = Math.round((score / sessionQuestions.length) * 100);
+  const successRate = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
   const clampedSuccessRate = Math.max(0, Math.min(successRate, 100));
   const selectedChoiceClassName =
     'border-brand bg-brand-soft/15 !text-foreground shadow-xs ring-2 ring-brand/20 dark:border-brand/70 dark:bg-brand/10 dark:!text-white dark:ring-brand/30';
@@ -853,7 +859,7 @@ export function QuizSession({
     correctItems: correctQuestions,
     incorrectItems: incorrectQuestions,
   });
-  const summaryFeedback = getSummaryFeedback(score, sessionQuestions.length);
+  const summaryFeedback = getSummaryFeedback(score, maxScore > 0 ? maxScore : sessionQuestions.length);
   const themePageCount = Math.max(
     1,
     Math.ceil(themePerformanceItems.length / THEME_TABLE_PAGE_SIZE)
@@ -868,16 +874,16 @@ export function QuizSession({
       ? {
           title: 'Seuil atteint.',
           message: pathContext?.nextQuizHref
-            ? `🏆 Tu as atteint ${targetScore}% sur ce QCM. Tu peux passer à la suite, après avoir relu les éventuels points encore fragiles.`
+            ? `🏆 Tu as atteint ${targetScore}% sur ce quiz. Tu peux passer à la suite, après avoir relu les éventuels points encore fragiles.`
             : !pathContext?.isAuthenticated && pathContext?.hasLockedSections
-              ? `🏆 Tu as atteint ${targetScore}% sur ce QCM. Connecte-toi pour poursuivre le chapitre et conserver ta progression.`
-            : `🏆 Tu as atteint ${targetScore}% sur ce QCM. Le chapitre est terminé pour cette étape.`,
+              ? `🏆 Tu as atteint ${targetScore}% sur ce quiz. Connecte-toi pour poursuivre le chapitre et conserver ta progression.`
+            : `🏆 Tu as atteint ${targetScore}% sur ce quiz. Le chapitre est terminé pour cette étape.`,
           toneClassName:
             'border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
         }
       : {
           title: 'Seuil non atteint.',
-          message: `Tu n’as pas encore atteint ${targetScore}% sur ce QCM. Reprends les corrections et retravaille les questions ratées avant une nouvelle tentative.`,
+          message: `Tu n’as pas encore atteint ${targetScore}% sur ce quiz. Reprends les corrections et retravaille les questions ratées avant une nouvelle tentative.`,
           toneClassName:
             'border-amber-200 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-100',
         }
@@ -1043,7 +1049,7 @@ export function QuizSession({
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-current/80">
                     <Target className="h-4 w-4" />
-                    <p className="text-xs font-semibold uppercase tracking-wide">Bilan du QCM</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide">Bilan du quiz</p>
                   </div>
                   <h2 className="text-xl font-semibold text-heading">
                     {effectiveSummaryFeedback.title}
@@ -1068,7 +1074,7 @@ export function QuizSession({
                     data-testid="quiz-restart"
                   >
                     <RotateCcw className="h-4 w-4" />
-                    Recommencer le QCM
+                    Recommencer le quiz
                   </Button>
                 </div>
               </div>
@@ -1079,7 +1085,10 @@ export function QuizSession({
 
             <div className="flex flex-wrap items-center gap-2">
               <Badge variant="secondary">
-                Score {score}/{sessionQuestions.length}
+                Score {score}/{maxScore}
+              </Badge>
+              <Badge variant="outline">
+                {correctQuestionsCount}/{sessionQuestions.length} questions correctes
               </Badge>
               <Badge variant="outline">{successRate}% de réussite</Badge>
               {isPathMode ? (
@@ -1091,7 +1100,7 @@ export function QuizSession({
 
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide opacity-70">
-                <span>Progression sur ce QCM</span>
+                <span>Progression sur ce quiz</span>
                 <span>{successRate}%</span>
               </div>
               <div className="relative h-2.5 rounded-full bg-background/70">
@@ -1447,7 +1456,7 @@ export function QuizSession({
         </div>
 
         <nav
-          aria-label="Navigation entre les questions du QCM"
+          aria-label="Navigation entre les questions du quiz"
           className="space-y-2"
         >
           <div className="flex overflow-hidden rounded-xl border border-border bg-background">
@@ -1852,8 +1861,8 @@ export function QuizSession({
           {answeredCount} {answeredCount > 1 ? 'questions traitées.' : 'question traitée.'}
           {isComplete
             ? isFinalCorrectionOnly
-              ? ' QCM terminé.'
-              : ` Score final : ${score}/${sessionQuestions.length}.`
+              ? ' Quiz terminé.'
+              : ` Score final : ${score}/${maxScore}.`
             : null}
         </p>
         <div className="flex flex-wrap gap-2">

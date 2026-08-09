@@ -4,7 +4,7 @@ Les examens blancs sont un parcours distinct des `TrainingQuiz`. Un QCM d'entra�
 
 ## UE14 Reims
 
-La maquette est déclarée dans `src/core/health-mock-exam/health-mock-exam.config.ts` : 150 minutes, 100 questions, puis trois sections fixes : Chimie (1 à 40), Biochimie (41 à 80) et Biologie cellulaire (81 à 100).
+La maquette est déclarée dans `src/core/health-mock-exam/health-mock-exam.config.ts` : 150 minutes, 100 questions, puis trois sections fixes : Chimie (1 à 28), Biochimie (29 à 62) et Biologie cellulaire (63 à 100).
 
 Les composants n'embarquent pas cette règle. Ils affichent les sections portées par l'examen ; une autre UE peut donc déclarer une autre maquette dans cette configuration métier.
 
@@ -27,7 +27,7 @@ npm run db:push
 npm run db:seed:health-mock-exams
 ```
 
-Le seed refusera la publication si la durée, les quotas 40/40/20, l'ordre 1 à 100, les groupes liés, les médias ou les corrections sont incohérents. Le fichier est actuellement volontairement vide : aucun examen partiel ou recyclé n'est publié.
+Le seed refusera la publication si la durée, les quotas 28/34/38, l'ordre 1 à 100, les groupes liés, les médias ou les corrections sont incohérents. Le fichier est actuellement volontairement vide : aucun examen partiel ou recyclé n'est publié.
 
 ## Tentatives et correction
 

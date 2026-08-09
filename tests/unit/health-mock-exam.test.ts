@@ -35,9 +35,9 @@ function makeValidExam(): HealthMockExamValidationInput {
       teachingElementSlug: "chimie",
       title: "Chimie",
       order: 1,
-      questionCount: 40,
+      questionCount: 28,
       firstQuestion: 1,
-      lastQuestion: 40,
+      lastQuestion: 28,
     },
     {
       id: "biochemistry",
@@ -45,9 +45,9 @@ function makeValidExam(): HealthMockExamValidationInput {
       teachingElementSlug: "biochimie",
       title: "Biochimie",
       order: 2,
-      questionCount: 40,
-      firstQuestion: 41,
-      lastQuestion: 80,
+      questionCount: 34,
+      firstQuestion: 29,
+      lastQuestion: 62,
     },
     {
       id: "cell-biology",
@@ -55,8 +55,8 @@ function makeValidExam(): HealthMockExamValidationInput {
       teachingElementSlug: "biologie-cellulaire",
       title: "Biologie cellulaire",
       order: 3,
-      questionCount: 20,
-      firstQuestion: 81,
+      questionCount: 38,
+      firstQuestion: 63,
       lastQuestion: 100,
     },
   ];
@@ -76,7 +76,7 @@ function makeValidExam(): HealthMockExamValidationInput {
   };
 }
 
-test("la maquette UE14 40/40/20 complète est publiable", () => {
+test("la maquette UE14 28/34/38 complète est publiable", () => {
   const result = validateHealthMockExamForPublication(makeValidExam());
   assert.equal(result.isValid, true, result.issues.join("\n"));
 });
