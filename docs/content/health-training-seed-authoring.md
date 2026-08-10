@@ -218,6 +218,7 @@ export const questionQrocText: HealthTrainingAuthorQuestion = {
 
 ### 3.6. QROC Numérique — Question Ouverte avec valeur numérique
 Définie avec `answer: { type: "number", value, tolerance?, unit?, acceptedUnits? }`.
+Pour une grandeur adimensionnelle comme le pH, ne pas spécifier d'unité (`unit`) afin de permettre la saisie directe de la valeur numérique par l'étudiant.
 
 ```typescript
 export const questionQrocNumber: HealthTrainingAuthorQuestion = {
@@ -229,7 +230,6 @@ export const questionQrocNumber: HealthTrainingAuthorQuestion = {
     type: "number",
     value: 7.4,
     tolerance: 0.05,
-    unit: "pH",
   },
   explanation: "Le pH du sang artériel est maintenu entre 7,35 et 7,45.",
 };
@@ -240,33 +240,29 @@ export const questionQrocNumber: HealthTrainingAuthorQuestion = {
 ### 3.7. QZONE V1 — Question à Zone à Pointer
 
 En QZONE V1 :
-- `image` fournit la source et la description.
+- `image` fournit la source et la description du support visuel.
 - `expectedZones` contient une ou plusieurs zones cibles en coordonnées normalisées $(x, y) \in [0, 1]$ et tolérance de rayon.
-- **IMPORTANT (Zones alternatives)** : Plusieurs `expectedZones` représentent **plusieurs cibles alternatives valides pour UN SEUL clic utilisateur** (ex: "Cliquez sur un lymphocyte" sur un frottis sanguin qui contient 3 lymphocytes). L'étudiant ne doit effectuer qu'un seul clic.
-- **Explication pédagogique** : L'explication doit décrire les caractéristiques biologiques de la structure ciblée (forme, membrane, coloration), sans mentionner les coordonnées numériques $x/y$.
+- **IMPORTANT — Zones alternatives :** Plusieurs `expectedZones` représentent **plusieurs cibles alternatives valides pour UN SEUL clic utilisateur** (ex: "Cliquez sur un lymphocyte" sur un frottis sanguin qui contient 3 lymphocytes). Un clic dans n'importe laquelle de ces zones valide la question (`correct`). L'étudiant ne doit effectuer qu'un seul clic.
+- **Explication pédagogique :** L'explication doit décrire les caractéristiques biologiques de la structure ciblée (forme, membrane, coloration), sans mentionner les coordonnées numériques $x/y$.
 
 ```typescript
-export const questionQzone: HealthTrainingAuthorQuestion = {
+export const questionQzoneAlternatives: HealthTrainingAuthorQuestion = {
   order: 7,
   difficulty: "HARD",
   format: "QZONE",
-  question: "Cliquez sur la mitochondrie dans le schéma de la cellule ci-dessous.",
+  question: "Cliquez sur un des trois lymphocytes présentés sur le frottis sanguin ci-dessous.",
   image: {
-    src: "/images/training/histologie/cellule-animale.png",
-    alt: "Schéma d'organisation d'une cellule animale",
+    src: "/images/training/histologie/frottis-sanguin.png",
+    alt: "Frottis sanguin périphérique",
     width: 800,
     height: 600,
   },
   expectedZones: [
-    {
-      id: "target-mitochondrie",
-      label: "Mitochondrie",
-      x: 0.45,
-      y: 0.60,
-      tolerance: 0.08,
-    },
+    { id: "lympho-1", label: "Lymphocyte A", x: 0.20, y: 0.35, tolerance: 0.06 },
+    { id: "lympho-2", label: "Lymphocyte B", x: 0.55, y: 0.40, tolerance: 0.06 },
+    { id: "lympho-3", label: "Lymphocyte C", x: 0.78, y: 0.75, tolerance: 0.06 },
   ],
-  explanation: "La mitochondrie se reconnaît notamment à sa double membrane et, sur une représentation schématique, à ses crêtes membranaires internes.",
+  explanation: "Les lymphocytes se caractérisent par un volumineux noyau arrondi hyperchromatique et un mince liseré cytoplasmique basophile.",
 };
 ```
 
@@ -301,13 +297,13 @@ export const questionDiagramme: HealthTrainingAuthorQuestion = {
 
 ### 3.9. Groupe de questions partageant un énoncé commun
 
-Dans le fichier de seed du chapitre (`.seed.ts`), les questions indépendantes sont regroupées en quiz et peuvent partager un énoncé ou contexte médical commun.
+Dans le fichier de seed du chapitre (`.seed.ts`), les questions indépendantes sont regroupées en quiz et peuvent partager un énoncé ou contexte médical commun. Le titre du quiz décrit uniquement son contenu (sans préfixe de niveau comme "Découverte" ou "Entraînement", cette information étant déjà portée par la propriété `stage`).
 
 ```typescript
 export const quizGroupExample = {
   order: 1,
-  slug: "biochimie-glycolyse-entrainement",
-  title: "Entraînement - La Glycolyse",
+  slug: "biochimie-glycolyse",
+  title: "La glycolyse",
   description: "Quiz d'application sur la voie d'Embden-Meyerhof",
   stage: "PRACTICE" as const,
   sectionOrder: 1,
@@ -325,6 +321,23 @@ export const quizGroupExample = {
 ---
 
 ## 4. Orientations éditoriales & Directives de composition
+
+### Règle des quatre propositions A à D
+Sauf exception documentée (telle que la QRPL qui utilise une liste longue de 10 à 25 choix), chaque QRU, QRM ou QRP produit pour les quiz Santé de My Exams comporte **exactement quatre propositions de réponse (A, B, C, D)**. Les formats QROC et QZONE ne comportent naturellement pas de choix.
+
+### Pas d'items attrape-tout
+Les QRU, QRM et QRP ne doivent pas utiliser d'items artificiels dépendant de la position des autres choix, tels que :
+- *« Toutes les réponses précédentes sont exactes »* ;
+- *« Aucune des réponses précédentes »* ;
+- *« A, B et C sont exactes »* ;
+- *« Toutes les propositions sont fausses »*.
+
+Chaque proposition doit pouvoir être évaluée de façon rigoureuse et autonome.
+
+### Titres épurés sans préfixe de niveau
+Les titres de quiz ne doivent pas inclure le nom du niveau (`Découverte`, `Entraînement`, `Maîtrise`, `Synthèse`). Cette information est portée de manière dédiée par la propriété `stage`.
+- ❌ `Entraînement - La glycolyse`
+- ✅ `La glycolyse`
 
 ### Nombre recommandé de questions par quiz
 

@@ -158,7 +158,7 @@ export function HotspotQuestionView({
                         height: `${tol * 200}%`,
                         transform: 'translate(-50%, -50%)',
                       }}
-                      title={zone.label || 'Zone attendue'}
+                      title={zone.label || (expectedZones.length > 1 ? 'Zone acceptée' : 'Zone attendue')}
                     />
 
                     {/* Expected Zone Center Pin */}
@@ -274,8 +274,12 @@ export function HotspotQuestionView({
             </div>
             {expectedZones.length > 0 && (
               <p className="opacity-90">
-                La zone attendue est matérialisée par le cercle vert sur le support visuel.
-                {expectedZones[0]?.label ? ` (${expectedZones[0].label})` : ''}
+                {expectedZones.length > 1
+                  ? 'Les zones acceptées sont matérialisées par les cercles verts sur le support visuel.'
+                  : 'La zone attendue est matérialisée par le cercle vert sur le support visuel.'}
+                {expectedZones.length === 1 && expectedZones[0]?.label
+                  ? ` (${expectedZones[0].label})`
+                  : ''}
               </p>
             )}
           </div>

@@ -31,7 +31,7 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     explanation: "La mitochondrie possède une membrane interne repliée en crêtes contenant la chaîne de transport des électrons et l'ATP synthétase.",
     points: 1,
     tags: ["cytologie", "bioénergétique"],
-    source: "Banque d'entraînement UE14",
+    source: "Démonstration technique My Exams",
   },
   {
     order: 2,
@@ -63,7 +63,7 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     explanation: "Les doubles liaisons des acides gras naturels sont majoritairement de configuration cis, abaissant le point de fusion.",
     points: 2,
     tags: ["biochimie", "lipides"],
-    source: "Annales Reims 2023",
+    source: "Démonstration technique My Exams",
   },
   {
     order: 3,
@@ -96,14 +96,14 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     explanation: "L'aspartate et le glutamate sont les deux seuls acides aminés dicarboxyliques chargés négativement à pH physiologique.",
     points: 2,
     tags: ["biochimie", "acides-amines"],
-    source: "Annales Reims 2024",
+    source: "Démonstration technique My Exams",
   },
   {
     order: 4,
     difficulty: "MEDIUM",
     format: "QRPL",
     requiredSelectionCount: 3,
-    question: "Parmi la liste suivante d'acides aminés, sélectionnez les trois acides aminés à chaîne latérale strictement aromatique.",
+    question: "Parmi la liste suivante d'acides aminés, sélectionnez les trois acides aminés à chaîne latérale strictly aromatique.",
     choices: [
       {
         content: "Phénylalanine",
@@ -193,7 +193,6 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
       type: "number",
       value: 7.4,
       tolerance: 0.05,
-      unit: "pH",
     },
     explanation: "Le pH du sang artériel est strictement régulé entre 7,35 et 7,45.",
     points: 1,
@@ -222,5 +221,43 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     explanation: "La mitochondrie se reconnaît notamment à sa double membrane et à ses crêtes membranaires internes.",
     points: 2,
     tags: ["histologie", "biologie-cellulaire"],
+  },
+  {
+    order: 8,
+    difficulty: "HARD",
+    format: "QZONE",
+    question: "Cliquez sur un des trois lymphocytes identifiables sur cette préparation microscopique de frottis sanguin.",
+    image: {
+      src: "/images/training/histologie/frottis-sanguin.png",
+      alt: "Frottis sanguin périphérique",
+      width: 800,
+      height: 600,
+    },
+    expectedZones: [
+      {
+        id: "lympho-1",
+        label: "Lymphocyte A",
+        x: 0.2,
+        y: 0.35,
+        tolerance: 0.06,
+      },
+      {
+        id: "lympho-2",
+        label: "Lymphocyte B",
+        x: 0.55,
+        y: 0.4,
+        tolerance: 0.06,
+      },
+      {
+        id: "lympho-3",
+        label: "Lymphocyte C",
+        x: 0.78,
+        y: 0.75,
+        tolerance: 0.06,
+      },
+    ],
+    explanation: "Sur un frottis sanguin, les lymphocytes sont de petits leucocytes au noyau rond et dense occupant la majeure partie de la cellule.",
+    points: 2,
+    tags: ["histologie", "hematologie"],
   },
 ];

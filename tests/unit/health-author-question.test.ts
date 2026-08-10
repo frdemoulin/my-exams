@@ -302,7 +302,7 @@ test("maintains legacy seed question compatibility", () => {
 });
 
 test("all questions in the authoring demo seed compile and validate cleanly", () => {
-  assert.equal(healthTrainingDemoAuthorQuestions.length, 7);
+  assert.equal(healthTrainingDemoAuthorQuestions.length, 8);
 
   for (const authorQuestion of healthTrainingDemoAuthorQuestions) {
     const validation = validateHealthTrainingAuthorQuestion(authorQuestion);

@@ -316,48 +316,25 @@ export function evaluateHotspotQuestion(
     };
   }
 
-  const matchedPointIndexes = new Set<number>();
+  const userPoint = selectedPoints[0];
   const matchedZones = expectedZones.flatMap((zone) => {
     const tolerance =
       zone.tolerance ?? question.defaultTolerance ?? DEFAULT_HOTSPOT_TOLERANCE;
-    const candidates = selectedPoints
-      .map((point, pointIndex) => ({
-        point,
-        pointIndex,
-        distance: getHotspotDistance(point, zone),
-      }))
-      .filter(
-        (candidate) =>
-          !matchedPointIndexes.has(candidate.pointIndex) &&
-          candidate.distance <= tolerance,
-      )
-      .sort((left, right) => left.distance - right.distance);
-    const match = candidates[0];
+    const distance = getHotspotDistance(userPoint, zone);
 
-    if (!match) {
-      return [];
+    if (distance <= tolerance) {
+      return [{
+        zoneId: zone.id,
+        label: zone.label ?? null,
+        pointIndex: 0,
+        distance,
+        tolerance,
+      }];
     }
 
-    matchedPointIndexes.add(match.pointIndex);
-    return [{
-      zoneId: zone.id,
-      label: zone.label ?? null,
-      pointIndex: match.pointIndex,
-      distance: match.distance,
-      tolerance,
-    }];
+    return [];
   });
-  const matchedZoneIds = matchedZones.map((zone) => zone.zoneId);
-  const missingZoneIds = expectedZones
-    .map((zone) => zone.id)
-    .filter((zoneId) => !matchedZoneIds.includes(zoneId));
-  const extraPointIndexes = selectedPoints
-    .map((_, pointIndex) => pointIndex)
-    .filter((pointIndex) => !matchedPointIndexes.has(pointIndex));
-  const isCorrect =
-    missingZoneIds.length === 0 &&
-    extraPointIndexes.length === 0 &&
-    selectedPoints.length === expectedZones.length;
+  const isCorrect = matchedZones.length > 0;
 
   return {
     questionId: question.id,
@@ -368,8 +345,7 @@ export function evaluateHotspotQuestion(
       selectedPoints,
       expectedZones,
       matchedZones,
-      missingZoneIds,
-      extraPointIndexes,
+      matchedZoneIds: matchedZones.map((zone) => zone.zoneId),
     },
   };
 }

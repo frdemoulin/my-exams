@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   compileHealthTrainingAuthorQuestion,
+  evaluateQuestion,
   normalizePersistedQuestion,
   validateHealthTrainingAuthorQuestion,
   type HealthTrainingAuthorQuestion,
@@ -117,6 +118,23 @@ const testQuizAuthorQuestions: HealthTrainingAuthorQuestion[] = [
     explanation: "Zone ciblée.",
     points: 2,
   },
+  {
+    order: 8,
+    difficulty: "HARD",
+    format: "QZONE",
+    question: "Cliquez sur un des trois lymphocytes présents sur le frottis.",
+    image: {
+      src: "/images/frottis.png",
+      alt: "Frottis sanguin",
+    },
+    expectedZones: [
+      { id: "lympho-1", label: "Lymphocyte A", x: 0.2, y: 0.2, tolerance: 0.05 },
+      { id: "lympho-2", label: "Lymphocyte B", x: 0.5, y: 0.5, tolerance: 0.05 },
+      { id: "lympho-3", label: "Lymphocyte C", x: 0.8, y: 0.8, tolerance: 0.05 },
+    ],
+    explanation: "Trois lymphocytes sont identifiables sur la préparation.",
+    points: 2,
+  },
 ];
 
 /**
@@ -148,8 +166,8 @@ function buildPrismaDbQuizQuestionRecord(
   };
 }
 
-test("traversée complète du pipeline de seeding et round-trip DB pour les 7 formats UNESS", () => {
-  assert.equal(testQuizAuthorQuestions.length, 7);
+test("traversée complète du pipeline de seeding et round-trip DB pour tous les formats UNESS (avec zones alternatives)", () => {
+  assert.equal(testQuizAuthorQuestions.length, 8);
 
   const dbRecords = testQuizAuthorQuestions.map((authorQuestion, index) => {
     const validation = validateHealthTrainingAuthorQuestion(authorQuestion, {
@@ -173,7 +191,7 @@ test("traversée complète du pipeline de seeding et round-trip DB pour les 7 fo
     return normalizePersistedQuestion(dbRecord);
   });
 
-  assert.equal(canonicalRuntimeQuestions.length, 7);
+  assert.equal(canonicalRuntimeQuestions.length, 8);
 
   // QRU
   assert.equal(canonicalRuntimeQuestions[0].format, "QRU");
@@ -223,12 +241,33 @@ test("traversée complète du pipeline de seeding et round-trip DB pour les 7 fo
     assert.equal(canonicalRuntimeQuestions[5].numericAnswer?.value, 7.4);
   }
 
-  // QZONE V1 (points: 2)
+  // QZONE V1 simple (points: 2)
   assert.equal(canonicalRuntimeQuestions[6].format, "QZONE");
   assert.equal(canonicalRuntimeQuestions[6].type, "hotspot");
   assert.equal(canonicalRuntimeQuestions[6].points, 2);
   if (canonicalRuntimeQuestions[6].type === "hotspot") {
     assert.equal(canonicalRuntimeQuestions[6].image?.src, "/images/cell.png");
     assert.equal(canonicalRuntimeQuestions[6].expectedZones.length, 1);
+  }
+
+  // QZONE V1 à zones alternatives (order: 8)
+  const qzoneMulti = canonicalRuntimeQuestions[7];
+  assert.equal(qzoneMulti.format, "QZONE");
+  assert.equal(qzoneMulti.type, "hotspot");
+  if (qzoneMulti.type === "hotspot") {
+    assert.equal(qzoneMulti.expectedZones.length, 3);
+
+    // Round-trip evaluation check for each alternative zone
+    const res1 = evaluateQuestion(qzoneMulti, { questionId: qzoneMulti.id, type: "hotspot", points: [{ x: 0.2, y: 0.2 }] });
+    assert.equal(res1.status, "correct");
+
+    const res2 = evaluateQuestion(qzoneMulti, { questionId: qzoneMulti.id, type: "hotspot", points: [{ x: 0.5, y: 0.5 }] });
+    assert.equal(res2.status, "correct");
+
+    const res3 = evaluateQuestion(qzoneMulti, { questionId: qzoneMulti.id, type: "hotspot", points: [{ x: 0.8, y: 0.8 }] });
+    assert.equal(res3.status, "correct");
+
+    const resMiss = evaluateQuestion(qzoneMulti, { questionId: qzoneMulti.id, type: "hotspot", points: [{ x: 0.1, y: 0.9 }] });
+    assert.equal(resMiss.status, "incorrect");
   }
 });

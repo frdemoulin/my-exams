@@ -667,9 +667,9 @@ test("normalizes persisted QZONE payloads into canonical hotspot questions", () 
   ]);
 });
 
-test("evaluates QZONE answers with normalized coordinate tolerance", () => {
-  const question: HotspotQuestion = {
-    id: "qzone",
+test("evaluates QZONE answers with normalized coordinate tolerance and alternative target zones", () => {
+  const singleZoneQuestion: HotspotQuestion = {
+    id: "qzone-single",
     type: "hotspot",
     format: "QZONE",
     statement: "Pointez la zone attendue.",
@@ -687,40 +687,97 @@ test("evaluates QZONE answers with normalized coordinate tolerance", () => {
     },
   };
 
+  // Single zone hit
   assert.equal(
-    evaluateHotspotQuestion(question, {
-      questionId: "qzone",
+    evaluateHotspotQuestion(singleZoneQuestion, {
+      questionId: "qzone-single",
       type: "hotspot",
       points: [{ x: 0.52, y: 0.51 }],
     }).status,
     "correct",
   );
+  // Single zone miss
   assert.equal(
-    evaluateHotspotQuestion(question, {
-      questionId: "qzone",
+    evaluateHotspotQuestion(singleZoneQuestion, {
+      questionId: "qzone-single",
       type: "hotspot",
       points: [{ x: 0.7, y: 0.5 }],
     }).status,
     "incorrect",
   );
+  // Single zone unanswered
   assert.equal(
-    evaluateHotspotQuestion(question, {
-      questionId: "qzone",
+    evaluateHotspotQuestion(singleZoneQuestion, {
+      questionId: "qzone-single",
       type: "hotspot",
       points: [],
     }).status,
     "unanswered",
   );
+
+  const multiZoneQuestion: HotspotQuestion = {
+    id: "qzone-multi",
+    type: "hotspot",
+    format: "QZONE",
+    statement: "Cliquez sur un lymphocyte.",
+    expectedZones: [
+      { id: "z1", label: "Lymphocyte 1", x: 0.2, y: 0.2, tolerance: 0.05 },
+      { id: "z2", label: "Lymphocyte 2", x: 0.5, y: 0.5, tolerance: 0.05 },
+      { id: "z3", label: "Lymphocyte 3", x: 0.8, y: 0.8, tolerance: 0.05 },
+    ],
+    scoring: {
+      strategy: "all-or-nothing",
+    },
+  };
+
+  // Alternatives / hit first zone
   assert.equal(
-    evaluateHotspotQuestion(question, {
-      questionId: "qzone",
+    evaluateHotspotQuestion(multiZoneQuestion, {
+      questionId: "qzone-multi",
       type: "hotspot",
-      points: [
-        { x: 0.52, y: 0.51 },
-        { x: 0.1, y: 0.1 },
-      ],
+      points: [{ x: 0.21, y: 0.19 }],
+    }).status,
+    "correct",
+  );
+
+  // Alternatives / hit middle zone
+  assert.equal(
+    evaluateHotspotQuestion(multiZoneQuestion, {
+      questionId: "qzone-multi",
+      type: "hotspot",
+      points: [{ x: 0.49, y: 0.51 }],
+    }).status,
+    "correct",
+  );
+
+  // Alternatives / hit last zone
+  assert.equal(
+    evaluateHotspotQuestion(multiZoneQuestion, {
+      questionId: "qzone-multi",
+      type: "hotspot",
+      points: [{ x: 0.82, y: 0.79 }],
+    }).status,
+    "correct",
+  );
+
+  // Alternatives / miss all zones
+  assert.equal(
+    evaluateHotspotQuestion(multiZoneQuestion, {
+      questionId: "qzone-multi",
+      type: "hotspot",
+      points: [{ x: 0.1, y: 0.9 }],
     }).status,
     "incorrect",
+  );
+
+  // Alternatives / no answer
+  assert.equal(
+    evaluateHotspotQuestion(multiZoneQuestion, {
+      questionId: "qzone-multi",
+      type: "hotspot",
+      points: [],
+    }).status,
+    "unanswered",
   );
 });
 
