@@ -1,3 +1,18 @@
+## [1.6.36](https://github.com/frdemoulin/my-exams/compare/v1.6.35...v1.6.36) (2026-08-10)
+
+### Bug Fixes
+
+* debug de QRP / QRPL ([6018400](https://github.com/frdemoulin/my-exams/commit/6018400ed923e822997a288c092daa54e81ff03e))
+* debug de QRP / QRPL ([b39e6ef](https://github.com/frdemoulin/my-exams/commit/b39e6efdb04237755f35c3e18cc41bdc96f9b28b))
+* dernier debug du nouveau moteur de question ([9fdc1c2](https://github.com/frdemoulin/my-exams/commit/9fdc1c26e1611c78aa06305f906968cb08856875))
+* dernier debug du nouveau moteur de question (bis) ([f8309ba](https://github.com/frdemoulin/my-exams/commit/f8309ba3ae0b2dc6a5d3ca33e75bb7002e3233d4))
+* dernier debug du nouveau moteur de question (ter) ([1419653](https://github.com/frdemoulin/my-exams/commit/14196538112fac8bb5986976ecf863f652473124))
+* mise en place des QZONE ([5be2d08](https://github.com/frdemoulin/my-exams/commit/5be2d084873ac52bd53383f66dd054ef7093d8de))
+* mise en place des QZONE ([33f3bed](https://github.com/frdemoulin/my-exams/commit/33f3bed53ac92251e227e5a988fc7e98588db2a4))
+* mise en place du nouveau contrat éditorial ([8358eb9](https://github.com/frdemoulin/my-exams/commit/8358eb984af757e56b68cfe0b43ee7e0e1ce7cbc))
+* mise en place du nouveau système de question (wip) ([32a995e](https://github.com/frdemoulin/my-exams/commit/32a995e2a2766aad6d29be4d364a8767788add7a))
+* passe de stabilisation ([ba8a717](https://github.com/frdemoulin/my-exams/commit/ba8a7177b0777a51c5b6b29ca232e1def09bf4c5))
+
 ## [1.6.35](https://github.com/frdemoulin/my-exams/compare/v1.6.34...v1.6.35) (2026-08-08)
 
 ### Bug Fixes
