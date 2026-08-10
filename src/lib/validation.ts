@@ -4,6 +4,10 @@ import {
     contentVerticalValues,
 } from "@/core/chapter/chapter.constants";
 import { quizAnswerFormatValues } from "@/core/quiz/quiz-answer-format";
+import {
+    editableChoiceQuestionFormatCodes,
+    editableQuestionFormatCodes,
+} from "@/core/questions/question-format";
 import { healthCourseUnitCoverageStatusValues } from "@/core/health/health.schemas";
 
 // schémas de validation des formulaires avec zod
@@ -266,8 +270,25 @@ export const createChapterAssignmentSchema = z.object({
     }
 });
 
+const editableChoiceQuestionFormatSet = new Set<string>(editableChoiceQuestionFormatCodes);
+const shortAnswerTypeValues = ["text", "number"] as const;
+const isChoiceQuestionFormat = (value: string) => editableChoiceQuestionFormatSet.has(value);
+const parseFormNumber = (value: string) => {
+    const normalized = value.trim().replace(",", ".");
+    if (!normalized) return null;
+
+    const parsedValue = Number(normalized);
+    return Number.isFinite(parsedValue) ? parsedValue : null;
+};
+const splitFormList = (value: string) =>
+    value
+        .split(/\r?\n/)
+        .map((entry) => entry.trim())
+        .filter(Boolean);
+
 export const createQuizQuestionSchema = z.object({
     difficulty: z.enum(["EASY", "MEDIUM", "HARD"]),
+    questionFormat: z.enum(editableQuestionFormatCodes),
     answerFormat: z.enum(quizAnswerFormatValues),
     question: z.string({
         required_error: "Champ requis",
@@ -282,10 +303,9 @@ export const createQuizQuestionSchema = z.object({
             invalid_type_error: "Doit être une chaîne de caractère",
         })
             .trim()
-            .min(1, { message: "Champ requis" })
             .max(500, { message: "Ne peut pas dépasser 500 caractères" })
     )
-        .length(4, { message: "Quatre choix sont requis" }),
+        .default([]),
     correctChoiceIndexes: z.array(
         z.number({
             required_error: "Champ requis",
@@ -295,8 +315,7 @@ export const createQuizQuestionSchema = z.object({
             .min(0, { message: "Réponse correcte invalide" })
             .max(3, { message: "Réponse correcte invalide" })
     )
-        .min(1, { message: "Sélectionne au moins une bonne réponse" })
-        .max(4, { message: "Réponse correcte invalide" }),
+        .default([]),
     explanation: z.string({
         required_error: "Champ requis",
         invalid_type_error: "Doit être une chaîne de caractère",
@@ -310,8 +329,71 @@ export const createQuizQuestionSchema = z.object({
             .trim()
             .max(1200, { message: "Ne peut pas dépasser 1200 caractères" })
     )
-        .length(4, { message: "Quatre corrections d'items sont requises" })
-        .default(["", "", "", ""]),
+        .default([]),
+    shortAnswerType: z.enum(shortAnswerTypeValues).default("text"),
+    acceptedAnswers: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(4000, { message: "Ne peut pas dépasser 4000 caractères" })
+        .default(""),
+    numericAnswerValue: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(100, { message: "Ne peut pas dépasser 100 caractères" })
+        .default(""),
+    numericAnswerTolerance: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(100, { message: "Ne peut pas dépasser 100 caractères" })
+        .default(""),
+    numericAnswerUnit: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(80, { message: "Ne peut pas dépasser 80 caractères" })
+        .default(""),
+    numericAnswerAcceptedUnits: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(1000, { message: "Ne peut pas dépasser 1000 caractères" })
+        .default(""),
+    hotspotImageSrc: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(1000, { message: "Ne peut pas dépasser 1000 caractères" })
+        .default(""),
+    hotspotImageAlt: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" })
+        .default(""),
+    hotspotTargetX: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .default(""),
+    hotspotTargetY: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .default(""),
+    hotspotTolerance: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .default("0.05"),
+    hotspotTargetLabel: z.string({
+        invalid_type_error: "Doit être une chaîne de caractère",
+    })
+        .trim()
+        .max(255, { message: "Ne peut pas dépasser 255 caractères" })
+        .default(""),
     order: z.number({
         required_error: "Champ requis",
         invalid_type_error: "Doit être un nombre",
@@ -321,7 +403,146 @@ export const createQuizQuestionSchema = z.object({
         .max(1000, { message: "Ne peut pas dépasser 1000" }),
     isPublished: z.boolean().default(false),
 }).superRefine((values, ctx) => {
+    if (values.questionFormat === "QZONE") {
+        if (!values.hotspotImageSrc.trim()) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotImageSrc"],
+                message: "Renseigne l'URL de l'image support",
+            });
+        }
+
+        const x = parseFormNumber(values.hotspotTargetX);
+        if (x === null || x < 0 || x > 1) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotTargetX"],
+                message: "Position X invalide (doit être un nombre entre 0 et 1)",
+            });
+        }
+
+        const y = parseFormNumber(values.hotspotTargetY);
+        if (y === null || y < 0 || y > 1) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotTargetY"],
+                message: "Position Y invalide (doit être un nombre entre 0 et 1)",
+            });
+        }
+
+        const tol = parseFormNumber(values.hotspotTolerance);
+        if (tol === null || tol <= 0) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["hotspotTolerance"],
+                message: "La tolérance doit être un nombre positif",
+            });
+        }
+
+        return;
+    }
+
+    if (!isChoiceQuestionFormat(values.questionFormat)) {
+        if (values.answerFormat !== "SINGLE") {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["questionFormat"],
+                message: "Une QROC doit utiliser le moteur de réponse courte",
+            });
+        }
+
+        if (!values.explanation.trim()) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["explanation"],
+                message: "Ajoute une correction globale",
+            });
+        }
+
+        if (values.shortAnswerType === "text") {
+            if (splitFormList(values.acceptedAnswers).length === 0) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    path: ["acceptedAnswers"],
+                    message: "Ajoute au moins une réponse acceptée",
+                });
+            }
+        } else {
+            if (parseFormNumber(values.numericAnswerValue) === null) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    path: ["numericAnswerValue"],
+                    message: "Ajoute une valeur numérique attendue valide",
+                });
+            }
+
+            if (
+                values.numericAnswerTolerance.trim() &&
+                parseFormNumber(values.numericAnswerTolerance) === null
+            ) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    path: ["numericAnswerTolerance"],
+                    message: "La tolérance doit être un nombre",
+                });
+            }
+
+            const parsedTolerance = parseFormNumber(values.numericAnswerTolerance);
+            if (parsedTolerance !== null && parsedTolerance < 0) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    path: ["numericAnswerTolerance"],
+                    message: "La tolérance doit être positive ou nulle",
+                });
+            }
+        }
+
+        return;
+    }
+
     const uniqueCorrectChoiceIndexes = new Set(values.correctChoiceIndexes);
+
+    if (values.choices.length !== 4) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["choices"],
+            message: "Quatre choix sont requis",
+        });
+    }
+
+    values.choices.forEach((choice, index) => {
+        if (!choice.trim()) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ["choices", index],
+                message: "Champ requis",
+            });
+        }
+    });
+
+    if (values.correctChoiceIndexes.length === 0) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["correctChoiceIndexes"],
+            message: "Sélectionne au moins une bonne réponse",
+        });
+    }
+
+    if (values.correctChoiceIndexes.length > 4) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["correctChoiceIndexes"],
+            message: "Réponse correcte invalide",
+        });
+    }
+
+    if (values.choiceExplanations.length !== 4) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["choiceExplanations"],
+            message: "Quatre corrections d'items sont requises",
+        });
+    }
 
     if (uniqueCorrectChoiceIndexes.size !== values.correctChoiceIndexes.length) {
         ctx.addIssue({
@@ -331,11 +552,35 @@ export const createQuizQuestionSchema = z.object({
         });
     }
 
+    if (values.questionFormat === "QRU" && values.answerFormat !== "SINGLE") {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["questionFormat"],
+            message: "Une QRU doit utiliser une réponse unique",
+        });
+    }
+
+    if (values.questionFormat !== "QRU" && values.answerFormat !== "MULTIPLE") {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["questionFormat"],
+            message: "Ce format doit permettre plusieurs réponses",
+        });
+    }
+
     if (values.answerFormat === "SINGLE" && values.correctChoiceIndexes.length !== 1) {
         ctx.addIssue({
             code: z.ZodIssueCode.custom,
             path: ["correctChoiceIndexes"],
             message: "Une question à réponse unique doit avoir exactement une bonne réponse",
+        });
+    }
+
+    if (values.questionFormat === "QRP" && values.correctChoiceIndexes.length < 2) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["correctChoiceIndexes"],
+            message: "Une QRP doit préciser au moins deux bonnes réponses ; utilise QRU pour une seule réponse",
         });
     }
 

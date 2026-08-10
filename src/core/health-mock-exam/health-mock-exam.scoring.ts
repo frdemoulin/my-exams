@@ -1,6 +1,15 @@
+import {
+  evaluateMcqIndexAnswer,
+  evaluateQuestion,
+  type Question,
+  type StudentAnswer,
+} from "@/core/questions";
+
 export type HealthMockExamScoreQuestion = {
-  selectedChoiceIndexes: readonly number[];
-  correctChoiceIndexes: readonly number[];
+  question?: Question;
+  answer?: StudentAnswer | null;
+  selectedChoiceIndexes?: readonly number[];
+  correctChoiceIndexes?: readonly number[];
 };
 
 export type HealthMockExamScoreSection = {
@@ -42,34 +51,41 @@ export function scoreHealthMockExamAttempt(
   let answeredQuestionCount = 0;
   let correctQuestionCount = 0;
   let incorrectQuestionCount = 0;
+  let score = 0;
   let maxScore = 0;
+  let questionCount = 0;
 
   const scoredSections = sections.map((section) => {
     let sectionScore = 0;
+    let sectionMaxScore = 0;
 
-    for (const question of section.questions) {
-      maxScore += 1;
+    for (const [questionIndex, question] of section.questions.entries()) {
+      questionCount += 1;
+      const evaluation = question.question
+        ? evaluateQuestion(question.question, question.answer)
+        : evaluateMcqIndexAnswer({
+            questionId: `${section.examSectionId}-${questionIndex + 1}`,
+            selectedChoiceIndexes: question.selectedChoiceIndexes ?? [],
+            correctChoiceIndexes: question.correctChoiceIndexes ?? [],
+          });
 
-      if (question.selectedChoiceIndexes.length === 0) {
+      maxScore += evaluation.maxScore;
+      sectionMaxScore += evaluation.maxScore;
+
+      if (evaluation.status === "unanswered") {
         continue;
       }
 
       answeredQuestionCount += 1;
+      score += evaluation.score;
+      sectionScore += evaluation.score;
 
-      if (
-        areChoiceIndexSetsEqual(
-          question.selectedChoiceIndexes,
-          question.correctChoiceIndexes,
-        )
-      ) {
-        sectionScore += 1;
+      if (evaluation.status === "correct") {
         correctQuestionCount += 1;
       } else {
         incorrectQuestionCount += 1;
       }
     }
-
-    const sectionMaxScore = section.questions.length;
 
     return {
       examSectionId: section.examSectionId,
@@ -81,13 +97,13 @@ export function scoreHealthMockExamAttempt(
   });
 
   return {
-    score: correctQuestionCount,
+    score,
     maxScore,
-    percentage: maxScore === 0 ? 0 : Math.round((correctQuestionCount / maxScore) * 100),
+    percentage: maxScore === 0 ? 0 : Math.round((score / maxScore) * 100),
     answeredQuestionCount,
     correctQuestionCount,
     incorrectQuestionCount,
-    unansweredQuestionCount: maxScore - answeredQuestionCount,
+    unansweredQuestionCount: questionCount - answeredQuestionCount,
     sections: scoredSections,
   };
 }

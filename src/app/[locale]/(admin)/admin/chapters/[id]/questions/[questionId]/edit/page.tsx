@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { QuizQuestionForm } from "@/app/[locale]/(admin)/admin/chapters/_components/quiz-question-form";
 import { ChapterBreadcrumbOverride } from "@/app/[locale]/(admin)/admin/chapters/_components/chapter-breadcrumb-override";
 import { fetchChapterById, fetchQuizQuestionById } from "@/core/chapter";
+import { isEditableQuestionFormatCode } from "@/core/questions/question-format";
 import { AdminPageHeading } from "@/components/shared/admin-page-heading";
 
 interface EditChapterQuestionPageProps {
@@ -14,7 +15,7 @@ interface EditChapterQuestionPageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Éditer une question QCM",
+  title: "Éditer une question d'entraînement",
 };
 
 export default async function EditChapterQuestionPage({ params }: EditChapterQuestionPageProps) {
@@ -24,7 +25,12 @@ export default async function EditChapterQuestionPage({ params }: EditChapterQue
     fetchQuizQuestionById(questionId),
   ]);
 
-  if (!chapter || !question || question.chapterId !== chapter.id) {
+  if (
+    !chapter ||
+    !question ||
+    question.chapterId !== chapter.id ||
+    !isEditableQuestionFormatCode(question.questionFormat)
+  ) {
     notFound();
   }
 
@@ -39,7 +45,7 @@ export default async function EditChapterQuestionPage({ params }: EditChapterQue
         ]}
       />
       <AdminPageHeading
-        title="Éditer une question QCM"
+        title="Éditer une question d'entraînement"
         description={`Tu modifies une question du chapitre ${chapter.title}.`}
       />
       <QuizQuestionForm
@@ -49,6 +55,7 @@ export default async function EditChapterQuestionPage({ params }: EditChapterQue
           id: question.id,
           chapterId: question.chapterId,
           difficulty: question.difficulty,
+          questionFormat: question.questionFormat,
           answerFormat: question.answerFormat,
           question: question.question,
           choices: question.choices,
@@ -56,6 +63,12 @@ export default async function EditChapterQuestionPage({ params }: EditChapterQue
           correctChoiceIndex: question.correctChoiceIndex,
           explanation: question.explanation,
           choiceExplanations: question.choiceExplanations,
+          shortAnswerType: question.shortAnswerType,
+          acceptedAnswers: question.acceptedAnswers,
+          numericAnswerValue: question.numericAnswerValue,
+          numericAnswerTolerance: question.numericAnswerTolerance,
+          numericAnswerUnit: question.numericAnswerUnit,
+          numericAnswerAcceptedUnits: question.numericAnswerAcceptedUnits,
           order: question.order,
           isPublished: question.isPublished,
         }}

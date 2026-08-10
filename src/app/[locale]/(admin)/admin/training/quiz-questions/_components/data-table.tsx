@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import {
+  ColumnFiltersState,
   ColumnDef,
   SortingState,
   flexRender,
@@ -25,7 +26,17 @@ import { DataTablePagination } from "@/components/shared/data-table-pagination";
 import { DataTableExportButton } from "@/components/shared/data-table-export-button";
 import { TableToolbar } from "@/components/shared/table-toolbar";
 import { accentInsensitiveIncludesString } from "@/components/shared/data-table-filters";
+import { isEditableQuestionFormatCode } from "@/core/questions/question-format";
+import { normalizePersistedQuestionFormat } from "@/core/questions/question-persistence";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 interface DataTableProps<TData extends { id: string }, TValue> {
@@ -35,6 +46,7 @@ interface DataTableProps<TData extends { id: string }, TValue> {
   description?: string;
   addHref: string;
   filterLabel?: string;
+  formatFilterOptions?: string[];
 }
 
 export function DataTable<TData extends { id: string }, TValue>({
@@ -44,10 +56,12 @@ export function DataTable<TData extends { id: string }, TValue>({
   description,
   addHref,
   filterLabel,
+  formatFilterOptions = [],
 }: DataTableProps<TData, TValue>) {
   const router = useRouter();
   const defaultSorting: SortingState = [{ id: "question", desc: false }];
   const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = React.useState("");
 
   const handleSortingChange = (
@@ -66,6 +80,7 @@ export function DataTable<TData extends { id: string }, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: handleSortingChange,
+    onColumnFiltersChange: setColumnFilters,
     getSortedRowModel: getSortedRowModel(),
     globalFilterFn: accentInsensitiveIncludesString,
     initialState: {
@@ -73,14 +88,27 @@ export function DataTable<TData extends { id: string }, TValue>({
     },
     state: {
       sorting,
+      columnFilters,
       globalFilter,
     },
   });
+  const questionFormatColumn = table.getColumn("questionFormat");
+  const selectedQuestionFormat =
+    (questionFormatColumn?.getFilterValue() as string | undefined) ?? "all";
+  const resolveRowHref = (row: TData) =>
+    isEditableQuestionFormatCode(normalizePersistedQuestionFormat(row))
+      ? `/admin/training/quiz-questions/${row.id}/edit`
+      : null;
 
   const handleRowClick = (
     event: React.MouseEvent<HTMLTableRowElement>,
-    rowId: string
+    row: TData
   ) => {
+    const rowHref = resolveRowHref(row);
+    if (!rowHref) {
+      return;
+    }
+
     const target = event.target as HTMLElement;
     if (
       target.closest("[data-row-action]") ||
@@ -89,7 +117,7 @@ export function DataTable<TData extends { id: string }, TValue>({
     ) {
       return;
     }
-    router.push(`/admin/training/quiz-questions/${rowId}/edit`);
+    router.push(rowHref);
   };
 
   const filteredCount = table.getFilteredRowModel().rows.length;
@@ -122,9 +150,32 @@ export function DataTable<TData extends { id: string }, TValue>({
         addHref={addHref}
         addLabel="Ajouter une question"
       >
+        {formatFilterOptions.length > 0 ? (
+          <Select
+            value={selectedQuestionFormat}
+            onValueChange={(value) => {
+              questionFormatColumn?.setFilterValue(value === "all" ? undefined : value);
+            }}
+          >
+            <SelectTrigger
+              aria-label="Filtrer par format UNESS"
+              className="w-full md:w-[260px]"
+            >
+              <SelectValue placeholder="Tous les formats UNESS" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Tous les formats UNESS</SelectItem>
+              {formatFilterOptions.map((formatLabel) => (
+                <SelectItem key={formatLabel} value={formatLabel}>
+                  {formatLabel}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        ) : null}
         {filterLabel ? (
           <Button asChild size="sm" variant="outline">
-            <Link href="/admin/training/quiz-questions">Filtre: {filterLabel}</Link>
+            <Link href="/admin/training/quiz-questions">Série: {filterLabel}</Link>
           </Button>
         ) : null}
       </TableToolbar>
@@ -144,22 +195,29 @@ export function DataTable<TData extends { id: string }, TValue>({
         </TableHeader>
         <TableBody>
           {table.getRowModel().rows.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                onClick={(event) => handleRowClick(event, row.original.id)}
-                className="cursor-pointer transition-colors hover:bg-neutral-primary-soft"
-              >
-                {row.getVisibleCells().map((cell) => {
-                  const isActionCell = cell.column.id === "actions";
-                  return (
-                    <TableCell key={cell.id} data-row-action={isActionCell || undefined}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                  );
-                })}
-              </TableRow>
-            ))
+            table.getRowModel().rows.map((row) => {
+              const rowHref = resolveRowHref(row.original);
+
+              return (
+                <TableRow
+                  key={row.id}
+                  onClick={(event) => handleRowClick(event, row.original)}
+                  className={cn(
+                    "transition-colors hover:bg-neutral-primary-soft",
+                    rowHref ? "cursor-pointer" : "cursor-default"
+                  )}
+                >
+                  {row.getVisibleCells().map((cell) => {
+                    const isActionCell = cell.column.id === "actions";
+                    return (
+                      <TableCell key={cell.id} data-row-action={isActionCell || undefined}>
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              );
+            })
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">

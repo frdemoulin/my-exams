@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { QuizQuestionForm } from "@/app/[locale]/(admin)/admin/chapters/_components/quiz-question-form";
 import { fetchQuizQuestionById, fetchQuizQuestionChapterOptions } from "@/core/chapter";
+import { isEditableQuestionFormatCode } from "@/core/questions/question-format";
 
 interface EditTrainingQuizQuestionPageProps {
   params: Promise<{
@@ -11,7 +12,7 @@ interface EditTrainingQuizQuestionPageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Éditer une question QCM",
+  title: "Éditer une question d'entraînement",
 };
 
 export default async function EditTrainingQuizQuestionPage({ params }: EditTrainingQuizQuestionPageProps) {
@@ -21,14 +22,14 @@ export default async function EditTrainingQuizQuestionPage({ params }: EditTrain
     fetchQuizQuestionChapterOptions(),
   ]);
 
-  if (!question) {
+  if (!question || !isEditableQuestionFormatCode(question.questionFormat)) {
     notFound();
   }
 
   return (
     <div className="w-full p-6 space-y-6">
       <div>
-        <h1 className="text-lg font-semibold md:text-2xl">Éditer une question QCM</h1>
+        <h1 className="text-lg font-semibold md:text-2xl">Éditer une question d&apos;entraînement</h1>
       </div>
       <QuizQuestionForm
         crudMode="edit"
@@ -40,6 +41,7 @@ export default async function EditTrainingQuizQuestionPage({ params }: EditTrain
           id: question.id,
           chapterId: question.chapterId,
           difficulty: question.difficulty,
+          questionFormat: question.questionFormat,
           answerFormat: question.answerFormat,
           question: question.question,
           choices: question.choices,
@@ -47,6 +49,12 @@ export default async function EditTrainingQuizQuestionPage({ params }: EditTrain
           correctChoiceIndex: question.correctChoiceIndex,
           explanation: question.explanation,
           choiceExplanations: question.choiceExplanations,
+          shortAnswerType: question.shortAnswerType,
+          acceptedAnswers: question.acceptedAnswers,
+          numericAnswerValue: question.numericAnswerValue,
+          numericAnswerTolerance: question.numericAnswerTolerance,
+          numericAnswerUnit: question.numericAnswerUnit,
+          numericAnswerAcceptedUnits: question.numericAnswerAcceptedUnits,
           order: question.order,
           isPublished: question.isPublished,
         }}

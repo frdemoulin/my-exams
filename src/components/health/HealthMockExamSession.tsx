@@ -25,20 +25,41 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { QuestionFormatBadge } from "@/components/training/question-format-badge";
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
 import { MathContent } from "@/components/training/math-content";
-import type { HealthMockExamPassage } from "@/core/health-mock-exam/health-mock-exam.types";
+import type {
+  HealthMockExamPassage,
+  HealthMockExamPassageQuestion,
+} from "@/core/health-mock-exam/health-mock-exam.types";
+import {
+  getChoiceIdFromIndex,
+  getQuestionFormatStudentInstruction,
+  getQuestionSelectionLimit,
+  type HotspotPoint,
+  type HotspotQuestion,
+  type StudentAnswer,
+} from "@/core/questions";
+import { HotspotQuestionView } from "@/components/training/hotspot-question-view";
+import { LongChoiceListView } from "@/components/training/long-choice-list-view";
 import { cn } from "@/lib/utils";
 
 type HealthMockExamSessionProps = {
   courseUnitId: string;
   examSlug: string;
   passage: HealthMockExamPassage;
+  mode?: "exam" | "tutorial";
+  onLocalSubmit?: (
+    answersByAttemptQuestionId: Record<string, HealthMockExamSessionAnswer>,
+    elapsedSeconds: number,
+  ) => void | Promise<void>;
 };
 
-type LocalAnswer = {
+export type HealthMockExamSessionAnswer = {
   selectedChoiceIndexes: number[];
+  responsePayload: StudentAnswer | null;
   markedForReview: boolean;
 };
 
@@ -56,12 +77,58 @@ function getRemainingSeconds(deadlineAt: string) {
   return Math.max(0, Math.ceil((new Date(deadlineAt).getTime() - Date.now()) / 1000));
 }
 
+function getShortAnswerValue(answer: HealthMockExamSessionAnswer | undefined) {
+  return answer?.responsePayload?.type === "short-answer"
+    ? answer.responsePayload.rawValue
+    : "";
+}
+
+function getHotspotPoint(answer: HealthMockExamSessionAnswer | undefined): HotspotPoint | null {
+  if (answer?.responsePayload?.type === "hotspot" && answer.responsePayload.points.length > 0) {
+    return answer.responsePayload.points[0] ?? null;
+  }
+  return null;
+}
+
+function isAnswerRecorded(
+  question: HealthMockExamPassageQuestion,
+  answer: HealthMockExamSessionAnswer | undefined,
+) {
+  if (!answer) return false;
+
+  if (question.questionType === "short-answer") {
+    return getShortAnswerValue(answer).trim().length > 0;
+  }
+
+  if (question.questionType === "hotspot" || question.canonicalQuestion.type === "hotspot") {
+    return getHotspotPoint(answer) !== null;
+  }
+
+  return answer.selectedChoiceIndexes.length > 0;
+}
+
+function createMcqResponsePayload(
+  questionId: string,
+  selectedChoiceIndexes: readonly number[],
+): StudentAnswer {
+  return {
+    questionId,
+    type: "mcq",
+    selectedChoiceIds: selectedChoiceIndexes.map((choiceIndex) =>
+      getChoiceIdFromIndex(choiceIndex),
+    ),
+  };
+}
+
 export function HealthMockExamSession({
   courseUnitId,
   examSlug,
   passage,
+  mode = "exam",
+  onLocalSubmit,
 }: HealthMockExamSessionProps) {
   const router = useRouter();
+  const isTutorial = mode === "tutorial";
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
   const [remainingSeconds, setRemainingSeconds] = useState(() =>
@@ -70,13 +137,14 @@ export function HealthMockExamSession({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [answersByAttemptQuestionId, setAnswersByAttemptQuestionId] = useState<
-    Record<string, LocalAnswer>
+    Record<string, HealthMockExamSessionAnswer>
   >(() =>
     Object.fromEntries(
       passage.questions.map((question) => [
         question.attemptQuestionId,
         {
           selectedChoiceIndexes: question.selectedChoiceIndexes,
+          responsePayload: question.responsePayload,
           markedForReview: question.markedForReview,
         },
       ]),
@@ -86,16 +154,27 @@ export function HealthMockExamSession({
   const hasTriggeredAutoSubmit = useRef(false);
   const submitAttemptRef = useRef<() => void>(() => undefined);
   const resultsHref = `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${passage.attemptId}`;
+  const submitButtonLabel = isTutorial ? "Terminer le tutoriel" : "Soumettre l'examen";
+  const submitDialogTitle = isTutorial
+    ? "Terminer le tutoriel ?"
+    : "Soumettre l'examen blanc ?";
+  const submitConfirmLabel = isTutorial
+    ? "Voir le récapitulatif"
+    : "Confirmer la soumission";
 
   const currentQuestion = passage.questions[currentIndex];
   const currentAnswer = answersByAttemptQuestionId[currentQuestion.attemptQuestionId];
+  const currentFormatInstruction = getQuestionFormatStudentInstruction(
+    currentQuestion.canonicalQuestion,
+  );
+  const currentSelectionLimit = getQuestionSelectionLimit(currentQuestion.canonicalQuestion);
   const currentSection = passage.sections.find(
     (section) =>
       currentQuestion.globalOrder >= section.firstQuestion &&
       currentQuestion.globalOrder <= section.lastQuestion,
   );
-  const answeredCount = Object.values(answersByAttemptQuestionId).filter(
-    (answer) => answer.selectedChoiceIndexes.length > 0,
+  const answeredCount = passage.questions.filter((question) =>
+    isAnswerRecorded(question, answersByAttemptQuestionId[question.attemptQuestionId]),
   ).length;
   const markedCount = Object.values(answersByAttemptQuestionId).filter(
     (answer) => answer.markedForReview,
@@ -116,8 +195,12 @@ export function HealthMockExamSession({
 
   const saveAnswer = (
     attemptQuestionId: string,
-    nextAnswer: LocalAnswer,
+    nextAnswer: HealthMockExamSessionAnswer,
   ) => {
+    if (isTutorial) {
+      return;
+    }
+
     const previousSave = pendingSaves.current.get(attemptQuestionId) ?? Promise.resolve();
     const nextSave = previousSave
       .catch(() => undefined)
@@ -148,7 +231,7 @@ export function HealthMockExamSession({
     void nextSave.catch(() => undefined);
   };
 
-  const updateCurrentAnswer = (nextAnswer: LocalAnswer) => {
+  const updateCurrentAnswer = (nextAnswer: HealthMockExamSessionAnswer) => {
     setAnswersByAttemptQuestionId((currentAnswers) => ({
       ...currentAnswers,
       [currentQuestion.attemptQuestionId]: nextAnswer,
@@ -158,14 +241,56 @@ export function HealthMockExamSession({
   };
 
   const toggleChoice = (choiceIndex: number) => {
-    const selectedChoiceIndexes =
-      currentQuestion.answerFormat === "SINGLE"
-        ? [choiceIndex]
-        : currentAnswer.selectedChoiceIndexes.includes(choiceIndex)
-          ? currentAnswer.selectedChoiceIndexes.filter((index) => index !== choiceIndex)
-          : [...currentAnswer.selectedChoiceIndexes, choiceIndex].sort((left, right) => left - right);
+    if (currentQuestion.questionType !== "mcq") return;
 
-    updateCurrentAnswer({ ...currentAnswer, selectedChoiceIndexes });
+    let selectedChoiceIndexes: number[];
+
+    if (currentQuestion.answerFormat === "SINGLE") {
+      selectedChoiceIndexes = [choiceIndex];
+    } else if (currentAnswer.selectedChoiceIndexes.includes(choiceIndex)) {
+      selectedChoiceIndexes = currentAnswer.selectedChoiceIndexes.filter(
+        (index) => index !== choiceIndex,
+      );
+    } else if (
+      currentSelectionLimit !== null &&
+      currentAnswer.selectedChoiceIndexes.length >= currentSelectionLimit
+    ) {
+      return;
+    } else {
+      selectedChoiceIndexes = [...currentAnswer.selectedChoiceIndexes, choiceIndex].sort(
+        (left, right) => left - right,
+      );
+    }
+
+    updateCurrentAnswer({
+      ...currentAnswer,
+      selectedChoiceIndexes,
+      responsePayload: createMcqResponsePayload(currentQuestion.id, selectedChoiceIndexes),
+    });
+  };
+
+  const updateCurrentShortAnswer = (rawValue: string) => {
+    updateCurrentAnswer({
+      ...currentAnswer,
+      selectedChoiceIndexes: [],
+      responsePayload: {
+        questionId: currentQuestion.id,
+        type: "short-answer",
+        rawValue,
+      },
+    });
+  };
+
+  const updateCurrentHotspotPoint = (point: HotspotPoint | null) => {
+    updateCurrentAnswer({
+      ...currentAnswer,
+      selectedChoiceIndexes: [],
+      responsePayload: {
+        questionId: currentQuestion.id,
+        type: "hotspot",
+        points: point ? [point] : [],
+      },
+    });
   };
 
   const toggleMarkedForReview = () => {
@@ -177,6 +302,16 @@ export function HealthMockExamSession({
     setIsSubmitting(true);
 
     try {
+      if (isTutorial) {
+        const elapsedSeconds = Math.max(
+          0,
+          Math.floor((Date.now() - new Date(passage.startedAt).getTime()) / 1000),
+        );
+        await onLocalSubmit?.(answersByAttemptQuestionId, elapsedSeconds);
+        setIsSubmitting(false);
+        return;
+      }
+
       await Promise.all([...pendingSaves.current.values()].map((save) => save.catch(() => undefined)));
       const response = await fetch(
         `/api/health/mock-exams/attempts/${passage.attemptId}/submit`,
@@ -222,7 +357,9 @@ export function HealthMockExamSession({
       <header className="sticky top-0 z-20 border border-border bg-background/95 p-4 shadow-sm backdrop-blur">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
-            <p className="text-sm font-medium text-muted-foreground">Conditions d&apos;examen</p>
+            <p className="text-sm font-medium text-muted-foreground">
+              {isTutorial ? "Tutoriel d'interface" : "Conditions d'examen"}
+            </p>
             <h1 className="truncate text-xl font-semibold text-heading">{passage.title}</h1>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -257,7 +394,10 @@ export function HealthMockExamSession({
       ) : null}
 
       {isNavigationOpen ? (
-        <nav className="space-y-4 border border-border bg-card p-4" aria-label="Navigation de l'examen blanc">
+        <nav
+          className="space-y-4 border border-border bg-card p-4"
+          aria-label={isTutorial ? "Navigation du tutoriel d'interface" : "Navigation de l'examen blanc"}
+        >
           <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground">
             <span>Question actuelle</span>
             <span>Réponse enregistrée</span>
@@ -271,14 +411,16 @@ export function HealthMockExamSession({
                   {section.title} <span className="font-normal text-muted-foreground">{section.firstQuestion} à {section.lastQuestion}</span>
                 </p>
                 <div className="grid grid-cols-8 gap-2 sm:grid-cols-10 md:grid-cols-12">
-                  {questions.map((question, index) => {
+                  {questions.map((question) => {
                     const answer = answersByAttemptQuestionId[question.attemptQuestionId];
+                    const isMarkedForReview = answer?.markedForReview ?? false;
+                    const hasRecordedAnswer = isAnswerRecorded(question, answer);
                     const isCurrent = question.attemptQuestionId === currentQuestion.attemptQuestionId;
                     const status = isCurrent
                       ? "Question actuelle"
-                      : answer.markedForReview
+                      : isMarkedForReview
                         ? "Question à revoir"
-                        : answer.selectedChoiceIndexes.length > 0
+                        : hasRecordedAnswer
                           ? "Réponse enregistrée"
                           : "Question sans réponse";
 
@@ -292,13 +434,13 @@ export function HealthMockExamSession({
                         className={cn(
                           "relative flex h-10 items-center justify-center border text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand",
                           isCurrent && "border-brand bg-brand text-white",
-                          !isCurrent && answer.markedForReview && "border-amber-500 bg-amber-50 text-amber-950 dark:bg-amber-950/40 dark:text-amber-100",
-                          !isCurrent && !answer.markedForReview && answer.selectedChoiceIndexes.length > 0 && "border-emerald-500 bg-emerald-50 text-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-100",
-                          !isCurrent && !answer.markedForReview && answer.selectedChoiceIndexes.length === 0 && "border-border bg-background text-muted-foreground",
+                          !isCurrent && isMarkedForReview && "border-amber-500 bg-amber-50 text-amber-950 dark:bg-amber-950/40 dark:text-amber-100",
+                          !isCurrent && !isMarkedForReview && hasRecordedAnswer && "border-emerald-500 bg-emerald-50 text-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-100",
+                          !isCurrent && !isMarkedForReview && !hasRecordedAnswer && "border-border bg-background text-muted-foreground",
                         )}
                       >
                         {question.globalOrder}
-                        {answer.markedForReview ? <Flag className="absolute right-1 top-1 h-3 w-3" aria-hidden="true" /> : null}
+                        {isMarkedForReview ? <Flag className="absolute right-1 top-1 h-3 w-3" aria-hidden="true" /> : null}
                       </button>
                     );
                   })}
@@ -322,7 +464,13 @@ export function HealthMockExamSession({
 
       <article className="space-y-5 border border-border bg-card p-4 md:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-lg font-semibold text-heading">Question {currentQuestion.globalOrder}</h2>
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold text-heading">Question {currentQuestion.globalOrder}</h2>
+            <QuestionFormatBadge question={currentQuestion.canonicalQuestion} />
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              {currentFormatInstruction}
+            </p>
+          </div>
           <Button
             type="button"
             variant={currentAnswer.markedForReview ? "warning" : "outline"}
@@ -342,39 +490,86 @@ export function HealthMockExamSession({
           />
         </div>
 
-        <div className="grid gap-3">
-          {currentQuestion.choices.map((choice, choiceIndex) => {
-            const isSelected = currentAnswer.selectedChoiceIndexes.includes(choiceIndex);
+        {currentQuestion.canonicalQuestion.type === "hotspot" ? (
+          <HotspotQuestionView
+            question={currentQuestion.canonicalQuestion as HotspotQuestion}
+            selectedPoint={getHotspotPoint(currentAnswer)}
+            onPointSelect={updateCurrentHotspotPoint}
+            readOnly={isSubmitting}
+          />
+        ) : currentQuestion.questionType === "short-answer" ? (
+          <div className="space-y-2">
+            <label
+              htmlFor={`health-mock-exam-short-answer-${currentQuestion.attemptQuestionId}`}
+              className="text-sm font-semibold text-heading"
+            >
+              Votre réponse
+            </label>
+            <Input
+              id={`health-mock-exam-short-answer-${currentQuestion.attemptQuestionId}`}
+              value={getShortAnswerValue(currentAnswer)}
+              onChange={(event) => updateCurrentShortAnswer(event.target.value)}
+              data-testid="health-mock-exam-short-answer-input"
+              placeholder="Saisissez votre réponse courte"
+              autoComplete="off"
+            />
+          </div>
+        ) : currentQuestion.canonicalQuestion.format === "QRPL" || currentQuestion.choices.length > 5 ? (
+          <LongChoiceListView
+            choices={currentQuestion.choices}
+            selectedIndexes={currentAnswer.selectedChoiceIndexes}
+            selectionLimit={currentSelectionLimit}
+            onSelectChoice={toggleChoice}
+            isAnswerLocked={isSubmitting}
+            testIdPrefix="health-mock-exam-choice"
+          />
+        ) : (
+          <div className="grid gap-3">
+            {currentQuestion.choices.map((choice, choiceIndex) => {
+              const isSelected = currentAnswer.selectedChoiceIndexes.includes(choiceIndex);
+              const isDisabledBySelectionLimit =
+                !isSelected &&
+                currentSelectionLimit !== null &&
+                currentAnswer.selectedChoiceIndexes.length >= currentSelectionLimit;
 
-            return (
-              <button
-                key={`${currentQuestion.attemptQuestionId}-${choiceIndex}`}
-                type="button"
-                onClick={() => toggleChoice(choiceIndex)}
-                aria-pressed={isSelected}
-                data-testid={`health-mock-exam-choice-${choiceIndex}`}
-                className={cn(
-                  "flex items-start gap-3 border border-border bg-background px-4 py-3 text-left text-sm transition-colors",
-                  "hover:border-brand/50 hover:bg-neutral-secondary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand",
-                  isSelected && "border-brand bg-brand-soft/15 ring-2 ring-brand/20",
-                )}
-              >
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-brand bg-brand text-xs font-semibold text-white">
-                  {String.fromCharCode(65 + choiceIndex)}
-                </span>
-                <span className="min-w-0 flex-1"><TrainingChoiceContentView choice={choice} /></span>
-                {isSelected ? <Check className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-label="Sélectionné" /> : null}
-              </button>
-            );
-          })}
-        </div>
+              return (
+                <button
+                  key={`${currentQuestion.attemptQuestionId}-${choiceIndex}`}
+                  type="button"
+                  onClick={() => toggleChoice(choiceIndex)}
+                  aria-pressed={isSelected}
+                  disabled={isDisabledBySelectionLimit}
+                  data-testid={`health-mock-exam-choice-${choiceIndex}`}
+                  className={cn(
+                    "flex items-start gap-3 border border-border bg-background px-4 py-3 text-left text-sm transition-colors",
+                    "hover:border-brand/50 hover:bg-neutral-secondary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand",
+                    isSelected && "border-brand bg-brand-soft/15 ring-2 ring-brand/20",
+                    isDisabledBySelectionLimit && "cursor-not-allowed opacity-50 hover:border-border hover:bg-background",
+                  )}
+                >
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-brand bg-brand text-xs font-semibold text-white">
+                    {String.fromCharCode(65 + choiceIndex)}
+                  </span>
+                  <span className="min-w-0 flex-1"><TrainingChoiceContentView choice={choice} /></span>
+                  {isSelected ? <Check className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-label="Sélectionné" /> : null}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
-        {currentQuestion.answerFormat === "MULTIPLE" ? (
+        {currentQuestion.questionType === "mcq" && currentQuestion.answerFormat === "MULTIPLE" ? (
           <Button
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => updateCurrentAnswer({ ...currentAnswer, selectedChoiceIndexes: [] })}
+            onClick={() =>
+              updateCurrentAnswer({
+                ...currentAnswer,
+                selectedChoiceIndexes: [],
+                responsePayload: createMcqResponsePayload(currentQuestion.id, []),
+              })
+            }
             disabled={currentAnswer.selectedChoiceIndexes.length === 0}
           >
             Effacer la sélection
@@ -419,20 +614,20 @@ export function HealthMockExamSession({
           <AlertDialogTrigger asChild>
             <Button type="button" variant="destructive" disabled={isSubmitting}>
               <Send className="h-4 w-4" aria-hidden="true" />
-              Soumettre l&apos;examen
+              {submitButtonLabel}
             </Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Soumettre l&apos;examen blanc ?</AlertDialogTitle>
+              <AlertDialogTitle>{submitDialogTitle}</AlertDialogTitle>
               <AlertDialogDescription>
-                {answeredCount} question{answeredCount > 1 ? 's' : ''} répondue{answeredCount > 1 ? 's' : ''}, {passage.questionCount - answeredCount} sans réponse et {formatRemainingTime(remainingSeconds)} restante{remainingSeconds > 1 ? 's' : ''}. Cette soumission est définitive.
+                {answeredCount} question{answeredCount > 1 ? 's' : ''} répondue{answeredCount > 1 ? 's' : ''}, {passage.questionCount - answeredCount} sans réponse et {formatRemainingTime(remainingSeconds)} restante{remainingSeconds > 1 ? 's' : ''}. {isTutorial ? "Vous pourrez refaire ce tutoriel librement." : "Cette soumission est définitive."}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Continuer l&apos;épreuve</AlertDialogCancel>
               <AlertDialogAction onClick={() => void submitAttempt()} disabled={isSubmitting}>
-                {isSubmitting ? "Soumission..." : "Confirmer la soumission"}
+                {isSubmitting ? "Soumission..." : submitConfirmLabel}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

@@ -1,10 +1,17 @@
 import type {
   ChapterSectionKind,
+  Prisma,
   PrismaClient,
   QuizAnswerFormat,
   QuizDifficulty,
   TrainingQuizStage,
 } from '@prisma/client';
+import {
+  compileHealthTrainingAuthorQuestion,
+  type HealthSeedQuestion,
+  type HealthTrainingAuthorQuestion,
+} from '@/core/questions';
+
 
 export type QuantumBoxesDiagram = {
   type: 'quantum-boxes';
@@ -334,9 +341,10 @@ export type EnzymeDiagram = {
   diagram: EnzymeDiagramName;
 };
 
-export type SeedQuestion = {
+export type LegacySeedQuestion = {
   order: number;
   difficulty: QuizDifficulty;
+  questionType?: string;
   answerFormat: QuizAnswerFormat;
   question: string;
   questionDiagram?:
@@ -350,9 +358,15 @@ export type SeedQuestion = {
     | EnzymeDiagram;
   choices: Array<string | QuantumBoxesDiagram | LewisAtomDiagram>;
   correctChoiceIndexes: number[];
+  answerPayload?: Prisma.InputJsonValue;
   explanation: string | null;
   choiceExplanations?: string[];
+  requiredSelectionCount?: number;
 };
+
+export type { HealthTrainingAuthorQuestion };
+export type SeedQuestion = HealthSeedQuestion;
+
 
 export type SeedSection = {
   order: number;
@@ -674,23 +688,30 @@ export async function seedHealthTrainingChapter({
       select: { id: true },
     });
 
+    const compiled = compileHealthTrainingAuthorQuestion(entry, {
+      chapterSlug,
+    });
+
     const data = {
       chapterId: chapter.id,
-      difficulty: entry.difficulty,
-      question: entry.question,
-      questionDiagram: entry.questionDiagram,
-      choices: entry.choices,
-      answerFormat: entry.answerFormat,
-      correctChoiceIndexes: entry.correctChoiceIndexes,
-      correctChoiceIndex: entry.correctChoiceIndexes[0] ?? 0,
-      explanation: entry.explanation ?? '',
-      choiceExplanations: entry.choiceExplanations ?? [],
-      order: entry.order,
+      difficulty: compiled.difficulty as QuizDifficulty,
+      questionType: compiled.questionFormat ?? compiled.format ?? compiled.questionType ?? 'mcq',
+      question: compiled.question,
+      questionDiagram: (compiled.questionDiagram ?? null) as Prisma.InputJsonValue | null,
+      choices: (compiled.choices ?? []) as Prisma.InputJsonValue,
+      answerFormat: (compiled.answerFormat ?? 'SINGLE') as QuizAnswerFormat,
+      correctChoiceIndexes: compiled.correctChoiceIndexes ?? [],
+      correctChoiceIndex: compiled.correctChoiceIndexes?.[0] ?? 0,
+      answerPayload: (compiled.answerPayload ?? undefined) as Prisma.InputJsonValue | undefined,
+      explanation: compiled.explanation ?? '',
+      choiceExplanations: (compiled.choiceExplanations ?? []) as Prisma.InputJsonValue,
+      order: compiled.order,
       isPublished: true,
-      themeIds: (questionThemeLabelsByOrder[entry.order] ?? [])
+      themeIds: (questionThemeLabelsByOrder[compiled.order] ?? [])
         .map((label) => themeIdByLabel.get(label))
         .filter((themeId): themeId is string => Boolean(themeId)),
     };
+
 
     if (existingQuestion) {
       await prisma.quizQuestion.update({

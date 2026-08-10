@@ -9,7 +9,11 @@ import toast from "react-hot-toast";
 
 import type { QuizQuestionListItem } from "@/core/chapter";
 import { deleteQuizQuestion } from "@/core/chapter";
-import { quizAnswerFormatShortLabels } from "@/core/quiz/quiz-answer-format";
+import { normalizePersistedQuestionFormat } from "@/core/questions/question-persistence";
+import {
+  getQuestionFormatAdminLabel,
+  isEditableQuestionFormatCode,
+} from "@/core/questions/question-format";
 import { Badge } from "@/components/ui/badge";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
 import {
@@ -45,6 +49,8 @@ function toExcerpt(value: string) {
 function QuizQuestionActions({ question }: { question: QuizQuestionListItem }) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const questionFormat = normalizePersistedQuestionFormat(question);
+  const canEditQuestion = isEditableQuestionFormatCode(questionFormat);
 
   const handleDelete = async () => {
     try {
@@ -79,11 +85,17 @@ function QuizQuestionActions({ question }: { question: QuizQuestionListItem }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className={actionMenuContent}>
         <div className={actionMenuHeader}>Actions</div>
+        {canEditQuestion ? (
+          <DropdownMenuItem className={actionMenuItem}>
+            <Link href={`/admin/training/quiz-questions/${question.id}/edit`}>Éditer</Link>
+          </DropdownMenuItem>
+        ) : (
+          <DropdownMenuItem className={actionMenuItem} disabled>
+            Édition non disponible ici
+          </DropdownMenuItem>
+        )}
         <DropdownMenuItem className={actionMenuItem}>
-          <Link href={`/admin/training/quiz-questions/${question.id}/edit`}>Éditer</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem className={actionMenuItem}>
-          <Link href={`/admin/training/qcms/${question.chapterId}/edit`}>Voir le QCM</Link>
+          <Link href={`/admin/training/qcms/${question.chapterId}/edit`}>Voir la série</Link>
         </DropdownMenuItem>
         <ConfirmDeleteDialog
           onConfirm={handleDelete}
@@ -109,7 +121,7 @@ export const columns: ColumnDef<QuizQuestionListItem>[] = [
     id: "chapter",
     accessorFn: (row) => row.chapter.title,
     sortingFn: localeSort,
-    header: ({ column }) => <SortableHeader label="QCM" column={column} align="left" />,
+    header: ({ column }) => <SortableHeader label="SÉRIE" column={column} align="left" />,
     cell: ({ row }) => (
       <Link
         href={`/admin/training/quiz-questions?chapterId=${row.original.chapterId}`}
@@ -131,11 +143,17 @@ export const columns: ColumnDef<QuizQuestionListItem>[] = [
     cell: ({ row }) => <Badge variant="outline">{difficultyLabels[row.original.difficulty] ?? row.original.difficulty}</Badge>,
   },
   {
-    accessorKey: "answerFormat",
-    header: ({ column }) => <SortableHeader label="FORMAT" column={column} align="left" />,
+    id: "questionFormat",
+    accessorFn: (row) => getQuestionFormatAdminLabel(normalizePersistedQuestionFormat(row)),
+    filterFn: (row, columnId, filterValue) =>
+      typeof filterValue !== "string" ||
+      filterValue.length === 0 ||
+      row.getValue(columnId) === filterValue,
+    sortingFn: localeSort,
+    header: ({ column }) => <SortableHeader label="FORMAT UNESS" column={column} align="left" />,
     cell: ({ row }) => (
-      <Badge variant={row.original.answerFormat === "MULTIPLE" ? "outline" : "secondary"}>
-        {quizAnswerFormatShortLabels[row.original.answerFormat ?? "SINGLE"]}
+      <Badge variant="outline">
+        {getQuestionFormatAdminLabel(normalizePersistedQuestionFormat(row.original))}
       </Badge>
     ),
   },

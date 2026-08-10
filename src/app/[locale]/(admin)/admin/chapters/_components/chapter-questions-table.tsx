@@ -7,7 +7,11 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import { deleteQuizQuestion, type ChapterDetail } from "@/core/chapter";
-import { quizAnswerFormatShortLabels } from "@/core/quiz/quiz-answer-format";
+import {
+  getQuestionFormatAdminLabel,
+  isEditableQuestionFormatCode,
+} from "@/core/questions/question-format";
+import { normalizePersistedQuestionFormat } from "@/core/questions/question-persistence";
 import { AddButton } from "@/components/shared/add-button";
 import { Badge } from "@/components/ui/badge";
 import { ConfirmDeleteDialog } from "@/components/shared/confirm-delete-dialog";
@@ -53,6 +57,10 @@ function toExcerpt(value: string) {
   return `${normalized.slice(0, 137)}...`;
 }
 
+function getQuestionFormatLabel(question: ChapterDetail["quizQuestions"][number]) {
+  return getQuestionFormatAdminLabel(normalizePersistedQuestionFormat(question));
+}
+
 export function ChapterQuestionsTable({
   chapterId,
   questions,
@@ -73,8 +81,8 @@ export function ChapterQuestionsTable({
       width: 16,
     },
     {
-      header: "Format",
-      value: (question) => quizAnswerFormatShortLabels[question.answerFormat ?? "SINGLE"],
+      header: "Format UNESS",
+      value: getQuestionFormatLabel,
       width: 20,
     },
     {
@@ -124,7 +132,7 @@ export function ChapterQuestionsTable({
           <div>
             <h2 className="text-lg font-semibold">Questions</h2>
             <p className="text-sm text-muted-foreground">
-              Ajoute des QCM directement rattachés à ce chapitre.
+              Ajoute des questions d&apos;entraînement directement rattachées à ce chapitre.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -153,7 +161,7 @@ export function ChapterQuestionsTable({
         <div>
           <h2 className="text-lg font-semibold">Questions</h2>
           <p className="text-sm text-muted-foreground">
-            Gère les QCM de ce chapitre sans quitter sa fiche.
+            Gère les questions d&apos;entraînement de ce chapitre sans quitter sa fiche.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -174,7 +182,7 @@ export function ChapterQuestionsTable({
           <TableRow>
             <TableHead>Ordre</TableHead>
             <TableHead>Difficulté</TableHead>
-            <TableHead>Format</TableHead>
+            <TableHead>Format UNESS</TableHead>
             <TableHead>Question</TableHead>
             <TableHead>Statut</TableHead>
             <TableHead>Dernière modification</TableHead>
@@ -182,55 +190,66 @@ export function ChapterQuestionsTable({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {sortedRows.map((question) => (
-            <TableRow key={question.id}>
-              <TableCell>{question.order}</TableCell>
-              <TableCell>
-                <Badge variant="outline">{difficultyLabels[question.difficulty] ?? question.difficulty}</Badge>
-              </TableCell>
-              <TableCell>
-                <Badge variant={question.answerFormat === "MULTIPLE" ? "outline" : "secondary"}>
-                  {quizAnswerFormatShortLabels[question.answerFormat ?? "SINGLE"]}
-                </Badge>
-              </TableCell>
-              <TableCell className="max-w-xl">{toExcerpt(question.question)}</TableCell>
-              <TableCell>
-                <Badge variant={question.isPublished ? "default" : "secondary"}>
-                  {question.isPublished ? "Publiée" : "Brouillon"}
-                </Badge>
-              </TableCell>
-              <TableCell>{formatDateTime(question.updatedAt)}</TableCell>
-              <TableCell>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <button type="button" className={actionMenuTrigger}>
-                      <span className="sr-only">Ouvrir le menu</span>
-                      <MoreHorizontal className="h-4 w-4" />
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className={actionMenuContent}>
-                    <div className={actionMenuHeader}>Actions</div>
-                    <DropdownMenuItem className={actionMenuItem}>
-                      <Link href={`/admin/chapters/${chapterId}/questions/${question.id}/edit`}>
-                        Éditer
-                      </Link>
-                    </DropdownMenuItem>
-                    <ConfirmDeleteDialog
-                      onConfirm={() => handleDelete(question.id)}
-                      trigger={
-                        <DropdownMenuItem
-                          className={actionMenuItem}
-                          onSelect={(event) => event.preventDefault()}
-                        >
-                          Supprimer
+          {sortedRows.map((question) => {
+            const questionFormat = normalizePersistedQuestionFormat(question);
+            const canEditQuestion = isEditableQuestionFormatCode(questionFormat);
+
+            return (
+              <TableRow key={question.id}>
+                <TableCell>{question.order}</TableCell>
+                <TableCell>
+                  <Badge variant="outline">{difficultyLabels[question.difficulty] ?? question.difficulty}</Badge>
+                </TableCell>
+                <TableCell>
+                  <Badge variant="outline">
+                    {getQuestionFormatAdminLabel(questionFormat)}
+                  </Badge>
+                </TableCell>
+                <TableCell className="max-w-xl">{toExcerpt(question.question)}</TableCell>
+                <TableCell>
+                  <Badge variant={question.isPublished ? "default" : "secondary"}>
+                    {question.isPublished ? "Publiée" : "Brouillon"}
+                  </Badge>
+                </TableCell>
+                <TableCell>{formatDateTime(question.updatedAt)}</TableCell>
+                <TableCell>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button type="button" className={actionMenuTrigger}>
+                        <span className="sr-only">Ouvrir le menu</span>
+                        <MoreHorizontal className="h-4 w-4" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className={actionMenuContent}>
+                      <div className={actionMenuHeader}>Actions</div>
+                      {canEditQuestion ? (
+                        <DropdownMenuItem className={actionMenuItem}>
+                          <Link href={`/admin/chapters/${chapterId}/questions/${question.id}/edit`}>
+                            Éditer
+                          </Link>
                         </DropdownMenuItem>
-                      }
-                    />
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </TableCell>
-            </TableRow>
-          ))}
+                      ) : (
+                        <DropdownMenuItem className={actionMenuItem} disabled>
+                          Édition non disponible ici
+                        </DropdownMenuItem>
+                      )}
+                      <ConfirmDeleteDialog
+                        onConfirm={() => handleDelete(question.id)}
+                        trigger={
+                          <DropdownMenuItem
+                            className={actionMenuItem}
+                            onSelect={(event) => event.preventDefault()}
+                          >
+                            Supprimer
+                          </DropdownMenuItem>
+                        }
+                      />
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </div>

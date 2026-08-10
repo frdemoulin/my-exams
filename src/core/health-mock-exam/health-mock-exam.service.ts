@@ -1,10 +1,9 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 
-import type { HealthMockExamAttemptStatus } from "@prisma/client";
+import { Prisma, type HealthMockExamAttemptStatus } from "@prisma/client";
 
 import {
-  resolveCorrectChoiceIndexes,
   resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
 import {
@@ -14,6 +13,17 @@ import {
 import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
 import prisma from "@/lib/db/prisma";
 
+import { evaluateQuestion } from "@/core/questions";
+
+import {
+  createHealthMockExamStudentAnswer,
+  getSelectedChoiceIndexesForQuestion,
+  getSelectedChoiceIndexesFromHealthMockExamAnswer,
+  isHealthMockExamQuestionAnswered,
+  normalizeHealthMockExamQuestion,
+  normalizeHealthMockExamQuestionType,
+  normalizeHealthMockExamStudentAnswer,
+} from "./health-mock-exam.question";
 import { scoreHealthMockExamAttempt } from "./health-mock-exam.scoring";
 import type {
   HealthMockExamPassage,
@@ -69,6 +79,10 @@ function publicMediaExists(publicPath: string) {
   );
 }
 
+function toPrismaJsonValue(value: unknown): Prisma.InputJsonValue | undefined {
+  return value === undefined ? undefined : (value as Prisma.InputJsonValue);
+}
+
 async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
   return prisma.healthMockExam.findFirst({
     where: {
@@ -114,11 +128,14 @@ async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
               globalOrder: true,
               groupId: true,
               isPublished: true,
+              questionType: true,
               question: true,
+              questionDiagram: true,
               choices: true,
               answerFormat: true,
               correctChoiceIndex: true,
               correctChoiceIndexes: true,
+              answerPayload: true,
               explanation: true,
               choiceExplanations: true,
             },
@@ -148,8 +165,10 @@ function toValidationInput(exam: NonNullable<LoadedMockExam>): HealthMockExamVal
       questions: section.questions.map((question) => ({
         ...question,
         groupId: question.groupId ?? null,
+        questionType: question.questionType ?? null,
         answerFormat: question.answerFormat ?? null,
         correctChoiceIndexes: question.correctChoiceIndexes,
+        answerPayload: question.answerPayload ?? null,
         choiceExplanations: question.choiceExplanations ?? null,
       })),
     })),
@@ -190,10 +209,16 @@ async function finalizeHealthMockExamAttempt(
         include: {
           question: {
             select: {
-              correctChoiceIndexes: true,
-              correctChoiceIndex: true,
-              answerFormat: true,
+              id: true,
+              questionType: true,
+              question: true,
               choices: true,
+              answerFormat: true,
+              correctChoiceIndex: true,
+              correctChoiceIndexes: true,
+              answerPayload: true,
+              explanation: true,
+              choiceExplanations: true,
             },
           },
         },
@@ -212,21 +237,23 @@ async function finalizeHealthMockExamAttempt(
   const hasExpired = now.getTime() >= attempt.deadlineAt.getTime();
   const scoredSections = new Map<
     string,
-    Array<{ selectedChoiceIndexes: number[]; correctChoiceIndexes: number[] }>
+    Array<{
+      question: ReturnType<typeof normalizeHealthMockExamQuestion>;
+      answer: ReturnType<typeof normalizeHealthMockExamStudentAnswer>;
+    }>
   >();
 
   for (const attemptQuestion of attempt.attemptQuestions) {
-    const choices = normalizeTrainingChoiceContents(attemptQuestion.question.choices);
-    const correctChoiceIndexes = resolveCorrectChoiceIndexes({
-      answerFormat: attemptQuestion.question.answerFormat,
-      correctChoiceIndex: attemptQuestion.question.correctChoiceIndex,
-      correctChoiceIndexes: attemptQuestion.question.correctChoiceIndexes,
-      choiceCount: choices.length,
+    const question = normalizeHealthMockExamQuestion(attemptQuestion.question);
+    const answer = normalizeHealthMockExamStudentAnswer({
+      question,
+      selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
+      responsePayload: attemptQuestion.responsePayload,
     });
     const sectionQuestions = scoredSections.get(attemptQuestion.examSectionId) ?? [];
     sectionQuestions.push({
-      selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
-      correctChoiceIndexes,
+      question,
+      answer,
     });
     scoredSections.set(attemptQuestion.examSectionId, sectionQuestions);
   }
@@ -277,10 +304,16 @@ async function finalizeHealthMockExamAttempt(
         include: {
           question: {
             select: {
-              correctChoiceIndexes: true,
-              correctChoiceIndex: true,
-              answerFormat: true,
+              id: true,
+              questionType: true,
+              question: true,
               choices: true,
+              answerFormat: true,
+              correctChoiceIndex: true,
+              correctChoiceIndexes: true,
+              answerPayload: true,
+              explanation: true,
+              choiceExplanations: true,
             },
           },
         },
@@ -353,6 +386,7 @@ export async function saveHealthMockExamAnswer(input: {
   attemptQuestionId: string;
   userId: string;
   selectedChoiceIndexes: number[];
+  responsePayload?: unknown;
   markedForReview: boolean;
 }) {
   requireObjectId(input.attemptId, "Tentative");
@@ -372,10 +406,10 @@ export async function saveHealthMockExamAnswer(input: {
     throw new HealthMockExamError("Le temps de l'épreuve est écoulé.", 409);
   }
 
-  const selectedChoiceIndexes = [...new Set(input.selectedChoiceIndexes)].sort((a, b) => a - b);
+  const submittedChoiceIndexes = [...new Set(input.selectedChoiceIndexes)].sort((a, b) => a - b);
   if (
-    selectedChoiceIndexes.some(
-      (choiceIndex) => !Number.isInteger(choiceIndex) || choiceIndex < 0 || choiceIndex > 3,
+    submittedChoiceIndexes.some(
+      (choiceIndex) => !Number.isInteger(choiceIndex) || choiceIndex < 0,
     )
   ) {
     throw new HealthMockExamError("Les réponses transmises sont invalides.", 400);
@@ -388,7 +422,18 @@ export async function saveHealthMockExamAnswer(input: {
     },
     include: {
       question: {
-        select: { choices: true },
+        select: {
+          id: true,
+          questionType: true,
+          question: true,
+          choices: true,
+          answerFormat: true,
+          correctChoiceIndex: true,
+          correctChoiceIndexes: true,
+          answerPayload: true,
+          explanation: true,
+          choiceExplanations: true,
+        },
       },
     },
   });
@@ -397,22 +442,58 @@ export async function saveHealthMockExamAnswer(input: {
     throw new HealthMockExamError("La question n'appartient pas à cette tentative.", 404);
   }
 
-  const choiceCount = normalizeTrainingChoiceContents(attemptQuestion.question.choices).length;
-  if (selectedChoiceIndexes.some((choiceIndex) => choiceIndex >= choiceCount)) {
+  const question = normalizeHealthMockExamQuestion(attemptQuestion.question);
+  if (question.type !== "mcq" && question.type !== "short-answer") {
+    throw new HealthMockExamError(
+      "Ce type de question n'est pas encore pris en charge dans l'examen blanc.",
+      400,
+    );
+  }
+
+  const validSubmittedChoiceIndexes = getSelectedChoiceIndexesForQuestion({
+    question,
+    selectedChoiceIndexes: submittedChoiceIndexes,
+  });
+  if (
+    question.type === "mcq" &&
+    submittedChoiceIndexes.length !== validSubmittedChoiceIndexes.length
+  ) {
     throw new HealthMockExamError("Les réponses transmises sont invalides.", 400);
   }
+  if (question.type !== "mcq" && submittedChoiceIndexes.length > 0) {
+    throw new HealthMockExamError("Les réponses transmises sont invalides.", 400);
+  }
+
+  const normalizedAnswer = normalizeHealthMockExamStudentAnswer({
+    question,
+    selectedChoiceIndexes: validSubmittedChoiceIndexes,
+    responsePayload: input.responsePayload,
+  });
+  const selectedChoiceIndexes = getSelectedChoiceIndexesFromHealthMockExamAnswer({
+    question,
+    answer: normalizedAnswer,
+    fallbackSelectedChoiceIndexes: validSubmittedChoiceIndexes,
+  });
+
+  const responsePayload = createHealthMockExamStudentAnswer({
+    question,
+    selectedChoiceIndexes,
+    responsePayload: input.responsePayload,
+  });
 
   await prisma.userHealthMockExamAttemptQuestion.update({
     where: { id: attemptQuestion.id },
     data: {
       selectedChoiceIndexes,
+      responsePayload: toPrismaJsonValue(responsePayload),
       markedForReview: input.markedForReview,
-      answeredAt: selectedChoiceIndexes.length > 0 ? now : null,
+      answeredAt: isHealthMockExamQuestionAnswered(question, responsePayload) ? now : null,
     },
   });
 
   return {
     selectedChoiceIndexes,
+    responsePayload,
     markedForReview: input.markedForReview,
   };
 }
@@ -497,10 +578,16 @@ export async function fetchHealthMockExamTakingState(input: {
               id: true,
               order: true,
               globalOrder: true,
+              questionType: true,
               answerFormat: true,
               question: true,
               questionDiagram: true,
               choices: true,
+              correctChoiceIndex: true,
+              correctChoiceIndexes: true,
+              answerPayload: true,
+              explanation: true,
+              choiceExplanations: true,
               group: {
                 select: {
                   id: true,
@@ -530,28 +617,46 @@ export async function fetchHealthMockExamTakingState(input: {
       instructions: passageAttempt.mockExam.instructions ?? null,
       questionCount: passageAttempt.mockExam.questionCount,
       sections: passageAttempt.mockExam.sections,
-      questions: passageAttempt.attemptQuestions.map((attemptQuestion) => ({
-        attemptQuestionId: attemptQuestion.id,
-        id: attemptQuestion.question.id,
-        globalOrder: attemptQuestion.globalOrder,
-        order: attemptQuestion.order,
-        answerFormat: resolveQuizAnswerFormat(attemptQuestion.question.answerFormat),
-        question: attemptQuestion.question.question,
-        questionDiagram: normalizeTrainingQuestionDiagramContent(
-          attemptQuestion.question.questionDiagram ?? null,
-        ),
-        choices: normalizeTrainingChoiceContents(attemptQuestion.question.choices),
-        group: attemptQuestion.question.group
-          ? {
-              id: attemptQuestion.question.group.id,
-              title: attemptQuestion.question.group.title ?? null,
-              sharedStatement: attemptQuestion.question.group.sharedStatement,
-              order: attemptQuestion.question.group.order,
-            }
-          : null,
-        selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
-        markedForReview: attemptQuestion.markedForReview,
-      })),
+      questions: passageAttempt.attemptQuestions.map((attemptQuestion) => {
+        const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);
+        const responsePayload = normalizeHealthMockExamStudentAnswer({
+          question: canonicalQuestion,
+          selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
+          responsePayload: attemptQuestion.responsePayload,
+        });
+        const selectedChoiceIndexes = getSelectedChoiceIndexesFromHealthMockExamAnswer({
+          question: canonicalQuestion,
+          answer: responsePayload,
+          fallbackSelectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
+        });
+
+        return {
+          attemptQuestionId: attemptQuestion.id,
+          id: attemptQuestion.question.id,
+          globalOrder: attemptQuestion.globalOrder,
+          order: attemptQuestion.order,
+          questionType: normalizeHealthMockExamQuestionType(attemptQuestion.question.questionType),
+          answerFormat: resolveQuizAnswerFormat(attemptQuestion.question.answerFormat),
+          question: attemptQuestion.question.question,
+          questionDiagram: normalizeTrainingQuestionDiagramContent(
+            attemptQuestion.question.questionDiagram ?? null,
+          ),
+          choices: normalizeTrainingChoiceContents(attemptQuestion.question.choices),
+          answerPayload: attemptQuestion.question.answerPayload ?? null,
+          canonicalQuestion,
+          group: attemptQuestion.question.group
+            ? {
+                id: attemptQuestion.question.group.id,
+                title: attemptQuestion.question.group.title ?? null,
+                sharedStatement: attemptQuestion.question.group.sharedStatement,
+                order: attemptQuestion.question.group.order,
+              }
+            : null,
+          selectedChoiceIndexes,
+          responsePayload,
+          markedForReview: attemptQuestion.markedForReview,
+        };
+      }),
     },
   };
 }
@@ -589,12 +694,14 @@ export async function fetchHealthMockExamResults(input: {
           question: {
             select: {
               id: true,
+              questionType: true,
               answerFormat: true,
               question: true,
               questionDiagram: true,
               choices: true,
               correctChoiceIndexes: true,
               correctChoiceIndex: true,
+              answerPayload: true,
               explanation: true,
               choiceExplanations: true,
               group: {
@@ -641,17 +748,30 @@ export async function fetchHealthMockExamResults(input: {
         percentage: result.percentage,
       })),
     questions: attempt.attemptQuestions.map((attemptQuestion) => {
-      const choices = normalizeTrainingChoiceContents(attemptQuestion.question.choices);
-      const correctChoiceIndexes = resolveCorrectChoiceIndexes({
-        answerFormat: attemptQuestion.question.answerFormat,
-        correctChoiceIndex: attemptQuestion.question.correctChoiceIndex,
-        correctChoiceIndexes: attemptQuestion.question.correctChoiceIndexes,
-        choiceCount: choices.length,
+      const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);
+      const responsePayload = normalizeHealthMockExamStudentAnswer({
+        question: canonicalQuestion,
+        selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
+        responsePayload: attemptQuestion.responsePayload,
       });
+      const evaluation = evaluateQuestion(canonicalQuestion, responsePayload);
+      const choices = normalizeTrainingChoiceContents(attemptQuestion.question.choices);
+      const correctChoiceIndexes =
+        canonicalQuestion.type === "mcq"
+          ? canonicalQuestion.choices
+              .map((choice, choiceIndex) => ({ choice, choiceIndex }))
+              .filter(({ choice }) => choice.correct)
+              .map(({ choiceIndex }) => choiceIndex)
+          : [];
       const correction = resolveChoiceCorrectionContent({
         explanation: attemptQuestion.question.explanation,
         choiceExplanations: attemptQuestion.question.choiceExplanations,
         choiceCount: choices.length,
+      });
+      const selectedChoiceIndexes = getSelectedChoiceIndexesFromHealthMockExamAnswer({
+        question: canonicalQuestion,
+        answer: responsePayload,
+        fallbackSelectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
       });
 
       return {
@@ -659,12 +779,15 @@ export async function fetchHealthMockExamResults(input: {
         id: attemptQuestion.question.id,
         globalOrder: attemptQuestion.globalOrder,
         order: attemptQuestion.order,
+        questionType: normalizeHealthMockExamQuestionType(attemptQuestion.question.questionType),
         answerFormat: resolveQuizAnswerFormat(attemptQuestion.question.answerFormat),
         question: attemptQuestion.question.question,
         questionDiagram: normalizeTrainingQuestionDiagramContent(
           attemptQuestion.question.questionDiagram ?? null,
         ),
         choices,
+        answerPayload: attemptQuestion.question.answerPayload ?? null,
+        canonicalQuestion,
         group: attemptQuestion.question.group
           ? {
               id: attemptQuestion.question.group.id,
@@ -673,11 +796,15 @@ export async function fetchHealthMockExamResults(input: {
               order: attemptQuestion.question.group.order,
             }
           : null,
-        selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
+        selectedChoiceIndexes,
+        responsePayload,
         markedForReview: attemptQuestion.markedForReview,
         correctChoiceIndexes,
         explanation: correction.explanation,
         choiceExplanations: correction.choiceExplanations,
+        evaluationStatus: evaluation.status,
+        score: evaluation.score,
+        maxScore: evaluation.maxScore,
       };
     }),
   };

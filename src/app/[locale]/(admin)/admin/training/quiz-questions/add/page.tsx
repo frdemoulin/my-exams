@@ -10,7 +10,7 @@ interface AddTrainingQuizQuestionPageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Ajouter une question QCM",
+  title: "Ajouter une question d'entraînement",
 };
 
 export default async function AddTrainingQuizQuestionPage({ searchParams }: AddTrainingQuizQuestionPageProps) {
@@ -24,7 +24,7 @@ export default async function AddTrainingQuizQuestionPage({ searchParams }: AddT
   return (
     <div className="w-full p-6 space-y-6">
       <div>
-        <h1 className="text-lg font-semibold md:text-2xl">Ajouter une question QCM</h1>
+        <h1 className="text-lg font-semibold md:text-2xl">Ajouter une question d&apos;entraînement</h1>
       </div>
       <QuizQuestionForm
         crudMode="add"
@@ -35,6 +35,7 @@ export default async function AddTrainingQuizQuestionPage({ searchParams }: AddT
         initialData={{
           chapterId: initialChapterId,
           difficulty: "EASY",
+          questionFormat: "QRU",
           answerFormat: "SINGLE",
           question: "",
           choices: ["", "", "", ""],
@@ -42,6 +43,12 @@ export default async function AddTrainingQuizQuestionPage({ searchParams }: AddT
           correctChoiceIndex: 0,
           explanation: "",
           choiceExplanations: ["", "", "", ""],
+          shortAnswerType: "text",
+          acceptedAnswers: "",
+          numericAnswerValue: "",
+          numericAnswerTolerance: "",
+          numericAnswerUnit: "",
+          numericAnswerAcceptedUnits: "",
           order: 1,
           isPublished: false,
         }}

@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 // Bump this whenever Prisma models change so Turbopack does not retain a
 // development singleton generated from an older schema after hot reload.
-const prismaSchemaRevision = '2026-08-03-health-mock-exams-v1';
+const prismaSchemaRevision = '2026-08-08-question-engine-v1';
 
 function isMongoUrl(value: string | undefined) {
   return value?.startsWith('mongodb://') || value?.startsWith('mongodb+srv://');

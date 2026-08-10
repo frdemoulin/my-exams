@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   CheckCircle2,
@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import {
   Table,
@@ -23,7 +24,20 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { areChoiceIndexSetsEqual } from '@/core/quiz/quiz-answer-format';
+import {
+  createMcqStudentAnswerFromIndexes,
+  evaluateQuestion,
+  calculateUnessFormatStats,
+  evaluateMcqQuestion,
+  getQuestionFormatStudentInstruction,
+  getQuestionSelectionLimit,
+  normalizePersistedQuestion,
+  type EvaluationResult,
+  type EvaluationStatus,
+  type HotspotPoint,
+  type Question,
+  type ShortAnswerQuestion,
+} from '@/core/questions';
 import type { TrainingQuestion } from '@/core/training';
 import type { TrainingChoiceContent } from '@/core/training/training-choice-content';
 import {
@@ -31,9 +45,13 @@ import {
 } from '@/core/training/training-choice-ordering';
 import { hasChoiceExplanations } from '@/core/training/training-choice-explanations';
 import { cn } from '@/lib/utils';
+import { HotspotQuestionView } from './hotspot-question-view';
+import { LongChoiceListView } from './long-choice-list-view';
 import { MathContent } from './math-content';
+import { QuestionFormatBadge } from './question-format-badge';
 import { TrainingChoiceContentView } from './training-choice-content-view';
 import { TrainingQuestionContentView } from './training-question-content-view';
+import { UnessFormatStatsView } from './uness-format-stats-view';
 
 type QuizSessionProps = {
   questions: TrainingQuestion[];
@@ -135,16 +153,14 @@ const getQuestionNavigationStatus = ({
   correctionMode,
   isReviewMode,
   isAnswered,
-  selectedChoiceIndexes,
-  correctChoiceIndexes,
+  evaluationStatus,
   index,
   currentIndex,
 }: {
   correctionMode: 'instant' | 'final';
   isReviewMode: boolean;
   isAnswered: boolean;
-  selectedChoiceIndexes: number[];
-  correctChoiceIndexes: number[];
+  evaluationStatus: EvaluationStatus | null;
   index: number;
   currentIndex: number;
 }): QuestionNavigationStatus => {
@@ -160,9 +176,7 @@ const getQuestionNavigationStatus = ({
     return 'answered';
   }
 
-  return areChoiceIndexSetsEqual(selectedChoiceIndexes, correctChoiceIndexes)
-    ? 'correct'
-    : 'incorrect';
+  return evaluationStatus === 'correct' ? 'correct' : 'incorrect';
 };
 
 const getQuestionNavigationButtonClassName = (
@@ -223,6 +237,17 @@ const finalQuestionNavigationLegendItems: Array<{
   },
 ];
 
+const getQuestionNavigationLegendItems = ({
+  correctionMode,
+  isReviewMode,
+}: {
+  correctionMode: 'instant' | 'final';
+  isReviewMode: boolean;
+}) =>
+  correctionMode === 'final' && !isReviewMode
+    ? finalQuestionNavigationLegendItems
+    : instantQuestionNavigationLegendItems;
+
 const hashString = (value: string) => {
   let hash = 0;
 
@@ -239,6 +264,33 @@ const formatChoiceLetters = (choiceIndexes: number[]) =>
         .map((choiceIndex) => String.fromCharCode(65 + choiceIndex))
         .join(', ')
     : 'Aucune';
+
+const formatShortAnswerExpectedAnswer = (question: ShortAnswerQuestion) => {
+  if (question.answerType === 'number') {
+    if (!question.numericAnswer) {
+      return 'Réponse numérique non configurée';
+    }
+
+    const unit = question.numericAnswer.unit ? ` ${question.numericAnswer.unit}` : '';
+    const tolerance =
+      question.numericAnswer.tolerance !== undefined
+        ? ` (tolérance ±${question.numericAnswer.tolerance})`
+        : '';
+
+    return `${question.numericAnswer.value}${unit}${tolerance}`;
+  }
+
+  const acceptedAnswers = question.acceptedAnswers?.map((answer) => answer.value) ?? [];
+
+  return acceptedAnswers.length > 0
+    ? acceptedAnswers.join(' / ')
+    : 'Réponse attendue non configurée';
+};
+
+const formatShortAnswerUserAnswer = (value: string) => {
+  const trimmedValue = value.trim();
+  return trimmedValue.length > 0 ? trimmedValue : 'Sans réponse';
+};
 
 const getAdminQuestionEditHref = (questionId: string) =>
   `/admin/training/quiz-questions/${questionId}/edit`;
@@ -359,7 +411,7 @@ const prepareQuestions = (questions: TrainingQuestion[], variant: number) => {
       variant
     );
 
-    return {
+    const preparedQuestion = {
       ...question,
       choices: rotatedQuestionChoices.entries.map(({ choice }) => choice),
       choiceExplanations: rotatedQuestionChoices.entries.map(
@@ -367,7 +419,63 @@ const prepareQuestions = (questions: TrainingQuestion[], variant: number) => {
       ),
       correctChoiceIndexes: rotatedQuestionChoices.correctChoiceIndexes,
     };
+
+    return {
+      ...preparedQuestion,
+      canonicalQuestion: normalizeTrainingQuestionForEvaluation(preparedQuestion),
+    };
   });
+};
+
+function normalizeTrainingQuestionForEvaluation(question: TrainingQuestion) {
+  return normalizePersistedQuestion({
+    id: question.id,
+    questionType: question.questionType,
+    answerPayload: question.answerPayload,
+    question: question.question,
+    choices: question.choices,
+    answerFormat: question.answerFormat,
+    correctChoiceIndexes: question.correctChoiceIndexes,
+    explanation: question.explanation,
+    choiceExplanations: question.choiceExplanations,
+  });
+}
+
+const getUnansweredEvaluation = (question: TrainingQuestion['canonicalQuestion']): EvaluationResult => ({
+  questionId: question.id,
+  status: 'unanswered',
+  score: 0,
+  maxScore: question.points ?? 1,
+  details: {
+    questionType: question.type,
+    reason: 'question-renderer-not-implemented',
+  },
+});
+
+const isQuestionAnswered = ({
+  question,
+  selectedChoiceIndexes,
+  shortAnswerValue,
+  hotspotPoint,
+}: {
+  question: Question;
+  selectedChoiceIndexes: readonly number[];
+  shortAnswerValue: string;
+  hotspotPoint?: HotspotPoint | null;
+}) => {
+  if (question.type === 'mcq') {
+    return selectedChoiceIndexes.length > 0;
+  }
+
+  if (question.type === 'short-answer') {
+    return shortAnswerValue.trim().length > 0;
+  }
+
+  if (question.type === 'hotspot') {
+    return hotspotPoint !== null && hotspotPoint !== undefined;
+  }
+
+  return false;
 };
 
 const getSummaryFeedback = (
@@ -379,7 +487,7 @@ const getSummaryFeedback = (
   if (ratio === 1) {
     return {
       title: 'Maîtrise très solide.',
-      message: 'Toutes les réponses sont justes. Les notions de ce QCM sont bien installées.',
+      message: 'Toutes les réponses sont justes. Les notions de ce quiz sont bien installées.',
       toneClassName:
         'border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
     };
@@ -414,7 +522,7 @@ const getSummaryFeedback = (
 
   return {
     title: 'Repars pas à pas.',
-    message: 'Relis calmement les explications, puis refais le QCM question par question pour reconstruire la méthode.',
+    message: 'Relis calmement les explications, puis refais le quiz question par question pour reconstruire la méthode.',
     toneClassName:
       'border-rose-200 bg-rose-50 text-rose-950 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
   };
@@ -549,16 +657,84 @@ export function QuizSession({
   const [selectedChoiceIndexesByQuestion, setSelectedChoiceIndexesByQuestion] = useState<Array<number[]>>(
     () => questions.map(() => [])
   );
+  const [shortAnswerValuesByQuestion, setShortAnswerValuesByQuestion] = useState<string[]>(
+    () => questions.map(() => '')
+  );
+  const [hotspotPointsByQuestion, setHotspotPointsByQuestion] = useState<Array<HotspotPoint | null>>(
+    () => questions.map(() => null)
+  );
   const [submittedAnswers, setSubmittedAnswers] = useState<boolean[]>(
     () => questions.map(() => false)
   );
   const [viewMode, setViewMode] = useState<QuizViewMode>('taking');
   const [themePageIndex, setThemePageIndex] = useState(0);
+  const canonicalQuestions = useMemo(
+    () => sessionQuestions.map((question) => question.canonicalQuestion),
+    [sessionQuestions]
+  );
+  const evaluationsByQuestion = useMemo(
+    () =>
+      canonicalQuestions.map((question, index) => {
+        if (question.type === 'mcq') {
+          return evaluateMcqQuestion(
+            question,
+            createMcqStudentAnswerFromIndexes({
+              question,
+              selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
+            })
+          );
+        }
+
+        if (question.type === 'short-answer') {
+          return evaluateQuestion(question, {
+            questionId: question.id,
+            type: 'short-answer',
+            rawValue: shortAnswerValuesByQuestion[index] ?? '',
+          });
+        }
+
+        if (question.type === 'hotspot') {
+          const point = hotspotPointsByQuestion[index];
+          return evaluateQuestion(question, {
+            questionId: question.id,
+            type: 'hotspot',
+            points: point ? [point] : [],
+          });
+        }
+
+        return getUnansweredEvaluation(question);
+      }),
+    [canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion]
+  );
+
+  const isFinalCorrectionOnly = correctionMode === 'final';
+  const isReviewMode = viewMode === 'review';
+
+  const unessFormatStats = useMemo(
+    () =>
+      calculateUnessFormatStats(
+        canonicalQuestions.map((question, index) => ({
+          question,
+          evaluation: evaluationsByQuestion[index],
+          answered: (isFinalCorrectionOnly
+            ? isQuestionAnswered({
+                question,
+                selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
+                shortAnswerValue: shortAnswerValuesByQuestion[index] ?? '',
+                hotspotPoint: hotspotPointsByQuestion[index] ?? null,
+              })
+            : submittedAnswers[index]) ?? false,
+        }))
+      ),
+    [canonicalQuestions, evaluationsByQuestion, isFinalCorrectionOnly, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion, submittedAnswers]
+  );
 
   if (sessionQuestions.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted-foreground">
-        Aucun QCM publi&eacute; pour ce chapitre pour le moment.
+      <div className="rounded-2xl border border-dashed border-border bg-card p-6">
+        <p className="text-center text-sm text-muted-foreground">
+          Aucun quiz publié pour ce chapitre pour le moment.
+        </p>
       </div>
     );
   }
@@ -569,13 +745,27 @@ export function QuizSession({
     ? getSharedStatementTitle(sessionQuestions, currentGroup.id, currentGroup.title)
     : null;
   const isPathMode = Boolean(pathContext);
-  const isFinalCorrectionOnly = correctionMode === 'final';
-  const isReviewMode = viewMode === 'review';
+  const answeredByQuestion = canonicalQuestions.map((question, index) =>
+    isQuestionAnswered({
+      question,
+      selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
+      shortAnswerValue: shortAnswerValuesByQuestion[index] ?? '',
+      hotspotPoint: hotspotPointsByQuestion[index] ?? null,
+    })
+  );
   const effectiveAnsweredByQuestion = isFinalCorrectionOnly
-    ? selectedChoiceIndexesByQuestion.map((selections) => selections.length > 0)
+    ? answeredByQuestion
     : submittedAnswers;
   const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
+  const currentShortAnswerValue = shortAnswerValuesByQuestion[currentIndex] ?? '';
+  const currentHotspotPoint = hotspotPointsByQuestion[currentIndex] ?? null;
+  const currentCanonicalQuestion = canonicalQuestions[currentIndex];
+  const currentEvaluation = evaluationsByQuestion[currentIndex];
   const hasAnswered = effectiveAnsweredByQuestion[currentIndex] ?? false;
+  const questionNavigationLegendItems = getQuestionNavigationLegendItems({
+    correctionMode,
+    isReviewMode,
+  });
   const missedChoiceIndexes = currentQuestion.correctChoiceIndexes.filter(
     (choiceIndex) => !currentSelections.includes(choiceIndex)
   );
@@ -584,39 +774,54 @@ export function QuizSession({
   );
   const isAnswerLocked =
     isReviewMode || (!isFinalCorrectionOnly && (submittedAnswers[currentIndex] ?? false));
-  const isCorrect = areChoiceIndexSetsEqual(
-    currentSelections,
-    currentQuestion.correctChoiceIndexes
-  );
+  const isCorrect = currentEvaluation?.status === 'correct';
   const hasCurrentChoiceExplanations = hasChoiceExplanations(
     currentQuestion.choiceExplanations
   );
+  const currentMcqQuestion =
+    currentCanonicalQuestion?.type === 'mcq' ? currentCanonicalQuestion : null;
+  const currentFormatInstruction = currentCanonicalQuestion
+    ? getQuestionFormatStudentInstruction(currentCanonicalQuestion)
+    : null;
+  const currentSelectionLimit = currentMcqQuestion
+    ? getQuestionSelectionLimit(currentMcqQuestion)
+    : null;
+  const currentShortAnswerQuestion =
+    currentCanonicalQuestion?.type === 'short-answer' ? currentCanonicalQuestion : null;
+  const currentHotspotQuestion =
+    currentCanonicalQuestion?.type === 'hotspot' ? currentCanonicalQuestion : null;
+  const isCurrentMcqQuestion = currentMcqQuestion !== null;
+  const isCurrentShortAnswerQuestion = currentShortAnswerQuestion !== null;
+  const isCurrentHotspotQuestion = currentHotspotQuestion !== null;
+  const hasCurrentAnswer = currentCanonicalQuestion
+    ? isQuestionAnswered({
+        question: currentCanonicalQuestion,
+        selectedChoiceIndexes: currentSelections,
+        shortAnswerValue: currentShortAnswerValue,
+        hotspotPoint: currentHotspotPoint,
+      })
+    : false;
   const answeredCount = effectiveAnsweredByQuestion.filter(Boolean).length;
-  const score = sessionQuestions.reduce((total, question, index) => {
-    return effectiveAnsweredByQuestion[index] &&
-      areChoiceIndexSetsEqual(
-        selectedChoiceIndexesByQuestion[index] ?? [],
-        question.correctChoiceIndexes
-      )
-      ? total + 1
-      : total;
+  const score = evaluationsByQuestion.reduce((total, evaluation, index) => {
+    return effectiveAnsweredByQuestion[index] ? total + evaluation.score : total;
   }, 0);
+  const maxScore = evaluationsByQuestion.reduce((total, evaluation) => {
+    return total + evaluation.maxScore;
+  }, 0);
+  const correctQuestionsCount = sessionQuestions.filter(
+    (_, index) => effectiveAnsweredByQuestion[index] && evaluationsByQuestion[index]?.status === 'correct',
+  ).length;
   const isComplete = answeredCount === sessionQuestions.length;
-  const successRate = Math.round((score / sessionQuestions.length) * 100);
+  const successRate = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
   const clampedSuccessRate = Math.max(0, Math.min(successRate, 100));
-  const questionNavigationLegendItems = isFinalCorrectionOnly && !isReviewMode
-    ? finalQuestionNavigationLegendItems
-    : instantQuestionNavigationLegendItems;
   const selectedChoiceClassName =
     'border-brand bg-brand-soft/15 !text-foreground shadow-xs ring-2 ring-brand/20 dark:border-brand/70 dark:bg-brand/10 dark:!text-white dark:ring-brand/30';
   const targetScore = pathContext?.targetScore ?? 70;
   const hasReachedTarget = successRate >= targetScore;
   const incorrectQuestions: QuestionReviewItem[] = sessionQuestions.flatMap((question, index) => {
-    const selectedChoiceIndexes = selectedChoiceIndexesByQuestion[index] ?? [];
-
     if (
       effectiveAnsweredByQuestion[index] &&
-      areChoiceIndexSetsEqual(selectedChoiceIndexes, question.correctChoiceIndexes)
+      evaluationsByQuestion[index]?.status === 'correct'
     ) {
       return [];
     }
@@ -629,11 +834,9 @@ export function QuizSession({
     ];
   });
   const correctQuestions: QuestionReviewItem[] = sessionQuestions.flatMap((question, index) => {
-    const selectedChoiceIndexes = selectedChoiceIndexesByQuestion[index] ?? [];
-
     if (
       !effectiveAnsweredByQuestion[index] ||
-      !areChoiceIndexSetsEqual(selectedChoiceIndexes, question.correctChoiceIndexes)
+      evaluationsByQuestion[index]?.status !== 'correct'
     ) {
       return [];
     }
@@ -656,7 +859,7 @@ export function QuizSession({
     correctItems: correctQuestions,
     incorrectItems: incorrectQuestions,
   });
-  const summaryFeedback = getSummaryFeedback(score, sessionQuestions.length);
+  const summaryFeedback = getSummaryFeedback(score, maxScore > 0 ? maxScore : sessionQuestions.length);
   const themePageCount = Math.max(
     1,
     Math.ceil(themePerformanceItems.length / THEME_TABLE_PAGE_SIZE)
@@ -671,16 +874,16 @@ export function QuizSession({
       ? {
           title: 'Seuil atteint.',
           message: pathContext?.nextQuizHref
-            ? `🏆 Tu as atteint ${targetScore}% sur ce QCM. Tu peux passer à la suite, après avoir relu les éventuels points encore fragiles.`
+            ? `🏆 Tu as atteint ${targetScore}% sur ce quiz. Tu peux passer à la suite, après avoir relu les éventuels points encore fragiles.`
             : !pathContext?.isAuthenticated && pathContext?.hasLockedSections
-              ? `🏆 Tu as atteint ${targetScore}% sur ce QCM. Connecte-toi pour poursuivre le chapitre et conserver ta progression.`
-            : `🏆 Tu as atteint ${targetScore}% sur ce QCM. Le chapitre est terminé pour cette étape.`,
+              ? `🏆 Tu as atteint ${targetScore}% sur ce quiz. Connecte-toi pour poursuivre le chapitre et conserver ta progression.`
+            : `🏆 Tu as atteint ${targetScore}% sur ce quiz. Le chapitre est terminé pour cette étape.`,
           toneClassName:
             'border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
         }
       : {
           title: 'Seuil non atteint.',
-          message: `Tu n’as pas encore atteint ${targetScore}% sur ce QCM. Reprends les corrections et retravaille les questions ratées avant une nouvelle tentative.`,
+          message: `Tu n’as pas encore atteint ${targetScore}% sur ce quiz. Reprends les corrections et retravaille les questions ratées avant une nouvelle tentative.`,
           toneClassName:
             'border-amber-200 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-100',
         }
@@ -695,7 +898,7 @@ export function QuizSession({
   };
 
   const submitCurrentAnswer = () => {
-    if (isFinalCorrectionOnly || isAnswerLocked) return;
+    if (isFinalCorrectionOnly || isAnswerLocked || !hasCurrentAnswer) return;
 
     setSubmittedAnswers((previousAnswers) => {
       const nextAnswers = [...previousAnswers];
@@ -705,7 +908,7 @@ export function QuizSession({
   };
 
   const selectAnswer = (choiceIndex: number) => {
-    if (isAnswerLocked) return;
+    if (isAnswerLocked || !isCurrentMcqQuestion) return;
 
     if (currentQuestion.answerFormat === 'SINGLE') {
       updateCurrentSelections([choiceIndex]);
@@ -721,6 +924,14 @@ export function QuizSession({
       return;
     }
 
+    if (
+      !currentSelections.includes(choiceIndex) &&
+      currentSelectionLimit !== null &&
+      currentSelections.length >= currentSelectionLimit
+    ) {
+      return;
+    }
+
     updateCurrentSelections(
       currentSelections.includes(choiceIndex)
         ? currentSelections.filter((value) => value !== choiceIndex)
@@ -728,13 +939,33 @@ export function QuizSession({
     );
   };
 
+  const updateCurrentShortAnswer = (nextValue: string) => {
+    if (isAnswerLocked || !isCurrentShortAnswerQuestion) return;
+
+    setShortAnswerValuesByQuestion((previousValues) => {
+      const nextValuesByQuestion = [...previousValues];
+      nextValuesByQuestion[currentIndex] = nextValue;
+      return nextValuesByQuestion;
+    });
+  };
+
   const clearCurrentSelections = () => {
-    if (isAnswerLocked) return;
+    if (isAnswerLocked || !isCurrentMcqQuestion) return;
 
     setSelectedChoiceIndexesByQuestion((previousSelections) => {
       const nextSelections = [...previousSelections];
       nextSelections[currentIndex] = [];
       return nextSelections;
+    });
+  };
+
+  const clearCurrentShortAnswer = () => {
+    if (isAnswerLocked || !isCurrentShortAnswerQuestion) return;
+
+    setShortAnswerValuesByQuestion((previousValues) => {
+      const nextValuesByQuestion = [...previousValues];
+      nextValuesByQuestion[currentIndex] = '';
+      return nextValuesByQuestion;
     });
   };
 
@@ -750,6 +981,24 @@ export function QuizSession({
     setCurrentIndex(index);
   };
 
+  const updateCurrentHotspotPoint = (nextPoint: HotspotPoint | null) => {
+    if (isAnswerLocked || !isCurrentHotspotQuestion) return;
+
+    setHotspotPointsByQuestion((previousPoints) => {
+      const nextPoints = [...previousPoints];
+      nextPoints[currentIndex] = nextPoint;
+      return nextPoints;
+    });
+
+    if (!isFinalCorrectionOnly && nextPoint !== null) {
+      setSubmittedAnswers((previousAnswers) => {
+        const nextAnswers = [...previousAnswers];
+        nextAnswers[currentIndex] = true;
+        return nextAnswers;
+      });
+    }
+  };
+
   const resetQuiz = () => {
     const nextVariant = questionOrderVariant + 1;
 
@@ -757,20 +1006,22 @@ export function QuizSession({
     setSessionQuestions(prepareQuestions(questions, nextVariant));
     setCurrentIndex(0);
     setSelectedChoiceIndexesByQuestion(questions.map(() => []));
+    setShortAnswerValuesByQuestion(questions.map(() => ''));
+    setHotspotPointsByQuestion(questions.map(() => null));
     setSubmittedAnswers(questions.map(() => false));
     setViewMode('taking');
     setThemePageIndex(0);
   };
 
-  const openSummary = () => {
+  const openSummary = async () => {
     if (isPathMode && pathContext) {
-      void pathContext.onAttemptComplete?.({
+      await pathContext.onAttemptComplete?.({
         score,
         targetScore,
         totalQuestions: sessionQuestions.length,
       });
     } else {
-      void onAttemptComplete?.({
+      await onAttemptComplete?.({
         score,
         targetScore,
         totalQuestions: sessionQuestions.length,
@@ -798,7 +1049,7 @@ export function QuizSession({
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-current/80">
                     <Target className="h-4 w-4" />
-                    <p className="text-xs font-semibold uppercase tracking-wide">Bilan du QCM</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide">Bilan du quiz</p>
                   </div>
                   <h2 className="text-xl font-semibold text-heading">
                     {effectiveSummaryFeedback.title}
@@ -823,7 +1074,7 @@ export function QuizSession({
                     data-testid="quiz-restart"
                   >
                     <RotateCcw className="h-4 w-4" />
-                    Recommencer le QCM
+                    Recommencer le quiz
                   </Button>
                 </div>
               </div>
@@ -834,7 +1085,10 @@ export function QuizSession({
 
             <div className="flex flex-wrap items-center gap-2">
               <Badge variant="secondary">
-                Score {score}/{sessionQuestions.length}
+                Score {score}/{maxScore}
+              </Badge>
+              <Badge variant="outline">
+                {correctQuestionsCount}/{sessionQuestions.length} questions correctes
               </Badge>
               <Badge variant="outline">{successRate}% de réussite</Badge>
               {isPathMode ? (
@@ -846,7 +1100,7 @@ export function QuizSession({
 
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide opacity-70">
-                <span>Progression sur ce QCM</span>
+                <span>Progression sur ce quiz</span>
                 <span>{successRate}%</span>
               </div>
               <div className="relative h-2.5 rounded-full bg-background/70">
@@ -876,14 +1130,14 @@ export function QuizSession({
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Bonnes réponses
                 </p>
-                <p className="mt-2 text-2xl font-semibold">{score}</p>
+                <p className="mt-2 text-2xl font-semibold">{correctQuestionsCount}</p>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Questions à retravailler
                 </p>
                 <p className="mt-2 text-2xl font-semibold">
-                  {sessionQuestions.length - score}
+                  {incorrectQuestions.length}
                 </p>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">
@@ -941,6 +1195,8 @@ export function QuizSession({
             </div>
           </div>
         </div>
+
+        <UnessFormatStatsView stats={unessFormatStats} />
 
         <Separator />
 
@@ -1164,13 +1420,19 @@ export function QuizSession({
     >
       <div className="space-y-3">
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <div>
+          <div className="space-y-2">
             <p
               data-testid="quiz-question-counter"
               className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
             >
               {isReviewMode ? 'Correction · ' : ''}Question {currentIndex + 1} / {sessionQuestions.length}
             </p>
+            <QuestionFormatBadge question={currentCanonicalQuestion} />
+            {currentFormatInstruction ? (
+              <p className="max-w-2xl text-sm text-muted-foreground">
+                {currentFormatInstruction}
+              </p>
+            ) : null}
           </div>
           <div className="flex flex-wrap items-center justify-end gap-2">
             <Badge variant="secondary">
@@ -1194,7 +1456,7 @@ export function QuizSession({
         </div>
 
         <nav
-          aria-label="Navigation entre les questions du QCM"
+          aria-label="Navigation entre les questions du quiz"
           className="space-y-2"
         >
           <div className="flex overflow-hidden rounded-xl border border-border bg-background">
@@ -1220,9 +1482,7 @@ export function QuizSession({
                     correctionMode,
                     isReviewMode,
                     isAnswered: effectiveAnsweredByQuestion[index] ?? false,
-                    selectedChoiceIndexes:
-                      selectedChoiceIndexesByQuestion[index] ?? [],
-                    correctChoiceIndexes: question.correctChoiceIndexes,
+                    evaluationStatus: evaluationsByQuestion[index]?.status ?? null,
                     index,
                     currentIndex,
                   });
@@ -1303,7 +1563,7 @@ export function QuizSession({
         />
       </div>
 
-      {isReviewMode ? (
+      {isReviewMode && isCurrentMcqQuestion ? (
         <div className="grid gap-3 rounded-xl border border-border bg-card p-4 text-sm md:grid-cols-2">
           <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -1334,97 +1594,200 @@ export function QuizSession({
         </div>
       ) : null}
 
-      <div className="grid gap-3">
-        {currentQuestion.choices.map((choice, choiceIndex) => {
-          const isSelected = currentSelections.includes(choiceIndex);
-          const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
-          const showSelectedAsIncorrect =
-            hasAnswered && isSelected && !isRightChoice &&
-            (isReviewMode || !isFinalCorrectionOnly);
-          const showSelectedAsAnswered =
-            isFinalCorrectionOnly && !isReviewMode && hasAnswered && isSelected;
-          const showAsCorrect =
-            isRightChoice &&
-            ((isReviewMode && isSelected) || (!isReviewMode && !isFinalCorrectionOnly && isAnswerLocked));
-          const showAsMissedExpected = isReviewMode && isRightChoice && !isSelected;
-
-          return (
-            <button
-              key={`${currentQuestion.id}-${choiceIndex}`}
-              type="button"
-              disabled={isAnswerLocked}
-              onClick={() => selectAnswer(choiceIndex)}
-              data-testid={`quiz-choice-${choiceIndex}`}
-              className={cn(
-                'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                !isAnswerLocked && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
-                showAsCorrect && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
-                isReviewMode && isSelected && isRightChoice && 'ring-2 ring-emerald-400/70',
-                showAsMissedExpected && 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100',
-                showSelectedAsIncorrect && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
-                showSelectedAsAnswered && selectedChoiceClassName,
-                !isAnswerLocked && isSelected && selectedChoiceClassName
-              )}
-            >
-              <span className="flex min-w-0 flex-1 items-baseline gap-3">
-                <span
-                  className={cn(
-                    'flex h-6 w-6 shrink-0 items-center justify-center self-baseline rounded-full border border-brand bg-brand text-xs font-semibold leading-none text-white shadow-xs',
-                    typeof choice !== 'string' && 'self-center',
-                  )}
-                >
-                  {String.fromCharCode(65 + choiceIndex)}
-                </span>
-                <span
-                  className={cn(
-                    'min-w-0 flex-1 self-baseline',
-                    typeof choice !== 'string' && 'self-center',
-                  )}
-                >
-                  <TrainingChoiceContentView choice={choice} />
-                </span>
+      {isReviewMode && currentShortAnswerQuestion ? (
+        <div className="space-y-3">
+          <div className="grid gap-3 rounded-xl border border-border bg-card p-4 text-sm md:grid-cols-2">
+            <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Ta réponse
+              </p>
+              <p className="mt-2 text-base font-semibold text-heading">
+                {formatShortAnswerUserAnswer(currentShortAnswerValue)}
+              </p>
+            </div>
+            <div className="rounded-lg border border-emerald-300/60 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950/40">
+              <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-200">
+                Réponse attendue
+              </p>
+              <p className="mt-2 text-base font-semibold text-emerald-950 dark:text-emerald-100">
+                {formatShortAnswerExpectedAnswer(currentShortAnswerQuestion)}
+              </p>
+            </div>
+          </div>
+          {currentShortAnswerQuestion.answerType === 'text' && (currentShortAnswerQuestion.acceptedAnswers?.length ?? 0) > 1 ? (
+            <div className="p-3 bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-xl text-xs space-y-1.5">
+              <span className="font-semibold text-emerald-900 dark:text-emerald-200">
+                Variantes scientifiques acceptées :
               </span>
-              {showAsCorrect ? (
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-              ) : null}
-              {showSelectedAsIncorrect ? (
-                <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
-              ) : null}
-              {isReviewMode ? (
-                <span className="flex shrink-0 flex-wrap justify-end gap-1 self-start">
-                  {isSelected ? (
-                    <Badge
-                      variant="outline"
+              <div className="flex flex-wrap gap-1.5">
+                {currentShortAnswerQuestion.acceptedAnswers?.map((ans) => (
+                  <Badge key={ans.value} variant="outline" className="border-emerald-300 bg-background text-emerald-800 dark:border-emerald-800 dark:text-emerald-200">
+                    {ans.value}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+
+      {isCurrentMcqQuestion ? (
+        currentCanonicalQuestion?.format === 'QRPL' || currentQuestion.choices.length > 5 ? (
+          <LongChoiceListView
+            choices={currentQuestion.choices}
+            selectedIndexes={currentSelections}
+            correctIndexes={currentQuestion.correctChoiceIndexes}
+            selectionLimit={currentSelectionLimit}
+            onSelectChoice={selectAnswer}
+            isAnswerLocked={isAnswerLocked}
+            isReviewMode={isReviewMode}
+            isFinalCorrectionOnly={isFinalCorrectionOnly}
+            showCorrection={isReviewMode || (!isFinalCorrectionOnly && isAnswerLocked)}
+            testIdPrefix="quiz-choice"
+          />
+        ) : (
+          <div className="grid gap-3">
+            {currentQuestion.choices.map((choice, choiceIndex) => {
+              const isSelected = currentSelections.includes(choiceIndex);
+              const isRightChoice = currentQuestion.correctChoiceIndexes.includes(choiceIndex);
+              const isDisabledBySelectionLimit =
+                !isSelected &&
+                currentSelectionLimit !== null &&
+                currentSelections.length >= currentSelectionLimit;
+              const showSelectedAsIncorrect =
+                hasAnswered && isSelected && !isRightChoice &&
+                (isReviewMode || !isFinalCorrectionOnly);
+              const showSelectedAsAnswered =
+                isFinalCorrectionOnly && !isReviewMode && hasAnswered && isSelected;
+              const showAsCorrect =
+                isRightChoice &&
+                ((isReviewMode && isSelected) || (!isReviewMode && !isFinalCorrectionOnly && isAnswerLocked));
+              const showAsMissedExpected = isReviewMode && isRightChoice && !isSelected;
+
+              return (
+                <button
+                  key={`${currentQuestion.id}-${choiceIndex}`}
+                  type="button"
+                  disabled={isAnswerLocked || isDisabledBySelectionLimit}
+                  onClick={() => selectAnswer(choiceIndex)}
+                  data-testid={`quiz-choice-${choiceIndex}`}
+                  className={cn(
+                    'flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+                    !isAnswerLocked && !isDisabledBySelectionLimit && 'hover:border-brand/50 hover:bg-neutral-secondary-soft',
+                    isDisabledBySelectionLimit && 'cursor-not-allowed opacity-50',
+                    showAsCorrect && 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100',
+                    isReviewMode && isSelected && isRightChoice && 'ring-2 ring-emerald-400/70',
+                    showAsMissedExpected && 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100',
+                    showSelectedAsIncorrect && 'border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-100',
+                    showSelectedAsAnswered && selectedChoiceClassName,
+                    !isAnswerLocked && isSelected && selectedChoiceClassName
+                  )}
+                >
+                  <span className="flex min-w-0 flex-1 items-baseline gap-3">
+                    <span
                       className={cn(
-                        'text-[11px]',
-                        isRightChoice
-                          ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
-                          : 'border-rose-400 bg-rose-100 text-rose-900 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-100'
+                        'flex h-6 w-6 shrink-0 items-center justify-center self-baseline rounded-full border border-brand bg-brand text-xs font-semibold leading-none text-white shadow-xs',
+                        typeof choice !== 'string' && 'self-center',
                       )}
                     >
-                      Ton choix
-                    </Badge>
-                  ) : null}
-                  {isRightChoice ? (
-                    <Badge
-                      variant="outline"
+                      {String.fromCharCode(65 + choiceIndex)}
+                    </span>
+                    <span
                       className={cn(
-                        'text-[11px]',
-                        isSelected
-                          ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
-                          : 'border-amber-400 bg-amber-100 text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100'
+                        'min-w-0 flex-1 self-baseline',
+                        typeof choice !== 'string' && 'self-center',
                       )}
                     >
-                      Attendue
-                    </Badge>
+                      <TrainingChoiceContentView choice={choice} />
+                    </span>
+                  </span>
+                  {showAsCorrect ? (
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
                   ) : null}
-                </span>
-              ) : null}
-            </button>
-          );
-        })}
-      </div>
+                  {showSelectedAsIncorrect ? (
+                    <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
+                  ) : null}
+                  {isReviewMode ? (
+                    <span className="flex shrink-0 flex-wrap justify-end gap-1 self-start">
+                      {isSelected ? (
+                        <Badge
+                          variant="outline"
+                          className={cn(
+                            'text-[11px]',
+                            isRightChoice
+                              ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
+                              : 'border-rose-400 bg-rose-100 text-rose-900 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-100'
+                          )}
+                        >
+                          Ton choix
+                        </Badge>
+                      ) : null}
+                      {isRightChoice ? (
+                        <Badge
+                          variant="outline"
+                          className={cn(
+                            'text-[11px]',
+                            isSelected
+                              ? 'border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100'
+                              : 'border-amber-400 bg-amber-100 text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100'
+                          )}
+                        >
+                          Attendue
+                        </Badge>
+                      ) : null}
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
+        )
+      ) : currentShortAnswerQuestion ? (
+        <div
+          className={cn(
+            'space-y-3 rounded-xl border bg-background p-4',
+            isAnswerLocked && isCorrect
+              ? 'border-emerald-300 bg-emerald-50 dark:border-emerald-900 dark:bg-emerald-950/40'
+              : isAnswerLocked
+                ? 'border-amber-300 bg-amber-50 dark:border-amber-900 dark:bg-amber-950/40'
+                : 'border-border'
+          )}
+        >
+          <label
+            htmlFor={`short-answer-${currentQuestion.id}`}
+            className="text-sm font-semibold text-heading"
+          >
+            Ta réponse courte
+          </label>
+          <Input
+            id={`short-answer-${currentQuestion.id}`}
+            type="text"
+            inputMode={currentShortAnswerQuestion.answerType === 'number' ? 'decimal' : 'text'}
+            value={currentShortAnswerValue}
+            onChange={(event) => updateCurrentShortAnswer(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                submitCurrentAnswer();
+              }
+            }}
+            disabled={isAnswerLocked}
+            placeholder={
+              currentShortAnswerQuestion.answerType === 'number'
+                ? 'Ex. 7,4 ou 120 mmol/L'
+                : 'Saisis ta réponse'
+            }
+            data-testid="quiz-short-answer-input"
+          />
+          <p className="text-xs text-muted-foreground">
+            La correction compare ta réponse après normalisation, sans interprétation libre.
+          </p>
+        </div>
+      ) : (
+        <div className="rounded-xl border border-dashed border-border bg-card p-4 text-sm text-muted-foreground">
+          Ce type de question n’est pas encore rendu dans le player.
+        </div>
+      )}
 
       {(isReviewMode || (isAnswerLocked && !isFinalCorrectionOnly)) ? (
         <div
@@ -1446,9 +1809,17 @@ export function QuizSession({
                 Relis le détail des propositions ci-dessous.
               </p>
             ) : null}
-          </div>
-          {hasCurrentChoiceExplanations ? (
-            <div className="space-y-2 border-t border-current/15 pt-4">
+	          </div>
+	          {currentShortAnswerQuestion ? (
+	            <div className="rounded-lg border border-current/10 bg-background/60 p-3">
+	              <p className="mb-1 text-xs font-semibold uppercase tracking-wide opacity-70">
+	                Réponse acceptée
+	              </p>
+	              <MathContent value={formatShortAnswerExpectedAnswer(currentShortAnswerQuestion)} />
+	            </div>
+	          ) : null}
+	          {hasCurrentChoiceExplanations ? (
+	            <div className="space-y-2 border-t border-current/15 pt-4">
               <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                 Détail par proposition
               </p>
@@ -1490,8 +1861,8 @@ export function QuizSession({
           {answeredCount} {answeredCount > 1 ? 'questions traitées.' : 'question traitée.'}
           {isComplete
             ? isFinalCorrectionOnly
-              ? ' QCM terminé.'
-              : ` Score final : ${score}/${sessionQuestions.length}.`
+              ? ' Quiz terminé.'
+              : ` Score final : ${score}/${maxScore}.`
             : null}
         </p>
         <div className="flex flex-wrap gap-2">
@@ -1513,6 +1884,31 @@ export function QuizSession({
                   size="sm"
                   onClick={submitCurrentAnswer}
                   disabled={currentSelections.length === 0}
+                >
+                  Valider la réponse
+                </Button>
+              ) : null}
+            </>
+          ) : null}
+          {!isAnswerLocked && isCurrentShortAnswerQuestion ? (
+            <>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={clearCurrentShortAnswer}
+                disabled={currentShortAnswerValue.trim().length === 0}
+                data-testid="quiz-clear-short-answer"
+              >
+                Effacer la réponse
+              </Button>
+              {!isFinalCorrectionOnly ? (
+                <Button
+                  type="button"
+                  size="sm"
+                  onClick={submitCurrentAnswer}
+                  disabled={currentShortAnswerValue.trim().length === 0}
+                  data-testid="quiz-submit-short-answer"
                 >
                   Valider la réponse
                 </Button>

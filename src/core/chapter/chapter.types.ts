@@ -8,6 +8,7 @@ import {
   updateTrainingStructureSchema,
 } from "@/lib/validation";
 import type { QuizAnswerFormatValue } from "@/core/quiz/quiz-answer-format";
+import type { QuestionFormatCode } from "@/core/questions/question-format";
 import {
   chapterAssignmentContextTypeLabels,
   contentVerticalLabels,
@@ -115,7 +116,9 @@ export const chapterDetailInclude = {
       id: true,
       difficulty: true,
       question: true,
+      questionType: true,
       answerFormat: true,
+      answerPayload: true,
       correctChoiceIndexes: true,
       correctChoiceIndex: true,
       order: true,
@@ -199,6 +202,7 @@ export type QuizQuestionFormData = {
   id: string;
   chapterId: string;
   difficulty: QuizDifficulty;
+  questionFormat: QuestionFormatCode;
   answerFormat: QuizAnswerFormatValue;
   question: string;
   choices: string[];
@@ -206,6 +210,12 @@ export type QuizQuestionFormData = {
   correctChoiceIndex: number;
   explanation: string;
   choiceExplanations: string[];
+  shortAnswerType: "text" | "number";
+  acceptedAnswers: string;
+  numericAnswerValue: string;
+  numericAnswerTolerance: string;
+  numericAnswerUnit: string;
+  numericAnswerAcceptedUnits: string;
   order: number;
   isPublished: boolean;
 };

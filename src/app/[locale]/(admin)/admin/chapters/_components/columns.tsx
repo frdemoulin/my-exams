@@ -140,7 +140,7 @@ export const columns: ColumnDef<ChapterListItem>[] = [
   {
     id: "quizQuestionsCount",
     accessorFn: (row) => row._count.quizQuestions,
-    header: ({ column }) => <SortableHeader label="QCM" column={column} />,
+    header: ({ column }) => <SortableHeader label="QUESTIONS" column={column} />,
   },
   {
     accessorKey: "updatedAt",

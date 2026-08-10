@@ -4,6 +4,7 @@ import type {
   TrainingQuizStage,
 } from '@prisma/client';
 import type { QuizAnswerFormatValue } from '@/core/quiz/quiz-answer-format';
+import type { Question, QuestionType } from '@/core/questions';
 import type {
   TrainingChoiceContent,
   TrainingQuestionDiagramContent,
@@ -84,11 +85,14 @@ export type TrainingChapterListItem = {
 export type TrainingQuestion = {
   id: string;
   difficulty: QuizDifficulty;
+  questionType: QuestionType;
   answerFormat: QuizAnswerFormatValue;
   question: string;
   questionDiagram: TrainingQuestionDiagramContent | null;
   choices: TrainingChoiceContent[];
   correctChoiceIndexes: number[];
+  answerPayload: unknown | null;
+  canonicalQuestion: Question;
   explanation: string;
   choiceExplanations: string[];
   order: number;

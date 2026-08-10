@@ -57,13 +57,13 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
     0
   );
   const chapterQuizQuestionsExportHref = `/api/admin/chapters/${chapter.id}/quiz-questions-export?v=${chapter.updatedAt.getTime()}`;
-  const chapterQuizQuestionsExportFallbackFilename = `chapitre-${chapter.slug}-questions-qcm-${formatDownloadTimestamp(new Date())}.xlsx`;
+  const chapterQuizQuestionsExportFallbackFilename = `chapitre-${chapter.slug}-questions-entrainement-${formatDownloadTimestamp(new Date())}.xlsx`;
 
   return (
     <div className="w-full p-6">
       <AdminPageHeading
         title={chapter.title}
-        description="Consulte les informations principales du chapitre et gère sa structure pédagogique, ses rattachements et ses questions QCM."
+        description="Consulte les informations principales du chapitre et gère sa structure pédagogique, ses rattachements et ses questions d'entraînement."
         actions={
           <>
             <Button asChild variant="outline">

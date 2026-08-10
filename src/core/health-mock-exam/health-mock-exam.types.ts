@@ -1,5 +1,11 @@
 import type { QuizAnswerFormatValue } from "@/core/quiz/quiz-answer-format";
 import type {
+  EvaluationStatus,
+  Question,
+  QuestionType,
+  StudentAnswer,
+} from "@/core/questions";
+import type {
   TrainingChoiceContent,
   TrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
@@ -16,12 +22,16 @@ export type HealthMockExamPassageQuestion = {
   id: string;
   globalOrder: number;
   order: number;
+  questionType: QuestionType;
   answerFormat: QuizAnswerFormatValue;
   question: string;
   questionDiagram: TrainingQuestionDiagramContent | null;
   choices: TrainingChoiceContent[];
+  answerPayload: unknown | null;
+  canonicalQuestion: Question;
   group: HealthMockExamQuestionGroup | null;
   selectedChoiceIndexes: number[];
+  responsePayload: StudentAnswer | null;
   markedForReview: boolean;
 };
 
@@ -67,6 +77,9 @@ export type HealthMockExamResultQuestion = HealthMockExamPassageQuestion & {
   correctChoiceIndexes: number[];
   explanation: string;
   choiceExplanations: string[];
+  evaluationStatus: EvaluationStatus;
+  score: number;
+  maxScore: number;
 };
 
 export type HealthMockExamResults = {

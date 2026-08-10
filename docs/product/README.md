@@ -55,6 +55,18 @@ Guides pour la rédaction et l’indexation des contenus pédagogiques.
 - **cadrage-themes-sciences-physiques.md**  
   Cadrage éditorial pour renseigner les thèmes (Sciences physiques).
 
+### Cadrages Santé / UNESS
+Cadrages produit et pédagogiques pour les formats de questions Santé.
+
+- **cadrage-moteur-questions-uness.md**
+  Cadrage initial du moteur global de questions, du mode examen et état d'avancement.
+
+- **cadrage-formats-uness-quiz-entrainement.md**
+  Cadrage complémentaire sur la généralisation des formats UNESS aux quiz d'entrainement.
+
+- **cadrage-synthese-restant-formats-uness.md**
+  Synthèse opérationnelle des chantiers restant à implémenter sur les formats UNESS.
+
 ---
 
 ### Vocabulaire

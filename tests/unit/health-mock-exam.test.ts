@@ -15,11 +15,13 @@ function makeQuestion(globalOrder: number, order: number) {
     globalOrder,
     groupId: null,
     isPublished: true,
+    questionType: "mcq",
     question: `Énoncé original ${globalOrder}.`,
     choices: ["A", "B", "C", "D"],
     answerFormat: "SINGLE" as const,
     correctChoiceIndex: 0,
     correctChoiceIndexes: [0],
+    answerPayload: null,
     explanation: "Explication transversale.",
     choiceExplanations: ["A", "B", "C", "D"],
   };
@@ -33,9 +35,9 @@ function makeValidExam(): HealthMockExamValidationInput {
       teachingElementSlug: "chimie",
       title: "Chimie",
       order: 1,
-      questionCount: 40,
+      questionCount: 28,
       firstQuestion: 1,
-      lastQuestion: 40,
+      lastQuestion: 28,
     },
     {
       id: "biochemistry",
@@ -43,9 +45,9 @@ function makeValidExam(): HealthMockExamValidationInput {
       teachingElementSlug: "biochimie",
       title: "Biochimie",
       order: 2,
-      questionCount: 40,
-      firstQuestion: 41,
-      lastQuestion: 80,
+      questionCount: 34,
+      firstQuestion: 29,
+      lastQuestion: 62,
     },
     {
       id: "cell-biology",
@@ -53,8 +55,8 @@ function makeValidExam(): HealthMockExamValidationInput {
       teachingElementSlug: "biologie-cellulaire",
       title: "Biologie cellulaire",
       order: 3,
-      questionCount: 20,
-      firstQuestion: 81,
+      questionCount: 38,
+      firstQuestion: 63,
       lastQuestion: 100,
     },
   ];
@@ -74,9 +76,52 @@ function makeValidExam(): HealthMockExamValidationInput {
   };
 }
 
-test("la maquette UE14 40/40/20 complète est publiable", () => {
+test("la maquette UE14 28/34/38 complète est publiable", () => {
   const result = validateHealthMockExamForPublication(makeValidExam());
   assert.equal(result.isValid, true, result.issues.join("\n"));
+});
+
+test("la validation accepte une QROC avec une réponse attendue configurée", () => {
+  const exam = makeValidExam();
+  exam.sections[0].questions[0] = {
+    ...exam.sections[0].questions[0],
+    questionType: "short-answer",
+    choices: [],
+    answerFormat: "SINGLE",
+    correctChoiceIndex: -1,
+    correctChoiceIndexes: [],
+    answerPayload: {
+      answerType: "number",
+      numericAnswer: {
+        value: 7.4,
+        tolerance: 0.1,
+        unit: "pH",
+      },
+    },
+    choiceExplanations: [],
+  };
+
+  const result = validateHealthMockExamForPublication(exam);
+  assert.equal(result.isValid, true, result.issues.join("\n"));
+});
+
+test("la validation refuse une QROC sans réponse attendue", () => {
+  const exam = makeValidExam();
+  exam.sections[0].questions[0] = {
+    ...exam.sections[0].questions[0],
+    questionType: "short-answer",
+    choices: [],
+    answerFormat: "SINGLE",
+    correctChoiceIndex: -1,
+    correctChoiceIndexes: [],
+    answerPayload: {
+      answerType: "text",
+      acceptedAnswers: [],
+    },
+    choiceExplanations: [],
+  };
+
+  assert.equal(validateHealthMockExamForPublication(exam).isValid, false);
 });
 
 test("la validation refuse les erreurs de structure et les groupes liés incomplets", () => {
@@ -133,4 +178,59 @@ test("la notation applique une réponse exacte sans point partiel", () => {
     maxScore: 4,
     percentage: 25,
   });
+});
+
+test("la notation des examens blancs utilise le moteur global pour les QROC", () => {
+  const question = {
+    id: "qroc-number",
+    type: "short-answer" as const,
+    statement: "Donnez le pH physiologique.",
+    answerType: "number" as const,
+    numericAnswer: {
+      value: 7.4,
+      tolerance: 0.1,
+    },
+    scoring: {
+      strategy: "all-or-nothing" as const,
+    },
+  };
+
+  const result = scoreHealthMockExamAttempt([
+    {
+      examSectionId: "chemistry",
+      questions: [
+        {
+          question,
+          answer: {
+            questionId: "qroc-number",
+            type: "short-answer",
+            rawValue: "7,4",
+          },
+        },
+        {
+          question,
+          answer: {
+            questionId: "qroc-number",
+            type: "short-answer",
+            rawValue: "8",
+          },
+        },
+        {
+          question,
+          answer: {
+            questionId: "qroc-number",
+            type: "short-answer",
+            rawValue: "",
+          },
+        },
+      ],
+    },
+  ]);
+
+  assert.equal(result.score, 1);
+  assert.equal(result.maxScore, 3);
+  assert.equal(result.percentage, 33);
+  assert.equal(result.correctQuestionCount, 1);
+  assert.equal(result.incorrectQuestionCount, 1);
+  assert.equal(result.unansweredQuestionCount, 1);
 });
