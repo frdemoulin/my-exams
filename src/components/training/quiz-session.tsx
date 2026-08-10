@@ -1013,15 +1013,15 @@ export function QuizSession({
     setThemePageIndex(0);
   };
 
-  const openSummary = () => {
+  const openSummary = async () => {
     if (isPathMode && pathContext) {
-      void pathContext.onAttemptComplete?.({
+      await pathContext.onAttemptComplete?.({
         score,
         targetScore,
         totalQuestions: sessionQuestions.length,
       });
     } else {
-      void onAttemptComplete?.({
+      await onAttemptComplete?.({
         score,
         targetScore,
         totalQuestions: sessionQuestions.length,
