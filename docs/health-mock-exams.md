@@ -1,6 +1,6 @@
 # Examens blancs Santé
 
-Les examens blancs sont un parcours distinct des `TrainingQuiz`. Un QCM d'entraînement est rattaché à un chapitre et participe au suivi de progression. Un examen blanc est rattaché directement à une UE, se déroule en conditions d'examen et possède son propre historique de tentatives.
+Les examens blancs sont un parcours distinct des `TrainingQuiz`. Un quiz d'entraînement est rattaché à un chapitre et participe au suivi de progression. Un examen blanc est rattaché directement à une UE, se déroule en conditions d'examen et possède son propre historique de tentatives.
 
 ## UE14 Reims
 
@@ -31,6 +31,6 @@ Le seed refusera la publication si la durée, les quotas 28/34/38, l'ordre 1 à 
 
 ## Tentatives et correction
 
-Le démarrage crée une tentative `IN_PROGRESS` avec `deadlineAt` calculé côté serveur. Les réponses et marques de révision sont sauvegardées à chaque modification. À la soumission, ou dès que l'échéance serveur est dépassée, le serveur verrouille la tentative, applique la notation exacte des QCM et enregistre les résultats globaux et par EC.
+Le démarrage crée une tentative `IN_PROGRESS` avec `deadlineAt` calculé côté serveur. Les réponses et marques de révision sont sauvegardées à chaque modification. À la soumission, ou dès que l'échéance serveur est dépassée, le serveur verrouille la tentative, applique la notation des questions selon leur format et enregistre les résultats globaux et par EC.
 
 Les bonnes réponses, explications et scores ne sont chargés que par la page de résultats d'une tentative soumise. Une tentative terminée n'est plus modifiable et ne met pas à jour la progression des `TrainingQuiz`.

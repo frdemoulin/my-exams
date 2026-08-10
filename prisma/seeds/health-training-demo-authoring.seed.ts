@@ -70,7 +70,7 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     difficulty: "MEDIUM",
     format: "QRP",
     requiredSelectionCount: 2,
-    question: "Parmi les acides aminés suivants, sélectionnez les deux acides aminés possédant une chaîne latérale dicarboxylique (acides).",
+    question: "Sélectionnez les deux acides aminés dicarboxyliques.",
     choices: [
       {
         content: "Acide aspartique (Aspartate)",
@@ -103,7 +103,7 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     difficulty: "MEDIUM",
     format: "QRPL",
     requiredSelectionCount: 3,
-    question: "Parmi la liste suivante d'acides aminés, sélectionnez les trois acides aminés à chaîne latérale strictly aromatique.",
+    question: "Parmi la liste suivante d'acides aminés, sélectionnez les trois acides aminés à chaîne latérale strictement aromatique.",
     choices: [
       {
         content: "Phénylalanine",
