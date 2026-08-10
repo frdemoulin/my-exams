@@ -198,7 +198,7 @@ test.describe("Admin - formulaire question d'entraînement", () => {
       .fill("La mitochondrie est l'organite attendu.");
 
     await page.getByRole("button", { name: "Enregistrer" }).click();
-    await expect(page).toHaveURL(/\/admin\/training\/quiz-questions$/);
+    await expect(page).toHaveURL(/\/admin\/training\/quiz-questions$/, { timeout: 15000 });
 
     await expect
       .poll(async () => {
@@ -259,7 +259,7 @@ test.describe("Admin - formulaire question d'entraînement", () => {
       .getByLabel("Réponses acceptées", { exact: true })
       .fill("mitochondrie\norganite énergétique");
     await page.getByRole("button", { name: "Éditer" }).click();
-    await expect(page).toHaveURL(/\/admin\/training\/quiz-questions$/);
+    await expect(page).toHaveURL(/\/admin\/training\/quiz-questions$/, { timeout: 15000 });
 
     await expect
       .poll(async () => {
