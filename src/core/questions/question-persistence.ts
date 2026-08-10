@@ -175,13 +175,17 @@ export function normalizePersistedShortAnswerQuestion(
   input: PersistedQuestionInput,
 ): ShortAnswerQuestion {
   const payload = isRecord(input.answerPayload)
-    ? input.answerPayload as PersistedShortAnswerPayload
+    ? (input.answerPayload as PersistedShortAnswerPayload & Record<string, unknown>)
     : {};
   const numericAnswer = normalizeNumericShortAnswer(payload.numericAnswer);
   const answerType =
     payload.answerType === "number" || payload.answerType === "numeric" || numericAnswer
       ? "number"
       : "text";
+  const points = input.points ?? getOptionalNumber(payload.points) ?? 1;
+  const rawTags = input.tags ?? payload.tags;
+  const tags = Array.isArray(rawTags) ? normalizeStringArray(rawTags) : undefined;
+  const source = input.source ?? getOptionalString(payload.source);
 
   return {
     id: input.id ?? "",
@@ -189,9 +193,9 @@ export function normalizePersistedShortAnswerQuestion(
     format: normalizePersistedQuestionFormat(input),
     statement: input.statement ?? input.question ?? "",
     explanation: input.explanation ?? undefined,
-    points: input.points ?? 1,
-    tags: input.tags,
-    source: input.source,
+    points,
+    tags: tags && tags.length > 0 ? tags : undefined,
+    source,
     answerType,
     acceptedAnswers: normalizeAcceptedShortAnswers(payload.acceptedAnswers),
     numericAnswer,
@@ -273,11 +277,16 @@ export function normalizePersistedHotspotQuestion(
   input: PersistedQuestionInput,
 ): HotspotQuestion {
   const payload = isRecord(input.answerPayload)
-    ? input.answerPayload as PersistedHotspotPayload
+    ? (input.answerPayload as PersistedHotspotPayload & Record<string, unknown>)
     : {};
   const defaultTolerance =
     normalizePositiveNumber(payload.defaultTolerance) ??
     normalizePositiveNumber(payload.tolerance);
+
+  const points = input.points ?? getOptionalNumber(payload.points) ?? 1;
+  const rawTags = input.tags ?? payload.tags;
+  const tags = Array.isArray(rawTags) ? normalizeStringArray(rawTags) : undefined;
+  const source = input.source ?? getOptionalString(payload.source);
 
   return {
     id: input.id ?? "",
@@ -285,9 +294,9 @@ export function normalizePersistedHotspotQuestion(
     format: normalizePersistedQuestionFormat(input),
     statement: input.statement ?? input.question ?? "",
     explanation: input.explanation ?? undefined,
-    points: input.points ?? 1,
-    tags: input.tags,
-    source: input.source,
+    points,
+    tags: tags && tags.length > 0 ? tags : undefined,
+    source,
     image: normalizeHotspotImage(payload),
     expectedZones: normalizeHotspotZones(
       payload.zones ?? payload.expectedZones,
@@ -303,14 +312,26 @@ export function normalizePersistedHotspotQuestion(
 export function normalizePersistedQuestion(input: PersistedQuestionInput): Question {
   const questionFormat = normalizePersistedQuestionFormat(input);
   const questionType = getQuestionFormatRuntimeType(questionFormat) as QuestionType;
+  const answerPayload = isRecord(input.answerPayload) ? input.answerPayload : {};
+
+  const points = input.points ?? getOptionalNumber(answerPayload.points) ?? 1;
+  const rawTags = input.tags ?? answerPayload.tags;
+  const tags = Array.isArray(rawTags) ? normalizeStringArray(rawTags) : undefined;
+  const source = input.source ?? getOptionalString(answerPayload.source);
+
+  const enrichedInput: PersistedQuestionInput = {
+    ...input,
+    points,
+    tags: tags && tags.length > 0 ? tags : undefined,
+    source,
+  };
 
   if (questionType === "mcq") {
-    const answerPayload = isRecord(input.answerPayload) ? input.answerPayload : {};
     const requiredSelectionCount =
       input.requiredSelectionCount ?? getOptionalNumber(answerPayload.requiredSelectionCount);
 
     return normalizeLegacyMcqQuestion({
-      ...input,
+      ...enrichedInput,
       id: input.id ?? "",
       format: questionFormat,
       requiredSelectionCount,
@@ -318,11 +339,11 @@ export function normalizePersistedQuestion(input: PersistedQuestionInput): Quest
   }
 
   if (questionType === "short-answer") {
-    return normalizePersistedShortAnswerQuestion(input);
+    return normalizePersistedShortAnswerQuestion(enrichedInput);
   }
 
   if (questionType === "hotspot") {
-    return normalizePersistedHotspotQuestion(input);
+    return normalizePersistedHotspotQuestion(enrichedInput);
   }
 
   return {
@@ -331,8 +352,8 @@ export function normalizePersistedQuestion(input: PersistedQuestionInput): Quest
     format: questionFormat,
     statement: input.statement ?? input.question ?? "",
     explanation: input.explanation ?? undefined,
-    points: input.points ?? 1,
-    tags: input.tags,
-    source: input.source,
+    points,
+    tags: tags && tags.length > 0 ? tags : undefined,
+    source,
   } as Question;
 }

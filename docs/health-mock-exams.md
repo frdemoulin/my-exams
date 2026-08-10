@@ -16,7 +16,7 @@ Un groupe lié appartient à une `HealthMockExamSection`. Ses deux ou trois ques
 
 ## Création d'un sujet
 
-Ajouter le sujet complet et original dans `prisma/seeds/data/health-mock-exams-reims-ue14.ts`. Le type `HealthMockExamSeed` est défini dans `prisma/seeds/health-mock-exams.seed.ts`. Chaque question doit posséder un slug stable, quatre items, les réponses attendues, une explication transversale et une explication pour chacun des items.
+Ajouter le sujet complet et original dans `prisma/seeds/data/health-mock-exams-reims-ue14.ts`. Le type `HealthMockExamSeed` est défini dans `prisma/seeds/health-mock-exams.seed.ts`. Chaque QCM doit posséder un slug stable, quatre items, les réponses attendues, une explication transversale et une explication pour chacune des propositions.
 
 Les médias Markdown locaux sont vérifiés sous `public/` avant publication. Un seed publié valide est idempotent tant qu'il n'existe pas encore de tentative. Après la première tentative, une régénération est bloquée afin de préserver le sujet effectué.
 

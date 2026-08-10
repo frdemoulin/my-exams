@@ -55,6 +55,13 @@ export function compileHealthTrainingAuthorQuestion(
           ? question.requiredSelectionCount
           : undefined;
 
+      const answerPayload = {
+        ...(requiredSelectionCount !== undefined ? { requiredSelectionCount } : {}),
+        ...(question.points !== undefined ? { points: question.points } : {}),
+        ...(question.tags !== undefined ? { tags: question.tags } : {}),
+        ...(question.source !== undefined ? { source: question.source } : {}),
+      };
+
       return {
         ...baseCompiled,
         format: question.format,
@@ -65,11 +72,12 @@ export function compileHealthTrainingAuthorQuestion(
         correctChoiceIndexes,
         choiceExplanations,
         requiredSelectionCount,
+        answerPayload: Object.keys(answerPayload).length > 0 ? answerPayload : undefined,
       };
     }
 
     case "QROC": {
-      const answerPayload =
+      const basePayload =
         question.answer.type === "text"
           ? {
               answerType: "text" as const,
@@ -85,6 +93,13 @@ export function compileHealthTrainingAuthorQuestion(
                 acceptedUnits: question.answer.acceptedUnits,
               },
             };
+
+      const answerPayload = {
+        ...basePayload,
+        ...(question.points !== undefined ? { points: question.points } : {}),
+        ...(question.tags !== undefined ? { tags: question.tags } : {}),
+        ...(question.source !== undefined ? { source: question.source } : {}),
+      };
 
       return {
         ...baseCompiled,
@@ -112,6 +127,9 @@ export function compileHealthTrainingAuthorQuestion(
         image: question.image,
         expectedZones,
         defaultTolerance: question.defaultTolerance,
+        ...(question.points !== undefined ? { points: question.points } : {}),
+        ...(question.tags !== undefined ? { tags: question.tags } : {}),
+        ...(question.source !== undefined ? { source: question.source } : {}),
       };
 
       return {

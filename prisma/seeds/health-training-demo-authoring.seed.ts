@@ -1,11 +1,11 @@
-import type { HealthTrainingAuthorQuestion } from "@/core/questions";
+import type { HealthTrainingAuthorQuestion } from "@/core/questions/health-authoring";
 
 export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] = [
   {
     order: 1,
     difficulty: "EASY",
     format: "QRU",
-    question: "Quelle est la principale organite responsable de la synthèse d'ATP lors de la respiration cellulaire ?",
+    question: "Quel est le principal organite responsable de la synthèse d'ATP lors de la respiration cellulaire ?",
     choices: [
       {
         content: "Appareil de Golgi",
@@ -29,6 +29,9 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
       },
     ],
     explanation: "La mitochondrie possède une membrane interne repliée en crêtes contenant la chaîne de transport des électrons et l'ATP synthétase.",
+    points: 1,
+    tags: ["cytologie", "bioénergétique"],
+    source: "Banque d'entraînement UE14",
   },
   {
     order: 2,
@@ -58,36 +61,42 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
       },
     ],
     explanation: "Les doubles liaisons des acides gras naturels sont majoritairement de configuration cis, abaissant le point de fusion.",
+    points: 2,
+    tags: ["biochimie", "lipides"],
+    source: "Annales Reims 2023",
   },
   {
     order: 3,
     difficulty: "MEDIUM",
     format: "QRP",
     requiredSelectionCount: 2,
-    question: "Sélectionnez les deux enzymes clés régulatrices et irréversibles de la glycolyse.",
+    question: "Parmi les acides aminés suivants, sélectionnez les deux acides aminés possédant une chaîne latérale dicarboxylique (acides).",
     choices: [
       {
-        content: "Phosphofructokinase-1 (PFK-1)",
+        content: "Acide aspartique (Aspartate)",
         correct: true,
-        explanation: "La PFK-1 est l'enzyme clé régulatrice majeure de la glycolyse.",
+        explanation: "L'aspartate possède un groupement β-carboxyle (pKa ~ 3,9).",
       },
       {
-        content: "Phosphoglucose isomérase",
+        content: "Lysine",
         correct: false,
-        explanation: "C'est une réaction réversible proche de l'équilibre.",
+        explanation: "La lysine possède une chaîne latérale aliphatique basique.",
       },
       {
-        content: "Pyruvate kinase",
+        content: "Acide glutamique (Glutamate)",
         correct: true,
-        explanation: "La pyruvate kinase catalyse la troisième étape irréversible produisant de l'ATP.",
+        explanation: "Le glutamate possède un groupement γ-carboxyle (pKa ~ 4,3).",
       },
       {
-        content: "Aldolase",
+        content: "Alanine",
         correct: false,
-        explanation: "L'aldolase catalyse un clivage réversible du fructose-1,6-bisphosphate.",
+        explanation: "L'alanine possède un groupement méthyle neutre.",
       },
     ],
-    explanation: "La glycolyse comporte 3 réactions irréversibles catalysées par l'hexokinase/glucokinase, la PFK-1 et la pyruvate kinase.",
+    explanation: "L'aspartate et le glutamate sont les deux seuls acides aminés dicarboxyliques chargés négativement à pH physiologique.",
+    points: 2,
+    tags: ["biochimie", "acides-amines"],
+    source: "Annales Reims 2024",
   },
   {
     order: 4,
@@ -148,6 +157,8 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
       },
     ],
     explanation: "Les 3 acides aminés aromatiques sont la Phénylalanine, la Tyrosine et le Tryptophane. Ils absorbent les UV à 280 nm.",
+    points: 3,
+    tags: ["biochimie", "acides-amines"],
   },
   {
     order: 5,
@@ -161,7 +172,6 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
         "réticulum endoplasmique granuleux",
         "RER",
         "REG",
-        "reticulum endoplasmique rugueux",
       ],
       normalization: {
         trim: true,
@@ -170,41 +180,47 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
         ignoreAccents: true,
       },
     },
-    explanation: "La N-glycosylation débute dans la lumière du RER/REG par le transfert en bloc d'un oligosaccharide composé de 14 oses.",
+    explanation: "La N-glycosylation débute dans le RER/REG par le transfert d'un oligosaccharide précurseur à 14 oses.",
+    points: 1,
+    tags: ["biologie-cellulaire"],
   },
   {
     order: 6,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: "Quelle est la valeur cible du pH physiologique moyen du sang artériel chez l'humain ?",
+    question: "Quelle est la valeur physiologique moyenne du pH sanguin artériel chez l'humain ?",
     answer: {
       type: "number",
       value: 7.4,
       tolerance: 0.05,
       unit: "pH",
     },
-    explanation: "Le pH du sang artériel est strictement régulé entre 7,35 et 7,45 (moyenne 7,40).",
+    explanation: "Le pH du sang artériel est strictement régulé entre 7,35 et 7,45.",
+    points: 1,
+    tags: ["physiologie"],
   },
   {
     order: 7,
     difficulty: "HARD",
     format: "QZONE",
-    question: "Cliquez sur la mitochondrie au sein de ce schéma d'organisation cellulaire.",
+    question: "Cliquez sur la mitochondrie dans le schéma de la cellule ci-dessous.",
     image: {
-      src: "/images/training/demo/cell-structure-demo.png",
-      alt: "Schéma interactif d'une cellule animale",
+      src: "/images/training/histologie/cellule-animale.png",
+      alt: "Schéma d'organisation d'une cellule animale",
       width: 800,
       height: 600,
     },
     expectedZones: [
       {
-        id: "mitochondrie-target",
+        id: "target-mitochondrie",
         label: "Mitochondrie",
         x: 0.45,
         y: 0.6,
         tolerance: 0.08,
       },
     ],
-    explanation: "La zone ciblée à (x=0,45, y=0,60) correspond à la mitochondrie identifiable par ses crêtes membranaires internes.",
+    explanation: "La mitochondrie se reconnaît notamment à sa double membrane et à ses crêtes membranaires internes.",
+    points: 2,
+    tags: ["histologie", "biologie-cellulaire"],
   },
 ];
