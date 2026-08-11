@@ -1,4 +1,4 @@
-import { compileHealthTrainingAuthorQuestion } from '../../src/core/questions/index';
+import { compileHealthTrainingAuthorQuestion } from '@/core/questions/health-author-question-compiler';
 import type { LegacySeedQuestion, SeedQuestion } from './health-training-ue14.shared';
 
 export type { LegacySeedQuestion, SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
