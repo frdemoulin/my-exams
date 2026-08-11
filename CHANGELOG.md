@@ -1,3 +1,9 @@
+## [1.6.40](https://github.com/frdemoulin/my-exams/compare/v1.6.39...v1.6.40) (2026-08-11)
+
+### Bug Fixes
+
+* debug du déploiement Render (bis) ([fec3a7f](https://github.com/frdemoulin/my-exams/commit/fec3a7fdfa3e1ef416b8a16d2d39be7f48314f14))
+
 ## [1.6.39](https://github.com/frdemoulin/my-exams/compare/v1.6.38...v1.6.39) (2026-08-11)
 
 ### Bug Fixes
