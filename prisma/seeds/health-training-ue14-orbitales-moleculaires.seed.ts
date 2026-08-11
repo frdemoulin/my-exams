@@ -59,7 +59,7 @@ const shouldMoveChoiceLast = (choice: string) => {
   );
 };
 
-import { compileHealthTrainingAuthorQuestion } from '../../src/core/questions';
+import { compileHealthTrainingAuthorQuestion } from '../../src/core/questions/index';
 import type { LegacySeedQuestion } from './health-training-ue14.shared';
 
 const moveTrailingCatchAllChoiceLast = (rawQuestion: SeedQuestion): SeedQuestion => {
