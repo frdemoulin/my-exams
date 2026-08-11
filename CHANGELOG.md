@@ -1,3 +1,9 @@
+## [1.6.43](https://github.com/frdemoulin/my-exams/compare/v1.6.42...v1.6.43) (2026-08-11)
+
+### Bug Fixes
+
+* validation du moteur v2 de question ([6610d1c](https://github.com/frdemoulin/my-exams/commit/6610d1cdeced559261a028bffa9ab1e732ac4c42))
+
 ## [1.6.42](https://github.com/frdemoulin/my-exams/compare/v1.6.41...v1.6.42) (2026-08-11)
 
 ### Bug Fixes
