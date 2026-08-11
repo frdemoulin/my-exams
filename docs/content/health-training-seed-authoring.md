@@ -354,6 +354,40 @@ Les titres de quiz ne doivent pas inclure le nom du niveau (`Découverte`, `Entr
 ### Pas de quotas artificiels
 Ne pas appliquer de règles mécaniques (ex: "chaque quiz doit avoir 5 QCM et 2 QROC"). Le choix des formats dépend exclusivement de la compétence évaluée et de la nature de la matière (histologie, chimie, biochimie).
 
+### Absence de chronométrage dans les quiz d'entraînement
+Les quiz d'entraînement Santé (`DISCOVER`, `PRACTICE`, `MASTER`, `SYNTHESIS`) ne comportent **aucun chronométrage, compte à rebours ou durée maximale**, quel que soit leur stage. Le chronométrage apparaît à partir des colles et des examens blancs (consulter `docs/product/terminologie-entrainement-sante.md`).
+
+### Contextualisation médicale des quiz
+
+Lorsqu'un quiz de matière fondamentale (chimie, biophysique, biochimie, biologie cellulaire) utilise un contexte médical, ce contexte doit avoir un **véritable intérêt pédagogique** et donner du sens à la notion scientifique étudiée.
+
+#### 1. Contexte informatif vs amorce purement décorative
+- Éviter les formulations vides et purement décoratives telles que *« Dans un contexte médical... »* ou *« Dans un contexte de médecine nucléaire... »* si aucune information concrète n'est apportée ensuite.
+- Privilégier une information concrète et utile :
+  - ❌ `Dans un contexte de médecine nucléaire, on considère les nucléides...`
+  - ✅ `En médecine nucléaire, l'iode 123 est notamment utilisé pour l'exploration scintigraphique de la thyroïde, tandis que l'iode 131 peut être utilisé à visée thérapeutique.`
+
+#### 2. Proportionner le contexte au niveau du quiz
+- **Découverte (`DISCOVER`)** :
+  - 1 à 2 phrases courtes (~20 à 40 mots avant la donnée scientifique principale).
+  - Information médicale concrète avec un vocabulaire accessible pour une entrée rapide dans la question.
+  - Le contexte ne doit pas devenir un mini-cours clinique ni ralentir la lecture.
+- **Entraînement (`PRACTICE`)** :
+  - Situation clinique simple, résultat biologique, examen complémentaire ou application thérapeutique.
+- **Maîtrise (`MASTER`)** :
+  - Contextes plus riches et transversaux, proches d'une situation d'examen ou d'un raisonnement appliqué.
+
+#### 3. Règle d'or : Indépendance des compétences
+Dans une matière fondamentale, le contexte médical **ne doit pas rendre nécessaire une connaissance médicale qui n'appartient pas au périmètre évalué**.
+- *Exemple :* si la compétence évaluée est de calculer $\mathrm{N} = \mathrm{A} - \mathrm{Z}$, l'étudiant ne doit pas avoir besoin de connaître l'indication d'une scintigraphie pour répondre. Le contexte apporte du sens, mais la compétence évaluée reste scientifique.
+
+#### 4. Pas de sur-contextualisation systématique
+Toutes les questions n'ont pas besoin d'un contexte médical. Il convient de préserver la variété éditoriale entre :
+- questions directes et conceptuelles ;
+- questions calculatoires ;
+- questions avec contexte médical concrétisant l'usage en santé ;
+- groupes de questions et figures.
+
 ---
 
 ## 5. Procédure de validation d'un nouveau ZIP d'auteur (Codex / Gemini)
@@ -385,38 +419,133 @@ Lorsqu'un nouveau ZIP de chapitre révisé est fourni par ChatGPT :
 
 Cette section constitue la **référence canonique** des règles de composition TeX et de typographie scientifique pour la rédaction des seeds Santé sur My Exams.
 
-### 6.1. Notation atomistique
-Les symboles génériques et les grandeurs atomistiques définies par le cours se composent obligatoirement en **lettres droites** (`\mathrm{...}`) :
-- Symboles atomistiques : `\mathrm{A}` (nombre de masse), `\mathrm{Z}` (numéro atomique), `\mathrm{N}` (nombre de neutrons), `\mathrm{X}` (symbole d'élément).
-- Notation canonique d'un nucléide générique : `^{\mathrm{A}}_{\mathrm{Z}}\mathrm{X}`
-- Formules fondamentales : `\mathrm{A} = \mathrm{Z} + \mathrm{N}` et `\mathrm{N} = \mathrm{A} - \mathrm{Z}`.
+### 6.1. Principe fondamental : décision basée sur la signification scientifique
+Ne jamais décider du style typographique d'une lettre uniquement à partir de sa forme. La décision dépend exclusivement de sa **signification scientifique** :
+- Les symboles de **grandeurs physiques** sont en **italique** ($m, E, p, T$).
+- Les **constantes physiques** représentées par des grandeurs sont en **italique** ($e, c, h, G$).
+- Les **unités de mesure** sont en **caractères droits** (`\mathrm{...}`).
+- Les **symboles chimiques** sont en **caractères droits** (`\mathrm{...}`).
+- Les **indices descriptifs** sont en **caractères droits** ($k_{\mathrm B}, N_{\mathrm A}$).
+- Les conventions atomistiques, couches, sous-couches et nombres quantiques spécifiques adoptés par My Exams restent en **caractères droits**.
 
-Pour un nucléide réel, le symbole chimique et l'isotope s'écrivent également en caractères droits :
-- `^{131}_{53}\mathrm{I}`
-- `^{123}_{53}\mathrm{I}`
-- `^{10}\mathrm{B}`
-- `^{11}\mathrm{B}`
+> ⚠️ **Interdiction stricte :** Il ne faut **jamais** appliquer un remplacement TeX mécanique ou global par `\mathrm{...}` sans comprendre la sémantique de l'expression.
 
-> ❌ **Incorrect** : `$A = Z + N$`, `$N = A - Z$`, `$Z=53$`, `^{131}_{53}I`  
-> ✅ **Correct** : `$\mathrm{A} = \mathrm{Z} + \mathrm{N}$`, `$\mathrm{N} = \mathrm{A} - \mathrm{Z}$`, `$\mathrm{Z} = 53$`, `^{131}_{53}\mathrm{I}`
+---
 
-### 6.2. Couches électroniques
-Les noms des couches électroniques principales s'écrivent en majuscules droites via `\mathrm{...}` :
-- `\mathrm{K}`, `\mathrm{L}`, `\mathrm{M}`, `\mathrm{N}`.
+### 6.2. Grandeurs physiques (italique)
+Tout symbole représentant une grandeur physique conserve l'italique mathématique standard :
+- Charge élémentaire : `$e$`
+- Vitesse de la lumière : `$c$`
+- Constante de Planck : `$h$`
+- Constante gravitationnelle : `$G$`
+- Masse : `$m$`
+- Énergie : `$E$`
+- Pression : `$p$`
+- Température : `$T$`
+- Fréquence : `$\nu$`
+- Longueur d'onde : `$\lambda$`
 
-> ❌ **Incorrect** : `la couche K`  
-> ✅ **Correct** : `la couche $\mathrm{K}$`
+Exemples d'expressions correctes :
+- `$q = +e$`
+- `$q = -e$`
+- `$E = h\nu$`
+- `$E = mc^2$`
 
-### 6.3. Sous-couches et configurations électroniques
-Les lettres de sous-couche ($s, p, d, f$) s'écrivent en lettres droites via `\mathrm{...}` dans les expressions TeX :
-- `1\mathrm{s}^2`, `2\mathrm{p}^6`, `3\mathrm{d}^5`, `4\mathrm{f}`
-- `1\mathrm{s}^2\,2\mathrm{s}^2\,2\mathrm{p}^6`
+> ❌ **Incorrect** : `$\mathrm{e}$` (lorsque `e` désigne la charge élémentaire).  
+> ✅ **Correct** : `$e$` (en italique mathématique standard).
 
-> ❌ **Incorrect** : `$1s^2 2s^2 2p^6$`  
-> ✅ **Correct** : `$1\mathrm{s}^2\,2\mathrm{s}^2\,2\mathrm{p}^6$`
+---
 
-### 6.4. Nombres quantiques
-Les nombres quantiques respectent strictement les symboles canoniques du dépôt :
+### 6.3. Constantes physiques (généralement italique)
+Une constante physique est une grandeur physique dont la valeur est constante. Son symbole reste normalement en **italique** :
+- `$c$` (célérité dans le vide)
+- `$h$` (constante de Planck)
+- `$e$` (charge élémentaire)
+- `$G$` (constante de gravitation)
+- `$k$` (constante de Boltzmann en notation simple)
+- `$\alpha$` (constante de structure fine)
+
+> ⚠️ **Attention :** Ne jamais introduire la règle erronée *« constante = lettre droite »*. Cette règle serait scientifiquement et typographiquement incorrecte.
+
+---
+
+### 6.4. Indices descriptifs vs variables en indice
+Lorsqu'un indice est une abréviation ou un élément descriptif (et non une variable), il est composé en **caractères droits** (`\mathrm{...}`) :
+- Constante de Boltzmann : `$k_{\mathrm B}$`
+- Constante d'Avogadro : `$N_{\mathrm A}$`
+- Indice descriptif général : `$X_{\mathrm{description}}$`
+
+En revanche, si l'indice est lui-même une variable mathématique ou physique, il reste en **italique** :
+- Pression de la phase $i$ : `$p_i$`
+- Capacité thermique à volume constant : `$C_v$` (si $v$ est variable)
+
+La décision reste strictement **sémantique**.
+
+---
+
+### 6.5. Unités de mesure (caractères droits)
+Les symboles d'unités s'écrivent en **caractères droits** (`\mathrm{...}`), séparés de la valeur numérique par une espace fine TeX (`\,`) :
+- Mètre : `$\mathrm{m}$`
+- Seconde : `$\mathrm{s}$`
+- Kilogramme : `$\mathrm{kg}$`
+- Joule : `$\mathrm{J}$`
+- Coulomb : `$\mathrm{C}$`
+- Volt : `$\mathrm{V}$`
+- Mole : `$\mathrm{mol}$`
+- Unité de masse atomique : `$\mathrm{u}$`
+- Dalton : `$\mathrm{Da}$`
+
+Exemples complets :
+- `$10^{-15}\,\mathrm{m}$`
+- `$1\,\mathrm{u}$`
+- `$1{,}60 \times 10^{-19}\,\mathrm{C}$`
+- Symbole de l'Ångström : `$1\,\text{Å}$` (ou `$1\,\mathrm{\mathring{A}}$`), égal à `$10^{-10}\,\mathrm{m}$`.
+
+**Représentation des décimaux en français :** Dans les expressions TeX affichées à l'étudiant, la virgule décimale est encadrée par des accolades `{,}` afin de ne pas être interprétée comme un séparateur mathématique TeX (ce qui ajouterait une espace indésirable) :
+- `$0{,}20 \times 10 + 0{,}80 \times 11 = 10{,}8\,\mathrm{u}$`
+- *(Note : dans la valeur informatique `answer.value` des QROC numériques, utiliser la notation JavaScript standard `10.8`).*
+
+---
+
+### 6.6. Symboles chimiques et nucléides concrets (`mhchem` / `\ce{...}`)
+Pour les nucléides réels et les formules chimiques concrètes, utiliser impérativement la notation `mhchem` via la commande `\ce{...}` intégrée par KaTeX dans My Exams.
+
+#### Exemples canoniques de nucléides concrets :
+- Carbone 14 : `\ce{^{14}_{6}C}`
+- Iode 131 : `\ce{^{131}_{53}I}`
+- Iode 123 : `\ce{^{123}_{53}I}`
+- Uranium 238 : `\ce{^{238}_{92}U}`
+- Bore 10 et 11 : `\ce{^{10}B}`, `\ce{^{11}B}`
+
+#### Interdiction des préscripts et bricolages manuels :
+Il est **strictement interdit** d'aligner les indices et exposants atomiques au moyen d'astuces d'espacement TeX ou CSS manuelles :
+- ❌ **Interdit :** `\phantom`, `\hspace`, espaces fines manuelles `\,`, blocs CSS ad hoc.
+- ✅ **Obligatoire :** `\ce{^{A}_{Z}X}` (ex: `\ce{^{131}_{53}I}`). `mhchem` gère automatiquement l'alignement typographique parfait à gauche du symbole chimique.
+
+---
+
+### 6.7. Distinction entre notation concrète (`\ce`) et notation générique ($\mathrm{A}/\mathrm{Z}/\mathrm{N}/\mathrm{X}$)
+Une distinction sémantique claire doit être faite entre un **nucléide concret** et une **formule atomistique générique/théorique** :
+
+1. **Nucléides et espèces chimiques réels/concrets :**
+   - Utiliser `\ce{...}` (ex: `\ce{^{131}_{53}I}`, `\ce{^{14}_{6}C}`, `\ce{H2O}`, `\ce{NaI(aq)}`).
+2. **Symboles et grandeurs atomistiques théoriques / génériques :**
+   - Utiliser la notation TeX droite `\mathrm{...}` du projet : `\mathrm{A}` (nombre de masse), `\mathrm{Z}` (numéro atomique), `\mathrm{N}` (nombre de neutrons), `\mathrm{X}` (élément générique).
+   - Formule générique d'un nucléide théorique : `^{\mathrm{A}}_{\mathrm{Z}}\mathrm{X}`.
+   - Équations atomistiques fondamentales : `\mathrm{A} = \mathrm{Z} + \mathrm{N}` et `\mathrm{N} = \mathrm{A} - \mathrm{Z}`.
+
+> 📌 **Point important :** `\mathrm{Z}` est droit lorsqu'il désigne la grandeur "numéro atomique", mais `$e$` reste en italique lorsqu'il désigne la charge élémentaire. Pour un nucléide réel comme l'iode-131, utiliser `\ce{^{131}_{53}I}`.
+
+---
+
+### 6.8. Couches, sous-couches et configurations électroniques
+- Noms de couches principales : `\mathrm{K}`, `\mathrm{L}`, `\mathrm{M}`, `\mathrm{N}`.
+- Sous-couches : `1\mathrm{s}^2`, `2\mathrm{p}^6`, `3\mathrm{d}^5`, `4\mathrm{f}`.
+- Configuration complète : `$1\mathrm{s}^2\,2\mathrm{s}^2\,2\mathrm{p}^6$`.
+
+---
+
+### 6.9. Nombres quantiques
 - Nombre quantique principal : `\mathrm{n}`
 - Nombre quantique secondaire (azimutal) : `\ell` (utiliser impérativement `\ell`)
 - Nombre quantique magnétique : `\mathrm{m}` ou `\mathrm{m}_{\ell}`
@@ -426,15 +555,59 @@ Les nombres quantiques respectent strictement les symboles canoniques du dépôt
 > ❌ **Incorrect** : `$n=2$, $l=1$, $m=0$`  
 > ✅ **Correct** : `$\mathrm{n} = 2$, $\ell = 1$, $\mathrm{m} = 0$`
 
-### 6.5. Unités, espaces et symboles
-- Les unités de mesure s'écrivent en caractères droits (`\mathrm{...}`) séparées de la valeur numérique par une espace fine TeX (`\,`) : `10^{-10}\,\mathrm{m}`, `10\,\mathrm{nm}`, `1\,\mathrm{u}`, `1\,\mathrm{Da}`.
-- Symbole de l'Ångström : `$1\,\text{Å}$` (ou `$1\,\mathrm{\mathring{A}}$`), égal à `$10^{-10}\,\mathrm{m}$`.
-- Représentation des décimaux en français : dans les expressions TeX affichées à l'étudiant, la virgule décimale est encadrée par des accolades `{,}` afin de ne pas être interprétée comme un séparateur mathématique TeX (qui ajouterait une espace indésirable) :
-  - `$0{,}20 \times 10 + 0{,}80 \times 11 = 10{,}8\,\mathrm{u}$`
-  - *(Note : dans la valeur informatique `answer.value` des QROC numériques, utiliser la notation JavaScript standard `10.8`).*
+---
 
-### 6.6. Interdiction des remplacements TeX mécaniques
-Il ne faut **jamais** appliquer un remplacement global aveugle de toutes les lettres par `\mathrm{...}`.
-- Les véritables variables mathématiques, variables d'équations, constantes physiques ou coordonnées doivent conserver l'italique mathématique standard (`x`, `y`, `t`, `pKa`, `\chi`, etc.).
-- La règle `\mathrm{...}` est strictement **sémantique** et réservée aux grandeurs atomistiques ($\mathrm{A}, \mathrm{Z}, \mathrm{N}, \mathrm{X}$), couches, sous-couches, nombres quantiques ($\mathrm{n}, \mathrm{m}, \mathrm{s}$) et unités.
+### 6.10. Fonctions, opérateurs et texte mathématique
+Une fonction mathématique, un opérateur ou une désignation textuelle n'est pas une variable. Ils s'écrivent en caractères droits ou via la commande dédiée :
+- Logarithme : `\ln`, `\log`
+- Exponentielle : `\exp(x)` ou `\mathrm{e}^x` (lorsqu'il s'agit de la fonction/base mathématique)
+- Trigonométrie : `\cos`, `\sin`, `\tan`
+- Texte dans une formule : `\text{...}` (ex: `1\,\text{Å}`)
+
+---
+
+### 6.11. Matrice de décision typographique
+
+Le tableau ci-dessous permet à un auteur ou à une IA de choisir rapidement le style approprié :
+
+| Nature du symbole | Style TeX | Exemple | Code TeX |
+|---|---|---|---|
+| **Grandeur physique** | italique | masse, énergie, charge, fréquence | `$m$`, `$E$`, `$e$`, `$p$`, `$\nu$` |
+| **Constante physique** | italique | charge $e$, constante $h$, célérité $c$ | `$e$`, `$h$`, `$c$`, `$G$` |
+| **Unité de mesure** | droit | mètre, joule, coulomb, d.a.u. | `$\mathrm{m}$`, `$\mathrm{J}$`, `$\mathrm{C}$`, `$\mathrm{u}$` |
+| **Nucléide concret (`mhchem`)** | `\ce{...}` | carbone-14, iode-131, uranium-238 | `\ce{^{14}_{6}C}`, `\ce{^{131}_{53}I}` |
+| **Élément chimique (isolé)** | droit / `\ce` | hydrogène, iode, bore | `\ce{H}`, `\ce{I}`, `\ce{B}` |
+| **Symbole atomistique My Exams** | droit | nombre de masse, numéro atomique | `\mathrm{A}`, `\mathrm{Z}`, `\mathrm{N}`, `\mathrm{X}` |
+| **Couche électronique** | droit | couche K, couche L | `\mathrm{K}`, `\mathrm{L}` |
+| **Sous-couche électronique** | droit | $1\mathrm{s}^2$, $2\mathrm{p}^6$ | `$1\mathrm{s}^2\,2\mathrm{p}^6$` |
+| **Nombre quantique** | droit / symbole | $\mathrm{n}$, $\ell$, $\mathrm{m}$, $\mathrm{s}$ | `\mathrm{n}`, `\ell`, `\mathrm{m}`, `\mathrm{s}` |
+| **Indice descriptif** | droit | constante de Boltzmann, Avogadro | `$k_{\mathrm B}$`, `$N_{\mathrm A}$`, `$X_{\mathrm{desc}}$` |
+| **Variable en indice** | italique | indice de sommation ou variable | `$p_i$`, `$x_k$` |
+
+---
+
+### 6.12. Exemple témoin : charge élémentaire ($e$) vs Coulomb ($\mathrm{C}$)
+
+- **Charge élémentaire :**
+  - ✅ `Le proton porte une charge positive $+e$.`
+  - ✅ `L'électron porte une charge négative $-e$.`
+  - ❌ `Le proton porte une charge positive $+\mathrm{e}$.` *(Incorrect car $e$ représente ici la grandeur physique).*
+- **Unité Coulomb :**
+  - ✅ `La charge de l'électron vaut $-1{,}602 \times 10^{-19}\,\mathrm{C}$.` *($\mathrm{C}$ est droit car il s'agit de l'unité Coulomb).*
+- **Combinaisons :**
+  - ✅ `+\mathrm{Z}e` *(Le numéro atomique $\mathrm{Z}$ est droit selon la convention atomistique My Exams, et la charge $e$ est en italique).*
+
+---
+
+### 6.13. Critère fondamental pour les futures IA
+
+> **Règle d'or :** Avant de choisir entre italique et caractère droit (`\mathrm{...}`), **déterminer ce que le symbole représente dans le contexte scientifique**.
+>
+> Une même lettre peut recevoir un style différent selon sa signification :
+> - `$\mathrm{N}$` : nombre de neutrons selon la convention atomistique My Exams.
+> - `$\mathrm{N}$` : symbole de l'élément azote (Nitrogène) en chimie.
+> - `$N$` : nombre de molécules ou variable mathématique dans un autre contexte.
+>
+> **La signification prévaut toujours sur la graphie brute.**
+
 
