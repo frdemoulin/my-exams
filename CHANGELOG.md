@@ -1,3 +1,12 @@
+## [1.6.42](https://github.com/frdemoulin/my-exams/compare/v1.6.41...v1.6.42) (2026-08-11)
+
+### Bug Fixes
+
+* **auth:** align impersonation JWT salt with HTTPS session cookie name ([d9aecc1](https://github.com/frdemoulin/my-exams/commit/d9aecc13ec16d12172a682e9dcab9ae78cbaaa07))
+* debug du déploiement Render ([6be940e](https://github.com/frdemoulin/my-exams/commit/6be940e00da073f37055bcd9e194290b1ac509e5))
+* debug du déploiement Render (fix) ([033d3b0](https://github.com/frdemoulin/my-exams/commit/033d3b03502c2526104c046f37aef7d8b0edefc0))
+* **docker:** copy /app/src to runner stage and validate migration imports during build ([f3e4372](https://github.com/frdemoulin/my-exams/commit/f3e43721f132c1fd090707c16127a5b2ecb35687))
+
 ## [1.6.41](https://github.com/frdemoulin/my-exams/compare/v1.6.40...v1.6.41) (2026-08-11)
 
 ### Bug Fixes
