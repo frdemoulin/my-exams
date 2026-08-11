@@ -311,7 +311,7 @@ export const UE14_CH2_LIAISONS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuesti
         explanation: `La réorganisation électronique présentée rend compte de la tétravalence du carbone.`,
       },
       {
-        content: `Dans $\\ce{PCl3}$, le phosphore forme trois liaisons avec les chlore.`,
+        content: `Dans $\\ce{PCl3}$, le phosphore forme trois liaisons avec les atomes de chlore.`,
         correct: true,
         explanation: `La configuration représentée laisse trois électrons célibataires.`,
       },

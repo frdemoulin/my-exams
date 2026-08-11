@@ -64,7 +64,7 @@ export const UE14_CH2_V2_QUIZ_MAP = [
     slug: 'sentrainer-liaisons-chimiques',
     title: `Liaisons chimiques`,
     description:
-      `Applications sur les règles de stabilité, la coordination, les moments dipolaires, la mésomérie et la rupture des liaisons.`,
+      `Applications sur les liaisons multiples, la coordination, les moments dipolaires, la mésomérie et la rupture des liaisons.`,
     stage: 'PRACTICE' as const,
     items: [
       { type: 'QUESTION' as const, questionOrder: 25 },
