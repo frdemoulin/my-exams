@@ -1,0 +1,1 @@
+{"google":{"id":"google","name":"Google","type":"oidc","signinUrl":"http://sante.lvh.me:3000/api/auth/signin/google","callbackUrl":"http://sante.lvh.me:3000/api/auth/callback/google"},"email":{"id":"email","name":"Email","type":"email","signinUrl":"http://sante.lvh.me:3000/api/auth/signin/email","callbackUrl":"http://sante.lvh.me:3000/api/auth/callback/email"}}

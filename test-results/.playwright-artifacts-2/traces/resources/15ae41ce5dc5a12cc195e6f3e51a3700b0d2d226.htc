@@ -1,0 +1,165 @@
+2:"$Sreact.fragment"
+4:I["[project]/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js"],"default"]
+6:I["[project]/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js"],"default"]
+c:I["[project]/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js"],"SegmentViewNode"]
+1d:I["[project]/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js"],"OutletBoundary"]
+1f:"$Sreact.suspense"
+2d:I["[project]/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js"],"ViewportBoundary"]
+37:I["[project]/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js"],"MetadataBoundary"]
+d:D"$11"
+d:D"$e"
+18:D"$1a"
+18:D"$19"
+18:D"$1c"
+18:["$","$L1d",null,{"children":["$","$1f",null,{"name":"Next.MetadataOutlet","children":"$@20"},"$19","$1e",1]},"$19","$1b",1]
+21:X
+23:D"$26"
+23:D"$24"
+23:D"$27"
+23:null
+28:D"$2a"
+28:D"$29"
+28:D"$2c"
+2e:D"$30"
+2e:D"$2f"
+28:["$","$L2d","24346181v",{"children":"$L2e"},"$29","$2b",1]
+31:D"$33"
+31:D"$32"
+31:D"$35"
+39:D"$3b"
+39:D"$3a"
+31:["$","div","24346181m",{"hidden":true,"children":["$","$L37",null,{"children":["$","$1f",null,{"name":"Next.Metadata","children":"$L39"},"$32","$38",1]},"$32","$36",1]},"$32","$34",1]
+0:{"f":[["children",["locale","fr","d",["api","uploads"]],"children","(public)","children","sante","children","ue","children",["courseUnitId","6a779fe046339e496fe720cf","d",[]],"children","examens-blancs",["examens-blancs",{"children":[["examSlug","fixture-uness-mixte","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4096]},"$undefined","$undefined",4096]},"$undefined","$undefined",4096],[["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{},null,"$5",1],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined","segmentViewBoundaries":["$undefined","$undefined","$undefined","$undefined"]},null,"$3",1]]},null,"$1",0],{"children":[["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{},null,"$9",1],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined","segmentViewBoundaries":["$undefined","$undefined","$undefined","$undefined"]},null,"$8",1]]},null,"$7",0],{"children":[["$","$2","c",{"children":[["$","$Lc","c-page",{"type":"page","pagePath":"[locale]/(public)/sante/ue/[courseUnitId]/examens-blancs/[examSlug]/page.tsx","children":"$Ld"},null,"$b",1],[["$","script","script-0",{"src":"/_next/static/chunks/src_1pzjfnw._.js","async":true,"nonce":"$undefined"},null,"$12",0],["$","script","script-1",{"src":"/_next/static/chunks/node_modules_next_1c72fmn._.js","async":true,"nonce":"$undefined"},null,"$13",0],["$","script","script-2",{"src":"/_next/static/chunks/node_modules_katex_dist_1fp367g._.js","async":true,"nonce":"$undefined"},null,"$14",0],["$","script","script-3",{"src":"/_next/static/chunks/node_modules_%40radix-ui_18opk3l._.js","async":true,"nonce":"$undefined"},null,"$15",0],["$","script","script-4",{"src":"/_next/static/chunks/node_modules_%40floating-ui_08aw1s3._.js","async":true,"nonce":"$undefined"},null,"$16",0],["$","script","script-5",{"src":"/_next/static/chunks/node_modules_17aun6s._.js","async":true,"nonce":"$undefined"},null,"$17",0]],"$18"]},null,"$a",0],{},null,false,null]},null,false,"$21"]},null,false,"$21"],["$","$2","h",{"children":["$23","$28","$31"]},null,"$22",0],false]],"q":"","i":true,"S":false,"h":null,"r":"$undefined","b":"development"}
+21:C
+2e:D"$3c"
+2e:[["$","meta","0",{"charSet":"utf-8"},"$19","$3d",0],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"},"$19","$3e",0]]
+45:I["[project]/node_modules/next/dist/lib/metadata/generate/icon-mark.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js"],"IconMark"]
+20:D"$3f"
+20:null
+39:D"$40"
+39:[["$","title","0",{"children":"My Exams"},"$19","$41",0],["$","meta","1",{"name":"description","content":"Annales d'examens gratuites et indexees pour reviser."},"$19","$42",0],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"},"$19","$43",0],["$","$L45","3",{},"$19","$44",0]]
+77:I["[project]/src/components/shared/public-header.tsx [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js","/_next/static/chunks/src_1pzjfnw._.js","/_next/static/chunks/node_modules_next_1c72fmn._.js","/_next/static/chunks/node_modules_katex_dist_1fp367g._.js","/_next/static/chunks/node_modules_%40radix-ui_18opk3l._.js","/_next/static/chunks/node_modules_%40floating-ui_08aw1s3._.js","/_next/static/chunks/node_modules_17aun6s._.js"],"PublicHeader"]
+7e:"$Sreact.forward_ref"
+90:"$Sreact.forward_ref"
+a3:I["[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js","/_next/static/chunks/src_1pzjfnw._.js","/_next/static/chunks/node_modules_next_1c72fmn._.js","/_next/static/chunks/node_modules_katex_dist_1fp367g._.js","/_next/static/chunks/node_modules_%40radix-ui_18opk3l._.js","/_next/static/chunks/node_modules_%40floating-ui_08aw1s3._.js","/_next/static/chunks/node_modules_17aun6s._.js"],""]
+f5:"$Sreact.forward_ref"
+102:I["[project]/src/components/health/HealthMockExamSession.tsx [app-client] (ecmascript)",["/_next/static/chunks/node_modules_02lm53h._.js","/_next/static/chunks/src_1qfz0ef._.js","/_next/static/chunks/src_1pzjfnw._.js","/_next/static/chunks/node_modules_next_1c72fmn._.js","/_next/static/chunks/node_modules_katex_dist_1fp367g._.js","/_next/static/chunks/node_modules_%40radix-ui_18opk3l._.js","/_next/static/chunks/node_modules_%40floating-ui_08aw1s3._.js","/_next/static/chunks/node_modules_17aun6s._.js"],"HealthMockExamSession"]
+d:D"$49"
+d:D"$4b"
+d:D"$4c"
+d:D"$4e"
+d:D"$4f"
+d:D"$53"
+d:D"$54"
+d:D"$56"
+d:D"$58"
+d:D"$59"
+d:D"$5c"
+d:D"$5e"
+d:D"$5f"
+d:D"$75"
+79:D"$7b"
+79:D"$7a"
+79:D"$84"
+79:D"$7c"
+79:D"$86"
+87:D"$89"
+87:D"$88"
+87:D"$8b"
+8d:D"$97"
+8d:D"$8e"
+8d:D"$99"
+9a:D"$9c"
+9a:D"$9b"
+9a:D"$9e"
+9a:D"$9d"
+9a:D"$a0"
+9a:D"$9f"
+9a:D"$a2"
+9a:["$","$La3",null,{"href":"/","children":"Accueil","ref":null,"className":"transition-colors hover:text-foreground"},"$9f","$a1",1]
+8d:["$","li",null,{"ref":"$undefined","className":"inline-flex items-center gap-1.5","children":"$9a"},"$8e","$98",1]
+a5:D"$a7"
+a5:D"$a6"
+a5:D"$a9"
+aa:D"$ac"
+aa:D"$ab"
+aa:D"$ae"
+aa:D"$ad"
+aa:D"$b0"
+aa:["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-chevron-right","children":[["$","path","mthhwq",{"d":"m9 18 6-6-6-6"},"$ad","$b1",0],"$undefined"]},"$ad","$af",1]
+a5:["$","li",null,{"role":"presentation","aria-hidden":"true","className":"[&>svg]:w-3.5 [&>svg]:h-3.5","children":"$aa"},"$a6","$a8",1]
+b2:D"$b8"
+b2:D"$b3"
+b2:D"$ba"
+bb:D"$bd"
+bb:D"$bc"
+bb:D"$bf"
+bb:D"$be"
+bb:D"$c1"
+bb:D"$c0"
+bb:D"$c3"
+bb:["$","$La3",null,{"href":"/sante","children":"SantÃ©","ref":null,"className":"transition-colors hover:text-foreground"},"$c0","$c2",1]
+b2:["$","li",null,{"ref":"$undefined","className":"inline-flex items-center gap-1.5","children":"$bb"},"$b3","$b9",1]
+c5:D"$c7"
+c5:D"$c6"
+c5:D"$c9"
+ca:D"$cc"
+ca:D"$cb"
+ca:D"$ce"
+ca:D"$cd"
+ca:D"$d0"
+ca:["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-chevron-right","children":[["$","path","mthhwq",{"d":"m9 18 6-6-6-6"},"$cd","$d1",0],"$undefined"]},"$cd","$cf",1]
+c5:["$","li",null,{"role":"presentation","aria-hidden":"true","className":"[&>svg]:w-3.5 [&>svg]:h-3.5","children":"$ca"},"$c6","$c8",1]
+d2:D"$d8"
+d2:D"$d3"
+d2:D"$da"
+db:D"$dd"
+db:D"$dc"
+db:D"$df"
+db:D"$de"
+db:D"$e1"
+db:D"$e0"
+db:D"$e3"
+db:["$","$La3",null,{"href":"/sante/ue/6a779fe046339e496fe720cf?ec=synthese","children":"UE","ref":null,"className":"transition-colors hover:text-foreground"},"$e0","$e2",1]
+d2:["$","li",null,{"ref":"$undefined","className":"inline-flex items-center gap-1.5","children":"$db"},"$d3","$d9",1]
+e5:D"$e7"
+e5:D"$e6"
+e5:D"$e9"
+ea:D"$ec"
+ea:D"$eb"
+ea:D"$ee"
+ea:D"$ed"
+ea:D"$f0"
+ea:["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-chevron-right","children":[["$","path","mthhwq",{"d":"m9 18 6-6-6-6"},"$ed","$f1",0],"$undefined"]},"$ed","$ef",1]
+e5:["$","li",null,{"role":"presentation","aria-hidden":"true","className":"[&>svg]:w-3.5 [&>svg]:h-3.5","children":"$ea"},"$e6","$e8",1]
+f2:D"$f9"
+f2:D"$f3"
+f2:D"$fb"
+fc:D"$fe"
+fc:D"$fd"
+fc:D"$100"
+fc:["$","span",null,{"ref":"$undefined","role":"link","aria-disabled":"true","aria-current":"page","className":"font-normal text-foreground","children":"Fixture examen blanc UNESS"},"$fd","$ff",1]
+f2:["$","li",null,{"ref":"$undefined","className":"inline-flex items-center gap-1.5","children":"$fc"},"$f3","$fa",1]
+87:["$","ol",null,{"ref":"$undefined","className":"flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5","children":[["$","$2","0-/",{"children":[false,"$8d"]},"$7a","$8c",0],["$","$2","1-/sante",{"children":["$a5","$b2"]},"$7a","$a4",0],["$","$2","2-/sante/ue/6a779fe046339e496fe720cf?ec=synthese",{"children":["$c5","$d2"]},"$7a","$c4",0],["$","$2","3-current",{"children":["$e5","$f2"]},"$7a","$e4",0]]},"$88","$8a",1]
+79:["$","nav",null,{"ref":"$undefined","aria-label":"breadcrumb","children":"$87"},"$7c","$85",1]
+d:["$","div",null,{"className":"flex min-h-screen flex-col bg-background text-foreground","children":[["$","$L77",null,{},"$e","$76",1],["$","main",null,{"className":"mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 pb-16 pt-8","children":["$79",["$","$L102",null,{"courseUnitId":"6a779fe046339e496fe720cf","examSlug":"fixture-uness-mixte","passage":{"attemptId":"6a7aea24b4818625e8d7dea3","startedAt":"2026-08-11T09:23:48.802Z","deadlineAt":"2026-08-11T09:38:48.802Z","title":"Fixture examen blanc UNESS","instructions":"Fixture technique : rÃ©pondez aux formats UNESS prÃ©sentÃ©s, puis soumettez l'examen.","questionCount":4,"sections":[{"id":"6a7aea231a34044f71ade22f","title":"Interface UNESS","order":1,"firstQuestion":1,"lastQuestion":4}],"questions":[{"attemptQuestionId":"6a7aea24b4818625e8d7dea4","id":"6a7aea231a34044f71ade230","globalOrder":1,"order":1,"questionType":"mcq","answerFormat":"SINGLE","question":"QRU â€” Question Ã  rÃ©ponse unique : quelle proposition est vraie ?","questionDiagram":null,"choices":["Une QRU attend une seule rÃ©ponse.","Une QRU attend plusieurs rÃ©ponses.","Une QRU est une question ouverte.","Une QRU est une zone Ã  pointer."],"answerPayload":null,"canonicalQuestion":{"id":"6a7aea231a34044f71ade230","type":"mcq","format":"QRU","statement":"QRU â€” Question Ã  rÃ©ponse unique : quelle proposition est vraie ?","explanation":"Une QRU appartient Ã  la famille QCM et attend exactement une rÃ©ponse.","points":1,"tags":"$undefined","source":"$undefined","selectionMode":"single","requiredSelectionCount":"$undefined","choices":[{"id":"A","content":"Une QRU attend une seule rÃ©ponse.","correct":true,"explanation":"Exact."},{"id":"B","content":"Une QRU attend plusieurs rÃ©ponses.","correct":false,"explanation":"Ce libellÃ© correspond Ã  une QRM."},{"id":"C","content":"Une QRU est une question ouverte.","correct":false,"explanation":"Ce libellÃ© correspond Ã  une question ouverte."},{"id":"D","content":"Une QRU est une zone Ã  pointer.","correct":false,"explanation":"Ce libellÃ© correspond Ã  une QZONE."}],"scoring":{"strategy":"all-or-nothing"}},"group":null,"selectedChoiceIndexes":[],"responsePayload":{"questionId":"6a7aea231a34044f71ade230","type":"mcq","selectedChoiceIds":[]},"markedForReview":false},{"attemptQuestionId":"6a7aea24b4818625e8d7dea5","id":"6a7aea231a34044f71ade231","globalOrder":2,"order":2,"questionType":"mcq","answerFormat":"MULTIPLE","question":"QRM â€” Question Ã  rÃ©ponses multiples : quels formats appartiennent Ã  la famille QCM ?","questionDiagram":null,"choices":["QRU","QROC","QRM","QZONE"],"answerPayload":null,"canonicalQuestion":{"id":"6a7aea231a34044f71ade231","type":"mcq","format":"QRM","statement":"QRM â€” Question Ã  rÃ©ponses multiples : quels formats appartiennent Ã  la famille QCM ?","explanation":"QRU et QRM sont deux variantes de la famille QCM.","points":1,"tags":"$undefined","source":"$undefined","selectionMode":"multiple","requiredSelectionCount":"$undefined","choices":[{"id":"A","content":"QRU","correct":true,"explanation":"Exact : QRU est une variante de QCM."},{"id":"B","content":"QROC","correct":false,"explanation":"QROC est une question ouverte Ã  rÃ©daction courte."},{"id":"C","content":"QRM","correct":true,"explanation":"Exact : QRM est une variante de QCM."},{"id":"D","content":"QZONE","correct":false,"explanation":"QZONE est une question Ã  zone Ã  pointer."}],"scoring":{"strategy":"all-or-nothing"}},"group":null,"selectedChoiceIndexes":[],"responsePayload":{"questionId":"6a7aea231a34044f71ade231","type":"mcq","selectedChoiceIds":[]},"markedForReview":false},{"attemptQuestionId":"6a7aea24b4818625e8d7dea6","id":"6a7aea231a34044f71ade232","globalOrder":3,"order":3,"questionType":"mcq","answerFormat":"MULTIPLE","question":"QRP â€” Question Ã  nombre de rÃ©ponses prÃ©cisÃ© : sÃ©lectionnez exactement deux rÃ©ponses ouvertes.","questionDiagram":null,"choices":["QRU","QROC","QRM","QROL"],"answerPayload":{"requiredSelectionCount":2},"canonicalQuestion":{"id":"6a7aea231a34044f71ade232","type":"mcq","format":"QRP","statement":"QRP â€” Question Ã  nombre de rÃ©ponses prÃ©cisÃ© : sÃ©lectionnez exactement deux rÃ©ponses ouvertes.","explanation":"QROC et QROL sont des questions ouvertes ; la QRP prÃ©cise ici deux rÃ©ponses.","points":1,"tags":"$undefined","source":"$undefined","selectionMode":"multiple","requiredSelectionCount":2,"choices":[{"id":"A","content":"QRU","correct":false,"explanation":"QRU est une rÃ©ponse unique dans la famille QCM."},{"id":"B","content":"QROC","correct":true,"explanation":"Exact : QROC est ouverte et courte."},{"id":"C","content":"QRM","correct":false,"explanation":"QRM est une rÃ©ponse multiple dans la famille QCM."},{"id":"D","content":"QROL","correct":true,"explanation":"Exact : QROL est ouverte et longue."}],"scoring":{"strategy":"all-or-nothing"}},"group":null,"selectedChoiceIndexes":[],"responsePayload":{"questionId":"6a7aea231a34044f71ade232","type":"mcq","selectedChoiceIds":[]},"markedForReview":false},{"attemptQuestionId":"6a7aea24b4818625e8d7dea7","id":"6a7aea231a34044f71ade233","globalOrder":4,"order":4,"questionType":"short-answer","answerFormat":"SINGLE","question":"QROC â€” Question ouverte Ã  rÃ©daction courte : combien de lettres contient le code QCM ?","questionDiagram":null,"choices":[],"answerPayload":{"answerType":"number","numericAnswer":{"value":3,"tolerance":0}},"canonicalQuestion":{"id":"6a7aea231a34044f71ade233","type":"short-answer","format":"QROC","statement":"QROC â€” Question ouverte Ã  rÃ©daction courte : combien de lettres contient le code QCM ?","explanation":"Le code QCM contient trois lettres.","points":1,"tags":"$undefined","source":"$undefined","answerType":"number","acceptedAnswers":[],"numericAnswer":{"value":3,"tolerance":0,"unit":"$undefined","acceptedUnits":[]},"normalization":"$undefined","scoring":{"strategy":"all-or-nothing"}},"group":null,"selectedChoiceIndexes":[],"responsePayload":{"questionId":"6a7aea231a34044f71ade233","type":"short-answer","rawValue":""},"markedForReview":false}]}},"$e","$101",1]]},"$e","$78",1],"$L103"]},"$e","$74",1]
+103:D"$105"
+103:D"$104"
+103:D"$107"
+10d:D"$10f"
+10d:D"$10e"
+10d:D"$111"
+10d:["$","$La3",null,{"href":"/diplomes","className":"hover:text-foreground","children":"Annales"},"$10e","$110",1]
+112:D"$114"
+112:D"$113"
+112:D"$116"
+112:["$","$La3",null,{"href":"/entrainement","className":"hover:text-foreground","children":"EntraÃ®nement"},"$113","$115",1]
+117:D"$119"
+117:D"$118"
+117:D"$11b"
+117:["$","$La3",null,{"href":"/mentions-legales","className":"hover:text-foreground","children":"Mentions lÃ©gales"},"$118","$11a",1]
+11c:D"$11e"
+11c:D"$11d"
+11c:D"$120"
+11c:["$","$La3",null,{"href":"/contact","className":"hover:text-foreground","children":"Contact"},"$11d","$11f",1]
+103:["$","footer",null,{"className":"border-t border-border bg-card ","children":["$","div",null,{"className":"mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-[11px] text-muted-foreground md:flex-row","children":[["$","p",null,{"children":["Â© ",2026," ","Site d'annales â€” plateforme de rÃ©vision."]},"$104","$109",1],["$","div",null,{"className":"flex items-center gap-4","children":[["$","span",null,{"className":"text-[11px]","children":["Version ","1.6.36"]},"$104","$10b",1],["$","div",null,{"className":"flex gap-4","children":["$10d","$112","$117","$11c"]},"$104","$10c",1]]},"$104","$10a",1]]},"$104","$108",1]},"$104","$106",1]

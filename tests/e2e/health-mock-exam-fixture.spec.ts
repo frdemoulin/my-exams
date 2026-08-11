@@ -39,7 +39,7 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     await expect(page.getByText("QRM — Question à réponses multiples", { exact: true })).toBeVisible();
-    await expect(page.getByText("Sélectionnez toutes les propositions exactes.", { exact: true })).toBeVisible();
+    await expect(page.getByText("Sélectionnez une ou plusieurs propositions.", { exact: true })).toBeVisible();
     await page.getByTestId("health-mock-exam-choice-0").click();
     await page.getByTestId("health-mock-exam-choice-2").click();
     await page.getByRole("button", { name: "Suivante" }).click();

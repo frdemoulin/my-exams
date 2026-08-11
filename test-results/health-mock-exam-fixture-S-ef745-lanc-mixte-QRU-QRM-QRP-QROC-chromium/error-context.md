@@ -1,0 +1,107 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - main [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e6]:
+        - link "SA My Exams Annales d'examens, gratuites et triées." [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: SA
+          - generic [ref=e9]:
+            - generic [ref=e10]: My Exams
+            - generic [ref=e11]: Annales d'examens, gratuites et triées.
+        - generic [ref=e12]:
+          - navigation [ref=e13]:
+            - link "Administration" [ref=e14] [cursor=pointer]:
+              - /url: /admin
+            - link "Annales" [ref=e15] [cursor=pointer]:
+              - /url: /diplomes
+            - link "Santé" [ref=e16] [cursor=pointer]:
+              - /url: /sante
+            - link "Entraînement" [ref=e17] [cursor=pointer]:
+              - /url: /entrainement
+          - generic [ref=e18]:
+            - button "Changer le thème" [ref=e19]:
+              - img [ref=e20]
+              - generic [ref=e22]: Changer le thème
+            - button "EA" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]: EA
+              - img [ref=e25]
+      - main [ref=e27]:
+        - navigation "breadcrumb" [ref=e28]:
+          - list [ref=e29]:
+            - listitem [ref=e30]:
+              - link "Accueil" [ref=e31] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e32]:
+              - img [ref=e33]
+            - listitem [ref=e35]:
+              - link "Santé" [ref=e36] [cursor=pointer]:
+                - /url: /sante
+            - listitem [ref=e37]:
+              - img [ref=e38]
+            - listitem [ref=e40]:
+              - link "UE" [ref=e41] [cursor=pointer]:
+                - /url: /sante/ue/6a779fe046339e496fe720cf?ec=synthese
+            - listitem [ref=e42]:
+              - img [ref=e43]
+            - listitem [ref=e45]:
+              - link "Fixture examen blanc UNESS" [disabled] [ref=e46]
+        - generic [ref=e47]:
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - paragraph [ref=e51]: Conditions d'examen
+              - heading "Fixture examen blanc UNESS" [level=1] [ref=e52]
+            - generic [ref=e53]:
+              - generic [ref=e54]: Question 4 / 4
+              - generic [ref=e55]: Interface UNESS
+              - generic [ref=e56]:
+                - img [ref=e57]
+                - text: Temps restant 00:14:55
+              - button "Ouvrir la navigation" [ref=e60] [cursor=pointer]:
+                - img [ref=e61]
+          - generic [ref=e62]: "Fixture technique : répondez aux formats UNESS présentés, puis soumettez l'examen."
+          - article [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]:
+                - heading "Question 4" [level=2] [ref=e66]
+                - generic "Question ouverte à rédaction courte" [ref=e67]: QROC — Question ouverte à rédaction courte
+                - paragraph [ref=e68]: Saisissez votre réponse.
+              - button "Marquer à revoir" [ref=e69] [cursor=pointer]:
+                - img [ref=e70]
+                - text: Marquer à revoir
+            - generic [ref=e72]: "QROC — Question ouverte à rédaction courte : combien de lettres contient le code QCM ?"
+            - generic [ref=e73]:
+              - text: Votre réponse
+              - textbox "Votre réponse" [ref=e74]:
+                - /placeholder: Saisissez votre réponse courte
+            - generic [ref=e75]:
+              - paragraph [ref=e76]: 3 réponses enregistrées · 0 à revoir
+              - generic [ref=e77]:
+                - button "Précédente" [ref=e78] [cursor=pointer]:
+                  - img [ref=e79]
+                  - text: Précédente
+                - button "Suivante" [disabled]:
+                  - text: Suivante
+                  - img
+          - button "Soumettre l'examen" [ref=e82] [cursor=pointer]:
+            - img [ref=e83]
+            - text: Soumettre l'examen
+      - generic [ref=e87]:
+        - paragraph [ref=e88]: © 2026 Site d'annales — plateforme de révision.
+        - generic [ref=e89]:
+          - generic [ref=e90]: Version 1.6.36
+          - generic [ref=e91]:
+            - link "Annales" [ref=e92] [cursor=pointer]:
+              - /url: /diplomes
+            - link "Entraînement" [ref=e93] [cursor=pointer]:
+              - /url: /entrainement
+            - link "Mentions légales" [ref=e94] [cursor=pointer]:
+              - /url: /mentions-legales
+            - link "Contact" [ref=e95] [cursor=pointer]:
+              - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=e101] [cursor=pointer]:
+    - img [ref=e102]
+  - alert [ref=e105]: My Exams
+```
