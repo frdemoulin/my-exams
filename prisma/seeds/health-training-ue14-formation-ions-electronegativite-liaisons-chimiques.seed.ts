@@ -44,7 +44,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: 'decouvrir-formation-ions',
     title: `Formation des ions`,
     description:
-      `Entraînement sur la section A – Formation des ions et électronégativité.`,
+      `Formation des ions, échelle d'électronégativité et règles de stabilité.`,
     stage: 'DISCOVER',
     sectionOrder: 1,
     questionOrders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -54,7 +54,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: 'sentrainer-formation-ions',
     title: `Formation des ions`,
     description:
-      `Entraînement sur la section A – Formation des ions et électronégativité.`,
+      `Exercices d'application sur l'électronégativité et le caractère ionique.`,
     stage: 'PRACTICE',
     sectionOrder: 1,
     questionOrders: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -64,7 +64,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: 'decouvrir-liaisons-chimiques',
     title: `Liaisons chimiques`,
     description:
-      `Entraînement sur la section B – Liaisons chimiques.`,
+      `Liaisons covalentes, longueur, énergie et caractère liant.`,
     stage: 'DISCOVER',
     sectionOrder: 2,
     questionOrders: [21, 22, 23, 26, 28, 30, 32, 33, 37, 38],
@@ -74,7 +74,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: 'sentrainer-liaisons-chimiques',
     title: `Liaisons chimiques`,
     description:
-      `Entraînement sur la section B – Liaisons chimiques.`,
+      `Exercices d'application sur les liaisons chimiques.`,
     stage: 'PRACTICE',
     sectionOrder: 2,
     questionOrders: [25, 24, 27, 29, 31, 36, 39, 50],

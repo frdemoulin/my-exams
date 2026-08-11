@@ -378,3 +378,63 @@ Lorsqu'un nouveau ZIP de chapitre révisé est fourni par ChatGPT :
    npm run db:seed:training
    ```
 6. Vérifier manuellement le rendu et le comportement des nouveaux formats dans le Player d'entraînement.
+
+---
+
+## 6. Conventions TeX et typographie scientifique
+
+Cette section constitue la **référence canonique** des règles de composition TeX et de typographie scientifique pour la rédaction des seeds Santé sur My Exams.
+
+### 6.1. Notation atomistique
+Les symboles génériques et les grandeurs atomistiques définies par le cours se composent obligatoirement en **lettres droites** (`\mathrm{...}`) :
+- Symboles atomistiques : `\mathrm{A}` (nombre de masse), `\mathrm{Z}` (numéro atomique), `\mathrm{N}` (nombre de neutrons), `\mathrm{X}` (symbole d'élément).
+- Notation canonique d'un nucléide générique : `^{\mathrm{A}}_{\mathrm{Z}}\mathrm{X}`
+- Formules fondamentales : `\mathrm{A} = \mathrm{Z} + \mathrm{N}` et `\mathrm{N} = \mathrm{A} - \mathrm{Z}`.
+
+Pour un nucléide réel, le symbole chimique et l'isotope s'écrivent également en caractères droits :
+- `^{131}_{53}\mathrm{I}`
+- `^{123}_{53}\mathrm{I}`
+- `^{10}\mathrm{B}`
+- `^{11}\mathrm{B}`
+
+> ❌ **Incorrect** : `$A = Z + N$`, `$N = A - Z$`, `$Z=53$`, `^{131}_{53}I`  
+> ✅ **Correct** : `$\mathrm{A} = \mathrm{Z} + \mathrm{N}$`, `$\mathrm{N} = \mathrm{A} - \mathrm{Z}$`, `$\mathrm{Z} = 53$`, `^{131}_{53}\mathrm{I}`
+
+### 6.2. Couches électroniques
+Les noms des couches électroniques principales s'écrivent en majuscules droites via `\mathrm{...}` :
+- `\mathrm{K}`, `\mathrm{L}`, `\mathrm{M}`, `\mathrm{N}`.
+
+> ❌ **Incorrect** : `la couche K`  
+> ✅ **Correct** : `la couche $\mathrm{K}$`
+
+### 6.3. Sous-couches et configurations électroniques
+Les lettres de sous-couche ($s, p, d, f$) s'écrivent en lettres droites via `\mathrm{...}` dans les expressions TeX :
+- `1\mathrm{s}^2`, `2\mathrm{p}^6`, `3\mathrm{d}^5`, `4\mathrm{f}`
+- `1\mathrm{s}^2\,2\mathrm{s}^2\,2\mathrm{p}^6`
+
+> ❌ **Incorrect** : `$1s^2 2s^2 2p^6$`  
+> ✅ **Correct** : `$1\mathrm{s}^2\,2\mathrm{s}^2\,2\mathrm{p}^6$`
+
+### 6.4. Nombres quantiques
+Les nombres quantiques respectent strictement les symboles canoniques du dépôt :
+- Nombre quantique principal : `\mathrm{n}`
+- Nombre quantique secondaire (azimutal) : `\ell` (utiliser impérativement `\ell`)
+- Nombre quantique magnétique : `\mathrm{m}` ou `\mathrm{m}_{\ell}`
+- Nombre quantique de spin : `\mathrm{s}` ou `\mathrm{m}_{\mathrm{s}}`
+- Quadruplet quantique : `(\mathrm{n}, \ell, \mathrm{m}, \mathrm{s})` ou `(\mathrm{n}, \ell, \mathrm{m}_{\ell}, \mathrm{m}_{\mathrm{s}})`
+
+> ❌ **Incorrect** : `$n=2$, $l=1$, $m=0$`  
+> ✅ **Correct** : `$\mathrm{n} = 2$, $\ell = 1$, $\mathrm{m} = 0$`
+
+### 6.5. Unités, espaces et symboles
+- Les unités de mesure s'écrivent en caractères droits (`\mathrm{...}`) séparées de la valeur numérique par une espace fine TeX (`\,`) : `10^{-10}\,\mathrm{m}`, `10\,\mathrm{nm}`, `1\,\mathrm{u}`, `1\,\mathrm{Da}`.
+- Symbole de l'Ångström : `$1\,\text{Å}$` (ou `$1\,\mathrm{\mathring{A}}$`), égal à `$10^{-10}\,\mathrm{m}$`.
+- Représentation des décimaux en français : dans les expressions TeX affichées à l'étudiant, la virgule décimale est encadrée par des accolades `{,}` afin de ne pas être interprétée comme un séparateur mathématique TeX (qui ajouterait une espace indésirable) :
+  - `$0{,}20 \times 10 + 0{,}80 \times 11 = 10{,}8\,\mathrm{u}$`
+  - *(Note : dans la valeur informatique `answer.value` des QROC numériques, utiliser la notation JavaScript standard `10.8`).*
+
+### 6.6. Interdiction des remplacements TeX mécaniques
+Il ne faut **jamais** appliquer un remplacement global aveugle de toutes les lettres par `\mathrm{...}`.
+- Les véritables variables mathématiques, variables d'équations, constantes physiques ou coordonnées doivent conserver l'italique mathématique standard (`x`, `y`, `t`, `pKa`, `\chi`, etc.).
+- La règle `\mathrm{...}` est strictement **sémantique** et réservée aux grandeurs atomistiques ($\mathrm{A}, \mathrm{Z}, \mathrm{N}, \mathrm{X}$), couches, sous-couches, nombres quantiques ($\mathrm{n}, \mathrm{m}, \mathrm{s}$) et unités.
+

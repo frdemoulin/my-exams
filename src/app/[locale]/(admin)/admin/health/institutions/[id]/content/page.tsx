@@ -35,7 +35,7 @@ export default async function HealthInstitutionContentPage({
       />
       <AdminPageHeading
         title={`${institutionLabel} · Contenu santé`}
-        description={`Pilotage des QCM par maquette, parcours, UE, EC et chapitre pour l'année ${workspace.currentAcademicYear}.`}
+        description={`Pilotage des quiz par maquette, parcours, UE, EC et chapitre pour l'année ${workspace.currentAcademicYear}.`}
         actions={
           <>
             <Button asChild variant="outline">

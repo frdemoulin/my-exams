@@ -161,7 +161,7 @@ export function TrainingPathProgressCard({
         </div>
         <CardDescription>
           {isAuthenticated
-            ? 'Tous les QCM publiés sont accessibles. La progression te sert de repère pour avancer si tu veux être guidé.'
+            ? 'Tous les quiz publiés sont accessibles. La progression te sert de repère pour avancer si tu veux être guidé.'
             : 'Aperçu gratuit du chapitre avec progression visible.'}
         </CardDescription>
       </CardHeader>
@@ -189,7 +189,7 @@ export function TrainingPathProgressCard({
           </div>
           <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
             <span>
-              {completedQuizCount}/{totalQuizCount} QCM validés
+              {completedQuizCount}/{totalQuizCount} quiz validés
             </span>
             <span>
               {masteredSectionCount}/{sectionPreviews.length} sections maîtrisées

@@ -18,6 +18,7 @@ import {
     type TrainingChoiceContent,
     type TrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
+import { simplifyTrainingQuizDescription } from "@/core/training/training.queries";
 import { fetchHealthMockExamSummaries } from "@/core/health-mock-exam/health-mock-exam.queries";
 import type { HealthMockExamSummary } from "@/core/health-mock-exam/health-mock-exam.types";
 import {
@@ -1845,7 +1846,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                 return {
                     id: quiz.id,
                     title: quiz.title,
-                    description: quiz.description,
+                    description: simplifyTrainingQuizDescription(quiz.description),
                     slug: quiz.slug,
                     order: quiz.order,
                     stage: quiz.stage ?? null,

@@ -5,7 +5,7 @@ import { fetchSubjectsOptions } from "@/core/subject";
 import { fetchDomainsOptions } from "@/core/domain";
 
 export const metadata: Metadata = {
-  title: "Ajouter un QCM",
+  title: "Ajouter un quiz",
 };
 
 export default async function AddTrainingQcmPage() {
@@ -17,11 +17,11 @@ export default async function AddTrainingQcmPage() {
   return (
     <div className="w-full p-6">
       <div>
-        <h1 className="mb-6 text-lg font-semibold md:text-2xl">Ajouter un QCM</h1>
+        <h1 className="mb-6 text-lg font-semibold md:text-2xl">Ajouter un quiz</h1>
       </div>
       <ChapterForm
         crudMode="add"
-        entityLabel="QCM"
+        entityLabel="quiz"
         cancelHref="/admin/training/qcms"
         redirectTo="/admin/training/qcms"
         revalidatePaths={["/admin/training/qcms", "/admin/training/quiz-questions"]}

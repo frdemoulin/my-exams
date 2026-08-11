@@ -229,7 +229,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: SECTION_A_DISCOVER_QUIZ_SLUG,
     title: `Formule brute et composition des molécules organiques`,
     description:
-      `Entraînement sur la section A : formule brute, valences usuelles, microanalyse et calculs de composition.`,
+      `Formule brute, valences usuelles, microanalyse et calculs de composition.`,
     stage: 'DISCOVER',
     sectionOrder: SECTION_A_ORDER,
     questionOrders: SECTION_A_DISCOVER_QUESTION_ORDERS,

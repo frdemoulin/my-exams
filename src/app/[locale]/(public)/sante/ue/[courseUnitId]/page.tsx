@@ -118,7 +118,7 @@ export default async function HealthCourseUnitDetailPage({
             <Badge variant="secondary">
               {teachingElementCount} EC
             </Badge>
-            <Badge variant="secondary">{quizCount} QCM</Badge>
+            <Badge variant="secondary">{quizCount} quiz</Badge>
             <Badge variant="secondary">
               {questionCount} question
               {questionCount > 1 ? 's' : ''}

@@ -122,7 +122,7 @@ export function HealthCourseUnitsTable({
                     {row.teachingElementCount} EC
                   </Badge>
                   <Badge variant="outline" className={counterBadgeClassName}>
-                    {row.qcmCount} QCM
+                    {row.qcmCount} quiz
                   </Badge>
                   <Badge variant="outline" className={counterBadgeClassName}>
                     {row.questionCount} question

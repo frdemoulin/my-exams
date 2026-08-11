@@ -31,28 +31,28 @@ const SYNTHESIS_QUIZ_ORDER = 2;
 const SYNTHESIS_QUIZ_SLUG = 'synthese-atomes';
 
 const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
-  1: [`Structure et constituants de l'atome`],
-  2: [`Numéro atomique et nombre de masse`],
-  3: [`Définition des isotopes`],
-  4: [`Unités atomiques et ordres de grandeur`],
+  1: [`Structure et neutralité de l'atome`],
+  2: [`Composition d'un nucléide à partir de A et Z`],
+  3: [`Éléments naturels, transuraniens et radioactivité`],
+  4: [`Calcul de masse atomique moyenne`],
   5: [`Couches, sous-couches et orbitales`],
   6: [`Nombres quantiques et règles de remplissage`],
   7: [`Configurations électroniques usuelles`],
   8: [`Organisation de la classification périodique`],
   9: [`Familles d'éléments chimiques`],
   10: [`Éléments chimiques du vivant`],
-  11: [`Notation et définition d'un nucléide`],
-  12: [`Composition d'un atome à partir de A et Z`],
-  13: [`Vocabulaire : atome, élément, nucléide et isotope`],
+  11: [`Définition et reconnaissance des isotopes`],
+  12: [`Vocabulaire : nucléide`],
+  13: [`Unités atomiques et conversions`],
   14: [`Propriétés physiques et chimiques des isotopes`],
-  15: [`Calcul de masse atomique moyenne`],
+  15: [`Ordres de grandeur de l'atome et du noyau`],
   16: [`Masse et stabilité du noyau atomique`],
   17: [`Cohérence de la notation d'un nucléide`],
   18: [`Comparaison des nombres de protons, neutrons et électrons`],
   19: [`Ordres de grandeur et masse de l'atome`],
   20: [`Nucléides, isotopes et numéro atomique`],
-  21: [`Éléments naturels et éléments artificiels`],
-  22: [`Constituants et neutralité de l'atome`],
+  21: [`Propriétés physiques et chimiques des isotopes`],
+  22: [`Charges et masses des constituants de l'atome`],
   23: [`Définition de l'unité de masse atomique`],
   24: [`Ordres de grandeur biologiques et médicaux`],
   25: [`Conversions entre mètre, nanomètre et ångström`],
@@ -154,7 +154,6 @@ const sections: SeedSection[] = [
   },
 ];
 
-const firstQuizQuestionOrders = [1, 22, 2, 11, 12, 13, 21, 15, 3, 4];
 const secondQuizQuestionOrders = [25, 14, 26, 16, 17, 18, 19, 20, 23, 24];
 const secondSectionDiscoverQuestionOrders = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39];
 const thirdSectionDiscoverQuestionOrders = [8, 57, 56, 9, 58, 59, 60, 61, 62, 10];
@@ -165,17 +164,33 @@ const quizSeeds: SeedQuiz[] = [
     slug: FIRST_QUIZ_SLUG,
     title: `Atomes`,
     description:
-      `Entraînement limité à la section A – Atomes, au format UE1 avec 4 items par question.`,
+      `Repères fondamentaux sur la structure de l'atome, les nucléides, les isotopes et les ordres de grandeur.`,
     stage: 'DISCOVER',
     sectionOrder: FIRST_SECTION_ORDER,
-    questionOrders: firstQuizQuestionOrders,
+    items: [
+      { type: 'QUESTION', questionOrder: 1 },
+      { type: 'QUESTION', questionOrder: 22 },
+      {
+        type: 'GROUP',
+        title: `Isotopes de l'iode`,
+        sharedStatement:
+          `Dans un contexte de médecine nucléaire, on considère les nucléides $^{123}_{53}\\mathrm{I}$ et $^{131}_{53}\\mathrm{I}$.`,
+        questionOrders: [2, 11],
+      },
+      { type: 'QUESTION', questionOrder: 12 },
+      { type: 'QUESTION', questionOrder: 13 },
+      { type: 'QUESTION', questionOrder: 21 },
+      { type: 'QUESTION', questionOrder: 15 },
+      { type: 'QUESTION', questionOrder: 3 },
+      { type: 'QUESTION', questionOrder: 4 },
+    ],
   },
   {
     order: SECOND_QUIZ_ORDER,
     slug: SECOND_QUIZ_SLUG,
     title: `Généralités sur l'atome`,
     description:
-      `Entraînement sur la section A – Atomes, centré sur les généralités, les nucléides et les isotopes.`,
+      `Généralités sur la structure de l'atome, les nucléides et les isotopes.`,
     stage: 'PRACTICE',
     sectionOrder: FIRST_SECTION_ORDER,
     questionOrders: secondQuizQuestionOrders,
@@ -185,7 +200,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: SECOND_SECTION_DISCOVER_QUIZ_SLUG,
     title: `Organisation et configuration électronique`,
     description:
-      `Entraînement sur la section B – Organisation et configuration électronique.`,
+      `Découverte de l'organisation électronique, des sous-couches et des orbitales.`,
     stage: 'DISCOVER',
     sectionOrder: SECOND_SECTION_ORDER,
     questionOrders: secondSectionDiscoverQuestionOrders,
@@ -195,7 +210,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: SECOND_SECTION_PRACTICE_QUIZ_SLUG,
     title: `Organisation et configuration électronique`,
     description:
-      `Entraînement sur la section B – Organisation et configuration électronique.`,
+      `Configurations électroniques, nombres quantiques et cases quantiques.`,
     stage: 'PRACTICE',
     sectionOrder: SECOND_SECTION_ORDER,
     items: [
@@ -220,7 +235,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: THIRD_SECTION_DISCOVER_QUIZ_SLUG,
     title: `Classification périodique`,
     description:
-      `Entraînement sur la section C – Classification périodique des éléments.`,
+      `Découverte de la classification périodique, des blocs et des périodes.`,
     stage: 'DISCOVER',
     sectionOrder: THIRD_SECTION_ORDER,
     questionOrders: thirdSectionDiscoverQuestionOrders,
@@ -230,7 +245,7 @@ const quizSeeds: SeedQuiz[] = [
     slug: THIRD_SECTION_PRACTICE_QUIZ_SLUG,
     title: `Classification périodique`,
     description:
-      `Entraînement sur la section C – Classification périodique des éléments.`,
+      `Familles d'éléments, propriétés périodiques et configurations de valence.`,
     stage: 'PRACTICE',
     sectionOrder: THIRD_SECTION_ORDER,
     items: [

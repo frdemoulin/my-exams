@@ -307,7 +307,7 @@ function QuizItemEditor({
               {...register(`${itemPath}.sharedStatement` as const)}
             />
             <p className="text-xs text-muted-foreground">
-              Cet énoncé sera réaffiché avant chaque question du bloc dans le QCM public.
+              Cet énoncé sera réaffiché avant chaque question du bloc dans le quiz public.
             </p>
             {getErrorMessage((itemErrors as { sharedStatement?: unknown } | undefined)?.sharedStatement) ? (
               <p className="text-xs text-danger">
@@ -492,7 +492,7 @@ function QuizEditor({
           <Textarea
             id={`${chapterId}-quiz-description-${sectionIndex}-${quizIndex}`}
             rows={3}
-            placeholder="Mélange de questions sur tout le chapitre."
+            placeholder="Description du quiz."
             {...register(`sections.${sectionIndex}.quizzes.${quizIndex}.description` as const)}
           />
           {getErrorMessage(quizErrors?.description) ? (
@@ -506,7 +506,7 @@ function QuizEditor({
           <div>
             <h5 className="text-sm font-semibold text-foreground">Séquence du quiz</h5>
             <p className="text-xs text-muted-foreground">
-              L&apos;ordre vertical correspond à l&apos;ordre exact du QCM public, avec liberté totale entre questions seules et blocs liés.
+              L&apos;ordre vertical correspond à l&apos;ordre exact du quiz public, avec liberté totale entre questions seules et blocs liés.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -867,7 +867,7 @@ export function TrainingStructureForm({
           <div>
             <CardTitle className="text-xl">Structure pédagogique</CardTitle>
             <CardDescription>
-              Organise le chapitre en grands thèmes puis QCM persistés, avec ordre libre entre questions seules et blocs liés. Si aucune section n&apos;est enregistrée, le public retombe sur l&apos;ancien découpage automatique par 5 questions.
+              Organise le chapitre en grands thèmes puis quiz persistés, avec ordre libre entre questions seules et blocs liés. Si aucune section n&apos;est enregistrée, le public retombe sur l&apos;ancien découpage automatique par 5 questions.
             </CardDescription>
           </div>
           <Button asChild variant="outline" size="sm">

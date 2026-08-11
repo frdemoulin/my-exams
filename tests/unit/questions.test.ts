@@ -109,7 +109,7 @@ test("exposes student instructions for UNESS question formats", () => {
   assert.equal(getQuestionSelectionLimit(qrpQuestion), 2);
   assert.equal(
     getQuestionFormatStudentInstruction(qrocQuestion),
-    "Saisissez une réponse numérique courte, en chiffres.",
+    "Saisissez votre réponse.",
   );
   assert.equal(
     getQuestionFormatStudentInstruction(qzoneQuestion),

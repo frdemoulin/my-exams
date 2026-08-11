@@ -410,7 +410,7 @@ export function HealthInstitutionContentWorkspace({
 
       <div className="grid gap-4 md:grid-cols-4">
         <MetricCard label="Chapitres" value={displayedAssignments.length} />
-        <MetricCard label="QCM d&apos;entraînement" value={trainingQuizCount} />
+        <MetricCard label="Quiz d&apos;entraînement" value={trainingQuizCount} />
         <MetricCard label="Questions" value={questionCount} />
         <MetricCard label="Annales QCM" value={scopedExamExercises.length} />
       </div>
@@ -500,7 +500,7 @@ function TrainingQuizPanel({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-base">QCM d&apos;entraînement</CardTitle>
+        <CardTitle className="text-base">Quiz d&apos;entraînement</CardTitle>
       </CardHeader>
       <CardContent>
         {assignments.length > 0 ? (
@@ -547,7 +547,7 @@ function ChapterQuizBlock({
             </Badge>
           </div>
           <div className="mt-2 flex flex-wrap gap-2 text-sm text-muted-foreground">
-            <span>{quizCount} QCM</span>
+            <span>{quizCount} quiz</span>
             <span>
               {assignment.questionCount} question{assignment.questionCount > 1 ? "s" : ""}
             </span>
@@ -608,13 +608,13 @@ function ChapterQuizBlock({
                   ))}
                 </div>
               ) : (
-                <p className="mt-2 text-sm text-muted-foreground">Aucun QCM structuré.</p>
+                <p className="mt-2 text-sm text-muted-foreground">Aucun quiz structuré.</p>
               )}
             </div>
           ))}
         </div>
       ) : (
-        <p className="mt-4 text-sm text-muted-foreground">Aucune section de QCM structurée.</p>
+        <p className="mt-4 text-sm text-muted-foreground">Aucune section de quiz structurée.</p>
       )}
     </section>
   );

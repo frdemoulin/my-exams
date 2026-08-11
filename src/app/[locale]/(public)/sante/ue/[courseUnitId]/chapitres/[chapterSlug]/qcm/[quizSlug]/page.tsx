@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!chapter) {
     return {
-      title: 'QCM Santé introuvable',
+      title: 'Quiz Santé introuvable',
     };
   }
 
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: selectedQuiz
-      ? `QCM - ${chapter.title} - Santé`
+      ? `Quiz - ${chapter.title} - Santé`
       : `${chapter.title} - Santé`,
   };
 }
@@ -118,7 +118,7 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
             { label: courseUnitLabel, href: courseUnitHref },
             { label: teachingElementBreadcrumbLabel, href: teachingElementHref },
             { label: chapter.title, href: chapterHref },
-            { label: `QCM ${selectedQuizNumber}` },
+            { label: `Quiz ${selectedQuizNumber}` },
           ]}
         />
 
@@ -135,7 +135,7 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
               <div className="space-y-3">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div className="space-y-1">
-                    <CardTitle className="text-xl text-heading">QCM {selectedQuizNumber}</CardTitle>
+                    <CardTitle className="text-xl text-heading">Quiz {selectedQuizNumber}</CardTitle>
                     <p className="text-sm text-muted-foreground">{chapter.title}</p>
                   </div>
                   <div className="flex flex-wrap items-start gap-2 sm:justify-end">
@@ -166,7 +166,16 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
                     ) : null}
                   </div>
                 </div>
-                <TrainingQuizInstructions />
+                <TrainingQuizInstructions
+                  questionCount={selectedQuiz.quiz.questionCount}
+                  hasMultipleFormats={
+                    new Set(
+                      selectedQuiz.quiz.questions
+                        .map((question) => question.canonicalQuestion?.format)
+                        .filter(Boolean)
+                    ).size > 1
+                  }
+                />
               </div>
             </CardHeader>
           </Card>

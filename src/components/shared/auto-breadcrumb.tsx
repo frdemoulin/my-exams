@@ -82,7 +82,7 @@ export function AutoBreadcrumb() {
     'chapters': 'Chapitres',
     'training': 'Entraînements',
     'question-formats': 'Formats de questions',
-    'qcms': 'QCM',
+    'qcms': 'Quiz',
     'quiz-questions': 'Questions d\'entraînement',
     'curriculums': 'Programmes',
     'examination-centers': 'Centres d\'examen',

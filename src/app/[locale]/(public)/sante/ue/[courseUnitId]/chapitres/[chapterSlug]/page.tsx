@@ -160,7 +160,7 @@ export default async function HealthChapterDetailPage({
               {chapter.sections.length} section
               {chapter.sections.length > 1 ? 's' : ''}
             </Badge>
-            <Badge variant="secondary">{quizCount} QCM</Badge>
+            <Badge variant="secondary">{quizCount} quiz</Badge>
             <Badge variant="secondary">
               {chapter.questionCount} question
               {chapter.questionCount > 1 ? 's' : ''}
@@ -175,7 +175,7 @@ export default async function HealthChapterDetailPage({
             </p>
           ) : (
             <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
-              Retrouve les sections du chapitre et ouvre directement le QCM utile pour ta révision.
+              Retrouve les sections du chapitre et ouvre directement le quiz utile pour ta révision.
             </p>
           )}
         </section>
@@ -186,7 +186,7 @@ export default async function HealthChapterDetailPage({
               Parcours du chapitre
             </h2>
             <p className="text-sm text-muted-foreground">
-              Les QCM sont regroupés par section pour te permettre d&apos;aller vite vers la bonne partie du cours.
+              Les quiz sont regroupés par section pour te permettre d&apos;aller vite vers la bonne partie du cours.
             </p>
           </div>
 
@@ -208,7 +208,7 @@ export default async function HealthChapterDetailPage({
                       </CardTitle>
                       <div className="flex flex-wrap items-center gap-2 sm:justify-end">
                         <Badge variant="secondary" className="w-fit">
-                          {section.quizzes.length} QCM
+                          {section.quizzes.length} quiz
                         </Badge>
                         <Badge variant="secondary" className="w-fit">
                           {sectionQuestionCount} question
@@ -223,7 +223,7 @@ export default async function HealthChapterDetailPage({
                       <TableHeader>
                         <TableRow>
                           <TableHead className="w-[72px] text-center">#</TableHead>
-                          <TableHead className="min-w-[260px]">QCM</TableHead>
+                          <TableHead className="min-w-[260px]">QUIZ</TableHead>
                           <TableHead className="w-[140px] text-center">QUESTIONS</TableHead>
                           <TableHead className="w-[160px] text-center">ÉTAPE</TableHead>
                           <TableHead className="w-[180px] text-center">STATS</TableHead>
@@ -241,7 +241,7 @@ export default async function HealthChapterDetailPage({
                                 {quiz.title}
                               </div>
                               {quiz.description ? (
-                                <div className="mt-1 line-clamp-2 max-w-[520px] text-xs leading-5 text-muted-foreground">
+                                <div className="mt-1 text-xs leading-5 text-muted-foreground">
                                   {quiz.description}
                                 </div>
                               ) : null}
@@ -309,7 +309,7 @@ export default async function HealthChapterDetailPage({
                     </Table>
                   ) : (
                     <p className="text-sm text-muted-foreground">
-                      Aucun QCM publié dans cette section.
+                      Aucun quiz publié dans cette section.
                     </p>
                   )}
                 </CardContent>

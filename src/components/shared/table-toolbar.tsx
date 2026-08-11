@@ -130,8 +130,8 @@ const inferTitleTooltip = (title: string) => {
   if (normalized.includes("journal de connexion")) {
     return "Historique des connexions des comptes administrateurs et utilisateurs.";
   }
-  if (normalized.includes("qcm")) {
-    return "Un QCM regroupe une série de questions d'entraînement ou d'évaluation, avec une correction attendue.";
+  if (normalized.includes("qcm") || normalized.includes("quiz")) {
+    return "Un quiz regroupe une série de questions d'entraînement ou d'évaluation, avec une correction attendue.";
   }
   if (normalized.includes("question")) {
     return "Une question est un item élémentaire qui peut être rattaché à un chapitre, un quiz ou un sujet.";
@@ -152,7 +152,7 @@ const inferTitleTooltip = (title: string) => {
     return "Un domaine regroupe plusieurs thèmes proches au sein d'une même matière.";
   }
   if (normalized.includes("theme")) {
-    return "Un thème correspond à une notion pédagogique réutilisable pour les exercices, QCM et annales.";
+    return "Un thème correspond à une notion pédagogique réutilisable pour les exercices, quiz et annales.";
   }
   if (normalized.includes("enseignement")) {
     return "Un enseignement décrit un bloc de contenu pédagogique rattaché à un programme ou à une année.";
@@ -182,7 +182,7 @@ const inferTitleTooltip = (title: string) => {
     return "Un bloc regroupe plusieurs UE selon une logique pédagogique commune dans une maquette.";
   }
   if (normalized.includes("ue")) {
-    return "Une UE est une unité d'enseignement exploitable pour les QCM, colles, examens blancs et annales.";
+    return "Une UE est une unité d'enseignement exploitable pour les quiz, colles, examens blancs et annales.";
   }
   if (normalized.includes("etablissement")) {
     return "Un établissement représente l'université ou la structure porteuse de l'offre concernée.";

@@ -31,7 +31,7 @@ interface EditTrainingQcmPageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Éditer un QCM",
+  title: "Éditer un quiz",
 };
 
 export default async function EditTrainingQcmPage({ params }: EditTrainingQcmPageProps) {
@@ -118,11 +118,11 @@ export default async function EditTrainingQcmPage({ params }: EditTrainingQcmPag
   return (
     <div className="w-full p-6">
       <div>
-        <h1 className="mb-6 text-lg font-semibold md:text-2xl">Éditer un QCM</h1>
+        <h1 className="mb-6 text-lg font-semibold md:text-2xl">Éditer un quiz</h1>
       </div>
       <ChapterForm
         crudMode="edit"
-        entityLabel="QCM"
+        entityLabel="quiz"
         cancelHref="/admin/training/qcms"
         redirectTo="/admin/training/qcms"
         revalidatePaths={["/admin/training/qcms", "/admin/training/quiz-questions"]}

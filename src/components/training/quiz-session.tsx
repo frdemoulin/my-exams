@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   CheckCircle2,
@@ -668,6 +668,18 @@ export function QuizSession({
   );
   const [viewMode, setViewMode] = useState<QuizViewMode>('taking');
   const [themePageIndex, setThemePageIndex] = useState(0);
+  const navItemRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    const activeButton = navItemRefs.current[currentIndex];
+    if (activeButton) {
+      activeButton.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  }, [currentIndex]);
   const canonicalQuestions = useMemo(
     () => sessionQuestions.map((question) => question.canonicalQuestion),
     [sessionQuestions]
@@ -1418,128 +1430,139 @@ export function QuizSession({
       data-testid={isReviewMode ? 'quiz-review' : 'quiz-taking'}
       className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
     >
-      <div className="space-y-3">
-        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <div className="space-y-2">
+      {/* 1. NAVIGATION GLOBALE DU QUIZ (AU-DESSUS DU BLOC DE QUESTION) */}
+      <nav
+        aria-label="Navigation entre les questions du quiz"
+        className="space-y-2"
+      >
+        <div className="flex overflow-hidden rounded-xl border border-border bg-background">
+          <button
+            type="button"
+            onClick={goToPreviousQuestion}
+            disabled={currentIndex === 0}
+            className={cn(
+              'flex h-14 w-10 shrink-0 items-center justify-center border-r border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-4',
+              currentIndex === 0
+                ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
+                : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
+            )}
+          >
+            <ChevronLeft className="h-4 w-4 md:hidden" />
+            <span className="sr-only md:not-sr-only">Précédent</span>
+          </button>
+
+          <div className="flex-1 overflow-x-auto">
+            <ol className="flex min-w-full">
+              {sessionQuestions.map((question, index) => {
+                const status = getQuestionNavigationStatus({
+                  correctionMode,
+                  isReviewMode,
+                  isAnswered: effectiveAnsweredByQuestion[index] ?? false,
+                  evaluationStatus: evaluationsByQuestion[index]?.status ?? null,
+                  index,
+                  currentIndex,
+                });
+                const statusLabel = questionNavigationStatusLabels[status];
+                const formatCode = canonicalQuestions[index]?.format ?? 'QRU';
+
+                return (
+                  <li
+                    key={question.id}
+                    className="min-w-12 flex-1 border-r border-border last:border-r-0"
+                  >
+                    <button
+                      ref={(el) => {
+                        navItemRefs.current[index] = el;
+                      }}
+                      type="button"
+                      onClick={() => goToQuestion(index)}
+                      aria-current={status === 'current' ? 'page' : undefined}
+                      aria-label={`Question ${index + 1} sur ${sessionQuestions.length} — ${formatCode} — ${statusLabel.toLowerCase()}`}
+                      data-testid={`quiz-nav-question-${index + 1}`}
+                      className={cn(
+                        'flex h-14 w-full flex-col items-center justify-center py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset',
+                        getQuestionNavigationButtonClassName(status)
+                      )}
+                    >
+                      <span className="text-base font-bold leading-none">{index + 1}</span>
+                      <span className="mt-1 text-xs font-semibold uppercase font-mono tracking-tight leading-none opacity-90">{formatCode}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+
+          <button
+            type="button"
+            onClick={goToNextQuestion}
+            disabled={currentIndex === sessionQuestions.length - 1}
+            className={cn(
+              'flex h-14 w-10 shrink-0 items-center justify-center border-l border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-4',
+              currentIndex === sessionQuestions.length - 1
+                ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
+                : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
+            )}
+          >
+            <span className="sr-only md:not-sr-only">Suivant</span>
+            <ChevronRight className="h-4 w-4 md:hidden" />
+          </button>
+        </div>
+
+        {/* LÉGENDE DES ÉTATS (Mobile et Desktop) */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1 text-xs text-muted-foreground">
+          {questionNavigationLegendItems.map((item) => (
+            <span key={item.status} className="inline-flex items-center gap-1.5">
+              <span
+                aria-hidden="true"
+                className={cn('h-2.5 w-2.5 rounded-full', item.toneClassName)}
+              />
+              {questionNavigationStatusLabels[item.status]}
+            </span>
+          ))}
+        </div>
+      </nav>
+
+      {/* 2. EN-TÊTE ET CONTEXTE DE LA QUESTION COURANTE */}
+      <div className="space-y-2 pt-1">
+        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-2">
             <p
               data-testid="quiz-question-counter"
-              className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
+              className="text-xs font-bold uppercase tracking-wide text-muted-foreground"
             >
               {isReviewMode ? 'Correction · ' : ''}Question {currentIndex + 1} / {sessionQuestions.length}
             </p>
             <QuestionFormatBadge question={currentCanonicalQuestion} />
-            {currentFormatInstruction ? (
-              <p className="max-w-2xl text-sm text-muted-foreground">
-                {currentFormatInstruction}
-              </p>
-            ) : null}
           </div>
-          <div className="flex flex-wrap items-center justify-end gap-2">
-            <Badge variant="secondary">
+
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="secondary" className="w-fit">
               {isReviewMode
                 ? isCorrect
                   ? 'Réponse correcte'
                   : 'Réponse à revoir'
                 : isFinalCorrectionOnly
-                ? `${answeredCount}/${sessionQuestions.length} traitée${answeredCount > 1 ? 's' : ''}`
+                ? `${answeredCount}/${sessionQuestions.length} répondues`
                 : `Score ${score}/${sessionQuestions.length}`}
             </Badge>
             {canEditQuestions ? (
-              <Button asChild variant="outline" size="xs">
+              <Button asChild variant="outline" size="xs" className="w-fit">
                 <Link href={getAdminQuestionEditHref(currentQuestion.id)}>
                   <Pencil className="h-3.5 w-3.5" />
-                  Éditer la question
+                  <span className="hidden sm:inline">Éditer la question</span>
+                  <span className="sm:hidden">Éditer</span>
                 </Link>
               </Button>
             ) : null}
           </div>
         </div>
 
-        <nav
-          aria-label="Navigation entre les questions du quiz"
-          className="space-y-2"
-        >
-          <div className="flex overflow-hidden rounded-xl border border-border bg-background">
-            <button
-              type="button"
-              onClick={goToPreviousQuestion}
-              disabled={currentIndex === 0}
-              className={cn(
-                'flex h-10 w-10 shrink-0 items-center justify-center border-r border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-3',
-                currentIndex === 0
-                  ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
-                  : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
-              )}
-            >
-              <ChevronLeft className="h-4 w-4 md:hidden" />
-              <span className="sr-only md:not-sr-only">Précédent</span>
-            </button>
-
-            <div className="flex-1 overflow-x-auto">
-              <ol className="flex min-w-full">
-                {sessionQuestions.map((question, index) => {
-                  const status = getQuestionNavigationStatus({
-                    correctionMode,
-                    isReviewMode,
-                    isAnswered: effectiveAnsweredByQuestion[index] ?? false,
-                    evaluationStatus: evaluationsByQuestion[index]?.status ?? null,
-                    index,
-                    currentIndex,
-                  });
-                  const statusLabel = questionNavigationStatusLabels[status];
-
-                  return (
-                    <li
-                      key={question.id}
-                      className="min-w-11 flex-1 border-r border-border last:border-r-0"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => goToQuestion(index)}
-                        aria-current={status === 'current' ? 'page' : undefined}
-                        aria-label={`Aller à la question ${index + 1} (${statusLabel.toLowerCase()})`}
-                        data-testid={`quiz-nav-question-${index + 1}`}
-                        className={cn(
-                          'flex h-10 w-full items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset',
-                          getQuestionNavigationButtonClassName(status)
-                        )}
-                      >
-                        {index + 1}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ol>
-            </div>
-
-            <button
-              type="button"
-              onClick={goToNextQuestion}
-              disabled={currentIndex === sessionQuestions.length - 1}
-              className={cn(
-                'flex h-10 w-10 shrink-0 items-center justify-center border-l border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-3',
-                currentIndex === sessionQuestions.length - 1
-                  ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
-                  : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
-              )}
-            >
-              <span className="sr-only md:not-sr-only">Suivant</span>
-              <ChevronRight className="h-4 w-4 md:hidden" />
-            </button>
-          </div>
-
-          <div className="hidden flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground md:flex">
-            {questionNavigationLegendItems.map((item) => (
-              <span key={item.status} className="inline-flex items-center gap-2">
-                <span
-                  aria-hidden="true"
-                  className={cn('h-2.5 w-2.5 rounded-full', item.toneClassName)}
-                />
-                {questionNavigationStatusLabels[item.status]}
-              </span>
-            ))}
-          </div>
-        </nav>
+        {currentFormatInstruction ? (
+          <p className="text-sm font-medium text-muted-foreground">
+            {currentFormatInstruction}
+          </p>
+        ) : null}
       </div>
 
       {currentGroup ? (
@@ -1858,7 +1881,7 @@ export function QuizSession({
 
       <div className="flex flex-col gap-3 border-t border-border pt-4 md:flex-row md:items-center md:justify-between">
         <p className="text-sm text-muted-foreground">
-          {answeredCount} {answeredCount > 1 ? 'questions traitées.' : 'question traitée.'}
+          {answeredCount} {answeredCount > 1 ? 'questions répondues.' : 'question répondue.'}
           {isComplete
             ? isFinalCorrectionOnly
               ? ' Quiz terminé.'

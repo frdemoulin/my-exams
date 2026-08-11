@@ -46,7 +46,7 @@ export function ChapterTrainingStructurePanel({
             Aucune section structurée
           </h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Ce chapitre n&apos;expose encore aucune section ni série de QCM. La
+            Ce chapitre n&apos;expose encore aucune section ni quiz. La
             structuration s&apos;administre via l&apos;éditeur de structure pédagogique.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -74,7 +74,7 @@ export function ChapterTrainingStructurePanel({
             Structure pédagogique du chapitre
           </h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Les sections structurent le chapitre et portent les séries de QCM
+            Les sections structurent le chapitre et portent les quiz
             d&apos;entraînement.
           </p>
         </div>
@@ -94,7 +94,7 @@ export function ChapterTrainingStructurePanel({
 
       <div className="flex flex-wrap gap-2">
         <Badge variant="secondary">{sections.length} sections</Badge>
-        <Badge variant="outline">{totalQuizCount} séries de QCM</Badge>
+        <Badge variant="outline">{totalQuizCount} quiz</Badge>
         <Badge variant="outline">{totalQuestionCount} questions liées</Badge>
       </div>
 
@@ -163,7 +163,7 @@ export function ChapterTrainingStructurePanel({
               </div>
             ) : (
               <p className="mt-4 text-sm text-muted-foreground">
-                Aucune série de QCM associée à cette section pour l&apos;instant.
+                Aucun quiz associé à cette section pour l&apos;instant.
               </p>
             )}
           </section>

@@ -40,7 +40,7 @@ function QcmActions({ chapter }: { chapter: ChapterListItem }) {
         skipSuccessToast: true,
         revalidatePaths: ["/admin/training/qcms", "/admin/training/quiz-questions"],
       });
-      toast.success("QCM supprimé");
+      toast.success("Quiz supprimé");
       setMenuOpen(false);
       router.refresh();
     } catch (error) {
@@ -52,7 +52,7 @@ function QcmActions({ chapter }: { chapter: ChapterListItem }) {
       ) {
         throw error;
       }
-      toast.error("Erreur lors de la suppression du QCM");
+      toast.error("Erreur lors de la suppression du quiz");
     }
   };
 
@@ -91,7 +91,7 @@ export const columns: ColumnDef<ChapterListItem>[] = [
   {
     accessorKey: "title",
     sortingFn: localeSort,
-    header: ({ column }) => <SortableHeader label="QCM" column={column} align="left" />,
+    header: ({ column }) => <SortableHeader label="QUIZ" column={column} align="left" />,
   },
   {
     id: "subject",
