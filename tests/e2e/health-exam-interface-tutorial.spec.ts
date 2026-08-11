@@ -34,7 +34,7 @@ test.describe("Santé - tutoriel interface examen", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     await expect(page.getByText("QROC — Question ouverte à rédaction courte", { exact: true })).toBeVisible();
-    await expect(page.getByText("Saisissez une réponse numérique courte, en chiffres.", { exact: true })).toBeVisible();
+    await expect(page.getByText("Saisissez votre réponse.", { exact: true })).toBeVisible();
     await expect(page.getByText("Répondez en chiffres, par exemple 4 et non quatre.", { exact: false })).toBeVisible();
     await page.getByTestId("health-mock-exam-short-answer-input").fill("4");
     await page.getByRole("button", { name: "Suivante" }).click();

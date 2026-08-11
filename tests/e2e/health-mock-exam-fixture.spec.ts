@@ -52,7 +52,7 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     await expect(page.getByText("QROC — Question ouverte à rédaction courte", { exact: true })).toBeVisible();
-    await expect(page.getByText("Saisissez une réponse numérique courte, en chiffres.", { exact: true })).toBeVisible();
+    await expect(page.getByText("Saisissez votre réponse.", { exact: true })).toBeVisible();
     await page.getByTestId("health-mock-exam-short-answer-input").fill("3");
 
     await page.getByRole("button", { name: "Soumettre l'examen" }).click();
@@ -64,7 +64,7 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     await expect(page.getByText("100%").first()).toBeVisible();
     await expect(page.getByTestId("health-mock-exam-short-answer-result")).toContainText("3");
     await expect(page.getByText("QROC — Question ouverte à rédaction courte", { exact: true })).toBeVisible();
-    await expect(page.getByText("Saisissez une réponse numérique courte, en chiffres.", { exact: true })).toBeVisible();
+    await expect(page.getByText("Saisissez votre réponse.", { exact: true })).toBeVisible();
     await expect(page.getByText("Réponse attendue", { exact: true })).toBeVisible();
   });
 });
