@@ -201,7 +201,7 @@ test.describe.serial("Santé - QCM publics", () => {
         `${appBaseUrl}/sante/ue/${fixture.courseUnitId}/chapitres/${chapterSlug}/qcm/${fixture.quizSlug}`,
       );
 
-      await expect(page.getByRole("heading", { name: "QCM 1" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Quiz 1" })).toBeVisible();
       await expect(page.getByRole("link", { name: "Retour au chapitre" })).toBeVisible();
       await expect(page.getByTestId("quiz-taking")).toBeVisible();
 
@@ -209,7 +209,11 @@ test.describe.serial("Santé - QCM publics", () => {
         await expect(page.getByTestId("quiz-question-counter")).toContainText(
           `Question ${index + 1} / ${fixture.quizQuestionCount}`,
         );
-        await page.getByTestId("quiz-choice-0").click();
+        if (await page.getByTestId("quiz-choice-0").isVisible()) {
+          await page.getByTestId("quiz-choice-0").click();
+        } else if (await page.getByTestId("quiz-short-answer-input").isVisible()) {
+          await page.getByTestId("quiz-short-answer-input").fill("78");
+        }
 
         if (index < fixture.quizQuestionCount - 1) {
           await page.getByTestId("quiz-next").click();
@@ -242,7 +246,11 @@ test.describe.serial("Santé - QCM publics", () => {
       );
 
       for (let index = 0; index < fixture.quizQuestionCount; index += 1) {
-        await page.getByTestId("quiz-choice-0").click();
+        if (await page.getByTestId("quiz-choice-0").isVisible()) {
+          await page.getByTestId("quiz-choice-0").click();
+        } else if (await page.getByTestId("quiz-short-answer-input").isVisible()) {
+          await page.getByTestId("quiz-short-answer-input").fill("78");
+        }
 
         if (index < fixture.quizQuestionCount - 1) {
           await page.getByTestId("quiz-next").click();

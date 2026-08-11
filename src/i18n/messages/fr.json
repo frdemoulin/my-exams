@@ -226,18 +226,18 @@
       }
     },
     "quizQuestion": {
-      "singular": "Question QCM",
-      "plural": "Questions QCM",
+      "singular": "Question",
+      "plural": "Questions",
       "article": {
         "definite": "la",
         "indefinite": "une"
       },
       "actions": {
-        "add": "Ajouter une question QCM",
-        "edit": "Éditer la question QCM",
-        "delete": "Supprimer la question QCM",
-        "view": "Voir la question QCM",
-        "list": "Liste des questions QCM"
+        "add": "Ajouter une question",
+        "edit": "Éditer la question",
+        "delete": "Supprimer la question",
+        "view": "Voir la question",
+        "list": "Liste des questions"
       }
     },
     "user": {

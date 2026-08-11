@@ -745,7 +745,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
       await expect(
         page
           .getByText(
-            `${chapter.sections.length} sections · ${expectedChapters[chapterIndex].quizCount} QCM`,
+            `${chapter.sections.length} sections · ${expectedChapters[chapterIndex].quizCount} quiz`,
             { exact: true },
           )
           .first(),
@@ -757,7 +757,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: firstChapter.title })).toBeVisible();
     await expect(page.getByText(`${firstChapter.sections.length} sections`)).toBeVisible();
-    await expect(page.getByText(`${expectedChapters[0].quizCount} QCM`)).toBeVisible();
+    await expect(page.getByText(`${expectedChapters[0].quizCount} quiz`)).toBeVisible();
     await expect(page.getByText(`${expectedChapters[0].questionCount} questions`)).toBeVisible();
     await expect(page.getByRole("link", { name: /Démarrer/i })).toHaveCount(
       expectedChapters[0].quizCount,
@@ -782,7 +782,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText(`${chapter.sectionCount} sections`)).toBeVisible();
-    await expect(page.getByText(`${chapter.quizCount} QCM`)).toBeVisible();
+    await expect(page.getByText(`${chapter.quizCount} quiz`)).toBeVisible();
     await expect(page.getByText(formatQuestionCountLabel(chapter.questionCount))).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -804,14 +804,14 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText(`${chapter.sectionCount} sections`)).toBeVisible();
-    await expect(page.getByText(`${chapter.quizCount} QCM`)).toBeVisible();
+    await expect(page.getByText(`${chapter.quizCount} quiz`)).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
       await expect(page.getByRole("heading", { name: sectionHeading, exact: true })).toBeVisible();
     }
 
-    await expect(page.getByText("Aucun QCM publié dans cette section.")).toHaveCount(
+    await expect(page.getByText("Aucun quiz publié dans cette section.")).toHaveCount(
       emptySections.length,
     );
     await expect(page.getByText(formatQuestionCountLabel(0), { exact: true })).toHaveCount(
@@ -873,7 +873,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 QCM")).toBeVisible();
+    await expect(page.getByText("14 quiz")).toBeVisible();
     await expect(page.getByText("140 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -897,7 +897,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 QCM")).toBeVisible();
+    await expect(page.getByText("14 quiz")).toBeVisible();
     await expect(page.getByText("140 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -917,7 +917,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 QCM")).toBeVisible();
+    await expect(page.getByText("14 quiz")).toBeVisible();
     await expect(page.getByText("140 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -939,7 +939,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 QCM")).toBeVisible();
+    await expect(page.getByText("14 quiz")).toBeVisible();
     await expect(page.getByText("140 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -959,7 +959,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 QCM")).toBeVisible();
+    await expect(page.getByText("14 quiz")).toBeVisible();
     await expect(page.getByText("140 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -981,7 +981,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 QCM")).toBeVisible();
+    await expect(page.getByText("14 quiz")).toBeVisible();
     await expect(page.getByText("140 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -1002,7 +1002,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
       await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
       await expect(page.getByText("5 sections")).toBeVisible();
-      await expect(page.getByText("14 QCM")).toBeVisible();
+      await expect(page.getByText("14 quiz")).toBeVisible();
       await expect(page.getByText("140 questions")).toBeVisible();
 
       for (const [sectionIndex, section] of chapter.sections.entries()) {
@@ -1026,7 +1026,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
       await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
       await expect(page.getByText("5 sections")).toBeVisible();
-      await expect(page.getByText("14 QCM")).toBeVisible();
+      await expect(page.getByText("14 quiz")).toBeVisible();
       await expect(page.getByText("140 questions")).toBeVisible();
 
       for (const [sectionIndex, section] of chapter.sections.entries()) {

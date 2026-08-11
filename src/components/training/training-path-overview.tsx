@@ -161,15 +161,15 @@ const getSectionTimelineDetail = ({
   const kindLabel = getSectionKindLabel(section.kind);
 
   if (section.status === 'mastered') {
-    return `${kindLabel} · ${completedQuizCount}/${section.quizzes.length} QCM validés`;
+    return `${kindLabel} · ${completedQuizCount}/${section.quizzes.length} quiz validés`;
   }
 
   if (section.status === 'in-progress') {
-    return `${kindLabel} · ${completedQuizCount}/${section.quizzes.length} QCM validés`;
+    return `${kindLabel} · ${completedQuizCount}/${section.quizzes.length} quiz validés`;
   }
 
   if (section.status === 'available') {
-    return `${kindLabel} · ${section.quizzes.length} QCM à valider`;
+    return `${kindLabel} · ${section.quizzes.length} quiz à valider`;
   }
 
   return isAuthenticated
@@ -499,7 +499,7 @@ export function TrainingPathOverview({
             </CardTitle>
             <CardDescription>
               {isAuthenticated
-                ? 'Tous les QCM publiés restent accessibles. Ce bloc te recommande simplement la prochaine étape utile.'
+                ? 'Tous les quiz publiés restent accessibles. Ce bloc te recommande simplement la prochaine étape utile.'
                 : 'Commence par la première section pour découvrir le parcours.'}
             </CardDescription>
           </CardHeader>
@@ -549,7 +549,7 @@ export function TrainingPathOverview({
                   <p className="font-semibold">Parcours terminé</p>
                 </div>
                 <p className="text-sm leading-6 opacity-90">
-                  Tous les QCM de ce chapitre ont été validés sur ce navigateur.
+                  Tous les quiz de ce chapitre ont été validés sur ce navigateur.
                 </p>
                 <Button asChild variant="outline" className="w-full">
                   <Link href={chapterHref}>Revenir au chapitre</Link>

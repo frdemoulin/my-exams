@@ -318,7 +318,9 @@ export default async function SciencePhysicsTrainingChapterPage({
                         {sectionLabelById.get(selectedQuiz.section.id)} - {selectedQuiz.section.title}
                       </Badge>
                     </div>
-                    <TrainingQuizInstructions />
+                    <TrainingQuizInstructions
+                      questionCount={selectedQuiz.quiz.questions.length}
+                    />
                   </div>
                 </CardHeader>
               </Card>

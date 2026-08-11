@@ -128,7 +128,7 @@ export function HealthCourseUnitTabs({
                               {chapterCount} chapitre
                               {chapterCount > 1 ? 's' : ''}
                             </Badge>
-                            <Badge variant="outline">{quizCount} QCM</Badge>
+                            <Badge variant="outline">{quizCount} quiz</Badge>
                             <Badge variant="outline">
                               {questionCount} question
                               {questionCount > 1 ? 's' : ''}
@@ -166,7 +166,7 @@ export function HealthCourseUnitTabs({
                                   </td>
                                   <td className="px-5 py-4 align-middle text-muted-foreground">
                                     {chapter.sectionCount} section
-                                    {chapter.sectionCount > 1 ? 's' : ''} · {chapter.quizCount} QCM
+                                    {chapter.sectionCount > 1 ? 's' : ''} · {chapter.quizCount} quiz
                                   </td>
                                   <td className="px-5 py-4 text-center align-middle">
                                     <Button asChild size="sm" className="gap-2">

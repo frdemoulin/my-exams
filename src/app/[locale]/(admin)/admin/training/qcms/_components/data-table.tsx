@@ -97,11 +97,11 @@ export function DataTable<TData extends { id: string }, TValue>({
     <div>
       <TableToolbar
         title={title}
-        description="Administre les QCM d'entraînement sans déplacer les chapitres du référentiel transversal."
+        description="Administre les quiz d'entraînement sans déplacer les chapitres du référentiel transversal."
         pageFrom={pageFrom}
         pageTo={pageTo}
         totalCount={totalCount}
-        placeholder="Rechercher un QCM..."
+        placeholder="Rechercher un quiz..."
         value={globalFilter}
         onChange={setGlobalFilter}
         actions={
@@ -112,7 +112,7 @@ export function DataTable<TData extends { id: string }, TValue>({
           />
         }
         addHref="/admin/training/qcms/add"
-        addLabel="Ajouter un QCM"
+        addLabel="Ajouter un quiz"
       />
       <Table>
         <TableHeader>

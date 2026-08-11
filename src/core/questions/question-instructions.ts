@@ -21,7 +21,7 @@ export function getQuestionFormatStudentInstruction(question: Question) {
     case "QRU":
       return "Sélectionnez une seule proposition.";
     case "QRM":
-      return "Sélectionnez toutes les propositions exactes.";
+      return "Sélectionnez une ou plusieurs propositions.";
     case "QRP": {
       const selectionLimit = getQuestionSelectionLimit(question);
       return selectionLimit
@@ -35,9 +35,7 @@ export function getQuestionFormatStudentInstruction(question: Question) {
         : "Sélectionnez le nombre de propositions demandé dans la liste longue.";
     }
     case "QROC":
-      return question.type === "short-answer" && question.answerType === "number"
-        ? "Saisissez une réponse numérique courte, en chiffres."
-        : "Rédigez une réponse courte.";
+      return "Saisissez votre réponse.";
     case "QROL":
       return "Rédigez une réponse longue.";
     case "QZONE":
@@ -53,11 +51,11 @@ export function getQuestionFormatStudentInstruction(question: Question) {
   if (question.type === "mcq") {
     return question.selectionMode === "single"
       ? "Sélectionnez une seule proposition."
-      : "Sélectionnez toutes les propositions exactes.";
+      : "Sélectionnez une ou plusieurs propositions.";
   }
 
   if (question.type === "short-answer") {
-    return "Rédigez une réponse courte.";
+    return "Saisissez votre réponse.";
   }
 
   if (question.type === "hotspot") {

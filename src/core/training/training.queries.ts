@@ -75,36 +75,39 @@ const createTrainingLevelListItem = (value: string): TrainingLevelListItem => ({
   quizCount: 0,
 });
 
-const simplifyTrainingQuizDescription = (description: string | null) => {
+export const simplifyTrainingQuizDescription = (description: string | null) => {
   if (!description) {
     return null;
   }
 
   const trimmedDescription = description.trim();
 
-  if (!/^QCM\b/iu.test(trimmedDescription)) {
-    return trimmedDescription;
-  }
-
-  const simplifiedDescription = trimmedDescription
-    .replace(
-      /^QCM(?:(?:\s+de\s+niveau)?\s+(?:facile|moyen|difficile))?(?:\s+avec\s+.+?)?\s+sur\s+/iu,
-      ''
-    )
-    .replace(/(^|,\s+| et\s+)(?:les|la|le|un|une)\s+/giu, '$1')
-    .replace(/(^|,\s+| et\s+)l[’']\s*/giu, '$1')
-    .replace(/\bet sur (?:les|la|le|un|une)\s+/giu, ' et ')
-    .replace(/\bet sur l[’']\s*/giu, ' et ')
-    .replace(/\s+/g, ' ')
+  let cleaned = trimmedDescription
+    .replace(/^Entraînement\s+(?:limité\s+à\s+|sur\s+)?(?:la\s+section\s+[A-Z0-9]+\s*[:–-]\s*)/iu, '')
+    .replace(/^Entraînement\s+sur\s+la\s+section\s+[A-Z0-9]+\s*,\s*/iu, '')
     .trim();
 
-  if (simplifiedDescription.length === 0) {
+  if (/^QCM\b/iu.test(cleaned)) {
+    cleaned = cleaned
+      .replace(
+        /^QCM(?:(?:\s+de\s+niveau)?\s+(?:facile|moyen|difficile))?(?:\s+avec\s+.+?)?\s+sur\s+/iu,
+        ''
+      )
+      .replace(/(^|,\s+| et\s+)(?:les|la|le|un|une)\s+/giu, '$1')
+      .replace(/(^|,\s+| et\s+)l[’']\s*/giu, '$1')
+      .replace(/\bet sur (?:les|la|le|un|une)\s+/giu, ' et ')
+      .replace(/\bet sur l[’']\s*/giu, ' et ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  if (cleaned.length === 0) {
     return trimmedDescription;
   }
 
   return (
-    simplifiedDescription.charAt(0).toLocaleUpperCase('fr-FR') +
-    simplifiedDescription.slice(1)
+    cleaned.charAt(0).toLocaleUpperCase('fr-FR') +
+    cleaned.slice(1)
   );
 };
 

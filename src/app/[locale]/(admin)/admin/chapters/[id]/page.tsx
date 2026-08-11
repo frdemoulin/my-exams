@@ -75,7 +75,7 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
               href={chapterQuizQuestionsExportHref}
             />
             <Button asChild variant="outline">
-              <Link href={`/admin/training/qcms/${chapter.id}/edit`}>Structure QCM</Link>
+              <Link href={`/admin/training/qcms/${chapter.id}/edit`}>Structure des quiz</Link>
             </Button>
             <Button asChild variant="warning" size="icon" aria-label="Éditer le chapitre">
               <Link href={`/admin/chapters/${chapter.id}/edit`}>
@@ -156,7 +156,7 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       <Badge variant="secondary">{trainingSectionCount} sections</Badge>
-                      <Badge variant="outline">{trainingQuizCount} séries QCM</Badge>
+                      <Badge variant="outline">{trainingQuizCount} quiz</Badge>
                     </div>
                   </div>
                   <div>
@@ -199,7 +199,7 @@ export default async function ChapterDetailPage({ params }: ChapterDetailPagePro
           },
           {
             id: "structure",
-            label: "Structure QCM",
+            label: "Structure des quiz",
             badge: trainingSectionCount,
             content: (
               <ChapterTrainingStructurePanel

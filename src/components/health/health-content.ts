@@ -36,7 +36,7 @@ export const healthFeatures: HealthFeature[] = [
   {
     title: "S'entraîner avec des colles",
     description:
-      'Chaque colle correspondra à une série de QCM rattachée à une UE, puis affinée par chapitres et sous-sections d’UE.',
+      'Chaque colle correspondra à une évaluation d’entraînement rattachée à une UE, puis affinée par chapitres et sous-sections d’UE.',
     icon: ListChecks,
   },
   {
@@ -70,11 +70,11 @@ export const healthSectionDefinitions: Record<HealthSectionSlug, HealthSectionDe
     eyebrow: 'Navigation préparée',
     title: 'Colles Santé',
     description:
-      'Une colle correspondra à une série de QCM organisée par UE, puis par chapitres et sous-sections d’UE pour cibler une révision courte et précise.',
+      'Une colle correspondra à une évaluation d’entraînement organisée par UE, puis par chapitres et sous-sections d’UE pour cibler une révision courte et précise.',
     ctaLabel: 'Voir les colles',
     href: '/sante/colles',
     highlights: [
-      'Une colle = une série courte de QCM ciblés.',
+      'Une colle = une évaluation d’entraînement ciblée.',
       'Chaque colle sera rattachée à une UE.',
       'À l’intérieur d’une UE, les colles pourront être organisées par chapitres et sous-sections.',
     ],
@@ -129,7 +129,7 @@ export const healthHeroHighlights = [
 ] as const;
 
 export const healthCollesPrinciples = [
-  'Une colle sera une série de QCM courte et ciblée.',
+  'Une colle sera une évaluation d’entraînement courte et ciblée.',
   'Elle sera rattachée à une UE avant d’être découpée par chapitres et sous-sections d’UE.',
   'Le format doit permettre une révision rapide, fréquente et progressive.',
 ] as const;
