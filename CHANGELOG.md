@@ -1,3 +1,11 @@
+## [1.6.37](https://github.com/frdemoulin/my-exams/compare/v1.6.36...v1.6.37) (2026-08-11)
+
+### Bug Fixes
+
+* refonte de la navigation des questions ([8a9d708](https://github.com/frdemoulin/my-exams/commit/8a9d708512c70a17b88eb807296452ef9afa9e11))
+* refonte de la navigation des questions ([c468b8a](https://github.com/frdemoulin/my-exams/commit/c468b8a994a36db16fbc3383a26251e141236c44))
+* refonte de la navigation des questions ([d18585d](https://github.com/frdemoulin/my-exams/commit/d18585d092c7a1c5787941ecd3040a89658de66a))
+
 ## [1.6.36](https://github.com/frdemoulin/my-exams/compare/v1.6.35...v1.6.36) (2026-08-10)
 
 ### Bug Fixes
