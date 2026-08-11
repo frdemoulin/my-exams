@@ -6,11 +6,11 @@ import type {
   QuizDifficulty,
   TrainingQuizStage,
 } from '@prisma/client';
-import {
-  compileHealthTrainingAuthorQuestion,
-  type HealthSeedQuestion,
-  type HealthTrainingAuthorQuestion,
-} from '../../src/core/questions/index';
+import { compileHealthTrainingAuthorQuestion } from '@/core/questions/health-author-question-compiler';
+import type {
+  HealthSeedQuestion,
+  HealthTrainingAuthorQuestion,
+} from '@/core/questions/health-author-question.types';
 
 
 export type QuantumBoxesDiagram = {
