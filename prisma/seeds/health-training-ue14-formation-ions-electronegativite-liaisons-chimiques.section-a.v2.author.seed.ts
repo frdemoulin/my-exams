@@ -140,31 +140,31 @@ export const UE14_CH2_IONS_ELECTRONEG_DISCOVER_V2_QUESTIONS: HealthTrainingAutho
     order: 6,
     difficulty: 'EASY',
     format: 'QRU',
-    question: `Quelle définition de l'électronégativité est la plus juste ?`,
+    question: `Dans le cadre du cours, que traduit principalement l'électronégativité d'un élément ?`,
     choices: [
       {
-        content: `La capacité d'un atome engagé dans une liaison à attirer vers lui les électrons de cette liaison.`,
+        content: `Sa tendance à attirer ou capter des électrons plutôt qu'à les céder.`,
         correct: true,
-        explanation: `C'est le sens de l'électronégativité utilisé dans le cours.`,
+        explanation: `Vrai : l'électronégativité exprime la tendance d'un élément à capter ou attirer les électrons.`,
       },
       {
-        content: `Le nombre d'électrons présents dans la couche de valence.`,
+        content: `Le nombre total d'électrons présents dans son noyau.`,
         correct: false,
-        explanation: `Le nombre d'électrons de valence influence le comportement chimique mais n'est pas l'électronégativité.`,
+        explanation: `Faux : le noyau contient les protons et les neutrons, et non les électrons.`,
       },
       {
         content: `L'énergie libérée lors de la rupture d'une liaison covalente.`,
         correct: false,
-        explanation: `Il s'agit d'une notion d'énergie de liaison, distincte de l'électronégativité.`,
+        explanation: `Faux : il s'agit de l'énergie de liaison, distincte de l'électronégativité.`,
       },
       {
-        content: `Une grandeur mesurée en électronvolts.`,
+        content: `La masse atomique moyenne exprimée en unités de masse atomique unifiées.`,
         correct: false,
-        explanation: `L'électronégativité est décrite sur une échelle sans unité.`,
+        explanation: `Faux : la masse atomique dépend des nucléons et non de l'électronégativité.`,
       },
     ],
     explanation:
-      `L'électronégativité, notée $\\chi$, exprime la tendance d'un atome lié à attirer les électrons du doublet liant.`,
+      `Dans le cours, l'électronégativité traduit la tendance d'un élément à attirer ou capturer les électrons. Une faible électronégativité est associée à la perte d'électrons (formation de cations), tandis qu'une forte électronégativité est associée au gain d'électrons (formation d'anions).`,
   },
   {
     order: 7,

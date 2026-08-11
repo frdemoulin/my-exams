@@ -28,6 +28,14 @@ Le moteur My Exams prend en charge :
 
 ---
 
+## 1.1. Progression pédagogique et répétition espacée entre quiz
+
+La répétition d'une même compétence, d'un même type de calcul ou d'une même démarche entre plusieurs quiz d'un chapitre est autorisée et souvent souhaitable. Une procédure (par exemple un calcul de charge partielle à partir d'un moment dipolaire ou la conversion d'une énergie de liaison) peut être rencontrée à plusieurs étapes de la progression (DISCOVER $\rightarrow$ PRACTICE $\rightarrow$ SYNTHÈSE $\rightarrow$ MASTER) afin de favoriser sa consolidation et son ancrage mnésique.
+
+Éviter en revanche les questions quasi identiques au sein d'un même quiz, sauf justification pédagogique explicite. La répétition doit être espacée à travers les quiz de la progression.
+
+---
+
 ## 2. Structure d'une question auteur (`HealthTrainingAuthorQuestion`)
 
 Toute question d'auteur Santé partage le socle de champs suivants :

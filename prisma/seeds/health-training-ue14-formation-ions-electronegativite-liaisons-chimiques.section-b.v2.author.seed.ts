@@ -239,31 +239,31 @@ export const UE14_CH2_LIAISONS_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuesti
     order: 38,
     difficulty: 'EASY',
     format: 'QRU',
-    question: `Quelle limite du modèle de Lewis est explicitement rappelée dans la fiche ?`,
+    question: `Un atome fortement électronégatif est lié à une chaîne carbonée portant une fonction acide carboxylique. Quel effet peut-il exercer par effet inductif ?`,
     choices: [
       {
-        content: `Il positionne les électrons de liaison mais n'explique pas à lui seul la géométrie moléculaire.`,
+        content: `Il attire la densité électronique à travers les liaisons $\\sigma$ et peut favoriser la dissociation du proton acide.`,
         correct: true,
-        explanation: `La géométrie sera abordée avec d'autres modèles dans les chapitres suivants.`,
+        explanation: `Vrai : l'effet inductif électroattracteur se transmet par les liaisons $\\sigma$ et peut stabiliser la charge négative formée.`,
       },
       {
-        content: `Il ne permet jamais de représenter les doublets non liants.`,
+        content: `Il fournit automatiquement un doublet au proton.`,
         correct: false,
-        explanation: `Les doublets non liants sont justement représentables en Lewis.`,
+        explanation: `Faux : ceci décrirait la formation d'une liaison de coordination ou une réaction acido-basique directe.`,
       },
       {
-        content: `Il ne peut être utilisé que pour les ions métalliques.`,
+        content: `Il transforme la liaison en liaison de coordination.`,
         correct: false,
-        explanation: `Il est utilisé pour de nombreuses molécules covalentes.`,
+        explanation: `Faux : l'effet inductif modifie la répartition électronique sans changer la nature covalente des liaisons.`,
       },
       {
-        content: `Il donne directement la valeur du moment dipolaire en debyes.`,
+        content: `Il supprime toute polarisation des liaisons voisines.`,
         correct: false,
-        explanation: `Le moment dipolaire nécessite des informations de charge et de distance.`,
+        explanation: `Faux : il induit au contraire une polarisation qui se transmet le long des liaisons $\\sigma$.`,
       },
     ],
     explanation:
-      `Le modèle de Lewis est très utile pour la répartition des électrons, mais il ne fournit pas à lui seul une description de la géométrie tridimensionnelle.`,
+      `L'effet inductif correspond à la transmission d'une polarisation électronique au travers des liaisons $\\sigma$ sous l'influence d'un substituant électronégatif ou électropositif. Dans l'exemple d'un substituant électronégatif proche d'une fonction acide carboxylique, cet effet peut stabiliser la charge négative de la base conjuguée et donc favoriser l'acidité.`,
   },
 ];
 
@@ -273,31 +273,31 @@ export const UE14_CH2_LIAISONS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuesti
     difficulty: 'MEDIUM',
     format: 'QRP',
     requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux propositions correctes concernant les règles du duet et de l'octet.`,
+    question: `Sélectionnez exactement les deux propositions correctes concernant les liaisons simples, doubles et triples.`,
     choices: [
       {
-        content: `L'hydrogène tend à être entouré de deux électrons dans sa couche externe.`,
+        content: `Une liaison simple comporte une liaison $\\sigma$.`,
         correct: true,
-        explanation: `Il suit la règle du duet.`,
+        explanation: `Vrai : une liaison covalente simple est formée par une liaison de type $\\sigma$.`,
       },
       {
-        content: `Pour de nombreux éléments de la deuxième période, la stabilité est associée à huit électrons de valence.`,
+        content: `Une liaison double comporte une liaison $\\sigma$ et une liaison $\\pi$.`,
         correct: true,
-        explanation: `C'est la règle de l'octet utilisée comme repère.`,
+        explanation: `Vrai : une liaison double associe une liaison $\\sigma$ et une liaison $\\pi$.`,
       },
       {
-        content: `Le phosphore ne peut jamais dépasser huit électrons autour de lui dans les modèles présentés dans la fiche.`,
+        content: `Une liaison triple comporte trois liaisons $\\pi$.`,
         correct: false,
-        explanation: `La fiche illustre notamment $\\ce{PCl5}$ avec cinq liaisons.`,
+        explanation: `Faux : une liaison triple comporte une liaison $\\sigma$ et deux liaisons $\\pi$.`,
       },
       {
-        content: `La règle de l'octet impose à toute molécule de comporter exactement huit atomes.`,
+        content: `Une liaison double comporte deux liaisons $\\sigma$.`,
         correct: false,
-        explanation: `Elle concerne le nombre d'électrons autour d'un atome, pas le nombre d'atomes.`,
+        explanation: `Faux : elle comporte une liaison $\\sigma$ et une liaison $\\pi$.`,
       },
     ],
     explanation:
-      `Le duet et l'octet sont des règles de stabilité électronique. La fiche présente aussi des cas où des éléments de périodes supérieures peuvent dépasser l'octet.`,
+      `Dans le modèle présenté dans le cours, une liaison simple correspond à une liaison $\\sigma$, une liaison double à une liaison $\\sigma$ et une liaison $\\pi$, et une liaison triple à une liaison $\\sigma$ et deux liaisons $\\pi$.`,
   },
   {
     order: 24,
