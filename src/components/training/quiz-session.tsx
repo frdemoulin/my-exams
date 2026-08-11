@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   CheckCircle2,
@@ -51,7 +51,6 @@ import { MathContent } from './math-content';
 import { QuestionFormatBadge } from './question-format-badge';
 import { TrainingChoiceContentView } from './training-choice-content-view';
 import { TrainingQuestionContentView } from './training-question-content-view';
-import { UnessFormatStatsView } from './uness-format-stats-view';
 
 type QuizSessionProps = {
   questions: TrainingQuestion[];
@@ -668,7 +667,25 @@ export function QuizSession({
   );
   const [viewMode, setViewMode] = useState<QuizViewMode>('taking');
   const [themePageIndex, setThemePageIndex] = useState(0);
+  const [reviewFilter, setReviewFilter] = useState<'all' | 'incorrect' | 'correct'>('all');
   const navItemRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const navScrollRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollNavLeft, setCanScrollNavLeft] = useState(false);
+  const [canScrollNavRight, setCanScrollNavRight] = useState(false);
+
+  const updateNavScrollState = useCallback(() => {
+    const el = navScrollRef.current;
+    if (!el) return;
+    setCanScrollNavLeft(el.scrollLeft > 5);
+    setCanScrollNavRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 5);
+  }, []);
+
+  const scrollNavContainer = (direction: 'left' | 'right') => {
+    const el = navScrollRef.current;
+    if (!el) return;
+    const amount = direction === 'left' ? -200 : 200;
+    el.scrollBy({ left: amount, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const activeButton = navItemRefs.current[currentIndex];
@@ -680,6 +697,22 @@ export function QuizSession({
       });
     }
   }, [currentIndex]);
+
+  useEffect(() => {
+    const el = navScrollRef.current;
+    if (!el) return;
+
+    updateNavScrollState();
+    el.addEventListener('scroll', updateNavScrollState, { passive: true });
+
+    const resizeObserver = new ResizeObserver(() => updateNavScrollState());
+    resizeObserver.observe(el);
+
+    return () => {
+      el.removeEventListener('scroll', updateNavScrollState);
+      resizeObserver.disconnect();
+    };
+  }, [updateNavScrollState, sessionQuestions.length, viewMode, reviewFilter]);
   const canonicalQuestions = useMemo(
     () => sessionQuestions.map((question) => question.canonicalQuestion),
     [sessionQuestions]
@@ -722,23 +755,74 @@ export function QuizSession({
   const isFinalCorrectionOnly = correctionMode === 'final';
   const isReviewMode = viewMode === 'review';
 
+  const answeredByQuestion = useMemo(
+    () =>
+      canonicalQuestions.map((question, index) =>
+        isQuestionAnswered({
+          question,
+          selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
+          shortAnswerValue: shortAnswerValuesByQuestion[index] ?? '',
+          hotspotPoint: hotspotPointsByQuestion[index] ?? null,
+        })
+      ),
+    [canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion]
+  );
+
+  const effectiveAnsweredByQuestion = useMemo(
+    () => (isFinalCorrectionOnly ? answeredByQuestion : submittedAnswers),
+    [isFinalCorrectionOnly, answeredByQuestion, submittedAnswers]
+  );
+
+  const incorrectQuestionIndexes = useMemo(
+    () =>
+      sessionQuestions.flatMap((_, index) =>
+        effectiveAnsweredByQuestion[index] && evaluationsByQuestion[index]?.status !== 'correct'
+          ? [index]
+          : []
+      ),
+    [sessionQuestions, effectiveAnsweredByQuestion, evaluationsByQuestion]
+  );
+
+  const correctQuestionIndexes = useMemo(
+    () =>
+      sessionQuestions.flatMap((_, index) =>
+        effectiveAnsweredByQuestion[index] && evaluationsByQuestion[index]?.status === 'correct'
+          ? [index]
+          : []
+      ),
+    [sessionQuestions, effectiveAnsweredByQuestion, evaluationsByQuestion]
+  );
+
+  const previousIncorrectIndex = useMemo(() => {
+    const previousIndexes = incorrectQuestionIndexes.filter((index) => index < currentIndex);
+    return previousIndexes.length > 0 ? previousIndexes[previousIndexes.length - 1] : null;
+  }, [incorrectQuestionIndexes, currentIndex]);
+
+  const nextIncorrectIndex = useMemo(() => {
+    const nextIndexes = incorrectQuestionIndexes.filter((index) => index > currentIndex);
+    return nextIndexes.length > 0 ? nextIndexes[0] : null;
+  }, [incorrectQuestionIndexes, currentIndex]);
+
+  const visibleQuestionIndexes = useMemo(() => {
+    if (!isReviewMode || reviewFilter === 'all') {
+      return sessionQuestions.map((_, index) => index);
+    }
+    if (reviewFilter === 'incorrect') {
+      return incorrectQuestionIndexes;
+    }
+    return correctQuestionIndexes;
+  }, [isReviewMode, reviewFilter, sessionQuestions, incorrectQuestionIndexes, correctQuestionIndexes]);
+
   const unessFormatStats = useMemo(
     () =>
       calculateUnessFormatStats(
         canonicalQuestions.map((question, index) => ({
           question,
           evaluation: evaluationsByQuestion[index],
-          answered: (isFinalCorrectionOnly
-            ? isQuestionAnswered({
-                question,
-                selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
-                shortAnswerValue: shortAnswerValuesByQuestion[index] ?? '',
-                hotspotPoint: hotspotPointsByQuestion[index] ?? null,
-              })
-            : submittedAnswers[index]) ?? false,
+          answered: effectiveAnsweredByQuestion[index] ?? false,
         }))
       ),
-    [canonicalQuestions, evaluationsByQuestion, isFinalCorrectionOnly, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion, submittedAnswers]
+    [canonicalQuestions, evaluationsByQuestion, effectiveAnsweredByQuestion]
   );
 
   if (sessionQuestions.length === 0) {
@@ -757,17 +841,6 @@ export function QuizSession({
     ? getSharedStatementTitle(sessionQuestions, currentGroup.id, currentGroup.title)
     : null;
   const isPathMode = Boolean(pathContext);
-  const answeredByQuestion = canonicalQuestions.map((question, index) =>
-    isQuestionAnswered({
-      question,
-      selectedChoiceIndexes: selectedChoiceIndexesByQuestion[index] ?? [],
-      shortAnswerValue: shortAnswerValuesByQuestion[index] ?? '',
-      hotspotPoint: hotspotPointsByQuestion[index] ?? null,
-    })
-  );
-  const effectiveAnsweredByQuestion = isFinalCorrectionOnly
-    ? answeredByQuestion
-    : submittedAnswers;
   const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
   const currentShortAnswerValue = shortAnswerValuesByQuestion[currentIndex] ?? '';
   const currentHotspotPoint = hotspotPointsByQuestion[currentIndex] ?? null;
@@ -860,6 +933,35 @@ export function QuizSession({
       },
     ];
   });
+
+  const handleReviewFilterChange = (nextFilter: 'all' | 'incorrect' | 'correct') => {
+    setReviewFilter(nextFilter);
+    const targetIndexes =
+      nextFilter === 'incorrect'
+        ? incorrectQuestionIndexes
+        : nextFilter === 'correct'
+        ? correctQuestionIndexes
+        : sessionQuestions.map((_, index) => index);
+
+    if (targetIndexes.length > 0 && !targetIndexes.includes(currentIndex)) {
+      const closest = targetIndexes.reduce<number>((best, idx) => {
+        return Math.abs(idx - currentIndex) < Math.abs(best - currentIndex) ? idx : best;
+      }, targetIndexes[0]);
+      setCurrentIndex(closest);
+    }
+  };
+
+  const goToPreviousIncorrectQuestion = () => {
+    if (previousIncorrectIndex !== null) {
+      setCurrentIndex(previousIncorrectIndex);
+    }
+  };
+
+  const goToNextIncorrectQuestion = () => {
+    if (nextIncorrectIndex !== null) {
+      setCurrentIndex(nextIncorrectIndex);
+    }
+  };
   const groupedErrorCount = incorrectQuestions.filter(
     (item) => item.question.group !== null
   ).length;
@@ -1023,6 +1125,7 @@ export function QuizSession({
     setSubmittedAnswers(questions.map(() => false));
     setViewMode('taking');
     setThemePageIndex(0);
+    setReviewFilter('all');
   };
 
   const openSummary = async () => {
@@ -1207,10 +1310,6 @@ export function QuizSession({
             </div>
           </div>
         </div>
-
-        <UnessFormatStatsView stats={unessFormatStats} />
-
-        <Separator />
 
         <div className="rounded-2xl border border-border bg-background p-5">
           <div className="flex items-start gap-3 text-heading">
@@ -1433,8 +1532,73 @@ export function QuizSession({
       {/* 1. NAVIGATION GLOBALE DU QUIZ (AU-DESSUS DU BLOC DE QUESTION) */}
       <nav
         aria-label="Navigation entre les questions du quiz"
-        className="space-y-2"
+        className="space-y-3"
       >
+        {/* En mode correction : Filtres & Raccourcis d'erreurs */}
+        {isReviewMode ? (
+          <div className="flex flex-col gap-2 border-b border-border/60 pb-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap items-center gap-1.5 text-xs">
+              <span className="font-semibold text-muted-foreground mr-1">Filtre :</span>
+              <Button
+                type="button"
+                variant={reviewFilter === 'all' ? 'default' : 'outline'}
+                size="xs"
+                onClick={() => handleReviewFilterChange('all')}
+                aria-label="Afficher toutes les questions"
+              >
+                Toutes ({sessionQuestions.length})
+              </Button>
+              <Button
+                type="button"
+                variant={reviewFilter === 'incorrect' ? 'destructive' : 'outline'}
+                size="xs"
+                disabled={incorrectQuestionIndexes.length === 0}
+                onClick={() => handleReviewFilterChange('incorrect')}
+                aria-label="Afficher les questions à revoir"
+              >
+                À revoir ({incorrectQuestionIndexes.length})
+              </Button>
+              <Button
+                type="button"
+                variant={reviewFilter === 'correct' ? 'success' : 'outline'}
+                size="xs"
+                disabled={correctQuestionIndexes.length === 0}
+                onClick={() => handleReviewFilterChange('correct')}
+                aria-label="Afficher les questions correctes"
+              >
+                Correctes ({correctQuestionIndexes.length})
+              </Button>
+            </div>
+
+            {incorrectQuestionIndexes.length > 0 ? (
+              <div className="flex items-center gap-1.5 self-end sm:self-auto">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="xs"
+                  disabled={previousIncorrectIndex === null}
+                  onClick={goToPreviousIncorrectQuestion}
+                  aria-label="Question à revoir précédente"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">À revoir précédente</span>
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="xs"
+                  disabled={nextIncorrectIndex === null}
+                  onClick={goToNextIncorrectQuestion}
+                  aria-label="Question à revoir suivante"
+                >
+                  <span className="hidden sm:inline">À revoir suivante</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Button>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
         <div className="flex overflow-hidden rounded-xl border border-border bg-background">
           <button
             type="button"
@@ -1451,46 +1615,71 @@ export function QuizSession({
             <span className="sr-only md:not-sr-only">Précédent</span>
           </button>
 
-          <div className="flex-1 overflow-x-auto">
-            <ol className="flex min-w-full">
-              {sessionQuestions.map((question, index) => {
-                const status = getQuestionNavigationStatus({
-                  correctionMode,
-                  isReviewMode,
-                  isAnswered: effectiveAnsweredByQuestion[index] ?? false,
-                  evaluationStatus: evaluationsByQuestion[index]?.status ?? null,
-                  index,
-                  currentIndex,
-                });
-                const statusLabel = questionNavigationStatusLabels[status];
-                const formatCode = canonicalQuestions[index]?.format ?? 'QRU';
+          <div className="relative flex-1 flex items-center min-w-0 overflow-hidden">
+            {canScrollNavLeft ? (
+              <button
+                type="button"
+                onClick={() => scrollNavContainer('left')}
+                aria-label="Faire défiler les questions vers la gauche"
+                className="absolute left-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-r border-border"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+            ) : null}
 
-                return (
-                  <li
-                    key={question.id}
-                    className="min-w-12 flex-1 border-r border-border last:border-r-0"
-                  >
-                    <button
-                      ref={(el) => {
-                        navItemRefs.current[index] = el;
-                      }}
-                      type="button"
-                      onClick={() => goToQuestion(index)}
-                      aria-current={status === 'current' ? 'page' : undefined}
-                      aria-label={`Question ${index + 1} sur ${sessionQuestions.length} — ${formatCode} — ${statusLabel.toLowerCase()}`}
-                      data-testid={`quiz-nav-question-${index + 1}`}
-                      className={cn(
-                        'flex h-14 w-full flex-col items-center justify-center py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset',
-                        getQuestionNavigationButtonClassName(status)
-                      )}
+            <div ref={navScrollRef} className="flex-1 overflow-x-auto no-scrollbar">
+              <ol className="flex min-w-full">
+                {visibleQuestionIndexes.map((index) => {
+                  const question = sessionQuestions[index];
+                  const status = getQuestionNavigationStatus({
+                    correctionMode,
+                    isReviewMode,
+                    isAnswered: effectiveAnsweredByQuestion[index] ?? false,
+                    evaluationStatus: evaluationsByQuestion[index]?.status ?? null,
+                    index,
+                    currentIndex,
+                  });
+                  const statusLabel = questionNavigationStatusLabels[status];
+                  const formatCode = canonicalQuestions[index]?.format ?? 'QRU';
+
+                  return (
+                    <li
+                      key={question.id}
+                      className="min-w-12 flex-1 border-r border-border last:border-r-0"
                     >
-                      <span className="text-base font-bold leading-none">{index + 1}</span>
-                      <span className="mt-1 text-xs font-semibold uppercase font-mono tracking-tight leading-none opacity-90">{formatCode}</span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
+                      <button
+                        ref={(el) => {
+                          navItemRefs.current[index] = el;
+                        }}
+                        type="button"
+                        onClick={() => goToQuestion(index)}
+                        aria-current={status === 'current' ? 'page' : undefined}
+                        aria-label={`Question ${index + 1} sur ${sessionQuestions.length} — ${formatCode} — ${statusLabel.toLowerCase()}`}
+                        data-testid={`quiz-nav-question-${index + 1}`}
+                        className={cn(
+                          'flex h-14 w-full flex-col items-center justify-center py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset',
+                          getQuestionNavigationButtonClassName(status)
+                        )}
+                      >
+                        <span className="text-base font-bold leading-none">{index + 1}</span>
+                        <span className="mt-1 text-xs font-semibold uppercase font-mono tracking-tight leading-none opacity-90">{formatCode}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+
+            {canScrollNavRight ? (
+              <button
+                type="button"
+                onClick={() => scrollNavContainer('right')}
+                aria-label="Faire défiler les questions vers la droite"
+                className="absolute right-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-l border-border"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            ) : null}
           </div>
 
           <button

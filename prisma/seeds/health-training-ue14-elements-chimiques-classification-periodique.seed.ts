@@ -174,7 +174,7 @@ const quizSeeds: SeedQuiz[] = [
         type: 'GROUP',
         title: `Isotopes de l'iode`,
         sharedStatement:
-          `Dans un contexte de médecine nucléaire, on considère les nucléides $^{123}_{53}\\mathrm{I}$ et $^{131}_{53}\\mathrm{I}$.`,
+          `En médecine nucléaire, l'iode 123 est notamment utilisé pour l'exploration scintigraphique de la thyroïde, tandis que l'iode 131 peut être utilisé à visée thérapeutique. On considère les nucléides $\\ce{^{123}_{53}I}$ et $\\ce{^{131}_{53}I}$.`,
         questionOrders: [2, 11],
       },
       { type: 'QUESTION', questionOrder: 12 },
