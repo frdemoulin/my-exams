@@ -196,7 +196,7 @@ export const UE14_CH1_SYNTHESIS_MASTER_V2_QUESTIONS: HealthTrainingAuthorQuestio
     requiredSelectionCount: 2,
     question: `Selon la règle $\\mathrm{n}+\\ell$, sélectionnez exactement les deux relations d'ordre énergétique correctes.`,
     choices: [
-      { content: `$4\\mathrm{s}$ est remplie avant $3\\mathrm{d}$.`, correct: true, explanation: `Les deux ont $\\mathrm{n}+\\ell=4$ ou 5 ? $4s=4$, $3d=5$ : 4s est plus basse.` },
+      { content: `$4\\mathrm{s}$ est remplie avant $3\\mathrm{d}$.`, correct: true, explanation: `Pour $4\\mathrm{s}$, $\\mathrm{n}+\\ell=4+0=4$ ; pour $3\\mathrm{d}$, $\\mathrm{n}+\\ell=3+2=5$. La sous-couche $4\\mathrm{s}$ est donc remplie avant $3\\mathrm{d}$.` },
       { content: `$3\\mathrm{d}$ est remplie avant $4\\mathrm{p}$.`, correct: true, explanation: `Les deux ont $\\mathrm{n}+\\ell=5$ ; le plus petit $\\mathrm{n}$, donc 3d, est plus bas.` },
       { content: `$3\\mathrm{d}$ est remplie avant $4\\mathrm{s}$.`, correct: false, explanation: `C'est l'inverse dans l'ordre présenté.` },
       { content: `$4\\mathrm{p}$ est remplie avant $3\\mathrm{d}$.`, correct: false, explanation: `À $\\mathrm{n}+\\ell$ égal, le plus petit $\\mathrm{n}$ est prioritaire.` },

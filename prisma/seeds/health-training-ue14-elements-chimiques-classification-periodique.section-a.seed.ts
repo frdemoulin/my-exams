@@ -79,14 +79,14 @@ export const UE14_CH1_ATOMES_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion
     order: 2,
     difficulty: 'EASY',
     format: 'QROC',
-    question: `Combien de neutrons contient le noyau de $^{131}_{53}\\mathrm{I}$ ?`,
+    question: `Combien de neutrons contient le noyau de $\\ce{^{131}_{53}I}$ ?`,
     answer: {
       type: 'number',
       value: 78,
       tolerance: 0,
     },
     explanation:
-      `Le nombre de neutrons est $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}$. Pour $^{131}_{53}\\mathrm{I}$ : $\\mathrm{N}=131-53=78$.`,
+      `Le nombre de neutrons est $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}$. Pour $\\ce{^{131}_{53}I}$ : $\\mathrm{N}=131-53=78$.`,
   },
 
   {
@@ -94,7 +94,7 @@ export const UE14_CH1_ATOMES_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion
     difficulty: 'EASY',
     format: 'QRU',
     question:
-      `Quelle relation existe entre $^{123}_{53}\\mathrm{I}$ et $^{131}_{53}\\mathrm{I}$ ?`,
+      `Quelle relation existe entre $\\ce{^{123}_{53}I}$ et $\\ce{^{131}_{53}I}$ ?`,
     choices: [
       {
         content: `Ce sont deux nucléides isotopes d'un même élément chimique.`,
@@ -300,7 +300,7 @@ export const UE14_CH1_ATOMES_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion
     difficulty: 'MEDIUM',
     format: 'QROC',
     question:
-      `Un échantillon de bore contient 20 % de $^{10}\\mathrm{B}$ de masse $10\\,\\mathrm{u}$ et 80 % de $^{11}\\mathrm{B}$ de masse $11\\,\\mathrm{u}$. Quelle est sa masse atomique moyenne ? Saisissez uniquement la valeur numérique, la masse étant exprimée en $\\mathrm{u}$.`,
+      `Un échantillon de bore contient 20 % de $\\ce{^{10}B}$ de masse $10\\,\\mathrm{u}$ et 80 % de $\\ce{^{11}B}$ de masse $11\\,\\mathrm{u}$. Quelle est sa masse atomique moyenne ? Saisissez uniquement la valeur numérique, la masse étant exprimée en $\\mathrm{u}$.`,
     answer: {
       type: 'number',
       value: 10.8,
