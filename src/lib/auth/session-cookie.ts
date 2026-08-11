@@ -4,13 +4,24 @@ import type { NextResponse } from 'next/server';
 
 const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
-const sharedCookieDomain = process.env.AUTH_COOKIE_DOMAIN?.trim() || undefined;
 
-export const AUTH_SESSION_COOKIE_SALT = 'authjs.session-token';
-export const AUTH_SESSION_COOKIE_NAMES = [
-  'next-auth.session-token',
-  'authjs.session-token',
-];
+export type SessionCookieOptions = {
+  secure?: boolean;
+  requestUrl?: string;
+};
+
+export type AuthSessionCookieConfig = {
+  name: string;
+  salt: string;
+  options: {
+    httpOnly: boolean;
+    sameSite: 'lax';
+    secure: boolean;
+    path: string;
+    maxAge: number;
+    domain?: string;
+  };
+};
 
 export type SessionIdentity = {
   id: string;
@@ -49,6 +60,7 @@ const normalizeHostname = (value?: string | null) =>
   value?.split(',')[0]?.trim().toLowerCase().replace(/:\d+$/, '') ?? '';
 
 const getSharedCookieDomain = (hostname: string) => {
+  const sharedCookieDomain = process.env.AUTH_COOKIE_DOMAIN?.trim();
   if (!sharedCookieDomain) return undefined;
 
   const parentDomain = sharedCookieDomain.replace(/^\./, '').toLowerCase();
@@ -57,6 +69,42 @@ const getSharedCookieDomain = (hostname: string) => {
 
   return belongsToParentDomain ? sharedCookieDomain : undefined;
 };
+
+export function getAuthSessionCookieConfig(
+  options?: SessionCookieOptions | string
+): AuthSessionCookieConfig {
+  const opts: SessionCookieOptions =
+    typeof options === 'string' ? { requestUrl: options } : (options ?? {});
+
+  let secure = opts.secure;
+  if (secure === undefined && opts.requestUrl) {
+    try {
+      secure = new URL(opts.requestUrl).protocol === 'https:';
+    } catch {
+      secure = undefined;
+    }
+  }
+  if (secure === undefined) {
+    secure = process.env.NODE_ENV === 'production';
+  }
+
+  const cookieName = secure ? '__Secure-authjs.session-token' : 'authjs.session-token';
+  const hostname = opts.requestUrl ? normalizeHostname(new URL(opts.requestUrl).hostname) : '';
+  const domain = getSharedCookieDomain(hostname);
+
+  return {
+    name: cookieName,
+    salt: cookieName,
+    options: {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure,
+      path: '/',
+      maxAge: USER_SESSION_MAX_AGE_SECONDS,
+      ...(domain ? { domain } : {}),
+    },
+  };
+}
 
 export function getAdminSessionExpiresAt() {
   return Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000;
@@ -98,17 +146,22 @@ export function buildAppSessionTokenPayload({
   return payload;
 }
 
-export async function encodeAppSessionToken(payload: AppSessionTokenPayload) {
+export async function encodeAppSessionToken(
+  payload: AppSessionTokenPayload,
+  options?: SessionCookieOptions | string
+) {
   const authSecret = process.env.AUTH_SECRET;
 
   if (!authSecret) {
     throw new Error('AUTH_SECRET manquant.');
   }
 
+  const config = getAuthSessionCookieConfig(options);
+
   return encode({
     token: payload,
     secret: authSecret,
-    salt: AUTH_SESSION_COOKIE_SALT,
+    salt: config.salt,
     maxAge: USER_SESSION_MAX_AGE_SECONDS,
   });
 }
@@ -116,26 +169,8 @@ export async function encodeAppSessionToken(payload: AppSessionTokenPayload) {
 export function applySessionTokenCookies(
   response: NextResponse,
   jwt: string,
-  requestUrl?: string
+  options?: SessionCookieOptions | string
 ) {
-  const secure = process.env.NODE_ENV === 'production';
-  const hostname = requestUrl ? normalizeHostname(new URL(requestUrl).hostname) : '';
-  const domain = getSharedCookieDomain(hostname);
-
-  const cookieOptions = {
-    httpOnly: true,
-    sameSite: 'lax' as const,
-    secure,
-    path: '/',
-    maxAge: USER_SESSION_MAX_AGE_SECONDS,
-    ...(domain ? { domain } : {}),
-  };
-
-  for (const cookieName of AUTH_SESSION_COOKIE_NAMES) {
-    response.cookies.set(cookieName, jwt, cookieOptions);
-
-    if (secure) {
-      response.cookies.set(`__Secure-${cookieName}`, jwt, cookieOptions);
-    }
-  }
+  const config = getAuthSessionCookieConfig(options);
+  response.cookies.set(config.name, jwt, config.options);
 }

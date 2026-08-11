@@ -4,10 +4,9 @@ import { NextResponse } from "next/server";
 import { encode } from "next-auth/jwt";
 
 import prisma from "@/lib/db/prisma";
+import { getAuthSessionCookieConfig } from "@/lib/auth/session-cookie";
 
 const HEADER_NAME = "x-e2e-test-login";
-const COOKIE_SALT = "authjs.session-token";
-const COOKIE_NAMES = ["next-auth.session-token", "authjs.session-token"];
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
 export async function POST(req: Request) {
@@ -52,6 +51,8 @@ export async function POST(req: Request) {
       });
     }
 
+    const cookieConfig = getAuthSessionCookieConfig({ requestUrl: req.url });
+
     const jwt = await encode({
       token: {
         email: user.email || undefined,
@@ -64,30 +65,12 @@ export async function POST(req: Request) {
             : undefined,
       },
       secret: authSecret,
-      salt: COOKIE_SALT,
+      salt: cookieConfig.salt,
       maxAge: 60 * 60 * 24, // 1 jour
     });
 
     const res = NextResponse.json({ ok: true, user: { id: user.id, email: user.email } });
-    const secure = process.env.NODE_ENV === "production";
-
-    for (const cookieName of COOKIE_NAMES) {
-      res.cookies.set(cookieName, jwt, {
-        httpOnly: true,
-        sameSite: "lax",
-        secure,
-        path: "/",
-      });
-
-      if (secure) {
-        res.cookies.set(`__Secure-${cookieName}`, jwt, {
-          httpOnly: true,
-          sameSite: "lax",
-          secure,
-          path: "/",
-        });
-      }
-    }
+    res.cookies.set(cookieConfig.name, jwt, cookieConfig.options);
 
     return res;
   } catch (error) {
