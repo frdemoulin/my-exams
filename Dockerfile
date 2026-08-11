@@ -27,6 +27,10 @@ COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/next.config.mjs /app/next.config.mjs
 COPY --from=build /app/prisma /app/prisma
 COPY --from=build /app/scripts /app/scripts
+COPY --from=build /app/src /app/src
 COPY --from=build /app/tsconfig.json /app/tsconfig.json
+
+RUN npx tsx scripts/db-migrate.ts --validate-imports
+
 EXPOSE 3000
 CMD ["npm", "run", "start"]

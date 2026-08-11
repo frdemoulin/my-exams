@@ -177,6 +177,7 @@ function printHelp() {
       "  --status    affiche les migrations connues/appliquées",
       "  --prod      utilise DATABASE_URL_PROD / MONGODB_URI_PROD",
       "  --yes       confirme en prod (équivalent CONFIRM_DB_MIGRATIONS=1)",
+      "  --validate-imports vérifie le graphe d'imports sans connexion DB",
     ].join("\n")
   );
 }
@@ -187,8 +188,21 @@ async function main() {
   const showStatus = args.has("--status");
   const useProdUrl = args.has("--prod") || args.has("--use-prod-url");
 
+  const validateImports = args.has("--validate-imports");
+  const migrationsDir = path.resolve(process.cwd(), "scripts", "migrations");
+
   if (args.has("--help") || args.has("-h")) {
     printHelp();
+    return;
+  }
+
+  if (validateImports) {
+    const migrations = await loadMigrations(migrationsDir);
+    if (!migrations.length) {
+      console.log(`Aucune migration trouvée dans ${migrationsDir}`);
+    } else {
+      console.log(`✅ ${migrations.length} migration(s) validée(s) (imports & export up OK).`);
+    }
     return;
   }
 
@@ -209,7 +223,6 @@ async function main() {
 
   const { DbMigrationStatus, PrismaClient } = require("@prisma/client") as typeof import("@prisma/client");
   const prisma = new PrismaClient();
-  const migrationsDir = path.resolve(process.cwd(), "scripts", "migrations");
 
   try {
     if (showStatus) {
