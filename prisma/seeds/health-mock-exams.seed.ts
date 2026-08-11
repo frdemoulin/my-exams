@@ -6,7 +6,7 @@ import type { Prisma, PrismaClient, QuizAnswerFormat, QuizDifficulty } from "@pr
 import {
   assertHealthMockExamCanBePublished,
   type HealthMockExamValidationInput,
-} from "@/core/health-mock-exam/health-mock-exam.validation";
+} from "../../src/core/health-mock-exam/health-mock-exam.validation";
 
 import { reimsUe14MockExams } from "./data/health-mock-exams-reims-ue14";
 

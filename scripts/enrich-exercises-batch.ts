@@ -10,12 +10,8 @@
  */
 
 import { loadProjectEnv } from './lib/load-env';
-import {
-  MockOcrService,
-  MockLlmAnalyzerService,
-  PdfParseOcrService,
-  OpenAiLlmAnalyzerService,
-} from '@/core/enrichment';
+import { MockOcrService, PdfParseOcrService } from '../src/core/enrichment/ocr.service';
+import { MockLlmAnalyzerService, OpenAiLlmAnalyzerService } from '../src/core/enrichment/llm-analyzer.service';
 
 loadProjectEnv();
 
