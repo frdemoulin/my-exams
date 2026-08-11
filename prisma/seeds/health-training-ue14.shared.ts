@@ -10,7 +10,7 @@ import {
   compileHealthTrainingAuthorQuestion,
   type HealthSeedQuestion,
   type HealthTrainingAuthorQuestion,
-} from '../../src/core/questions';
+} from '../../src/core/questions/index';
 
 
 export type QuantumBoxesDiagram = {
