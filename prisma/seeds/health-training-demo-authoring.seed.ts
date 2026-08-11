@@ -1,4 +1,4 @@
-import type { HealthTrainingAuthorQuestion } from "@/core/questions/health-authoring";
+import type { HealthTrainingAuthorQuestion } from "../../src/core/questions/health-authoring";
 
 export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] = [
   {

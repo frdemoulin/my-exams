@@ -13,7 +13,7 @@
  */
 
 import { loadProjectEnv } from './lib/load-env';
-import { PdfParseOcrService } from '@/core/enrichment';
+import { PdfParseOcrService } from '../src/core/enrichment/ocr.service';
 
 loadProjectEnv();
 
