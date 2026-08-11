@@ -92,7 +92,8 @@ export async function POST(request: Request) {
         image: target.image,
       },
       adminExpiresAt: session.actor?.adminExpiresAt ?? getAdminSessionExpiresAt(),
-    })
+    }),
+    request.url
   );
 
   const response = NextResponse.json({
