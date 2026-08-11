@@ -346,16 +346,16 @@ Les titres de quiz ne doivent pas inclure le nom du niveau (`Découverte`, `Entr
 | **Découverte (`DISCOVER`)** | 8 – 10 | Découvrir les notions, mémorisation directe. Priorité aux QRU et QRM simples, QROC directes. |
 | **Entraînement (`PRACTICE`)** | 10 – 12 | Consolider et récupérer activement. Renforcer QRM, QRP, QROC et QZONE. |
 | **Maîtrise (`MASTER`)** | 12 – 15 | Réduire le guidage. QROC, QRP, QZONE discriminantes et QRM transversales. |
-| **Synthèse (`SYNTHESIS`)** | 15 – 20 | Assemblage complet du chapitre. Mélange de tous les formats de la matière. |
 | **Examen blanc** | Blueprint exact | Conforme à la maquette universitaire (ex: 28/34/38 en UE14 Reims). |
 
 > **Note :** Le compilateur ne rejette pas un quiz qui sort légèrement de ces fourchettes ; il s'agit de recommandations éditoriales.
+> **Note d'architecture :** La synthèse d'un chapitre est portée par une **section** (`kind: 'SYNTHESIS'`). Au sein de cette section, les quiz conservent un stage d'entraînement (`PRACTICE` ou `MASTER`). Il n'existe pas de stage technique `SYNTHESIS` distinct dans le modèle des quiz.
 
 ### Pas de quotas artificiels
 Ne pas appliquer de règles mécaniques (ex: "chaque quiz doit avoir 5 QCM et 2 QROC"). Le choix des formats dépend exclusivement de la compétence évaluée et de la nature de la matière (histologie, chimie, biochimie).
 
 ### Absence de chronométrage dans les quiz d'entraînement
-Les quiz d'entraînement Santé (`DISCOVER`, `PRACTICE`, `MASTER`, `SYNTHESIS`) ne comportent **aucun chronométrage, compte à rebours ou durée maximale**, quel que soit leur stage. Le chronométrage apparaît à partir des colles et des examens blancs (consulter `docs/product/terminologie-entrainement-sante.md`).
+Les quiz d'entraînement Santé (`DISCOVER`, `PRACTICE`, `MASTER`) ne comportent **aucun chronométrage, compte à rebours ou durée maximale**, quel que soit leur stage. Le chronométrage apparaît à partir des colles et des examens blancs (consulter `docs/product/terminologie-entrainement-sante.md`).
 
 ### Contextualisation médicale des quiz
 
