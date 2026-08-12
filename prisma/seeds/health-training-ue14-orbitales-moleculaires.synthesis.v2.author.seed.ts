@@ -21,7 +21,8 @@ export const UE14_CH3_SYNTHESIS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuest
     difficulty: 'MEDIUM',
     format: 'QRP',
     requiredSelectionCount: 2,
-    question: `À propos de la structure de l'aspirine, sélectionnez exactement les deux propositions correctes.`,
+    question: `À propos de la structure de l'aspirine : [[QUESTION_DIAGRAM]] sélectionnez exactement les deux propositions correctes.`,
+    questionDiagram: { type: 'molecule', molecule: 'aspirin-topological' },
     choices: [
       { content: `Le cycle aromatique comporte six carbones $\\mathrm{sp}^2$.`, correct: true, explanation: `Chaque carbone du cycle est trigonal plan.` },
       { content: `Le carbone du groupe méthyle est $\\mathrm{sp}^3$.`, correct: true, explanation: `Il ne forme que des liaisons simples.` },
