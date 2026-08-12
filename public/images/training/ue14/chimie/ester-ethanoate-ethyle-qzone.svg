@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#ffffff"/>
+  <text x="600" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#111827">
+    Éthanoate d’éthyle — motif ester
+  </text>
+  <g font-family="Arial, sans-serif" fill="#111827" stroke="#334155" stroke-width="6" stroke-linecap="round">
+    <line x1="230" y1="260" x2="430" y2="260"/>
+    <line x1="470" y1="235" x2="470" y2="135"/>
+    <line x1="492" y1="235" x2="492" y2="135"/>
+    <line x1="515" y1="260" x2="620" y2="260"/>
+    <line x1="680" y1="260" x2="820" y2="260"/>
+    <line x1="820" y1="260" x2="940" y2="190"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="31" fill="#111827">
+    <text x="150" y="270">CH₃</text>
+    <text x="455" y="270">C</text>
+    <text x="455" y="115">O</text>
+    <text x="635" y="270">O</text>
+    <text x="825" y="295">CH₂</text>
+    <text x="955" y="195">CH₃</text>
+  </g>
+  <text x="650" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" fill="#475569">
+    Les deux oxygènes n’ont pas le même environnement
+  </text>
+</svg>
