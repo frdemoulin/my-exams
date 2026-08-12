@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <rect width="1100" height="520" fill="#ffffff"/>
+  <text x="550" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#111827">
+    Méthanol et eau — schéma simplifié
+  </text>
+
+  <!-- Methanol: CH3-O -->
+  <g font-family="Arial, sans-serif" fill="#111827" stroke="#334155" stroke-width="6" stroke-linecap="round">
+    <line x1="265" y1="260" x2="390" y2="260"/>
+    <circle cx="240" cy="260" r="34" fill="#475569" stroke="none"/>
+    <circle cx="415" cy="260" r="34" fill="#ffffff" stroke="#334155" stroke-width="5"/>
+    <text x="240" y="270" text-anchor="middle" font-size="27" fill="#ffffff" stroke="none">C</text>
+    <text x="415" y="270" text-anchor="middle" font-size="27" fill="#111827" stroke="none">O</text>
+    <text x="240" y="335" text-anchor="middle" font-size="25" fill="#111827" stroke="none">CH₃</text>
+    <text x="390" y="330" text-anchor="middle" font-size="23" fill="#111827" stroke="none">δ−</text>
+    <line x1="418" y1="294" x2="425" y2="350"/>
+    <circle cx="430" cy="380" r="28" fill="#ffffff" stroke="#334155" stroke-width="4"/>
+    <text x="430" y="389" text-anchor="middle" font-size="25" fill="#111827" stroke="none">H</text>
+  </g>
+
+  <!-- Lone pairs on methanol oxygen -->
+  <g fill="#111827">
+    <circle cx="402" cy="205" r="6"/><circle cx="420" cy="205" r="6"/>
+    <circle cx="365" cy="285" r="6"/><circle cx="365" cy="303" r="6"/>
+  </g>
+
+  <!-- Water on right: H-O-H, donor H points toward methanol O -->
+  <g font-family="Arial, sans-serif" fill="#111827" stroke="#334155" stroke-width="6" stroke-linecap="round">
+    <line x1="705" y1="260" x2="792" y2="207"/>
+    <line x1="838" y1="215" x2="905" y2="285"/>
+    <circle cx="815" cy="195" r="34" fill="#ffffff" stroke="#334155" stroke-width="5"/>
+    <circle cx="675" cy="260" r="28" fill="#ffffff" stroke="#334155" stroke-width="4"/>
+    <circle cx="930" cy="305" r="28" fill="#ffffff" stroke="#334155" stroke-width="4"/>
+    <text x="815" y="205" text-anchor="middle" font-size="27" fill="#111827" stroke="none">O</text>
+    <text x="675" y="269" text-anchor="middle" font-size="25" fill="#111827" stroke="none">H</text>
+    <text x="930" y="314" text-anchor="middle" font-size="25" fill="#111827" stroke="none">H</text>
+    <text x="675" y="315" text-anchor="middle" font-size="23" fill="#111827" stroke="none">δ+</text>
+  </g>
+
+  <!-- Hydrogen bond: center around x = 560 / 1100 = .509 -->
+  <line x1="455" y1="260" x2="642" y2="260" stroke="#64748b" stroke-width="7" stroke-linecap="round" stroke-dasharray="13 16"/>
+
+  <!-- Water oxygen lone pairs -->
+  <g fill="#111827">
+    <circle cx="798" cy="145" r="6"/><circle cx="816" cy="139" r="6"/>
+    <circle cx="850" cy="159" r="6"/><circle cx="860" cy="174" r="6"/>
+  </g>
+
+  <text x="250" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#475569">méthanol</text>
+  <text x="820" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#475569">eau</text>
+</svg>
