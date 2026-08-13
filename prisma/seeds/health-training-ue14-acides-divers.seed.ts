@@ -36,7 +36,7 @@ const sections: SeedSection[] = [
   {
     order: 4,
     title: `Acides, bases et acides nucléiques : bases nucléiques, nucléosides, nucléotides et toxicologie`,
-    description: `Définitions électronique et protonique des acides et bases, bases nucléiques, nucléosides, nucléotides et réactivité d'électrophiles toxiques.`,
+    description: `Définitions électroniques des acides et bases, nucléophilie des bases nucléiques, nucléosides, nucléotides et réactivité des dérivés halogénés électrophiles.`,
     kind: 'THEME',
   },
   {
