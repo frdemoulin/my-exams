@@ -24,19 +24,19 @@ const sections: SeedSection[] = [
   {
     order: 2,
     title: `Réactivité des alcools`,
-    description: `Transformations caractéristiques des alcools, notamment oxydation, déshydratation et substitution du groupe hydroxyle.`,
+    description: `Estérification et formation d'hémiacétals, oxydation des alcools primaires, secondaires et tertiaires, et déshydratation vers les alcènes.`,
     kind: 'THEME',
   },
   {
     order: 3,
     title: `Amines : structure et réactivité`,
-    description: `Structure des amines, caractère basique, nucléophilie de l'azote et réactions usuelles associées.`,
+    description: `Classes d'amines, nucléophilie de l'azote, alkylations, amidification et réactions avec les aldéhydes et cétones vers imines ou iminium.`,
     kind: 'THEME',
   },
   {
     order: 4,
-    title: `Dérivés halogénés et substitutions nucléophiles`,
-    description: `Reconnaissance des dérivés halogénés, polarisation de la liaison carbone-halogène et mécanismes de substitution nucléophile.`,
+    title: `Dérivés halogénés, organomagnésiens et substitutions nucléophiles`,
+    description: `Préparation et réactivité des dérivés halogénés, formation des organomagnésiens, puis mécanismes SN1 et SN2 et leurs conséquences stéréochimiques.`,
     kind: 'THEME',
   },
   {
