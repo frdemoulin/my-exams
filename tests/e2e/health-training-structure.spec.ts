@@ -866,15 +866,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(osidesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${osidesChapterSlug}`);
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -888,8 +888,8 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(introductionLipidesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(
       `${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${introductionLipidesChapterSlug}`,
@@ -897,8 +897,8 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -910,15 +910,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(eicosanoidesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${eicosanoidesChapterSlug}`);
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
