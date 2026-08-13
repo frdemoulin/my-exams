@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+<rect width="900" height="700" fill="#ffffff"/>
+<text x="450" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#111827">Glucopyranose simplifié</text>
+<g stroke="#334155" stroke-width="6" fill="none" stroke-linejoin="round">
+  <polyline points="250,240 430,150 650,220 660,430 460,540 250,430 250,240"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#111827" font-size="28">
+  <text x="430" y="130" text-anchor="middle">O</text>
+  <circle cx="650" cy="220" r="42" fill="#ffffff" stroke="#334155" stroke-width="5"/>
+  <text x="650" y="230" text-anchor="middle">C1</text>
+  <text x="670" y="475">C2</text>
+  <text x="450" y="585">C3</text>
+  <text x="190" y="475">C4</text>
+  <text x="190" y="235">C5</text>
+  <text x="175" y="170">CH₂OH</text>
+</g>
+</svg>
