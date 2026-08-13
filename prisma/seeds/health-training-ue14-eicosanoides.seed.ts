@@ -1,26 +1,61 @@
 import type { PrismaClient } from '@prisma/client';
 import type { SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
-import { SECTION_A_ORDER, SECTION_A_QUESTIONS, SECTION_A_QUIZZES, SECTION_A_THEME_LABELS_BY_ORDER } from './health-training-ue14-eicosanoides.section-a.seed';
-import { SECTION_B_ORDER, SECTION_B_QUESTIONS, SECTION_B_QUIZZES, SECTION_B_THEME_LABELS_BY_ORDER } from './health-training-ue14-eicosanoides.section-b.seed';
-import { SECTION_C_ORDER, SECTION_C_QUESTIONS, SECTION_C_QUIZZES, SECTION_C_THEME_LABELS_BY_ORDER } from './health-training-ue14-eicosanoides.section-c.seed';
-import { SECTION_D_ORDER, SECTION_D_QUESTIONS, SECTION_D_QUIZZES, SECTION_D_THEME_LABELS_BY_ORDER } from './health-training-ue14-eicosanoides.section-d.seed';
-import { SYNTHESIS_SECTION_ORDER, SYNTHESIS_QUESTIONS, SYNTHESIS_QUIZZES, SYNTHESIS_THEME_LABELS_BY_ORDER } from './health-training-ue14-eicosanoides.synthesis.seed';
+import { SECTION_A_QUESTIONS } from './health-training-ue14-eicosanoides.section-a.seed';
+import { SECTION_B_QUESTIONS } from './health-training-ue14-eicosanoides.section-b.seed';
+import { SECTION_C_QUESTIONS } from './health-training-ue14-eicosanoides.section-c.seed';
+import { SECTION_D_QUESTIONS } from './health-training-ue14-eicosanoides.section-d.seed';
+import { SYNTHESIS_QUESTIONS } from './health-training-ue14-eicosanoides.synthesis.seed';
+import {
+  UE14_BIOCH_CH5_V2_QUIZ_MAP,
+  UE14_BIOCH_CH5_V2_THEME_LABELS_BY_ORDER,
+} from './health-training-ue14-eicosanoides.quiz-map-v2.author';
 import { seedHealthTrainingChapter } from './health-training-ue14.shared';
 
 const SUBJECT_LONG_DESCRIPTION = 'Sciences de la Vie et de la Terre';
 const CHAPTER_SLUG = 'eicosanoides';
 
 const sections: SeedSection[] = [
-  { order: SECTION_A_ORDER, title: 'Définition, acide arachidonique et voies de synthèse', description: 'Familles d’eicosanoïdes, structure et nomenclature de l’acide arachidonique, voies COX et lipoxygénases.', kind: 'THEME' },
-  { order: SECTION_B_ORDER, title: 'Prostanoïdes : structure, nomenclature et séries', description: 'Acide prostanoïque, noyau cyclopentane, groupes, séries et lecture des noms de prostaglandines.', kind: 'THEME' },
-  { order: SECTION_C_ORDER, title: 'Rôles biologiques et thérapeutiques des prostanoïdes', description: 'Médiateurs locaux, PGE₁/PGE₂, PGF₂α, misoprostol, TXA₂, PGI₂ et inhibition de la COX.', kind: 'THEME' },
-  { order: SECTION_D_ORDER, title: 'Leucotriènes et lipoxines', description: 'Structure, cellules productrices, effets, LTA₄ et voies vers LXA₄, LTB₄, LTC₄, LTD₄ et LTE₄.', kind: 'THEME' },
-  { order: SYNTHESIS_SECTION_ORDER, title: 'Synthèse du chapitre', description: 'Révision transversale des voies, structures, fonctions et applications thérapeutiques.', kind: 'SYNTHESIS' },
+  {
+    order: 1,
+    title: 'Généralités, acide arachidonique et voies COX/lipoxygénases',
+    description: 'Familles d\u2019eicosanoïdes, structure et nomenclature de l\u2019acide arachidonique, voies COX et lipoxygénases.',
+    kind: 'THEME',
+  },
+  {
+    order: 2,
+    title: 'Structure et nomenclature des prostanoïdes',
+    description: 'Acide prostanoïque, noyau cyclopentane, groupes, séries et lecture des noms de prostaglandines.',
+    kind: 'THEME',
+  },
+  {
+    order: 3,
+    title: 'Rôles biologiques, équilibre TXA\u2082/PGI\u2082 et thérapeutique',
+    description: 'Médiateurs locaux, PGE\u2081/PGE\u2082, PGF\u2082\u03B1, misoprostol, TXA\u2082, PGI\u2082 et inhibition de la COX.',
+    kind: 'THEME',
+  },
+  {
+    order: 4,
+    title: 'Leucotriènes, lipoxines et voies de LTA\u2084',
+    description: 'Structure, cellules productrices, effets, LTA\u2084 et voies vers LXA\u2084, LTB\u2084, LTC\u2084, LTD\u2084 et LTE\u2084.',
+    kind: 'THEME',
+  },
+  {
+    order: 5,
+    title: 'Synthèse du chapitre',
+    description: 'Révision transversale des voies, structures, fonctions et applications thérapeutiques.',
+    kind: 'SYNTHESIS',
+  },
 ];
 
-const questions: SeedQuestion[] = [...SECTION_A_QUESTIONS, ...SECTION_B_QUESTIONS, ...SECTION_C_QUESTIONS, ...SECTION_D_QUESTIONS, ...SYNTHESIS_QUESTIONS];
-const quizSeeds: SeedQuiz[] = [...SECTION_A_QUIZZES, ...SECTION_B_QUIZZES, ...SECTION_C_QUIZZES, ...SECTION_D_QUIZZES, ...SYNTHESIS_QUIZZES];
-const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = { ...SECTION_A_THEME_LABELS_BY_ORDER, ...SECTION_B_THEME_LABELS_BY_ORDER, ...SECTION_C_THEME_LABELS_BY_ORDER, ...SECTION_D_THEME_LABELS_BY_ORDER, ...SYNTHESIS_THEME_LABELS_BY_ORDER };
+const questions: SeedQuestion[] = [
+  ...SECTION_A_QUESTIONS,
+  ...SECTION_B_QUESTIONS,
+  ...SECTION_C_QUESTIONS,
+  ...SECTION_D_QUESTIONS,
+  ...SYNTHESIS_QUESTIONS,
+];
+
+const quizSeeds: SeedQuiz[] = UE14_BIOCH_CH5_V2_QUIZ_MAP as unknown as SeedQuiz[];
 
 export async function seedHealthTrainingUe14Eicosanoides(prisma: PrismaClient) {
   await seedHealthTrainingChapter({
@@ -28,10 +63,11 @@ export async function seedHealthTrainingUe14Eicosanoides(prisma: PrismaClient) {
     subjectLongDescription: SUBJECT_LONG_DESCRIPTION,
     chapterSlug: CHAPTER_SLUG,
     logLabel: 'UE14 Biochimie – Les eicosanoïdes',
-    questionThemeLabelsByOrder: QUESTION_THEME_LABELS_BY_ORDER,
+    questionThemeLabelsByOrder: UE14_BIOCH_CH5_V2_THEME_LABELS_BY_ORDER,
     questions,
     sections,
     quizSeeds,
-    cleanupSectionOrders: [SECTION_A_ORDER, SECTION_B_ORDER, SECTION_C_ORDER, SECTION_D_ORDER, SYNTHESIS_SECTION_ORDER],
+    cleanupSectionOrders: [1, 2, 3, 4, 5],
+    purgeObsoleteQuestions: true,
   });
 }
