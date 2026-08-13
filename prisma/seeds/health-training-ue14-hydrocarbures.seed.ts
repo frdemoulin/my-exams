@@ -37,13 +37,13 @@ const sections: SeedSection[] = [
   {
     order: 4,
     title: `Oxydation des alcènes`,
-    description: `Oxydations douces et fortes des alcènes, produits attendus et interprétation structurale.`,
+    description: `Oxydations douce, modérée et forte des alcènes : formation d'époxydes, de 1,2-diols et coupure oxydante en composés carbonylés.`,
     kind: 'THEME',
   },
   {
     order: 5,
     title: `Alcynes : structure, nomenclature et réactivité`,
-    description: `Structure linéaire des alcynes, nomenclature, acidité relative et réactions caractéristiques.`,
+    description: `Structure et nomenclature des alcynes, hydrogénation catalytique, additions électrophiles et hydratation suivie de tautomérie.`,
     kind: 'THEME',
   },
   {
