@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="480" viewBox="0 0 1100 480">
+<rect width="1100" height="480" fill="#ffffff"/>
+<text x="550" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#111827">Propène — site de l’addition de HCl</text>
+<g stroke="#334155" stroke-width="6" stroke-linecap="round" fill="none">
+  <line x1="270" y1="240" x2="500" y2="240"/>
+  <line x1="590" y1="222" x2="800" y2="222"/>
+  <line x1="590" y1="258" x2="800" y2="258"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#111827">
+  <text x="155" y="252" font-size="36">CH₃</text>
+  <circle cx="545" cy="240" r="42" fill="#ffffff" stroke="#334155" stroke-width="5"/>
+  <text x="545" y="252" text-anchor="middle" font-size="32">CH</text>
+  <circle cx="845" cy="240" r="42" fill="#ffffff" stroke="#334155" stroke-width="5"/>
+  <text x="845" y="252" text-anchor="middle" font-size="29">CH₂</text>
+  <text x="545" y="340" text-anchor="middle" font-size="22" fill="#475569">carbone interne</text>
+  <text x="845" y="340" text-anchor="middle" font-size="22" fill="#475569">carbone terminal</text>
+</g>
+</svg>
