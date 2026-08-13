@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650">
+<rect width="1000" height="650" fill="#ffffff"/>
+<text x="500" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#111827">Glycérophospholipide simplifié</text>
+<g font-family="Arial,sans-serif" fill="#111827" font-size="28">
+<text x="230" y="180">C1</text><text x="300" y="180">CH₂—O—C(=O)—R₁</text>
+<text x="230" y="320">C2</text><text x="300" y="320">CH —O—C(=O)—R₂</text>
+<text x="230" y="460">C3</text><text x="300" y="460">CH₂—O—P—O—X</text>
+</g>
+<text x="500" y="560" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#475569">Repérez la chaîne portée par C2 et sa liaison ester avec le glycérol.</text>
+</svg>

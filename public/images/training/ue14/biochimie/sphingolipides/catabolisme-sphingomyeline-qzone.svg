@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
+<rect width="1000" height="500" fill="#ffffff"/>
+<text x="500" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#111827">Catabolisme simplifié de la sphingomyéline</text>
+<g font-family="Arial,sans-serif" font-size="28" fill="#111827">
+<rect x="70" y="190" width="230" height="90" rx="18" fill="#f8fafc" stroke="#334155" stroke-width="4"/>
+<text x="185" y="245" text-anchor="middle">Sphingomyéline</text>
+<rect x="435" y="190" width="180" height="90" rx="18" fill="#f8fafc" stroke="#334155" stroke-width="4"/>
+<text x="525" y="245" text-anchor="middle">Céramide</text>
+<rect x="755" y="190" width="180" height="90" rx="18" fill="#f8fafc" stroke="#334155" stroke-width="4"/>
+<text x="845" y="245" text-anchor="middle">Sphingosine</text>
+<text x="385" y="155" text-anchor="middle" font-size="23">sphingomyélinase</text>
+<text x="685" y="155" text-anchor="middle" font-size="23">céramidase</text>
+</g>
+<g stroke="#334155" stroke-width="5" fill="none">
+<line x1="300" y1="235" x2="435" y2="235"/><polyline points="420,220 435,235 420,250"/>
+<line x1="615" y1="235" x2="755" y2="235"/><polyline points="740,220 755,235 740,250"/>
+</g>
+</svg>
