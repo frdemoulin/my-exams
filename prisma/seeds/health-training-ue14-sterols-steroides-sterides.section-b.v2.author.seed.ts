@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 25,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les carbones asymétriques du cholestérol :",
+    "question": "À propos des carbones asymétriques du cholestérol :",
     "choices": [
       {
         "content": "La fiche en compte huit.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 27,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le groupement OH du cholestérol :",
+    "question": "À propos du groupement OH du cholestérol :",
     "choices": [
       {
         "content": "Il est situé en C3.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 31,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le cholestérol libre :",
+    "question": "À propos du cholestérol libre :",
     "choices": [
       {
         "content": "Il est amphiphile ou amphipathique.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le cholestérol estérifié :",
+    "question": "À propos du cholestérol estérifié :",
     "choices": [
       {
         "content": "Un acide gras est fixé sur le OH du cholestérol.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 35,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le rôle membranaire du cholestérol :",
+    "question": "À propos du rôle membranaire du cholestérol :",
     "choices": [
       {
         "content": "Il est un constituant des membranes.",
@@ -398,7 +398,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les précurseurs dérivés du cholestérol :",
+    "question": "À propos des précurseurs dérivés du cholestérol :",
     "choices": [
       {
         "content": "Le cholestérol est précurseur des hormones stéroïdiennes.",
@@ -456,7 +456,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le transport sanguin du cholestérol :",
+    "question": "À propos du transport sanguin du cholestérol :",
     "choices": [
       {
         "content": "Le cholestérol est transporté par des lipoprotéines.",
@@ -514,7 +514,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les acides biliaires :",
+    "question": "À propos des acides biliaires :",
     "choices": [
       {
         "content": "Ils comportent un noyau cholane à 24 carbones.",

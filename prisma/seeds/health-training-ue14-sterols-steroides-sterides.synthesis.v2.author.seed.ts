@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 101,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de noyau stérane et dérivés :",
+    "question": "À propos du noyau stérane et de ses dérivés :",
     "choices": [
       {
         "content": "Le noyau stérane possède quatre cycles.",
@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 103,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de cholestérol libre et estérifié :",
+    "question": "À propos du cholestérol libre et du cholestérol estérifié :",
     "choices": [
       {
         "content": "Le cholestérol libre est amphiphile.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 105,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de dérivés du cholestérol :",
+    "question": "À propos des dérivés du cholestérol :",
     "choices": [
       {
         "content": "Les acides biliaires participent à la digestion des lipides.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 107,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de noyaux hormonaux :",
+    "question": "À propos des noyaux hormonaux :",
     "choices": [
       {
         "content": "Estrane = 18 C.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 109,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de aldostérone et rein :",
+    "question": "À propos de l’aldostérone et de son action rénale :",
     "choices": [
       {
         "content": "Elle favorise la réabsorption de sodium.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de cortisol :",
+    "question": "À propos du cortisol :",
     "choices": [
       {
         "content": "Il est hyperglycémiant.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 113,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de androgènes :",
+    "question": "À propos des androgènes :",
     "choices": [
       {
         "content": "La testostérone est un androgène.",
@@ -525,7 +525,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de sites de synthèse :",
+    "question": "À propos des sites de synthèse :",
     "choices": [
       {
         "content": "Corticosurrénale → cortisol/aldostérone.",
@@ -583,7 +583,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 121,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de cholestérol et membranes :",
+    "question": "À propos du cholestérol et des membranes :",
     "choices": [
       {
         "content": "Le cholestérol libre est amphipathique.",

@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 69,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les bicouches phospholipidiques :",
+    "question": "À propos des bicouches phospholipidiques :",
     "choices": [
       {
         "content": "Elles sont très stables en milieu aqueux.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 71,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les liposomes :",
+    "question": "À propos des liposomes :",
     "choices": [
       {
         "content": "Ils peuvent se former à partir de phospholipides.",
@@ -415,7 +415,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 81,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de le PIP2 :",
+    "question": "À propos du PIP2 :",
     "choices": [
       {
         "content": "Il s'agit de phosphatidylinositol-4,5-bisphosphate.",
@@ -473,7 +473,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 83,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de le DAG produit à partir du PIP2 :",
+    "question": "À propos du DAG produit à partir du PIP2 :",
     "choices": [
       {
         "content": "Il reste associé à la membrane.",
@@ -698,7 +698,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 91,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les plasmalogènes :",
+    "question": "À propos des plasmalogènes :",
     "choices": [
       {
         "content": "Ils sont apparentés aux phospholipides.",
@@ -748,7 +748,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 93,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les localisations des plasmalogènes :",
+    "question": "À propos des localisations des plasmalogènes :",
     "choices": [
       {
         "content": "Ils sont présents dans le muscle.",
@@ -806,7 +806,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 95,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de le PAF :",
+    "question": "À propos du PAF :",
     "choices": [
       {
         "content": "PAF signifie Platelet Activating Factor.",

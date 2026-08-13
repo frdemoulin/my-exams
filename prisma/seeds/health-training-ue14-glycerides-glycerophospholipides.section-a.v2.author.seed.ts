@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les monoacylglycérols :",
+    "question": "À propos des monoacylglycérols :",
     "choices": [
       {
         "content": "Ils portent un seul acide gras.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 9,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les diacylglycérols :",
+    "question": "À propos des diacylglycérols :",
     "choices": [
       {
         "content": "Ils portent deux acides gras.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 11,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les triacylglycérols :",
+    "question": "À propos des triacylglycérols :",
     "choices": [
       {
         "content": "Ils portent trois acides gras.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 13,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les triglycérides homogènes et mixtes :",
+    "question": "À propos des triglycérides homogènes et mixtes :",
     "choices": [
       {
         "content": "Un triglycéride homogène porte trois acides gras identiques.",
@@ -415,7 +415,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 15,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de le 1,3-distéaryl-2-oléyl-glycérol :",
+    "question": "À propos du 1,3-distéaryl-2-oléyl-glycérol :",
     "choices": [
       {
         "content": "Il porte deux stéaryls en C1 et C3.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 19,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les fonctions alcool du glycérol :",
+    "question": "À propos des fonctions alcool du glycérol :",
     "choices": [
       {
         "content": "C1 porte un alcool primaire.",

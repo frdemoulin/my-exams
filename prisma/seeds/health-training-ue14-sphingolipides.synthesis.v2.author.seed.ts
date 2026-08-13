@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 101,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de sphingosine et céramide :",
+    "question": "À propos de la sphingosine et des céramides :",
     "choices": [
       {
         "content": "La sphingosine possède 18 carbones.",
@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 103,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de sphingomyéline :",
+    "question": "À propos de la sphingomyéline :",
     "choices": [
       {
         "content": "Elle contient un phosphate.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 105,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de cérébrosides et gangliosides :",
+    "question": "À propos des cérébrosides et des gangliosides :",
     "choices": [
       {
         "content": "Les cérébrosides portent un ose.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 107,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de nomenclature des gangliosides :",
+    "question": "À propos de la nomenclature des gangliosides :",
     "choices": [
       {
         "content": "M=1 résidu sialique.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 109,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de sphingolipidoses :",
+    "question": "À propos des sphingolipidoses :",
     "choices": [
       {
         "content": "Ce sont des maladies génétiques rares.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de Gaucher et Fabry :",
+    "question": "À propos des maladies de Gaucher et de Fabry :",
     "choices": [
       {
         "content": "Gaucher : β-glucosidase.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 113,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de Krabbe et Tay-Sachs :",
+    "question": "À propos des maladies de Krabbe et de Tay-Sachs :",
     "choices": [
       {
         "content": "Krabbe : β-galactosidase.",
@@ -524,7 +524,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de sphingosine-1-phosphate :",
+    "question": "À propos de la sphingosine-1-phosphate :",
     "choices": [
       {
         "content": "Son excès est associé à un risque de cancers dans la fiche.",
@@ -582,7 +582,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 121,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de sphingolipides membranaires :",
+    "question": "À propos des sphingolipides membranaires :",
     "choices": [
       {
         "content": "Sphingomyéline et glycosphingolipides sont membranaires.",

@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de le noyau stérane :",
+    "question": "À propos du noyau stérane :",
     "choices": [
       {
         "content": "Il comporte quatre cycles.",
@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 3,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les cycles du noyau stérane :",
+    "question": "À propos des cycles du noyau stérane :",
     "choices": [
       {
         "content": "A est un cycle à six carbones.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les carbones asymétriques du noyau stérane :",
+    "question": "À propos des carbones asymétriques du noyau stérane :",
     "choices": [
       {
         "content": "La fiche en compte six.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 11,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les stérols :",
+    "question": "À propos des stérols :",
     "choices": [
       {
         "content": "Ils possèdent un noyau stérane.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 13,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de le cholestérol comme stérol :",
+    "question": "À propos du cholestérol comme stérol :",
     "choices": [
       {
         "content": "Il est présenté comme le stérol le plus connu chez l'Homme.",
@@ -415,7 +415,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 15,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les stérides :",
+    "question": "À propos des stérides :",
     "choices": [
       {
         "content": "Ce sont des esters de stérol.",
@@ -473,7 +473,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 17,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les rôles des stérides :",
+    "question": "À propos des rôles des stérides :",
     "choices": [
       {
         "content": "Ils participent au stockage des stérols.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 19,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les stéroïdes :",
+    "question": "À propos des stéroïdes :",
     "choices": [
       {
         "content": "Ils dérivent des terpènes selon la fiche.",

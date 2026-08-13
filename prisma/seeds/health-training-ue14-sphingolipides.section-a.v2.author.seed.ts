@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 11,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de le céramide :",
+    "question": "À propos du céramide :",
     "choices": [
       {
         "content": "Il associe une sphingosine et un acide gras.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 13,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les acides gras des céramides :",
+    "question": "À propos des acides gras des céramides :",
     "choices": [
       {
         "content": "Ils sont à longue chaîne.",
@@ -473,7 +473,7 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 17,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les rôles structuraux des céramides :",
+    "question": "À propos des rôles structuraux des céramides :",
     "choices": [
       {
         "content": "Ils sont des composants membranaires.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 19,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de les rôles de signalisation des céramides :",
+    "question": "À propos des rôles de signalisation des céramides :",
     "choices": [
       {
         "content": "Ils peuvent participer à la transduction du signal.",

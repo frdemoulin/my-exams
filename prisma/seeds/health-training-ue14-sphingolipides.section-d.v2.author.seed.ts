@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 67,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de le métabolisme des sphingolipides :",
+    "question": "À propos du métabolisme des sphingolipides :",
     "choices": [
       {
         "content": "Il comprend synthèse et dégradation.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 73,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les sphingolipidoses :",
+    "question": "À propos des sphingolipidoses :",
     "choices": [
       {
         "content": "Ce sont des maladies génétiques rares.",
@@ -473,7 +473,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 83,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de le raisonnement maladie-enzyme-substrat :",
+    "question": "À propos du raisonnement maladie-enzyme-substrat :",
     "choices": [
       {
         "content": "Chaque sphingolipidose de la fiche associe un déficit enzymatique à l'accumulation d'un substrat.",
@@ -531,7 +531,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 85,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de Gaucher et organes touchés :",
+    "question": "À propos de la maladie de Gaucher et des organes touchés :",
     "choices": [
       {
         "content": "Le foie est cité.",
@@ -589,7 +589,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 87,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de Fabry et atteinte rénale :",
+    "question": "À propos de la maladie de Fabry et de l’atteinte rénale :",
     "choices": [
       {
         "content": "L'insuffisance rénale est citée.",
@@ -698,7 +698,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 91,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les relations entre cérébrosides et maladies :",
+    "question": "À propos des relations entre cérébrosides et maladies :",
     "choices": [
       {
         "content": "Le glucosylcéramide est associé à Gaucher.",
@@ -748,7 +748,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 93,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de le ganglioside GM2 et Tay-Sachs :",
+    "question": "À propos du ganglioside GM2 et de la maladie de Tay-Sachs :",
     "choices": [
       {
         "content": "GM2 est un ganglioside.",
@@ -806,7 +806,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 95,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les conséquences d'un défaut de catabolisme :",
+    "question": "À propos des conséquences d'un défaut de catabolisme :",
     "choices": [
       {
         "content": "Une accumulation de lipide peut survenir.",

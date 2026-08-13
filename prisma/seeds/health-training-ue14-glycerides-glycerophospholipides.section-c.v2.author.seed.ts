@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 47,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le rôle de l'acide phosphatidique :",
+    "question": "À propos du rôle de l'acide phosphatidique :",
     "choices": [
       {
         "content": "C'est un intermédiaire important de synthèse des di- et triglycérides.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 51,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les phosphatidylsérines :",
+    "question": "À propos des phosphatidylsérines :",
     "choices": [
       {
         "content": "La sérine peut se fixer par sa fonction alcool.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 53,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les phosphatidyléthanolamines :",
+    "question": "À propos des phosphatidyléthanolamines :",
     "choices": [
       {
         "content": "L'éthanolamine est un dérivé décarboxylé de la sérine.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les phosphatidylcholines :",
+    "question": "À propos des phosphatidylcholines :",
     "choices": [
       {
         "content": "La choline est un dérivé triméthylé de l'éthanolamine.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 57,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les phosphatidylglycérols :",
+    "question": "À propos des phosphatidylglycérols :",
     "choices": [
       {
         "content": "Le glycérol peut servir d'alcool de tête.",
@@ -415,7 +415,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 59,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les phosphatidylinositols :",
+    "question": "À propos des phosphatidylinositols :",
     "choices": [
       {
         "content": "L'inositol est un cycle à six carbones.",
@@ -464,7 +464,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le rôle des phosphatidylinositols :",
+    "question": "À propos du rôle des phosphatidylinositols :",
     "choices": [
       {
         "content": "Ce sont des composants mineurs des membranes.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les lysophospholipides :",
+    "question": "À propos des lysophospholipides :",
     "choices": [
       {
         "content": "Ils manquent d'un acide gras par rapport au phospholipide parent.",

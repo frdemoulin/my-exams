@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 69,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de l'aldostérone et la corticostérone :",
+    "question": "À propos de l’aldostérone et de la corticostérone :",
     "choices": [
       {
         "content": "La fiche met en garde contre leur inversion à l'examen.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 71,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les rôles des minéralocorticoïdes :",
+    "question": "À propos des rôles des minéralocorticoïdes :",
     "choices": [
       {
         "content": "Ils régulent les mouvements d'eau et de sels minéraux.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 75,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de le cortisol :",
+    "question": "À propos du cortisol :",
     "choices": [
       {
         "content": "Il est aussi appelé hydrocortisone.",
@@ -473,7 +473,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 83,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les rôles des androgènes :",
+    "question": "À propos des rôles des androgènes :",
     "choices": [
       {
         "content": "Ils participent au développement des organes génitaux masculins.",
@@ -531,7 +531,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 85,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les effets métaboliques des androgènes :",
+    "question": "À propos des effets métaboliques des androgènes :",
     "choices": [
       {
         "content": "Ils stimulent la synthèse des protéines musculaires.",
@@ -589,7 +589,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 87,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les œstrogènes et la reproduction :",
+    "question": "À propos des œstrogènes et de la reproduction :",
     "choices": [
       {
         "content": "Ils participent au développement des caractères sexuels féminins.",
@@ -698,7 +698,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 91,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les œstrogènes et la température :",
+    "question": "À propos des œstrogènes et de la température :",
     "choices": [
       {
         "content": "Ils favorisent la déperdition de chaleur.",
@@ -747,7 +747,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 93,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de la progestérone et l'utérus :",
+    "question": "À propos de la progestérone et de l’utérus :",
     "choices": [
       {
         "content": "Elle stimule les sécrétions utérines.",
@@ -805,7 +805,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 95,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de la progestérone et les glandes mammaires :",
+    "question": "À propos de la progestérone et des glandes mammaires :",
     "choices": [
       {
         "content": "Elle participe au développement des canaux des glandes mammaires.",
@@ -922,7 +922,7 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 99,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les origines des hormones stéroïdiennes :",
+    "question": "À propos des origines des hormones stéroïdiennes :",
     "choices": [
       {
         "content": "Cortisol et aldostérone sont d'origine surrénalienne.",

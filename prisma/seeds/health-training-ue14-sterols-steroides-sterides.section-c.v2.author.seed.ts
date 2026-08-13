@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 45,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les hormones stéroïdiennes :",
+    "question": "À propos des hormones stéroïdiennes :",
     "choices": [
       {
         "content": "Elles dérivent du cholestérol.",
@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 47,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le noyau estrane :",
+    "question": "À propos du noyau estrane :",
     "choices": [
       {
         "content": "Il comporte 18 carbones.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 49,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le noyau androstane :",
+    "question": "À propos du noyau androstane :",
     "choices": [
       {
         "content": "Il comporte 19 carbones.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 51,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le noyau prégnane :",
+    "question": "À propos du noyau prégnane :",
     "choices": [
       {
         "content": "Il comporte 21 carbones.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 53,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les minéralocorticoïdes :",
+    "question": "À propos des minéralocorticoïdes :",
     "choices": [
       {
         "content": "Ils sont d'origine surrénalienne dans le support.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les glucocorticoïdes :",
+    "question": "À propos des glucocorticoïdes :",
     "choices": [
       {
         "content": "Ils sont d'origine surrénalienne.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 57,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les stéroïdes sexuels :",
+    "question": "À propos des stéroïdes sexuels :",
     "choices": [
       {
         "content": "Ils sont synthétisés dans les gonades.",
@@ -406,7 +406,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 59,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les androgènes :",
+    "question": "À propos des androgènes :",
     "choices": [
       {
         "content": "La testostérone est citée.",
@@ -464,7 +464,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la testostérone et l'androstènedione :",
+    "question": "À propos de la testostérone et de l’androstènedione :",
     "choices": [
       {
         "content": "La testostérone porte un OH en C17 dans le schéma du support.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les œstrogènes :",
+    "question": "À propos des œstrogènes :",
     "choices": [
       {
         "content": "L'œstradiol et l'œstrone sont cités.",

@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 101,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les glycérides et phospholipides :",
+    "question": "À propos des glycérides et phospholipides :",
     "choices": [
       {
         "content": "Les glycérides sont des esters du glycérol et d'acides gras.",
@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 103,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de triglycérides et réserve énergétique :",
+    "question": "À propos des triglycérides et de la réserve énergétique :",
     "choices": [
       {
         "content": "Ils sont stockés dans les adipocytes.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 105,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de acide phosphatidique et phospholipides :",
+    "question": "À propos de l’acide phosphatidique et des phospholipides :",
     "choices": [
       {
         "content": "L'acide phosphatidique porte deux acides gras en C1/C2.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 107,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de phospholipases et médiateurs :",
+    "question": "À propos des phospholipases et des médiateurs :",
     "choices": [
       {
         "content": "PLA2 peut libérer l'acide arachidonique.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 109,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de PI3K–AKT et cancérologie :",
+    "question": "À propos de la voie PI3K–AKT et de la cancérologie :",
     "choices": [
       {
         "content": "PI3K transforme PIP2 en PIP3.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de plasmalogènes et PAF :",
+    "question": "À propos des plasmalogènes et du PAF :",
     "choices": [
       {
         "content": "Les plasmalogènes portent un alcool gras en C1 par liaison éther.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 113,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de les têtes polaires :",
+    "question": "À propos des têtes polaires :",
     "choices": [
       {
         "content": "Sérine → PS.",
@@ -524,7 +524,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de lysophospholipide :",
+    "question": "À propos des lysophospholipides :",
     "choices": [
       {
         "content": "La perte de l'acide gras C2 produit un lysophospholipide dans le schéma.",
@@ -582,7 +582,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 121,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de signalisation PIP2 :",
+    "question": "À propos de la signalisation par le PIP2 :",
     "choices": [
       {
         "content": "PIP2 est sur le feuillet interne.",

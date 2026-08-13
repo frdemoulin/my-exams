@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 23,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le point de fusion des triglycérides :",
+    "question": "À propos du point de fusion des triglycérides :",
     "choices": [
       {
         "content": "Il dépend de la nature des acides gras.",
@@ -67,7 +67,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 25,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les triglycérides saturés à 37 °C :",
+    "question": "À propos des triglycérides saturés à 37 °C :",
     "choices": [
       {
         "content": "La fiche indique qu'ils peuvent être solides à 37 °C.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 27,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le stockage des triglycérides :",
+    "question": "À propos du stockage des triglycérides :",
     "choices": [
       {
         "content": "Ils constituent la forme majeure de stockage des lipides.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 35,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les graisses de lubrification :",
+    "question": "À propos des graisses de lubrification :",
     "choices": [
       {
         "content": "Elles sont décrites comme riches en acides gras insaturés.",
@@ -464,7 +464,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les lipides alimentaires :",
+    "question": "À propos des lipides alimentaires :",
     "choices": [
       {
         "content": "Les triglycérides sont les principaux lipides retrouvés dans l'alimentation.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les triglycérides et la température :",
+    "question": "À propos des triglycérides et la température :",
     "choices": [
       {
         "content": "Leur état physique dépend du point de fusion.",

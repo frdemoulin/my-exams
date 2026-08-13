@@ -9,7 +9,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 45,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les glycosphingolipides :",
+    "question": "À propos des glycosphingolipides :",
     "choices": [
       {
         "content": "Ils dérivent de céramides.",
@@ -125,7 +125,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 49,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les cérébrosides :",
+    "question": "À propos des cérébrosides :",
     "choices": [
       {
         "content": "Ils possèdent un seul ose en C1.",
@@ -183,7 +183,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 51,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le glucosylcéramide :",
+    "question": "À propos du glucosylcéramide :",
     "choices": [
       {
         "content": "Il porte un glucose en C1.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 53,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le galactosylcéramide :",
+    "question": "À propos du galactosylcéramide :",
     "choices": [
       {
         "content": "Il porte un galactose en C1.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les gangliosides :",
+    "question": "À propos des gangliosides :",
     "choices": [
       {
         "content": "Ils portent plusieurs oses en C1.",
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 57,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le lactosylcéramide :",
+    "question": "À propos du lactosylcéramide :",
     "choices": [
       {
         "content": "Il associe un céramide, un glucose et un galactose.",

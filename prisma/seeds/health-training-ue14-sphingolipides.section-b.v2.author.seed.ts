@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 31,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la sphingomyéline et la cornée :",
+    "question": "À propos de la sphingomyéline et de la cornée :",
     "choices": [
       {
         "content": "La cornée est citée comme tissu contenant de la sphingomyéline.",
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de sphingomyéline et signalisation :",
+    "question": "À propos de la sphingomyéline et de la signalisation :",
     "choices": [
       {
         "content": "Elle participe à la transduction du signal.",
@@ -464,7 +464,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le céramide de la sphingomyéline :",
+    "question": "À propos du céramide de la sphingomyéline :",
     "choices": [
       {
         "content": "Il dérive de la sphingosine.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les phosphosphingolipides :",
+    "question": "À propos des phosphosphingolipides :",
     "choices": [
       {
         "content": "Ils contiennent un phosphate.",
