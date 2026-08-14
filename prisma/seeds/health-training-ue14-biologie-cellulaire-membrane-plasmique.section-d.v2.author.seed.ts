@@ -307,7 +307,7 @@ export const UE14_CELL_CH2_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les perméases et les pompes » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les perméases et les pompes » ?",
     "choices": [
       {
         "content": "Une pompe est associée au transport actif.",
@@ -591,7 +591,7 @@ export const UE14_CELL_CH2_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 88,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « les deux grandes modalités de transport membranaire » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « les deux grandes modalités de transport membranaire » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

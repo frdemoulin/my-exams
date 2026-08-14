@@ -17,16 +17,16 @@ const CHAPTER_SLUG = 'cytosquelette';
 const sections: SeedSection[] = [
   {
     order: 1,
-    title: 'Généralités, structure et polymérisation des microtubules',
+    title: 'Généralités, structure et organisation des microtubules',
     description:
-      'Tubulines α/β, protofilaments, centrosome, instabilité dynamique, coiffe GTP et agents pharmacologiques.',
+      'Trois réseaux du cytosquelette, structure des microtubules, centrosome, polarité et structures à microtubules stabilisés.',
     kind: 'THEME',
   },
   {
     order: 2,
-    title: 'Fonctions des microtubules et protéines motrices',
+    title: 'Polymérisation, fonctions des microtubules et protéines motrices',
     description:
-      'Kinésines, dynéines, transport axonal, cils, flagelles, cils primaires et fuseau mitotique.',
+      'Tubuline α/β, GTP, polymérisation, cils et flagelles, transport par kinésine/dynéine et fuseau mitotique.',
     kind: 'THEME',
   },
   {

@@ -19,14 +19,14 @@ const sections: SeedSection[] = [
     order: 1,
     title: 'Structure et composition de la membrane',
     description:
-      'Bicouche lipidique, phospholipides, cholestérol, protéines membranaires, modèle de la mosaïque fluide et glycocalyx.',
+      'Bicouche lipidique, phospholipides, cholestérol, protéines membranaires, hématie et groupes sanguins ABO.',
     kind: 'THEME',
   },
   {
     order: 2,
     title: 'Fluidité, asymétrie et polarité membranaires',
     description:
-      'Mouvements lipidiques, flip-flop, asymétrie membranaire, flippases, scramblases et polarité cellulaire.',
+      'Glycocalyx, fluidité, mouvements lipidiques, asymétrie membranaire, flippases, scramblases et polarité cellulaire.',
     kind: 'THEME',
   },
   {

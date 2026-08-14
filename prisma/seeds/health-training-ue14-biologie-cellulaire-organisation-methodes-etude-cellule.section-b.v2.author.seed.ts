@@ -208,7 +208,7 @@ export const UE14_CELL_CH1_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 30,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les lignées cellulaires tumorales ou transformées » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les lignées cellulaires tumorales ou transformées » ?",
     "choices": [
       {
         "content": "La fiche qualifie ces lignées d’immortelles.",
@@ -558,7 +558,7 @@ export const UE14_CELL_CH1_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « la cryoconservation » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « la cryoconservation » ?",
     "choices": [
       {
         "content": "La fiche indique que leur potentiel de multiplication peut être conservé.",
@@ -616,7 +616,7 @@ export const UE14_CELL_CH1_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 44,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « la définition de la culture cellulaire » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « la définition de la culture cellulaire » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

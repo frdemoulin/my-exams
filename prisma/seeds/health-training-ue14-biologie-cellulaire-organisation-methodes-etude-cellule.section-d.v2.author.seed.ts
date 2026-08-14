@@ -307,7 +307,7 @@ export const UE14_CELL_CH1_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « l’hybridation in situ » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « l’hybridation in situ » ?",
     "choices": [
       {
         "content": "Elle peut permettre de localiser un ADN ou un ARN d’intérêt dans une cellule fixée.",
@@ -591,7 +591,7 @@ export const UE14_CELL_CH1_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 88,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « les quatre grandes méthodes de marquage moléculaire de la fiche » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « les quatre grandes méthodes de marquage moléculaire de la fiche » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

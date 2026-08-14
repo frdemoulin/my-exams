@@ -208,7 +208,7 @@ export const UE14_CELL_CH2_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 30,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les scramblases » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les scramblases » ?",
     "choices": [
       {
         "content": "Elles tendent vers une distribution plus symétrique.",
@@ -550,7 +550,7 @@ export const UE14_CELL_CH2_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « l’influence des acides gras sur la fluidité selon la fiche » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « l’influence des acides gras sur la fluidité selon la fiche » ?",
     "choices": [
       {
         "content": "Une plus forte saturation est associée à une membrane moins fluide.",
@@ -608,7 +608,7 @@ export const UE14_CELL_CH2_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 44,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « le glycocalyx » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « le glycocalyx » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

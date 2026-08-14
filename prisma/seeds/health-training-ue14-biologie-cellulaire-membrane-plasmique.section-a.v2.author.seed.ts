@@ -133,7 +133,7 @@ export const UE14_CELL_CH2_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les protéines transmembranaires » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les protéines transmembranaires » ?",
     "choices": [
       {
         "content": "Elles participent notamment à la perméabilité sélective et aux contacts avec les milieux intra- et extracellulaires.",
@@ -464,7 +464,7 @@ export const UE14_CELL_CH2_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les groupes sanguins ABO dans la fiche » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les groupes sanguins ABO dans la fiche » ?",
     "choices": [
       {
         "content": "Des anticorps correspondants sont présents dans le sérum selon le groupe.",
@@ -591,7 +591,7 @@ export const UE14_CELL_CH2_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « les fonctions générales de la membrane plasmique » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « les fonctions générales de la membrane plasmique » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

@@ -208,7 +208,7 @@ export const UE14_CELL_CH3_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 30,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « la structure simplifiée des moteurs microtubulaires » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « la structure simplifiée des moteurs microtubulaires » ?",
     "choices": [
       {
         "content": "Ces têtes lient le microtubule et hydrolysent l’ATP.",
@@ -559,7 +559,7 @@ export const UE14_CELL_CH3_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « la tubuline α et la tubuline β » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « la tubuline α et la tubuline β » ?",
     "choices": [
       {
         "content": "La sous-unité α fixe le GTP sans pouvoir l’hydrolyser dans la fiche.",
@@ -617,7 +617,7 @@ export const UE14_CELL_CH3_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 44,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « la tubuline α et la tubuline β » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « la tubuline α et la tubuline β » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

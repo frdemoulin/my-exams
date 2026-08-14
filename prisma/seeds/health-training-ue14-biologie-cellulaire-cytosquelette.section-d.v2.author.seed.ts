@@ -324,7 +324,7 @@ export const UE14_CELL_CH3_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « la zone intermédiaire de la cellule migrante » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « la zone intermédiaire de la cellule migrante » ?",
     "choices": [
       {
         "content": "Cette zone suit le front riche en prolongements.",
@@ -625,7 +625,7 @@ export const UE14_CELL_CH3_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 88,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « les contextes physiologiques de migration cellulaire » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « les contextes physiologiques de migration cellulaire » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

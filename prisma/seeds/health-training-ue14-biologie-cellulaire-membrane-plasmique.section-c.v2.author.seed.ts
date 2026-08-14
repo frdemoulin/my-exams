@@ -266,7 +266,7 @@ export const UE14_CELL_CH2_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les conséquences biologiques d’un dysfonctionnement de communication » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les conséquences biologiques d’un dysfonctionnement de communication » ?",
     "choices": [
       {
         "content": "La fiche cite les cancers comme exemple de dysfonctionnement de la communication.",
@@ -625,7 +625,7 @@ export const UE14_CELL_CH2_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 66,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « la nécessité de la communication cellulaire » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « la nécessité de la communication cellulaire » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

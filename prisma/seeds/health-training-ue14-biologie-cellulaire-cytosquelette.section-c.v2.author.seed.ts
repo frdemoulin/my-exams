@@ -266,7 +266,7 @@ export const UE14_CELL_CH3_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « l’actine et la contraction musculaire » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « l’actine et la contraction musculaire » ?",
     "choices": [
       {
         "content": "Le sarcomère associe filaments d’actine et filaments bipolaires de myosine II.",
@@ -608,7 +608,7 @@ export const UE14_CELL_CH3_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 66,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « la localisation des microfilaments d’actine » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « la localisation des microfilaments d’actine » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

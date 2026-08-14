@@ -266,7 +266,7 @@ export const UE14_CELL_CH1_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les cellules dissociées en 2D » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les cellules dissociées en 2D » ?",
     "choices": [
       {
         "content": "Les cellules dissociées peuvent être cultivées en monocouche.",
@@ -625,7 +625,7 @@ export const UE14_CELL_CH1_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 66,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « les explants » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « les explants » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

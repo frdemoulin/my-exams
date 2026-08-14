@@ -133,7 +133,7 @@ export const UE14_CELL_CH1_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les fonctions générales de la cellule » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les fonctions générales de la cellule » ?",
     "choices": [
       {
         "content": "Réponse aux stimuli, communication et transport intracellulaire sont également cités.",
@@ -474,7 +474,7 @@ export const UE14_CELL_CH1_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les principaux éléments chimiques cellulaires » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les principaux éléments chimiques cellulaires » ?",
     "choices": [
       {
         "content": "La fiche abrège implicitement ce quatuor par les éléments C, H, O et N.",
@@ -601,7 +601,7 @@ export const UE14_CELL_CH1_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « la définition de la cellule » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « la définition de la cellule » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

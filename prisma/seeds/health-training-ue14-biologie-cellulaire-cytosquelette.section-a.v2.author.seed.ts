@@ -133,7 +133,7 @@ export const UE14_CELL_CH3_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée relative à « les microtubules chez les cellules humaines » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « les microtubules chez les cellules humaines » ?",
     "choices": [
       {
         "content": "L’absence dans l’hématie est reliée dans la fiche à la perte du noyau.",
@@ -464,7 +464,7 @@ export const UE14_CELL_CH3_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée relative à « l’axonème des cils et flagelles mobiles selon la fiche » est correcte ?",
+    "question": "Quelle donnée est correcte concernant « l’axonème des cils et flagelles mobiles selon la fiche » ?",
     "choices": [
       {
         "content": "L’ensemble forme l’axonème des cils et flagelles mobiles.",
@@ -591,7 +591,7 @@ export const UE14_CELL_CH3_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Consolidation de « les trois types de structures du cytosquelette » — sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Consolidation — « les trois types de structures du cytosquelette » : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {
