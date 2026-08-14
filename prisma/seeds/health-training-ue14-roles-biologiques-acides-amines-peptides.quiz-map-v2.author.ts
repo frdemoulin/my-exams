@@ -292,7 +292,7 @@ export const UE14_BIOCH_CH11_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> 
   54: ["le glutathion"],
   55: ["la liaison particulière du glutathion"],
   56: ["la liaison particulière du glutathion"],
-  57: ["les peptides antibiotiques et les acides aminés D"],
+  57: ["la maturation de la proinsuline et le peptide C"],
   58: ["les peptides antibiotiques et les acides aminés D"],
   59: ["la cyclosporine"],
   60: ["la cyclosporine"],

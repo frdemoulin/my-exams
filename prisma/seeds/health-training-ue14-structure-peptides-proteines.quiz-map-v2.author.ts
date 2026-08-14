@@ -277,7 +277,7 @@ export const UE14_BIOCH_CH10_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> 
   39: ["le domaine Kringle"],
   40: ["le domaine Kringle"],
   41: ["l’insuline et les ponts disulfure"],
-  42: ["l’insuline et les ponts disulfure"],
+  42: ["la liaison peptidique C–N"],
   43: ["les modifications post-traductionnelles"],
   44: ["les modifications post-traductionnelles"],
   45: ["la structure secondaire"],
