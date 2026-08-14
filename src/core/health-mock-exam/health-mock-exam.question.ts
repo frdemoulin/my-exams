@@ -4,6 +4,7 @@ import {
   normalizeChoiceIndexes,
   normalizePersistedQuestion,
   normalizePersistedQuestionType,
+  type HotspotPoint,
   type MultipleChoiceQuestion,
   type Question,
   type QuestionType,
@@ -77,6 +78,31 @@ export function getShortAnswerRawValue(responsePayload: unknown) {
   return "";
 }
 
+export function getHotspotPoints(responsePayload: unknown): HotspotPoint[] {
+  if (!isRecord(responsePayload)) {
+    return [];
+  }
+
+  const rawPoints = Array.isArray(responsePayload.points)
+    ? responsePayload.points
+    : isRecord(responsePayload.point)
+      ? [responsePayload.point]
+      : [];
+
+  return rawPoints
+    .filter(isRecord)
+    .map((p) => {
+      const x = typeof p.x === "number" && Number.isFinite(p.x) ? p.x : null;
+      const y = typeof p.y === "number" && Number.isFinite(p.y) ? p.y : null;
+      if (x === null || y === null) return null;
+      return {
+        x: Math.max(0, Math.min(1, Math.round(x * 10000) / 10000)),
+        y: Math.max(0, Math.min(1, Math.round(y * 10000) / 10000)),
+      };
+    })
+    .filter((p): p is HotspotPoint => p !== null);
+}
+
 export function createHealthMockExamStudentAnswer({
   question,
   selectedChoiceIndexes,
@@ -98,6 +124,14 @@ export function createHealthMockExamStudentAnswer({
       questionId: question.id,
       type: "short-answer",
       rawValue: getShortAnswerRawValue(responsePayload),
+    };
+  }
+
+  if (question.type === "hotspot") {
+    return {
+      questionId: question.id,
+      type: "hotspot",
+      points: getHotspotPoints(responsePayload),
     };
   }
 
@@ -133,6 +167,14 @@ export function normalizeHealthMockExamStudentAnswer({
         questionId: question.id,
         type: "short-answer",
         rawValue: getShortAnswerRawValue(responsePayload),
+      };
+    }
+
+    if (question.type === "hotspot" && responsePayload.type === "hotspot") {
+      return {
+        questionId: question.id,
+        type: "hotspot",
+        points: getHotspotPoints(responsePayload),
       };
     }
   }
@@ -195,6 +237,10 @@ export function isHealthMockExamQuestionAnswered(
 
   if (question.type === "short-answer" && answer.type === "short-answer") {
     return answer.rawValue.trim().length > 0;
+  }
+
+  if (question.type === "hotspot" && answer.type === "hotspot") {
+    return answer.points.length > 0;
   }
 
   return false;

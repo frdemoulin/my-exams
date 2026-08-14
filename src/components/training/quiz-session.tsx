@@ -1995,6 +1995,16 @@ export function QuizSession({
             La correction compare ta réponse après normalisation, sans interprétation libre.
           </p>
         </div>
+      ) : currentHotspotQuestion ? (
+        <HotspotQuestionView
+          question={currentHotspotQuestion}
+          selectedPoint={currentHotspotPoint}
+          onPointSelect={updateCurrentHotspotPoint}
+          readOnly={isAnswerLocked}
+          evaluationResult={currentEvaluation}
+          showCorrection={isReviewMode || (!isFinalCorrectionOnly && isAnswerLocked)}
+          showHeader={false}
+        />
       ) : (
         <div className="rounded-xl border border-dashed border-border bg-card p-4 text-sm text-muted-foreground">
           Ce type de question n’est pas encore rendu dans le player.

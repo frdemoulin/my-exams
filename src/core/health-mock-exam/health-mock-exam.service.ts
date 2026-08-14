@@ -443,7 +443,11 @@ export async function saveHealthMockExamAnswer(input: {
   }
 
   const question = normalizeHealthMockExamQuestion(attemptQuestion.question);
-  if (question.type !== "mcq" && question.type !== "short-answer") {
+  if (
+    question.type !== "mcq" &&
+    question.type !== "short-answer" &&
+    question.type !== "hotspot"
+  ) {
     throw new HealthMockExamError(
       "Ce type de question n'est pas encore pris en charge dans l'examen blanc.",
       400,

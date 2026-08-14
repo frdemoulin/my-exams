@@ -8,12 +8,14 @@ import { QuestionFormatBadge } from "@/components/training/question-format-badge
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
 import { MathContent } from "@/components/training/math-content";
+import { HotspotQuestionView } from "@/components/training/hotspot-question-view";
 import {
   formatShortAnswerExpectedAnswer,
+  getHotspotPoints,
   getShortAnswerRawValue,
 } from "@/core/health-mock-exam/health-mock-exam.question";
 import type { HealthMockExamResults } from "@/core/health-mock-exam/health-mock-exam.types";
-import { getQuestionFormatStudentInstruction } from "@/core/questions";
+import { getQuestionFormatStudentInstruction, type HotspotQuestion } from "@/core/questions";
 import { cn } from "@/lib/utils";
 
 type HealthMockExamResultsProps = {
@@ -117,6 +119,8 @@ export function HealthMockExamResults({
         <h2 id="mock-exam-correction-heading" className="text-xl font-semibold text-heading">Correction détaillée</h2>
         {result.questions.map((question) => {
           const isCorrect = question.evaluationStatus === "correct";
+          const isHotspot = question.canonicalQuestion.type === "hotspot";
+          const hotspotPoint = isHotspot ? getHotspotPoints(question.responsePayload)[0] ?? null : null;
           const shortAnswerExpectedAnswer =
             question.canonicalQuestion.type === "short-answer"
               ? formatShortAnswerExpectedAnswer(question.canonicalQuestion)
@@ -160,7 +164,26 @@ export function HealthMockExamResults({
                   <TrainingQuestionContentView question={question.question} questionDiagram={question.questionDiagram} />
                 </div>
 
-                {isShortAnswer ? (
+                {isHotspot ? (
+                  <HotspotQuestionView
+                    question={question.canonicalQuestion as HotspotQuestion}
+                    selectedPoint={hotspotPoint}
+                    readOnly={true}
+                    showCorrection={true}
+                    evaluationResult={{
+                      questionId: question.id,
+                      status:
+                        question.evaluationStatus === "correct"
+                          ? "correct"
+                          : question.evaluationStatus === "incorrect"
+                            ? "incorrect"
+                            : "unanswered",
+                      score: question.score,
+                      maxScore: question.maxScore,
+                    }}
+                    showHeader={false}
+                  />
+                ) : isShortAnswer ? (
                   <div
                     className={cn(
                       "grid gap-3 border p-4 text-sm",
@@ -212,9 +235,11 @@ export function HealthMockExamResults({
                   <div className="mt-1"><MathContent value={question.explanation} /></div>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  {isShortAnswer
-                    ? `Votre réponse : ${shortAnswerValue.trim() ? shortAnswerValue : "Aucune réponse"} · Réponse attendue : ${shortAnswerExpectedAnswer}`
-                    : `Votre réponse : ${formatChoiceLetters(question.selectedChoiceIndexes)} · Réponse attendue : ${formatChoiceLetters(question.correctChoiceIndexes)}`}
+                  {isHotspot
+                    ? `Votre réponse : ${hotspotPoint ? `Point (${Math.round(hotspotPoint.x * 100)}%, ${Math.round(hotspotPoint.y * 100)}%)` : "Aucune réponse"}`
+                    : isShortAnswer
+                      ? `Votre réponse : ${shortAnswerValue.trim() ? shortAnswerValue : "Aucune réponse"} · Réponse attendue : ${shortAnswerExpectedAnswer}`
+                      : `Votre réponse : ${formatChoiceLetters(question.selectedChoiceIndexes)} · Réponse attendue : ${formatChoiceLetters(question.correctChoiceIndexes)}`}
                 </p>
               </CardContent>
             </Card>

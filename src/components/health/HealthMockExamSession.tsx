@@ -496,6 +496,7 @@ export function HealthMockExamSession({
             selectedPoint={getHotspotPoint(currentAnswer)}
             onPointSelect={updateCurrentHotspotPoint}
             readOnly={isSubmitting}
+            showHeader={false}
           />
         ) : currentQuestion.questionType === "short-answer" ? (
           <div className="space-y-2">

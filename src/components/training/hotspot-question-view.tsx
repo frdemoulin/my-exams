@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useCallback, useEffect } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { Target, RotateCcw, CheckCircle2, XCircle, MapPin, Info } from 'lucide-react';
 import type {
   HotspotQuestion,
@@ -16,6 +16,7 @@ interface HotspotQuestionViewProps {
   readOnly?: boolean;
   evaluationResult?: EvaluationResult | null;
   showCorrection?: boolean;
+  showHeader?: boolean;
 }
 
 export function HotspotQuestionView({
@@ -25,9 +26,10 @@ export function HotspotQuestionView({
   readOnly = false,
   evaluationResult,
   showCorrection = false,
+  showHeader = true,
 }: HotspotQuestionViewProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [, setImageLoaded] = useState(false);
   const [hoverPoint, setHoverPoint] = useState<HotspotPoint | null>(null);
 
   const imageSrc = question.image?.src || '';
@@ -102,17 +104,19 @@ export function HotspotQuestionView({
 
   return (
     <div className="space-y-4">
-      {/* Question Header & Instructions */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
-        <QuestionFormatBadge format="QZONE" />
-        <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
-          <Target className="w-3.5 h-3.5 text-indigo-500" />
-          <span>Pointez la zone demandée sur le support visuel.</span>
+      {/* Question Header & Instructions (optional) */}
+      {showHeader && (
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
+          <QuestionFormatBadge format="QZONE" />
+          <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+            <Target className="w-3.5 h-3.5 text-indigo-500" />
+            <span>Pointez la zone demandée sur le support visuel.</span>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Interactive Image Container */}
-      <div className="relative rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-900/5 dark:bg-gray-900 overflow-hidden shadow-xs">
+      <div className="relative rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-900/5 dark:bg-gray-900 overflow-hidden shadow-xs p-2 flex justify-center items-center">
         {!imageSrc ? (
           <div className="p-8 text-center text-sm text-gray-500 dark:text-gray-400 flex flex-col items-center gap-2">
             <Info className="w-8 h-8 text-amber-500" />
@@ -125,7 +129,7 @@ export function HotspotQuestionView({
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             data-testid="hotspot-question-surface"
-            className={`relative w-full select-none ${
+            className={`relative inline-block max-w-full select-none ${
               readOnly ? 'cursor-default' : 'cursor-crosshair'
             }`}
             style={{ touchAction: 'none' }}
@@ -136,7 +140,7 @@ export function HotspotQuestionView({
               src={imageSrc}
               alt={imageAlt}
               onLoad={() => setImageLoaded(true)}
-              className="w-full h-auto max-h-[550px] object-contain block mx-auto pointer-events-none rounded-lg"
+              className="max-w-full h-auto max-h-[550px] block pointer-events-none rounded-lg"
             />
 
             {/* Target Zones Overlay in Correction Mode */}
@@ -238,6 +242,7 @@ export function HotspotQuestionView({
           <button
             type="button"
             onClick={handleClearPoint}
+            data-testid="hotspot-clear-point"
             className="flex items-center gap-1 px-2.5 py-1 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 rounded-md font-medium transition-colors"
           >
             <RotateCcw className="w-3 h-3" />

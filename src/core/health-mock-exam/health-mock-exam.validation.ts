@@ -258,6 +258,19 @@ export function validateHealthMockExamForPublication(
         ) {
           issues.push(`La question ${question.globalOrder} n'a pas de réponse textuelle attendue valide.`);
         }
+      } else if (questionType === "hotspot") {
+        const canonicalQuestion = normalizePersistedQuestion({
+          ...question,
+          choices: [],
+        });
+
+        if (canonicalQuestion.type !== "hotspot") {
+          issues.push(`La question ${question.globalOrder} n'a pas de type QZONE exploitable.`);
+        } else if (!canonicalQuestion.image?.src) {
+          issues.push(`La question ${question.globalOrder} n'a pas d'image support QZONE valide.`);
+        } else if ((canonicalQuestion.expectedZones ?? []).length === 0) {
+          issues.push(`La question ${question.globalOrder} n'a pas de zone attendue configurée.`);
+        }
       } else {
         issues.push(
           `La question ${question.globalOrder} utilise un type « ${questionType} » non pris en charge dans l'examen blanc.`,
