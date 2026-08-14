@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="580" viewBox="0 0 960 580" role="img" aria-labelledby="title desc">
+<title id="title">Transport du glucose à travers un entérocyte</title>
+<desc id="desc">Entérocyte schématique avec pôle apical vers la lumière intestinale, pôle basolatéral vers le sang et plusieurs transporteurs membranaires non nommés.</desc>
+<rect width="960" height="580" fill="white"/>
+<text x="480" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700">Transport transcellulaire du glucose — schéma simplifié</text>
+<text x="480" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="19">Lumière intestinale</text>
+<rect x="280" y="120" width="400" height="350" rx="45" fill="#fafafa" stroke="#222" stroke-width="5"/>
+<!-- microvillosités apicales -->
+<g stroke="#222" stroke-width="5">
+<line x1="330" y1="120" x2="330" y2="92"/><line x1="370" y1="120" x2="370" y2="88"/>
+<line x1="410" y1="120" x2="410" y2="92"/><line x1="450" y1="120" x2="450" y2="88"/>
+<line x1="490" y1="120" x2="490" y2="92"/><line x1="530" y1="120" x2="530" y2="88"/>
+<line x1="570" y1="120" x2="570" y2="92"/><line x1="610" y1="120" x2="610" y2="88"/>
+</g>
+<!-- transporteur apical -->
+<rect x="444" y="105" width="72" height="48" rx="16" fill="white" stroke="#222" stroke-width="4"/>
+<path d="M465 98 L465 165" stroke="#222" stroke-width="3"/>
+<path d="M495 98 L495 165" stroke="#222" stroke-width="3"/>
+<text x="420" y="105" font-family="Arial,sans-serif" font-size="16">Na+</text>
+<text x="520" y="105" font-family="Arial,sans-serif" font-size="16">Glc</text>
+<path d="M430 108 L458 130" stroke="#222" stroke-width="3"/>
+<path d="M532 108 L502 130" stroke="#222" stroke-width="3"/>
+<path d="M480 155 L480 205" stroke="#222" stroke-width="4"/>
+<polygon points="480,216 472,201 488,201" fill="#222"/>
+<!-- noyau -->
+<ellipse cx="480" cy="310" rx="78" ry="55" fill="white" stroke="#777" stroke-width="3"/>
+<text x="480" y="316" text-anchor="middle" font-family="Arial,sans-serif" font-size="17">noyau</text>
+<!-- transporteur basolatéral -->
+<rect x="645" y="310" width="48" height="72" rx="15" fill="white" stroke="#222" stroke-width="4"/>
+<text x="615" y="350" text-anchor="end" font-family="Arial,sans-serif" font-size="16">Glc</text>
+<path d="M620 346 L646 346" stroke="#222" stroke-width="3"/>
+<path d="M694 346 L745 346" stroke="#222" stroke-width="4"/>
+<polygon points="756,346 741,338 741,354" fill="#222"/>
+<text x="790" y="350" font-family="Arial,sans-serif" font-size="18">Sang</text>
+<!-- jonctions -->
+<line x1="280" y1="155" x2="248" y2="155" stroke="#222" stroke-width="7"/>
+<line x1="680" y1="155" x2="712" y2="155" stroke="#222" stroke-width="7"/>
+<text x="480" y="505" text-anchor="middle" font-family="Arial,sans-serif" font-size="16">Pôle apical en haut — pôle basolatéral sur les côtés</text>
+<text x="480" y="545" text-anchor="middle" font-family="Arial,sans-serif" font-size="15">Schéma pédagogique original — proportions non à l’échelle</text>
+</svg>

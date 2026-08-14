@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+<title id="title">Cellule en migration</title>
+<desc id="desc">Cellule schématique migrant vers la droite, avec extensions fines et larges à l’avant, réseau central et zone arrière contractile.</desc>
+<rect width="960" height="560" fill="white"/>
+<text x="480" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700">Organisation simplifiée d’une cellule en migration</text>
+<path d="M150 310 C170 190, 295 145, 440 170 C575 192, 650 180, 735 210
+C775 220, 808 198, 850 175 L828 230 L885 218 L842 270 L898 282
+L842 316 L882 348 L820 350 L844 405 C792 382, 755 365, 710 378
+C600 412, 520 430, 390 418 C250 405, 175 385, 150 310 Z"
+fill="#fafafa" stroke="#222" stroke-width="5"/>
+<!-- adhésions -->
+<g fill="#222"><rect x="690" y="375" width="48" height="9" rx="4"/><rect x="770" y="350" width="48" height="9" rx="4"/><rect x="250" y="385" width="48" height="9" rx="4"/></g>
+<!-- faisceaux avant -->
+<g stroke="#222" stroke-width="4">
+<line x1="615" y1="235" x2="820" y2="214"/><line x1="620" y1="255" x2="850" y2="278"/>
+<line x1="610" y1="280" x2="820" y2="345"/>
+</g>
+<!-- réseau intermédiaire -->
+<g stroke="#777" stroke-width="2">
+<line x1="420" y1="220" x2="610" y2="340"/><line x1="420" y1="350" x2="620" y2="225"/>
+<line x1="455" y1="195" x2="575" y2="380"/><line x1="470" y1="380" x2="585" y2="200"/>
+</g>
+<!-- fibres arrière -->
+<g stroke="#222" stroke-width="5">
+<line x1="190" y1="300" x2="390" y2="250"/><line x1="190" y1="330" x2="390" y2="330"/>
+<line x1="210" y1="360" x2="390" y2="385"/>
+</g>
+<ellipse cx="445" cy="300" rx="70" ry="50" fill="white" stroke="#555" stroke-width="3"/>
+<text x="445" y="306" text-anchor="middle" font-family="Arial,sans-serif" font-size="17">noyau</text>
+<path d="M840 105 L900 105" stroke="#222" stroke-width="4"/><polygon points="910,105 895,97 895,113" fill="#222"/>
+<text x="805" y="110" text-anchor="end" font-family="Arial,sans-serif" font-size="17">sens du déplacement</text>
+<text x="480" y="520" text-anchor="middle" font-family="Arial,sans-serif" font-size="15">Schéma pédagogique original — organisation volontairement simplifiée</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540" role="img" aria-labelledby="title desc">
+<title id="title">Principe simplifié d’un immunomarquage</title>
+<desc id="desc">Cellule fixée schématique contenant des protéines cibles et plusieurs anticorps fluorescents en forme de Y.</desc>
+<rect width="900" height="540" fill="white"/>
+<text x="450" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700">Localisation d’une protéine dans une cellule fixée</text>
+<ellipse cx="430" cy="300" rx="315" ry="185" fill="#fafafa" stroke="#222" stroke-width="5"/>
+<ellipse cx="360" cy="310" rx="82" ry="58" fill="white" stroke="#555" stroke-width="3"/>
+<text x="360" y="316" text-anchor="middle" font-family="Arial,sans-serif" font-size="18">Noyau</text>
+<!-- protéines cibles -->
+<g fill="#222">
+<circle cx="570" cy="250" r="14"/><circle cx="625" cy="330" r="14"/><circle cx="520" cy="385" r="14"/>
+</g>
+<text x="535" y="235" font-family="Arial,sans-serif" font-size="16">protéine cible</text>
+<!-- anticorps en Y, sans halo de réponse -->
+<g stroke="#222" stroke-width="7" fill="none" stroke-linecap="round">
+<path d="M600 175 L600 222 M600 190 L575 163 M600 190 L625 163"/>
+<path d="M655 255 L655 302 M655 270 L630 243 M655 270 L680 243"/>
+<path d="M550 315 L550 362 M550 330 L525 303 M550 330 L575 303"/>
+</g>
+<g fill="white" stroke="#222" stroke-width="3">
+<circle cx="575" cy="163" r="9"/><circle cx="625" cy="163" r="9"/>
+<circle cx="630" cy="243" r="9"/><circle cx="680" cy="243" r="9"/>
+<circle cx="525" cy="303" r="9"/><circle cx="575" cy="303" r="9"/>
+</g>
+<text x="450" y="510" text-anchor="middle" font-family="Arial,sans-serif" font-size="16">Schéma pédagogique original — représentation simplifiée</text>
+</svg>

@@ -1,22 +1,54 @@
-/** UE14 – Biologie cellulaire – Chapitre 2 */
 import type { PrismaClient } from '@prisma/client';
 import type { SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
-import { SECTION_A_QUESTIONS, SECTION_A_QUIZZES } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-a.seed';
-import { SECTION_B_QUESTIONS, SECTION_B_QUIZZES } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-b.seed';
-import { SECTION_C_QUESTIONS, SECTION_C_QUIZZES } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-c.seed';
-import { SECTION_D_QUESTIONS, SECTION_D_QUIZZES } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-d.seed';
-import { SYNTHESIS_QUESTIONS, ALL_SYNTHESIS_QUIZZES } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.synthesis.seed';
+import { SECTION_A_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-a.seed';
+import { SECTION_B_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-b.seed';
+import { SECTION_C_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-c.seed';
+import { SECTION_D_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-d.seed';
+import { SYNTHESIS_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.synthesis.seed';
+import {
+  UE14_CELL_CH2_V2_QUIZ_MAP,
+  UE14_CELL_CH2_V2_THEME_LABELS_BY_ORDER,
+} from './health-training-ue14-biologie-cellulaire-membrane-plasmique.quiz-map-v2.author';
 import { seedHealthTrainingChapter } from './health-training-ue14.shared';
 
 const SUBJECT_LONG_DESCRIPTION = 'Sciences de la Vie et de la Terre';
 const CHAPTER_SLUG = 'membrane-plasmique-communication-transports-membranaires';
 
 const sections: SeedSection[] = [
-  { order: 1, title: `Structure et composition de la membrane`, description: `Lipides, protéines, glucides, hématie et système ABO.`, kind: 'THEME' },
-  { order: 2, title: `Fluidité, asymétrie et polarité membranaires`, description: `Fluidité, mouvements lipidiques, asymétrie et polarité de l’entérocyte.`, kind: 'THEME' },
-  { order: 3, title: `Communication cellulaire`, description: `Signaux fixes, MEC, récepteurs et modes de communication.`, kind: 'THEME' },
-  { order: 4, title: `Transport membranaire et transport du glucose`, description: `Diffusion, pompes, transport actif secondaire et transport du glucose.`, kind: 'THEME' },
-  { order: 5, title: `Synthèse du chapitre`, description: `Révision transversale de l’ensemble du chapitre.`, kind: 'SYNTHESIS' },
+  {
+    order: 1,
+    title: 'Structure et composition de la membrane',
+    description:
+      'Bicouche lipidique, phospholipides, cholestérol, protéines membranaires, modèle de la mosaïque fluide et glycocalyx.',
+    kind: 'THEME',
+  },
+  {
+    order: 2,
+    title: 'Fluidité, asymétrie et polarité membranaires',
+    description:
+      'Mouvements lipidiques, flip-flop, asymétrie membranaire, flippases, scramblases et polarité cellulaire.',
+    kind: 'THEME',
+  },
+  {
+    order: 3,
+    title: 'Communication cellulaire',
+    description:
+      'Modes de communication autocrine, paracrine, endocrine et synaptique, récepteurs membranaires, RCPG et cascades de signalisation.',
+    kind: 'THEME',
+  },
+  {
+    order: 4,
+    title: 'Transport membranaire et transport du glucose',
+    description:
+      'Diffusion simple, perméases, canaux ioniques, pompes ATPasiques, transporteurs ABC et modèle entérocytaire du transport du glucose.',
+    kind: 'THEME',
+  },
+  {
+    order: 5,
+    title: 'Synthèse du chapitre',
+    description: 'Révision transversale de l’ensemble du chapitre.',
+    kind: 'SYNTHESIS',
+  },
 ];
 
 const questions: SeedQuestion[] = [
@@ -27,167 +59,21 @@ const questions: SeedQuestion[] = [
   ...SYNTHESIS_QUESTIONS,
 ];
 
-const quizSeeds: SeedQuiz[] = [
-  ...SECTION_A_QUIZZES,
-  ...SECTION_B_QUIZZES,
-  ...SECTION_C_QUIZZES,
-  ...SECTION_D_QUIZZES,
-  ...ALL_SYNTHESIS_QUIZZES,
-];
+const quizSeeds: SeedQuiz[] = UE14_CELL_CH2_V2_QUIZ_MAP as unknown as SeedQuiz[];
 
-const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
-  1: ["Structure membranaire"],
-  2: ["Structure membranaire"],
-  3: ["Structure membranaire"],
-  4: ["Structure membranaire"],
-  5: ["Structure membranaire"],
-  6: ["Structure membranaire"],
-  7: ["Structure membranaire"],
-  8: ["Structure membranaire"],
-  9: ["Structure membranaire"],
-  10: ["Structure membranaire"],
-  11: ["Structure membranaire"],
-  12: ["Structure membranaire"],
-  13: ["Structure membranaire"],
-  14: ["Structure membranaire"],
-  15: ["Structure membranaire"],
-  16: ["Structure membranaire"],
-  17: ["Structure membranaire"],
-  18: ["Structure membranaire"],
-  19: ["Structure membranaire"],
-  20: ["Structure membranaire"],
-  21: ["Structure membranaire"],
-  22: ["Structure membranaire"],
-  23: ["Structure membranaire"],
-  24: ["Structure membranaire"],
-  25: ["Structure membranaire"],
-  26: ["Structure membranaire"],
-  27: ["Structure membranaire"],
-  28: ["Structure membranaire"],
-  29: ["Structure membranaire"],
-  30: ["Structure membranaire"],
-  31: ["Fluidité, asymétrie et polarité"],
-  32: ["Fluidité, asymétrie et polarité"],
-  33: ["Fluidité, asymétrie et polarité"],
-  34: ["Fluidité, asymétrie et polarité"],
-  35: ["Fluidité, asymétrie et polarité"],
-  36: ["Fluidité, asymétrie et polarité"],
-  37: ["Fluidité, asymétrie et polarité"],
-  38: ["Fluidité, asymétrie et polarité"],
-  39: ["Fluidité, asymétrie et polarité"],
-  40: ["Fluidité, asymétrie et polarité"],
-  41: ["Fluidité, asymétrie et polarité"],
-  42: ["Fluidité, asymétrie et polarité"],
-  43: ["Fluidité, asymétrie et polarité"],
-  44: ["Fluidité, asymétrie et polarité"],
-  45: ["Fluidité, asymétrie et polarité"],
-  46: ["Fluidité, asymétrie et polarité"],
-  47: ["Fluidité, asymétrie et polarité"],
-  48: ["Fluidité, asymétrie et polarité"],
-  49: ["Fluidité, asymétrie et polarité"],
-  50: ["Fluidité, asymétrie et polarité"],
-  51: ["Fluidité, asymétrie et polarité"],
-  52: ["Fluidité, asymétrie et polarité"],
-  53: ["Fluidité, asymétrie et polarité"],
-  54: ["Fluidité, asymétrie et polarité"],
-  55: ["Fluidité, asymétrie et polarité"],
-  56: ["Fluidité, asymétrie et polarité"],
-  57: ["Fluidité, asymétrie et polarité"],
-  58: ["Fluidité, asymétrie et polarité"],
-  59: ["Fluidité, asymétrie et polarité"],
-  60: ["Fluidité, asymétrie et polarité"],
-  61: ["Communication cellulaire"],
-  62: ["Communication cellulaire"],
-  63: ["Communication cellulaire"],
-  64: ["Communication cellulaire"],
-  65: ["Communication cellulaire"],
-  66: ["Communication cellulaire"],
-  67: ["Communication cellulaire"],
-  68: ["Communication cellulaire"],
-  69: ["Communication cellulaire"],
-  70: ["Communication cellulaire"],
-  71: ["Communication cellulaire"],
-  72: ["Communication cellulaire"],
-  73: ["Communication cellulaire"],
-  74: ["Communication cellulaire"],
-  75: ["Communication cellulaire"],
-  76: ["Communication cellulaire"],
-  77: ["Communication cellulaire"],
-  78: ["Communication cellulaire"],
-  79: ["Communication cellulaire"],
-  80: ["Communication cellulaire"],
-  81: ["Communication cellulaire"],
-  82: ["Communication cellulaire"],
-  83: ["Communication cellulaire"],
-  84: ["Communication cellulaire"],
-  85: ["Communication cellulaire"],
-  86: ["Communication cellulaire"],
-  87: ["Communication cellulaire"],
-  88: ["Communication cellulaire"],
-  89: ["Communication cellulaire"],
-  90: ["Communication cellulaire"],
-  91: ["Transport membranaire"],
-  92: ["Transport membranaire"],
-  93: ["Transport membranaire"],
-  94: ["Transport membranaire"],
-  95: ["Transport membranaire"],
-  96: ["Transport membranaire"],
-  97: ["Transport membranaire"],
-  98: ["Transport membranaire"],
-  99: ["Transport membranaire"],
-  100: ["Transport membranaire"],
-  101: ["Transport membranaire"],
-  102: ["Transport membranaire"],
-  103: ["Transport membranaire"],
-  104: ["Transport membranaire"],
-  105: ["Transport membranaire"],
-  106: ["Transport membranaire"],
-  107: ["Transport membranaire"],
-  108: ["Transport membranaire"],
-  109: ["Transport membranaire"],
-  110: ["Transport membranaire"],
-  111: ["Transport membranaire"],
-  112: ["Transport membranaire"],
-  113: ["Transport membranaire"],
-  114: ["Transport membranaire"],
-  115: ["Transport membranaire"],
-  116: ["Transport membranaire"],
-  117: ["Transport membranaire"],
-  118: ["Transport membranaire"],
-  119: ["Transport membranaire"],
-  120: ["Transport membranaire"],
-  121: ["Synthèse de chapitre"],
-  122: ["Synthèse de chapitre"],
-  123: ["Synthèse de chapitre"],
-  124: ["Synthèse de chapitre"],
-  125: ["Synthèse de chapitre"],
-  126: ["Synthèse de chapitre"],
-  127: ["Synthèse de chapitre"],
-  128: ["Synthèse de chapitre"],
-  129: ["Synthèse de chapitre"],
-  130: ["Synthèse de chapitre"],
-  131: ["Synthèse de chapitre"],
-  132: ["Synthèse de chapitre"],
-  133: ["Synthèse de chapitre"],
-  134: ["Synthèse de chapitre"],
-  135: ["Synthèse de chapitre"],
-  136: ["Synthèse de chapitre"],
-  137: ["Synthèse de chapitre"],
-  138: ["Synthèse de chapitre"],
-  139: ["Synthèse de chapitre"],
-  140: ["Synthèse de chapitre"],
-};
-
-export async function seedHealthTrainingUe14BiologieCellulaireMembranePlasmique(prisma: PrismaClient) {
+export async function seedHealthTrainingUe14BiologieCellulaireMembranePlasmique(
+  prisma: PrismaClient
+) {
   await seedHealthTrainingChapter({
     prisma,
     subjectLongDescription: SUBJECT_LONG_DESCRIPTION,
     chapterSlug: CHAPTER_SLUG,
     logLabel: 'UE14 Biologie cellulaire — chapitre 2',
-    questionThemeLabelsByOrder: QUESTION_THEME_LABELS_BY_ORDER,
+    questionThemeLabelsByOrder: UE14_CELL_CH2_V2_THEME_LABELS_BY_ORDER,
     questions,
     sections,
     quizSeeds,
     cleanupSectionOrders: [1, 2, 3, 4, 5],
+    purgeObsoleteQuestions: true,
   });
 }

@@ -61,6 +61,25 @@ const enzymologyChapterCases = [
   },
 ] as const;
 
+const cellOrganisationChapterSlug = "organisation-methodes-etude-cellule";
+const cellMembraneChapterSlug = "membrane-plasmique-communication-transports-membranaires";
+const cellCytosqueletteChapterSlug = "cytosquelette";
+
+const biocellV2ChapterCases = [
+  {
+    label: "Organisation et méthodes d'étude de la cellule",
+    slug: cellOrganisationChapterSlug,
+  },
+  {
+    label: "Membrane plasmique",
+    slug: cellMembraneChapterSlug,
+  },
+  {
+    label: "Cytosquelette",
+    slug: cellCytosqueletteChapterSlug,
+  },
+] as const;
+
 type ChapterFixture = {
   title: string;
   sectionCount: number;
@@ -1016,6 +1035,30 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
   for (const chapterCase of enzymologyChapterCases) {
     test(`le chapitre ${chapterCase.label} expose sa structure seedée`, async ({ page }) => {
+      const chapter = await getChapterFixture(chapterCase.slug);
+
+      expect(chapter.sectionCount).toBe(5);
+      expect(chapter.quizCount).toBe(11);
+      expect(chapter.questionCount).toBe(122);
+
+      await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${chapterCase.slug}`);
+
+      await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
+      await expect(page.getByText("5 sections")).toBeVisible();
+      await expect(page.getByText("11 quiz")).toBeVisible();
+      await expect(page.getByText("122 questions")).toBeVisible();
+
+      for (const [sectionIndex, section] of chapter.sections.entries()) {
+        const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
+        await expect(
+          page.getByRole("heading", { name: sectionHeading, exact: true }),
+        ).toBeVisible();
+      }
+    });
+  }
+
+  for (const chapterCase of biocellV2ChapterCases) {
+    test(`le chapitre ${chapterCase.label} de Biologie cellulaire expose sa structure seedée`, async ({ page }) => {
       const chapter = await getChapterFixture(chapterCase.slug);
 
       expect(chapter.sectionCount).toBe(5);
