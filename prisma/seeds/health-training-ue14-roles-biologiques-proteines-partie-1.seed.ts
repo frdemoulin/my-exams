@@ -38,9 +38,9 @@ const sections: SeedSection[] = [
   },
   {
     order: 4,
-    title: 'Adhérence cellulaire et jonctions',
+    title: 'Adhérence cellulaire et intégrines',
     description:
-      'Sélectines, cadhérines, Ig-CAM, intégrines, plaques focales et connexines.',
+      'Sélectines, intégrines, motif RGD, cations divalents et plaques d’adhésion focale.',
     kind: 'THEME',
   },
   {

@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur le transport par les canaux ioniques, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur le transport par les canaux ioniques, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "Un canal facilite le passage selon le gradient électrochimique.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la stœchiométrie de la Na+/K+ ATPase selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la stœchiométrie de la Na+/K+ ATPase selon la fiche ?",
     "choices": [
       {
         "content": "Le K+ est importé depuis le milieu extracellulaire.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la distinction entre canal et pompe selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la distinction entre canal et pompe selon la fiche ?",
     "choices": [
       {
         "content": "Un canal suit le gradient électrochimique.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un neurone, deux molécules de GABA se fixent sur un récepteur GABA-A. quelles propositions sur le récepteur GABA-A sont conformes à la fiche ?",
+    "question": "Dans un neurone, deux molécules de GABA se fixent sur un récepteur GABA-A. Quelles propositions sur le récepteur GABA-A sont conformes à la fiche ?",
     "choices": [
       {
         "content": "Deux molécules de GABA se fixent de façon coopérative selon la fiche.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 59,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur la structure générale des transporteurs ABC faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur la structure générale des transporteurs ABC faut-il retenir ?",
     "choices": [
       {
         "content": "La fiche décrit deux domaines de fixation des nucléotides NBD au niveau intracellulaire.",
@@ -452,7 +452,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Chez un patient atteint de mucoviscidose, la fiche met en avant une mutation ΔF508. quelles propositions sur le canal CFTR sont conformes à la fiche ?",
+    "question": "Chez un patient atteint de mucoviscidose, la fiche met en avant une mutation ΔF508. Quelles propositions sur le canal CFTR sont conformes à la fiche ?",
     "choices": [
       {
         "content": "Il est présent dans des cellules épithéliales.",
@@ -539,7 +539,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Après fixation de sérotonine sur un neurone, un canal 5-HT3 s’ouvre. quelle proposition sur le récepteur 5-HT3 est correcte ?",
+    "question": "Après fixation de sérotonine sur un neurone, un canal 5-HT3 s’ouvre. Quelle proposition sur le récepteur 5-HT3 est correcte ?",
     "choices": [
       {
         "content": "La fixation de sérotonine au 5-HT3 ouvre un canal.",
@@ -568,7 +568,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Autour de les récepteurs ionotropiques : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
+    "question": "Autour des récepteurs ionotropiques : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
     "requiredSelectionCount": 3,
     "choices": [
       {
@@ -607,8 +607,8 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Consolidation de les récepteurs ionotropiques : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRPL",
+    "question": "Consolidation des récepteurs ionotropiques : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

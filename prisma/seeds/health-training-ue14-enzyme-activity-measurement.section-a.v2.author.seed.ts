@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH15_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur la phase stationnaire, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur la phase stationnaire, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "Pendant la phase stationnaire, [ES] reste approximativement constante.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH15_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la vitesse initiale selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la vitesse initiale selon la fiche ?",
     "choices": [
       {
         "content": "Elle correspond à l’activité de l’enzyme dans le cadre décrit.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH15_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement l’état préstationnaire et poststationnaire selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l’état préstationnaire et poststationnaire selon la fiche ?",
     "choices": [
       {
         "content": "La fiche distingue des phases préstationnaire, stationnaire et poststationnaire.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH15_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Au laboratoire, plusieurs mesures sont réalisées pendant la partie linéaire de la formation du produit. quelle proposition sur la vitesse initiale est correcte ?",
+    "question": "Au laboratoire, plusieurs mesures sont réalisées pendant la partie linéaire de la formation du produit. Quelle proposition sur la vitesse initiale est correcte ?",
     "choices": [
       {
         "content": "Elle est mesurée dans la phase stationnaire linéaire.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH15_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur la pente ΔA/Δt faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur la pente ΔA/Δt faut-il retenir ?",
     "choices": [
       {
         "content": "Les temps d’analyse sont généralement courts, de quelques dizaines de secondes à quelques minutes.",
@@ -599,7 +599,7 @@ export const UE14_BIOCH_CH15_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de la définition de la cinétique enzymatique : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

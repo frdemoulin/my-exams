@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur l’enzyme allostérique monomérique, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur l’enzyme allostérique monomérique, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "Dans l’exemple monomérique, une même sous-unité porte site actif et site régulateur.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 72,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la régulation de la PKA par l’AMPc selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la régulation de la PKA par l’AMPc selon la fiche ?",
     "choices": [
       {
         "content": "Quatre molécules d’AMPc se lient aux sous-unités régulatrices dans le schéma décrit.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la protéolyse limitée selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la protéolyse limitée selon la fiche ?",
     "choices": [
       {
         "content": "La protéolyse limitée active des précurseurs inactifs appelés zymogènes ou proenzymes.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à les conformations active et inactive sont correctes ?",
+    "question": "Application : quelles propositions relatives aux conformations active et inactive sont correctes ?",
     "choices": [
       {
         "content": "Un ligand activateur peut favoriser une conformation active.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une cellule, la concentration d’AMPc augmente et quatre molécules se fixent aux sous-unités régulatrices de la PKA. quelle proposition sur la régulation de la PKA par l’AMPc est correcte ?",
+    "question": "Dans une cellule, la concentration d’AMPc augmente et quatre molécules se fixent aux sous-unités régulatrices de la PKA. Quelle proposition sur la régulation de la PKA par l’AMPc est correcte ?",
     "choices": [
       {
         "content": "L’AMPc régule l’activité de la PKA.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 81,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur la sous-unité régulatrice de la PKA faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur la sous-unité régulatrice de la PKA faut-il retenir ?",
     "choices": [
       {
         "content": "La partie contenant le site actif devient alors accessible au substrat.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 86,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les stratégies de régulation enzymatique sont correctes ?",
+    "question": "Application : quelles propositions relatives aux stratégies de régulation enzymatique sont correctes ?",
     "choices": [
       {
         "content": "Elle cite la liaison d’une sous-unité régulatrice et la modification covalente.",
@@ -551,7 +551,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Autour de les stratégies de régulation enzymatique : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
+    "question": "Autour des stratégies de régulation enzymatique : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
     "requiredSelectionCount": 3,
     "choices": [
       {
@@ -590,8 +590,8 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Consolidation de les stratégies de régulation enzymatique : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRPL",
+    "question": "Consolidation des stratégies de régulation enzymatique : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {
@@ -963,7 +963,7 @@ export const UE14_BIOCH_CH14_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Sélectionnez exactement les cinq affirmations correctes pour maîtriser cette section.",
     "requiredSelectionCount": 5,
     "choices": [

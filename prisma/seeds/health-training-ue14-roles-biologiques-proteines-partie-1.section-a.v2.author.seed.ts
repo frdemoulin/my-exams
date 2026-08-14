@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les classes d’immunoglobulines, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur les classes d’immunoglobulines, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "Les cinq classes citées sont IgA, IgD, IgE, IgG et IgM.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les associations monomériques et multimériques des immunoglobulines selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les associations monomériques et multimériques des immunoglobulines selon la fiche ?",
     "choices": [
       {
         "content": "IgM peut être pentamérique.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement le fragment Fc selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement le fragment Fc selon la fiche ?",
     "choices": [
       {
         "content": "Le fragment Fc est formé des parties C-terminales des deux chaînes lourdes.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les associations monomériques et multimériques des immunoglobulines sont correctes ?",
+    "question": "Application : quelles propositions relatives aux associations monomériques et multimériques des immunoglobulines sont correctes ?",
     "choices": [
       {
         "content": "IgA peut être dimérique.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur le peptide J faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur le peptide J faut-il retenir ?",
     "choices": [
       {
         "content": "Le peptide J participe donc à des associations multimériques.",
@@ -452,7 +452,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une IgG est clivée par la papaïne avant une expérience de liaison à un antigène. quelles propositions sur les fragments Fab après action de la papaïne sont conformes à la fiche ?",
+    "question": "Une IgG est clivée par la papaïne avant une expérience de liaison à un antigène. Quelles propositions sur les fragments Fab après action de la papaïne sont conformes à la fiche ?",
     "choices": [
       {
         "content": "Chaque Fab peut encore lier l’antigène.",
@@ -531,7 +531,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Lors d’un test immunologique, un anticorps se fixe sur un motif précis d’une protéine. quelle proposition sur l’antigène et l’épitope est correcte ?",
+    "question": "Lors d’un test immunologique, un anticorps se fixe sur un motif précis d’une protéine. Quelle proposition sur l’antigène et l’épitope est correcte ?",
     "choices": [
       {
         "content": "Un épitope peut correspondre à une séquence protéique ou à une conformation particulière.",
@@ -599,7 +599,7 @@ export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de l’importance générale des protéines : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

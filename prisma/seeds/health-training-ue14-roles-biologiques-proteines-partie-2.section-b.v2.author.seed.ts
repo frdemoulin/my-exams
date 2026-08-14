@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH13_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur la matrice extracellulaire, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur la matrice extracellulaire, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "La matrice extracellulaire forme un réseau autour des cellules.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH13_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement l’abondance des collagènes selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l’abondance des collagènes selon la fiche ?",
     "choices": [
       {
         "content": "La fiche cite 28 membres de type I à XXVIII.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH13_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les assemblages supramoléculaires du collagène selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les assemblages supramoléculaires du collagène selon la fiche ?",
     "choices": [
       {
         "content": "Les modes de polymérisation participent à la classification des collagènes.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH13_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Chez une personne en dénutrition prolongée, le catabolisme protéique augmente. quelles propositions sur l’utilisation énergétique des protéines sont conformes à la fiche ?",
+    "question": "Chez une personne en dénutrition prolongée, le catabolisme protéique augmente. Quelles propositions sur l’utilisation énergétique des protéines sont conformes à la fiche ?",
     "choices": [
       {
         "content": "Dans certaines situations comme la dénutrition, le catabolisme protéique peut fournir des substrats énergétiques.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH13_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur les critères définissant un collagène faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur les critères définissant un collagène faut-il retenir ?",
     "choices": [
       {
         "content": "Il forme des assemblages supramoléculaires.",
@@ -568,7 +568,7 @@ export const UE14_BIOCH_CH13_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Autour de les apolipoprotéines : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
+    "question": "Autour des apolipoprotéines : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
     "requiredSelectionCount": 3,
     "choices": [
       {
@@ -607,8 +607,8 @@ export const UE14_BIOCH_CH13_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Consolidation de les apolipoprotéines : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRPL",
+    "question": "Consolidation des apolipoprotéines : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

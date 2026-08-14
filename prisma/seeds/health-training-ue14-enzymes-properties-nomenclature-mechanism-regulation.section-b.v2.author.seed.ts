@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH14_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les exemples de cofacteurs métalliques et organiques, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur les exemples de cofacteurs métalliques et organiques, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "La phosphotriestérase est citée avec deux atomes de zinc au site actif.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH14_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement l’ALAT selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l’ALAT selon la fiche ?",
     "choices": [
       {
         "content": "La fiche décrit aussi la réaction réciproque impliquant glutamate et pyruvate.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH14_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la distinction lyases-ligases selon la fiche selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la distinction lyases-ligases selon la fiche selon la fiche ?",
     "choices": [
       {
         "content": "La fiche appelle les lyases « synthases ».",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH14_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à les groupements prosthétiques et les cofacteurs labiles sont correctes ?",
+    "question": "Application : quelles propositions relatives aux groupements prosthétiques et les cofacteurs labiles sont correctes ?",
     "choices": [
       {
         "content": "Un cofacteur labile est mobile et peut être libéré après la réaction.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH14_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur les vitamines B2 et B3 comme précurseurs de coenzymes faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur les vitamines B2 et B3 comme précurseurs de coenzymes faut-il retenir ?",
     "choices": [
       {
         "content": "Ces coenzymes participent à des réactions d’oxydo-réduction.",
@@ -460,7 +460,7 @@ export const UE14_BIOCH_CH14_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à les six classes enzymatiques de la fiche sont correctes ?",
+    "question": "Application : quelles propositions relatives aux six classes enzymatiques de la fiche sont correctes ?",
     "choices": [
       {
         "content": "La classe 2 correspond aux transférases et la classe 3 aux hydrolases.",
@@ -598,7 +598,7 @@ export const UE14_BIOCH_CH14_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de l’apoenzyme, le cofacteur et l’holoenzyme : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

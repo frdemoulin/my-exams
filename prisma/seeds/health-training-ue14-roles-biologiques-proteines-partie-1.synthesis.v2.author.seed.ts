@@ -276,7 +276,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 110,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Synthèse du chapitre : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
@@ -414,7 +414,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la voie du récepteur à l’insuline, la diversité des sous-unités d’intégrines dans la fiche et la voie du récepteur à l’insuline.",
+    "question": "Maîtrise de synthèse — croisez la voie du récepteur à l’insuline et la diversité des sous-unités d’intégrines dans la fiche.",
     "choices": [
       {
         "content": "La fixation de l’insuline précède la phosphorylation de tyrosines.",
@@ -437,7 +437,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
       }
     ],
-    "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur. Le support local donne les repères 18 α, 8 β et 23 intégrines. La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+    "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur. Le support local donne les repères 18 α, 8 β et 23 intégrines."
   },
   {
     "order": 115,
@@ -639,7 +639,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Maîtrise de synthèse : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

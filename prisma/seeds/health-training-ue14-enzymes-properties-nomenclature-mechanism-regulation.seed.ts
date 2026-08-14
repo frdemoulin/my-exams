@@ -40,7 +40,7 @@ const sections: SeedSection[] = [
     order: 4,
     title: 'Régulation de l’activité enzymatique',
     description:
-      'Allostérie, sous-unités régulatrices, modifications covalentes, protéasome et protéolyse limitée.',
+      'Allostérie, PKA, sous-unités régulatrices, modification covalente, dégradation et protéolyse limitée.',
     kind: 'THEME',
   },
   {

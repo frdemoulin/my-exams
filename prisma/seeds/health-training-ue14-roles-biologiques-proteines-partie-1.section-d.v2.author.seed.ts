@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur la structure des intégrines, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur la structure des intégrines, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "Une intégrine est un hétérodimère de sous-unités α et β.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 72,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement le motif RGD reconnu par les intégrines selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement le motif RGD reconnu par les intégrines selon la fiche ?",
     "choices": [
       {
         "content": "RGD correspond à Arg-Gly-Asp.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement l’absence d’activité kinasique intrinsèque des intégrines selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l’absence d’activité kinasique intrinsèque des intégrines selon la fiche ?",
     "choices": [
       {
         "content": "La fiche précise que les intégrines n’ont pas d’activité kinasique intrinsèque.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Au cours d’une réaction inflammatoire, des interactions entre leucocytes et endothélium sont nécessaires. quelles propositions sur la reconnaissance par les sélectines sont conformes à la fiche ?",
+    "question": "Au cours d’une réaction inflammatoire, des interactions entre leucocytes et endothélium sont nécessaires. Quelles propositions sur la reconnaissance par les sélectines sont conformes à la fiche ?",
     "choices": [
       {
         "content": "La fiche cite les motifs sialyl-Lewis.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à le motif RGD reconnu par les intégrines sont correctes ?",
+    "question": "Application : quelles propositions relatives au motif RGD reconnu par les intégrines sont correctes ?",
     "choices": [
       {
         "content": "La fiche cite la séquence RGD.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 81,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur le rôle des cations dans l’interaction des intégrines faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur le rôle des cations dans l’interaction des intégrines faut-il retenir ?",
     "choices": [
       {
         "content": "La fixation multivalente implique les sous-unités α et β.",
@@ -462,7 +462,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 83,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une cellule adhère à sa matrice et forme une structure reliant les intégrines aux filaments d’actine. quelles propositions sur les plaques d’adhésion focale sont conformes à la fiche ?",
+    "question": "Une cellule adhère à sa matrice et forme une structure reliant les intégrines aux filaments d’actine. Quelles propositions sur les plaques d’adhésion focale sont conformes à la fiche ?",
     "choices": [
       {
         "content": "Elle comporte des protéines de signalisation comme des kinases.",
@@ -532,7 +532,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 86,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les trois types de sélectines sont correctes ?",
+    "question": "Application : quelles propositions relatives aux trois types de sélectines sont correctes ?",
     "choices": [
       {
         "content": "La sélectine L est associée aux leucocytes.",
@@ -561,7 +561,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Autour de les familles de molécules d’adhérence : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
+    "question": "Autour des familles de molécules d’adhérence : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
     "requiredSelectionCount": 3,
     "choices": [
       {
@@ -600,8 +600,8 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Consolidation de les familles de molécules d’adhérence : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRPL",
+    "question": "Consolidation des familles de molécules d’adhérence : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {
@@ -973,7 +973,7 @@ export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Sélectionnez exactement les cinq affirmations correctes pour maîtriser cette section.",
     "requiredSelectionCount": 5,
     "choices": [

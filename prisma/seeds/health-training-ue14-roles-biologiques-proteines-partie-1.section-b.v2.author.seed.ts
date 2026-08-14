@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur le fonctionnement transcriptionnel des récepteurs nucléaires, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur le fonctionnement transcriptionnel des récepteurs nucléaires, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "Après fixation du ligand, des récepteurs nucléaires peuvent se dimériser.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la structure du récepteur à l’insuline selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la structure du récepteur à l’insuline selon la fiche ?",
     "choices": [
       {
         "content": "La chaîne β porte un domaine transmembranaire et un domaine tyrosine kinase cytoplasmique.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les récepteurs opioïdes dans la fiche selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les récepteurs opioïdes dans la fiche selon la fiche ?",
     "choices": [
       {
         "content": "La fiche cite trois récepteurs opioïdes notés μ, γ et κ.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à les ligands des récepteurs nucléaires sont correctes ?",
+    "question": "Application : quelles propositions relatives aux ligands des récepteurs nucléaires sont correctes ?",
     "choices": [
       {
         "content": "Les hormones stéroïdiennes et le cortisol sont cités.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Une cellule reçoit un signal insulinique et phosphoryle des tyrosines sur son récepteur. quelle proposition sur la structure du récepteur à l’insuline est correcte ?",
+    "question": "Une cellule reçoit un signal insulinique et phosphoryle des tyrosines sur son récepteur. Quelle proposition sur la structure du récepteur à l’insuline est correcte ?",
     "choices": [
       {
         "content": "La chaîne α est extracellulaire.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur la voie du récepteur à l’insuline faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur la voie du récepteur à l’insuline faut-il retenir ?",
     "choices": [
       {
         "content": "Le signal aboutit notamment à une modulation du métabolisme énergétique et de la survie cellulaire.",
@@ -461,7 +461,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un bâtonnet rétinien exposé à un photon, le 11-cis-rétinal change de configuration. quelles propositions sur la rhodopsine sont conformes à la fiche ?",
+    "question": "Dans un bâtonnet rétinien exposé à un photon, le 11-cis-rétinal change de configuration. Quelles propositions sur la rhodopsine sont conformes à la fiche ?",
     "choices": [
       {
         "content": "Elle est liée au 11-cis-rétinal.",
@@ -548,7 +548,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les récepteurs nucléaires sont correctes ?",
+    "question": "Application : quelles propositions relatives aux récepteurs nucléaires sont correctes ?",
     "choices": [
       {
         "content": "La fiche les présente comme une large famille de plus de 150 protéines.",
@@ -616,7 +616,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de l’architecture générale d’un récepteur membranaire : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

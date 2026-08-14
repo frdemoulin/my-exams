@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur la concentration d’activité catalytique Ccat, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur la concentration d’activité catalytique Ccat, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "La Ccat rapporte l’activité au volume de solution enzymatique.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les exemples de Kcat selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les exemples de Kcat selon la fiche ?",
     "choices": [
       {
         "content": "Elle cite environ 100 s−1 pour la chymotrypsine.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la saturation enzymatique et Kcat selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la saturation enzymatique et Kcat selon la fiche ?",
     "choices": [
       {
         "content": "La définition de Kcat suppose l’enzyme saturée en substrat.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les exemples de Kcat sont correctes ?",
+    "question": "Application : quelles propositions relatives aux exemples de Kcat sont correctes ?",
     "choices": [
       {
         "content": "Elle cite environ 1 000 s−1 pour la lactate déshydrogénase.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur l’activité spécifique faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur l’activité spécifique faut-il retenir ?",
     "choices": [
       {
         "content": "Elle se distingue d’une activité rapportée au volume.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à le katal sont correctes ?",
+    "question": "Application : quelles propositions relatives au katal sont correctes ?",
     "choices": [
       {
         "content": "Le symbole de l’unité est kat.",
@@ -590,7 +590,7 @@ export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de l’unité internationale UI : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

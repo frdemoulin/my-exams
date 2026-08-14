@@ -349,7 +349,7 @@ export const UE14_BIOCH_CH12_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> 
   111: ["l’antigène et l’épitope", "le fonctionnement transcriptionnel des récepteurs nucléaires", "le transport par les canaux ioniques"],
   112: ["le peptide J", "les récepteurs ionotropiques", "la diversité des sous-unités d’intégrines dans la fiche"],
   113: ["les récepteurs nucléaires", "la P-glycoprotéine et la résistance aux médicaments", "les associations monomériques et multimériques des immunoglobulines"],
-  114: ["la voie du récepteur à l’insuline", "la diversité des sous-unités d’intégrines dans la fiche", "la voie du récepteur à l’insuline"],
+  114: ["la voie du récepteur à l’insuline", "la diversité des sous-unités d’intégrines dans la fiche"],
   115: ["le récepteur 5-HT3", "l’antigène et l’épitope", "la P-glycoprotéine et la résistance aux médicaments"],
   116: ["la structure générale des transporteurs ABC", "les fragments Fab après action de la papaïne", "les plaques d’adhésion focale"],
   117: ["les fragments Fab après action de la papaïne"],

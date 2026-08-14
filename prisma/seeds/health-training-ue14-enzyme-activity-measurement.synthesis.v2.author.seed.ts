@@ -276,7 +276,7 @@ export const UE14_BIOCH_CH15_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 110,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Synthèse du chapitre : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
@@ -551,7 +551,7 @@ export const UE14_BIOCH_CH15_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le pourcentage d’inhibition, la réaction d’ordre deux et la réaction d’ordre deux.",
+    "question": "Maîtrise de synthèse — croisez le pourcentage d’inhibition et la réaction d’ordre deux.",
     "choices": [
       {
         "content": "Une vitesse apparente plus faible donne un pourcentage d’inhibition positif.",
@@ -574,7 +574,7 @@ export const UE14_BIOCH_CH15_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
       }
     ],
-    "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur. Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs. Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+    "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur. Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
   },
   {
     "order": 120,
@@ -648,7 +648,7 @@ export const UE14_BIOCH_CH15_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Maîtrise de synthèse : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

@@ -19,14 +19,14 @@ const sections: SeedSection[] = [
     order: 1,
     title: 'Moteurs moléculaires et transport sanguin',
     description:
-      'Myosines, hémoglobine, anomalies de l’oxygénation, albumine et apolipoprotéines.',
+      'Myosines, hémoglobine, anomalies du transport de l’oxygène et albumine.',
     kind: 'THEME',
   },
   {
     order: 2,
     title: 'Énergie, matrice extracellulaire et collagènes',
     description:
-      'Rôles énergétiques, composition de la matrice et critères structuraux des collagènes.',
+      'Apolipoprotéines, rôle énergétique des protéines, matrice extracellulaire et principes généraux des collagènes.',
     kind: 'THEME',
   },
   {
@@ -40,7 +40,7 @@ const sections: SeedSection[] = [
     order: 4,
     title: 'Glycoprotéines matricielles et cytosquelette',
     description:
-      'Fibronectine, laminine, matrice basale, actine, microtubules et moteurs moléculaires.',
+      'Glycoprotéines matricielles, actine, microtubules et fonctions mécaniques du cytosquelette.',
     kind: 'THEME',
   },
   {

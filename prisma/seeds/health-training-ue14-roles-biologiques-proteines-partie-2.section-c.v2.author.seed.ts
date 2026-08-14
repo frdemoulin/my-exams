@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les liaisons croisées du collagène I, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur les liaisons croisées du collagène I, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "Les fibrilles sont stabilisées par des liaisons covalentes croisées.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement le collagène I selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement le collagène I selon la fiche ?",
     "choices": [
       {
         "content": "Son assemblage donne un aspect strié caractéristique.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la localisation des collagènes selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la localisation des collagènes selon la fiche ?",
     "choices": [
       {
         "content": "Les collagènes sont des protéines de la matrice extracellulaire.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à le décalage de 67 nm du collagène I sont correctes ?",
+    "question": "Application : quelles propositions relatives au décalage de 67 nm du collagène I sont correctes ?",
     "choices": [
       {
         "content": "Ce décalage vaut environ 67 nm.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à le collagène I sont correctes ?",
+    "question": "Application : quelles propositions relatives au collagène I sont correctes ?",
     "choices": [
       {
         "content": "Il forme des fibrilles puis des fibres.",
@@ -539,7 +539,7 @@ export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à le tropocollagène sont correctes ?",
+    "question": "Application : quelles propositions relatives au tropocollagène sont correctes ?",
     "choices": [
       {
         "content": "Les molécules s’agencent avec un décalage régulier.",
@@ -607,7 +607,7 @@ export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de la triple hélice droite : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

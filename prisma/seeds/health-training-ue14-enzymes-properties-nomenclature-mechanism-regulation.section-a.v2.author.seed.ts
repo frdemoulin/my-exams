@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur le pouvoir catalytique des enzymes, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur le pouvoir catalytique des enzymes, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "La fiche indique une accélération d’au moins 10^6 pour les réactions biologiques.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la subtilisine selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la subtilisine selon la fiche ?",
     "choices": [
       {
         "content": "Elle peut couper entre deux acides aminés quelconques dans le modèle présenté.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la forte affinité enzyme-substrat selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la forte affinité enzyme-substrat selon la fiche ?",
     "choices": [
       {
         "content": "La fiche évoque des fixations possibles à quelques micromoles par litre.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à les enzymes protéiques et les ribozymes sont correctes ?",
+    "question": "Application : quelles propositions relatives aux enzymes protéiques et les ribozymes sont correctes ?",
     "choices": [
       {
         "content": "Le ribozyme est présenté comme une exception de nature ARN.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur la trypsine faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur la trypsine faut-il retenir ?",
     "choices": [
       {
         "content": "Sa spécificité est plus restreinte que celle de la subtilisine dans l’exemple.",
@@ -452,7 +452,7 @@ export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à les interactions enzyme-substrat sont correctes ?",
+    "question": "Application : quelles propositions relatives aux interactions enzyme-substrat sont correctes ?",
     "choices": [
       {
         "content": "Des liaisons ioniques et hydrogène peuvent contribuer à la fixation.",
@@ -607,7 +607,7 @@ export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de la définition d’un catalyseur : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

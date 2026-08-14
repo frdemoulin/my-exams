@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les exemples de glycoprotéines matricielles, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur les exemples de glycoprotéines matricielles, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "La fiche cite les fibronectines.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 72,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les fonctions du cytosquelette selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les fonctions du cytosquelette selon la fiche ?",
     "choices": [
       {
         "content": "Il constitue des rails pour des moteurs moléculaires.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les microtubules et la tubuline selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les microtubules et la tubuline selon la fiche ?",
     "choices": [
       {
         "content": "Les microtubules sont des polymères cylindriques de tubuline.",
@@ -295,7 +295,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à les domaines communs des glycoprotéines matricielles sont correctes ?",
+    "question": "Application : quelles propositions relatives aux domaines communs des glycoprotéines matricielles sont correctes ?",
     "choices": [
       {
         "content": "Des domaines communs participent à l’adhésion et aux interactions matricielles.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les fonctions du cytosquelette sont correctes ?",
+    "question": "Application : quelles propositions relatives aux fonctions du cytosquelette sont correctes ?",
     "choices": [
       {
         "content": "Il transmet des forces mécaniques et contribue à la motilité.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 86,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les glycoprotéines de la matrice sont correctes ?",
+    "question": "Application : quelles propositions relatives aux glycoprotéines de la matrice sont correctes ?",
     "choices": [
       {
         "content": "Elles présentent des structures et propriétés fonctionnelles variées.",
@@ -551,7 +551,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Autour de les glycoprotéines de la matrice : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
+    "question": "Autour des glycoprotéines de la matrice : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
     "requiredSelectionCount": 3,
     "choices": [
       {
@@ -590,8 +590,8 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Consolidation de les glycoprotéines de la matrice : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRPL",
+    "question": "Consolidation des glycoprotéines de la matrice : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {
@@ -963,7 +963,7 @@ export const UE14_BIOCH_CH13_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Sélectionnez exactement les cinq affirmations correctes pour maîtriser cette section.",
     "requiredSelectionCount": 5,
     "choices": [

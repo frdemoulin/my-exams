@@ -276,7 +276,7 @@ export const UE14_BIOCH_CH13_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 110,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Synthèse du chapitre : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
@@ -648,7 +648,7 @@ export const UE14_BIOCH_CH13_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Maîtrise de synthèse : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [

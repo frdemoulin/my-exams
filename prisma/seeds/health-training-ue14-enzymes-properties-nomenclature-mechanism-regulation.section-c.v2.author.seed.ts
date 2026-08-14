@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur l’effet d’une enzyme sur l’énergie d’activation, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur l’effet d’une enzyme sur l’énergie d’activation, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "L’enzyme diminue considérablement l’énergie d’activation.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les effets entropiques et interactions lors de la fixation selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les effets entropiques et interactions lors de la fixation selon la fiche ?",
     "choices": [
       {
         "content": "L’enzyme peut orienter et attirer le substrat.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les intermédiaires de la chymotrypsine selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les intermédiaires de la chymotrypsine selon la fiche ?",
     "choices": [
       {
         "content": "La fiche décrit un intermédiaire tétraédrique instable.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les effets entropiques et interactions lors de la fixation sont correctes ?",
+    "question": "Application : quelles propositions relatives aux effets entropiques et interactions lors de la fixation sont correctes ?",
     "choices": [
       {
         "content": "Des interactions ioniques, hydrogène et hydrophobes stabilisent certaines étapes.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 59,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur le site de fixation et le site catalytique faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur le site de fixation et le site catalytique faut-il retenir ?",
     "choices": [
       {
         "content": "Ces deux composantes appartiennent au site actif.",
@@ -531,7 +531,7 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à le modèle clé-serrure de Fisher sont correctes ?",
+    "question": "Application : quelles propositions relatives au modèle clé-serrure de Fisher sont correctes ?",
     "choices": [
       {
         "content": "Il repose sur une complémentarité géométrique préexistante entre enzyme et substrat.",
@@ -560,7 +560,7 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Autour de le modèle clé-serrure de Fisher : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
+    "question": "Autour du modèle clé-serrure de Fisher : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
     "requiredSelectionCount": 3,
     "choices": [
       {
@@ -599,8 +599,8 @@ export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Consolidation de le modèle clé-serrure de Fisher : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRPL",
+    "question": "Consolidation du modèle clé-serrure de Fisher : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

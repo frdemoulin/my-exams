@@ -109,11 +109,11 @@ export function validateHealthTrainingAuthorQuestion(
     case "QRPL": {
       if (
         !Array.isArray(question.choices) ||
-        question.choices.length < 10 ||
+        question.choices.length < 6 ||
         question.choices.length > 25
       ) {
         issues.push(
-          `${prefix} Format QRPL : doit comporter une liste longue de 10 à 25 propositions (${question.choices?.length ?? 0} trouvée(s)).`,
+          `${prefix} Format QRPL : doit comporter une liste longue de 6 à 25 propositions (${question.choices?.length ?? 0} trouvée(s)).`,
         );
         break;
       }

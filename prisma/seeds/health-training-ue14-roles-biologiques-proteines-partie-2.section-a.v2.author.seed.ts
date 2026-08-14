@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH13_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur l’hème de l’hémoglobine, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur l’hème de l’hémoglobine, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "L’hémoglobine possède un groupement prosthétique appelé hème.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH13_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement l’intoxication au monoxyde de carbone selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l’intoxication au monoxyde de carbone selon la fiche ?",
     "choices": [
       {
         "content": "Cette fixation gêne la fixation de l’O2.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH13_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement les fonctions de l’albumine selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les fonctions de l’albumine selon la fiche ?",
     "choices": [
       {
         "content": "L’albumine contribue à la pression oncotique.",
@@ -382,7 +382,7 @@ export const UE14_BIOCH_CH13_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Un patient exposé à des fumées présente une augmentation de carboxyhémoglobine. quelle proposition sur l’intoxication au monoxyde de carbone est correcte ?",
+    "question": "Un patient exposé à des fumées présente une augmentation de carboxyhémoglobine. Quelle proposition sur l’intoxication au monoxyde de carbone est correcte ?",
     "choices": [
       {
         "content": "Le CO forme de la carboxyhémoglobine.",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH13_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Application : quelles propositions relatives à les rôles des myosines sont correctes ?",
+    "question": "Application : quelles propositions relatives aux rôles des myosines sont correctes ?",
     "choices": [
       {
         "content": "Elles participent au transport intracellulaire.",
@@ -551,7 +551,7 @@ export const UE14_BIOCH_CH13_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Autour de les myosines comme moteurs moléculaires : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
+    "question": "Autour des myosines comme moteurs moléculaires : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
     "requiredSelectionCount": 3,
     "choices": [
       {
@@ -590,8 +590,8 @@ export const UE14_BIOCH_CH13_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Consolidation de les myosines comme moteurs moléculaires : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRPL",
+    "question": "Consolidation des myosines comme moteurs moléculaires : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
       {

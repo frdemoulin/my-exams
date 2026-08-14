@@ -354,7 +354,7 @@ export const UE14_BIOCH_CH15_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> 
   116: ["la réaction d’ordre un", "la pente ΔA/Δt", "la Taq polymérase"],
   117: ["la loi de Beer-Lambert appliquée à la cinétique"],
   118: ["la Taq polymérase", "la courbe de Michaelis-Menten", "l’activité spécifique"],
-  119: ["le pourcentage d’inhibition", "la réaction d’ordre deux", "la réaction d’ordre deux"],
+  119: ["le pourcentage d’inhibition", "la réaction d’ordre deux"],
   120: ["la concentration totale en enzyme", "l’effet de la température", "l’inhibition non compétitive"],
   121: ["la formule de la vitesse initiale par absorbance", "l’état préstationnaire et poststationnaire", "l’unité internationale UI"],
   122: ["la concentration d’activité catalytique Ccat", "la constante catalytique Kcat", "les exemples de Kcat", "l’activité spécifique", "l’activité molaire spécifique"],

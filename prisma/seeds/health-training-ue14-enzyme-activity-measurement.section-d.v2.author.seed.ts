@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH15_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur l’effet de la température, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur l’effet de la température, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "La fiche décrit une augmentation de l’activité quand la température augmente au-delà de 37°C jusqu’à certaines limites.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH15_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 72,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la Taq polymérase selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la Taq polymérase selon la fiche ?",
     "choices": [
       {
         "content": "Elle illustre une enzyme fonctionnant à température élevée.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH15_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement l’inhibition mixte selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l’inhibition mixte selon la fiche ?",
     "choices": [
       {
         "content": "L’inhibiteur mixte peut se fixer sur E et sur ES.",
@@ -607,7 +607,7 @@ export const UE14_BIOCH_CH15_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de l’effet de la concentration en substrat : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
@@ -980,7 +980,7 @@ export const UE14_BIOCH_CH15_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Sélectionnez exactement les cinq affirmations correctes pour maîtriser cette section.",
     "requiredSelectionCount": 5,
     "choices": [

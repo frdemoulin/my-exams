@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH15_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les exemples de Km, laquelle est exacte ?",
+    "question": "Parmi les propositions suivantes sur les exemples de Km, lesquelles sont exactes ?",
     "choices": [
       {
         "content": "La fiche cite β-galactosidase/lactose avec Km d’environ 4000 µM.",
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH15_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement la réaction d’ordre zéro selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la réaction d’ordre zéro selon la fiche ?",
     "choices": [
       {
         "content": "Cette notion est distincte d’une réaction d’ordre 1.",
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH15_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle proposition décrit correctement le repère d’abscisse de Lineweaver-Burk dans la fiche selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement le repère d’abscisse de Lineweaver-Burk dans la fiche selon la fiche ?",
     "choices": [
       {
         "content": "Le support imprimé indique que la droite coupe l’axe des abscisses en 1/Km.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH15_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 59,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application, quelle affirmation sur la réaction d’ordre un faut-il retenir ?",
+    "question": "Dans une situation d’application, quelles affirmations sur la réaction d’ordre un faut-il retenir ?",
     "choices": [
       {
         "content": "Le modèle concerne la transformation d’un substrat en produit.",
@@ -607,7 +607,7 @@ export const UE14_BIOCH_CH15_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRP",
+    "format": "QRPL",
     "question": "Consolidation de la courbe de Michaelis-Menten : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
     "choices": [
