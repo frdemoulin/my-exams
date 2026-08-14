@@ -27,7 +27,7 @@ const enzymesRegulationChapterSlug =
   "enzymes-proprietes-nomenclature-mecanisme-action-regulation";
 const mesureActiviteEnzymatiqueChapterSlug = "mesure-activite-enzymatique";
 
-const v2ProteinChapterCases = [
+const proteinChapterCases = [
   {
     label: "Structure et rôles biologiques des acides aminés",
     slug: acidesAminesChapterSlug,
@@ -40,9 +40,6 @@ const v2ProteinChapterCases = [
     label: "Rôles biologiques des acides aminés et peptides",
     slug: rolesAcidesAminesPeptidesChapterSlug,
   },
-] as const;
-
-const legacyProteinChapterCases = [
   {
     label: "Rôles biologiques des protéines, partie 1",
     slug: rolesProteinesPartie1ChapterSlug,
@@ -993,7 +990,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     }
   });
 
-  for (const chapterCase of v2ProteinChapterCases) {
+  for (const chapterCase of proteinChapterCases) {
     test(`le chapitre ${chapterCase.label} expose sa structure seedée`, async ({ page }) => {
       const chapter = await getChapterFixture(chapterCase.slug);
 
@@ -1017,44 +1014,20 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     });
   }
 
-  for (const chapterCase of legacyProteinChapterCases) {
-    test(`le chapitre ${chapterCase.label} expose sa structure seedée`, async ({ page }) => {
-      const chapter = await getChapterFixture(chapterCase.slug);
-
-      expect(chapter.sectionCount).toBe(5);
-      expect(chapter.quizCount).toBe(14);
-      expect(chapter.questionCount).toBe(140);
-
-      await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${chapterCase.slug}`);
-
-      await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
-      await expect(page.getByText("5 sections")).toBeVisible();
-      await expect(page.getByText("14 quiz")).toBeVisible();
-      await expect(page.getByText("140 questions")).toBeVisible();
-
-      for (const [sectionIndex, section] of chapter.sections.entries()) {
-        const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
-        await expect(
-          page.getByRole("heading", { name: sectionHeading, exact: true }),
-        ).toBeVisible();
-      }
-    });
-  }
-
   for (const chapterCase of enzymologyChapterCases) {
     test(`le chapitre ${chapterCase.label} expose sa structure seedée`, async ({ page }) => {
       const chapter = await getChapterFixture(chapterCase.slug);
 
       expect(chapter.sectionCount).toBe(5);
-      expect(chapter.quizCount).toBe(14);
-      expect(chapter.questionCount).toBe(140);
+      expect(chapter.quizCount).toBe(11);
+      expect(chapter.questionCount).toBe(122);
 
       await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${chapterCase.slug}`);
 
       await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
       await expect(page.getByText("5 sections")).toBeVisible();
-      await expect(page.getByText("14 quiz")).toBeVisible();
-      await expect(page.getByText("140 questions")).toBeVisible();
+      await expect(page.getByText("11 quiz")).toBeVisible();
+      await expect(page.getByText("122 questions")).toBeVisible();
 
       for (const [sectionIndex, section] of chapter.sections.entries()) {
         const sectionHeading = getSectionHeadingLabel(section, sectionIndex);

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+<title id="title">Inhibition compétitive d'une enzyme</title>
+<desc id="desc">Schéma pédagogique original montrant une enzyme avec une poche de liaison commune au substrat et à un inhibiteur compétitif, et une seconde dépression distincte.</desc>
+<rect width="900" height="520" fill="white"/>
+<text x="450" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700">Substrat et inhibiteur en compétition</text>
+<path d="M170 300 C150 215, 206 126, 295 124 C343 123, 364 160, 399 174 C438 191, 480 169, 525 146 C613 102, 729 165, 742 270 C754 366, 675 423, 574 408 C499 397, 459 357, 393 376 C322 397, 206 394, 170 300 Z" fill="#fafafa" stroke="#222" stroke-width="5"/>
+<!-- poche active cible autour de x350 y187 -->
+<path d="M318 133 C339 160, 364 171, 394 176 C391 205, 367 227, 337 231 C315 211, 306 168, 318 133 Z" fill="white" stroke="#222" stroke-width="4"/>
+<!-- substrat et inhibiteur au-dessus -->
+<path d="M284 78 L318 96 L301 126 L267 108 Z" fill="white" stroke="#222" stroke-width="3"/>
+<text x="292" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700">S</text>
+<circle cx="382" cy="101" r="22" fill="white" stroke="#222" stroke-width="3"/>
+<text x="382" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700">I</text>
+<path d="M295 129 L326 153" stroke="#222" stroke-width="2" stroke-dasharray="7 6"/>
+<path d="M378 128 L366 154" stroke="#222" stroke-width="2" stroke-dasharray="7 6"/>
+<!-- poche distincte non cible -->
+<path d="M610 181 C645 169, 680 185, 694 217 C674 242, 643 250, 613 236 C596 218, 595 197, 610 181 Z" fill="white" stroke="#222" stroke-width="4"/>
+<text x="354" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="17">S et I utilisent la même poche</text>
+<text x="650" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="17">autre site de l’enzyme</text>
+</svg>
