@@ -15,22 +15,22 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Est un polyoside structural végétal.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "La cellulose est le principal glucane de la paroi des cellules végétales."
       },
       {
         "content": "Forme des fibres très résistantes.",
         "correct": true,
-        "explanation": "Propriété."
+        "explanation": "Les chaînes β(1→4) parallèles s’associent par de nombreuses liaisons hydrogène et forment des microfibrilles résistantes."
       },
       {
         "content": "Est insoluble dans l’eau tout en étant hydrophile.",
         "correct": true,
-        "explanation": "Distinction du support."
+        "explanation": "Ses hydroxyles interagissent avec l’eau, mais le réseau dense de liaisons entre chaînes empêche sa dissolution."
       },
       {
         "content": "Est la réserve glucidique principale des cellules animales.",
         "correct": false,
-        "explanation": "C’est le glycogène."
+        "explanation": "Le glycogène assure le stockage intracellulaire du glucose chez les animaux."
       }
     ],
     "explanation": "La cellulose est un glucane structural végétal très abondant."
@@ -42,19 +42,19 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "La cellobiose :",
     "choices": [
       {
-        "content": "Est l’unité de base mise en avant pour la cellulose.",
+        "content": "Correspond au motif disaccharidique obtenu à partir de deux glucoses liés comme dans la cellulose.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "La cellobiose associe deux résidus de D-glucose par une liaison β(1→4), identique à celle de la chaîne de cellulose."
       },
       {
         "content": "Associe deux β-D-glucoses.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "Les deux résidus constitutifs de la cellobiose sont des D-glucoses."
       },
       {
         "content": "Utilise une liaison β(1→4).",
         "correct": true,
-        "explanation": "Liaison."
+        "explanation": "Le carbone anomérique C1 du premier glucose est lié au C4 du second dans une configuration β."
       },
       {
         "content": "Est identique au maltose.",
@@ -71,19 +71,19 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Pourquoi la cellulose n’est-elle pas digérée par l’Homme ?",
     "choices": [
       {
-        "content": "L’Homme ne possède pas la β-glucosidase adaptée.",
+        "content": "L’être humain ne possède pas les cellulases digestives capables de cliver efficacement ses liaisons β(1→4).",
         "correct": true,
-        "explanation": "Cause citée."
+        "explanation": "Les enzymes digestives humaines hydrolysent les liaisons α de l’amidon, mais pas les liaisons β(1→4) de la cellulose."
       },
       {
-        "content": "Les liaisons β de la cellulose ne sont donc pas hydrolysées par les enzymes digestives humaines citées.",
+        "content": "Ses liaisons β(1→4) ne sont pas hydrolysées par les enzymes digestives humaines.",
         "correct": true,
-        "explanation": "Conséquence."
+        "explanation": "La géométrie β(1→4) n’est pas reconnue par les α-amylases qui digèrent l’amidon."
       },
       {
         "content": "La cellulose reste importante comme fibre alimentaire.",
         "correct": true,
-        "explanation": "Intérêt."
+        "explanation": "Même non digérée, la cellulose contribue à la fraction insoluble des fibres alimentaires."
       },
       {
         "content": "Parce qu’elle ne contient aucun glucose.",
@@ -97,59 +97,59 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les fibres végétales citées :",
+    "question": "Parmi les constituants des fibres alimentaires végétales :",
     "choices": [
       {
         "content": "Cellulose.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "La cellulose des parois végétales résiste à la digestion par les enzymes humaines."
       },
       {
         "content": "Hémicellulose.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "Les hémicelluloses regroupent plusieurs polysaccharides de paroi végétale inclus dans les fibres alimentaires."
       },
       {
         "content": "Pectines.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "Les pectines sont des polysaccharides végétaux, souvent solubles et fermentescibles, appartenant aux fibres alimentaires."
       },
       {
         "content": "Glycogène.",
         "correct": false,
-        "explanation": "Réserve animale."
+        "explanation": "Le glycogène est un glucane de réserve animal rapidement digestible, pas une fibre végétale."
       }
     ],
-    "explanation": "Cellulose, hémicellulose et pectines figurent parmi les fibres citées."
+    "explanation": "Les fibres alimentaires végétales comprennent notamment la cellulose, des hémicelluloses et des pectines."
   },
   {
     "order": 49,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La fiche associe une carence en fibres à des facteurs de risque concernant notamment :",
+    "question": "Un apport alimentaire plus élevé en fibres est associé, dans les études de population, à une diminution du risque de :",
     "choices": [
       {
-        "content": "La diverticulose.",
+        "content": "Maladies cardiovasculaires.",
         "correct": true,
-        "explanation": "Risque cité."
+        "explanation": "Les synthèses d’études prospectives associent un apport plus élevé en fibres à un risque cardiovasculaire plus faible."
       },
       {
-        "content": "Les calculs biliaires.",
+        "content": "Diabète de type 2.",
         "correct": true,
-        "explanation": "Risque cité."
+        "explanation": "Un apport plus élevé en fibres est associé à un risque réduit de diabète de type 2 et à des effets favorables sur plusieurs marqueurs métaboliques."
       },
       {
-        "content": "Le cancer du côlon.",
+        "content": "Cancer colorectal.",
         "correct": true,
-        "explanation": "Risque cité."
+        "explanation": "Les données observationnelles associent une consommation plus élevée de fibres à un risque plus faible de cancer colorectal."
       },
       {
         "content": "L’impossibilité de synthétiser du glycogène.",
         "correct": false,
-        "explanation": "Ce lien n’est pas donné."
+        "explanation": "La synthèse du glycogène dépend d’enzymes du métabolisme glucidique et n’est pas rendue impossible par un faible apport en fibres."
       }
     ],
-    "explanation": "Le support donne plusieurs exemples de risques associés à un apport insuffisant en fibres."
+    "explanation": "Les associations épidémiologiques concernent notamment les maladies cardiovasculaires, le diabète de type 2 et le cancer colorectal ; elles ne signifient pas qu’une fibre isolée prévient à elle seule ces maladies."
   },
   {
     "order": 50,
@@ -160,17 +160,17 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Sont des hétéroglycanes.",
         "correct": true,
-        "explanation": "Plusieurs types de résidus."
+        "explanation": "Le motif répété d’un GAG associe généralement deux types de résidus monosaccharidiques."
       },
       {
         "content": "Reposent souvent sur la répétition d’un motif disaccharidique.",
         "correct": true,
-        "explanation": "Principe structural."
+        "explanation": "Une même unité disaccharidique est répétée de nombreuses fois pour former la chaîne du GAG."
       },
       {
         "content": "Associent fréquemment un acide uronique et une osamine.",
         "correct": true,
-        "explanation": "Motif général."
+        "explanation": "L’hyaluronane et les chondroïtine sulfates associent par exemple un acide uronique à une osamine N-acétylée."
       },
       {
         "content": "Sont tous dépourvus de charge.",
@@ -189,25 +189,25 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Acide β-D-glucuronique.",
         "correct": true,
-        "explanation": "Premier résidu."
+        "explanation": "Le résidu d’acide glucuronique apporte notamment une fonction carboxylate chargée négativement."
       },
       {
         "content": "N-acétyl-D-glucosamine.",
         "correct": true,
-        "explanation": "Second résidu."
+        "explanation": "La N-acétylglucosamine alterne avec le glucuronate dans la chaîne d’hyaluronane."
       },
       {
         "content": "Une liaison β(1→3) dans le dimère.",
         "correct": true,
-        "explanation": "Liaison interne."
+        "explanation": "Le motif peut s’écrire GlcA-β(1→3)-GlcNAc, les motifs successifs étant reliés par des liaisons β(1→4)."
       },
       {
         "content": "Une sulfatation obligatoire.",
         "correct": false,
-        "explanation": "Il est non sulfaté."
+        "explanation": "L’hyaluronane naturel n’est pas sulfaté ; sa charge négative provient des carboxylates du glucuronate."
       }
     ],
-    "explanation": "L’acide hyaluronique est présenté comme le plus simple des GAG."
+    "explanation": "L’acide hyaluronique, ou hyaluronane, est un GAG non sulfaté formé par l’alternance d’acide glucuronique et de N-acétylglucosamine."
   },
   {
     "order": 52,
@@ -218,17 +218,17 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "N’est pas sulfaté.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "Contrairement à la plupart des autres GAG, l’hyaluronane naturel ne porte pas de groupement sulfate."
       },
       {
-        "content": "N’est pas lié à une protéine dans la présentation du support.",
+        "content": "N’est généralement pas lié de manière covalente à une protéine cœur.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "L’hyaluronane est synthétisé à la membrane plasmique comme une chaîne libre, contrairement aux GAG des protéoglycanes."
       },
       {
         "content": "Porte des charges négatives via les carboxylates.",
         "correct": true,
-        "explanation": "COO− cités."
+        "explanation": "À pH physiologique, les fonctions carboxyliques des résidus de glucuronate sont majoritairement sous forme COO−."
       },
       {
         "content": "Est un GAG très sulfaté stocké dans les mastocytes.",
@@ -247,17 +247,17 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Hydratation tissulaire.",
         "correct": true,
-        "explanation": "Fonction."
+        "explanation": "Sa forte densité de fonctions polaires et de carboxylates lui permet d’occuper un grand volume hydrodynamique et de retenir l’eau."
       },
       {
         "content": "Viscoélasticité.",
         "correct": true,
-        "explanation": "Fonction."
+        "explanation": "Les solutions d’hyaluronane contribuent aux propriétés viscoélastiques du liquide synovial et de plusieurs matrices tissulaires."
       },
       {
         "content": "Cicatrisation et migration cellulaire.",
         "correct": true,
-        "explanation": "Fonctions."
+        "explanation": "L’hyaluronane est abondant dans les matrices transitoires qui accompagnent la morphogenèse, la migration cellulaire et la réparation tissulaire."
       },
       {
         "content": "Stockage énergétique hépatique.",
@@ -276,17 +276,17 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Associe acide β-D-glucuronique et N-acétyl-D-galactosamine.",
         "correct": true,
-        "explanation": "Motif."
+        "explanation": "Son motif disaccharidique alterne un glucuronate et une N-acétylgalactosamine."
       },
       {
         "content": "Est un GAG sulfaté.",
         "correct": true,
-        "explanation": "Nature."
+        "explanation": "Des groupements sulfate sont notamment portés par la N-acétylgalactosamine."
       },
       {
         "content": "Est riche en charges négatives.",
         "correct": true,
-        "explanation": "Sulfates et COO−."
+        "explanation": "Les groupements sulfate et les carboxylates du glucuronate contribuent à sa charge négative."
       },
       {
         "content": "Est dépourvue de tout acide uronique.",
@@ -300,80 +300,80 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une alimentation très pauvre en fibres végétales s’inscrit, selon les exemples du support, dans un contexte où :",
+    "question": "À propos des fibres alimentaires et de leurs associations avec la santé :",
     "choices": [
       {
         "content": "La cellulose fait partie des fibres normalement consommées.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "La cellulose des aliments végétaux résiste aux enzymes digestives humaines et contribue aux fibres insolubles."
       },
       {
-        "content": "La diverticulose figure parmi les facteurs de risque cités.",
+        "content": "Un apport plus élevé en fibres est associé à un risque cardiovasculaire plus faible.",
         "correct": true,
-        "explanation": "Contexte médical."
+        "explanation": "Les études prospectives montrent une association inverse entre consommation de fibres et maladies cardiovasculaires."
       },
       {
-        "content": "Le cancer du côlon figure parmi les risques cités.",
+        "content": "Un apport plus élevé en fibres est associé à un risque plus faible de cancer colorectal.",
         "correct": true,
-        "explanation": "Contexte médical."
+        "explanation": "Cette relation est principalement étayée par des données observationnelles et ne doit pas être interprétée comme l’effet isolé d’une fibre unique."
       },
       {
         "content": "La cellulose devrait normalement être entièrement digérée par une β-glucosidase humaine.",
         "correct": false,
-        "explanation": "L’Homme ne possède pas cette enzyme."
+        "explanation": "L’être humain ne possède pas les cellulases digestives nécessaires à l’hydrolyse efficace des liaisons β(1→4) de la cellulose."
       }
     ],
-    "explanation": "Le contexte médical reste limité aux associations explicitement données dans la fiche."
+    "explanation": "Les bénéfices associés à une alimentation riche en fibres concernent plusieurs issues cardiométaboliques et digestives, sans établir qu’une faible consommation constitue à elle seule une cause directe de maladie."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Lors de la fécondation, la fiche cite la hyaluronidase du sperme. Cette enzyme :",
+    "question": "Lors de la fécondation, une hyaluronidase portée par les spermatozoïdes peut agir sur la matrice entourant l’ovocyte. Cette enzyme :",
     "choices": [
       {
         "content": "Hydrolyse l’acide hyaluronique.",
         "correct": true,
-        "explanation": "Action citée."
+        "explanation": "Une hyaluronidase clive des liaisons glycosidiques de l’hyaluronane."
       },
       {
-        "content": "Participe à la pénétration du spermatozoïde dans l’ovule.",
+        "content": "Contribue à la dispersion de la matrice riche en hyaluronane du cumulus entourant l’ovocyte.",
         "correct": true,
-        "explanation": "Contexte."
+        "explanation": "L’hydrolyse de l’hyaluronane facilite la progression du spermatozoïde à travers les cellules du cumulus."
       },
       {
         "content": "Agit sur un GAG de matrice.",
         "correct": true,
-        "explanation": "Nature du substrat."
+        "explanation": "L’hyaluronane est un glycosaminoglycane abondant dans de nombreuses matrices extracellulaires."
       },
       {
         "content": "Transforme le glycogène en cellulose.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "La hyaluronidase hydrolyse l’hyaluronane et ne convertit pas un glucane de réserve en glucane structural."
       }
     ],
-    "explanation": "La hyaluronidase fournit un contexte physiologique direct pour l’acide hyaluronique."
+    "explanation": "La hyaluronidase spermatique peut contribuer à hydrolyser l’hyaluronane de la matrice du cumulus lors de la progression vers l’ovocyte."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une matrice extracellulaire doit retenir l’eau et rester viscoélastique. Quelle molécule du chapitre est particulièrement cohérente ?",
+    "question": "Une matrice extracellulaire doit retenir l’eau et conserver des propriétés viscoélastiques. Quelle molécule est particulièrement cohérente ?",
     "choices": [
       {
         "content": "L’acide hyaluronique.",
         "correct": true,
-        "explanation": "Hydratation et viscoélasticité sont citées."
+        "explanation": "L’hyaluronane occupe un grand volume hydrodynamique et contribue à l’hydratation ainsi qu’à la viscoélasticité des matrices."
       },
       {
         "content": "Un GAG riche en fonctions polaires/charges.",
         "correct": true,
-        "explanation": "Cohérent avec la rétention d’eau."
+        "explanation": "Les hydroxyles et carboxylates interagissent avec l’eau et les contre-ions, favorisant l’hydratation."
       },
       {
-        "content": "Une molécule présente dans la MEC de tous les tissus selon la fiche.",
+        "content": "Une molécule présente en quantités variables dans les matrices extracellulaires de nombreux tissus.",
         "correct": true,
-        "explanation": "Localisation."
+        "explanation": "L’hyaluronane est largement distribué dans les tissus et les fluides des vertébrés."
       },
       {
         "content": "Le saccharose comme protéine de structure.",
@@ -392,22 +392,22 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Aux groupements carboxylate COO−.",
         "correct": true,
-        "explanation": "Origine."
+        "explanation": "À pH physiologique, la fonction carboxylique de chaque glucuronate est majoritairement déprotonée en COO−."
       },
       {
         "content": "À l’acide glucuronique ionisé.",
         "correct": true,
-        "explanation": "Le carboxylate est porté par l’acide uronique."
+        "explanation": "Le résidu de glucuronate du motif répété porte le groupement carboxylate."
       },
       {
         "content": "À sa capacité à fixer des cations.",
         "correct": true,
-        "explanation": "Conséquence citée."
+        "explanation": "Le polymère anionique s’entoure de contre-ions ; cette association découle de ses charges négatives."
       },
       {
         "content": "À de nombreux sulfates obligatoires.",
         "correct": false,
-        "explanation": "Il n’est pas sulfaté."
+        "explanation": "L’hyaluronane naturel est non sulfaté ; ses charges négatives proviennent des carboxylates."
       }
     ],
     "explanation": "L’acide hyaluronique est anionique sans être sulfaté."
@@ -421,22 +421,22 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le dimère comporte une liaison β(1→3).",
         "correct": true,
-        "explanation": "Liaison interne."
+        "explanation": "Le glucuronate est lié à la N-acétylgalactosamine par une liaison β(1→3) dans le motif disaccharidique."
       },
       {
         "content": "Les dimères sont reliés entre eux par β(1→4).",
         "correct": true,
-        "explanation": "Liaison inter-dimères."
+        "explanation": "Les motifs successifs sont reliés par une liaison β(1→4) entre la GalNAc et le glucuronate suivant."
       },
       {
         "content": "La galactosamine peut être sulfatée en C4 ou C6.",
         "correct": true,
-        "explanation": "Positions citées."
+        "explanation": "Les chondroïtine-4-sulfate et chondroïtine-6-sulfate se distinguent par la position du sulfate sur la N-acétylgalactosamine."
       },
       {
         "content": "Aucune sulfatation de l’acide glucuronique n’est possible.",
         "correct": false,
-        "explanation": "Une sulfatation en C2 est citée."
+        "explanation": "Certaines unités de chondroïtine sulfate comportent un glucuronate 2-O-sulfaté."
       }
     ],
     "explanation": "Les positions de sulfatation expliquent la forte charge de la chondroïtine."
@@ -450,22 +450,22 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Qu’elle porte de nombreuses charges négatives.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Le préfixe poly- indique que de nombreux groupements anioniques sont répétés le long de la chaîne."
       },
       {
         "content": "Que les sulfates contribuent à ces charges.",
         "correct": true,
-        "explanation": "Origine."
+        "explanation": "Les esters sulfates sont ionisés aux pH biologiques usuels et portent des charges négatives."
       },
       {
         "content": "Que les carboxylates contribuent aussi aux charges.",
         "correct": true,
-        "explanation": "Origine."
+        "explanation": "Les résidus de glucuronate comportent des fonctions carboxylate COO−."
       },
       {
         "content": "Qu’elle ne peut fixer aucun cation.",
         "correct": false,
-        "explanation": "La fiche indique qu’elle peut fixer des cations."
+        "explanation": "Ses charges négatives favorisent au contraire des interactions électrostatiques avec des cations."
       }
     ],
     "explanation": "La richesse en charges négatives conditionne les interactions ioniques du GAG."
@@ -474,7 +474,7 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel est le nom de l’enzyme citée dans le sperme pour hydrolyser l’acide hyaluronique ?",
+    "question": "Quel est le nom de l’enzyme spermatique capable d’hydrolyser l’acide hyaluronique de la matrice du cumulus ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -488,19 +488,19 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "ignoreAccents": true
       }
     },
-    "explanation": "Il s’agit de la hyaluronidase."
+    "explanation": "Une hyaluronidase clive l’hyaluronane et peut faciliter la progression du spermatozoïde à travers la matrice du cumulus."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quelle valeur maximale du nombre de résidus est donnée pour l’acide hyaluronique dans la plage 300–5000 ?",
+    "question": "Une chaîne d’acide hyaluronique contient 2 500 motifs disaccharidiques. Combien contient-elle au total de résidus monosaccharidiques ?",
     "answer": {
       "type": "number",
       "value": 5000,
       "tolerance": 0
     },
-    "explanation": "La fiche indique environ 300 à 5000 résidus."
+    "explanation": "Chaque motif disaccharidique contient deux résidus : 2 500 × 2 = 5 000 résidus monosaccharidiques."
   },
   {
     "order": 63,
@@ -512,22 +512,22 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Acide β-D-glucuronique.",
         "correct": true,
-        "explanation": "Constituant."
+        "explanation": "Le glucuronate apporte la fonction carboxylate du motif de l’hyaluronane."
       },
       {
         "content": "N-acétyl-D-glucosamine.",
         "correct": true,
-        "explanation": "Constituant."
+        "explanation": "La N-acétylglucosamine alterne avec le glucuronate le long de la chaîne."
       },
       {
         "content": "N-acétyl-D-galactosamine.",
         "correct": false,
-        "explanation": "Chondroïtine sulfate."
+        "explanation": "La N-acétylgalactosamine entre dans la composition des chondroïtine sulfates, pas de l’hyaluronane."
       },
       {
         "content": "Acide L-iduronique.",
         "correct": false,
-        "explanation": "Autres GAG."
+        "explanation": "L’iduronate est présent dans certains autres GAG, notamment le dermatane sulfate et des héparanes."
       }
     ],
     "explanation": "L’acide hyaluronique alterne glucuronate et N-acétylglucosamine."
@@ -541,22 +541,22 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Les deux contiennent un acide uronique.",
         "correct": true,
-        "explanation": "Acide glucuronique dans les structures décrites."
+        "explanation": "L’hyaluronane et la chondroïtine sulfate contiennent tous deux des résidus de glucuronate."
       },
       {
         "content": "Les deux contiennent une osamine N-acétylée.",
         "correct": true,
-        "explanation": "Glucosamine versus galactosamine."
+        "explanation": "L’hyaluronane contient de la N-acétylglucosamine, tandis que la chondroïtine contient de la N-acétylgalactosamine."
       },
       {
         "content": "La chondroïtine est sulfatée, l’acide hyaluronique ne l’est pas.",
         "correct": true,
-        "explanation": "Différence majeure."
+        "explanation": "Les chondroïtine sulfates portent des esters sulfates, contrairement à l’hyaluronane naturel."
       },
       {
         "content": "L’acide hyaluronique est obligatoirement lié à une protéine cœur.",
         "correct": false,
-        "explanation": "Le support précise l’absence de liaison aux protéines."
+        "explanation": "L’hyaluronane n’est généralement pas lié de manière covalente à une protéine cœur."
       }
     ],
     "explanation": "Les deux GAG partagent un motif répété mais diffèrent notamment par la sulfatation."
@@ -570,17 +570,17 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’acide hyaluronique.",
         "correct": true,
-        "explanation": "Trois critères concordants."
+        "explanation": "L’hyaluronane est non sulfaté, porte des carboxylates et n’est généralement pas lié de façon covalente à une protéine cœur."
       },
       {
-        "content": "Le plus simple des GAG dans la fiche.",
+        "content": "Un GAG à motif disaccharidique régulier et non sulfaté.",
         "correct": true,
-        "explanation": "Description."
+        "explanation": "Sa chaîne alterne régulièrement glucuronate et N-acétylglucosamine sans groupement sulfate."
       },
       {
         "content": "Un polymère participant à l’hydratation tissulaire.",
         "correct": true,
-        "explanation": "Fonction."
+        "explanation": "Ses charges et ses hydroxyles lui permettent de retenir l’eau et d’occuper un grand volume hydrodynamique."
       },
       {
         "content": "L’héparine.",
@@ -600,52 +600,52 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La cellulose est β(1→4).",
         "correct": true,
-        "explanation": "Cellobiose/chaîne."
+        "explanation": "Les résidus de glucose de la cellulose sont reliés par des liaisons β(1→4)."
       },
       {
-        "content": "L’Homme ne digère pas la cellulose faute de β-glucosidase adaptée.",
+        "content": "L’être humain ne digère pas la cellulose faute de cellulases digestives adaptées.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Les enzymes digestives humaines ne clivent pas efficacement les liaisons β(1→4) de la cellulose."
       },
       {
         "content": "L’acide hyaluronique n’est pas sulfaté.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "Sa charge négative provient des carboxylates du glucuronate, et non de groupements sulfate."
       },
       {
         "content": "La chondroïtine sulfate est un polyanion.",
         "correct": true,
-        "explanation": "Charges sulfate et COO−."
+        "explanation": "Les esters sulfates et les carboxylates confèrent de nombreuses charges négatives à la chaîne."
       },
       {
-        "content": "La hyaluronidase est citée dans la fécondation.",
+        "content": "Une hyaluronidase spermatique peut agir sur la matrice du cumulus lors de la fécondation.",
         "correct": true,
-        "explanation": "Contexte."
+        "explanation": "Cette enzyme hydrolyse l’hyaluronane et contribue à la progression du spermatozoïde entre les cellules du cumulus."
       },
       {
         "content": "La cellulose est la réserve animale.",
         "correct": false,
-        "explanation": "Glycogène."
+        "explanation": "La cellulose est un glucane structural végétal ; la réserve animale correspond au glycogène."
       },
       {
         "content": "L’acide hyaluronique est toujours lié à une protéine cœur.",
         "correct": false,
-        "explanation": "Non lié à une protéine dans la fiche."
+        "explanation": "L’hyaluronane n’est généralement pas lié de manière covalente à une protéine cœur."
       },
       {
         "content": "La chondroïtine ne contient aucun acide uronique.",
         "correct": false,
-        "explanation": "Acide glucuronique."
+        "explanation": "Le motif des chondroïtine sulfates contient des résidus d’acide glucuronique."
       },
       {
         "content": "La cellulose est très soluble dans l’eau.",
         "correct": false,
-        "explanation": "Insoluble mais hydrophile."
+        "explanation": "La cellulose est hydrophile grâce à ses hydroxyles, mais son réseau interchaînes la rend insoluble."
       },
       {
         "content": "La cellobiose est identique au maltose.",
         "correct": false,
-        "explanation": "β1→4 versus α1→4."
+        "explanation": "La cellobiose possède une liaison β(1→4), tandis que le maltose possède une liaison α(1→4)."
       }
     ],
     "explanation": "Cette QRPL consolide cellulose, fibres et premiers GAG."

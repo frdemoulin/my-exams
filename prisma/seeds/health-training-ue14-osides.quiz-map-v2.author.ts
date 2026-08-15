@@ -219,7 +219,7 @@ export const UE14_BIOCH_CH3_V2_QUIZ_MAP = [
     "order": 2,
     "slug": "maitriser-synthese-osides",
     "title": "Les osides",
-    "description": "Maîtrise transversale du chapitre dans l’esprit de l’examen, sans constituer un examen blanc.",
+    "description": "Maîtrise transversale des osides dans l’esprit de l’examen, sans constituer un examen blanc.",
     "stage": "MASTER",
     "questionOrders": [
       111,
@@ -287,7 +287,7 @@ export const UE14_BIOCH_CH3_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> =
   46: ["Cellulose et GAG : repères"],
   47: ["Cellulose et GAG : repères"],
   48: ["Cellulose et GAG : repères"],
-  49: ["Fibres végétales : facteurs de risque"],
+  49: ["Fibres alimentaires et santé"],
   50: ["Cellulose et GAG : repères"],
   51: ["Cellulose et GAG : repères"],
   52: ["Cellulose et GAG : repères"],

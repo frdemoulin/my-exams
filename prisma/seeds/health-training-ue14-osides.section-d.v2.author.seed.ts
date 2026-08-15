@@ -15,17 +15,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Associe acide L-iduronique et N-acétylgalactosamine.",
         "correct": true,
-        "explanation": "Motif."
+        "explanation": "Le motif disaccharidique du dermatane sulfate associe ces deux constituants."
       },
       {
         "content": "Possède une liaison α(1→3) dans le dimère.",
         "correct": true,
-        "explanation": "Liaison interne."
+        "explanation": "La liaison interne du motif unit l’iduronate à la N-acétylgalactosamine en α(1→3)."
       },
       {
         "content": "Les dimères sont reliés par β(1→4).",
         "correct": true,
-        "explanation": "Liaison inter-dimères."
+        "explanation": "Les motifs successifs sont reliés par des liaisons β(1→4)."
       },
       {
         "content": "Est totalement dépourvu de sulfate.",
@@ -44,22 +44,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Associe galactose et N-acétylglucosamine.",
         "correct": true,
-        "explanation": "Motif."
+        "explanation": "Le motif disaccharidique associe un galactose à une N-acétylglucosamine."
       },
       {
         "content": "Utilise une liaison β(1→4) dans le dimère.",
         "correct": true,
-        "explanation": "Liaison."
+        "explanation": "Le galactose et la N-acétylglucosamine sont unis par une liaison β(1→4)."
       },
       {
         "content": "Peut être sulfaté en C6.",
         "correct": true,
-        "explanation": "Positions citées."
+        "explanation": "Des groupements sulfate peuvent notamment être portés par le carbone 6."
       },
       {
         "content": "Contient obligatoirement un acide uronique.",
         "correct": false,
-        "explanation": "Le motif décrit n’en contient pas."
+        "explanation": "Le motif du kératane sulfate ne comporte pas d’acide uronique."
       }
     ],
     "explanation": "Le kératane sulfate a un motif galactose–N-acétylglucosamine."
@@ -73,22 +73,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut contenir de l’acide L-iduronique ou D-glucuronique.",
         "correct": true,
-        "explanation": "Deux structures."
+        "explanation": "Les domaines d’héparane sulfate peuvent comporter du glucuronate ou de l’iduronate."
       },
       {
         "content": "Contient de la glucosamine.",
         "correct": true,
-        "explanation": "Osamine."
+        "explanation": "La glucosamine est l’osamine constitutive de ce glycosaminoglycane."
       },
       {
         "content": "Intervient dans la signalisation cellulaire.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les chaînes d’héparane sulfate modulent des interactions impliquées dans la signalisation cellulaire."
       },
       {
         "content": "Est un diholoside alimentaire.",
         "correct": false,
-        "explanation": "C’est un GAG."
+        "explanation": "L’héparane sulfate est un glycosaminoglycane complexe et non un diholoside alimentaire."
       }
     ],
     "explanation": "L’héparane sulfate est un GAG hétérogène de matrice et de signalisation."
@@ -102,17 +102,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Est très proche de l’héparane sulfate.",
         "correct": true,
-        "explanation": "Comparaison."
+        "explanation": "L’héparine et l’héparane sulfate appartiennent à la même famille structurale."
       },
       {
-        "content": "Possède des chaînes plus courtes dans la fiche.",
+        "content": "Est produite notamment par des mastocytes.",
         "correct": true,
-        "explanation": "Environ 10 résidus."
+        "explanation": "Les mastocytes du tissu conjonctif constituent une source majeure d’héparine."
       },
       {
         "content": "Est fortement sulfatée.",
         "correct": true,
-        "explanation": "« sulfatée ++++ »."
+        "explanation": "L’héparine subit une sulfatation plus extensive que l’héparane sulfate."
       },
       {
         "content": "Est une réserve glucidique des végétaux.",
@@ -131,17 +131,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Se fait dans les granulations des mastocytes.",
         "correct": true,
-        "explanation": "Localisation."
+        "explanation": "L’héparine est stockée dans les granules sécrétoires des mastocytes."
       },
       {
         "content": "Permet une libération par dégranulation.",
         "correct": true,
-        "explanation": "Mécanisme."
+        "explanation": "L’activation du mastocyte provoque l’exocytose du contenu de ses granules."
       },
       {
         "content": "S’accompagne d’une activité anticoagulante attribuée à l’héparine.",
         "correct": true,
-        "explanation": "Fonction."
+        "explanation": "L’héparine pharmaceutique renforce l’action anticoagulante de l’antithrombine."
       },
       {
         "content": "Se fait exclusivement dans les amyloplastes.",
@@ -160,17 +160,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Associe des chaînes de GAG à une protéine cœur.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Un protéoglycane est formé d’une protéine cœur portant une ou plusieurs chaînes de GAG."
       },
       {
         "content": "Peut participer à l’hydratation.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les charges des GAG attirent des ions et de l’eau dans la matrice extracellulaire."
       },
       {
         "content": "Peut amortir des chocs.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Leur forte hydratation aide les tissus à résister aux forces de compression."
       },
       {
         "content": "Est constitué uniquement de protéines.",
@@ -184,22 +184,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 73,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les protéoglycanes peuvent être agrégés lorsque :",
+    "question": "À propos des agrégats de protéoglycanes :",
     "choices": [
       {
         "content": "Plusieurs protéoglycanes se lient à un long filament d’acide hyaluronique.",
         "correct": true,
-        "explanation": "Organisation."
+        "explanation": "Une longue chaîne d’acide hyaluronique peut constituer l’axe de l’agrégat."
       },
       {
         "content": "Chaque protéoglycane garde une protéine cœur.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Chaque unité associée conserve sa protéine cœur et ses chaînes de GAG."
       },
       {
         "content": "L’ensemble contribue à la matrice extracellulaire.",
         "correct": true,
-        "explanation": "Contexte."
+        "explanation": "Ces assemblages volumineux sont des composants de la matrice extracellulaire."
       },
       {
         "content": "Chaque chaîne est obligatoirement du glycogène.",
@@ -213,27 +213,27 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 74,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les glycoprotéines décrites dans la fiche :",
+    "question": "À propos des glycoprotéines :",
     "choices": [
       {
         "content": "Possèdent une fraction protéique et une fraction glucidique.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Une glycoprotéine associe une chaîne polypeptidique à un ou plusieurs glycanes."
       },
       {
         "content": "Peuvent avoir une fraction glucidique très ramifiée.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "Les glycanes des glycoprotéines peuvent former des structures ramifiées."
       },
       {
         "content": "Peuvent contenir D-mannose, D-galactose, L-fucose ou NANA.",
         "correct": true,
-        "explanation": "Exemples."
+        "explanation": "Ces oses et dérivés peuvent entrer dans la composition des glycanes."
       },
       {
         "content": "Sont dépourvues de tout dérivé d’ose.",
         "correct": false,
-        "explanation": "Des osamines N-acétylées et NANA sont cités."
+        "explanation": "Les glycanes peuvent contenir des osamines N-acétylées et de l’acide sialique."
       }
     ],
     "explanation": "La fraction glucidique des glycoprotéines est diversifiée."
@@ -242,30 +242,30 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 75,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La liaison entre fraction glucidique et protéine peut être :",
+    "question": "À propos de la liaison entre la fraction glucidique et la protéine :",
     "choices": [
       {
-        "content": "O-glycosidique avec une fonction alcool d’un acide aminé comme sérine/thréonine.",
+        "content": "Elle peut être O-glycosidique avec la fonction alcool d’une sérine ou d’une thréonine.",
         "correct": true,
-        "explanation": "Modèle du support."
+        "explanation": "Une O-glycosylation peut engager le groupement hydroxyle d’une sérine ou d’une thréonine."
       },
       {
-        "content": "N-glycosidique avec une fonction azotée/amidée selon la fiche.",
+        "content": "Elle peut être N-glycosidique avec l’azote de la fonction amide d’une asparagine.",
         "correct": true,
-        "explanation": "Modèle du support."
+        "explanation": "Dans une N-glycosylation, le glycane est lié à l’azote amidique d’une asparagine."
       },
       {
-        "content": "Reliée à l’extrémité réductrice du sucre.",
+        "content": "Elle implique le carbone anomérique du premier ose du glycane.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Le carbone anomérique du premier ose du glycane participe à la liaison avec la protéine."
       },
       {
-        "content": "Toujours α(1→6) entre deux glucoses.",
+        "content": "Elle correspond toujours à une liaison α(1→6) entre deux glucoses.",
         "correct": false,
         "explanation": "Il s’agit ici d’une liaison sucre–protéine."
       }
     ],
-    "explanation": "La fiche distingue deux grands modes d’attachement glucidique aux protéines."
+    "explanation": "Les O-glycosylations et N-glycosylations se distinguent par l’atome de l’acide aminé engagé dans la liaison."
   },
   {
     "order": 76,
@@ -276,17 +276,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Reconnaissance spécifique.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycanes exposés peuvent porter des déterminants reconnus par d’autres molécules."
       },
       {
         "content": "Interactions cellulaires.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycoprotéines participent aux interactions entre cellules et avec leur environnement."
       },
       {
         "content": "Participation au repliement des protéines.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Certaines étapes de glycosylation contribuent au contrôle du repliement protéique."
       },
       {
         "content": "Uniquement stockage énergétique.",
@@ -300,22 +300,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un patient à risque de thrombose reçoit un médicament dont le principe biologique correspond à un GAG fortement sulfaté du chapitre :",
+    "question": "Un patient à risque de thrombose reçoit un médicament constitué d’un GAG fortement sulfaté :",
     "choices": [
       {
         "content": "Il s’agit de l’héparine.",
         "correct": true,
-        "explanation": "Usage médical explicite."
+        "explanation": "L’héparine est un anticoagulant utilisé pour prévenir ou traiter des événements thrombotiques."
       },
       {
         "content": "La molécule est proche de l’héparane sulfate.",
         "correct": true,
-        "explanation": "Relation structurale."
+        "explanation": "L’héparine et l’héparane sulfate sont des glycosaminoglycanes structuralement apparentés."
       },
       {
         "content": "La forte sulfatation est un repère utile.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "L’héparine se caractérise par une sulfatation particulièrement importante."
       },
       {
         "content": "Il s’agit de cellulose.",
@@ -323,33 +323,33 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Fibre végétale non anticoagulante."
       }
     ],
-    "explanation": "L’héparine fournit un contexte médical directement présent dans la fiche."
+    "explanation": "L’héparine est un GAG très sulfaté dont l’activité anticoagulante est exploitée en thérapeutique."
   },
   {
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Lors d’une dégranulation mastocytaire, le chapitre permet de relier l’événement à :",
+    "question": "À propos d’une dégranulation mastocytaire :",
     "choices": [
       {
-        "content": "Une libération d’héparine.",
+        "content": "Elle peut libérer de l’héparine.",
         "correct": true,
-        "explanation": "Stockage et dégranulation."
+        "explanation": "L’héparine fait partie des molécules présentes dans les granules de certains mastocytes."
       },
       {
-        "content": "Des granulations de mastocytes.",
+        "content": "Elle correspond à l’exocytose du contenu de granules mastocytaires.",
         "correct": true,
-        "explanation": "Localisation."
+        "explanation": "La dégranulation correspond à la libération du contenu des granules mastocytaires."
       },
       {
-        "content": "Un GAG fortement sulfaté.",
+        "content": "Elle peut libérer un GAG fortement sulfaté.",
         "correct": true,
-        "explanation": "Nature de l’héparine."
+        "explanation": "L’héparine libérée est un glycosaminoglycane fortement sulfaté."
       },
       {
-        "content": "Une libération massive d’amidon.",
+        "content": "Elle provoque une libération massive d’amidon.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "L’amidon est un polyoside végétal et n’est pas stocké par les mastocytes."
       }
     ],
     "explanation": "L’héparine est stockée dans les granulations mastocytaires."
@@ -363,22 +363,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’hydratation.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les groupements chargés des GAG favorisent la rétention d’eau."
       },
       {
         "content": "L’amortissement des chocs.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les agrégats hydratés de protéoglycanes résistent aux forces de compression."
       },
       {
         "content": "La signalisation cellulaire.",
         "correct": true,
-        "explanation": "Rôle également cité."
+        "explanation": "Certains protéoglycanes modulent la disponibilité et l’activité de molécules de signalisation."
       },
       {
         "content": "L’hydrolyse exclusive du lactose.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "L’hydrolyse du lactose relève de la lactase et non des protéoglycanes."
       }
     ],
     "explanation": "Les protéoglycanes associent propriétés mécaniques, hydriques et signalétiques."
@@ -392,17 +392,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un long filament d’acide hyaluronique peut servir d’axe.",
         "correct": true,
-        "explanation": "Organisation."
+        "explanation": "La chaîne d’acide hyaluronique forme un axe auquel s’associent des protéoglycanes."
       },
       {
         "content": "Plusieurs protéoglycanes peuvent s’y associer.",
         "correct": true,
-        "explanation": "Agrégation."
+        "explanation": "De nombreux protéoglycanes peuvent se fixer le long de la même chaîne d’acide hyaluronique."
       },
       {
         "content": "La protéine cœur demeure un élément de chaque protéoglycane.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Chaque protéoglycane reste constitué d’une protéine cœur portant des chaînes de GAG."
       },
       {
         "content": "L’agrégat est un triglycéride.",
@@ -421,22 +421,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "D-mannose ou D-galactose.",
         "correct": true,
-        "explanation": "Oses cités."
+        "explanation": "Le mannose et le galactose sont des constituants fréquents des glycanes."
       },
       {
         "content": "Des osamines souvent N-acétylées.",
         "correct": true,
-        "explanation": "Dérivés cités."
+        "explanation": "Les glycanes peuvent contenir des osamines sous forme N-acétylée."
       },
       {
         "content": "Du L-fucose.",
         "correct": true,
-        "explanation": "6-désoxy-L-galactose cité."
+        "explanation": "Le L-fucose, désoxyose dérivé du galactose, peut appartenir aux glycanes."
       },
       {
         "content": "Aucun NANA.",
         "correct": false,
-        "explanation": "Le NANA est au contraire cité."
+        "explanation": "L’acide N-acétylneuraminique, ou NANA, peut terminer certaines chaînes glucidiques."
       }
     ],
     "explanation": "La diversité des sucres contribue aux fonctions de reconnaissance des glycoprotéines."
@@ -445,27 +445,27 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 82,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La spécificité des groupes sanguins est citée comme exemple de rôle :",
+    "question": "Les déterminants glucidiques des groupes sanguins illustrent :",
     "choices": [
       {
-        "content": "De la fraction glucidique de glycoprotéines.",
+        "content": "Le rôle de la fraction glucidique de glycoprotéines.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Des antigènes de groupes sanguins peuvent être portés par les glycanes de glycoprotéines."
       },
       {
-        "content": "De mécanismes de reconnaissance spécifique.",
+        "content": "Des mécanismes de reconnaissance spécifique.",
         "correct": true,
-        "explanation": "Contexte."
+        "explanation": "La structure terminale des glycanes détermine une reconnaissance moléculaire spécifique."
       },
       {
-        "content": "De glycoconjugués de surface.",
+        "content": "Le rôle de glycoconjugués de surface.",
         "correct": true,
-        "explanation": "Nature générale."
+        "explanation": "Les déterminants ABO sont exposés à la surface des cellules sur des glycoconjugués."
       },
       {
         "content": "Exclusivement de l’amylose.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "L’amylose est un polyoside de réserve végétal sans rôle dans les groupes sanguins."
       }
     ],
     "explanation": "Les déterminants glucidiques contribuent à des phénomènes de reconnaissance tels que les groupes sanguins."
@@ -474,7 +474,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 83,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel GAG fortement sulfaté est utilisé comme anticoagulant selon la fiche ?",
+    "question": "Quel GAG fortement sulfaté est utilisé comme anticoagulant ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -515,7 +515,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "ignoreAccents": true
       }
     },
-    "explanation": "La fiche parle de protéine « cœur »."
+    "explanation": "Cette partie protéique est appelée protéine cœur et porte les chaînes de GAG."
   },
   {
     "order": 85,
@@ -527,17 +527,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "O-glycosidique.",
         "correct": true,
-        "explanation": "Via une fonction alcool."
+        "explanation": "La liaison O-glycosidique peut engager la fonction alcool d’une sérine ou d’une thréonine."
       },
       {
         "content": "N-glycosidique.",
         "correct": true,
-        "explanation": "Via une fonction azotée/amidée selon le support."
+        "explanation": "La liaison N-glycosidique engage l’azote amidique d’une asparagine."
       },
       {
         "content": "α(1→6) uniquement.",
         "correct": false,
-        "explanation": "Liaison sucre–sucre de branchement."
+        "explanation": "Une liaison α(1→6) relie deux oses et ne désigne pas le mode général d’ancrage à une protéine."
       },
       {
         "content": "Peptidique uniquement.",
@@ -545,7 +545,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Relie des acides aminés entre eux."
       }
     ],
-    "explanation": "Les deux grands modes cités sont O- et N-glycosidiques."
+    "explanation": "Les glycanes des glycoprotéines peuvent être liés à la protéine par une liaison O- ou N-glycosidique."
   },
   {
     "order": 86,
@@ -556,25 +556,25 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Leurs structures sont proches.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "L’héparine et l’héparane sulfate partagent une organisation générale apparentée."
       },
       {
-        "content": "L’héparine a des chaînes plus courtes dans la fiche.",
+        "content": "L’héparine est produite notamment par des mastocytes.",
         "correct": true,
-        "explanation": "Environ 10 résidus."
+        "explanation": "La production d’héparine est restreinte à certains types cellulaires, notamment des mastocytes."
       },
       {
         "content": "L’héparine est très fortement sulfatée.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "L’héparine présente une sulfatation plus extensive que l’héparane sulfate."
       },
       {
-        "content": "L’héparane est le médicament anticoagulant de référence du chapitre.",
+        "content": "L’héparane sulfate est l’anticoagulant pharmaceutique de référence.",
         "correct": false,
         "explanation": "Cette application est attribuée à l’héparine."
       }
     ],
-    "explanation": "La forte sulfatation et l’usage anticoagulant distinguent particulièrement l’héparine."
+    "explanation": "L’héparine se distingue par sa production spécialisée, sa forte sulfatation et son usage anticoagulant."
   },
   {
     "order": 87,
@@ -585,25 +585,25 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Son motif associe galactose et N-acétylglucosamine.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "Cette association d’un galactose et d’une N-acétylglucosamine définit son motif répété."
       },
       {
         "content": "Le motif décrit ne comporte pas d’acide uronique.",
         "correct": true,
-        "explanation": "Différence."
+        "explanation": "Contrairement à plusieurs autres GAG, son motif ne contient pas d’acide uronique."
       },
       {
         "content": "Une sulfatation en C6 est possible.",
         "correct": true,
-        "explanation": "Position."
+        "explanation": "Des sulfates peuvent être portés par le carbone 6 de certains résidus."
       },
       {
         "content": "Il est formé exclusivement de deux acides uroniques.",
         "correct": false,
-        "explanation": "Incorrect."
+        "explanation": "Le kératane sulfate associe un galactose et une osamine, et non deux acides uroniques."
       }
     ],
-    "explanation": "La composition du kératane est un piège classique parmi les GAG."
+    "explanation": "Le kératane sulfate se reconnaît à son motif galactose–N-acétylglucosamine dépourvu d’acide uronique."
   },
   {
     "order": 88,
@@ -615,52 +615,52 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’héparine est anticoagulante.",
         "correct": true,
-        "explanation": "Usage clinique."
+        "explanation": "L’héparine potentialise l’antithrombine et est utilisée comme médicament anticoagulant."
       },
       {
         "content": "L’héparine est stockée dans les mastocytes.",
         "correct": true,
-        "explanation": "Localisation."
+        "explanation": "L’héparine est présente dans les granules sécrétoires de certains mastocytes."
       },
       {
         "content": "Un protéoglycane possède une protéine cœur.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "La protéine cœur porte les chaînes de GAG qui composent le protéoglycane."
       },
       {
         "content": "Les glycoprotéines peuvent porter du NANA.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "L’acide N-acétylneuraminique peut appartenir à la fraction glucidique des glycoprotéines."
       },
       {
         "content": "Les glycoprotéines participent à la reconnaissance spécifique.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycanes exposés contribuent à la reconnaissance moléculaire spécifique."
       },
       {
         "content": "Le kératane contient nécessairement un acide uronique.",
         "correct": false,
-        "explanation": "Le motif cité n’en contient pas."
+        "explanation": "Le motif galactose–N-acétylglucosamine du kératane ne contient pas d’acide uronique."
       },
       {
         "content": "L’héparine est non sulfatée.",
         "correct": false,
-        "explanation": "Très sulfatée."
+        "explanation": "L’héparine est au contraire un glycosaminoglycane très fortement sulfaté."
       },
       {
         "content": "Un protéoglycane est un triglycéride.",
         "correct": false,
-        "explanation": "Glycoconjugué."
+        "explanation": "Un protéoglycane associe une protéine cœur à des chaînes de GAG."
       },
       {
         "content": "Les glycoprotéines sont dépourvues de sucres.",
         "correct": false,
-        "explanation": "Elles en contiennent."
+        "explanation": "Par définition, les glycoprotéines possèdent une fraction glucidique liée à une protéine."
       },
       {
         "content": "L’héparane sulfate n’a aucun rôle de signalisation.",
         "correct": false,
-        "explanation": "La signalisation est citée."
+        "explanation": "L’héparane sulfate participe à des interactions qui modulent la signalisation cellulaire."
       }
     ],
     "explanation": "Cette QRPL consolide les GAG sulfatés et les hétérosides."
@@ -691,7 +691,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 90,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un anticoagulant du chapitre est fortement sulfaté, stocké dans les mastocytes et proche de l’héparane sulfate. Quelles propositions sont exactes ?",
+    "question": "Un GAG fortement sulfaté, produit notamment par les mastocytes et proche de l’héparane sulfate, est utilisé comme anticoagulant. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Il s’agit de l’héparine.",
@@ -701,12 +701,12 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Sa forte sulfatation est un repère structural.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "L’héparine se distingue de l’héparane sulfate par une sulfatation plus extensive."
       },
       {
         "content": "Son usage concerne notamment les situations à risque de thrombose.",
         "correct": true,
-        "explanation": "Application du support."
+        "explanation": "Les héparines sont utilisées pour prévenir ou traiter des événements thromboemboliques."
       },
       {
         "content": "Il s’agit de l’acide hyaluronique.",
@@ -725,22 +725,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un protéoglycane.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Une protéine cœur portant plusieurs chaînes de GAG définit un protéoglycane."
       },
       {
         "content": "Un hétéroside.",
         "correct": true,
-        "explanation": "Association glucidique + non glucidique."
+        "explanation": "Un protéoglycane associe une composante glucidique à une composante protéique."
       },
       {
         "content": "Une structure pouvant participer à l’amortissement des chocs.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les GAG hydratés des protéoglycanes participent à la résistance aux forces de compression."
       },
       {
         "content": "Un diholoside libre.",
         "correct": false,
-        "explanation": "Structure macromoléculaire complexe."
+        "explanation": "Un protéoglycane est une macromolécule complexe et non un diholoside libre."
       }
     ],
     "explanation": "Les protéoglycanes relient GAG, matrice et protéine cœur."
@@ -754,25 +754,25 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Reconnaissance spécifique.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycanes membranaires peuvent porter des déterminants de reconnaissance spécifique."
       },
       {
         "content": "Interaction cellulaire.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycoprotéines de surface participent aux interactions entre cellules."
       },
       {
         "content": "Protection contre les protéases.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "La glycosylation peut masquer des sites sensibles et limiter l’accès de protéases."
       },
       {
         "content": "Transformation obligatoire en glycogène.",
         "correct": false,
-        "explanation": "Aucune telle fonction."
+        "explanation": "Une glycoprotéine membranaire n’est pas nécessairement transformée en glycogène."
       }
     ],
-    "explanation": "Les glycannes des glycoprotéines contribuent à plusieurs fonctions de surface et de stabilité."
+    "explanation": "Les glycanes des glycoprotéines contribuent à plusieurs fonctions de surface et de stabilité."
   },
   {
     "order": 93,
@@ -783,22 +783,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La présence d’acide L-iduronique dans le dermatane.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Le dermatane sulfate comporte de l’iduronate associé à la N-acétylgalactosamine."
       },
       {
         "content": "Le couple galactose + N-acétylglucosamine du kératane.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Le kératane sulfate associe un galactose à une N-acétylglucosamine."
       },
       {
         "content": "Les positions de sulfatation.",
         "correct": true,
-        "explanation": "Elles diffèrent."
+        "explanation": "Le profil et les positions de sulfatation contribuent à distinguer ces GAG."
       },
       {
         "content": "Le fait que les deux soient dépourvus de sulfate.",
         "correct": false,
-        "explanation": "Ils sont sulfatés."
+        "explanation": "Le dermatane sulfate et le kératane sulfate portent tous deux des groupements sulfate."
       }
     ],
     "explanation": "La composition du motif est le critère le plus discriminant."
@@ -812,22 +812,22 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’acide hyaluronique n’est pas sulfaté.",
         "correct": true,
-        "explanation": "Repère majeur."
+        "explanation": "L’acide hyaluronique est le principal GAG dépourvu de groupements sulfate."
       },
       {
         "content": "L’héparine est très fortement sulfatée.",
         "correct": true,
-        "explanation": "Repère majeur."
+        "explanation": "L’héparine présente une densité particulièrement élevée de groupements sulfate."
       },
       {
         "content": "L’héparine a un usage anticoagulant.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "L’activité anticoagulante de l’héparine est utilisée en thérapeutique."
       },
       {
         "content": "Les deux sont stockés dans les granulations mastocytaires.",
         "correct": false,
-        "explanation": "Seule l’héparine est décrite ainsi."
+        "explanation": "L’héparine, mais pas l’acide hyaluronique, est stockée dans des granules mastocytaires."
       }
     ],
     "explanation": "Les différences de sulfatation et de contexte biologique sont fondamentales."
@@ -836,7 +836,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 95,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une glycoprotéine porte un sucre sur une sérine. Selon le modèle du support :",
+    "question": "Une glycoprotéine porte un glycane sur une sérine. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Une liaison O-glycosidique est cohérente.",
@@ -846,12 +846,12 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La fonction alcool de l’acide aminé intervient.",
         "correct": true,
-        "explanation": "Principe."
+        "explanation": "Le groupement hydroxyle de la sérine fournit l’oxygène engagé dans la liaison."
       },
       {
         "content": "La liaison relie fraction glucidique et fraction protéique.",
         "correct": true,
-        "explanation": "Glycoprotéine."
+        "explanation": "La liaison covalente unit le premier ose du glycane à la chaîne polypeptidique."
       },
       {
         "content": "Il s’agit nécessairement d’une liaison α1→6 entre deux glucoses.",
@@ -865,30 +865,30 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 96,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une glycoprotéine porte un sucre via une fonction azotée/amidée d’un acide aminé selon la fiche :",
+    "question": "Une glycoprotéine porte un glycane sur l’azote amidique d’une asparagine. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Une liaison N-glycosidique est attendue.",
         "correct": true,
-        "explanation": "Nom du support."
+        "explanation": "Une liaison au groupement amide d’une asparagine correspond à une N-glycosylation."
       },
       {
         "content": "La liaison associe fraction glucidique et fraction protéique.",
         "correct": true,
-        "explanation": "Nature."
+        "explanation": "Cette liaison covalente unit la fraction glucidique à la chaîne polypeptidique."
       },
       {
         "content": "Elle se distingue d’une O-glycosidique via sérine/thréonine.",
         "correct": true,
-        "explanation": "Comparaison."
+        "explanation": "Une O-glycosylation engage au contraire le groupement hydroxyle d’une sérine ou d’une thréonine."
       },
       {
         "content": "Elle correspond à un embranchement α1→6 du glycogène.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Une liaison α(1→6) de glycogène relie deux glucoses et non un glycane à une protéine."
       }
     ],
-    "explanation": "La fiche oppose O- et N-glycosylation selon la fonction de l’acide aminé."
+    "explanation": "La N-glycosylation des glycoprotéines engage l’azote amidique d’un résidu d’asparagine."
   },
   {
     "order": 97,
@@ -904,17 +904,17 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un GAG sulfaté.",
         "correct": true,
-        "explanation": "Famille."
+        "explanation": "L’héparane sulfate appartient à la famille des glycosaminoglycanes sulfatés."
       },
       {
         "content": "Une molécule de matrice extracellulaire.",
         "correct": true,
-        "explanation": "Localisation générale."
+        "explanation": "Les chaînes d’héparane sulfate sont présentes à la surface cellulaire et dans la matrice extracellulaire."
       },
       {
         "content": "Du maltose.",
         "correct": false,
-        "explanation": "Diholoside alimentaire."
+        "explanation": "Le maltose est un diholoside de glucose dépourvu d’acide uronique et de glucosamine."
       }
     ],
     "explanation": "L’héparane sulfate se reconnaît par ses variantes de motif et son rôle de signalisation."
@@ -926,19 +926,19 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de l’organisation d’un agrégat de protéoglycanes autour de l’acide hyaluronique :",
     "choices": [
       {
-        "content": "Un filament d’acide hyaluronique peut servir de support longitudinal.",
+        "content": "Un filament d’acide hyaluronique peut constituer l’axe longitudinal.",
         "correct": true,
-        "explanation": "Organisation."
+        "explanation": "La longue chaîne d’acide hyaluronique forme l’axe central de l’agrégat."
       },
       {
         "content": "Plusieurs protéoglycanes peuvent s’y associer.",
         "correct": true,
-        "explanation": "Agrégat."
+        "explanation": "De nombreux protéoglycanes peuvent s’associer à la même chaîne d’acide hyaluronique."
       },
       {
         "content": "Chaque protéoglycane comporte une protéine cœur.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Chaque protéoglycane possède une protéine cœur à laquelle ses GAG sont liés."
       },
       {
         "content": "L’acide hyaluronique devient automatiquement sulfaté.",
@@ -953,27 +953,27 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois rôles des glycoprotéines explicitement cités parmi les propositions suivantes.",
+    "question": "Sélectionnez exactement trois fonctions biologiques des glycoprotéines.",
     "choices": [
       {
         "content": "Reconnaissance spécifique.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycanes peuvent former des déterminants reconnus spécifiquement par des récepteurs ou anticorps."
       },
       {
         "content": "Participation au repliement des protéines.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "La glycosylation participe au contrôle qualité et au repliement de certaines protéines."
       },
       {
         "content": "Protection contre les protéases.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Des glycanes peuvent limiter l’accès des protéases à la chaîne polypeptidique."
       },
       {
         "content": "Stockage du glucose sous forme de granules hépatiques.",
         "correct": false,
-        "explanation": "Rôle du glycogène."
+        "explanation": "Le stockage intracellulaire du glucose sous forme de granules relève du glycogène."
       }
     ],
     "explanation": "La fraction glucidique des glycoprotéines contribue à la reconnaissance, au repliement et à la protection."
@@ -988,54 +988,54 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le dermatane contient de l’acide L-iduronique.",
         "correct": true,
-        "explanation": "Structure."
+        "explanation": "L’acide L-iduronique entre dans la composition du motif du dermatane sulfate."
       },
       {
         "content": "Le kératane associe galactose et N-acétylglucosamine.",
         "correct": true,
-        "explanation": "Structure."
+        "explanation": "Le motif du kératane sulfate associe galactose et N-acétylglucosamine."
       },
       {
         "content": "L’héparane sulfate intervient dans la signalisation cellulaire.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "L’héparane sulfate module des interactions impliquées dans la signalisation cellulaire."
       },
       {
         "content": "L’héparine est anticoagulante.",
         "correct": true,
-        "explanation": "Rôle clinique."
+        "explanation": "L’héparine potentialise l’antithrombine et est utilisée comme médicament anticoagulant."
       },
       {
         "content": "Les protéoglycanes peuvent s’agréger sur l’acide hyaluronique.",
         "correct": true,
-        "explanation": "Organisation."
+        "explanation": "Une chaîne d’acide hyaluronique peut servir d’axe à un agrégat de protéoglycanes."
       },
       {
         "content": "L’héparine n’est jamais sulfatée.",
         "correct": false,
-        "explanation": "Très sulfatée."
+        "explanation": "L’héparine est au contraire un GAG caractérisé par une sulfatation très importante."
       },
       {
         "content": "Le kératane est un glucane homogène de glucose.",
         "correct": false,
-        "explanation": "GAG hétérogène."
+        "explanation": "Le kératane est un hétéropolyoside associant galactose et N-acétylglucosamine."
       },
       {
         "content": "Les glycoprotéines ne contiennent jamais de NANA.",
         "correct": false,
-        "explanation": "NANA cité."
+        "explanation": "L’acide N-acétylneuraminique peut faire partie des glycanes de glycoprotéines."
       },
       {
         "content": "Les protéoglycanes ne possèdent aucune protéine.",
         "correct": false,
-        "explanation": "Protéine cœur."
+        "explanation": "Par définition, un protéoglycane possède une protéine cœur portant des GAG."
       },
       {
         "content": "La spécificité des groupes sanguins est sans lien avec les glycoconjugués.",
         "correct": false,
-        "explanation": "Elle est citée comme rôle."
+        "explanation": "Des déterminants de groupes sanguins sont portés par des glycoconjugués de surface."
       }
     ],
-    "explanation": "Le MASTER rassemble les principaux GAG sulfatés et glycoconjugués."
+    "explanation": "Ce bilan mobilise la composition, l’organisation et les fonctions des principaux GAG et glycoconjugués."
   }
 ];

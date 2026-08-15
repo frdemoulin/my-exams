@@ -15,22 +15,22 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Lactose → galactose + glucose.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "L’hydrolyse du lactose libère un galactose et un glucose."
       },
       {
         "content": "Saccharose → glucose + fructose.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "L’hydrolyse du saccharose libère un glucose et un fructose."
       },
       {
         "content": "Maltose → glucose + glucose.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "Le maltose est constitué de deux résidus de glucose."
       },
       {
         "content": "Saccharose → galactose + mannose.",
         "correct": false,
-        "explanation": "Incorrect."
+        "explanation": "Le saccharose associe glucose et fructose, sans galactose ni mannose."
       }
     ],
     "explanation": "Les trois diholosides se distinguent par leur composition."
@@ -44,22 +44,22 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Amidon : réserve végétale.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "L’amidon est la principale forme de réserve glucidique des végétaux."
       },
       {
         "content": "Glycogène : réserve animale.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Le glycogène permet le stockage intracellulaire du glucose chez les animaux."
       },
       {
         "content": "Cellulose : structure végétale.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "La cellulose est un constituant structural majeur de la paroi végétale."
       },
       {
         "content": "Cellulose : réserve musculaire humaine.",
         "correct": false,
-        "explanation": "Incorrect."
+        "explanation": "La réserve glucidique du muscle humain est le glycogène, et non la cellulose."
       }
     ],
     "explanation": "Les trois glucanes ont des rôles biologiques différents."
@@ -73,17 +73,17 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’amylopectine.",
         "correct": true,
-        "explanation": "Branchements."
+        "explanation": "Les points de branchement de l’amylopectine sont constitués de liaisons α(1→6)."
       },
       {
         "content": "Le glycogène.",
         "correct": true,
-        "explanation": "Branchements."
+        "explanation": "Les nombreux embranchements du glycogène utilisent des liaisons α(1→6)."
       },
       {
         "content": "Des glucanes de réserve ramifiés.",
         "correct": true,
-        "explanation": "Catégorie."
+        "explanation": "L’amylopectine et le glycogène sont des glucanes de réserve ramifiés."
       },
       {
         "content": "La chaîne de cellulose β(1→4).",
@@ -102,17 +102,17 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Les carboxylates peuvent apporter des charges négatives.",
         "correct": true,
-        "explanation": "Acides uroniques."
+        "explanation": "Les fonctions carboxylates des acides uroniques sont chargées négativement au pH physiologique."
       },
       {
         "content": "Les sulfates peuvent apporter des charges négatives.",
         "correct": true,
-        "explanation": "GAG sulfatés."
+        "explanation": "Les esters sulfate augmentent la densité de charges négatives des GAG sulfatés."
       },
       {
-        "content": "La chondroïtine sulfate est décrite comme polyanion.",
+        "content": "La chondroïtine sulfate est un polyanion.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "Ses carboxylates et ses groupements sulfate lui confèrent de nombreuses charges négatives."
       },
       {
         "content": "L’acide hyaluronique n’a aucune charge car il n’est pas sulfaté.",
@@ -126,30 +126,30 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 105,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un contexte de thrombose, le GAG thérapeutique cité est :",
+    "question": "À propos du GAG utilisé comme anticoagulant dans un contexte de thrombose :",
     "choices": [
       {
         "content": "L’héparine.",
         "correct": true,
-        "explanation": "Usage anticoagulant."
+        "explanation": "L’héparine est utilisée pour prévenir ou traiter des événements thromboemboliques."
       },
       {
-        "content": "Fortement sulfaté.",
+        "content": "Il est fortement sulfaté.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "L’héparine possède une densité particulièrement élevée de groupements sulfate."
       },
       {
-        "content": "Proche de l’héparane sulfate.",
+        "content": "Il est proche de l’héparane sulfate.",
         "correct": true,
-        "explanation": "Structure."
+        "explanation": "L’héparine et l’héparane sulfate appartiennent à la même famille structurale."
       },
       {
         "content": "La cellulose.",
         "correct": false,
-        "explanation": "Fibre végétale."
+        "explanation": "La cellulose est un polyoside structural végétal dépourvu d’activité anticoagulante."
       }
     ],
-    "explanation": "L’héparine constitue le principal contexte pharmacologique du chapitre."
+    "explanation": "L’héparine est un GAG très sulfaté dont l’activité anticoagulante est exploitée en thérapeutique."
   },
   {
     "order": 106,
@@ -158,27 +158,27 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Dans le contexte de la fécondation :",
     "choices": [
       {
-        "content": "La hyaluronidase est citée.",
+        "content": "Une hyaluronidase peut intervenir.",
         "correct": true,
-        "explanation": "Enzyme."
+        "explanation": "Des hyaluronidases associées aux spermatozoïdes participent au franchissement de la matrice du cumulus."
       },
       {
         "content": "Elle hydrolyse l’acide hyaluronique.",
         "correct": true,
-        "explanation": "Substrat."
+        "explanation": "Les hyaluronidases catalysent la dégradation de l’acide hyaluronique."
       },
       {
-        "content": "Cette action participe à la pénétration du spermatozoïde.",
+        "content": "Cette action participe à la progression du spermatozoïde à travers le cumulus.",
         "correct": true,
-        "explanation": "Contexte."
+        "explanation": "La dégradation de la matrice riche en hyaluronane facilite la progression à travers le cumulus."
       },
       {
         "content": "Elle hydrolyse spécifiquement le glycogène musculaire.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Le glycogène est dégradé par des enzymes distinctes des hyaluronidases."
       }
     ],
-    "explanation": "Ce contexte physiologique relie une enzyme à un GAG de matrice."
+    "explanation": "Lors de la fécondation, des hyaluronidases facilitent la progression du spermatozoïde dans la matrice hyaluronique du cumulus."
   },
   {
     "order": 107,
@@ -189,22 +189,22 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "À la reconnaissance spécifique.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycanes de surface peuvent former des déterminants de reconnaissance spécifique."
       },
       {
         "content": "Aux interactions cellulaires.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycoprotéines membranaires participent aux interactions entre cellules."
       },
       {
         "content": "À la spécificité de groupes sanguins.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Certains déterminants de groupes sanguins sont portés par des glycoconjugués de surface."
       },
       {
         "content": "Uniquement à la réserve énergétique.",
         "correct": false,
-        "explanation": "Incorrect."
+        "explanation": "Les fonctions des glycoprotéines dépassent largement le stockage énergétique."
       }
     ],
     "explanation": "La fraction glucidique des glycoprotéines joue de nombreux rôles de surface."
@@ -236,27 +236,27 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux GAG du chapitre qui se distinguent ici par « non sulfaté » versus « très fortement sulfaté ».",
+    "question": "Sélectionnez exactement les deux GAG correspondant respectivement aux propriétés « non sulfaté » et « très fortement sulfaté ».",
     "choices": [
       {
         "content": "Acide hyaluronique.",
         "correct": true,
-        "explanation": "Non sulfaté."
+        "explanation": "L’acide hyaluronique est un GAG dépourvu de groupements sulfate."
       },
       {
         "content": "Héparine.",
         "correct": true,
-        "explanation": "Très fortement sulfatée."
+        "explanation": "L’héparine se caractérise par une sulfatation particulièrement importante."
       },
       {
         "content": "Amylose.",
         "correct": false,
-        "explanation": "Pas un GAG."
+        "explanation": "L’amylose est un glucane de réserve végétal et non un GAG."
       },
       {
         "content": "Maltose.",
         "correct": false,
-        "explanation": "Diholoside."
+        "explanation": "Le maltose est un diholoside de glucose et non un GAG."
       }
     ],
     "explanation": "Acide hyaluronique et héparine représentent deux extrêmes utiles à comparer."
@@ -271,47 +271,47 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le saccharose est non réducteur.",
         "correct": true,
-        "explanation": "Deux centres engagés."
+        "explanation": "Les deux carbones anomériques du saccharose participent à la liaison osidique."
       },
       {
         "content": "Le glycogène est associé à la glycogénine.",
         "correct": true,
-        "explanation": "Organisation."
+        "explanation": "La glycogénine sert d’amorce protéique à la synthèse du glycogène."
       },
       {
         "content": "La cellulose n’est pas digérée par l’Homme.",
         "correct": true,
-        "explanation": "Absence de β-glucosidase adaptée."
+        "explanation": "Les enzymes digestives humaines ne rompent pas les liaisons β(1→4) de la cellulose."
       },
       {
         "content": "L’acide hyaluronique participe à l’hydratation tissulaire.",
         "correct": true,
-        "explanation": "Fonction."
+        "explanation": "L’acide hyaluronique retient l’eau et contribue à l’hydratation de la matrice."
       },
       {
         "content": "L’héparine est anticoagulante.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "L’héparine potentialise l’antithrombine et est utilisée comme anticoagulant."
       },
       {
         "content": "Le lactose contient du fructose.",
         "correct": false,
-        "explanation": "Galactose + glucose."
+        "explanation": "Le lactose associe un galactose à un glucose et ne contient pas de fructose."
       },
       {
         "content": "L’amylose est fortement ramifiée.",
         "correct": false,
-        "explanation": "Linéaire."
+        "explanation": "L’amylose est essentiellement une chaîne linéaire de glucoses liés en α(1→4)."
       },
       {
         "content": "La cellulose est α1→4.",
         "correct": false,
-        "explanation": "β1→4."
+        "explanation": "La cellulose est constituée de glucoses reliés par des liaisons β(1→4)."
       },
       {
         "content": "L’acide hyaluronique est fortement sulfaté.",
         "correct": false,
-        "explanation": "Non sulfaté."
+        "explanation": "L’acide hyaluronique ne porte pas de groupements sulfate."
       },
       {
         "content": "Les glycoprotéines sont dépourvues de glucides.",
@@ -319,7 +319,7 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Par définition, elles en contiennent."
       }
     ],
-    "explanation": "La synthèse PRACTICE couvre les repères centraux du chapitre."
+    "explanation": "Ce bilan mobilise la structure, la digestion et les fonctions biologiques des principaux osides."
   },
   {
     "order": 111,
@@ -330,22 +330,22 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le lactose est le diholoside concerné.",
         "correct": true,
-        "explanation": "Sucre du lait."
+        "explanation": "Le lactose est le principal diholoside naturellement présent dans le lait."
       },
       {
         "content": "La lactase est une β-galactosidase.",
         "correct": true,
-        "explanation": "Enzyme."
+        "explanation": "La lactase hydrolyse la liaison β-galactosidique du lactose."
       },
       {
         "content": "Les produits d’hydrolyse attendus sont glucose et galactose.",
         "correct": true,
-        "explanation": "Produits."
+        "explanation": "L’hydrolyse du lactose libère un glucose et un galactose."
       },
       {
         "content": "Le mécanisme concerne l’hydrolyse de cellulose.",
         "correct": false,
-        "explanation": "Autre polymère."
+        "explanation": "La cellulose est un polymère β(1→4) distinct du lactose."
       }
     ],
     "explanation": "Le contexte médical est entièrement résoluble à partir de la digestion du lactose."
@@ -364,17 +364,17 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "D’un glucane ramifié.",
         "correct": true,
-        "explanation": "Nature."
+        "explanation": "Le glycogène est un homopolymère ramifié de résidus de glucose."
       },
       {
         "content": "D’un polymère associé à la glycogénine.",
         "correct": true,
-        "explanation": "Organisation."
+        "explanation": "La glycogénine constitue l’amorce protéique située au cœur d’une particule de glycogène."
       },
       {
         "content": "De cellulose.",
         "correct": false,
-        "explanation": "β1→4 structurale végétale."
+        "explanation": "La cellulose est un polymère végétal linéaire en β(1→4), distinct du glycogène."
       }
     ],
     "explanation": "La localisation cellulaire et l’architecture convergent vers le glycogène."
@@ -393,17 +393,17 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "D’un polymère de glucose.",
         "correct": true,
-        "explanation": "Nature."
+        "explanation": "La cellulose est un homopolymère constitué exclusivement de résidus de glucose."
       },
       {
         "content": "D’une fibre alimentaire.",
         "correct": true,
-        "explanation": "Contexte."
+        "explanation": "Non hydrolysée par les enzymes digestives humaines, la cellulose appartient aux fibres alimentaires."
       },
       {
         "content": "D’amylopectine.",
         "correct": false,
-        "explanation": "α-glucane ramifié digestible."
+        "explanation": "L’amylopectine est un α-glucane ramifié digestible, contrairement à la cellulose."
       }
     ],
     "explanation": "La cellulose se reconnaît par sa liaison β1→4 et son rôle structural."
@@ -422,12 +422,12 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "D’un polymère contribuant à l’hydratation.",
         "correct": true,
-        "explanation": "Fonction."
+        "explanation": "Ses nombreuses charges favorisent la rétention d’eau et la viscoélasticité de la matrice."
       },
       {
-        "content": "D’un GAG non lié à une protéine dans le modèle du support.",
+        "content": "D’un GAG généralement non lié de façon covalente à une protéine cœur.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "Contrairement aux autres GAG, l’acide hyaluronique n’est généralement pas synthétisé comme chaîne d’un protéoglycane."
       },
       {
         "content": "D’héparine.",
@@ -446,46 +446,46 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il s’agit de l’héparine.",
         "correct": true,
-        "explanation": "Identification."
+        "explanation": "Les indices de stockage mastocytaire et d’usage anticoagulant identifient l’héparine."
       },
       {
         "content": "Le GAG est fortement sulfaté.",
         "correct": true,
-        "explanation": "Caractéristique."
+        "explanation": "L’héparine présente une sulfatation plus extensive que l’héparane sulfate."
       },
       {
         "content": "Il est proche de l’héparane sulfate.",
         "correct": true,
-        "explanation": "Relation."
+        "explanation": "L’héparine et l’héparane sulfate appartiennent à la même famille structurale."
       },
       {
         "content": "Il s’agit d’un homoglycane de glucose.",
         "correct": false,
-        "explanation": "Incorrect."
+        "explanation": "L’héparine est un hétéropolyoside comportant des osamines et des acides uroniques."
       }
     ],
-    "explanation": "La pharmacologie de l’héparine constitue une application directe du cours."
+    "explanation": "L’héparine est un GAG très sulfaté produit notamment par les mastocytes et utilisé comme anticoagulant."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une glycoprotéine porte des déterminants glucidiques responsables d’une reconnaissance spécifique. Le chapitre permet de relier cela :",
+    "question": "Une glycoprotéine porte des déterminants glucidiques responsables d’une reconnaissance spécifique. Cette propriété peut être reliée :",
     "choices": [
       {
         "content": "Aux interactions cellulaires.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les glycanes de surface participent aux interactions entre cellules."
       },
       {
         "content": "À la spécificité de certains groupes sanguins.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "Certains antigènes de groupes sanguins correspondent à des structures glucidiques de surface."
       },
       {
         "content": "À une fraction glucidique pouvant contenir fucose ou NANA.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "Le fucose et l’acide N-acétylneuraminique peuvent appartenir aux glycanes."
       },
       {
         "content": "À l’absence totale de ramifications glucidiques.",
@@ -493,13 +493,13 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La fraction peut être très ramifiée."
       }
     ],
-    "explanation": "Les glycannes de surface sont des supports de reconnaissance."
+    "explanation": "Les glycanes de surface portent des déterminants qui participent à la reconnaissance moléculaire et aux interactions cellulaires."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "L’amidon est décrit comme environ 20 % d’amylose et 80 % d’amylopectine. Quelle est la somme de ces proportions, en pourcentage ?",
+    "question": "Dans un modèle simplifié, un amidon contient environ 20 % d’amylose et 80 % d’amylopectine. Quelle est la somme de ces proportions, en pourcentage ?",
     "answer": {
       "type": "number",
       "value": 100,
@@ -511,7 +511,7 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 118,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel nom porte le dimère de deux β-D-glucoses liés en β(1→4), unité de base mise en avant pour la cellulose ?",
+    "question": "Quel nom porte le dimère de deux β-D-glucoses liés en β(1→4), représentatif de l’enchaînement de la cellulose ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -536,17 +536,17 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le saccharose est non réducteur mais hydrolysable.",
         "correct": true,
-        "explanation": "Deux propriétés distinctes."
+        "explanation": "Le saccharose reste hydrolysable bien que ses deux carbones anomériques soient engagés."
       },
       {
         "content": "Le lactose est réducteur et hydrolysable par la lactase.",
         "correct": true,
-        "explanation": "Deux propriétés."
+        "explanation": "Le lactose conserve un carbone anomérique libre et sa liaison est hydrolysée par la lactase."
       },
       {
         "content": "Le maltose est réducteur et hydrolysable par la maltase.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Le maltose possède un carbone anomérique libre et peut être hydrolysé par la maltase."
       },
       {
         "content": "« Non réducteur » signifie « impossible à hydrolyser ».",
@@ -563,19 +563,19 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Comparer acide hyaluronique et agrégats de protéoglycanes :",
     "choices": [
       {
-        "content": "L’acide hyaluronique peut servir de long filament support.",
+        "content": "L’acide hyaluronique peut constituer un long axe moléculaire.",
         "correct": true,
-        "explanation": "Organisation."
+        "explanation": "Une longue chaîne d’acide hyaluronique forme l’axe central de certains agrégats."
       },
       {
         "content": "Plusieurs protéoglycanes peuvent s’y fixer.",
         "correct": true,
-        "explanation": "Agrégation."
+        "explanation": "De nombreux protéoglycanes peuvent s’associer le long de cet axe hyaluronique."
       },
       {
         "content": "Les protéoglycanes possèdent des protéines cœur.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Chaque protéoglycane possède une protéine cœur portant des chaînes de GAG."
       },
       {
         "content": "Le filament hyaluronique doit être fortement sulfaté.",
@@ -590,27 +590,27 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois associations biologiques ou médicales conformes à la fiche.",
+    "question": "Sélectionnez exactement trois associations biologiques ou médicales correctes.",
     "choices": [
       {
         "content": "Héparine — anticoagulation.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "L’héparine est utilisée en thérapeutique pour son activité anticoagulante."
       },
       {
         "content": "Hyaluronidase — fécondation.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "Des hyaluronidases facilitent la progression du spermatozoïde à travers la matrice du cumulus."
       },
       {
         "content": "Glycoprotéines — spécificité des groupes sanguins.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "Certains déterminants de groupes sanguins sont portés par les glycanes de glycoprotéines."
       },
       {
         "content": "Cellulose — réserve énergétique des neurones.",
         "correct": false,
-        "explanation": "Incorrect."
+        "explanation": "Les neurones n’utilisent pas la cellulose comme réserve énergétique."
       }
     ],
     "explanation": "Ces associations donnent du sens biologique aux structures glucidiques."
@@ -625,54 +625,54 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Lactose : galactose + glucose.",
         "correct": true,
-        "explanation": "Composition."
+        "explanation": "Le lactose est constitué d’un galactose et d’un glucose."
       },
       {
         "content": "Amidon : réserve végétale.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "L’amidon est la principale forme de réserve glucidique des végétaux."
       },
       {
         "content": "Glycogène : réserve animale.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Le glycogène assure le stockage intracellulaire du glucose chez les animaux."
       },
       {
         "content": "Cellulose : liaisons β(1→4).",
         "correct": true,
-        "explanation": "Structure."
+        "explanation": "Les glucoses de la cellulose sont reliés par des liaisons β(1→4)."
       },
       {
         "content": "Héparine : anticoagulant fortement sulfaté.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "L’héparine est un GAG très sulfaté utilisé comme médicament anticoagulant."
       },
       {
         "content": "Saccharose : réducteur.",
         "correct": false,
-        "explanation": "Non réducteur."
+        "explanation": "Le saccharose est non réducteur car ses deux carbones anomériques sont engagés."
       },
       {
         "content": "Amylose : ramifiée α1→6.",
         "correct": false,
-        "explanation": "Linéaire α1→4."
+        "explanation": "L’amylose est essentiellement linéaire et comporte des liaisons α(1→4)."
       },
       {
         "content": "Acide hyaluronique : fortement sulfaté.",
         "correct": false,
-        "explanation": "Non sulfaté."
+        "explanation": "L’acide hyaluronique est un glycosaminoglycane dépourvu de groupements sulfate."
       },
       {
         "content": "Kératane : homoglycane de glucose.",
         "correct": false,
-        "explanation": "GAG hétérogène."
+        "explanation": "Le kératane sulfate associe galactose et N-acétylglucosamine."
       },
       {
         "content": "Protéoglycane : dépourvu de protéine cœur.",
         "correct": false,
-        "explanation": "Il en possède une."
+        "explanation": "Un protéoglycane possède une protéine cœur portant ses chaînes de GAG."
       }
     ],
-    "explanation": "Le MASTER final mobilise l’ensemble du chapitre sans sortir du support."
+    "explanation": "Ce bilan final mobilise la composition, les liaisons, l’organisation et les fonctions des principaux osides."
   }
 ];
