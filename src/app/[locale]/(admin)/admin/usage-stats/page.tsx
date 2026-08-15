@@ -64,15 +64,16 @@ const renderTable = (title: string, rows: CountItem[], emptyLabel = "Aucune donn
 );
 
 interface UsageStatsPageProps {
-  searchParams?: {
-    from?: string;
-    to?: string;
-  };
+  searchParams?: Promise<{
+    from?: string | string[];
+    to?: string | string[];
+  }>;
 }
 
-const parseDateInput = (value?: string) => {
-  if (!value) return null;
-  const date = new Date(value);
+const parseDateInput = (value?: string | string[]) => {
+  const input = Array.isArray(value) ? value[0] : value;
+  if (!input) return null;
+  const date = new Date(input);
   if (Number.isNaN(date.valueOf())) return null;
   return date;
 };
@@ -102,8 +103,9 @@ const UsageStatsPage = async ({ searchParams }: UsageStatsPageProps) => {
   const defaultWindowDays =
     Number.isFinite(rawWindowDays) && rawWindowDays > 0 ? rawWindowDays : 90;
   const today = new Date();
-  const parsedFrom = parseDateInput(searchParams?.from);
-  const parsedTo = parseDateInput(searchParams?.to);
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const parsedFrom = parseDateInput(resolvedSearchParams?.from);
+  const parsedTo = parseDateInput(resolvedSearchParams?.to);
   const toDate = parsedTo ? endOfDay(parsedTo) : endOfDay(today);
   const fromDate = parsedFrom
     ? startOfDay(parsedFrom)

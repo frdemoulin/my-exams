@@ -25,9 +25,9 @@ type PageProps = {
   params: Promise<{
     id: string;
   }>;
-  searchParams?: {
-    returnTo?: string;
-  };
+  searchParams?: Promise<{
+    returnTo?: string | string[];
+  }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -99,7 +99,10 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
   const defaultBackHref = subjectId
     ? `/diplomes/${examPaper.diplomaId}/matieres/${subjectId}/sessions/${examPaper.sessionYear}`
     : '/diplomes';
-  const returnToParam = searchParams?.returnTo?.trim() ?? null;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const rawReturnToParam = resolvedSearchParams?.returnTo;
+  const returnToParam =
+    (Array.isArray(rawReturnToParam) ? rawReturnToParam[0] : rawReturnToParam)?.trim() ?? null;
   const safeReturnTo =
     returnToParam && returnToParam.startsWith('/') && !returnToParam.startsWith('//')
       ? returnToParam
