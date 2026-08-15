@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
       },
       {
         "content": "4",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
       },
       {
         "content": "6",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
       }
     ],
     "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
@@ -72,25 +72,25 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C1 correspond à la position α.",
         "correct": true,
-        "explanation": "La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "Dans la nomenclature traditionnelle, les positions 1, 2 et 3 sont aussi notées α, β et α′."
       },
       {
         "content": "C2 correspond à la position β.",
         "correct": true,
-        "explanation": "La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "La position centrale C2 correspond à β."
       },
       {
         "content": "C3 peut être noté α′.",
         "correct": true,
-        "explanation": "La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "La seconde extrémité du glycérol peut être notée α′."
       },
       {
         "content": "La notation α, β, α′ rend C1 et C3 strictement équivalents pour toutes les enzymes.",
         "correct": false,
-        "explanation": "La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "Les extrémités du glycérol sont énantiotopiques et peuvent être distinguées par une enzyme."
       }
     ],
-    "explanation": "La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+    "explanation": "La nomenclature stéréospécifique sn permet de distinguer les positions du squelette glycérol."
   },
   {
     "order": 4,
@@ -101,25 +101,25 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "β",
         "correct": true,
-        "explanation": "La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "La position centrale C2 est traditionnellement notée β."
       },
       {
         "content": "α",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "α correspond à une position terminale, pas à C2."
       },
       {
         "content": "α′",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "α′ correspond à l'autre position terminale, pas à C2."
       },
       {
         "content": "γ",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+        "explanation": "La notation traditionnelle de C2 est β."
       }
     ],
-    "explanation": "La fiche associe 1-2-3 à α-β-α′ et souligne la stéréospécificité enzymatique."
+    "explanation": "C2 est la position β du glycérol."
   },
   {
     "order": 5,
@@ -128,7 +128,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la stéréospécificité du glycérol :",
     "choices": [
       {
-        "content": "C1 et C3 ne sont pas identiques en représentation tridimensionnelle.",
+        "content": "C1 et C3 sont énantiotopiques et peuvent être distingués par une enzyme.",
         "correct": true,
         "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
       },
@@ -138,7 +138,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
       },
       {
-        "content": "La glycérol kinase phosphoryle C3 dans l'exemple donné.",
+        "content": "La glycérol kinase forme du sn-glycérol-3-phosphate.",
         "correct": true,
         "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
       },
@@ -154,27 +154,27 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 6,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle position la glycérol kinase phosphoryle-t-elle dans la fiche ?",
+    "question": "Quelle position est phosphorylée dans le sn-glycérol-3-phosphate formé par la glycérol kinase ?",
     "choices": [
       {
         "content": "C3",
         "correct": true,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "La glycérol kinase forme le sn-glycérol-3-phosphate."
       },
       {
         "content": "C1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
       },
       {
         "content": "C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
       },
       {
         "content": "les trois positions",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
       }
     ],
     "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "1,3-diacylglycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
       },
       {
         "content": "triacylglycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
       },
       {
         "content": "phosphatidate",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
       }
     ],
     "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "1,2-diacylglycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
       },
       {
         "content": "2-monoacylglycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
       },
       {
         "content": "triacylglycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
       }
     ],
     "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le triacylglycérol correspond à l'estérification complète du glycérol."
+        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
       },
       {
         "content": "2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le triacylglycérol correspond à l'estérification complète du glycérol."
+        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
       },
       {
         "content": "4",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le triacylglycérol correspond à l'estérification complète du glycérol."
+        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
       }
     ],
     "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "triglycéride mixte",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
+        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
       },
       {
         "content": "lysophospholipide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
+        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
       },
       {
         "content": "céramide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
+        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
       }
     ],
     "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
@@ -454,17 +454,17 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "stéaryl",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
       },
       {
         "content": "palmitoyl",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
       },
       {
         "content": "arachidonyl",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
       }
     ],
     "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
@@ -561,17 +561,17 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "Le carbone central C2 porte l'alcool secondaire."
       },
       {
         "content": "C3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "Le carbone central C2 porte l'alcool secondaire."
       },
       {
         "content": "aucun",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "Le carbone central C2 porte l'alcool secondaire."
       }
     ],
     "explanation": "Le carbone central C2 porte l'alcool secondaire."
@@ -641,7 +641,7 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C1 et C3 sont toujours indiscernables pour les enzymes.",
         "correct": false,
-        "explanation": "La fiche souligne leur distinction."
+        "explanation": "Une enzyme peut distinguer les deux positions énantiotopiques."
       },
       {
         "content": "La liaison acyle-glycérol est une amide.",
@@ -659,9 +659,9 @@ export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "3."
       },
       {
-        "content": "La glycérol kinase phosphoryle C2 dans la fiche.",
+        "content": "La glycérol kinase produit du glycérol-2-phosphate.",
         "correct": false,
-        "explanation": "C3."
+        "explanation": "Elle produit du sn-glycérol-3-phosphate."
       }
     ],
     "explanation": "Cette synthèse structurelle clôt la section."

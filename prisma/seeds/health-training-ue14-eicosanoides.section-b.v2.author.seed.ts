@@ -28,9 +28,9 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Rôle pédagogique."
       },
       {
-        "content": "Est présenté comme un prostanoïde naturel majeur circulant.",
+        "content": "Est un prostanoïde naturel majeur circulant.",
         "correct": false,
-        "explanation": "La fiche le présente comme structure de référence non naturelle."
+        "explanation": "L’acide prostanoïque est un squelette de référence utilisé pour la nomenclature, et non un prostanoïde circulant majeur."
       }
     ],
     "explanation": "L’acide prostanoïque est un squelette de référence pour lire les prostanoïdes."
@@ -42,7 +42,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Dans le squelette prostanoïde :",
     "choices": [
       {
-        "content": "Le cycle est formé entre les carbones C8 et C12 dans le repérage du support.",
+        "content": "Le cycle implique les carbones C8 à C12 du squelette prostanoïde.",
         "correct": true,
         "explanation": "Repère."
       },
@@ -126,7 +126,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 27,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle série de prostaglandines est la plus fréquente dans le support et dérive de l’acide arachidonique ?",
+    "question": "Quelle série de prostaglandines dérive de l’acide arachidonique ?",
     "choices": [
       {
         "content": "Série 2.",
@@ -136,12 +136,12 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Série 1.",
         "correct": false,
-        "explanation": "Rare."
+        "explanation": "La série 1 peut dériver de l'acide dihomo-γ-linolénique."
       },
       {
         "content": "Série 3.",
         "correct": false,
-        "explanation": "Rare."
+        "explanation": "La série 3 peut dériver de l'EPA."
       },
       {
         "content": "Série 0.",
@@ -158,33 +158,33 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Les prostaglandines de série 1 :",
     "choices": [
       {
-        "content": "Possèdent une double liaison sur les chaînes latérales dans le modèle du support.",
+        "content": "Possèdent une double liaison sur les chaînes latérales.",
         "correct": true,
         "explanation": "Série 1."
       },
       {
-        "content": "Sont décrites comme rares.",
+        "content": "Portent l’indice numérique 1 dans leur nom.",
         "correct": true,
-        "explanation": "Fréquence."
+        "explanation": "L'indice 1 désigne une double liaison latérale."
       },
       {
-        "content": "Sont reliées à des dérivés de l’acide linoléique dans la fiche.",
+        "content": "Peuvent dériver de l’acide dihomo-γ-linolénique, lui-même issu de la famille ω6.",
         "correct": true,
-        "explanation": "Origine citée."
+        "explanation": "Le dihomo-γ-linolénique est un précurseur de prostanoïdes de série 1."
       },
       {
-        "content": "Sont les plus fréquentes et dérivent de l’arachidonique.",
+        "content": "Dérivent de l’acide arachidonique et portent l’indice 2.",
         "correct": false,
         "explanation": "Cela correspond à la série 2."
       }
     ],
-    "explanation": "La série 1 constitue un repère rare comparé à la série 2."
+    "explanation": "Les prostaglandines de série 1 dérivent du dihomo-γ-linolénique et possèdent une double liaison latérale."
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les prostaglandines de série 2 :",
+    "question": "Les prostanoïdes de série 2 :",
     "choices": [
       {
         "content": "Possèdent deux doubles liaisons sur les chaînes latérales.",
@@ -192,9 +192,9 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Série 2."
       },
       {
-        "content": "Sont les plus fréquentes dans la fiche.",
+        "content": "Comprennent notamment PGE₂, PGI₂ et TXA₂.",
         "correct": true,
-        "explanation": "Fréquence."
+        "explanation": "PGE₂, PGI₂ et TXA₂ sont des prostanoïdes de série 2."
       },
       {
         "content": "Dérivent de l’acide arachidonique.",
@@ -207,7 +207,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Les prostaglandines sont des prostanoïdes cycliques."
       }
     ],
-    "explanation": "La série 2 est le cœur du chapitre, notamment PGE2, PGI2 et TXA2."
+    "explanation": "La série 2 dérive de l’acide arachidonique et comprend notamment PGE₂, PGI₂ et TXA₂."
   },
   {
     "order": 30,
@@ -221,14 +221,14 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Série 3."
       },
       {
-        "content": "Sont décrites comme rares.",
+        "content": "Portent l’indice numérique 3 dans leur nom.",
         "correct": true,
-        "explanation": "Fréquence."
+        "explanation": "L'indice 3 désigne trois doubles liaisons latérales."
       },
       {
-        "content": "Sont reliées à des dérivés de l’acide α-linolénique dans la fiche.",
+        "content": "Peuvent dériver de l’EPA, issu de la famille ω3.",
         "correct": true,
-        "explanation": "Origine citée."
+        "explanation": "L'EPA est un précurseur de prostanoïdes de série 3."
       },
       {
         "content": "Dérivent obligatoirement du 18:0.",
@@ -236,13 +236,13 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le 18:0 est stéarique saturé."
       }
     ],
-    "explanation": "La série 3 est un repère rare dérivé d’un précurseur plus insaturé."
+    "explanation": "Les prostaglandines de série 3 peuvent dériver de l’EPA et possèdent trois doubles liaisons latérales."
   },
   {
     "order": 31,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Dans le nom PGI₂, la lettre I correspond dans le support à la famille des :",
+    "question": "Dans le nom PGI₂, la lettre I correspond à la famille des :",
     "choices": [
       {
         "content": "Prostacyclines.",
@@ -279,7 +279,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Stéréochimie."
       },
       {
-        "content": "La fiche associe notamment α à une orientation en arrière et β en avant pour le repère décrit.",
+        "content": "Par convention, α et β indiquent des orientations opposées par rapport au plan du cycle.",
         "correct": true,
         "explanation": "Convention locale."
       },
@@ -387,7 +387,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de doubles liaisons sur les chaînes latérales caractérisent une prostaglandine de série 2 dans le modèle du support ?",
+    "question": "Combien de doubles liaisons sur les chaînes latérales caractérisent une prostaglandine de série 2 ?",
     "answer": {
       "type": "number",
       "value": 2,
@@ -419,7 +419,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "3 versus 2."
       },
       {
-        "content": "Un précurseur plus insaturé dans les exemples du support.",
+        "content": "Un précurseur plus insaturé, tel que l’EPA pour la série 3.",
         "correct": true,
         "explanation": "α-linolénique versus arachidonique."
       },
@@ -453,7 +453,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "1 versus 2."
       },
       {
-        "content": "Une origine précurseur différente dans le schéma du support.",
+        "content": "Un précurseur différent : dihomo-γ-linolénique pour la série 1 et arachidonique pour la série 2.",
         "correct": true,
         "explanation": "Linoléique versus arachidonique."
       },
@@ -472,7 +472,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "La position du cycle dans le squelette prostanoïde :",
     "choices": [
       {
-        "content": "Implique les carbones C8 à C12 dans le repérage du support.",
+        "content": "Implique les carbones C8 à C12 du squelette prostanoïde.",
         "correct": true,
         "explanation": "Repère structural."
       },
@@ -523,17 +523,17 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Sélectionnez exactement les trois associations de série correctes.",
     "choices": [
       {
-        "content": "Série 1 — une double liaison latérale — rare.",
+        "content": "Série 1 — une double liaison latérale — précurseur dihomo-γ-linolénique.",
         "correct": true,
         "explanation": "Repère."
       },
       {
-        "content": "Série 2 — deux doubles liaisons latérales — la plus fréquente.",
+        "content": "Série 2 — deux doubles liaisons latérales — précurseur arachidonique.",
         "correct": true,
         "explanation": "Repère."
       },
       {
-        "content": "Série 3 — trois doubles liaisons latérales — rare.",
+        "content": "Série 3 — trois doubles liaisons latérales — précurseur EPA.",
         "correct": true,
         "explanation": "Repère."
       },
@@ -592,7 +592,7 @@ export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Repère."
       },
       {
-        "content": "La série 2 est la plus fréquente dans la fiche.",
+        "content": "La série 2 dérive de l’acide arachidonique.",
         "correct": true,
         "explanation": "Fréquence."
       },

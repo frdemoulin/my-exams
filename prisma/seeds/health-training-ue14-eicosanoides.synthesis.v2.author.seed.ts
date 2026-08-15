@@ -33,16 +33,16 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Incorrect."
       }
     ],
-    "explanation": "La synthèse commence par le branchement central du chapitre."
+    "explanation": "L'acide arachidonique alimente notamment les voies COX et lipoxygénases."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une prostaglandine de série 2 :",
+    "question": "Les prostanoïdes de série 2 :",
     "choices": [
       {
-        "content": "Possède deux doubles liaisons sur les chaînes latérales dans le modèle.",
+        "content": "Possède deux doubles liaisons sur les chaînes latérales.",
         "correct": true,
         "explanation": "Série."
       },
@@ -52,9 +52,9 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Précurseur."
       },
       {
-        "content": "Appartient à la série la plus fréquente du support.",
+        "content": "Comprend notamment PGE₂, PGI₂ et TXA₂.",
         "correct": true,
-        "explanation": "Fréquence."
+        "explanation": "Ces prostanoïdes de série 2 dérivent de l'acide arachidonique."
       },
       {
         "content": "Est nécessairement un leucotriène.",
@@ -62,7 +62,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Famille différente."
       }
     ],
-    "explanation": "La série 2 domine les exemples du chapitre."
+    "explanation": "Les prostanoïdes de série 2 dérivent de l'acide arachidonique et portent deux doubles liaisons latérales."
   },
   {
     "order": 103,
@@ -97,7 +97,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Les exemples thérapeutiques du chapitre comprennent :",
+    "question": "Parmi les molécules agissant sur la voie des eicosanoïdes :",
     "choices": [
       {
         "content": "Misoprostol, analogue de PGE₁.",
@@ -120,13 +120,13 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Enzyme digestive, sans rapport."
       }
     ],
-    "explanation": "Le chapitre associe directement certaines molécules pharmacologiques à la voie des eicosanoïdes."
+    "explanation": "Le misoprostol est un analogue de prostaglandine ; l'aspirine et l'ibuprofène inhibent COX."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des leucotriènes et de leurs effets biologiques dans le support :",
+    "question": "À propos des leucotriènes et de leurs effets biologiques :",
     "choices": [
       {
         "content": "Peuvent provoquer une bronchoconstriction.",
@@ -184,7 +184,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "L’aspirine à faible dose dans la fiche :",
+    "question": "À propos de l’aspirine à faible dose :",
     "choices": [
       {
         "content": "Inhibe la voie COX.",
@@ -192,12 +192,12 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Mécanisme."
       },
       {
-        "content": "Diminue la synthèse de thromboxanes dans le modèle.",
+        "content": "Diminue durablement la synthèse plaquettaire de TXA₂.",
         "correct": true,
-        "explanation": "Conséquence."
+        "explanation": "La plaquette anucléée ne peut pas resynthétiser rapidement COX-1."
       },
       {
-        "content": "A un effet antiagrégant plaquettaire cité.",
+        "content": "A un effet antiagrégant plaquettaire.",
         "correct": true,
         "explanation": "Application."
       },
@@ -207,13 +207,13 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Effet contraire."
       }
     ],
-    "explanation": "Le mécanisme est présenté sous une forme volontairement simplifiée."
+    "explanation": "L'aspirine à faible dose inhibe irréversiblement la COX-1 plaquettaire, diminue TXA₂ et exerce un effet antiagrégant."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel est le précurseur 20:4 n-6 central du chapitre ?",
+    "question": "Quel précurseur majeur des eicosanoïdes est noté 20:4 n-6 ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -236,7 +236,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux médiateurs antagonistes du couple vasculaire majeur du chapitre.",
+    "question": "Sélectionnez exactement les deux médiateurs antagonistes du couple vasculaire TXA₂/PGI₂.",
     "choices": [
       {
         "content": "TXA₂.",
@@ -383,7 +383,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 113,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une femme reçoit du misoprostol pour faciliter un déclenchement obstétrical. Les connaissances du chapitre permettent de dire :",
+    "question": "Une patiente reçoit du misoprostol dans le cadre médical d’un déclenchement obstétrical. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Le misoprostol est un analogue synthétique de PGE₁.",
@@ -412,7 +412,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un traitement inhibe COX. Dans le schéma du cours, cela peut réduire :",
+    "question": "Un traitement inhibe COX. Cela peut réduire :",
     "choices": [
       {
         "content": "La synthèse des prostaglandines.",
@@ -475,7 +475,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "À un leucotriène.",
         "correct": true,
-        "explanation": "Effets cités."
+        "explanation": "Le chimiotactisme et la bronchoconstriction sont deux effets possibles de leucotriènes distincts."
       },
       {
         "content": "À un médiateur pouvant être produit par des leucocytes/mastocytes.",
@@ -531,7 +531,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un étudiant affirme que « tous les prostanoïdes ont le même effet ». Le chapitre permet de corriger :",
+    "question": "Un étudiant affirme que « tous les prostanoïdes ont le même effet ». Quelles propositions corrigent cette affirmation ?",
     "choices": [
       {
         "content": "PGF₂α et PGE₂ peuvent avoir des effets différents ou contraires.",
@@ -551,10 +551,10 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’appartenance à une même famille impose une fonction unique.",
         "correct": false,
-        "explanation": "Le chapitre montre l’inverse."
+        "explanation": "Les différents récepteurs prostanoïdes entraînent des réponses distinctes."
       }
     ],
-    "explanation": "La diversité fonctionnelle est un message central du chapitre."
+    "explanation": "La diversité des récepteurs et des tissus cibles explique des effets prostanoïdes variés, parfois antagonistes."
   },
   {
     "order": 120,
@@ -590,7 +590,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois associations thérapeutiques ou physiopathologiques conformes au support.",
+    "question": "Sélectionnez exactement les trois associations thérapeutiques ou physiopathologiques correctes.",
     "choices": [
       {
         "content": "Misoprostol — analogue PGE₁ — déclenchement de l’accouchement.",
@@ -605,7 +605,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Leucotriènes — bronchoconstriction.",
         "correct": true,
-        "explanation": "Effet cité."
+        "explanation": "Les cystéinyl-leucotriènes peuvent provoquer une bronchoconstriction."
       },
       {
         "content": "PGI₂ — agrégation plaquettaire stimulée.",
@@ -613,7 +613,7 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "PGI₂ inhibe l’agrégation."
       }
     ],
-    "explanation": "Ces associations donnent un contexte santé directement issu du cours."
+    "explanation": "Ces associations relient les voies des eicosanoïdes à des situations thérapeutiques ou physiopathologiques."
   },
   {
     "order": 122,
@@ -628,9 +628,9 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Précurseur."
       },
       {
-        "content": "La série 2 des prostaglandines est la plus fréquente dans la fiche.",
+        "content": "La série 2 comprend notamment PGE₂, PGI₂ et TXA₂.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Ces médiateurs dérivent de l'acide arachidonique."
       },
       {
         "content": "TXA₂ est proagrégant et vasoconstricteur.",
@@ -673,6 +673,6 @@ export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Il intervient dans la branche C4/D4/E4."
       }
     ],
-    "explanation": "Le MASTER final mobilise structure, voies, effets et applications sans sortir du support."
+    "explanation": "Cette synthèse finale mobilise la structure, les voies, les effets et les applications des eicosanoïdes."
   }
 ];

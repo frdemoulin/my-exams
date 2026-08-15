@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "le phosphate seul",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
       },
       {
         "content": "l'alcool de tête seul",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
       },
       {
         "content": "l'eau",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
       }
     ],
     "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "rigidité absolue",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La bicouche est stable mais dynamique."
+        "explanation": "La bicouche est stable mais dynamique."
       },
       {
         "content": "solubilité totale",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La bicouche est stable mais dynamique."
+        "explanation": "La bicouche est stable mais dynamique."
       },
       {
         "content": "absence de mouvement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La bicouche est stable mais dynamique."
+        "explanation": "La bicouche est stable mais dynamique."
       }
     ],
     "explanation": "La bicouche est stable mais dynamique."
@@ -133,9 +133,9 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
       },
       {
-        "content": "La fiche les décrit comme de grosses micelles d'environ 1 µm.",
+        "content": "Ce sont des vésicules délimitées par une ou plusieurs bicouches lipidiques.",
         "correct": true,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "Un liposome possède un compartiment aqueux entouré d'une bicouche lipidique."
       },
       {
         "content": "Ils peuvent servir de véhicules pour médicaments ou substances actives.",
@@ -154,7 +154,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 72,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel usage biomédical est cité pour les liposomes ?",
+    "question": "Quel usage biomédical peut être fait des liposomes ?",
     "choices": [
       {
         "content": "véhicules de médicaments",
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "synthèse d'ADN",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
       },
       {
         "content": "réserve de glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
       },
       {
         "content": "production d'hémoglobine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
       }
     ],
     "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La nomenclature A1 correspond à l'acyle en position 1."
+        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
       },
       {
         "content": "C3 du PIP2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La nomenclature A1 correspond à l'acyle en position 1."
+        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
       },
       {
         "content": "le noyau stérane",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La nomenclature A1 correspond à l'acyle en position 1."
+        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
       }
     ],
     "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
       },
       {
         "content": "le C17 du cholestérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
       },
       {
         "content": "le C1 de l'inositol uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
       }
     ],
     "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "ATP et ADP",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
       },
       {
         "content": "cholestérol et cortisol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
       },
       {
         "content": "glucose et galactose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
       }
     ],
     "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "ester de C1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLD sépare l'alcool de tête du phosphate."
+        "explanation": "La PLD sépare l'alcool de tête du phosphate."
       },
       {
         "content": "ester de C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLD sépare l'alcool de tête du phosphate."
+        "explanation": "La PLD sépare l'alcool de tête du phosphate."
       },
       {
         "content": "liaison amide de la sphingosine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLD sépare l'alcool de tête du phosphate."
+        "explanation": "La PLD sépare l'alcool de tête du phosphate."
       }
     ],
     "explanation": "La PLD sépare l'alcool de tête du phosphate."
@@ -444,7 +444,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 82,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Sur quel feuillet membranaire le PIP2 est-il situé dans la fiche ?",
+    "question": "Sur quel feuillet de la membrane plasmique le PIP₂ est-il principalement situé ?",
     "choices": [
       {
         "content": "feuillet interne",
@@ -454,17 +454,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "feuillet externe uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
       },
       {
         "content": "dans le noyau uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
       },
       {
         "content": "dans la matrice mitochondriale uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
       }
     ],
     "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
@@ -502,7 +502,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 84,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle famille de kinases le DAG active-t-il dans la fiche ?",
+    "question": "Quelle famille de kinases peut être activée par le DAG membranaire ?",
     "choices": [
       {
         "content": "protéines kinases C (PKC)",
@@ -512,17 +512,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glycérol kinase uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le DAG membranaire participe à la signalisation via PKC."
+        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
       },
       {
         "content": "hexokinase uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le DAG membranaire participe à la signalisation via PKC."
+        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
       },
       {
         "content": "ARN polymérase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le DAG membranaire participe à la signalisation via PKC."
+        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
       }
     ],
     "explanation": "Le DAG membranaire participe à la signalisation via PKC."
@@ -544,9 +544,9 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
       },
       {
-        "content": "Il induit une libération brutale de calcium intracytoplasmique dans le modèle du support.",
+        "content": "Il peut déclencher la libération de Ca²⁺ depuis le réticulum endoplasmique.",
         "correct": true,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "L'IP₃ active des canaux calciques du réticulum endoplasmique."
       },
       {
         "content": "Il reste une chaîne d'acide gras hydrophobe insérée dans la membrane.",
@@ -560,7 +560,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 86,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel ion est mobilisé par l'IP3 dans la fiche ?",
+    "question": "Quel ion est libéré du réticulum endoplasmique sous l’action de l’IP₃ ?",
     "choices": [
       {
         "content": "Ca2+",
@@ -570,17 +570,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Na+ uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
       },
       {
         "content": "Fe3+",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
       },
       {
         "content": "Cl− uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
       }
     ],
     "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
@@ -628,17 +628,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "DAG",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
       },
       {
         "content": "IP3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
       },
       {
         "content": "céramide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
       }
     ],
     "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
@@ -679,17 +679,17 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "PIP2 vers PIP3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
+        "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
       },
       {
         "content": "DAG vers triglycéride",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
+        "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
       },
       {
         "content": "cholestérol vers cortisol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
+        "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
       }
     ],
     "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
@@ -701,27 +701,27 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des plasmalogènes :",
     "choices": [
       {
-        "content": "Ils sont apparentés aux phospholipides.",
+        "content": "Ils constituent une sous-classe de glycérophospholipides à liaison éther.",
         "correct": true,
-        "explanation": "Le remplacement de l'ester C1 par un éther est la différence structurale mise en avant."
+        "explanation": "Les plasmalogènes sont des glycérophospholipides éther."
       },
       {
-        "content": "En C1, ils portent un alcool gras fixé par une liaison éther.",
+        "content": "En sn-1, ils portent une chaîne alk-1′-ényl liée par une liaison vinyl-éther.",
         "correct": true,
-        "explanation": "Le remplacement de l'ester C1 par un éther est la différence structurale mise en avant."
+        "explanation": "La liaison vinyl-éther en sn-1 est la signature structurale des plasmalogènes."
       },
       {
-        "content": "La liaison éther est décrite comme plus résistante qu'une liaison ester.",
+        "content": "Leur liaison vinyl-éther est chimiquement distincte d’une liaison ester et sensible à l’oxydation.",
         "correct": true,
-        "explanation": "Le remplacement de l'ester C1 par un éther est la différence structurale mise en avant."
+        "explanation": "Le vinyl-éther est notamment acidolabile et sensible aux espèces oxydantes."
       },
       {
         "content": "Leur C1 porte obligatoirement un acide gras par liaison amide.",
         "correct": false,
-        "explanation": "Le remplacement de l'ester C1 par un éther est la différence structurale mise en avant."
+        "explanation": "Le substituant de sn-1 est relié par un vinyl-éther, pas par une liaison amide."
       }
     ],
-    "explanation": "Le remplacement de l'ester C1 par un éther est la différence structurale mise en avant."
+    "explanation": "Les plasmalogènes se distinguent par une liaison vinyl-éther en sn-1 du glycérol."
   },
   {
     "order": 92,
@@ -753,54 +753,54 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils sont présents dans le muscle.",
         "correct": true,
-        "explanation": "La fiche cite muscle, cerveau et rétine."
+        "explanation": "Les plasmalogènes sont abondants dans plusieurs tissus musculaires."
       },
       {
         "content": "Ils sont présents dans le cerveau.",
         "correct": true,
-        "explanation": "La fiche cite muscle, cerveau et rétine."
+        "explanation": "Le cerveau est particulièrement riche en plasmalogènes."
       },
       {
-        "content": "Ils sont présents dans la rétine et associés à la maturation du réseau vasculaire rétinien.",
+        "content": "Ils sont présents dans la rétine.",
         "correct": true,
-        "explanation": "La fiche cite muscle, cerveau et rétine."
+        "explanation": "La rétine contient notamment des plasmalogènes riches en acides gras polyinsaturés."
       },
       {
-        "content": "Ils sont décrits comme absents de tout tissu humain.",
+        "content": "Ils sont absents de tous les tissus humains.",
         "correct": false,
-        "explanation": "La fiche cite muscle, cerveau et rétine."
+        "explanation": "Ils sont largement distribués, notamment dans le cerveau, le cœur et le muscle."
       }
     ],
-    "explanation": "La fiche cite muscle, cerveau et rétine."
+    "explanation": "Les plasmalogènes sont largement distribués et particulièrement abondants dans certains tissus nerveux et musculaires."
   },
   {
     "order": 94,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel tissu sensoriel est explicitement cité ?",
+    "question": "Quel tissu sensoriel contient des plasmalogènes ?",
     "choices": [
       {
         "content": "rétine",
         "correct": true,
-        "explanation": "La fiche cite muscle, cerveau et rétine."
+        "explanation": "La rétine contient des plasmalogènes."
       },
       {
         "content": "émail dentaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche cite muscle, cerveau et rétine."
+        "explanation": "L'émail dentaire est un tissu minéralisé et non un tissu riche en plasmalogènes."
       },
       {
         "content": "ongle uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche cite muscle, cerveau et rétine."
+        "explanation": "L'ongle est une structure kératinisée."
       },
       {
         "content": "cartilage uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche cite muscle, cerveau et rétine."
+        "explanation": "La rétine est le tissu sensoriel attendu."
       }
     ],
-    "explanation": "La fiche cite muscle, cerveau et rétine."
+    "explanation": "La rétine est un tissu sensoriel contenant des plasmalogènes."
   },
   {
     "order": 95,
@@ -811,25 +811,25 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "PAF signifie Platelet Activating Factor.",
         "correct": true,
-        "explanation": "Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "PAF est l'abréviation de Platelet-Activating Factor."
       },
       {
-        "content": "Il est dérivé de plasmalogènes membranaires.",
+        "content": "C’est un phospholipide à liaison alkyl-éther en sn-1.",
         "correct": true,
-        "explanation": "Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "Contrairement aux plasmalogènes, le PAF porte un alkyl-éther non vinylique en sn-1."
       },
       {
         "content": "Il peut être sécrété par des plaquettes ou des leucocytes.",
         "correct": true,
-        "explanation": "Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "Des leucocytes, des cellules endothéliales et des plaquettes peuvent produire du PAF."
       },
       {
         "content": "PAF désigne une enzyme de synthèse du cholestérol.",
         "correct": false,
-        "explanation": "Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "Le PAF est un médiateur phospholipidique, pas une enzyme."
       }
     ],
-    "explanation": "Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+    "explanation": "Le PAF est un médiateur à alkyl-éther en sn-1, acétyle en sn-2 et phosphocholine en sn-3."
   },
   {
     "order": 96,
@@ -840,25 +840,25 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Platelet Activating Factor",
         "correct": true,
-        "explanation": "Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "PAF signifie Platelet-Activating Factor."
       },
       {
         "content": "Phosphatidic Acid Factor",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "L'abréviation PAF ne désigne pas l'acide phosphatidique."
       },
       {
         "content": "Protein Assembly Fragment",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "PAF désigne un médiateur lipidique et non un fragment protéique."
       },
       {
         "content": "Plasma Apo Factor",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+        "explanation": "PAF signifie Platelet-Activating Factor."
       }
     ],
-    "explanation": "Le PAF est un médiateur lipidique dérivé des plasmalogènes."
+    "explanation": "PAF est l'abréviation de Platelet-Activating Factor."
   },
   {
     "order": 97,
@@ -894,30 +894,30 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 98,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Combien de carbones possède l'alcool gras C1 cité pour le PAF ?",
+    "question": "Combien de carbones comporte une chaîne octadécyle parfois présente en sn-1 du PAF ?",
     "choices": [
       {
         "content": "18",
         "correct": true,
-        "explanation": "Le PAF présenté porte un alcool gras à 18 carbones en C1."
+        "explanation": "Le préfixe octadécyl désigne une chaîne à 18 carbones."
       },
       {
         "content": "3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PAF présenté porte un alcool gras à 18 carbones en C1."
+        "explanation": "Une chaîne octadécyle comporte 18 carbones."
       },
       {
         "content": "8",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PAF présenté porte un alcool gras à 18 carbones en C1."
+        "explanation": "Une chaîne octadécyle comporte 18 carbones."
       },
       {
         "content": "27",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le PAF présenté porte un alcool gras à 18 carbones en C1."
+        "explanation": "Une chaîne octadécyle comporte 18 carbones."
       }
     ],
-    "explanation": "Le PAF présenté porte un alcool gras à 18 carbones en C1."
+    "explanation": "Une chaîne octadécyle comporte 18 carbones ; d'autres espèces moléculaires de PAF portent notamment une chaîne hexadécyle."
   },
   {
     "order": 99,
@@ -971,14 +971,14 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Inverse."
       },
       {
-        "content": "Les plasmalogènes portent une liaison éther en C1.",
+        "content": "Les plasmalogènes portent une liaison vinyl-éther en sn-1.",
         "correct": true,
-        "explanation": "Signature."
+        "explanation": "Le vinyl-éther en sn-1 est leur signature structurale."
       },
       {
-        "content": "Le PAF peut être sécrété par plaquettes ou leucocytes.",
+        "content": "Le PAF peut être produit par des plaquettes ou des leucocytes.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "Plusieurs cellules hématopoïétiques produisent ce médiateur."
       },
       {
         "content": "PLA2 coupe le phosphate du glycérol.",
@@ -986,7 +986,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "C2."
       },
       {
-        "content": "IP3 active directement la PKC dans la fiche.",
+        "content": "IP₃ active directement la PKC.",
         "correct": false,
         "explanation": "DAG/PKC."
       },

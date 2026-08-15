@@ -30,7 +30,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Des hormones circulantes à demi-vie de plusieurs années.",
         "correct": false,
-        "explanation": "Le support insiste sur leur brièveté et leur action locale."
+        "explanation": "Les prostanoïdes agissent surtout localement et sont rapidement inactivés."
       }
     ],
     "explanation": "Les prostanoïdes sont des médiateurs locaux à action rapide et brève."
@@ -54,7 +54,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut conduire à des effets biologiques opposés entre molécules proches.",
         "correct": true,
-        "explanation": "Exemples du support."
+        "explanation": "Le récepteur exprimé et le tissu cible déterminent la réponse."
       },
       {
         "content": "Est identique pour toutes les prostaglandines.",
@@ -68,7 +68,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 47,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La fiche cite PGF₂α comme molécule :",
+    "question": "À propos de PGF₂α :",
     "choices": [
       {
         "content": "Structurellement proche de PGE₂.",
@@ -76,19 +76,19 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Comparaison."
       },
       {
-        "content": "Pouvant avoir des effets biologiques souvent contraires à PGE₂.",
+        "content": "Dont les effets dépendent des récepteurs et des tissus cibles.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Des prostaglandines proches peuvent activer des récepteurs distincts."
       },
       {
         "content": "Associée notamment à vasoconstriction et bronchoconstriction dans les exemples.",
         "correct": true,
-        "explanation": "Effets cités."
+        "explanation": "PGF₂α peut contracter différents muscles lisses."
       },
       {
         "content": "Toujours identique à PGE₂ sur le plan fonctionnel.",
         "correct": false,
-        "explanation": "Le support souligne des effets contraires."
+        "explanation": "Une proximité structurale n'impose pas des effets identiques."
       }
     ],
     "explanation": "PGF₂α illustre la diversité fonctionnelle des prostaglandines."
@@ -97,7 +97,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Le misoprostol cité dans la fiche :",
+    "question": "À propos du misoprostol :",
     "choices": [
       {
         "content": "Est un analogue synthétique de PGE₁.",
@@ -107,12 +107,12 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut être utilisé pour faciliter le déclenchement de l’accouchement.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "Son usage obstétrical est encadré par des protocoles médicaux."
       },
       {
         "content": "Favorise la contraction utérine et l’assouplissement du col dans ce contexte.",
         "correct": true,
-        "explanation": "Effets cités."
+        "explanation": "Il favorise la maturation cervicale et l'activité utérine."
       },
       {
         "content": "Est une enzyme de la voie COX.",
@@ -134,9 +134,9 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Origine."
       },
       {
-        "content": "Est un puissant vasoconstricteur dans la fiche.",
+        "content": "Est un puissant vasoconstricteur.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "TXA₂ contracte le muscle lisse vasculaire."
       },
       {
         "content": "Favorise l’agrégation plaquettaire.",
@@ -163,9 +163,9 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Origine."
       },
       {
-        "content": "Est un puissant vasodilatateur dans la fiche.",
+        "content": "Est un puissant vasodilatateur.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "PGI₂ favorise la relaxation du muscle lisse vasculaire."
       },
       {
         "content": "Inhibe l’agrégation plaquettaire.",
@@ -187,7 +187,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Comparer TXA₂ et PGI₂ :",
     "choices": [
       {
-        "content": "Leurs effets vasculaires sont antagonistes dans le schéma du support.",
+        "content": "Leurs effets vasculaires sont antagonistes.",
         "correct": true,
         "explanation": "Vasoconstriction versus vasodilatation."
       },
@@ -199,7 +199,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils participent à un équilibre local.",
         "correct": true,
-        "explanation": "Message du support."
+        "explanation": "Leur balance contribue à la régulation de l'hémostase vasculaire."
       },
       {
         "content": "Ils ont exactement la même origine cellulaire.",
@@ -223,7 +223,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "De l’ordre de 30 secondes.",
         "correct": true,
-        "explanation": "Valeur citée."
+        "explanation": "TXA₂ a une demi-vie d'environ 30 secondes."
       },
       {
         "content": "Compatible avec une action locale rapide.",
@@ -233,7 +233,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "De plusieurs jours.",
         "correct": false,
-        "explanation": "Le support indique environ 30 s."
+        "explanation": "TXA₂ s'hydrolyse spontanément en quelques dizaines de secondes."
       }
     ],
     "explanation": "TXA₂ est un médiateur extrêmement fugace."
@@ -252,7 +252,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "De l’ordre de 2 à 3 minutes.",
         "correct": true,
-        "explanation": "Valeur citée."
+        "explanation": "PGI₂ a une demi-vie de l'ordre de quelques minutes."
       },
       {
         "content": "Compatible avec une action locale.",
@@ -262,7 +262,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "De plusieurs semaines.",
         "correct": false,
-        "explanation": "Le support indique quelques minutes."
+        "explanation": "PGI₂ est instable et sa demi-vie est de l'ordre de quelques minutes."
       }
     ],
     "explanation": "PGI₂ agit localement avec une demi-vie brève."
@@ -271,17 +271,17 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de COX et des médicaments cités :",
+    "question": "À propos de COX, de l’aspirine et de l’ibuprofène :",
     "choices": [
       {
         "content": "L’aspirine peut inhiber COX.",
         "correct": true,
-        "explanation": "Médicament cité."
+        "explanation": "L'aspirine acétyle et inhibe COX."
       },
       {
         "content": "L’ibuprofène peut inhiber COX.",
         "correct": true,
-        "explanation": "Médicament cité."
+        "explanation": "L'ibuprofène est un inhibiteur réversible de COX."
       },
       {
         "content": "L’inhibition de COX réduit la production de prostanoïdes en aval.",
@@ -291,10 +291,10 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "COX est stimulée obligatoirement par l’aspirine.",
         "correct": false,
-        "explanation": "Le support parle d’inhibition."
+        "explanation": "L'aspirine acétyle et inhibe la cyclo-oxygénase."
       }
     ],
-    "explanation": "Aspirine et ibuprofène sont les exemples d’inhibition de COX du chapitre."
+    "explanation": "L'aspirine et l'ibuprofène inhibent COX selon des mécanismes différents."
   },
   {
     "order": 55,
@@ -387,12 +387,12 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "L’aspirine à faible dose est citée comme antiagrégante parce que :",
+    "question": "L’aspirine à faible dose est antiagrégante parce que :",
     "choices": [
       {
-        "content": "Elle inhibe la synthèse des thromboxanes dans le modèle du support.",
+        "content": "Elle diminue durablement la synthèse plaquettaire de TXA₂.",
         "correct": true,
-        "explanation": "Explication."
+        "explanation": "L'inhibition irréversible de COX-1 persiste dans la plaquette anucléée."
       },
       {
         "content": "Elle agit via l’inhibition de COX.",
@@ -407,10 +407,10 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Elle augmente directement la synthèse de TXA₂.",
         "correct": false,
-        "explanation": "Ce serait contraire à l’effet cité."
+        "explanation": "Une augmentation de TXA₂ favoriserait au contraire l'agrégation."
       }
     ],
-    "explanation": "La question reste au mécanisme simplifié explicitement donné par la fiche."
+    "explanation": "À faible dose, l'aspirine inhibe irréversiblement la COX-1 plaquettaire, réduit TXA₂ et freine l'agrégation."
   },
   {
     "order": 59,
@@ -426,26 +426,26 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Favorise les contractions utérines.",
         "correct": true,
-        "explanation": "Effet cité."
+        "explanation": "Le misoprostol favorise les contractions utérines."
       },
       {
         "content": "Contribue à l’assouplissement du col.",
         "correct": true,
-        "explanation": "Effet cité."
+        "explanation": "Le misoprostol favorise la maturation cervicale."
       },
       {
         "content": "Est utilisé pour inhiber toute contraction utérine dans ce contexte.",
         "correct": false,
-        "explanation": "Le support décrit l’effet inverse."
+        "explanation": "Le misoprostol favorise au contraire la maturation cervicale et les contractions."
       }
     ],
-    "explanation": "Le contexte obstétrical est directement présent dans le support."
+    "explanation": "Le misoprostol est un analogue de PGE₁ utilisé en obstétrique selon des protocoles médicaux."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel prostanoïde plaquettaire proagrégant et vasoconstricteur est cité ?",
+    "question": "Quel prostanoïde plaquettaire est proagrégant et vasoconstricteur ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -468,7 +468,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel prostanoïde endothélial vasodilatateur et antiagrégant est cité ?",
+    "question": "Quel prostanoïde endothélial est vasodilatateur et antiagrégant ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -497,26 +497,26 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       "value": 30,
       "tolerance": 0
     },
-    "explanation": "La fiche donne environ 30 secondes."
+    "explanation": "La demi-vie de TXA₂ est d'environ 30 secondes."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quelle borne haute, en minutes, de la demi-vie 2–3 min de PGI₂ est donnée dans la fiche ?",
+    "question": "Quelle est, en minutes, la borne haute d'une demi-vie de PGI₂ estimée à 2–3 minutes ?",
     "answer": {
       "type": "number",
       "value": 3,
       "tolerance": 0
     },
-    "explanation": "La fiche indique environ 2 à 3 minutes."
+    "explanation": "La borne haute de l'intervalle 2–3 minutes est 3 minutes."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux effets du TXA₂ cités dans la fiche.",
+    "question": "Sélectionnez exactement les deux effets caractéristiques du TXA₂.",
     "choices": [
       {
         "content": "Vasoconstriction.",
@@ -545,7 +545,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 65,
     "difficulty": "HARD",
     "format": "QZONE",
-    "question": "Dans ce schéma original simplifié d’un vaisseau, cliquez sur l’endothélium, source de PGI₂ dans le support.",
+    "question": "Dans ce schéma simplifié d’un vaisseau, cliquez sur l’endothélium, principale source vasculaire de PGI₂.",
     "image": {
       "src": "/images/training/ue14/biochimie/eicosanoides/pgi2-txa2-endothelium-qzone.svg",
       "alt": "Schéma simplifié d’un vaisseau avec plaquettes dans la lumière et endothélium en bas",
@@ -567,7 +567,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 66,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une baisse de TXA₂ dans le modèle du cours devrait tendre à :",
+    "question": "Une baisse de la production plaquettaire de TXA₂ devrait tendre à :",
     "choices": [
       {
         "content": "Diminuer un signal d’agrégation plaquettaire.",
@@ -580,9 +580,9 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "TXA₂ est vasoconstricteur."
       },
       {
-        "content": "Être cohérente avec l’effet antiagrégant de l’aspirine à faible dose cité.",
+        "content": "Être cohérente avec l’effet antiagrégant de l’aspirine à faible dose.",
         "correct": true,
-        "explanation": "Lien du support."
+        "explanation": "L'aspirine à faible dose réduit la synthèse plaquettaire de TXA₂."
       },
       {
         "content": "Augmenter nécessairement l’action proagrégante du TXA₂.",
@@ -596,7 +596,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 67,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une baisse de PGI₂ dans le modèle du cours signifie la diminution :",
+    "question": "Une baisse de la production endothéliale de PGI₂ signifie la diminution :",
     "choices": [
       {
         "content": "D’un signal vasodilatateur.",
@@ -614,7 +614,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Origine."
       },
       {
-        "content": "Du principal signal proagrégant produit par les plaquettes dans le support.",
+        "content": "Du principal signal proagrégant produit par les plaquettes.",
         "correct": false,
         "explanation": "Cela correspond à TXA₂."
       }
@@ -625,12 +625,12 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 68,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une molécule structurellement proche de PGE₂ provoque vasoconstriction et bronchoconstriction dans l’exemple du support. Il s’agit de :",
+    "question": "Quelle prostaglandine peut provoquer une vasoconstriction et une bronchoconstriction par contraction du muscle lisse ?",
     "choices": [
       {
         "content": "PGF₂α.",
         "correct": true,
-        "explanation": "Exemple cité."
+        "explanation": "PGF₂α peut contracter différents muscles lisses."
       },
       {
         "content": "Une prostaglandine.",
@@ -654,17 +654,17 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 69,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un analogue synthétique de PGE₁ est utilisé en obstétrique dans la fiche. Quelles conclusions sont justifiées ?",
+    "question": "Un analogue synthétique de PGE₁ est utilisé en obstétrique. Quelles conclusions sont justifiées ?",
     "choices": [
       {
         "content": "Il s’agit du misoprostol.",
         "correct": true,
-        "explanation": "Médicament cité."
+        "explanation": "Le misoprostol est un analogue de PGE₁."
       },
       {
         "content": "Il facilite le déclenchement de l’accouchement.",
         "correct": true,
-        "explanation": "Indication citée."
+        "explanation": "Il est utilisé pour la maturation cervicale et le déclenchement selon des protocoles médicaux."
       },
       {
         "content": "Il favorise contraction utérine et assouplissement cervical.",
@@ -683,12 +683,12 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 70,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Aspirine et ibuprofène ont en commun dans ce chapitre :",
+    "question": "Aspirine et ibuprofène ont en commun :",
     "choices": [
       {
-        "content": "D’être cités comme inhibiteurs de COX.",
+        "content": "D’être des inhibiteurs de COX.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Tous deux inhibent une cyclo-oxygénase, selon des mécanismes différents."
       },
       {
         "content": "D’agir en amont des prostanoïdes dans le schéma simplifié.",
@@ -703,7 +703,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "D’être décrits comme activateurs de la 5-lipoxygénase.",
         "correct": false,
-        "explanation": "Ce n’est pas indiqué."
+        "explanation": "Ces médicaments n'activent pas directement la 5-lipoxygénase."
       }
     ],
     "explanation": "Le point commun demandé est strictement l’inhibition de COX."
@@ -715,7 +715,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Un étudiant affirme : « TXA₂ et PGI₂ ont les mêmes effets car ils sont tous deux des prostanoïdes ». La correction est :",
     "choices": [
       {
-        "content": "Ils ont des effets vasculaires opposés dans le support.",
+        "content": "Ils ont des effets vasculaires opposés.",
         "correct": true,
         "explanation": "Vasoconstriction/vasodilatation."
       },
@@ -732,7 +732,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’appartenance à une même famille impose des effets identiques.",
         "correct": false,
-        "explanation": "Le chapitre montre le contraire."
+        "explanation": "TXA₂ et PGI₂ illustrent au contraire des effets antagonistes."
       }
     ],
     "explanation": "L’appartenance à la même famille n’empêche pas des fonctions antagonistes."
@@ -770,7 +770,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 73,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "La demi-vie de TXA₂ est beaucoup plus courte que celle de PGI₂ dans les valeurs de la fiche. On peut retenir :",
+    "question": "En comparant les demi-vies de TXA₂ et de PGI₂, on peut retenir :",
     "choices": [
       {
         "content": "TXA₂ ≈ 30 s.",
@@ -838,7 +838,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La synthèse de thromboxanes est diminuée.",
         "correct": true,
-        "explanation": "Conséquence citée."
+        "explanation": "L'inhibition de COX-1 diminue la production plaquettaire de TXA₂."
       },
       {
         "content": "L’agrégation plaquettaire est freinée.",
@@ -851,13 +851,13 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Contradiction."
       }
     ],
-    "explanation": "Le chapitre relie directement inhibition de COX, thromboxanes et effet antiagrégant."
+    "explanation": "L'inhibition plaquettaire de COX-1 diminue TXA₂ et freine l'agrégation."
   },
   {
     "order": 76,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Comparer misoprostol et aspirine à faible dose dans le chapitre :",
+    "question": "Comparer le misoprostol et l’aspirine à faible dose :",
     "choices": [
       {
         "content": "Le misoprostol est un analogue de PGE₁.",
@@ -867,7 +867,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’aspirine inhibe la voie COX.",
         "correct": true,
-        "explanation": "Mécanisme du support."
+        "explanation": "L'aspirine acétyle et inhibe la cyclo-oxygénase."
       },
       {
         "content": "Les deux illustrent des applications thérapeutiques des eicosanoïdes ou de leur voie.",
@@ -880,7 +880,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sans rapport."
       }
     ],
-    "explanation": "Le chapitre relie directement pharmacologie et médiateurs lipidiques."
+    "explanation": "Ces deux médicaments illustrent des actions pharmacologiques sur un prostanoïde ou sur sa voie de synthèse."
   },
   {
     "order": 77,
@@ -907,7 +907,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ibuprofène — activation obligatoire de COX.",
         "correct": false,
-        "explanation": "Il est cité comme inhibiteur."
+        "explanation": "L'ibuprofène inhibe COX."
       }
     ],
     "explanation": "Ces associations résument les principaux contextes biologiques et thérapeutiques de la section."
@@ -940,7 +940,7 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Effet."
       },
       {
-        "content": "L’aspirine à faible dose est citée comme antiagrégante.",
+        "content": "L’aspirine à faible dose est antiagrégante.",
         "correct": true,
         "explanation": "Application."
       },
@@ -970,6 +970,6 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Effets variés, parfois contraires."
       }
     ],
-    "explanation": "Le MASTER consolide l’équilibre vasculaire et les applications pharmacologiques du support."
+    "explanation": "Cette question consolide l'équilibre vasculaire TXA₂/PGI₂ et les applications pharmacologiques de leur voie."
   }
 ];

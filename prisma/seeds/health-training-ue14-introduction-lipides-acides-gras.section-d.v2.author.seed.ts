@@ -10,27 +10,27 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 79,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la densité des acides gras :",
+    "question": "À propos de quelques propriétés physiques des acides gras usuels :",
     "choices": [
       {
-        "content": "La fiche indique une masse moléculaire souvent autour de 250 à 300 Da pour les exemples étudiés.",
+        "content": "Les acides gras à 16–18 carbones ont une masse molaire de l’ordre de 250 à 300 g·mol⁻¹.",
         "correct": true,
         "explanation": "Ordre de grandeur."
       },
       {
         "content": "L’acide palmitique est donné à environ 256 Da.",
         "correct": true,
-        "explanation": "Valeur citée."
+        "explanation": "La masse molaire de l'acide palmitique est voisine de 256 g·mol⁻¹."
       },
       {
-        "content": "La densité est décrite comme inférieure à celle de l’eau.",
+        "content": "De nombreux acides gras usuels ont une masse volumique inférieure à celle de l’eau.",
         "correct": true,
         "explanation": "Propriété."
       },
       {
         "content": "Tous les acides gras ont une densité très supérieure à celle de l’eau.",
         "correct": false,
-        "explanation": "Le support dit l’inverse."
+        "explanation": "Les acides gras usuels ne présentent pas tous une masse volumique très supérieure à celle de l’eau."
       }
     ],
     "explanation": "La faible densité contribue au comportement des acides gras en milieu aqueux."
@@ -42,9 +42,9 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "La solubilité des acides gras :",
     "choices": [
       {
-        "content": "À partir de 8 carbones, ils sont décrits comme totalement insolubles dans l’eau.",
+        "content": "Dès huit carbones, leur solubilité dans l’eau devient très faible.",
         "correct": true,
-        "explanation": "Seuil du support."
+        "explanation": "L’allongement de la chaîne hydrophobe entraîne une forte diminution de la solubilité aqueuse."
       },
       {
         "content": "Ils sont solubles dans des solvants organiques comme benzène, éther ou chloroforme.",
@@ -57,7 +57,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Lien structure/propriété."
       },
       {
-        "content": "Ils deviennent tous très solubles dans l’eau au-delà de 8 carbones.",
+        "content": "Ils deviennent tous très solubles dans l’eau au-delà de huit carbones.",
         "correct": false,
         "explanation": "C’est l’inverse."
       }
@@ -83,7 +83,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peuvent former des micelles après agitation, souvent peu stables.",
         "correct": true,
-        "explanation": "Comportement cité."
+        "explanation": "En milieu aqueux, des acides gras peuvent former des agrégats amphiphiles."
       },
       {
         "content": "Se dissolvent toujours complètement sous forme moléculaire.",
@@ -126,7 +126,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 83,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L’acide oléique 18:1 est cité comme :",
+    "question": "À propos de l’acide oléique 18:1 :",
     "choices": [
       {
         "content": "Liquide à température ambiante.",
@@ -155,27 +155,27 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 84,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Pour les acides gras saturés, le support indique :",
+    "question": "À propos de l’état physique des acides gras saturés :",
     "choices": [
       {
-        "content": "C < 5 : liquides à température ambiante.",
+        "content": "Les chaînes courtes ont généralement un point de fusion plus bas que les chaînes longues.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Les interactions hydrophobes augmentent globalement avec la longueur de chaîne."
       },
       {
-        "content": "5 < C < 10 : solides à température ambiante mais liquides à 37 °C.",
+        "content": "L’acide octanoïque C8 est liquide aux températures ambiantes usuelles.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Son point de fusion est inférieur à une température ambiante voisine de 20–25 °C."
       },
       {
-        "content": "C > 10 : solides à 37 °C.",
+        "content": "L’acide laurique C12 reste solide à 37 °C.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Son point de fusion est supérieur à la température corporelle."
       },
       {
         "content": "Tous sont liquides à 37 °C quelle que soit la longueur.",
         "correct": false,
-        "explanation": "Le support distingue les longueurs."
+        "explanation": "L’état physique dépend de la longueur de chaîne et ne peut être identique pour tous les acides gras saturés."
       }
     ],
     "explanation": "La longueur de chaîne modifie fortement l’état physique des acides gras saturés."
@@ -197,7 +197,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Produit."
       },
       {
-        "content": "Est décrite comme très fréquente in vivo.",
+        "content": "Est très fréquente in vivo.",
         "correct": true,
         "explanation": "Importance."
       },
@@ -207,13 +207,13 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Elle forme un ester lipidique."
       }
     ],
-    "explanation": "L’estérification relie ce chapitre aux glycérides et autres lipides complexes."
+    "explanation": "L’estérification permet d'incorporer les acides gras dans les glycérides et d'autres lipides complexes."
   },
   {
     "order": 86,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les rôles biologiques des acides gras cités :",
+    "question": "Parmi les rôles biologiques des acides gras :",
     "choices": [
       {
         "content": "Rôle structural dans les membranes.",
@@ -228,12 +228,12 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Rôle métabolique comme précurseurs de médiateurs/hormones pour certains acides gras tels que l’arachidonique.",
         "correct": true,
-        "explanation": "Rôle du support."
+        "explanation": "L’acide arachidonique peut être converti en eicosanoïdes biologiquement actifs."
       },
       {
         "content": "Absence totale de rôle cellulaire.",
         "correct": false,
-        "explanation": "Plusieurs rôles sont cités."
+        "explanation": "Les acides gras ont des rôles structuraux, énergétiques et métaboliques."
       }
     ],
     "explanation": "Les acides gras ont des fonctions structurales, énergétiques et métaboliques."
@@ -242,36 +242,36 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 87,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des acides gras trans, la fiche :",
+    "question": "À propos des acides gras trans alimentaires :",
     "choices": [
       {
-        "content": "Les associe notamment à des graisses industrielles et produits transformés.",
+        "content": "Ils peuvent provenir de procédés industriels et être présents dans certains produits transformés.",
         "correct": true,
         "explanation": "Contexte."
       },
       {
-        "content": "Mentionne des effets délétères pour la santé.",
+        "content": "Une consommation élevée augmente le risque cardiovasculaire.",
         "correct": true,
-        "explanation": "Position du support."
+        "explanation": "Les acides gras trans augmentent notamment le risque de cardiopathie coronarienne."
       },
       {
-        "content": "Cite notamment des maladies cardiovasculaires et cancers parmi les risques.",
+        "content": "L’OMS recommande de limiter leur apport à moins de 1 % de l’apport énergétique total.",
         "correct": true,
-        "explanation": "Exemples du support."
+        "explanation": "Cette limite vise à réduire le risque cardiovasculaire associé aux acides gras trans."
       },
       {
         "content": "Les présente comme toujours indispensables à l’alimentation.",
         "correct": false,
-        "explanation": "Ce n’est pas le message du support."
+        "explanation": "Les acides gras trans n’ont pas de caractère indispensable connu."
       }
     ],
-    "explanation": "Il faut reprendre ce point comme une affirmation du support local, sans extrapoler au-delà."
+    "explanation": "Les acides gras trans, notamment ceux produits industriellement, doivent être limités en raison de leur risque cardiovasculaire."
   },
   {
     "order": 88,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel changement structural abaisse le point de fusion d’un acide gras selon la fiche ?",
+    "question": "Quel changement structural tend à abaisser le point de fusion d’un acide gras ?",
     "choices": [
       {
         "content": "L’introduction d’une ou plusieurs doubles liaisons.",
@@ -320,7 +320,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le désaturé aura forcément un point de fusion plus élevé.",
         "correct": false,
-        "explanation": "Le support indique l’inverse."
+        "explanation": "À longueur égale, les doubles liaisons cis désorganisent l’empilement et abaissent le point de fusion."
       }
     ],
     "explanation": "À longueur égale, l’insaturation tend à abaisser le point de fusion."
@@ -344,12 +344,12 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Cette tendance est cohérente avec le classement des états physiques des saturés.",
         "correct": true,
-        "explanation": "Repères du support."
+        "explanation": "L’augmentation de la longueur renforce les interactions entre chaînes saturées."
       },
       {
         "content": "Le plus long doit toujours fondre plus bas.",
         "correct": false,
-        "explanation": "Le support donne la tendance inverse."
+        "explanation": "L’allongement d’une chaîne saturée tend au contraire à élever son point de fusion."
       }
     ],
     "explanation": "La longueur de chaîne augmente globalement le point de fusion."
@@ -361,7 +361,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Un acide gras de 12 carbones en milieu aqueux :",
     "choices": [
       {
-        "content": "Est au-delà du seuil de 8 carbones cité pour l’insolubilité dans l’eau.",
+        "content": "Présente une solubilité très faible dans l’eau.",
         "correct": true,
         "explanation": "Seuil."
       },
@@ -378,7 +378,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Est décrit comme très soluble dans l’eau.",
         "correct": false,
-        "explanation": "Le support dit l’inverse au-delà de 8C."
+        "explanation": "La chaîne hydrophobe de douze carbones limite fortement la solubilité aqueuse."
       }
     ],
     "explanation": "La solubilité diminue avec l’importance de la chaîne hydrophobe."
@@ -390,7 +390,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "La formation d’une couche monomoléculaire à la surface de l’eau s’explique par :",
     "choices": [
       {
-        "content": "La faible densité des acides gras dans le modèle du support.",
+        "content": "La masse volumique inférieure à celle de l’eau de nombreux acides gras usuels.",
         "correct": true,
         "explanation": "Ils surnagent."
       },
@@ -422,19 +422,19 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       "value": 256,
       "tolerance": 0
     },
-    "explanation": "La fiche cite environ 256 Da pour l’acide palmitique."
+    "explanation": "La masse molaire de l’acide palmitique est voisine de 256 g·mol⁻¹."
   },
   {
     "order": 94,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "À partir de combien de carbones la fiche décrit-elle les acides gras comme totalement insolubles dans l’eau ?",
+    "question": "Combien de carbones comporte l’acide octanoïque, dont la solubilité aqueuse est déjà faible ?",
     "answer": {
       "type": "number",
       "value": 8,
       "tolerance": 0
     },
-    "explanation": "Le seuil cité est 8 carbones."
+    "explanation": "Le préfixe « octan- » indique une chaîne comportant huit carbones."
   },
   {
     "order": 95,
@@ -445,7 +445,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le rôle structural des acides gras.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Les chaînes acyles participent à la structure des lipides membranaires."
       },
       {
         "content": "La contribution de leurs chaînes carbonées à l’organisation lipidique.",
@@ -453,9 +453,9 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Lien structure/fonction."
       },
       {
-        "content": "Un contexte biologique direct du chapitre.",
+        "content": "L’intégration des chaînes acyles dans les lipides membranaires.",
         "correct": true,
-        "explanation": "Exemple du support."
+        "explanation": "Les acides gras sont incorporés dans les phospholipides et d’autres lipides membranaires."
       },
       {
         "content": "Un rôle exclusivement glucidique.",
@@ -463,7 +463,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Il s’agit de lipides."
       }
     ],
-    "explanation": "Le rôle structural membranaire est un des trois grands rôles biologiques cités."
+    "explanation": "Les chaînes acyles sont des constituants structuraux majeurs des lipides membranaires."
   },
   {
     "order": 96,
@@ -474,10 +474,10 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Cela illustre son rôle énergétique.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "L'oxydation des acides gras fournit de l'énergie."
       },
       {
-        "content": "Le support associe les acides gras à une réserve d’énergie.",
+        "content": "Les acides gras peuvent être stockés sous forme de triacylglycérols.",
         "correct": true,
         "explanation": "Rôle."
       },
@@ -498,17 +498,17 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 97,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de l’acide arachidonique évoqué dans cette fiche :",
+    "question": "À propos de l’acide arachidonique :",
     "choices": [
       {
-        "content": "Il est cité comme exemple de précurseur métabolique.",
+        "content": "Il constitue un précurseur métabolique de médiateurs lipidiques.",
         "correct": true,
         "explanation": "Rôle biologique."
       },
       {
-        "content": "Il prépare le lien avec les eicosanoïdes étudiés ensuite.",
+        "content": "Il peut être converti en eicosanoïdes.",
         "correct": true,
-        "explanation": "Organisation du cours."
+        "explanation": "Les voies COX et lipoxygénases transforment l’acide arachidonique en eicosanoïdes."
       },
       {
         "content": "Ce rôle est distinct du simple stockage énergétique.",
@@ -521,43 +521,43 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "C’est un acide gras."
       }
     ],
-    "explanation": "Le chapitre annonce la fonction de précurseur métabolique de certains acides gras."
+    "explanation": "Certains acides gras polyinsaturés, dont l’acide arachidonique, sont des précurseurs de médiateurs lipidiques."
   },
   {
     "order": 98,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les graisses trans, il faut rester fidèle à la fiche :",
+    "question": "Concernant les acides gras trans alimentaires :",
     "choices": [
       {
-        "content": "Le support les relie aux produits industriels/transformés.",
+        "content": "Ils peuvent être présents dans certains produits industriels ou transformés.",
         "correct": true,
-        "explanation": "Contexte cité."
+        "explanation": "Les procédés industriels peuvent générer des isomères trans."
       },
       {
-        "content": "Le support les qualifie de délétères pour la santé.",
+        "content": "Une consommation élevée est délétère pour la santé cardiovasculaire.",
         "correct": true,
         "explanation": "Affirmation locale."
       },
       {
-        "content": "Les risques cités incluent maladies cardiovasculaires et cancers.",
+        "content": "L’OMS recommande un apport inférieur à 1 % de l’apport énergétique total.",
         "correct": true,
         "explanation": "Exemples locaux."
       },
       {
-        "content": "Le chapitre fournit un mécanisme clinique détaillé de chaque maladie.",
+        "content": "Ils constituent des nutriments indispensables qui doivent être consommés en quantité élevée.",
         "correct": false,
-        "explanation": "Il ne développe pas ces mécanismes."
+        "explanation": "Les acides gras trans n’ont pas de bénéfice nutritionnel connu et leur consommation doit être limitée."
       }
     ],
-    "explanation": "La bonne pratique éditoriale est de reprendre le niveau d’affirmation du support sans ajouter de clinique hors programme."
+    "explanation": "Le risque cardiovasculaire justifie la limitation des acides gras trans, particulièrement ceux produits industriellement."
   },
   {
     "order": 99,
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois grands rôles biologiques des acides gras cités dans la fiche.",
+    "question": "Sélectionnez exactement les trois grands rôles biologiques des acides gras.",
     "choices": [
       {
         "content": "Structural.",
@@ -577,7 +577,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Rôle de traduction de l’ARNm.",
         "correct": false,
-        "explanation": "Fonction protéique/ribosomale, non citée pour les acides gras."
+        "explanation": "La traduction de l'ARNm relève du ribosome, pas des acides gras."
       }
     ],
     "explanation": "Les trois axes sont structural, énergétique et métabolique."
@@ -600,7 +600,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Tendance."
       },
       {
-        "content": "Les acides gras ≥8C sont décrits comme insolubles dans l’eau.",
+        "content": "La solubilité aqueuse des acides gras devient très faible lorsque la chaîne s’allonge.",
         "correct": true,
         "explanation": "Seuil."
       },
@@ -622,7 +622,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Tous les acides gras sont plus denses que l’eau.",
         "correct": false,
-        "explanation": "Le support les décrit moins denses."
+        "explanation": "De nombreux acides gras usuels ont une masse volumique inférieure à celle de l’eau."
       },
       {
         "content": "Une double liaison augmente toujours le point de fusion.",
@@ -632,12 +632,12 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Les acides gras trans sont présentés comme bénéfiques sans réserve.",
         "correct": false,
-        "explanation": "Le support les qualifie de délétères."
+        "explanation": "Une consommation élevée d’acides gras trans augmente le risque cardiovasculaire."
       },
       {
         "content": "Les acides gras n’ont aucun rôle membranaire.",
         "correct": false,
-        "explanation": "Rôle structural cité."
+        "explanation": "Les chaînes acyles participent à la structure des lipides membranaires."
       }
     ],
     "explanation": "Cette QRPL consolide propriétés physiques, chimiques et biologiques."

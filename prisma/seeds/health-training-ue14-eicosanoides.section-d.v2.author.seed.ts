@@ -10,7 +10,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 79,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les leucotriènes :",
+    "question": "À propos des leucotriènes de série 4 dérivés de l’acide arachidonique :",
     "choices": [
       {
         "content": "Sont des dérivés d’acides eicosanoïques à 20 carbones.",
@@ -18,9 +18,9 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Structure générale."
       },
       {
-        "content": "Contiennent quatre doubles liaisons dans la présentation du support.",
+        "content": "Contiennent quatre doubles liaisons.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "L'indice 4 correspond au nombre de doubles liaisons."
       },
       {
         "content": "Présentent trois doubles liaisons conjuguées formant un système triénique.",
@@ -33,42 +33,42 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Dérivés lipidiques."
       }
     ],
-    "explanation": "Le système de trois doubles liaisons conjuguées explique le nom de leucotriène dans le support."
+    "explanation": "Le nom « leucotriène » renvoie historiquement aux leucocytes et au système de trois doubles liaisons conjuguées."
   },
   {
     "order": 80,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les cellules citées comme capables de synthétiser des leucotriènes comprennent :",
+    "question": "Les cellules capables de synthétiser des leucotriènes comprennent :",
     "choices": [
       {
         "content": "Leucocytes.",
         "correct": true,
-        "explanation": "Cellules citées."
+        "explanation": "Les leucocytes sont les principales cellules de synthèse des leucotriènes."
       },
       {
         "content": "Mastocytes.",
         "correct": true,
-        "explanation": "Cellules citées."
+        "explanation": "Les mastocytes synthétisent notamment des leucotriènes cystéinylés."
       },
       {
-        "content": "Plaquettes et macrophages.",
+        "content": "Macrophages et granulocytes.",
         "correct": true,
-        "explanation": "Cellules citées."
+        "explanation": "Ces leucocytes disposent de la machinerie de la voie 5-lipoxygénase."
       },
       {
         "content": "Uniquement les adipocytes.",
         "correct": false,
-        "explanation": "Ce n’est pas la liste du support."
+        "explanation": "La synthèse a lieu principalement dans différentes cellules immunitaires."
       }
     ],
-    "explanation": "Plusieurs cellules immunitaires et plaquettes participent à la production de leucotriènes."
+    "explanation": "La synthèse de novo des leucotriènes a lieu surtout dans les leucocytes ; d'autres cellules peuvent participer à des biosynthèses transcellulaires."
   },
   {
     "order": 81,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les effets des leucotriènes cités sur les muscles lisses :",
+    "question": "Parmi les effets des leucotriènes sur les muscles lisses :",
     "choices": [
       {
         "content": "Vasoconstriction.",
@@ -88,7 +88,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Vasodilatation obligatoire de tous les leucotriènes.",
         "correct": false,
-        "explanation": "La fiche cite la vasoconstriction."
+        "explanation": "Les effets varient selon le leucotriène et le tissu ; les cystéinyl-leucotriènes sont notamment bronchoconstricteurs."
       }
     ],
     "explanation": "Les leucotriènes sont notamment reliés à des effets constricteurs."
@@ -97,7 +97,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 82,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les effets immunitaires des leucotriènes cités :",
+    "question": "Parmi les effets immunitaires des leucotriènes :",
     "choices": [
       {
         "content": "Chimiotactisme.",
@@ -105,9 +105,9 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Effet."
       },
       {
-        "content": "Augmentation de l’activité cytotoxique des lymphocytes.",
+        "content": "Recrutement et activation de leucocytes.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "LTB₄ est notamment un puissant agent chimiotactique des neutrophiles."
       },
       {
         "content": "Participation à des réponses immunitaires.",
@@ -117,7 +117,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Suppression obligatoire de toute activité leucocytaire.",
         "correct": false,
-        "explanation": "Le support décrit des actions stimulantes."
+        "explanation": "Plusieurs leucotriènes amplifient au contraire des réponses inflammatoires."
       }
     ],
     "explanation": "Les leucotriènes relient lipidologie et réponse immunitaire."
@@ -158,14 +158,14 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À partir de LTA₄ :",
     "choices": [
       {
-        "content": "LXA₄ peut être formée avec l’action de la 15-lipoxygénase.",
+        "content": "Des lipoxines peuvent être formées lors d’une coopération enzymatique entre plusieurs cellules.",
         "correct": true,
-        "explanation": "Voie citée."
+        "explanation": "La biosynthèse transcellulaire des lipoxines mobilise successivement plusieurs lipoxygénases."
       },
       {
         "content": "LTB₄ peut être formé.",
         "correct": true,
-        "explanation": "Produit cité."
+        "explanation": "L'hydrolyse de LTA₄ forme LTB₄."
       },
       {
         "content": "D’autres leucotriènes peuvent être formés.",
@@ -189,7 +189,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Fait intervenir le glutathion.",
         "correct": true,
-        "explanation": "Tripeptide cité."
+        "explanation": "La conjugaison de LTA₄ au glutathion forme LTC₄."
       },
       {
         "content": "S’accompagne d’un clivage progressif du motif ajouté.",
@@ -213,12 +213,12 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 86,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle enzyme forme LTA₄ à partir de l’acide arachidonique dans la fiche ?",
+    "question": "Quelle enzyme catalyse les étapes menant de l’acide arachidonique à LTA₄ ?",
     "choices": [
       {
         "content": "5-lipoxygénase.",
         "correct": true,
-        "explanation": "Enzyme citée."
+        "explanation": "La 5-lipoxygénase transforme successivement l'acide arachidonique en 5-HPETE puis LTA₄."
       },
       {
         "content": "COX uniquement.",
@@ -242,12 +242,12 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 87,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel eicosanoïde est cité comme pouvant dériver de LTA₄ par action de la 15-lipoxygénase ?",
+    "question": "Quel eicosanoïde appartient à la famille des lipoxines ?",
     "choices": [
       {
         "content": "LXA₄.",
         "correct": true,
-        "explanation": "Voie citée."
+        "explanation": "LXA₄ signifie lipoxine A₄."
       },
       {
         "content": "TXA₂.",
@@ -265,7 +265,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Prostaglandine."
       }
     ],
-    "explanation": "La 15-lipoxygénase peut conduire de LTA₄ à LXA₄."
+    "explanation": "LXA₄ est une lipoxine issue de voies séquentielles impliquant plusieurs lipoxygénases."
   },
   {
     "order": 88,
@@ -323,18 +323,18 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sans rapport."
       }
     ],
-    "explanation": "Le contexte respiratoire reste strictement relié à l’effet de bronchoconstriction cité."
+    "explanation": "Les cystéinyl-leucotriènes sont d'importants médiateurs de la bronchoconstriction."
   },
   {
     "order": 90,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une réponse immunitaire, un eicosanoïde augmente le chimiotactisme. La famille la plus cohérente selon la fiche est :",
+    "question": "Dans une réponse immunitaire, un eicosanoïde augmente le chimiotactisme. La famille la plus cohérente est :",
     "choices": [
       {
         "content": "Les leucotriènes.",
         "correct": true,
-        "explanation": "Effet cité."
+        "explanation": "LTB₄ stimule notamment le chimiotactisme des neutrophiles."
       },
       {
         "content": "Une famille synthétisée notamment par des leucocytes/macrophages.",
@@ -368,7 +368,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il peut conduire à LXA₄.",
         "correct": true,
-        "explanation": "Branche."
+        "explanation": "Une voie transcellulaire peut convertir LTA₄ en lipoxines, notamment via la 12-lipoxygénase plaquettaire."
       },
       {
         "content": "Il participe aussi à une voie menant à LTC₄/LTD₄/LTE₄.",
@@ -410,7 +410,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sans rapport."
       }
     ],
-    "explanation": "Le glutathion caractérise la branche des leucotriènes cystéinylés dans le schéma du support."
+    "explanation": "La conjugaison de LTA₄ au glutathion forme LTC₄, précurseur de LTD₄ puis LTE₄."
   },
   {
     "order": 93,
@@ -500,7 +500,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 97,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La bronchoconstriction apparaît dans le chapitre à propos :",
+    "question": "La bronchoconstriction peut être provoquée par :",
     "choices": [
       {
         "content": "Des leucotriènes.",
@@ -510,7 +510,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "De PGF₂α parmi les exemples de prostaglandines.",
         "correct": true,
-        "explanation": "Effet cité."
+        "explanation": "Les cystéinyl-leucotriènes peuvent provoquer une bronchoconstriction."
       },
       {
         "content": "De médiateurs lipidiques pouvant avoir des effets sur les muscles lisses.",
@@ -534,7 +534,7 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "LTA₄.",
         "correct": true,
-        "explanation": "Structure citée."
+        "explanation": "LTA₄ contient un époxyde entre C5 et C6."
       },
       {
         "content": "Un leucotriène.",
@@ -552,14 +552,14 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Prostaglandine de voie COX."
       }
     ],
-    "explanation": "La structure époxyde est un repère spécifique de LTA₄ dans la fiche."
+    "explanation": "LTA₄ est un intermédiaire époxyde instable de la voie de la 5-lipoxygénase."
   },
   {
     "order": 99,
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois produits pouvant être reliés en aval de LTA₄ dans le schéma du cours.",
+    "question": "Sélectionnez exactement les trois produits pouvant être reliés en aval de LTA₄.",
     "choices": [
       {
         "content": "LTB₄.",
@@ -597,9 +597,9 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Structure."
       },
       {
-        "content": "Ils possèdent quatre doubles liaisons dans la fiche.",
+        "content": "Les leucotriènes de série 4 possèdent quatre doubles liaisons.",
         "correct": true,
-        "explanation": "Structure."
+        "explanation": "L'indice de série indique le nombre de doubles liaisons."
       },
       {
         "content": "Trois doubles liaisons sont conjuguées.",
@@ -637,9 +637,9 @@ export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Lipoxine."
       },
       {
-        "content": "Le chimiotactisme est absent de la fiche.",
+        "content": "Les leucotriènes n’interviennent jamais dans le chimiotactisme.",
         "correct": false,
-        "explanation": "Il est cité."
+        "explanation": "LTB₄ est un puissant agent chimiotactique, notamment pour les neutrophiles."
       }
     ],
     "explanation": "Cette QRPL consolide structure, cellules, effets et voies des leucotriènes."

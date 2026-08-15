@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
       },
       {
         "content": "C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
       },
       {
         "content": "aucun",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
       }
     ],
     "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
@@ -96,7 +96,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 48,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Comment le support qualifie-t-il sa quantité dans les tissus ?",
+    "question": "Quelle est l’abondance habituelle de l’acide phosphatidique libre dans les tissus ?",
     "choices": [
       {
         "content": "faible",
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "majoritaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est surtout un intermédiaire métabolique."
+        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
       },
       {
         "content": "exclusive",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est surtout un intermédiaire métabolique."
+        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
       },
       {
         "content": "identique au glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est surtout un intermédiaire métabolique."
+        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
       }
     ],
     "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "le nombre de carbones du glycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
       },
       {
         "content": "la couleur du lipide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
       },
       {
         "content": "la présence d'une liaison peptidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
       }
     ],
     "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "phosphatidylcholines (PC)",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sérine est l'alcool de tête des PS."
+        "explanation": "La sérine est l'alcool de tête des PS."
       },
       {
         "content": "phosphatidyléthanolamines (PE)",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sérine est l'alcool de tête des PS."
+        "explanation": "La sérine est l'alcool de tête des PS."
       },
       {
         "content": "sphingomyélines",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sérine est l'alcool de tête des PS."
+        "explanation": "La sérine est l'alcool de tête des PS."
       }
     ],
     "explanation": "La sérine est l'alcool de tête des PS."
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "phosphatidylsérines (PS)",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'éthanolamine définit la série PE."
+        "explanation": "L'éthanolamine définit la série PE."
       },
       {
         "content": "phosphatidylcholines (PC)",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'éthanolamine définit la série PE."
+        "explanation": "L'éthanolamine définit la série PE."
       },
       {
         "content": "cérébrosides",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'éthanolamine définit la série PE."
+        "explanation": "L'éthanolamine définit la série PE."
       }
     ],
     "explanation": "L'éthanolamine définit la série PE."
@@ -304,25 +304,25 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La choline est un dérivé triméthylé de l'éthanolamine.",
         "correct": true,
-        "explanation": "PC et lécithines sont synonymes dans la fiche."
+        "explanation": "La choline correspond à une éthanolamine portant trois groupes méthyle sur l'azote."
       },
       {
         "content": "Elle donne les phosphatidylcholines.",
         "correct": true,
-        "explanation": "PC et lécithines sont synonymes dans la fiche."
+        "explanation": "La choline constitue la tête polaire des phosphatidylcholines."
       },
       {
         "content": "Les phosphatidylcholines sont aussi appelées lécithines.",
         "correct": true,
-        "explanation": "PC et lécithines sont synonymes dans la fiche."
+        "explanation": "Le terme « lécithines » désigne classiquement les phosphatidylcholines."
       },
       {
         "content": "Les phosphatidylcholines sont des gangliosides.",
         "correct": false,
-        "explanation": "PC et lécithines sont synonymes dans la fiche."
+        "explanation": "Les gangliosides sont des glycosphingolipides, et non des phosphatidylcholines."
       }
     ],
-    "explanation": "PC et lécithines sont synonymes dans la fiche."
+    "explanation": "Les phosphatidylcholines, ou lécithines, possèdent une tête polaire choline."
   },
   {
     "order": 56,
@@ -333,25 +333,25 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "lécithines",
         "correct": true,
-        "explanation": "PC et lécithines sont synonymes dans la fiche."
+        "explanation": "Les phosphatidylcholines sont aussi appelées lécithines."
       },
       {
         "content": "céramides",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PC et lécithines sont synonymes dans la fiche."
+        "explanation": "Les céramides possèdent un squelette sphingosine."
       },
       {
         "content": "stérides",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PC et lécithines sont synonymes dans la fiche."
+        "explanation": "Les stérides sont des esters de stérols et d'acides gras."
       },
       {
         "content": "cérébrosides",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. PC et lécithines sont synonymes dans la fiche."
+        "explanation": "Les cérébrosides sont des glycosphingolipides."
       }
     ],
-    "explanation": "PC et lécithines sont synonymes dans la fiche."
+    "explanation": "Le terme « lécithines » désigne classiquement les phosphatidylcholines."
   },
   {
     "order": 57,
@@ -375,7 +375,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le glycérol peut être la tête polaire des PG."
       },
       {
-        "content": "PG signifie phosphatidylglucose dans cette fiche.",
+        "content": "PG signifie phosphatidylglucose.",
         "correct": false,
         "explanation": "Le glycérol peut être la tête polaire des PG."
       }
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "phosphatidylinositols (PI)",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol peut être la tête polaire des PG."
+        "explanation": "Le glycérol peut être la tête polaire des PG."
       },
       {
         "content": "phosphatidylsérines (PS)",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol peut être la tête polaire des PG."
+        "explanation": "Le glycérol peut être la tête polaire des PG."
       },
       {
         "content": "triacylglycérols",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol peut être la tête polaire des PG."
+        "explanation": "Le glycérol peut être la tête polaire des PG."
       }
     ],
     "explanation": "Le glycérol peut être la tête polaire des PG."
@@ -428,7 +428,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L'inositol est un cyclitol à six carbones et six OH."
       },
       {
-        "content": "Sa fonction alcool en position 1 est celle qui estérifie le phosphate dans le modèle de la fiche.",
+        "content": "Sa fonction alcool en position 1 forme la liaison phosphodiester avec le phosphate.",
         "correct": true,
         "explanation": "L'inositol est un cyclitol à six carbones et six OH."
       },
@@ -503,17 +503,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "réserve énergétique exclusive",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les PI sont peu abondants mais essentiels à la signalisation."
+        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
       },
       {
         "content": "transport de l'oxygène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les PI sont peu abondants mais essentiels à la signalisation."
+        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
       },
       {
         "content": "synthèse du collagène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les PI sont peu abondants mais essentiels à la signalisation."
+        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
       }
     ],
     "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
@@ -530,7 +530,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
       },
       {
-        "content": "La fiche définit notamment le lysophospholipide par l'absence de l'acide gras en C2.",
+        "content": "Après action d’une phospholipase A₂, l’acyle en C2 est absent.",
         "correct": true,
         "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
       },
@@ -551,7 +551,7 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel acide gras manque dans le lysophospholipide défini dans la fiche ?",
+    "question": "Quel acyle manque dans le lysophospholipide produit par une phospholipase A₂ ?",
     "choices": [
       {
         "content": "celui de C2",
@@ -561,17 +561,17 @@ export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "celui de C3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
       },
       {
         "content": "aucun",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
       },
       {
         "content": "les trois",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
       }
     ],
     "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."

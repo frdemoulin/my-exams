@@ -13,7 +13,7 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Les eicosanoïdes :",
     "choices": [
       {
-        "content": "Sont des composés à 20 atomes de carbone dans la définition du support.",
+        "content": "Sont majoritairement des médiateurs lipidiques dérivés d’acides gras à 20 carbones.",
         "correct": true,
         "explanation": "Repère."
       },
@@ -39,7 +39,7 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 2,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les grandes familles d’eicosanoïdes du chapitre comprennent :",
+    "question": "Les grandes familles d’eicosanoïdes comprennent :",
     "choices": [
       {
         "content": "Les prostanoïdes.",
@@ -126,12 +126,12 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 5,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À quelle série ω appartient l’acide arachidonique 20:4 Δ5,8,11,14 dans le support ?",
+    "question": "À quelle série ω appartient l’acide arachidonique 20:4 Δ5,8,11,14 ?",
     "choices": [
       {
         "content": "ω6 / n-6.",
         "correct": true,
-        "explanation": "Notation du support."
+        "explanation": "La première double liaison rencontrée depuis l’extrémité méthyle se situe en position ω6."
       },
       {
         "content": "ω3 / n-3.",
@@ -155,17 +155,17 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les sources de l’acide arachidonique citées sont :",
+    "question": "L’acide arachidonique disponible pour la synthèse des eicosanoïdes peut provenir :",
     "choices": [
       {
         "content": "L’alimentation.",
         "correct": true,
-        "explanation": "Source citée."
+        "explanation": "L'alimentation peut apporter directement de l'acide arachidonique."
       },
       {
         "content": "Le clivage de phospholipides membranaires.",
         "correct": true,
-        "explanation": "Source citée."
+        "explanation": "La phospholipase A₂ peut libérer l'acide arachidonique membranaire."
       },
       {
         "content": "Une disponibilité permettant la synthèse d’eicosanoïdes.",
@@ -178,7 +178,7 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sans rapport avec la libération d’un acide gras."
       }
     ],
-    "explanation": "Le support relie alimentation et phospholipides membranaires à la disponibilité d’acide arachidonique."
+    "explanation": "L’acide arachidonique peut provenir de l’alimentation ou être libéré des phospholipides membranaires par une phospholipase A₂."
   },
   {
     "order": 7,
@@ -265,13 +265,13 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le glycogène n’est pas le précurseur lipidique."
       }
     ],
-    "explanation": "Le schéma de branchement est un repère majeur du chapitre."
+    "explanation": "L'acide arachidonique alimente notamment les voies COX et lipoxygénases."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel est le principal précurseur des prostaglandines dans ce chapitre ?",
+    "question": "Quel est le principal précurseur des prostaglandines de série 2 ?",
     "choices": [
       {
         "content": "L’acide arachidonique.",
@@ -493,7 +493,7 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "L’acide arachidonique du support est décrit comme « toutes-cis ». Cela signifie :",
+    "question": "L’acide arachidonique naturel est décrit comme « toutes-cis ». Cela signifie :",
     "choices": [
       {
         "content": "Que les quatre doubles liaisons sont en configuration cis.",
@@ -545,7 +545,7 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La voie lipoxygénase est distincte."
       }
     ],
-    "explanation": "Le raisonnement porte ici uniquement sur le branchement enzymatique du cours."
+    "explanation": "L’inhibition de COX réduit les prostanoïdes sans inhiber directement la 5-lipoxygénase."
   },
   {
     "order": 21,
@@ -597,7 +597,7 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’acide arachidonique ne peut provenir des membranes.",
         "correct": false,
-        "explanation": "Clivage phospholipidique cité."
+        "explanation": "La phospholipase A₂ peut libérer l'acide arachidonique des phospholipides membranaires."
       },
       {
         "content": "Les eicosanoïdes sont tous des protéines.",
@@ -612,7 +612,7 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux origines de l’acide arachidonique citées dans la fiche.",
+    "question": "Sélectionnez exactement les deux sources de disponibilité de l’acide arachidonique.",
     "choices": [
       {
         "content": "Alimentation.",
@@ -635,6 +635,6 @@ export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sans rapport."
       }
     ],
-    "explanation": "Le support cite l’alimentation et les phospholipides membranaires."
+    "explanation": "L’acide arachidonique est apporté par l’alimentation ou libéré depuis des phospholipides membranaires."
   }
 ];

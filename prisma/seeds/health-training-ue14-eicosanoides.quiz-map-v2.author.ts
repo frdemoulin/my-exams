@@ -135,7 +135,7 @@ export const UE14_BIOCH_CH5_V2_QUIZ_MAP = [
     "order": 3,
     "slug": "section-c-master-prostanoides-clinique",
     "title": "Prostanoïdes : intégration biologique et thérapeutique",
-    "description": "Maîtrise de l’antagonisme TXA₂/PGI₂, de COX et des exemples thérapeutiques du support.",
+    "description": "Maîtrise de l’antagonisme TXA₂/PGI₂, de COX et de leurs applications thérapeutiques.",
     "stage": "MASTER",
     "questionOrders": [
       67,
@@ -351,7 +351,7 @@ export const UE14_BIOCH_CH5_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> =
   110: ["Synthèse eicosanoïdes"],
   111: ["Maîtrise transversale eicosanoïdes"],
   112: ["Maîtrise transversale eicosanoïdes"],
-  113: ["Misoprostol : contexte clinique du support"],
+  113: ["Misoprostol : contexte clinique"],
   114: ["Maîtrise transversale eicosanoïdes"],
   115: ["Maîtrise transversale eicosanoïdes"],
   116: ["Maîtrise transversale eicosanoïdes"],

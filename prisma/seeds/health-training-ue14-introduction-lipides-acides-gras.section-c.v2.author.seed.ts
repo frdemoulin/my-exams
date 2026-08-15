@@ -42,9 +42,9 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la configuration des doubles liaisons :",
     "choices": [
       {
-        "content": "Les acides gras naturels sont majoritairement cis selon la fiche.",
+        "content": "Les doubles liaisons des acides gras naturels sont majoritairement en configuration cis.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "La configuration cis domine parmi les acides gras insaturés naturels."
       },
       {
         "content": "Les configurations cis et trans sont distinguées.",
@@ -59,7 +59,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Toutes les doubles liaisons naturelles sont obligatoirement trans.",
         "correct": false,
-        "explanation": "Le support indique majoritairement cis."
+        "explanation": "Les configurations trans existent, mais elles sont minoritaires parmi les acides gras naturels."
       }
     ],
     "explanation": "La configuration cis est le repère dominant des acides gras naturels étudiés."
@@ -242,7 +242,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 53,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L’acide linolénique présenté dans la fiche :",
+    "question": "L’acide α-linolénique :",
     "choices": [
       {
         "content": "Est un acide gras polydésaturé.",
@@ -265,7 +265,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Il comporte trois doubles liaisons."
       }
     ],
-    "explanation": "Le linolénique est 18:3 Δ9,12,15, série ω3."
+    "explanation": "L’acide α-linolénique est 18:3 Δ9,12,15 et appartient à la série ω3."
   },
   {
     "order": 54,
@@ -284,9 +284,9 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Conséquence."
       },
       {
-        "content": "Le linoléique et le linolénique sont cités comme exemples.",
+        "content": "Les acides linoléique et α-linolénique en sont les principaux exemples.",
         "correct": true,
-        "explanation": "Exemples."
+        "explanation": "Les mammifères ne possèdent pas les désaturases permettant de former leurs doubles liaisons Δ12 et Δ15."
       },
       {
         "content": "Ils sont tous saturés.",
@@ -411,7 +411,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos du linolénique 18:3 Δ9,12,15 :",
+    "question": "À propos de l’acide α-linolénique 18:3 Δ9,12,15 :",
     "choices": [
       {
         "content": "Il possède trois doubles liaisons.",
@@ -434,7 +434,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Il est polydésaturé."
       }
     ],
-    "explanation": "Le linolénique est le repère essentiel ω3."
+    "explanation": "L’acide α-linolénique est l’acide gras indispensable précurseur de la famille ω3."
   },
   {
     "order": 61,
@@ -487,7 +487,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux acides gras indispensables cités dans la fiche.",
+    "question": "Sélectionnez exactement les deux acides gras indispensables chez l’être humain.",
     "choices": [
       {
         "content": "Acide linoléique.",
@@ -495,22 +495,22 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Exemple essentiel."
       },
       {
-        "content": "Acide linolénique.",
+        "content": "Acide α-linolénique.",
         "correct": true,
         "explanation": "Exemple essentiel."
       },
       {
         "content": "Acide palmitique.",
         "correct": false,
-        "explanation": "Saturé, non cité comme essentiel."
+        "explanation": "L'acide palmitique est saturé et n'est pas un acide gras essentiel."
       },
       {
         "content": "Acide stéarique.",
         "correct": false,
-        "explanation": "Saturé, non cité comme essentiel."
+        "explanation": "L'acide stéarique est saturé et n'est pas un acide gras essentiel."
       }
     ],
-    "explanation": "Le support cite les acides linoléique et linolénique comme indispensables."
+    "explanation": "Les acides linoléique et α-linolénique doivent être apportés par l’alimentation."
   },
   {
     "order": 64,
@@ -540,7 +540,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Notation."
       },
       {
-        "content": "Linolénique : 18:3 Δ9,12,15.",
+        "content": "α-linolénique : 18:3 Δ9,12,15.",
         "correct": true,
         "explanation": "Notation."
       },
@@ -555,7 +555,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "ω6."
       },
       {
-        "content": "Linolénique : saturé.",
+        "content": "α-linolénique : saturé.",
         "correct": false,
         "explanation": "Polydésaturé."
       },
@@ -606,7 +606,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Une double liaison."
       },
       {
-        "content": "Il correspond à l’acide oléique du support.",
+        "content": "Il correspond à l’acide oléique.",
         "correct": true,
         "explanation": "Repère."
       },
@@ -645,9 +645,9 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Conversion."
       },
       {
-        "content": "Il correspond au linolénique.",
+        "content": "Il correspond à l’acide α-linolénique.",
         "correct": false,
-        "explanation": "Linolénique = 18:3 Δ9,12,15."
+        "explanation": "L’acide α-linolénique est 18:3 Δ9,12,15."
       }
     ],
     "explanation": "Le linoléique combine deux doubles liaisons et une série ω6."
@@ -664,7 +664,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Trois doubles liaisons."
       },
       {
-        "content": "Il correspond au linolénique.",
+        "content": "Il correspond à l’acide α-linolénique.",
         "correct": true,
         "explanation": "Repère."
       },
@@ -679,7 +679,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Trois doubles liaisons."
       }
     ],
-    "explanation": "Le linolénique est le repère ω3 indispensable du support."
+    "explanation": "L’acide α-linolénique est l’acide gras indispensable de la série ω3."
   },
   {
     "order": 69,
@@ -714,7 +714,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 70,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Dans la logique du cours, un acide gras indispensable :",
+    "question": "Un acide gras indispensable :",
     "choices": [
       {
         "content": "Ne peut pas être synthétisé par les mammifères dans le cadre étudié.",
@@ -729,7 +729,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut être un acide gras polyinsaturé.",
         "correct": true,
-        "explanation": "Exemples linoléique/linolénique."
+        "explanation": "Les acides linoléique et α-linolénique sont polyinsaturés et indispensables."
       },
       {
         "content": "Est nécessairement un acide gras saturé court.",
@@ -790,7 +790,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       "value": 3,
       "tolerance": 0
     },
-    "explanation": "Le linolénique 18:3 Δ9,12,15 est n-3/ω3."
+    "explanation": "L’acide α-linolénique 18:3 Δ9,12,15 est n-3, ou ω3."
   },
   {
     "order": 74,
@@ -825,12 +825,12 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 75,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un apport alimentaire contient des acides linoléique et linolénique. D’après la fiche :",
+    "question": "Un apport alimentaire contient des acides linoléique et α-linolénique. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Ils peuvent contribuer à l’apport d’acides gras indispensables.",
         "correct": true,
-        "explanation": "Exemples cités."
+        "explanation": "Certaines huiles végétales apportent des acides gras essentiels."
       },
       {
         "content": "Le linoléique est ω6.",
@@ -838,7 +838,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Repère."
       },
       {
-        "content": "Le linolénique est ω3.",
+        "content": "L’acide α-linolénique est ω3.",
         "correct": true,
         "explanation": "Repère."
       },
@@ -848,7 +848,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ils sont polyinsaturés."
       }
     ],
-    "explanation": "Le contexte nutritionnel reste limité à la notion d’acides gras indispensables du support."
+    "explanation": "Les acides linoléique et α-linolénique sont les précurseurs alimentaires indispensables des familles ω6 et ω3."
   },
   {
     "order": 76,
@@ -904,7 +904,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "18:3 Δ9,12,15 — stéarique — ω3.",
         "correct": false,
-        "explanation": "18:3 correspond au linolénique, pas au stéarique."
+        "explanation": "18:3 correspond à l’acide α-linolénique, tandis que l’acide stéarique est 18:0."
       }
     ],
     "explanation": "Trois associations testent simultanément nom, notation Δ et série ω."
@@ -917,7 +917,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Nomenclature Δ/ω et séries des acides gras : sélectionnez exactement cinq propositions correctes.",
     "choices": [
       {
-        "content": "Les doubles liaisons naturelles sont majoritairement cis dans la fiche.",
+        "content": "Les doubles liaisons des acides gras naturels sont majoritairement cis.",
         "correct": true,
         "explanation": "Configuration."
       },
@@ -937,7 +937,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Série."
       },
       {
-        "content": "Le linolénique est ω3.",
+        "content": "L’acide α-linolénique est ω3.",
         "correct": true,
         "explanation": "Série."
       },
@@ -957,7 +957,7 @@ export const UE14_BIOCH_CH4_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "18:2."
       },
       {
-        "content": "Le linolénique a deux doubles liaisons.",
+        "content": "L’acide α-linolénique a deux doubles liaisons.",
         "correct": false,
         "explanation": "Trois."
       },

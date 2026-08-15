@@ -33,7 +33,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "C’est un lipide simple dans cette classification."
       }
     ],
-    "explanation": "La structure générique permet de revenir aux bases du chapitre."
+    "explanation": "Un acide gras associe une fonction carboxylique hydrophile à une chaîne hydrocarbonée hydrophobe."
   },
   {
     "order": 102,
@@ -97,7 +97,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Comparer linoléique et linolénique :",
+    "question": "Comparer acides linoléique et α-linolénique :",
     "choices": [
       {
         "content": "Les deux sont polyinsaturés.",
@@ -110,7 +110,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Repère."
       },
       {
-        "content": "Le linolénique est ω3.",
+        "content": "L’acide α-linolénique est ω3.",
         "correct": true,
         "explanation": "Repère."
       },
@@ -120,7 +120,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ils sont désaturés."
       }
     ],
-    "explanation": "Ces deux acides gras sont aussi les exemples indispensables du support."
+    "explanation": "Les acides linoléique et α-linolénique sont les précurseurs indispensables des familles ω6 et ω3."
   },
   {
     "order": 105,
@@ -139,9 +139,9 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Conséquence."
       },
       {
-        "content": "Que linoléique et linolénique sont des exemples.",
+        "content": "Que les acides linoléique et α-linolénique en sont des exemples.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "Ces deux acides gras polyinsaturés doivent être apportés par l’alimentation."
       },
       {
         "content": "Qu’il s’agit nécessairement d’un acide gras saturé.",
@@ -213,7 +213,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel acide gras de référence du chapitre est noté 18:2 Δ9,12 et appartient à la série ω6 ?",
+    "question": "Quel acide gras est noté 18:2 Δ9,12 et appartient à la série ω6 ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -237,7 +237,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux facteurs structuraux qui déterminent le point de fusion selon la fiche.",
+    "question": "Sélectionnez exactement les deux facteurs structuraux majeurs qui déterminent le point de fusion d’un acide gras.",
     "choices": [
       {
         "content": "Nombre de carbones.",
@@ -317,7 +317,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Les acides gras n’ont aucun rôle énergétique.",
         "correct": false,
-        "explanation": "Rôle cité."
+        "explanation": "L'oxydation des acides gras fournit de l'énergie."
       }
     ],
     "explanation": "La synthèse PRACTICE rassemble les principaux repères structuraux et fonctionnels."
@@ -326,7 +326,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un acide gras 18:1 Δ9 est liquide à température ambiante dans l’exemple du support. Cette observation est cohérente avec :",
+    "question": "L’acide oléique 18:1 Δ9 est liquide à température ambiante. Cette observation est cohérente avec :",
     "choices": [
       {
         "content": "L’identification de l’acide oléique.",
@@ -384,10 +384,10 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 113,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un acide gras 18:3 Δ9,12,15 doit être apporté par l’alimentation dans les exemples du support. On peut l’identifier comme :",
+    "question": "Un acide gras indispensable 18:3 Δ9,12,15 doit être apporté par l’alimentation. On peut l’identifier comme :",
     "choices": [
       {
-        "content": "Acide linolénique.",
+        "content": "Acide α-linolénique.",
         "correct": true,
         "explanation": "Notation."
       },
@@ -407,7 +407,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "18:0."
       }
     ],
-    "explanation": "Le linolénique combine la notion d’indispensabilité avec la nomenclature."
+    "explanation": "L’acide α-linolénique combine une structure 18:3 n-3 avec un caractère nutritionnel indispensable."
   },
   {
     "order": 114,
@@ -442,7 +442,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 115,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une molécule lipidique flotte à la surface de l’eau et forme une couche monomoléculaire. Dans le modèle du chapitre, cela est cohérent avec :",
+    "question": "Une molécule lipidique flotte à la surface de l’eau et forme une couche monomoléculaire. Cela est cohérent avec :",
     "choices": [
       {
         "content": "Une densité inférieure à celle de l’eau.",
@@ -471,30 +471,30 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un produit transformé contient des acides gras trans. Selon la fiche uniquement :",
+    "question": "Un produit transformé contient des acides gras trans. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les graisses industrielles/produits transformés sont un contexte cité.",
+        "content": "Certains procédés industriels et produits transformés peuvent en constituer une source.",
         "correct": true,
         "explanation": "Source."
       },
       {
-        "content": "Le support associe les acides gras trans à des effets délétères.",
+        "content": "Une consommation élevée augmente le risque cardiovasculaire.",
         "correct": true,
         "explanation": "Source."
       },
       {
-        "content": "Des maladies cardiovasculaires et cancers sont cités comme exemples de risques.",
+        "content": "L’OMS recommande de limiter leur apport à moins de 1 % de l’apport énergétique total.",
         "correct": true,
         "explanation": "Source."
       },
       {
-        "content": "Le chapitre détaille un traitement médical précis de ces risques.",
+        "content": "Ils sont indispensables et doivent représenter une part importante de l’apport énergétique.",
         "correct": false,
         "explanation": "Il n’entre pas dans ce niveau clinique."
       }
     ],
-    "explanation": "La question reste volontairement au niveau d’information du support local."
+    "explanation": "Les acides gras trans n’ont pas de bénéfice nutritionnel connu et leur consommation augmente le risque cardiovasculaire."
   },
   {
     "order": 117,
@@ -545,12 +545,12 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un rôle structural dans les membranes.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Les chaînes acyles contribuent à la structure des lipides membranaires."
       },
       {
         "content": "Un rôle énergétique via l’oxydation/réserve.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "L'oxydation et le stockage sous forme de triacylglycérols illustrent le rôle énergétique."
       },
       {
         "content": "Une contradiction rendant la molécule impossible.",
@@ -558,13 +558,13 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Une même famille peut avoir plusieurs rôles."
       }
     ],
-    "explanation": "Le chapitre insiste sur plusieurs fonctions simultanées des acides gras."
+    "explanation": "Un même acide gras peut contribuer à la structure membranaire et servir de substrat énergétique."
   },
   {
     "order": 120,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "L’estérification d’un acide gras permet de préparer les chapitres suivants parce que :",
+    "question": "L’estérification d’un acide gras permet de former des lipides complexes parce que :",
     "choices": [
       {
         "content": "La fonction carboxylique peut réagir avec un alcool.",
@@ -607,7 +607,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Association."
       },
       {
-        "content": "18:3 Δ9,12,15 — linolénique — ω3.",
+        "content": "18:3 Δ9,12,15 — α-linolénique — ω3.",
         "correct": true,
         "explanation": "Association."
       },
@@ -617,7 +617,7 @@ export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "16:0 est palmitique, saturé."
       }
     ],
-    "explanation": "Ces associations sont des repères majeurs du chapitre."
+    "explanation": "La notation Δ, le nom usuel et la série ω décrivent de façon complémentaire un acide gras."
   },
   {
     "order": 122,

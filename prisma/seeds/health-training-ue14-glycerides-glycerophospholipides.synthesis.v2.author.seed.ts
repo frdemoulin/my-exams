@@ -22,7 +22,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
       },
       {
-        "content": "Les deux familles reposent sur un squelette glycérol dans ce chapitre.",
+        "content": "Les deux familles reposent sur un squelette glycérol.",
         "correct": true,
         "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
       },
@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "sphingosine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
       },
       {
         "content": "cholestérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
       },
       {
         "content": "ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
       }
     ],
     "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "tissu osseux",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
       },
       {
         "content": "cornée seulement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
       },
       {
         "content": "épiderme sans adipocytes",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
       }
     ],
     "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
       },
       {
         "content": "C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
       },
       {
         "content": "C17",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
       }
     ],
     "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "cholestérol et HDL",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les phospholipases relient structure membranaire et signalisation."
+        "explanation": "Les phospholipases relient structure membranaire et signalisation."
       },
       {
         "content": "glucose et galactose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les phospholipases relient structure membranaire et signalisation."
+        "explanation": "Les phospholipases relient structure membranaire et signalisation."
       },
       {
         "content": "sphingosine et céramide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les phospholipases relient structure membranaire et signalisation."
+        "explanation": "Les phospholipases relient structure membranaire et signalisation."
       }
     ],
     "explanation": "Les phospholipases relient structure membranaire et signalisation."
@@ -254,9 +254,9 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
       },
       {
-        "content": "La voie est présentée comme très impliquée en cancérologie.",
+        "content": "La dérégulation de la voie PI3K–AKT est impliquée dans de nombreux cancers.",
         "correct": true,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "explanation": "Des altérations de PI3K, AKT ou PTEN peuvent favoriser une signalisation proliférative anormale."
       },
       {
         "content": "PTEN réalise exactement la même réaction que PI3K dans le même sens.",
@@ -270,7 +270,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 110,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel enzyme effectue le chemin inverse PIP3→PIP2 ?",
+    "question": "Quelle enzyme catalyse la conversion inverse PIP₃ → PIP₂ ?",
     "choices": [
       {
         "content": "PTEN",
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "PLA2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
       },
       {
         "content": "PLC",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
       },
       {
         "content": "glycérol kinase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
       }
     ],
     "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
@@ -302,56 +302,56 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des plasmalogènes et du PAF :",
     "choices": [
       {
-        "content": "Les plasmalogènes portent un alcool gras en C1 par liaison éther.",
+        "content": "Les plasmalogènes portent une chaîne alk-1′-ényl par liaison vinyl-éther en sn-1.",
         "correct": true,
-        "explanation": "La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Le vinyl-éther en sn-1 est la signature structurale des plasmalogènes."
       },
       {
         "content": "Ils sont présents notamment dans cerveau, muscle et rétine.",
         "correct": true,
-        "explanation": "La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Les plasmalogènes sont particulièrement abondants dans plusieurs tissus nerveux et musculaires."
       },
       {
-        "content": "Le PAF est un dérivé biologiquement actif de plasmalogènes.",
+        "content": "Le PAF est un médiateur phospholipidique à liaison alkyl-éther en sn-1.",
         "correct": true,
-        "explanation": "La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Le PAF appartient aux phospholipides alkyl-éther, distincts des plasmalogènes à vinyl-éther."
       },
       {
         "content": "Les plasmalogènes sont des triglycérides à trois acides gras identiques.",
         "correct": false,
-        "explanation": "La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Les plasmalogènes sont des glycérophospholipides, pas des triglycérides."
       }
     ],
-    "explanation": "La liaison éther C1 est la signature structurelle mise en avant."
+    "explanation": "Plasmalogènes et PAF appartiennent aux lipides éther, mais leurs liaisons en sn-1 et leurs fonctions diffèrent."
   },
   {
     "order": 112,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel type de liaison distingue le C1 des plasmalogènes ?",
+    "question": "Quel type de liaison caractérise la position sn-1 des plasmalogènes ?",
     "choices": [
       {
-        "content": "éther",
+        "content": "vinyl-éther",
         "correct": true,
-        "explanation": "La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Les plasmalogènes portent une liaison vinyl-éther en sn-1."
       },
       {
         "content": "amide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Une liaison amide caractérise notamment les céramides, pas les plasmalogènes."
       },
       {
         "content": "peptidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Une liaison peptidique unit des acides aminés."
       },
       {
         "content": "glycosidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La liaison éther C1 est la signature structurelle mise en avant."
+        "explanation": "Une liaison glycosidique unit notamment un ose à un autre groupement."
       }
     ],
-    "explanation": "La liaison éther C1 est la signature structurelle mise en avant."
+    "explanation": "La liaison vinyl-éther en sn-1 distingue les plasmalogènes des glycérophospholipides diacylés."
   },
   {
     "order": 113,
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "sérine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
       },
       {
         "content": "glycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
       },
       {
         "content": "sphingosine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
       }
     ],
     "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
@@ -415,7 +415,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 115,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel enzyme transforme PIP2 en PIP3 dans la voie de signalisation décrite ?",
+    "question": "Quelle enzyme phosphoryle le PIP₂ en PIP₃ ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -436,7 +436,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 116,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel usage médical est cité pour les liposomes ?",
+    "question": "Quel usage médical peut être fait des liposomes ?",
     "choices": [
       {
         "content": "transport de médicaments/substances actives",
@@ -446,17 +446,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "stockage de glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+        "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
       },
       {
         "content": "transport d'oxygène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+        "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
       },
       {
         "content": "synthèse du collagène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+        "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
       }
     ],
     "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
@@ -500,25 +500,25 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "désaturation des acides gras",
         "correct": true,
-        "explanation": "Les doubles liaisons abaissent le point de fusion dans le modèle du support."
+        "explanation": "Les doubles liaisons cis perturbent l'empilement des chaînes et favorisent la fluidité."
       },
       {
         "content": "saturation complète",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les doubles liaisons abaissent le point de fusion dans le modèle du support."
+        "explanation": "La saturation permet un empilement plus compact et tend à réduire la fluidité."
       },
       {
         "content": "suppression du glycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les doubles liaisons abaissent le point de fusion dans le modèle du support."
+        "explanation": "La suppression du glycérol ne décrit pas une variation de fluidité d'un triglycéride."
       },
       {
         "content": "ajout de ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les doubles liaisons abaissent le point de fusion dans le modèle du support."
+        "explanation": "Le ribose n'est pas un constituant des triglycérides."
       }
     ],
-    "explanation": "Les doubles liaisons abaissent le point de fusion dans le modèle du support."
+    "explanation": "Les doubles liaisons cis abaissent généralement le point de fusion et favorisent la fluidité."
   },
   {
     "order": 119,
@@ -527,7 +527,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des lysophospholipides :",
     "choices": [
       {
-        "content": "La perte de l'acide gras C2 produit un lysophospholipide dans le schéma.",
+        "content": "La perte de l’acyle en C2 produit un lysophospholipide.",
         "correct": true,
         "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
       },
@@ -563,17 +563,17 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "PLA1 uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLA2 forme simultanément acide gras libre et lysophospholipide."
+        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
       },
       {
         "content": "PTEN",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLA2 forme simultanément acide gras libre et lysophospholipide."
+        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
       },
       {
         "content": "sphingomyélinase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La PLA2 forme simultanément acide gras libre et lysophospholipide."
+        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
       }
     ],
     "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
@@ -612,7 +612,7 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "HARD",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Pour cette synthèse du chapitre sur les glycérides et glycérophospholipides, sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Pour cette synthèse sur les glycérides et glycérophospholipides, sélectionnez exactement les cinq affirmations correctes.",
     "choices": [
       {
         "content": "Le glycérol possède 3 carbones.",
@@ -665,6 +665,6 @@ export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Médiateur lipidique."
       }
     ],
-    "explanation": "MASTER final du chapitre."
+    "explanation": "Cette synthèse mobilise la structure, le stockage énergétique et la signalisation des glycérides et glycérophospholipides."
   }
 ];

@@ -15,7 +15,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils forment un groupe hétérogène de composés.",
         "correct": true,
-        "explanation": "Définition du support."
+        "explanation": "Les lipides regroupent des molécules chimiquement diverses partageant notamment une faible solubilité dans l’eau."
       },
       {
         "content": "Leur propriété physique commune mise en avant est l’insolubilité dans l’eau.",
@@ -25,7 +25,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le groupe comprend notamment graisses, huiles, cires et stéroïdes.",
         "correct": true,
-        "explanation": "Exemples cités."
+        "explanation": "Les lipides regroupent plusieurs familles chimiquement diverses."
       },
       {
         "content": "Tous les lipides possèdent exactement la même structure chimique.",
@@ -39,7 +39,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 2,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La classification simplifiée des lipides du support comprend :",
+    "question": "Dans une classification biochimique simplifiée, les lipides comprennent :",
     "choices": [
       {
         "content": "Des lipides simples.",
@@ -62,18 +62,18 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ils sont classés parmi les lipides complexes."
       }
     ],
-    "explanation": "La fiche distingue schématiquement lipides simples et complexes."
+    "explanation": "Cette classification pédagogique distingue les lipides simples des lipides complexes selon leurs constituants."
   },
   {
     "order": 3,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Dans la classification de la fiche, les sphingolipides appartiennent aux :",
+    "question": "Dans cette classification biochimique simplifiée, les sphingolipides appartiennent aux :",
     "choices": [
       {
         "content": "Lipides complexes.",
         "correct": true,
-        "explanation": "Classement du support."
+        "explanation": "Les sphingolipides sont rangés parmi les lipides complexes dans cette classification."
       },
       {
         "content": "Glucides simples.",
@@ -91,7 +91,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ils sont classés parmi les lipides complexes."
       }
     ],
-    "explanation": "Les sphingolipides sont des lipides complexes dans le schéma du cours."
+    "explanation": "Les sphingolipides associent une base sphingoïde à d’autres constituants et relèvent des lipides complexes."
   },
   {
     "order": 4,
@@ -175,7 +175,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La couleur de la molécule en solution.",
         "correct": false,
-        "explanation": "Ce n’est pas un critère du cours."
+        "explanation": "La couleur en solution ne permet pas de classer chimiquement un acide gras."
       }
     ],
     "explanation": "Longueur de chaîne et degré d’insaturation structurent la classification des acides gras."
@@ -315,7 +315,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un pôle hydrophile au niveau du carboxyle.",
         "correct": true,
-        "explanation": "Représentation du support."
+        "explanation": "Le groupement carboxyle constitue la partie polaire de l’acide gras."
       },
       {
         "content": "L’obligation de posséder une double liaison.",
@@ -339,7 +339,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Des catégories courte, moyenne, longue et très longue chaîne.",
         "correct": true,
-        "explanation": "Catégories citées."
+        "explanation": "La longueur de chaîne permet de distinguer plusieurs catégories d'acides gras."
       },
       {
         "content": "Un critère distinct du degré d’insaturation.",
@@ -394,7 +394,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux grands critères de classification des acides gras donnés dans la fiche.",
+    "question": "Sélectionnez exactement les deux grands critères structuraux de classification des acides gras.",
     "choices": [
       {
         "content": "Nombre d’atomes de carbone.",
@@ -452,7 +452,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans la classification de la fiche :",
+    "question": "Dans cette classification biochimique simplifiée :",
     "choices": [
       {
         "content": "Les glycérides sont rangés parmi les lipides simples.",
@@ -475,7 +475,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ils sont des lipides simples."
       }
     ],
-    "explanation": "La classification annonce les familles développées dans les chapitres suivants."
+    "explanation": "Dans cette classification simplifiée, glycérides, phospholipides et sphingolipides appartiennent à des catégories lipidiques distinctes."
   },
   {
     "order": 18,
@@ -539,7 +539,7 @@ export const UE14_BIOCH_CH4_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Le terme « gras » dans acide gras est relié dans la fiche :",
+    "question": "Le caractère hydrophobe d’un acide gras est principalement relié :",
     "choices": [
       {
         "content": "À la longue chaîne carbonée.",

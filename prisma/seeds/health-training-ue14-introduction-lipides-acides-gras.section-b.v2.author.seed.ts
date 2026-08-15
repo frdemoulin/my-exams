@@ -15,7 +15,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Possèdent un nombre pair de carbones.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "La synthèse des acides gras procède principalement par ajouts successifs d’unités à deux carbones."
       },
       {
         "content": "Sont liés à des voies de synthèse/dégradation par unités à deux carbones.",
@@ -25,7 +25,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peuvent néanmoins présenter des exceptions impaires.",
         "correct": true,
-        "explanation": "Exemple de l’acide undécylénique."
+        "explanation": "Des acides gras à nombre impair, notamment C15:0 ou C17:0, existent chez les mammifères."
       },
       {
         "content": "Possèdent obligatoirement 18 carbones.",
@@ -97,7 +97,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 26,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel est le nom systématique de l’acide palmitique donné dans le support ?",
+    "question": "Quel est le nom systématique de l’acide palmitique ?",
     "choices": [
       {
         "content": "Acide hexadécanoïque.",
@@ -155,12 +155,12 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L’acide undécylénique cité dans la fiche :",
+    "question": "À propos de l’acide undécylénique :",
     "choices": [
       {
         "content": "Possède 11 carbones.",
         "correct": true,
-        "explanation": "Longueur impaire citée."
+        "explanation": "L’acide undécylénique est un acide gras mono-insaturé comportant onze carbones."
       },
       {
         "content": "Constitue un exemple d’acide gras impair.",
@@ -168,9 +168,9 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Exception au caractère pair dominant."
       },
       {
-        "content": "Est associé à une sécrétion des glandes sébacées du cuir chevelu.",
+        "content": "Est utilisé dans certaines préparations antifongiques topiques.",
         "correct": true,
-        "explanation": "Contexte du support."
+        "explanation": "L’acide undécylénique et certains de ses sels possèdent une activité antifongique."
       },
       {
         "content": "Est l’acide palmitique.",
@@ -184,12 +184,12 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les acides gras à courte chaîne sont classés dans la fiche entre :",
+    "question": "À propos des acides gras à chaîne courte :",
     "choices": [
       {
-        "content": "4 et 8 carbones.",
+        "content": "Ils comportent généralement jusqu’à six carbones.",
         "correct": true,
-        "explanation": "Plage citée."
+        "explanation": "Les acides gras à chaîne courte sont généralement définis par une chaîne ne dépassant pas six carbones."
       },
       {
         "content": "Une catégorie distincte des chaînes moyennes.",
@@ -197,9 +197,9 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Classification."
       },
       {
-        "content": "Une catégorie principalement retrouvée dans les beurres selon le support.",
+        "content": "Ils peuvent être produits par fermentation microbienne dans le côlon.",
         "correct": true,
-        "explanation": "Exemple de source."
+        "explanation": "Le microbiote colique produit notamment acétate, propionate et butyrate."
       },
       {
         "content": "16 et 20 carbones.",
@@ -207,7 +207,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Chaînes longues."
       }
     ],
-    "explanation": "La fiche fixe des plages simples pour les catégories de longueur."
+    "explanation": "Les acides gras à chaîne courte se distinguent des chaînes moyennes et peuvent provenir de la fermentation colique."
   },
   {
     "order": 30,
@@ -216,7 +216,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Les acides gras à chaîne moyenne :",
     "choices": [
       {
-        "content": "Comportent 10 à 14 carbones.",
+        "content": "Comportent généralement de 6 à 12 carbones.",
         "correct": true,
         "explanation": "Plage."
       },
@@ -226,7 +226,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Classification."
       },
       {
-        "content": "Sont cités dans les beurres et graisses végétales.",
+        "content": "Sont notamment présents dans les matières grasses laitières et certaines huiles tropicales.",
         "correct": true,
         "explanation": "Sources."
       },
@@ -236,7 +236,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Très longues chaînes."
       }
     ],
-    "explanation": "La catégorie moyenne correspond à 10–14 carbones dans le support."
+    "explanation": "Les acides gras à chaîne moyenne sont généralement définis par une longueur de 6 à 12 carbones."
   },
   {
     "order": 31,
@@ -245,7 +245,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Les acides gras à longue chaîne :",
     "choices": [
       {
-        "content": "Comportent 16 à 20 carbones.",
+        "content": "Comportent généralement de 13 à 21 carbones.",
         "correct": true,
         "explanation": "Plage."
       },
@@ -255,7 +255,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "16C et 18C."
       },
       {
-        "content": "Sont cités dans des graisses animales et végétales.",
+        "content": "Sont présents dans des graisses animales et végétales.",
         "correct": true,
         "explanation": "Sources."
       },
@@ -271,30 +271,30 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 32,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Un acide gras comportant plus de 20 carbones est classé comme :",
+    "question": "Un acide gras comportant au moins 22 carbones est classé comme :",
     "choices": [
       {
         "content": "Très longue chaîne.",
         "correct": true,
-        "explanation": "Définition du support."
+        "explanation": "Les acides gras comportant au moins 22 carbones sont qualifiés de très longue chaîne."
       },
       {
         "content": "Courte chaîne.",
         "correct": false,
-        "explanation": "4–8."
+        "explanation": "Une chaîne courte ne dépasse généralement pas six carbones."
       },
       {
         "content": "Moyenne chaîne.",
         "correct": false,
-        "explanation": "10–14."
+        "explanation": "Une chaîne moyenne comporte généralement de 6 à 12 carbones."
       },
       {
         "content": "Longue chaîne uniquement.",
         "correct": false,
-        "explanation": "La catégorie très longue est réservée à >20."
+        "explanation": "À partir de 22 carbones, la catégorie très longue chaîne est utilisée."
       }
     ],
-    "explanation": "Au-delà de 20 carbones, la fiche parle d’acide gras à très longue chaîne."
+    "explanation": "La catégorie des acides gras à très longue chaîne débute généralement à 22 carbones."
   },
   {
     "order": 33,
@@ -315,7 +315,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut correspondre à l’acide palmitique.",
         "correct": true,
-        "explanation": "Repère du support."
+        "explanation": "La notation 16:0 correspond à l’acide palmitique."
       },
       {
         "content": "Est nécessairement un ω6.",
@@ -352,7 +352,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Palmitoléique = 16:1."
       }
     ],
-    "explanation": "Le 18:0 correspond à l’acide stéarique dans les exemples du cours."
+    "explanation": "Le 18:0 correspond à l’acide stéarique."
   },
   {
     "order": 35,
@@ -387,12 +387,12 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Des réactions de synthèse par ajout de chaînons dicarbonés.",
         "correct": true,
-        "explanation": "Explication du support."
+        "explanation": "La synthèse des acides gras allonge la chaîne par unités de deux carbones."
       },
       {
         "content": "Des réactions de dégradation par clivage de chaînons dicarbonés.",
         "correct": true,
-        "explanation": "Explication du support."
+        "explanation": "La β-oxydation retire successivement des unités à deux carbones."
       },
       {
         "content": "Un mécanisme cohérent avec l’abondance des 16C et 18C.",
@@ -402,7 +402,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’impossibilité absolue d’avoir un acide gras impair.",
         "correct": false,
-        "explanation": "L’acide undécylénique est une exception citée."
+        "explanation": "Des acides gras à nombre impair existent, même s’ils sont minoritaires."
       }
     ],
     "explanation": "Les unités à deux carbones expliquent la distribution majoritairement paire."
@@ -416,12 +416,12 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "À chaîne moyenne.",
         "correct": true,
-        "explanation": "10–14 C."
+        "explanation": "Douze carbones se situent à la borne supérieure des chaînes moyennes."
       },
       {
         "content": "Dans une catégorie distincte du 16:0.",
         "correct": true,
-        "explanation": "Le 16:0 est longue chaîne."
+        "explanation": "Le 16:0 appartient aux acides gras à chaîne longue."
       },
       {
         "content": "Par le nombre de carbones indépendamment de son degré d’insaturation.",
@@ -431,7 +431,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "À très longue chaîne.",
         "correct": false,
-        "explanation": ">20 C."
+        "explanation": "Une très longue chaîne comporte au moins 22 carbones."
       }
     ],
     "explanation": "Le classement par longueur repose seulement sur le nombre de carbones."
@@ -445,25 +445,25 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "À très longue chaîne.",
         "correct": true,
-        "explanation": ">20 C."
+        "explanation": "Une chaîne de 22 carbones appartient aux très longues chaînes."
       },
       {
-        "content": "Au-delà de la plage 16–20 des longues chaînes.",
+        "content": "Au-delà de la plage usuelle 13–21 des longues chaînes.",
         "correct": true,
         "explanation": "Comparaison."
       },
       {
-        "content": "Dans une catégorie citée notamment pour des huiles et cires.",
+        "content": "Dans une catégorie comprenant des constituants de cires et de sphingolipides.",
         "correct": true,
-        "explanation": "Sources du support."
+        "explanation": "Des acides gras à très longue chaîne sont présents notamment dans certaines cires et sphingolipides."
       },
       {
         "content": "À courte chaîne.",
         "correct": false,
-        "explanation": "4–8 C."
+        "explanation": "Une chaîne courte ne comporte que quelques carbones."
       }
     ],
-    "explanation": "La frontière retenue dans la fiche est >20 carbones pour les très longues chaînes."
+    "explanation": "Un acide gras à 22 carbones appartient à la catégorie des très longues chaînes."
   },
   {
     "order": 40,
@@ -544,7 +544,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux acides gras saturés de référence du support.",
+    "question": "Sélectionnez exactement les deux acides gras saturés parmi les propositions suivantes.",
     "choices": [
       {
         "content": "Acide palmitique 16:0.",
@@ -567,7 +567,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Polydésaturé."
       }
     ],
-    "explanation": "Palmitique et stéarique sont les deux repères saturés majeurs du chapitre."
+    "explanation": "Les acides palmitique 16:0 et stéarique 18:0 sont deux acides gras saturés usuels."
   },
   {
     "order": 44,
@@ -587,17 +587,17 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Repère."
       },
       {
-        "content": "Les chaînes moyennes comportent 10 à 14 carbones.",
+        "content": "Les chaînes moyennes comportent généralement 6 à 12 carbones.",
         "correct": true,
         "explanation": "Classification."
       },
       {
-        "content": "Les chaînes longues comportent 16 à 20 carbones.",
+        "content": "Les chaînes longues comportent généralement 13 à 21 carbones.",
         "correct": true,
         "explanation": "Classification."
       },
       {
-        "content": "Les très longues chaînes ont plus de 20 carbones.",
+        "content": "Les très longues chaînes comportent au moins 22 carbones.",
         "correct": true,
         "explanation": "Classification."
       },
@@ -614,7 +614,7 @@ export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Les chaînes courtes ont 16 à 20 carbones.",
         "correct": false,
-        "explanation": "4–8 C."
+        "explanation": "Une chaîne courte ne comporte généralement pas plus de six carbones."
       },
       {
         "content": "Tous les acides gras des mammifères ont un nombre pair.",

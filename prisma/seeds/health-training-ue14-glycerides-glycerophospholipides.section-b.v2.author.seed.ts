@@ -38,7 +38,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 24,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel changement diminue le point de fusion dans le modèle du support ?",
+    "question": "Quel changement tend à diminuer le point de fusion d’un triglycéride ?",
     "choices": [
       {
         "content": "la désaturation des acides gras",
@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "la saturation complète",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La présence de doubles liaisons désorganise l'empilement et abaisse le point de fusion."
+        "explanation": "La présence de doubles liaisons désorganise l'empilement et abaisse le point de fusion."
       },
       {
         "content": "l'allongement sans désaturation",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La présence de doubles liaisons désorganise l'empilement et abaisse le point de fusion."
+        "explanation": "La présence de doubles liaisons désorganise l'empilement et abaisse le point de fusion."
       },
       {
         "content": "l'ajout d'un phosphate",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La présence de doubles liaisons désorganise l'empilement et abaisse le point de fusion."
+        "explanation": "La présence de doubles liaisons désorganise l'empilement et abaisse le point de fusion."
       }
     ],
     "explanation": "La présence de doubles liaisons désorganise l'empilement et abaisse le point de fusion."
@@ -67,10 +67,10 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 25,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des triglycérides saturés à 37 °C :",
+    "question": "À propos des triglycérides riches en longues chaînes saturées :",
     "choices": [
       {
-        "content": "La fiche indique qu'ils peuvent être solides à 37 °C.",
+        "content": "Ils peuvent être solides à 37 °C.",
         "correct": true,
         "explanation": "Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
       },
@@ -80,7 +80,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
       },
       {
-        "content": "Ils participent aux graisses de soutien riches en acides gras saturés.",
+        "content": "Leurs chaînes peuvent s’empiler de façon relativement compacte.",
         "correct": true,
         "explanation": "Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
       },
@@ -96,7 +96,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 26,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel état est associé aux triglycérides riches en acides gras saturés à 37 °C dans la fiche ?",
+    "question": "Quel état physique peuvent présenter à 37 °C des triglycérides riches en longues chaînes saturées ?",
     "choices": [
       {
         "content": "solide",
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "gazeux",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
+        "explanation": "Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
       },
       {
         "content": "toujours liquide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
+        "explanation": "Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
       },
       {
         "content": "plasma ionisé",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
+        "explanation": "Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
       }
     ],
     "explanation": "Les triglycérides riches en acides gras saturés ont un point de fusion plus élevé."
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "tissu osseux compact",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides sont stockés majoritairement dans les adipocytes."
+        "explanation": "Les triglycérides sont stockés majoritairement dans les adipocytes."
       },
       {
         "content": "cornée uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides sont stockés majoritairement dans les adipocytes."
+        "explanation": "Les triglycérides sont stockés majoritairement dans les adipocytes."
       },
       {
         "content": "émail dentaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triglycérides sont stockés majoritairement dans les adipocytes."
+        "explanation": "Les triglycérides sont stockés majoritairement dans les adipocytes."
       }
     ],
     "explanation": "Les triglycérides sont stockés majoritairement dans les adipocytes."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "la choline uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides gras stockés dans les triglycérides peuvent être mobilisés comme substrats énergétiques."
+        "explanation": "Les acides gras stockés dans les triglycérides peuvent être mobilisés comme substrats énergétiques."
       },
       {
         "content": "le phosphate uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides gras stockés dans les triglycérides peuvent être mobilisés comme substrats énergétiques."
+        "explanation": "Les acides gras stockés dans les triglycérides peuvent être mobilisés comme substrats énergétiques."
       },
       {
         "content": "l'inositol uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides gras stockés dans les triglycérides peuvent être mobilisés comme substrats énergétiques."
+        "explanation": "Les acides gras stockés dans les triglycérides peuvent être mobilisés comme substrats énergétiques."
       }
     ],
     "explanation": "Les acides gras stockés dans les triglycérides peuvent être mobilisés comme substrats énergétiques."
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "leur forte solubilité dans l'eau",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La faible conductivité thermique des graisses contribue à l'isolation."
+        "explanation": "La faible conductivité thermique des graisses contribue à l'isolation."
       },
       {
         "content": "leur caractère ionique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La faible conductivité thermique des graisses contribue à l'isolation."
+        "explanation": "La faible conductivité thermique des graisses contribue à l'isolation."
       },
       {
         "content": "leur fluorescence",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La faible conductivité thermique des graisses contribue à l'isolation."
+        "explanation": "La faible conductivité thermique des graisses contribue à l'isolation."
       }
     ],
     "explanation": "La faible conductivité thermique des graisses contribue à l'isolation."
@@ -299,83 +299,83 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la protection mécanique par les graisses :",
+    "question": "À propos des fonctions protectrices du tissu adipeux :",
     "choices": [
       {
-        "content": "Les graisses de soutien participent à la structure des organes.",
+        "content": "Le tissu adipeux périviscéral peut amortir des contraintes mécaniques.",
         "correct": true,
-        "explanation": "Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "La localisation des dépôts adipeux contribue à la protection de certains organes."
       },
       {
-        "content": "Elles sont décrites comme riches en acides gras saturés.",
+        "content": "La protection mécanique dépend notamment de la localisation et du volume du tissu.",
         "correct": true,
-        "explanation": "Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "Un coussin adipeux peut répartir et amortir des forces."
       },
       {
-        "content": "Les graisses de lubrification facilitent le glissement des organes.",
+        "content": "Le tissu adipeux participe aussi à l’isolation thermique.",
         "correct": true,
-        "explanation": "Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "La faible conductivité thermique des graisses limite les pertes de chaleur."
       },
       {
-        "content": "Toutes les graisses mécaniques ont exactement la même composition en acides gras.",
+        "content": "Tous les dépôts adipeux ont exactement la même composition et la même fonction.",
         "correct": false,
-        "explanation": "Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "La composition et la fonction varient selon le dépôt adipeux."
       }
     ],
-    "explanation": "Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+    "explanation": "Le tissu adipeux contribue à la réserve énergétique, à l'isolation thermique et à la protection mécanique."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel type de graisse facilite le glissement des organes ?",
+    "question": "Quelle propriété des chaînes acyles favorise la fluidité d’un triglycéride ?",
     "choices": [
       {
-        "content": "graisse de lubrification",
+        "content": "la présence de doubles liaisons cis",
         "correct": true,
-        "explanation": "Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "Les doubles liaisons cis gênent l'empilement compact des chaînes."
       },
       {
-        "content": "graisse de soutien uniquement",
+        "content": "la saturation complète des longues chaînes",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "La saturation favorise l'empilement et tend à élever le point de fusion."
       },
       {
-        "content": "cholestérol estérifié",
+        "content": "l’allongement des chaînes sans désaturation",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "Des chaînes plus longues renforcent généralement les interactions hydrophobes."
       },
       {
-        "content": "sphingomyéline",
+        "content": "la suppression de toutes les chaînes acyles",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+        "explanation": "Sans chaînes acyles, la molécule n'est plus un triglycéride."
       }
     ],
-    "explanation": "Le support distingue soutien et lubrification selon les propriétés physiques des triglycérides."
+    "explanation": "Les doubles liaisons cis perturbent l'empilement des chaînes et favorisent la fluidité."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des graisses de lubrification :",
+    "question": "À propos de l’effet des doubles liaisons cis sur les triglycérides :",
     "choices": [
       {
-        "content": "Elles sont décrites comme riches en acides gras insaturés.",
+        "content": "Elles introduisent des coudes dans les chaînes acyles.",
         "correct": true,
         "explanation": "La désaturation favorise une plus grande fluidité."
       },
       {
-        "content": "Leur fluidité favorise le glissement des organes.",
+        "content": "Elles limitent l’empilement compact des chaînes.",
         "correct": true,
         "explanation": "La désaturation favorise une plus grande fluidité."
       },
       {
-        "content": "Elles illustrent l'effet de la désaturation sur les propriétés physiques.",
+        "content": "Elles tendent à abaisser le point de fusion.",
         "correct": true,
         "explanation": "La désaturation favorise une plus grande fluidité."
       },
       {
-        "content": "Elles sont nécessairement plus solides que les graisses riches en acides gras saturés.",
+        "content": "Elles augmentent systématiquement le point de fusion.",
         "correct": false,
         "explanation": "La désaturation favorise une plus grande fluidité."
       }
@@ -386,7 +386,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel acide gras saturé est particulièrement associé à l'huile de palme dans la fiche ?",
+    "question": "Quel est le nom usuel de l’acide gras saturé 16:0, abondant dans l’huile de palme ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -400,65 +400,65 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "ignoreAccents": true
       }
     },
-    "explanation": "La fiche met en avant l'acide palmitique."
+    "explanation": "L'acide gras saturé 16:0 est l'acide palmitique."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de l'huile de palme dans la fiche :",
+    "question": "À propos de l’huile de palme :",
     "choices": [
       {
         "content": "Elle est composée quasi exclusivement de triglycérides.",
         "correct": true,
-        "explanation": "Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "Comme les huiles végétales, elle contient majoritairement des triacylglycérols."
       },
       {
         "content": "L'acide palmitique y est particulièrement abondant.",
         "correct": true,
-        "explanation": "Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "L'acide palmitique 16:0 constitue une part importante de ses acides gras."
       },
       {
-        "content": "L'acide oléique y représente un acide gras mono-insaturé cité.",
+        "content": "Elle contient aussi de l’acide oléique, mono-insaturé.",
         "correct": true,
-        "explanation": "Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "L'acide oléique 18:1 n-9 est un constituant de l'huile de palme."
       },
       {
         "content": "Elle ne contient aucun acide gras saturé.",
         "correct": false,
-        "explanation": "Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "L'huile de palme contient une proportion importante d'acides gras saturés."
       }
     ],
-    "explanation": "Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+    "explanation": "L'huile de palme contient surtout des triacylglycérols et une proportion élevée d'acide palmitique."
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel acide gras donne son nom à l'huile de palme dans l'explication du support ?",
+    "question": "Quel acide gras saturé 16:0 est particulièrement abondant dans l’huile de palme ?",
     "choices": [
       {
         "content": "acide palmitique",
         "correct": true,
-        "explanation": "Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "Il s'agit de l'acide palmitique."
       },
       {
         "content": "acide lignocérique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "L'acide lignocérique est un acide gras saturé à 24 carbones."
       },
       {
         "content": "acide arachidonique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "L'acide arachidonique est un acide gras polyinsaturé 20:4 n-6."
       },
       {
         "content": "acide sialique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+        "explanation": "L'acide sialique n'est pas un acide gras."
       }
     ],
-    "explanation": "Le support relie l'huile de palme à sa forte proportion d'acide palmitique."
+    "explanation": "L'acide palmitique, noté 16:0, est abondant dans l'huile de palme."
   },
   {
     "order": 39,
@@ -493,7 +493,7 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle classe représente les principaux lipides de l'alimentation dans cette fiche ?",
+    "question": "Quelle classe représente la majeure partie des lipides alimentaires ?",
     "choices": [
       {
         "content": "triglycérides",
@@ -503,17 +503,17 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "gangliosides",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triacylglycérols sont la forme lipidique alimentaire majeure."
+        "explanation": "Les triacylglycérols sont la forme lipidique alimentaire majeure."
       },
       {
         "content": "acides nucléiques",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triacylglycérols sont la forme lipidique alimentaire majeure."
+        "explanation": "Les triacylglycérols sont la forme lipidique alimentaire majeure."
       },
       {
         "content": "protéoglycanes",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les triacylglycérols sont la forme lipidique alimentaire majeure."
+        "explanation": "Les triacylglycérols sont la forme lipidique alimentaire majeure."
       }
     ],
     "explanation": "Les triacylglycérols sont la forme lipidique alimentaire majeure."
@@ -561,17 +561,17 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "le nombre de phosphates uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La composition en chaînes acyles détermine largement le comportement physique."
+        "explanation": "La composition en chaînes acyles détermine largement le comportement physique."
       },
       {
         "content": "la présence de ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La composition en chaînes acyles détermine largement le comportement physique."
+        "explanation": "La composition en chaînes acyles détermine largement le comportement physique."
       },
       {
         "content": "le nombre d'atomes d'azote",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La composition en chaînes acyles détermine largement le comportement physique."
+        "explanation": "La composition en chaînes acyles détermine largement le comportement physique."
       }
     ],
     "explanation": "La composition en chaînes acyles détermine largement le comportement physique."
@@ -586,22 +586,22 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Protection thermique",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "Les dépôts adipeux limitent les pertes thermiques."
       },
       {
         "content": "Protection mécanique",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "Certains dépôts adipeux amortissent les contraintes mécaniques."
       },
       {
         "content": "Protection par anticorps",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "Les anticorps assurent une protection immunitaire, pas les triglycérides."
       },
       {
         "content": "Protection génétique",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "L'information génétique est portée par les acides nucléiques."
       }
     ],
     "explanation": "Les triglycérides contribuent à la protection thermique et mécanique."
@@ -629,14 +629,14 @@ export const UE14_BIOCH_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Propriété."
       },
       {
-        "content": "Les graisses de soutien sont riches en saturés.",
+        "content": "Le tissu adipeux contribue à l’isolation thermique.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "La faible conductivité thermique des graisses limite les pertes de chaleur."
       },
       {
-        "content": "Les graisses de lubrification sont riches en insaturés.",
+        "content": "Le tissu adipeux périviscéral peut amortir des contraintes mécaniques.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "Certains dépôts adipeux forment des coussins protecteurs autour des organes."
       },
       {
         "content": "Les triglycérides sont les principaux GAG.",
