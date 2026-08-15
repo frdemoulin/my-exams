@@ -9,22 +9,22 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 67,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la cyclisation des oses selon la fiche :",
+    "question": "À propos de la cyclisation des oses :",
     "choices": [
       {
         "content": "Les glucides peuvent former des hétérocycles.",
         "correct": true,
-        "explanation": "C'est l'introduction de la section."
+        "explanation": "La cyclisation intramoléculaire forme un cycle comportant un atome d'oxygène."
       },
       {
         "content": "Une forme pyranique possède un cycle à 6 sommets.",
         "correct": true,
-        "explanation": "Repère donné."
+        "explanation": "Un pyranose possède un cycle à cinq carbones et un oxygène."
       },
       {
         "content": "Une forme furanique possède un cycle à 5 sommets.",
         "correct": true,
-        "explanation": "Repère donné."
+        "explanation": "Un furanose possède un cycle à quatre carbones et un oxygène."
       },
       {
         "content": "Toute cyclisation détruit la chaîne carbonée.",
@@ -32,7 +32,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La chaîne se referme sans disparition générale du squelette."
       }
     ],
-    "explanation": "Pyranoses et furanoses sont les deux grands types de cycles présentés."
+    "explanation": "Les oses cycliques sont notamment classés en pyranoses à six sommets et furanoses à cinq sommets."
   },
   {
     "order": 68,
@@ -96,12 +96,12 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La forme pyranique du D-glucose, selon le schéma de la fiche :",
+    "question": "À propos de la forme pyranique du D-glucose :",
     "choices": [
       {
         "content": "Résulte d'un pont entre C1 et C5.",
         "correct": true,
-        "explanation": "Cyclisation indiquée."
+        "explanation": "Le groupe OH de C5 réagit avec le carbonyle de C1."
       },
       {
         "content": "Fait intervenir la fonction aldéhyde de C1.",
@@ -116,7 +116,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Est la forme la moins fréquente du D-glucose.",
         "correct": false,
-        "explanation": "La fiche indique qu'elle est la plus fréquente."
+        "explanation": "Les formes glucopyraniques prédominent en solution aqueuse."
       }
     ],
     "explanation": "La cyclisation C1-C5 donne le glucopyranose."
@@ -130,17 +130,17 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Résulte d'un pont entre C1 et C4.",
         "correct": true,
-        "explanation": "Schéma du support."
+        "explanation": "Le groupe OH de C4 peut réagir avec le carbonyle de C1."
       },
       {
-        "content": "Est décrite comme très instable pour les aldoses.",
+        "content": "Forme un cycle à cinq sommets.",
         "correct": true,
-        "explanation": "Point explicite."
+        "explanation": "La fermeture C1-C4 produit un cycle comprenant quatre carbones et un oxygène."
       },
       {
-        "content": "Est donc peu fréquente pour le D-glucose.",
+        "content": "Est minoritaire en solution aqueuse pour le D-glucose.",
         "correct": true,
-        "explanation": "Conséquence donnée."
+        "explanation": "Les formes pyraniques du D-glucose sont nettement prédominantes."
       },
       {
         "content": "Résulte d'un pont C2-C5.",
@@ -148,7 +148,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ce couple concerne le fructose furanique."
       }
     ],
-    "explanation": "Le D-glucose est surtout pyranique ; sa forme furanique C1-C4 est peu fréquente."
+    "explanation": "La cyclisation C1-C4 donne un glucofuranose, minoritaire par rapport aux formes glucopyraniques en solution aqueuse."
   },
   {
     "order": 72,
@@ -159,25 +159,25 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La forme pyranique peut adopter une conformation chaise.",
         "correct": true,
-        "explanation": "Présentée."
+        "explanation": "Une conformation chaise limite la tension du cycle pyranique."
       },
       {
-        "content": "La chaise est décrite comme la plus stable.",
+        "content": "Une conformation chaise est généralement plus stable qu'une conformation bateau pour un même pyranose.",
         "correct": true,
-        "explanation": "Mention du support."
+        "explanation": "La conformation chaise limite les interactions défavorables et la tension du cycle."
       },
       {
         "content": "La forme pyranique peut aussi adopter une conformation bateau.",
         "correct": true,
-        "explanation": "Présentée."
+        "explanation": "La conformation bateau est une autre géométrie possible d'un cycle pyranique."
       },
       {
         "content": "La forme furanique peut adopter une conformation enveloppe.",
         "correct": true,
-        "explanation": "Présentée."
+        "explanation": "Le plissement d'un cycle furanique peut produire une conformation enveloppe."
       }
     ],
-    "explanation": "Le support distingue chaise, bateau et enveloppe selon la taille du cycle."
+    "explanation": "Les pyranoses adoptent notamment des conformations chaise ou bateau ; les furanoses peuvent adopter une conformation enveloppe."
   },
   {
     "order": 73,
@@ -212,7 +212,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 74,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel carbone est anomérique chez un aldose cyclisé dans le modèle de la fiche ?",
+    "question": "Quel carbone devient anomérique lors de la cyclisation d'un aldose usuel ?",
     "choices": [
       {
         "content": "C1.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 75,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel carbone est anomérique chez un cétose cyclisé dans le modèle de la fiche ?",
+    "question": "Quel carbone devient anomérique lors de la cyclisation d'un 2-cétose usuel ?",
     "choices": [
       {
         "content": "C2.",
@@ -270,27 +270,27 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des anomères α et β dans la convention de la fiche :",
+    "question": "À propos des anomères α et β d'un ose :",
     "choices": [
       {
         "content": "α correspond à une position trans du OH anomérique par rapport au CH2OH.",
         "correct": true,
-        "explanation": "Convention donnée."
+        "explanation": "Dans la représentation cyclique usuelle, α place le groupe OH anomérique du côté opposé au groupe CH2OH de référence."
       },
       {
         "content": "β correspond à une position cis du OH anomérique par rapport au CH2OH.",
         "correct": true,
-        "explanation": "Convention donnée."
+        "explanation": "Dans la représentation cyclique usuelle, β place le groupe OH anomérique du même côté que le groupe CH2OH de référence."
       },
       {
         "content": "Les anomères sont des diastéréoisomères.",
         "correct": true,
-        "explanation": "Point explicite."
+        "explanation": "Ils diffèrent sur un centre stéréogène sans être images miroir l'un de l'autre."
       },
       {
         "content": "Ils sont nécessairement des énantiomères.",
         "correct": false,
-        "explanation": "La fiche précise qu'ils ne le sont pas."
+        "explanation": "Deux anomères d'un même ose sont des diastéréoisomères."
       }
     ],
     "explanation": "La différence α/β porte sur la configuration du carbone anomérique."
@@ -299,22 +299,22 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La fiche précise aussi que les anomères :",
+    "question": "Deux anomères d'un même ose :",
     "choices": [
       {
-        "content": "Peuvent être considérés comme des épimères.",
+        "content": "Sont des épimères au carbone anomérique.",
         "correct": true,
         "explanation": "Ils diffèrent au carbone anomérique."
       },
       {
         "content": "Ne diffèrent que sur le nouveau C* créé lors de la cyclisation.",
         "correct": true,
-        "explanation": "Dans la paire α/β d'un même ose."
+        "explanation": "Le reste de la configuration de l'ose est conservé."
       },
       {
         "content": "Ont des pouvoirs rotatoires différents.",
         "correct": true,
-        "explanation": "Exemple du glucose donné."
+        "explanation": "Les anomères α et β du glucose ont des pouvoirs rotatoires spécifiques différents."
       },
       {
         "content": "Ont toujours le même angle de rotation.",
@@ -328,22 +328,22 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour le D-fructose selon la fiche :",
+    "question": "À propos de la cyclisation du D-fructose :",
     "choices": [
       {
         "content": "La forme furanique résulte d'une cyclisation C2-C5.",
         "correct": true,
-        "explanation": "Bilan donné."
+        "explanation": "Le groupe OH de C5 réagit avec le carbonyle de C2."
       },
       {
-        "content": "La forme furanique est la plus fréquente.",
+        "content": "La forme furanique possède un cycle à cinq sommets.",
         "correct": true,
-        "explanation": "Point explicite."
+        "explanation": "Le fructofuranose possède un cycle comprenant quatre carbones et un oxygène."
       },
       {
         "content": "Une forme pyranique est possible par cyclisation C2-C6.",
         "correct": true,
-        "explanation": "Autre possibilité."
+        "explanation": "La réaction du groupe OH de C6 avec le carbonyle de C2 forme un fructopyranose."
       },
       {
         "content": "Le carbone anomérique est C1.",
@@ -351,65 +351,65 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Il s'agit d'un cétose : C2."
       }
     ],
-    "explanation": "Le D-fructose illustre une cyclisation différente de celle du D-glucose."
+    "explanation": "Le D-fructose peut former un furanose par cyclisation C2-C5 ou un pyranose par cyclisation C2-C6 ; son carbone anomérique est C2."
   },
   {
     "order": 79,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À pH 7, selon les valeurs de la fiche :",
+    "question": "Pour le D-glucose à l'équilibre en solution aqueuse proche de pH 7 :",
     "choices": [
       {
         "content": "Environ 99 % des formes sont cycliques.",
         "correct": true,
-        "explanation": "Valeur donnée."
+        "explanation": "La forme linéaire ne représente qu'une très faible fraction du D-glucose à l'équilibre."
       },
       {
         "content": "Environ un tiers correspond à la forme α.",
         "correct": true,
-        "explanation": "Répartition indiquée."
+        "explanation": "L'α-D-glucopyranose représente approximativement un tiers du mélange à l'équilibre."
       },
       {
         "content": "Environ deux tiers correspondent à la forme β.",
         "correct": true,
-        "explanation": "Répartition indiquée."
+        "explanation": "Le β-D-glucopyranose représente approximativement deux tiers du mélange à l'équilibre."
       },
       {
         "content": "99 % des formes sont linéaires.",
         "correct": false,
-        "explanation": "C'est la valeur donnée à pH basique."
+        "explanation": "À l'équilibre en solution aqueuse, la forme linéaire est très minoritaire."
       }
     ],
-    "explanation": "À pH 7, le support décrit un équilibre très largement en faveur des formes cycliques."
+    "explanation": "À l'équilibre dans l'eau, le D-glucose est presque entièrement cyclique, avec environ un tiers de forme α et deux tiers de forme β."
   },
   {
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À pH basique, selon la fiche :",
+    "question": "À propos du comportement d'un ose réducteur en milieu basique :",
     "choices": [
       {
-        "content": "Environ 99 % des formes sont linéaires.",
+        "content": "L'ouverture du cycle peut donner accès à une forme linéaire.",
         "correct": true,
-        "explanation": "Valeur donnée."
+        "explanation": "La forme cyclique est en équilibre avec une forme ouverte portant un carbonyle."
       },
       {
-        "content": "La répartition diffère fortement de celle à pH 7.",
+        "content": "La forme linéaire peut s'énoliser et participer à des interconversions aldose-cétose.",
         "correct": true,
-        "explanation": "À pH 7, 99 % sont cycliques."
+        "explanation": "En milieu basique, l'intermédiaire énediol permet une isomérisation aldose-cétose."
       },
       {
-        "content": "La forme linéaire joue un rôle dans les interconversions.",
+        "content": "Une épimérisation peut également se produire via un intermédiaire énediol.",
         "correct": true,
-        "explanation": "Elle sert d'intermédiaire α ↔ β."
+        "explanation": "La reprotonation de l'intermédiaire plan peut modifier la configuration d'un centre stéréogène."
       },
       {
-        "content": "Les formes sont exclusivement pyraniques.",
+        "content": "L'ose reste exclusivement sous une unique forme pyranique.",
         "correct": false,
-        "explanation": "Le support met en avant les formes linéaires."
+        "explanation": "L'ouverture du cycle et les interconversions excluent une forme pyranique unique et permanente."
       }
     ],
-    "explanation": "La fiche associe milieu basique à une forte proportion de formes linéaires."
+    "explanation": "En milieu basique, la forme ouverte d'un ose réducteur peut passer par un intermédiaire énediol, à l'origine d'isomérisations et d'épimérisations."
   },
   {
     "order": 81,
@@ -418,9 +418,9 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "L'interconversion α ↔ β :",
     "choices": [
       {
-        "content": "Passe par une forme linéaire dans le modèle de la fiche.",
+        "content": "Passe par une forme linéaire.",
         "correct": true,
-        "explanation": "Schéma explicite."
+        "explanation": "L'ouverture du cycle restitue temporairement la fonction carbonyle avant une nouvelle cyclisation."
       },
       {
         "content": "Permet de passer d'un anomère à l'autre.",
@@ -444,30 +444,30 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 82,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La fiche indique également qu'il est possible :",
+    "question": "En milieu basique, l'interconversion des oses réducteurs peut permettre :",
     "choices": [
       {
         "content": "De passer d'un aldose à un cétose.",
         "correct": true,
-        "explanation": "Interconversion de familles."
+        "explanation": "Un aldose peut s'isomériser en cétose via un intermédiaire énediol."
       },
       {
         "content": "De passer d'un cétose à un aldose.",
         "correct": true,
-        "explanation": "Inverse mentionné."
+        "explanation": "La transformation via l'énediol est réversible."
       },
       {
         "content": "D'interconvertir des familles d'oses.",
         "correct": true,
-        "explanation": "Point général."
+        "explanation": "L'isomérisation peut déplacer la fonction carbonyle et changer la famille de l'ose."
       },
       {
         "content": "De déduire automatiquement la série D/L du signe du pouvoir rotatoire.",
         "correct": false,
-        "explanation": "Ce point est explicitement faux."
+        "explanation": "Le signe du pouvoir rotatoire ne détermine pas la série D/L."
       }
     ],
-    "explanation": "La section interconversion ne se limite pas à α/β."
+    "explanation": "En milieu basique, un intermédiaire énediol peut permettre des isomérisations aldose-cétose et des épimérisations."
   },
   {
     "order": 83,
@@ -478,7 +478,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Concerne les oses possédant des carbones asymétriques.",
         "correct": true,
-        "explanation": "Principe donné."
+        "explanation": "Une molécule chirale peut dévier le plan de la lumière polarisée."
       },
       {
         "content": "Correspond à une déviation de la lumière polarisée.",
@@ -560,22 +560,22 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 86,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La fiche insiste sur l'indépendance entre série D/L et signe optique. Les exemples donnés sont :",
+    "question": "Quels exemples illustrent l'indépendance entre la série D/L et le signe du pouvoir rotatoire ?",
     "choices": [
       {
         "content": "Fructose naturel : D(−).",
         "correct": true,
-        "explanation": "Exemple explicite."
+        "explanation": "Le D-fructose naturel est lévogyre."
       },
       {
         "content": "Arabinose : L(+).",
         "correct": true,
-        "explanation": "Exemple explicite."
+        "explanation": "Le L-arabinose est dextrogyre."
       },
       {
         "content": "Glucose : D(+).",
         "correct": true,
-        "explanation": "Exemple explicite."
+        "explanation": "Le D-glucose est dextrogyre."
       },
       {
         "content": "Toute forme D est (+).",
@@ -592,14 +592,14 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant les anomères du D-glucose :",
     "choices": [
       {
-        "content": "L'α-D-glucose est donné à environ +113°.",
+        "content": "Le pouvoir rotatoire spécifique de l'α-D-glucose est proche de +112°.",
         "correct": true,
-        "explanation": "Valeur de la fiche."
+        "explanation": "La valeur usuelle est d'environ +112° dans des conditions de référence."
       },
       {
-        "content": "Le β-D-glucose est donné à environ +19°.",
+        "content": "Le pouvoir rotatoire spécifique du β-D-glucose est proche de +19°.",
         "correct": true,
-        "explanation": "Valeur de la fiche."
+        "explanation": "La valeur usuelle est d'environ +19° dans des conditions de référence."
       },
       {
         "content": "Ils dévient donc différemment la lumière polarisée.",
@@ -618,7 +618,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 88,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un mélange équimolaire de D-glucose (+52,5°) et L-glucose (−52,5°), selon l'exemple de la fiche :",
+    "question": "Un mélange équimolaire de D-glucose (+52,5°) et de L-glucose (−52,5°), mesurés dans les mêmes conditions :",
     "choices": [
       {
         "content": "A une rotation résultante nulle.",
@@ -626,9 +626,9 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Les contributions s'annulent."
       },
       {
-        "content": "Est qualifié de racémique dans le support.",
+        "content": "Est un mélange racémique.",
         "correct": true,
-        "explanation": "Terminologie utilisée."
+        "explanation": "Un racémate contient deux énantiomères en proportions égales."
       },
       {
         "content": "Contient deux énantiomères en proportions égales.",
@@ -674,7 +674,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La fermeture implique C1 et C5.",
         "correct": true,
-        "explanation": "Bilan du support."
+        "explanation": "Le groupe OH de C5 réagit avec le carbonyle de C1."
       },
       {
         "content": "C1 devient un nouveau C*.",
@@ -698,7 +698,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 91,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un D-fructose cyclise sous sa forme la plus fréquente selon la fiche. Quelles propositions sont exactes ?",
+    "question": "Un D-fructose cyclise sous forme furanique. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "La cyclisation implique C2 et C5.",
@@ -721,13 +721,13 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Elle est possible mais moins mise en avant."
       }
     ],
-    "explanation": "Le fructofuranose est la forme la plus fréquente du D-fructose dans le support."
+    "explanation": "La cyclisation C2-C5 du D-fructose forme un fructofuranose à cinq sommets dont C2 est le carbone anomérique."
   },
   {
     "order": 92,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On compare un anomère α et un anomère β du même D-aldose. Quelles propositions sont exactes selon la convention de la fiche ?",
+    "question": "On compare un anomère α et un anomère β du même D-aldose. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Ils diffèrent au carbone anomérique.",
@@ -737,12 +737,12 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "α : OH anomérique trans au CH2OH.",
         "correct": true,
-        "explanation": "Convention du support."
+        "explanation": "Dans un D-ose, α place ces deux groupes sur des faces opposées du cycle."
       },
       {
         "content": "β : OH anomérique cis au CH2OH.",
         "correct": true,
-        "explanation": "Convention du support."
+        "explanation": "Dans un D-ose, β place ces deux groupes sur la même face du cycle."
       },
       {
         "content": "Ils sont énantiomères.",
@@ -756,7 +756,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 93,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "À pH 7, la fiche indique environ deux tiers de forme β parmi les formes cycliques. Sur 300 molécules cycliques, combien seraient approximativement β selon ce modèle ?",
+    "question": "On admet qu'à l'équilibre en solution aqueuse, environ deux tiers des molécules cycliques de D-glucose sont sous forme β. Sur 300 molécules cycliques, combien seraient approximativement β ?",
     "answer": {
       "type": "number",
       "value": 200,
@@ -780,7 +780,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 95,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "On mélange 75 % de D-glucose (+52,5°) et 25 % de L-glucose (−52,5°). En supposant une contribution linéaire des proportions comme dans le raisonnement de la fiche, quelle rotation résultante obtient-on en degrés ?",
+    "question": "On mélange 75 % de D-glucose (+52,5°) et 25 % de L-glucose (−52,5°), mesurés dans les mêmes conditions. En supposant une contribution linéaire des proportions, quelle rotation résultante obtient-on en degrés ?",
     "answer": {
       "type": "number",
       "value": 26.25,
@@ -797,7 +797,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Les deux anomères ont des rotations différentes.",
         "correct": true,
-        "explanation": "+113° versus +19° dans la fiche."
+        "explanation": "Les valeurs usuelles sont proches de +112° pour α et +19° pour β."
       },
       {
         "content": "Leurs proportions évoluent en solution.",
@@ -821,27 +821,27 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 97,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Quels couples « cycle / conformation » sont cohérents avec la fiche ?",
+    "question": "Quels couples « cycle / conformation » sont cohérents ?",
     "choices": [
       {
         "content": "Pyranose → chaise.",
         "correct": true,
-        "explanation": "Conformation présentée."
+        "explanation": "Un cycle pyranique peut adopter une conformation chaise."
       },
       {
         "content": "Pyranose → bateau.",
         "correct": true,
-        "explanation": "Conformation présentée."
+        "explanation": "Un cycle pyranique peut aussi adopter une conformation bateau."
       },
       {
         "content": "Furanose → enveloppe.",
         "correct": true,
-        "explanation": "Conformation présentée."
+        "explanation": "Un cycle furanique peut adopter une conformation enveloppe."
       },
       {
         "content": "Chaise → forme la plus stable parmi les conformations pyraniques montrées.",
         "correct": true,
-        "explanation": "Mention explicite."
+        "explanation": "Pour un même pyranose, une chaise est généralement plus stable qu'un bateau."
       }
     ],
     "explanation": "Les formes cycliques ne sont pas planes et adoptent différentes conformations dans l'espace."
@@ -850,22 +850,22 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 98,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une solution d'ose passe d'un milieu à pH 7 à un milieu basique selon le modèle simplifié de la fiche. Quelles évolutions sont attendues ?",
+    "question": "Un ose réducteur est placé en milieu basique. Quelles transformations peuvent se produire ?",
     "choices": [
       {
-        "content": "La proportion de formes linéaires augmente fortement.",
+        "content": "L'ouverture du cycle donne accès à une forme linéaire.",
         "correct": true,
-        "explanation": "99 % linéaires à pH basique selon le support."
+        "explanation": "La forme ouverte porte le carbonyle nécessaire aux transformations ultérieures."
       },
       {
-        "content": "À pH 7, les formes cycliques dominaient.",
+        "content": "Des interconversions aldose-cétose peuvent se produire via un intermédiaire énediol.",
         "correct": true,
-        "explanation": "99 % cycliques."
+        "explanation": "L'énediol peut redonner un aldose ou former un cétose."
       },
       {
-        "content": "L'accès à la forme linéaire favorise les interconversions α/β.",
+        "content": "Une épimérisation peut modifier la configuration d'un carbone asymétrique.",
         "correct": true,
-        "explanation": "La forme linéaire sert d'intermédiaire."
+        "explanation": "La reprotonation de l'intermédiaire plan peut se faire sur l'une ou l'autre face."
       },
       {
         "content": "Le nombre de carbones change.",
@@ -873,7 +873,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le squelette carboné est conservé."
       }
     ],
-    "explanation": "Le pH influence fortement la répartition linéaire/cyclique dans le modèle de la fiche."
+    "explanation": "En milieu basique, l'ouverture du cycle puis la formation d'un énediol peuvent conduire à des isomérisations et à des épimérisations."
   },
   {
     "order": 99,
@@ -894,12 +894,12 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ces deux informations sont indépendantes.",
         "correct": true,
-        "explanation": "Avertissement explicite."
+        "explanation": "La série D/L est structurale, tandis que le signe +/− est expérimental."
       },
       {
         "content": "D(−) est impossible.",
         "correct": false,
-        "explanation": "Le fructose naturel est donné D(−)."
+        "explanation": "Le D-fructose naturel est lévogyre : il constitue un exemple D(−)."
       }
     ],
     "explanation": "Ne pas confondre série D/L et signe du pouvoir rotatoire est un objectif majeur."
@@ -914,27 +914,27 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le glucopyranose résulte d'une cyclisation C1-C5.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Le groupe OH de C5 réagit avec le carbonyle de C1."
       },
       {
         "content": "Le fructofuranose résulte d'une cyclisation C2-C5.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Le groupe OH de C5 réagit avec le carbonyle de C2."
       },
       {
         "content": "Chez un aldose, C1 devient le carbone anomérique.",
         "correct": true,
-        "explanation": "Anomérie."
+        "explanation": "Le carbone carbonylé C1 devient un nouveau centre stéréogène."
       },
       {
-        "content": "À pH 7, la fiche donne environ 99 % de formes cycliques.",
+        "content": "À l'équilibre dans l'eau, plus de 99 % du D-glucose est sous forme cyclique.",
         "correct": true,
-        "explanation": "Répartition."
+        "explanation": "La forme linéaire du D-glucose est très minoritaire à l'équilibre en solution aqueuse."
       },
       {
         "content": "D/L est indépendant du signe +/−.",
         "correct": true,
-        "explanation": "Avertissement."
+        "explanation": "D/L décrit une configuration ; +/− décrit le sens de rotation optique."
       },
       {
         "content": "Une forme furanique possède six sommets.",
@@ -942,14 +942,14 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Cinq."
       },
       {
-        "content": "Le β-D-glucose est donné à +113°.",
+        "content": "Le pouvoir rotatoire spécifique du β-D-glucose est proche de +112°.",
         "correct": false,
-        "explanation": "Cette valeur est celle de α."
+        "explanation": "Une valeur proche de +112° correspond à l'α-D-glucose ; celle du β-D-glucose est proche de +19°."
       },
       {
-        "content": "À pH basique, la fiche donne 99 % de formes cycliques.",
+        "content": "Un ose réducteur reste exclusivement sous une forme cyclique unique en milieu basique.",
         "correct": false,
-        "explanation": "Linéaires."
+        "explanation": "L'ouverture du cycle et des interconversions via un énediol peuvent se produire."
       },
       {
         "content": "Les anomères sont des énantiomères.",
@@ -957,7 +957,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Diastéréoisomères/épimères."
       },
       {
-        "content": "Le fructose naturel est donné D(+).",
+        "content": "Le D-fructose naturel est dextrogyre.",
         "correct": false,
         "explanation": "D(−)."
       }

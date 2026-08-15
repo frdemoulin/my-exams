@@ -9,17 +9,17 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Un carbone asymétrique, noté $\\mathrm{C^*}$ dans la fiche :",
+    "question": "Un carbone asymétrique, noté $\\mathrm{C^*}$ :",
     "choices": [
       {
         "content": "Est lié à quatre substituants différents.",
         "correct": true,
-        "explanation": "C'est la définition donnée."
+        "explanation": "Par définition, ses quatre substituants ne sont pas identiques."
       },
       {
         "content": "Constitue un centre de chiralité.",
         "correct": true,
-        "explanation": "La fiche utilise cette notion."
+        "explanation": "Un carbone tétraédrique portant quatre substituants différents est un centre stéréogène."
       },
       {
         "content": "Doit être lié à quatre atomes de carbone.",
@@ -48,7 +48,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il est chiral.",
         "correct": true,
-        "explanation": "La fiche l'utilise comme exemple de molécule chirale."
+        "explanation": "Son unique carbone asymétrique donne deux énantiomères non superposables."
       },
       {
         "content": "Il ne possède aucun centre de chiralité.",
@@ -58,10 +58,10 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il n'est pas superposable à son image dans le miroir.",
         "correct": true,
-        "explanation": "C'est la conséquence indiquée."
+        "explanation": "La non-superposabilité à l'image miroir caractérise la chiralité."
       }
     ],
-    "explanation": "Le glycéraldéhyde est l'exemple simple de triose chiral du support."
+    "explanation": "Le glycéraldéhyde est le plus simple des aldoses chiraux."
   },
   {
     "order": 25,
@@ -72,12 +72,12 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Elle ne possède aucun carbone asymétrique.",
         "correct": true,
-        "explanation": "Contre-exemple du support."
+        "explanation": "Son carbone carbonylé est trigonal et ses deux extrémités sont identiques."
       },
       {
         "content": "Elle est achirale.",
         "correct": true,
-        "explanation": "La fiche le précise."
+        "explanation": "L'absence de centre stéréogène rend la dihydroxyacétone achirale."
       },
       {
         "content": "Elle possède le même nombre de C* que le glycéraldéhyde.",
@@ -96,17 +96,17 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Une molécule chirale, dans l'explication de la fiche :",
+    "question": "Une molécule chirale :",
     "choices": [
       {
         "content": "N'est pas superposable à son image dans un miroir.",
         "correct": true,
-        "explanation": "Critère donné."
+        "explanation": "La non-superposabilité à l'image miroir est le critère de chiralité."
       },
       {
-        "content": "Peut ne pas avoir de plan de symétrie.",
+        "content": "Ne possède pas de plan de symétrie.",
         "correct": true,
-        "explanation": "Le support l'utilise pour le glycéraldéhyde."
+        "explanation": "Un plan de symétrie rendrait la molécule achirale."
       },
       {
         "content": "Est nécessairement identique à son image miroir.",
@@ -116,7 +116,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut posséder un ou plusieurs carbones asymétriques.",
         "correct": true,
-        "explanation": "Définition de la molécule chirale utilisée."
+        "explanation": "Un ou plusieurs centres stéréogènes peuvent être à l'origine de la chiralité."
       }
     ],
     "explanation": "La chiralité traduit une dissymétrie spatiale de la molécule."
@@ -125,12 +125,12 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 27,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Pour le carbone asymétrique du glycéraldéhyde, quel ordre de priorité est donné dans la fiche ?",
+    "question": "En appliquant les règles de Cahn–Ingold–Prelog au carbone asymétrique du glycéraldéhyde, quel ordre de priorité obtient-on ?",
     "choices": [
       {
         "content": "$\\mathrm{OH > CHO > CH_2OH > H}$.",
         "correct": true,
-        "explanation": "Ordre explicitement indiqué."
+        "explanation": "L'oxygène de OH est prioritaire ; entre les deux carbones, CHO précède CH2OH."
       },
       {
         "content": "$\\mathrm{H > OH > CHO > CH_2OH}$.",
@@ -148,36 +148,36 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Il est placé en dernier."
       }
     ],
-    "explanation": "Le support donne l'ordre OH > CHO > CH2OH > H pour illustrer la classification autour du C*."
+    "explanation": "Les règles de Cahn–Ingold–Prelog conduisent à l'ordre OH > CHO > CH2OH > H."
   },
   {
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la nomenclature R/S dans cette fiche de biochimie :",
+    "question": "À propos de la nomenclature R/S appliquée aux oses :",
     "choices": [
       {
         "content": "Elle peut être déterminée pour chaque carbone asymétrique.",
         "correct": true,
-        "explanation": "La fiche le précise."
+        "explanation": "Chaque centre stéréogène peut recevoir son propre descripteur R ou S."
       },
       {
-        "content": "Elle est décrite comme très précise.",
+        "content": "Elle décrit précisément la configuration absolue de chaque centre stéréogène.",
         "correct": true,
-        "explanation": "Formulation du support."
+        "explanation": "Les descripteurs R/S reposent sur les priorités de Cahn–Ingold–Prelog."
       },
       {
-        "content": "Elle est jugée peu parlante lorsque le nombre de carbones augmente.",
+        "content": "Elle devient moins synthétique lorsqu'une molécule possède de nombreux centres stéréogènes.",
         "correct": true,
-        "explanation": "Raison donnée pour privilégier D/L en biochimie."
+        "explanation": "Une suite de descripteurs R/S est complète, mais moins concise que la notation D/L usuelle des oses."
       },
       {
-        "content": "Elle remplace totalement la série D/L dans la suite du cours.",
+        "content": "Elle remplace totalement la notation D/L pour les oses.",
         "correct": false,
-        "explanation": "Le support privilégie au contraire D/L."
+        "explanation": "Les notations R/S et D/L répondent à des conventions distinctes et restent toutes deux utilisées."
       }
     ],
-    "explanation": "La fiche rappelle R/S puis explique pourquoi la biochimie utilise beaucoup la série D/L."
+    "explanation": "R/S décrit chaque centre stéréogène ; D/L fournit une notation relative concise, particulièrement courante pour les oses."
   },
   {
     "order": 29,
@@ -188,7 +188,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le dernier carbone asymétrique, c'est-à-dire l'avant-dernier carbone de la molécule.",
         "correct": true,
-        "explanation": "Règle donnée."
+        "explanation": "La série D/L dépend de la configuration du centre stéréogène le plus éloigné du carbonyle."
       },
       {
         "content": "Toujours le carbone C1.",
@@ -212,22 +212,22 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 30,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans le modèle de Fischer présenté :",
+    "question": "Pour attribuer la série D ou L d'un ose représenté en projection de Fischer :",
     "choices": [
       {
         "content": "Série D : OH du dernier C* à droite.",
         "correct": true,
-        "explanation": "Critère explicite."
+        "explanation": "Le groupe OH du dernier carbone asymétrique est placé à droite."
       },
       {
         "content": "Série L : OH du dernier C* à gauche.",
         "correct": true,
-        "explanation": "Critère explicite."
+        "explanation": "Le groupe OH du dernier carbone asymétrique est placé à gauche."
       },
       {
         "content": "D signifie obligatoirement dextrogyre (+).",
         "correct": false,
-        "explanation": "La fiche insiste ensuite sur l'indépendance D/L et +/−."
+        "explanation": "La notation D/L décrit une configuration et ne prédit pas le sens de rotation optique."
       },
       {
         "content": "L signifie obligatoirement lévogyre (−).",
@@ -241,17 +241,17 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 31,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Selon le tableau de la fiche, pour le dernier C* :",
+    "question": "Pour le dernier carbone asymétrique d'un ose linéaire usuel représenté en projection de Fischer :",
     "choices": [
       {
-        "content": "Une configuration D est associée à R.",
+        "content": "La série D correspond à une configuration R de ce carbone.",
         "correct": true,
-        "explanation": "Association présentée localement."
+        "explanation": "À ce carbone de référence, OH est à droite en Fischer et la configuration est R."
       },
       {
-        "content": "Une configuration L est associée à S.",
+        "content": "La série L correspond à une configuration S de ce carbone.",
         "correct": true,
-        "explanation": "Association présentée localement."
+        "explanation": "À ce carbone de référence, OH est à gauche en Fischer et la configuration est S."
       },
       {
         "content": "D place le OH à droite en Fischer.",
@@ -264,7 +264,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L le place à gauche."
       }
     ],
-    "explanation": "La banque reprend ici la correspondance telle qu'elle est présentée dans le support."
+    "explanation": "Cette correspondance R/S concerne le carbone asymétrique de référence ; la notation D/L ne décrit pas les autres centres stéréogènes."
   },
   {
     "order": 32,
@@ -273,27 +273,27 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant la distribution biologique des séries D/L :",
     "choices": [
       {
-        "content": "La grande majorité des formes naturelles citées sont D.",
+        "content": "La grande majorité des oses naturels sont de série D.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Les oses de série D prédominent dans le vivant."
       },
       {
-        "content": "Des formes L sont rencontrées chez des bactéries et virus.",
+        "content": "Des oses de série L sont rencontrés chez des bactéries et des virus.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "La prédominance de la série D n'exclut pas l'existence d'oses de série L."
       },
       {
-        "content": "L-fucose est cité comme exception chez l'Homme.",
+        "content": "Le L-fucose est présent chez l'être humain.",
         "correct": true,
-        "explanation": "Exemple donné."
+        "explanation": "Le L-fucose est notamment présent dans des glycoconjugués humains."
       },
       {
-        "content": "Acide L-iduronique est cité comme autre exception chez l'Homme.",
+        "content": "L'acide L-iduronique est présent chez l'être humain.",
         "correct": true,
-        "explanation": "Exemple donné."
+        "explanation": "L'acide L-iduronique entre dans la structure de certains glycosaminoglycanes."
       }
     ],
-    "explanation": "La fiche présente deux exceptions humaines de série L : L-fucose et acide L-iduronique."
+    "explanation": "Bien que les oses naturels soient majoritairement de série D, le L-fucose et l'acide L-iduronique illustrent la présence de composés de série L chez l'être humain."
   },
   {
     "order": 33,
@@ -304,17 +304,17 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le L-fucose est associé aux glycoprotéines et glycolipides.",
         "correct": true,
-        "explanation": "Contexte cité."
+        "explanation": "Le L-fucose est un constituant de nombreux glycoconjugués."
       },
       {
         "content": "L'acide L-iduronique est associé aux glycosaminoglycanes.",
         "correct": true,
-        "explanation": "Contexte cité."
+        "explanation": "L'acide L-iduronique est un constituant de plusieurs glycosaminoglycanes."
       },
       {
         "content": "Ils illustrent des formes L présentes chez l'Homme.",
         "correct": true,
-        "explanation": "Pourquoi ils sont cités."
+        "explanation": "Ces deux composés montrent que la série L existe aussi chez l'être humain."
       },
       {
         "content": "Ils prouvent que toutes les formes humaines sont L.",
@@ -343,7 +343,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "OH à droite → série D.",
         "correct": true,
-        "explanation": "Règle du support."
+        "explanation": "Cette position définit la série D dans une projection de Fischer conventionnelle."
       },
       {
         "content": "Utiliser le signe (+/−) du pouvoir rotatoire à la place.",
@@ -357,22 +357,22 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 35,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la projection de Newman dans la fiche :",
+    "question": "À propos de la projection de Newman :",
     "choices": [
       {
         "content": "Elle représente l'environnement spatial autour d'une liaison.",
         "correct": true,
-        "explanation": "C'est la représentation montrée."
+        "explanation": "Elle représente une molécule observée dans l'axe d'une liaison."
       },
       {
-        "content": "Elle permet d'illustrer des configurations autour d'un carbone asymétrique.",
+        "content": "Elle permet de visualiser l'orientation relative des substituants de deux carbones adjacents.",
         "correct": true,
-        "explanation": "Utilisation dans le support."
+        "explanation": "Les substituants du carbone avant et du carbone arrière sont représentés séparément."
       },
       {
-        "content": "La fiche rappelle le classement des substituants pour déterminer R ou S.",
+        "content": "L'attribution d'une configuration R ou S nécessite de classer les substituants par priorité.",
         "correct": true,
-        "explanation": "OH > CHO > CH2OH > H est donné."
+        "explanation": "Pour le glycéraldéhyde, les règles de priorité conduisent à OH > CHO > CH2OH > H."
       },
       {
         "content": "Elle constitue la seule représentation utilisée pour les oses.",
@@ -380,13 +380,13 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La projection de Fischer est largement utilisée ensuite."
       }
     ],
-    "explanation": "Newman introduit la représentation spatiale avant le recours privilégié à Fischer."
+    "explanation": "La projection de Newman décrit la conformation autour d'une liaison ; la projection de Fischer code la stéréochimie d'une chaîne carbonée."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de carbones asymétriques possède un aldohexose linéaire dans le modèle de filiation de la fiche ?",
+    "question": "Combien de carbones asymétriques possède un aldohexose linéaire non substitué ?",
     "answer": {
       "type": "number",
       "value": 4,
@@ -398,7 +398,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de carbones asymétriques possède un cétohexose linéaire dans le modèle de filiation de la fiche ?",
+    "question": "Combien de carbones asymétriques possède un 2-cétohexose linéaire non substitué ?",
     "answer": {
       "type": "number",
       "value": 3,
@@ -410,17 +410,17 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant le nombre de stéréoisomères dans la filiation de la fiche :",
+    "question": "Dans le modèle usuel des aldoses et 2-cétoses linéaires non substitués :",
     "choices": [
       {
         "content": "Un aldose à n carbones possède $2^{n-2}$ stéréoisomères.",
         "correct": true,
-        "explanation": "Relation utilisée dans le tableau de filiation."
+        "explanation": "Il possède n−2 centres stéréogènes et donc $2^{n-2}$ configurations."
       },
       {
         "content": "Un cétose à n carbones possède $2^{n-3}$ stéréoisomères.",
         "correct": true,
-        "explanation": "Relation utilisée dans le tableau de filiation."
+        "explanation": "Un 2-cétose possède n−3 centres stéréogènes et donc $2^{n-3}$ configurations."
       },
       {
         "content": "Un aldohexose possède 16 stéréoisomères.",
@@ -439,7 +439,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de stéréoisomères possède un aldohexose selon la filiation du support ?",
+    "question": "Combien de stéréoisomères possède un aldohexose linéaire non substitué ?",
     "choices": [
       {
         "content": "16.",
@@ -468,7 +468,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de stéréoisomères possède un cétohexose selon la filiation du support ?",
+    "question": "Combien de stéréoisomères possède un 2-cétohexose linéaire non substitué ?",
     "choices": [
       {
         "content": "8.",
@@ -548,7 +548,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une projection de Fischer d'un aldohexose montre le OH de C5 à droite. Quelles conclusions sont justifiées par la fiche ?",
+    "question": "Une projection de Fischer d'un aldohexose montre le groupe OH porté par C5 à droite. Quelles conclusions peut-on en tirer ?",
     "choices": [
       {
         "content": "L'ose appartient à la série D.",
@@ -563,7 +563,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "On ne peut pas en déduire à elle seule le signe + ou − du pouvoir rotatoire.",
         "correct": true,
-        "explanation": "Indépendance rappelée plus loin."
+        "explanation": "La configuration D/L et le signe du pouvoir rotatoire sont indépendants."
       },
       {
         "content": "L'ose est nécessairement dextrogyre.",
@@ -588,7 +588,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le glycéraldéhyde est chiral.",
         "correct": true,
-        "explanation": "Exemple du support."
+        "explanation": "Son carbone central porte quatre substituants différents."
       },
       {
         "content": "La dihydroxyacétone est achirale.",
@@ -601,7 +601,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Critère."
       },
       {
-        "content": "Un aldohexose possède 16 stéréoisomères dans la filiation de la fiche.",
+        "content": "Un aldohexose linéaire non substitué possède 16 stéréoisomères.",
         "correct": true,
         "explanation": "$2^4$."
       },
@@ -628,7 +628,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Toutes les formes humaines sont D sans exception.",
         "correct": false,
-        "explanation": "L-fucose et acide L-iduronique sont cités."
+        "explanation": "Le L-fucose et l'acide L-iduronique sont deux composés humains de série L."
       }
     ],
     "explanation": "Cette sélection consolide chiralité, série D/L et filiation."

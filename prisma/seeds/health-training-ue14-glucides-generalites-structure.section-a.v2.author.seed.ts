@@ -9,12 +9,12 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des glucides dans le monde vivant, quelles propositions sont exactes selon la fiche ?",
+    "question": "À propos de la présence des glucides dans le monde vivant, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Ils sont rencontrés dans le monde végétal.",
         "correct": true,
-        "explanation": "La fiche relie notamment leur production végétale à la photosynthèse."
+        "explanation": "Les végétaux produisent notamment des glucides par photosynthèse."
       },
       {
         "content": "Ils sont également rencontrés dans le monde animal.",
@@ -22,14 +22,14 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ils sont présents et métabolisés chez l'Homme."
       },
       {
-        "content": "Environ 70 % du poids sec des plantes est constitué de glucides.",
+        "content": "Les glucides constituent une part majeure de la matière sèche de nombreux végétaux.",
         "correct": true,
-        "explanation": "Valeur donnée dans le support."
+        "explanation": "La cellulose et les glucides de réserve contribuent fortement à la matière sèche végétale."
       },
       {
         "content": "Ils sont absents des animaux.",
         "correct": false,
-        "explanation": "Le support décrit explicitement leur présence et leur métabolisme chez l'Homme."
+        "explanation": "Les animaux contiennent et métabolisent de nombreux glucides, notamment le glucose et le glycogène."
       }
     ],
     "explanation": "Les glucides sont des composés organiques majeurs des mondes végétal et animal."
@@ -38,12 +38,12 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel processus végétal est explicitement relié à la production de glucides ?",
+    "question": "Quel processus permet aux végétaux chlorophylliens de synthétiser des glucides à partir de dioxyde de carbone et d'eau ?",
     "choices": [
       {
         "content": "La photosynthèse.",
         "correct": true,
-        "explanation": "C'est le processus cité."
+        "explanation": "La photosynthèse utilise l'énergie lumineuse pour produire de la matière organique."
       },
       {
         "content": "La traduction.",
@@ -58,60 +58,60 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La décarboxylation uniquement.",
         "correct": false,
-        "explanation": "Ce n'est pas le processus général cité."
+        "explanation": "Une décarboxylation isolée ne correspond pas à la synthèse photosynthétique des glucides."
       }
     ],
-    "explanation": "Le support relie la production végétale de glucides à la photosynthèse."
+    "explanation": "La photosynthèse permet la fixation du carbone minéral dans des molécules organiques, dont des glucides."
   },
   {
     "order": 3,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la ration calorique indiquée dans la fiche :",
+    "question": "Concernant l'énergie fournie par les macronutriments, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les glucides représentent environ 50 à 55 %.",
+        "content": "1 g de glucides fournit environ 4 kcal.",
         "correct": true,
-        "explanation": "Fourchette donnée."
+        "explanation": "La valeur énergétique conventionnelle des glucides assimilables est d'environ 4 kcal par gramme."
       },
       {
-        "content": "Les lipides représentent environ 30 à 35 %.",
+        "content": "1 g de protéines fournit environ 4 kcal.",
         "correct": true,
-        "explanation": "Fourchette donnée."
+        "explanation": "La valeur énergétique conventionnelle des protéines est d'environ 4 kcal par gramme."
       },
       {
-        "content": "Les protéines représentent environ 10 à 12 %.",
+        "content": "1 g de lipides fournit environ 9 kcal.",
         "correct": true,
-        "explanation": "Fourchette donnée."
+        "explanation": "Les lipides fournissent environ 9 kcal par gramme, soit davantage que les glucides ou les protéines."
       },
       {
-        "content": "Les protéines représentent la majorité de la ration calorique.",
+        "content": "Les lipides fournissent moins d'énergie par gramme que les glucides.",
         "correct": false,
-        "explanation": "Elles correspondent à la plus petite des trois parts citées."
+        "explanation": "Les lipides fournissent environ 9 kcal/g, contre environ 4 kcal/g pour les glucides."
       }
     ],
-    "explanation": "La fiche donne les repères 50–55 % glucides, 30–35 % lipides et 10–12 % protéines."
+    "explanation": "Les valeurs énergétiques conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines, et 9 kcal/g pour les lipides."
   },
   {
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les rôles biologiques des glucides cités :",
+    "question": "Quels rôles biologiques peuvent être assurés par les glucides ?",
     "choices": [
       {
         "content": "Rôle énergétique.",
         "correct": true,
-        "explanation": "Le glucose est particulièrement mis en avant."
+        "explanation": "L'oxydation du glucose fournit de l'énergie aux cellules."
       },
       {
         "content": "Réserve énergétique dans le foie et le muscle.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Le glycogène constitue une réserve glucidique dans le foie et les muscles."
       },
       {
         "content": "Rôle structural et de soutien cellulaire.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Des glucides participent à des structures biologiques, comme la cellulose ou les glycosaminoglycanes."
       },
       {
         "content": "Absence de rôle à la surface cellulaire.",
@@ -130,22 +130,22 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Aux interactions cellulaires.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Les glycoconjugués de surface participent à l'adhérence et aux interactions cellulaires."
       },
       {
         "content": "À la protection.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Le glycocalyx contribue à la protection de la membrane plasmique."
       },
       {
         "content": "Aux signaux de reconnaissance.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "Les motifs glucidiques de surface interviennent dans la reconnaissance cellulaire."
       },
       {
         "content": "À certains déterminants antigéniques comme les groupes sanguins.",
         "correct": true,
-        "explanation": "Exemple du support."
+        "explanation": "Les chaînes glucidiques de surface participent à des déterminants antigéniques, notamment ceux des groupes sanguins ABO."
       }
     ],
     "explanation": "Les fonctions de surface dépassent largement le seul rôle énergétique."
@@ -159,22 +159,22 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "ARN.",
         "correct": true,
-        "explanation": "Le support le cite."
+        "explanation": "L'ARN contient du ribose."
       },
       {
         "content": "ADN.",
         "correct": true,
-        "explanation": "Le support le cite."
+        "explanation": "L'ADN contient du 2-désoxyribose."
       },
       {
         "content": "Certaines coenzymes.",
         "correct": true,
-        "explanation": "Le support le cite."
+        "explanation": "Plusieurs coenzymes, comme le NAD, comportent un motif ribose."
       },
       {
         "content": "Certaines vitamines.",
         "correct": true,
-        "explanation": "Le support le cite."
+        "explanation": "Certaines vitamines, comme la vitamine C, sont des dérivés d'oses."
       }
     ],
     "explanation": "Des motifs glucidiques sont intégrés à de nombreuses molécules biologiques essentielles."
@@ -183,36 +183,36 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles associations pathologie / notion sont celles de la fiche ?",
+    "question": "Quelles associations entre pathologies et métabolisme glucidique sont exactes ?",
     "choices": [
       {
         "content": "Diabète → anomalie du métabolisme du glucose.",
         "correct": true,
-        "explanation": "Association donnée."
+        "explanation": "Le diabète se caractérise notamment par une perturbation de l'homéostasie du glucose."
       },
       {
         "content": "Galactosémie → anomalie du métabolisme du galactose.",
         "correct": true,
-        "explanation": "Association donnée."
+        "explanation": "Les galactosémies sont des maladies héréditaires touchant le métabolisme du galactose."
       },
       {
         "content": "Glycogénoses → déficits enzymatiques.",
         "correct": true,
-        "explanation": "Association donnée."
+        "explanation": "Les glycogénoses sont dues à des déficits enzymatiques affectant la synthèse ou la dégradation du glycogène."
       },
       {
         "content": "Intolérance au lait → nécessairement allergie aux protéines du lait.",
         "correct": false,
-        "explanation": "La fiche distingue l'intolérance au lactose de l'allergie aux protéines du lait."
+        "explanation": "L'intolérance au lactose résulte d'une maldigestion du lactose, tandis qu'une allergie met en jeu une réponse immunitaire dirigée contre des protéines du lait."
       }
     ],
-    "explanation": "Le support cite quatre exemples et insiste sur la différence intolérance au lactose / allergie au lait."
+    "explanation": "Le diabète, les galactosémies et les glycogénoses concernent le métabolisme glucidique ; l'intolérance au lactose est distincte d'une allergie aux protéines du lait."
   },
   {
     "order": 8,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Un patient digère mal le lactose sans réaction allergique aux protéines du lait. À quelle situation de la fiche cela correspond-il ?",
+    "question": "Un patient digère mal le lactose sans réaction allergique aux protéines du lait. À quelle situation cela correspond-il ?",
     "choices": [
       {
         "content": "Intolérance au lactose.",
@@ -222,7 +222,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Allergie aux protéines du lait.",
         "correct": false,
-        "explanation": "La fiche distingue explicitement les deux."
+        "explanation": "Une allergie aux protéines du lait implique un mécanisme immunitaire, absent de la situation décrite."
       },
       {
         "content": "Glycogénose certaine.",
@@ -241,7 +241,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 9,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La structure d'un ose simple peut comporter :",
+    "question": "La famille des oses et de leurs dérivés peut comporter :",
     "choices": [
       {
         "content": "Une chaîne carbonée.",
@@ -261,16 +261,16 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Parfois des fonctions acides ou amines dans certains dérivés.",
         "correct": true,
-        "explanation": "Possibilité signalée par la fiche."
+        "explanation": "Les oses peuvent donner des dérivés acides, comme les acides uroniques, ou aminés, comme les osamines."
       }
     ],
-    "explanation": "La structure générale associe chaîne carbonée, carbonyle et fonctions alcool."
+    "explanation": "Un ose associe une chaîne carbonée, une fonction carbonyle et plusieurs fonctions alcool ; ses dérivés peuvent porter d'autres fonctions."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Pour un ose simple constitué de C, H et O, quelles écritures générales sont données comme équivalentes ?",
+    "question": "Pour un ose simple constitué de C, H et O, quelles écritures générales sont algébriquement équivalentes ?",
     "choices": [
       {
         "content": "$\\mathrm{C_nH_{2n}O_n}$.",
@@ -290,10 +290,10 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "$\\mathrm{C_nH_nO_{2n}}$.",
         "correct": false,
-        "explanation": "Elle ne respecte pas le rapport donné."
+        "explanation": "Elle ne respecte pas le rapport H/O égal à 2."
       }
     ],
-    "explanation": "Le support présente trois écritures de la même formule générale."
+    "explanation": "Les trois écritures correctes expriment le même rapport atomique : un carbone, deux hydrogènes et un oxygène par motif."
   },
   {
     "order": 11,
@@ -304,17 +304,17 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Elle comporte au minimum 3 carbones.",
         "correct": true,
-        "explanation": "Les trioses sont les plus petits oses du tableau."
+        "explanation": "Les trioses sont les plus petits oses usuels."
       },
       {
-        "content": "Elle est décrite comme non ramifiée.",
+        "content": "Elle est non ramifiée.",
         "correct": true,
-        "explanation": "Repère de la fiche."
+        "explanation": "La chaîne carbonée des oses usuels est non ramifiée."
       },
       {
         "content": "La numérotation débute au carbone le plus oxydé.",
         "correct": true,
-        "explanation": "Règle donnée."
+        "explanation": "La numérotation minimise l'indice du carbone portant la fonction carbonyle."
       },
       {
         "content": "La numérotation débute toujours au carbone le moins oxydé.",
@@ -348,7 +348,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut comporter des alcools primaires et secondaires.",
         "correct": true,
-        "explanation": "Structure du support."
+        "explanation": "La longueur de la chaîne peut permettre la présence d'un alcool primaire terminal et de plusieurs alcools secondaires."
       }
     ],
     "explanation": "Le carbonyle terminal en C1 caractérise l'aldose."
@@ -362,12 +362,12 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Porte classiquement une fonction cétone en C2.",
         "correct": true,
-        "explanation": "Repère de la fiche."
+        "explanation": "Dans les cétoses usuels, la fonction cétone est classiquement portée par C2."
       },
       {
         "content": "Possède des groupes alcool, notamment CH2OH.",
         "correct": true,
-        "explanation": "Structure générale."
+        "explanation": "Les autres carbones portent généralement des groupes hydroxyle, dont certains sous forme CH2OH."
       },
       {
         "content": "Est nécessairement un aldéhyde en C1.",
@@ -380,7 +380,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Règle de numérotation."
       }
     ],
-    "explanation": "Le cétose étudié possède un carbonyle interne en C2."
+    "explanation": "Dans les 2-cétoses usuels, le carbonyle interne est porté par C2."
   },
   {
     "order": 14,
@@ -401,7 +401,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un acide gras.",
         "correct": false,
-        "explanation": "Ce n'est pas la formule donnée."
+        "explanation": "Cette écriture comporte un aldéhyde terminal et plusieurs groupes alcool, contrairement à un acide gras."
       },
       {
         "content": "Un nucléotide.",
@@ -560,7 +560,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Le glucose, dans la classification structurale de la fiche, est :",
+    "question": "Dans la classification structurale des oses, le glucose est :",
     "choices": [
       {
         "content": "Un aldohexose.",
@@ -589,7 +589,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Le fructose, dans la classification structurale de la fiche, est :",
+    "question": "Dans la classification structurale des oses, le fructose est :",
     "choices": [
       {
         "content": "Un cétohexose.",
@@ -624,7 +624,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un ose simple possède au minimum trois carbones.",
         "correct": true,
-        "explanation": "Repère du support."
+        "explanation": "Les trioses sont les plus petits oses usuels."
       },
       {
         "content": "Un aldose porte un aldéhyde en C1.",

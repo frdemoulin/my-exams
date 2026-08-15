@@ -9,12 +9,12 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Deux isomères, selon la fiche :",
+    "question": "Deux isomères :",
     "choices": [
       {
         "content": "Ont la même formule brute.",
         "correct": true,
-        "explanation": "Définition donnée."
+        "explanation": "Par définition, des isomères ont la même formule brute."
       },
       {
         "content": "Peuvent avoir des formules développées différentes.",
@@ -32,7 +32,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Exemple glycéraldéhyde/dihydroxyacétone."
       }
     ],
-    "explanation": "Le support définit l'isomérie par une formule brute commune mais des structures différentes."
+    "explanation": "Des isomères ont la même formule brute mais diffèrent par leur connectivité ou leur organisation spatiale."
   },
   {
     "order": 46,
@@ -53,7 +53,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Sont des isomères de fonction.",
         "correct": true,
-        "explanation": "Exemple de la fiche."
+        "explanation": "Le glycéraldéhyde est un aldose et la dihydroxyacétone un cétose."
       },
       {
         "content": "Sont deux énantiomères.",
@@ -109,9 +109,9 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Définition."
       },
       {
-        "content": "Ont les mêmes propriétés physico-chimiques sauf le pouvoir rotatoire selon la fiche.",
+        "content": "Dans un environnement achiral, ont les mêmes propriétés physiques usuelles mais des pouvoirs rotatoires opposés.",
         "correct": true,
-        "explanation": "Point explicitement donné."
+        "explanation": "Deux énantiomères purs ont des rotations de même valeur absolue et de signes opposés dans les mêmes conditions."
       },
       {
         "content": "Sont obligatoirement des épimères.",
@@ -125,12 +125,12 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 49,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle propriété est explicitement citée comme différente entre deux énantiomères ?",
+    "question": "Quelle propriété optique distingue deux énantiomères purs placés dans les mêmes conditions ?",
     "choices": [
       {
         "content": "Le pouvoir rotatoire.",
         "correct": true,
-        "explanation": "La fiche en fait l'exception aux propriétés physico-chimiques communes."
+        "explanation": "Leurs pouvoirs rotatoires ont la même valeur absolue et des signes opposés."
       },
       {
         "content": "La formule brute.",
@@ -159,7 +159,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Certaines enzymes ne métabolisent qu'une forme L ou qu'une forme D.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Le site actif d'une enzyme peut reconnaître sélectivement une configuration donnée."
       },
       {
         "content": "La configuration spatiale peut donc avoir une conséquence biologique.",
@@ -169,7 +169,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Toutes les enzymes métabolisent indifféremment tous les stéréoisomères.",
         "correct": false,
-        "explanation": "Le support dit l'inverse."
+        "explanation": "La reconnaissance enzymatique dépend souvent de la stéréochimie du substrat."
       },
       {
         "content": "Elle illustre l'importance biologique de la stéréochimie.",
@@ -186,9 +186,9 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Deux diastéréoisomères :",
     "choices": [
       {
-        "content": "Présentent plusieurs centres de chiralité dans la définition donnée.",
+        "content": "Ont la même connectivité atomique.",
         "correct": true,
-        "explanation": "Le support formule ainsi la relation."
+        "explanation": "Ce sont des stéréoisomères : leur connectivité est identique et leur organisation spatiale diffère."
       },
       {
         "content": "Ne sont pas énantiomères.",
@@ -232,7 +232,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peuvent être interconvertis par une épimérase.",
         "correct": true,
-        "explanation": "La fiche cite la voie enzymatique."
+        "explanation": "Une épimérase catalyse l'inversion de configuration sur un centre stéréogène déterminé."
       }
     ],
     "explanation": "L'épimérie correspond à une différence de configuration sur un seul carbone asymétrique."
@@ -241,12 +241,12 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 53,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel ose est présenté comme épimère en C4 du D-glucose ?",
+    "question": "Quel ose est épimère en C4 du D-glucose ?",
     "choices": [
       {
         "content": "D-galactose.",
         "correct": true,
-        "explanation": "Exemple explicite."
+        "explanation": "Le D-galactose ne diffère du D-glucose que par la configuration de C4."
       },
       {
         "content": "D-mannose.",
@@ -270,12 +270,12 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 54,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel ose est présenté comme épimère en C2 du D-glucose ?",
+    "question": "Quel ose est épimère en C2 du D-glucose ?",
     "choices": [
       {
         "content": "D-mannose.",
         "correct": true,
-        "explanation": "Exemple explicite."
+        "explanation": "Le D-mannose ne diffère du D-glucose que par la configuration de C2."
       },
       {
         "content": "D-galactose.",
@@ -343,12 +343,12 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils sont épimères en C2.",
         "correct": true,
-        "explanation": "Exemple du support."
+        "explanation": "D-glucose et D-mannose ne diffèrent que par la configuration de C2."
       },
       {
         "content": "Ils diffèrent aussi en C4.",
         "correct": false,
-        "explanation": "Le support indique une différence en C2."
+        "explanation": "Leur configuration est identique en C4 ; la différence porte sur C2."
       }
     ],
     "explanation": "Le couple glucose/mannose est l'exemple d'épimérie en C2."
@@ -357,7 +357,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 57,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "D-galactose et D-mannose, dans les projections de la fiche :",
+    "question": "À propos du D-galactose et du D-mannose :",
     "choices": [
       {
         "content": "Sont des diastéréoisomères.",
@@ -394,14 +394,14 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Définition."
       },
       {
-        "content": "Peut être réalisée chimiquement en milieu alcalin selon la fiche.",
+        "content": "Peut être réalisée chimiquement en milieu alcalin.",
         "correct": true,
-        "explanation": "Voie citée."
+        "explanation": "Une énolisation en milieu alcalin peut conduire à une épimérisation."
       },
       {
         "content": "Peut être réalisée enzymatiquement par une épimérase.",
         "correct": true,
-        "explanation": "Voie citée."
+        "explanation": "Une épimérase catalyse une épimérisation stéréospécifique."
       },
       {
         "content": "Exige toujours une rupture complète de la chaîne carbonée.",
@@ -409,7 +409,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ce n'est pas le mécanisme décrit."
       }
     ],
-    "explanation": "La fiche cite deux voies d'épimérisation : chimique et enzymatique."
+    "explanation": "Une épimérisation peut être obtenue chimiquement, notamment via un intermédiaire énediol en milieu alcalin, ou catalysée par une épimérase."
   },
   {
     "order": 59,
@@ -420,7 +420,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Elles catalysent l'interconversion d'épimères.",
         "correct": true,
-        "explanation": "Fonction donnée."
+        "explanation": "Une épimérase inverse la configuration d'un centre stéréogène déterminé."
       },
       {
         "content": "Elles sont stéréospécifiques par nature de la transformation.",
@@ -428,9 +428,9 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Elles modifient une configuration déterminée."
       },
       {
-        "content": "La fiche relie une absence d'épimérase à une galactosémie congénitale.",
+        "content": "Un déficit en UDP-galactose 4-épimérase peut provoquer une galactosémie de type III.",
         "correct": true,
-        "explanation": "Application médicale citée."
+        "explanation": "La galactosémie de type III est liée à un déficit de l'enzyme GALE."
       },
       {
         "content": "Elles transforment tous les oses en protéines.",
@@ -438,28 +438,28 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sans rapport."
       }
     ],
-    "explanation": "Le support relie l'épimérisation enzymatique au métabolisme du galactose."
+    "explanation": "L'UDP-galactose 4-épimérase catalyse l'interconversion de l'UDP-galactose et de l'UDP-glucose dans la voie de Leloir."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans l'application médicale de la fiche, l'absence de l'épimérase :",
+    "question": "Dans la galactosémie de type III, un déficit en UDP-galactose 4-épimérase :",
     "choices": [
       {
-        "content": "Empêche le métabolisme du galactose en glucose.",
+        "content": "Perturbe l'interconversion de l'UDP-galactose et de l'UDP-glucose.",
         "correct": true,
-        "explanation": "Formulation du support."
+        "explanation": "L'enzyme GALE catalyse cette interconversion dans la voie de Leloir."
       },
       {
-        "content": "Peut conduire à une galactosémie congénitale du nouveau-né.",
+        "content": "Peut conduire à une galactosémie congénitale.",
         "correct": true,
-        "explanation": "Pathologie citée."
+        "explanation": "Le déficit en GALE définit la galactosémie par déficit en épimérase, dite de type III."
       },
       {
         "content": "Illustre l'importance biologique de la stéréospécificité.",
         "correct": true,
-        "explanation": "Lien pédagogique."
+        "explanation": "GALE reconnaît des nucléotides-osides et catalyse une transformation stéréochimique précise."
       },
       {
         "content": "Améliore le métabolisme du galactose.",
@@ -467,7 +467,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "C'est l'inverse."
       }
     ],
-    "explanation": "La galactosémie est utilisée comme application de l'épimérisation enzymatique."
+    "explanation": "La galactosémie de type III illustre les conséquences métaboliques d'un déficit en UDP-galactose 4-épimérase."
   },
   {
     "order": 61,
@@ -491,7 +491,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Relation d'énantiomérie."
       },
       {
-        "content": "Sont épimères au sens strict du support.",
+        "content": "Sont épimères.",
         "correct": false,
         "explanation": "Ce ne sont pas des diastéréoisomères."
       }
@@ -515,9 +515,9 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Définition."
       },
       {
-        "content": "Ont des pouvoirs rotatoires opposés dans l'exemple final de la fiche.",
+        "content": "Ont des pouvoirs rotatoires de signes opposés dans les mêmes conditions.",
         "correct": true,
-        "explanation": "+52,5° et -52,5° sont donnés."
+        "explanation": "Deux énantiomères purs présentent des rotations de même valeur absolue et de signes opposés dans les mêmes conditions."
       },
       {
         "content": "Sont diastéréoisomères.",
@@ -560,22 +560,22 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des anomères, en anticipation de la cyclisation étudiée ensuite :",
+    "question": "À propos des anomères formés lors de la cyclisation d'un ose :",
     "choices": [
       {
-        "content": "La fiche les décrit comme des diastéréoisomères.",
+        "content": "Ce sont des diastéréoisomères.",
         "correct": true,
-        "explanation": "Point explicite."
+        "explanation": "Ils ne sont pas images miroir l'un de l'autre."
       },
       {
-        "content": "Elle précise qu'on peut même les considérer comme des épimères.",
+        "content": "Ils peuvent être considérés comme des épimères.",
         "correct": true,
         "explanation": "Ils diffèrent au carbone anomérique."
       },
       {
         "content": "Ils sont nécessairement énantiomères.",
         "correct": false,
-        "explanation": "Le support dit explicitement que non."
+        "explanation": "Deux anomères d'un même ose ne sont pas images miroir l'un de l'autre."
       },
       {
         "content": "Ils apparaissent lors de la cyclisation.",
@@ -662,14 +662,14 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Il faut la configuration."
       },
       {
-        "content": "La galactosémie citée résulte d'un excès d'épimérase.",
+        "content": "La galactosémie de type III résulte d'un excès d'UDP-galactose 4-épimérase.",
         "correct": false,
-        "explanation": "La fiche parle d'absence."
+        "explanation": "Elle résulte d'un déficit en UDP-galactose 4-épimérase, et non d'un excès."
       },
       {
         "content": "Deux énantiomères ont toujours le même pouvoir rotatoire signé.",
         "correct": false,
-        "explanation": "Le pouvoir rotatoire constitue l'exception citée."
+        "explanation": "Deux énantiomères purs ont des pouvoirs rotatoires de signes opposés dans les mêmes conditions."
       }
     ],
     "explanation": "Cette sélection consolide les principales relations d'isomérie de la section."

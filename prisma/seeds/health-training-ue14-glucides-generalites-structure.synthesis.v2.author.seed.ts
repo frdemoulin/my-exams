@@ -106,12 +106,12 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "D-galactose est épimère en C4 du D-glucose.",
         "correct": true,
-        "explanation": "Exemple du support."
+        "explanation": "Le D-galactose ne diffère du D-glucose que par la configuration de C4."
       },
       {
         "content": "D-mannose est épimère en C2 du D-glucose.",
         "correct": true,
-        "explanation": "Exemple du support."
+        "explanation": "Le D-mannose ne diffère du D-glucose que par la configuration de C2."
       },
       {
         "content": "Les trois sont tous énantiomères entre eux.",
@@ -125,12 +125,12 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 105,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La cyclisation du D-glucose sous sa forme la plus fréquente dans la fiche :",
+    "question": "À propos de la cyclisation prédominante du D-glucose en solution aqueuse :",
     "choices": [
       {
         "content": "Donne un pyranose.",
         "correct": true,
-        "explanation": "Forme prédominante présentée."
+        "explanation": "Les formes glucopyraniques prédominent en solution aqueuse."
       },
       {
         "content": "Relie C1 et C5.",
@@ -164,7 +164,7 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils sont des diastéréoisomères.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Ils diffèrent sur un centre stéréogène sans être images miroir l'un de l'autre."
       },
       {
         "content": "Ils peuvent être considérés comme épimères.",
@@ -174,7 +174,7 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils ont exactement le même pouvoir rotatoire.",
         "correct": false,
-        "explanation": "Les valeurs données diffèrent."
+        "explanation": "Les anomères α et β du glucose ont des pouvoirs rotatoires spécifiques différents."
       }
     ],
     "explanation": "L'anomérie est une relation stéréochimique créée par la cyclisation."
@@ -183,30 +183,30 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Selon l'équilibre présenté à pH 7 :",
+    "question": "Pour le D-glucose à l'équilibre en solution aqueuse proche de pH 7 :",
     "choices": [
       {
         "content": "Les formes cycliques sont très majoritaires.",
         "correct": true,
-        "explanation": "99 %."
+        "explanation": "Plus de 99 % des molécules de D-glucose sont sous forme cyclique."
       },
       {
         "content": "La forme β est environ deux fois plus abondante que la forme α.",
         "correct": true,
-        "explanation": "2/3 versus 1/3."
+        "explanation": "Le β-D-glucopyranose représente environ deux tiers du mélange, contre environ un tiers pour la forme α."
       },
       {
         "content": "La forme linéaire est très minoritaire.",
         "correct": true,
-        "explanation": "Environ 1 %."
+        "explanation": "La forme ouverte représente une fraction très inférieure à 1 %."
       },
       {
         "content": "99 % des molécules sont linéaires.",
         "correct": false,
-        "explanation": "Cela correspond au modèle à pH basique."
+        "explanation": "À l'équilibre dans l'eau, le D-glucose est presque entièrement cyclique."
       }
     ],
-    "explanation": "Le pH influence fortement la répartition des formes."
+    "explanation": "À l'équilibre en solution aqueuse, les formes cycliques α et β du D-glucose sont très majoritaires et la forme linéaire est transitoire."
   },
   {
     "order": 108,
@@ -232,7 +232,7 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le fructose naturel est l'exemple D(−).",
         "correct": true,
-        "explanation": "Exemple donné."
+        "explanation": "Le D-fructose naturel est lévogyre."
       }
     ],
     "explanation": "Série structurale et signe optique doivent rester distincts."
@@ -241,17 +241,17 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 109,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un contexte de galactosémie congénitale tel que présenté dans la fiche :",
+    "question": "À propos de la galactosémie par déficit en UDP-galactose 4-épimérase, dite de type III :",
     "choices": [
       {
-        "content": "Une absence d'épimérase est impliquée.",
+        "content": "Un déficit en UDP-galactose 4-épimérase est impliqué.",
         "correct": true,
-        "explanation": "Application médicale donnée."
+        "explanation": "La galactosémie de type III est liée à un déficit de l'enzyme GALE."
       },
       {
-        "content": "Le métabolisme du galactose vers le glucose est perturbé.",
+        "content": "L'interconversion de l'UDP-galactose et de l'UDP-glucose est perturbée.",
         "correct": true,
-        "explanation": "Formulation du support."
+        "explanation": "GALE catalyse cette interconversion dans la voie de Leloir."
       },
       {
         "content": "L'exemple illustre la stéréospécificité enzymatique.",
@@ -264,7 +264,7 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sans rapport."
       }
     ],
-    "explanation": "La pathologie sert d'application biologique à la notion d'épimérisation."
+    "explanation": "La galactosémie de type III illustre les conséquences métaboliques d'un déficit touchant une épimérase stéréospécifique."
   },
   {
     "order": 110,
@@ -299,7 +299,7 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Pouvoir rotatoire."
       },
       {
-        "content": "Le cétose porte toujours son carbonyle en C1 dans la fiche.",
+        "content": "Un 2-cétose porte son carbonyle en C1.",
         "correct": false,
         "explanation": "C2."
       },
@@ -314,9 +314,9 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Cinq."
       },
       {
-        "content": "À pH basique, la fiche donne 99 % de formes cycliques.",
+        "content": "Un ose réducteur reste exclusivement sous une forme cyclique unique en milieu basique.",
         "correct": false,
-        "explanation": "Linéaires."
+        "explanation": "L'ouverture du cycle et des interconversions via un intermédiaire énediol peuvent se produire."
       },
       {
         "content": "La dihydroxyacétone est chirale.",
@@ -364,7 +364,7 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L'ose appartient à la série L.",
         "correct": true,
-        "explanation": "Critère du support."
+        "explanation": "Dans une projection de Fischer conventionnelle, OH à gauche sur le dernier C* définit la série L."
       },
       {
         "content": "Le signe de son pouvoir rotatoire reste indéterminé par cette seule information.",
@@ -480,12 +480,12 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "α et β ont des pouvoirs rotatoires différents.",
         "correct": true,
-        "explanation": "+113° et +19° dans la fiche."
+        "explanation": "Les valeurs usuelles sont proches de +112° pour α et +19° pour β."
       },
       {
         "content": "Les anomères s'interconvertissent via la forme linéaire.",
         "correct": true,
-        "explanation": "Mécanisme d'équilibre présenté."
+        "explanation": "L'ouverture du cycle donne une forme linéaire qui peut se refermer sous l'un ou l'autre anomère."
       },
       {
         "content": "Les proportions changent au cours du temps.",
@@ -516,7 +516,7 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 118,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Selon la répartition simplifiée à pH 7, combien de molécules β attend-on environ parmi 600 molécules cycliques ?",
+    "question": "On admet qu'à l'équilibre en solution aqueuse, environ deux tiers des molécules cycliques de D-glucose sont sous forme β. Combien de molécules β attend-on parmi 600 molécules cycliques ?",
     "answer": {
       "type": "number",
       "value": 400,
@@ -543,15 +543,15 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Cette association est possible.",
         "correct": true,
-        "explanation": "Le fructose naturel est donné D(−)."
+        "explanation": "Le D-fructose naturel est lévogyre : il constitue un exemple D(−)."
       },
       {
         "content": "Elle viole la règle D = +.",
         "correct": false,
-        "explanation": "Cette règle n'existe pas dans la fiche."
+        "explanation": "Il n'existe pas de règle D = + : D/L et le signe du pouvoir rotatoire sont indépendants."
       }
     ],
-    "explanation": "L'exemple D(−) démontre explicitement l'indépendance des deux notations."
+    "explanation": "L'existence d'un composé D(−) démontre que la série D/L ne prédit pas le signe du pouvoir rotatoire."
   },
   {
     "order": 120,
@@ -562,22 +562,22 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le pyranose peut adopter une chaise.",
         "correct": true,
-        "explanation": "Présentée."
+        "explanation": "Une conformation chaise limite la tension du cycle pyranique."
       },
       {
-        "content": "La chaise est indiquée comme plus stable que le bateau.",
+        "content": "Une conformation chaise est généralement plus stable qu'une conformation bateau pour un même pyranose.",
         "correct": true,
-        "explanation": "Mention."
+        "explanation": "La chaise limite les interactions défavorables et la tension du cycle."
       },
       {
         "content": "Le furanose peut adopter une enveloppe.",
         "correct": true,
-        "explanation": "Présentée."
+        "explanation": "Le plissement d'un cycle furanique peut produire une conformation enveloppe."
       },
       {
         "content": "Ces conformations rappellent que les cycles ne sont pas strictement plans.",
         "correct": true,
-        "explanation": "Interprétation cohérente avec les dessins du support."
+        "explanation": "Le plissement du cycle réduit les contraintes géométriques ; ces conformations sont donc tridimensionnelles."
       }
     ],
     "explanation": "La représentation cyclique doit rester tridimensionnelle."
@@ -619,29 +619,29 @@ export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Un aldohexose linéaire possède quatre C* dans le modèle de la fiche.",
+        "content": "Un aldohexose linéaire non substitué possède quatre C*.",
         "correct": true,
         "explanation": "n−2."
       },
       {
-        "content": "Un cétohexose possède huit stéréoisomères.",
+        "content": "Un 2-cétohexose linéaire non substitué possède huit stéréoisomères.",
         "correct": true,
         "explanation": "$2^3$."
       },
       {
         "content": "Les anomères α et β sont des diastéréoisomères.",
         "correct": true,
-        "explanation": "Relation donnée."
+        "explanation": "Ils diffèrent au carbone anomérique sans être images miroir l'un de l'autre."
       },
       {
-        "content": "À pH 7, les formes cycliques dominent largement.",
+        "content": "À l'équilibre dans l'eau, les formes cycliques du D-glucose dominent largement.",
         "correct": true,
         "explanation": "99 %."
       },
       {
-        "content": "L'α-D-glucose est donné avec une rotation plus élevée que le β-D-glucose.",
+        "content": "L'α-D-glucose a un pouvoir rotatoire spécifique plus élevé que le β-D-glucose.",
         "correct": true,
-        "explanation": "+113° contre +19°."
+        "explanation": "Les valeurs usuelles sont proches de +112° pour α et +19° pour β."
       },
       {
         "content": "D-glucose et L-glucose sont épimères.",
