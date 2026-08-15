@@ -14,7 +14,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ce sont des oses à trois carbones.",
         "correct": true,
-        "explanation": "La fiche les présente comme les oses les plus simples."
+        "explanation": "Le glycéraldéhyde et la dihydroxyacétone comportent chacun trois atomes de carbone : ce sont des trioses."
       },
       {
         "content": "Le glycéraldéhyde est un aldose.",
@@ -29,7 +29,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Leurs formes phosphorylées sont étrangères à la glycolyse.",
         "correct": false,
-        "explanation": "Le support les relie à une étape clé de la glycolyse."
+        "explanation": "Le glycéraldéhyde-3-phosphate et la dihydroxyacétone phosphate sont des intermédiaires interconvertibles de la glycolyse."
       }
     ],
     "explanation": "Ces deux trioses servent de repères structuraux et métaboliques."
@@ -38,22 +38,22 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 2,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la glycolyse dans la fiche :",
+    "question": "Concernant la glycolyse :",
     "choices": [
       {
         "content": "Elle correspond au catabolisme du glucose.",
         "correct": true,
-        "explanation": "Définition donnée."
+        "explanation": "La glycolyse est une voie catabolique qui convertit le glucose en pyruvate."
       },
       {
         "content": "Elle conduit vers des voies métaboliques fournissant de l'énergie à la cellule.",
         "correct": true,
-        "explanation": "Rôle cité."
+        "explanation": "La glycolyse fournit directement de l'ATP et des équivalents réducteurs utilisables par la cellule."
       },
       {
         "content": "Les formes phosphorylées du glycéraldéhyde et de la dihydroxyacétone y participent.",
         "correct": true,
-        "explanation": "Point explicite."
+        "explanation": "Le glycéraldéhyde-3-phosphate et la dihydroxyacétone phosphate sont deux trioses phosphorylés de cette voie."
       },
       {
         "content": "Elle désigne la synthèse des protéines.",
@@ -61,7 +61,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ce n'est pas une voie protéique."
       }
     ],
-    "explanation": "La fiche relie les trioses phosphorylés à une étape majeure du catabolisme glucidique."
+    "explanation": "La glycolyse est une voie centrale du catabolisme glucidique dans laquelle interviennent deux trioses phosphorylés."
   },
   {
     "order": 3,
@@ -72,22 +72,22 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il est aussi appelé dextrose.",
         "correct": true,
-        "explanation": "Synonyme indiqué."
+        "explanation": "Le terme dextrose est un nom usuel du D-glucose."
       },
       {
         "content": "C'est un aldose.",
         "correct": true,
-        "explanation": "Famille indiquée."
+        "explanation": "Sous sa forme linéaire, le glucose porte une fonction aldéhyde : il appartient donc à la famille des aldoses."
       },
       {
-        "content": "Sa forme pyranique représente environ 99 % du glucose dans la fiche.",
+        "content": "Ses formes pyraniques représentent plus de 99 % du D-glucose à l'équilibre en solution aqueuse.",
         "correct": true,
-        "explanation": "Valeur donnée."
+        "explanation": "Les anomères α- et β-D-glucopyranose dominent très largement ; les formes furanoses et linéaire sont très minoritaires."
       },
       {
-        "content": "Sa forme la plus stable est décrite comme furanique.",
+        "content": "Sa forme majoritaire en solution aqueuse est furanique.",
         "correct": false,
-        "explanation": "La forme pyranique est mise en avant pour les aldoses."
+        "explanation": "En solution aqueuse, le D-glucose est très majoritairement présent sous forme pyranose."
       }
     ],
     "explanation": "Le glucose est l'aldose de référence, majoritairement pyranique."
@@ -99,19 +99,19 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Parmi les rôles ou caractéristiques biologiques du glucose :",
     "choices": [
       {
-        "content": "Il est présenté comme l'ose le plus répandu dans la nature.",
+        "content": "Il est l'un des oses les plus répandus dans la nature.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Le D-glucose libre ou engagé dans des glucides complexes est très largement distribué dans le vivant."
       },
       {
         "content": "Il est une source d'énergie majeure.",
         "correct": true,
-        "explanation": "« Source d'énergie par excellence »."
+        "explanation": "Son oxydation alimente notamment la glycolyse et contribue à la production d'ATP."
       },
       {
-        "content": "Il est présenté comme source énergétique exclusive du fœtus.",
+        "content": "Il constitue un substrat énergétique majeur du fœtus.",
         "correct": true,
-        "explanation": "Formulation de la fiche."
+        "explanation": "Le glucose maternel transféré à travers le placenta contribue fortement au métabolisme énergétique fœtal, sans en être l'unique substrat."
       },
       {
         "content": "Sa concentration sanguine n'a aucun lien avec le diabète.",
@@ -130,7 +130,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La glycémie.",
         "correct": true,
-        "explanation": "Terme du support."
+        "explanation": "La glycémie désigne la concentration de glucose dans le sang."
       },
       {
         "content": "La galactosémie.",
@@ -159,17 +159,17 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C'est un aldose.",
         "correct": true,
-        "explanation": "Famille indiquée."
+        "explanation": "Sous sa forme linéaire, le galactose porte une fonction aldéhyde : c'est un aldose."
       },
       {
         "content": "Sa forme la plus fréquente est pyranique.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Comme le glucose, le galactose adopte principalement des formes pyranoses en solution."
       },
       {
         "content": "Il entre dans la composition du lactose avec le glucose.",
         "correct": true,
-        "explanation": "Le lactose est présenté comme galactose + glucose."
+        "explanation": "Le lactose est un diholoside constitué d'un résidu de galactose et d'un résidu de glucose."
       },
       {
         "content": "Il est épimère en C2 du glucose.",
@@ -188,22 +188,22 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Son métabolisme est connecté à celui du glucose.",
         "correct": true,
-        "explanation": "Point explicite."
+        "explanation": "Le galactose est notamment converti en glucose-1-phosphate, ce qui relie son métabolisme à celui du glucose."
       },
       {
         "content": "Des dérivés sont présents au niveau du cerveau.",
         "correct": true,
-        "explanation": "Les cérébrogalactosides sont cités."
+        "explanation": "Les galactocérébrosides sont des glycolipides abondants dans la myéline du système nerveux."
       },
       {
         "content": "Il peut être présent dans des glycoprotéines et glycolipides.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Le galactose entre dans la composition de chaînes glucidiques portées par des protéines et des lipides."
       },
       {
         "content": "Il est absent des glycoconjugués.",
         "correct": false,
-        "explanation": "La fiche dit l'inverse."
+        "explanation": "De nombreux glycoconjugués contiennent du galactose ; il n'en est donc pas absent."
       }
     ],
     "explanation": "Le galactose intervient dans des glycoconjugués et son métabolisme rejoint celui du glucose."
@@ -217,12 +217,12 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C4.",
         "correct": true,
-        "explanation": "Position donnée."
+        "explanation": "Le D-galactose et le D-glucose ne diffèrent que par la configuration du carbone C4."
       },
       {
         "content": "C1.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "Une différence en C1 cyclique correspondrait à une relation d'anomérie, pas à l'épimérie glucose-galactose."
       },
       {
         "content": "C2.",
@@ -232,7 +232,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C6.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "Le carbone C6 porte la fonction alcool primaire et ne distingue pas le glucose du galactose."
       }
     ],
     "explanation": "Le couple glucose-galactose diffère en C4."
@@ -246,17 +246,17 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C'est un aldose.",
         "correct": true,
-        "explanation": "Famille indiquée."
+        "explanation": "Sous sa forme linéaire, le mannose porte une fonction aldéhyde : c'est un aldose."
       },
       {
-        "content": "Il est surtout rencontré dans les végétaux dans l'exemple de la fiche.",
+        "content": "Il entre dans la composition de polysaccharides végétaux appelés mannanes.",
         "correct": true,
-        "explanation": "L'écorce d'orange est citée."
+        "explanation": "Les mannanes et glucomannanes sont des polysaccharides végétaux riches en résidus de mannose."
       },
       {
         "content": "Il est présent en quantité importante dans les glycoprotéines.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Les glycannes de nombreuses glycoprotéines contiennent des résidus de mannose."
       },
       {
         "content": "Il est épimère en C4 du glucose.",
@@ -275,7 +275,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C2.",
         "correct": true,
-        "explanation": "Position donnée."
+        "explanation": "Le D-mannose et le D-glucose ne diffèrent que par la configuration du carbone C2."
       },
       {
         "content": "C4.",
@@ -285,12 +285,12 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C5.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "Le glucose et le mannose ont la même configuration en C5."
       },
       {
         "content": "C6.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "Le carbone C6 ne porte pas le centre stéréogène qui distingue le glucose du mannose."
       }
     ],
     "explanation": "Le couple glucose-mannose diffère en C2."
@@ -304,22 +304,22 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il est aussi appelé lévulose.",
         "correct": true,
-        "explanation": "Nom donné."
+        "explanation": "Lévulose est un nom usuel historique du D-fructose."
       },
       {
         "content": "C'est un cétose.",
         "correct": true,
-        "explanation": "Famille indiquée."
+        "explanation": "Sous sa forme linéaire, le fructose porte une fonction cétone : c'est un cétose."
       },
       {
-        "content": "Sa forme furanique est mise en avant comme très stable pour les cétoses.",
+        "content": "Il peut adopter des formes cycliques furanoses et pyranoses.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Le D-fructose existe sous plusieurs formes cycliques ; en solution aqueuse, la forme β-D-fructopyranose est majoritaire."
       },
       {
         "content": "Il est absent des fruits et du miel.",
         "correct": false,
-        "explanation": "Ce sont au contraire des sources citées."
+        "explanation": "Le fructose est naturellement présent dans de nombreux fruits et dans le miel."
       }
     ],
     "explanation": "Le fructose est un cétohexose naturellement présent dans fruits et miel."
@@ -333,22 +333,22 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il est présent dans le saccharose avec le glucose.",
         "correct": true,
-        "explanation": "Composition citée."
+        "explanation": "Le saccharose associe un résidu de glucose à un résidu de fructose."
       },
       {
         "content": "Son pouvoir sucrant est important.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Le fructose possède un pouvoir sucrant supérieur à celui du glucose dans les conditions usuelles."
       },
       {
-        "content": "Il est un acteur majeur de la glycolyse.",
+        "content": "Après phosphorylation, il peut rejoindre la glycolyse sous forme d'intermédiaires métaboliques.",
         "correct": true,
-        "explanation": "Point cité."
+        "explanation": "Selon le tissu, le fructose est converti en fructose-6-phosphate ou en trioses phosphates qui alimentent la glycolyse."
       },
       {
         "content": "C'est un aldose.",
         "correct": false,
-        "explanation": "C'est un cétose."
+        "explanation": "La forme linéaire du fructose porte une fonction cétone : il appartient à la famille des cétoses."
       }
     ],
     "explanation": "Le fructose associe rôle alimentaire et place dans le métabolisme glucidique."
@@ -362,12 +362,12 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le ribose est associé à l'ARN.",
         "correct": true,
-        "explanation": "Association du support."
+        "explanation": "Le ribose constitue le pentose des ribonucléotides de l'ARN."
       },
       {
         "content": "Le 2-désoxyribose est associé à l'ADN.",
         "correct": true,
-        "explanation": "Association du support."
+        "explanation": "Le 2-désoxyribose constitue le pentose des désoxyribonucléotides de l'ADN."
       },
       {
         "content": "Ce sont des pentoses.",
@@ -391,17 +391,17 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "De multiples liaisons hydrogène grâce aux OH.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Les fonctions hydroxyle des oses peuvent former de nombreuses liaisons hydrogène entre molécules et avec l'eau."
       },
       {
         "content": "Une bonne hydrosolubilité.",
         "correct": true,
-        "explanation": "Reliée aux fonctions alcool."
+        "explanation": "Les nombreuses fonctions hydroxyle interagissent avec l'eau par liaisons hydrogène."
       },
       {
         "content": "Une thermodégradabilité avec caramélisation.",
         "correct": true,
-        "explanation": "Exemple donné."
+        "explanation": "Sous l'effet de la chaleur, les oses peuvent subir des réactions de déshydratation et de polymérisation responsables de la caramélisation."
       },
       {
         "content": "Une absence d'interactions moléculaires.",
@@ -444,22 +444,22 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Les propriétés chimiques des oses simples citées comprennent :",
+    "question": "Parmi les propriétés utilisées pour caractériser les oses simples :",
     "choices": [
       {
         "content": "Un goût sucré.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "De nombreux oses simples activent les récepteurs du goût sucré, avec une intensité variable selon l'ose."
       },
       {
         "content": "Un pouvoir réducteur pour les aldoses.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "La fonction aldéhyde accessible après ouverture du cycle peut être oxydée, ce qui confère un pouvoir réducteur."
       },
       {
         "content": "Une réaction avec la liqueur de Fehling.",
         "correct": true,
-        "explanation": "Test cité."
+        "explanation": "Un ose réducteur peut réduire les ions cuivre(II) de la liqueur de Fehling et former un précipité de Cu2O."
       },
       {
         "content": "Une impossibilité totale d'oxydation.",
@@ -478,22 +478,22 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Met en jeu une oxydation de l'aldose.",
         "correct": true,
-        "explanation": "R-CHO devient un carboxylate."
+        "explanation": "La fonction aldéhyde R-CHO est oxydée en carboxylate."
       },
       {
         "content": "Réduit des ions cuivre(II).",
         "correct": true,
-        "explanation": "Cu2+ est réduit."
+        "explanation": "Les ions Cu2+ gagnent des électrons et sont réduits en cuivre(I) dans Cu2O."
       },
       {
         "content": "Conduit à un précipité rouge brique de Cu2O.",
         "correct": true,
-        "explanation": "Observation caractéristique."
+        "explanation": "L'oxyde de cuivre(I) Cu2O forme le précipité rouge brique caractéristique d'un test positif."
       },
       {
         "content": "Réduit l'aldose en polyol.",
         "correct": false,
-        "explanation": "C'est une autre transformation."
+        "explanation": "Dans la réaction de Fehling, l'aldose est oxydé ; sa réduction en polyol correspond à une réaction différente."
       }
     ],
     "explanation": "Le sucre réducteur s'oxyde tandis que Cu2+ est réduit en Cu2O."
@@ -502,7 +502,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel composé rouge brique précipite lors d'une réaction positive de Fehling selon la fiche ?",
+    "question": "Quel composé rouge brique précipite lors d'une réaction positive à la liqueur de Fehling ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -529,25 +529,25 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ce sont des aldoses.",
         "correct": true,
-        "explanation": "Ils sont présentés comme aldoses."
+        "explanation": "Le glucose, le mannose et le galactose portent chacun une fonction aldéhyde sous leur forme linéaire."
       },
       {
         "content": "Le mannose est épimère C2 du glucose.",
         "correct": true,
-        "explanation": "Relation donnée."
+        "explanation": "Le D-mannose et le D-glucose ne diffèrent que par la configuration du carbone C2."
       },
       {
         "content": "Le galactose est épimère C4 du glucose.",
         "correct": true,
-        "explanation": "Relation donnée."
+        "explanation": "Le D-galactose et le D-glucose ne diffèrent que par la configuration du carbone C4."
       },
       {
         "content": "Le galactose est un cétose.",
         "correct": false,
-        "explanation": "C'est un aldose."
+        "explanation": "La forme linéaire du galactose porte une fonction aldéhyde : c'est un aldose."
       }
     ],
-    "explanation": "Ces trois oses constituent les repères d'épimérie du chapitre."
+    "explanation": "Le mannose et le galactose se distinguent du glucose par un seul centre stéréogène, respectivement en C2 et en C4."
   },
   {
     "order": 20,
@@ -563,12 +563,12 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le glucose est un aldose.",
         "correct": true,
-        "explanation": "Famille."
+        "explanation": "La forme linéaire du glucose porte une fonction aldéhyde."
       },
       {
         "content": "Le fructose est un cétose.",
         "correct": true,
-        "explanation": "Famille."
+        "explanation": "La forme linéaire du fructose porte une fonction cétone."
       },
       {
         "content": "Ils sont épimères.",
@@ -588,12 +588,12 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Glucose ↔ mannose : C2.",
         "correct": true,
-        "explanation": "Association du support."
+        "explanation": "Le D-mannose ne diffère du D-glucose que par la configuration du carbone C2."
       },
       {
         "content": "Glucose ↔ galactose : C4.",
         "correct": true,
-        "explanation": "Association du support."
+        "explanation": "Le D-galactose ne diffère du D-glucose que par la configuration du carbone C4."
       },
       {
         "content": "Glucose ↔ fructose : C2.",
@@ -603,7 +603,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Mannose ↔ glucose : C4.",
         "correct": false,
-        "explanation": "C2."
+        "explanation": "Le mannose et le glucose sont épimères en C2, et non en C4."
       }
     ],
     "explanation": "Les épiméries à retenir sont glucose/mannose C2 et glucose/galactose C4."
@@ -618,42 +618,42 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le glucose est un aldose.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "La forme linéaire du glucose porte une fonction aldéhyde."
       },
       {
         "content": "Le fructose est un cétose.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "La forme linéaire du fructose porte une fonction cétone."
       },
       {
         "content": "Le ribose est associé à l'ARN.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Le ribose constitue le pentose des ribonucléotides de l'ARN."
       },
       {
-        "content": "Les aldoses sont réducteurs dans le modèle de la fiche.",
+        "content": "Les aldoses possèdent un pouvoir réducteur.",
         "correct": true,
-        "explanation": "Propriété."
+        "explanation": "L'ouverture du cycle rend accessible une fonction aldéhyde oxydable, à l'origine du pouvoir réducteur."
       },
       {
         "content": "Fehling positif donne un précipité rouge brique.",
         "correct": true,
-        "explanation": "Cu2O."
+        "explanation": "Le précipité rouge brique formé est l'oxyde de cuivre(I) Cu2O."
       },
       {
         "content": "Le mannose est épimère C4 du glucose.",
         "correct": false,
-        "explanation": "C2."
+        "explanation": "Le mannose est l'épimère en C2 du glucose."
       },
       {
         "content": "Le galactose est un cétose.",
         "correct": false,
-        "explanation": "Aldose."
+        "explanation": "Le galactose est un aldose, car sa forme linéaire porte une fonction aldéhyde."
       },
       {
         "content": "Les oses sont insolubles dans l'eau.",
         "correct": false,
-        "explanation": "Hydrosolubles."
+        "explanation": "Leurs nombreuses fonctions hydroxyle rendent les oses généralement hydrosolubles."
       },
       {
         "content": "Le fructose est absent du saccharose.",
@@ -663,7 +663,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La dihydroxyacétone est un aldose.",
         "correct": false,
-        "explanation": "Cétose."
+        "explanation": "La dihydroxyacétone porte une fonction cétone : c'est un cétotriose."
       }
     ],
     "explanation": "Cette sélection consolide oses simples, propriétés et test de Fehling."

@@ -14,17 +14,17 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Glucose → aldose énergétique majeur.",
         "correct": true,
-        "explanation": "Rôle et famille."
+        "explanation": "La forme linéaire du glucose porte une fonction aldéhyde et son catabolisme contribue fortement à la production d'énergie cellulaire."
       },
       {
         "content": "Fructose → cétose présent dans le saccharose.",
         "correct": true,
-        "explanation": "Rôle et famille."
+        "explanation": "La forme linéaire du fructose porte une fonction cétone et le saccharose associe un résidu de fructose à un résidu de glucose."
       },
       {
         "content": "Ribose → pentose de l'ARN.",
         "correct": true,
-        "explanation": "Association."
+        "explanation": "Le ribose possède cinq carbones et constitue le sucre des ribonucléotides de l'ARN."
       },
       {
         "content": "Mannose → épimère C4 du glucose.",
@@ -43,17 +43,17 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Glucose oxydé en C6 → acide glucuronique.",
         "correct": true,
-        "explanation": "Oxydation."
+        "explanation": "L'oxydation de l'alcool primaire en C6 forme la fonction carboxylique de l'acide glucuronique."
       },
       {
         "content": "Glucose réduit → sorbitol.",
         "correct": true,
-        "explanation": "Réduction."
+        "explanation": "La réduction de la fonction aldéhyde du glucose forme le sorbitol."
       },
       {
         "content": "Mannose réduit → mannitol.",
         "correct": true,
-        "explanation": "Réduction."
+        "explanation": "La réduction de la fonction aldéhyde du mannose forme le mannitol."
       },
       {
         "content": "Glucose phosphorylé → glucosamine.",
@@ -72,17 +72,17 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il peut s'agir d'une osamine N-acétylée.",
         "correct": true,
-        "explanation": "Motif caractéristique."
+        "explanation": "Le motif NHCOCH3 correspond à une fonction amine portant un groupement acétyl."
       },
       {
         "content": "Elle contient de l'azote.",
         "correct": true,
-        "explanation": "NH."
+        "explanation": "Le symbole N du motif NHCOCH3 représente l'atome d'azote."
       },
       {
         "content": "Elle peut participer à un polymère structural.",
         "correct": true,
-        "explanation": "Chitine comme exemple."
+        "explanation": "La chitine est un polymère structural constitué de N-acétylglucosamine portant ce motif."
       },
       {
         "content": "Elle est obligatoirement un acide uronique.",
@@ -96,22 +96,22 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un dérivé glucidique fortement négatif peut porter, selon le chapitre :",
+    "question": "Quels groupements ionisés peuvent contribuer à la charge négative d'un dérivé glucidique ?",
     "choices": [
       {
         "content": "Un carboxylate.",
         "correct": true,
-        "explanation": "Glucuronate ou NANA ionisé."
+        "explanation": "Le glucuronate et la forme ionisée du Neu5Ac portent notamment un groupement carboxylate COO−."
       },
       {
         "content": "Un sulfate.",
         "correct": true,
-        "explanation": "GAG sulfatés."
+        "explanation": "Les esters sulfates ionisés contribuent fortement à la charge négative des GAG sulfatés."
       },
       {
         "content": "Un phosphate.",
         "correct": true,
-        "explanation": "Oses phosphorylés."
+        "explanation": "Les esters phosphates des oses sont ionisés dans les conditions biologiques usuelles."
       },
       {
         "content": "Uniquement un groupe méthyle.",
@@ -130,17 +130,17 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Elle met en évidence un pouvoir réducteur.",
         "correct": true,
-        "explanation": "Test des sucres réducteurs."
+        "explanation": "Un sucre réducteur réduit les ions cuivre(II) pendant qu'il est lui-même oxydé."
       },
       {
         "content": "Le sucre réducteur est oxydé.",
         "correct": true,
-        "explanation": "Bilan redox."
+        "explanation": "La fonction carbonyle accessible du sucre est oxydée tandis que Cu2+ est réduit."
       },
       {
         "content": "Un précipité rouge brique de Cu2O apparaît.",
         "correct": true,
-        "explanation": "Observation."
+        "explanation": "La réduction des ions cuivre(II) conduit à l'oxyde de cuivre(I) Cu2O, insoluble et rouge brique."
       },
       {
         "content": "Elle transforme le glucose en sorbitol.",
@@ -159,22 +159,22 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L'acide glucuronique participe à la transformation.",
         "correct": true,
-        "explanation": "Dérivé concerné."
+        "explanation": "Un groupement glucuronyle, fourni par l'UDP-acide glucuronique, est transféré sur le médicament ou son métabolite."
       },
       {
         "content": "La solubilité du métabolite augmente.",
         "correct": true,
-        "explanation": "But."
+        "explanation": "Le groupement glucuronyle polaire augmente généralement l'hydrosolubilité du composé conjugué."
       },
       {
         "content": "L'élimination est facilitée.",
         "correct": true,
-        "explanation": "Conséquence."
+        "explanation": "La polarité accrue favorise souvent l'excrétion urinaire ou biliaire du glucuronide."
       },
       {
         "content": "Le médicament est nécessairement converti en mannitol.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Le mannitol provient de la réduction du mannose et n'est pas le produit d'une glucuronoconjugaison."
       }
     ],
     "explanation": "La glucuronoconjugaison est une voie de solubilisation et d'excrétion."
@@ -188,17 +188,17 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Peut participer à la reconnaissance cellulaire.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les acides sialiques terminaux peuvent servir de déterminants reconnus par certaines lectines."
       },
       {
         "content": "Peut porter des charges négatives.",
         "correct": true,
-        "explanation": "COO−."
+        "explanation": "Le carboxylate COO− du Neu5Ac confère une charge négative au glycanne."
       },
       {
-        "content": "Peut présenter des chaînes étendues par répulsion électrostatique.",
+        "content": "Peut moduler des interactions de surface par répulsion électrostatique.",
         "correct": true,
-        "explanation": "Modèle du support."
+        "explanation": "La densité de charges négatives peut limiter le rapprochement de surfaces ou de macromolécules voisines."
       },
       {
         "content": "Est dépourvue de glucides.",
@@ -212,22 +212,22 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des pentoses phosphorylés des acides nucléiques :",
+    "question": "À propos des précurseurs glucidiques des nucléotides :",
     "choices": [
       {
-        "content": "Ribose-5-phosphate est associé à l'ARN.",
+        "content": "Le ribose-5-phosphate contribue à la biosynthèse des ribonucléotides.",
         "correct": true,
-        "explanation": "Association."
+        "explanation": "Le ribose-5-phosphate est converti en PRPP, puis engagé dans la biosynthèse des nucléotides."
       },
       {
-        "content": "2-désoxyribose-5-phosphate est associé à l'ADN.",
+        "content": "Les précurseurs désoxyribonucléotidiques de l'ADN sont produits par réduction de ribonucléotides.",
         "correct": true,
-        "explanation": "Association."
+        "explanation": "Les ribonucléotide réductases convertissent des ribonucléotides en désoxyribonucléotides."
       },
       {
-        "content": "La position C5 est commune aux deux phosphorylations citées.",
+        "content": "Les nucléotides libres portent leurs phosphates sur le carbone 5′ du pentose.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Les nucléosides mono-, di- et triphosphates sont phosphorylés sur le groupement hydroxyle 5′."
       },
       {
         "content": "Ce sont des hexoses.",
@@ -235,37 +235,37 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ce sont des pentoses."
       }
     ],
-    "explanation": "La phosphorylation C5 relie les pentoses à la synthèse des acides nucléiques."
+    "explanation": "Le ribose-5-phosphate alimente la synthèse des ribonucléotides, dont la réduction fournit les précurseurs de l'ADN."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux dérivés de réduction explicitement issus d'hexoses.",
+    "question": "Sélectionnez exactement les deux polyols obtenus par réduction du glucose ou du mannose.",
     "choices": [
       {
         "content": "Mannitol.",
         "correct": true,
-        "explanation": "Mannose réduit."
+        "explanation": "La réduction de la fonction aldéhyde du mannose produit le mannitol."
       },
       {
         "content": "Sorbitol.",
         "correct": true,
-        "explanation": "Glucose réduit."
+        "explanation": "La réduction de la fonction aldéhyde du glucose produit le sorbitol."
       },
       {
         "content": "NANA.",
         "correct": false,
-        "explanation": "Dérivé aminé/acide complexe."
+        "explanation": "Le Neu5Ac est un ose acide à neuf carbones et non un polyol issu de la réduction du glucose ou du mannose."
       },
       {
         "content": "Acide glucuronique.",
         "correct": false,
-        "explanation": "Dérivé oxydé."
+        "explanation": "L'acide glucuronique est obtenu par oxydation du glucose en C6."
       }
     ],
-    "explanation": "Mannitol et sorbitol sont les deux polyols d'hexoses du support."
+    "explanation": "Le mannitol résulte de la réduction du mannose et le sorbitol de celle du glucose."
   },
   {
     "order": 110,
@@ -277,55 +277,55 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Une osamine peut être N-acétylée.",
         "correct": true,
-        "explanation": "Transformation."
+        "explanation": "La fonction amine d'une osamine peut recevoir un groupement acétyl et former un motif NHCOCH3."
       },
       {
         "content": "Un ose peut être phosphorylé.",
         "correct": true,
-        "explanation": "Ester phosphorique."
+        "explanation": "La phosphorylation forme un ester phosphorique sur une fonction hydroxyle de l'ose."
       },
       {
         "content": "Un ose peut être sulfaté.",
         "correct": true,
-        "explanation": "Ester sulfurique."
+        "explanation": "La sulfatation forme un ester sulfate sur une fonction hydroxyle de l'ose."
       },
       {
         "content": "Un aldose peut être oxydé lors du test de Fehling.",
         "correct": true,
-        "explanation": "Pouvoir réducteur."
+        "explanation": "L'aldose réduit les ions cuivre(II) et est simultanément oxydé."
       },
       {
-        "content": "L'acide ascorbique est un dérivé glucidique cité.",
+        "content": "Chez les espèces capables de le synthétiser, l'acide ascorbique dérive du métabolisme glucidique.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "La voie animale classique part de dérivés du glucose et passe par la L-gulono-1,4-lactone."
       },
       {
         "content": "Toutes ces transformations donnent le même produit.",
         "correct": false,
-        "explanation": "Dérivés différents."
+        "explanation": "N-acétylation, phosphorylation, sulfatation et oxydation modifient des fonctions différentes et produisent des familles distinctes."
       },
       {
         "content": "Le sorbitol est un acide sialique.",
         "correct": false,
-        "explanation": "Polyol."
+        "explanation": "Le sorbitol est le polyol obtenu par réduction du glucose."
       },
       {
         "content": "Le glucuronate est une osamine.",
         "correct": false,
-        "explanation": "Dérivé oxydé."
+        "explanation": "Le glucuronate est la forme ionisée d'un dérivé oxydé du glucose et ne porte pas la fonction amine caractéristique d'une osamine."
       },
       {
         "content": "La chitine est un ester phosphorique.",
         "correct": false,
-        "explanation": "Polymère d'osamine N-acétylée."
+        "explanation": "La chitine est un polymère de N-acétylglucosamine liée en β(1→4)."
       },
       {
         "content": "La streptomycine est une vitamine.",
         "correct": false,
-        "explanation": "Antibiotique."
+        "explanation": "La streptomycine est un antibiotique aminoglycosidique."
       }
     ],
-    "explanation": "La synthèse PRACTICE distingue les grandes familles de dérivés."
+    "explanation": "Ces transformations conduisent à des familles distinctes de dérivés glucidiques aux propriétés différentes."
   },
   {
     "order": 111,
@@ -336,25 +336,25 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le premier peut devenir un acide uronique.",
         "correct": true,
-        "explanation": "Exemple du glucose → acide glucuronique."
+        "explanation": "L'oxydation de l'alcool primaire en C6 du glucose produit l'acide glucuronique."
       },
       {
         "content": "Le second devient un polyol.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "La réduction de la fonction carbonyle en alcool transforme l'ose en polyol."
       },
       {
         "content": "Les transformations sont de sens redox opposé.",
         "correct": true,
-        "explanation": "Oxydation versus réduction."
+        "explanation": "La première transformation augmente l'état d'oxydation, tandis que la seconde le diminue."
       },
       {
         "content": "Les deux produits sont fonctionnellement identiques.",
         "correct": false,
-        "explanation": "Acide versus polyol."
+        "explanation": "Le premier porte une fonction carboxylique, tandis que le second possède une fonction alcool supplémentaire."
       }
     ],
-    "explanation": "Le MASTER doit savoir opposer dérivés oxydés et réduits."
+    "explanation": "L'oxydation d'un alcool terminal peut former un acide uronique, tandis que la réduction du carbonyle forme un polyol."
   },
   {
     "order": 112,
@@ -365,17 +365,17 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il s'agit d'une N-acétylation.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Le préfixe N-acétyl signifie qu'un groupement acétyl est lié à l'atome d'azote."
       },
       {
         "content": "Le motif est compatible avec une osamine N-acétylée.",
         "correct": true,
-        "explanation": "Famille."
+        "explanation": "Une osamine N-acétylée porte un motif acétamide NHCOCH3 en C2."
       },
       {
         "content": "La chitine constitue un exemple de polymère lié à ce type de motif.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "Chaque résidu de N-acétylglucosamine de la chitine porte un groupement N-acétyl."
       },
       {
         "content": "La modification correspond à une phosphorylation.",
@@ -389,30 +389,30 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 113,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On suit la voie D-mannosamine → acide neuraminique → NANA. Quelles propositions sont exactes ?",
+    "question": "Concernant la biosynthèse cytosolique du Neu5Ac chez les vertébrés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L'acide pyruvique intervient dans la première transformation.",
+        "content": "Le ManNAc-6-P constitue le précurseur glucidique à six carbones.",
         "correct": true,
-        "explanation": "Ajout à la D-mannosamine."
+        "explanation": "Le N-acétyl-D-mannosamine est phosphorylé en C6 avant la condensation."
       },
       {
-        "content": "L'acide neuraminique peut cycliser C2-C6.",
+        "content": "Le phosphoénolpyruvate apporte un fragment à trois carbones.",
         "correct": true,
-        "explanation": "Étape."
+        "explanation": "Le PEP se condense avec le ManNAc-6-P pour construire le squelette à neuf carbones."
       },
       {
-        "content": "Une N-acétylation intervient ensuite.",
+        "content": "Le Neu5Ac-9-phosphate est un intermédiaire de la voie.",
         "correct": true,
-        "explanation": "Formation du NANA."
+        "explanation": "La condensation catalysée par NANS forme le Neu5Ac-9-phosphate."
       },
       {
-        "content": "Le produit final est aussi appelé acide sialique.",
+        "content": "Une déphosphorylation libère le Neu5Ac, principal acide sialique humain.",
         "correct": true,
-        "explanation": "Synonyme."
+        "explanation": "Une phosphatase spécifique retire le phosphate avant l'activation ultérieure du Neu5Ac en CMP-Neu5Ac."
       }
     ],
-    "explanation": "La succession des étapes vers le NANA doit être maîtrisée."
+    "explanation": "La voie vertébrée associe ManNAc-6-P, PEP, Neu5Ac-9-P puis une déphosphorylation finale."
   },
   {
     "order": 114,
@@ -423,22 +423,22 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Les carboxylates COO− se repoussent.",
         "correct": true,
-        "explanation": "Charges de même signe."
+        "explanation": "Deux charges négatives proches peuvent exercer une interaction électrostatique répulsive."
       },
       {
-        "content": "Cette répulsion contribue à l'extension des chaînes.",
+        "content": "Cette répulsion peut limiter le rapprochement de surfaces voisines.",
         "correct": true,
-        "explanation": "Structure en bâtonnet."
+        "explanation": "Une forte densité de charges négatives contribue à des effets électrostatiques répulsifs."
       },
       {
         "content": "Les NANA peuvent participer à la reconnaissance cellulaire.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Les acides sialiques terminaux peuvent servir de déterminants reconnus par certaines lectines."
       },
       {
         "content": "L'ionisation neutralise toutes les charges.",
         "correct": false,
-        "explanation": "Elle crée une charge négative."
+        "explanation": "La déprotonation du COOH forme au contraire un carboxylate COO− chargé négativement."
       }
     ],
     "explanation": "Le NANA relie chimie acide, électrostatique et biologie cellulaire."
@@ -452,22 +452,22 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il dérive du fructose.",
         "correct": true,
-        "explanation": "Nom."
+        "explanation": "Le premier terme de la nomenclature identifie le squelette glucidique comme celui du fructose."
       },
       {
         "content": "Il possède deux phosphates.",
         "correct": true,
-        "explanation": "bis-."
+        "explanation": "Le préfixe bis- indique la présence de deux groupements phosphate distincts."
       },
       {
         "content": "Les positions sont C1 et C6.",
         "correct": true,
-        "explanation": "Indices."
+        "explanation": "Les indices 1 et 6 désignent les deux carbones porteurs des phosphates."
       },
       {
         "content": "Il s'agit nécessairement d'une osamine.",
         "correct": false,
-        "explanation": "Aucune fonction amine n'est indiquée."
+        "explanation": "Cette nomenclature décrit un fructose bisphosphorylé et ne comporte aucun motif amino."
       }
     ],
     "explanation": "La nomenclature des esters phosphoriques fournit les positions de substitution."
@@ -481,17 +481,17 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Des sulfates peuvent apporter des charges négatives.",
         "correct": true,
-        "explanation": "Esters sulfuriques."
+        "explanation": "Les esters sulfates sont ionisés aux pH biologiques usuels."
       },
       {
         "content": "Le carboxylate de l'acide uronique peut aussi être négatif.",
         "correct": true,
-        "explanation": "Forme ionisée."
+        "explanation": "La déprotonation de la fonction carboxylique forme un groupement COO−."
       },
       {
         "content": "La molécule peut être fortement hydrophile.",
         "correct": true,
-        "explanation": "Charges et OH favorisent l'hydratation."
+        "explanation": "Les charges et les nombreuses fonctions hydroxyle favorisent les interactions avec l'eau et les contre-ions."
       },
       {
         "content": "Il s'agit nécessairement d'une protéine fibrillaire.",
@@ -505,7 +505,7 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel dérivé du glucose, formé par réduction, est cité comme édulcorant et utilisé dans des dentifrices ?",
+    "question": "Quel polyol formé par réduction du glucose est utilisé comme édulcorant et comme humectant dans certains dentifrices ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -519,7 +519,7 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "ignoreAccents": true
       }
     },
-    "explanation": "Le sorbitol est le polyol du glucose et possède les usages cités."
+    "explanation": "Le sorbitol résulte de la réduction du glucose ; son goût sucré et son caractère hygroscopique expliquent ses usages comme édulcorant et humectant."
   },
   {
     "order": 118,
@@ -537,59 +537,59 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un dérivé glucidique est décrit comme vitamine C. Quelles propositions sont exactes selon la fiche ?",
+    "question": "Concernant la vitamine C, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Il s'agit de l'acide ascorbique.",
         "correct": true,
-        "explanation": "Synonyme."
+        "explanation": "L'acide L-ascorbique est la forme chimique communément appelée vitamine C."
       },
       {
-        "content": "Il provient initialement du L-gulose dans le schéma du support.",
+        "content": "Chez les espèces capables de la synthétiser, elle dérive du glucose via la L-gulono-1,4-lactone.",
         "correct": true,
-        "explanation": "Origine citée."
+        "explanation": "La voie animale classique aboutit à la L-gulono-1,4-lactone, ensuite oxydée en L-ascorbate."
       },
       {
-        "content": "Sa formation implique plusieurs transformations.",
+        "content": "L'être humain ne possède pas de L-gulonolactone oxydase fonctionnelle.",
         "correct": true,
-        "explanation": "Doubles liaisons/cyclisations."
+        "explanation": "L'absence de cette activité enzymatique empêche l'achèvement de la biosynthèse endogène de la vitamine C."
       },
       {
-        "content": "La formule chimique complète doit être mémorisée.",
+        "content": "L'être humain en synthétise suffisamment à partir du glucose.",
         "correct": false,
-        "explanation": "La fiche dit explicitement le contraire."
+        "explanation": "La vitamine C doit être apportée par l'alimentation chez l'être humain."
       }
     ],
-    "explanation": "L'exemple de vitamine C doit être retenu à un niveau fonctionnel, pas structural exhaustif."
+    "explanation": "La vitamine C est l'acide L-ascorbique ; elle est essentielle dans l'alimentation humaine faute de biosynthèse endogène complète."
   },
   {
     "order": 120,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une substance est un antibiotique et est présentée comme dérivé glucidique dans la fiche. Laquelle ?",
+    "question": "Quelle substance est un antibiotique aminoglycosidique ?",
     "choices": [
       {
         "content": "Streptomycine.",
         "correct": true,
-        "explanation": "Exemple."
+        "explanation": "La streptomycine est un antibiotique appartenant à la famille des aminoglycosides."
       },
       {
         "content": "Acide ascorbique.",
         "correct": false,
-        "explanation": "Vitamine C."
+        "explanation": "L'acide ascorbique est la vitamine C, pas un antibiotique."
       },
       {
         "content": "Mannitol.",
         "correct": false,
-        "explanation": "Polyol."
+        "explanation": "Le mannitol est un polyol, pas un antibiotique aminoglycosidique."
       },
       {
         "content": "Glucuronate.",
         "correct": false,
-        "explanation": "Dérivé acide."
+        "explanation": "Le glucuronate est la forme ionisée de l'acide glucuronique."
       }
     ],
-    "explanation": "La streptomycine est l'exemple antibiotique."
+    "explanation": "La streptomycine est un antibiotique aminoglycosidique comportant plusieurs unités apparentées à des oses aminés."
   },
   {
     "order": 121,
@@ -600,22 +600,22 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "COOH terminal issu d'une oxydation → dérivé acide/uronique.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "L'oxydation d'un alcool primaire terminal en fonction carboxylique forme un acide uronique."
       },
       {
         "content": "Carbonyle réduit en alcool → polyol.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "La réduction d'une fonction aldéhyde ou cétone en alcool produit un alditol, aussi appelé polyol."
       },
       {
         "content": "NH2 en C2 → osamine.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Le remplacement du OH de C2 par NH2 caractérise une osamine comme la glucosamine."
       },
       {
         "content": "Phosphate ou sulfate sur OH → ose estérifié.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "La liaison d'un phosphate ou d'un sulfate à l'oxygène d'un OH forme un ester."
       }
     ],
     "explanation": "Les familles de dérivés peuvent être reconnues par la transformation fonctionnelle."
@@ -630,54 +630,54 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Glucose → acide glucuronique par oxydation de C6.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "L'alcool primaire en C6 est oxydé en fonction carboxylique."
       },
       {
         "content": "Glucose → sorbitol par réduction.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "La fonction aldéhyde du glucose est réduite en alcool primaire."
       },
       {
         "content": "Une osamine porte une amine en C2.",
         "correct": true,
-        "explanation": "Structure."
+        "explanation": "Dans une osamine comme la glucosamine, NH2 remplace le OH porté par C2."
       },
       {
-        "content": "Le NANA est aussi appelé acide sialique.",
+        "content": "Le Neu5Ac, aussi abrégé NANA, appartient à la famille des acides sialiques.",
         "correct": true,
-        "explanation": "Synonyme."
+        "explanation": "Le Neu5Ac est le principal acide sialique chez l'être humain."
       },
       {
         "content": "Le ribose peut être phosphorylé en C5 dans le contexte des acides nucléiques.",
         "correct": true,
-        "explanation": "Application."
+        "explanation": "Le ribose-5-phosphate contribue via le PRPP à la biosynthèse des ribonucléotides."
       },
       {
         "content": "Mannose → sorbitol par réduction.",
         "correct": false,
-        "explanation": "Mannitol."
+        "explanation": "La réduction du mannose forme le mannitol ; le sorbitol provient de la réduction du glucose."
       },
       {
         "content": "La chitine est un ester sulfurique.",
         "correct": false,
-        "explanation": "Polymère N-acétylé."
+        "explanation": "La chitine est un polymère de N-acétylglucosamine liée en β(1→4)."
       },
       {
         "content": "Le NANA ne peut pas être ionisé.",
         "correct": false,
-        "explanation": "COOH → COO−."
+        "explanation": "Sa fonction carboxylique COOH peut se déprotoner en carboxylate COO−."
       },
       {
         "content": "La streptomycine est la vitamine C.",
         "correct": false,
-        "explanation": "Antibiotique."
+        "explanation": "La streptomycine est un antibiotique aminoglycosidique ; la vitamine C est l'acide ascorbique."
       },
       {
         "content": "Fehling positif correspond à une réduction de l'aldose en polyol.",
         "correct": false,
-        "explanation": "L'aldose est oxydé."
+        "explanation": "Lors du test de Fehling, l'aldose est oxydé tandis que les ions cuivre(II) sont réduits en Cu2O."
       }
     ],
-    "explanation": "Le MASTER final croise les transformations et applications essentielles."
+    "explanation": "Cette sélection mobilise les principales transformations fonctionnelles et quelques rôles biologiques des dérivés glucidiques."
   }
 ];
