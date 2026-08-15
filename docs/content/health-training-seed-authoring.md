@@ -330,6 +330,18 @@ export const quizGroupExample = {
 
 ## 4. Orientations éditoriales & Directives de composition
 
+### Autonomie éditoriale & Interdiction des références aux supports externes (Fiches, Cours, Tutorat)
+Toute question rédigée pour My Exams doit être :
+- **Autonome et autosuffisante** : l'étudiant doit pouvoir comprendre et résoudre la question à partir des seules connaissances du programme et des données réellement fournies dans l'énoncé.
+- **Dépourvue de toute mention de support externe** : ne jamais faire référence à « la fiche », « cette fiche », « le cours », « le tutorat », « le poly » ou « la ronéo ». My Exams ne diffusant pas ces supports, l'étudiant ne doit jamais avoir l'impression qu'un support invisible est requis.
+- **Régie par les règles de traitement au cas par cas** :
+  1. *Vérité scientifique générale* : formuler directement la notion sans formule d'attribution (ex : ❌ « Selon la fiche, le glucose... » $\rightarrow$ ✅ « Le glucose... »).
+  2. *Donnée nécessaire au raisonnement/calcul* : fournir explicitement la valeur numérique ou l'hypothèse dans l'énoncé.
+  3. *Modèle simplifié ou convention particulière* : expliciter le modèle dans l'énoncé (ex : « Dans le modèle simplifié de filiation des aldoses... », « Par convention... »).
+  4. *Affirmation locale ou ambiguë* : vérifier la validité scientifique, contextualiser ou corriger l'item.
+  5. *Explications* : justifier scientifiquement pourquoi la proposition est vraie ou fausse (bannir « La fiche le précise », « Conforme à la fiche », « Valeur du support »).
+- **Préservation des locutions temporelles légitimes** : les expressions scientifiques naturelles telles que *« au cours du temps »*, *« au cours d'une réaction »*, *« au cours de la glycolyse »*, *« au cours du développement »* ou *« en cours de réplication »* restent évidemment autorisées.
+
 ### Règle des quatre propositions A à D
 Sauf exception documentée (telle que la QRPL qui utilise une liste longue de 10 à 25 choix), chaque QRU, QRM ou QRP produit pour les quiz Santé de My Exams comporte **exactement quatre propositions de réponse (A, B, C, D)**. Les formats QROC et QZONE ne comportent naturellement pas de choix.
 
