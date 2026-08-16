@@ -8,56 +8,56 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant les acides aminés du monde vivant :",
     "choices": [
       {
-        "content": "La fiche indique environ 500 acides aminés différents dans le monde vivant.",
+        "content": "Plusieurs centaines d’acides aminés naturels ont été identifiés dans le monde vivant.",
         "correct": true,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       },
       {
-        "content": "Elle donne une masse molaire moyenne d’environ 110 Da.",
+        "content": "Dans les protéines, la masse moyenne d’un résidu d’acide aminé est approximativement de 110 Da.",
         "correct": true,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       },
       {
         "content": "Tous les acides aminés connus entrent dans les protéines animales.",
         "correct": false,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       },
       {
-        "content": "La masse molaire moyenne indiquée est d’environ 11 Da.",
+        "content": "La masse moyenne d’un résidu d’acide aminé est d’environ 11 Da.",
         "correct": false,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       }
     ],
-    "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+    "explanation": "Le monde vivant contient de nombreux acides aminés, mais les protéines humaines utilisent principalement vingt acides aminés standards ; la masse moyenne d’un résidu est proche de 110 Da."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien d’acides aminés protéinogènes la fiche retient-elle pour les protéines animales ?",
+    "question": "Combien d’acides aminés standards sont couramment utilisés pour constituer les protéines humaines ?",
     "choices": [
       {
         "content": "20",
         "correct": true,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       },
       {
         "content": "10",
         "correct": false,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       },
       {
         "content": "100",
         "correct": false,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       },
       {
         "content": "500",
         "correct": false,
-        "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
       }
     ],
-    "explanation": "La fiche distingue l’ensemble très vaste des acides aminés et les 20 acides aminés protéinogènes."
+    "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
   },
   {
     "order": 3,
@@ -187,7 +187,7 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le carbone α constitue le repère structural central des acides aminés."
       },
       {
-        "content": "Il correspond aussi au carbone 2 dans la présentation de la fiche.",
+        "content": "Dans un acide α-aminé, il correspond au carbone 2 de la chaîne principale.",
         "correct": true,
         "explanation": "Le carbone α constitue le repère structural central des acides aminés."
       },
@@ -208,7 +208,7 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 8,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel nom donne la fiche au carbone central portant le radical R ?",
+    "question": "Quel nom porte le carbone central lié au radical R dans un acide α-aminé ?",
     "choices": [
       {
         "content": "carbone α",
@@ -242,37 +242,37 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Un acide aminé peut être désigné par son nom.",
         "correct": true,
-        "explanation": "La fiche utilise les trois modes usuels : nom, code à trois lettres et code à une lettre."
+        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
       },
       {
         "content": "Il peut aussi être codé par trois lettres ou une lettre.",
         "correct": true,
-        "explanation": "La fiche utilise les trois modes usuels : nom, code à trois lettres et code à une lettre."
+        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
       },
       {
         "content": "Les codes à une lettre sont interdits dans les séquences.",
         "correct": false,
-        "explanation": "La fiche utilise les trois modes usuels : nom, code à trois lettres et code à une lettre."
+        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
       },
       {
         "content": "Le code à trois lettres de l’alanine est Gly.",
         "correct": false,
-        "explanation": "La fiche utilise les trois modes usuels : nom, code à trois lettres et code à une lettre."
+        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
       }
     ],
-    "explanation": "La fiche utilise les trois modes usuels : nom, code à trois lettres et code à une lettre."
+    "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés protéinogènes la fiche retient-elle pour les protéines animales ?",
+    "question": "Réponse numérique : combien d’acides aminés standards sont couramment utilisés dans les protéines humaines ?",
     "answer": {
       "type": "number",
       "value": 20,
       "tolerance": 0
     },
-    "explanation": "La fiche retient 20 acides aminés protéinogènes."
+    "explanation": "Les protéines humaines utilisent couramment vingt acides aminés standards."
   },
   {
     "order": 11,
@@ -281,7 +281,7 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant la notion d’acide aminé essentiel :",
     "choices": [
       {
-        "content": "Le support relie le caractère essentiel à l’absence de synthèse par l’Homme.",
+        "content": "Un acide aminé indispensable n’est pas synthétisé en quantité suffisante par l’organisme humain.",
         "correct": true,
         "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
       },
@@ -307,7 +307,7 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 12,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle voie d’apport est nécessaire pour un acide aminé essentiel selon la fiche ?",
+    "question": "Quelle voie d’apport est nécessaire pour un acide aminé indispensable ?",
     "choices": [
       {
         "content": "l’alimentation",
@@ -336,117 +336,117 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 13,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la liste locale des acides aminés essentiels :",
+    "question": "Concernant les neuf acides aminés indispensables chez l’adulte sain :",
     "choices": [
       {
         "content": "Leucine, thréonine, lysine et tryptophane figurent dans la liste.",
         "correct": true,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "Phénylalanine, valine, méthionine et isoleucine y figurent aussi.",
         "correct": true,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "Tyrosine et glycine remplacent leucine et lysine dans la liste.",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
-        "content": "La fiche ne cite aucun acide aminé branché comme essentiel.",
+        "content": "Aucun acide aminé ramifié n’en fait partie.",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       }
     ],
-    "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+    "explanation": "Les neuf acides aminés indispensables chez l’adulte sain sont His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Lequel de ces acides aminés est cité comme essentiel dans cette fiche ?",
+    "question": "Lequel de ces acides aminés est indispensable chez l’adulte sain ?",
     "choices": [
       {
         "content": "leucine",
         "correct": true,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "glycine",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "alanine",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "proline",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       }
     ],
-    "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant l’arginine et l’histidine pendant la croissance :",
+    "question": "Concernant l’histidine et l’arginine :",
     "choices": [
       {
-        "content": "La fiche les inclut dans sa liste de dix tout en précisant leur statut particulier.",
+        "content": "L’histidine fait partie des neuf acides aminés indispensables chez l’adulte sain.",
         "correct": true,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       },
       {
-        "content": "Elles sont décrites comme essentielles chez le nourrisson et le jeune enfant.",
+        "content": "L’arginine peut devenir conditionnellement indispensable lorsque les besoins dépassent la synthèse endogène.",
         "correct": true,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       },
       {
         "content": "Elles sont décrites comme inutiles pendant la croissance.",
         "correct": false,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       },
       {
         "content": "Elles sont toutes deux des acides aminés soufrés.",
         "correct": false,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       }
     ],
-    "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+    "explanation": "L’histidine est indispensable tout au long de la vie ; l’arginine est synthétisable mais peut devenir conditionnellement indispensable dans certaines situations."
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À quelle période leur caractère essentiel est-il particulièrement signalé ?",
+    "question": "Quel acide aminé peut devenir conditionnellement indispensable pendant certaines périodes de croissance ou de stress métabolique ?",
     "choices": [
       {
-        "content": "chez le nourrisson et le jeune enfant",
+        "content": "L’arginine",
         "correct": true,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       },
       {
-        "content": "uniquement après 70 ans",
+        "content": "La glycine uniquement après 70 ans",
         "correct": false,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       },
       {
-        "content": "uniquement pendant le jeûne",
+        "content": "La leucine uniquement pendant le jeûne",
         "correct": false,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       },
       {
-        "content": "uniquement pendant la grossesse",
+        "content": "La valine uniquement pendant la grossesse",
         "correct": false,
-        "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
       }
     ],
-    "explanation": "Le support 3.1 insiste sur le caractère conditionnel lié à la croissance."
+    "explanation": "La synthèse endogène d’arginine peut devenir insuffisante par rapport aux besoins pendant certaines périodes de croissance ou de stress métabolique."
   },
   {
     "order": 17,
@@ -460,7 +460,7 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
       },
       {
-        "content": "Elles concernent notamment les acides aminés non classés comme essentiels dans le support.",
+        "content": "Elles participent à la synthèse endogène d’acides aminés dispensables.",
         "correct": true,
         "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
       },
@@ -481,7 +481,7 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel terme emploie la fiche pour les réactions permettant de former certains acides aminés ?",
+    "question": "Quel terme désigne les réactions permettant de convertir le squelette d’un acide aminé en un autre ?",
     "choices": [
       {
         "content": "interconversion",
@@ -518,7 +518,7 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
       },
       {
-        "content": "La fiche la présente comme le plus petit acide aminé.",
+        "content": "C’est le plus petit acide aminé protéinogène.",
         "correct": true,
         "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
       },
@@ -601,12 +601,12 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Pour conclure la section sur les généralités, sélectionnez exactement les cinq affirmations correctes.",
     "choices": [
       {
-        "content": "La fiche cite environ 500 acides aminés dans le monde vivant.",
+        "content": "Plusieurs centaines d’acides aminés naturels sont connus.",
         "correct": true,
         "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
       },
       {
-        "content": "Elle retient 20 acides aminés protéinogènes.",
+        "content": "Les protéines humaines utilisent couramment vingt acides aminés standards.",
         "correct": true,
         "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
       },

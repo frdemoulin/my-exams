@@ -10,54 +10,54 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Leur chaîne latérale est carbonée, ouverte, linéaire ou ramifiée.",
         "correct": true,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       },
       {
-        "content": "La fiche les décrit comme très apolaires et hydrophobes.",
+        "content": "Leur hydrophobicité varie avec la taille et la ramification de leur chaîne latérale.",
         "correct": true,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       },
       {
         "content": "Ils possèdent nécessairement un cycle aromatique.",
         "correct": false,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       },
       {
         "content": "Ils portent obligatoirement un hétéroatome N, O ou S dans la chaîne latérale.",
         "correct": false,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       }
     ],
-    "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+    "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
   },
   {
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Lequel est un acide aminé aliphatique cité ?",
+    "question": "Lequel est un acide aminé à chaîne latérale aliphatique ?",
     "choices": [
       {
         "content": "alanine",
         "correct": true,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       },
       {
         "content": "tryptophane",
         "correct": false,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       },
       {
         "content": "histidine",
         "correct": false,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       },
       {
         "content": "tyrosine",
         "correct": false,
-        "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
       }
     ],
-    "explanation": "La fiche classe notamment glycine et alanine parmi les acides aminés aliphatiques."
+    "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
   },
   {
     "order": 25,
@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 26,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel radical caractérise l’alanine dans la fiche ?",
+    "question": "Quel radical caractérise l’alanine ?",
     "choices": [
       {
         "content": "un groupement méthyle",
@@ -124,27 +124,27 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant les acides aminés branchés :",
     "choices": [
       {
-        "content": "Valine, leucine et isoleucine sont cités.",
+        "content": "Valine, leucine et isoleucine sont les trois acides aminés à chaîne latérale ramifiée.",
         "correct": true,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       },
       {
         "content": "La valine possède un radical isopropyle.",
         "correct": true,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       },
       {
-        "content": "La méthionine est classée comme acide aminé branché dans cette fiche.",
+        "content": "La méthionine est un acide aminé à chaîne latérale ramifiée.",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       },
       {
         "content": "La leucine porte un radical phénol.",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       }
     ],
-    "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+    "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
   },
   {
     "order": 28,
@@ -155,25 +155,25 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "valine",
         "correct": true,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       },
       {
         "content": "leucine",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       },
       {
         "content": "isoleucine",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       },
       {
         "content": "cystéine",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
       }
     ],
-    "explanation": "Valine, leucine et isoleucine forment le groupe des acides aminés ramifiés présenté."
+    "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
   },
   {
     "order": 29,
@@ -182,56 +182,56 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant la leucine et l’isoleucine :",
     "choices": [
       {
-        "content": "La fiche présente leurs radicaux comme isobutyles.",
+        "content": "La leucine porte un groupement isobutyle, tandis que l’isoleucine porte un groupement sec-butyle.",
         "correct": true,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       },
       {
-        "content": "Elle précise que l’isoleucine est un isomère de la leucine.",
+        "content": "Elles ont la même formule brute mais un enchaînement différent des atomes dans leur chaîne latérale.",
         "correct": true,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       },
       {
         "content": "Elles sont toutes deux des acides aminés hydroxylés.",
         "correct": false,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       },
       {
         "content": "La leucine contient un atome de soufre dans sa chaîne latérale.",
         "correct": false,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       }
     ],
-    "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+    "explanation": "La leucine et l’isoleucine sont des isomères de constitution : leurs chaînes latérales ont la même formule brute mais une ramification différente."
   },
   {
     "order": 30,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle relation structurale est explicitement indiquée entre leucine et isoleucine ?",
+    "question": "Quelle relation structurale existe entre la leucine et l’isoleucine ?",
     "choices": [
       {
         "content": "ce sont des isomères",
         "correct": true,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       },
       {
         "content": "ce sont des énantiomères D/L obligatoires",
         "correct": false,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       },
       {
         "content": "ce sont des amides",
         "correct": false,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       },
       {
         "content": "elles ont le même code à une lettre",
         "correct": false,
-        "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
       }
     ],
-    "explanation": "La fiche insiste sur leur isomérie malgré leur appartenance commune aux acides aminés branchés."
+    "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
   },
   {
     "order": 31,
@@ -240,7 +240,7 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant les acides aminés hydroxylés :",
     "choices": [
       {
-        "content": "Sérine et thréonine sont citées.",
+        "content": "La sérine et la thréonine possèdent une chaîne latérale hydroxylée.",
         "correct": true,
         "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
       },
@@ -361,7 +361,7 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
       },
       {
-        "content": "Le radical de l’aspartate est présenté comme CH2-COOH.",
+        "content": "La chaîne latérale de l’acide aspartique est –CH2–COOH sous sa forme protonée.",
         "correct": true,
         "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
       },
@@ -408,25 +408,25 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ce sont les amides dérivés respectivement de l’aspartate et du glutamate.",
         "correct": true,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       },
       {
         "content": "Leur formation correspond dans la présentation à la transformation d’un carboxyle en amide.",
         "correct": true,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       },
       {
         "content": "L’asparagine est l’amide de la lysine.",
         "correct": false,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       },
       {
         "content": "La glutamine est un acide aminé soufré.",
         "correct": false,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       }
     ],
-    "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+    "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
   },
   {
     "order": 38,
@@ -437,25 +437,25 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glutamine",
         "correct": true,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       },
       {
         "content": "asparagine",
         "correct": false,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       },
       {
         "content": "histidine",
         "correct": false,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       },
       {
         "content": "tyrosine",
         "correct": false,
-        "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
       }
     ],
-    "explanation": "Asparagine et glutamine sont les amides des deux acides aminés acides cités."
+    "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
   },
   {
     "order": 39,
@@ -490,7 +490,7 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle fonction termine la chaîne latérale de la lysine dans la fiche ?",
+    "question": "Quelle fonction termine la chaîne latérale de la lysine ?",
     "choices": [
       {
         "content": "une fonction amine",
@@ -585,7 +585,7 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L’imidazole est le motif distinctif de la chaîne latérale de l’histidine."
       },
       {
-        "content": "Elle est classée parmi les acides aminés basiques dans la fiche.",
+        "content": "Sa chaîne latérale imidazole est basique et peut se protoner près du pH physiologique.",
         "correct": true,
         "explanation": "L’imidazole est le motif distinctif de la chaîne latérale de l’histidine."
       },
@@ -612,54 +612,54 @@ export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Sérine — alcool primaire",
         "correct": true,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Thréonine — alcool secondaire",
         "correct": true,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Cystéine — thiol",
         "correct": true,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Méthionine — thioéther",
         "correct": true,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Histidine — imidazole",
         "correct": true,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Tyrosine — guanidinium",
         "correct": false,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Arginine — indole",
         "correct": false,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Lysine — phénol",
         "correct": false,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Asparagine — thiol",
         "correct": false,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       },
       {
         "content": "Valine — carboxyle latéral",
         "correct": false,
-        "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
       }
     ],
-    "explanation": "Les associations correctes correspondent aux groupements caractéristiques donnés par la fiche."
+    "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
   }
 ];

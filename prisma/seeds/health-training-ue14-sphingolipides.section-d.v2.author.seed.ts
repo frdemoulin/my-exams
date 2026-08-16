@@ -14,54 +14,54 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il comprend synthèse et dégradation.",
         "correct": true,
-        "explanation": "Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       },
       {
         "content": "Ces étapes reposent sur des réactions enzymatiques.",
         "correct": true,
-        "explanation": "Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       },
       {
         "content": "Des défauts de ces réactions peuvent entraîner des pathologies.",
         "correct": true,
-        "explanation": "Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       },
       {
         "content": "Le métabolisme est indépendant de toute enzyme.",
         "correct": false,
-        "explanation": "Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       }
     ],
-    "explanation": "Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+    "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
   },
   {
     "order": 68,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quels deux grands volets sont cités ?",
+    "question": "Quels sont les deux grands volets du métabolisme des sphingolipides ?",
     "choices": [
       {
         "content": "anabolisme et catabolisme",
         "correct": true,
-        "explanation": "Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       },
       {
         "content": "glycolyse et néoglucogenèse seulement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       },
       {
         "content": "traduction et transcription",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       },
       {
         "content": "mitose et méiose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+        "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
       }
     ],
-    "explanation": "Le support oppose synthèse/anabolisme et dégradation/catabolisme."
+    "explanation": "Le métabolisme des sphingolipides comprend des voies enzymatiques de synthèse et de dégradation."
   },
   {
     "order": 69,
@@ -72,25 +72,25 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Elle est associée à un arrêt de croissance.",
         "correct": true,
-        "explanation": "Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       },
       {
         "content": "Elle est associée à l'apoptose.",
         "correct": true,
-        "explanation": "Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       },
       {
         "content": "Elle illustre les conséquences d'un désordre du catabolisme.",
         "correct": true,
-        "explanation": "Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       },
       {
-        "content": "Elle est présentée comme augmentant systématiquement la prolifération sans apoptose.",
+        "content": "Elle augmente systématiquement la prolifération et ne peut jamais favoriser l’apoptose.",
         "correct": false,
-        "explanation": "Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       }
     ],
-    "explanation": "Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+    "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
   },
   {
     "order": 70,
@@ -101,25 +101,25 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "apoptose",
         "correct": true,
-        "explanation": "Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       },
       {
         "content": "nécrose obligatoire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       },
       {
         "content": "mitose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       },
       {
         "content": "méiose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+        "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
       }
     ],
-    "explanation": "Le support relie l'accumulation de céramides à l'arrêt de croissance et à l'apoptose."
+    "explanation": "Selon le contexte cellulaire, une élévation du céramide peut participer à l’arrêt du cycle cellulaire et à l’apoptose."
   },
   {
     "order": 71,
@@ -128,56 +128,56 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la sphingosine-1-phosphate :",
     "choices": [
       {
-        "content": "Son accumulation est associée à un risque d'apparition de cancers dans la fiche.",
+        "content": "Elle favorise notamment survie, prolifération et migration cellulaires selon le contexte.",
         "correct": true,
-        "explanation": "La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       },
       {
-        "content": "Son déficit est associé à un possible risque de maladies neurodégénératives.",
+        "content": "Elle agit via des récepteurs membranaires spécifiques et aussi par des cibles intracellulaires.",
         "correct": true,
-        "explanation": "La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       },
       {
-        "content": "Elle illustre l'importance de l'équilibre métabolique.",
+        "content": "Une dérégulation de sa signalisation est impliquée dans plusieurs pathologies, dont certains cancers.",
         "correct": true,
-        "explanation": "La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       },
       {
-        "content": "Son déficit est présenté comme protégeant systématiquement contre toute maladie neurologique.",
+        "content": "Elle est biologiquement inactive et ne participe à aucune signalisation.",
         "correct": false,
-        "explanation": "La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       }
     ],
-    "explanation": "La fiche relie l'excès de S1P à des risques de cancer."
+    "explanation": "La S1P est un médiateur lipidique pléiotrope ; ses effets dépendent du gradient de concentration, des récepteurs exprimés et du contexte cellulaire."
   },
   {
     "order": 72,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel risque est associé à son accumulation ?",
+    "question": "Quel type de processus la sphingosine-1-phosphate peut-elle favoriser ?",
     "choices": [
       {
-        "content": "cancers",
+        "content": "La survie et la migration cellulaires",
         "correct": true,
-        "explanation": "La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       },
       {
-        "content": "carie dentaire uniquement",
+        "content": "La minéralisation de l’émail uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       },
       {
-        "content": "fracture mécanique",
+        "content": "La synthèse de cellulose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       },
       {
-        "content": "appendicite",
+        "content": "La réplication de l’ADN sans aucune régulation",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche relie l'excès de S1P à des risques de cancer."
+        "explanation": "La sphingosine-1-phosphate est un médiateur qui régule notamment survie, prolifération et migration cellulaires ; une signalisation dérégulée est impliquée dans plusieurs pathologies."
       }
     ],
-    "explanation": "La fiche relie l'excès de S1P à des risques de cancer."
+    "explanation": "La sphingosine-1-phosphate régule notamment la survie, la prolifération et la migration cellulaires."
   },
   {
     "order": 73,
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "excès de synthèse protéique uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
+        "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
       },
       {
         "content": "déficit de glucose alimentaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
+        "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
       },
       {
         "content": "rupture d'ADN par irradiation",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
+        "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
       }
     ],
     "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
@@ -244,56 +244,56 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la maladie de Gaucher :",
     "choices": [
       {
-        "content": "Elle est liée à un déficit en β-glucosidase dans la fiche.",
+        "content": "Elle est liée à un déficit en glucocérébrosidase lysosomale (β-glucosidase acide).",
         "correct": true,
-        "explanation": "Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       },
       {
         "content": "Elle entraîne une accumulation de glucosylcéramide.",
         "correct": true,
-        "explanation": "Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       },
       {
-        "content": "Des troubles hépatiques et spléniques sont cités.",
+        "content": "Une hépatomégalie et une splénomégalie sont fréquentes.",
         "correct": true,
-        "explanation": "Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       },
       {
-        "content": "Elle est due à un déficit en α-galactosidase avec accumulation de trihexosidcéramide.",
+        "content": "Elle est due à un déficit en α-galactosidase A avec accumulation de globotriaosylcéramide (Gb3).",
         "correct": false,
-        "explanation": "Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       }
     ],
-    "explanation": "Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+    "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
   },
   {
     "order": 76,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Dans la maladie de Gaucher, quel lipide s'accumule selon la fiche ?",
+    "question": "Dans la maladie de Gaucher, quel lipide s’accumule principalement ?",
     "choices": [
       {
         "content": "glucosylcéramide",
         "correct": true,
-        "explanation": "Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       },
       {
         "content": "GM2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       },
       {
         "content": "galactosylcéramide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       },
       {
-        "content": "trihexosidcéramide",
+        "content": "globotriaosylcéramide (Gb3)",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
       }
     ],
-    "explanation": "Gaucher : β-glucosidase déficiente et accumulation de glucosylcéramide."
+    "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale et provoque une accumulation de glucosylcéramide."
   },
   {
     "order": 77,
@@ -302,17 +302,17 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la maladie de Fabry :",
     "choices": [
       {
-        "content": "Elle est liée à un déficit en α-galactosidase.",
+        "content": "Elle est liée à un déficit en α-galactosidase A.",
         "correct": true,
         "explanation": "Fabry : déficit α-galactosidase."
       },
       {
-        "content": "Elle entraîne une accumulation de trihexosidcéramide.",
+        "content": "Elle entraîne une accumulation de globotriaosylcéramide (Gb3).",
         "correct": true,
         "explanation": "Fabry : déficit α-galactosidase."
       },
       {
-        "content": "Des troubles cardiovasculaires, cutanés et une insuffisance rénale sont cités.",
+        "content": "Des atteintes cardiovasculaires, cutanées et rénales peuvent survenir.",
         "correct": true,
         "explanation": "Fabry : déficit α-galactosidase."
       },
@@ -322,7 +322,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Fabry : déficit α-galactosidase."
       }
     ],
-    "explanation": "Fabry : déficit α-galactosidase."
+    "explanation": "La maladie de Fabry résulte d’un déficit en α-galactosidase A, responsable d’une accumulation lysosomale de Gb3 et de dérivés apparentés."
   },
   {
     "order": 78,
@@ -331,24 +331,24 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Quelle enzyme est déficiente ?",
     "choices": [
       {
-        "content": "α-galactosidase",
+        "content": "α-galactosidase A",
         "correct": true,
         "explanation": "Fabry : déficit α-galactosidase."
       },
       {
         "content": "β-glucosidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Fabry : déficit α-galactosidase."
+        "explanation": "Fabry : déficit α-galactosidase."
       },
       {
         "content": "β-galactosidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Fabry : déficit α-galactosidase."
+        "explanation": "Fabry : déficit α-galactosidase."
       },
       {
         "content": "β-hexosaminidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Fabry : déficit α-galactosidase."
+        "explanation": "Fabry : déficit α-galactosidase."
       }
     ],
     "explanation": "Fabry : déficit α-galactosidase."
@@ -360,56 +360,56 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la maladie de Krabbe :",
     "choices": [
       {
-        "content": "Elle est liée à un déficit en β-galactosidase.",
+        "content": "Elle est liée à un déficit en galactocérébrosidase (GALC).",
         "correct": true,
-        "explanation": "Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "Le déficit en GALC entraîne notamment l’accumulation de psychosine, toxique pour les cellules de la myéline."
       },
       {
-        "content": "Elle entraîne une accumulation de galactosylcéramide.",
+        "content": "Elle entraîne notamment une accumulation toxique de galactosylsphingosine, ou psychosine.",
         "correct": true,
-        "explanation": "Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "La psychosine est le lysosphingolipide dont l’accumulation joue un rôle central dans la neurotoxicité."
       },
       {
-        "content": "Des troubles neurologiques sont cités.",
+        "content": "La maladie provoque des manifestations neurologiques progressives.",
         "correct": true,
-        "explanation": "Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "La maladie de Krabbe est une leucodystrophie qui touche le système nerveux central et périphérique."
       },
       {
         "content": "Elle est définie par un déficit en β-glucosidase avec glucosylcéramide.",
         "correct": false,
-        "explanation": "Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "Le déficit en glucocérébrosidase et l’accumulation de glucosylcéramide caractérisent la maladie de Gaucher."
       }
     ],
-    "explanation": "Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+    "explanation": "Le déficit en GALC provoque surtout l’accumulation de psychosine, toxique pour les cellules productrices de myéline."
   },
   {
     "order": 80,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Dans la maladie de Krabbe, quel lipide s'accumule selon la fiche ?",
+    "question": "Quel sphingolipide toxique s’accumule dans la maladie de Krabbe ?",
     "choices": [
       {
-        "content": "galactosylcéramide",
+        "content": "La galactosylsphingosine (psychosine)",
         "correct": true,
-        "explanation": "Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "La psychosine s’accumule lors du déficit en galactocérébrosidase."
       },
       {
-        "content": "glucosylcéramide",
+        "content": "Le glucosylcéramide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "Le glucosylcéramide s’accumule principalement dans la maladie de Gaucher."
       },
       {
-        "content": "GM2",
+        "content": "Le ganglioside GM2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "Le ganglioside GM2 s’accumule dans la maladie de Tay-Sachs."
       },
       {
-        "content": "sphingomyéline uniquement",
+        "content": "La sphingomyéline uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+        "explanation": "La sphingomyéline n’est pas le métabolite toxique caractéristique de la maladie de Krabbe."
       }
     ],
-    "explanation": "Krabbe : déficit β-galactosidase et accumulation de galactosylcéramide."
+    "explanation": "La galactosylsphingosine, appelée psychosine, s’accumule lors du déficit en galactocérébrosidase et exerce une toxicité majeure sur les cellules de la myéline."
   },
   {
     "order": 81,
@@ -418,27 +418,27 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la maladie de Tay-Sachs :",
     "choices": [
       {
-        "content": "Elle est liée à un déficit en β-hexosaminidase.",
+        "content": "Elle est liée à un déficit en β-hexosaminidase A.",
         "correct": true,
-        "explanation": "Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       },
       {
         "content": "Elle entraîne une accumulation du ganglioside GM2.",
         "correct": true,
-        "explanation": "Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       },
       {
-        "content": "Des manifestations neurodégénératives et un retard psychomoteur sont cités.",
+        "content": "La forme infantile classique provoque une neurodégénérescence et une régression psychomotrice.",
         "correct": true,
-        "explanation": "Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       },
       {
         "content": "Elle est due à un déficit en α-galactosidase.",
         "correct": false,
-        "explanation": "Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       }
     ],
-    "explanation": "Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+    "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
   },
   {
     "order": 82,
@@ -449,25 +449,25 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "GM2",
         "correct": true,
-        "explanation": "Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       },
       {
         "content": "GM3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       },
       {
         "content": "GD1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       },
       {
         "content": "aucun ganglioside",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
       }
     ],
-    "explanation": "Tay-Sachs : β-hexosaminidase déficiente et accumulation de GM2."
+    "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A et provoque une accumulation de GM2."
   },
   {
     "order": 83,
@@ -476,7 +476,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos du raisonnement maladie-enzyme-substrat :",
     "choices": [
       {
-        "content": "Chaque sphingolipidose de la fiche associe un déficit enzymatique à l'accumulation d'un substrat.",
+        "content": "Chaque sphingolipidose associe un déficit enzymatique défini à l’accumulation d’un ou plusieurs métabolites.",
         "correct": true,
         "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
       },
@@ -486,12 +486,12 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
       },
       {
-        "content": "Les symptômes cités dépendent du tissu touché.",
+        "content": "Les manifestations cliniques dépendent des tissus dans lesquels les métabolites s’accumulent.",
         "correct": true,
         "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
       },
       {
-        "content": "Les quatre maladies citées ont exactement le même déficit enzymatique.",
+        "content": "Ces sphingolipidoses reposent toutes sur exactement le même déficit enzymatique.",
         "correct": false,
         "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
       }
@@ -512,17 +512,17 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "le substrat est transformé trop vite en ATP",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Un défaut de catabolisme entraîne l'accumulation du composé en amont."
+        "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
       },
       {
         "content": "la traduction est arrêtée",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Un défaut de catabolisme entraîne l'accumulation du composé en amont."
+        "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
       },
       {
         "content": "le cholestérol est totalement absent",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Un défaut de catabolisme entraîne l'accumulation du composé en amont."
+        "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
       }
     ],
     "explanation": "Un défaut de catabolisme entraîne l'accumulation du composé en amont."
@@ -534,56 +534,56 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la maladie de Gaucher et des organes touchés :",
     "choices": [
       {
-        "content": "Le foie est cité.",
+        "content": "L’hépatomégalie est une manifestation fréquente de la maladie de Gaucher.",
         "correct": true,
-        "explanation": "Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       },
       {
-        "content": "La rate est citée.",
+        "content": "La splénomégalie est une manifestation fréquente de la maladie de Gaucher.",
         "correct": true,
-        "explanation": "Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       },
       {
-        "content": "Des troubles neurologiques peuvent être présents dans la fiche.",
+        "content": "Des manifestations neurologiques peuvent survenir dans les formes neuronopathiques.",
         "correct": true,
-        "explanation": "Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       },
       {
-        "content": "Le support limite Gaucher à une atteinte exclusive de la cornée.",
+        "content": "La maladie de Gaucher atteint exclusivement la cornée.",
         "correct": false,
-        "explanation": "Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       }
     ],
-    "explanation": "Le support cite atteintes hépatique, splénique et neurologique."
+    "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
   },
   {
     "order": 86,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel organe splénique est cité ?",
+    "question": "Quel organe lymphoïde abdominal est fréquemment augmenté de volume dans la maladie de Gaucher ?",
     "choices": [
       {
         "content": "rate",
         "correct": true,
-        "explanation": "Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       },
       {
         "content": "thyroïde",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       },
       {
         "content": "pancréas exclusivement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       },
       {
         "content": "prostate",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support cite atteintes hépatique, splénique et neurologique."
+        "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
       }
     ],
-    "explanation": "Le support cite atteintes hépatique, splénique et neurologique."
+    "explanation": "La maladie de Gaucher atteint fréquemment le foie et la rate ; des manifestations neurologiques caractérisent les formes neuronopathiques."
   },
   {
     "order": 87,
@@ -592,56 +592,56 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la maladie de Fabry et de l’atteinte rénale :",
     "choices": [
       {
-        "content": "L'insuffisance rénale est citée.",
+        "content": "L’atteinte rénale peut évoluer vers une insuffisance rénale.",
         "correct": true,
-        "explanation": "La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       },
       {
-        "content": "Des troubles cardiovasculaires sont cités.",
+        "content": "Une cardiomyopathie et des complications vasculaires peuvent survenir.",
         "correct": true,
-        "explanation": "La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       },
       {
-        "content": "Des troubles cutanés sont cités.",
+        "content": "Les angiokératomes constituent une manifestation cutanée caractéristique.",
         "correct": true,
-        "explanation": "La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       },
       {
         "content": "Fabry est décrite comme une maladie exclusivement digestive.",
         "correct": false,
-        "explanation": "La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       }
     ],
-    "explanation": "La fiche associe Fabry à des atteintes multisystémiques."
+    "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
   },
   {
     "order": 88,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle atteinte d'organe est explicitement citée ?",
+    "question": "Quelle atteinte d’organe fait partie des manifestations classiques de la maladie de Fabry ?",
     "choices": [
       {
         "content": "insuffisance rénale",
         "correct": true,
-        "explanation": "La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       },
       {
         "content": "fracture osseuse",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       },
       {
         "content": "cataracte uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       },
       {
         "content": "ulcère gastrique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche associe Fabry à des atteintes multisystémiques."
+        "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
       }
     ],
-    "explanation": "La fiche associe Fabry à des atteintes multisystémiques."
+    "explanation": "La maladie de Fabry est une sphingolipidose multisystémique pouvant notamment atteindre la peau, le cœur, les reins et le système nerveux."
   },
   {
     "order": 89,
@@ -669,30 +669,30 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 90,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel type de manifestation domine dans le support ?",
+    "question": "Quel type de manifestation domine dans la maladie de Tay-Sachs ?",
     "choices": [
       {
         "content": "neurologique / neurodégénérative",
         "correct": true,
-        "explanation": "Tay-Sachs est surtout présentée par ses conséquences neurologiques."
+        "explanation": "La maladie de Tay-Sachs est une affection neurodégénérative progressive liée à l’accumulation de GM2."
       },
       {
         "content": "cutanée isolée",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Tay-Sachs est surtout présentée par ses conséquences neurologiques."
+        "explanation": "La maladie de Tay-Sachs est une affection neurodégénérative progressive liée à l’accumulation de GM2."
       },
       {
         "content": "hépatique isolée",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Tay-Sachs est surtout présentée par ses conséquences neurologiques."
+        "explanation": "La maladie de Tay-Sachs est une affection neurodégénérative progressive liée à l’accumulation de GM2."
       },
       {
         "content": "pulmonaire infectieuse",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Tay-Sachs est surtout présentée par ses conséquences neurologiques."
+        "explanation": "La maladie de Tay-Sachs est une affection neurodégénérative progressive liée à l’accumulation de GM2."
       }
     ],
-    "explanation": "Tay-Sachs est surtout présentée par ses conséquences neurologiques."
+    "explanation": "La maladie de Tay-Sachs est une affection neurodégénérative progressive liée à l’accumulation de GM2."
   },
   {
     "order": 91,
@@ -706,12 +706,12 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le lien structure-maladie est central pour mémoriser les sphingolipidoses."
       },
       {
-        "content": "Le galactosylcéramide est associé à Krabbe.",
+        "content": "La psychosine est le métabolite toxique caractéristique de la maladie de Krabbe.",
         "correct": true,
         "explanation": "Le lien structure-maladie est central pour mémoriser les sphingolipidoses."
       },
       {
-        "content": "Ces lipides sont des glycosphingolipides.",
+        "content": "Le glucosylcéramide et la psychosine appartiennent à la famille des glycosphingolipides ou lysoglycosphingolipides.",
         "correct": true,
         "explanation": "Le lien structure-maladie est central pour mémoriser les sphingolipidoses."
       },
@@ -742,7 +742,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "ignoreAccents": true
       }
     },
-    "explanation": "Tay-Sachs est liée à un déficit en β-hexosaminidase et à l'accumulation de GM2."
+    "explanation": "La maladie de Tay-Sachs est liée à un déficit en β-hexosaminidase A et à l’accumulation de GM2."
   },
   {
     "order": 93,
@@ -753,54 +753,54 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "GM2 est un ganglioside.",
         "correct": true,
-        "explanation": "Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       },
       {
-        "content": "Il s'accumule lorsque la β-hexosaminidase est déficiente.",
+        "content": "Il s’accumule lorsque la β-hexosaminidase A est déficiente.",
         "correct": true,
-        "explanation": "Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       },
       {
         "content": "Cette accumulation est reliée à une maladie neurodégénérative.",
         "correct": true,
-        "explanation": "Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       },
       {
         "content": "GM2 est un phospholipide de type phosphatidylcholine.",
         "correct": false,
-        "explanation": "Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       }
     ],
-    "explanation": "Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+    "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
   },
   {
     "order": 94,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle enzyme déficiente conduit à GM2 dans le support ?",
+    "question": "Quelle enzyme est déficiente dans la maladie de Tay-Sachs ?",
     "choices": [
       {
-        "content": "β-hexosaminidase",
+        "content": "La β-hexosaminidase A",
         "correct": true,
-        "explanation": "Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       },
       {
         "content": "β-glucosidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       },
       {
         "content": "α-galactosidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       },
       {
         "content": "céramidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+        "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
       }
     ],
-    "explanation": "Le couple β-hexosaminidase/GM2 est le repère de Tay-Sachs."
+    "explanation": "Le déficit en β-hexosaminidase A entraîne l’accumulation lysosomale de GM2 dans la maladie de Tay-Sachs."
   },
   {
     "order": 95,
@@ -845,17 +845,17 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "disparition de tous les lipides",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le substrat en amont d'une enzyme déficiente s'accumule."
+        "explanation": "Le substrat en amont d'une enzyme déficiente s'accumule."
       },
       {
         "content": "synthèse d'ADN accrue obligatoirement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le substrat en amont d'une enzyme déficiente s'accumule."
+        "explanation": "Le substrat en amont d'une enzyme déficiente s'accumule."
       },
       {
         "content": "production de cellulose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le substrat en amont d'une enzyme déficiente s'accumule."
+        "explanation": "Le substrat en amont d'une enzyme déficiente s'accumule."
       }
     ],
     "explanation": "Le substrat en amont d'une enzyme déficiente s'accumule."
@@ -873,14 +873,14 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Correct."
       },
       {
-        "content": "Krabbe → galactosylcéramide",
+        "content": "Krabbe → galactosylsphingosine (psychosine)",
         "correct": true,
         "explanation": "Correct."
       },
       {
         "content": "Fabry → GM2",
         "correct": false,
-        "explanation": "Trihexosidcéramide."
+        "explanation": "La maladie de Fabry entraîne une accumulation de globotriaosylcéramide (Gb3)."
       },
       {
         "content": "Tay-Sachs → glucosylcéramide",
@@ -888,7 +888,7 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "GM2."
       }
     ],
-    "explanation": "Gaucher et Krabbe se distinguent par les cérébrosides accumulés."
+    "explanation": "Gaucher se caractérise par l’accumulation de glucosylcéramide, tandis que la toxicité de la psychosine est centrale dans la maladie de Krabbe."
   },
   {
     "order": 98,
@@ -904,17 +904,17 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Gaucher",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les enzymes et substrats permettent de distinguer les sphingolipidoses."
+        "explanation": "Les enzymes et substrats permettent de distinguer les sphingolipidoses."
       },
       {
         "content": "Krabbe",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les enzymes et substrats permettent de distinguer les sphingolipidoses."
+        "explanation": "Les enzymes et substrats permettent de distinguer les sphingolipidoses."
       },
       {
         "content": "Tay-Sachs",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les enzymes et substrats permettent de distinguer les sphingolipidoses."
+        "explanation": "Les enzymes et substrats permettent de distinguer les sphingolipidoses."
       }
     ],
     "explanation": "Les enzymes et substrats permettent de distinguer les sphingolipidoses."
@@ -926,17 +926,17 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la comparaison Krabbe/Tay-Sachs :",
     "choices": [
       {
-        "content": "Krabbe implique β-galactosidase.",
+        "content": "Krabbe implique la galactocérébrosidase (GALC).",
         "correct": true,
         "explanation": "Krabbe et Tay-Sachs ont des déficits distincts malgré un tropisme neurologique."
       },
       {
-        "content": "Tay-Sachs implique β-hexosaminidase.",
+        "content": "Tay-Sachs implique la β-hexosaminidase A.",
         "correct": true,
         "explanation": "Krabbe et Tay-Sachs ont des déficits distincts malgré un tropisme neurologique."
       },
       {
-        "content": "Les deux sont associées à des manifestations neurologiques dans la fiche.",
+        "content": "Les deux maladies provoquent des manifestations neurologiques sévères.",
         "correct": true,
         "explanation": "Krabbe et Tay-Sachs ont des déficits distincts malgré un tropisme neurologique."
       },
@@ -956,54 +956,54 @@ export const UE14_BIOCH_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des sphingolipidoses, sélectionnez exactement les cinq affirmations correctes.",
     "choices": [
       {
-        "content": "Gaucher implique une β-glucosidase.",
+        "content": "Gaucher implique la glucocérébrosidase lysosomale.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "La maladie de Gaucher résulte d’un déficit en glucocérébrosidase lysosomale."
       },
       {
-        "content": "Fabry implique une α-galactosidase.",
+        "content": "Fabry implique l’α-galactosidase A.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "La maladie de Fabry résulte d’un déficit en α-galactosidase A."
       },
       {
-        "content": "Krabbe implique une β-galactosidase.",
+        "content": "Krabbe implique la galactocérébrosidase.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "La maladie de Krabbe résulte d’un déficit en galactocérébrosidase."
       },
       {
-        "content": "Tay-Sachs implique une β-hexosaminidase.",
+        "content": "Tay-Sachs implique la β-hexosaminidase A.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "La maladie de Tay-Sachs résulte d’un déficit en β-hexosaminidase A."
       },
       {
         "content": "Tay-Sachs accumule GM2.",
         "correct": true,
-        "explanation": "Support."
+        "explanation": "Le déficit en β-hexosaminidase A provoque l’accumulation lysosomale de GM2."
       },
       {
         "content": "Gaucher accumule GM2.",
         "correct": false,
-        "explanation": "Glucosylcéramide."
+        "explanation": "Gaucher entraîne surtout une accumulation de glucosylcéramide, et non de GM2."
       },
       {
         "content": "Fabry accumule galactosylcéramide.",
         "correct": false,
-        "explanation": "Trihexosidcéramide."
+        "explanation": "Fabry entraîne une accumulation de globotriaosylcéramide (Gb3)."
       },
       {
         "content": "Krabbe est due à α-galactosidase.",
         "correct": false,
-        "explanation": "β-galactosidase."
+        "explanation": "Krabbe est due à un déficit en galactocérébrosidase, et non en α-galactosidase A."
       },
       {
         "content": "Les sphingolipidoses ne sont pas génétiques.",
         "correct": false,
-        "explanation": "Rares génétiques."
+        "explanation": "Les sphingolipidoses sont des maladies génétiques du métabolisme lysosomal."
       },
       {
         "content": "Un défaut de catabolisme empêche toute accumulation.",
         "correct": false,
-        "explanation": "Il favorise l'accumulation."
+        "explanation": "Un défaut de catabolisme favorise au contraire l’accumulation du ou des métabolites situés en amont."
       }
     ],
     "explanation": "MASTER des sphingolipidoses."

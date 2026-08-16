@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le noyau stérane est quadricyclique : trois cycles à 6 C et un cycle à 5 C."
+        "explanation": "Le noyau stérane est quadricyclique : trois cycles à 6 C et un cycle à 5 C."
       },
       {
         "content": "5",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le noyau stérane est quadricyclique : trois cycles à 6 C et un cycle à 5 C."
+        "explanation": "Le noyau stérane est quadricyclique : trois cycles à 6 C et un cycle à 5 C."
       },
       {
         "content": "6",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le noyau stérane est quadricyclique : trois cycles à 6 C et un cycle à 5 C."
+        "explanation": "Le noyau stérane est quadricyclique : trois cycles à 6 C et un cycle à 5 C."
       }
     ],
     "explanation": "Le noyau stérane est quadricyclique : trois cycles à 6 C et un cycle à 5 C."
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "A",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cycle D est le seul cycle à cinq carbones du noyau stérane."
+        "explanation": "Le cycle D est le seul cycle à cinq carbones du noyau stérane."
       },
       {
         "content": "B",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cycle D est le seul cycle à cinq carbones du noyau stérane."
+        "explanation": "Le cycle D est le seul cycle à cinq carbones du noyau stérane."
       },
       {
         "content": "C",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cycle D est le seul cycle à cinq carbones du noyau stérane."
+        "explanation": "Le cycle D est le seul cycle à cinq carbones du noyau stérane."
       }
     ],
     "explanation": "Le cycle D est le seul cycle à cinq carbones du noyau stérane."
@@ -128,27 +128,27 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la numérotation du noyau stérane :",
     "choices": [
       {
-        "content": "Les cycles A et B sont numérotés dans le sens inverse des aiguilles d'une montre selon la fiche.",
+        "content": "Les cycles A et B suivent la numérotation conventionnelle du squelette stéroïdien.",
         "correct": true,
-        "explanation": "La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       },
       {
         "content": "Le cycle C est numéroté dans le sens des aiguilles d'une montre.",
         "correct": true,
-        "explanation": "La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       },
       {
         "content": "Le cycle D reprend le sens inverse des aiguilles d'une montre.",
         "correct": true,
-        "explanation": "La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       },
       {
         "content": "Les quatre cycles sont tous numérotés dans le même sens.",
         "correct": false,
-        "explanation": "La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       }
     ],
-    "explanation": "La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+    "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
   },
   {
     "order": 6,
@@ -159,25 +159,25 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C",
         "correct": true,
-        "explanation": "La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       },
       {
         "content": "A",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       },
       {
         "content": "B",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       },
       {
         "content": "D",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+        "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
       }
     ],
-    "explanation": "La fiche distingue le sens du cycle C de ceux des cycles A, B et D."
+    "explanation": "La numérotation conventionnelle du squelette stéroïdien suit un ordre défini d’un cycle à l’autre."
   },
   {
     "order": 7,
@@ -186,56 +186,56 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des carbones asymétriques du noyau stérane :",
     "choices": [
       {
-        "content": "La fiche en compte six.",
+        "content": "Le noyau stérane comporte six centres stéréogènes dans sa représentation usuelle.",
         "correct": true,
-        "explanation": "Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       },
       {
         "content": "Ils sont situés aux jonctions des cycles.",
         "correct": true,
-        "explanation": "Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       },
       {
-        "content": "Les positions 5, 8, 9, 10, 13 et 14 sont citées.",
+        "content": "Les centres stéréogènes du stérane se situent en C5, C8, C9, C10, C13 et C14.",
         "correct": true,
-        "explanation": "Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       },
       {
         "content": "Le noyau stérane ne possède aucun carbone asymétrique.",
         "correct": false,
-        "explanation": "Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       }
     ],
-    "explanation": "Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+    "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
   },
   {
     "order": 8,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien de carbones asymétriques sont cités pour le noyau stérane ?",
+    "question": "Combien de centres stéréogènes comporte le noyau stérane dans sa représentation usuelle ?",
     "choices": [
       {
         "content": "6",
         "correct": true,
-        "explanation": "Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       },
       {
         "content": "4",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       },
       {
         "content": "8",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       },
       {
         "content": "10",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+        "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
       }
     ],
-    "explanation": "Les six carbones cités sont 5, 8, 9, 10, 13 et 14."
+    "explanation": "Dans la représentation usuelle du stérane, les six centres stéréogènes se situent en C5, C8, C9, C10, C13 et C14."
   },
   {
     "order": 9,
@@ -244,56 +244,56 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de l'autre nom du noyau stérane :",
     "choices": [
       {
-        "content": "La fiche donne le nom cyclopentanoperhydrophrénanthrène.",
+        "content": "Le squelette tétracyclique est appelé cyclopentanoperhydrophénanthrène.",
         "correct": true,
-        "explanation": "Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       },
       {
         "content": "Ce nom désigne le squelette polycyclique stéroïdien.",
         "correct": true,
-        "explanation": "Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       },
       {
-        "content": "Il constitue un repère de nomenclature du chapitre.",
+        "content": "Il constitue le squelette tétracyclique commun des stéroïdes.",
         "correct": true,
-        "explanation": "Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       },
       {
         "content": "Le terme « glycogène » est un autre nom du noyau stérane.",
         "correct": false,
-        "explanation": "Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       }
     ],
-    "explanation": "Le support donne explicitement ce synonyme du noyau stérane."
+    "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel long nom est donné au noyau stérane ?",
+    "question": "Quel autre nom désigne le squelette tétracyclique du noyau stérane ?",
     "choices": [
       {
-        "content": "cyclopentanoperhydrophrénanthrène",
+        "content": "cyclopentanoperhydrophénanthrène",
         "correct": true,
-        "explanation": "Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       },
       {
         "content": "cyclohexane",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       },
       {
         "content": "sphingosine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       },
       {
         "content": "phosphatidylcholine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support donne explicitement ce synonyme du noyau stérane."
+        "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
       }
     ],
-    "explanation": "Le support donne explicitement ce synonyme du noyau stérane."
+    "explanation": "Le squelette stéroïdien tétracyclique est aussi appelé cyclopentanoperhydrophénanthrène."
   },
   {
     "order": 11,
@@ -304,25 +304,25 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils possèdent un noyau stérane.",
         "correct": true,
-        "explanation": "Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       },
       {
         "content": "Le C3 porte un groupement hydroxyle OH.",
         "correct": true,
-        "explanation": "Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       },
       {
         "content": "Une ou plusieurs doubles liaisons peuvent être présentes.",
         "correct": true,
-        "explanation": "Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       },
       {
         "content": "Un stérol est défini par trois acides gras estérifiés au glycérol.",
         "correct": false,
-        "explanation": "Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       }
     ],
-    "explanation": "Le groupement OH en C3 caractérise les stérols dans la fiche."
+    "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
   },
   {
     "order": 12,
@@ -333,25 +333,25 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "hydroxyle OH",
         "correct": true,
-        "explanation": "Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       },
       {
         "content": "amine NH2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       },
       {
         "content": "phosphate uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       },
       {
         "content": "aldéhyde obligatoire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le groupement OH en C3 caractérise les stérols dans la fiche."
+        "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
       }
     ],
-    "explanation": "Le groupement OH en C3 caractérise les stérols dans la fiche."
+    "explanation": "Un stérol possède un groupement hydroxyle en C3 du squelette stéroïdien."
   },
   {
     "order": 13,
@@ -360,7 +360,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos du cholestérol comme stérol :",
     "choices": [
       {
-        "content": "Il est présenté comme le stérol le plus connu chez l'Homme.",
+        "content": "Le cholestérol est le principal stérol des cellules animales.",
         "correct": true,
         "explanation": "Le cholestérol est le principal stérol étudié."
       },
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est le principal stérol étudié."
+        "explanation": "Le cholestérol est le principal stérol étudié."
       },
       {
         "content": "sphingomyéline",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est le principal stérol étudié."
+        "explanation": "Le cholestérol est le principal stérol étudié."
       },
       {
         "content": "maltose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est le principal stérol étudié."
+        "explanation": "Le cholestérol est le principal stérol étudié."
       }
     ],
     "explanation": "Le cholestérol est le principal stérol étudié."
@@ -454,17 +454,17 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "NH2 en C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les stérides sont les formes estérifiées des stérols."
+        "explanation": "Les stérides sont les formes estérifiées des stérols."
       },
       {
         "content": "OH en C1 de sphingosine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les stérides sont les formes estérifiées des stérols."
+        "explanation": "Les stérides sont les formes estérifiées des stérols."
       },
       {
         "content": "phosphate de PIP2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les stérides sont les formes estérifiées des stérols."
+        "explanation": "Les stérides sont les formes estérifiées des stérols."
       }
     ],
     "explanation": "Les stérides sont les formes estérifiées des stérols."
@@ -491,7 +491,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L'estérification du OH rend la forme de stockage/transport hydrophobe."
       },
       {
-        "content": "Le support les décrit comme les principaux polymères de glucose.",
+        "content": "Les stérides sont des polymères de glucose.",
         "correct": false,
         "explanation": "L'estérification du OH rend la forme de stockage/transport hydrophobe."
       }
@@ -525,33 +525,33 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des stéroïdes :",
     "choices": [
       {
-        "content": "Ils dérivent des terpènes selon la fiche.",
+        "content": "Leur biosynthèse appartient à la voie isoprénique et passe notamment par le squalène.",
         "correct": true,
-        "explanation": "Le squalène est le précurseur terpénique mis en avant."
+        "explanation": "La voie isoprénique conduit du squalène au squelette stéroïdien."
       },
       {
-        "content": "Le squalène à 30 carbones est particulièrement cité.",
+        "content": "Le squalène est un précurseur isoprénique à 30 carbones de la biosynthèse des stéroïdes.",
         "correct": true,
-        "explanation": "Le squalène est le précurseur terpénique mis en avant."
+        "explanation": "La voie isoprénique conduit du squalène au squelette stéroïdien."
       },
       {
         "content": "Ils comprennent les hormones stéroïdiennes.",
         "correct": true,
-        "explanation": "Le squalène est le précurseur terpénique mis en avant."
+        "explanation": "La voie isoprénique conduit du squalène au squelette stéroïdien."
       },
       {
         "content": "Les stéroïdes sont définis comme des polyosides de réserve.",
         "correct": false,
-        "explanation": "Le squalène est le précurseur terpénique mis en avant."
+        "explanation": "La voie isoprénique conduit du squalène au squelette stéroïdien."
       }
     ],
-    "explanation": "Le squalène est le précurseur terpénique mis en avant."
+    "explanation": "La voie isoprénique conduit du squalène au squelette stéroïdien."
   },
   {
     "order": 20,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel précurseur terpénique à 30 carbones est cité ?",
+    "question": "Quel précurseur isoprénique à 30 carbones intervient dans la biosynthèse des stéroïdes ?",
     "choices": [
       {
         "content": "squalène",
@@ -561,17 +561,17 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le squalène est le précurseur terpénique mis en avant."
+        "explanation": "Le squalène est le précurseur terpénique mis en avant."
       },
       {
         "content": "glucose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le squalène est le précurseur terpénique mis en avant."
+        "explanation": "Le squalène est le précurseur terpénique mis en avant."
       },
       {
         "content": "céramide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le squalène est le précurseur terpénique mis en avant."
+        "explanation": "Le squalène est le précurseur terpénique mis en avant."
       }
     ],
     "explanation": "Le squalène est le précurseur terpénique mis en avant."
@@ -641,7 +641,7 @@ export const UE14_BIOCH_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le noyau stérane ne possède aucun C asymétrique.",
         "correct": false,
-        "explanation": "Six cités."
+        "explanation": "Le noyau stérane comporte six centres stéréogènes dans sa représentation usuelle."
       },
       {
         "content": "Un stéride est hydrophile.",

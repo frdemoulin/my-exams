@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "16",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
       },
       {
         "content": "20",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
       },
       {
         "content": "24",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
       }
     ],
     "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "alcool secondaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. C1 est le site de la tête phosphatée ou glucidique."
+        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
       },
       {
         "content": "phénol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. C1 est le site de la tête phosphatée ou glucidique."
+        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
       },
       {
         "content": "aucun alcool",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. C1 est le site de la tête phosphatée ou glucidique."
+        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
       }
     ],
     "explanation": "C1 est le site de la tête phosphatée ou glucidique."
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "ester",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est formé par amidification de l'amine C2."
+        "explanation": "Le céramide est formé par amidification de l'amine C2."
       },
       {
         "content": "éther",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est formé par amidification de l'amine C2."
+        "explanation": "Le céramide est formé par amidification de l'amine C2."
       },
       {
         "content": "glycosidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est formé par amidification de l'amine C2."
+        "explanation": "Le céramide est formé par amidification de l'amine C2."
       }
     ],
     "explanation": "Le céramide est formé par amidification de l'amine C2."
@@ -188,25 +188,25 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C3 porte un alcool secondaire.",
         "correct": true,
-        "explanation": "Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       },
       {
-        "content": "La fiche le décrit comme non réactif dans ce cadre.",
+        "content": "Dans les dérivés étudiés, cet hydroxyle reste généralement libre.",
         "correct": true,
-        "explanation": "Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       },
       {
-        "content": "Il ne fixe ni phosphate ni ose dans les transformations présentées.",
+        "content": "Dans les dérivés étudiés, les têtes phosphatées ou glucidiques se fixent sur l’hydroxyle de C1.",
         "correct": true,
-        "explanation": "Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       },
       {
         "content": "C3 est le site principal de fixation de l'acide gras par liaison amide.",
         "correct": false,
-        "explanation": "Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       }
     ],
-    "explanation": "Le C3 est un alcool secondaire non réactif dans le modèle du support."
+    "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
   },
   {
     "order": 8,
@@ -217,25 +217,25 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "alcool secondaire",
         "correct": true,
-        "explanation": "Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       },
       {
         "content": "alcool primaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       },
       {
         "content": "phosphate",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       },
       {
         "content": "amine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le C3 est un alcool secondaire non réactif dans le modèle du support."
+        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
       }
     ],
-    "explanation": "Le C3 est un alcool secondaire non réactif dans le modèle du support."
+    "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
   },
   {
     "order": 9,
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C1-C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "La sphingosine porte une double liaison trans C4-C5."
       },
       {
         "content": "C2-C3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "La sphingosine porte une double liaison trans C4-C5."
       },
       {
         "content": "C17-C18",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "La sphingosine porte une double liaison trans C4-C5."
       }
     ],
     "explanation": "La sphingosine porte une double liaison trans C4-C5."
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est la structure sphingosine-acide gras par liaison amide."
+        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
       },
       {
         "content": "cholestérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est la structure sphingosine-acide gras par liaison amide."
+        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
       },
       {
         "content": "ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est la structure sphingosine-acide gras par liaison amide."
+        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
       }
     ],
     "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
@@ -362,54 +362,54 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils sont à longue chaîne.",
         "correct": true,
-        "explanation": "La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       },
       {
-        "content": "La plage 16 à 24 carbones est donnée.",
+        "content": "Les chaînes acyles des céramides comportent fréquemment de 16 à 24 carbones.",
         "correct": true,
-        "explanation": "La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       },
       {
-        "content": "L'acide lignocérique 24:0 est cité comme très fréquent.",
+        "content": "L’acide lignocérique 24:0 est un exemple d’acide gras à très longue chaîne pouvant entrer dans un céramide.",
         "correct": true,
-        "explanation": "La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       },
       {
         "content": "Les céramides ne contiennent jamais d'acide gras.",
         "correct": false,
-        "explanation": "La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       }
     ],
-    "explanation": "La fiche met en avant l'acide lignocérique 24:0."
+    "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
   },
   {
     "order": 14,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel acide gras 24:0 est cité comme fréquent ?",
+    "question": "Quel nom porte l’acide gras saturé 24:0 ?",
     "choices": [
       {
         "content": "acide lignocérique",
         "correct": true,
-        "explanation": "La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       },
       {
         "content": "acide palmitoléique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       },
       {
         "content": "acide linoléique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       },
       {
         "content": "acide arachidonique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche met en avant l'acide lignocérique 24:0."
+        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
       }
     ],
-    "explanation": "La fiche met en avant l'acide lignocérique 24:0."
+    "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
   },
   {
     "order": 15,
@@ -454,17 +454,17 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "sphingomyélinase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
       },
       {
         "content": "PLA2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
       },
       {
         "content": "lactase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
       }
     ],
     "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
@@ -530,12 +530,12 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Les céramides sont aussi des médiateurs de signalisation."
       },
       {
-        "content": "Le support les relie à l'apoptose.",
+        "content": "Ils peuvent participer à l’activation de voies conduisant à l’apoptose.",
         "correct": true,
         "explanation": "Les céramides sont aussi des médiateurs de signalisation."
       },
       {
-        "content": "Il les relie aussi à différenciation et prolifération.",
+        "content": "Ils peuvent aussi moduler la différenciation et la prolifération cellulaires.",
         "correct": true,
         "explanation": "Les céramides sont aussi des médiateurs de signalisation."
       },
@@ -551,7 +551,7 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 20,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel processus de mort cellulaire est cité ?",
+    "question": "Quel processus de mort cellulaire peut être favorisé par le céramide ?",
     "choices": [
       {
         "content": "apoptose",
@@ -561,17 +561,17 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "mitose uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les céramides sont aussi des médiateurs de signalisation."
+        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
       },
       {
         "content": "méiose uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les céramides sont aussi des médiateurs de signalisation."
+        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
       },
       {
         "content": "traduction",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les céramides sont aussi des médiateurs de signalisation."
+        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
       }
     ],
     "explanation": "Les céramides sont aussi des médiateurs de signalisation."
@@ -651,7 +651,7 @@ export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C3 fixe obligatoirement le phosphate.",
         "correct": false,
-        "explanation": "Non réactif dans le modèle."
+        "explanation": "Dans les dérivés étudiés, les têtes polaires se fixent en C1 et l’acide gras sur l’amine de C2."
       },
       {
         "content": "La sphingosine a 27 C.",

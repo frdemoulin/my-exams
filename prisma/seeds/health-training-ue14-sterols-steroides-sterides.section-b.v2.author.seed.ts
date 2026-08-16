@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "18",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est un stérol à 27 carbones."
+        "explanation": "Le cholestérol est un stérol à 27 carbones."
       },
       {
         "content": "21",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est un stérol à 27 carbones."
+        "explanation": "Le cholestérol est un stérol à 27 carbones."
       },
       {
         "content": "24",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est un stérol à 27 carbones."
+        "explanation": "Le cholestérol est un stérol à 27 carbones."
       }
     ],
     "explanation": "Le cholestérol est un stérol à 27 carbones."
@@ -70,56 +70,56 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des carbones asymétriques du cholestérol :",
     "choices": [
       {
-        "content": "La fiche en compte huit.",
+        "content": "Le cholestérol possède huit centres stéréogènes.",
         "correct": true,
-        "explanation": "La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       },
       {
-        "content": "Les positions 3, 8, 9, 10, 13, 14, 17 et 20 sont citées.",
+        "content": "Les huit centres stéréogènes du cholestérol se situent en C3, C8, C9, C10, C13, C14, C17 et C20.",
         "correct": true,
-        "explanation": "La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       },
       {
-        "content": "Le carbone 3 fait partie de cette liste dans le support.",
+        "content": "Le carbone 3, porteur du groupement hydroxyle, est l’un de ces centres.",
         "correct": true,
-        "explanation": "La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       },
       {
         "content": "Le cholestérol ne possède que les six carbones asymétriques du stérane sans positions supplémentaires.",
         "correct": false,
-        "explanation": "La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       }
     ],
-    "explanation": "La fiche donne huit positions asymétriques pour le cholestérol."
+    "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
   },
   {
     "order": 26,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de carbones asymétriques sont cités pour le cholestérol ?",
+    "question": "Combien de centres stéréogènes possède le cholestérol ?",
     "choices": [
       {
         "content": "8",
         "correct": true,
-        "explanation": "La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       },
       {
         "content": "4",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       },
       {
         "content": "6",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       },
       {
         "content": "10",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche donne huit positions asymétriques pour le cholestérol."
+        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
       }
     ],
-    "explanation": "La fiche donne huit positions asymétriques pour le cholestérol."
+    "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
   },
   {
     "order": 27,
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C5",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
+        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
       },
       {
         "content": "C17",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
+        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
       },
       {
         "content": "C27",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
+        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
       }
     ],
     "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
@@ -188,25 +188,25 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Elle est située entre C5 et C6.",
         "correct": true,
-        "explanation": "La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       },
       {
         "content": "Elle constitue un repère structural du cholestérol.",
         "correct": true,
-        "explanation": "La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       },
       {
         "content": "Elle se trouve dans le noyau stéroïdien.",
         "correct": true,
-        "explanation": "La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       },
       {
         "content": "Elle est située entre C20 et C21.",
         "correct": false,
-        "explanation": "La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       }
     ],
-    "explanation": "La fiche situe la double liaison du cholestérol en C5-C6."
+    "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
   },
   {
     "order": 30,
@@ -217,25 +217,25 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C5-C6",
         "correct": true,
-        "explanation": "La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       },
       {
         "content": "C1-C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       },
       {
         "content": "C17-C18",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       },
       {
         "content": "C26-C27",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche situe la double liaison du cholestérol en C5-C6."
+        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
       }
     ],
-    "explanation": "La fiche situe la double liaison du cholestérol en C5-C6."
+    "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
   },
   {
     "order": 31,
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "entièrement hydrophile",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
+        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
       },
       {
         "content": "protéique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
+        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
       },
       {
         "content": "polysaccharidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
+        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
       }
     ],
     "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
@@ -312,7 +312,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L'estérification masque le OH polaire."
       },
       {
-        "content": "Elle est présentée comme une forme de stockage.",
+        "content": "L’estérification du cholestérol produit une forme très hydrophobe adaptée au stockage.",
         "correct": true,
         "explanation": "L'estérification masque le OH polaire."
       },
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "amphiphilie accrue",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'estérification masque le OH polaire."
+        "explanation": "L'estérification masque le OH polaire."
       },
       {
         "content": "charge positive",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'estérification masque le OH polaire."
+        "explanation": "L'estérification masque le OH polaire."
       },
       {
         "content": "solubilité aqueuse complète",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'estérification masque le OH polaire."
+        "explanation": "L'estérification masque le OH polaire."
       }
     ],
     "explanation": "L'estérification masque le OH polaire."
@@ -370,7 +370,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le cholestérol est un modulateur structural des membranes."
       },
       {
-        "content": "Il régule l'activité de protéines membranaires dans la fiche.",
+        "content": "Il module l’activité de certaines protéines membranaires.",
         "correct": true,
         "explanation": "Le cholestérol est un modulateur structural des membranes."
       },
@@ -386,7 +386,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : combien de carbones comporte une molécule de cholestérol dans la fiche ?",
+    "question": "Réponse numérique : combien de carbones comporte une molécule de cholestérol ?",
     "answer": {
       "type": "number",
       "value": 27,
@@ -416,7 +416,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Les acides biliaires dérivent du cholestérol."
       },
       {
-        "content": "Le cholestérol est présenté comme précurseur direct de la cellulose.",
+        "content": "Le cholestérol est un précurseur direct de la cellulose.",
         "correct": false,
         "explanation": "Les acides biliaires dérivent du cholestérol."
       }
@@ -437,17 +437,17 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides biliaires dérivent du cholestérol."
+        "explanation": "Les acides biliaires dérivent du cholestérol."
       },
       {
         "content": "lactose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides biliaires dérivent du cholestérol."
+        "explanation": "Les acides biliaires dérivent du cholestérol."
       },
       {
         "content": "collagène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides biliaires dérivent du cholestérol."
+        "explanation": "Les acides biliaires dérivent du cholestérol."
       }
     ],
     "explanation": "Les acides biliaires dérivent du cholestérol."
@@ -461,54 +461,54 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Le cholestérol est transporté par des lipoprotéines.",
         "correct": true,
-        "explanation": "LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       },
       {
-        "content": "LDL est cité.",
+        "content": "Les LDL transportent du cholestérol du foie vers les tissus périphériques.",
         "correct": true,
-        "explanation": "LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       },
       {
-        "content": "HDL est cité.",
+        "content": "Les HDL participent au transport inverse du cholestérol vers le foie.",
         "correct": true,
-        "explanation": "LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       },
       {
         "content": "Le cholestérol circule uniquement librement dissous dans l'eau du plasma.",
         "correct": false,
-        "explanation": "LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       }
     ],
-    "explanation": "LDL et HDL sont les exemples de lipoprotéines du support."
+    "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelles particules sont citées pour son transport ?",
+    "question": "Quel type de particules assure le transport plasmatique du cholestérol ?",
     "choices": [
       {
         "content": "lipoprotéines",
         "correct": true,
-        "explanation": "LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       },
       {
         "content": "ribosomes",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       },
       {
         "content": "lysosomes",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       },
       {
         "content": "protéasomes",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. LDL et HDL sont les exemples de lipoprotéines du support."
+        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
       }
     ],
-    "explanation": "LDL et HDL sont les exemples de lipoprotéines du support."
+    "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
   },
   {
     "order": 41,
@@ -543,7 +543,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de carbones comporte le noyau cholane cité ?",
+    "question": "Combien de carbones comporte le squelette cholane des acides biliaires ?",
     "choices": [
       {
         "content": "24",
@@ -553,17 +553,17 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "18",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
+        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
       },
       {
         "content": "21",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
+        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
       },
       {
         "content": "27",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
+        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
       }
     ],
     "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
@@ -573,17 +573,17 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux particules citées pour le transport sanguin du cholestérol.",
+    "question": "Sélectionnez exactement les deux classes de lipoprotéines participant au transport sanguin du cholestérol.",
     "choices": [
       {
         "content": "LDL",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "Les LDL transportent du cholestérol du foie vers les tissus périphériques."
       },
       {
         "content": "HDL",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "Les HDL participent au transport inverse du cholestérol vers le foie."
       },
       {
         "content": "ribosome",
@@ -596,7 +596,7 @@ export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Non."
       }
     ],
-    "explanation": "LDL et HDL sont les exemples de lipoprotéines cités."
+    "explanation": "LDL et HDL sont deux classes de lipoprotéines plasmatiques."
   },
   {
     "order": 44,

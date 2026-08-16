@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "amide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est un phosphosphingolipide."
+        "explanation": "La sphingomyéline est un phosphosphingolipide."
       },
       {
         "content": "ester simple de C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est un phosphosphingolipide."
+        "explanation": "La sphingomyéline est un phosphosphingolipide."
       },
       {
         "content": "β-osidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est un phosphosphingolipide."
+        "explanation": "La sphingomyéline est un phosphosphingolipide."
       }
     ],
     "explanation": "La sphingomyéline est un phosphosphingolipide."
@@ -67,59 +67,59 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 25,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la fréquence de la sphingomyéline :",
+    "question": "À propos de la sphingomyéline chez l’être humain :",
     "choices": [
       {
-        "content": "La fiche la présente comme le phosphosphingolipide le plus important.",
+        "content": "C’est un phosphosphingolipide membranaire majeur.",
         "correct": true,
-        "explanation": "La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       },
       {
-        "content": "Elle représente environ 85 % des sphingolipides chez l'Homme dans le support.",
+        "content": "Elle est particulièrement abondante dans la gaine de myéline.",
         "correct": true,
-        "explanation": "La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       },
       {
-        "content": "Elle est abondante dans des tissus nerveux.",
+        "content": "Sa tête polaire contient le plus souvent de la phosphocholine.",
         "correct": true,
-        "explanation": "La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       },
       {
-        "content": "Elle est décrite comme totalement absente chez l'Homme.",
+        "content": "Elle est absente du système nerveux.",
         "correct": false,
-        "explanation": "La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       }
     ],
-    "explanation": "La fiche donne 85 % des sphingolipides chez l'Homme."
+    "explanation": "La sphingomyéline est un constituant membranaire majeur, enrichi dans la myéline ; sa proportion varie selon les tissus et ne se résume pas à un pourcentage universel."
   },
   {
     "order": 26,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel pourcentage est indiqué ?",
+    "question": "Quelle structure nerveuse est particulièrement riche en sphingomyéline ?",
     "choices": [
       {
-        "content": "85 %",
+        "content": "La gaine de myéline",
         "correct": true,
-        "explanation": "La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       },
       {
-        "content": "5 %",
+        "content": "Le sarcomère",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       },
       {
-        "content": "25 %",
+        "content": "La matrice osseuse minéralisée",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       },
       {
-        "content": "100 %",
+        "content": "L’émail dentaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche donne 85 % des sphingolipides chez l'Homme."
+        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
       }
     ],
-    "explanation": "La fiche donne 85 % des sphingolipides chez l'Homme."
+    "explanation": "La sphingomyéline est particulièrement abondante dans les membranes qui constituent la gaine de myéline."
   },
   {
     "order": 27,
@@ -133,7 +133,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La sphingomyélinase libère un céramide."
       },
       {
-        "content": "Le produit principal indiqué est le céramide.",
+        "content": "L’hydrolyse de la sphingomyéline par une sphingomyélinase libère du céramide.",
         "correct": true,
         "explanation": "La sphingomyélinase libère un céramide."
       },
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "céramidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyélinase libère un céramide."
+        "explanation": "La sphingomyélinase libère un céramide."
       },
       {
         "content": "β-glucosidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyélinase libère un céramide."
+        "explanation": "La sphingomyélinase libère un céramide."
       },
       {
         "content": "phospholipase A2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyélinase libère un céramide."
+        "explanation": "La sphingomyélinase libère un céramide."
       }
     ],
     "explanation": "La sphingomyélinase libère un céramide."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "sarcomère",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
+        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
       },
       {
         "content": "capsule rénale",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
+        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
       },
       {
         "content": "émail",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
+        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
       }
     ],
     "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
@@ -244,56 +244,56 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la sphingomyéline et de la cornée :",
     "choices": [
       {
-        "content": "La cornée est citée comme tissu contenant de la sphingomyéline.",
+        "content": "La cornée contient de la sphingomyéline dans ses membranes cellulaires.",
         "correct": true,
-        "explanation": "La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       },
       {
         "content": "La molécule a un rôle structural membranaire.",
         "correct": true,
-        "explanation": "La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       },
       {
         "content": "Elle peut aussi participer à la signalisation.",
         "correct": true,
-        "explanation": "La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       },
       {
-        "content": "La cornée est citée comme tissu dépourvu de sphingolipides.",
+        "content": "La cornée est dépourvue de sphingolipides.",
         "correct": false,
-        "explanation": "La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       }
     ],
-    "explanation": "La cornée fait partie des localisations données."
+    "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
   },
   {
     "order": 32,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel tissu oculaire est cité ?",
+    "question": "Quel tissu oculaire contient notamment de la sphingomyéline ?",
     "choices": [
       {
         "content": "cornée",
         "correct": true,
-        "explanation": "La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       },
       {
         "content": "rétine uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       },
       {
         "content": "cristallin uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       },
       {
         "content": "nerf optique uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La cornée fait partie des localisations données."
+        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
       }
     ],
-    "explanation": "La cornée fait partie des localisations données."
+    "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
   },
   {
     "order": 33,
@@ -307,7 +307,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
       },
       {
-        "content": "La fiche relie cette fonction à l'activité neuronale.",
+        "content": "Dans le tissu nerveux, elle contribue à l’organisation membranaire et à la signalisation cellulaire.",
         "correct": true,
         "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
       },
@@ -328,7 +328,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 34,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle fonction cellulaire est citée en plus du rôle structural ?",
+    "question": "Quelle fonction cellulaire complète le rôle structural de la sphingomyéline ?",
     "choices": [
       {
         "content": "transduction du signal",
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "synthèse d'ADN uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est à la fois structurale et fonctionnelle."
+        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
       },
       {
         "content": "glycolyse",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est à la fois structurale et fonctionnelle."
+        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
       },
       {
         "content": "réplication virale",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est à la fois structurale et fonctionnelle."
+        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
       }
     ],
     "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
@@ -357,30 +357,30 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 35,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la sclérose en plaques dans la fiche :",
+    "question": "À propos de la sclérose en plaques :",
     "choices": [
       {
-        "content": "Elle est citée comme maladie de démyélinisation.",
+        "content": "C’est une maladie inflammatoire démyélinisante du système nerveux central.",
         "correct": true,
-        "explanation": "Le support cite la sclérose en plaques comme exemple de maladie de démyélinisation."
+        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
       },
       {
-        "content": "Le contexte renvoie à la gaine de myéline riche en sphingomyéline.",
+        "content": "Elle altère la gaine de myéline du système nerveux central.",
         "correct": true,
-        "explanation": "Le support cite la sclérose en plaques comme exemple de maladie de démyélinisation."
+        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
       },
       {
-        "content": "Il s'agit d'un exemple médical associé au tissu nerveux.",
+        "content": "La démyélinisation perturbe la conduction de l’influx nerveux.",
         "correct": true,
-        "explanation": "Le support cite la sclérose en plaques comme exemple de maladie de démyélinisation."
+        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
       },
       {
-        "content": "La fiche la présente comme une maladie d'accumulation de glycogène.",
+        "content": "Il s’agit d’une maladie d’accumulation de glycogène.",
         "correct": false,
-        "explanation": "Le support cite la sclérose en plaques comme exemple de maladie de démyélinisation."
+        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
       }
     ],
-    "explanation": "Le support cite la sclérose en plaques comme exemple de maladie de démyélinisation."
+    "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
   },
   {
     "order": 36,
@@ -414,7 +414,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La choline est la tête polaire typique de la sphingomyéline."
       },
       {
-        "content": "L'éthanolamine est également citée comme possibilité.",
+        "content": "Une tête phosphoéthanolamine existe aussi dans certains sphingolipides.",
         "correct": true,
         "explanation": "La choline est la tête polaire typique de la sphingomyéline."
       },
@@ -435,7 +435,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel alcool aminé est le plus classiquement cité ?",
+    "question": "Quel alcool aminé constitue la tête polaire la plus fréquente de la sphingomyéline ?",
     "choices": [
       {
         "content": "choline",
@@ -445,17 +445,17 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "mannitol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La choline est la tête polaire typique de la sphingomyéline."
+        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
       },
       {
         "content": "sorbitol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La choline est la tête polaire typique de la sphingomyéline."
+        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
       },
       {
         "content": "cholestérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La choline est la tête polaire typique de la sphingomyéline."
+        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
       }
     ],
     "explanation": "La choline est la tête polaire typique de la sphingomyéline."
@@ -469,54 +469,54 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Il dérive de la sphingosine.",
         "correct": true,
-        "explanation": "Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       },
       {
         "content": "Il porte un acide gras par liaison amide.",
         "correct": true,
-        "explanation": "Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       },
       {
-        "content": "L'acide lignocérique est cité dans le céramide fréquent.",
+        "content": "La chaîne acyle peut être longue ou très longue selon l’espèce de sphingomyéline.",
         "correct": true,
-        "explanation": "Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       },
       {
         "content": "Il porte trois acides gras estérifiés au glycérol.",
         "correct": false,
-        "explanation": "Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       }
     ],
-    "explanation": "Le support rappelle le céramide sphingosine + acide lignocérique."
+    "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel acide gras est fréquemment cité dans ce céramide ?",
+    "question": "Quelle liaison unit l’acide gras à la base sphingoïde dans un céramide ?",
     "choices": [
       {
-        "content": "acide lignocérique",
+        "content": "Une liaison amide",
         "correct": true,
-        "explanation": "Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       },
       {
-        "content": "acide formique",
+        "content": "Une liaison O-glycosidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       },
       {
-        "content": "acide lactique",
+        "content": "Une liaison phosphodiester",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       },
       {
-        "content": "acide pyruvique",
+        "content": "Une liaison peptidique entre deux acides aminés",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le support rappelle le céramide sphingosine + acide lignocérique."
+        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
       }
     ],
-    "explanation": "Le support rappelle le céramide sphingosine + acide lignocérique."
+    "explanation": "Dans un céramide, le carboxyle de l’acide gras forme une liaison amide avec l’amine portée par C2 de la base sphingoïde."
   },
   {
     "order": 41,
@@ -561,17 +561,17 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "maltose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est le phosphosphingolipide de référence."
+        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
       },
       {
         "content": "cholestérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est le phosphosphingolipide de référence."
+        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
       },
       {
         "content": "glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyéline est le phosphosphingolipide de référence."
+        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
       }
     ],
     "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
@@ -581,17 +581,17 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux alcools aminés cités comme têtes possibles de la sphingomyéline.",
+    "question": "Sélectionnez exactement les deux alcools aminés pouvant constituer une tête phosphatée de sphingolipide.",
     "choices": [
       {
         "content": "Choline",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "La phosphocholine est la tête polaire la plus fréquente de la sphingomyéline."
       },
       {
         "content": "Éthanolamine",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "La phosphoéthanolamine constitue une autre tête phosphatée possible de sphingolipide."
       },
       {
         "content": "Sorbitol",
@@ -604,7 +604,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Polyol."
       }
     ],
-    "explanation": "Choline et éthanolamine sont citées."
+    "explanation": "La choline et l’éthanolamine sont deux alcools aminés pouvant former des têtes phosphatées."
   },
   {
     "order": 44,
@@ -659,7 +659,7 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Sphingomyélinase."
       },
       {
-        "content": "La sclérose en plaques est une glycogénose dans la fiche.",
+        "content": "La sclérose en plaques est une glycogénose.",
         "correct": false,
         "explanation": "Démyélinisation."
       }

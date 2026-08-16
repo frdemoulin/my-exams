@@ -8,114 +8,114 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant l’absorption UV générale des acides aminés :",
     "choices": [
       {
-        "content": "Les acides aminés n’absorbent pas la lumière visible selon la fiche.",
+        "content": "Les acides aminés standards sont généralement incolores et n’absorbent pas significativement dans le visible.",
         "correct": true,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       },
       {
         "content": "La plupart absorbent dans l’UV à des longueurs d’onde inférieures à 230 nm.",
         "correct": true,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       },
       {
         "content": "Tous absorbent fortement à 600 nm.",
         "correct": false,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       },
       {
-        "content": "La fiche situe leur absorption générale dans l’infrarouge uniquement.",
+        "content": "Leur absorption générale se situe uniquement dans l’infrarouge.",
         "correct": false,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       }
     ],
-    "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+    "explanation": "Les groupements communs des acides aminés absorbent dans l’UV lointain ; les chaînes aromatiques apportent une absorption à des longueurs d’onde plus élevées."
   },
   {
     "order": 68,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Dans quel domaine spectral la plupart des acides aminés absorbent-ils selon la fiche ?",
+    "question": "Dans quel domaine spectral se situe l’absorption électronique des acides aminés standards ?",
     "choices": [
       {
         "content": "dans l’ultraviolet",
         "correct": true,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       },
       {
         "content": "dans les micro-ondes",
         "correct": false,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       },
       {
         "content": "uniquement dans le visible",
         "correct": false,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       },
       {
         "content": "uniquement dans l’infrarouge",
         "correct": false,
-        "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+        "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
       }
     ],
-    "explanation": "Le support distingue l’absorption UV générale de l’absorption autour de 280 nm des chaînes aromatiques et de l’histidine."
+    "explanation": "Les liaisons peptidiques absorbent surtout dans l’UV lointain, tandis que l’absorbance des protéines à 280 nm provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine."
   },
   {
     "order": 69,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’absorption autour de 280 nm :",
+    "question": "Concernant l’absorbance des protéines autour de 280 nm :",
     "choices": [
       {
-        "content": "Phe, Tyr, Trp et His sont citées comme exceptions absorbant vers 280 nm.",
+        "content": "Elle provient principalement du tryptophane et de la tyrosine, avec une contribution plus faible de la phénylalanine.",
         "correct": true,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
-        "content": "Cette absorption est reliée aux cycles et doubles liaisons conjuguées.",
+        "content": "Elle est liée aux systèmes aromatiques conjugués de ces chaînes latérales.",
         "correct": true,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "La glycine est l’exemple principal d’absorption à 280 nm.",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "Les acides aminés aromatiques sont dépourvus de doubles liaisons conjuguées.",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       }
     ],
-    "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+    "explanation": "L’absorbance à 280 nm des protéines dépend surtout du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement et l’histidine n’est pas un contributeur majeur à cette longueur d’onde."
   },
   {
     "order": 70,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle longueur d’onde repère est donnée pour les acides aminés aromatiques et l’histidine ?",
+    "question": "Quelle longueur d’onde est classiquement utilisée pour estimer une concentration protéique grâce surtout au tryptophane et à la tyrosine ?",
     "choices": [
       {
         "content": "environ 280 nm",
         "correct": true,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "environ 28 nm",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "environ 580 nm",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "environ 2,8 µm",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       }
     ],
-    "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+    "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
   },
   {
     "order": 71,
@@ -245,7 +245,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "En milieu acide, la protonation favorise la forme cationique."
       },
       {
-        "content": "La charge globale tend vers le positif dans le modèle du support.",
+        "content": "La protonation des fonctions ionisables favorise une charge globale positive.",
         "correct": true,
         "explanation": "En milieu acide, la protonation favorise la forme cationique."
       },
@@ -298,7 +298,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant le zwitterion en milieu neutre :",
     "choices": [
       {
-        "content": "La fiche associe un ammonium positif et un carboxylate négatif.",
+        "content": "Il associe généralement un groupement ammonium positif et un carboxylate négatif.",
         "correct": true,
         "explanation": "Le zwitterion est électriquement neutre au total mais dipolaire par ses charges locales."
       },
@@ -324,13 +324,13 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : à quelle longueur d’onde, en nm, la fiche situe-t-elle l’absorption UV des acides aminés aromatiques et de l’histidine ?",
+    "question": "Réponse numérique : à quelle longueur d’onde, en nm, mesure-t-on classiquement l’absorbance des protéines due surtout au tryptophane et à la tyrosine ?",
     "answer": {
       "type": "number",
       "value": 280,
       "tolerance": 1
     },
-    "explanation": "La valeur repère donnée est 280 nm."
+    "explanation": "L’absorbance protéique due surtout au tryptophane et à la tyrosine est classiquement mesurée à 280 nm."
   },
   {
     "order": 79,
@@ -344,7 +344,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La déprotonation favorise une forme anionique."
       },
       {
-        "content": "La charge globale tend vers le négatif dans le modèle du support.",
+        "content": "La déprotonation des fonctions ionisables favorise une charge globale négative.",
         "correct": true,
         "explanation": "La déprotonation favorise une forme anionique."
       },
@@ -460,7 +460,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La nature acide ou basique du radical décale le point isoélectrique."
       },
       {
-        "content": "Les acides aminés basiques ont un pHi plus élevé dans les exemples du support.",
+        "content": "Les acides aminés à chaîne latérale basique ont généralement un pHi plus élevé.",
         "correct": true,
         "explanation": "La nature acide ou basique du radical décale le point isoélectrique."
       },
@@ -470,7 +470,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La nature acide ou basique du radical décale le point isoélectrique."
       },
       {
-        "content": "Les acides aminés acides ont toujours un pHi supérieur à 12 dans la fiche.",
+        "content": "Les acides aminés à chaîne latérale acide ont toujours un pHi supérieur à 12.",
         "correct": false,
         "explanation": "La nature acide ou basique du radical décale le point isoélectrique."
       }
@@ -481,7 +481,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 84,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel type d’acide aminé présente un pHi élevé dans les exemples donnés ?",
+    "question": "Quel type d’acide aminé présente généralement un pHi élevé ?",
     "choices": [
       {
         "content": "un acide aminé basique",
@@ -510,117 +510,117 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 85,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant le pHi de la lysine dans la fiche :",
+    "question": "Concernant le point isoélectrique de la lysine :",
     "choices": [
       {
-        "content": "La lysine est donnée comme exemple d’acide aminé basique.",
+        "content": "La lysine possède une chaîne latérale basique.",
         "correct": true,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       },
       {
-        "content": "Son pHi cité est supérieur à 7.",
+        "content": "Son pHi est supérieur à 7.",
         "correct": true,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       },
       {
-        "content": "La lysine est donnée comme exemple d’acide aminé acide de pHi inférieur à 3.",
+        "content": "La lysine est un acide aminé acide de pHi inférieur à 3.",
         "correct": false,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       },
       {
-        "content": "La valeur citée pour la lysine est 2,87.",
+        "content": "Le pHi de la lysine est voisin de 2,87.",
         "correct": false,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       }
     ],
-    "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+    "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
   },
   {
     "order": 86,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle valeur de pHi est citée pour la lysine ?",
+    "question": "Quelle valeur est proche du pHi de la lysine ?",
     "choices": [
       {
         "content": "9,74",
         "correct": true,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       },
       {
         "content": "2,87",
         "correct": false,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       },
       {
         "content": "7,00",
         "correct": false,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       },
       {
         "content": "0,28",
         "correct": false,
-        "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+        "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
       }
     ],
-    "explanation": "La fiche cite la lysine à pHi 9,74 comme exemple d’acide aminé basique."
+    "explanation": "La lysine, dont la chaîne latérale est basique, possède un point isoélectrique voisin de 9,74."
   },
   {
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant le pHi de l’acide aspartique dans la fiche :",
+    "question": "Concernant le point isoélectrique de l’acide aspartique :",
     "choices": [
       {
-        "content": "L’acide aspartique est donné comme exemple d’acide aminé acide.",
+        "content": "L’acide aspartique possède une chaîne latérale acide.",
         "correct": true,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       },
       {
-        "content": "Son pHi cité est inférieur à 3.",
+        "content": "Son pHi est inférieur à 3.",
         "correct": true,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       },
       {
-        "content": "Son pHi cité est 9,74.",
+        "content": "Son pHi est voisin de 9,74.",
         "correct": false,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       },
       {
-        "content": "La fiche le classe comme acide aminé basique.",
+        "content": "Il possède une chaîne latérale basique.",
         "correct": false,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       }
     ],
-    "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+    "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
   },
   {
     "order": 88,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle valeur de pHi est citée pour l’acide aspartique ?",
+    "question": "Quelle valeur est proche du pHi de l’acide aspartique ?",
     "choices": [
       {
-        "content": "2,87",
+        "content": "2,77",
         "correct": true,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       },
       {
         "content": "9,74",
         "correct": false,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       },
       {
         "content": "7,40",
         "correct": false,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       },
       {
         "content": "28,7",
         "correct": false,
-        "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+        "explanation": "L’acide aspartique, dont la chaîne latérale est acide, possède un point isoélectrique voisin de 2,77."
       }
     ],
-    "explanation": "La fiche cite l’acide aspartique à pHi 2,87 comme exemple d’acide aminé acide."
+    "explanation": "Le groupement carboxyle supplémentaire de l’acide aspartique abaisse son point isoélectrique, voisin de 2,77."
   },
   {
     "order": 89,
@@ -706,7 +706,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 92,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Réponse numérique : quel pHi est cité pour la lysine dans la fiche ?",
+    "question": "Réponse numérique : quel est approximativement le pHi de la lysine ?",
     "answer": {
       "type": "number",
       "value": 9.74,
@@ -726,7 +726,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La ninhydrine permet de révéler de nombreux acides aminés primaires par une coloration violette."
       },
       {
-        "content": "La coloration indiquée est pourpre ou violette.",
+        "content": "Les acides α-aminés à fonction amine primaire donnent le pourpre de Ruhemann avec la ninhydrine.",
         "correct": true,
         "explanation": "La ninhydrine permet de révéler de nombreux acides aminés primaires par une coloration violette."
       },
@@ -779,12 +779,12 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Concernant la réaction à la ninhydrine de la proline :",
     "choices": [
       {
-        "content": "Proline et hydroxyproline sont les cas d’acides aminés secondaires cités.",
+        "content": "La proline et l’hydroxyproline portent une fonction α-aminée secondaire.",
         "correct": true,
         "explanation": "La fonction amine secondaire explique le comportement particulier de la proline et de l’hydroxyproline."
       },
       {
-        "content": "Leur réaction donne une coloration jaune dans le support.",
+        "content": "Leur réaction donne une coloration jaune.",
         "correct": true,
         "explanation": "La fonction amine secondaire explique le comportement particulier de la proline et de l’hydroxyproline."
       },
@@ -805,7 +805,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 96,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle couleur la fiche associe-t-elle à la proline avec la ninhydrine ?",
+    "question": "Quelle couleur la proline forme-t-elle avec la ninhydrine ?",
     "choices": [
       {
         "content": "jaune",
@@ -835,59 +835,59 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux transformations citées dans la réaction des acides aminés avec la ninhydrine.",
+    "question": "Sélectionnez exactement les deux transformations intervenant dans la réaction d’un acide α-aminé avec la ninhydrine.",
     "choices": [
       {
         "content": "Désamination",
         "correct": true,
-        "explanation": "La fiche mentionne désamination et décarboxylation."
+        "explanation": "La réaction à la ninhydrine des acides aminés α-aminés comporte notamment une désamination oxydative et une décarboxylation."
       },
       {
         "content": "Décarboxylation",
         "correct": true,
-        "explanation": "La fiche mentionne désamination et décarboxylation."
+        "explanation": "La réaction à la ninhydrine des acides aminés α-aminés comporte notamment une désamination oxydative et une décarboxylation."
       },
       {
         "content": "Phosphorylation",
         "correct": false,
-        "explanation": "La fiche mentionne désamination et décarboxylation."
+        "explanation": "La réaction à la ninhydrine des acides aminés α-aminés comporte notamment une désamination oxydative et une décarboxylation."
       },
       {
         "content": "Hydrogénation",
         "correct": false,
-        "explanation": "La fiche mentionne désamination et décarboxylation."
+        "explanation": "La réaction à la ninhydrine des acides aminés α-aminés comporte notamment une désamination oxydative et une décarboxylation."
       }
     ],
-    "explanation": "La fiche mentionne désamination et décarboxylation."
+    "explanation": "La réaction à la ninhydrine des acides aminés α-aminés comporte notamment une désamination oxydative et une décarboxylation."
   },
   {
     "order": 98,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quels deux types de transformations sont cités ?",
+    "question": "Quelles transformations interviennent notamment dans la réaction avec la ninhydrine ?",
     "choices": [
       {
         "content": "désamination et décarboxylation",
         "correct": true,
-        "explanation": "Le support relie la coloration à une réaction impliquant désamination et décarboxylation."
+        "explanation": "La ninhydrine réagit avec le groupement α-aminé ; la réaction comporte notamment désamination et décarboxylation et produit un composé coloré."
       },
       {
         "content": "hydrogénation et estérification",
         "correct": false,
-        "explanation": "Le support relie la coloration à une réaction impliquant désamination et décarboxylation."
+        "explanation": "La ninhydrine réagit avec le groupement α-aminé ; la réaction comporte notamment désamination et décarboxylation et produit un composé coloré."
       },
       {
         "content": "saponification et nitration",
         "correct": false,
-        "explanation": "Le support relie la coloration à une réaction impliquant désamination et décarboxylation."
+        "explanation": "La ninhydrine réagit avec le groupement α-aminé ; la réaction comporte notamment désamination et décarboxylation et produit un composé coloré."
       },
       {
         "content": "réduction et phosphorylation",
         "correct": false,
-        "explanation": "Le support relie la coloration à une réaction impliquant désamination et décarboxylation."
+        "explanation": "La ninhydrine réagit avec le groupement α-aminé ; la réaction comporte notamment désamination et décarboxylation et produit un composé coloré."
       }
     ],
-    "explanation": "Le support relie la coloration à une réaction impliquant désamination et décarboxylation."
+    "explanation": "La ninhydrine réagit avec le groupement α-aminé ; la réaction comporte notamment désamination et décarboxylation et produit un composé coloré."
   },
   {
     "order": 99,
@@ -906,7 +906,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La ninhydrine constitue un réactif analytique de révélation des acides aminés."
       },
       {
-        "content": "La fiche la présente uniquement comme une hormone.",
+        "content": "La ninhydrine est uniquement une hormone.",
         "correct": false,
         "explanation": "La ninhydrine constitue un réactif analytique de révélation des acides aminés."
       },
@@ -961,7 +961,7 @@ export const UE14_BIOCH_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L’ionisation et la ninhydrine fournissent des repères physico-chimiques complémentaires."
       },
       {
-        "content": "La lysine est citée avec un pHi inférieur à 3.",
+        "content": "La lysine possède un pHi bas, inférieur à 3.",
         "correct": false,
         "explanation": "L’ionisation et la ninhydrine fournissent des repères physico-chimiques complémentaires."
       },

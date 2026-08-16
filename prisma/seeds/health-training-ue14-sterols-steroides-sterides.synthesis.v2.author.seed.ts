@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "NH2 en C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La distinction stérol/stéride repose sur l'estérification du OH C3."
+        "explanation": "La distinction stérol/stéride repose sur l'estérification du OH C3."
       },
       {
         "content": "phosphate en C3 du glycérol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La distinction stérol/stéride repose sur l'estérification du OH C3."
+        "explanation": "La distinction stérol/stéride repose sur l'estérification du OH C3."
       },
       {
         "content": "OH en C1 de sphingosine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La distinction stérol/stéride repose sur l'estérification du OH C3."
+        "explanation": "La distinction stérol/stéride repose sur l'estérification du OH C3."
       }
     ],
     "explanation": "La distinction stérol/stéride repose sur l'estérification du OH C3."
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "cholestérol estérifié",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le OH libre confère le petit pôle hydrophile."
+        "explanation": "Le OH libre confère le petit pôle hydrophile."
       },
       {
         "content": "stéride uniquement sans OH",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le OH libre confère le petit pôle hydrophile."
+        "explanation": "Le OH libre confère le petit pôle hydrophile."
       },
       {
         "content": "aucune",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le OH libre confère le petit pôle hydrophile."
+        "explanation": "Le OH libre confère le petit pôle hydrophile."
       }
     ],
     "explanation": "Le OH libre confère le petit pôle hydrophile."
@@ -143,7 +143,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le foie produit les acides biliaires dérivés du cholestérol."
       },
       {
-        "content": "Le cholestérol est présenté comme précurseur direct du glycogène.",
+        "content": "Le cholestérol est un précurseur direct du glycogène.",
         "correct": false,
         "explanation": "Le foie produit les acides biliaires dérivés du cholestérol."
       }
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le foie produit les acides biliaires dérivés du cholestérol."
+        "explanation": "Le foie produit les acides biliaires dérivés du cholestérol."
       },
       {
         "content": "cellulose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le foie produit les acides biliaires dérivés du cholestérol."
+        "explanation": "Le foie produit les acides biliaires dérivés du cholestérol."
       },
       {
         "content": "céramide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le foie produit les acides biliaires dérivés du cholestérol."
+        "explanation": "Le foie produit les acides biliaires dérivés du cholestérol."
       }
     ],
     "explanation": "Le foie produit les acides biliaires dérivés du cholestérol."
@@ -188,25 +188,25 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Estrane = 18 C.",
         "correct": true,
-        "explanation": "Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       },
       {
         "content": "Androstane = 19 C.",
         "correct": true,
-        "explanation": "Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       },
       {
         "content": "Prégnane = 21 C.",
         "correct": true,
-        "explanation": "Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       },
       {
         "content": "Le noyau prégnane possède 18 C.",
         "correct": false,
-        "explanation": "Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       }
     ],
-    "explanation": "Les corticostéroïdes cités sont des stéroïdes C21."
+    "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
   },
   {
     "order": 108,
@@ -217,25 +217,25 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "prégnane",
         "correct": true,
-        "explanation": "Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       },
       {
         "content": "estrane",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       },
       {
         "content": "androstane",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       },
       {
         "content": "cholane",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les corticostéroïdes cités sont des stéroïdes C21."
+        "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
       }
     ],
-    "explanation": "Les corticostéroïdes cités sont des stéroïdes C21."
+    "explanation": "Les principaux corticostéroïdes humains possèdent un squelette à 21 carbones."
   },
   {
     "order": 109,
@@ -259,7 +259,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "L'aldostérone agit sur l'homéostasie hydro-électrolytique."
       },
       {
-        "content": "Elle favorise l'élimination du sodium et la rétention de potassium dans le modèle du support.",
+        "content": "Elle favorise l’excrétion de sodium et la rétention de potassium.",
         "correct": false,
         "explanation": "L'aldostérone agit sur l'homéostasie hydro-électrolytique."
       }
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "K+",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'aldostérone agit sur l'homéostasie hydro-électrolytique."
+        "explanation": "L'aldostérone agit sur l'homéostasie hydro-électrolytique."
       },
       {
         "content": "H+",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'aldostérone agit sur l'homéostasie hydro-électrolytique."
+        "explanation": "L'aldostérone agit sur l'homéostasie hydro-électrolytique."
       },
       {
         "content": "Fe3+",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'aldostérone agit sur l'homéostasie hydro-électrolytique."
+        "explanation": "L'aldostérone agit sur l'homéostasie hydro-électrolytique."
       }
     ],
     "explanation": "L'aldostérone agit sur l'homéostasie hydro-électrolytique."
@@ -328,7 +328,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 112,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel effet immunitaire est cité ?",
+    "question": "Quel effet du cortisol concerne le système immunitaire ?",
     "choices": [
       {
         "content": "immunosuppression",
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "stimulation obligatoire de tous les lymphocytes",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cortisol est un glucocorticoïde aux effets métaboliques et immunitaires."
+        "explanation": "Le cortisol est un glucocorticoïde aux effets métaboliques et immunitaires."
       },
       {
         "content": "aucun effet",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cortisol est un glucocorticoïde aux effets métaboliques et immunitaires."
+        "explanation": "Le cortisol est un glucocorticoïde aux effets métaboliques et immunitaires."
       },
       {
         "content": "production d'anticorps uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cortisol est un glucocorticoïde aux effets métaboliques et immunitaires."
+        "explanation": "Le cortisol est un glucocorticoïde aux effets métaboliques et immunitaires."
       }
     ],
     "explanation": "Le cortisol est un glucocorticoïde aux effets métaboliques et immunitaires."
@@ -362,25 +362,25 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "La testostérone est un androgène.",
         "correct": true,
-        "explanation": "La testostérone est le principal exemple."
+        "explanation": "La testostérone est le principal androgène circulant."
       },
       {
-        "content": "Les androgènes ont un effet anabolisant dans le support.",
+        "content": "Ils stimulent notamment la synthèse protéique musculaire.",
         "correct": true,
-        "explanation": "La testostérone est le principal exemple."
+        "explanation": "Les androgènes stimulent notamment la synthèse protéique musculaire."
       },
       {
         "content": "Ils participent aux caractères sexuels masculins.",
         "correct": true,
-        "explanation": "La testostérone est le principal exemple."
+        "explanation": "Les androgènes participent au développement des caractères sexuels masculins."
       },
       {
         "content": "L'œstradiol est classé parmi les androgènes.",
         "correct": false,
-        "explanation": "La testostérone est le principal exemple."
+        "explanation": "L’œstradiol est un œstrogène, et non un androgène."
       }
     ],
-    "explanation": "La testostérone est le principal exemple."
+    "explanation": "La testostérone est le principal androgène circulant et participe aux caractères sexuels masculins ainsi qu’aux effets anabolisants."
   },
   {
     "order": 114,
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "œstradiol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La testostérone est le principal exemple."
+        "explanation": "La testostérone est le principal exemple."
       },
       {
         "content": "cortisol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La testostérone est le principal exemple."
+        "explanation": "La testostérone est le principal exemple."
       },
       {
         "content": "aldostérone",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La testostérone est le principal exemple."
+        "explanation": "La testostérone est le principal exemple."
       }
     ],
     "explanation": "La testostérone est le principal exemple."
@@ -415,7 +415,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 115,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel minéralocorticoïde principal est cité dans la fiche ?",
+    "question": "Quel est le principal minéralocorticoïde humain ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -437,7 +437,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 116,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel effet vasculaire la fiche attribue-t-elle aux œstrogènes ?",
+    "question": "Quel effet vasculaire les œstrogènes peuvent-ils favoriser ?",
     "choices": [
       {
         "content": "vasodilatation",
@@ -447,17 +447,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "vasoconstriction",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les œstrogènes ont des effets reproductifs, osseux et vasculaires."
+        "explanation": "Les œstrogènes ont des effets reproductifs, osseux et vasculaires."
       },
       {
         "content": "thrombose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les œstrogènes ont des effets reproductifs, osseux et vasculaires."
+        "explanation": "Les œstrogènes ont des effets reproductifs, osseux et vasculaires."
       },
       {
         "content": "absence d'effet",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les œstrogènes ont des effets reproductifs, osseux et vasculaires."
+        "explanation": "Les œstrogènes ont des effets reproductifs, osseux et vasculaires."
       }
     ],
     "explanation": "Les œstrogènes ont des effets reproductifs, osseux et vasculaires."
@@ -506,17 +506,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "phase folliculaire précoce uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La progestérone est un stéroïde C21 lié à la phase lutéale."
+        "explanation": "La progestérone est un stéroïde C21 lié à la phase lutéale."
       },
       {
         "content": "aucune phase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La progestérone est un stéroïde C21 lié à la phase lutéale."
+        "explanation": "La progestérone est un stéroïde C21 lié à la phase lutéale."
       },
       {
         "content": "phase de digestion",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La progestérone est un stéroïde C21 lié à la phase lutéale."
+        "explanation": "La progestérone est un stéroïde C21 lié à la phase lutéale."
       }
     ],
     "explanation": "La progestérone est un stéroïde C21 lié à la phase lutéale."
@@ -530,25 +530,25 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Corticosurrénale → cortisol/aldostérone.",
         "correct": true,
-        "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
+        "explanation": "La corticosurrénale synthétise notamment le cortisol et l’aldostérone."
       },
       {
         "content": "Cellules de Leydig → testostérone.",
         "correct": true,
-        "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
+        "explanation": "Les cellules de Leydig du testicule synthétisent la testostérone."
       },
       {
         "content": "Follicule ovarien → œstrogènes.",
         "correct": true,
-        "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
+        "explanation": "Le follicule ovarien synthétise des œstrogènes pendant la phase folliculaire."
       },
       {
-        "content": "Le pancréas est le site principal des trois classes dans le support.",
+        "content": "Le pancréas est le site principal de synthèse de ces trois classes hormonales.",
         "correct": false,
-        "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
+        "explanation": "Le pancréas n’est pas le site principal de synthèse de ces hormones stéroïdiennes."
       }
     ],
-    "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
+    "explanation": "Les hormones stéroïdiennes sont synthétisées par des tissus spécialisés, notamment la corticosurrénale et les gonades."
   },
   {
     "order": 120,
@@ -564,17 +564,17 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "thyroïde",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sites de synthèse sont des repères classiques du chapitre."
+        "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
       },
       {
         "content": "rate",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sites de synthèse sont des repères classiques du chapitre."
+        "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
       },
       {
         "content": "moelle osseuse",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sites de synthèse sont des repères classiques du chapitre."
+        "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
       }
     ],
     "explanation": "Les sites de synthèse sont des repères classiques du chapitre."
@@ -661,7 +661,7 @@ export const UE14_BIOCH_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Androstane C19."
       },
       {
-        "content": "Les hormones stéroïdiennes sont hydrophiles dans le support.",
+        "content": "Les hormones stéroïdiennes sont hydrophiles.",
         "correct": false,
         "explanation": "Lipophiles."
       }

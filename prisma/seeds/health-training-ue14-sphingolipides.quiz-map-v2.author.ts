@@ -352,7 +352,7 @@ export const UE14_BIOCH_CH7_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> =
   112: ["Maîtrise transversale"],
   113: ["Maîtrise transversale"],
   114: ["Maîtrise transversale"],
-  115: ["Fabry : α-galactosidase"],
+  115: ["Fabry : α-galactosidase A"],
   116: ["Maîtrise transversale"],
   117: ["Maîtrise transversale"],
   118: ["Maîtrise transversale"],

@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "C2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
       },
       {
         "content": "C3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
       },
       {
         "content": "C18",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
       }
     ],
     "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
@@ -96,7 +96,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 48,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel type de liaison est indiqué en C1 ?",
+    "question": "Quel type de liaison unit le groupement glucidique au C1 d’un glycosphingolipide ?",
     "choices": [
       {
         "content": "β-osidique",
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "amide",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La tête glucidique est liée par une liaison β-osidique."
+        "explanation": "La tête glucidique est liée par une liaison β-osidique."
       },
       {
         "content": "ester phosphorique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La tête glucidique est liée par une liaison β-osidique."
+        "explanation": "La tête glucidique est liée par une liaison β-osidique."
       },
       {
         "content": "peptidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La tête glucidique est liée par une liaison β-osidique."
+        "explanation": "La tête glucidique est liée par une liaison β-osidique."
       }
     ],
     "explanation": "La tête glucidique est liée par une liaison β-osidique."
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "0",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
       },
       {
         "content": "2 à 20",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
       },
       {
         "content": "4 exactement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
       }
     ],
     "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
@@ -191,22 +191,22 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le glucosylcéramide est le cérébroside à glucose."
       },
       {
-        "content": "Il est cité dans les tissus nerveux.",
+        "content": "Il est le précurseur de glycosphingolipides plus complexes.",
         "correct": true,
         "explanation": "Le glucosylcéramide est le cérébroside à glucose."
       },
       {
-        "content": "La substance blanche du cerveau est mentionnée.",
+        "content": "Il est présent dans de nombreux tissus et n’est pas spécifique de la substance blanche.",
         "correct": true,
         "explanation": "Le glucosylcéramide est le cérébroside à glucose."
       },
       {
-        "content": "Il porte un galactose et est surtout associé aux épithéliums dans la fiche.",
+        "content": "Il porte un galactose et constitue le principal cérébroside de la myéline.",
         "correct": false,
         "explanation": "Le glucosylcéramide est le cérébroside à glucose."
       }
     ],
-    "explanation": "Le glucosylcéramide est le cérébroside à glucose."
+    "explanation": "Le glucosylcéramide porte un glucose et sert de précurseur à de nombreux glycosphingolipides complexes."
   },
   {
     "order": 52,
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "galactose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glucosylcéramide est le cérébroside à glucose."
+        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
       },
       {
         "content": "fructose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glucosylcéramide est le cérébroside à glucose."
+        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
       },
       {
         "content": "ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le glucosylcéramide est le cérébroside à glucose."
+        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
       }
     ],
     "explanation": "Le glucosylcéramide est le cérébroside à glucose."
@@ -249,12 +249,12 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le galactosylcéramide est le cérébroside à galactose."
       },
       {
-        "content": "La fiche le cite dans les épithéliums.",
+        "content": "Il est particulièrement abondant dans la myéline.",
         "correct": true,
         "explanation": "Le galactosylcéramide est le cérébroside à galactose."
       },
       {
-        "content": "Peau, intestin et vessie sont donnés comme exemples.",
+        "content": "Il contribue à la composition lipidique de la substance blanche.",
         "correct": true,
         "explanation": "Le galactosylcéramide est le cérébroside à galactose."
       },
@@ -264,7 +264,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le galactosylcéramide est le cérébroside à galactose."
       }
     ],
-    "explanation": "Le galactosylcéramide est le cérébroside à galactose."
+    "explanation": "Le galactosylcéramide porte un galactose et constitue un glycosphingolipide majeur de la myéline."
   },
   {
     "order": 54,
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glucose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le galactosylcéramide est le cérébroside à galactose."
+        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
       },
       {
         "content": "mannose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le galactosylcéramide est le cérébroside à galactose."
+        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
       },
       {
         "content": "ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le galactosylcéramide est le cérébroside à galactose."
+        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
       }
     ],
     "explanation": "Le galactosylcéramide est le cérébroside à galactose."
@@ -328,7 +328,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 56,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle taille de chaîne glycanique est donnée ?",
+    "question": "Dans ce modèle simplifié, quelle plage de taille est retenue pour la chaîne glycanique d’un ganglioside ?",
     "choices": [
       {
         "content": "2 à 20 résidus",
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "1 résidu exactement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les gangliosides ont une tête oligosaccharidique complexe."
+        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
       },
       {
         "content": "50 à 100 résidus",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les gangliosides ont une tête oligosaccharidique complexe."
+        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
       },
       {
         "content": "aucun résidu",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les gangliosides ont une tête oligosaccharidique complexe."
+        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
       }
     ],
     "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
@@ -386,7 +386,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quels deux oses sont cités ?",
+    "question": "Quels deux oses constituent le lactosylcéramide ?",
     "choices": [
       {
         "content": "glucose et galactose",
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glucose et fructose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le lactosylcéramide contient glucose et galactose."
+        "explanation": "Le lactosylcéramide contient glucose et galactose."
       },
       {
         "content": "ribose et désoxyribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le lactosylcéramide contient glucose et galactose."
+        "explanation": "Le lactosylcéramide contient glucose et galactose."
       },
       {
         "content": "mannose et fructose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le lactosylcéramide contient glucose et galactose."
+        "explanation": "Le lactosylcéramide contient glucose et galactose."
       }
     ],
     "explanation": "Le lactosylcéramide contient glucose et galactose."
@@ -503,17 +503,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La deuxième lettre code le nombre de résidus sialiques."
+        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
       },
       {
         "content": "3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La deuxième lettre code le nombre de résidus sialiques."
+        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
       },
       {
         "content": "4",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La deuxième lettre code le nombre de résidus sialiques."
+        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
       }
     ],
     "explanation": "La deuxième lettre code le nombre de résidus sialiques."
@@ -561,17 +561,17 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Q code quatre résidus d'acide sialique."
+        "explanation": "Q code quatre résidus d'acide sialique."
       },
       {
         "content": "2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Q code quatre résidus d'acide sialique."
+        "explanation": "Q code quatre résidus d'acide sialique."
       },
       {
         "content": "3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Q code quatre résidus d'acide sialique."
+        "explanation": "Q code quatre résidus d'acide sialique."
       }
     ],
     "explanation": "Q code quatre résidus d'acide sialique."
@@ -581,7 +581,7 @@ export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux oses du lactosylcéramide cité.",
+    "question": "Sélectionnez exactement les deux oses constituant le lactosylcéramide.",
     "choices": [
       {
         "content": "Glucose",

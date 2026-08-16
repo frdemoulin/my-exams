@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "ester",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est formé par amidification de la sphingosine."
+        "explanation": "Le céramide est formé par amidification de la sphingosine."
       },
       {
         "content": "éther",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est formé par amidification de la sphingosine."
+        "explanation": "Le céramide est formé par amidification de la sphingosine."
       },
       {
         "content": "glycosidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le céramide est formé par amidification de la sphingosine."
+        "explanation": "Le céramide est formé par amidification de la sphingosine."
       }
     ],
     "explanation": "Le céramide est formé par amidification de la sphingosine."
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "céramidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyélinase forme le céramide."
+        "explanation": "La sphingomyélinase forme le céramide."
       },
       {
         "content": "β-glucosidase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyélinase forme le céramide."
+        "explanation": "La sphingomyélinase forme le céramide."
       },
       {
         "content": "PLA2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La sphingomyélinase forme le céramide."
+        "explanation": "La sphingomyélinase forme le céramide."
       }
     ],
     "explanation": "La sphingomyélinase forme le céramide."
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "acide phosphatidique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les gangliosides sont des glycosphingolipides complexes sialylés."
+        "explanation": "Les gangliosides sont des glycosphingolipides complexes sialylés."
       },
       {
         "content": "acide stéarique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les gangliosides sont des glycosphingolipides complexes sialylés."
+        "explanation": "Les gangliosides sont des glycosphingolipides complexes sialylés."
       },
       {
         "content": "acide lactique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les gangliosides sont des glycosphingolipides complexes sialylés."
+        "explanation": "Les gangliosides sont des glycosphingolipides complexes sialylés."
       }
     ],
     "explanation": "Les gangliosides sont des glycosphingolipides complexes sialylés."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "1",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La série M/D/T/Q code 1/2/3/4 résidus sialiques."
+        "explanation": "La série M/D/T/Q code 1/2/3/4 résidus sialiques."
       },
       {
         "content": "2",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La série M/D/T/Q code 1/2/3/4 résidus sialiques."
+        "explanation": "La série M/D/T/Q code 1/2/3/4 résidus sialiques."
       },
       {
         "content": "3",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La série M/D/T/Q code 1/2/3/4 résidus sialiques."
+        "explanation": "La série M/D/T/Q code 1/2/3/4 résidus sialiques."
       }
     ],
     "explanation": "La série M/D/T/Q code 1/2/3/4 résidus sialiques."
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "excès de lactase",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
+        "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
       },
       {
         "content": "synthèse protéique uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
+        "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
       },
       {
         "content": "absence de ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
+        "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
       }
     ],
     "explanation": "Les sphingolipidoses sont des maladies enzymatiques d'accumulation."
@@ -302,12 +302,12 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des maladies de Gaucher et de Fabry :",
     "choices": [
       {
-        "content": "Gaucher : β-glucosidase.",
+        "content": "Gaucher : glucocérébrosidase lysosomale.",
         "correct": true,
         "explanation": "Fabry se distingue par α-galactosidase."
       },
       {
-        "content": "Fabry : α-galactosidase.",
+        "content": "Fabry : α-galactosidase A.",
         "correct": true,
         "explanation": "Fabry se distingue par α-galactosidase."
       },
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Gaucher",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Fabry se distingue par α-galactosidase."
+        "explanation": "Fabry se distingue par α-galactosidase."
       },
       {
         "content": "Krabbe",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Fabry se distingue par α-galactosidase."
+        "explanation": "Fabry se distingue par α-galactosidase."
       },
       {
         "content": "Tay-Sachs",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Fabry se distingue par α-galactosidase."
+        "explanation": "Fabry se distingue par α-galactosidase."
       }
     ],
     "explanation": "Fabry se distingue par α-galactosidase."
@@ -360,12 +360,12 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des maladies de Krabbe et de Tay-Sachs :",
     "choices": [
       {
-        "content": "Krabbe : β-galactosidase.",
+        "content": "Krabbe : galactocérébrosidase.",
         "correct": true,
         "explanation": "GM2 est le repère de Tay-Sachs."
       },
       {
-        "content": "Tay-Sachs : β-hexosaminidase.",
+        "content": "Tay-Sachs : β-hexosaminidase A.",
         "correct": true,
         "explanation": "GM2 est le repère de Tay-Sachs."
       },
@@ -375,7 +375,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "GM2 est le repère de Tay-Sachs."
       },
       {
-        "content": "Krabbe accumule du GM2 selon la fiche.",
+        "content": "Krabbe accumule principalement du GM2.",
         "correct": false,
         "explanation": "GM2 est le repère de Tay-Sachs."
       }
@@ -396,17 +396,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Krabbe",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. GM2 est le repère de Tay-Sachs."
+        "explanation": "GM2 est le repère de Tay-Sachs."
       },
       {
         "content": "Fabry",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. GM2 est le repère de Tay-Sachs."
+        "explanation": "GM2 est le repère de Tay-Sachs."
       },
       {
         "content": "Gaucher",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. GM2 est le repère de Tay-Sachs."
+        "explanation": "GM2 est le repère de Tay-Sachs."
       }
     ],
     "explanation": "GM2 est le repère de Tay-Sachs."
@@ -415,7 +415,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 115,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quelle enzyme est déficiente dans la maladie de Fabry selon la fiche ?",
+    "question": "Quelle enzyme est déficiente dans la maladie de Fabry ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -430,13 +430,13 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "ignoreAccents": true
       }
     },
-    "explanation": "Fabry : déficit α-galactosidase."
+    "explanation": "La maladie de Fabry résulte d’un déficit en α-galactosidase A."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel rôle cutané est cité ?",
+    "question": "Quel rôle cutané est associé aux céramides ?",
     "choices": [
       {
         "content": "cohésion et contrôle de l'hydratation",
@@ -446,17 +446,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "production d'hémoglobine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le rôle barrière des céramides est un contexte physiologique important."
+        "explanation": "Le rôle barrière des céramides est un contexte physiologique important."
       },
       {
         "content": "minéralisation osseuse",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le rôle barrière des céramides est un contexte physiologique important."
+        "explanation": "Le rôle barrière des céramides est un contexte physiologique important."
       },
       {
         "content": "synthèse de glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le rôle barrière des céramides est un contexte physiologique important."
+        "explanation": "Le rôle barrière des céramides est un contexte physiologique important."
       }
     ],
     "explanation": "Le rôle barrière des céramides est un contexte physiologique important."
@@ -505,17 +505,17 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "tendon",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La myéline est riche en sphingomyéline."
+        "explanation": "La myéline est riche en sphingomyéline."
       },
       {
         "content": "capsule articulaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La myéline est riche en sphingomyéline."
+        "explanation": "La myéline est riche en sphingomyéline."
       },
       {
         "content": "émail",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La myéline est riche en sphingomyéline."
+        "explanation": "La myéline est riche en sphingomyéline."
       }
     ],
     "explanation": "La myéline est riche en sphingomyéline."
@@ -527,56 +527,56 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la sphingosine-1-phosphate :",
     "choices": [
       {
-        "content": "Son excès est associé à un risque de cancers dans la fiche.",
+        "content": "Elle régule notamment la survie et la migration cellulaires.",
         "correct": true,
-        "explanation": "La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       },
       {
-        "content": "Son déficit est associé à un possible risque neurodégénératif.",
+        "content": "Ses effets dépendent des récepteurs et du contexte cellulaire.",
         "correct": true,
-        "explanation": "La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       },
       {
-        "content": "L'équilibre de ce médiateur est donc important.",
+        "content": "Une signalisation dérégulée peut contribuer à des processus pathologiques.",
         "correct": true,
-        "explanation": "La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       },
       {
-        "content": "Son taux n'a aucune conséquence biologique dans le support.",
+        "content": "Sa concentration et sa localisation n’ont aucune conséquence biologique.",
         "correct": false,
-        "explanation": "La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       }
     ],
-    "explanation": "La fiche oppose risques d'excès et de déficit de S1P."
+    "explanation": "La S1P est un médiateur lipidique dont la signalisation doit être finement régulée dans l’espace et dans le temps."
   },
   {
     "order": 120,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel risque est associé à son déficit ?",
+    "question": "Quel principe explique la diversité des effets de la sphingosine-1-phosphate ?",
     "choices": [
       {
-        "content": "maladies neurodégénératives possibles",
+        "content": "Ils dépendent des récepteurs exprimés et du contexte cellulaire",
         "correct": true,
-        "explanation": "La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       },
       {
-        "content": "fractures traumatiques",
+        "content": "Ils sont identiques dans toutes les cellules",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       },
       {
-        "content": "carie",
+        "content": "La S1P ne se lie à aucun récepteur",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       },
       {
-        "content": "allergie au lactose",
+        "content": "La S1P agit uniquement comme réserve énergétique",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La fiche oppose risques d'excès et de déficit de S1P."
+        "explanation": "La sphingosine-1-phosphate agit comme médiateur de signalisation ; ses effets dépendent de sa concentration, de sa localisation et des récepteurs exprimés."
       }
     ],
-    "explanation": "La fiche oppose risques d'excès et de déficit de S1P."
+    "explanation": "Les effets de la S1P varient avec sa localisation, son gradient et l’expression des différents récepteurs S1P."
   },
   {
     "order": 121,
@@ -590,7 +590,7 @@ export const UE14_BIOCH_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "C1 est le site principal de diversification de la tête polaire."
       },
       {
-        "content": "Les glycosphingolipides sont notamment cités dans cerveau/ganglions.",
+        "content": "Les glycosphingolipides sont abondants dans le tissu nerveux et les membranes neuronales.",
         "correct": true,
         "explanation": "C1 est le site principal de diversification de la tête polaire."
       },

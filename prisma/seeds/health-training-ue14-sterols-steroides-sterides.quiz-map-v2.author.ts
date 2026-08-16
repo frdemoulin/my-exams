@@ -176,7 +176,7 @@ export const UE14_BIOCH_CH8_V2_QUIZ_MAP = [
     "order": 3,
     "slug": "section-d-master-endocrinologie-steroides",
     "title": "Fonctions hormonales des stéroïdes",
-    "description": "Maîtrise des couples hormone–origine–structure–fonction et des pièges signalés par la fiche.",
+    "description": "Maîtrise des couples hormone–origine–structure–fonction et des pièges signalés.",
     "stage": "MASTER",
     "questionOrders": [
       89,

@@ -63,59 +63,59 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 103,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse — concernant la liste locale des acides aminés essentiels :",
+    "question": "Synthèse — concernant les neuf acides aminés indispensables chez l’adulte sain :",
     "choices": [
       {
         "content": "Leucine, thréonine, lysine et tryptophane figurent dans la liste.",
         "correct": true,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "Phénylalanine, valine, méthionine et isoleucine y figurent aussi.",
         "correct": true,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "Tyrosine et glycine remplacent leucine et lysine dans la liste.",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
-        "content": "La fiche ne cite aucun acide aminé branché comme essentiel.",
+        "content": "Aucun acide aminé ramifié n’en fait partie.",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       }
     ],
-    "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+    "explanation": "Les neuf acides aminés indispensables chez l’adulte sain sont His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Synthèse transversale : Lequel de ces acides aminés est cité comme essentiel dans cette fiche ?",
+    "question": "Synthèse transversale : lequel de ces acides aminés est indispensable chez l’adulte sain ?",
     "choices": [
       {
         "content": "leucine",
         "correct": true,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "glycine",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "alanine",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       },
       {
         "content": "proline",
         "correct": false,
-        "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
       }
     ],
-    "explanation": "La fiche 3.1 présente une liste locale de dix acides aminés essentiels, avec un statut particulier pour Arg et His."
+    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
   },
   {
     "order": 105,
@@ -124,7 +124,7 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Synthèse — concernant les acides aminés hydroxylés :",
     "choices": [
       {
-        "content": "Sérine et thréonine sont citées.",
+        "content": "La sérine et la thréonine possèdent une chaîne latérale hydroxylée.",
         "correct": true,
         "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
       },
@@ -245,7 +245,7 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
       },
       {
-        "content": "Le radical de l’aspartate est présenté comme CH2-COOH.",
+        "content": "La chaîne latérale de l’acide aspartique est –CH2–COOH sous sa forme protonée.",
         "correct": true,
         "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
       },
@@ -290,7 +290,7 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Ces repères associent classification, chiralité et propriétés spectrales."
       },
       {
-        "content": "Phe, Tyr, Trp et His absorbent vers 280 nm dans la fiche.",
+        "content": "À 280 nm, le tryptophane et la tyrosine contribuent fortement à l’absorbance des protéines, tandis que la phénylalanine contribue plus faiblement.",
         "correct": true,
         "explanation": "Ces repères associent classification, chiralité et propriétés spectrales."
       },
@@ -413,7 +413,7 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 114,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Synthèse transversale : Quelle partie de l’acide aminé influence fortement sa solubilité selon la fiche ?",
+    "question": "Synthèse transversale : quelle partie variable d’un acide aminé influence fortement sa solubilité ?",
     "choices": [
       {
         "content": "la chaîne latérale",
@@ -471,7 +471,7 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 116,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Synthèse transversale : Quel acide aminé est l’exception à la chiralité du Cα dans la fiche ?",
+    "question": "Synthèse transversale : quel acide aminé est achiral au niveau du carbone α ?",
     "choices": [
       {
         "content": "glycine",
@@ -500,7 +500,7 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Synthèse — réponse numérique : combien d’acides aminés protéinogènes la fiche retient-elle ?",
+    "question": "Synthèse — réponse numérique : combien d’acides aminés standards sont couramment utilisés dans les protéines humaines ?",
     "answer": {
       "type": "number",
       "value": 20,
@@ -512,30 +512,30 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 118,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Synthèse transversale : Quelle longueur d’onde repère est donnée pour les acides aminés aromatiques et l’histidine ?",
+    "question": "Synthèse transversale : quelle longueur d’onde est classiquement utilisée pour mesurer l’absorbance des protéines due surtout au tryptophane et à la tyrosine ?",
     "choices": [
       {
         "content": "environ 280 nm",
         "correct": true,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "environ 28 nm",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "environ 580 nm",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       },
       {
         "content": "environ 2,8 µm",
         "correct": false,
-        "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+        "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
       }
     ],
-    "explanation": "La fiche relie la conjugaison des cycles à une absorption UV vers 280 nm."
+    "explanation": "À 280 nm, l’absorbance des protéines dépend principalement du tryptophane et de la tyrosine ; la phénylalanine contribue plus faiblement."
   },
   {
     "order": 119,
@@ -602,12 +602,12 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Synthèse — concernant la réaction à la ninhydrine de la proline :",
     "choices": [
       {
-        "content": "Proline et hydroxyproline sont les cas d’acides aminés secondaires cités.",
+        "content": "La proline et l’hydroxyproline portent une fonction α-aminée secondaire.",
         "correct": true,
         "explanation": "La fonction amine secondaire explique le comportement particulier de la proline et de l’hydroxyproline."
       },
       {
-        "content": "Leur réaction donne une coloration jaune dans le support.",
+        "content": "Leur réaction donne une coloration jaune.",
         "correct": true,
         "explanation": "La fonction amine secondaire explique le comportement particulier de la proline et de l’hydroxyproline."
       },
@@ -652,7 +652,7 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Cette sélection balaye structure, classification, chiralité, ionisation et réaction analytique."
       },
       {
-        "content": "La ninhydrine colore en jaune la proline dans le support.",
+        "content": "La ninhydrine colore la proline en jaune.",
         "correct": true,
         "explanation": "Cette sélection balaye structure, classification, chiralité, ionisation et réaction analytique."
       },

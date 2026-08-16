@@ -22,7 +22,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
       },
       {
-        "content": "Leur synthèse est citée dans les corticosurrénales ou les gonades.",
+        "content": "Les hormones stéroïdiennes sont synthétisées notamment dans les corticosurrénales et les gonades.",
         "correct": true,
         "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
       },
@@ -38,7 +38,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 46,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel précurseur commun est cité ?",
+    "question": "Quel est le précurseur commun des hormones stéroïdiennes ?",
     "choices": [
       {
         "content": "cholestérol",
@@ -48,17 +48,17 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "glycogène",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
       },
       {
         "content": "sphingosine",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
       },
       {
         "content": "ribose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
       }
     ],
     "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
@@ -75,12 +75,12 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
       },
       {
-        "content": "Il caractérise les œstrogènes dans la classification de la fiche.",
+        "content": "Il constitue le squelette carboné des œstrogènes.",
         "correct": true,
         "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
       },
       {
-        "content": "Un méthyle en 13β est cité.",
+        "content": "Le squelette estrane conserve le méthyle angulaire C18 fixé en C13β.",
         "correct": true,
         "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
       },
@@ -106,17 +106,17 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "19",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
       },
       {
         "content": "21",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
       },
       {
         "content": "27",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
       }
     ],
     "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
@@ -164,17 +164,17 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "18",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le noyau androstane C19 est associé aux androgènes."
+        "explanation": "Le noyau androstane C19 est associé aux androgènes."
       },
       {
         "content": "21",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le noyau androstane C19 est associé aux androgènes."
+        "explanation": "Le noyau androstane C19 est associé aux androgènes."
       },
       {
         "content": "24",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le noyau androstane C19 est associé aux androgènes."
+        "explanation": "Le noyau androstane C19 est associé aux androgènes."
       }
     ],
     "explanation": "Le noyau androstane C19 est associé aux androgènes."
@@ -222,17 +222,17 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "18",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Progestérone, cortisol et aldostérone sont des stéroïdes C21."
+        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
       },
       {
         "content": "19",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Progestérone, cortisol et aldostérone sont des stéroïdes C21."
+        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
       },
       {
         "content": "27",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Progestérone, cortisol et aldostérone sont des stéroïdes C21."
+        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
       }
     ],
     "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
@@ -244,12 +244,12 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des minéralocorticoïdes :",
     "choices": [
       {
-        "content": "Ils sont d'origine surrénalienne dans le support.",
+        "content": "Ils sont synthétisés dans la zone glomérulée de la corticosurrénale.",
         "correct": true,
         "explanation": "L'aldostérone est le minéralocorticoïde de référence."
       },
       {
-        "content": "L'aldostérone est la principale hormone citée.",
+        "content": "L’aldostérone est le principal minéralocorticoïde humain.",
         "correct": true,
         "explanation": "L'aldostérone est le minéralocorticoïde de référence."
       },
@@ -270,7 +270,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 54,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle hormone est le minéralocorticoïde majeur cité ?",
+    "question": "Quelle hormone est le principal minéralocorticoïde humain ?",
     "choices": [
       {
         "content": "aldostérone",
@@ -280,17 +280,17 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "cortisol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'aldostérone est le minéralocorticoïde de référence."
+        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
       },
       {
         "content": "testostérone",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'aldostérone est le minéralocorticoïde de référence."
+        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
       },
       {
         "content": "œstradiol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. L'aldostérone est le minéralocorticoïde de référence."
+        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
       }
     ],
     "explanation": "L'aldostérone est le minéralocorticoïde de référence."
@@ -307,7 +307,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
       },
       {
-        "content": "Le cortisol est la principale hormone citée.",
+        "content": "Le cortisol est le principal glucocorticoïde humain.",
         "correct": true,
         "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
       },
@@ -328,7 +328,7 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 56,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle hormone est le glucocorticoïde majeur cité ?",
+    "question": "Quelle hormone est le principal glucocorticoïde humain ?",
     "choices": [
       {
         "content": "cortisol",
@@ -338,17 +338,17 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "aldostérone",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cortisol/hydrocortisone est le glucocorticoïde de référence."
+        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
       },
       {
         "content": "testostérone",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cortisol/hydrocortisone est le glucocorticoïde de référence."
+        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
       },
       {
         "content": "progestérone",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le cortisol/hydrocortisone est le glucocorticoïde de référence."
+        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
       }
     ],
     "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
@@ -362,25 +362,25 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Ils sont synthétisés dans les gonades.",
         "correct": true,
-        "explanation": "Les gonades et le placenta sont les principaux sites cités dans cette partie."
+        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
       },
       {
-        "content": "Le placenta est également cité pour certaines hormones.",
+        "content": "Le placenta synthétise également plusieurs hormones stéroïdiennes pendant la grossesse.",
         "correct": true,
-        "explanation": "Les gonades et le placenta sont les principaux sites cités dans cette partie."
+        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
       },
       {
         "content": "Testostérone et progestérone figurent parmi les exemples.",
         "correct": true,
-        "explanation": "Les gonades et le placenta sont les principaux sites cités dans cette partie."
+        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
       },
       {
         "content": "Ils sont exclusivement produits dans le foie.",
         "correct": false,
-        "explanation": "Les gonades et le placenta sont les principaux sites cités dans cette partie."
+        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
       }
     ],
-    "explanation": "Les gonades et le placenta sont les principaux sites cités dans cette partie."
+    "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
   },
   {
     "order": 58,
@@ -409,27 +409,27 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des androgènes :",
     "choices": [
       {
-        "content": "La testostérone est citée.",
+        "content": "La testostérone est le principal androgène circulant.",
         "correct": true,
-        "explanation": "La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       },
       {
-        "content": "La DHEA est citée.",
+        "content": "La DHEA est un androgène surrénalien et un précurseur stéroïdien.",
         "correct": true,
-        "explanation": "La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       },
       {
-        "content": "L'androstènedione est citée.",
+        "content": "L’androstènedione est un androgène et un précurseur d’autres stéroïdes sexuels.",
         "correct": true,
-        "explanation": "La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       },
       {
-        "content": "Le cortisol est classé parmi les androgènes dans la fiche.",
+        "content": "Le cortisol est un androgène.",
         "correct": false,
-        "explanation": "La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       }
     ],
-    "explanation": "La testostérone est l'androgène testiculaire majeur présenté."
+    "explanation": "La testostérone est le principal androgène produit par le testicule."
   },
   {
     "order": 60,
@@ -440,25 +440,25 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "testostérone",
         "correct": true,
-        "explanation": "La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       },
       {
         "content": "cortisol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       },
       {
         "content": "aldostérone",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       },
       {
         "content": "œstradiol",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La testostérone est l'androgène testiculaire majeur présenté."
+        "explanation": "La testostérone est le principal androgène produit par le testicule."
       }
     ],
-    "explanation": "La testostérone est l'androgène testiculaire majeur présenté."
+    "explanation": "La testostérone est le principal androgène produit par le testicule."
   },
   {
     "order": 61,
@@ -467,56 +467,56 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos de la testostérone et de l’androstènedione :",
     "choices": [
       {
-        "content": "La testostérone porte un OH en C17 dans le schéma du support.",
+        "content": "La testostérone porte un hydroxyle en C17β.",
         "correct": true,
-        "explanation": "La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       },
       {
         "content": "L'androstènedione est décrite comme la forme avec un groupe oxo C=O en C17.",
         "correct": true,
-        "explanation": "La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       },
       {
         "content": "Les deux appartiennent aux androgènes.",
         "correct": true,
-        "explanation": "La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       },
       {
         "content": "L'androstènedione est un disaccharide.",
         "correct": false,
-        "explanation": "La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       }
     ],
-    "explanation": "La différence C17 est explicitement mise en avant."
+    "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle fonction remplace le OH C17 dans l'androstènedione par rapport à la testostérone selon la fiche ?",
+    "question": "Quelle fonction remplace le hydroxyle C17 de la testostérone dans l’androstènedione ?",
     "choices": [
       {
         "content": "groupe oxo C=O",
         "correct": true,
-        "explanation": "La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       },
       {
         "content": "phosphate",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       },
       {
         "content": "amine primaire",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       },
       {
         "content": "ose",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. La différence C17 est explicitement mise en avant."
+        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
       }
     ],
-    "explanation": "La différence C17 est explicitement mise en avant."
+    "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
   },
   {
     "order": 63,
@@ -525,63 +525,63 @@ export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "À propos des œstrogènes :",
     "choices": [
       {
-        "content": "L'œstradiol et l'œstrone sont cités.",
+        "content": "L’œstradiol et l’œstrone appartiennent aux œstrogènes.",
         "correct": true,
-        "explanation": "Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       },
       {
-        "content": "Le follicule ovarien est cité comme site de synthèse.",
+        "content": "Le follicule ovarien produit des œstrogènes, notamment par les cellules de la granulosa.",
         "correct": true,
-        "explanation": "Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       },
       {
         "content": "Le placenta peut aussi en synthétiser pendant la grossesse.",
         "correct": true,
-        "explanation": "Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       },
       {
         "content": "Les œstrogènes sont décrits comme des hormones exclusivement testiculaires.",
         "correct": false,
-        "explanation": "Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       }
     ],
-    "explanation": "Le follicule ovarien synthétise les œstrogènes dans le support."
+    "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel organe ovarien est cité pour leur synthèse ?",
+    "question": "Quelle structure ovarienne synthétise des œstrogènes pendant la phase folliculaire ?",
     "choices": [
       {
         "content": "follicule ovarien",
         "correct": true,
-        "explanation": "Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       },
       {
         "content": "corps vitré",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       },
       {
         "content": "tubule rénal",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       },
       {
         "content": "foie uniquement",
         "correct": false,
-        "explanation": "Ce n'est pas le repère attendu ici. Le follicule ovarien synthétise les œstrogènes dans le support."
+        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
       }
     ],
-    "explanation": "Le follicule ovarien synthétise les œstrogènes dans le support."
+    "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois hormones à noyau prégnane citées.",
+    "question": "Sélectionnez exactement les trois hormones possédant un squelette à 21 carbones de type prégnane.",
     "choices": [
       {
         "content": "Progestérone",

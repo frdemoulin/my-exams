@@ -296,7 +296,7 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux acides aminés classés polaires, acides et chargés négativement dans la fiche.",
+    "question": "Sélectionnez exactement les deux acides aminés dont la chaîne latérale est acide et chargée négativement au pH physiologique.",
     "choices": [
       {
         "content": "Acide aspartique",
@@ -325,7 +325,7 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 56,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Lequel est classé non polaire et hydrophobe dans la fiche ?",
+    "question": "Lequel possède une chaîne latérale apolaire et hydrophobe ?",
     "choices": [
       {
         "content": "valine",
@@ -359,25 +359,25 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "Cys, Tyr, Ser, Thr, Asn et Gln sont listés.",
         "correct": true,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       },
       {
         "content": "Ils sont distingués des acides aminés acides et basiques chargés.",
         "correct": true,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       },
       {
-        "content": "Lys et Arg appartiennent à ce groupe dans la fiche.",
+        "content": "Lysine et arginine possèdent des chaînes latérales basiques, et non polaires neutres.",
         "correct": false,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       },
       {
         "content": "Asp et Glu y sont classés comme neutres.",
         "correct": false,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       }
     ],
-    "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+    "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
   },
   {
     "order": 58,
@@ -388,25 +388,25 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "sérine",
         "correct": true,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       },
       {
         "content": "valine",
         "correct": false,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       },
       {
         "content": "lysine",
         "correct": false,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       },
       {
         "content": "glutamate",
         "correct": false,
-        "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
       }
     ],
-    "explanation": "La fiche regroupe six acides aminés dans la classe polaire neutre."
+    "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
   },
   {
     "order": 59,
@@ -425,7 +425,7 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "La nature carboxylique de leur radical motive ce classement local."
       },
       {
-        "content": "Ils sont chargés positivement dans la classification donnée.",
+        "content": "Aspartate et glutamate portent une charge latérale négative au pH physiologique.",
         "correct": false,
         "explanation": "La nature carboxylique de leur radical motive ce classement local."
       },
@@ -470,59 +470,59 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les acides aminés polaires basiques :",
+    "question": "Concernant les acides aminés à chaîne latérale basique :",
     "choices": [
       {
-        "content": "Lysine, arginine et histidine sont classées chargées positivement.",
+        "content": "Lysine, arginine et histidine possèdent une chaîne latérale basique.",
         "correct": true,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       },
       {
         "content": "Leur groupe est distingué des acides aminés polaires acides.",
         "correct": true,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       },
       {
         "content": "Glycine et alanine constituent ce groupe.",
         "correct": false,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       },
       {
         "content": "Aspartate et glutamate y sont chargés positivement.",
         "correct": false,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       }
     ],
-    "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+    "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel trio est classé polaire basique et chargé positivement ?",
+    "question": "Quel trio possède des chaînes latérales basiques ?",
     "choices": [
       {
         "content": "lysine, arginine et histidine",
         "correct": true,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       },
       {
         "content": "glycine, alanine et valine",
         "correct": false,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       },
       {
         "content": "aspartate, glutamate et glutamine",
         "correct": false,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       },
       {
         "content": "sérine, thréonine et tyrosine",
         "correct": false,
-        "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
       }
     ],
-    "explanation": "La fiche réunit Lys, Arg et His dans la classe basique."
+    "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
   },
   {
     "order": 63,
@@ -536,7 +536,7 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "explanation": "Les propriétés de la chaîne latérale expliquent les différences de solubilité."
       },
       {
-        "content": "Elle conditionne leur comportement dans des solvants polaires comme l’eau ou l’éthanol.",
+        "content": "Elle influence leur comportement dans l’eau et les autres milieux polaires.",
         "correct": true,
         "explanation": "Les propriétés de la chaîne latérale expliquent les différences de solubilité."
       },
@@ -557,7 +557,7 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel acide aminé constitue l’exception à la chiralité du carbone α dans la fiche ?",
+    "question": "Quel acide aminé constitue l’exception à la chiralité du carbone α ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -577,35 +577,30 @@ export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans la représentation de Fischer et le cadrage de la fiche concernant les séries D/L :",
+    "question": "Dans une projection de Fischer conventionnelle des acides aminés, avec COOH en haut et le radical R en bas :",
     "choices": [
       {
         "content": "Avec COOH placé en haut, un NH2 à gauche correspond à la série L.",
         "correct": true,
-        "explanation": "La banque conserve ici le modèle présenté par la fiche : série L à gauche, série D à droite, et acides aminés naturels décrits comme L et le plus souvent S."
+        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
       },
       {
         "content": "Avec COOH placé en haut, un NH2 à droite correspond à la série D.",
         "correct": true,
-        "explanation": "La banque conserve ici le modèle présenté par la fiche : série L à gauche, série D à droite, et acides aminés naturels décrits comme L et le plus souvent S."
+        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
       },
       {
-        "content": "La fiche décrit les acides aminés naturels comme de série L et le plus souvent de configuration S.",
+        "content": "Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale.",
         "correct": true,
-        "explanation": "La banque conserve ici le modèle présenté par la fiche : série L à gauche, série D à droite, et acides aminés naturels décrits comme L et le plus souvent S."
+        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
       },
       {
         "content": "Un NH2 à gauche définit la série D.",
         "correct": false,
-        "explanation": "La banque conserve ici le modèle présenté par la fiche : série L à gauche, série D à droite, et acides aminés naturels décrits comme L et le plus souvent S."
-      },
-      {
-        "content": "La fiche affirme que tous les acides aminés L sont nécessairement de configuration R.",
-        "correct": false,
-        "explanation": "La banque conserve ici le modèle présenté par la fiche : série L à gauche, série D à droite, et acides aminés naturels décrits comme L et le plus souvent S."
+        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
       }
     ],
-    "explanation": "La banque conserve ici le modèle présenté par la fiche : série L à gauche, série D à droite, et acides aminés naturels décrits comme L et le plus souvent S."
+    "explanation": "La série D/L dépend de la position de NH2 en projection de Fischer et ne se confond pas avec la configuration R/S."
   },
   {
     "order": 66,
