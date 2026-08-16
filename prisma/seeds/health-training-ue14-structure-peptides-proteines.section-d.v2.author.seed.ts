@@ -63,59 +63,59 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 69,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant le domaine de fermeture éclair à leucine :",
+    "question": "Concernant le motif de fermeture éclair à leucine :",
     "choices": [
       {
-        "content": "La fiche le décrit comme deux hélices α associées grâce à des résidus de leucine.",
+        "content": "Il associe deux hélices α amphiphiles portant régulièrement des résidus de leucine.",
         "correct": true,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       },
       {
-        "content": "Il illustre un domaine protéique reconnaissable.",
+        "content": "Il constitue un motif de dimérisation reconnaissable dans certaines protéines.",
         "correct": true,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       },
       {
         "content": "Il est constitué de deux feuillets de cellulose.",
         "correct": false,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       },
       {
         "content": "La leucine y est absente.",
         "correct": false,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       }
     ],
-    "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+    "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
   },
   {
     "order": 70,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel résidu donne son nom à la fermeture éclair citée ?",
+    "question": "Quel résidu donne son nom au motif de fermeture éclair à leucine ?",
     "choices": [
       {
         "content": "la leucine",
         "correct": true,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       },
       {
         "content": "la glycine",
         "correct": false,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       },
       {
         "content": "la cystéine",
         "correct": false,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       },
       {
         "content": "l’histidine",
         "correct": false,
-        "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+        "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
       }
     ],
-    "explanation": "Le leucine zipper est un exemple de domaine basé sur des hélices α."
+    "explanation": "Une fermeture éclair à leucine est un motif de dimérisation formé de deux hélices α amphiphiles dont des leucines régulièrement espacées stabilisent l’association."
   },
   {
     "order": 71,
@@ -124,12 +124,12 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant le domaine de fixation des nucléotides :",
     "choices": [
       {
-        "content": "Le support le décrit avec deux hélices α séparées par trois brins β.",
+        "content": "Dans le modèle simplifié considéré ici, il comporte deux hélices α et trois brins β.",
         "correct": true,
         "explanation": "Le domaine illustre la relation structure-fonction d’un module protéique."
       },
       {
-        "content": "Il peut permettre la fixation d’ATP dans l’exemple donné.",
+        "content": "Il peut participer à la fixation d’un nucléotide tel que l’ATP.",
         "correct": true,
         "explanation": "Le domaine illustre la relation structure-fonction d’un module protéique."
       },
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 72,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle molécule est citée comme ligand d’un domaine de fixation des nucléotides ?",
+    "question": "Quelle molécule peut se fixer à un domaine de liaison aux nucléotides ?",
     "choices": [
       {
         "content": "ATP",
@@ -397,7 +397,7 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "ignoreAccents": true
       }
     },
-    "explanation": "CK-MB est l’hétérodimère M+B cité comme isoenzyme cardiaque."
+    "explanation": "CK-MB associe une sous-unité M et une sous-unité B ; cette isoenzyme est particulièrement représentée dans le myocarde."
   },
   {
     "order": 81,
@@ -406,7 +406,7 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant la créatine kinase CK-MM :",
     "choices": [
       {
-        "content": "Elle est citée comme homodimère musculaire.",
+        "content": "Elle est un homodimère particulièrement représenté dans le muscle squelettique.",
         "correct": true,
         "explanation": "CK-MM illustre un homodimère."
       },
@@ -464,7 +464,7 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant la créatine kinase CK-MB :",
     "choices": [
       {
-        "content": "Elle est citée comme hétérodimère cardiaque.",
+        "content": "Elle est un hétérodimère particulièrement représenté dans le myocarde.",
         "correct": true,
         "explanation": "CK-MB illustre un hétérodimère."
       },
@@ -522,115 +522,115 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les protéines G hétérotrimériques :",
     "choices": [
       {
-        "content": "La fiche cite trois sous-unités α, β et γ.",
+        "content": "Elles comportent trois sous-unités distinctes α, β et γ.",
         "correct": true,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       },
       {
-        "content": "Elles constituent un exemple d’hétérotrimère.",
+        "content": "Elles constituent des hétérotrimères.",
         "correct": true,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       },
       {
         "content": "Elles sont formées de deux sous-unités M seulement.",
         "correct": false,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       },
       {
         "content": "Elles sont des homodimères.",
         "correct": false,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       }
     ],
-    "explanation": "Le trio αβγ est l’exemple de trimère du support."
+    "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
   },
   {
     "order": 86,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de sous-unités différentes sont citées pour une protéine G hétérotrimérique ?",
+    "question": "Combien de sous-unités différentes comporte une protéine G hétérotrimérique ?",
     "choices": [
       {
         "content": "3",
         "correct": true,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       },
       {
         "content": "2",
         "correct": false,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       },
       {
         "content": "4",
         "correct": false,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       },
       {
         "content": "1",
         "correct": false,
-        "explanation": "Le trio αβγ est l’exemple de trimère du support."
+        "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
       }
     ],
-    "explanation": "Le trio αβγ est l’exemple de trimère du support."
+    "explanation": "Une protéine G hétérotrimérique associe trois sous-unités distinctes, α, β et γ."
   },
   {
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant l’hémoglobine :",
+    "question": "Concernant l’hémoglobine A adulte :",
     "choices": [
       {
-        "content": "Elle est donnée comme tétramère α2β2.",
+        "content": "Elle est un tétramère α2β2.",
         "correct": true,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       },
       {
         "content": "Elle illustre une structure quaternaire.",
         "correct": true,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       },
       {
         "content": "Elle est un monomère sans sous-unités.",
         "correct": false,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       },
       {
         "content": "Elle est classée comme polyoside.",
         "correct": false,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       }
     ],
-    "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+    "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
   },
   {
     "order": 88,
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux complexes dimériques cités dans la fiche.",
+    "question": "Sélectionnez exactement les deux complexes dimériques.",
     "choices": [
       {
         "content": "CK-MM",
         "correct": true,
-        "explanation": "CK-MM et CK-MB sont les deux dimères de l’exemple."
+        "explanation": "CK-MM est un homodimère M+M et CK-MB un hétérodimère M+B ; l’hémoglobine A et les protéines G hétérotrimériques ne sont pas des dimères."
       },
       {
         "content": "CK-MB",
         "correct": true,
-        "explanation": "CK-MM et CK-MB sont les deux dimères de l’exemple."
+        "explanation": "CK-MM est un homodimère M+M et CK-MB un hétérodimère M+B ; l’hémoglobine A et les protéines G hétérotrimériques ne sont pas des dimères."
       },
       {
         "content": "Hémoglobine α2β2",
         "correct": false,
-        "explanation": "CK-MM et CK-MB sont les deux dimères de l’exemple."
+        "explanation": "CK-MM est un homodimère M+M et CK-MB un hétérodimère M+B ; l’hémoglobine A et les protéines G hétérotrimériques ne sont pas des dimères."
       },
       {
         "content": "Protéine G αβγ",
         "correct": false,
-        "explanation": "CK-MM et CK-MB sont les deux dimères de l’exemple."
+        "explanation": "CK-MM est un homodimère M+M et CK-MB un hétérodimère M+B ; l’hémoglobine A et les protéines G hétérotrimériques ne sont pas des dimères."
       }
     ],
-    "explanation": "CK-MM et CK-MB sont les deux dimères de l’exemple."
+    "explanation": "CK-MM est un homodimère M+M et CK-MB un hétérodimère M+B ; l’hémoglobine A et les protéines G hétérotrimériques ne sont pas des dimères."
   },
   {
     "order": 89,
@@ -774,7 +774,7 @@ export const UE14_BIOCH_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 94,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quel exemple relie modification post-traductionnelle et coagulation ?",
+    "question": "Quelle modification post-traductionnelle favorise la fixation du calcium par certains facteurs de coagulation ?",
     "choices": [
       {
         "content": "la γ-carboxylation du glutamate",

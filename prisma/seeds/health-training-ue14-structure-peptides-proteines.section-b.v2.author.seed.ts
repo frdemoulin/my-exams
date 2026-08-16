@@ -66,7 +66,7 @@ export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant la liaison peptidique dans la structure primaire :",
     "choices": [
       {
-        "content": "Elle est plane et rigide dans le modèle du support.",
+        "content": "Elle est plane et sa rotation autour de l’axe C–N est fortement limitée.",
         "correct": true,
         "explanation": "Le caractère partiellement double de C–N explique la rigidité."
       },
@@ -126,25 +126,25 @@ export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "L’angle φ concerne la liaison N–Cα.",
         "correct": true,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       },
       {
         "content": "L’angle ψ concerne la liaison Cα–CO.",
         "correct": true,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       },
       {
         "content": "φ désigne la liaison C–N peptidique elle-même.",
         "correct": false,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       },
       {
         "content": "ψ est une mesure de masse molaire.",
         "correct": false,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       }
     ],
-    "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+    "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
   },
   {
     "order": 28,
@@ -155,25 +155,25 @@ export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "φ",
         "correct": true,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       },
       {
         "content": "ψ",
         "correct": false,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       },
       {
         "content": "ω seulement",
         "correct": false,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       },
       {
         "content": "pHi",
         "correct": false,
-        "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
       }
     ],
-    "explanation": "Le support nomme φ et ψ les deux rotations principales de part et d’autre de la liaison peptidique."
+    "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
   },
   {
     "order": 29,
@@ -245,7 +245,7 @@ export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
       },
       {
-        "content": "Cette modification favorise la complexation du calcium dans l’exemple de coagulation.",
+        "content": "Cette modification favorise la fixation du calcium par certains facteurs de coagulation.",
         "correct": true,
         "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
       },
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 32,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel ion est complexé par le γ-carboxyglutamate dans l’exemple du cours ?",
+    "question": "Quel ion peut être complexé par les résidus γ-carboxyglutamate des facteurs de coagulation ?",
     "choices": [
       {
         "content": "Ca2+",
@@ -303,7 +303,7 @@ export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
       },
       {
-        "content": "La trypsine est citée comme exemple de protéine activée par maturation.",
+        "content": "La trypsine est produite par clivage protéolytique du trypsinogène.",
         "correct": true,
         "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
       },
@@ -464,56 +464,56 @@ export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant le domaine Kringle :",
     "choices": [
       {
-        "content": "La fiche le décrit comme une grande boucle stabilisée par trois ponts disulfure.",
+        "content": "Il forme un module en boucle stabilisé par trois ponts disulfure.",
         "correct": true,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       },
       {
-        "content": "Elle le cite notamment dans le plasminogène.",
+        "content": "Le plasminogène contient plusieurs domaines Kringle.",
         "correct": true,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       },
       {
         "content": "Il est constitué uniquement de lipides.",
         "correct": false,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       },
       {
         "content": "Il est dépourvu de cystéine par définition.",
         "correct": false,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       }
     ],
-    "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+    "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de ponts disulfure stabilisent le domaine Kringle cité ?",
+    "question": "Combien de ponts disulfure stabilisent classiquement un domaine Kringle ?",
     "choices": [
       {
         "content": "3",
         "correct": true,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       },
       {
         "content": "1",
         "correct": false,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       },
       {
         "content": "10",
         "correct": false,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       },
       {
         "content": "0",
         "correct": false,
-        "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
       }
     ],
-    "explanation": "Le domaine Kringle est un exemple de module stabilisé par plusieurs ponts disulfure."
+    "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
   },
   {
     "order": 41,

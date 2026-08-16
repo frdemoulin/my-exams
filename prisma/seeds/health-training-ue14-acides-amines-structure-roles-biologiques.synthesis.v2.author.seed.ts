@@ -63,30 +63,30 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 103,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse — concernant les neuf acides aminés indispensables chez l’adulte sain :",
+    "question": "Synthèse — concernant le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile :",
     "choices": [
       {
-        "content": "Leucine, thréonine, lysine et tryptophane figurent dans la liste.",
+        "content": "Leucine, thréonine, lysine et tryptophane appartiennent à ce groupe.",
         "correct": true,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
-        "content": "Phénylalanine, valine, méthionine et isoleucine y figurent aussi.",
+        "content": "Phénylalanine, valine, méthionine et isoleucine appartiennent aussi à ce groupe.",
         "correct": true,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
-        "content": "Tyrosine et glycine remplacent leucine et lysine dans la liste.",
+        "content": "La tyrosine et la glycine remplacent la leucine et la lysine dans ce groupe.",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
-        "content": "Aucun acide aminé ramifié n’en fait partie.",
+        "content": "Ce groupe ne contient aucun acide aminé ramifié.",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       }
     ],
-    "explanation": "Les neuf acides aminés indispensables chez l’adulte sain sont His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile forment un groupe de huit acides aminés indispensables ; cette formulation ne prétend pas dresser une liste exhaustive."
   },
   {
     "order": 104,
@@ -97,25 +97,25 @@ export const UE14_BIOCH_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "leucine",
         "correct": true,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
         "content": "glycine",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
         "content": "alanine",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
         "content": "proline",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       }
     ],
-    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
   },
   {
     "order": 105,

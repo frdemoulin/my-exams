@@ -66,7 +66,7 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant l’hélice α :",
     "choices": [
       {
-        "content": "La chaîne s’enroule régulièrement vers la droite dans le support.",
+        "content": "Dans les protéines constituées d’acides aminés de série L, l’hélice α usuelle s’enroule vers la droite.",
         "correct": true,
         "explanation": "L’orientation externe limite les encombrements du squelette."
       },
@@ -124,39 +124,39 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les repères géométriques de l’hélice α :",
     "choices": [
       {
-        "content": "Le pas cité est de 0,54 nm.",
+        "content": "Le pas de l’hélice α est d’environ 0,54 nm.",
         "correct": true,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
-        "content": "Le support indique environ 3,6 acides aminés par tour.",
+        "content": "Un tour d’hélice α comporte en moyenne 3,6 résidus.",
         "correct": true,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
-        "content": "Le pas cité est de 5,4 µm.",
+        "content": "Le pas de l’hélice α est de 5,4 µm.",
         "correct": false,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
         "content": "Un tour contient exactement 36 acides aminés.",
         "correct": false,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       }
     ],
-    "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+    "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
   },
   {
     "order": 50,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés par tour d’hélice α la fiche indique-t-elle en moyenne ?",
+    "question": "Réponse numérique : combien de résidus comporte en moyenne un tour d’hélice α ?",
     "answer": {
       "type": "number",
       "value": 3.6,
       "tolerance": 0.05
     },
-    "explanation": "La fiche indique environ 3,6 résidus par tour."
+    "explanation": "Un tour d’hélice α comporte environ 3,6 résidus."
   },
   {
     "order": 51,
@@ -191,13 +191,13 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 52,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : quel est le pas de l’hélice α en nm dans la fiche ?",
+    "question": "Réponse numérique : quel est le pas moyen d’une hélice α, en nm ?",
     "answer": {
       "type": "number",
       "value": 0.54,
       "tolerance": 0.01
     },
-    "explanation": "Le pas indiqué est de 0,54 nm."
+    "explanation": "Le pas moyen d’une hélice α est d’environ 0,54 nm."
   },
   {
     "order": 53,
@@ -206,56 +206,56 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant la myoglobine et les hélices α :",
     "choices": [
       {
-        "content": "La fiche indique huit hélices α dans la myoglobine.",
+        "content": "La myoglobine possède huit hélices α nommées A à H.",
         "correct": true,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       },
       {
-        "content": "Elle présente la myoglobine comme exemple riche en hélices α.",
+        "content": "Sa structure est majoritairement constituée d’hélices α.",
         "correct": true,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       },
       {
         "content": "La myoglobine ne contient aucune hélice α.",
         "correct": false,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       },
       {
         "content": "Elle est un polyoside.",
         "correct": false,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       }
     ],
-    "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+    "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
   },
   {
     "order": 54,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien d’hélices α sont citées pour la myoglobine ?",
+    "question": "Combien d’hélices α principales comporte la myoglobine ?",
     "choices": [
       {
         "content": "8",
         "correct": true,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       },
       {
         "content": "0",
         "correct": false,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       },
       {
         "content": "2",
         "correct": false,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       },
       {
         "content": "80",
         "correct": false,
-        "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+        "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
       }
     ],
-    "explanation": "La myoglobine est l’exemple quantitatif donné dans la fiche."
+    "explanation": "La myoglobine est une protéine globulaire monomérique dont la structure comporte huit hélices α principales, nommées A à H."
   },
   {
     "order": 55,
@@ -266,25 +266,25 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Ils sont formés de brins associés par des liaisons hydrogène.",
         "correct": true,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "Les brins peuvent être parallèles ou antiparallèles.",
         "correct": true,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "Ils sont toujours des hélices droites.",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "Ils ne comportent jamais de liaison hydrogène.",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       }
     ],
-    "explanation": "Les deux organisations sont décrites dans le support."
+    "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
   },
   {
     "order": 56,
@@ -295,25 +295,25 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "parallèles ou antiparallèles",
         "correct": true,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "uniquement perpendiculaires",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "uniquement circulaires",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "aucune association n’est possible",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       }
     ],
-    "explanation": "Les deux organisations sont décrites dans le support."
+    "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
   },
   {
     "order": 57,
@@ -380,56 +380,56 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les immunoglobulines et feuillets β :",
     "choices": [
       {
-        "content": "Le support les cite comme protéines riches en feuillets β.",
+        "content": "Le repliement caractéristique des immunoglobulines est riche en feuillets β.",
         "correct": true,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       },
       {
-        "content": "Il indique qu’elles ne comportent pas d’hélices α dans l’exemple donné.",
+        "content": "Le domaine immunoglobuline adopte un sandwich β formé de deux feuillets opposés.",
         "correct": true,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       },
       {
         "content": "Elles sont exclusivement des lipides.",
         "correct": false,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       },
       {
-        "content": "Elles sont citées comme composées uniquement d’hélices α longues.",
+        "content": "Leur repliement caractéristique est composé uniquement de longues hélices α.",
         "correct": false,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       }
     ],
-    "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+    "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle famille protéique est citée comme riche en feuillets β ?",
+    "question": "Quelle famille protéique possède un repliement caractéristique riche en feuillets β ?",
     "choices": [
       {
         "content": "les immunoglobulines",
         "correct": true,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       },
       {
         "content": "les triglycérides",
         "correct": false,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       },
       {
         "content": "les stérides",
         "correct": false,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       },
       {
         "content": "les oses",
         "correct": false,
-        "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+        "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
       }
     ],
-    "explanation": "Les immunoglobulines servent d’exemple de structure riche en feuillets β."
+    "explanation": "Le domaine immunoglobuline adopte un sandwich β constitué de deux feuillets opposés et reliés par des boucles."
   },
   {
     "order": 61,
@@ -443,7 +443,7 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Leur géométrie favorise les changements de direction locaux."
       },
       {
-        "content": "Proline ou glycine sont fréquemment impliquées dans l’exemple du cours.",
+        "content": "La proline et la glycine sont fréquemment rencontrées dans les coudes.",
         "correct": true,
         "explanation": "Leur géométrie favorise les changements de direction locaux."
       },
@@ -464,7 +464,7 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quels acides aminés sont particulièrement associés aux coudes dans la fiche ?",
+    "question": "Quels acides aminés sont particulièrement associés aux coudes des chaînes polypeptidiques ?",
     "choices": [
       {
         "content": "proline ou glycine",
@@ -522,7 +522,7 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : quelle distance entre deux acides aminés d’un brin β est citée, en nm ?",
+    "question": "Réponse numérique : quelle est approximativement la distance entre deux résidus successifs le long d’un brin β, en nm ?",
     "answer": {
       "type": "number",
       "value": 0.35,
@@ -537,27 +537,27 @@ export const UE14_BIOCH_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les forces stabilisant la structure tertiaire :",
     "choices": [
       {
-        "content": "Van der Waals, liaisons hydrogène et interactions hydrophobes sont citées.",
+        "content": "Les interactions de Van der Waals, les liaisons hydrogène et l’effet hydrophobe contribuent au repliement.",
         "correct": true,
-        "explanation": "Le support distingue interactions non covalentes et ponts disulfure covalents."
+        "explanation": "La structure tertiaire est stabilisée par des interactions non covalentes — effet hydrophobe, liaisons hydrogène, interactions ioniques et de Van der Waals — ainsi que parfois par des ponts disulfure covalents."
       },
       {
         "content": "Des ponts disulfure covalents peuvent aussi participer.",
         "correct": true,
-        "explanation": "Le support distingue interactions non covalentes et ponts disulfure covalents."
+        "explanation": "La structure tertiaire est stabilisée par des interactions non covalentes — effet hydrophobe, liaisons hydrogène, interactions ioniques et de Van der Waals — ainsi que parfois par des ponts disulfure covalents."
       },
       {
         "content": "Seules des liaisons peptidiques nouvelles stabilisent le repliement.",
         "correct": false,
-        "explanation": "Le support distingue interactions non covalentes et ponts disulfure covalents."
+        "explanation": "La structure tertiaire est stabilisée par des interactions non covalentes — effet hydrophobe, liaisons hydrogène, interactions ioniques et de Van der Waals — ainsi que parfois par des ponts disulfure covalents."
       },
       {
         "content": "Les interactions hydrophobes sont absentes des protéines globulaires.",
         "correct": false,
-        "explanation": "Le support distingue interactions non covalentes et ponts disulfure covalents."
+        "explanation": "La structure tertiaire est stabilisée par des interactions non covalentes — effet hydrophobe, liaisons hydrogène, interactions ioniques et de Van der Waals — ainsi que parfois par des ponts disulfure covalents."
       }
     ],
-    "explanation": "Le support distingue interactions non covalentes et ponts disulfure covalents."
+    "explanation": "La structure tertiaire est stabilisée par des interactions non covalentes — effet hydrophobe, liaisons hydrogène, interactions ioniques et de Van der Waals — ainsi que parfois par des ponts disulfure covalents."
   },
   {
     "order": 66,

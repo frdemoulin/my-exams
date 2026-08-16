@@ -5,59 +5,59 @@ export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse — concernant les acides aminés indispensables dans la fiche 3.3 :",
+    "question": "Synthèse — concernant le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile :",
     "choices": [
       {
-        "content": "La fiche en retient huit : Leu, Thr, Lys, Trp, Phe, Val, Met et Ile.",
+        "content": "Il réunit huit acides aminés indispensables.",
         "correct": true,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "Ils doivent être apportés en quantité suffisante par l’alimentation.",
         "correct": true,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
-        "content": "Elle classe glycine et alanine parmi les huit indispensables.",
+        "content": "La glycine et l’alanine appartiennent à ce groupe de huit acides aminés.",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
-        "content": "Elle affirme que tous sont synthétisés par l’Homme.",
+        "content": "Tous les acides aminés de ce groupe sont synthétisés en quantité suffisante par l’être humain.",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       }
     ],
-    "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Synthèse transversale : Combien d’acides aminés indispensables la fiche 3.3 énumère-t-elle hors His et Arg ?",
+    "question": "Synthèse transversale : combien d’acides aminés comporte le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile ?",
     "choices": [
       {
         "content": "8",
         "correct": true,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "10",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "20",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "2",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       }
     ],
-    "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
   },
   {
     "order": 103,
@@ -66,7 +66,7 @@ export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Synthèse — concernant le cycle de l’uréogenèse :",
     "choices": [
       {
-        "content": "Citrulline, ornithine et arginine sont citées comme intermédiaires.",
+        "content": "La citrulline, l’ornithine et l’arginine sont des intermédiaires de l’uréogenèse.",
         "correct": true,
         "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
       },
@@ -392,7 +392,7 @@ export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
       },
       {
-        "content": "Ces chaînes sont reliées par deux ponts disulfure dans la fiche.",
+        "content": "Les chaînes A et B sont reliées par deux ponts disulfure interchaînes.",
         "correct": true,
         "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
       },
@@ -413,7 +413,7 @@ export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 114,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Synthèse transversale : Quel effet principal sur la glycémie la fiche attribue-t-elle à l’insuline ?",
+    "question": "Synthèse transversale : quel est l’effet principal de l’insuline sur la glycémie ?",
     "choices": [
       {
         "content": "un effet hypoglycémiant",
@@ -526,25 +526,25 @@ export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "les cellules α",
         "correct": true,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       },
       {
         "content": "les cellules β",
         "correct": false,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       },
       {
         "content": "les cardiomyocytes",
         "correct": false,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       },
       {
         "content": "les hématies",
         "correct": false,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       }
     ],
-    "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+    "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
   },
   {
     "order": 119,
@@ -616,12 +616,12 @@ export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
       },
       {
-        "content": "La fiche distingue une voie de clivage amyloïdogénique d’une voie non amyloïdogénique.",
+        "content": "L’APP peut suivre une voie de clivage amyloïdogénique ou une voie non amyloïdogénique.",
         "correct": true,
         "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
       },
       {
-        "content": "Le peptide β-amyloïde est présenté comme protecteur obligatoire sans agrégation.",
+        "content": "Le peptide β-amyloïde est nécessairement protecteur et ne peut pas s’agréger.",
         "correct": false,
         "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
       },
@@ -666,7 +666,7 @@ export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
       },
       {
-        "content": "Le tryptophane est le précurseur des hormones thyroïdiennes dans la fiche.",
+        "content": "Le tryptophane est le précurseur direct des hormones thyroïdiennes.",
         "correct": false,
         "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
       },

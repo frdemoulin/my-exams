@@ -8,56 +8,56 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant l’ANP et le BNP :",
     "choices": [
       {
-        "content": "L’ANP est cité à 28 acides aminés.",
+        "content": "L’ANP mature comporte 28 acides aminés.",
         "correct": true,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       },
       {
-        "content": "Le BNP est cité à 32 acides aminés.",
+        "content": "Le BNP mature comporte 32 acides aminés.",
         "correct": true,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       },
       {
-        "content": "L’ANP est cité à 280 acides aminés.",
+        "content": "L’ANP mature comporte 280 acides aminés.",
         "correct": false,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       },
       {
         "content": "Le BNP est une protéine de 3200 acides aminés.",
         "correct": false,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       }
     ],
-    "explanation": "Ces tailles sont des repères du support."
+    "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
   },
   {
     "order": 68,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien d’acides aminés la fiche attribue-t-elle au BNP ?",
+    "question": "Combien d’acides aminés comporte le BNP mature ?",
     "choices": [
       {
         "content": "32",
         "correct": true,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       },
       {
         "content": "28",
         "correct": false,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       },
       {
         "content": "100",
         "correct": false,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       },
       {
         "content": "3",
         "correct": false,
-        "explanation": "Ces tailles sont des repères du support."
+        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
       }
     ],
-    "explanation": "Ces tailles sont des repères du support."
+    "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
   },
   {
     "order": 69,
@@ -150,13 +150,13 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 72,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte le BNP dans la fiche ?",
+    "question": "Réponse numérique : combien d’acides aminés comporte le BNP mature ?",
     "answer": {
       "type": "number",
       "value": 32,
       "tolerance": 0
     },
-    "explanation": "Le BNP est cité à 32 acides aminés."
+    "explanation": "Le BNP mature comporte 32 acides aminés."
   },
   {
     "order": 73,
@@ -191,13 +191,13 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 74,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte l’ANP dans la fiche ?",
+    "question": "Réponse numérique : combien d’acides aminés comporte l’ANP mature ?",
     "answer": {
       "type": "number",
       "value": 28,
       "tolerance": 0
     },
-    "explanation": "L’ANP est cité à 28 acides aminés."
+    "explanation": "L’ANP mature comporte 28 acides aminés."
   },
   {
     "order": 75,
@@ -206,7 +206,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les cytokines :",
     "choices": [
       {
-        "content": "La fiche regroupe notamment interleukines, TNFα, interférons et chimiokines.",
+        "content": "Cette famille comprend notamment les interleukines, le TNFα, les interférons et les chimiokines.",
         "correct": true,
         "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
       },
@@ -264,56 +264,56 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les interleukines :",
     "choices": [
       {
-        "content": "IL-1 et IL-6 sont citées comme pro-inflammatoires.",
+        "content": "IL-1 et IL-6 ont notamment des effets pro-inflammatoires.",
         "correct": true,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       },
       {
-        "content": "IL-10 est citée comme anti-inflammatoire.",
+        "content": "IL-10 exerce principalement des effets anti-inflammatoires.",
         "correct": true,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       },
       {
-        "content": "IL-10 est citée uniquement comme hormone thyroïdienne.",
+        "content": "IL-10 est une hormone thyroïdienne.",
         "correct": false,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       },
       {
         "content": "IL-1 et IL-6 sont décrites comme anti-inflammatoires exclusives.",
         "correct": false,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       }
     ],
-    "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+    "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
   },
   {
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle interleukine est citée comme anti-inflammatoire ?",
+    "question": "Quelle interleukine exerce principalement un effet anti-inflammatoire ?",
     "choices": [
       {
         "content": "IL-10",
         "correct": true,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       },
       {
         "content": "IL-1",
         "correct": false,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       },
       {
         "content": "IL-6",
         "correct": false,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       },
       {
         "content": "TNFα uniquement",
         "correct": false,
-        "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
       }
     ],
-    "explanation": "Le support oppose quelques exemples de cytokines pro- et anti-inflammatoires."
+    "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
   },
   {
     "order": 79,
@@ -322,7 +322,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les interférons de type I :",
     "choices": [
       {
-        "content": "IFN-α et IFN-β en sont les exemples cités.",
+        "content": "IFN-α et IFN-β appartiennent aux interférons de type I.",
         "correct": true,
         "explanation": "Les interférons I ont une fonction antivirale importante."
       },
@@ -348,7 +348,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quels interférons appartiennent au type I dans la fiche ?",
+    "question": "Quels interférons appartiennent au type I ?",
     "choices": [
       {
         "content": "IFN-α et IFN-β",
@@ -380,7 +380,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant l’interféron γ :",
     "choices": [
       {
-        "content": "Il est l’interféron de type II cité.",
+        "content": "Il est l’interféron de type II.",
         "correct": true,
         "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
       },
@@ -443,7 +443,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
       },
       {
-        "content": "La fiche insiste sur des cystéines conservées participant à leur classification structurale.",
+        "content": "Des cystéines conservées fondent leur classification structurale en familles CC, CXC, CX3C et XC.",
         "correct": true,
         "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
       },
@@ -498,25 +498,25 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Ce sont de petits peptides opioïdes endogènes.",
         "correct": true,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       },
       {
         "content": "Ils se lient à des récepteurs opioïdes.",
         "correct": true,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       },
       {
         "content": "Ce sont des glucides de réserve.",
         "correct": false,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       },
       {
-        "content": "Ils sont dépourvus de toute analogie fonctionnelle avec la morphine dans la fiche.",
+        "content": "Ils sont dépourvus de toute analogie fonctionnelle avec les opioïdes exogènes comme la morphine.",
         "correct": false,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       }
     ],
-    "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+    "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
   },
   {
     "order": 86,
@@ -527,25 +527,25 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "aux récepteurs opioïdes",
         "correct": true,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       },
       {
         "content": "aux récepteurs nucléaires de vitamine D uniquement",
         "correct": false,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       },
       {
         "content": "aux récepteurs de l’insuline uniquement",
         "correct": false,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       },
       {
         "content": "à aucun récepteur",
         "correct": false,
-        "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
       }
     ],
-    "explanation": "Le support les relie à la modulation de la douleur et à la pharmacologie opioïde."
+    "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
   },
   {
     "order": 87,
@@ -559,12 +559,12 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
       },
       {
-        "content": "La fiche distingue une voie de clivage amyloïdogénique d’une voie non amyloïdogénique.",
+        "content": "L’APP peut suivre une voie de clivage amyloïdogénique ou une voie non amyloïdogénique.",
         "correct": true,
         "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
       },
       {
-        "content": "Le peptide β-amyloïde est présenté comme protecteur obligatoire sans agrégation.",
+        "content": "Le peptide β-amyloïde est nécessairement protecteur et ne peut pas s’agréger.",
         "correct": false,
         "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
       },
@@ -581,7 +581,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux interférons de type I cités dans la fiche.",
+    "question": "Sélectionnez exactement les deux interférons de type I.",
     "choices": [
       {
         "content": "IFN-α",
@@ -686,7 +686,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Les deux hormones pancréatiques illustrent une régulation antagoniste de la glycémie."
       },
       {
-        "content": "Le glucagon est produit par les cellules β dans le support.",
+        "content": "Le glucagon est produit par les cellules β pancréatiques.",
         "correct": false,
         "explanation": "Les deux hormones pancréatiques illustrent une régulation antagoniste de la glycémie."
       }
@@ -960,7 +960,7 @@ export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
       },
       {
-        "content": "IL-10 est pro-inflammatoire dans le support.",
+        "content": "IL-10 exerce principalement un effet pro-inflammatoire.",
         "correct": false,
         "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
       },

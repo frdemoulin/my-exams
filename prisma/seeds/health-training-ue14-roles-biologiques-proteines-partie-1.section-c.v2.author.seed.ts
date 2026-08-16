@@ -34,25 +34,25 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement le récepteur 5-HT3 selon la fiche ?",
+    "question": "Quelle proposition décrit correctement le récepteur 5-HT3 ?",
     "choices": [
       {
-        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal.",
+        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal cationique et favorise la dépolarisation.",
         "correct": true,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "Le 5-HT3 est présenté comme un récepteur nucléaire.",
+        "content": "Le 5-HT3 est un récepteur nucléaire.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "La sérotonine est assimilée à l’insuline dans la fiche.",
+        "content": "La sérotonine est une forme d’insuline.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation selon la fiche.",
+        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       }
@@ -66,7 +66,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Repères fondamentaux sur le récepteur GABA-A :",
     "choices": [
       {
-        "content": "L’ouverture permet une entrée de Cl− et une hyperpolarisation.",
+        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
         "correct": true,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
@@ -76,12 +76,12 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
       {
-        "content": "Le GABA est présenté comme un neurotransmetteur inhibiteur.",
+        "content": "Le GABA est un neurotransmetteur inhibiteur majeur.",
         "correct": true,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
       {
-        "content": "Le GABA-A provoque l’entrée de Na+ et une dépolarisation dans la fiche.",
+        "content": "Le GABA-A provoque principalement une entrée de Na+ et une dépolarisation.",
         "correct": false,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       }
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la stœchiométrie de la Na+/K+ ATPase selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la stœchiométrie de la Na+/K+ ATPase ?",
     "choices": [
       {
         "content": "Le K+ est importé depuis le milieu extracellulaire.",
@@ -163,7 +163,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
       },
       {
-        "content": "La fiche décrit l’échange de 3 Na+ intracellulaires contre 2 K+ extracellulaires.",
+        "content": "La pompe expulse 3 Na+ et importe 2 K+ par cycle.",
         "correct": true,
         "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
       },
@@ -184,25 +184,25 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les transporteurs ABC utilisent l’énergie de l’hydrolyse de l’ATP.",
         "correct": true,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "ABC signifie « Antibody Binding Channel ».",
         "correct": false,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "Ils comportent des domaines transmembranaires.",
         "correct": true,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "Ils sont dépourvus de tout domaine de fixation de nucléotide.",
         "correct": false,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       }
     ],
-    "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+    "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
   },
   {
     "order": 52,
@@ -221,7 +221,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
       },
       {
-        "content": "Elle est décrite comme un récepteur nucléaire.",
+        "content": "La P-glycoprotéine est un récepteur nucléaire.",
         "correct": false,
         "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
       },
@@ -240,12 +240,12 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Concernant le canal CFTR :",
     "choices": [
       {
-        "content": "La mutation ΔF508 du gène CFTR est reliée à la mucoviscidose dans la fiche.",
+        "content": "La mutation ΔF508 du gène CFTR est associée à la mucoviscidose.",
         "correct": true,
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
       },
       {
-        "content": "La mutation ΔF508 est décrite comme la cause d’une drépanocytose.",
+        "content": "La mutation ΔF508 provoque une drépanocytose.",
         "correct": false,
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
       },
@@ -266,7 +266,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la distinction entre canal et pompe selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la distinction entre canal et pompe ?",
     "choices": [
       {
         "content": "Un canal suit le gradient électrochimique.",
@@ -295,20 +295,20 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un neurone, deux molécules de GABA se fixent sur un récepteur GABA-A. Quelles propositions sur le récepteur GABA-A sont conformes à la fiche ?",
+    "question": "Dans un neurone, deux molécules de GABA se fixent sur un récepteur GABA-A. Quelles propositions sur ce récepteur sont exactes ?",
     "choices": [
       {
-        "content": "Deux molécules de GABA se fixent de façon coopérative selon la fiche.",
+        "content": "Deux molécules de GABA peuvent occuper les deux sites orthostériques du récepteur.",
         "correct": true,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
       {
-        "content": "Le GABA est présenté comme une hormone stéroïdienne.",
+        "content": "Le GABA est une hormone stéroïdienne.",
         "correct": false,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
       {
-        "content": "L’ouverture permet une entrée de Cl− et une hyperpolarisation.",
+        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
         "correct": true,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
@@ -353,7 +353,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 57,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur la Na+/K+ ATPase sont exactes ?",
+    "question": "Quelles affirmations sur la Na+/K+ ATPase sont exactes ?",
     "choices": [
       {
         "content": "La Na+/K+ ATPase utilise de l’ATP.",
@@ -414,33 +414,33 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Dans une situation d’application, quelles affirmations sur la structure générale des transporteurs ABC faut-il retenir ?",
     "choices": [
       {
-        "content": "La fiche décrit deux domaines de fixation des nucléotides NBD au niveau intracellulaire.",
+        "content": "Le transporteur comporte deux domaines intracellulaires de liaison aux nucléotides, ou NBD.",
         "correct": true,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "Ils ne sont présents que dans un seul tissu humain.",
         "correct": false,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "Les transporteurs ABC utilisent l’énergie de l’hydrolyse de l’ATP.",
         "correct": true,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "ABC signifie « Antibody Binding Channel ».",
         "correct": false,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       }
     ],
-    "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+    "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’ions Na+ sont exportés par cycle dans le modèle de la Na+/K+ ATPase de la fiche ?",
+    "question": "Réponse numérique : combien d’ions Na+ sont exportés par cycle par la Na+/K+ ATPase ?",
     "answer": {
       "type": "number",
       "value": 3,
@@ -452,7 +452,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Chez un patient atteint de mucoviscidose, la fiche met en avant une mutation ΔF508. Quelles propositions sur le canal CFTR sont conformes à la fiche ?",
+    "question": "Chez un patient atteint de mucoviscidose porteur de la mutation ΔF508, quelles propositions sur le canal CFTR sont exactes ?",
     "choices": [
       {
         "content": "Il est présent dans des cellules épithéliales.",
@@ -465,12 +465,12 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
       },
       {
-        "content": "La mutation ΔF508 du gène CFTR est reliée à la mucoviscidose dans la fiche.",
+        "content": "La mutation ΔF508 du gène CFTR est associée à la mucoviscidose.",
         "correct": true,
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
       },
       {
-        "content": "La mutation ΔF508 est décrite comme la cause d’une drépanocytose.",
+        "content": "La mutation ΔF508 provoque une drépanocytose.",
         "correct": false,
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
       }
@@ -484,7 +484,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Dans une situation d’application, quelle affirmation sur la distinction entre canal et pompe faut-il retenir ?",
     "choices": [
       {
-        "content": "La fiche oppose donc diffusion facilitée et transport actif.",
+        "content": "Les canaux assurent une diffusion facilitée, tandis que les pompes réalisent un transport actif.",
         "correct": true,
         "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
       },
@@ -510,7 +510,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur les récepteurs ionotropiques sont exactes ?",
+    "question": "Quelles affirmations sur les récepteurs ionotropiques sont exactes ?",
     "choices": [
       {
         "content": "Les fonctions réceptrice et effectrice sont assurées par la même molécule.",
@@ -542,22 +542,22 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Après fixation de sérotonine sur un neurone, un canal 5-HT3 s’ouvre. Quelle proposition sur le récepteur 5-HT3 est correcte ?",
     "choices": [
       {
-        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal.",
+        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal cationique et favorise la dépolarisation.",
         "correct": true,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "Le 5-HT3 est présenté comme un récepteur nucléaire.",
+        "content": "Le 5-HT3 est un récepteur nucléaire.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "La sérotonine est assimilée à l’insuline dans la fiche.",
+        "content": "La sérotonine est une forme d’insuline.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation selon la fiche.",
+        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       }
@@ -582,7 +582,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "L’ouverture permet une entrée de Cl− et une hyperpolarisation.",
+        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
         "correct": true,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
@@ -590,16 +590,6 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "content": "Un canal utilise toujours l’ATP pour déplacer un ion contre son gradient.",
         "correct": false,
         "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Elle transporte uniquement du calcium.",
-        "correct": false,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "La pompe expulse 2 K+ depuis le cytosol sans faire sortir de Na+.",
-        "correct": false,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
       }
     ],
     "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
@@ -617,7 +607,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "Deux molécules de GABA se fixent de façon coopérative selon la fiche.",
+        "content": "Deux molécules de GABA peuvent occuper les deux sites orthostériques du récepteur.",
         "correct": true,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
@@ -639,7 +629,7 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ils ne sont présents que dans un seul tissu humain.",
         "correct": false,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "La P-glycoprotéine est une immunoglobuline sécrétée.",
@@ -650,6 +640,16 @@ export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
         "content": "CFTR transporte exclusivement le glucose.",
         "correct": false,
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
+      },
+      {
+        "content": "Le récepteur 5-HT3 est un transporteur ABC utilisant l’ATP.",
+        "correct": false,
+        "explanation": "Le 5-HT3 est un récepteur ionotrope : la sérotonine commande directement l’ouverture d’un canal cationique."
+      },
+      {
+        "content": "La Na+/K+ ATPase expulse 2 Na+ et importe 3 K+ par cycle.",
+        "correct": false,
+        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
       }
     ],
     "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."

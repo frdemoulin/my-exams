@@ -5,117 +5,117 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les acides aminés indispensables dans la fiche 3.3 :",
+    "question": "Concernant le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile :",
     "choices": [
       {
-        "content": "La fiche en retient huit : Leu, Thr, Lys, Trp, Phe, Val, Met et Ile.",
+        "content": "Il réunit huit acides aminés indispensables.",
         "correct": true,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "Ils doivent être apportés en quantité suffisante par l’alimentation.",
         "correct": true,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
-        "content": "Elle classe glycine et alanine parmi les huit indispensables.",
+        "content": "La glycine et l’alanine appartiennent à ce groupe de huit acides aminés.",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
-        "content": "Elle affirme que tous sont synthétisés par l’Homme.",
+        "content": "Tous les acides aminés de ce groupe sont synthétisés en quantité suffisante par l’être humain.",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       }
     ],
-    "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien d’acides aminés indispensables la fiche 3.3 énumère-t-elle hors His et Arg ?",
+    "question": "Combien d’acides aminés comporte le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile ?",
     "choices": [
       {
         "content": "8",
         "correct": true,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "10",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "20",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       },
       {
         "content": "2",
         "correct": false,
-        "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
       }
     ],
-    "explanation": "La fiche 3.3 distingue huit indispensables et deux semi-essentiels pendant la croissance."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
   },
   {
     "order": 3,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’histidine et l’arginine dans la fiche 3.3 :",
+    "question": "Concernant les besoins nutritionnels en histidine et en arginine pendant la croissance :",
     "choices": [
       {
-        "content": "Elles sont qualifiées de semi-essentielles.",
+        "content": "Un apport suffisant de ces acides aminés contribue à couvrir les besoins de la croissance.",
         "correct": true,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
-        "content": "Leur caractère essentiel est signalé au cours de la croissance.",
+        "content": "Pendant la croissance, les besoins en arginine peuvent dépasser les capacités de synthèse endogène.",
         "correct": true,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "Elles sont décrites comme des glucides.",
         "correct": false,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "Elles remplacent toutes les autres dans l’alimentation adulte.",
         "correct": false,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       }
     ],
-    "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+    "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
   },
   {
     "order": 4,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À quelle période la fiche insiste-t-elle sur leur caractère essentiel ?",
+    "question": "À quelle période les besoins en arginine peuvent-ils dépasser les capacités de synthèse endogène ?",
     "choices": [
       {
         "content": "pendant la croissance",
         "correct": true,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "uniquement après 80 ans",
         "correct": false,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "uniquement pendant le sommeil",
         "correct": false,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "jamais",
         "correct": false,
-        "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       }
     ],
-    "explanation": "Le support 3.3 les distingue des huit indispensables constants."
+    "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
   },
   {
     "order": 5,
@@ -129,7 +129,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Les interconversions relient le métabolisme des acides aminés."
       },
       {
-        "content": "Les transaminations sont citées comme exemple.",
+        "content": "Les transaminations permettent de transférer un groupement aminé entre un acide aminé et un α-cétoacide.",
         "correct": true,
         "explanation": "Les interconversions relient le métabolisme des acides aminés."
       },
@@ -150,7 +150,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 6,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel type de réaction est cité comme exemple d’interconversion ?",
+    "question": "Quel type de réaction transfère un groupement aminé entre un acide aminé et un α-cétoacide ?",
     "choices": [
       {
         "content": "une transamination",
@@ -208,7 +208,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 8,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel acide aminé est cité dans la phosphatidylsérine ?",
+    "question": "Quel acide aminé entre dans la structure de la phosphatidylsérine ?",
     "choices": [
       {
         "content": "la sérine",
@@ -240,7 +240,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant le cycle de l’uréogenèse :",
     "choices": [
       {
-        "content": "Citrulline, ornithine et arginine sont citées comme intermédiaires.",
+        "content": "La citrulline, l’ornithine et l’arginine sont des intermédiaires de l’uréogenèse.",
         "correct": true,
         "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
       },
@@ -266,13 +266,13 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 10,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés indispensables la fiche 3.3 énumère-t-elle, en dehors des deux semi-essentiels ?",
+    "question": "Réponse numérique : combien d’acides aminés comporte le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile ?",
     "answer": {
       "type": "number",
       "value": 8,
       "tolerance": 0
     },
-    "explanation": "La fiche 3.3 cite huit indispensables et place His/Arg à part comme semi-essentiels pendant la croissance."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile forment un groupe de huit acides aminés indispensables ; d’autres acides aminés peuvent compléter cette classification."
   },
   {
     "order": 11,
@@ -281,12 +281,12 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant la méthionine comme donneur de méthyle :",
     "choices": [
       {
-        "content": "La fiche la cite comme donneur de groupement méthyle.",
+        "content": "Sous forme de S-adénosylméthionine, elle fournit des groupements méthyle à de nombreuses réactions.",
         "correct": true,
         "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
       },
       {
-        "content": "Elle peut conduire à l’homocystéine dans l’exemple donné.",
+        "content": "Après don du groupement méthyle, son métabolisme peut conduire à l’homocystéine.",
         "correct": true,
         "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
       },
@@ -307,7 +307,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 12,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel composé est cité après transfert du groupement méthyle de la méthionine ?",
+    "question": "Quel composé soufré peut être formé après le transfert du groupement méthyle de la méthionine ?",
     "choices": [
       {
         "content": "l’homocystéine",
@@ -341,54 +341,54 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Elle peut former oxaloacétate et glutamate.",
         "correct": true,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       },
       {
-        "content": "Elle est catalysée par une aminotransférase dans l’exemple.",
+        "content": "Elle est catalysée par une aminotransférase, notamment l’ASAT.",
         "correct": true,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       },
       {
         "content": "Elle produit nécessairement un triglycéride.",
         "correct": false,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       },
       {
         "content": "Elle ne met en jeu aucun acide aminé.",
         "correct": false,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       }
     ],
-    "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+    "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel produit carboné dérive de l’aspartate dans l’exemple ?",
+    "question": "Quel α-cétoacide est formé à partir de l’aspartate lors d’une transamination catalysée par l’ASAT ?",
     "choices": [
       {
         "content": "l’oxaloacétate",
         "correct": true,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       },
       {
         "content": "le cholestérol",
         "correct": false,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       },
       {
         "content": "le fructose-1,6-bisphosphate",
         "correct": false,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       },
       {
         "content": "le palmitate",
         "correct": false,
-        "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
       }
     ],
-    "explanation": "L’exemple relie métabolisme azoté et intermédiaires du cycle de Krebs."
+    "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
   },
   {
     "order": 15,
@@ -397,7 +397,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les acides aminés en excès :",
     "choices": [
       {
-        "content": "La fiche indique qu’ils ne sont pas stockés comme réserve libre d’acides aminés.",
+        "content": "Ils ne sont pas stockés dans une réserve spécialisée d’acides aminés libres.",
         "correct": true,
         "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
       },
@@ -423,7 +423,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Que devient un excès d’acides aminés selon le support ?",
+    "question": "Quel devenir métabolique peut avoir un excès d’acides aminés ?",
     "choices": [
       {
         "content": "il est métabolisé vers des intermédiaires énergétiques",
@@ -513,27 +513,27 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les acides aminés cétoformateurs :",
     "choices": [
       {
-        "content": "Ils peuvent fournir acétyl-CoA ou acétoacétyl-CoA dans le modèle du cours.",
+        "content": "Ils peuvent fournir de l’acétyl-CoA ou de l’acétoacétyl-CoA.",
         "correct": true,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       },
       {
         "content": "Ils sont reliés à la formation de corps cétoniques.",
         "correct": true,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       },
       {
         "content": "Ils donnent obligatoirement du glycogène sans transformation.",
         "correct": false,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       },
       {
         "content": "Ils ne participent jamais au métabolisme énergétique.",
         "correct": false,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       }
     ],
-    "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+    "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
   },
   {
     "order": 20,
@@ -544,25 +544,25 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "l’acétyl-CoA",
         "correct": true,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       },
       {
         "content": "le ribose-5-phosphate uniquement",
         "correct": false,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       },
       {
         "content": "la cellulose",
         "correct": false,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       },
       {
         "content": "l’ARNm",
         "correct": false,
-        "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
       }
     ],
-    "explanation": "Le support oppose schématiquement voies glucoformatrices et cétoformatrices."
+    "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
   },
   {
     "order": 21,
@@ -573,25 +573,25 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Les apports alimentaires restent importants même si certains acides aminés peuvent être synthétisés.",
         "correct": true,
-        "explanation": "La fiche insiste sur l’importance nutritionnelle des apports en acides aminés."
+        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
       },
       {
         "content": "Les indispensables doivent être apportés en quantité suffisante.",
         "correct": true,
-        "explanation": "La fiche insiste sur l’importance nutritionnelle des apports en acides aminés."
+        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
       },
       {
         "content": "La synthèse endogène supprime tout besoin alimentaire en protéines.",
         "correct": false,
-        "explanation": "La fiche insiste sur l’importance nutritionnelle des apports en acides aminés."
+        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
       },
       {
         "content": "Seuls les glucides alimentaires fournissent des acides aminés.",
         "correct": false,
-        "explanation": "La fiche insiste sur l’importance nutritionnelle des apports en acides aminés."
+        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
       }
     ],
-    "explanation": "La fiche insiste sur l’importance nutritionnelle des apports en acides aminés."
+    "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
   },
   {
     "order": 22,
@@ -601,12 +601,12 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Pour conclure les besoins et utilisations métaboliques, sélectionnez exactement les cinq affirmations correctes.",
     "choices": [
       {
-        "content": "La fiche 3.3 cite huit acides aminés indispensables.",
+        "content": "Le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile comporte huit acides aminés indispensables.",
         "correct": true,
         "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
       },
       {
-        "content": "Histidine et arginine sont semi-essentielles pendant la croissance.",
+        "content": "Les besoins en arginine peuvent dépasser les capacités de synthèse endogène pendant la croissance.",
         "correct": true,
         "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
       },
@@ -626,7 +626,7 @@ export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
       },
       {
-        "content": "La glycine est l’un des huit indispensables de la fiche.",
+        "content": "La glycine fait partie du groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile.",
         "correct": false,
         "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
       },

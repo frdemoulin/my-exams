@@ -8,7 +8,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Concernant l’architecture générale d’un récepteur membranaire :",
     "choices": [
       {
-        "content": "La fiche présente un domaine extracellulaire de reconnaissance du ligand.",
+        "content": "Le domaine extracellulaire peut assurer la reconnaissance du ligand.",
         "correct": true,
         "explanation": "Le schéma général distingue domaines extracellulaire, transmembranaire et cytoplasmique."
       },
@@ -34,10 +34,10 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement les récepteurs nucléaires selon la fiche ?",
+    "question": "Quelle proposition décrit correctement les récepteurs nucléaires ?",
     "choices": [
       {
-        "content": "La fiche les présente comme une large famille de plus de 150 protéines.",
+        "content": "Ils forment une famille de récepteurs intracellulaires régulant la transcription.",
         "correct": true,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
@@ -47,7 +47,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
-        "content": "La fiche ne leur attribue aucun ligand.",
+        "content": "Aucun ligand n’est connu pour les récepteurs nucléaires.",
         "correct": false,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
@@ -66,27 +66,27 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Repères fondamentaux sur les ligands des récepteurs nucléaires :",
     "choices": [
       {
-        "content": "L’acide rétinoïque et la vitamine D sont également cités.",
+        "content": "L’acide rétinoïque et la forme active de la vitamine D sont des ligands de récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
-        "content": "La fiche exclut les hormones stéroïdiennes de cette famille.",
+        "content": "Les hormones stéroïdiennes ne se lient jamais à des récepteurs nucléaires.",
         "correct": false,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
-        "content": "Les hormones thyroïdiennes font partie des ligands cités.",
+        "content": "Les hormones thyroïdiennes sont des ligands de récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
-        "content": "Le glucose est présenté comme l’unique ligand des récepteurs nucléaires.",
+        "content": "Le glucose est l’unique ligand des récepteurs nucléaires.",
         "correct": false,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       }
     ],
-    "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+    "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
   },
   {
     "order": 26,
@@ -126,31 +126,31 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La transmission fait intervenir un second messager chimique ou enzymatique.",
         "correct": true,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       },
       {
         "content": "Aucun second messager n’est impliqué dans la signalisation métabotropique.",
         "correct": false,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       },
       {
         "content": "Un récepteur métabotropique est forcément un récepteur nucléaire.",
         "correct": false,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       },
       {
         "content": "Les fonctions réceptrice et effectrice sont toujours assurées par le même canal ionique.",
         "correct": false,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       }
     ],
-    "explanation": "Le support oppose métabotropiques et ionotropiques."
+    "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
   },
   {
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la structure du récepteur à l’insuline selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement la structure du récepteur à l’insuline ?",
     "choices": [
       {
         "content": "La chaîne β porte un domaine transmembranaire et un domaine tyrosine kinase cytoplasmique.",
@@ -184,25 +184,25 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La fixation de l’insuline précède la phosphorylation de tyrosines.",
         "correct": true,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
-        "content": "La voie citée débute par l’ouverture directe d’un canal Cl−.",
+        "content": "Cette voie débute par l’ouverture directe d’un canal Cl−.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
-        "content": "La fiche cite la voie IRS/PI3K/PIP3/PKB.",
+        "content": "La signalisation peut emprunter la voie IRS/PI3K/PIP3/PKB.",
         "correct": true,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
-        "content": "La fiche exclut PI3K de la signalisation insulinique.",
+        "content": "PI3K est absente de la signalisation insulinique.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       }
     ],
-    "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+    "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
   },
   {
     "order": 30,
@@ -221,7 +221,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les RCPG constituent une vaste famille de récepteurs à sept traversées."
       },
       {
-        "content": "Ils sont décrits comme des immunoglobulines pentamériques.",
+        "content": "Les RCPG sont des immunoglobulines pentamériques.",
         "correct": false,
         "explanation": "Les RCPG constituent une vaste famille de récepteurs à sept traversées."
       },
@@ -266,30 +266,30 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement les récepteurs opioïdes dans la fiche selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement les récepteurs opioïdes ?",
     "choices": [
       {
-        "content": "La fiche cite trois récepteurs opioïdes notés μ, γ et κ.",
+        "content": "Les récepteurs opioïdes comprennent notamment les types μ et κ.",
         "correct": true,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
-        "content": "La fiche cite uniquement un récepteur opioïde β.",
+        "content": "Il n’existe qu’un seul type de récepteur opioïde, noté β.",
         "correct": false,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
         "content": "Ils sont rattachés à la famille des RCPG.",
         "correct": true,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
-        "content": "Les récepteurs opioïdes sont décrits comme des récepteurs nucléaires de la vitamine D.",
+        "content": "Les récepteurs opioïdes sont des récepteurs nucléaires de la vitamine D.",
         "correct": false,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       }
     ],
-    "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+    "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
   },
   {
     "order": 33,
@@ -298,27 +298,27 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Application : quelles propositions relatives aux ligands des récepteurs nucléaires sont correctes ?",
     "choices": [
       {
-        "content": "Les hormones stéroïdiennes et le cortisol sont cités.",
+        "content": "Les hormones stéroïdiennes, dont le cortisol, peuvent activer des récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
         "content": "Les photons sont les seuls ligands de tous les récepteurs nucléaires.",
         "correct": false,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
-        "content": "L’acide rétinoïque et la vitamine D sont également cités.",
+        "content": "L’acide rétinoïque et la forme active de la vitamine D sont des ligands de récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
-        "content": "La fiche exclut les hormones stéroïdiennes de cette famille.",
+        "content": "Les hormones stéroïdiennes ne se lient jamais à des récepteurs nucléaires.",
         "correct": false,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       }
     ],
-    "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+    "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
   },
   {
     "order": 34,
@@ -353,30 +353,30 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 35,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur les récepteurs métabotropiques sont exactes ?",
+    "question": "Quelles affirmations sur les récepteurs métabotropiques sont exactes ?",
     "choices": [
       {
         "content": "Les fonctions réceptrice et effectrice sont portées par des molécules différentes.",
         "correct": true,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       },
       {
         "content": "Les fonctions réceptrice et effectrice sont toujours assurées par le même canal ionique.",
         "correct": false,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       },
       {
         "content": "La transmission fait intervenir un second messager chimique ou enzymatique.",
         "correct": true,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       },
       {
         "content": "Aucun second messager n’est impliqué dans la signalisation métabotropique.",
         "correct": false,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       }
     ],
-    "explanation": "Le support oppose métabotropiques et ionotropiques."
+    "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
   },
   {
     "order": 36,
@@ -416,37 +416,37 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le signal aboutit notamment à une modulation du métabolisme énergétique et de la survie cellulaire.",
         "correct": true,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
         "content": "Le récepteur à l’insuline ne déclenche aucune phosphorylation.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
         "content": "La fixation de l’insuline précède la phosphorylation de tyrosines.",
         "correct": true,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
-        "content": "La voie citée débute par l’ouverture directe d’un canal Cl−.",
+        "content": "Cette voie débute par l’ouverture directe d’un canal Cl−.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       }
     ],
-    "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+    "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans la fiche locale, quelle lettre grecque est citée entre μ et κ pour les récepteurs opioïdes ?",
+    "question": "Quel symbole grec désigne le récepteur opioïde classiquement activé par la morphine ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "gamma",
-        "γ",
-        "Gamma"
+        "mu",
+        "μ",
+        "Mu"
       ],
       "normalization": {
         "trim": true,
@@ -455,13 +455,13 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
         "ignoreAccents": true
       }
     },
-    "explanation": "La fiche locale cite μ, γ et κ ; on conserve cette formulation sans la remplacer."
+    "explanation": "La morphine active principalement le récepteur opioïde μ ; les trois grands types sont μ, δ et κ."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un bâtonnet rétinien exposé à un photon, le 11-cis-rétinal change de configuration. Quelles propositions sur la rhodopsine sont conformes à la fiche ?",
+    "question": "Dans un bâtonnet rétinien exposé à un photon, le 11-cis-rétinal change de configuration. Quelles propositions sur la rhodopsine sont exactes ?",
     "choices": [
       {
         "content": "Elle est liée au 11-cis-rétinal.",
@@ -469,7 +469,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "La rhodopsine illustre un RCPG sensoriel activé par la lumière."
       },
       {
-        "content": "Le rétinal est présenté comme un dérivé de la vitamine C.",
+        "content": "Le rétinal est un dérivé de la vitamine C.",
         "correct": false,
         "explanation": "La rhodopsine illustre un RCPG sensoriel activé par la lumière."
       },
@@ -490,39 +490,39 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur les récepteurs opioïdes dans la fiche faut-il retenir ?",
+    "question": "Dans une situation d’application, quelle affirmation sur les récepteurs opioïdes faut-il retenir ?",
     "choices": [
       {
-        "content": "Le support les relie aux hormones peptidiques opioïdes issues du système pro-opiomélanocortine.",
+        "content": "Ils peuvent être activés par des peptides opioïdes, notamment la β-endorphine dérivée de la POMC.",
         "correct": true,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
-        "content": "Le support les classe comme pompes ATP-dépendantes.",
+        "content": "Ce sont des pompes ATP-dépendantes.",
         "correct": false,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
-        "content": "La fiche cite uniquement un récepteur opioïde β.",
+        "content": "Il n’existe qu’un seul type de récepteur opioïde, noté β.",
         "correct": false,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
-        "content": "Les récepteurs opioïdes sont décrits comme des récepteurs nucléaires de la vitamine D.",
+        "content": "Les récepteurs opioïdes sont des récepteurs nucléaires de la vitamine D.",
         "correct": false,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       }
     ],
-    "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+    "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur l’architecture générale d’un récepteur membranaire sont exactes ?",
+    "question": "Quelles affirmations sur l’architecture générale d’un récepteur membranaire sont exactes ?",
     "choices": [
       {
-        "content": "La fiche présente un domaine extracellulaire de reconnaissance du ligand.",
+        "content": "Le domaine extracellulaire peut assurer la reconnaissance du ligand.",
         "correct": true,
         "explanation": "Le schéma général distingue domaines extracellulaire, transmembranaire et cytoplasmique."
       },
@@ -551,7 +551,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Application : quelles propositions relatives aux récepteurs nucléaires sont correctes ?",
     "choices": [
       {
-        "content": "La fiche les présente comme une large famille de plus de 150 protéines.",
+        "content": "Ils forment une famille de récepteurs intracellulaires régulant la transcription.",
         "correct": true,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
@@ -561,7 +561,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
-        "content": "La fiche ne leur attribue aucun ligand.",
+        "content": "Aucun ligand n’est connu pour les récepteurs nucléaires.",
         "correct": false,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
@@ -581,34 +581,24 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 3,
     "choices": [
       {
-        "content": "La fiche présente un domaine extracellulaire de reconnaissance du ligand.",
+        "content": "Le domaine extracellulaire peut assurer la reconnaissance du ligand.",
         "correct": true,
         "explanation": "Le schéma général distingue domaines extracellulaire, transmembranaire et cytoplasmique."
       },
       {
-        "content": "La fiche les présente comme une large famille de plus de 150 protéines.",
+        "content": "Ils forment une famille de récepteurs intracellulaires régulant la transcription.",
         "correct": true,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
-        "content": "L’acide rétinoïque et la vitamine D sont également cités.",
+        "content": "L’acide rétinoïque et la forme active de la vitamine D sont des ligands de récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
         "content": "Leur activation ouvre directement un canal Na+.",
         "correct": false,
         "explanation": "Le ligand conduit à une action transcriptionnelle nucléaire."
-      },
-      {
-        "content": "Aucun second messager n’est impliqué dans la signalisation métabotropique.",
-        "correct": false,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
-      },
-      {
-        "content": "Le récepteur à l’insuline est un monomère soluble.",
-        "correct": false,
-        "explanation": "Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
       }
     ],
     "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
@@ -621,14 +611,14 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 5,
     "choices": [
       {
-        "content": "Les récepteurs nucléaires sont localisés dans le noyau et le cytosol.",
+        "content": "Selon leur sous-type et leur état d’activation, les récepteurs nucléaires se trouvent dans le cytosol et/ou le noyau.",
         "correct": true,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
-        "content": "Les hormones stéroïdiennes et le cortisol sont cités.",
+        "content": "Les hormones stéroïdiennes, dont le cortisol, peuvent activer des récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
         "content": "Ils agissent comme facteurs de transcription.",
@@ -638,7 +628,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les fonctions réceptrice et effectrice sont portées par des molécules différentes.",
         "correct": true,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
+        "explanation": "Les récepteurs métabotropiques transmettent le signal par des effecteurs et seconds messagers, contrairement aux récepteurs ionotropiques qui commandent directement un canal."
       },
       {
         "content": "La chaîne α est extracellulaire.",
@@ -648,7 +638,7 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le récepteur à l’insuline ne déclenche aucune phosphorylation.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
         "content": "Les RCPG ne traversent la membrane qu’une seule fois.",
@@ -656,9 +646,19 @@ export const UE14_BIOCH_CH12_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les RCPG constituent une vaste famille de récepteurs à sept traversées."
       },
       {
-        "content": "Le rétinal est présenté comme un dérivé de la vitamine C.",
+        "content": "Le rétinal est un dérivé de la vitamine C.",
         "correct": false,
         "explanation": "La rhodopsine illustre un RCPG sensoriel activé par la lumière."
+      },
+      {
+        "content": "Les récepteurs nucléaires sont dépourvus de domaine de liaison à l’ADN.",
+        "correct": false,
+        "explanation": "Après activation, des récepteurs nucléaires se lient à des éléments de réponse de l’ADN."
+      },
+      {
+        "content": "La chaîne β du récepteur à l’insuline est dépourvue d’activité tyrosine kinase.",
+        "correct": false,
+        "explanation": "Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
       }
     ],
     "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."

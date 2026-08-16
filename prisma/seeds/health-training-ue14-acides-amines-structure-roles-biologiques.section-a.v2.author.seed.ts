@@ -336,30 +336,30 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 13,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les neuf acides aminés indispensables chez l’adulte sain :",
+    "question": "Concernant le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile :",
     "choices": [
       {
-        "content": "Leucine, thréonine, lysine et tryptophane figurent dans la liste.",
+        "content": "Leucine, thréonine, lysine et tryptophane appartiennent à ce groupe.",
         "correct": true,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
-        "content": "Phénylalanine, valine, méthionine et isoleucine y figurent aussi.",
+        "content": "Phénylalanine, valine, méthionine et isoleucine appartiennent aussi à ce groupe.",
         "correct": true,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
-        "content": "Tyrosine et glycine remplacent leucine et lysine dans la liste.",
+        "content": "La tyrosine et la glycine remplacent la leucine et la lysine dans ce groupe.",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
-        "content": "Aucun acide aminé ramifié n’en fait partie.",
+        "content": "Ce groupe ne contient aucun acide aminé ramifié.",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       }
     ],
-    "explanation": "Les neuf acides aminés indispensables chez l’adulte sain sont His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile forment un groupe de huit acides aminés indispensables ; cette formulation ne prétend pas dresser une liste exhaustive."
   },
   {
     "order": 14,
@@ -370,54 +370,54 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "leucine",
         "correct": true,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
         "content": "glycine",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
         "content": "alanine",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       },
       {
         "content": "proline",
         "correct": false,
-        "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
       }
     ],
-    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val ; l’arginine peut devenir conditionnellement indispensable dans certaines situations de croissance ou de stress métabolique."
+    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant l’histidine et l’arginine :",
+    "question": "Concernant les besoins nutritionnels en histidine et en arginine pendant la croissance :",
     "choices": [
       {
-        "content": "L’histidine fait partie des neuf acides aminés indispensables chez l’adulte sain.",
+        "content": "Un apport suffisant de ces acides aminés contribue à couvrir les besoins de la croissance.",
         "correct": true,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "L’arginine peut devenir conditionnellement indispensable lorsque les besoins dépassent la synthèse endogène.",
         "correct": true,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
-        "content": "Elles sont décrites comme inutiles pendant la croissance.",
+        "content": "Ces deux acides aminés sont inutiles pendant la croissance.",
         "correct": false,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "Elles sont toutes deux des acides aminés soufrés.",
         "correct": false,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       }
     ],
-    "explanation": "L’histidine est indispensable tout au long de la vie ; l’arginine est synthétisable mais peut devenir conditionnellement indispensable dans certaines situations."
+    "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
   },
   {
     "order": 16,
@@ -428,22 +428,22 @@ export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
       {
         "content": "L’arginine",
         "correct": true,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "La glycine uniquement après 70 ans",
         "correct": false,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "La leucine uniquement pendant le jeûne",
         "correct": false,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       },
       {
         "content": "La valine uniquement pendant la grossesse",
         "correct": false,
-        "explanation": "L’arginine peut devenir conditionnellement indispensable lorsque la synthèse endogène ne couvre pas les besoins, notamment pendant certaines périodes de croissance ou de stress métabolique."
+        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
       }
     ],
     "explanation": "La synthèse endogène d’arginine peut devenir insuffisante par rapport aux besoins pendant certaines périodes de croissance ou de stress métabolique."

@@ -8,9 +8,9 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Synthèse du chapitre — l’importance générale des protéines / les récepteurs nucléaires : quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les protéines constituent plus de la moitié du poids sec des cellules dans la fiche.",
+        "content": "Les protéines peuvent représenter environ la moitié du poids sec d’une cellule.",
         "correct": true,
-        "explanation": "La fiche introduit les protéines comme quantitativement et qualitativement majeures."
+        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
       },
       {
         "content": "Les récepteurs nucléaires sont exclusivement des canaux ioniques membranaires.",
@@ -18,17 +18,17 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
-        "content": "La fiche les présente comme une large famille de plus de 150 protéines.",
+        "content": "Les récepteurs nucléaires forment une famille de récepteurs intracellulaires régulant la transcription.",
         "correct": true,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
         "content": "Les protéines constituent une fraction négligeable du poids sec cellulaire.",
         "correct": false,
-        "explanation": "La fiche introduit les protéines comme quantitativement et qualitativement majeures."
+        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
       }
     ],
-    "explanation": "La fiche introduit les protéines comme quantitativement et qualitativement majeures. Les récepteurs nucléaires sont intracellulaires."
+    "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires. Les récepteurs nucléaires sont intracellulaires."
   },
   {
     "order": 102,
@@ -39,7 +39,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une chaîne légère comporte des régions constante et variable.",
         "correct": true,
-        "explanation": "Les chaînes légères humaines citées sont κ et λ."
+        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
       },
       {
         "content": "La chaîne β est uniquement extracellulaire et sans activité enzymatique.",
@@ -54,16 +54,16 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "V désigne une région toujours identique entre anticorps.",
         "correct": false,
-        "explanation": "Les chaînes légères humaines citées sont κ et λ."
+        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
       }
     ],
-    "explanation": "Les chaînes légères humaines citées sont κ et λ. Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
+    "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ. Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — les fragments Fab après action de la papaïne / les récepteurs opioïdes dans la fiche : quelles propositions sont exactes ?",
+    "question": "Synthèse du chapitre — fragments Fab après action de la papaïne et récepteurs opioïdes : quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Les Fab comprennent une chaîne légère et la partie N-terminale d’une chaîne lourde.",
@@ -71,14 +71,14 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
       },
       {
-        "content": "Le support les classe comme pompes ATP-dépendantes.",
+        "content": "Les récepteurs opioïdes sont des pompes ATP-dépendantes.",
         "correct": false,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
-        "content": "La fiche cite trois récepteurs opioïdes notés μ, γ et κ.",
+        "content": "Les récepteurs opioïdes comprennent notamment les types μ et κ.",
         "correct": true,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
         "content": "La papaïne ne modifie jamais une IgG.",
@@ -86,7 +86,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
       }
     ],
-    "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc. Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+    "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc. Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
   },
   {
     "order": 104,
@@ -95,9 +95,9 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Synthèse du chapitre — les ligands des récepteurs nucléaires / le transport par les canaux ioniques : quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les hormones thyroïdiennes font partie des ligands cités.",
+        "content": "Les hormones thyroïdiennes sont des ligands de récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
         "content": "Un canal utilise toujours l’ATP pour déplacer un ion contre son gradient.",
@@ -112,10 +112,10 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les photons sont les seuls ligands de tous les récepteurs nucléaires.",
         "correct": false,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       }
     ],
-    "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques. Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
+    "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D. Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
   },
   {
     "order": 105,
@@ -124,9 +124,9 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Synthèse du chapitre — la voie du récepteur à l’insuline / la P-glycoprotéine et la résistance aux médicaments : quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche cite la voie IRS/PI3K/PIP3/PKB.",
+        "content": "La signalisation insulinique peut emprunter la voie IRS/PI3K/PIP3/PKB.",
         "correct": true,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
         "content": "Sa surexpression augmente nécessairement la sensibilité des cellules cancéreuses aux cytotoxiques.",
@@ -141,10 +141,10 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le récepteur à l’insuline ne déclenche aucune phosphorylation.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       }
     ],
-    "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur. La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
+    "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3. La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
   },
   {
     "order": 106,
@@ -192,7 +192,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
       },
       {
-        "content": "La fiche cite la séquence RGD.",
+        "content": "Certaines intégrines reconnaissent la séquence RGD.",
         "correct": true,
         "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
       },
@@ -226,7 +226,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
       },
       {
-        "content": "La mutation ΔF508 est décrite comme la cause d’une drépanocytose.",
+        "content": "La mutation ΔF508 provoque une drépanocytose.",
         "correct": false,
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
       }
@@ -251,24 +251,14 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
       },
       {
-        "content": "La fiche décrit deux domaines de fixation des nucléotides NBD au niveau intracellulaire.",
+        "content": "Un transporteur ABC canonique comporte deux domaines intracellulaires de liaison aux nucléotides, ou NBD.",
         "correct": true,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "La P-glycoprotéine est une immunoglobuline sécrétée.",
         "correct": false,
         "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "CFTR transporte exclusivement le glucose.",
-        "correct": false,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "Un canal force spontanément un ion à remonter son gradient.",
-        "correct": false,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
       }
     ],
     "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
@@ -281,7 +271,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 5,
     "choices": [
       {
-        "content": "La P-glycoprotéine appartient à la famille ABCB dans la fiche.",
+        "content": "La P-glycoprotéine appartient à la famille ABCB.",
         "correct": true,
         "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
       },
@@ -291,14 +281,14 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
       },
       {
-        "content": "La fiche oppose donc diffusion facilitée et transport actif.",
+        "content": "Les canaux assurent une diffusion facilitée, tandis que les pompes réalisent un transport actif.",
         "correct": true,
         "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
       },
       {
-        "content": "La fiche cite quatre grandes familles : sélectines, cadhérines, Ig-CAM et intégrines.",
+        "content": "Les molécules d’adhérence comprennent notamment les sélectines, les cadhérines, les Ig-CAM et les intégrines.",
         "correct": true,
-        "explanation": "Les quatre familles citées structurent la partie adhérence."
+        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
       },
       {
         "content": "La sélectine L est associée aux leucocytes.",
@@ -306,7 +296,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
       },
       {
-        "content": "La fiche exclut tout rôle des sélectines dans l’inflammation.",
+        "content": "Les sélectines n’interviennent pas dans l’inflammation.",
         "correct": false,
         "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
       },
@@ -316,9 +306,19 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
       },
       {
-        "content": "Elle indique exactement 180 récepteurs distincts.",
+        "content": "On dénombre exactement 180 intégrines distinctes.",
         "correct": false,
-        "explanation": "Le support local donne les repères 18 α, 8 β et 23 intégrines."
+        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+      },
+      {
+        "content": "La P-glycoprotéine assure une diffusion passive indépendante de l’ATP.",
+        "correct": false,
+        "explanation": "La P-glycoprotéine est un transporteur ABC ATP-dépendant."
+      },
+      {
+        "content": "CFTR est une enzyme cytosolique dépourvue de domaine transmembranaire.",
+        "correct": false,
+        "explanation": "CFTR est une protéine membranaire de la famille ABC qui fonctionne comme canal ionique."
       }
     ],
     "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
@@ -356,7 +356,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "order": 112,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le peptide J, les récepteurs ionotropiques et la diversité des sous-unités d’intégrines dans la fiche.",
+    "question": "Maîtrise de synthèse — croisez le peptide J, les récepteurs ionotropiques et la diversité des sous-unités d’intégrines.",
     "choices": [
       {
         "content": "Le peptide J intervient aussi dans l’IgM pentamérique.",
@@ -369,9 +369,9 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
       },
       {
-        "content": "Elle indique exactement 180 récepteurs distincts.",
+        "content": "On dénombre exactement 180 intégrines distinctes.",
         "correct": false,
-        "explanation": "Le support local donne les repères 18 α, 8 β et 23 intégrines."
+        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
       },
       {
         "content": "Le peptide J définit la classe IgG.",
@@ -379,7 +379,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
       }
     ],
-    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM. Les ionotropiques associent réception du ligand et ouverture d’un canal. Le support local donne les repères 18 α, 8 β et 23 intégrines."
+    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM. Les ionotropiques associent réception du ligand et ouverture d’un canal. Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
   },
   {
     "order": 113,
@@ -393,14 +393,14 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
-        "content": "La P-glycoprotéine appartient à la famille ABCB dans la fiche.",
+        "content": "La P-glycoprotéine appartient à la famille ABCB.",
         "correct": true,
         "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
       },
       {
         "content": "IgA ne peut jamais former de dimère.",
         "correct": false,
-        "explanation": "La fiche oppose IgD/IgE/IgG monomériques à IgA dimérique et IgM pentamérique."
+        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
       },
       {
         "content": "Ils sont tous localisés dans la matrice extracellulaire.",
@@ -408,36 +408,36 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       }
     ],
-    "explanation": "Les récepteurs nucléaires sont intracellulaires. La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance. La fiche oppose IgD/IgE/IgG monomériques à IgA dimérique et IgM pentamérique."
+    "explanation": "Les récepteurs nucléaires sont intracellulaires. La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance. IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la voie du récepteur à l’insuline et la diversité des sous-unités d’intégrines dans la fiche.",
+    "question": "Maîtrise de synthèse — croisez la voie du récepteur à l’insuline et la diversité des sous-unités d’intégrines.",
     "choices": [
       {
         "content": "La fixation de l’insuline précède la phosphorylation de tyrosines.",
         "correct": true,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
-        "content": "La fiche cite 8 sous-unités β.",
+        "content": "Huit sous-unités β d’intégrines sont décrites.",
         "correct": true,
-        "explanation": "Le support local donne les repères 18 α, 8 β et 23 intégrines."
+        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
       },
       {
-        "content": "La voie citée débute par l’ouverture directe d’un canal Cl−.",
+        "content": "Cette voie débute par l’ouverture directe d’un canal Cl−.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
         "content": "Le récepteur à l’insuline ne déclenche aucune phosphorylation.",
         "correct": false,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       }
     ],
-    "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur. Le support local donne les repères 18 α, 8 β et 23 intégrines."
+    "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3. Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
   },
   {
     "order": 115,
@@ -461,7 +461,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
       },
       {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation selon la fiche.",
+        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       }
@@ -475,9 +475,9 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Maîtrise de synthèse — croisez la structure générale des transporteurs ABC, les fragments Fab après action de la papaïne et les plaques d’adhésion focale.",
     "choices": [
       {
-        "content": "La fiche décrit deux domaines de fixation des nucléotides NBD au niveau intracellulaire.",
+        "content": "Un transporteur ABC canonique comporte deux domaines intracellulaires de liaison aux nucléotides, ou NBD.",
         "correct": true,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       },
       {
         "content": "La papaïne produit deux fragments Fab à partir d’une IgG.",
@@ -492,16 +492,16 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ils sont dépourvus de tout domaine de fixation de nucléotide.",
         "correct": false,
-        "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants."
+        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
       }
     ],
-    "explanation": "Les ABC sont des transporteurs actifs ATP-dépendants. Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc. Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+    "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal. Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc. Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Maîtrise de synthèse — Combien de fragments Fab la papaïne produit-elle à partir d’une IgG selon la fiche ?",
+    "question": "Maîtrise de synthèse — combien de fragments Fab la papaïne produit-elle à partir d’une IgG ?",
     "answer": {
       "type": "number",
       "value": 2,
@@ -516,12 +516,12 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "question": "Maîtrise de synthèse — croisez le rôle des cations dans l’interaction des intégrines, le récepteur GABA-A et les récepteurs ionotropiques.",
     "choices": [
       {
-        "content": "La fiche cite Ca2+ et Mg2+.",
+        "content": "Ca2+ et Mg2+ peuvent soutenir la liaison des intégrines à leurs ligands.",
         "correct": true,
-        "explanation": "La fiche associe Ca2+/Mg2+ à la fixation des intégrines."
+        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
       },
       {
-        "content": "L’ouverture permet une entrée de Cl− et une hyperpolarisation.",
+        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
         "correct": true,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
       },
@@ -531,12 +531,12 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
       },
       {
-        "content": "Na+ et K+ sont les seuls cations décrits comme indispensables.",
+        "content": "Na+ et K+ sont les seuls cations indispensables à la liaison des intégrines.",
         "correct": false,
-        "explanation": "La fiche associe Ca2+/Mg2+ à la fixation des intégrines."
+        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
       }
     ],
-    "explanation": "La fiche associe Ca2+/Mg2+ à la fixation des intégrines. Le GABA-A illustre une réponse ionotrope inhibitrice. Les ionotropiques associent réception du ligand et ouverture d’un canal."
+    "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands. Le GABA-A illustre une réponse ionotrope inhibitrice. Les ionotropiques associent réception du ligand et ouverture d’un canal."
   },
   {
     "order": 119,
@@ -579,22 +579,22 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
       },
       {
-        "content": "La fiche cite Ca2+ et Mg2+.",
+        "content": "Ca2+ et Mg2+ peuvent soutenir la liaison des intégrines à leurs ligands.",
         "correct": true,
-        "explanation": "La fiche associe Ca2+/Mg2+ à la fixation des intégrines."
+        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
       },
       {
         "content": "Une immunoglobuline comporte quatre chaînes lourdes.",
         "correct": false,
-        "explanation": "La structure générale présentée est H2L2."
+        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
       },
       {
-        "content": "Le peptide J est décrit comme un domaine transmembranaire du récepteur à l’insuline.",
+        "content": "Le peptide J est un domaine transmembranaire du récepteur à l’insuline.",
         "correct": false,
         "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
       }
     ],
-    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM. La fiche associe Ca2+/Mg2+ à la fixation des intégrines. La structure générale présentée est H2L2."
+    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM. Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands. Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
   },
   {
     "order": 121,
@@ -604,34 +604,24 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 3,
     "choices": [
       {
-        "content": "La fiche présente un domaine extracellulaire de reconnaissance du ligand.",
+        "content": "Le domaine extracellulaire peut assurer la reconnaissance du ligand.",
         "correct": true,
         "explanation": "Le schéma général distingue domaines extracellulaire, transmembranaire et cytoplasmique."
       },
       {
-        "content": "La fiche les présente comme une large famille de plus de 150 protéines.",
+        "content": "Les récepteurs nucléaires forment une famille de récepteurs intracellulaires régulant la transcription.",
         "correct": true,
         "explanation": "Les récepteurs nucléaires sont intracellulaires."
       },
       {
-        "content": "L’acide rétinoïque et la vitamine D sont également cités.",
+        "content": "L’acide rétinoïque et la forme active de la vitamine D sont des ligands de récepteurs nucléaires.",
         "correct": true,
-        "explanation": "La fiche cite plusieurs ligands lipophiles ou dérivés vitaminiques."
+        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
       },
       {
         "content": "Leur activation ouvre directement un canal Na+.",
         "correct": false,
         "explanation": "Le ligand conduit à une action transcriptionnelle nucléaire."
-      },
-      {
-        "content": "Aucun second messager n’est impliqué dans la signalisation métabotropique.",
-        "correct": false,
-        "explanation": "Le support oppose métabotropiques et ionotropiques."
-      },
-      {
-        "content": "Le récepteur à l’insuline est un monomère soluble.",
-        "correct": false,
-        "explanation": "Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
       }
     ],
     "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
@@ -649,9 +639,9 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
       },
       {
-        "content": "La fiche cite la voie IRS/PI3K/PIP3/PKB.",
+        "content": "La signalisation insulinique peut emprunter la voie IRS/PI3K/PIP3/PKB.",
         "correct": true,
-        "explanation": "La fiche décrit une cascade IRS/PI3K/PIP3/PKB après activation du récepteur."
+        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
       },
       {
         "content": "Le fonctionnement de la protéine G dépend de la fixation de GTP.",
@@ -666,7 +656,7 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ils sont rattachés à la famille des RCPG.",
         "correct": true,
-        "explanation": "Le support local emploie les notations μ, γ et κ ; cette terminologie est conservée telle quelle."
+        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
       },
       {
         "content": "Le récepteur ionotropique nécessite obligatoirement une sous-unité régulatrice soluble séparée.",
@@ -674,14 +664,24 @@ export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
       },
       {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation selon la fiche.",
+        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
         "correct": false,
         "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
       },
       {
-        "content": "Le GABA est présenté comme une hormone stéroïdienne.",
+        "content": "Le GABA est une hormone stéroïdienne.",
         "correct": false,
         "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
+      },
+      {
+        "content": "La rhodopsine est un récepteur nucléaire des hormones thyroïdiennes.",
+        "correct": false,
+        "explanation": "La rhodopsine est un RCPG photosensible des bâtonnets rétiniens."
+      },
+      {
+        "content": "Chaque chaîne α du récepteur à l’insuline traverse sept fois la membrane.",
+        "correct": false,
+        "explanation": "Les chaînes α du récepteur à l’insuline sont extracellulaires ; les chaînes β traversent la membrane."
       }
     ],
     "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."

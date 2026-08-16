@@ -76,7 +76,7 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
       },
       {
-        "content": "Il est le précurseur du GABA dans le support.",
+        "content": "Il est le précurseur direct du GABA.",
         "correct": false,
         "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
       },
@@ -92,7 +92,7 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 26,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel neuromédiateur est cité comme dérivé du tryptophane ?",
+    "question": "Quel neuromédiateur dérive du tryptophane ?",
     "choices": [
       {
         "content": "la sérotonine",
@@ -110,7 +110,7 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
       },
       {
-        "content": "l’acétylcholine dans cette fiche",
+        "content": "l’acétylcholine",
         "correct": false,
         "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
       }
@@ -208,7 +208,7 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 30,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle molécule contenant du fer est citée comme issue d’une voie impliquant la glycine ?",
+    "question": "Quelle molécule contenant du fer est synthétisée par une voie impliquant la glycine ?",
     "choices": [
       {
         "content": "l’hème",
@@ -242,54 +242,54 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Elle peut entrer dans un conjugué comme l’acide glycocholique.",
         "correct": true,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       },
       {
         "content": "L’acide glycocholique associe acide cholique et glycine.",
         "correct": true,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       },
       {
         "content": "La glycine est absente des conjugués biliaires.",
         "correct": false,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       },
       {
         "content": "L’acide glycocholique est un acide nucléique.",
         "correct": false,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       }
     ],
-    "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+    "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
   },
   {
     "order": 32,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel acide aminé est conjugué à l’acide cholique dans l’exemple ?",
+    "question": "Quel acide aminé est conjugué à l’acide cholique pour former l’acide glycocholique ?",
     "choices": [
       {
         "content": "la glycine",
         "correct": true,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       },
       {
         "content": "la valine",
         "correct": false,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       },
       {
         "content": "la proline",
         "correct": false,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       },
       {
         "content": "l’histidine",
         "correct": false,
-        "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
       }
     ],
-    "explanation": "L’exemple illustre la diversité des rôles biosynthétiques de la glycine."
+    "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
   },
   {
     "order": 33,
@@ -298,12 +298,12 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les précurseurs des bases azotées :",
     "choices": [
       {
-        "content": "Glycine, aspartate et glutamine sont cités dans la biosynthèse des bases.",
+        "content": "La glycine, l’aspartate et la glutamine fournissent des atomes à la biosynthèse des bases azotées.",
         "correct": true,
         "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
       },
       {
-        "content": "Ces voies concernent purines et pyrimidines dans le support.",
+        "content": "Ces voies concernent les purines et les pyrimidines.",
         "correct": true,
         "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
       },
@@ -324,7 +324,7 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 34,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel trio est cité comme participant à la biosynthèse des bases ?",
+    "question": "Quel trio d’acides aminés fournit des atomes à la biosynthèse des bases azotées ?",
     "choices": [
       {
         "content": "glycine, aspartate et glutamine",
@@ -461,59 +461,59 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la taille des peptides dans la fiche :",
+    "question": "Pour cette question, on adopte par convention un seuil pratique de 100 résidus entre peptide et protéine :",
     "choices": [
       {
-        "content": "Le support place les peptides en dessous de 100 acides aminés.",
+        "content": "Une chaîne de moins de 100 résidus est classée ici comme peptide.",
         "correct": true,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
-        "content": "Il place les protéines au-delà de 100 acides aminés dans ce repère pédagogique.",
+        "content": "Une chaîne de plus de 100 résidus est classée ici comme protéine.",
         "correct": true,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "Un peptide contient nécessairement plus de 1000 acides aminés.",
         "correct": false,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "Le nombre de résidus n’est jamais utilisé comme repère.",
         "correct": false,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       }
     ],
-    "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel ordre de grandeur sépare peptide et protéine dans la fiche ?",
+    "question": "Quel seuil pratique est explicitement adopté ici pour distinguer peptide et protéine ?",
     "choices": [
       {
         "content": "100 acides aminés",
         "correct": true,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "2 acides aminés",
         "correct": false,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "10 000 acides aminés",
         "correct": false,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "1 million",
         "correct": false,
-        "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       }
     ],
-    "explanation": "Le seuil de 100 AA est le repère local utilisé par la fiche."
+    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
   },
   {
     "order": 41,
@@ -635,7 +635,7 @@ export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
       },
       {
-        "content": "Le glutamate est le précurseur de la mélatonine dans la fiche.",
+        "content": "Le glutamate est le précurseur direct de la mélatonine.",
         "correct": false,
         "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
       },

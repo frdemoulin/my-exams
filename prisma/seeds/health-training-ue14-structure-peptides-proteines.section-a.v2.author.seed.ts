@@ -63,59 +63,59 @@ export const UE14_BIOCH_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 3,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la taille des peptides et protéines dans la fiche :",
+    "question": "Pour cette question, on adopte par convention un seuil pratique de 100 résidus entre peptide et protéine :",
     "choices": [
       {
-        "content": "Le support situe les peptides en dessous de 100 acides aminés.",
+        "content": "Une chaîne de moins de 100 résidus est classée ici comme peptide.",
         "correct": true,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
-        "content": "Il classe comme protéines les chaînes de plus de 100 acides aminés ou les associations de plusieurs chaînes polypeptidiques.",
+        "content": "Une chaîne dépassant 100 résidus ou un assemblage de plusieurs chaînes est classé ici comme protéine.",
         "correct": true,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "Tout dipeptide est une protéine.",
         "correct": false,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "Une protéine doit toujours comporter une seule chaîne.",
         "correct": false,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       }
     ],
-    "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
   },
   {
     "order": 4,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel seuil de taille repère sépare peptides et protéines dans le support ?",
+    "question": "Quel seuil pratique est explicitement adopté ici pour distinguer peptide et protéine ?",
     "choices": [
       {
         "content": "environ 100 acides aminés",
         "correct": true,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "10 acides aminés",
         "correct": false,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "1000 acides aminés",
         "correct": false,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       },
       {
         "content": "1 acide aminé",
         "correct": false,
-        "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
       }
     ],
-    "explanation": "Le support utilise un seuil pédagogique autour de 100 résidus."
+    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
   },
   {
     "order": 5,
@@ -266,13 +266,13 @@ export const UE14_BIOCH_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 10,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : quel seuil approximatif en nombre d’acides aminés la fiche utilise-t-elle pour distinguer peptide et protéine ?",
+    "question": "Réponse numérique : quel seuil pratique en nombre de résidus est explicitement adopté ici pour distinguer peptide et protéine ?",
     "answer": {
       "type": "number",
       "value": 100,
       "tolerance": 0
     },
-    "explanation": "Le support retient un seuil pédagogique d’environ 100 acides aminés."
+    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; cette question adopte explicitement un seuil pratique de 100 résidus."
   },
   {
     "order": 11,
@@ -307,7 +307,7 @@ export const UE14_BIOCH_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 12,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel acide aminé la fiche associe à une angulation de la chaîne ?",
+    "question": "Quel acide aminé peut imposer une angulation locale au squelette peptidique en raison de sa structure cyclique ?",
     "choices": [
       {
         "content": "la proline",
@@ -341,54 +341,54 @@ export const UE14_BIOCH_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Le collagène illustre un rôle structural.",
         "correct": true,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport ont des fonctions dynamiques."
       },
       {
         "content": "Les enzymes et protéines de transport illustrent des rôles actifs.",
         "correct": true,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
       },
       {
         "content": "Les protéines n’ont jamais de rôle structural.",
         "correct": false,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
       },
       {
         "content": "Toutes les protéines ont exactement la même fonction.",
         "correct": false,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
       }
     ],
-    "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+    "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel exemple de rôle passif structural est cité ?",
+    "question": "Quelle protéine illustre principalement un rôle structural ?",
     "choices": [
       {
         "content": "le collagène",
         "correct": true,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
       },
       {
         "content": "le glucose",
         "correct": false,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
       },
       {
         "content": "le cholestérol",
         "correct": false,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
       },
       {
         "content": "le glycogène",
         "correct": false,
-        "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
       }
     ],
-    "explanation": "La fiche oppose notamment rôle structural et rôles actifs."
+    "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
   },
   {
     "order": 15,
@@ -452,30 +452,30 @@ export const UE14_BIOCH_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les facteurs de dénaturation cités :",
+    "question": "Concernant les facteurs susceptibles de dénaturer une protéine :",
     "choices": [
       {
         "content": "Le pH et la température font partie des facteurs.",
         "correct": true,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       },
       {
-        "content": "La force ionique et la composition du milieu sont aussi citées.",
+        "content": "La force ionique et la composition du milieu peuvent aussi modifier la stabilité conformationnelle.",
         "correct": true,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       },
       {
-        "content": "Seule la lumière visible est citée.",
+        "content": "Seule la lumière visible peut dénaturer une protéine.",
         "correct": false,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       },
       {
         "content": "La température n’a aucun effet possible.",
         "correct": false,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       }
     ],
-    "explanation": "Le support cite pH, température, force ionique et milieu."
+    "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
   },
   {
     "order": 18,
@@ -486,25 +486,25 @@ export const UE14_BIOCH_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "la température",
         "correct": true,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       },
       {
         "content": "le numéro atomique",
         "correct": false,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       },
       {
         "content": "le groupe sanguin",
         "correct": false,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       },
       {
         "content": "la longueur d’un chromosome",
         "correct": false,
-        "explanation": "Le support cite pH, température, force ionique et milieu."
+        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
       }
     ],
-    "explanation": "Le support cite pH, température, force ionique et milieu."
+    "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
   },
   {
     "order": 19,

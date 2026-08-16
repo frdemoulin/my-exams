@@ -13,7 +13,7 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
       },
       {
-        "content": "Ces chaînes sont reliées par deux ponts disulfure dans la fiche.",
+        "content": "Les chaînes A et B sont reliées par deux ponts disulfure interchaînes.",
         "correct": true,
         "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
       },
@@ -34,7 +34,7 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel effet principal sur la glycémie la fiche attribue-t-elle à l’insuline ?",
+    "question": "Quel est l’effet principal de l’insuline sur la glycémie ?",
     "choices": [
       {
         "content": "un effet hypoglycémiant",
@@ -66,27 +66,27 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant les cellules productrices d’insuline :",
     "choices": [
       {
-        "content": "La fiche cite les cellules β des îlots de Langerhans.",
+        "content": "Elle est synthétisée par les cellules β des îlots de Langerhans.",
         "correct": true,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       },
       {
         "content": "Elles se trouvent dans le pancréas.",
         "correct": true,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       },
       {
-        "content": "L’insuline est synthétisée par les cardiomyocytes dans ce cours.",
+        "content": "L’insuline est synthétisée principalement par les cardiomyocytes.",
         "correct": false,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       },
       {
         "content": "Elle est produite par les érythrocytes matures.",
         "correct": false,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       }
     ],
-    "explanation": "La localisation cellulaire est un repère biomédical direct."
+    "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
   },
   {
     "order": 48,
@@ -97,25 +97,25 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "les cellules β pancréatiques",
         "correct": true,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       },
       {
         "content": "les cellules α pancréatiques",
         "correct": false,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       },
       {
         "content": "les cardiomyocytes",
         "correct": false,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       },
       {
         "content": "les érythrocytes",
         "correct": false,
-        "explanation": "La localisation cellulaire est un repère biomédical direct."
+        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
       }
     ],
-    "explanation": "La localisation cellulaire est un repère biomédical direct."
+    "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
   },
   {
     "order": 49,
@@ -184,31 +184,31 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Elle peut faire intervenir des synthétases spécifiques.",
         "correct": true,
-        "explanation": "Le support réserve ce mécanisme coûteux à de petits peptides."
+        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
       },
       {
         "content": "Elle nécessite de l’énergie, notamment de l’ATP.",
         "correct": true,
-        "explanation": "Le support réserve ce mécanisme coûteux à de petits peptides."
+        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
       },
       {
         "content": "Elle est décrite comme le mécanisme principal de synthèse des longues protéines humaines.",
         "correct": false,
-        "explanation": "Le support réserve ce mécanisme coûteux à de petits peptides."
+        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
       },
       {
         "content": "Elle ne consomme aucune énergie.",
         "correct": false,
-        "explanation": "Le support réserve ce mécanisme coûteux à de petits peptides."
+        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
       }
     ],
-    "explanation": "Le support réserve ce mécanisme coûteux à de petits peptides."
+    "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
   },
   {
     "order": 52,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien de chaînes polypeptidiques possède l’insuline mature dans la fiche ?",
+    "question": "Réponse numérique : combien de chaînes polypeptidiques possède l’insuline mature ?",
     "answer": {
       "type": "number",
       "value": 2,
@@ -358,30 +358,30 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle série d’acides aminés peut être rencontrée dans certains peptides bactériens ?",
+    "question": "Quelle série d’acides aminés est notamment présente dans le peptidoglycane bactérien ?",
     "choices": [
       {
         "content": "la série D",
         "correct": true,
-        "explanation": "Le support cite des peptides bactériens pouvant contenir des D-AA."
+        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
       },
       {
         "content": "uniquement la série L sans exception",
         "correct": false,
-        "explanation": "Le support cite des peptides bactériens pouvant contenir des D-AA."
+        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
       },
       {
         "content": "la série α des oses",
         "correct": false,
-        "explanation": "Le support cite des peptides bactériens pouvant contenir des D-AA."
+        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
       },
       {
         "content": "la série ω des lipides",
         "correct": false,
-        "explanation": "Le support cite des peptides bactériens pouvant contenir des D-AA."
+        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
       }
     ],
-    "explanation": "Le support cite des peptides bactériens pouvant contenir des D-AA."
+    "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
   },
   {
     "order": 59,
@@ -390,27 +390,27 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant la cyclosporine :",
     "choices": [
       {
-        "content": "La fiche la présente comme un peptide cyclique de 11 acides aminés.",
+        "content": "C’est un peptide cyclique de 11 acides aminés.",
         "correct": true,
-        "explanation": "La cyclosporine est un exemple de peptide d’intérêt thérapeutique."
+        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
       },
       {
         "content": "Elle est utilisée comme immunosuppresseur notamment pour prévenir le rejet de greffe.",
         "correct": true,
-        "explanation": "La cyclosporine est un exemple de peptide d’intérêt thérapeutique."
+        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
       },
       {
         "content": "Elle est un monosaccharide hyperglycémiant.",
         "correct": false,
-        "explanation": "La cyclosporine est un exemple de peptide d’intérêt thérapeutique."
+        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
       },
       {
         "content": "Elle stimule spécifiquement le rejet de greffe.",
         "correct": false,
-        "explanation": "La cyclosporine est un exemple de peptide d’intérêt thérapeutique."
+        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
       }
     ],
-    "explanation": "La cyclosporine est un exemple de peptide d’intérêt thérapeutique."
+    "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
   },
   {
     "order": 60,
@@ -431,7 +431,7 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant l’aspartame :",
     "choices": [
       {
-        "content": "La fiche le présente comme un dipeptide dérivé d’aspartate et phénylalanine.",
+        "content": "C’est l’ester méthylique d’un dipeptide dérivé de l’aspartate et de la phénylalanine.",
         "correct": true,
         "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
       },
@@ -457,7 +457,7 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quels acides aminés sont associés à l’aspartame dans la fiche ?",
+    "question": "De quels acides aminés dérive l’aspartame ?",
     "choices": [
       {
         "content": "aspartate et phénylalanine",
@@ -489,39 +489,39 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Concernant le glucagon :",
     "choices": [
       {
-        "content": "La fiche le décrit comme un peptide de 29 acides aminés.",
+        "content": "C’est un peptide de 29 acides aminés.",
         "correct": true,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       },
       {
         "content": "Il est hyperglycémiant et stimule notamment la glycogénolyse hépatique.",
         "correct": true,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       },
       {
         "content": "Il est hypoglycémiant comme l’insuline.",
         "correct": false,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       },
       {
-        "content": "Il est synthétisé par les cellules β du pancréas dans le support.",
+        "content": "Il est synthétisé par les cellules β du pancréas.",
         "correct": false,
-        "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
       }
     ],
-    "explanation": "Le glucagon est l’hormone peptidique hyperglycémiante de l’exemple."
+    "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte le glucagon dans la fiche ?",
+    "question": "Réponse numérique : combien d’acides aminés comporte le glucagon mature ?",
     "answer": {
       "type": "number",
       "value": 29,
       "tolerance": 0
     },
-    "explanation": "Le glucagon est cité comme peptide de 29 acides aminés."
+    "explanation": "Le glucagon mature est une hormone peptidique de 29 acides aminés."
   },
   {
     "order": 65,
@@ -535,7 +535,7 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "Les peptides natriurétiques relient signal hormonal, cœur et contrôle hydro-sodé."
       },
       {
-        "content": "ANP et BNP sont les deux exemples principaux de la fiche.",
+        "content": "L’ANP et le BNP sont deux peptides natriurétiques cardiaques majeurs.",
         "correct": true,
         "explanation": "Les peptides natriurétiques relient signal hormonal, cœur et contrôle hydro-sodé."
       },

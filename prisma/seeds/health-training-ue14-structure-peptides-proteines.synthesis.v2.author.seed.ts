@@ -124,7 +124,7 @@ export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Synthèse — concernant la liaison peptidique dans la structure primaire :",
     "choices": [
       {
-        "content": "Elle est plane et rigide dans le modèle du support.",
+        "content": "Elle est plane et sa rotation autour de l’axe C–N est fortement limitée.",
         "correct": true,
         "explanation": "Le caractère partiellement double de C–N explique la rigidité."
       },
@@ -187,7 +187,7 @@ export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
         "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
       },
       {
-        "content": "Cette modification favorise la complexation du calcium dans l’exemple de coagulation.",
+        "content": "Cette modification favorise la fixation du calcium par certains facteurs de coagulation.",
         "correct": true,
         "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
       },
@@ -208,7 +208,7 @@ export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Synthèse transversale : Quel ion est complexé par le γ-carboxyglutamate dans l’exemple du cours ?",
+    "question": "Synthèse transversale : quel ion peut être complexé par les résidus γ-carboxyglutamate des facteurs de coagulation ?",
     "choices": [
       {
         "content": "Ca2+",
@@ -329,56 +329,56 @@ export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "question": "Synthèse — concernant les repères géométriques de l’hélice α :",
     "choices": [
       {
-        "content": "Le pas cité est de 0,54 nm.",
+        "content": "Le pas de l’hélice α est d’environ 0,54 nm.",
         "correct": true,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
-        "content": "Le support indique environ 3,6 acides aminés par tour.",
+        "content": "Un tour d’hélice α comporte en moyenne 3,6 résidus.",
         "correct": true,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
-        "content": "Le pas cité est de 5,4 µm.",
+        "content": "Le pas de l’hélice α est de 5,4 µm.",
         "correct": false,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
         "content": "Un tour contient exactement 36 acides aminés.",
         "correct": false,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       }
     ],
-    "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+    "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
   },
   {
     "order": 112,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Synthèse transversale : Combien d’acides aminés par tour la fiche indique-t-elle en moyenne ?",
+    "question": "Synthèse transversale : combien de résidus comporte en moyenne un tour d’hélice α ?",
     "choices": [
       {
         "content": "3,6",
         "correct": true,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
         "content": "36",
         "correct": false,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
         "content": "0,36",
         "correct": false,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       },
       {
         "content": "10",
         "correct": false,
-        "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
       }
     ],
-    "explanation": "Ces valeurs sont des repères structuraux classiques du cours."
+    "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
   },
   {
     "order": 113,
@@ -389,25 +389,25 @@ export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "Ils sont formés de brins associés par des liaisons hydrogène.",
         "correct": true,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "Les brins peuvent être parallèles ou antiparallèles.",
         "correct": true,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "Ils sont toujours des hélices droites.",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "Ils ne comportent jamais de liaison hydrogène.",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       }
     ],
-    "explanation": "Les deux organisations sont décrites dans le support."
+    "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
   },
   {
     "order": 114,
@@ -418,25 +418,25 @@ export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
       {
         "content": "parallèles ou antiparallèles",
         "correct": true,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "uniquement perpendiculaires",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "uniquement circulaires",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       },
       {
         "content": "aucune association n’est possible",
         "correct": false,
-        "explanation": "Les deux organisations sont décrites dans le support."
+        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
       }
     ],
-    "explanation": "Les deux organisations sont décrites dans le support."
+    "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
   },
   {
     "order": 115,
@@ -607,30 +607,30 @@ export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "order": 121,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Synthèse — concernant l’hémoglobine :",
+    "question": "Synthèse — concernant l’hémoglobine A adulte :",
     "choices": [
       {
-        "content": "Elle est donnée comme tétramère α2β2.",
+        "content": "Elle est un tétramère α2β2.",
         "correct": true,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       },
       {
         "content": "Elle illustre une structure quaternaire.",
         "correct": true,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       },
       {
         "content": "Elle est un monomère sans sous-unités.",
         "correct": false,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       },
       {
         "content": "Elle est classée comme polyoside.",
         "correct": false,
-        "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
       }
     ],
-    "explanation": "L’hémoglobine est un exemple classique de tétramère hétérogène."
+    "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
   },
   {
     "order": 122,
