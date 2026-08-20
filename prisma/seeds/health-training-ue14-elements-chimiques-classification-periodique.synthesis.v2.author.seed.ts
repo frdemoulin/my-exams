@@ -52,10 +52,10 @@ export const UE14_CH1_SYNTHESIS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuest
     format: 'QRU',
     question: `Quelle configuration correspond au calcium neutre ($\\mathrm{Z}=20$) présenté dans l'énoncé commun ?`,
     choices: [
-      { content: `$[\\mathrm{Ar}]\\,4\\mathrm{s}^2$`, correct: true, explanation: `Le calcium possède 20 électrons et se termine par $4\\mathrm{s}^2$.` },
-      { content: `$[\\mathrm{Ar}]\\,4\\mathrm{s}^1$`, correct: false, explanation: `Cette configuration correspond au potassium.` },
-      { content: `$[\\mathrm{Ne}]\\,3\\mathrm{s}^2$`, correct: false, explanation: `Cette configuration correspond au magnésium.` },
-      { content: `$[\\mathrm{Ar}]\\,3\\mathrm{d}^2$`, correct: false, explanation: `Le remplissage de $4\\mathrm{s}$ précède celui de $3\\mathrm{d}$.` },
+      { content: `$[\\mathrm{Ar}]\\,4\\mathrm{s}^2$.`, correct: true, explanation: `Le calcium possède 20 électrons et se termine par $4\\mathrm{s}^2$.` },
+      { content: `$[\\mathrm{Ar}]\\,4\\mathrm{s}^1$.`, correct: false, explanation: `Cette configuration correspond au potassium.` },
+      { content: `$[\\mathrm{Ne}]\\,3\\mathrm{s}^2$.`, correct: false, explanation: `Cette configuration correspond au magnésium.` },
+      { content: `$[\\mathrm{Ar}]\\,3\\mathrm{d}^2$.`, correct: false, explanation: `Le remplissage de $4\\mathrm{s}$ précède celui de $3\\mathrm{d}$.` },
     ],
     explanation:
       `Le calcium appartient à la quatrième période et à la colonne 2 ; sa configuration externe est $4\\mathrm{s}^2$.`,
@@ -261,10 +261,10 @@ export const UE14_CH1_SYNTHESIS_MASTER_V2_QUESTIONS: HealthTrainingAuthorQuestio
     format: 'QRU',
     question: `Quel ordre correspond correctement aux éléments de la deuxième période par numéro atomique croissant ?`,
     choices: [
-      { content: `$\\ce{Li},\\ce{Be},\\ce{B},\\ce{C},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$`, correct: true, explanation: `Ordre de Z=3 à Z=10.` },
-      { content: `$\\ce{Be},\\ce{Li},\\ce{B},\\ce{C},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$`, correct: false, explanation: `Li précède Be.` },
-      { content: `$\\ce{Li},\\ce{Be},\\ce{C},\\ce{B},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$`, correct: false, explanation: `B précède C.` },
-      { content: `$\\ce{Li},\\ce{Be},\\ce{B},\\ce{C},\\ce{O},\\ce{N},\\ce{F},\\ce{Ne}$`, correct: false, explanation: `N précède O.` },
+      { content: `$\\ce{Li},\\ce{Be},\\ce{B},\\ce{C},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$.`, correct: true, explanation: `Ordre de Z=3 à Z=10.` },
+      { content: `$\\ce{Be},\\ce{Li},\\ce{B},\\ce{C},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$.`, correct: false, explanation: `Li précède Be.` },
+      { content: `$\\ce{Li},\\ce{Be},\\ce{C},\\ce{B},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$.`, correct: false, explanation: `B précède C.` },
+      { content: `$\\ce{Li},\\ce{Be},\\ce{B},\\ce{C},\\ce{O},\\ce{N},\\ce{F},\\ce{Ne}$.`, correct: false, explanation: `N précède O.` },
     ],
     explanation:
       `La deuxième période s'étend du lithium ($\\mathrm{Z}=3$) au néon ($\\mathrm{Z}=10$).`,

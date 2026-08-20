@@ -408,6 +408,15 @@ Toutes les questions n'ont pas besoin d'un contexte médical. Il convient de pr�
 - questions avec contexte médical concrétisant l'usage en santé ;
 - groupes de questions et figures.
 
+#### 5. Placement du bloc Données pour les questions calculatoires
+Pour les questions calculatoires comportant des constantes, masses molaires ou valeurs numériques nécessaires au calcul, le bloc `Données :` doit être placé **sur une nouvelle ligne immédiatement après l'énoncé, sans ligne blanche intermédiaire**.
+
+```typescript
+// ✅ Correct (sans ligne blanche intermédiaire)
+"question": String.raw`Quelle est la masse molaire de l'éthanol $\ce{C2H6O}$ ? Donnez uniquement la valeur numérique, exprimée en $${U.G_PER_MOL}$.
+Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`
+```
+
 ---
 
 ## 5. Procédure de validation d'un nouveau ZIP d'auteur (Codex / Gemini)

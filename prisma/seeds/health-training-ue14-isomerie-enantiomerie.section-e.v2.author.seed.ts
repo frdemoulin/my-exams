@@ -1,4 +1,7 @@
+import { TEX_UNITS } from './tex-units';
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 – Chimie organique – Chapitre 2.2 – Section E – Pouvoir rotatoire et composition des mélanges
@@ -217,7 +220,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 50,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "$ee=75-25=50\\,\\%$."
   },
@@ -230,7 +234,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 0,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "$ee=50-50=0\\,\\%$."
   },
@@ -272,7 +277,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 80,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "Si $M+m=100$ et $M-m=60$, alors $2M=160$ et $M=80\\,\\%$."
   },
@@ -285,7 +291,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 80,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "$ee=90-10=80\\,\\%$."
   },
@@ -298,7 +305,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 30,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "$ee=65-35=30\\,\\%$."
   },
@@ -312,11 +320,7 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "value": 10,
       "tolerance": 0.1,
       "unit": "°",
-      "acceptedUnits": [
-        "°",
-        "degré",
-        "degrés"
-      ]
+      "displayUnit": U.DEGREE
     },
     "explanation": "La rotation attendue vaut $20\\times0{,}50=+10^\\circ$."
   },
@@ -417,11 +421,7 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "value": 16,
       "tolerance": 0.1,
       "unit": "°",
-      "acceptedUnits": [
-        "°",
-        "degré",
-        "degrés"
-      ]
+      "displayUnit": U.DEGREE
     },
     "explanation": "Si la rotation est proportionnelle à la longueur du trajet, doubler $l$ double l'angle : $+16^\\circ$."
   },
@@ -463,7 +463,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 40,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "Avec $M+m=100$ et $M-m=20$, on obtient $M=60$ et $m=40\\,\\%$."
   },
@@ -536,7 +537,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 68,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "Si $M+m=100$ et $M-m=36$, alors $2M=136$ et $M=68\\,\\%$."
   }

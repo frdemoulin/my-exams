@@ -167,6 +167,7 @@ function normalizeNumericShortAnswer(value: unknown): NumericShortAnswer | undef
     value: answerValue,
     tolerance: tolerance !== undefined && tolerance >= 0 ? tolerance : undefined,
     unit: getOptionalString(value.unit),
+    displayUnit: getOptionalString(value.displayUnit),
     acceptedUnits: normalizeStringArray(value.acceptedUnits),
   };
 }

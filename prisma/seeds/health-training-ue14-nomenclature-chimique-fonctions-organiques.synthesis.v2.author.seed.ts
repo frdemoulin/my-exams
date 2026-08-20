@@ -1,4 +1,7 @@
+import { TEX_UNITS, texQuantity } from './tex-units';
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 – Chimie organique – Chapitre 2.1 – Section Synthèse
@@ -7,79 +10,77 @@ import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared
 export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QROC",
-    "question": "Une molécule a pour formule $\\ce{C3H8O}$. Avec $M_{\\mathrm C}=12$, $M_{\\mathrm H}=1$ et $M_{\\mathrm O}=16$, quelle est sa masse molaire en $\\mathrm{g\\,mol^{-1}}$ ?",
+    "question": String.raw`Quelle est la masse molaire d'une molécule de formule brute $\ce{C3H8O}$ ? Donnez uniquement la valeur numérique, exprimée en $${U.G_PER_MOL}$.
+Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
     "answer": {
       "type": "number",
       "value": 60,
-      "tolerance": 0.01,
+      "tolerance": 0,
       "unit": "g/mol",
-      "acceptedUnits": [
-        "g/mol",
-        "g·mol-1",
-        "g mol-1"
-      ]
+      "displayUnit": U.G_PER_MOL
     },
-    "explanation": "$3\\times12+8\\times1+16=60\\,\\mathrm{g\\,mol^{-1}}$."
+    "explanation": String.raw`La formule $\ce{C3H8O}$ contient 3 atomes de carbone, 8 atomes d'hydrogène et 1 atome d'oxygène. La masse molaire vaut donc $3\times12+8\times1+1\times16=36+8+16=60$, soit $${texQuantity(60, U.G_PER_MOL)}$.`
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une formule empirique vaut $\\ce{CH2O}$ et la masse molaire vaut $90\\,\\mathrm{g\\,mol^{-1}}$. Quelles propositions sont exactes ?",
+    "question": String.raw`Une espèce a pour formule empirique $\ce{CH2O}$ et une masse molaire de $${texQuantity(90, U.G_PER_MOL)}$. Quelles propositions sont exactes ?
+Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
     "choices": [
       {
-        "content": "La masse molaire de l'unité empirique vaut $30\\,\\mathrm{g\\,mol^{-1}}$.",
+        "content": String.raw`La masse molaire de l'unité empirique vaut $${texQuantity(30, U.G_PER_MOL)}$.`,
         "correct": true,
-        "explanation": "12+2+16=30."
+        "explanation": String.raw`Une unité empirique $\ce{CH2O}$ contient 1 C, 2 H et 1 O. Sa masse molaire vaut donc $12+2\times1+16=30$, soit $${texQuantity(30, U.G_PER_MOL)}$.`
       },
       {
-        "content": "Le facteur multiplicatif vaut 3.",
-        "correct": true,
-        "explanation": "90/30=3."
-      },
-      {
-        "content": "La formule brute est $\\ce{C3H6O3}$.",
-        "correct": true,
-        "explanation": "Chaque indice est multiplié par 3."
-      },
-      {
-        "content": "La formule brute est forcément $\\ce{CH2O}$.",
+        "content": "Le facteur multiplicatif entre formule empirique et formule brute vaut 2.",
         "correct": false,
-        "explanation": "La masse molaire indique un multiple."
+        "explanation": String.raw`Le facteur se calcule par le rapport entre la masse molaire réelle et celle de l'unité empirique : $90/30=3$. Il vaut donc 3 et non 2.`
+      },
+      {
+        "content": String.raw`La formule brute est $\ce{C3H6O3}$.`,
+        "correct": true,
+        "explanation": String.raw`Le facteur multiplicatif vaut 3. Tous les indices de $\ce{CH2O}$ sont donc multipliés par 3, ce qui donne $\ce{C3H6O3}$.`
+      },
+      {
+        "content": String.raw`La formule brute est nécessairement identique à la formule empirique $\ce{CH2O}$.`,
+        "correct": false,
+        "explanation": String.raw`La formule empirique donne seulement le plus petit rapport entier entre les nombres d'atomes. Ici, sa masse molaire est trois fois plus faible que celle du composé réel : la formule brute est donc un multiple de $\ce{CH2O}$.`
       }
     ],
-    "explanation": "Le passage formule empirique → formule brute utilise le rapport des masses molaires."
+    "explanation": String.raw`On calcule d'abord la masse molaire de l'unité empirique $\ce{CH2O}$ : $12+2\times1+16=30$, soit $${texQuantity(30, U.G_PER_MOL)}$. Le rapport $90/30=3$ donne le facteur multiplicatif. La formule brute est donc obtenue en multipliant tous les indices par 3 : $\ce{C3H6O3}$.`
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "L'aspirine est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
+    "question": "L'aspirine est un médicament notamment utilisé comme antalgique. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Elle possède une fonction acide carboxylique.",
         "correct": true,
-        "explanation": "Le groupe COOH est présent."
+        "explanation": "La structure comporte un groupe $\\ce{-COOH}$, caractéristique d'une fonction acide carboxylique."
       },
       {
         "content": "Elle possède une fonction ester.",
         "correct": true,
-        "explanation": "Le motif C(=O)-O est présent."
+        "explanation": "Le motif $\\ce{C(=O)-O-C}$ présent dans la molécule correspond à une fonction ester."
       },
       {
-        "content": "Elle possède un ammonium quaternaire.",
+        "content": "Le groupe $\\ce{-OH}$ du carboxyle constitue une fonction alcool indépendante.",
         "correct": false,
-        "explanation": "Aucun azote."
+        "explanation": "Le groupe $\\ce{-OH}$ appartient ici au motif carboxyle $\\ce{-COOH}$ ; il ne constitue pas une fonction alcool indépendante."
       },
       {
-        "content": "Elle possède un nitrile.",
+        "content": "Elle possède une fonction amide.",
         "correct": false,
-        "explanation": "Aucune liaison C≡N."
+        "explanation": "Une amide nécessite notamment un azote directement lié à un carbone carbonylé. La structure de l'aspirine ne comporte aucun atome d'azote."
       }
     ],
-    "explanation": "Cette question combine reconnaissance de fonctions et lecture d'une structure plus complexe.",
+    "explanation": "L'aspirine associe une fonction acide carboxylique et une fonction ester. La reconnaissance d'une fonction doit porter sur le motif complet et non sur la seule présence d'un groupe $\\ce{-OH}$ ou d'un carbonyle.",
     "questionDiagram": {
       "type": "molecule",
       "molecule": "aspirin-topological"
@@ -89,30 +90,30 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La cystéine est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
+    "question": "La cystéine est un acide aminé soufré présent dans les protéines. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle contient C, H, N, O et S.",
+        "content": "Elle possède une fonction thiol.",
         "correct": true,
-        "explanation": "Ces éléments sont visibles dans la structure."
+        "explanation": "Le groupe $\\ce{-SH}$ porté par la chaîne latérale correspond à une fonction thiol."
       },
       {
-        "content": "Elle possède un thiol.",
+        "content": "Elle possède une fonction amine.",
         "correct": true,
-        "explanation": "SH."
+        "explanation": "Le groupe $\\ce{-NH2}$ porté par le carbone alpha correspond, dans cette représentation neutre, à une fonction amine."
       },
       {
-        "content": "Elle possède une amine.",
+        "content": "Elle possède une fonction acide carboxylique.",
         "correct": true,
-        "explanation": "NH2."
+        "explanation": "Le motif $\\ce{-COOH}$ correspond à une fonction acide carboxylique."
       },
       {
-        "content": "Elle possède un acide carboxylique.",
-        "correct": true,
-        "explanation": "COOH."
+        "content": "Elle possède un nitrile parce que la molécule contient un atome d'azote.",
+        "correct": false,
+        "explanation": "La seule présence d'azote ne définit pas un nitrile. Un nitrile nécessite une triple liaison $\\ce{C#N}$, absente ici."
       }
     ],
-    "explanation": "La cystéine rassemble plusieurs éléments et plusieurs fonctions caractéristiques du chapitre.",
+    "explanation": "La cystéine est polyfonctionnelle : elle comporte un thiol, une amine et un acide carboxylique. Il faut identifier l'environnement de chaque hétéroatome plutôt que conclure à partir de sa seule présence.",
     "questionDiagram": {
       "type": "molecule",
       "molecule": "cysteine-topological"
@@ -121,37 +122,38 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans l'acide lactique $\\ce{CH3-CH(OH)-COOH}$, quelles propositions sont exactes selon les conventions du chapitre ?",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "L'acide lactique est un composé rencontré dans le métabolisme énergétique et peut s'écrire $\\ce{CH3-CH(OH)-COOH}$. Sélectionnez exactement les deux propositions incorrectes.",
     "choices": [
       {
-        "content": "La fonction alcool est secondaire.",
+        "content": "Le carbone portant le groupe $\\ce{OH}$ est tertiaire parce qu'il porte un seul hydrogène.",
         "correct": true,
-        "explanation": "Le carbone portant OH est lié à deux carbones."
+        "explanation": "Incorrect : le degré d'un carbone se détermine par le nombre de voisins carbonés. Ce carbone est directement lié à deux autres carbones ; il est donc secondaire."
       },
       {
-        "content": "Le carbone portant OH est qualifié de tertiaire dans la convention locale fondée sur les H.",
+        "content": "Le carbone du groupe carboxyle est quaternaire parce qu'il ne porte aucun hydrogène.",
         "correct": true,
-        "explanation": "Il porte un seul H."
+        "explanation": "Incorrect : le carbone du carboxyle n'est directement lié qu'à un seul autre carbone. L'absence d'hydrogène ne suffit pas à définir un carbone quaternaire."
       },
       {
-        "content": "Le carbone carboxylique est qualifié de quaternaire dans cette convention locale.",
-        "correct": true,
-        "explanation": "Il ne porte aucun H."
-      },
-      {
-        "content": "Le groupe OH du carboxyle constitue une deuxième fonction alcool.",
+        "content": "La fonction alcool portée par le carbone central est secondaire.",
         "correct": false,
-        "explanation": "Il appartient à l'acide carboxylique."
+        "explanation": "Correct : le carbone portant $\\ce{OH}$ est directement lié à deux autres carbones, ce qui caractérise un alcool secondaire."
+      },
+      {
+        "content": "Le groupe $\\ce{-OH}$ appartenant au carboxyle n'est pas une seconde fonction alcool.",
+        "correct": false,
+        "explanation": "Correct : ce groupe $\\ce{-OH}$ fait partie du motif $\\ce{-COOH}$ et appartient donc à la fonction acide carboxylique."
       }
     ],
-    "explanation": "Cette molécule force à distinguer la classe d'une fonction alcool du degré local attribué à un carbone."
+    "explanation": "Les deux propositions à sélectionner sont les propositions incorrectes. Cette question oblige à distinguer le degré d'un carbone, déterminé par ses voisins carbonés, de la simple quantité d'hydrogènes qu'il porte, et à reconnaître le groupe carboxyle comme un motif fonctionnel complet."
   },
   {
     "order": 106,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QROC",
-    "question": "Quel préfixe de nomenclature correspond à huit carbones ?",
+    "question": "Quel préfixe de nomenclature correspond à une chaîne de huit carbones ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -164,36 +166,36 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "collapseWhitespace": true
       }
     },
-    "explanation": "Huit carbones correspondent au préfixe oct-, comme dans octane."
+    "explanation": "Une chaîne de huit carbones utilise le préfixe oct-, comme dans le nom octane."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La N-acétylcystéine est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
+    "question": "La N-acétylcystéine est un médicament notamment utilisé comme mucolytique. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle possède un thiol.",
+        "content": "Elle possède une fonction thiol.",
         "correct": true,
-        "explanation": "SH."
+        "explanation": "Le groupe $\\ce{-SH}$ est conservé dans la structure et correspond à une fonction thiol."
       },
       {
-        "content": "Elle possède une amide.",
+        "content": "Elle possède une fonction amide.",
         "correct": true,
-        "explanation": "N est lié au carbonyle acétyle."
+        "explanation": "L'azote est directement lié au carbone d'un groupe carbonyle : cet environnement caractérise une fonction amide."
       },
       {
-        "content": "Elle possède un acide carboxylique.",
+        "content": "Elle possède une fonction acide carboxylique.",
         "correct": true,
-        "explanation": "COOH."
+        "explanation": "Le motif $\\ce{-COOH}$ présent dans la structure correspond à une fonction acide carboxylique."
       },
       {
         "content": "Elle possède une amine primaire libre.",
         "correct": false,
-        "explanation": "L'azote est engagé dans l'amide."
+        "explanation": "L'azote n'appartient pas à une amine libre : il est engagé dans une fonction amide en raison de sa liaison directe au carbone carbonylé."
       }
     ],
-    "explanation": "La lecture d'une molécule polyfonctionnelle exige de reconnaître les motifs complets plutôt que de repérer seulement les hétéroatomes.",
+    "explanation": "La N-acétylcystéine comporte un thiol, une amide et un acide carboxylique. La présence d'un azote ne suffit donc pas à conclure à une fonction amine.",
     "questionDiagram": {
       "type": "molecule",
       "molecule": "n-acetylcysteine-topological"
@@ -203,7 +205,7 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QZONE",
-    "question": "Dans la représentation simplifiée de l'éthanoate d'éthyle, cliquez sur l'atome d'oxygène engagé en liaison simple avec le carbone carbonylé : c'est l'oxygène du motif ester $\\ce{-C(=O)-O-}$.",
+    "question": "Dans la représentation simplifiée de l'éthanoate d'éthyle, cliquez sur l'atome d'oxygène engagé par une liaison simple avec le carbone carbonylé, c'est-à-dire l'oxygène du motif ester $\\ce{-C(=O)-O-}$.",
     "image": {
       "src": "/images/training/ue14/chimie/ester-ethanoate-ethyle-qzone.svg",
       "alt": "Schéma simplifié de l'éthanoate d'éthyle montrant le groupe carbonyle et l'oxygène du motif ester",
@@ -219,37 +221,37 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "tolerance": 0.08
       }
     ],
-    "explanation": "Dans un ester $\\ce{R-C(=O)-O-R'}$, le carbone carbonylé est lié à deux oxygènes : l'un par une double liaison, l'autre par une liaison simple. C'est ce second oxygène qu'il fallait sélectionner."
+    "explanation": "Dans un ester $\\ce{R-C(=O)-O-R'}$, le carbone carbonylé est lié à deux oxygènes : l'un par une double liaison et l'autre par une liaison simple. C'est ce second oxygène qu'il fallait sélectionner."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes.",
+    "question": "À propos du propan-1-ol $\\ce{CH3-CH2-CH2-OH}$, sélectionnez exactement les deux propositions correctes.",
     "choices": [
       {
-        "content": "Le propan-1-ol est un alcool primaire.",
+        "content": "Le carbone portant le groupe $\\ce{OH}$ est primaire.",
         "correct": true,
-        "explanation": "Le carbone fonctionnel est lié à un seul carbone."
+        "explanation": "Ce carbone n'est directement lié qu'à un seul autre carbone : il est donc primaire."
       },
       {
-        "content": "Dans la convention locale de la fiche, ce même carbone CH2 est qualifié de secondaire.",
+        "content": "La fonction alcool est primaire.",
         "correct": true,
-        "explanation": "Il porte deux H."
+        "explanation": "Un alcool est primaire lorsque le carbone portant le groupe $\\ce{OH}$ est lié à un seul autre carbone."
       },
       {
-        "content": "Les termes « alcool primaire » et « carbone primaire » sont toujours synonymes.",
+        "content": "Le carbone portant $\\ce{OH}$ est secondaire uniquement parce qu'il s'agit d'un groupe $\\ce{CH2}$.",
         "correct": false,
-        "explanation": "Ils reposent sur deux critères différents."
+        "explanation": "Le degré d'un carbone se détermine par le nombre de voisins carbonés et non par le nombre d'hydrogènes. Ici, le groupe $\\ce{CH2}$ terminal n'a qu'un voisin carboné."
       },
       {
-        "content": "Le groupe OH du propan-1-ol appartient à une fonction acide.",
+        "content": "Le groupe $\\ce{OH}$ appartient à une fonction acide carboxylique.",
         "correct": false,
-        "explanation": "Il s'agit d'une fonction alcool."
+        "explanation": "Le groupe $\\ce{OH}$ est directement porté par un carbone saturé et constitue ici une fonction alcool ; aucun groupe carboxyle $\\ce{-COOH}$ n'est présent."
       }
     ],
-    "explanation": "La fiche demande explicitement de ne pas confondre degré du carbone et classe de l'alcool."
+    "explanation": "Dans le propan-1-ol, le carbone portant $\\ce{OH}$ est primaire et la fonction alcool est elle aussi primaire. Dans ce cas, les deux classifications conduisent au même qualificatif, mais elles reposent sur l'environnement carboné du carbone concerné."
   },
   {
     "order": 110,
@@ -261,125 +263,127 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\ce{R-CHO}$ définit un aldéhyde.",
         "correct": true,
-        "explanation": "Carbonyle terminal lié à H."
+        "explanation": "Dans un aldéhyde, le carbone du groupe carbonyle est terminal et porte un hydrogène ; le motif général peut s'écrire $\\ce{R-CHO}$."
       },
       {
-        "content": "$\\ce{R-CO-R'}$ définit une cétone si R et R' sont carbonés.",
+        "content": "$\\ce{R-CO-R'}$ définit une cétone lorsque R et R' sont des groupes carbonés.",
         "correct": true,
-        "explanation": "Carbonyle interne."
+        "explanation": "Dans une cétone, le carbone carbonylé est lié à deux groupes carbonés : le carbonyle est donc situé à l'intérieur du squelette carboné."
       },
       {
         "content": "$\\ce{R-SH}$ définit un thiol.",
         "correct": true,
-        "explanation": "SH."
+        "explanation": "Le groupe sulfhydryle $\\ce{-SH}$ lié à un groupe carboné caractérise une fonction thiol."
       },
       {
         "content": "$\\ce{R-C#N}$ définit un nitrile.",
         "correct": true,
-        "explanation": "C≡N."
+        "explanation": "Une triple liaison carbone-azote du type $\\ce{R-C#N}$ caractérise une fonction nitrile."
       },
       {
         "content": "$\\ce{R4N+}$ définit un ammonium quaternaire.",
         "correct": true,
-        "explanation": "N+ tétravalent."
+        "explanation": "Un azote lié à quatre substituants organiques et portant une charge positive correspond à un ammonium quaternaire."
       },
       {
         "content": "$\\ce{R-O-R'}$ définit un ester.",
         "correct": false,
-        "explanation": "C'est un éther."
+        "explanation": "Le motif $\\ce{R-O-R'}$ correspond à un éther. Un ester comporte en plus un groupe carbonyle : $\\ce{R-C(=O)-O-R'}$."
       },
       {
         "content": "$\\ce{R-COOH}$ définit une amine.",
         "correct": false,
-        "explanation": "C'est un acide carboxylique."
+        "explanation": "Le motif $\\ce{R-COOH}$ est celui d'un acide carboxylique et ne contient aucun azote."
       },
       {
         "content": "$\\ce{R-CONH2}$ définit une amine primaire libre.",
         "correct": false,
-        "explanation": "C'est une amide."
+        "explanation": "L'azote est directement lié au carbone d'un carbonyle : il appartient donc à une fonction amide, et non à une amine primaire libre."
       },
       {
         "content": "$\\ce{R-O-O-R'}$ définit un carbonate.",
         "correct": false,
-        "explanation": "C'est un peroxyde."
+        "explanation": "La liaison directe $\\ce{O-O}$ caractérise un peroxyde. Un carbonate organique comporte un carbone carbonylé entouré de groupes oxygénés."
       },
       {
         "content": "$\\ce{R-COO-R'}$ définit une cétone.",
         "correct": false,
-        "explanation": "C'est un ester."
+        "explanation": "Le motif $\\ce{R-C(=O)-O-R'}$ est celui d'un ester. Une cétone possède un carbonyle lié à deux groupes carbonés."
       }
     ],
-    "explanation": "La synthèse des fonctions repose sur la reconnaissance précise des motifs caractéristiques."
+    "explanation": "La reconnaissance fonctionnelle exige de lire le motif complet et son environnement : un même hétéroatome ou un même groupe carbonyle peut appartenir à des familles différentes."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une microanalyse d'un composé contenant seulement C, H et O donne 54,5 % C, 9,1 % H et 36,4 % O. Quelles propositions sont compatibles avec ces données ?",
+    "question": String.raw`Une microanalyse d'un composé contenant seulement C, H et O donne 54,5 % de C, 9,1 % de H et 36,4 % de O. Quelles propositions sont exactes ?
+Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
     "choices": [
       {
-        "content": "Pour 100 g, on a environ 4,54 mol de C.",
+        "content": "Pour 100 g de composé, la quantité relative de carbone vaut environ 4,54 mol.",
         "correct": true,
-        "explanation": "54,5/12≈4,54."
+        "explanation": "Sur une base de 100 g, la masse de carbone vaut 54,5 g. On obtient donc $n_{\\mathrm C}=54{,}5/12\\approx4{,}54$ mol."
       },
       {
-        "content": "On a environ 9,1 mol de H.",
+        "content": "Pour 100 g de composé, la quantité relative d'hydrogène vaut environ 9,1 mol.",
         "correct": true,
-        "explanation": "9,1/1=9,1."
+        "explanation": "Sur une base de 100 g, la masse d'hydrogène vaut 9,1 g. Avec $M_{\\mathrm H}=1$, on obtient $n_{\\mathrm H}=9{,}1/1=9{,}1$ mol."
       },
       {
-        "content": "On a environ 2,28 mol de O.",
+        "content": "Pour 100 g de composé, la quantité relative d'oxygène vaut environ 2,28 mol.",
         "correct": true,
-        "explanation": "36,4/16≈2,28."
+        "explanation": "La masse d'oxygène vaut 36,4 g. On obtient $n_{\\mathrm O}=36{,}4/16\\approx2{,}28$ mol."
       },
       {
-        "content": "Le rapport minimal est proche de $\\ce{C2H4O}$.",
-        "correct": true,
-        "explanation": "En divisant par 2,28 : ≈2:4:1."
+        "content": "La formule brute est nécessairement $\\ce{C2H4O}$.",
+        "correct": false,
+        "explanation": "En divisant les quantités relatives par la plus petite, on obtient bien un rapport voisin de $2:4:1$, donc une formule empirique $\\ce{C2H4O}$. Sans masse molaire du composé, on ne peut cependant pas affirmer que la formule brute est identique à cette formule empirique."
       }
     ],
-    "explanation": "Cette question demande de transformer des pourcentages massiques en rapport atomique minimal."
+    "explanation": "On raisonne sur 100 g de composé, puis on convertit chaque masse en quantité de matière. Les valeurs obtenues sont environ 4,54 mol de C, 9,1 mol de H et 2,28 mol de O. En divisant par 2,28, on obtient le rapport $2:4:1$, soit la formule empirique $\\ce{C2H4O}$. Une masse molaire supplémentaire serait nécessaire pour déterminer si la formule brute est identique ou multiple de cette formule."
   },
   {
     "order": 112,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "La formule empirique d'un composé est $\\ce{C2H4O}$ et sa masse molaire vaut $132\\,\\mathrm{g\\,mol^{-1}}$. Quelle valeur prend le facteur multiplicatif entre formule empirique et formule brute ?",
+    "question": String.raw`La formule empirique d'un composé est $\ce{C2H4O}$ et sa masse molaire vaut $${texQuantity(132, U.G_PER_MOL)}$. Quelle valeur prend le facteur multiplicatif entre formule empirique et formule brute ? Donnez uniquement la valeur numérique.
+Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
     "answer": {
       "type": "number",
       "value": 3,
       "tolerance": 0
     },
-    "explanation": "$M(\\ce{C2H4O})=44\\,\\mathrm{g\\,mol^{-1}}$ et $132/44=3$."
+    "explanation": String.raw`La masse molaire de l'unité empirique $\ce{C2H4O}$ vaut $2\times12+4\times1+16=44$, soit $${texQuantity(44, U.G_PER_MOL)}$. Le facteur multiplicatif vaut donc $132/44=3$.`
   },
   {
     "order": 113,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On compare la choline et l'acétylcholine représentées ci-dessous. À propos de l'acétylcholine : [[QUESTION_DIAGRAM]]",
+    "question": "L'acétylcholine est un neurotransmetteur impliqué notamment dans la transmission neuromusculaire. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Elle comporte un ammonium quaternaire.",
         "correct": true,
-        "explanation": "N+ est lié à quatre carbones."
+        "explanation": "L'azote est lié à quatre substituants carbonés et porte une charge positive : il appartient à un ammonium quaternaire."
       },
       {
         "content": "Elle comporte une fonction ester.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle de la choline a été estérifié dans cette structure."
+        "explanation": "La structure contient le motif $\\ce{C(=O)-O-C}$ caractéristique d'un ester."
       },
       {
         "content": "Son azote est une amine tertiaire neutre.",
         "correct": false,
-        "explanation": "Il reste un ammonium quaternaire."
+        "explanation": "Une amine tertiaire neutre possède trois substituants carbonés autour de l'azote. Ici, l'azote en possède quatre et porte une charge positive."
       },
       {
-        "content": "Elle comporte un nitrile.",
+        "content": "Elle comporte un nitrile parce qu'elle contient un atome d'azote.",
         "correct": false,
-        "explanation": "Aucune liaison C≡N."
+        "explanation": "Un nitrile nécessite une triple liaison $\\ce{C#N}$, absente dans l'acétylcholine."
       }
     ],
-    "explanation": "L'acétylcholine permet de mobiliser simultanément les fonctions oxygénées et azotées.",
+    "explanation": "L'acétylcholine combine une fonction ester et un ammonium quaternaire. La nature d'une fonction azotée dépend de l'environnement de l'azote, pas de sa seule présence.",
     "questionDiagram": {
       "type": "molecule",
       "molecule": "acetylcholine-topological"
@@ -387,32 +391,32 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   },
   {
     "order": 114,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Le paracétamol est représenté ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
+    "question": "Le paracétamol est un médicament antalgique et antipyrétique. Il est représenté ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Son azote appartient à une amide.",
+        "content": "Son azote appartient à une fonction amide.",
         "correct": true,
-        "explanation": "N est directement lié à C=O."
+        "explanation": "L'azote est directement lié au carbone d'un groupe carbonyle : cet environnement caractérise une amide."
       },
       {
-        "content": "Le groupe OH est un phénol et non un alcool aliphatique.",
+        "content": "Le groupe $\\ce{OH}$ porté directement par le cycle aromatique correspond à un phénol.",
         "correct": true,
-        "explanation": "Il est porté par un carbone aromatique."
+        "explanation": "Un groupe hydroxyle directement lié à un carbone aromatique appartient à une fonction phénol, et non à un alcool aliphatique."
       },
       {
-        "content": "La molécule possède un ester.",
+        "content": "La molécule possède une fonction ester.",
         "correct": false,
-        "explanation": "Pas de motif C(=O)-O-R."
+        "explanation": "Aucun motif $\\ce{C(=O)-O-R}$ caractéristique d'un ester n'est présent."
       },
       {
-        "content": "La seule présence d'un azote permettrait de conclure à une amine.",
+        "content": "La seule présence d'un atome d'azote suffit à classer la molécule parmi les amines.",
         "correct": false,
-        "explanation": "L'environnement de l'azote doit être lu."
+        "explanation": "Il faut examiner l'environnement de l'azote. Ici, il appartient à une amide et non à une amine libre."
       }
     ],
-    "explanation": "Une molécule médicamenteuse simple permet de tester les frontières entre fonctions proches.",
+    "explanation": "Le paracétamol illustre deux pièges classiques : un azote n'est pas nécessairement une amine et un groupe $\\ce{OH}$ n'est pas nécessairement un alcool aliphatique.",
     "questionDiagram": {
       "type": "molecule",
       "molecule": "paracetamol-topological"
@@ -420,32 +424,32 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   },
   {
     "order": 115,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La valine est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
+    "question": "La valine est un acide aminé essentiel. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle possède une amine et un acide carboxylique.",
+        "content": "Elle possède une fonction amine et une fonction acide carboxylique.",
         "correct": true,
-        "explanation": "NH2 et COOH."
+        "explanation": "La structure comporte un groupe $\\ce{-NH2}$ et un groupe $\\ce{-COOH}$."
       },
       {
-        "content": "Sa chaîne principale contenant le carboxyle comporte quatre carbones.",
+        "content": "La chaîne principale contenant le carboxyle comporte quatre carbones.",
         "correct": true,
-        "explanation": "Le parent carboné retenu contient quatre carbones."
+        "explanation": "Le carbone du carboxyle est inclus dans la chaîne principale, qui comporte quatre carbones."
       },
       {
-        "content": "Elle contient cinq carbones au total.",
+        "content": "La molécule contient cinq carbones au total.",
         "correct": true,
-        "explanation": "Le substituant méthyle ajoute un carbone."
+        "explanation": "Quatre carbones appartiennent à la chaîne principale et un carbone supplémentaire appartient au substituant méthyle."
       },
       {
-        "content": "Le carbone du carboxyle porte trois hydrogènes.",
+        "content": "Le carbone du groupe carboxyle doit être exclu du comptage de la chaîne principale.",
         "correct": false,
-        "explanation": "Il n'en porte aucun."
+        "explanation": "Le carbone du groupe carboxyle appartient au squelette principal d'un acide carboxylique et constitue le carbone 1."
       }
     ],
-    "explanation": "La valine combine reconnaissance des fonctions, comptage des carbones et lecture de la chaîne.",
+    "explanation": "La valine permet de croiser reconnaissance fonctionnelle et nomenclature : le carbone du carboxyle appartient à la chaîne principale, qui comporte quatre carbones, tandis que la molécule en possède cinq au total.",
     "questionDiagram": {
       "type": "molecule",
       "molecule": "valine-topological"
@@ -453,32 +457,32 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   },
   {
     "order": 116,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
     "question": "L'isooctane est représenté ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il contient huit carbones.",
+        "content": "La molécule contient huit carbones au total.",
         "correct": true,
-        "explanation": "C8."
+        "explanation": "L'isooctane possède huit atomes de carbone au total."
       },
       {
-        "content": "Son parent est un pentane.",
+        "content": "La chaîne principale retenue pour son nom systématique comporte cinq carbones.",
         "correct": true,
-        "explanation": "Chaîne principale de cinq carbones."
+        "explanation": "La plus longue chaîne continue appropriée est un pentane."
       },
       {
-        "content": "Trois substituants méthyle occupent les positions 2, 2 et 4.",
-        "correct": true,
-        "explanation": "Structure 2,2,4-triméthylpentane."
-      },
-      {
-        "content": "Il possède une fonction alcool.",
+        "content": "Son nom systématique doit utiliser octane comme parent uniquement parce que la molécule contient huit carbones.",
         "correct": false,
-        "explanation": "C'est un hydrocarbure."
+        "explanation": "Le nom du parent dépend de la chaîne principale continue, et non du nombre total de carbones. Le nom systématique est 2,2,4-triméthylpentane."
+      },
+      {
+        "content": "La molécule possède une fonction alcool parce que son nom usuel se termine par « -ane ».",
+        "correct": false,
+        "explanation": "Le suffixe -ane désigne un alcane, donc un hydrocarbure saturé. Il ne signale pas une fonction alcool."
       }
     ],
-    "explanation": "Cet exemple vérifie que le nombre total de carbones et la longueur de la chaîne principale ne sont pas synonymes.",
+    "explanation": "L'isooctane illustre la distinction entre le nombre total de carbones et la longueur de la chaîne principale : huit carbones sont présents au total, mais le parent systématique est un pentane.",
     "questionDiagram": {
       "type": "molecule",
       "molecule": "isooctane-topological"
@@ -489,30 +493,30 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux molécules qui comportent un carbonyle mais ne sont ni des aldéhydes ni des cétones.",
+    "question": "Sélectionnez exactement les deux molécules qui comportent un groupe carbonyle mais ne sont ni des aldéhydes ni des cétones.",
     "choices": [
       {
-        "content": "$\\ce{CH3COOH}$",
+        "content": "$\\ce{CH3COOH}$.",
         "correct": true,
-        "explanation": "Le carbonyle appartient à un acide carboxylique."
+        "explanation": "Cette molécule contient un carbonyle intégré à un groupe carboxyle $\\ce{-COOH}$ : il s'agit d'un acide carboxylique."
       },
       {
-        "content": "$\\ce{CH3COOCH3}$",
+        "content": "$\\ce{CH3COOCH3}$.",
         "correct": true,
-        "explanation": "Le carbonyle appartient à un ester."
+        "explanation": "Cette molécule contient un carbonyle dans le motif $\\ce{C(=O)-O-C}$ : il s'agit d'un ester."
       },
       {
-        "content": "$\\ce{CH3CHO}$",
+        "content": "$\\ce{CH3CHO}$.",
         "correct": false,
-        "explanation": "C'est un aldéhyde."
+        "explanation": "Le carbone carbonylé est terminal et porte un hydrogène : la molécule est un aldéhyde."
       },
       {
-        "content": "$\\ce{CH3COCH3}$",
+        "content": "$\\ce{CH3COCH3}$.",
         "correct": false,
-        "explanation": "C'est une cétone."
+        "explanation": "Le carbone carbonylé est lié à deux groupes carbonés : la molécule est une cétone."
       }
     ],
-    "explanation": "La présence d'un groupe C=O ne suffit pas à conclure aldéhyde ou cétone : il faut lire les substituants du carbone carbonylé."
+    "explanation": "La présence d'un groupe $\\ce{C=O}$ ne suffit pas à identifier la fonction. Il faut examiner les groupes directement liés au carbone carbonylé."
   },
   {
     "order": 118,
@@ -524,96 +528,96 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Acétylcholine → ester + ammonium quaternaire.",
         "correct": true,
-        "explanation": "Les deux motifs sont présents."
+        "explanation": "L'acétylcholine comporte un motif ester et un azote lié à quatre substituants carbonés portant une charge positive."
       },
       {
         "content": "Cystéine → amine + thiol + acide carboxylique.",
         "correct": true,
-        "explanation": "Trois fonctions."
+        "explanation": "La cystéine comporte respectivement les groupes $\\ce{-NH2}$, $\\ce{-SH}$ et $\\ce{-COOH}$."
       },
       {
         "content": "Paracétamol → amide + phénol.",
         "correct": true,
-        "explanation": "Deux motifs principaux."
+        "explanation": "L'azote du paracétamol appartient à une amide et son groupe hydroxyle directement porté par le cycle aromatique correspond à un phénol."
       },
       {
         "content": "Aspirine → acide carboxylique + ester.",
         "correct": true,
-        "explanation": "Deux fonctions oxygénées."
+        "explanation": "L'aspirine comporte un groupe $\\ce{-COOH}$ et un motif ester $\\ce{C(=O)-O-C}$."
       },
       {
         "content": "N-acétylcystéine → thiol + amide + acide carboxylique.",
         "correct": true,
-        "explanation": "Trois fonctions."
+        "explanation": "La structure de la N-acétylcystéine comporte ces trois fonctions."
       },
       {
         "content": "Choline → nitrile + ester.",
         "correct": false,
-        "explanation": "Elle possède notamment un hydroxyle et un ammonium quaternaire."
+        "explanation": "La choline comporte notamment un groupe hydroxyle et un ammonium quaternaire ; elle ne comporte ni nitrile ni ester."
       },
       {
         "content": "Cystéine → ammonium quaternaire.",
         "correct": false,
-        "explanation": "Pas dans la représentation neutre utilisée."
+        "explanation": "Dans la représentation neutre utilisée, l'azote de la cystéine appartient à une amine et n'est pas lié à quatre substituants carbonés."
       },
       {
         "content": "Paracétamol → amine primaire libre.",
         "correct": false,
-        "explanation": "L'azote est amide."
+        "explanation": "L'azote est directement lié à un carbone carbonylé et appartient à une amide."
       },
       {
         "content": "Aspirine → thiol.",
         "correct": false,
-        "explanation": "Aucun soufre."
+        "explanation": "L'aspirine ne contient aucun atome de soufre et ne possède donc pas de groupe $\\ce{-SH}$."
       },
       {
         "content": "N-acétylcystéine → nitrile.",
         "correct": false,
-        "explanation": "Aucun C≡N."
+        "explanation": "La structure ne contient aucune triple liaison $\\ce{C#N}$."
       }
     ],
-    "explanation": "Les molécules du vivant ou d'intérêt médical servent ici de supports de reconnaissance, sans demander de connaissances thérapeutiques."
+    "explanation": "Ces molécules d'intérêt biologique ou médical permettent de réviser plusieurs fonctions à la fois. La bonne stratégie consiste à identifier chaque motif complet plutôt que de se fier au seul nom de la molécule ou à la présence d'un hétéroatome."
   },
   {
     "order": 119,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QROC",
-    "question": "L’aspirine a pour formule brute $\\ce{C9H8O4}$. Combien d’atomes comporte une molécule d’aspirine au total ?",
+    "question": "L'aspirine a pour formule brute $\\ce{C9H8O4}$. Combien d'atomes comporte une molécule d'aspirine au total ? Donnez uniquement la valeur numérique.",
     "answer": {
       "type": "number",
       "value": 21,
       "tolerance": 0
     },
-    "explanation": "La formule contient 9 carbones, 8 hydrogènes et 4 oxygènes : $9+8+4=21$ atomes."
+    "explanation": "La formule brute indique 9 atomes de carbone, 8 atomes d'hydrogène et 4 atomes d'oxygène. Le nombre total d'atomes vaut donc $9+8+4=21$."
   },
   {
     "order": 120,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On considère le propan-2-ol $\\ce{CH3-CH(OH)-CH3}$. Quelles propositions sont exactes dans les conventions de la fiche ?",
+    "question": "On considère le propan-2-ol $\\ce{CH3-CH(OH)-CH3}$. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Le carbone portant le groupe $\\ce{OH}$ est secondaire.",
+        "correct": true,
+        "explanation": "Ce carbone est directement lié aux deux carbones des groupes méthyle : il possède donc deux voisins carbonés."
+      },
       {
         "content": "La fonction alcool est secondaire.",
         "correct": true,
-        "explanation": "Le carbone porteur de OH est lié à deux carbones."
+        "explanation": "Le carbone portant le groupe hydroxyle est lié à deux autres carbones, ce qui définit un alcool secondaire."
       },
       {
-        "content": "Le carbone porteur de OH est qualifié de tertiaire selon la convention locale fondée sur les hydrogènes.",
-        "correct": true,
-        "explanation": "Il porte un H."
-      },
-      {
-        "content": "Les deux groupes CH3 sont des carbones primaires selon cette même convention.",
-        "correct": true,
-        "explanation": "Trois H chacun."
-      },
-      {
-        "content": "Le mot « secondaire » a exactement le même sens dans « alcool secondaire » et « carbone secondaire ».",
+        "content": "Le carbone portant $\\ce{OH}$ est tertiaire parce qu'il porte un seul hydrogène.",
         "correct": false,
-        "explanation": "Les critères sont différents."
+        "explanation": "Le degré d'un carbone dépend du nombre de voisins carbonés et non du nombre d'hydrogènes qu'il porte. Ici, ce carbone n'a que deux voisins carbonés."
+      },
+      {
+        "content": "Les deux carbones des groupes $\\ce{CH3}$ sont secondaires parce qu'ils portent trois hydrogènes.",
+        "correct": false,
+        "explanation": "Chaque carbone méthylique n'est directement lié qu'au carbone central : il possède un seul voisin carboné et est donc primaire."
       }
     ],
-    "explanation": "Le chapitre demande explicitement de séparer ces deux systèmes de classification."
+    "explanation": "Le propan-2-ol comporte deux carbones primaires et un carbone secondaire. Le carbone secondaire porte le groupe $\\ce{OH}$ ; la fonction alcool est donc elle aussi secondaire."
   },
   {
     "order": 121,
@@ -622,27 +626,27 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelles propositions de synthèse sont exactes ?",
     "choices": [
       {
-        "content": "Une formule brute ne suffit pas toujours à distinguer des isomères.",
+        "content": "Une formule brute ne suffit pas toujours à distinguer deux molécules isomères.",
         "correct": true,
-        "explanation": "La structure peut différer."
+        "explanation": "Des isomères peuvent partager la même formule brute tout en différant par l'enchaînement ou l'organisation spatiale de leurs atomes."
       },
       {
-        "content": "Un même atome d'azote peut appartenir à des fonctions différentes selon son environnement.",
-        "correct": true,
-        "explanation": "Amine, amide, ammonium, etc."
+        "content": "Le choix d'une chaîne principale se réduit toujours au comptage du nombre total de carbones présents dans la molécule.",
+        "correct": false,
+        "explanation": "Une molécule ramifiée peut comporter davantage de carbones au total que sa chaîne principale. Le parent correspond à une chaîne continue appropriée respectant les règles de nomenclature."
       },
       {
-        "content": "Un groupe OH n'est pas toujours une fonction alcool indépendante.",
-        "correct": true,
-        "explanation": "Dans COOH ou un phénol, le contexte change la classification."
+        "content": "La présence d'un atome d'azote suffit à conclure que la molécule possède une fonction amine.",
+        "correct": false,
+        "explanation": "L'environnement de l'azote doit être examiné : il peut notamment appartenir à une amine, une amide, un nitrile ou un ammonium."
       },
       {
-        "content": "Le choix d'une chaîne principale ne se réduit pas au nombre total de carbones de la molécule.",
+        "content": "Un groupe $\\ce{OH}$ doit être interprété dans son environnement avant de conclure à une fonction alcool.",
         "correct": true,
-        "explanation": "Les ramifications doivent être distinguées du parent."
+        "explanation": "Un groupe $\\ce{OH}$ peut appartenir à un alcool, à un phénol ou au motif d'un acide carboxylique ; son environnement structural est donc déterminant."
       }
     ],
-    "explanation": "Les principales difficultés du chapitre viennent de la nécessité de lire les motifs dans leur contexte plutôt que de reconnaître des symboles isolés."
+    "explanation": "Les principales difficultés de ce chapitre viennent des raccourcis trompeurs : formule brute, présence d'un hétéroatome, groupe $\\ce{OH}$ ou nombre total de carbones ne suffisent pas toujours à conclure. Il faut lire la structure et son environnement."
   },
   {
     "order": 122,
@@ -652,56 +656,56 @@ export const UE14_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La formule brute décrit la composition d'une molécule.",
+        "content": "La formule brute décrit la nature et le nombre des atomes constituant une molécule.",
         "correct": true,
-        "explanation": "Nature et nombre d'atomes."
+        "explanation": "Elle renseigne sur la composition élémentaire, mais ne décrit pas nécessairement l'enchaînement des atomes ni leur géométrie."
       },
       {
-        "content": "$\\ce{R-COO-R'}$ est un ester.",
+        "content": "$\\ce{R-COO-R'}$ correspond à une fonction ester.",
         "correct": true,
-        "explanation": "Motif ester."
+        "explanation": "Le motif associe un groupe carbonyle à un oxygène lié par liaison simple à un groupe carboné."
       },
       {
-        "content": "$\\ce{R-C#N}$ est un nitrile.",
+        "content": "$\\ce{R-C#N}$ correspond à une fonction nitrile.",
         "correct": true,
-        "explanation": "Motif nitrile."
+        "explanation": "La triple liaison carbone-azote $\\ce{C#N}$ caractérise un nitrile."
       },
       {
-        "content": "Méth-, éth-, prop- correspondent à 1, 2 et 3 carbones.",
+        "content": "Méth-, éth- et prop- correspondent respectivement à 1, 2 et 3 carbones.",
         "correct": true,
-        "explanation": "Début de la série."
+        "explanation": "Ces préfixes ouvrent la série de nomenclature des chaînes carbonées : méth-, éth-, prop-, but-, pent-, etc."
       },
       {
-        "content": "Dans la convention locale de la fiche, un carbone sans H est dit quaternaire.",
+        "content": "Un carbone directement lié à quatre autres carbones est quaternaire.",
         "correct": true,
-        "explanation": "C'est la convention enseignée."
+        "explanation": "Le degré d'un carbone dépend du nombre de voisins carbonés ; quatre voisins carbonés définissent un carbone quaternaire."
       },
       {
-        "content": "$\\ce{R-O-R'}$ est un amide.",
+        "content": "$\\ce{R-O-R'}$ correspond à une fonction amide.",
         "correct": false,
-        "explanation": "C'est un éther."
+        "explanation": "Le motif $\\ce{R-O-R'}$ correspond à un éther. Une amide comporte un azote directement lié au carbone d'un groupe carbonyle."
       },
       {
         "content": "Un ammonium quaternaire est une amine tertiaire neutre.",
         "correct": false,
-        "explanation": "Il est tétravalent et positif."
+        "explanation": "Un ammonium quaternaire possède un azote lié à quatre substituants et portant une charge positive ; une amine tertiaire neutre n'a que trois substituants carbonés autour de l'azote."
       },
       {
-        "content": "La formule brute donne toujours la géométrie.",
+        "content": "La formule brute donne toujours la géométrie tridimensionnelle de la molécule.",
         "correct": false,
-        "explanation": "Elle ne la donne pas."
+        "explanation": "La formule brute indique la composition, mais pas l'enchaînement complet ni la disposition spatiale des atomes."
       },
       {
-        "content": "Un alcool tertiaire possède trois groupes OH.",
+        "content": "Un alcool tertiaire possède nécessairement trois groupes $\\ce{OH}$.",
         "correct": false,
-        "explanation": "Il possède un carbone fonctionnel lié à trois carbones."
+        "explanation": "Le terme tertiaire décrit le carbone portant le groupe hydroxyle : ce carbone est lié à trois autres carbones. Il ne décrit pas le nombre de groupes $\\ce{OH}$."
       },
       {
-        "content": "Déc- correspond à huit carbones.",
+        "content": "Le préfixe déc- correspond à une chaîne de huit carbones.",
         "correct": false,
-        "explanation": "Déc- = 10."
+        "explanation": "Le préfixe déc- correspond à dix carbones ; huit carbones correspondent au préfixe oct-."
       }
     ],
-    "explanation": "Ce dernier item rassemble composition, fonctions, nomenclature et convention locale de classification des carbones."
+    "explanation": "Cette synthèse finale croise composition, reconnaissance des fonctions, degré des carbones et nomenclature. Les pièges reposent surtout sur des termes proches dont les critères doivent rester bien distincts."
   }
 ];

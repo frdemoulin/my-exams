@@ -1,4 +1,7 @@
+import { TEX_UNITS } from './tex-units';
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 – Chimie organique – Chapitre 2.2 – Synthèse
@@ -171,7 +174,8 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 0,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "Un racémate est 50/50 : $ee=50-50=0\\,\\%$."
   },
@@ -184,7 +188,8 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 85,
       "tolerance": 0.01,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "Avec $M+m=100$ et $M-m=70$, on obtient $2M=170$ donc $M=85\\,\\%$."
   },
@@ -366,7 +371,8 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "type": "number",
       "value": 75,
       "tolerance": 0.1,
-      "unit": "%"
+      "unit": "%",
+      "displayUnit": U.PERCENT
     },
     "explanation": "$ee=|-18|/|-24|\\times100=75\\,\\%$."
   },

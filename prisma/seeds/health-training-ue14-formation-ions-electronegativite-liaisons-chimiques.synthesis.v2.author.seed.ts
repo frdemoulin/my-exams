@@ -1,4 +1,7 @@
+import { TEX_UNITS, texQuantity } from './tex-units';
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 – Chimie générale
@@ -52,10 +55,10 @@ export const UE14_CH2_SYNTHESIS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuest
     format: 'QRU',
     question: `Lors de la formation de $\\ce{NH4+}$ à partir de $\\ce{NH3}$ et $\\ce{H+}$, quelle espèce fournit le doublet de la nouvelle liaison ?`,
     choices: [
-      { content: `$\\ce{NH3}$`, correct: true, explanation: `Le doublet non liant de l'azote est donné à $\\ce{H+}$.` },
-      { content: `$\\ce{H+}$`, correct: false, explanation: `$\\ce{H+}$ ne possède pas d'électron à fournir.` },
-      { content: `$\\ce{NH4+}$`, correct: false, explanation: `Il s'agit du produit formé.` },
-      { content: `Un ion chlorure`, correct: false, explanation: `Il n'intervient pas dans cette transformation.` },
+      { content: `$\\ce{NH3}$.`, correct: true, explanation: `Le doublet non liant de l'azote est donné à $\\ce{H+}$.` },
+      { content: `$\\ce{H+}$.`, correct: false, explanation: `$\\ce{H+}$ ne possède pas d'électron à fournir.` },
+      { content: `$\\ce{NH4+}$.`, correct: false, explanation: `Il s'agit du produit formé.` },
+      { content: `Un ion chlorure.`, correct: false, explanation: `Il n'intervient pas dans cette transformation.` },
     ],
     explanation:
       `L'ammoniac est le donneur de doublet et le proton l'accepteur. Après formation, les quatre liaisons N–H de l'ammonium sont équivalentes.`,
@@ -225,10 +228,10 @@ export const UE14_CH2_SYNTHESIS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuest
     difficulty: 'MEDIUM',
     format: 'QROC',
     question:
-      `Pour une énergie de dissociation $E_{\\ce{O-H}}=460\\,\\mathrm{kJ\\cdot mol^{-1}}$, quelle énergie correspond à une mole de liaisons en joules ?`,
+      `Pour une énergie de dissociation $E_{\\ce{O-H}}=${texQuantity(460, U.KJ_PER_MOL)}$, quelle énergie correspond à une mole de liaisons en joules ?`,
     answer: { type: 'number', value: 460000, tolerance: 1000 },
     explanation:
-      `Il suffit de convertir les kilojoules en joules : $460\\times10^3=4{,}60\\times10^5\\,\\mathrm{J\\cdot mol^{-1}}$.`,
+      `Il suffit de convertir les kilojoules en joules : $460\\times10^3=${texQuantity('4{,}60\\times10^5', U.J_PER_MOL)}$.`,
   },
 ];
 
@@ -418,7 +421,7 @@ export const UE14_CH2_SYNTHESIS_MASTER_V2_QUESTIONS: HealthTrainingAuthorQuestio
     difficulty: 'HARD',
     format: 'QROC',
     question:
-      `On donne $E_{\\ce{O-H}}=460\\,\\mathrm{kJ\\cdot mol^{-1}}$ et $N_{\\mathrm A}=6{,}0\\times10^{23}\\,\\mathrm{mol^{-1}}$. Quelle énergie moyenne faut-il fournir pour rompre une seule liaison $\\ce{O-H}$, en joules ?`,
+      `On donne $E_{\\ce{O-H}}=${texQuantity(460, U.KJ_PER_MOL)}$ et $N_{\\mathrm A}=${texQuantity('6{,}0\\times10^{23}', U.MOL_INV)}$. Quelle énergie moyenne faut-il fournir pour rompre une seule liaison $\\ce{O-H}$, en joules ?`,
     answer: { type: 'number', value: 7.67e-19, tolerance: 0.15e-19 },
     explanation:
       `Une mole correspond à $4{,}60\\times10^5\\,\\mathrm{J}$. Pour une seule liaison : $4{,}60\\times10^5/(6{,}0\\times10^{23})\\approx7{,}7\\times10^{-19}\\,\\mathrm{J}$.`,
@@ -460,16 +463,16 @@ export const UE14_CH2_SYNTHESIS_MASTER_V2_QUESTIONS: HealthTrainingAuthorQuestio
     requiredSelectionCount: 5,
     question: `Dans le cadre simplifié du cours, sélectionnez exactement les cinq espèces citées comme accepteurs possibles de doublets dans des liaisons de coordination.`,
     choices: [
-      { content: `$\\ce{H+}$`, correct: true, explanation: `Accepteur cité dans la fiche.` },
-      { content: `$\\ce{Ca^2+}$`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{Fe^2+}$`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{Zn^2+}$`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{Mn^2+}$`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{NH3}$`, correct: false, explanation: `L'ammoniac est plutôt illustré comme donneur de doublet.` },
-      { content: `$\\ce{H2O}$`, correct: false, explanation: `L'oxygène de l'eau peut agir comme donneur ; ce n'est pas l'accepteur cité ici.` },
-      { content: `$\\ce{Cl-}$`, correct: false, explanation: `Un anion chlorure n'est pas dans la liste d'accepteurs donnée.` },
-      { content: `$\\ce{O2}$`, correct: false, explanation: `Le dioxygène est présenté comme ligand sur l'hème, donc donneur dans ce cadre de coordination.` },
-      { content: `$\\ce{CO}$`, correct: false, explanation: `Le CO est présenté comme ligand concurrent du dioxygène, donc donneur au fer.` },
+      { content: `$\\ce{H+}$.`, correct: true, explanation: `Accepteur cité dans la fiche.` },
+      { content: `$\\ce{Ca^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
+      { content: `$\\ce{Fe^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
+      { content: `$\\ce{Zn^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
+      { content: `$\\ce{Mn^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
+      { content: `$\\ce{NH3}$.`, correct: false, explanation: `L'ammoniac est plutôt illustré comme donneur de doublet.` },
+      { content: `$\\ce{H2O}$.`, correct: false, explanation: `L'oxygène de l'eau peut agir comme donneur ; ce n'est pas l'accepteur cité ici.` },
+      { content: `$\\ce{Cl-}$.`, correct: false, explanation: `Un anion chlorure n'est pas dans la liste d'accepteurs donnée.` },
+      { content: `$\\ce{O2}$.`, correct: false, explanation: `Le dioxygène est présenté comme ligand sur l'hème, donc donneur dans ce cadre de coordination.` },
+      { content: `$\\ce{CO}$.`, correct: false, explanation: `Le CO est présenté comme ligand concurrent du dioxygène, donc donneur au fer.` },
     ],
     explanation:
       `La fiche cite notamment $\\ce{H+}$ et plusieurs cations métalliques comme accepteurs disposant d'orbitales disponibles pour recevoir des doublets.`,

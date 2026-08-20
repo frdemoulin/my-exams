@@ -167,6 +167,7 @@ test("compiles a valid QROC numeric author question", () => {
       value: 7.4,
       tolerance: 0.1,
       unit: "pH",
+      displayUnit: "\\mathrm{pH}",
     },
   };
 
@@ -180,6 +181,8 @@ test("compiles a valid QROC numeric author question", () => {
     assert.equal(canonical.answerType, "number");
     assert.equal(canonical.numericAnswer?.value, 7.4);
     assert.equal(canonical.numericAnswer?.tolerance, 0.1);
+    assert.equal(canonical.numericAnswer?.unit, "pH");
+    assert.equal(canonical.numericAnswer?.displayUnit, "\\mathrm{pH}");
   }
 });
 

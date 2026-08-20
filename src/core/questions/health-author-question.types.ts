@@ -52,7 +52,25 @@ export type AuthorQrocNumberAnswer = {
   type: "number";
   value: number;
   tolerance?: number;
+
+  /**
+   * Unité canonique/métier.
+   * Exemple : "g/mol", "%", "mol/L".
+   * Elle n'est PAS à saisir par l'étudiant.
+   */
   unit?: string;
+
+  /**
+   * Fragment TeX utilisé pour l'affichage près du champ de réponse.
+   * Ne pas inclure les délimiteurs $...$.
+   * Exemple : \\mathrm{g}\\cdot\\mathrm{mol}^{-1}
+   */
+  displayUnit?: string;
+
+  /**
+   * Compatibilité avec les anciens seeds uniquement.
+   * À considérer comme déprécié pour les nouveaux contenus.
+   */
   acceptedUnits?: string[];
 };
 

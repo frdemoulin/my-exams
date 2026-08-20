@@ -53,22 +53,22 @@ export const UE14_CH1_ORGANISATION_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQu
     question: `Quelle configuration électronique correspond à l'atome de bore ($\\mathrm{Z}=5$) dans son état fondamental ?`,
     choices: [
       {
-        content: `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^1$`,
+        content: `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^1$.`,
         correct: true,
         explanation: `Vrai : la configuration contient bien cinq électrons.`,
       },
       {
-        content: `$1\\mathrm{s}^2\\,2\\mathrm{s}^1\\,2\\mathrm{p}^2$`,
+        content: `$1\\mathrm{s}^2\\,2\\mathrm{s}^1\\,2\\mathrm{p}^2$.`,
         correct: false,
         explanation: `Faux : la sous-couche $2\\mathrm{s}$ doit être remplie avant $2\\mathrm{p}$.`,
       },
       {
-        content: `$1\\mathrm{s}^2\\,2\\mathrm{p}^3$`,
+        content: `$1\\mathrm{s}^2\\,2\\mathrm{p}^3$.`,
         correct: false,
         explanation: `Faux : la sous-couche $2\\mathrm{s}$ ne peut pas être sautée.`,
       },
       {
-        content: `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$`,
+        content: `$1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^2$.`,
         correct: false,
         explanation: `Faux : cette configuration contient six électrons et correspond au carbone.`,
       },
@@ -174,10 +174,10 @@ export const UE14_CH1_ORGANISATION_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQu
     requiredSelectionCount: 2,
     question: `Sélectionnez exactement les deux correspondances correctes entre $\\ell$ et une sous-couche.`,
     choices: [
-      { content: `$\\ell=0 \\rightarrow \\mathrm{s}$`, correct: true, explanation: `Correspondance correcte.` },
-      { content: `$\\ell=1 \\rightarrow \\mathrm{d}$`, correct: false, explanation: `$\\ell=1$ correspond à $\\mathrm{p}$.` },
-      { content: `$\\ell=2 \\rightarrow \\mathrm{d}$`, correct: true, explanation: `Correspondance correcte.` },
-      { content: `$\\ell=3 \\rightarrow \\mathrm{p}$`, correct: false, explanation: `$\\ell=3$ correspond à $\\mathrm{f}$.` },
+      { content: `$\\ell=0 \\rightarrow \\mathrm{s}$.`, correct: true, explanation: `Correspondance correcte.` },
+      { content: `$\\ell=1 \\rightarrow \\mathrm{d}$.`, correct: false, explanation: `$\\ell=1$ correspond à $\\mathrm{p}$.` },
+      { content: `$\\ell=2 \\rightarrow \\mathrm{d}$.`, correct: true, explanation: `Correspondance correcte.` },
+      { content: `$\\ell=3 \\rightarrow \\mathrm{p}$.`, correct: false, explanation: `$\\ell=3$ correspond à $\\mathrm{f}$.` },
     ],
     explanation:
       `Les correspondances usuelles sont $0\\to\\mathrm{s}$, $1\\to\\mathrm{p}$, $2\\to\\mathrm{d}$ et $3\\to\\mathrm{f}$.`,
@@ -413,22 +413,22 @@ export const UE14_CH1_ORGANISATION_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQu
     question: `Sélectionnez exactement les deux quadruplets de nombres quantiques possibles.`,
     choices: [
       {
-        content: `$(\\mathrm{n}=2,\\ell=1,\\mathrm{m}=0,\\mathrm{s}=+\\tfrac12)$`,
+        content: `$(\\mathrm{n}=2,\\ell=1,\\mathrm{m}=0,\\mathrm{s}=+\\tfrac12)$.`,
         correct: true,
         explanation: `Toutes les valeurs respectent les domaines autorisés.`,
       },
       {
-        content: `$(\\mathrm{n}=3,\\ell=2,\\mathrm{m}=-2,\\mathrm{s}=-\\tfrac12)$`,
+        content: `$(\\mathrm{n}=3,\\ell=2,\\mathrm{m}=-2,\\mathrm{s}=-\\tfrac12)$.`,
         correct: true,
         explanation: `Toutes les valeurs sont permises pour une sous-couche $3\\mathrm{d}$.`,
       },
       {
-        content: `$(\\mathrm{n}=2,\\ell=2,\\mathrm{m}=0,\\mathrm{s}=+\\tfrac12)$`,
+        content: `$(\\mathrm{n}=2,\\ell=2,\\mathrm{m}=0,\\mathrm{s}=+\\tfrac12)$.`,
         correct: false,
         explanation: `Pour $\\mathrm{n}=2$, $\\ell$ ne peut valoir que 0 ou 1.`,
       },
       {
-        content: `$(\\mathrm{n}=3,\\ell=1,\\mathrm{m}=2,\\mathrm{s}=-\\tfrac12)$`,
+        content: `$(\\mathrm{n}=3,\\ell=1,\\mathrm{m}=2,\\mathrm{s}=-\\tfrac12)$.`,
         correct: false,
         explanation: `Pour $\\ell=1$, $\\mathrm{m}$ ne peut prendre que -1, 0 ou +1.`,
       },
@@ -456,10 +456,10 @@ export const UE14_CH1_ORGANISATION_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQu
     format: 'QRU',
     question: `Quelle est la capacité électronique maximale d'une sous-couche $\\mathrm{d}$ ?`,
     choices: [
-      { content: `2 électrons`, correct: false, explanation: `C'est la capacité d'une seule orbitale.` },
-      { content: `6 électrons`, correct: false, explanation: `C'est la capacité d'une sous-couche $\\mathrm{p}$.` },
-      { content: `10 électrons`, correct: true, explanation: `Une sous-couche $\\mathrm{d}$ comporte cinq orbitales de deux électrons chacune.` },
-      { content: `14 électrons`, correct: false, explanation: `C'est la capacité d'une sous-couche $\\mathrm{f}$.` },
+      { content: `2 électrons.`, correct: false, explanation: `C'est la capacité d'une seule orbitale.` },
+      { content: `6 électrons.`, correct: false, explanation: `C'est la capacité d'une sous-couche $\\mathrm{p}$.` },
+      { content: `10 électrons.`, correct: true, explanation: `Une sous-couche $\\mathrm{d}$ comporte cinq orbitales de deux électrons chacune.` },
+      { content: `14 électrons.`, correct: false, explanation: `C'est la capacité d'une sous-couche $\\mathrm{f}$.` },
     ],
     explanation:
       `Pour $\\ell=2$, il existe $2\\ell+1=5$ orbitales. À deux électrons par orbitale, la capacité maximale vaut 10.`,

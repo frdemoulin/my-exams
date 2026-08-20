@@ -66,13 +66,13 @@ export function LongChoiceListView({
       <div className="flex flex-wrap items-center justify-between gap-2 px-1">
         {/* Search Input */}
         <div className="relative flex-1 min-w-[200px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none z-10" />
           <Input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Filtrer les propositions..."
-            className="pl-9 pr-8 h-9 text-xs"
+            className="!pl-9 !pr-8 h-9 text-xs"
           />
           {searchQuery && (
             <button

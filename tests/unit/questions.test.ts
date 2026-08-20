@@ -397,6 +397,7 @@ test("normalizes persisted numeric QROC payloads into canonical questions", () =
         value: "7,4",
         tolerance: "0,1",
         unit: "pH",
+        displayUnit: "\\mathrm{pH}",
       },
     },
   });
@@ -410,6 +411,7 @@ test("normalizes persisted numeric QROC payloads into canonical questions", () =
     value: 7.4,
     tolerance: 0.1,
     unit: "pH",
+    displayUnit: "\\mathrm{pH}",
     acceptedUnits: [],
   });
 });
@@ -580,7 +582,7 @@ test("evaluates numeric QROC answers with tolerance and unit allow-list", () => 
       type: "short-answer",
       rawValue: "121,5",
     }).status,
-    "incorrect",
+    "correct",
   );
   assert.equal(
     evaluateShortAnswerQuestion(question, {

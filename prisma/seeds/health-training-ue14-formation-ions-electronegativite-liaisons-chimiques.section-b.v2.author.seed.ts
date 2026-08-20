@@ -1,4 +1,7 @@
+import { TEX_UNITS, texQuantity } from './tex-units';
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 – Chimie générale
@@ -498,10 +501,10 @@ export const UE14_CH2_LIAISONS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuesti
     difficulty: 'MEDIUM',
     format: 'QROC',
     question:
-      `L'énergie moyenne de dissociation d'une liaison $\\ce{O-H}$ est $460\\,\\mathrm{kJ\\cdot mol^{-1}}$. Quelle énergie faut-il fournir pour rompre une mole de ces liaisons, en joules ?`,
+      `L'énergie moyenne de dissociation d'une liaison $\\ce{O-H}$ est $${texQuantity(460, U.KJ_PER_MOL)}$. Quelle énergie faut-il fournir pour rompre une mole de ces liaisons, en joules ?`,
     answer: { type: 'number', value: 460000, tolerance: 1000 },
     explanation:
-      `$460\\,\\mathrm{kJ\\cdot mol^{-1}}=460\\,000\\,\\mathrm{J\\cdot mol^{-1}}$. La question vérifie seulement la conversion d'unité.`,
+      `$${texQuantity(460, U.KJ_PER_MOL)}=${texQuantity('460\\,000', U.J_PER_MOL)}$. La question vérifie seulement la conversion d'unité.`,
   },
   {
     order: 63,
@@ -542,22 +545,22 @@ export const UE14_CH2_LIAISONS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuesti
     question: `Sélectionnez exactement les deux liaisons considérées comme peu ou non polarisées dans le cadre simplifié du cours.`,
     choices: [
       {
-        content: `$\\ce{C-C}$`,
+        content: `$\\ce{C-C}$.`,
         correct: true,
         explanation: `Liaison homoatomique : les électronégativités sont identiques.`,
       },
       {
-        content: `$\\ce{C-H}$`,
+        content: `$\\ce{C-H}$.`,
         correct: true,
         explanation: `La fiche considère les électronégativités de C et H comme proches.`,
       },
       {
-        content: `$\\ce{O-H}$`,
+        content: `$\\ce{O-H}$.`,
         correct: false,
         explanation: `L'oxygène est nettement plus électronégatif que l'hydrogène.`,
       },
       {
-        content: `$\\ce{C-O}$`,
+        content: `$\\ce{C-O}$.`,
         correct: false,
         explanation: `La différence d'électronégativité polarise la liaison vers l'oxygène.`,
       },

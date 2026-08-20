@@ -61,10 +61,10 @@ export function SearchFilters({
     <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-4 shadow-xl backdrop-blur md:p-6">
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
         <div className="relative flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground z-10" />
           <Input
             placeholder="🔎 Recherche par mot-clé (ex : fonctions, probabilités, 2023)…"
-            className="pl-9"
+            className="!pl-9"
             value={searchQuery}
             onChange={handleSearchChange}
           />

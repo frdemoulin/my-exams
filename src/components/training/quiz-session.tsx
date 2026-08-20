@@ -163,7 +163,7 @@ const getQuestionNavigationStatus = ({
   index: number;
   currentIndex: number;
 }): QuestionNavigationStatus => {
-  if (index === currentIndex) {
+  if (!isReviewMode && index === currentIndex) {
     return 'current';
   }
 
@@ -218,6 +218,28 @@ const instantQuestionNavigationLegendItems: Array<{
   },
 ];
 
+const reviewQuestionNavigationLegendItems: Array<{
+  status: QuestionNavigationStatus;
+  toneClassName: string;
+}> = [
+  {
+    status: 'current',
+    toneClassName: 'border-2 border-brand bg-transparent',
+  },
+  {
+    status: 'correct',
+    toneClassName: 'bg-success',
+  },
+  {
+    status: 'incorrect',
+    toneClassName: 'bg-danger',
+  },
+  {
+    status: 'unanswered',
+    toneClassName: 'bg-neutral-secondary-medium',
+  },
+];
+
 const finalQuestionNavigationLegendItems: Array<{
   status: QuestionNavigationStatus;
   toneClassName: string;
@@ -242,10 +264,14 @@ const getQuestionNavigationLegendItems = ({
 }: {
   correctionMode: 'instant' | 'final';
   isReviewMode: boolean;
-}) =>
-  correctionMode === 'final' && !isReviewMode
+}) => {
+  if (isReviewMode) {
+    return reviewQuestionNavigationLegendItems;
+  }
+  return correctionMode === 'final'
     ? finalQuestionNavigationLegendItems
     : instantQuestionNavigationLegendItems;
+};
 
 const hashString = (value: string) => {
   let hash = 0;
@@ -270,13 +296,17 @@ const formatShortAnswerExpectedAnswer = (question: ShortAnswerQuestion) => {
       return 'Réponse numérique non configurée';
     }
 
-    const unit = question.numericAnswer.unit ? ` ${question.numericAnswer.unit}` : '';
+    const unitPart = question.numericAnswer.displayUnit
+      ? ` $${question.numericAnswer.displayUnit}$`
+      : question.numericAnswer.unit
+        ? ` ${question.numericAnswer.unit}`
+        : '';
     const tolerance =
       question.numericAnswer.tolerance !== undefined
         ? ` (tolérance ±${question.numericAnswer.tolerance})`
         : '';
 
-    return `${question.numericAnswer.value}${unit}${tolerance}`;
+    return `${question.numericAnswer.value}${unitPart}${tolerance}`;
   }
 
   const acceptedAnswers = question.acceptedAnswers?.map((answer) => answer.value) ?? [];
@@ -1604,15 +1634,16 @@ export function QuizSession({
             type="button"
             onClick={goToPreviousQuestion}
             disabled={currentIndex === 0}
+            aria-label="Question précédente"
             className={cn(
-              'flex h-14 w-10 shrink-0 items-center justify-center border-r border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-4',
+              'flex h-14 min-w-10 shrink-0 items-center justify-center gap-1 border-r border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background px-2.5',
               currentIndex === 0
                 ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
                 : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
             )}
           >
-            <ChevronLeft className="h-4 w-4 md:hidden" />
-            <span className="sr-only md:not-sr-only">Précédent</span>
+            <ChevronLeft className="h-4 w-4 shrink-0" />
+            <span className="hidden lg:inline text-xs font-semibold">Précédent</span>
           </button>
 
           <div className="relative flex-1 flex items-center min-w-0 overflow-hidden">
@@ -1631,6 +1662,7 @@ export function QuizSession({
               <ol className="flex min-w-full">
                 {visibleQuestionIndexes.map((index) => {
                   const question = sessionQuestions[index];
+                  const isCurrent = index === currentIndex;
                   const status = getQuestionNavigationStatus({
                     correctionMode,
                     isReviewMode,
@@ -1653,12 +1685,13 @@ export function QuizSession({
                         }}
                         type="button"
                         onClick={() => goToQuestion(index)}
-                        aria-current={status === 'current' ? 'page' : undefined}
-                        aria-label={`Question ${index + 1} sur ${sessionQuestions.length} — ${formatCode} — ${statusLabel.toLowerCase()}`}
+                        aria-current={isCurrent ? 'page' : undefined}
+                        aria-label={`Question ${index + 1} sur ${sessionQuestions.length} — ${formatCode} — ${statusLabel.toLowerCase()}${isCurrent ? ' (en cours)' : ''}`}
                         data-testid={`quiz-nav-question-${index + 1}`}
                         className={cn(
                           'flex h-14 w-full flex-col items-center justify-center py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset',
-                          getQuestionNavigationButtonClassName(status)
+                          getQuestionNavigationButtonClassName(status),
+                          isReviewMode && isCurrent && 'ring-2 ring-brand ring-inset z-10 font-black'
                         )}
                       >
                         <span className="text-base font-bold leading-none">{index + 1}</span>
@@ -1686,15 +1719,16 @@ export function QuizSession({
             type="button"
             onClick={goToNextQuestion}
             disabled={currentIndex === sessionQuestions.length - 1}
+            aria-label="Question suivante"
             className={cn(
-              'flex h-14 w-10 shrink-0 items-center justify-center border-l border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background md:h-auto md:w-auto md:px-4',
+              'flex h-14 min-w-10 shrink-0 items-center justify-center gap-1 border-l border-border text-sm font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background px-2.5',
               currentIndex === sessionQuestions.length - 1
                 ? 'cursor-not-allowed bg-neutral-primary-soft text-muted-foreground'
                 : 'bg-neutral-secondary-medium hover:bg-neutral-tertiary-medium hover:text-heading'
             )}
           >
-            <span className="sr-only md:not-sr-only">Suivant</span>
-            <ChevronRight className="h-4 w-4 md:hidden" />
+            <span className="hidden lg:inline text-xs font-semibold">Suivant</span>
+            <ChevronRight className="h-4 w-4 shrink-0" />
           </button>
         </div>
 
@@ -1822,7 +1856,7 @@ export function QuizSession({
                 Réponse attendue
               </p>
               <p className="mt-2 text-base font-semibold text-emerald-950 dark:text-emerald-100">
-                {formatShortAnswerExpectedAnswer(currentShortAnswerQuestion)}
+                <MathContent value={formatShortAnswerExpectedAnswer(currentShortAnswerQuestion)} />
               </p>
             </div>
           </div>
@@ -1970,27 +2004,41 @@ export function QuizSession({
             htmlFor={`short-answer-${currentQuestion.id}`}
             className="text-sm font-semibold text-heading"
           >
-            Ta réponse courte
+            Ta réponse courte :
           </label>
-          <Input
-            id={`short-answer-${currentQuestion.id}`}
-            type="text"
-            inputMode={currentShortAnswerQuestion.answerType === 'number' ? 'decimal' : 'text'}
-            value={currentShortAnswerValue}
-            onChange={(event) => updateCurrentShortAnswer(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                submitCurrentAnswer();
+          <div className="flex items-center gap-2">
+            <Input
+              id={`short-answer-${currentQuestion.id}`}
+              type="text"
+              inputMode={currentShortAnswerQuestion.answerType === 'number' ? 'decimal' : 'text'}
+              value={currentShortAnswerValue}
+              onChange={(event) => updateCurrentShortAnswer(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  submitCurrentAnswer();
+                }
+              }}
+              disabled={isAnswerLocked}
+              placeholder={
+                currentShortAnswerQuestion.answerType === 'number'
+                  ? 'Saisis la valeur numérique'
+                  : 'Saisis ta réponse'
               }
-            }}
-            disabled={isAnswerLocked}
-            placeholder={
-              currentShortAnswerQuestion.answerType === 'number'
-                ? 'Ex. 7,4 ou 120 mmol/L'
-                : 'Saisis ta réponse'
-            }
-            data-testid="quiz-short-answer-input"
-          />
+              data-testid="quiz-short-answer-input"
+              className="flex-1"
+            />
+            {currentShortAnswerQuestion.answerType === 'number' && (
+              currentShortAnswerQuestion.numericAnswer?.displayUnit ? (
+                <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+                  <MathContent value={`$${currentShortAnswerQuestion.numericAnswer.displayUnit}$`} />
+                </span>
+              ) : currentShortAnswerQuestion.numericAnswer?.unit ? (
+                <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+                  {currentShortAnswerQuestion.numericAnswer.unit}
+                </span>
+              ) : null
+            )}
+          </div>
           <p className="text-xs text-muted-foreground">
             La correction compare ta réponse après normalisation, sans interprétation libre.
           </p>

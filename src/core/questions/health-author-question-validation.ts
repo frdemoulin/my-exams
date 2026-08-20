@@ -172,6 +172,20 @@ export function validateHealthTrainingAuthorQuestion(
             `${prefix} Format QROC numérique : 'tolerance' doit être un nombre positif ou nul.`,
           );
         }
+        if (question.answer.unit !== undefined) {
+          if (typeof question.answer.unit !== "string" || !question.answer.unit.trim()) {
+            issues.push(
+              `${prefix} Format QROC numérique : 'unit' doit être une chaîne non vide.`,
+            );
+          }
+        }
+        if (question.answer.displayUnit !== undefined) {
+          if (typeof question.answer.displayUnit !== "string" || !question.answer.displayUnit.trim()) {
+            issues.push(
+              `${prefix} Format QROC numérique : 'displayUnit' doit être une chaîne non vide.`,
+            );
+          }
+        }
       } else {
         issues.push(
           `${prefix} Format QROC : le type d'answer doit être 'text' ou 'number'.`,
