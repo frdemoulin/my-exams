@@ -15,9 +15,14 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos du pouvoir rotatoire, quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Le pouvoir rotatoire est un autre nom du descripteur R/S.",
+        "correct": false,
+        "explanation": "Le pouvoir rotatoire est une propriété mesurée ; R/S décrit une configuration."
+      },
+      {
         "content": "Il correspond à la capacité d'une substance à dévier le plan d'une lumière polarisée.",
         "correct": true,
-        "explanation": "C'est la définition donnée dans la fiche."
+        "explanation": "Le pouvoir rotatoire correspond à la déviation du plan d’une lumière polarisée."
       },
       {
         "content": "Il peut être mesuré à l'aide d'un polarimètre.",
@@ -41,18 +46,8 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 82,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Le dispositif de polarimétrie décrit dans le cours comporte notamment :",
+    "question": "Un dispositif de polarimétrie comporte notamment :",
     "choices": [
-      {
-        "content": "Une source de lumière polarisée.",
-        "correct": true,
-        "explanation": "La fiche cite une lampe au sodium."
-      },
-      {
-        "content": "Une solution contenant la substance étudiée.",
-        "correct": true,
-        "explanation": "La mesure se fait sur une substance en solution."
-      },
       {
         "content": "Un système permettant de mesurer l'angle de déviation.",
         "correct": true,
@@ -62,6 +57,21 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Obligatoirement un spectromètre de masse.",
         "correct": false,
         "explanation": "Ce n'est pas l'appareil utilisé pour mesurer le pouvoir rotatoire."
+      },
+      {
+        "content": "Le polarimètre exige nécessairement l’utilisation simultanée d’un spectromètre infrarouge.",
+        "correct": false,
+        "explanation": "Un spectromètre infrarouge n’est pas un élément nécessaire du dispositif de polarimétrie décrit."
+      },
+      {
+        "content": "Une source de lumière polarisée.",
+        "correct": true,
+        "explanation": "Une source de lumière polarisée est nécessaire à la mesure."
+      },
+      {
+        "content": "Une solution contenant la substance étudiée.",
+        "correct": true,
+        "explanation": "La mesure se fait sur une substance en solution."
       }
     ],
     "explanation": "Le polarimètre impose une lumière polarisée, un trajet dans l'échantillon et une mesure de la rotation du plan de polarisation."
@@ -70,12 +80,12 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 83,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans l'expérience de polarimétrie décrite dans la fiche, quels paramètres peuvent influencer la déviation mesurée ?",
+    "question": "Lors d’une expérience de polarimétrie, quels paramètres peuvent influencer la déviation mesurée ?",
     "choices": [
       {
-        "content": "La température.",
-        "correct": true,
-        "explanation": "Elle est explicitement citée."
+        "content": "La température n’a aucune influence possible sur la déviation mesurée.",
+        "correct": false,
+        "explanation": "La température fait partie des paramètres pouvant influencer la mesure."
       },
       {
         "content": "La nature du solvant.",
@@ -91,6 +101,11 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La couleur du bouchon du récipient.",
         "correct": false,
         "explanation": "Elle n'est pas un paramètre de la mesure."
+      },
+      {
+        "content": "La nature du solvant est toujours sans effet sur la déviation mesurée.",
+        "correct": false,
+        "explanation": "La nature du solvant peut influencer la déviation."
       }
     ],
     "explanation": "Une valeur de rotation doit être interprétée dans des conditions expérimentales définies."
@@ -101,6 +116,16 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Concernant les signes (+) et (−) du pouvoir rotatoire :",
     "choices": [
+      {
+        "content": "Une molécule S est toujours (−).",
+        "correct": false,
+        "explanation": "Même raison."
+      },
+      {
+        "content": "Le signe (+) signifie toujours que la configuration est S.",
+        "correct": false,
+        "explanation": "Le signe optique ne permet pas d’attribuer R ou S."
+      },
       {
         "content": "Ils indiquent le sens de la déviation mesurée.",
         "correct": true,
@@ -115,11 +140,6 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une molécule R est toujours (+).",
         "correct": false,
         "explanation": "Il n'existe pas de correspondance générale."
-      },
-      {
-        "content": "Une molécule S est toujours (−).",
-        "correct": false,
-        "explanation": "Même raison."
       }
     ],
     "explanation": "Il faut distinguer soigneusement R/S, qui décrit la structure, de (+)/(−), qui décrit une mesure optique."
@@ -130,11 +150,6 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Deux énantiomères purs sont mesurés dans les mêmes conditions et dans un environnement achiral. Quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Leurs rotations optiques ont des valeurs absolues égales.",
-        "correct": true,
-        "explanation": "Deux énantiomères purs ont des rotations opposées de même module dans les mêmes conditions."
-      },
       {
         "content": "Leurs signes de rotation sont opposés.",
         "correct": true,
@@ -149,6 +164,16 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le signe (+) permet de conclure que l'énantiomère est R.",
         "correct": false,
         "explanation": "Le signe ne détermine pas R/S."
+      },
+      {
+        "content": "Deux énantiomères purs mesurés dans les mêmes conditions ont toujours le même signe de rotation.",
+        "correct": false,
+        "explanation": "Leurs rotations sont de signes opposés."
+      },
+      {
+        "content": "Leurs rotations optiques ont des valeurs absolues égales.",
+        "correct": true,
+        "explanation": "Deux énantiomères purs ont des rotations opposées de même module dans les mêmes conditions."
       }
     ],
     "explanation": "Dans des conditions identiques, les contributions optiques de deux énantiomères sont opposées."
@@ -160,9 +185,14 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Un mélange racémique :",
     "choices": [
       {
+        "content": "Un mélange racémique possède un excès énantiomérique de 100 %.",
+        "correct": false,
+        "explanation": "Un racémate 50/50 a un excès énantiomérique nul."
+      },
+      {
         "content": "Contient 50 % d'un énantiomère et 50 % de l'autre.",
         "correct": true,
-        "explanation": "Définition retenue dans la fiche."
+        "explanation": "Un racémate contient les deux énantiomères en proportions égales."
       },
       {
         "content": "A un excès énantiomérique nul.",
@@ -170,7 +200,7 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les populations sont égales."
       },
       {
-        "content": "Ne présente pas de rotation optique nette dans le modèle du cours.",
+        "content": "Ne présente pas de rotation optique nette par compensation des deux contributions.",
         "correct": true,
         "explanation": "Les deux contributions se compensent."
       },
@@ -189,11 +219,6 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'excès énantiomérique (ee) d'un mélange de deux énantiomères est :",
     "choices": [
       {
-        "content": "La différence, en valeur absolue, entre leurs pourcentages.",
-        "correct": true,
-        "explanation": "Par exemple 75 % − 25 % = 50 %."
-      },
-      {
         "content": "Toujours égal à 100 %.",
         "correct": false,
         "explanation": "Il vaut 0 % pour un racémate."
@@ -207,6 +232,16 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le nombre de centres asymétriques de la molécule.",
         "correct": false,
         "explanation": "Ce sont deux notions distinctes."
+      },
+      {
+        "content": "Le pourcentage de l’énantiomère majoritaire, sans tenir compte du minoritaire.",
+        "correct": false,
+        "explanation": "L’excès énantiomérique correspond à la différence entre les deux proportions."
+      },
+      {
+        "content": "La différence, en valeur absolue, entre leurs pourcentages.",
+        "correct": true,
+        "explanation": "Par exemple 75 % − 25 % = 50 %."
       }
     ],
     "explanation": "Dans un mélange binaire R/S, $ee=|\\%\\text{majoritaire}-\\%\\text{minoritaire}|$."
@@ -246,16 +281,6 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Dans un mélange ne contenant que deux énantiomères, un excès énantiomérique de 100 % correspond :",
     "choices": [
       {
-        "content": "À un seul énantiomère présent.",
-        "correct": true,
-        "explanation": "Les proportions sont 100/0."
-      },
-      {
-        "content": "À un mélange racémique.",
-        "correct": false,
-        "explanation": "Un racémate a ee=0 %."
-      },
-      {
         "content": "À un mélange 75/25.",
         "correct": false,
         "explanation": "Ce mélange a ee=50 %."
@@ -264,6 +289,21 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "À une absence totale de substance chirale.",
         "correct": false,
         "explanation": "Un énantiomère pur est chiral."
+      },
+      {
+        "content": "À un seul énantiomère présent.",
+        "correct": true,
+        "explanation": "Les proportions sont 100/0."
+      },
+      {
+        "content": "À un mélange 60/40 des deux énantiomères.",
+        "correct": false,
+        "explanation": "Un mélange 60/40 a un excès énantiomérique de 20 %, pas de 100 %."
+      },
+      {
+        "content": "À un mélange racémique.",
+        "correct": false,
+        "explanation": "Un racémate a ee=0 %."
       }
     ],
     "explanation": "Dans le modèle à deux énantiomères, ee=100 % signifie énantiopureté."
@@ -331,11 +371,6 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Un mélange racémique d'une molécule chirale peut-il être optiquement inactif ?",
     "choices": [
       {
-        "content": "Oui, par compensation des rotations opposées des deux énantiomères.",
-        "correct": true,
-        "explanation": "Le mélange 50/50 donne une rotation nette nulle."
-      },
-      {
         "content": "Oui, même si chaque énantiomère pur est optiquement actif.",
         "correct": true,
         "explanation": "L'inactivité du mélange est collective."
@@ -349,6 +384,16 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "L'inactivité optique prouve à elle seule que les molécules sont achirales.",
         "correct": false,
         "explanation": "Un racémate peut être inactif tout en contenant des molécules chirales."
+      },
+      {
+        "content": "Un mélange optiquement inactif n’est donc pas nécessairement constitué de molécules achirales.",
+        "correct": true,
+        "explanation": "Un racémate peut être optiquement inactif par compensation tout en contenant deux énantiomères chiraux."
+      },
+      {
+        "content": "Oui, par compensation des rotations opposées des deux énantiomères.",
+        "correct": true,
+        "explanation": "Le mélange 50/50 donne une rotation nette nulle."
       }
     ],
     "explanation": "Il faut distinguer l'activité optique d'une espèce pure de la rotation nette d'un mélange."
@@ -359,6 +404,11 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos des couples R/S et (+)/(−), quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Une configuration R impose une rotation optique négative.",
+        "correct": false,
+        "explanation": "R/S ne prédit pas le signe de la rotation."
+      },
       {
         "content": "R/S est attribué à partir de la structure et des règles CIP.",
         "correct": true,
@@ -389,16 +439,6 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Deux mesures de rotation optique sont comparées. Pour les interpréter rigoureusement, il est pertinent de vérifier :",
     "choices": [
       {
-        "content": "Que la température est comparable.",
-        "correct": true,
-        "explanation": "La fiche indique qu'elle influence la déviation."
-      },
-      {
-        "content": "Que le solvant est comparable.",
-        "correct": true,
-        "explanation": "Le solvant influence la mesure."
-      },
-      {
         "content": "Que la longueur du trajet optique est connue.",
         "correct": true,
         "explanation": "La longueur du récipient intervient."
@@ -407,6 +447,21 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Seulement le nom commercial du composé.",
         "correct": false,
         "explanation": "Il ne définit pas les conditions expérimentales."
+      },
+      {
+        "content": "Deux mesures sont directement comparables quels que soient le solvant et la longueur du trajet optique.",
+        "correct": false,
+        "explanation": "Les conditions de mesure doivent être prises en compte."
+      },
+      {
+        "content": "La température peut être ignorée lors d’une comparaison quantitative de rotations optiques.",
+        "correct": false,
+        "explanation": "Les conditions de température doivent être comparables."
+      },
+      {
+        "content": "Que le solvant est comparable.",
+        "correct": true,
+        "explanation": "Le solvant influence la mesure."
       }
     ],
     "explanation": "La polarimétrie exige de contrôler les conditions de mesure avant toute comparaison quantitative."
@@ -432,6 +487,16 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Dans le contrôle de qualité d'un principe actif chiral, une mesure de pouvoir rotatoire peut être utile car :",
     "choices": [
       {
+        "content": "Elle permet de conclure automatiquement R si la rotation est positive.",
+        "correct": false,
+        "explanation": "Aucune correspondance universelle."
+      },
+      {
+        "content": "Une rotation positive suffit à elle seule pour identifier toute la structure moléculaire.",
+        "correct": false,
+        "explanation": "La polarimétrie ne fournit pas à elle seule l’identité structurale complète."
+      },
+      {
         "content": "Elle peut renseigner sur un enrichissement en un énantiomère.",
         "correct": true,
         "explanation": "Une rotation nette traduit un déséquilibre entre les deux formes dans le modèle simple."
@@ -445,11 +510,6 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle remplace toujours toute identification structurale.",
         "correct": false,
         "explanation": "La polarimétrie ne fournit pas à elle seule toute l'identité moléculaire."
-      },
-      {
-        "content": "Elle permet de conclure automatiquement R si la rotation est positive.",
-        "correct": false,
-        "explanation": "Aucune correspondance universelle."
       }
     ],
     "explanation": "Le contexte pharmaceutique illustre l'intérêt pratique du pouvoir rotatoire sans lui attribuer plus d'information qu'il n'en fournit."
@@ -498,7 +558,7 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La température peut influencer la rotation mesurée.",
         "correct": true,
-        "explanation": "Paramètre cité dans la fiche."
+        "explanation": "La température fait partie des paramètres de mesure."
       },
       {
         "content": "Un racémate ne contient aucune molécule chirale.",
@@ -518,7 +578,7 @@ export const UE14_CH6_SECTION_E_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le solvant n'a jamais d'effet sur la rotation.",
         "correct": false,
-        "explanation": "La fiche indique le contraire."
+        "explanation": "Le solvant peut influencer la rotation mesurée."
       },
       {
         "content": "L'excès énantiomérique est la somme des deux pourcentages.",

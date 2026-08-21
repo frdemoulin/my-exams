@@ -12,9 +12,14 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Dans le cadre de ce chapitre, un carbone asymétrique classique :",
     "choices": [
       {
-        "content": "Est un carbone $sp^3$ tétraédrique.",
-        "correct": true,
-        "explanation": "Le centre étudié est tétraédrique."
+        "content": "Un carbone peut être asymétrique tout en portant deux substituants identiques.",
+        "correct": false,
+        "explanation": "Le centre asymétrique carboné classique porte quatre substituants différents."
+      },
+      {
+        "content": "Le centre asymétrique carboné classique est nécessairement un carbone $sp^2$ plan.",
+        "correct": false,
+        "explanation": "Le centre étudié est un carbone tétraédrique $sp^3$."
       },
       {
         "content": "Porte quatre substituants différents.",
@@ -24,7 +29,7 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Peut être noté par un astérisque C*.",
         "correct": true,
-        "explanation": "Notation courante dans le cours."
+        "explanation": "Le symbole C* permet de repérer le centre asymétrique."
       },
       {
         "content": "Est nécessairement engagé dans une double liaison.",
@@ -32,7 +37,7 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un carbone sp2 n'est pas le centre asymétrique classique étudié ici."
       }
     ],
-    "explanation": "Un centre asymétrique carboné du cours est un carbone tétraédrique portant quatre substituants différents."
+    "explanation": "Un centre asymétrique carboné classique est un carbone tétraédrique portant quatre substituants différents."
   },
   {
     "order": 42,
@@ -40,16 +45,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "La figure compare glycine et alanine : ![Glycine et alanine](/images/training/ue14/isomerie-enantiomerie/figure-c2-glycine-alanine.svg)\n\nQuelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Le carbone α de la glycine porte deux hydrogènes.",
-        "correct": true,
-        "explanation": "Il ne porte donc pas quatre substituants différents."
-      },
-      {
-        "content": "La glycine ne possède pas de carbone asymétrique au carbone α.",
-        "correct": true,
-        "explanation": "Deux substituants H sont identiques."
-      },
       {
         "content": "L'alanine possède un carbone α asymétrique.",
         "correct": true,
@@ -59,6 +54,21 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La glycine et l'alanine sont toutes deux chirales pour la même raison.",
         "correct": false,
         "explanation": "La glycine n'a pas ce centre asymétrique."
+      },
+      {
+        "content": "L’alanine perd son asymétrie parce que $\\ce{NH2}$ et $\\ce{COOH}$ contiennent tous deux des hétéroatomes.",
+        "correct": false,
+        "explanation": "Le carbone α de l’alanine porte quatre substituants différents."
+      },
+      {
+        "content": "Le carbone α de la glycine porte deux hydrogènes.",
+        "correct": true,
+        "explanation": "Il ne porte donc pas quatre substituants différents."
+      },
+      {
+        "content": "La glycine ne possède pas de carbone asymétrique au carbone α.",
+        "correct": true,
+        "explanation": "Deux substituants H sont identiques."
       }
     ],
     "explanation": "Le remplacement d'un hydrogène de la glycine par CH3 crée quatre substituants différents dans l'alanine."
@@ -88,6 +98,11 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elles sont des isomères fonctionnels.",
         "correct": false,
         "explanation": "La connectivité et les fonctions sont identiques."
+      },
+      {
+        "content": "Deux énantiomères possèdent nécessairement des formules brutes différentes.",
+        "correct": false,
+        "explanation": "Des énantiomères ont la même formule brute et la même connectivité."
       }
     ],
     "explanation": "Des images miroir non superposables constituent un couple d'énantiomères."
@@ -99,9 +114,19 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de deux énantiomères, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils sont images l'un de l'autre dans un miroir.",
-        "correct": true,
-        "explanation": "Définition géométrique."
+        "content": "Ils appartiennent nécessairement à des fonctions chimiques différentes.",
+        "correct": false,
+        "explanation": "Leur constitution est la même."
+      },
+      {
+        "content": "Deux énantiomères diffèrent obligatoirement par la position d’une fonction chimique.",
+        "correct": false,
+        "explanation": "Ils ont la même constitution ; seule l’organisation spatiale diffère."
+      },
+      {
+        "content": "Deux énantiomères sont superposables à leur image miroir.",
+        "correct": false,
+        "explanation": "Deux énantiomères sont images miroir non superposables."
       },
       {
         "content": "Ils ne sont pas superposables.",
@@ -112,11 +137,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils ont la même constitution.",
         "correct": true,
         "explanation": "Même enchaînement atomique."
-      },
-      {
-        "content": "Ils appartiennent nécessairement à des fonctions chimiques différentes.",
-        "correct": false,
-        "explanation": "Leur constitution est la même."
       }
     ],
     "explanation": "L'énantiomérie ne modifie pas la connectivité ; elle modifie l'arrangement spatial."
@@ -125,17 +145,12 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la chiralité dans le cadre du cours :",
+    "question": "À propos de la chiralité :",
     "choices": [
-      {
-        "content": "La présence d'un centre asymétrique peut rendre une molécule chirale.",
-        "correct": true,
-        "explanation": "C'est le cas classique étudié."
-      },
       {
         "content": "Le carbone n'est pas le seul atome pouvant, dans certains cas, participer à la chiralité.",
         "correct": true,
-        "explanation": "La fiche le signale explicitement."
+        "explanation": "D’autres atomes peuvent aussi participer à la chiralité."
       },
       {
         "content": "Une molécule chirale est superposable à son image miroir.",
@@ -146,9 +161,19 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Deux substituants identiques autour d'un carbone excluent que ce carbone soit asymétrique.",
         "correct": true,
         "explanation": "Il faut quatre substituants différents."
+      },
+      {
+        "content": "Tout carbone $sp^3$ est automatiquement un centre asymétrique.",
+        "correct": false,
+        "explanation": "Il faut notamment quatre substituants différents."
+      },
+      {
+        "content": "La présence d'un centre asymétrique peut rendre une molécule chirale.",
+        "correct": true,
+        "explanation": "C'est le cas classique étudié."
       }
     ],
-    "explanation": "Le chapitre se concentre sur les centres asymétriques, surtout carbonés, tout en rappelant que d'autres cas existent."
+    "explanation": "La chiralité peut notamment résulter d’un centre asymétrique carboné, sans être limitée à ce seul cas."
   },
   {
     "order": 46,
@@ -162,11 +187,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les deux H empêchent l'asymétrie."
       },
       {
-        "content": "Oui, car il est sp3.",
-        "correct": false,
-        "explanation": "sp3 ne suffit pas."
-      },
-      {
         "content": "Oui, car il porte un groupe OH.",
         "correct": false,
         "explanation": "La nature du groupe OH ne compense pas la répétition de H."
@@ -175,6 +195,16 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Cela dépend uniquement de sa masse atomique.",
         "correct": false,
         "explanation": "Le critère porte sur les substituants."
+      },
+      {
+        "content": "Oui, car la présence du groupe $\\ce{OH}$ suffit à rendre le carbone asymétrique.",
+        "correct": false,
+        "explanation": "Les deux substituants H identiques empêchent l’asymétrie."
+      },
+      {
+        "content": "Oui, car il est sp3.",
+        "correct": false,
+        "explanation": "sp3 ne suffit pas."
       }
     ],
     "explanation": "Quatre substituants différents sont requis."
@@ -186,11 +216,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Un carbone d'une double liaison $\\ce{C=C}$ est-il un carbone asymétrique classique au sens de ce chapitre ?",
     "choices": [
       {
-        "content": "Non, il est trigonal plan $sp^2$.",
-        "correct": true,
-        "explanation": "Le centre asymétrique carboné étudié est sp3 tétraédrique."
-      },
-      {
         "content": "Oui, toute double liaison crée un C*.",
         "correct": false,
         "explanation": "E/Z est un autre type de stéréoisomérie."
@@ -201,9 +226,19 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La géométrie sp2 reste incompatible avec ce centre chiral classique."
       },
       {
+        "content": "Non, il est trigonal plan $sp^2$.",
+        "correct": true,
+        "explanation": "Le centre asymétrique carboné étudié est sp3 tétraédrique."
+      },
+      {
         "content": "Seulement si la double liaison est Z.",
         "correct": false,
         "explanation": "E/Z ne change pas l'hybridation."
+      },
+      {
+        "content": "Oui, car tout carbone engagé dans une double liaison est nécessairement asymétrique.",
+        "correct": false,
+        "explanation": "Le centre asymétrique carboné classique considéré ici est tétraédrique $sp^3$."
       }
     ],
     "explanation": "Il faut distinguer élément stéréogène de type double liaison et centre asymétrique sp3."
@@ -233,6 +268,11 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Toutes les paires possibles sont nécessairement des énantiomères.",
         "correct": false,
         "explanation": "Avec plusieurs centres, des diastéréoisomères apparaissent."
+      },
+      {
+        "content": "Avec deux centres asymétriques, toutes les configurations possibles sont forcément identiques.",
+        "correct": false,
+        "explanation": "Plusieurs stéréoisomères peuvent exister."
       }
     ],
     "explanation": "Plusieurs centres asymétriques enrichissent les relations stéréoisomériques."
@@ -244,9 +284,14 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Des diastéréoisomères sont :",
     "choices": [
       {
-        "content": "Des stéréoisomères qui ne sont pas images l'un de l'autre dans un miroir.",
-        "correct": true,
-        "explanation": "C'est la relation à retenir."
+        "content": "Toujours un mélange racémique.",
+        "correct": false,
+        "explanation": "Le terme décrit une relation entre structures, pas une composition de solution."
+      },
+      {
+        "content": "Des isomères fonctionnels.",
+        "correct": false,
+        "explanation": "Les diastéréoisomères ont la même constitution et ne sont pas images miroir l’un de l’autre."
       },
       {
         "content": "Toujours deux molécules de formules brutes différentes.",
@@ -259,9 +304,9 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce sont des stéréoisomères distincts."
       },
       {
-        "content": "Toujours un mélange racémique.",
-        "correct": false,
-        "explanation": "Le terme décrit une relation entre structures, pas une composition de solution."
+        "content": "Des stéréoisomères qui ne sont pas images l'un de l'autre dans un miroir.",
+        "correct": true,
+        "explanation": "C'est la relation à retenir."
       }
     ],
     "explanation": "Les diastéréoisomères ont la même constitution mais ne forment pas un couple image miroir."
@@ -272,11 +317,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos d'un composé méso dans le modèle classique à plusieurs centres asymétriques :",
     "choices": [
-      {
-        "content": "Il peut posséder plusieurs centres stéréogènes.",
-        "correct": true,
-        "explanation": "C'est le cas typique."
-      },
       {
         "content": "Une symétrie interne peut rendre la molécule achirale.",
         "correct": true,
@@ -291,6 +331,16 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La simple présence de deux C* suffit toujours à rendre une molécule chirale.",
         "correct": false,
         "explanation": "La symétrie peut annuler la chiralité globale."
+      },
+      {
+        "content": "Une molécule méso peut être superposable à son image miroir.",
+        "correct": true,
+        "explanation": "Sa symétrie interne peut la rendre achirale malgré la présence de centres stéréogènes."
+      },
+      {
+        "content": "Il peut posséder plusieurs centres stéréogènes.",
+        "correct": true,
+        "explanation": "C'est le cas typique."
       }
     ],
     "explanation": "Le composé méso est le contre-exemple important à l'idée « plusieurs centres asymétriques = forcément molécule chirale »."
@@ -301,6 +351,11 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On considère A = (R,R), B = (S,S) et C = (R,S) dans la figure suivante : ![Trois stéréoisomères](/images/training/ue14/isomerie-enantiomerie/figure-c5-trois-stereoisomeres.svg)\n\nQuelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "A et B sont des isomères de constitution.",
+        "correct": false,
+        "explanation": "A et B ont la même connectivité ; ils diffèrent par leur configuration."
+      },
       {
         "content": "A et B sont énantiomères.",
         "correct": true,
@@ -331,16 +386,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Toujours avec A = (R,R) et C = (R,S) :",
     "choices": [
       {
-        "content": "Un seul des deux centres change de configuration.",
-        "correct": true,
-        "explanation": "R,R → R,S."
-      },
-      {
-        "content": "A et C sont diastéréoisomères.",
-        "correct": true,
-        "explanation": "Ils ne sont pas images miroir l'un de l'autre."
-      },
-      {
         "content": "A et C sont énantiomères.",
         "correct": false,
         "explanation": "Tous les centres ne sont pas inversés."
@@ -349,6 +394,21 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils ont la même constitution.",
         "correct": true,
         "explanation": "Le squelette reste identique."
+      },
+      {
+        "content": "A et C ont des formules brutes différentes.",
+        "correct": false,
+        "explanation": "Ce sont des stéréoisomères : la formule brute et la constitution sont conservées."
+      },
+      {
+        "content": "Les deux centres changent de configuration entre A = (R,R) et C = (R,S).",
+        "correct": false,
+        "explanation": "Un seul centre change de configuration."
+      },
+      {
+        "content": "A et C sont diastéréoisomères.",
+        "correct": true,
+        "explanation": "Ils ne sont pas images miroir l'un de l'autre."
       }
     ],
     "explanation": "La différence sur une partie seulement des centres conduit ici à des diastéréoisomères."
@@ -378,6 +438,11 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils possèdent la même formule brute.",
         "correct": true,
         "explanation": "Ce sont des stéréoisomères."
+      },
+      {
+        "content": "B et C sont superposables et représentent nécessairement la même molécule.",
+        "correct": false,
+        "explanation": "Ils diffèrent par la configuration d’un centre et sont diastéréoisomères."
       }
     ],
     "explanation": "Même logique que pour A/C : une inversion partielle conduit à des diastéréoisomères."
@@ -388,6 +453,16 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "La figure suivante représente un composé méso : ![Composé méso](/images/training/ue14/isomerie-enantiomerie/figure-c6-compose-meso.svg)\n\nQuelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Elle illustre une réduction du nombre réel de stéréoisomères par rapport au maximum $2^n$.",
+        "correct": true,
+        "explanation": "La symétrie crée une forme méso."
+      },
+      {
+        "content": "La présence de centres stéréogènes interdit toute symétrie interne.",
+        "correct": false,
+        "explanation": "Une forme méso illustre précisément la coexistence de centres stéréogènes et d’une symétrie interne."
+      },
       {
         "content": "La molécule possède des centres stéréogènes.",
         "correct": true,
@@ -402,11 +477,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle possède nécessairement un énantiomère distinct.",
         "correct": false,
         "explanation": "Une forme méso est identique à son image miroir."
-      },
-      {
-        "content": "Elle illustre une réduction du nombre réel de stéréoisomères par rapport au maximum $2^n$.",
-        "correct": true,
-        "explanation": "La symétrie crée une forme méso."
       }
     ],
     "explanation": "Les éléments de symétrie doivent être examinés avant d'appliquer naïvement la formule $2^n$."
@@ -417,11 +487,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Pour une molécule comportant $n$ centres asymétriques indépendants, sans symétrie interne :",
     "choices": [
-      {
-        "content": "Le nombre maximal de configurations est $2^n$.",
-        "correct": true,
-        "explanation": "Chaque centre possède deux configurations possibles."
-      },
       {
         "content": "La présence de symétrie peut réduire ce nombre.",
         "correct": true,
@@ -436,6 +501,16 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Avec trois centres, le maximum théorique est 6.",
         "correct": false,
         "explanation": "Il vaut $2^3=8$."
+      },
+      {
+        "content": "Avec un seul centre asymétrique indépendant, le nombre maximal de configurations est 4.",
+        "correct": false,
+        "explanation": "Un centre indépendant donne au maximum deux configurations, R et S."
+      },
+      {
+        "content": "Le nombre maximal de configurations d’une molécule à $n$ centres indépendants est $n^2$.",
+        "correct": false,
+        "explanation": "En l’absence de symétrie réductrice, le maximum est $2^n$."
       }
     ],
     "explanation": "La règle $2^n$ donne un maximum, à corriger si des symétries rendent certaines configurations identiques."
@@ -459,16 +534,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Le 2,3-dichlorobutane constitue un cas classique avec deux centres stéréogènes et une forme méso. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "(2R,3R) et (2S,3S) forment un couple d'énantiomères.",
-        "correct": true,
-        "explanation": "Tous les centres sont inversés."
-      },
-      {
-        "content": "(2R,3S) et (2S,3R) correspondent à la même forme méso lorsque la molécule est symétrique.",
-        "correct": true,
-        "explanation": "La symétrie interne les rend superposables."
-      },
-      {
         "content": "Il existe alors trois stéréoisomères distincts.",
         "correct": true,
         "explanation": "RR, SS et la forme méso."
@@ -477,6 +542,21 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il existe obligatoirement quatre stéréoisomères distincts.",
         "correct": false,
         "explanation": "La forme méso réduit le total."
+      },
+      {
+        "content": "La forme méso constitue un quatrième énantiomère distinct du couple (R,R)/(S,S).",
+        "correct": false,
+        "explanation": "Dans ce cas classique, la symétrie réduit le nombre de stéréoisomères distincts à trois."
+      },
+      {
+        "content": "(2R,3R) et (2S,3S) sont superposables et représentent la même structure.",
+        "correct": false,
+        "explanation": "Ils forment un couple d’énantiomères."
+      },
+      {
+        "content": "(2R,3S) et (2S,3R) correspondent à la même forme méso lorsque la molécule est symétrique.",
+        "correct": true,
+        "explanation": "La symétrie interne les rend superposables."
       }
     ],
     "explanation": "Ce cas classique montre pourquoi $2^n$ est un maximum et non une garantie."
@@ -506,6 +586,11 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "L'une est nécessairement dextrogyre si elle est R.",
         "correct": false,
         "explanation": "R/S ne prédit pas le signe du pouvoir rotatoire."
+      },
+      {
+        "content": "R et S sont deux conformations obtenues par rotation autour d’une liaison simple.",
+        "correct": false,
+        "explanation": "R et S décrivent des configurations."
       }
     ],
     "explanation": "Avec un seul centre chiral classique, R et S constituent généralement le couple énantiomérique."
@@ -516,6 +601,16 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Pourquoi ne faut-il pas confondre configuration et conformation ?",
     "choices": [
+      {
+        "content": "Une conformation et une configuration sont toujours synonymes.",
+        "correct": false,
+        "explanation": "Configuration et conformation sont deux notions distinctes."
+      },
+      {
+        "content": "Faire simplement tourner le dessin sur la feuille transforme une configuration R en S.",
+        "correct": false,
+        "explanation": "Changer le point de vue ne modifie pas la configuration absolue."
+      },
       {
         "content": "Une conformation peut souvent changer par rotation autour de liaisons simples.",
         "correct": true,
@@ -530,11 +625,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "R/S décrit une configuration.",
         "correct": true,
         "explanation": "C'est le vocabulaire attendu."
-      },
-      {
-        "content": "Une conformation et une configuration sont toujours synonymes.",
-        "correct": false,
-        "explanation": "La fiche met explicitement en garde contre cette confusion."
       }
     ],
     "explanation": "La conformation décrit des arrangements accessibles par rotations ; la configuration décrit l'identité stéréochimique."
@@ -546,11 +636,6 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Dans un contexte pharmacologique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une cible biologique peut être chirale.",
-        "correct": true,
-        "explanation": "Protéines et enzymes ont une organisation tridimensionnelle."
-      },
-      {
         "content": "Deux énantiomères peuvent ne pas être reconnus de façon identique.",
         "correct": true,
         "explanation": "Leur géométrie miroir peut modifier l'interaction."
@@ -558,12 +643,22 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La chiralité n'a aucun intérêt en pharmacie.",
         "correct": false,
-        "explanation": "Le cours souligne son importance."
+        "explanation": "La chiralité peut avoir une importance pharmacologique."
       },
       {
         "content": "Deux énantiomères ont forcément des formules brutes différentes.",
         "correct": false,
         "explanation": "La formule brute est identique."
+      },
+      {
+        "content": "Deux énantiomères sont toujours reconnus de façon strictement identique par une cible biologique chirale.",
+        "correct": false,
+        "explanation": "Une cible tridimensionnelle peut reconnaître différemment deux énantiomères."
+      },
+      {
+        "content": "Une cible biologique peut être chirale.",
+        "correct": true,
+        "explanation": "Protéines et enzymes ont une organisation tridimensionnelle."
       }
     ],
     "explanation": "La stéréochimie peut influencer la reconnaissance moléculaire sans modifier la formule brute."

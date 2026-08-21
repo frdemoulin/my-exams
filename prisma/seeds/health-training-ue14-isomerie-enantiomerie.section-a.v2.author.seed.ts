@@ -12,6 +12,11 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de l'isomérie, quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Deux isomères ont nécessairement la même formule développée.",
+        "correct": false,
+        "explanation": "Des isomères partagent une formule brute, mais leur structure peut différer."
+      },
+      {
         "content": "Deux isomères possèdent la même formule brute.",
         "correct": true,
         "explanation": "C'est la condition commune aux isomères."
@@ -24,7 +29,7 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ils ont nécessairement des propriétés pharmacologiques identiques.",
         "correct": false,
-        "explanation": "La fiche souligne au contraire que des isomères peuvent avoir des propriétés pharmacologiques différentes."
+        "explanation": "Des isomères peuvent avoir des propriétés pharmacologiques différentes malgré une formule brute commune."
       },
       {
         "content": "Une formule brute suffit toujours à identifier une structure unique.",
@@ -41,16 +46,6 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelle situation correspond le mieux à une isomérie fonctionnelle ?",
     "choices": [
       {
-        "content": "Deux molécules de même formule brute appartenant à des fonctions chimiques différentes.",
-        "correct": true,
-        "explanation": "C'est le principe de l'isomérie fonctionnelle."
-      },
-      {
-        "content": "Deux molécules de formules brutes différentes portant toutes deux un alcool.",
-        "correct": false,
-        "explanation": "La formule brute doit être la même."
-      },
-      {
         "content": "Deux conformations obtenues par rotation autour d'une liaison simple.",
         "correct": false,
         "explanation": "Il ne s'agit pas d'isomères de constitution."
@@ -59,6 +54,21 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Deux dessins identiques d'une même molécule simplement tournés sur la feuille.",
         "correct": false,
         "explanation": "Ce sont deux représentations de la même molécule."
+      },
+      {
+        "content": "Deux molécules de même formule brute appartenant à des fonctions chimiques différentes.",
+        "correct": true,
+        "explanation": "C'est le principe de l'isomérie fonctionnelle."
+      },
+      {
+        "content": "À deux structures de même fonction et de même connectivité qui ne diffèrent que par l’orientation du dessin.",
+        "correct": false,
+        "explanation": "Une simple orientation différente du dessin ne crée pas une isomérie fonctionnelle."
+      },
+      {
+        "content": "Deux molécules de formules brutes différentes portant toutes deux un alcool.",
+        "correct": false,
+        "explanation": "La formule brute doit être la même."
       }
     ],
     "explanation": "L'isomérie fonctionnelle conserve la formule brute mais modifie la famille fonctionnelle."
@@ -88,6 +98,11 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils appartiennent à la même fonction chimique.",
         "correct": false,
         "explanation": "Aldéhyde et cétone sont deux fonctions différentes."
+      },
+      {
+        "content": "Le propanal et la propanone appartiennent à la même fonction chimique.",
+        "correct": false,
+        "explanation": "Le propanal est un aldéhyde et la propanone une cétone."
       }
     ],
     "explanation": "Ce couple est l'exemple classique d'une même formule brute donnant deux fonctions carbonylées différentes."
@@ -99,24 +114,29 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de l'isomérie de position, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les molécules ont la même formule brute.",
-        "correct": true,
-        "explanation": "Elles restent isomères."
+        "content": "La fonction chimique doit obligatoirement changer.",
+        "correct": false,
+        "explanation": "Ce serait une isomérie fonctionnelle."
       },
       {
-        "content": "Elles conservent la même chaîne carbonée dans le modèle du cours.",
+        "content": "Une isomérie de position exige un changement de formule brute.",
+        "correct": false,
+        "explanation": "Les isomères de position conservent la même formule brute."
+      },
+      {
+        "content": "Une isomérie de position implique nécessairement une chaîne carbonée différente.",
+        "correct": false,
+        "explanation": "Dans la définition utilisée ici, la chaîne carbonée reste la même et la position de la fonction change."
+      },
+      {
+        "content": "Elles conservent la même chaîne carbonée.",
         "correct": true,
-        "explanation": "La fiche insiste sur ce point."
+        "explanation": "La chaîne carbonée reste identique."
       },
       {
         "content": "Elles portent le même groupe fonctionnel.",
         "correct": true,
         "explanation": "C'est la position de la fonction qui varie."
-      },
-      {
-        "content": "La fonction chimique doit obligatoirement changer.",
-        "correct": false,
-        "explanation": "Ce serait une isomérie fonctionnelle."
       }
     ],
     "explanation": "Dans l'isomérie de position, la fonction reste identique mais change de position sur la même chaîne."
@@ -127,11 +147,6 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On compare l'hexan-1-ol, l'hexan-2-ol et l'hexan-3-ol. Quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Ils ont la même formule brute.",
-        "correct": true,
-        "explanation": "Ce sont trois alcools de formule C6H14O."
-      },
       {
         "content": "Ils portent tous une fonction alcool.",
         "correct": true,
@@ -146,9 +161,19 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils illustrent une isomérie fonctionnelle.",
         "correct": false,
         "explanation": "La fonction alcool ne change pas."
+      },
+      {
+        "content": "L’hexan-1-ol et l’hexan-2-ol appartiennent à deux fonctions chimiques différentes.",
+        "correct": false,
+        "explanation": "Ce sont tous deux des alcools ; seule la position du groupe hydroxyle change."
+      },
+      {
+        "content": "Ils ont la même formule brute.",
+        "correct": true,
+        "explanation": "Ce sont trois alcools de formule C6H14O."
       }
     ],
-    "explanation": "Ils constituent l'exemple de la fiche pour l'isomérie de position."
+    "explanation": "Ils illustrent l’isomérie de position : seule la position du groupe hydroxyle change."
   },
   {
     "order": 6,
@@ -157,9 +182,14 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Concernant la tautomérie dans le cadre de ce chapitre, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle doit être distinguée d'une simple isomérie fonctionnelle.",
-        "correct": true,
-        "explanation": "La fiche en fait explicitement la distinction."
+        "content": "Une tautomérie modifie nécessairement le nombre total d’atomes de la molécule.",
+        "correct": false,
+        "explanation": "Les formes tautomères conservent la même composition globale."
+      },
+      {
+        "content": "La tautomérie correspond uniquement à une rotation autour d’une liaison simple.",
+        "correct": false,
+        "explanation": "Elle implique une interconversion avec réorganisation de liaisons."
       },
       {
         "content": "Les formes tautomères peuvent être en équilibre l'une avec l'autre.",
@@ -183,7 +213,7 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 7,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Le couple cétone/énol présenté dans la fiche doit être interprété comme :",
+    "question": "Le couple cétone/énol doit être interprété comme :",
     "choices": [
       {
         "content": "Deux formes tautomères en équilibre.",
@@ -204,9 +234,14 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Deux molécules de formules brutes différentes.",
         "correct": false,
         "explanation": "La composition globale est conservée."
+      },
+      {
+        "content": "À deux conformations obtenues uniquement par rotation autour d’une liaison simple.",
+        "correct": false,
+        "explanation": "Le passage cétone/énol implique une réorganisation chimique et non une simple rotation."
       }
     ],
-    "explanation": "La forme céto et la forme énol s'interconvertissent ; la fiche demande de ne pas les classer comme de simples isomères fonctionnels indépendants."
+    "explanation": "La forme céto et la forme énol s’interconvertissent ; elles relèvent d’un équilibre tautomérique."
   },
   {
     "order": 8,
@@ -222,7 +257,7 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Deux isomères peuvent avoir des propriétés pharmacologiques différentes.",
         "correct": true,
-        "explanation": "C'est explicitement souligné dans la fiche."
+        "explanation": "Une même formule brute ne garantit pas une même activité pharmacologique."
       },
       {
         "content": "La même formule brute garantit toujours la même activité.",
@@ -233,6 +268,11 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "L'isomérie n'a d'intérêt qu'en chimie minérale.",
         "correct": false,
         "explanation": "Elle est centrale en chimie organique et médicinale."
+      },
+      {
+        "content": "Identifier précisément l’isomère étudié peut être pertinent lors du développement d’un médicament.",
+        "correct": true,
+        "explanation": "Des isomères peuvent présenter des propriétés pharmacologiques différentes."
       }
     ],
     "explanation": "La composition chimique ne suffit pas : l'organisation des atomes peut modifier les interactions biologiques."
@@ -244,9 +284,14 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Deux représentations montrent exactement le même enchaînement atomique et deviennent superposables après une simple rotation de la feuille. Elles correspondent :",
     "choices": [
       {
-        "content": "À la même molécule.",
-        "correct": true,
-        "explanation": "Un changement d'orientation du dessin ne crée pas un nouvel isomère."
+        "content": "À deux isomères de position.",
+        "correct": false,
+        "explanation": "Aucun groupe n'a changé de position."
+      },
+      {
+        "content": "À deux diastéréoisomères.",
+        "correct": false,
+        "explanation": "Deux dessins superposables après simple rotation représentent la même molécule."
       },
       {
         "content": "À deux isomères fonctionnels.",
@@ -259,9 +304,9 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La superposabilité exclut l'énantiomérie."
       },
       {
-        "content": "À deux isomères de position.",
-        "correct": false,
-        "explanation": "Aucun groupe n'a changé de position."
+        "content": "À la même molécule.",
+        "correct": true,
+        "explanation": "Un changement d'orientation du dessin ne crée pas un nouvel isomère."
       }
     ],
     "explanation": "Avant de classer une relation d'isomérie, il faut vérifier que les deux dessins représentent réellement des structures différentes."
@@ -273,11 +318,6 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "question": "Sélectionnez exactement les deux couples illustrant une isomérie de constitution.",
     "choices": [
-      {
-        "content": "Propanal / propanone.",
-        "correct": true,
-        "explanation": "Même formule brute, fonctions différentes."
-      },
       {
         "content": "Hexan-1-ol / hexan-2-ol.",
         "correct": true,
@@ -292,6 +332,16 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Les deux formes miroir non superposables d'un carbone asymétrique.",
         "correct": false,
         "explanation": "Ce sont des stéréoisomères, pas des isomères de constitution."
+      },
+      {
+        "content": "Deux dessins superposables de l’éthanol.",
+        "correct": false,
+        "explanation": "Deux représentations superposables correspondent à une même molécule et non à deux isomères de constitution."
+      },
+      {
+        "content": "Propanal / propanone.",
+        "correct": true,
+        "explanation": "Même formule brute, fonctions différentes."
       }
     ],
     "explanation": "Isomérie fonctionnelle et isomérie de position sont deux formes d'isomérie de constitution."
@@ -303,9 +353,14 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On considère $\\ce{C2H6O}$. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L'éthanol et l'éther diméthylique ont cette formule brute.",
-        "correct": true,
-        "explanation": "Les deux structures correspondent à C2H6O."
+        "content": "L’éthanol et l’éther diméthylique appartiennent nécessairement à la même fonction chimique.",
+        "correct": false,
+        "explanation": "L’un est un alcool, l’autre un éther."
+      },
+      {
+        "content": "L’éthanol et l’éther diméthylique ont des formules brutes différentes.",
+        "correct": false,
+        "explanation": "Ils partagent la formule brute $\\ce{C2H6O}$."
       },
       {
         "content": "Ils sont isomères fonctionnels.",
@@ -332,16 +387,6 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare le propan-1-ol et le propan-2-ol. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils ont la même chaîne carbonée.",
-        "correct": true,
-        "explanation": "La chaîne est celle du propane."
-      },
-      {
-        "content": "Ils ont la même fonction chimique.",
-        "correct": true,
-        "explanation": "Ce sont deux alcools."
-      },
-      {
         "content": "Le groupe OH n'occupe pas la même position.",
         "correct": true,
         "explanation": "Carbone 1 contre carbone 2."
@@ -350,6 +395,21 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils sont isomères fonctionnels.",
         "correct": false,
         "explanation": "La fonction ne change pas."
+      },
+      {
+        "content": "Le propan-1-ol et le propan-2-ol ont des formules brutes différentes.",
+        "correct": false,
+        "explanation": "Ils ont la même formule brute ; la position du groupe hydroxyle change."
+      },
+      {
+        "content": "Ils ont la même chaîne carbonée.",
+        "correct": true,
+        "explanation": "La chaîne est celle du propane."
+      },
+      {
+        "content": "Ils ont la même fonction chimique.",
+        "correct": true,
+        "explanation": "Ce sont deux alcools."
       }
     ],
     "explanation": "Le couple constitue une isomérie de position."
@@ -361,9 +421,9 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos du couple propanal/propanone, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une interconversion rapide entre les deux dans un même équilibre tautomérique n'est pas ce qui définit leur relation.",
-        "correct": true,
-        "explanation": "Ce sont deux isomères fonctionnels distincts."
+        "content": "Le propanal et la propanone sont définis comme les deux formes d’un même équilibre tautomérique.",
+        "correct": false,
+        "explanation": "Ils sont des isomères fonctionnels distincts."
       },
       {
         "content": "Leur formule brute est identique.",
@@ -379,6 +439,11 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils ont obligatoirement le même nom systématique.",
         "correct": false,
         "explanation": "Leur structure impose des noms différents."
+      },
+      {
+        "content": "Le propanal et la propanone sont énantiomères.",
+        "correct": false,
+        "explanation": "Leur connectivité diffère : ce sont des isomères fonctionnels."
       }
     ],
     "explanation": "La tautomérie ne doit pas être confondue avec la simple existence de deux isomères fonctionnels."
@@ -390,24 +455,29 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Deux molécules ont la même formule brute et la même fonction alcool, mais l'une est butan-1-ol et l'autre 2-méthylpropan-1-ol. La conclusion la plus sûre est :",
     "choices": [
       {
-        "content": "Ce sont des isomères de constitution, mais pas des isomères de position au sens strict de la fiche car la chaîne carbonée change.",
-        "correct": true,
-        "explanation": "La fiche réserve l'isomérie de position à une même chaîne."
-      },
-      {
-        "content": "Ce sont des énantiomères.",
-        "correct": false,
-        "explanation": "La connectivité diffère."
-      },
-      {
         "content": "Ce sont des tautomères.",
         "correct": false,
         "explanation": "Aucun équilibre tautomerique n'est en jeu."
       },
       {
+        "content": "Ce sont des isomères de constitution, mais pas des isomères de position au sens strict ici car la chaîne carbonée change.",
+        "correct": true,
+        "explanation": "L’isomérie de position conserve la même chaîne carbonée et déplace la fonction."
+      },
+      {
         "content": "Ce sont deux représentations de la même molécule.",
         "correct": false,
         "explanation": "Le squelette carboné diffère."
+      },
+      {
+        "content": "Ce sont des isomères de position, car seule la position du groupe hydroxyle change sur une même chaîne carbonée.",
+        "correct": false,
+        "explanation": "La chaîne carbonée elle-même change entre butan-1-ol et 2-méthylpropan-1-ol."
+      },
+      {
+        "content": "Ce sont des énantiomères.",
+        "correct": false,
+        "explanation": "La connectivité diffère."
       }
     ],
     "explanation": "Cette question évite d'élargir abusivement la notion d'isomérie de position."
@@ -418,11 +488,6 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos d'un équilibre céto-énolique, quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "La formule brute globale reste la même.",
-        "correct": true,
-        "explanation": "Les formes sont tautomères."
-      },
       {
         "content": "La position d'un proton et d'une double liaison change.",
         "correct": true,
@@ -437,6 +502,16 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il s'agit d'une simple rotation autour d'une liaison simple.",
         "correct": false,
         "explanation": "Il y a réorganisation de liaisons."
+      },
+      {
+        "content": "Le passage céto-énolique transforme nécessairement un énantiomère R en énantiomère S.",
+        "correct": false,
+        "explanation": "La tautomérie et la configuration R/S sont deux notions distinctes."
+      },
+      {
+        "content": "La formule brute globale reste la même.",
+        "correct": true,
+        "explanation": "Les formes sont tautomères."
       }
     ],
     "explanation": "La tautomérie correspond à une interconversion chimique réversible et non à une simple conformation."
@@ -445,8 +520,13 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La fiche illustre aussi des formes lactame/lactime de l'uracile. Quelles propositions sont exactes ?",
+    "question": "À propos des formes lactame/lactime de l’uracile, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Les formes lactame et lactime constituent une isomérie de position d’un alcool.",
+        "correct": false,
+        "explanation": "Elles illustrent un équilibre tautomérique."
+      },
       {
         "content": "Ces formes relèvent d'un équilibre tautomérique.",
         "correct": true,
@@ -477,9 +557,14 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Lequel de ces couples n'est PAS un couple d'isomères ?",
     "choices": [
       {
-        "content": "$\\ce{C2H6O}$ et $\\ce{C3H8O}$.",
-        "correct": true,
-        "explanation": "Les formules brutes sont différentes."
+        "content": "Deux énantiomères d'une molécule chirale.",
+        "correct": false,
+        "explanation": "Ils sont stéréoisomères."
+      },
+      {
+        "content": "Butan-1-ol et butan-2-ol.",
+        "correct": false,
+        "explanation": "Ce couple partage une formule brute et correspond à une isomérie de position ; ce sont donc bien des isomères."
       },
       {
         "content": "Éthanol et éther diméthylique.",
@@ -487,14 +572,14 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ils sont isomères fonctionnels."
       },
       {
+        "content": "$\\ce{C2H6O}$ et $\\ce{C3H8O}$.",
+        "correct": true,
+        "explanation": "Les formules brutes sont différentes."
+      },
+      {
         "content": "Propan-1-ol et propan-2-ol.",
         "correct": false,
         "explanation": "Ils sont isomères de position."
-      },
-      {
-        "content": "Deux énantiomères d'une molécule chirale.",
-        "correct": false,
-        "explanation": "Ils sont stéréoisomères."
       }
     ],
     "explanation": "Des isomères doivent obligatoirement partager la même formule brute."
@@ -506,9 +591,9 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Deux structures ont la même formule brute. Quelle démarche est pertinente pour classer leur relation ?",
     "choices": [
       {
-        "content": "Comparer d'abord l'enchaînement des atomes.",
-        "correct": true,
-        "explanation": "Cela distingue constitution et stéréoisomérie."
+        "content": "S’appuyer uniquement sur la formule brute suffit pour déterminer la relation exacte entre deux structures.",
+        "correct": false,
+        "explanation": "Il faut comparer leur connectivité, leurs fonctions puis, si nécessaire, leur organisation spatiale."
       },
       {
         "content": "Identifier les fonctions chimiques.",
@@ -524,6 +609,11 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Conclure automatiquement qu'elles sont énantiomères.",
         "correct": false,
         "explanation": "L'énantiomérie exige une relation spatiale particulière."
+      },
+      {
+        "content": "Conclure que deux structures de même formule brute représentent forcément la même molécule.",
+        "correct": false,
+        "explanation": "Une même formule brute peut correspondre à plusieurs structures."
       }
     ],
     "explanation": "La classification se fait progressivement : formule brute, connectivité, fonctions puis géométrie spatiale."
@@ -553,12 +643,12 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une tautomérie correspond à un équilibre entre formes interconvertibles.",
         "correct": true,
-        "explanation": "Principe du cours."
+        "explanation": "Les formes tautomères peuvent être en équilibre."
       },
       {
         "content": "Deux isomères peuvent avoir des propriétés pharmacologiques différentes.",
         "correct": true,
-        "explanation": "Point médical du cours."
+        "explanation": "Des isomères peuvent présenter des propriétés pharmacologiques différentes."
       },
       {
         "content": "Deux formules brutes différentes peuvent être des isomères.",
@@ -595,11 +685,6 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Lors du développement d'un principe actif, pourquoi identifier précisément l'isomère étudié ?",
     "choices": [
       {
-        "content": "Deux structures de même formule brute peuvent ne pas appartenir à la même fonction.",
-        "correct": true,
-        "explanation": "La fonction influence la réactivité."
-      },
-      {
         "content": "Deux stéréoisomères peuvent être reconnus différemment par une cible biologique.",
         "correct": true,
         "explanation": "Les cibles biologiques sont tridimensionnelles."
@@ -612,7 +697,17 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'isomérie est sans influence possible sur l'activité biologique.",
         "correct": false,
-        "explanation": "La fiche insiste sur l'importance pharmacologique."
+        "explanation": "L’isomérie peut modifier l’activité pharmacologique."
+      },
+      {
+        "content": "Le nom précis de l’isomère devient inutile dès lors que sa formule brute est connue.",
+        "correct": false,
+        "explanation": "La formule brute ne suffit pas à préciser la connectivité ni la stéréochimie."
+      },
+      {
+        "content": "Deux structures de même formule brute peuvent ne pas appartenir à la même fonction.",
+        "correct": true,
+        "explanation": "La fonction influence la réactivité."
       }
     ],
     "explanation": "L'identité d'un médicament doit inclure sa structure, pas seulement sa composition élémentaire."
@@ -624,6 +719,11 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "question": "Pour la formule brute $\\ce{C3H6O}$, sélectionnez exactement les deux structures appartenant à deux fonctions différentes parmi les propositions suivantes.",
     "choices": [
+      {
+        "content": "Propène $\\ce{CH3-CH=CH2}$.",
+        "correct": false,
+        "explanation": "Le propène a pour formule brute $\\ce{C3H6}$ et ne répond pas à la formule $\\ce{C3H6O}$."
+      },
       {
         "content": "Propanal $\\ce{CH3CH2CHO}$.",
         "correct": true,

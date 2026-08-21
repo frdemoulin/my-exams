@@ -6,7 +6,27 @@ import {
   type HealthTrainingAuthorQuestion,
 } from "../../src/core/questions";
 
-test("Integration: Historical unmigrated Reims chapter ('isomerie-enantiomerie') accepts 4-item QRU and QRM", () => {
+test("Integration: Historical unmigrated Reims chapter ('hydrocarbures') accepts 4-item QRU and QRM", () => {
+  const qru4: HealthTrainingAuthorQuestion = {
+    order: 1,
+    difficulty: "EASY",
+    format: "QRU",
+    question: "Quelle est la structure de l'éthane ?",
+    choices: [
+      { content: "C2H6", correct: true },
+      { content: "C2H4", correct: false },
+      { content: "C2H2", correct: false },
+      { content: "CH4", correct: false },
+    ],
+  };
+
+  const validation = validateHealthTrainingAuthorQuestion(qru4, {
+    chapterSlug: "hydrocarbures",
+  });
+  assert.equal(validation.isValid, true, validation.issues.join("\n"));
+});
+
+test("Integration: Declared migrated Reims chapter ('isomerie-enantiomerie') rejects 4-item QRU/QRM/QRP", () => {
   const qru4: HealthTrainingAuthorQuestion = {
     order: 1,
     difficulty: "EASY",
@@ -23,7 +43,11 @@ test("Integration: Historical unmigrated Reims chapter ('isomerie-enantiomerie')
   const validation = validateHealthTrainingAuthorQuestion(qru4, {
     chapterSlug: "isomerie-enantiomerie",
   });
-  assert.equal(validation.isValid, true, validation.issues.join("\n"));
+  assert.equal(validation.isValid, false);
+  assert.ok(
+    validation.issues.some((issue) => issue.includes("Reims 5 items")),
+    "Should reject 4-choice QRU for declared migrated chapter isomerie-enantiomerie",
+  );
 });
 
 test("Integration: Declared migrated Reims chapter ('nomenclature-chimique-fonctions-organiques') rejects 4-item QRU/QRM/QRP", () => {

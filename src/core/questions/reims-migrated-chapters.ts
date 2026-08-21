@@ -5,6 +5,7 @@
  */
 export const REIMS_MIGRATED_CHAPTER_SLUGS = new Set<string>([
   "nomenclature-chimique-fonctions-organiques",
+  "isomerie-enantiomerie",
 ]);
 
 export function isReimsMigratedChapter(chapterSlug?: string): boolean {

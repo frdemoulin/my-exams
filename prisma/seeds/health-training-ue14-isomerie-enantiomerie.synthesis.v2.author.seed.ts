@@ -15,6 +15,11 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare le propanal et la propanone, tous deux de formule brute $\\ce{C3H6O}$. Quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Le propanal et la propanone appartiennent à la même fonction chimique.",
+        "correct": false,
+        "explanation": "Le propanal est un aldéhyde et la propanone une cétone."
+      },
+      {
         "content": "Ils sont isomères fonctionnels.",
         "correct": true,
         "explanation": "Aldéhyde et cétone."
@@ -74,6 +79,11 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une rotation libre autour de C=C permet de passer de E à Z sans apport d'énergie.",
         "correct": false,
         "explanation": "La liaison π empêche la rotation libre."
+      },
+      {
+        "content": "Une double liaison E/Z nécessite obligatoirement la présence d’un carbone asymétrique $sp^3$.",
+        "correct": false,
+        "explanation": "E/Z et R/S correspondent à des éléments stéréogènes distincts."
       }
     ],
     "explanation": "La géométrie E/Z combine rigidité de la double liaison et classement CIP."
@@ -84,6 +94,16 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Une molécule possède une double liaison E/Z et un carbone asymétrique. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "E signifie nécessairement R.",
+        "correct": false,
+        "explanation": "Aucune correspondance entre les deux systèmes."
+      },
+      {
+        "content": "Les descripteurs E/Z et R/S sont obligatoirement couplés : changer l’un change toujours l’autre.",
+        "correct": false,
+        "explanation": "Les deux éléments stéréogènes peuvent varier indépendamment."
+      },
       {
         "content": "Elle peut porter simultanément un descripteur E/Z et un descripteur R/S.",
         "correct": true,
@@ -98,11 +118,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La présence du centre chiral empêche toute isomérie géométrique.",
         "correct": false,
         "explanation": "Les deux peuvent coexister."
-      },
-      {
-        "content": "E signifie nécessairement R.",
-        "correct": false,
-        "explanation": "Aucune correspondance entre les deux systèmes."
       }
     ],
     "explanation": "Une molécule peut cumuler plusieurs éléments stéréogènes et donc plusieurs descripteurs."
@@ -113,11 +128,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On compare la glycine et l'alanine : ![Glycine et alanine](/images/training/ue14/isomerie-enantiomerie/figure-c2-glycine-alanine.svg)\n\nQuelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "La glycine ne possède pas de carbone α asymétrique.",
-        "correct": true,
-        "explanation": "Deux H sont portés par le carbone α."
-      },
       {
         "content": "L'alanine possède un carbone α asymétrique.",
         "correct": true,
@@ -131,7 +141,17 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La présence de quatre substituants différents sur un carbone sp3 crée le centre stéréogène étudié.",
         "correct": true,
-        "explanation": "Critère du cours."
+        "explanation": "Quatre substituants différents autour d’un carbone tétraédrique définissent le centre étudié."
+      },
+      {
+        "content": "La glycine et l’alanine possèdent toutes deux un carbone α asymétrique.",
+        "correct": false,
+        "explanation": "Le carbone α de la glycine porte deux hydrogènes et n’est pas asymétrique."
+      },
+      {
+        "content": "La glycine ne possède pas de carbone α asymétrique.",
+        "correct": true,
+        "explanation": "Deux H sont portés par le carbone α."
       }
     ],
     "explanation": "La comparaison glycine/alanine constitue un repère central du chapitre."
@@ -143,9 +163,14 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'alanine représentée ici est de configuration S : ![Alanine](/images/training/ue14/isomerie-enantiomerie/figure-d3-alanine.svg)\n\nQuelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "$\\ce{CH3}$ est prioritaire sur $\\ce{COOH}$ dans le classement CIP de l’alanine.",
+        "correct": false,
+        "explanation": "Après égalité sur C, le groupe carboxyle est prioritaire sur le groupe méthyle."
+      },
+      {
         "content": "L'ordre CIP est $\\ce{NH2}$ > $\\ce{COOH}$ > $\\ce{CH3}$ > H.",
         "correct": true,
-        "explanation": "Ordre donné dans la fiche."
+        "explanation": "Cet ordre résulte de l’application des règles CIP."
       },
       {
         "content": "H est de rang 4.",
@@ -200,6 +225,16 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la configuration R/S et du pouvoir rotatoire :",
     "choices": [
       {
+        "content": "S n'est pas synonyme de (−).",
+        "correct": true,
+        "explanation": "Même raison."
+      },
+      {
+        "content": "Les lettres R et S permettent de prévoir directement le signe du pouvoir rotatoire.",
+        "correct": false,
+        "explanation": "Il n’existe pas de relation universelle entre configuration absolue et signe optique."
+      },
+      {
         "content": "R/S décrit la disposition absolue des substituants autour d'un centre stéréogène.",
         "correct": true,
         "explanation": "Définition structurale."
@@ -213,11 +248,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "R n'est pas synonyme de (+).",
         "correct": true,
         "explanation": "Pas de relation universelle."
-      },
-      {
-        "content": "S n'est pas synonyme de (−).",
-        "correct": true,
-        "explanation": "Même raison."
       }
     ],
     "explanation": "La distinction entre configuration et propriété optique doit rester systématique."
@@ -228,11 +258,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Quelle distinction entre tautomérie et isomérie de constitution est correcte ?",
     "choices": [
-      {
-        "content": "Des tautomères sont des formes interconvertibles en équilibre.",
-        "correct": true,
-        "explanation": "C'est le point souligné par la fiche."
-      },
       {
         "content": "Des isomères fonctionnels comme propanal et propanone sont des structures distinctes de fonctions différentes.",
         "correct": true,
@@ -247,6 +272,16 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Toute paire d'isomères fonctionnels est nécessairement tautomère.",
         "correct": false,
         "explanation": "Les notions doivent être distinguées."
+      },
+      {
+        "content": "Une tautomérie change nécessairement la formule brute de la molécule.",
+        "correct": false,
+        "explanation": "Les formes tautomères conservent la même composition globale."
+      },
+      {
+        "content": "Des tautomères sont deux structures qui ne peuvent jamais s’interconvertir.",
+        "correct": false,
+        "explanation": "Les formes tautomères sont interconvertibles et peuvent être en équilibre."
       }
     ],
     "explanation": "La tautomérie n'est pas une étiquette générale pour toute isomérie fonctionnelle."
@@ -257,6 +292,11 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Une molécule possède deux centres asymétriques indépendants et une double liaison E/Z indépendante, sans symétrie réduisant le nombre de configurations. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Deux centres asymétriques indépendants et une double liaison E/Z donnent au maximum six stéréoisomères.",
+        "correct": false,
+        "explanation": "Sans symétrie réductrice, le maximum est $2^2\\times2=8$."
+      },
       {
         "content": "Les deux centres asymétriques apportent au maximum $2^2=4$ combinaisons R/S.",
         "correct": true,
@@ -317,6 +357,11 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "(R,R) et (R,S) sont images miroir l'un de l'autre.",
         "correct": false,
         "explanation": "L'image miroir de RR est SS."
+      },
+      {
+        "content": "(R,R) et (S,S) ont nécessairement des constitutions différentes.",
+        "correct": false,
+        "explanation": "Dans la comparaison proposée, la constitution est identique et toutes les configurations sont inversées."
       }
     ],
     "explanation": "La relation entre deux stéréoisomères dépend du nombre de centres dont la configuration est inversée."
@@ -327,6 +372,16 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos du 2,3-dichlorobutane, qui possède une forme méso dans le cas classique :",
     "choices": [
+      {
+        "content": "Il existe quatre stéréoisomères distincts.",
+        "correct": false,
+        "explanation": "Il n'en existe que trois dans ce cas."
+      },
+      {
+        "content": "Une forme méso est nécessairement optiquement active.",
+        "correct": false,
+        "explanation": "Une forme méso est achirale malgré la présence de centres stéréogènes."
+      },
       {
         "content": "(2R,3R) et (2S,3S) forment un couple d'énantiomères.",
         "correct": true,
@@ -341,11 +396,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La forme méso est achirale.",
         "correct": true,
         "explanation": "Elle est superposable à son image miroir."
-      },
-      {
-        "content": "Il existe quatre stéréoisomères distincts.",
-        "correct": false,
-        "explanation": "Il n'en existe que trois dans ce cas."
       }
     ],
     "explanation": "La symétrie réduit le nombre réel de stéréoisomères par rapport au maximum $2^2$."
@@ -383,16 +433,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelles affirmations distinguent correctement configuration et conformation ?",
     "choices": [
       {
-        "content": "R/S est une information de configuration.",
-        "correct": true,
-        "explanation": "Elle décrit l'arrangement absolu autour d'un centre."
-      },
-      {
-        "content": "Une rotation autour d'une liaison simple peut modifier une conformation sans modifier R/S.",
-        "correct": true,
-        "explanation": "La configuration du centre demeure."
-      },
-      {
         "content": "Faire tourner toute la molécule dans l'espace ne change pas sa configuration absolue.",
         "correct": true,
         "explanation": "C'est seulement un changement de point de vue."
@@ -401,9 +441,24 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une conformation différente signifie automatiquement un énantiomère différent.",
         "correct": false,
         "explanation": "Des conformères peuvent être la même molécule."
+      },
+      {
+        "content": "Une rotation autour d’une liaison simple inverse nécessairement une configuration R en S.",
+        "correct": false,
+        "explanation": "Une rotation conformationnelle ne change pas, à elle seule, la configuration absolue."
+      },
+      {
+        "content": "R/S est une information de configuration.",
+        "correct": true,
+        "explanation": "Elle décrit l'arrangement absolu autour d'un centre."
+      },
+      {
+        "content": "Une rotation autour d'une liaison simple peut modifier une conformation sans modifier R/S.",
+        "correct": true,
+        "explanation": "La configuration du centre demeure."
       }
     ],
-    "explanation": "Le chapitre met explicitement en garde contre la confusion configuration/conformation."
+    "explanation": "Configuration et conformation doivent être distinguées."
   },
   {
     "order": 118,
@@ -430,6 +485,11 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Deux diastéréoisomères doivent nécessairement avoir toutes leurs propriétés physiques identiques.",
         "correct": false,
         "explanation": "Ils peuvent présenter des propriétés physiques différentes."
+      },
+      {
+        "content": "Deux diastéréoisomères sont nécessairement images miroir l’un de l’autre.",
+        "correct": false,
+        "explanation": "Les diastéréoisomères ne sont pas images miroir l’un de l’autre."
       }
     ],
     "explanation": "Énantiomères et diastéréoisomères sont deux relations distinctes entre stéréoisomères."
@@ -440,6 +500,16 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Associez correctement les relations d'isomérie aux situations suivantes.",
     "choices": [
+      {
+        "content": "Deux images miroir non superposables : énantiomérie.",
+        "correct": true,
+        "explanation": "Définition."
+      },
+      {
+        "content": "Hexan-1-ol et hexan-2-ol sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils constituent un exemple d’isomérie de position."
+      },
       {
         "content": "Propanal/propanone : isomérie fonctionnelle.",
         "correct": true,
@@ -454,11 +524,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Cétone/énol en équilibre : tautomérie.",
         "correct": true,
         "explanation": "Interconversion avec déplacement de proton et de double liaison."
-      },
-      {
-        "content": "Deux images miroir non superposables : énantiomérie.",
-        "correct": true,
-        "explanation": "Définition."
       }
     ],
     "explanation": "Une synthèse de chapitre doit permettre de nommer la relation avant de chercher un descripteur stéréochimique."
@@ -470,12 +535,7 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "La cystéine est représentée ici : ![Cystéine](/images/training/ue14/isomerie-enantiomerie/figure-d5-cysteine.svg)\n\nQuelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L'ordre CIP indiqué dans le cours est $\\ce{NH2}$ > $\\ce{CH2SH}$ > $\\ce{COOH}$ > H.",
-        "correct": true,
-        "explanation": "Le soufre de la chaîne latérale lui donne priorité sur le carboxyle."
-      },
-      {
-        "content": "La configuration représentée dans l'application de la fiche est R.",
+        "content": "La configuration représentée est R.",
         "correct": true,
         "explanation": "C'est le cas particulier de la cystéine."
       },
@@ -488,6 +548,16 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Remplacer le soufre de la chaîne latérale par un oxygène peut modifier l'ordre relatif des priorités.",
         "correct": true,
         "explanation": "Le numéro atomique du premier point de différence intervient."
+      },
+      {
+        "content": "La cystéine représentée est de configuration S.",
+        "correct": false,
+        "explanation": "La représentation utilisée conduit à la configuration R."
+      },
+      {
+        "content": "L'ordre CIP indiqué est $\\ce{NH2}$ > $\\ce{CH2SH}$ > $\\ce{COOH}$ > H.",
+        "correct": true,
+        "explanation": "Le soufre de la chaîne latérale lui donne priorité sur le carboxyle."
       }
     ],
     "explanation": "La cystéine combine le piège CIP du soufre et le piège R/S versus pouvoir rotatoire."
@@ -498,6 +568,11 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Un composé possède un seul carbone asymétrique et une double liaison E/Z indépendante. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Le nombre maximal de stéréoisomères est 2.",
+        "correct": false,
+        "explanation": "Un centre R/S et une double liaison E/Z indépendants donnent au maximum quatre combinaisons."
+      },
       {
         "content": "Le nombre maximal de stéréoisomères est 4.",
         "correct": true,
