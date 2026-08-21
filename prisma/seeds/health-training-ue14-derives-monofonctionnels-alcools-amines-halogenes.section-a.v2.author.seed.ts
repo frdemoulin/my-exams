@@ -24,12 +24,12 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le groupe caractéristique comporte une liaison O-H.",
         "correct": true,
-        "explanation": "C'est le groupe hydroxyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe caractéristique d’un alcool est le groupe hydroxyle $\ce{-OH}$."
       },
       {
         "content": "Les alcools peuvent participer à des liaisons hydrogène grâce au H porté par O.",
         "correct": true,
-        "explanation": "C'est la propriété explicitement citée."
+        "explanation": "Le groupe $\ce{-OH}$ permet à l’alcool de donner une liaison hydrogène par l’intermédiaire de son hydrogène."
       },
       {
         "content": "Un alcool est obligatoirement ionique.",
@@ -48,7 +48,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le H du groupe OH peut intervenir comme donneur.",
         "correct": true,
-        "explanation": "C'est le point explicitement indiqué."
+        "explanation": "L’hydrogène porté par l’oxygène peut jouer le rôle de donneur dans une liaison hydrogène."
       },
       {
         "content": "Parce que tous les alcools sont chargés positivement.",
@@ -116,7 +116,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool + $\\ce{H2}$ → alcène.",
         "correct": false,
-        "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
+        "explanation": "L’addition de $\ce{H2}$ ne correspond pas à une hydratation et ne transforme pas un alcool en alcène."
       },
       {
         "content": "Aldéhyde + $\\ce{H2O}$ → alcane.",
@@ -150,12 +150,12 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit final retenu est un alcool primaire.",
         "correct": true,
-        "explanation": "Le bilan du tableau conduit bien au produit indiqué pour cette transformation."
+        "explanation": "La réduction poussée d’un acide carboxylique conduit à l’alcool primaire correspondant."
       },
       {
         "content": "$\\ce{BH3}$ est l'exemple de réducteur cité.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "$\ce{BH3}$ est l’exemple de réducteur puissant utilisé ici pour réduire l’acide carboxylique."
       },
       {
         "content": "Le produit attendu est un alcool tertiaire.",
@@ -189,12 +189,12 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un alcool primaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond à la transformation attendue et relie correctement le substrat au produit."
+        "explanation": "La réduction de l’aldéhyde transforme le groupe $\ce{-CHO}$ en groupe $\ce{-CH2OH}$ : l’alcool obtenu est primaire."
       },
       {
         "content": "À une diminution du caractère oxydé du carbone carbonylé.",
         "correct": true,
-        "explanation": "Il s'agit bien d'une réduction."
+        "explanation": "Le carbone du groupe carbonyle gagne des liaisons à l’hydrogène : son degré d’oxydation diminue."
       },
       {
         "content": "À un alcool secondaire.",
@@ -218,7 +218,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À une disparition du groupe carbonyle.",
         "correct": true,
-        "explanation": "C=O est converti en carbone portant OH."
+        "explanation": "Le groupe carbonyle $\ce{C=O}$ est réduit en un carbone portant le groupe $\ce{-OH}$."
       },
       {
         "content": "À une amide.",
@@ -233,7 +233,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un alcool secondaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "La réduction d’une cétone par $\ce{NaBH4}$ conduit à un alcool secondaire."
       },
       {
         "content": "À un alcool primaire.",
@@ -262,12 +262,12 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Cétone + $\\ce{NaBH4}$ → alcool secondaire.",
         "correct": true,
-        "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+        "explanation": "La réduction de la cétone conserve ses deux substituants carbonés et conduit donc à un alcool secondaire."
       },
       {
         "content": "Cétone + $\\ce{NaBH4}$ → alcool tertiaire.",
         "correct": false,
-        "explanation": "Le produit est secondaire: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une cétone réduite par $\ce{NaBH4}$ donne un alcool secondaire, et non un alcool tertiaire."
       },
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
@@ -325,7 +325,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les organomagnésiens constituent une autre voie de préparation.",
         "correct": true,
-        "explanation": "Une section leur est dédiée."
+        "explanation": "Les organomagnésiens constituent une voie de synthèse d’alcools par addition sur un composé carbonylé."
       },
       {
         "content": "Toutes les voies donnent exclusivement des alcools primaires.",
@@ -340,7 +340,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une hydratation part d'un alcène.",
         "correct": true,
-        "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
+        "explanation": "L’hydratation d’un alcène est bien une voie directe de préparation d’un alcool."
       }
     ],
     "explanation": "La classe de l'alcool final dépend de la nature du substrat et de la voie utilisée."
@@ -349,7 +349,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un organomagnésien réagit avec un aldéhyde puis le milieu est hydrolysé.:",
+    "question": "Un organomagnésien réagit avec un aldéhyde puis le milieu est hydrolysé. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
@@ -364,7 +364,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une étape d'hydrolyse est nécessaire.",
         "correct": true,
-        "explanation": "Elle figure dans le bilan."
+        "explanation": "L’hydrolyse protonne l’intermédiaire formé après l’addition de l’organomagnésien et permet d’obtenir l’alcool."
       },
       {
         "content": "Le groupement carboné de l'organomagnésien devient un substituant du carbone portant OH.",
@@ -388,7 +388,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'hydrolyse fait partie du bilan final.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "L’hydrolyse est nécessaire pour transformer l’intermédiaire magnésien en alcool."
       },
       {
         "content": "Le produit reste une cétone.",
@@ -427,17 +427,17 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'organomagnésien réagit deux fois avec l'ester.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Avec un ester, deux additions successives du même organomagnésien sont nécessaires avant l’hydrolyse finale."
       },
       {
         "content": "Le substituant apporté par l'organomagnésien se retrouve deux fois dans l'alcool final.",
         "correct": true,
-        "explanation": "La insiste sur ce résultat."
+        "explanation": "Les deux additions expliquent que le substituant apporté par l’organomagnésien apparaisse deux fois dans l’alcool tertiaire final."
       },
       {
         "content": "Une seule addition de l'organomagnésien est toujours suffisante.",
         "correct": false,
-        "explanation": "deux réactions successives avec l'ester."
+        "explanation": "Un ester subit deux additions successives de l’organomagnésien dans le bilan considéré."
       },
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
@@ -451,13 +451,13 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "dans le modèle étudié, combien de fois l'organomagnésien réagit-il avec un ester avant l'alcool tertiaire final?",
+    "question": "Dans le modèle étudié, combien de fois l’organomagnésien réagit-il avec un ester avant l’alcool tertiaire final ?",
     "answer": {
       "type": "number",
       "value": 2,
       "tolerance": 0
     },
-    "explanation": "l'organomagnésien réagit deux fois avec l'ester."
+    "explanation": "L’organomagnésien réagit deux fois avec l’ester avant l’hydrolyse qui conduit à l’alcool tertiaire."
   },
   {
     "order": 15,
@@ -502,7 +502,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool primaire.",
         "correct": false,
-        "explanation": "Ce n'est pas le bilan."
+        "explanation": "Avec une cétone, l’addition d’un organomagnésien conduit à un alcool tertiaire après hydrolyse, et non à un alcool primaire."
       },
       {
         "content": "Alcool secondaire.",
@@ -512,7 +512,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Aucune fonction alcool.",
         "correct": false,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Après addition de l’organomagnésien puis hydrolyse, une fonction alcool est bien formée."
       },
       {
         "content": "Amide.",
@@ -624,7 +624,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ils permettent d'accéder à plusieurs classes d'alcools.",
         "correct": true,
-        "explanation": "Secondaires et tertiaires selon le substrat."
+        "explanation": "Un aldéhyde conduit à un alcool secondaire, tandis qu’une cétone ou un ester conduit à un alcool tertiaire dans les cas étudiés."
       },
       {
         "content": "Ils ne sont pas utilisés avec aldéhydes, cétones et esters.",
@@ -659,32 +659,32 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcène + eau/H+ → alcool.",
         "correct": true,
-        "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
+        "explanation": "L’hydratation d’un alcène par l’eau en milieu acide conduit à un alcool."
       },
       {
         "content": "Aldéhyde + $\\ce{NaBH4}$ → alcool primaire.",
         "correct": true,
-        "explanation": "Cette transformation diminue le degré d’oxydation de la fonction concernée : il s’agit bien d’une réduction."
+        "explanation": "La réduction de l’aldéhyde ou de la cétone transforme le groupe carbonyle en fonction alcool."
       },
       {
         "content": "Cétone + $\\ce{NaBH4}$ → alcool secondaire.",
         "correct": true,
-        "explanation": "Cette transformation diminue le degré d’oxydation de la fonction concernée : il s’agit bien d’une réduction."
+        "explanation": "La réduction de l’aldéhyde ou de la cétone transforme le groupe carbonyle en fonction alcool."
       },
       {
         "content": "Organomagnésien + aldéhyde → alcool secondaire après hydrolyse.",
         "correct": true,
-        "explanation": "Le réactif organomagnésien apporte un groupe carboné nucléophile qui crée une nouvelle liaison carbone-carbone."
+        "explanation": "L’organomagnésien ajoute un groupe carboné au carbone du carbonyle avant l’hydrolyse qui forme l’alcool."
       },
       {
         "content": "Organomagnésien + cétone → alcool tertiaire après hydrolyse.",
         "correct": true,
-        "explanation": "Le réactif organomagnésien apporte un groupe carboné nucléophile qui crée une nouvelle liaison carbone-carbone."
+        "explanation": "L’organomagnésien ajoute un groupe carboné au carbone du carbonyle avant l’hydrolyse qui forme l’alcool."
       },
       {
         "content": "Acide + $\\ce{NaBH4}$ → alcool tertiaire.",
         "correct": false,
-        "explanation": "L’exemple retenu est $\\ce{BH3}$ et un alcool primaire."
+        "explanation": "$\ce{BH3}$ est utilisé pour réduire un acide carboxylique en alcool primaire ; $\ce{NaBH4}$ n’est pas le réactif retenu pour ce bilan."
       },
       {
         "content": "Ester + organomagnésien → alcool primaire.",

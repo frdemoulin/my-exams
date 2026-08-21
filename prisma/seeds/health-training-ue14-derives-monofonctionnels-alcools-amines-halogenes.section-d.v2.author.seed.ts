@@ -233,7 +233,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Strictement électrophile comme dans RX.",
         "correct": false,
-        "explanation": "Le caractère est inversé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après insertion du magnésium, le carbone du fragment $\ce{R}$ acquiert un caractère nucléophile ; il n’est plus décrit comme électrophile."
       },
       {
         "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
@@ -252,7 +252,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Tous les composés possédant un carbone électrophile dans le modèle étudié.",
         "correct": true,
-        "explanation": "Formulation générale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien réagit avec un centre carboné électrophile, notamment celui d’un groupe carbonyle."
       },
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
@@ -369,12 +369,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réaction se déroule en deux temps.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "La SN1 se déroule en deux étapes : départ du groupe partant puis attaque du nucléophile."
       },
       {
         "content": "Le départ de X conduit à un carbocation.",
         "correct": true,
-        "explanation": "Intermédiaire du mécanisme: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le départ du groupe partant forme le carbocation intermédiaire caractéristique de la SN1."
       }
     ],
     "explanation": "SN1 passe par un carbocation plan formé après le départ du groupe partant."
@@ -393,12 +393,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le nucléophile peut arriver d'un côté ou de l'autre du plan.",
         "correct": true,
-        "explanation": "des probabilités égales dans le modèle idéal."
+        "explanation": "Le carbocation plan peut être attaqué par les deux faces dans le modèle idéal."
       },
       {
         "content": "Les deux configurations peuvent donc être formées.",
         "correct": true,
-        "explanation": "Origine du mélange racémique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’attaque possible sur les deux faces du carbocation permet de former les deux configurations et conduit à la racémisation dans le modèle idéal."
       },
       {
         "content": "Parce que le mécanisme impose une attaque d'un seul côté.",
@@ -534,12 +534,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "SN1.",
         "correct": false,
-        "explanation": "Deux étapes avec carbocation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une SN1 comporte deux étapes avec formation d’un carbocation ; elle n’est donc pas concertée."
       },
       {
         "content": "SN2.",
         "correct": true,
-        "explanation": "Une seule étape: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La SN2 est concertée : l’attaque nucléophile et le départ du groupe partant ont lieu dans la même étape."
       },
       {
         "content": "Hydratation d'alcène uniquement.",
@@ -558,12 +558,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "SN1: carbocation plan.",
         "correct": true,
-        "explanation": "Intermédiaire: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La formation d’un carbocation plan est le repère mécanistique caractéristique de la SN1."
       },
       {
         "content": "SN1: racémisation dans le modèle idéal.",
         "correct": true,
-        "explanation": "Attaque des deux faces: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbocation plan peut être attaqué par ses deux faces, ce qui explique la racémisation dans le modèle idéal."
       },
       {
         "content": "SN2: inversion de configuration.",
@@ -573,7 +573,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "SN2: carbocation plan obligatoire.",
         "correct": false,
-        "explanation": "Cette proposition est écartée: d'intermédiaire carbocationique libre ne correspond pas au bilan ou à la propriété attendue."
+        "explanation": "La SN2 est concertée et ne passe pas par un carbocation libre."
       },
       {
         "content": "Une SN1 est décrite comme un mécanisme concerté en une seule étape.",
@@ -920,7 +920,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "RX + Mg → organomagnésien.",
         "correct": true,
-        "explanation": "Formation du Grignard: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’insertion du magnésium dans la liaison $\ce{C-X}$ permet de former l’organomagnésien $\ce{RMgX}$."
       },
       {
         "content": "Organomagnésien + cétone, puis hydrolyse → alcool tertiaire.",
@@ -940,7 +940,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcène + HX → dérivé halogéné.",
         "correct": true,
-        "explanation": "Préparation de RX: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’addition de $\ce{HX}$ sur un alcène peut conduire à un dérivé halogéné $\ce{R-X}$."
       }
     ],
     "explanation": "La séquence croise préparation de RX, Grignard et préparation des alcools tertiaires."
@@ -964,17 +964,17 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "SN2 conduit à un seul produit avec inversion.",
         "correct": true,
-        "explanation": "Modèle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La SN2 conduit à un seul produit de substitution avec inversion de configuration dans le modèle idéal."
       },
       {
         "content": "SN2 est associée à un produit optiquement pur à 100 % dans la simplification enseignée.",
         "correct": true,
-        "explanation": "Formulation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la simplification retenue, la SN2 conserve un seul produit stéréochimique et donc une pureté optique maximale."
       },
       {
         "content": "SN1 conserve toujours un ee de 100 %.",
         "correct": false,
-        "explanation": "Elle racémise: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une SN1 sur un centre chiral conduit à une racémisation dans le modèle idéal ; l’excès énantiomérique n’est donc pas conservé à 100 %."
       }
     ],
     "explanation": "Le chapitre rattache directement le mécanisme de substitution à la stéréochimie du produit."
@@ -1003,12 +1003,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Chercher un carbocation intermédiaire oriente vers SN1.",
         "correct": true,
-        "explanation": "Signature de SN1: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La présence d’un carbocation intermédiaire oriente vers un mécanisme SN1."
       },
       {
         "content": "Chercher une étape concertée oriente vers SN2.",
         "correct": true,
-        "explanation": "Signature de SN2: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une substitution concertée sans carbocation intermédiaire correspond à une SN2."
       }
     ],
     "explanation": "Mécanisme et stéréochimie se répondent et permettent d'identifier la voie réactionnelle."
@@ -1066,7 +1066,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une voie SN2 est compatible.",
         "correct": true,
-        "explanation": "Signature stéréochimique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’inversion unique de configuration est la signature stéréochimique attendue pour une SN2."
       },
       {
         "content": "Le mécanisme peut être concerté.",
@@ -1076,7 +1076,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un carbocation plan libre est indispensable.",
         "correct": false,
-        "explanation": "Ce serait SN1: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un carbocation plan libre caractérise une SN1, pas une SN2."
       }
     ],
     "explanation": "L'inversion unique est le repère essentiel de la SN2."
@@ -1096,12 +1096,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone de RX est décrit comme électrophile.",
         "correct": true,
-        "explanation": "Avant Mg : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le dérivé halogéné $\ce{R-X}$, la polarisation de la liaison rend le carbone électrophile."
       },
       {
         "content": "Le carbone de RMgX est décrit comme nucléophile.",
         "correct": true,
-        "explanation": "Après Mg : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après formation de $\ce{RMgX}$, le carbone du fragment $\ce{R}$ présente un caractère nucléophile."
       },
       {
         "content": "SN1 passe par un carbocation plan.",

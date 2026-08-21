@@ -698,7 +698,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Fructose → fonction cétone linéaire → sucre non réducteur.",
         "correct": true,
-        "explanation": "Association local: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, le fructose est associé à une fonction cétone linéaire et classé comme non réducteur."
       },
       {
         "content": "Glucose → cétone → non réducteur.",
@@ -706,7 +706,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce n'est pas le classement."
       }
     ],
-    "explanation": "La question reprend strictement les associations enseignées rémoise."
+    "explanation": "Cette question applique le classement simplifié retenu pour distinguer glucose et fructose dans ce chapitre."
   },
   {
     "order": 100,

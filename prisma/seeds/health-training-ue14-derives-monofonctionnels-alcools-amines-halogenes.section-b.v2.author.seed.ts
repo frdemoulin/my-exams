@@ -24,7 +24,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit organique recherché est un ester.",
         "correct": true,
-        "explanation": "Bilan: alcool + acide activé → ester."
+        "explanation": "L’alcool réagit avec le dérivé acylé activé et le produit porte une fonction ester."
       },
       {
         "content": "Une cétone est obligatoirement formée.",
@@ -48,7 +48,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\ce{R-COCl}$.",
         "correct": true,
-        "explanation": "C'est la formule indiquée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un chlorure d’acyle possède le motif $\ce{R-COCl}$."
       },
       {
         "content": "$\\ce{R-OH}$.",
@@ -121,12 +121,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un alcool.",
         "correct": true,
-        "explanation": "Cette catégorie de composés constitue l’un des réactifs clés de cette transformation."
+        "explanation": "La fonction alcool apporte l’oxygène qui participe à la formation de l’hémiacétal."
       },
       {
         "content": "Un aldéhyde.",
         "correct": true,
-        "explanation": "Composé carbonylé utilisé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’aldéhyde fournit le carbone carbonylé attaqué par la fonction alcool."
       },
       {
         "content": "Un hémiacétal comme produit.",
@@ -170,7 +170,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La forme hémiacétalique est décrite comme fréquente dans les sucres cyclisés.",
         "correct": true,
-        "explanation": "Lien explicite avec la biochimie."
+        "explanation": "La cyclisation de nombreux sucres passe par la formation intramoléculaire d’un hémiacétal."
       }
     ],
     "explanation": "La cyclisation de nombreux oses met en jeu une forme hémiacétalique, ce qui relie la chimie organique à la biochimie."
@@ -189,7 +189,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une oxydation forte conduit à un acide carboxylique.",
         "correct": true,
-        "explanation": "Deuxième niveau: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Si l’oxydation d’un alcool primaire est poursuivie au-delà de l’aldéhyde, le produit devient un acide carboxylique."
       },
       {
         "content": "Une oxydation douce donne nécessairement une cétone.",
@@ -199,7 +199,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La classe de l'alcool influence donc le produit.",
         "correct": true,
-        "explanation": "C'est le principe du tableau."
+        "explanation": "La nature primaire, secondaire ou tertiaire de l’alcool détermine le type de produit accessible par oxydation dans ce modèle."
       },
       {
         "content": "Une oxydation douce d’un alcool primaire peut conduire à un aldéhyde.",
@@ -218,7 +218,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À la disparition de la fonction alcool.",
         "correct": true,
-        "explanation": "Elle est remplacée par le carbonyle."
+        "explanation": "Lors de l’oxydation d’un alcool secondaire, le carbone portant $\ce{-OH}$ devient le carbone d’un groupe carbonyle."
       },
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
@@ -262,7 +262,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Il est toujours converti en acide carboxylique.",
         "correct": false,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Dans le modèle étudié, un alcool tertiaire ne donne pas directement l’acide carboxylique correspondant par cette oxydation."
       },
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
@@ -296,7 +296,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Forme un alcène.",
         "correct": true,
-        "explanation": "Une double liaison apparaît: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’élimination de $\ce{H}$ et de $\ce{OH}$ conduit à la formation d’une double liaison $\ce{C=C}$."
       },
       {
         "content": "Est une réaction d'élimination.",
@@ -320,7 +320,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool + $\\ce{H2}$ → alcane.",
         "correct": false,
-        "explanation": "Hydrogénation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’addition de $\ce{H2}$ correspond à une hydrogénation ; ce n’est pas le bilan de déshydratation d’un alcool."
       },
       {
         "content": "Alcool → alcène + $\\ce{H2O}$.",
@@ -335,7 +335,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool → amine + $\\ce{H2O}$.",
         "correct": false,
-        "explanation": "Réaction non enseignée ici: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La déshydratation d’un alcool forme un alcène et de l’eau ; elle ne transforme pas l’alcool en amine."
       },
       {
         "content": "$\\ce{NaBH4}$.",
@@ -359,12 +359,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit final est un acide carboxylique.",
         "correct": true,
-        "explanation": "Oxydation forte: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation suffisamment poussée d’un alcool primaire conduit à un acide carboxylique."
       },
       {
         "content": "La séquence augmente progressivement le degré d'oxydation.",
         "correct": true,
-        "explanation": "Alcool → aldéhyde → acide."
+        "explanation": "Le degré d’oxydation augmente successivement de l’alcool primaire à l’aldéhyde puis à l’acide carboxylique."
       },
       {
         "content": "Une cétone est l'intermédiaire obligatoire.",
@@ -388,7 +388,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un ammonium quaternaire.",
         "correct": false,
-        "explanation": "Cette proposition est écartée: d'azote ne correspond pas au bilan ou à la propriété attendue."
+        "explanation": "L’oxydation du propan-2-ol n’introduit aucun atome d’azote ; un ammonium quaternaire ne peut donc pas être formé."
       },
       {
         "content": "Amide.",
@@ -403,12 +403,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un aldéhyde.",
         "correct": false,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Un alcool secondaire s’oxyde en cétone ; un aldéhyde est obtenu à partir d’un alcool primaire."
       },
       {
         "content": "Un acide carboxylique directement.",
         "correct": false,
-        "explanation": "Non dans le tableau: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle étudié, le propan-2-ol s’oxyde en propanone et non directement en acide carboxylique."
       }
     ],
     "explanation": "Le propan-2-ol conduit à la propanone."
@@ -694,7 +694,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Déshydratation → addition d'eau.",
         "correct": false,
-        "explanation": "Elle élimine l'eau : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une déshydratation élimine une molécule d’eau ; elle ne correspond donc pas à une addition d’eau."
       }
     ],
     "explanation": "Cette sélection consolide les grandes réactions des alcools."

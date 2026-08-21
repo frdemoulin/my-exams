@@ -121,7 +121,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Peuvent être nucléophiles de part et d'autre.",
         "correct": true,
-        "explanation": "Le support le précise: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Lorsqu’un carbone alpha est présent de chaque côté du carbonyle et porte des hydrogènes, chacun de ces sites peut être déprotoné dans le modèle étudié."
       },
       {
         "content": "Doivent porter un hydrogène pour présenter ce caractère dans le modèle.",
@@ -291,7 +291,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le fragment carboné R''− est nucléophile.",
         "correct": true,
-        "explanation": "Le support insiste sur sa richesse électronique."
+        "explanation": "Le carbone lié au magnésium dans un organomagnésien présente un caractère nucléophile et peut attaquer le carbone électrophile du carbonyle."
       },
       {
         "content": "Il peut réagir avec un aldéhyde.",
@@ -578,10 +578,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé reste électrophile.",
         "correct": true,
-        "explanation": "Cette propriété est indépendante: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
       }
     ],
-    "explanation": "Le support conditionne la nucléophilie des carbones voisins à la présence d'un hydrogène."
+    "explanation": "Un carbone voisin du carbonyle ne peut être déprotoné que s’il porte au moins un hydrogène."
   },
   {
     "order": 40,
@@ -807,7 +807,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'oxygène du carbonyle rend le carbone nucléophile.",
         "correct": false,
-        "explanation": "Il le rend électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\ce{C=O}$ appauvrit le carbone en électrons et le rend électrophile."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",

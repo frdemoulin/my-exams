@@ -218,7 +218,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Base nucléique → nucléophile.",
         "correct": true,
-        "explanation": "Propriété donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les bases nucléiques possèdent des sites riches en électrons qui peuvent se comporter comme des nucléophiles."
       },
       {
         "content": "Dérivé halogéné de l'exemple toxicologique → électrophile.",
@@ -233,7 +233,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Base → donneuse d'électrons.",
         "correct": true,
-        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base est ici décrite comme une espèce capable de donner un doublet d’électrons."
       },
       {
         "content": "Acide → accepteur d'électrons.",
@@ -252,12 +252,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les nucléosides représentés associent une base et un sucre.",
         "correct": true,
-        "explanation": "Schémas: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un nucléoside associe une base nucléique à un sucre."
       },
       {
         "content": "Le ribose est associé à l'ARN.",
         "correct": true,
-        "explanation": "Repère: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le ribose constitue le sucre de la série ARN."
       },
       {
         "content": "Le 2-désoxyribose est associé à l'ADN.",

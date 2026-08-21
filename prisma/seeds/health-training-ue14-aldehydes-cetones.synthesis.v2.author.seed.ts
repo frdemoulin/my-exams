@@ -223,7 +223,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il est classé comme non réducteur.",
         "correct": true,
-        "explanation": "Modèle local: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, le fructose est associé à une fonction cétone linéaire et classé comme non réducteur."
       },
       {
         "content": "La formation d’un hémiacétal cyclique exige la suppression de tous les groupes hydroxyle du sucre.",
@@ -233,15 +233,15 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le glucose est relié à une fonction aldéhyde linéaire.",
         "correct": true,
-        "explanation": "Forme présentée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans sa forme linéaire considérée ici, le glucose porte une fonction aldéhyde."
       },
       {
         "content": "Il est classé comme réducteur.",
         "correct": true,
-        "explanation": "Fonction aldéhyde oxydable: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le caractère oxydable de la fonction aldéhyde explique le classement du glucose comme sucre réducteur dans ce modèle."
       }
     ],
-    "explanation": "La banque conserve ce classement comme donnée et ne l'étend pas à d'autres contextes."
+    "explanation": "Le classement glucose réducteur / fructose non réducteur est utilisé ici uniquement dans le cadre simplifié du chapitre."
   },
   {
     "order": 108,

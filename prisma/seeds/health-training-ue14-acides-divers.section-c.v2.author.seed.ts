@@ -121,12 +121,12 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbonyle peut appartenir à un aldéhyde.",
         "correct": true,
-        "explanation": "Exemple cité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La présence d’un groupe carbonyle voisin fait partie des situations structurales associées à une décarboxylation facilitée."
       },
       {
         "content": "Aucune fonction carbonylée n'est présente à proximité.",
         "correct": false,
-        "explanation": "Le support insiste précisément sur l'effet d'un carbonyle."
+        "explanation": "Un groupe carbonyle voisin peut stabiliser la structure impliquée et favoriser la décarboxylation dans le modèle étudié."
       },
       {
         "content": "Un acide carboxylique peut céder le proton de son groupe $\\ce{-COOH}$ pour former un carboxylate.",
@@ -457,7 +457,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La relation correcte est: « La décarboxylation peut être particulièrement facile ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "Le support associe certaines structures carbonylées à une décarboxylation facilitée."
+    "explanation": "Certaines structures portant un groupe carbonyle dans un environnement favorable se décarboxylent plus facilement."
   },
   {
     "order": 71,
@@ -559,7 +559,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
       }
     ],
-    "explanation": "Le support permet de reconnaître la transformation même sans mécanisme enzymatique détaillé."
+    "explanation": "Le bilan global permet d’identifier une décarboxylation même lorsque le mécanisme enzymatique détaillé n’est pas demandé."
   },
   {
     "order": 74,
@@ -705,7 +705,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Elle peut être enzymatique.",
         "correct": true,
-        "explanation": "Voie citée : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une décarboxylation peut être réalisée par une voie enzymatique dans le contexte biologique considéré."
       },
       {
         "content": "Une décarboxylation unique diminue le produit organique d'un carbone.",
@@ -715,12 +715,12 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un carbonyle dans la structure favorable peut faciliter la réaction.",
         "correct": true,
-        "explanation": "Point : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La présence d’un groupe carbonyle dans un environnement favorable peut faciliter la décarboxylation."
       },
       {
         "content": "Une décarboxylation consomme CO2.",
         "correct": false,
-        "explanation": "Elle le libère : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une décarboxylation libère du $\ce{CO2}$ ; elle ne le consomme pas."
       },
       {
         "content": "Elle augmente toujours le squelette d'un carbone.",

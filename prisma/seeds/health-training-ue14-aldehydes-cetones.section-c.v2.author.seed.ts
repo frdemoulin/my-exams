@@ -456,12 +456,12 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une base forte.",
         "correct": true,
-        "explanation": "Première étape: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La base forte arrache d’abord un hydrogène en position alpha et crée un centre carboné nucléophile."
       },
       {
         "content": "Un électrophile après l'étape basique.",
         "correct": true,
-        "explanation": "Deuxième étape: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le centre nucléophile formé en position alpha peut ensuite réagir avec un électrophile."
       },
       {
         "content": "Un organomagnésien obligatoire.",

@@ -568,7 +568,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Propriétés mutagènes possibles de la base modifiée.",
         "correct": true,
-        "explanation": "Lien indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La richesse électronique de certains atomes des bases nucléiques explique leur comportement nucléophile."
       },
       {
         "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
@@ -602,7 +602,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "Le support attribue l'acidité des nucléotides au groupement phosphate."
+    "explanation": "Le groupement phosphate peut perdre des protons et porter des charges négatives ; il contribue ainsi au caractère acide des nucléotides."
   },
   {
     "order": 97,
@@ -618,7 +618,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux sont associés au même sucre sans distinction.",
         "correct": false,
-        "explanation": "Le support les distingue: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les deux séries se distinguent notamment par la nature du sucre : ribose pour l’ARN et 2-désoxyribose pour l’ADN."
       },
       {
         "content": "Le ribose est le sucre caractéristique de la série ADN dans le cadre présenté.",
@@ -628,12 +628,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le premier est associé au ribose.",
         "correct": true,
-        "explanation": "Série ARN: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le ribose est le sucre associé à la série ARN."
       },
       {
         "content": "Le second est associé au 2-désoxyribose.",
         "correct": true,
-        "explanation": "Série ADN: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le 2-désoxyribose est le sucre associé à la série ADN."
       }
     ],
     "explanation": "Le type de pentose différencie les deux séries."

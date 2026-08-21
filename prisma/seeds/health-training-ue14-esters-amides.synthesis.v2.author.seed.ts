@@ -522,7 +522,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Trypsine, chymotrypsine et pepsine sont citées comme exemples.",
         "correct": true,
-        "explanation": "Liste: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La trypsine, la chymotrypsine et la pepsine sont des exemples de protéases capables d’hydrolyser des liaisons peptidiques."
       },
       {
         "content": "L'exemple prouve que l'amide est chimiquement plus fragile que l'ester.",
@@ -537,7 +537,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La liaison peptidique est une amide.",
         "correct": true,
-        "explanation": "Rappel fondamental: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une liaison peptidique correspond chimiquement à une fonction amide."
       }
     ],
     "explanation": "L'enzyme permet l'hydrolyse sélective d'une fonction pourtant résistante chimiquement."
@@ -556,17 +556,17 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le doublet de l'azote est délocalisé vers le carbonyle.",
         "correct": true,
-        "explanation": "Origine électronique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le doublet de l’azote est délocalisé vers le groupe carbonyle de l’amide."
       },
       {
         "content": "La liaison C-N acquiert un caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "Conséquence: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette délocalisation confère à la liaison $\ce{C-N}$ un caractère partiel de double liaison."
       },
       {
         "content": "La rotation autour de C-N est donc fortement perturbée.",
         "correct": true,
-        "explanation": "Propriété: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le caractère partiel de double liaison limite la rotation autour de $\ce{C-N}$ et rigidifie la liaison peptidique."
       },
       {
         "content": "Le résidu proline peut influencer la structure secondaire de la chaîne.",
@@ -585,12 +585,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'acide acétique est également formé dans le bilan simplifié.",
         "correct": true,
-        "explanation": "Produit: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse de l’acétyl-CoA libère notamment le fragment acétyle sous forme d’acide acétique dans le bilan simplifié."
       },
       {
         "content": "La réaction inverse rétablit la fonction thioester.",
         "correct": true,
-        "explanation": "Formation enzymatique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réaction inverse reforme enzymatiquement la liaison thioester de l’acétyl-CoA."
       },
       {
         "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",

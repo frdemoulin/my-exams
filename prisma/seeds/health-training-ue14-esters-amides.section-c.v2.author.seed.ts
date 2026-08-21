@@ -663,12 +663,12 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une amide est plus difficile à hydrolyser chimiquement qu'un ester.",
         "correct": true,
-        "explanation": "Hiérarchie : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide est chimiquement plus résistante à l’hydrolyse qu’un ester dans les conditions comparées."
       },
       {
         "content": "L'hydrolyse chimique de l'amide nécessite un milieu très acide.",
         "correct": true,
-        "explanation": "Condition citée : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse chimique d’une amide nécessite des conditions acides fortes dans le modèle étudié."
       },
       {
         "content": "Le chauffage est également cité.",
@@ -678,22 +678,22 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La liaison C-N d'une amide a un caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "Propriété : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison $\ce{C-N}$ de l’amide possède un caractère partiel de double liaison dû à la délocalisation électronique."
       },
       {
         "content": "Le doublet de N est délocalisé.",
         "correct": true,
-        "explanation": "Origine électronique : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le doublet de l’azote est délocalisé vers le groupe carbonyle, ce qui explique le caractère partiel de double liaison."
       },
       {
         "content": "Une amide est absolument non hydrolysable.",
         "correct": false,
-        "explanation": "Elle est hydrolysable : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide peut être hydrolysée, mais elle nécessite des conditions plus sévères qu’un ester."
       },
       {
         "content": "L'ester est toujours plus résistant que l'amide.",
         "correct": false,
-        "explanation": "C'est l'inverse : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans les conditions comparées, l’ester est plus facilement hydrolysé que l’amide."
       },
       {
         "content": "Une estérase est l'exemple principal donné pour hydrolyser une liaison peptidique.",
@@ -703,7 +703,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La libre rotation C-N est totale et sans coût énergétique.",
         "correct": false,
-        "explanation": "Elle est fortement perturbée : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le caractère partiel de double liaison limite fortement la rotation autour de la liaison $\ce{C-N}$."
       },
       {
         "content": "Amine et amide ont nécessairement la même disponibilité du doublet d'azote.",

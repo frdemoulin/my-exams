@@ -886,12 +886,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le pH diffère.",
         "correct": true,
-        "explanation": "Acide contre basique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse acide et la saponification se déroulent dans des milieux de pH opposés."
       },
       {
         "content": "En milieu acide, la forme RCOOH est mise en avant.",
         "correct": true,
-        "explanation": "Acide carboxylique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En milieu acide, le fragment carboxylique est majoritairement représenté sous la forme $\ce{RCOOH}$."
       },
       {
         "content": "En milieu basique, la forme RCOO− est mise en avant.",
@@ -910,12 +910,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone alpha peut devenir nucléophile.",
         "correct": true,
-        "explanation": "Deuxième site: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en position alpha, ce carbone peut devenir un second site nucléophile de l’ester."
       },
       {
         "content": "Les conditions expérimentales déterminent lequel de ces comportements est exploité.",
         "correct": true,
-        "explanation": "Nucléophile ou base forte/électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Selon les conditions, on peut exploiter soit l’électrophilie du carbone carbonylé, soit la nucléophilie créée en position alpha par une base forte."
       },
       {
         "content": "Un ester présente donc au moins deux centres carbonés de réactivité.",

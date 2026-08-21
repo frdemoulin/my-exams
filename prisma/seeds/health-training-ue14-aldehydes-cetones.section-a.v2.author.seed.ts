@@ -189,17 +189,17 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Dans l'aldéhyde, le carbone carbonylé porte un hydrogène.",
         "correct": true,
-        "explanation": "Motif R-CO-H: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans un aldéhyde, le carbone du groupe carbonyle est directement lié à un hydrogène."
       },
       {
         "content": "Dans la cétone, le carbone carbonylé porte deux substituants carbonés.",
         "correct": true,
-        "explanation": "Motif R-CO-R': cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans une cétone, le carbone du groupe carbonyle est directement lié à deux groupes carbonés."
       },
       {
         "content": "Les deux contiennent un groupe carbonyle C=O.",
         "correct": true,
-        "explanation": "Point commun: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Aldéhydes et cétones possèdent tous deux un groupe carbonyle $\ce{C=O}$."
       },
       {
         "content": "La présence d'un carbonyle suffit à conclure qu'il s'agit forcément d'un aldéhyde.",
@@ -306,7 +306,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le choix d'un alcène symétrique peut simplifier le nombre de produits.",
         "correct": true,
-        "explanation": "La recommande la symétrie pour l'intérêt préparatif."
+        "explanation": "Le choix d’un alcène symétrique peut simplifier la synthèse en limitant le nombre de fragments carbonylés différents obtenus après coupure."
       }
     ],
     "explanation": "La coupure oxydante d'un alcène permet d'accéder à des aldéhydes et/ou cétones."

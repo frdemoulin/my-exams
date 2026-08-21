@@ -335,15 +335,15 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une hydrolyse de l'iminium est possible.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "L’hydrolyse d’un iminium permet de revenir au composé carbonylé et à l’amine correspondante."
       },
       {
         "content": "L'eau intervient donc dans le sens inverse.",
         "correct": true,
-        "explanation": "Elle permet l'hydrolyse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’eau intervient dans le sens inverse de la condensation en permettant l’hydrolyse de l’imine ou de l’iminium."
       }
     ],
-    "explanation": "explicitement la possibilité d'hydrolyser imines et iminium."
+    "explanation": "Les imines et les ions iminium peuvent être hydrolysés, ce qui explique le caractère réversible de leur formation."
   },
   {
     "order": 55,
@@ -359,12 +359,12 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amine secondaire → amine tertiaire.",
         "correct": true,
-        "explanation": "Troisième alkylation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une alkylation supplémentaire d’une amine secondaire conduit à une amine tertiaire."
       },
       {
         "content": "Amine tertiaire → ammonium quaternaire.",
         "correct": true,
-        "explanation": "Alkylation supplémentaire: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une alkylation supplémentaire de l’amine tertiaire conduit à un ammonium quaternaire."
       },
       {
         "content": "Une amine secondaire réagissant avec un composé carbonylé conduit à une imine neutre dans le bilan étudié.",
@@ -374,7 +374,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ammoniac → amine primaire.",
         "correct": true,
-        "explanation": "Première alkylation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une première alkylation de l’ammoniac conduit à une amine primaire."
       }
     ],
     "explanation": "La progression montre que le contrôle du nombre d'alkylations détermine le degré de substitution de l'azote."

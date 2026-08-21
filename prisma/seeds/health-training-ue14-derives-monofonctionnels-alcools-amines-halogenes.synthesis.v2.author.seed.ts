@@ -252,7 +252,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "SN1 se déroule en deux temps avec un carbocation plan.",
         "correct": true,
-        "explanation": "Mécanisme enseigné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La SN1 se déroule en deux étapes avec formation intermédiaire d’un carbocation ; elle n’est pas concertée."
       },
       {
         "content": "SN1 ne peut pas conduire à une racémisation.",

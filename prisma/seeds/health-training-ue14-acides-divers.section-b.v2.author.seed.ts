@@ -165,12 +165,12 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "À une amine.",
         "correct": true,
-        "explanation": "Produit azoté indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’une amide libère une amine dans le bilan simplifié."
       },
       {
         "content": "À un acide carboxylique.",
         "correct": true,
-        "explanation": "Produit acide indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’une amide forme également l’acide carboxylique correspondant."
       }
     ],
     "explanation": "Le support résume: amide → amine + acide."
@@ -425,7 +425,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le carbone du groupe nitrile devient le carbone du carboxyle."
       },
       {
-        "content": "Le support ne présente pas de perte de carbone dans cette voie.",
+        "content": "Le carbone du groupe nitrile devient le carbone du groupe carboxyle : le squelette carboné est donc conservé.",
         "correct": true,
         "explanation": "Le bilan conserve le squelette."
       },
@@ -667,12 +667,12 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On part d'une amide et l'on veut obtenir l'acide correspondant. Quelles propositions sont compatibles avec le support?",
+    "question": "On part d’une amide et l’on veut obtenir l’acide correspondant. Quelles propositions sont compatibles avec cette hydrolyse ?",
     "choices": [
       {
         "content": "Une hydrolyse est utilisée.",
         "correct": true,
-        "explanation": "Voie listée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la fonction amide et conduit à l’acide carboxylique correspondant."
       },
       {
         "content": "Une amine est libérée dans le bilan simplifié.",
@@ -1035,7 +1035,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La carboxylation utilise CO2.",
         "correct": true,
-        "explanation": "Réactif associé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\ce{CO2}$ fournit le carbone supplémentaire qui devient le carbone du groupe carboxyle."
       },
       {
         "content": "La carboxylation ajoute un carbone au squelette de R.",

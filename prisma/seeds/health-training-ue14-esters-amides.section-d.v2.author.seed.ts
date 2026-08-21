@@ -262,17 +262,17 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une formation de thioester.",
         "correct": true,
-        "explanation": "Le soufre est acylé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le soufre du coenzyme A est acylé pour former la liaison thioester de l’acétyl-CoA."
       },
       {
         "content": "Une réaction réalisée par des enzymes.",
         "correct": true,
-        "explanation": "Précision: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La formation de l’acétyl-CoA est réalisée enzymatiquement dans le contexte biologique considéré."
       },
       {
         "content": "Une hydrolyse.",
         "correct": false,
-        "explanation": "C'est la réaction inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison thioester ; elle correspond donc à la réaction inverse de sa formation."
       }
     ],
     "explanation": "Le passage CoA-SH → acétyl-CoA reforme la liaison thioester."
@@ -286,12 +286,12 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone carbonylé peut être électrophile.",
         "correct": true,
-        "explanation": "Modèle électronique commun: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans un ester comme dans un thioester, la polarisation du carbonyle rend le carbone carbonylé électrophile."
       },
       {
         "content": "Ils diffèrent par O versus S dans le groupe lié au carbonyle.",
         "correct": true,
-        "explanation": "Différence structurale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’ester porte un oxygène dans le motif acyle-hétéroatome, tandis que le thioester porte un soufre."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -301,7 +301,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux possèdent un carbonyle.",
         "correct": true,
-        "explanation": "Motif commun: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les esters et les thioesters possèdent tous deux un groupe carbonyle."
       },
       {
         "content": "Les deux peuvent être hydrolysés.",

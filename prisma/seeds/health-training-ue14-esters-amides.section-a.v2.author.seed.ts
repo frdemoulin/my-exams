@@ -63,12 +63,12 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}C(=O){-}OH}$.",
         "correct": false,
-        "explanation": "C'est un acide carboxylique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif $\mathrm{R{-}C(=O){-}OH}$ correspond à un acide carboxylique et non à un ester."
       },
       {
         "content": "$\\mathrm{R{-}C(=O){-}NH_2}$.",
         "correct": false,
-        "explanation": "C'est une amide: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif $\mathrm{R{-}C(=O){-}NH_2}$ correspond à une amide et non à un ester."
       }
     ],
     "explanation": "Le motif ester comporte deux oxygènes: celui du carbonyle et celui du groupe OR'."
@@ -82,7 +82,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La fonction amide comporte un carbonyle lié à un atome d'azote.",
         "correct": true,
-        "explanation": "C'est le motif caractéristique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide se caractérise par un azote directement lié au carbone du groupe carbonyle."
       },
       {
         "content": "L'azote peut porter deux hydrogènes.",
@@ -92,12 +92,12 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'azote peut porter un hydrogène et un radical.",
         "correct": true,
-        "explanation": "Cas monosubstitué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide monosubstituée porte un groupe carboné et un hydrogène sur l’azote."
       },
       {
         "content": "L'azote peut porter deux radicaux.",
         "correct": true,
-        "explanation": "Cas disubstitué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide disubstituée porte deux groupes carbonés sur l’azote."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -116,17 +116,17 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}C(=O){-}OR'}$.",
         "correct": false,
-        "explanation": "C'est un ester: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif $\mathrm{R{-}C(=O){-}OR'}$ correspond à un ester."
       },
       {
         "content": "$\\mathrm{R{-}SH}$.",
         "correct": false,
-        "explanation": "C'est un thiol: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif $\mathrm{R{-}SH}$ correspond à un thiol."
       },
       {
         "content": "$\\mathrm{R{-}X}$.",
         "correct": false,
-        "explanation": "C'est un dérivé halogéné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif $\mathrm{R{-}X}$ correspond à un dérivé halogéné."
       },
       {
         "content": "$\\mathrm{R{-}C(=O){-}NR'R''}$.",
@@ -150,7 +150,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La fonction amide est retrouvée dans les protéines.",
         "correct": true,
-        "explanation": "Même raison: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les peptides contiennent des liaisons peptidiques, qui sont des fonctions amides."
       },
       {
         "content": "La fonction amide constitue la liaison peptidique.",
@@ -340,7 +340,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un sel acide-base.",
         "correct": true,
-        "explanation": "Le support oppose ce résultat à l'amidification par acide activé."
+        "explanation": "Sans activation préalable de l’acide, le transfert de proton entre l’acide carboxylique et l’amine conduit d’abord à un sel."
       }
     ],
     "explanation": "Sans activation, la réaction acide + amine est présentée comme une réaction acide-base donnant un sel."
@@ -359,17 +359,17 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Avec un alcool, on forme un ester.",
         "correct": true,
-        "explanation": "Acylation de l'oxygène: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxygène de l’alcool attaque le chlorure d’acyle et conduit à la fonction ester."
       },
       {
         "content": "Avec une amine, on forme une amide.",
         "correct": true,
-        "explanation": "Acylation de l'azote: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’azote de l’amine attaque le chlorure d’acyle et conduit à la fonction amide."
       },
       {
         "content": "Le chlorure d'acyle joue le rôle d'acide activé dans les deux cas.",
         "correct": true,
-        "explanation": "Même fragment acyle activé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le même chlorure d’acyle fournit le groupe acyle ; la nature du nucléophile détermine si le produit est un ester ou une amide."
       },
       {
         "content": "Les deux réactions exigent le même nucléophile.",
@@ -388,7 +388,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un motif C(=O)-O-R' oriente vers un ester.",
         "correct": true,
-        "explanation": "Motif ester: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un motif $\ce{C(=O)-O-R'}$ indique une fonction ester."
       },
       {
         "content": "Un motif C(=O)-N oriente vers une amide.",
