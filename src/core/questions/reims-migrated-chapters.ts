@@ -7,6 +7,10 @@ export const REIMS_MIGRATED_CHAPTER_SLUGS = new Set<string>([
   "nomenclature-chimique-fonctions-organiques",
   "isomerie-enantiomerie",
   "hydrocarbures",
+  "derives-monofonctionnels-alcools-amines-halogenes",
+  "esters-amides",
+  "aldehydes-cetones",
+  "acides-carboxyliques-fonctions-diverses",
 ]);
 
 export function isReimsMigratedChapter(chapterSlug?: string): boolean {

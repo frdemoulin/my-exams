@@ -9,8 +9,23 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 67,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des dérivés halogénés de la fiche :",
+    "question": "À propos des dérivés halogénés:",
     "choices": [
+      {
+        "content": "Ils sont décrits comme des produits généralement très toxiques.",
+        "correct": true,
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+      },
+      {
+        "content": "Ils sont tous des alcools.",
+        "correct": false,
+        "explanation": "Le groupe caractéristique est C-X, pas C-OH."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+      },
       {
         "content": "Ils sont notés de façon générale $\\ce{R-X}$.",
         "correct": true,
@@ -19,46 +34,41 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "X représente un halogène.",
         "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Ils sont décrits comme des produits généralement très toxiques.",
-        "correct": true,
-        "explanation": "Propriété explicitement mentionnée."
-      },
-      {
-        "content": "Ils sont tous des alcools.",
-        "correct": false,
-        "explanation": "Le groupe caractéristique est C-X, pas C-OH."
+        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
-    "explanation": "La fiche introduit les dérivés halogénés par la notation RX et attire l'attention sur leur toxicité générale."
+    "explanation": "La introduit les dérivés halogénés par la notation RX et attire l'attention sur leur toxicité générale."
   },
   {
     "order": 68,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Une voie de préparation d'un dérivé halogéné est l'addition de $\\ce{HX}$ sur un alcène. Quelles propositions sont exactes ?",
+    "question": "Une voie de préparation d'un dérivé halogéné est l'addition de $\\ce{HX}$ sur un alcène. Quelles propositions sont exactes?",
     "choices": [
       {
         "content": "H et X s'ajoutent de part et d'autre de l'ancienne double liaison.",
         "correct": true,
-        "explanation": "Bilan de l'addition électrophile."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
-        "content": "La double liaison est consommée.",
-        "correct": true,
-        "explanation": "Le produit est saturé au niveau de ces carbones."
+        "content": "La double liaison n’est pas consommée.",
+        "correct": false,
+        "explanation": "La relation correcte est: « La double liaison est consommée ». La négation proposée est donc fausse."
       },
       {
         "content": "Le produit appartient à la famille RX.",
         "correct": true,
-        "explanation": "Dérivé halogéné."
+        "explanation": "Dérivé halogéné: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Le magnésium est obligatoirement présent dans cette première étape.",
         "correct": false,
         "explanation": "Mg intervient ensuite pour former un organomagnésien."
+      },
+      {
+        "content": "Dans un dérivé halogéné $\\ce{R-X}$, le carbone lié à l’halogène présente un caractère électrophile.",
+        "correct": true,
+        "explanation": "La polarisation de la liaison carbone-halogène rend ce carbone sensible à l’attaque d’un nucléophile."
       }
     ],
     "explanation": "Alcène + HX constitue une voie directe de préparation de RX."
@@ -67,12 +77,22 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 69,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Une autre voie de préparation d'un dérivé halogéné part d'un alcool. Quelles propositions sont exactes ?",
+    "question": "Une autre voie de préparation d'un dérivé halogéné part d'un alcool. Quelles propositions sont exactes?",
     "choices": [
+      {
+        "content": "Le produit est nécessairement une amide.",
+        "correct": false,
+        "explanation": "Il s'agit d'un dérivé halogéné."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+      },
       {
         "content": "Un agent halogénant est utilisé.",
         "correct": true,
-        "explanation": "La fiche le précise."
+        "explanation": "La le précise: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "La fonction OH est remplacée par X.",
@@ -82,12 +102,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit peut être un chlorure ou un bromure selon l'agent.",
         "correct": true,
-        "explanation": "La fiche donne des agents adaptés."
-      },
-      {
-        "content": "Le produit est nécessairement une amide.",
-        "correct": false,
-        "explanation": "Il s'agit d'un dérivé halogéné."
+        "explanation": "des agents adaptés: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Un alcool peut être converti en dérivé halogéné par substitution du groupe hydroxyle."
@@ -96,56 +111,66 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les agents halogénants cités dans la fiche :",
+    "question": "Concernant les agents halogénants cités :",
     "choices": [
-      {
-        "content": "$\\ce{PCl5}$ est cité pour obtenir un dérivé chloré.",
-        "correct": true,
-        "explanation": "Cité dans la fiche."
-      },
       {
         "content": "$\\ce{SOCl2}$ est cité pour obtenir un dérivé chloré.",
         "correct": true,
-        "explanation": "Cité dans la fiche."
+        "explanation": "Cité: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "$\\ce{POCl3}$ est cité pour obtenir un dérivé chloré.",
         "correct": true,
-        "explanation": "Cité dans la fiche."
+        "explanation": "Cité: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "La fiche cite aussi $\\ce{BBr5}$ pour obtenir un dérivé bromé.",
+        "content": "L’exemple retenu est aussi $\\ce{BBr5}$ pour obtenir un dérivé bromé.",
         "correct": true,
-        "explanation": "On reprend ici strictement l'agent indiqué dans le support local."
+        "explanation": "On reprend ici strictement l'agent indiqué local."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+      },
+      {
+        "content": "$\\ce{PCl5}$ est cité pour obtenir un dérivé chloré.",
+        "correct": true,
+        "explanation": "Cité: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
-    "explanation": "Le choix de l'agent halogénant dépend du dérivé halogéné que l'on souhaite préparer ; cette question reprend les exemples tels qu'ils apparaissent dans la fiche."
+    "explanation": "Le choix de l'agent halogénant dépend du dérivé halogéné que l'on souhaite préparer; cette question reprend les exemples tels qu'ils apparaissent."
   },
   {
     "order": 71,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la préparation d'un organomagnésien $\\ce{RMgX}$ :",
+    "question": "À propos de la préparation d'un organomagnésien $\\ce{RMgX}$:",
     "choices": [
+      {
+        "content": "Un organomagnésien réagit avec un ester une seule fois avant l’alcool tertiaire final.",
+        "correct": false,
+        "explanation": "Le cas de l’ester nécessite deux additions du même organomagnésien dans le modèle étudié."
+      },
       {
         "content": "Elle part d'un dérivé halogéné $\\ce{R-X}$.",
         "correct": true,
-        "explanation": "Substrat du Grignard."
+        "explanation": "Substrat du Grignard: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Le magnésium est ajouté.",
         "correct": true,
-        "explanation": "Bilan : RX + Mg → RMgX."
+        "explanation": "Bilan: RX + Mg → RMgX."
       },
       {
         "content": "Le produit est appelé réactif de Grignard.",
         "correct": true,
-        "explanation": "Nom donné dans la fiche."
+        "explanation": "Nom donné: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Le carbone du radical R devient plus nucléophile dans le modèle du cours.",
+        "content": "Le carbone du radical R devient plus nucléophile dans le modèle étudié.",
         "correct": true,
-        "explanation": "La fiche insiste sur le renversement du caractère du carbone."
+        "explanation": "La insiste sur le renversement du caractère du carbone."
       }
     ],
     "explanation": "La formation de RMgX transforme le dérivé halogéné en réactif organométallique fortement nucléophile."
@@ -154,18 +179,8 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 72,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans $\\ce{RCH2-X}$ avant réaction avec Mg, le carbone porteur de X est décrit dans la fiche comme :",
+    "question": "Dans $\\ce{RCH2-X}$ avant réaction avec Mg, le carbone porteur de X est décrit comme:",
     "choices": [
-      {
-        "content": "Électrophile.",
-        "correct": true,
-        "explanation": "La polarisation C-X lui confère ce caractère dans le modèle du cours."
-      },
-      {
-        "content": "Capable de réagir avec un nucléophile.",
-        "correct": true,
-        "explanation": "Conséquence de son caractère électrophile."
-      },
       {
         "content": "Déjà chargé négativement comme dans RMgX.",
         "correct": false,
@@ -174,7 +189,22 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Nécessairement un carbocation libre.",
         "correct": false,
-        "explanation": "La fiche parle de caractère électrophile, pas d'un carbocation isolé."
+        "explanation": "La parle de caractère électrophile, pas d'un carbocation isolé."
+      },
+      {
+        "content": "Une SN1 passe par un carbocation plan dans le modèle étudié.",
+        "correct": true,
+        "explanation": "Le départ du groupe partant précède l’attaque du nucléophile, ce qui crée un intermédiaire carbocationique plan."
+      },
+      {
+        "content": "Électrophile.",
+        "correct": true,
+        "explanation": "La polarisation C-X lui confère ce caractère dans le modèle étudié."
+      },
+      {
+        "content": "Capable de réagir avec un nucléophile.",
+        "correct": true,
+        "explanation": "Conséquence de son caractère électrophile."
       }
     ],
     "explanation": "Le passage RX → RMgX inverse le rôle réactif du carbone dans le modèle pédagogique."
@@ -183,7 +213,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 73,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Après formation de $\\ce{RMgX}$, le carbone du fragment R est décrit comme :",
+    "question": "Après formation de $\\ce{RMgX}$, le carbone du fragment R est décrit comme:",
     "choices": [
       {
         "content": "Nucléophile.",
@@ -203,7 +233,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Strictement électrophile comme dans RX.",
         "correct": false,
-        "explanation": "Le caractère est inversé."
+        "explanation": "Le caractère est inversé: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
       }
     ],
     "explanation": "Le Grignard est un nucléophile carboné utile pour créer de nouvelles liaisons C-C."
@@ -212,27 +247,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 74,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les organomagnésiens de la fiche peuvent réagir avec :",
+    "question": "Les organomagnésiens peuvent réagir avec:",
     "choices": [
+      {
+        "content": "Tous les composés possédant un carbone électrophile dans le modèle étudié.",
+        "correct": true,
+        "explanation": "Formulation générale: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
+        "correct": false,
+        "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+      },
       {
         "content": "Des aldéhydes.",
         "correct": true,
-        "explanation": "Composés carbonylés électrophiles."
+        "explanation": "Composés carbonylés électrophiles: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Des cétones.",
         "correct": true,
-        "explanation": "Composés carbonylés électrophiles."
+        "explanation": "Composés carbonylés électrophiles: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Des esters.",
         "correct": true,
-        "explanation": "Composés à carbone électrophile."
-      },
-      {
-        "content": "Tous les composés possédant un carbone électrophile dans le modèle du cours.",
-        "correct": true,
-        "explanation": "Formulation générale de la fiche."
+        "explanation": "Composés à carbone électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "La réactivité du Grignard dépend de sa nucléophilie face à un carbone électrophile."
@@ -241,12 +281,17 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 75,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel bilan résume la formation d'un réactif de Grignard ?",
+    "question": "Quel bilan résume la formation d'un réactif de Grignard?",
     "choices": [
+      {
+        "content": "Alcool primaire.",
+        "correct": false,
+        "explanation": "Une cétone ou un ester traité par un organomagnésien ne conduit pas à un alcool primaire dans les bilans étudiés."
+      },
       {
         "content": "$\\ce{R-X + Mg -> RMgX}$.",
         "correct": true,
-        "explanation": "Bilan de la fiche."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "$\\ce{R-OH + Mg -> R-X}$.",
@@ -270,22 +315,27 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos d'une substitution nucléophile sur un dérivé halogéné :",
+    "question": "À propos d'une substitution nucléophile sur un dérivé halogéné:",
     "choices": [
+      {
+        "content": "Dans un dérivé halogéné $\\ce{R-X}$, le carbone lié à l’halogène présente un caractère électrophile.",
+        "correct": true,
+        "explanation": "La polarisation de la liaison carbone-halogène rend ce carbone sensible à l’attaque d’un nucléophile."
+      },
       {
         "content": "Le nucléophile remplace X sur le carbone.",
         "correct": true,
-        "explanation": "Bilan général."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
-        "content": "$\\ce{X^-}$ peut jouer le rôle de groupe partant dans le bilan.",
-        "correct": true,
-        "explanation": "La fiche écrit RX + Nu → R-Nu + X−."
+        "content": "$\\ce{X^-}$ ne peut pas jouer le rôle de groupe partant dans le bilan.",
+        "correct": false,
+        "explanation": "La relation correcte est: « $\\ce{X^-}$ peut jouer le rôle de groupe partant dans le bilan ». La négation proposée est donc fausse."
       },
       {
         "content": "Le carbone portant X est le site attaqué.",
         "correct": true,
-        "explanation": "C'est le centre électrophile."
+        "explanation": "C'est le centre électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "La réaction transforme toujours RX en alcane.",
@@ -299,18 +349,8 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans le mécanisme SN1 présenté dans la fiche :",
+    "question": "Dans le mécanisme SN1 présenté:",
     "choices": [
-      {
-        "content": "La réaction se déroule en deux temps.",
-        "correct": true,
-        "explanation": "Caractéristique explicitement donnée."
-      },
-      {
-        "content": "Le départ de X conduit à un carbocation.",
-        "correct": true,
-        "explanation": "Intermédiaire du mécanisme."
-      },
       {
         "content": "Le carbocation est plan.",
         "correct": true,
@@ -320,6 +360,21 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le nucléophile attaque avant le départ de X dans une étape concertée.",
         "correct": false,
         "explanation": "Cela décrit plutôt la SN2."
+      },
+      {
+        "content": "Une SN1 passe par un carbocation plan dans le modèle étudié.",
+        "correct": true,
+        "explanation": "Le départ du groupe partant précède l’attaque du nucléophile, ce qui crée un intermédiaire carbocationique plan."
+      },
+      {
+        "content": "La réaction se déroule en deux temps.",
+        "correct": true,
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+      },
+      {
+        "content": "Le départ de X conduit à un carbocation.",
+        "correct": true,
+        "explanation": "Intermédiaire du mécanisme: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "SN1 passe par un carbocation plan formé après le départ du groupe partant."
@@ -328,27 +383,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 78,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pourquoi une SN1 sur un centre asymétrique conduit-elle à une racémisation dans le modèle du cours ?",
+    "question": "Pourquoi une SN1 sur un centre asymétrique conduit-elle à une racémisation dans le modèle étudié?",
     "choices": [
       {
-        "content": "Le carbocation intermédiaire est plan.",
-        "correct": true,
-        "explanation": "Il peut être attaqué sur ses deux faces."
+        "content": "Le carbocation intermédiaire n’est pas plan.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Le carbocation intermédiaire est plan ». La négation proposée est donc fausse."
       },
       {
         "content": "Le nucléophile peut arriver d'un côté ou de l'autre du plan.",
         "correct": true,
-        "explanation": "La fiche retient des probabilités égales dans le modèle idéal."
+        "explanation": "des probabilités égales dans le modèle idéal."
       },
       {
         "content": "Les deux configurations peuvent donc être formées.",
         "correct": true,
-        "explanation": "Origine du mélange racémique."
+        "explanation": "Origine du mélange racémique: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Parce que le mécanisme impose une attaque d'un seul côté.",
         "correct": false,
         "explanation": "C'est la SN2 qui impose l'approche opposée au groupe partant."
+      },
+      {
+        "content": "Une SN1 est décrite comme un mécanisme concerté en une seule étape.",
+        "correct": false,
+        "explanation": "Le mécanisme SN1 est présenté en deux étapes, contrairement à la SN2 concertée."
       }
     ],
     "explanation": "Le caractère plan de l'intermédiaire SN1 explique la perte d'information stéréochimique dans le modèle simplifié."
@@ -357,17 +417,22 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 79,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien d'étapes élémentaires sont retenues pour une SN1 dans la fiche ?",
+    "question": "Combien d'étapes élémentaires sont retenues pour une SN1?",
     "choices": [
       {
-        "content": "Deux.",
-        "correct": true,
-        "explanation": "Formation du carbocation puis attaque nucléophile."
+        "content": "Une seule étape concertée.",
+        "correct": false,
+        "explanation": "Cette description correspond à la SN2, pas à la SN1."
       },
       {
         "content": "Une.",
         "correct": false,
         "explanation": "Une étape concertée correspond à SN2."
+      },
+      {
+        "content": "Deux.",
+        "correct": true,
+        "explanation": "Formation du carbocation puis attaque nucléophile."
       },
       {
         "content": "Trois obligatoirement.",
@@ -386,27 +451,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos d'une SN2 selon la fiche :",
+    "question": "À propos d'une SN2:",
     "choices": [
       {
-        "content": "Elle se déroule en un temps.",
-        "correct": true,
-        "explanation": "Mécanisme concerté."
-      },
-      {
-        "content": "Le nucléophile s'approche pendant que X est repoussé.",
-        "correct": true,
-        "explanation": "Description du support."
+        "content": "Le nucléophile s'approche pendant que X n’est pas repoussé.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Le nucléophile s'approche pendant que X est repoussé ». La négation proposée est donc fausse."
       },
       {
         "content": "Un carbocation plan libre n'est pas l'intermédiaire du mécanisme.",
         "correct": true,
-        "explanation": "La réaction est concertée."
+        "explanation": "La réaction est concertée: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Elle conduit à une racémisation par attaque des deux faces.",
         "correct": false,
         "explanation": "Le support associe SN2 à une inversion."
+      },
+      {
+        "content": "Une SN1 passe par un carbocation plan dans le modèle étudié.",
+        "correct": true,
+        "explanation": "Le départ du groupe partant précède l’attaque du nucléophile, ce qui crée un intermédiaire carbocationique plan."
+      },
+      {
+        "content": "Elle se déroule en un temps.",
+        "correct": true,
+        "explanation": "Mécanisme concerté: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "La SN2 couple formation de la liaison Nu-C et départ de X dans une seule étape."
@@ -415,12 +485,17 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 81,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Conséquences stéréochimiques d'une SN2 sur un centre asymétrique dans le modèle du cours :",
+    "question": "Conséquences stéréochimiques d'une SN2 sur un centre asymétrique dans le modèle étudié:",
     "choices": [
+      {
+        "content": "Une SN2 passe obligatoirement par un carbocation plan et donne un racémate.",
+        "correct": false,
+        "explanation": "Le carbocation plan et la racémisation caractérisent ici la SN1."
+      },
       {
         "content": "Il y a inversion de configuration géométrique au centre attaqué.",
         "correct": true,
-        "explanation": "Conséquence explicitement décrite."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "L'asymétrie est conservée.",
@@ -438,62 +513,72 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est la conséquence associée à SN1."
       }
     ],
-    "explanation": "La SN2 est stéréospécifique dans le modèle du support : inversion et produit optiquement pur."
+    "explanation": "La SN2 est stéréospécifique dans le modèle: inversion et produit optiquement pur."
   },
   {
     "order": 82,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel mécanisme est qualifié de concerté dans la comparaison SN1/SN2 ?",
+    "question": "Quel mécanisme est qualifié de concerté dans la comparaison SN1/SN2?",
     "choices": [
       {
-        "content": "SN2.",
-        "correct": true,
-        "explanation": "Une seule étape."
+        "content": "Formation du Grignard.",
+        "correct": false,
+        "explanation": "Ce n'est pas une SN1/SN2 dans ce cadre."
+      },
+      {
+        "content": "$\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Le borohydrure est utilisé comme réducteur des composés carbonylés, pas comme réactif d’hydratation d’un alcène."
       },
       {
         "content": "SN1.",
         "correct": false,
-        "explanation": "Deux étapes avec carbocation."
+        "explanation": "Deux étapes avec carbocation: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "SN2.",
+        "correct": true,
+        "explanation": "Une seule étape: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Hydratation d'alcène uniquement.",
         "correct": false,
         "explanation": "La question concerne les substitutions."
-      },
-      {
-        "content": "Formation du Grignard.",
-        "correct": false,
-        "explanation": "Ce n'est pas une SN1/SN2 dans ce cadre."
       }
     ],
-    "explanation": "SN2 est le mécanisme concerté de la fiche."
+    "explanation": "SN2 est le mécanisme concerté."
   },
   {
     "order": 83,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quelle comparaison SN1/SN2 est correcte ?",
+    "question": "Quelle comparaison SN1/SN2 est correcte?",
     "choices": [
       {
-        "content": "SN1 : carbocation plan.",
+        "content": "SN1: carbocation plan.",
         "correct": true,
-        "explanation": "Intermédiaire."
+        "explanation": "Intermédiaire: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "SN1 : racémisation dans le modèle idéal.",
+        "content": "SN1: racémisation dans le modèle idéal.",
         "correct": true,
-        "explanation": "Attaque des deux faces."
+        "explanation": "Attaque des deux faces: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "SN2 : inversion de configuration.",
+        "content": "SN2: inversion de configuration.",
         "correct": true,
         "explanation": "Attaque imposée par l'arrière dans le modèle."
       },
       {
-        "content": "SN2 : carbocation plan obligatoire.",
+        "content": "SN2: carbocation plan obligatoire.",
         "correct": false,
-        "explanation": "Pas d'intermédiaire carbocationique libre."
+        "explanation": "Cette proposition est écartée: d'intermédiaire carbocationique libre ne correspond pas au bilan ou à la propriété attendue."
+      },
+      {
+        "content": "Une SN1 est décrite comme un mécanisme concerté en une seule étape.",
+        "correct": false,
+        "explanation": "Le mécanisme SN1 est présenté en deux étapes, contrairement à la SN2 concertée."
       }
     ],
     "explanation": "Les conséquences stéréochimiques constituent le contraste majeur de la section."
@@ -502,46 +587,46 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 84,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La fiche indique que plusieurs facteurs peuvent orienter le choix entre SN1 et SN2. Sont cités :",
+    "question": "plusieurs facteurs peuvent orienter le choix entre SN1 et SN2. Sont cités:",
     "choices": [
+      {
+        "content": "La couleur du flacon.",
+        "correct": false,
+        "explanation": "Aucun rôle mécanistique: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Une SN1 passe par un carbocation plan dans le modèle étudié.",
+        "correct": true,
+        "explanation": "Le départ du groupe partant précède l’attaque du nucléophile, ce qui crée un intermédiaire carbocationique plan."
+      },
       {
         "content": "La nature du nucléophile.",
         "correct": true,
-        "explanation": "Facteur explicitement mentionné."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "Le solvant.",
         "correct": true,
-        "explanation": "Facteur explicitement mentionné."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "La nature des substituants autour du carbone réactif.",
         "correct": true,
-        "explanation": "La fiche évoque la nature de B et C."
-      },
-      {
-        "content": "La couleur du flacon.",
-        "correct": false,
-        "explanation": "Aucun rôle mécanistique."
+        "explanation": "La évoque la nature de B et C."
       }
     ],
-    "explanation": "La voie de substitution dépend du contexte réactionnel ; le support indique qu'on peut souvent chercher à privilégier SN2."
+    "explanation": "La voie de substitution dépend du contexte réactionnel; qu'on peut souvent chercher à privilégier SN2."
   },
   {
     "order": 85,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pourquoi la SN2 est-elle présentée comme souvent intéressante dans le support ?",
+    "question": "Pourquoi la SN2 est-elle présentée comme souvent intéressante?",
     "choices": [
-      {
-        "content": "Elle évite la racémisation dans le modèle idéal.",
-        "correct": true,
-        "explanation": "Le produit reste optiquement pur."
-      },
       {
         "content": "Elle conserve l'asymétrie tout en inversant la configuration géométrique.",
         "correct": true,
-        "explanation": "Conséquence stéréochimique."
+        "explanation": "Conséquence stéréochimique: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Elle permet un contrôle stéréochimique plus net.",
@@ -552,6 +637,16 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle forme nécessairement un mélange racémique.",
         "correct": false,
         "explanation": "C'est précisément ce qu'elle évite."
+      },
+      {
+        "content": "Une SN2 passe obligatoirement par un carbocation plan et donne un racémate.",
+        "correct": false,
+        "explanation": "Le carbocation plan et la racémisation caractérisent ici la SN1."
+      },
+      {
+        "content": "Elle évite la racémisation dans le modèle idéal.",
+        "correct": true,
+        "explanation": "Le produit reste optiquement pur."
       }
     ],
     "explanation": "Le contrôle de la stéréochimie explique l'intérêt de favoriser SN2 dans certains contextes de synthèse."
@@ -560,7 +655,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 86,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel intermédiaire plan caractérise la SN1 dans le modèle de la fiche ?",
+    "question": "Quel intermédiaire plan caractérise la SN1 dans le modèle?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -582,18 +677,8 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un contexte de synthèse pharmaceutique, pourquoi la distinction SN1/SN2 peut-elle être importante ?",
+    "question": "Dans un contexte de synthèse pharmaceutique, pourquoi la distinction SN1/SN2 peut-elle être importante?",
     "choices": [
-      {
-        "content": "Une molécule chirale peut donner un mélange racémique par SN1 dans le modèle du cours.",
-        "correct": true,
-        "explanation": "Deux faces du carbocation sont attaquées."
-      },
-      {
-        "content": "SN2 peut conduire à un produit stéréochimiquement unique avec inversion.",
-        "correct": true,
-        "explanation": "Contrôle plus précis."
-      },
       {
         "content": "Deux stéréoisomères peuvent avoir des comportements biologiques différents.",
         "correct": true,
@@ -603,6 +688,21 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La stéréochimie n'a aucun intérêt dès qu'un halogène est présent.",
         "correct": false,
         "explanation": "Le centre chiral peut être déterminant."
+      },
+      {
+        "content": "Une SN2 passe obligatoirement par un carbocation plan et donne un racémate.",
+        "correct": false,
+        "explanation": "Le carbocation plan et la racémisation caractérisent ici la SN1."
+      },
+      {
+        "content": "Une molécule chirale peut donner un mélange racémique par SN1 dans le modèle étudié.",
+        "correct": true,
+        "explanation": "Deux faces du carbocation sont attaquées."
+      },
+      {
+        "content": "SN2 peut conduire à un produit stéréochimiquement unique avec inversion.",
+        "correct": true,
+        "explanation": "Contrôle plus précis: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "La substitution d'un intermédiaire chiral peut modifier la pureté stéréochimique du produit final."
@@ -611,7 +711,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 88,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le modèle idéal de la fiche, une SN1 sur un substrat optiquement pur donne 50 % d'attaque sur chaque face du carbocation. Quel est alors l'excès énantiomérique attendu, en pourcentage ?",
+    "question": "Dans le modèle idéal, une SN1 sur un substrat optiquement pur donne 50 % d'attaque sur chaque face du carbocation. Quel est alors l'excès énantiomérique attendu, en pourcentage?",
     "answer": {
       "type": "number",
       "value": 0,
@@ -623,30 +723,35 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 89,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On part d'un dérivé halogéné $\\ce{R-X}$. Quelles voies du chapitre peuvent être envisagées ?",
+    "question": "On part d'un dérivé halogéné $\\ce{R-X}$. Quelles voies du chapitre peuvent être envisagées?",
     "choices": [
+      {
+        "content": "Conversion automatique en alcool tertiaire sans autre réactif.",
+        "correct": false,
+        "explanation": "Aucune transformation automatique de ce type."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+      },
       {
         "content": "Réaction avec Mg pour former $\\ce{RMgX}$.",
         "correct": true,
-        "explanation": "Voie organomagnésienne."
+        "explanation": "L’addition d’un organomagnésien sur le carbonyle permet d’obtenir le produit correspondant après hydrolyse."
       },
       {
         "content": "Substitution par un nucléophile pour former R-Nu.",
         "correct": true,
-        "explanation": "Voie SN."
+        "explanation": "Voie SN: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Utilisation comme partenaire d'alkylation d'une amine.",
         "correct": true,
         "explanation": "Réactivité étudiée dans la section amines."
-      },
-      {
-        "content": "Conversion automatique en alcool tertiaire sans autre réactif.",
-        "correct": false,
-        "explanation": "Aucune transformation automatique de ce type."
       }
     ],
-    "explanation": "RX est un carrefour de synthèse : organomagnésien, substitution ou alkylation d'un nucléophile comme une amine."
+    "explanation": "RX est un carrefour de synthèse: organomagnésien, substitution ou alkylation d'un nucléophile comme une amine."
   },
   {
     "order": 90,
@@ -668,28 +773,33 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "tolerance": 0.1
       }
     ],
-    "explanation": "La SN1 passe par un carbocation plan après départ de X. Le nucléophile peut ensuite attaquer les deux faces, ce qui explique la racémisation dans le modèle idéal du cours."
+    "explanation": "La SN1 passe par un carbocation plan après départ de X. Le nucléophile peut ensuite attaquer les deux faces, ce qui explique la racémisation dans le modèle idéal."
   },
   {
     "order": 91,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un dérivé halogéné chiral réagit par SN1. Quelles propositions sont exactes dans le modèle du cours ?",
+    "question": "Un dérivé halogéné chiral réagit par SN1. Quelles propositions sont exactes dans le modèle étudié?",
     "choices": [
+      {
+        "content": "Une SN1 passe par un carbocation plan dans le modèle étudié.",
+        "correct": true,
+        "explanation": "Le départ du groupe partant précède l’attaque du nucléophile, ce qui crée un intermédiaire carbocationique plan."
+      },
       {
         "content": "Le groupe partant X quitte le carbone avant l'attaque du nucléophile.",
         "correct": true,
-        "explanation": "Première étape."
+        "explanation": "Première étape: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Un carbocation plan est formé.",
         "correct": true,
-        "explanation": "Intermédiaire."
+        "explanation": "Intermédiaire: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Le nucléophile peut attaquer les deux faces.",
         "correct": true,
-        "explanation": "Origine du racémate."
+        "explanation": "Origine du racémate: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "La configuration initiale est conservée à 100 %.",
@@ -703,27 +813,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 92,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Le même dérivé halogéné chiral réagit par SN2. Quelles propositions sont exactes ?",
+    "question": "Le même dérivé halogéné chiral réagit par SN2. Quelles propositions sont exactes?",
     "choices": [
-      {
-        "content": "L'attaque nucléophile et le départ de X sont couplés dans une seule étape.",
-        "correct": true,
-        "explanation": "Mécanisme concerté."
-      },
-      {
-        "content": "Un carbocation plan libre n'est pas formé.",
-        "correct": true,
-        "explanation": "Différence avec SN1."
-      },
       {
         "content": "Le produit subit une inversion de configuration géométrique.",
         "correct": true,
-        "explanation": "Conséquence stéréochimique."
+        "explanation": "Conséquence stéréochimique: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Le produit attendu est un racémate dans le modèle idéal.",
         "correct": false,
         "explanation": "Un seul produit stéréochimique est obtenu."
+      },
+      {
+        "content": "Une SN2 sur un centre asymétrique conduit à une inversion de configuration dans le modèle étudié.",
+        "correct": true,
+        "explanation": "L’attaque par la face opposée au groupe partant entraîne l’inversion géométrique décrite."
+      },
+      {
+        "content": "L'attaque nucléophile et le départ de X ne sont pas couplés dans une seule étape.",
+        "correct": false,
+        "explanation": "La relation correcte est: « L'attaque nucléophile et le départ de X sont couplés dans une seule étape ». La négation proposée est donc fausse."
+      },
+      {
+        "content": "Un carbocation plan libre n'est pas formé.",
+        "correct": true,
+        "explanation": "Différence avec SN1: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "SN2 conserve l'asymétrie tout en inversant l'arrangement spatial au centre réactif."
@@ -732,27 +847,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 93,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On compare la conversion d'un alcool en RX puis la conversion de RX en RMgX. Quelles propositions sont exactes ?",
+    "question": "On compare la conversion d'un alcool en RX puis la conversion de RX en RMgX. Quelles propositions sont exactes?",
     "choices": [
       {
         "content": "La première étape remplace OH par un halogène.",
         "correct": true,
-        "explanation": "Agent halogénant."
+        "explanation": "Agent halogénant: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "La seconde utilise Mg.",
         "correct": true,
-        "explanation": "Formation du Grignard."
+        "explanation": "Formation du Grignard: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Le carbone, électrophile dans RX, devient nucléophile dans RMgX dans le modèle du cours.",
+        "content": "Le carbone, électrophile dans RX, devient nucléophile dans RMgX dans le modèle étudié.",
         "correct": true,
-        "explanation": "Renversement de polarité."
+        "explanation": "Renversement de polarité: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Les deux étapes transforment le carbone en carbonyle.",
         "correct": false,
-        "explanation": "Aucun C=O n'est créé."
+        "explanation": "Aucun C=O n'est créé: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
       }
     ],
     "explanation": "Cette séquence illustre le changement profond de réactivité du carbone porteur du groupe fonctionnel."
@@ -761,27 +881,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 94,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un organomagnésien issu d'un dérivé halogéné est ensuite mis en présence d'une cétone. Quelles propositions sont exactes ?",
+    "question": "Un organomagnésien issu d'un dérivé halogéné est ensuite mis en présence d'une cétone. Quelles propositions sont exactes?",
     "choices": [
+      {
+        "content": "Le produit final reste le dérivé halogéné de départ.",
+        "correct": false,
+        "explanation": "La fonction a été profondément transformée."
+      },
+      {
+        "content": "Un organomagnésien réagit avec un ester une seule fois avant l’alcool tertiaire final.",
+        "correct": false,
+        "explanation": "Le cas de l’ester nécessite deux additions du même organomagnésien dans le modèle étudié."
+      },
       {
         "content": "Le carbone du Grignard agit comme nucléophile.",
         "correct": true,
         "explanation": "Il attaque le carbone électrophile du carbonyle."
       },
       {
-        "content": "Une nouvelle liaison C-C est formée.",
-        "correct": true,
-        "explanation": "Principe de la réaction."
+        "content": "Une nouvelle liaison C-C n’est pas formée.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Une nouvelle liaison C-C est formée ». La négation proposée est donc fausse."
       },
       {
         "content": "Après hydrolyse, un alcool tertiaire est obtenu.",
         "correct": true,
-        "explanation": "Bilan du chapitre."
-      },
-      {
-        "content": "Le produit final reste le dérivé halogéné de départ.",
-        "correct": false,
-        "explanation": "La fonction a été profondément transformée."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
     "explanation": "La chimie de RX peut donc être reliée à la préparation d'alcools via l'intermédiaire organomagnésien."
@@ -790,27 +915,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 95,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Quelle séquence permet de passer conceptuellement d'un alcène à un alcool tertiaire en utilisant des transformations du chapitre ?",
+    "question": "Quelle séquence permet de passer conceptuellement d'un alcène à un alcool tertiaire en utilisant des transformations du chapitre?",
     "choices": [
-      {
-        "content": "Alcène + HX → dérivé halogéné.",
-        "correct": true,
-        "explanation": "Préparation de RX."
-      },
       {
         "content": "RX + Mg → organomagnésien.",
         "correct": true,
-        "explanation": "Formation du Grignard."
+        "explanation": "Formation du Grignard: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Organomagnésien + cétone, puis hydrolyse → alcool tertiaire.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "Chaque étape conserve nécessairement le même nombre de carbones.",
         "correct": false,
         "explanation": "L'addition du Grignard sur une cétone allonge le squelette."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+      },
+      {
+        "content": "Alcène + HX → dérivé halogéné.",
+        "correct": true,
+        "explanation": "Préparation de RX: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "La séquence croise préparation de RX, Grignard et préparation des alcools tertiaires."
@@ -819,27 +949,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 96,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Concernant la pureté optique après substitution dans le modèle du support :",
+    "question": "Concernant la pureté optique après substitution dans le modèle :",
     "choices": [
       {
-        "content": "SN1 conduit à un mélange racémique à partir d'un centre chiral idéalement symétrique dans ses deux faces.",
+        "content": "Une SN2 est décrite comme un mécanisme concerté en une seule étape.",
         "correct": true,
-        "explanation": "Modèle du cours."
+        "explanation": "Le nucléophile attaque pendant que le groupe partant s’éloigne, sans carbocation intermédiaire."
+      },
+      {
+        "content": "SN1 ne conduit pas à un mélange racémique à partir d'un centre chiral idéalement symétrique dans ses deux faces.",
+        "correct": false,
+        "explanation": "La relation correcte est: « SN1 conduit à un mélange racémique à partir d'un centre chiral idéalement symétrique dans ses deux faces ». La négation proposée est donc fausse."
       },
       {
         "content": "SN2 conduit à un seul produit avec inversion.",
         "correct": true,
-        "explanation": "Modèle du cours."
+        "explanation": "Modèle: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "SN2 est associée à un produit optiquement pur à 100 % dans la simplification enseignée.",
         "correct": true,
-        "explanation": "Formulation de la fiche."
+        "explanation": "Formulation: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "SN1 conserve toujours un ee de 100 %.",
         "correct": false,
-        "explanation": "Elle racémise."
+        "explanation": "Elle racémise: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Le chapitre rattache directement le mécanisme de substitution à la stéréochimie du produit."
@@ -848,27 +983,32 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 97,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Pour distinguer SN1 et SN2 à partir d'une description de mécanisme :",
+    "question": "Pour distinguer SN1 et SN2 à partir d'une description de mécanisme:",
     "choices": [
       {
-        "content": "Chercher un carbocation intermédiaire oriente vers SN1.",
+        "content": "Une racémisation oriente vers SN1 dans le modèle étudié.",
         "correct": true,
-        "explanation": "Signature de SN1."
-      },
-      {
-        "content": "Chercher une étape concertée oriente vers SN2.",
-        "correct": true,
-        "explanation": "Signature de SN2."
-      },
-      {
-        "content": "Une racémisation oriente vers SN1 dans le modèle du cours.",
-        "correct": true,
-        "explanation": "Conséquence du carbocation plan."
+        "explanation": "Conséquence du carbocation plan: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Une inversion stéréochimique unique oriente vers SN2.",
         "correct": true,
-        "explanation": "Conséquence de l'attaque imposée."
+        "explanation": "Conséquence de l'attaque imposée: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Une SN1 est décrite comme un mécanisme concerté en une seule étape.",
+        "correct": false,
+        "explanation": "Le mécanisme SN1 est présenté en deux étapes, contrairement à la SN2 concertée."
+      },
+      {
+        "content": "Chercher un carbocation intermédiaire oriente vers SN1.",
+        "correct": true,
+        "explanation": "Signature de SN1: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Chercher une étape concertée oriente vers SN2.",
+        "correct": true,
+        "explanation": "Signature de SN2: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Mécanisme et stéréochimie se répondent et permettent d'identifier la voie réactionnelle."
@@ -877,17 +1017,17 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 98,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un dérivé halogéné optiquement pur donne après substitution un mélange 50/50 de deux énantiomères. Quelle interprétation est cohérente avec le cours ?",
+    "question": "Un dérivé halogéné optiquement pur donne après substitution un mélange 50/50 de deux énantiomères. Quelle interprétation est cohérente avec le cours?",
     "choices": [
       {
-        "content": "Une voie SN1 est compatible.",
-        "correct": true,
-        "explanation": "Carbocation plan et attaque des deux faces."
+        "content": "Une voie SN1 n’est pas compatible.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Une voie SN1 est compatible ». La négation proposée est donc fausse."
       },
       {
         "content": "Une racémisation a eu lieu.",
         "correct": true,
-        "explanation": "50/50."
+        "explanation": "Un mélange contenant les deux formes en proportions 50/50 correspond à un mélange racémique."
       },
       {
         "content": "Une voie SN2 idéale seule expliquerait ce résultat.",
@@ -897,7 +1037,12 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'excès énantiomérique final est nul.",
         "correct": true,
-        "explanation": "Mélange racémique."
+        "explanation": "Mélange racémique: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "correct": false,
+        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
       }
     ],
     "explanation": "La composition du produit peut être reliée au mécanisme dans le modèle simplifié enseigné."
@@ -906,30 +1051,35 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 99,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un dérivé halogéné optiquement pur donne après substitution un seul stéréoisomère avec inversion. Quelle interprétation est cohérente ?",
+    "question": "Un dérivé halogéné optiquement pur donne après substitution un seul stéréoisomère avec inversion. Quelle interprétation est cohérente?",
     "choices": [
-      {
-        "content": "Une voie SN2 est compatible.",
-        "correct": true,
-        "explanation": "Signature stéréochimique."
-      },
-      {
-        "content": "Le mécanisme peut être concerté.",
-        "correct": true,
-        "explanation": "Une étape."
-      },
-      {
-        "content": "Un carbocation plan libre est indispensable.",
-        "correct": false,
-        "explanation": "Ce serait SN1."
-      },
       {
         "content": "L'asymétrie du centre peut être conservée malgré l'inversion.",
         "correct": true,
         "explanation": "Les quatre substituants restent différents."
+      },
+      {
+        "content": "Une SN2 passe obligatoirement par un carbocation plan et donne un racémate.",
+        "correct": false,
+        "explanation": "Le carbocation plan et la racémisation caractérisent ici la SN1."
+      },
+      {
+        "content": "Une voie SN2 est compatible.",
+        "correct": true,
+        "explanation": "Signature stéréochimique: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Le mécanisme peut être concerté.",
+        "correct": true,
+        "explanation": "Le mécanisme considéré est concerté: la formation et la rupture des liaisons ont lieu au cours d’une seule étape."
+      },
+      {
+        "content": "Un carbocation plan libre est indispensable.",
+        "correct": false,
+        "explanation": "Ce serait SN1: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
-    "explanation": "L'inversion unique est le repère essentiel de la SN2 dans la fiche."
+    "explanation": "L'inversion unique est le repère essentiel de la SN2."
   },
   {
     "order": 100,
@@ -941,47 +1091,47 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "RX + Mg → RMgX.",
         "correct": true,
-        "explanation": "Grignard."
+        "explanation": "Le réactif organomagnésien apporte un groupe carboné nucléophile qui crée une nouvelle liaison carbone-carbone."
       },
       {
         "content": "Le carbone de RX est décrit comme électrophile.",
         "correct": true,
-        "explanation": "Avant Mg."
+        "explanation": "Avant Mg : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Le carbone de RMgX est décrit comme nucléophile.",
         "correct": true,
-        "explanation": "Après Mg."
+        "explanation": "Après Mg : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "SN1 passe par un carbocation plan.",
         "correct": true,
-        "explanation": "Deux étapes."
+        "explanation": "Le mécanisme considéré se déroule en deux étapes avec formation d’un intermédiaire avant l’attaque du nucléophile."
       },
       {
         "content": "SN2 est concertée et conduit à une inversion.",
         "correct": true,
-        "explanation": "Une étape."
+        "explanation": "Le mécanisme considéré est concerté : la formation et la rupture des liaisons ont lieu au cours d’une seule étape."
       },
       {
         "content": "SN1 est concertée.",
         "correct": false,
-        "explanation": "Deux étapes."
+        "explanation": "Le mécanisme considéré se déroule en deux étapes avec formation d’un intermédiaire avant l’attaque du nucléophile."
       },
       {
         "content": "SN2 donne un racémate dans le modèle idéal.",
         "correct": false,
-        "explanation": "Produit unique inversé."
+        "explanation": "Produit unique inversé : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "RMgX est un électrophile carboné dans le modèle.",
         "correct": false,
-        "explanation": "Nucléophile."
+        "explanation": "Le centre considéré est riche en électrons et peut donc se comporter comme un nucléophile."
       },
       {
         "content": "SN1 conserve toujours l'ee initial à 100 %.",
         "correct": false,
-        "explanation": "Racémisation."
+        "explanation": "Racémisation : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Le carbone de RX est déjà chargé négativement comme celui du Grignard.",

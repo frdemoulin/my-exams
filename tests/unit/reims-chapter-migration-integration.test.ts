@@ -6,6 +6,16 @@ import {
   type HealthTrainingAuthorQuestion,
 } from "../../src/core/questions";
 
+const MIGRATED_SLUGS = [
+  "nomenclature-chimique-fonctions-organiques",
+  "isomerie-enantiomerie",
+  "hydrocarbures",
+  "derives-monofonctionnels-alcools-amines-halogenes",
+  "esters-amides",
+  "aldehydes-cetones",
+  "acides-carboxyliques-fonctions-diverses",
+];
+
 test("Integration: Historical unmigrated Reims chapter ('derives-monofonctionnels') accepts 4-item QRU and QRM", () => {
   const qru4: HealthTrainingAuthorQuestion = {
     order: 1,
@@ -26,13 +36,7 @@ test("Integration: Historical unmigrated Reims chapter ('derives-monofonctionnel
   assert.equal(validation.isValid, true, validation.issues.join("\n"));
 });
 
-test("Integration: Declared migrated Reims chapters ('nomenclature-chimique-fonctions-organiques', 'isomerie-enantiomerie', 'hydrocarbures') reject 4-item QRU, QRM and QRP", () => {
-  const migratedSlugs = [
-    "nomenclature-chimique-fonctions-organiques",
-    "isomerie-enantiomerie",
-    "hydrocarbures",
-  ];
-
+test("Integration: Declared migrated Reims chapters reject 4-item QRU, QRM and QRP", () => {
   const qru4: HealthTrainingAuthorQuestion = {
     order: 1,
     difficulty: "EASY",
@@ -73,7 +77,7 @@ test("Integration: Declared migrated Reims chapters ('nomenclature-chimique-fonc
     ],
   };
 
-  for (const chapterSlug of migratedSlugs) {
+  for (const chapterSlug of MIGRATED_SLUGS) {
     const questionsToTest: HealthTrainingAuthorQuestion[] = [qru4, qrm4, qrp4];
     for (const q of questionsToTest) {
       const val = validateHealthTrainingAuthorQuestion(q, { chapterSlug });
@@ -130,7 +134,7 @@ test("Integration: Declared migrated Reims chapters accept 5-item QRU, QRM and Q
     ],
   };
 
-  for (const chapterSlug of ["nomenclature-chimique-fonctions-organiques", "isomerie-enantiomerie", "hydrocarbures"]) {
+  for (const chapterSlug of MIGRATED_SLUGS) {
     const questionsToTest: HealthTrainingAuthorQuestion[] = [qru5, qrm5, qrp5];
     for (const q of questionsToTest) {
       const val = validateHealthTrainingAuthorQuestion(q, { chapterSlug });

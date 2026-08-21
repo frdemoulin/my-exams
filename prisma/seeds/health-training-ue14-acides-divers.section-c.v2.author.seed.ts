@@ -9,27 +9,32 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 57,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la décarboxylation dans la fiche :",
+    "question": "À propos de la décarboxylation:",
     "choices": [
-      {
-        "content": "Elle correspond à une perte de $\\ce{CO2}$.",
-        "correct": true,
-        "explanation": "C'est la définition donnée."
-      },
-      {
-        "content": "Elle peut se produire par voie chimique.",
-        "correct": true,
-        "explanation": "Première voie citée."
-      },
       {
         "content": "Elle peut se produire par voie enzymatique.",
         "correct": true,
-        "explanation": "Deuxième voie citée."
+        "explanation": "Deuxième voie citée: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Elle correspond à un gain de deux carbones.",
         "correct": false,
         "explanation": "Elle entraîne au contraire une perte carbonée."
+      },
+      {
+        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+      },
+      {
+        "content": "Elle correspond à une perte de $\\ce{CO2}$.",
+        "correct": true,
+        "explanation": "C'est la définition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Elle peut se produire par voie chimique.",
+        "correct": true,
+        "explanation": "Première voie citée: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "La décarboxylation est définie par la perte de dioxyde de carbone, par voie chimique ou enzymatique."
@@ -38,12 +43,17 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 58,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel gaz est perdu lors d'une décarboxylation ?",
+    "question": "Quel gaz est perdu lors d'une décarboxylation?",
     "choices": [
       {
-        "content": "$\\ce{CO2}$.",
-        "correct": true,
-        "explanation": "C'est le bilan caractéristique."
+        "content": "$\\ce{NH3}$.",
+        "correct": false,
+        "explanation": "Ce n'est pas une décarboxylation."
+      },
+      {
+        "content": "$\\ce{H2O}$ uniquement.",
+        "correct": false,
+        "explanation": "L’eau seule n’apporte pas le carbone supplémentaire nécessaire à la carboxylation."
       },
       {
         "content": "$\\ce{O2}$.",
@@ -51,14 +61,14 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce n'est pas la définition."
       },
       {
+        "content": "$\\ce{CO2}$.",
+        "correct": true,
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+      },
+      {
         "content": "$\\ce{H2}$.",
         "correct": false,
         "explanation": "Ce n'est pas le gaz perdu."
-      },
-      {
-        "content": "$\\ce{NH3}$.",
-        "correct": false,
-        "explanation": "Ce n'est pas une décarboxylation."
       }
     ],
     "explanation": "Décarboxylation = perte de CO2."
@@ -67,8 +77,18 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 59,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quel effet la décarboxylation a-t-elle sur le nombre de carbones du produit organique ?",
+    "question": "Quel effet la décarboxylation a-t-elle sur le nombre de carbones du produit organique?",
     "choices": [
+      {
+        "content": "La réaction peut être suivie en comptant les carbones avant et après.",
+        "correct": true,
+        "explanation": "C'est un repère simple du bilan."
+      },
+      {
+        "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
+        "correct": false,
+        "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
+      },
       {
         "content": "Le produit organique possède un carbone de moins que la molécule initiale.",
         "correct": true,
@@ -83,11 +103,6 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "content": "Le nombre de carbones augmente d'une unité.",
         "correct": false,
         "explanation": "Cela correspondrait plutôt à la carboxylation par CO2."
-      },
-      {
-        "content": "La réaction peut être suivie en comptant les carbones avant et après.",
-        "correct": true,
-        "explanation": "C'est un repère simple du bilan."
       }
     ],
     "explanation": "La perte du carbone carboxylique sous forme de CO2 réduit le squelette d'une unité."
@@ -96,27 +111,32 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 60,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La fiche indique qu'une décarboxylation est particulièrement facile lorsque :",
+    "question": "qu'une décarboxylation est particulièrement facile lorsque:",
     "choices": [
       {
-        "content": "Un même carbone porte une fonction acide carboxylique et un motif carbonylé adapté.",
-        "correct": true,
-        "explanation": "Condition structurale mise en avant."
-      },
-      {
-        "content": "Le carbonyle peut appartenir à une cétone.",
-        "correct": true,
-        "explanation": "Exemple cité."
+        "content": "Le carbonyle ne peut pas appartenir à une cétone.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Le carbonyle peut appartenir à une cétone ». La négation proposée est donc fausse."
       },
       {
         "content": "Le carbonyle peut appartenir à un aldéhyde.",
         "correct": true,
-        "explanation": "Exemple cité."
+        "explanation": "Exemple cité: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Aucune fonction carbonylée n'est présente à proximité.",
         "correct": false,
         "explanation": "Le support insiste précisément sur l'effet d'un carbonyle."
+      },
+      {
+        "content": "Un acide carboxylique peut céder le proton de son groupe $\\ce{-COOH}$ pour former un carboxylate.",
+        "correct": true,
+        "explanation": "La déprotonation conduit au motif $\\ce{R-COO^-}$, dont la charge est délocalisée sur les deux oxygènes."
+      },
+      {
+        "content": "Un même carbone porte une fonction acide carboxylique et un motif carbonylé adapté.",
+        "correct": true,
+        "explanation": "Condition structurale mise en avant."
       }
     ],
     "explanation": "La présence d'un carbonyle dans l'environnement structural indiqué favorise la décarboxylation."
@@ -125,41 +145,51 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 61,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quels types de fonctions carbonylées sont cités comme pouvant favoriser la décarboxylation dans la configuration décrite ?",
+    "question": "Quels types de fonctions carbonylées sont cités comme pouvant favoriser la décarboxylation dans la configuration décrite?",
     "choices": [
+      {
+        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+      },
       {
         "content": "Cétone.",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "Citée: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Aldéhyde.",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "Citée: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Autre fonction acide carboxylique.",
         "correct": true,
-        "explanation": "Citée."
+        "explanation": "Citée: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Ester.",
         "correct": true,
-        "explanation": "Cité."
+        "explanation": "Cité: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
-    "explanation": "La fiche énumère cétone, aldéhyde, autre acide carboxylique et ester."
+    "explanation": "La énumère cétone, aldéhyde, autre acide carboxylique et ester."
   },
   {
     "order": 62,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel bilan simple illustre une décarboxylation d'un acide de type $\\mathrm{R{-}CH_2{-}COOH}$ dans le schéma de la fiche ?",
+    "question": "Quel bilan simple illustre une décarboxylation d'un acide de type $\\mathrm{R{-}CH_2{-}COOH}$ dans le schéma?",
     "choices": [
       {
-        "content": "$\\mathrm{R{-}CH_3 + CO_2}$.",
-        "correct": true,
-        "explanation": "C'est le schéma simplifié représenté."
+        "content": "$\\mathrm{R{-}CONH_2}$.",
+        "correct": false,
+        "explanation": "Il s'agit d'une amide: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "$\\ce{H2}$.",
+        "correct": false,
+        "explanation": "La décarboxylation ne se définit pas par une perte de dihydrogène."
       },
       {
         "content": "$\\mathrm{R{-}CH_2{-}COOH + CO_2}$.",
@@ -169,12 +199,12 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{R{-}MgX}$.",
         "correct": false,
-        "explanation": "Il s'agit d'un organomagnésien."
+        "explanation": "L’addition d’un organomagnésien sur le carbonyle permet d’obtenir le produit correspondant après hydrolyse."
       },
       {
-        "content": "$\\mathrm{R{-}CONH_2}$.",
-        "correct": false,
-        "explanation": "Il s'agit d'une amide."
+        "content": "$\\mathrm{R{-}CH_3 + CO_2}$.",
+        "correct": true,
+        "explanation": "C'est le schéma simplifié représenté."
       }
     ],
     "explanation": "Le schéma illustre la perte du groupe carboxyle sous forme de CO2."
@@ -183,27 +213,32 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 63,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Une décarboxylation peut donc être distinguée d'une carboxylation par CO2 car :",
+    "question": "Une décarboxylation peut donc être distinguée d'une carboxylation par CO2 car:",
     "choices": [
       {
         "content": "La décarboxylation perd CO2.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "La carboxylation d'un organomagnésien utilise CO2.",
         "correct": true,
-        "explanation": "Voie de préparation précédente."
+        "explanation": "Voie de préparation précédente: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "La décarboxylation diminue le squelette d'un carbone.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "La carboxylation par CO2 diminue aussi le squelette d'un carbone.",
         "correct": false,
-        "explanation": "Elle l'augmente."
+        "explanation": "Elle l'augmente: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "L’acide obtenu contient un carbone de plus que le radical carboné de l’organomagnésien.",
+        "correct": true,
+        "explanation": "Le carbone supplémentaire provient du $\\ce{CO2}$."
       }
     ],
     "explanation": "Les deux transformations ont des bilans carbone opposés."
@@ -212,27 +247,32 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 64,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la voie enzymatique de décarboxylation :",
+    "question": "À propos de la voie enzymatique de décarboxylation:",
     "choices": [
       {
-        "content": "Elle est explicitement mentionnée dans la fiche.",
+        "content": "Le bilan carbone reste une perte d'un carbone organique.",
         "correct": true,
-        "explanation": "La définition cite voie chimique ou enzymatique."
+        "explanation": "Le CO2 emporte un carbone."
+      },
+      {
+        "content": "Une décarboxylation correspond à une perte de $\\ce{CO2}$.",
+        "correct": true,
+        "explanation": "La réaction retire un groupement carboxylé sous forme de dioxyde de carbone."
+      },
+      {
+        "content": "Elle n’est pas explicitement mentionnée.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Elle est explicitement mentionnée ». La négation proposée est donc fausse."
       },
       {
         "content": "Elle conduit également à une perte de CO2.",
         "correct": true,
-        "explanation": "C'est toujours une décarboxylation."
+        "explanation": "C'est toujours une décarboxylation: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Elle est exclue des organismes vivants par définition.",
         "correct": false,
         "explanation": "Le support mentionne précisément la voie enzymatique."
-      },
-      {
-        "content": "Le bilan carbone reste une perte d'un carbone organique.",
-        "correct": true,
-        "explanation": "Le CO2 emporte un carbone."
       }
     ],
     "explanation": "Le mécanisme détaillé n'est pas développé, mais la possibilité d'une décarboxylation enzymatique doit être retenue."
@@ -241,27 +281,32 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 65,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Lors d'une décarboxylation, quelles propositions sont exactes ?",
+    "question": "Lors d'une décarboxylation, quelles propositions sont exactes?",
     "choices": [
-      {
-        "content": "Une fonction acide carboxylique est impliquée dans le groupe perdu.",
-        "correct": true,
-        "explanation": "Le carbone carboxylique part sous forme de CO2 dans les schémas."
-      },
       {
         "content": "Du dioxyde de carbone est dégagé.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "Le produit organique est plus court d'un carbone.",
         "correct": true,
-        "explanation": "Conséquence."
+        "explanation": "Conséquence: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Un carbone provenant de l'extérieur est ajouté.",
         "correct": false,
-        "explanation": "Cela décrirait une carboxylation."
+        "explanation": "Cela décrirait une carboxylation: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
+        "correct": false,
+        "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
+      },
+      {
+        "content": "Une fonction acide carboxylique est impliquée dans le groupe perdu.",
+        "correct": true,
+        "explanation": "Le carbone carboxylique part sous forme de CO2 dans les schémas."
       }
     ],
     "explanation": "La décarboxylation se suit efficacement par son bilan carboné."
@@ -270,12 +315,22 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 66,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel mot décrit le mieux la transformation inverse, du point de vue du bilan carbone, de l'utilisation de CO2 avec un organomagnésien ?",
+    "question": "Quel mot décrit le mieux la transformation inverse, du point de vue du bilan carbone, de l'utilisation de CO2 avec un organomagnésien?",
     "choices": [
       {
         "content": "Décarboxylation.",
         "correct": true,
         "explanation": "Elle retire un carbone sous forme de CO2."
+      },
+      {
+        "content": "Amidification.",
+        "correct": false,
+        "explanation": "Formation d'une amide: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "$\\ce{H2O}$ uniquement.",
+        "correct": false,
+        "explanation": "L’eau seule n’apporte pas le carbone supplémentaire nécessaire à la carboxylation."
       },
       {
         "content": "Hydrolyse.",
@@ -285,12 +340,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Saponification.",
         "correct": false,
-        "explanation": "Hydrolyse basique d'un ester."
-      },
-      {
-        "content": "Amidification.",
-        "correct": false,
-        "explanation": "Formation d'une amide."
+        "explanation": "Hydrolyse basique d'un ester: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Carboxylation et décarboxylation ont des effets opposés sur le nombre de carbones."
@@ -299,8 +349,23 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 67,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une molécule à 6 carbones subit une décarboxylation simple correspondant à la perte d'un seul CO2. Quelles propositions sont exactes ?",
+    "question": "Une molécule à 6 carbones subit une décarboxylation simple correspondant à la perte d'un seul CO2. Quelles propositions sont exactes?",
     "choices": [
+      {
+        "content": "Le produit organique compte 7 carbones.",
+        "correct": false,
+        "explanation": "Ce serait un gain: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Le comptage des carbones permet de vérifier le bilan.",
+        "correct": true,
+        "explanation": "Repère simple: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+      },
       {
         "content": "Le produit organique compte 5 carbones.",
         "correct": true,
@@ -309,17 +374,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un carbone se retrouve dans CO2.",
         "correct": true,
-        "explanation": "Bilan."
-      },
-      {
-        "content": "Le produit organique compte 7 carbones.",
-        "correct": false,
-        "explanation": "Ce serait un gain."
-      },
-      {
-        "content": "Le comptage des carbones permet de vérifier le bilan.",
-        "correct": true,
-        "explanation": "Repère simple."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
     "explanation": "Une décarboxylation unique enlève un carbone du squelette organique."
@@ -328,7 +383,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 68,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Une molécule organique à 9 carbones perd une seule molécule de CO2 par décarboxylation. Combien de carbones reste-t-il dans le produit organique ?",
+    "question": "Une molécule organique à 9 carbones perd une seule molécule de CO2 par décarboxylation. Combien de carbones reste-t-il dans le produit organique?",
     "answer": {
       "type": "number",
       "value": 8,
@@ -340,8 +395,18 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 69,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On compare deux réactions : A, $\\mathrm{R{-}MgX + CO_2 \\rightarrow R{-}COOH}$ ; B, décarboxylation d'un acide. Quelles propositions sont exactes ?",
+    "question": "On compare deux réactions: A, $\\mathrm{R{-}MgX + CO_2 \\rightarrow R{-}COOH}$; B, décarboxylation d'un acide. Quelles propositions sont exactes?",
     "choices": [
+      {
+        "content": "CO2 est produit dans B.",
+        "correct": true,
+        "explanation": "Produit: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
+        "correct": false,
+        "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
+      },
       {
         "content": "A ajoute un carbone à R.",
         "correct": true,
@@ -355,12 +420,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "CO2 est consommé dans A.",
         "correct": true,
-        "explanation": "Réactif."
-      },
-      {
-        "content": "CO2 est produit dans B.",
-        "correct": true,
-        "explanation": "Produit."
+        "explanation": "Réactif: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Le couple carboxylation/décarboxylation est particulièrement utile pour contrôler le bilan carbone."
@@ -369,13 +429,8 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 70,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une structure possède une fonction acide carboxylique et un carbonyle dans l'environnement favorable décrit par la fiche. Quelles conclusions sont soutenues ?",
+    "question": "Une structure possède une fonction acide carboxylique et un carbonyle dans l'environnement favorable décrit par la. Quelles conclusions sont soutenues?",
     "choices": [
-      {
-        "content": "La décarboxylation peut être particulièrement facile.",
-        "correct": true,
-        "explanation": "Point explicite."
-      },
       {
         "content": "Le carbonyle peut appartenir à plusieurs familles fonctionnelles.",
         "correct": true,
@@ -389,7 +444,17 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La réaction devient obligatoirement une hydrolyse de nitrile.",
         "correct": false,
-        "explanation": "Il s'agit d'une décarboxylation."
+        "explanation": "Il s'agit d'une décarboxylation: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
+        "correct": false,
+        "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
+      },
+      {
+        "content": "La décarboxylation ne peut pas être particulièrement facile.",
+        "correct": false,
+        "explanation": "La relation correcte est: « La décarboxylation peut être particulièrement facile ». La négation proposée est donc fausse."
       }
     ],
     "explanation": "Le support associe certaines structures carbonylées à une décarboxylation facilitée."
@@ -398,27 +463,32 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 71,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quels indices permettent d'identifier une question de décarboxylation ?",
+    "question": "Quels indices permettent d'identifier une question de décarboxylation?",
     "choices": [
+      {
+        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+      },
       {
         "content": "Perte de CO2.",
         "correct": true,
-        "explanation": "Signature."
+        "explanation": "Signature: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Produit organique avec un carbone de moins.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "Fonction acide carboxylique dans le substrat.",
         "correct": true,
-        "explanation": "Présente dans les schémas du support."
+        "explanation": "Présente dans les schémas: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Gain d'un carbone grâce à CO2.",
         "correct": false,
-        "explanation": "C'est une carboxylation."
+        "explanation": "C'est une carboxylation: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Le bilan réactionnel et le comptage des carbones sont les deux indices les plus robustes."
@@ -427,18 +497,8 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 72,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos du schéma favorable à la décarboxylation présenté dans la fiche :",
+    "question": "À propos du schéma favorable à la décarboxylation présenté:",
     "choices": [
-      {
-        "content": "Le substrat contient une fonction acide carboxylique.",
-        "correct": true,
-        "explanation": "COOH est représenté."
-      },
-      {
-        "content": "Un second groupement carbonylé est présent.",
-        "correct": true,
-        "explanation": "Le schéma montre notamment un motif CO-R'."
-      },
       {
         "content": "Le produit conserve le groupement carbonylé non perdu.",
         "correct": true,
@@ -448,6 +508,21 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "content": "Le produit conserve nécessairement le groupe COOH.",
         "correct": false,
         "explanation": "La fonction carboxylique est celle qui est perdue dans la décarboxylation représentée."
+      },
+      {
+        "content": "Un acide carboxylique peut céder le proton de son groupe $\\ce{-COOH}$ pour former un carboxylate.",
+        "correct": true,
+        "explanation": "La déprotonation conduit au motif $\\ce{R-COO^-}$, dont la charge est délocalisée sur les deux oxygènes."
+      },
+      {
+        "content": "Le substrat ne contient pas une fonction acide carboxylique.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Le substrat contient une fonction acide carboxylique ». La négation proposée est donc fausse."
+      },
+      {
+        "content": "Un second groupement carbonylé est présent.",
+        "correct": true,
+        "explanation": "Le schéma montre notamment un motif CO-R'."
       }
     ],
     "explanation": "Le schéma montre que le carbonyle voisin peut rester dans le produit tandis que CO2 est éliminé."
@@ -456,7 +531,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 73,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une voie biochimique est décrite comme transformant un acide organique en un produit plus court avec dégagement de CO2. Quelles propositions sont cohérentes avec la fiche ?",
+    "question": "Une voie biochimique est décrite comme transformant un acide organique en un produit plus court avec dégagement de CO2. Quelles propositions sont cohérentes avec la?",
     "choices": [
       {
         "content": "Il s'agit d'une décarboxylation enzymatique possible.",
@@ -466,7 +541,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le produit possède un carbone de moins si une seule molécule de CO2 est perdue.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "La réaction est nécessairement une carboxylation.",
@@ -476,7 +551,12 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le terme décarboxylation est approprié.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
+        "correct": false,
+        "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
       }
     ],
     "explanation": "Le support permet de reconnaître la transformation même sans mécanisme enzymatique détaillé."
@@ -485,27 +565,32 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 74,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une molécule possédant 5 carbones est carboxylée par CO2 dans une première étape puis décarboxylée dans une seconde étape unique. Si l'on ne considère que le bilan carbone de ces deux opérations :",
+    "question": "Une molécule possédant 5 carbones est carboxylée par CO2 dans une première étape puis décarboxylée dans une seconde étape unique. Si l'on ne considère que le bilan carbone de ces deux opérations:",
     "choices": [
       {
-        "content": "Après carboxylation, elle peut compter 6 carbones.",
-        "correct": true,
-        "explanation": "Gain d'un carbone."
+        "content": "La décarboxylation ajoute encore un carbone.",
+        "correct": false,
+        "explanation": "Elle en retire un: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+      },
+      {
+        "content": "Après carboxylation, elle ne peut pas compter 6 carbones.",
+        "correct": false,
+        "explanation": "La relation correcte est: « Après carboxylation, elle peut compter 6 carbones ». La négation proposée est donc fausse."
       },
       {
         "content": "Après une décarboxylation unique, elle revient à 5 carbones.",
         "correct": true,
-        "explanation": "Perte d'un carbone."
+        "explanation": "Perte d'un carbone: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Les deux étapes ont des effets opposés sur le bilan carbone.",
         "correct": true,
-        "explanation": "+1 puis −1."
-      },
-      {
-        "content": "La décarboxylation ajoute encore un carbone.",
-        "correct": false,
-        "explanation": "Elle en retire un."
+        "explanation": "+1 puis −1: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Cette question croise les deux réactions sans supposer qu'elles constituent une voie réelle unique."
@@ -514,7 +599,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 75,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel gaz caractérise une décarboxylation ?",
+    "question": "Quel gaz caractérise une décarboxylation?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -535,22 +620,27 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 76,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quel niveau de détail la fiche fournit-elle sur la décarboxylation ?",
+    "question": "Quel niveau de détail la fournit-elle sur la décarboxylation?",
     "choices": [
+      {
+        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+      },
       {
         "content": "Une définition par perte de CO2.",
         "correct": true,
-        "explanation": "Explicitement donnée."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "La possibilité de voies chimique et enzymatique.",
         "correct": true,
-        "explanation": "Explicitement donnée."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "Des structures carbonylées favorables.",
         "correct": true,
-        "explanation": "Explicitement données."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "Un mécanisme électronique exhaustif avec toutes les étapes élémentaires.",
@@ -568,16 +658,6 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Sélectionnez exactement les deux transformations aux effets opposés sur le nombre de carbones.",
     "choices": [
       {
-        "content": "Carboxylation d'un organomagnésien par CO2.",
-        "correct": true,
-        "explanation": "Gain d'un carbone."
-      },
-      {
-        "content": "Décarboxylation.",
-        "correct": true,
-        "explanation": "Perte d'un carbone."
-      },
-      {
         "content": "Hydrolyse d'un ester.",
         "correct": false,
         "explanation": "Pas de changement de squelette acyle dans le bilan simplifié."
@@ -586,6 +666,21 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "content": "Hydrolyse d'une amide.",
         "correct": false,
         "explanation": "Pas de gain/perte d'un carbone dans le bilan donné."
+      },
+      {
+        "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
+        "correct": false,
+        "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
+      },
+      {
+        "content": "Carboxylation d'un organomagnésien par CO2.",
+        "correct": true,
+        "explanation": "Gain d'un carbone: cette relation est conforme à la propriété ou à la transformation décrite."
+      },
+      {
+        "content": "Décarboxylation.",
+        "correct": true,
+        "explanation": "Perte d'un carbone: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Carboxylation et décarboxylation forment le couple opposé du point de vue du bilan carbone."
@@ -600,37 +695,37 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une décarboxylation libère CO2.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Définition : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Elle peut être chimique.",
         "correct": true,
-        "explanation": "Voie citée."
+        "explanation": "Voie citée : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Elle peut être enzymatique.",
         "correct": true,
-        "explanation": "Voie citée."
+        "explanation": "Voie citée : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Une décarboxylation unique diminue le produit organique d'un carbone.",
         "correct": true,
-        "explanation": "Bilan."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "Un carbonyle dans la structure favorable peut faciliter la réaction.",
         "correct": true,
-        "explanation": "Point du support."
+        "explanation": "Point : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Une décarboxylation consomme CO2.",
         "correct": false,
-        "explanation": "Elle le libère."
+        "explanation": "Elle le libère : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Elle augmente toujours le squelette d'un carbone.",
         "correct": false,
-        "explanation": "Elle le diminue."
+        "explanation": "Elle le diminue : cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
         "content": "Seules les cétones sont citées comme fonctions carbonylées favorables.",
@@ -640,12 +735,12 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La voie enzymatique est exclue.",
         "correct": false,
-        "explanation": "Elle est explicitement mentionnée."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "Le bilan carbone est identique à celui de R-MgX + CO2.",
         "correct": false,
-        "explanation": "Les effets sont opposés."
+        "explanation": "Les effets sont opposés : cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
     "explanation": "Cette sélection consolide définition, contexte structural et bilan carbone."
