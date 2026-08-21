@@ -12,14 +12,14 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos des alcènes acycliques comportant une seule double liaison, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ce sont des hydrocarbures insaturés.",
-        "correct": true,
-        "explanation": "La double liaison crée une insaturation."
+        "content": "Un alcène acyclique comportant une seule double liaison suit $\\ce{C_nH_{2n+2}}$.",
+        "correct": false,
+        "explanation": "Il suit $\\ce{C_nH_{2n}}$."
       },
       {
         "content": "Leur formule générale est $\\ce{C_nH_{2n}}$.",
         "correct": true,
-        "explanation": "C'est la formule donnée dans la fiche."
+        "explanation": "C'est la formule donnée dans le modèle étudié."
       },
       {
         "content": "Ils comportent une liaison $\\ce{C=C}$.",
@@ -30,6 +30,11 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils sont tous saturés.",
         "correct": false,
         "explanation": "Ils sont insaturés."
+      },
+      {
+        "content": "Un alcène acyclique comportant une seule double liaison suit $\\ce{C_nH_{2n-2}}$.",
+        "correct": false,
+        "explanation": "Avec une seule double liaison et sans cycle, la formule générale est $\\ce{C_nH_{2n}}$."
       }
     ],
     "explanation": "Un alcène mono-insaturé acyclique possède une double liaison et suit $\\ce{C_nH_{2n}}$."
@@ -44,6 +49,11 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{C6H12}$",
         "correct": true,
         "explanation": "Pour n=6, H=2n=12."
+      },
+      {
+        "content": "$\\ce{C6H16}$.",
+        "correct": false,
+        "explanation": "Un hexène acyclique monounsaturé a pour formule $\\ce{C6H12}$."
       },
       {
         "content": "$\\ce{C6H14}$",
@@ -70,11 +80,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Concernant la nomenclature élémentaire des alcènes :",
     "choices": [
       {
-        "content": "Éthène possède 2 carbones.",
-        "correct": true,
-        "explanation": "Éth- = 2."
-      },
-      {
         "content": "Propène possède 3 carbones.",
         "correct": true,
         "explanation": "Prop- = 3."
@@ -88,6 +93,16 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le suffixe -ène signale la présence d'une double liaison.",
         "correct": true,
         "explanation": "C'est le suffixe de la famille."
+      },
+      {
+        "content": "Le pentène comporte quatre atomes de carbone.",
+        "correct": false,
+        "explanation": "Le préfixe pent- correspond à cinq carbones."
+      },
+      {
+        "content": "Éthène possède 2 carbones.",
+        "correct": true,
+        "explanation": "Éth- = 2."
       }
     ],
     "explanation": "La racine indique le nombre de carbones et le suffixe -ène la double liaison."
@@ -98,6 +113,11 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos des diènes et triènes :",
     "choices": [
+      {
+        "content": "Un triène possède une double liaison de plus qu’un diène.",
+        "correct": true,
+        "explanation": "Un diène comporte deux doubles liaisons et un triène en comporte trois."
+      },
       {
         "content": "Un diène comporte deux doubles liaisons.",
         "correct": true,
@@ -119,7 +139,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Il comporte des doubles liaisons, pas une triple."
       }
     ],
-    "explanation": "La fiche rappelle la terminologie diène/triène pour plusieurs doubles liaisons."
+    "explanation": "Le modèle étudié rappelle la terminologie diène/triène pour plusieurs doubles liaisons."
   },
   {
     "order": 25,
@@ -128,24 +148,29 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Pourquoi une double liaison $\\ce{C=C}$ peut-elle conduire à une isomérie géométrique ?",
     "choices": [
       {
-        "content": "Il n'y a pas de libre rotation autour de la double liaison.",
-        "correct": true,
-        "explanation": "La liaison π bloque la rotation libre."
-      },
-      {
-        "content": "La disposition relative des substituants peut donc être figée.",
-        "correct": true,
-        "explanation": "Deux configurations distinctes peuvent exister."
-      },
-      {
         "content": "Les priorités des substituants peuvent être utilisées pour distinguer E et Z.",
         "correct": true,
-        "explanation": "La fiche renvoie à l'isomérie géométrique."
+        "explanation": "Le modèle étudié renvoie à l'isomérie géométrique."
       },
       {
         "content": "Toute double liaison donne obligatoirement E et Z.",
         "correct": false,
         "explanation": "Il faut des substituants différents sur chaque carbone."
+      },
+      {
+        "content": "Une configuration E/Z peut être attribuée même si l’un des carbones de la double liaison porte deux substituants identiques.",
+        "correct": false,
+        "explanation": "Pour définir E/Z, chacun des deux carbones de la double liaison doit porter deux substituants différents."
+      },
+      {
+        "content": "La géométrie E/Z dépend du nombre total de carbones de la molécule plutôt que de la nature des substituants.",
+        "correct": false,
+        "explanation": "E/Z dépend de la disposition relative des substituants prioritaires autour de la double liaison."
+      },
+      {
+        "content": "La disposition relative des substituants peut donc être figée.",
+        "correct": true,
+        "explanation": "Deux configurations distinctes peuvent exister."
       }
     ],
     "explanation": "La rigidité de C=C rend possible l'isomérie E/Z lorsque les conditions de substitution sont réunies."
@@ -154,8 +179,13 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 26,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle transformation prépare un alcène à partir d'un alcool dans la fiche ?",
+    "question": "Quelle transformation prépare un alcène à partir d'un alcool dans le modèle étudié ?",
     "choices": [
+      {
+        "content": "Une hydrogénation complète d’un alcène.",
+        "correct": false,
+        "explanation": "L’hydrogénation complète consomme une double liaison ; elle ne prépare pas un alcène à partir d’un alcool."
+      },
       {
         "content": "Une déshydratation.",
         "correct": true,
@@ -186,9 +216,19 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la déshydrohalogénation utilisée pour préparer un alcène :",
     "choices": [
       {
-        "content": "Le substrat comporte un halogène X.",
-        "correct": true,
-        "explanation": "X représente un halogène."
+        "content": "Elle ajoute deux hydrogènes sur une double liaison.",
+        "correct": false,
+        "explanation": "Ce serait une hydrogénation."
+      },
+      {
+        "content": "La transformation consomme du dihydrogène sans éliminer de composé halogéné.",
+        "correct": false,
+        "explanation": "Une déshydrohalogénation élimine HX et forme une double liaison."
+      },
+      {
+        "content": "Une déshydrohalogénation ajoute une molécule HX sur une double liaison.",
+        "correct": false,
+        "explanation": "Elle élimine HX et forme une double liaison."
       },
       {
         "content": "La transformation élimine HX.",
@@ -198,12 +238,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Il s'agit d'une voie de préparation d'un alcène.",
         "correct": true,
-        "explanation": "Elle figure dans le tableau de la fiche."
-      },
-      {
-        "content": "Elle ajoute deux hydrogènes sur une double liaison.",
-        "correct": false,
-        "explanation": "Ce serait une hydrogénation."
+        "explanation": "Elle figure dans le tableau de le modèle étudié."
       }
     ],
     "explanation": "La déshydrohalogénation est une élimination de HX créant une liaison C=C."
@@ -215,14 +250,9 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'hydrogénation partielle d'un alcyne peut conduire à un alcène. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle consomme une quantité limitée de dihydrogène.",
-        "correct": true,
-        "explanation": "On réduit la triple liaison au stade double."
-      },
-      {
         "content": "Le choix du catalyseur et des conditions est important.",
         "correct": true,
-        "explanation": "La fiche souligne la difficulté à s'arrêter au stade alcène."
+        "explanation": "Le modèle étudié souligne la difficulté à s'arrêter au stade alcène."
       },
       {
         "content": "Une hydrogénation poursuivie peut donner l'alcane.",
@@ -233,6 +263,16 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle transforme directement l'alcyne en alcool.",
         "correct": false,
         "explanation": "Ce n'est pas une hydratation."
+      },
+      {
+        "content": "Si la réduction se poursuit au-delà du stade alcène, un alcane peut être obtenu.",
+        "correct": true,
+        "explanation": "Une hydrogénation plus poussée réduit aussi la double liaison de l’alcène intermédiaire."
+      },
+      {
+        "content": "Elle consomme une quantité limitée de dihydrogène.",
+        "correct": true,
+        "explanation": "On réduit la triple liaison au stade double."
       }
     ],
     "explanation": "Le stade alcène est intermédiaire entre alcyne et alcane lors de l'hydrogénation."
@@ -244,11 +284,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Lequel des composés suivants peut présenter une isomérie E/Z ?",
     "choices": [
       {
-        "content": "$\\ce{CH3-CH=CH-CH3}$",
-        "correct": true,
-        "explanation": "Chaque carbone de la double liaison porte H et CH3."
-      },
-      {
         "content": "$\\ce{CH2=CH2}$",
         "correct": false,
         "explanation": "Chaque carbone porte deux H identiques."
@@ -259,9 +294,19 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone terminal porte deux H."
       },
       {
+        "content": "$\\ce{CH3-CH=CH-CH3}$",
+        "correct": true,
+        "explanation": "Chaque carbone de la double liaison porte H et CH3."
+      },
+      {
         "content": "$\\ce{CH3-CH2-CH3}$",
         "correct": false,
         "explanation": "Aucune double liaison."
+      },
+      {
+        "content": "$\\ce{CH3-C(CH3)=CH2}$.",
+        "correct": false,
+        "explanation": "Le carbone terminal $\\ce{CH2}$ porte deux hydrogènes identiques ; cette double liaison ne définit pas E/Z."
       }
     ],
     "explanation": "Le but-2-ène est l'exemple simple d'un alcène pouvant exister sous deux configurations géométriques."
@@ -273,16 +318,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelles propositions distinguent correctement alcène et cyclane ?",
     "choices": [
       {
-        "content": "Ils peuvent partager la même formule générale $\\ce{C_nH_{2n}}$.",
-        "correct": true,
-        "explanation": "Un alcène mono-insaturé et un cyclane monocyclique saturé ont cette formule."
-      },
-      {
-        "content": "L'alcène comporte une double liaison.",
-        "correct": true,
-        "explanation": "Motif C=C."
-      },
-      {
         "content": "Le cyclane étudié ne comporte pas de double liaison.",
         "correct": true,
         "explanation": "Il est saturé mais cyclique."
@@ -291,6 +326,21 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La formule brute seule suffit toujours à les distinguer.",
         "correct": false,
         "explanation": "Il faut connaître la structure."
+      },
+      {
+        "content": "Connaître seulement la formule brute peut ne pas suffire à décider s’il s’agit d’un cyclane ou d’un alcène.",
+        "correct": true,
+        "explanation": "Les deux familles peuvent partager la formule générale $\\ce{C_nH_{2n}}$."
+      },
+      {
+        "content": "Ils peuvent partager la même formule générale $\\ce{C_nH_{2n}}$.",
+        "correct": true,
+        "explanation": "Un alcène mono-insaturé et un cyclane monocyclique saturé ont cette formule."
+      },
+      {
+        "content": "L'alcène comporte une double liaison.",
+        "correct": true,
+        "explanation": "Motif C=C."
       }
     ],
     "explanation": "La formule $\\ce{C_nH_{2n}}$ n'identifie pas à elle seule la nature de l'insaturation."
@@ -302,9 +352,9 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Lors d'une déshydratation d'un alcool vers un alcène :",
     "choices": [
       {
-        "content": "Une molécule d'eau est éliminée.",
-        "correct": true,
-        "explanation": "C'est le bilan de la déshydratation."
+        "content": "Une déshydratation ajoute une molécule d’eau au substrat.",
+        "correct": false,
+        "explanation": "Elle élimine une molécule d’eau."
       },
       {
         "content": "Une double liaison se forme.",
@@ -320,6 +370,11 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le nombre de carbones du squelette change nécessairement.",
         "correct": false,
         "explanation": "Le squelette carboné peut rester identique."
+      },
+      {
+        "content": "La déshydratation augmente le nombre d’atomes d’oxygène du produit organique.",
+        "correct": false,
+        "explanation": "Une déshydratation élimine une molécule d’eau et forme une double liaison."
       }
     ],
     "explanation": "La déshydratation retire H et OH sous forme d'eau et crée C=C."
@@ -331,9 +386,19 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "La déshydrohalogénation de $\\ce{R-CHX-CH2-R'}$ peut donner $\\ce{R-CH=CH-R'}$. Quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Deux halogènes sont ajoutés au produit.",
+        "correct": false,
+        "explanation": "Ce serait une halogénation."
+      },
+      {
+        "content": "Le produit de déshydrohalogénation est nécessairement plus saturé que le substrat et dépourvu de $\\ce{C=C}$.",
+        "correct": false,
+        "explanation": "La réaction forme précisément une double liaison carbone-carbone."
+      },
+      {
         "content": "X représente un halogène.",
         "correct": true,
-        "explanation": "C'est la notation de la fiche."
+        "explanation": "C'est la notation de le modèle étudié."
       },
       {
         "content": "HX est éliminé.",
@@ -344,11 +409,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le produit possède une double liaison.",
         "correct": true,
         "explanation": "Alcène."
-      },
-      {
-        "content": "Deux halogènes sont ajoutés au produit.",
-        "correct": false,
-        "explanation": "Ce serait une halogénation."
       }
     ],
     "explanation": "Cette voie prépare un alcène par perte d'un hydracide halogéné."
@@ -359,11 +419,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On souhaite préparer un alcène à partir d'un alcyne. Quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Une hydrogénation partielle est possible.",
-        "correct": true,
-        "explanation": "L'alcyne est réduit au stade alcène."
-      },
       {
         "content": "Le catalyseur doit être choisi pour limiter la réduction.",
         "correct": true,
@@ -378,6 +433,16 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La réaction ajoute un atome d'oxygène.",
         "correct": false,
         "explanation": "Il s'agit d'une hydrogénation."
+      },
+      {
+        "content": "Une hydrogénation partielle d’un alcyne consomme deux équivalents de $\\ce{H2}$ et donne immédiatement l’alcane.",
+        "correct": false,
+        "explanation": "Le stade alcène correspond à une réduction partielle ; une réduction supplémentaire conduit à l’alcane."
+      },
+      {
+        "content": "Une hydrogénation partielle est possible.",
+        "correct": true,
+        "explanation": "L'alcyne est réduit au stade alcène."
       }
     ],
     "explanation": "L'hydrogénation séquentielle alcyne → alcène → alcane est un axe central du chapitre."
@@ -389,9 +454,9 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelle transformation est l'inverse conceptuel de l'hydrogénation d'un alcène vers un alcane parmi les choix suivants ?",
     "choices": [
       {
-        "content": "La création d'une double liaison par élimination.",
-        "correct": true,
-        "explanation": "Une élimination peut restaurer une insaturation."
+        "content": "Une coupure oxydante forte de la double liaison.",
+        "correct": false,
+        "explanation": "Une coupure oxydante détruit une double liaison ; elle n’est pas l’opération inverse conceptuelle d’une hydrogénation."
       },
       {
         "content": "L'addition de $\\ce{H2}$.",
@@ -402,6 +467,11 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "L'addition de $\\ce{Br2}$.",
         "correct": false,
         "explanation": "C'est une addition électrophile."
+      },
+      {
+        "content": "La création d'une double liaison par élimination.",
+        "correct": true,
+        "explanation": "Une élimination peut restaurer une insaturation."
       },
       {
         "content": "L'hydratation.",
@@ -418,16 +488,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la formule $\\ce{C4H8}$ :",
     "choices": [
       {
-        "content": "Elle peut correspondre à un butène acyclique mono-insaturé.",
-        "correct": true,
-        "explanation": "Alcène C_nH_2n."
-      },
-      {
-        "content": "Elle peut correspondre à un cyclobutane saturé.",
-        "correct": true,
-        "explanation": "Cyclane C_nH_2n."
-      },
-      {
         "content": "Elle ne correspond pas à l'alcane butane.",
         "correct": true,
         "explanation": "Butane = C4H10."
@@ -436,6 +496,21 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle impose une structure unique.",
         "correct": false,
         "explanation": "Plusieurs isomères sont possibles."
+      },
+      {
+        "content": "$\\ce{C4H8}$ correspond nécessairement au butane.",
+        "correct": false,
+        "explanation": "Le butane est $\\ce{C4H10}$ ; $\\ce{C4H8}$ peut notamment correspondre à un butène ou à un cyclobutane."
+      },
+      {
+        "content": "Elle peut correspondre à un butène acyclique mono-insaturé.",
+        "correct": true,
+        "explanation": "Alcène C_nH_2n."
+      },
+      {
+        "content": "Elle peut correspondre à un cyclobutane saturé.",
+        "correct": true,
+        "explanation": "Cyclane C_nH_2n."
       }
     ],
     "explanation": "La formule brute ne suffit pas à distinguer cycle, position de double liaison ou autres isomères."
@@ -447,9 +522,9 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare but-1-ène et but-2-ène. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils ont la même formule brute.",
-        "correct": true,
-        "explanation": "C4H8."
+        "content": "Le but-1-ène et le but-2-ène possèdent des formules brutes différentes.",
+        "correct": false,
+        "explanation": "Ils sont des isomères de position de même formule brute."
       },
       {
         "content": "Ils diffèrent par la position de la double liaison.",
@@ -465,6 +540,11 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils sont énantiomères.",
         "correct": false,
         "explanation": "La connectivité diffère par la position de la double liaison."
+      },
+      {
+        "content": "Le but-1-ène et le but-2-ène ont des formules brutes différentes.",
+        "correct": false,
+        "explanation": "Ils ont la même formule brute ; seule la position de la double liaison change."
       }
     ],
     "explanation": "La nomenclature localise la double liaison et permet de distinguer les isomères de position."
@@ -475,6 +555,16 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Le but-2-ène peut exister sous formes E et Z. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Les deux formes s'interconvertissent par simple rotation libre autour de C=C.",
+        "correct": false,
+        "explanation": "La rotation est bloquée."
+      },
+      {
+        "content": "Les formes E et Z du but-2-ène ont des formules brutes différentes.",
+        "correct": false,
+        "explanation": "E et Z décrivent deux configurations de même formule brute et de même connectivité."
+      },
       {
         "content": "La double liaison bloque la rotation libre.",
         "correct": true,
@@ -489,11 +579,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "E/Z décrit la géométrie relative des substituants prioritaires.",
         "correct": true,
         "explanation": "Règles CIP."
-      },
-      {
-        "content": "Les deux formes s'interconvertissent par simple rotation libre autour de C=C.",
-        "correct": false,
-        "explanation": "La rotation est bloquée."
       }
     ],
     "explanation": "L'isomérie géométrique est une conséquence directe de la rigidité de la double liaison."
@@ -537,16 +622,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Dans une stratégie de synthèse, quelles voies du chapitre permettent directement de créer une double liaison C=C ?",
     "choices": [
       {
-        "content": "Déshydratation d'un alcool.",
-        "correct": true,
-        "explanation": "Élimination de H2O."
-      },
-      {
-        "content": "Déshydrohalogénation.",
-        "correct": true,
-        "explanation": "Élimination de HX."
-      },
-      {
         "content": "Hydrogénation partielle d'un alcyne.",
         "correct": true,
         "explanation": "Réduction contrôlée de C≡C en C=C."
@@ -555,9 +630,24 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Hydrogénation complète d'un alcène.",
         "correct": false,
         "explanation": "Elle détruit C=C pour donner un alcane."
+      },
+      {
+        "content": "L’hydratation d’un alcène est une méthode de formation directe d’une nouvelle liaison $\\ce{C=C}$.",
+        "correct": false,
+        "explanation": "L’hydratation est une addition sur la double liaison ; elle la consomme."
+      },
+      {
+        "content": "L’hydratation d’un alcène constitue une méthode directe de création d’une liaison $\\ce{C=C}$.",
+        "correct": false,
+        "explanation": "L’hydratation consomme une double liaison."
+      },
+      {
+        "content": "Déshydrohalogénation.",
+        "correct": true,
+        "explanation": "Élimination de HX."
       }
     ],
-    "explanation": "Trois voies de préparation de l'alcène sont présentées dans la fiche."
+    "explanation": "Trois voies de préparation de l'alcène sont présentées dans le modèle étudié."
   },
   {
     "order": 123,

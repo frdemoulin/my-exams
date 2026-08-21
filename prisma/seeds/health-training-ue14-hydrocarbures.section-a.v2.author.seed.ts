@@ -12,24 +12,29 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos des alcanes acycliques saturés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils ne comportent que des liaisons simples entre carbones.",
-        "correct": true,
-        "explanation": "Ils sont saturés."
+        "content": "Les alcanes sont nécessairement cycliques.",
+        "correct": false,
+        "explanation": "Un alcane peut être acyclique ; les cyclanes constituent une famille cyclique distincte."
       },
       {
         "content": "Leur formule générale est $\\ce{C_nH_{2n+2}}$.",
         "correct": true,
-        "explanation": "C'est la formule donnée dans la fiche pour les alcanes acycliques."
+        "explanation": "C'est la formule donnée dans le modèle étudié pour les alcanes acycliques."
       },
       {
         "content": "Ils sont issus notamment du pétrole.",
         "correct": true,
-        "explanation": "La fiche cite cette origine."
+        "explanation": "Le modèle étudié cite cette origine."
       },
       {
         "content": "Ils contiennent nécessairement une double liaison $\\ce{C=C}$.",
         "correct": false,
         "explanation": "Une double liaison caractérise un alcène, pas un alcane."
+      },
+      {
+        "content": "Un alcane acyclique saturé de formule générale $\\ce{C_nH_{2n}}$ appartient à la même famille qu’un cyclane.",
+        "correct": false,
+        "explanation": "Un alcane acyclique saturé suit $\\ce{C_nH_{2n+2}}$ ; $\\ce{C_nH_{2n}}$ correspond notamment à un cyclane monocyclique saturé."
       }
     ],
     "explanation": "Les alcanes sont des hydrocarbures saturés acycliques répondant à la formule générale $\\ce{C_nH_{2n+2}}$."
@@ -44,6 +49,11 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{C5H12}$",
         "correct": true,
         "explanation": "Pour n=5, 2n+2=12."
+      },
+      {
+        "content": "$\\ce{C5H6}$.",
+        "correct": false,
+        "explanation": "Le pentane est un alcane acyclique saturé : sa formule est $\\ce{C5H12}$."
       },
       {
         "content": "$\\ce{C5H10}$",
@@ -70,11 +80,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelles associations nom → formule sont exactes ?",
     "choices": [
       {
-        "content": "Méthane → $\\ce{CH4}$.",
-        "correct": true,
-        "explanation": "n=1."
-      },
-      {
         "content": "Éthane → $\\ce{C2H6}$.",
         "correct": true,
         "explanation": "n=2."
@@ -88,6 +93,16 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Butane → $\\ce{C4H10}$.",
         "correct": true,
         "explanation": "n=4."
+      },
+      {
+        "content": "Pentane — $\\ce{C5H10}$.",
+        "correct": false,
+        "explanation": "Le pentane contient cinq carbones et suit $\\ce{C_nH_{2n+2}}$, soit $\\ce{C5H12}$."
+      },
+      {
+        "content": "Méthane → $\\ce{CH4}$.",
+        "correct": true,
+        "explanation": "n=1."
       }
     ],
     "explanation": "Les premiers alcanes suivent directement la formule $\\ce{C_nH_{2n+2}}$."
@@ -108,18 +123,8 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 5,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les cyclanes monocycliques saturés étudiés dans la fiche :",
+    "question": "Concernant les cyclanes monocycliques saturés étudiés dans le modèle étudié :",
     "choices": [
-      {
-        "content": "Ils ne comportent pas de double liaison.",
-        "correct": true,
-        "explanation": "Ce sont des hydrocarbures cycliques saturés."
-      },
-      {
-        "content": "Leur formule générale est $\\ce{C_nH_{2n}}$.",
-        "correct": true,
-        "explanation": "La fermeture du cycle enlève deux H par rapport à l'alcane acyclique."
-      },
       {
         "content": "Le cyclopropane possède trois carbones.",
         "correct": true,
@@ -129,6 +134,21 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le cyclohexane possède une formule $\\ce{C6H14}$.",
         "correct": false,
         "explanation": "Un cyclane à six carbones est $\\ce{C6H12}$."
+      },
+      {
+        "content": "La fermeture d’un cycle ajoute deux hydrogènes par rapport à l’alcane acyclique de même nombre de carbones.",
+        "correct": false,
+        "explanation": "La fermeture d’un cycle retire l’équivalent de deux hydrogènes : un cyclane monocyclique saturé suit $\\ce{C_nH_{2n}}$."
+      },
+      {
+        "content": "Les cyclanes monocycliques saturés suivent $\\ce{C_nH_{2n+2}}$.",
+        "correct": false,
+        "explanation": "Ils suivent $\\ce{C_nH_{2n}}$."
+      },
+      {
+        "content": "Leur formule générale est $\\ce{C_nH_{2n}}$.",
+        "correct": true,
+        "explanation": "La fermeture du cycle enlève deux H par rapport à l'alcane acyclique."
       }
     ],
     "explanation": "Les cyclanes saturés monocycliques ont la formule $\\ce{C_nH_{2n}}$."
@@ -139,6 +159,11 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRU",
     "question": "Quelle est la formule brute du cyclohexane ?",
     "choices": [
+      {
+        "content": "$\\ce{C6H8}$.",
+        "correct": false,
+        "explanation": "Le cyclohexane est un cyclane saturé à six carbones : $\\ce{C6H12}$."
+      },
       {
         "content": "$\\ce{C6H12}$",
         "correct": true,
@@ -166,12 +191,22 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la stabilité des petits cyclanes selon la fiche :",
+    "question": "À propos de la stabilité des petits cyclanes dans le modèle étudié :",
     "choices": [
       {
-        "content": "Le cyclopropane est un cycle tendu et énergétiquement instable.",
-        "correct": true,
-        "explanation": "La forte contrainte du petit cycle est soulignée."
+        "content": "Tous les cyclanes ont exactement la même stabilité.",
+        "correct": false,
+        "explanation": "La stabilité varie avec la taille du cycle."
+      },
+      {
+        "content": "Le cyclodécane est présenté comme plus stable que le cyclohexane.",
+        "correct": false,
+        "explanation": "La stabilité est élevée pour le cyclopentane et le cyclohexane puis diminue lorsque la taille du cycle augmente."
+      },
+      {
+        "content": "Le cyclopropane fait partie des cycles les moins tendus et les plus stables.",
+        "correct": false,
+        "explanation": "Le cyclopropane est un cycle tendu et énergétiquement défavorisé."
       },
       {
         "content": "Le cyclobutane est également tendu et relativement instable.",
@@ -182,14 +217,9 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le cyclopentane et le cyclohexane sont très stables.",
         "correct": true,
         "explanation": "Ce sont les cycles cités comme très stables."
-      },
-      {
-        "content": "Tous les cyclanes ont exactement la même stabilité.",
-        "correct": false,
-        "explanation": "La stabilité varie avec la taille du cycle."
       }
     ],
-    "explanation": "La fiche oppose les petits cycles tendus aux cycles à cinq et six carbones, beaucoup plus stables."
+    "explanation": "Le modèle étudié oppose les petits cycles tendus aux cycles à cinq et six carbones, beaucoup plus stables."
   },
   {
     "order": 8,
@@ -198,14 +228,9 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelles propositions relient correctement alcane et cyclane ?",
     "choices": [
       {
-        "content": "Un alcane acyclique à n carbones a deux hydrogènes de plus que le cyclane monocyclique saturé de même n.",
-        "correct": true,
-        "explanation": "C_nH_{2n+2} contre C_nH_{2n}."
-      },
-      {
         "content": "Les cyclanes ont des propriétés générales proches de celles des alcanes.",
         "correct": true,
-        "explanation": "La fiche le précise."
+        "explanation": "Le modèle étudié le précise."
       },
       {
         "content": "Cyclohexane et hexane ont la même formule brute.",
@@ -216,6 +241,16 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La présence du préfixe cyclo- indique une structure cyclique.",
         "correct": true,
         "explanation": "C'est le rôle du préfixe."
+      },
+      {
+        "content": "Un cyclane monocyclique saturé peut avoir la même formule brute qu’un alcène acyclique comportant une seule double liaison.",
+        "correct": true,
+        "explanation": "Ces deux familles peuvent suivre $\\ce{C_nH_{2n}}$ ; la formule brute seule ne suffit donc pas toujours à les distinguer."
+      },
+      {
+        "content": "Un alcane acyclique à n carbones a deux hydrogènes de plus que le cyclane monocyclique saturé de même n.",
+        "correct": true,
+        "explanation": "C_nH_{2n+2} contre C_nH_{2n}."
       }
     ],
     "explanation": "La fermeture d'un cycle modifie la formule brute tout en conservant le caractère saturé."
@@ -227,11 +262,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Parmi les molécules suivantes, laquelle est un cyclane saturé ?",
     "choices": [
       {
-        "content": "$\\ce{C5H10}$ sous forme cyclopentane.",
-        "correct": true,
-        "explanation": "Cyclopentane est un cycle saturé."
-      },
-      {
         "content": "$\\ce{C5H12}$ pentane.",
         "correct": false,
         "explanation": "C'est un alcane acyclique."
@@ -242,9 +272,19 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est un alcyne."
       },
       {
+        "content": "$\\ce{C5H10}$ sous forme cyclopentane.",
+        "correct": true,
+        "explanation": "Cyclopentane est un cycle saturé."
+      },
+      {
         "content": "$\\ce{C5H10}$ pentène.",
         "correct": false,
         "explanation": "Même formule brute possible, mais la proposition décrit ici un alcène."
+      },
+      {
+        "content": "$\\ce{C6H14}$ sous forme cyclique saturée.",
+        "correct": false,
+        "explanation": "Un cycle saturé à six carbones suit $\\ce{C_nH_{2n}}$, donc $\\ce{C6H12}$."
       }
     ],
     "explanation": "La formule seule peut être ambiguë : $\\ce{C5H10}$ peut correspondre à un cyclane ou à un alcène ; la structure ou le nom complète l'information."
@@ -257,16 +297,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Sélectionnez exactement les deux propositions correctes.",
     "choices": [
       {
-        "content": "Le propane et le butane sont cités pour des applications industrielles de chauffage.",
-        "correct": true,
-        "explanation": "La fiche donne cet exemple."
-      },
-      {
-        "content": "Les applications thérapeutiques directes des alcanes sont décrites comme beaucoup plus limitées.",
-        "correct": true,
-        "explanation": "C'est le contraste présenté."
-      },
-      {
         "content": "Le méthane est un cyclane.",
         "correct": false,
         "explanation": "C'est l'alcane le plus simple."
@@ -275,6 +305,21 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le cyclopropane appartient à la série $\\ce{C_nH_{2n+2}}$.",
         "correct": false,
         "explanation": "Un cyclane suit $\\ce{C_nH_{2n}}$."
+      },
+      {
+        "content": "Le cyclohexane appartient à la série $\\ce{C_nH_{2n+2}}$.",
+        "correct": false,
+        "explanation": "Le cyclohexane est un cyclane monocyclique saturé : $\\ce{C6H12}$."
+      },
+      {
+        "content": "Le propane et le butane sont cités pour des applications industrielles de chauffage.",
+        "correct": true,
+        "explanation": "Le modèle étudié donne cet exemple."
+      },
+      {
+        "content": "Les applications thérapeutiques directes des alcanes sont décrites comme beaucoup plus limitées.",
+        "correct": true,
+        "explanation": "C'est le contraste présenté."
       }
     ],
     "explanation": "Le chapitre situe les alcanes dans leur contexte industriel tout en restant centré sur leurs propriétés structurales."
@@ -298,9 +343,19 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare hexane et cyclohexane. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L'hexane a pour formule $\\ce{C6H14}$.",
-        "correct": true,
-        "explanation": "Alcane acyclique."
+        "content": "Le cyclohexane possède nécessairement une double liaison.",
+        "correct": false,
+        "explanation": "Il est saturé."
+      },
+      {
+        "content": "À nombre de carbones égal, la fermeture du cycle augmente de deux le nombre d’hydrogènes.",
+        "correct": false,
+        "explanation": "Elle diminue de deux le nombre d’hydrogènes par rapport à l’alcane acyclique correspondant."
+      },
+      {
+        "content": "L’hexane a pour formule $\\ce{C6H12}$.",
+        "correct": false,
+        "explanation": "L’hexane est $\\ce{C6H14}$ ; $\\ce{C6H12}$ correspond notamment au cyclohexane."
       },
       {
         "content": "Le cyclohexane a pour formule $\\ce{C6H12}$.",
@@ -311,11 +366,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le cyclohexane présente une insaturation au sens du calcul de formule, liée à la fermeture du cycle.",
         "correct": true,
         "explanation": "Le cycle retire deux H sans introduire de double liaison."
-      },
-      {
-        "content": "Le cyclohexane possède nécessairement une double liaison.",
-        "correct": false,
-        "explanation": "Il est saturé."
       }
     ],
     "explanation": "Une insaturation de formule peut correspondre à un cycle et non à une liaison multiple."
@@ -326,11 +376,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRU",
     "question": "Un composé saturé monocyclique possède 9 carbones. Quelle formule générale permet de prévoir sa formule brute ?",
     "choices": [
-      {
-        "content": "$\\ce{C_nH_{2n}}$.",
-        "correct": true,
-        "explanation": "C'est un cyclane monocyclique saturé."
-      },
       {
         "content": "$\\ce{C_nH_{2n+2}}$.",
         "correct": false,
@@ -345,6 +390,16 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{C_nH_n}$.",
         "correct": false,
         "explanation": "Ce n'est pas la série étudiée."
+      },
+      {
+        "content": "$\\ce{C_nH_{2n}}$.",
+        "correct": true,
+        "explanation": "C'est un cyclane monocyclique saturé."
+      },
+      {
+        "content": "$\\ce{C_nH_{2n+4}}$.",
+        "correct": false,
+        "explanation": "Un cyclane monocyclique saturé suit $\\ce{C_nH_{2n}}$."
       }
     ],
     "explanation": "Pour n=9, un cyclane saturé a donc la formule $\\ce{C9H18}$."
@@ -368,16 +423,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos des noms des hydrocarbures saturés étudiés :",
     "choices": [
       {
-        "content": "Heptane contient 7 carbones.",
-        "correct": true,
-        "explanation": "Hept- = 7."
-      },
-      {
-        "content": "Octane contient 8 carbones.",
-        "correct": true,
-        "explanation": "Oct- = 8."
-      },
-      {
         "content": "Nonane contient 9 carbones.",
         "correct": true,
         "explanation": "Non- = 9."
@@ -386,6 +431,21 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Décane contient 10 carbones.",
         "correct": true,
         "explanation": "Déc- = 10."
+      },
+      {
+        "content": "Le décane contient neuf atomes de carbone.",
+        "correct": false,
+        "explanation": "Le préfixe déc- correspond à dix carbones."
+      },
+      {
+        "content": "Heptane contient 7 carbones.",
+        "correct": true,
+        "explanation": "Hept- = 7."
+      },
+      {
+        "content": "Octane contient 8 carbones.",
+        "correct": true,
+        "explanation": "Oct- = 8."
       }
     ],
     "explanation": "Les préfixes de chaîne réutilisent la nomenclature travaillée au chapitre précédent."
@@ -394,7 +454,7 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On compare cyclopropane, cyclobutane, cyclopentane et cyclohexane selon la fiche. Quelles propositions sont exactes ?",
+    "question": "On compare cyclopropane, cyclobutane, cyclopentane et cyclohexane dans le modèle étudié. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Les deux premiers sont particulièrement contraints.",
@@ -409,15 +469,20 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La stabilité augmente indéfiniment avec la taille du cycle.",
         "correct": false,
-        "explanation": "La fiche indique qu'elle redécroît ensuite lorsque le cycle s'agrandit."
+        "explanation": "Le modèle étudié indique qu'elle redécroît ensuite lorsque le cycle s'agrandit."
       },
       {
         "content": "La taille du cycle influence son énergie.",
         "correct": true,
         "explanation": "C'est précisément la notion de tension cyclique."
+      },
+      {
+        "content": "La stabilité d’un cyclane ne croît pas indéfiniment avec la taille du cycle.",
+        "correct": true,
+        "explanation": "Après les cycles particulièrement stables à cinq et six carbones, la stabilité diminue à nouveau lorsque le cycle s’agrandit."
       }
     ],
-    "explanation": "La stabilité maximale n'est pas attribuée aux plus grands cycles mais aux cycles à cinq et six carbones dans le cadre du cours."
+    "explanation": "La stabilité maximale n'est pas attribuée aux plus grands cycles mais aux cycles à cinq et six carbones dans le cadre considéré."
   },
   {
     "order": 17,
@@ -425,11 +490,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRU",
     "question": "Laquelle de ces formules peut correspondre à la fois à un cyclane saturé monocyclique et à un alcène acyclique comportant une seule double liaison ?",
     "choices": [
-      {
-        "content": "$\\ce{C6H12}$",
-        "correct": true,
-        "explanation": "Les deux familles partagent la formule générale C_nH_{2n}."
-      },
       {
         "content": "$\\ce{C6H14}$",
         "correct": false,
@@ -444,6 +504,16 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{C6H6}$",
         "correct": false,
         "explanation": "Beaucoup plus insaturé."
+      },
+      {
+        "content": "$\\ce{C6H16}$.",
+        "correct": false,
+        "explanation": "$\\ce{C6H12}$ peut correspondre à un cyclane ou à un alcène ; $\\ce{C6H16}$ ne convient pas."
+      },
+      {
+        "content": "$\\ce{C6H12}$",
+        "correct": true,
+        "explanation": "Les deux familles partagent la formule générale C_nH_{2n}."
       }
     ],
     "explanation": "Une même formule générale peut correspondre à des familles structurales différentes ; le motif de liaison ou le cycle doit être identifié."
@@ -454,11 +524,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Un hydrocarbure saturé est décrit comme « cyclique et sans double liaison ». Quelles conclusions sont justifiées ?",
     "choices": [
-      {
-        "content": "Il peut appartenir aux cyclanes du chapitre.",
-        "correct": true,
-        "explanation": "C'est leur définition dans la fiche."
-      },
       {
         "content": "Sa formule peut être $\\ce{C_nH_{2n}}$ s'il est monocyclique.",
         "correct": true,
@@ -473,6 +538,16 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La présence du cycle suffit à expliquer deux hydrogènes de moins que l'alcane acyclique correspondant.",
         "correct": true,
         "explanation": "Fermeture du cycle."
+      },
+      {
+        "content": "Le caractère saturé d’un hydrocarbure interdit la présence d’un cycle.",
+        "correct": false,
+        "explanation": "Un cyclane est un hydrocarbure cyclique saturé."
+      },
+      {
+        "content": "Un hydrocarbure cyclique saturé suit nécessairement $\\ce{C_nH_{2n+2}}$.",
+        "correct": false,
+        "explanation": "Un cyclane monocyclique saturé suit $\\ce{C_nH_{2n}}$."
       }
     ],
     "explanation": "Il faut distinguer insaturation structurale par cycle et insaturation par liaison multiple."
@@ -504,16 +579,6 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Pour identifier correctement un hydrocarbure comme alcane ou cyclane, quelles informations sont utiles ?",
     "choices": [
       {
-        "content": "Le nombre d'atomes de carbone.",
-        "correct": true,
-        "explanation": "Il permet d'appliquer les formules générales."
-      },
-      {
-        "content": "La présence ou non d'un cycle.",
-        "correct": true,
-        "explanation": "C'est le critère de structure."
-      },
-      {
         "content": "La présence ou non d'une liaison multiple.",
         "correct": true,
         "explanation": "Les familles saturées n'en comportent pas."
@@ -522,6 +587,21 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La seule couleur du composé.",
         "correct": false,
         "explanation": "Elle n'est pas un critère de nomenclature."
+      },
+      {
+        "content": "La formule brute peut être insuffisante pour distinguer un cyclane d’un alcène.",
+        "correct": true,
+        "explanation": "Un cyclane monocyclique saturé et un alcène acyclique monounsaturé peuvent tous deux suivre $\\ce{C_nH_{2n}}$."
+      },
+      {
+        "content": "Le nombre d'atomes de carbone.",
+        "correct": true,
+        "explanation": "Il permet d'appliquer les formules générales."
+      },
+      {
+        "content": "La présence ou non d'un cycle.",
+        "correct": true,
+        "explanation": "C'est le critère de structure."
       }
     ],
     "explanation": "Formule brute et structure doivent être combinées : certaines formules peuvent appartenir à plusieurs familles."

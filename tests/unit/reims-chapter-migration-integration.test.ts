@@ -6,27 +6,33 @@ import {
   type HealthTrainingAuthorQuestion,
 } from "../../src/core/questions";
 
-test("Integration: Historical unmigrated Reims chapter ('hydrocarbures') accepts 4-item QRU and QRM", () => {
+test("Integration: Historical unmigrated Reims chapter ('derives-monofonctionnels') accepts 4-item QRU and QRM", () => {
   const qru4: HealthTrainingAuthorQuestion = {
     order: 1,
     difficulty: "EASY",
     format: "QRU",
-    question: "Quelle est la structure de l'éthane ?",
+    question: "Quelle est la formule du méthanol ?",
     choices: [
-      { content: "C2H6", correct: true },
-      { content: "C2H4", correct: false },
-      { content: "C2H2", correct: false },
+      { content: "CH3OH", correct: true },
+      { content: "CH3COOH", correct: false },
+      { content: "CH3CHO", correct: false },
       { content: "CH4", correct: false },
     ],
   };
 
   const validation = validateHealthTrainingAuthorQuestion(qru4, {
-    chapterSlug: "hydrocarbures",
+    chapterSlug: "derives-monofonctionnels",
   });
   assert.equal(validation.isValid, true, validation.issues.join("\n"));
 });
 
-test("Integration: Declared migrated Reims chapter ('isomerie-enantiomerie') rejects 4-item QRU/QRM/QRP", () => {
+test("Integration: Declared migrated Reims chapters ('nomenclature-chimique-fonctions-organiques', 'isomerie-enantiomerie', 'hydrocarbures') reject 4-item QRU, QRM and QRP", () => {
+  const migratedSlugs = [
+    "nomenclature-chimique-fonctions-organiques",
+    "isomerie-enantiomerie",
+    "hydrocarbures",
+  ];
+
   const qru4: HealthTrainingAuthorQuestion = {
     order: 1,
     difficulty: "EASY",
@@ -40,41 +46,47 @@ test("Integration: Declared migrated Reims chapter ('isomerie-enantiomerie') rej
     ],
   };
 
-  const validation = validateHealthTrainingAuthorQuestion(qru4, {
-    chapterSlug: "isomerie-enantiomerie",
-  });
-  assert.equal(validation.isValid, false);
-  assert.ok(
-    validation.issues.some((issue) => issue.includes("Reims 5 items")),
-    "Should reject 4-choice QRU for declared migrated chapter isomerie-enantiomerie",
-  );
-});
-
-test("Integration: Declared migrated Reims chapter ('nomenclature-chimique-fonctions-organiques') rejects 4-item QRU/QRM/QRP", () => {
-  const qru4: HealthTrainingAuthorQuestion = {
-    order: 1,
-    difficulty: "EASY",
-    format: "QRU",
-    question: "Parmi ces groupes, lequel est un alcool ?",
+  const qrm4: HealthTrainingAuthorQuestion = {
+    order: 2,
+    difficulty: "MEDIUM",
+    format: "QRM",
+    question: "Quelles affirmations sont exactes ?",
     choices: [
-      { content: "OH", correct: true },
-      { content: "COOH", correct: false },
-      { content: "CHO", correct: false },
-      { content: "SH", correct: false },
+      { content: "Option A", correct: true },
+      { content: "Option B", correct: true },
+      { content: "Option C", correct: false },
+      { content: "Option D", correct: false },
     ],
   };
 
-  const validation = validateHealthTrainingAuthorQuestion(qru4, {
-    chapterSlug: "nomenclature-chimique-fonctions-organiques",
-  });
-  assert.equal(validation.isValid, false);
-  assert.ok(
-    validation.issues.some((issue) => issue.includes("Reims 5 items")),
-    "Should reject 4-choice QRU for declared migrated chapter",
-  );
+  const qrp4: HealthTrainingAuthorQuestion = {
+    order: 3,
+    difficulty: "MEDIUM",
+    format: "QRP",
+    requiredSelectionCount: 2,
+    question: "Sélectionner exactement 2 propositions exactes.",
+    choices: [
+      { content: "Option A", correct: true },
+      { content: "Option B", correct: true },
+      { content: "Option C", correct: false },
+      { content: "Option D", correct: false },
+    ],
+  };
+
+  for (const chapterSlug of migratedSlugs) {
+    const questionsToTest: HealthTrainingAuthorQuestion[] = [qru4, qrm4, qrp4];
+    for (const q of questionsToTest) {
+      const val = validateHealthTrainingAuthorQuestion(q, { chapterSlug });
+      assert.equal(val.isValid, false, `Should reject 4-choice ${q.format} for chapter ${chapterSlug}`);
+      assert.ok(
+        val.issues.some((issue) => issue.includes("Reims 5 items")),
+        `Should mention Reims 5 items rule for ${q.format} in ${chapterSlug}`,
+      );
+    }
+  }
 });
 
-test("Integration: Declared migrated Reims chapter ('nomenclature-chimique-fonctions-organiques') accepts 5-item QRU/QRM/QRP", () => {
+test("Integration: Declared migrated Reims chapters accept 5-item QRU, QRM and QRP", () => {
   const qru5: HealthTrainingAuthorQuestion = {
     order: 1,
     difficulty: "EASY",
@@ -89,28 +101,66 @@ test("Integration: Declared migrated Reims chapter ('nomenclature-chimique-fonct
     ],
   };
 
-  const validation = validateHealthTrainingAuthorQuestion(qru5, {
-    chapterSlug: "nomenclature-chimique-fonctions-organiques",
-  });
-  assert.equal(validation.isValid, true, validation.issues.join("\n"));
+  const qrm5: HealthTrainingAuthorQuestion = {
+    order: 2,
+    difficulty: "MEDIUM",
+    format: "QRM",
+    question: "Quelles sont les propositions exactes ?",
+    choices: [
+      { content: "A", correct: true },
+      { content: "B", correct: true },
+      { content: "C", correct: false },
+      { content: "D", correct: false },
+      { content: "E", correct: false },
+    ],
+  };
+
+  const qrp5: HealthTrainingAuthorQuestion = {
+    order: 3,
+    difficulty: "MEDIUM",
+    format: "QRP",
+    requiredSelectionCount: 2,
+    question: "Sélectionner 2 éléments exacts.",
+    choices: [
+      { content: "A", correct: true },
+      { content: "B", correct: true },
+      { content: "C", correct: false },
+      { content: "D", correct: false },
+      { content: "E", correct: false },
+    ],
+  };
+
+  for (const chapterSlug of ["nomenclature-chimique-fonctions-organiques", "isomerie-enantiomerie", "hydrocarbures"]) {
+    const questionsToTest: HealthTrainingAuthorQuestion[] = [qru5, qrm5, qrp5];
+    for (const q of questionsToTest) {
+      const val = validateHealthTrainingAuthorQuestion(q, { chapterSlug });
+      assert.equal(val.isValid, true, val.issues.join("\n"));
+    }
+  }
 });
 
 test("Integration: QROC, QZONE, QRPL on migrated chapter are exempt from 5 choices rule", () => {
-  const qroc: HealthTrainingAuthorQuestion = {
+  const qrocText: HealthTrainingAuthorQuestion = {
     order: 1,
     difficulty: "EASY",
     format: "QROC",
-    question: "Donner le nombre de carbones du butane.",
-    answer: { type: "number", value: 4 },
+    question: "Donner le nom de l'alcane à 1 carbone.",
+    answer: { type: "text", acceptedAnswers: ["méthane"] },
   };
 
-  const valQroc = validateHealthTrainingAuthorQuestion(qroc, {
-    chapterSlug: "nomenclature-chimique-fonctions-organiques",
-  });
-  assert.equal(valQroc.isValid, true, valQroc.issues.join("\n"));
+  const qzone: HealthTrainingAuthorQuestion = {
+    order: 2,
+    difficulty: "MEDIUM",
+    format: "QZONE",
+    question: "Cliquer sur l'atome de carbone.",
+    image: { src: "molecule.png" },
+    expectedZones: [
+      { x: 0.5, y: 0.5, tolerance: 0.1 },
+    ],
+  };
 
   const qrpl: HealthTrainingAuthorQuestion = {
-    order: 2,
+    order: 3,
     difficulty: "MEDIUM",
     format: "QRPL",
     requiredSelectionCount: 2,
@@ -125,10 +175,12 @@ test("Integration: QROC, QZONE, QRPL on migrated chapter are exempt from 5 choic
     ],
   };
 
-  const valQrpl = validateHealthTrainingAuthorQuestion(qrpl, {
-    chapterSlug: "nomenclature-chimique-fonctions-organiques",
-  });
-  assert.equal(valQrpl.isValid, true, valQrpl.issues.join("\n"));
+  for (const q of [qrocText, qzone, qrpl]) {
+    const val = validateHealthTrainingAuthorQuestion(q, {
+      chapterSlug: "hydrocarbures",
+    });
+    assert.equal(val.isValid, true, val.issues.join("\n"));
+  }
 });
 
 test("Integration: QRM true/false distribution flexibility (1/4, 2/3, 3/2, 4/1 all valid)", () => {
@@ -146,7 +198,7 @@ test("Integration: QRM true/false distribution flexibility (1/4, 2/3, 3/2, 4/1 a
   // 1 correct / 4 incorrect
   assert.equal(
     validateHealthTrainingAuthorQuestion(makeQrm([true, false, false, false, false]), {
-      chapterSlug: "nomenclature-chimique-fonctions-organiques",
+      chapterSlug: "hydrocarbures",
     }).isValid,
     true,
   );
@@ -154,7 +206,7 @@ test("Integration: QRM true/false distribution flexibility (1/4, 2/3, 3/2, 4/1 a
   // 2 correct / 3 incorrect
   assert.equal(
     validateHealthTrainingAuthorQuestion(makeQrm([true, true, false, false, false]), {
-      chapterSlug: "nomenclature-chimique-fonctions-organiques",
+      chapterSlug: "hydrocarbures",
     }).isValid,
     true,
   );
@@ -162,7 +214,7 @@ test("Integration: QRM true/false distribution flexibility (1/4, 2/3, 3/2, 4/1 a
   // 3 correct / 2 incorrect
   assert.equal(
     validateHealthTrainingAuthorQuestion(makeQrm([true, true, true, false, false]), {
-      chapterSlug: "nomenclature-chimique-fonctions-organiques",
+      chapterSlug: "hydrocarbures",
     }).isValid,
     true,
   );
@@ -170,7 +222,7 @@ test("Integration: QRM true/false distribution flexibility (1/4, 2/3, 3/2, 4/1 a
   // 4 correct / 1 incorrect
   assert.equal(
     validateHealthTrainingAuthorQuestion(makeQrm([true, true, true, true, false]), {
-      chapterSlug: "nomenclature-chimique-fonctions-organiques",
+      chapterSlug: "hydrocarbures",
     }).isValid,
     true,
   );

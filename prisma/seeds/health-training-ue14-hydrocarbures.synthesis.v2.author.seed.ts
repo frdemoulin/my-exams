@@ -12,9 +12,9 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare pentane, cyclopentane, pent-1-ène et pent-1-yne. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Pentane suit $\\ce{C_nH_{2n+2}}$.",
-        "correct": true,
-        "explanation": "Alcane acyclique."
+        "content": "Le cyclopentane suit la formule générale des alcanes acycliques $\\ce{C_nH_{2n+2}}$.",
+        "correct": false,
+        "explanation": "Le cyclopentane suit CnH2n."
       },
       {
         "content": "Cyclopentane et pent-1-ène peuvent tous deux avoir pour formule $\\ce{C5H10}$.",
@@ -30,6 +30,11 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La formule brute suffit à distinguer cyclopentane et pent-1-ène.",
         "correct": false,
         "explanation": "Ils partagent C5H10."
+      },
+      {
+        "content": "Le cyclopentane a pour formule $\\ce{C5H12}$.",
+        "correct": false,
+        "explanation": "Un cyclane monocyclique saturé à cinq carbones suit $\\ce{C_nH_{2n}}$, soit $\\ce{C5H10}$."
       }
     ],
     "explanation": "Les trois formules générales doivent être reliées à la structure réelle."
@@ -53,24 +58,29 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Un alcène est soumis, dans trois expériences séparées, à H2, à une oxydation modérée et à une oxydation forte. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "H2 donne l'alcane correspondant.",
-        "correct": true,
-        "explanation": "Hydrogénation."
-      },
-      {
         "content": "L'oxydation modérée donne un 1,2-diol.",
         "correct": true,
-        "explanation": "Selon la fiche."
+        "explanation": "Selon le modèle étudié."
       },
       {
         "content": "L'oxydation forte coupe C=C en composés carbonylés.",
         "correct": true,
-        "explanation": "Selon la fiche."
+        "explanation": "Selon le modèle étudié."
       },
       {
         "content": "Les trois transformations donnent le même produit.",
         "correct": false,
         "explanation": "Les familles de produits diffèrent."
+      },
+      {
+        "content": "L’oxydation modérée d’un alcène conduit à l’époxyde.",
+        "correct": false,
+        "explanation": "Dans le modèle étudié, l’oxydation modérée conduit au 1,2-diol."
+      },
+      {
+        "content": "L’oxydation modérée d’un alcène donne directement l’alcane correspondant.",
+        "correct": false,
+        "explanation": "Elle conduit au 1,2-diol."
       }
     ],
     "explanation": "Cette comparaison relie addition et oxydation autour d'une même double liaison."
@@ -81,6 +91,11 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos du propène $\\ce{CH3-CH=CH2}$ :",
     "choices": [
+      {
+        "content": "L’addition de $\\ce{Br2}$ sur le propène introduit deux atomes de brome tout en conservant le squelette à trois carbones.",
+        "correct": true,
+        "explanation": "La liaison $\\pi$ est consommée sans coupure du squelette."
+      },
       {
         "content": "Une hydrogénation donne le propane.",
         "correct": true,
@@ -111,16 +126,6 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On souhaite obtenir un alcène à partir d'un précurseur. Quelles voies sont proposées dans le chapitre ?",
     "choices": [
       {
-        "content": "Déshydratation d'un alcool.",
-        "correct": true,
-        "explanation": "Élimination de H2O."
-      },
-      {
-        "content": "Déshydrohalogénation.",
-        "correct": true,
-        "explanation": "Élimination de HX."
-      },
-      {
         "content": "Hydrogénation partielle d'un alcyne.",
         "correct": true,
         "explanation": "Réduction contrôlée."
@@ -129,6 +134,21 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Hydrogénation complète de l'alcène lui-même.",
         "correct": false,
         "explanation": "Elle conduit à l'alcane."
+      },
+      {
+        "content": "L’hydrogénation complète d’un alcyne est une méthode permettant de s’arrêter directement au stade alcène.",
+        "correct": false,
+        "explanation": "Une hydrogénation complète conduit à l’alcane ; l’arrêt au stade alcène nécessite une hydrogénation partielle contrôlée."
+      },
+      {
+        "content": "L’hydratation d’un alcane constitue une méthode directe de préparation d’un alcène.",
+        "correct": false,
+        "explanation": "Les méthodes étudiées de préparation des alcènes reposent notamment sur des éliminations ou une hydrogénation partielle d’alcyne."
+      },
+      {
+        "content": "Déshydrohalogénation.",
+        "correct": true,
+        "explanation": "Élimination de HX."
       }
     ],
     "explanation": "Les voies de préparation convergent vers la création ou la conservation contrôlée de C=C."
@@ -158,6 +178,11 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "L'alcyne est plus saturé que l'alcène.",
         "correct": false,
         "explanation": "Il est plus insaturé."
+      },
+      {
+        "content": "À nombre de carbones égal, un alcène et un alcyne simple n’ont pas la même teneur en hydrogène.",
+        "correct": true,
+        "explanation": "L’alcène suit $\\ce{C_nH_{2n}}$ et l’alcyne $\\ce{C_nH_{2n-2}}$."
       }
     ],
     "explanation": "La formule brute traduit directement le degré d'insaturation."
@@ -168,6 +193,16 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Dans le modèle du chapitre, quels produits associer aux trois niveaux d'oxydation d'un alcène ?",
     "choices": [
+      {
+        "content": "Forte → alcane.",
+        "correct": false,
+        "explanation": "Ce serait une hydrogénation."
+      },
+      {
+        "content": "Oxydation douce → 1,2-diol.",
+        "correct": false,
+        "explanation": "Dans le modèle étudié, l’oxydation douce conduit à l’époxyde et l’oxydation modérée au diol."
+      },
       {
         "content": "Douce → époxyde.",
         "correct": true,
@@ -182,11 +217,6 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Forte → carbonyles après coupure.",
         "correct": true,
         "explanation": "Aldéhydes/cétones."
-      },
-      {
-        "content": "Forte → alcane.",
-        "correct": false,
-        "explanation": "Ce serait une hydrogénation."
       }
     ],
     "explanation": "Le niveau d'oxydation détermine si la chaîne est conservée ou coupée."
@@ -210,9 +240,14 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'hydratation d'un alcyne vrai fait intervenir deux notions de chapitres successifs. Quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "L’hydratation d’un alcyne terminal conserve durablement la triple liaison dans le produit final.",
+        "correct": false,
+        "explanation": "La triple liaison est consommée ; l’énol formé se tautomérise en cétone."
+      },
+      {
         "content": "La régiosélectivité de Markovnikov intervient.",
         "correct": true,
-        "explanation": "La fiche l'indique pour l'alcyne vrai."
+        "explanation": "Le modèle étudié l'indique pour l'alcyne vrai."
       },
       {
         "content": "Une forme énol est obtenue transitoirement.",
@@ -262,7 +297,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcyne vrai + H2O → méthylcétone après tautomérie.",
         "correct": true,
-        "explanation": "Selon la fiche."
+        "explanation": "Selon le modèle étudié."
       },
       {
         "content": "Alcène + H2 → alcyne.",
@@ -299,9 +334,9 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Une formule brute $\\ce{C6H12}$ est donnée sans structure. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle peut correspondre à un alcène acyclique à une double liaison.",
-        "correct": true,
-        "explanation": "C_nH_2n."
+        "content": "$\\ce{C6H12}$ suffit à identifier une structure unique.",
+        "correct": false,
+        "explanation": "Cette formule peut correspondre à plusieurs structures, notamment un alcène ou un cyclane."
       },
       {
         "content": "Elle peut correspondre à un cyclane monocyclique saturé.",
@@ -317,6 +352,11 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle correspond nécessairement à l'hexane.",
         "correct": false,
         "explanation": "Hexane = C6H14."
+      },
+      {
+        "content": "$\\ce{C6H12}$ exclut toute structure cyclique saturée.",
+        "correct": false,
+        "explanation": "Cette formule peut correspondre à un cyclane monocyclique saturé ou à un alcène acyclique monounsaturé."
       }
     ],
     "explanation": "La maîtrise nécessite de repérer les ambiguïtés de formule brute et de demander l'information structurale manquante."
@@ -327,6 +367,16 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Un composé acyclique $\\ce{C6H10}$ est annoncé comme ne comportant qu'une seule liaison multiple. Quelle hypothèse est cohérente avec le chapitre ?",
     "choices": [
+      {
+        "content": "Une hydrogénation complète de sa triple liaison demanderait deux équivalents de H2.",
+        "correct": true,
+        "explanation": "Pour atteindre C6H14."
+      },
+      {
+        "content": "L’hydrogénation complète d’un hydrocarbure $\\ce{C6H10}$ à une triple liaison conduit à $\\ce{C6H12}$.",
+        "correct": false,
+        "explanation": "La réduction complète ajoute deux équivalents de $\\ce{H2}$ et conduit à $\\ce{C6H14}$."
+      },
       {
         "content": "Il peut être un hexyne comportant une triple liaison.",
         "correct": true,
@@ -341,11 +391,6 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il possède quatre hydrogènes de moins que l'alcane C6 correspondant.",
         "correct": true,
         "explanation": "14−10=4."
-      },
-      {
-        "content": "Une hydrogénation complète de sa triple liaison demanderait deux équivalents de H2.",
-        "correct": true,
-        "explanation": "Pour atteindre C6H14."
       }
     ],
     "explanation": "Formule brute et bilan d'hydrogénation conduisent à la même conclusion."
@@ -356,11 +401,6 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On part du but-2-yne et on souhaite obtenir du butane en contrôlant les étapes. Quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Une première hydrogénation partielle peut donner un but-2-ène.",
-        "correct": true,
-        "explanation": "Stade intermédiaire."
-      },
       {
         "content": "Une seconde hydrogénation donne le butane.",
         "correct": true,
@@ -375,6 +415,16 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une oxydation forte est nécessaire pour conserver le squelette C4.",
         "correct": false,
         "explanation": "Elle pourrait au contraire couper la chaîne."
+      },
+      {
+        "content": "Un seul équivalent de $\\ce{H2}$ suffit pour transformer complètement le but-2-yne en butane.",
+        "correct": false,
+        "explanation": "Deux étapes d’hydrogénation sont nécessaires pour passer de la triple liaison à l’alcane."
+      },
+      {
+        "content": "Une première hydrogénation partielle peut donner un but-2-ène.",
+        "correct": true,
+        "explanation": "Stade intermédiaire."
       }
     ],
     "explanation": "La séquence alcyne → alcène → alcane illustre le contrôle du degré de saturation."
@@ -385,6 +435,11 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Un alcène dissymétrique est traité par HBr puis, dans une autre expérience, par Br2. Quelles propositions distinguent correctement les réactions ?",
     "choices": [
+      {
+        "content": "$\\ce{Br2}$ introduit deux atomes de brome alors que HBr introduit un atome de brome et un hydrogène.",
+        "correct": true,
+        "explanation": "Les deux réactifs s’additionnent sur la double liaison mais n’apportent pas les mêmes groupes."
+      },
       {
         "content": "Avec HBr, une règle de régiosélectivité peut être nécessaire.",
         "correct": true,
@@ -412,18 +467,8 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 115,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Dans le modèle de la fiche, l'oxydation forte du but-2-ène fournit deux éthanals. Quelles informations structurales peut-on en déduire ?",
+    "question": "Dans le modèle de le modèle étudié, l'oxydation forte du but-2-ène fournit deux éthanals. Quelles informations structurales peut-on en déduire ?",
     "choices": [
-      {
-        "content": "La double liaison initiale était symétrique dans cet exemple.",
-        "correct": true,
-        "explanation": "Les deux fragments sont identiques."
-      },
-      {
-        "content": "Chaque carbone de la double liaison portait un groupe CH3 et un H.",
-        "correct": true,
-        "explanation": "Cela régénère CH3CHO de chaque côté."
-      },
       {
         "content": "La coupure a lieu au niveau de C=C.",
         "correct": true,
@@ -433,6 +478,21 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le réactif initial était nécessairement un alcyne.",
         "correct": false,
         "explanation": "Il s'agissait d'un alcène."
+      },
+      {
+        "content": "Les fragments carbonylés obtenus après coupure forte ne donnent aucune information sur la substitution de la double liaison initiale.",
+        "correct": false,
+        "explanation": "La nature des fragments dépend des substituants portés par les carbones de la double liaison."
+      },
+      {
+        "content": "La double liaison initiale était symétrique dans cet exemple.",
+        "correct": true,
+        "explanation": "Les deux fragments sont identiques."
+      },
+      {
+        "content": "Chaque carbone de la double liaison portait un groupe CH3 et un H.",
+        "correct": true,
+        "explanation": "Cela régénère CH3CHO de chaque côté."
       }
     ],
     "explanation": "Les fragments carbonylés permettent de reconstruire l'environnement de la double liaison."
@@ -456,6 +516,16 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare un diène comportant deux doubles liaisons et un alcyne comportant une triple liaison, à nombre de carbones égal et structures acycliques. Quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Ils ont nécessairement la même connectivité.",
+        "correct": false,
+        "explanation": "Les motifs de liaison sont différents."
+      },
+      {
+        "content": "Deux doubles liaisons et une triple liaison correspondent chacune, au total, à deux liaisons $\\pi$.",
+        "correct": true,
+        "explanation": "Une double liaison comporte une liaison $\\pi$ ; une triple liaison en comporte deux."
+      },
+      {
         "content": "Ils présentent tous deux deux degrés d'insaturation dus aux liaisons multiples.",
         "correct": true,
         "explanation": "Deux C=C ou une C≡C."
@@ -469,11 +539,6 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une hydrogénation complète consomme deux équivalents de H2 dans les deux cas.",
         "correct": true,
         "explanation": "Deux liaisons π au total."
-      },
-      {
-        "content": "Ils ont nécessairement la même connectivité.",
-        "correct": false,
-        "explanation": "Les motifs de liaison sont différents."
       }
     ],
     "explanation": "La formule brute peut masquer la nature exacte des insaturations."
@@ -484,11 +549,6 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Dans une synthèse, on transforme successivement un alcool en alcène par déshydratation, puis l'alcène en alcane par hydrogénation. Quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "La première étape est une élimination.",
-        "correct": true,
-        "explanation": "Perte de H2O."
-      },
       {
         "content": "La seconde est une addition.",
         "correct": true,
@@ -503,6 +563,16 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le nombre de carbones doit nécessairement changer.",
         "correct": false,
         "explanation": "Le squelette peut être conservé."
+      },
+      {
+        "content": "La seconde étape d’hydrogénation restaure la double liaison précédemment formée.",
+        "correct": false,
+        "explanation": "L’hydrogénation consomme la double liaison et conduit à l’alcane."
+      },
+      {
+        "content": "La déshydratation initiale est une réaction d’addition.",
+        "correct": false,
+        "explanation": "La déshydratation est une élimination qui forme la double liaison."
       }
     ],
     "explanation": "Ce parcours met en regard deux grandes classes de transformations du chapitre."
@@ -511,8 +581,13 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On hydrate un alcyne interne dissymétrique puis on laisse les énols se tautomériser. Dans le modèle de la fiche :",
+    "question": "On hydrate un alcyne interne dissymétrique puis on laisse les énols se tautomériser. Dans le modèle de le modèle étudié :",
     "choices": [
+      {
+        "content": "La formule brute est conservée lors de la tautomérie énol-cétone.",
+        "correct": true,
+        "explanation": "La tautomérie réorganise les liaisons et la position d’un hydrogène sans changer la composition globale."
+      },
       {
         "content": "Deux orientations d'hydratation peuvent conduire à deux énols.",
         "correct": true,
@@ -543,16 +618,6 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelles propositions résument correctement le chapitre ?",
     "choices": [
       {
-        "content": "Alcanes : hydrocarbures saturés acycliques $\\ce{C_nH_{2n+2}}$.",
-        "correct": true,
-        "explanation": "Série de base."
-      },
-      {
-        "content": "Alcènes : hydrocarbures à double liaison, réactifs vis-à-vis des additions et oxydations étudiées.",
-        "correct": true,
-        "explanation": "Cœur des sections B-D."
-      },
-      {
         "content": "Alcynes : hydrocarbures à triple liaison, capables d'additions successives.",
         "correct": true,
         "explanation": "Deux liaisons π."
@@ -561,6 +626,21 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La formule brute seule identifie toujours sans ambiguïté la structure.",
         "correct": false,
         "explanation": "Cycles et isomères créent des ambiguïtés."
+      },
+      {
+        "content": "Les alcanes acycliques et les alcynes acycliques à une triple liaison suivent la même formule générale.",
+        "correct": false,
+        "explanation": "Les alcanes suivent $\\ce{C_nH_{2n+2}}$ et les alcynes $\\ce{C_nH_{2n-2}}$."
+      },
+      {
+        "content": "Alcanes : hydrocarbures saturés acycliques $\\ce{C_nH_{2n+2}}$.",
+        "correct": true,
+        "explanation": "Série de base."
+      },
+      {
+        "content": "Alcènes : hydrocarbures à double liaison, réactifs vis-à-vis des additions et oxydations étudiées.",
+        "correct": true,
+        "explanation": "Cœur des sections B-D."
       }
     ],
     "explanation": "La maîtrise combine familles, formules générales, nomenclature et logique des transformations."
@@ -572,9 +652,9 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Un hydrocarbure acyclique contient six carbones et consomme exactement deux moles de H2 par mole pour devenir un alcane, sans autre réaction. Quelles propositions sont compatibles ?",
     "choices": [
       {
-        "content": "Il peut contenir une triple liaison.",
-        "correct": true,
-        "explanation": "Une C≡C consomme deux H2."
+        "content": "La consommation de deux équivalents de $\\ce{H2}$ prouve la présence d’une seule double liaison.",
+        "correct": false,
+        "explanation": "Deux équivalents peuvent correspondre à deux doubles liaisons ou à une triple liaison."
       },
       {
         "content": "Il peut contenir deux doubles liaisons.",
@@ -590,6 +670,11 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il est nécessairement un alcane au départ.",
         "correct": false,
         "explanation": "Un alcane ne consommerait pas H2 pour saturer des liaisons multiples."
+      },
+      {
+        "content": "Un hydrocarbure consommant deux équivalents de $\\ce{H2}$ ne peut contenir qu’une seule double liaison.",
+        "correct": false,
+        "explanation": "Deux degrés d’insaturation réductibles peuvent correspondre à deux doubles liaisons ou à une triple liaison."
       }
     ],
     "explanation": "Le bilan d'hydrogénation renseigne sur le nombre total de liaisons π mais pas toujours sur leur répartition."
@@ -624,7 +709,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'hydratation d'un alcyne vrai donne une méthylcétone après tautomérie.",
         "correct": true,
-        "explanation": "Résultat de la fiche."
+        "explanation": "Résultat de le modèle étudié."
       },
       {
         "content": "L'oxydation modérée d'un alcène donne un alcane.",

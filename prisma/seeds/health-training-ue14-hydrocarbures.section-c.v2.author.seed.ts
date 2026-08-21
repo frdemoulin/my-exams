@@ -12,9 +12,9 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos d'une réaction d'addition sur une double liaison $\\ce{C=C}$ :",
     "choices": [
       {
-        "content": "La liaison double est consommée.",
-        "correct": true,
-        "explanation": "L'addition transforme les deux carbones sp2 en une liaison simple dans les exemples du chapitre."
+        "content": "Au cours d’une addition sur $\\ce{C=C}$, la double liaison reste intégralement inchangée.",
+        "correct": false,
+        "explanation": "La liaison $\\pi$ est consommée pendant l’addition."
       },
       {
         "content": "Deux nouveaux groupes peuvent se fixer sur les deux carbones de l'ancienne double liaison.",
@@ -30,6 +30,11 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une addition augmente généralement le degré de saturation.",
         "correct": true,
         "explanation": "On remplace une liaison π par de nouvelles liaisons σ."
+      },
+      {
+        "content": "Une réaction d’addition simple sur une double liaison crée une nouvelle liaison $\\pi$ entre les deux carbones.",
+        "correct": false,
+        "explanation": "L’addition consomme la liaison $\\pi$ de la double liaison."
       }
     ],
     "explanation": "La double liaison constitue un site réactif sur lequel des espèces peuvent s'additionner."
@@ -41,9 +46,9 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'hydrogénation catalytique d'un alcène conduit principalement :",
     "choices": [
       {
-        "content": "À l'alcane correspondant.",
-        "correct": true,
-        "explanation": "H2 s'ajoute sur C=C."
+        "content": "Un alcyne de même squelette carboné.",
+        "correct": false,
+        "explanation": "L’hydrogénation d’un alcène conduit à l’alcane correspondant."
       },
       {
         "content": "À un alcyne.",
@@ -53,12 +58,17 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un diol.",
         "correct": false,
-        "explanation": "Un diol est obtenu par oxydation modérée dans la fiche."
+        "explanation": "Un diol est obtenu par oxydation modérée dans le modèle étudié."
       },
       {
         "content": "À un époxyde.",
         "correct": false,
         "explanation": "Un époxyde relève de l'oxydation douce."
+      },
+      {
+        "content": "À l'alcane correspondant.",
+        "correct": true,
+        "explanation": "H2 s'ajoute sur C=C."
       }
     ],
     "explanation": "L'addition de $\\ce{H2}$ sature la double liaison et forme un alcane."
@@ -67,13 +77,8 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 43,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Lors de l'halogénation d'un alcène par $\\ce{X2}$ dans le modèle du cours :",
+    "question": "Lors de l'halogénation d'un alcène par $\\ce{X2}$ dans le modèle simplifié considéré :",
     "choices": [
-      {
-        "content": "Un atome X se fixe sur chacun des deux carbones de la double liaison.",
-        "correct": true,
-        "explanation": "On obtient un dihalogénoalcane vicinal."
-      },
       {
         "content": "La double liaison disparaît.",
         "correct": true,
@@ -88,6 +93,16 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une molécule d'eau est nécessairement éliminée.",
         "correct": false,
         "explanation": "Ce n'est pas une déshydratation."
+      },
+      {
+        "content": "Le produit obtenu après addition d’une mole de $\\ce{X2}$ sur une seule double liaison est plus saturé que l’alcène initial.",
+        "correct": true,
+        "explanation": "La liaison $\\pi$ est consommée lors de l’addition du dihalogène."
+      },
+      {
+        "content": "Un atome X se fixe sur chacun des deux carbones de la double liaison.",
+        "correct": true,
+        "explanation": "On obtient un dihalogénoalcane vicinal."
       }
     ],
     "explanation": "L'addition de $\\ce{X2}$ transforme C=C en C–C portant un halogène sur chacun des deux carbones."
@@ -104,11 +119,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un Br s'ajoute sur chaque carbone."
       },
       {
-        "content": "$\\ce{CH3-CH3}$.",
-        "correct": false,
-        "explanation": "C'est le produit d'une hydrogénation."
-      },
-      {
         "content": "$\\ce{CH3-CH2Br}$.",
         "correct": false,
         "explanation": "Il manquerait un second Br."
@@ -117,6 +127,16 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{CH#CH}$.",
         "correct": false,
         "explanation": "Cela formerait une triple liaison."
+      },
+      {
+        "content": "$\\ce{CH2=CHBr}$.",
+        "correct": false,
+        "explanation": "L’addition de $\\ce{Br2}$ sur l’éthène consomme la double liaison et introduit deux atomes de brome."
+      },
+      {
+        "content": "$\\ce{CH3-CH3}$.",
+        "correct": false,
+        "explanation": "C'est le produit d'une hydrogénation."
       }
     ],
     "explanation": "Une molécule de dibrome s'additionne sur les deux carbones de la double liaison."
@@ -125,27 +145,32 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l'addition de $\\ce{HX}$ sur un alcène dissymétrique selon la règle de Markovnikov présentée dans la fiche :",
+    "question": "À propos de l'addition de $\\ce{HX}$ sur un alcène dissymétrique selon la règle de Markovnikov présentée dans le modèle étudié :",
     "choices": [
       {
-        "content": "H et X s'ajoutent sur les deux carbones de la double liaison.",
+        "content": "X se retrouve sur le carbone correspondant au site positif dans la représentation polarisée de le modèle étudié.",
         "correct": true,
-        "explanation": "C'est une hydrohalogénation."
-      },
-      {
-        "content": "La régiosélectivité permet de privilégier un produit.",
-        "correct": true,
-        "explanation": "La fiche indique qu'un seul composé est obtenu dans le modèle retenu."
-      },
-      {
-        "content": "X se retrouve sur le carbone correspondant au site positif dans la représentation polarisée de la fiche.",
-        "correct": true,
-        "explanation": "La fiche formule la règle en termes de charges partielles."
+        "explanation": "Le modèle étudié formule la règle en termes de charges partielles."
       },
       {
         "content": "La double liaison reste inchangée.",
         "correct": false,
         "explanation": "Elle est consommée par l'addition."
+      },
+      {
+        "content": "La règle de Markovnikov conduit nécessairement à deux régioisomères en proportions égales.",
+        "correct": false,
+        "explanation": "Dans le modèle étudié, elle sert au contraire à prévoir l’orientation privilégiée de l’addition."
+      },
+      {
+        "content": "La règle de Markovnikov impose toujours la fixation de l’halogène sur le carbone terminal, quelle que soit la structure de l’alcène.",
+        "correct": false,
+        "explanation": "Elle dépend de l’asymétrie et de l’orientation de l’addition."
+      },
+      {
+        "content": "La régiosélectivité permet de privilégier un produit.",
+        "correct": true,
+        "explanation": "Le modèle étudié indique qu'un seul composé est obtenu dans le modèle retenu."
       }
     ],
     "explanation": "La règle de Markovnikov sert à choisir l'orientation de l'addition de HX sur un alcène dissymétrique."
@@ -154,8 +179,13 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "L'addition de $\\ce{HCl}$ sur le propène $\\ce{CH3-CH=CH2}$ donne majoritairement, dans le modèle de Markovnikov du cours :",
+    "question": "L'addition de $\\ce{HCl}$ sur le propène $\\ce{CH3-CH=CH2}$ donne majoritairement, dans le modèle de Markovnikov considéré :",
     "choices": [
+      {
+        "content": "$\\ce{CH3-CH2-CH3}$.",
+        "correct": false,
+        "explanation": "L’addition de HCl introduit H et Cl ; elle ne donne pas simplement le propane."
+      },
       {
         "content": "$\\ce{CH3-CHCl-CH3}$.",
         "correct": true,
@@ -177,7 +207,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce serait le produit d'une hydratation."
       }
     ],
-    "explanation": "Dans l'exemple de la fiche, $\\ce{R-CH=CH2 + HX}$ conduit à $\\ce{R-CHX-CH3}$."
+    "explanation": "Dans l'exemple de le modèle étudié, $\\ce{R-CH=CH2 + HX}$ conduit à $\\ce{R-CHX-CH3}$."
   },
   {
     "order": 47,
@@ -186,6 +216,16 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'hydratation d'un alcène :",
     "choices": [
       {
+        "content": "Transforme systématiquement l'alcène en alcyne.",
+        "correct": false,
+        "explanation": "L'insaturation diminue."
+      },
+      {
+        "content": "L’hydratation conserve la liaison $\\ce{C=C}$ intacte dans le produit final.",
+        "correct": false,
+        "explanation": "L’eau s’additionne sur la double liaison, qui est consommée."
+      },
+      {
         "content": "Ajoute H et OH sur les deux carbones de la double liaison.",
         "correct": true,
         "explanation": "Bilan d'addition de l'eau."
@@ -193,17 +233,12 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Conduit à un alcool.",
         "correct": true,
-        "explanation": "C'est rappelé dans l'auto-évaluation de la fiche."
+        "explanation": "C'est rappelé dans l'auto-évaluation de le modèle étudié."
       },
       {
         "content": "Consomme la double liaison.",
         "correct": true,
         "explanation": "Elle devient simple."
-      },
-      {
-        "content": "Transforme systématiquement l'alcène en alcyne.",
-        "correct": false,
-        "explanation": "L'insaturation diminue."
       }
     ],
     "explanation": "L'hydratation est une réaction d'addition conduisant à une fonction alcool."
@@ -215,16 +250,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'hydratation acido-catalysée du propène conduit majoritairement, selon Markovnikov, à :",
     "choices": [
       {
-        "content": "Propan-2-ol.",
-        "correct": true,
-        "explanation": "OH se retrouve sur le carbone le plus substitué dans le modèle standard du cours."
-      },
-      {
-        "content": "Propan-1-ol uniquement.",
-        "correct": false,
-        "explanation": "Ce n'est pas le produit majoritaire Markovnikov."
-      },
-      {
         "content": "Propanone directement.",
         "correct": false,
         "explanation": "Ce n'est pas une oxydation."
@@ -233,6 +258,21 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Propane.",
         "correct": false,
         "explanation": "Ce serait une hydrogénation."
+      },
+      {
+        "content": "Propan-2-ol.",
+        "correct": true,
+        "explanation": "OH se retrouve sur le carbone le plus substitué dans le modèle standard considéré."
+      },
+      {
+        "content": "Éthanol.",
+        "correct": false,
+        "explanation": "L’hydratation du propène conserve trois carbones ; l’éthanol n’en contient que deux."
+      },
+      {
+        "content": "Propan-1-ol uniquement.",
+        "correct": false,
+        "explanation": "Ce n'est pas le produit majoritaire Markovnikov."
       }
     ],
     "explanation": "L'orientation Markovnikov de l'hydratation du propène conduit au propan-2-ol."
@@ -243,6 +283,11 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Quelles additions diminuent le degré d'insaturation d'un alcène dans ce chapitre ?",
     "choices": [
+      {
+        "content": "Déshydratation d’un alcool.",
+        "correct": false,
+        "explanation": "Une déshydratation est une élimination qui peut former un alcène ; ce n’est pas une addition sur un alcène."
+      },
       {
         "content": "Hydrogénation par $\\ce{H2}$.",
         "correct": true,
@@ -273,16 +318,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Pourquoi les alcènes sont-ils plus réactifs que les alcanes vis-à-vis des additions étudiées ?",
     "choices": [
       {
-        "content": "La double liaison comporte une liaison π disponible pour des transformations d'addition.",
-        "correct": true,
-        "explanation": "La liaison π est le site réactif principal."
-      },
-      {
-        "content": "Une addition peut convertir la liaison π en deux nouvelles liaisons σ.",
-        "correct": true,
-        "explanation": "C'est le gain de saturation."
-      },
-      {
         "content": "Les alcanes possèdent déjà une double liaison plus forte.",
         "correct": false,
         "explanation": "Les alcanes n'ont pas de double liaison C=C."
@@ -291,6 +326,21 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La réactivité étudiée est liée au caractère insaturé des alcènes.",
         "correct": true,
         "explanation": "C'est le fil conducteur de la section."
+      },
+      {
+        "content": "Le caractère insaturé d’un alcène est sans lien avec sa réactivité d’addition.",
+        "correct": false,
+        "explanation": "La présence de la liaison $\\pi$ de $\\ce{C=C}$ est au cœur de sa réactivité d’addition."
+      },
+      {
+        "content": "Le caractère insaturé des alcènes est sans lien avec leur réactivité d’addition.",
+        "correct": false,
+        "explanation": "La liaison $\\pi$ est précisément impliquée dans les réactions d’addition."
+      },
+      {
+        "content": "Une addition peut convertir la liaison π en deux nouvelles liaisons σ.",
+        "correct": true,
+        "explanation": "C'est le gain de saturation."
       }
     ],
     "explanation": "Le caractère insaturé des alcènes explique leur aptitude aux réactions d'addition."
@@ -320,6 +370,11 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Un butyne.",
         "correct": false,
         "explanation": "Cela augmenterait l'insaturation."
+      },
+      {
+        "content": "L’hydrogénation du but-2-ène conduit à un hydrocarbure de formule $\\ce{C4H8}$.",
+        "correct": false,
+        "explanation": "L’addition de $\\ce{H2}$ conduit au butane $\\ce{C4H10}$."
       }
     ],
     "explanation": "L'hydrogénation ajoute une molécule de H2 sans modifier le nombre de carbones."
@@ -330,6 +385,16 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On ajoute une mole de $\\ce{Br2}$ à une mole de propène. Dans le modèle simplifié du chapitre :",
     "choices": [
+      {
+        "content": "Le produit est un alcyne.",
+        "correct": false,
+        "explanation": "Il est plus saturé que le réactif."
+      },
+      {
+        "content": "Aucune liaison carbone-carbone du squelette n’est rompue lors de cette addition de $\\ce{Br2}$.",
+        "correct": true,
+        "explanation": "L’addition consomme la liaison $\\pi$ mais conserve la liaison $\\sigma$ entre les deux carbones."
+      },
       {
         "content": "La double liaison est consommée.",
         "correct": true,
@@ -344,11 +409,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le produit comporte toujours trois carbones.",
         "correct": true,
         "explanation": "Pas de coupure."
-      },
-      {
-        "content": "Le produit est un alcyne.",
-        "correct": false,
-        "explanation": "Il est plus saturé que le réactif."
       }
     ],
     "explanation": "L'halogénation conserve le squelette et ajoute les deux atomes de l'halogène."
@@ -359,11 +419,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRU",
     "question": "Quel produit majoritaire prévoit-on pour $\\ce{CH3-CH=CH2 + HBr}$ selon Markovnikov ?",
     "choices": [
-      {
-        "content": "2-bromopropane.",
-        "correct": true,
-        "explanation": "Br se fixe sur le carbone interne."
-      },
       {
         "content": "1-bromopropane.",
         "correct": false,
@@ -378,6 +433,16 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Propan-2-ol.",
         "correct": false,
         "explanation": "Il faudrait H2O."
+      },
+      {
+        "content": "2-bromopropane.",
+        "correct": true,
+        "explanation": "Br se fixe sur le carbone interne."
+      },
+      {
+        "content": "1,2-dibromopropane.",
+        "correct": false,
+        "explanation": "Un dibromure correspondrait à l’addition de $\\ce{Br2}$ ; HBr n’introduit qu’un seul atome de brome."
       }
     ],
     "explanation": "L'hydrohalogénation du propène oriente Br vers le carbone secondaire."
@@ -389,9 +454,14 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare hydrogénation, hydratation et hydrohalogénation du propène. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L'hydrogénation donne un alcane.",
-        "correct": true,
-        "explanation": "Propane."
+        "content": "L’hydratation du propène donne directement un dérivé dibromé.",
+        "correct": false,
+        "explanation": "L’hydratation ajoute H et OH ; elle n’introduit pas de brome."
+      },
+      {
+        "content": "L’hydrogénation du propène conduit directement à un alcool.",
+        "correct": false,
+        "explanation": "L’hydrogénation conduit au propane."
       },
       {
         "content": "L'hydratation donne un alcool.",
@@ -418,16 +488,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la règle de Markovnikov utilisée dans le chapitre :",
     "choices": [
       {
-        "content": "Elle intervient pour orienter certaines additions sur un alcène dissymétrique.",
-        "correct": true,
-        "explanation": "Cas de HX et de l'hydratation dans le cadre du cours."
-      },
-      {
-        "content": "Elle n'est pas nécessaire pour l'addition symétrique de $\\ce{Br2}$.",
-        "correct": true,
-        "explanation": "Les deux atomes ajoutés sont identiques."
-      },
-      {
         "content": "Elle permet de choisir entre des régioisomères possibles.",
         "correct": true,
         "explanation": "C'est son intérêt."
@@ -436,6 +496,21 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle permet d'attribuer une configuration R/S.",
         "correct": false,
         "explanation": "R/S relève des règles CIP et de la stéréochimie."
+      },
+      {
+        "content": "La règle de Markovnikov concerne l’orientation d’une addition sur une double liaison asymétrique, et non le nombre de carbones.",
+        "correct": true,
+        "explanation": "Elle sert à prévoir la régiosélectivité de l’addition dans le modèle étudié."
+      },
+      {
+        "content": "Elle intervient pour orienter certaines additions sur un alcène dissymétrique.",
+        "correct": true,
+        "explanation": "Cas de HX et de l'hydratation dans le cadre considéré."
+      },
+      {
+        "content": "Elle n'est pas nécessaire pour l'addition symétrique de $\\ce{Br2}$.",
+        "correct": true,
+        "explanation": "Les deux atomes ajoutés sont identiques."
       }
     ],
     "explanation": "Markovnikov est une règle de régiosélectivité, pas un descripteur stéréochimique."
@@ -447,16 +522,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'hydratation du but-1-ène selon Markovnikov conduit majoritairement à :",
     "choices": [
       {
-        "content": "Butan-2-ol.",
-        "correct": true,
-        "explanation": "OH se place sur le carbone 2."
-      },
-      {
-        "content": "Butan-1-ol uniquement.",
-        "correct": false,
-        "explanation": "Produit non majoritaire dans le modèle Markovnikov."
-      },
-      {
         "content": "Butanone directement.",
         "correct": false,
         "explanation": "Ce serait une oxydation."
@@ -465,6 +530,21 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Butane.",
         "correct": false,
         "explanation": "Ce serait une hydrogénation."
+      },
+      {
+        "content": "But-2-yne.",
+        "correct": false,
+        "explanation": "L’hydratation d’un alcène ne crée pas une triple liaison."
+      },
+      {
+        "content": "Butan-1-ol uniquement.",
+        "correct": false,
+        "explanation": "Produit non majoritaire dans le modèle Markovnikov."
+      },
+      {
+        "content": "Butan-2-ol.",
+        "correct": true,
+        "explanation": "OH se place sur le carbone 2."
       }
     ],
     "explanation": "L'hydratation du but-1-ène donne majoritairement le butan-2-ol."
@@ -476,9 +556,19 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Une molécule d'alcène réagit avec $\\ce{H2}$ puis le produit avec aucun autre réactif. Quelles conclusions sont justifiées ?",
     "choices": [
       {
-        "content": "Une double liaison a été saturée.",
-        "correct": true,
-        "explanation": "H2 s'ajoute sur C=C."
+        "content": "Une fonction alcool apparaît nécessairement.",
+        "correct": false,
+        "explanation": "Aucun O n'est introduit."
+      },
+      {
+        "content": "L’hydrogénation diminue de deux le nombre de carbones de l’alcène.",
+        "correct": false,
+        "explanation": "Le squelette carboné est conservé lors de cette addition."
+      },
+      {
+        "content": "L’hydrogénation d’un alcène retire deux atomes de carbone au squelette.",
+        "correct": false,
+        "explanation": "Le nombre de carbones est conservé."
       },
       {
         "content": "Le nombre d'hydrogènes de la molécule augmente de 2 pour une double liaison hydrogénée.",
@@ -489,11 +579,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le nombre de carbones est inchangé.",
         "correct": true,
         "explanation": "Pas de coupure."
-      },
-      {
-        "content": "Une fonction alcool apparaît nécessairement.",
-        "correct": false,
-        "explanation": "Aucun O n'est introduit."
       }
     ],
     "explanation": "L'hydrogénation modifie l'insaturation sans changer le squelette carboné."
@@ -516,6 +601,11 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Lors d'une addition de $\\ce{Cl2}$ sur un alcène comportant une seule double liaison :",
     "choices": [
+      {
+        "content": "Le nombre d’atomes de carbone du produit reste celui de l’alcène de départ.",
+        "correct": true,
+        "explanation": "L’addition de $\\ce{Cl2}$ ne coupe pas le squelette carboné."
+      },
       {
         "content": "Deux liaisons C–Cl sont formées.",
         "correct": true,
@@ -546,16 +636,6 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Pour choisir le produit d'une addition sur un alcène, quelles informations sont pertinentes ?",
     "choices": [
       {
-        "content": "La nature du réactif ajouté.",
-        "correct": true,
-        "explanation": "H2, X2, HX ou H2O donnent des produits différents."
-      },
-      {
-        "content": "La symétrie ou dissymétrie de l'alcène.",
-        "correct": true,
-        "explanation": "Elle influence notamment la régiosélectivité."
-      },
-      {
         "content": "La règle de Markovnikov lorsqu'elle est applicable.",
         "correct": true,
         "explanation": "Elle départage les orientations de HX/H2O."
@@ -564,6 +644,21 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le nombre de carbones ne joue jamais aucun rôle dans le nom du produit.",
         "correct": false,
         "explanation": "Il fixe le squelette et la nomenclature."
+      },
+      {
+        "content": "La couleur du réactif constitue à elle seule un critère de régiosélectivité.",
+        "correct": false,
+        "explanation": "La prédiction du produit repose sur la nature du réactif et la structure de l’alcène."
+      },
+      {
+        "content": "La règle de Markovnikov suffit à prédire le produit quel que soit le réactif et quelle que soit la structure de l’alcène.",
+        "correct": false,
+        "explanation": "La nature du réactif et la structure de l’alcène restent nécessaires."
+      },
+      {
+        "content": "La symétrie ou dissymétrie de l'alcène.",
+        "correct": true,
+        "explanation": "Elle influence notamment la régiosélectivité."
       }
     ],
     "explanation": "La prédiction du produit combine structure de l'alcène et nature du réactif."
@@ -632,7 +727,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 126,
     "difficulty": "MEDIUM",
     "format": "QZONE",
-    "question": "Lors de l'addition de $\\ce{HCl}$ sur le propène selon la règle de Markovnikov du cours, cliquez sur le carbone de la double liaison qui reçoit l'atome de chlore.",
+    "question": "Lors de l'addition de $\\ce{HCl}$ sur le propène selon la règle de Markovnikov considéré, cliquez sur le carbone de la double liaison qui reçoit l'atome de chlore.",
     "image": {
       "src": "/images/training/ue14/hydrocarbures/propene-markovnikov-qzone.svg",
       "alt": "Schéma simplifié du propène CH3-CH=CH2 avec les deux carbones de la double liaison explicitement représentés",
