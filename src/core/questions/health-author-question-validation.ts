@@ -1,6 +1,7 @@
 import type {
   HealthTrainingAuthorQuestion,
 } from "./health-author-question.types";
+import { isReimsMigratedChapter } from "./reims-migrated-chapters";
 
 export type HealthAuthorQuestionValidationContext = {
   fileName?: string;
@@ -58,8 +59,9 @@ export function validateHealthTrainingAuthorQuestion(
 ): HealthAuthorQuestionValidationResult {
   const issues: string[] = [];
   const prefix = formatContextPrefix(question, context);
-  const shouldCheck5Choices = Boolean(context?.strict5Choices || question.reims5Items);
-  const shouldCheckAutonomy = context?.checkAutonomy !== false;
+  const isMigrated = isReimsMigratedChapter(context?.chapterSlug);
+  const shouldCheck5Choices = context?.strict5Choices ?? (isMigrated || Boolean(question.reims5Items));
+  const shouldCheckAutonomy = context?.checkAutonomy ?? (isMigrated || Boolean(question.reims5Items));
 
   if (!Number.isInteger(question.order) || question.order <= 0) {
     issues.push(`${prefix} Champ 'order' invalide : doit être un entier positif.`);
