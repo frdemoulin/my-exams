@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default async function AddTrainingQuizQuestionPage({ searchParams }: AddTrainingQuizQuestionPageProps) {
   const { chapterId } = await searchParams;
   const chapterOptions = await fetchQuizQuestionChapterOptions();
-  const initialChapterId = chapterOptions.some((option) => option.value === chapterId) ? chapterId ?? "" : "";
+  const initialChapterId = chapterId ?? "";
   const cancelHref = initialChapterId
     ? `/admin/training/quiz-questions?chapterId=${initialChapterId}`
     : "/admin/training/quiz-questions";
@@ -38,11 +38,11 @@ export default async function AddTrainingQuizQuestionPage({ searchParams }: AddT
           questionFormat: "QRU",
           answerFormat: "SINGLE",
           question: "",
-          choices: ["", "", "", ""],
+          choices: ["", "", "", "", ""],
           correctChoiceIndexes: [0],
           correctChoiceIndex: 0,
           explanation: "",
-          choiceExplanations: ["", "", "", ""],
+          choiceExplanations: ["", "", "", "", ""],
           shortAnswerType: "text",
           acceptedAnswers: "",
           numericAnswerValue: "",
