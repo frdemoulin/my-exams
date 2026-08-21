@@ -30,6 +30,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Une amine tertiaire est dite tertiaire parce que sa molécule contient trois éléments chimiques différents.",
         "correct": false,
         "explanation": "Le terme « tertiaire » ne décrit pas le nombre d'éléments chimiques de la molécule. Il indique que trois groupes carbonés sont directement liés à l'atome d'azote."
+      },
+      {
+        "content": "Une amine primaire neutre possède un seul groupe carboné directement lié à l’azote.",
+        "correct": true,
+        "explanation": "Une amine primaire est caractérisée par un seul substituant carboné directement lié à l’azote."
       }
     ],
     "explanation": "Pour identifier et classer une amine, il faut examiner l'environnement immédiat de l'azote. Les qualificatifs primaire, secondaire et tertiaire correspondent respectivement à un, deux ou trois substituants carbonés directement liés à un azote neutre."
@@ -40,11 +45,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Quelles associations sont exactes ?",
     "choices": [
-      {
-        "content": "$\\ce{CH3NH2}$ : amine primaire.",
-        "correct": true,
-        "explanation": "L'azote est directement lié à un seul groupe carboné, le groupe méthyle : la molécule est donc une amine primaire."
-      },
       {
         "content": "$\\ce{(CH3)2NH}$ : amine tertiaire.",
         "correct": false,
@@ -59,6 +59,16 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{(CH3)4N+}$ : amine tertiaire protonée.",
         "correct": false,
         "explanation": "L'azote porte quatre groupes méthyle et une charge positive : il s'agit d'un ammonium quaternaire. Une amine tertiaire protonée porterait encore un hydrogène sur l'azote."
+      },
+      {
+        "content": "$\\ce{CH3CN}$ : amine primaire.",
+        "correct": false,
+        "explanation": "$\\ce{CH3CN}$ contient un motif nitrile $\\ce{C#N}$ ; ce n’est pas une amine primaire."
+      },
+      {
+        "content": "$\\ce{CH3NH2}$ : amine primaire.",
+        "correct": true,
+        "explanation": "L'azote est directement lié à un seul groupe carboné, le groupe méthyle : la molécule est donc une amine primaire."
       }
     ],
     "explanation": "La classe d'une amine dépend du nombre de substituants carbonés directement liés à l'azote. Un azote portant quatre substituants carbonés et une charge positive appartient à un ammonium quaternaire et non à une amine tertiaire."
@@ -70,9 +80,9 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quel critère distingue le mieux un ammonium quaternaire d'une amine tertiaire ?",
     "choices": [
       {
-        "content": "L'azote de l'ammonium quaternaire est lié à quatre groupes carbonés et porte une charge positive.",
-        "correct": true,
-        "explanation": "Un ammonium quaternaire possède quatre substituants carbonés liés à l'azote ; celui-ci est tétravalent et porte une charge positive."
+        "content": "Un azote neutre lié à trois groupes carbonés.",
+        "correct": false,
+        "explanation": "Cette description correspond à une amine tertiaire neutre, pas à un ammonium quaternaire."
       },
       {
         "content": "Un ammonium quaternaire correspond toujours à une amine tertiaire protonée.",
@@ -88,6 +98,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le nombre de groupes carbonés directement liés à l'azote est identique dans une amine tertiaire et un ammonium quaternaire.",
         "correct": false,
         "explanation": "Une amine tertiaire possède trois groupes carbonés directement liés à l'azote, contre quatre pour un ammonium quaternaire."
+      },
+      {
+        "content": "L'azote de l'ammonium quaternaire est lié à quatre groupes carbonés et porte une charge positive.",
+        "correct": true,
+        "explanation": "Un ammonium quaternaire possède quatre substituants carbonés liés à l'azote ; celui-ci est tétravalent et porte une charge positive."
       }
     ],
     "explanation": "Une amine tertiaire possède un azote neutre lié à trois groupes carbonés. Dans un ammonium quaternaire, l'azote est lié à quatre groupes carbonés et porte une charge positive."
@@ -117,6 +132,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{R-SH}$.",
         "correct": false,
         "explanation": "Le groupe $\\ce{-SH}$ caractérise une fonction thiol et ne contient pas d'azote."
+      },
+      {
+        "content": "$\\ce{RO-C(=O)-OR'}$",
+        "correct": false,
+        "explanation": "Ce motif oxygéné n’est pas une amide : une amide comporte un azote directement lié au carbone carbonylé."
       }
     ],
     "explanation": "Une fonction amide associe un groupe carbonyle et un atome d'azote directement lié au carbone carbonylé. Cette proximité avec le carbonyle permet notamment de distinguer une amide d'une amine."
@@ -165,6 +185,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Un carbamate est identique à une amide simple dès lors qu'il contient le motif $\\ce{C(=O)-N}$.",
         "correct": false,
         "explanation": "Le motif $\\ce{C(=O)-N}$ est commun aux deux familles, mais le carbamate possède en plus un oxygène de type $\\ce{-OR}$ directement lié au carbone carbonylé : il constitue donc une fonction distincte."
+      },
+      {
+        "content": "Il contient nécessairement une triple liaison $\\ce{C#N}$.",
+        "correct": false,
+        "explanation": "La triple liaison $\\ce{C#N}$ caractérise un nitrile, pas un carbamate."
       }
     ],
     "explanation": "Le carbamate se reconnaît par le motif $\\ce{RO-C(=O)-NR'R''}$. Il associe autour du même carbone carbonylé une partie oxygénée et une partie azotée ; il ne doit être confondu ni avec une amide simple ni avec un nitrile."
@@ -196,16 +221,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Sélectionnez exactement les deux associations correctes.",
     "choices": [
       {
-        "content": "$\\ce{R-C#N}$ → nitrile.",
-        "correct": true,
-        "explanation": "La présence d'une triple liaison carbone-azote $\\ce{C#N}$ constitue le motif caractéristique d'un nitrile."
-      },
-      {
-        "content": "$\\ce{R-SH}$ → thiol.",
-        "correct": true,
-        "explanation": "Le groupe sulfhydryle $\\ce{-SH}$ lié à un groupe carboné caractérise une fonction thiol."
-      },
-      {
         "content": "$\\ce{R-CO-NH2}$ → amine primaire.",
         "correct": false,
         "explanation": "L'azote est directement lié au carbone d'un groupe carbonyle : ce motif correspond à une amide et non à une amine primaire libre."
@@ -214,6 +229,21 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{R4N+}$ → amine tertiaire neutre.",
         "correct": false,
         "explanation": "Un azote lié à quatre substituants et portant une charge positive correspond à un ammonium quaternaire, et non à une amine tertiaire neutre."
+      },
+      {
+        "content": "$\\ce{R-O-R'}$ → thiol.",
+        "correct": false,
+        "explanation": "$\\ce{R-O-R'}$ correspond à un éther ; un thiol comporte le motif $\\ce{R-SH}$."
+      },
+      {
+        "content": "$\\ce{R-C#N}$ → nitrile.",
+        "correct": true,
+        "explanation": "La présence d'une triple liaison carbone-azote $\\ce{C#N}$ constitue le motif caractéristique d'un nitrile."
+      },
+      {
+        "content": "$\\ce{R-SH}$ → thiol.",
+        "correct": true,
+        "explanation": "Le groupe sulfhydryle $\\ce{-SH}$ lié à un groupe carboné caractérise une fonction thiol."
       }
     ],
     "explanation": "La reconnaissance d'une fonction azotée ou soufrée repose sur l'environnement immédiat de l'hétéroatome : triple liaison $\\ce{C#N}$ pour un nitrile, groupe $\\ce{-SH}$ pour un thiol, proximité d'un carbonyle pour une amide et azote tétravalent positif pour un ammonium quaternaire."
@@ -224,6 +254,16 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "La choline est un nutriment essentiel, notamment important pour le bon fonctionnement du système nerveux. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Elle possède un nitrile.",
+        "correct": false,
+        "explanation": "Aucune triple liaison carbone-azote $\\ce{C#N}$ n'est présente dans la structure de la choline."
+      },
+      {
+        "content": "L’atome d’azote porte une charge positive.",
+        "correct": true,
+        "explanation": "Dans l’ammonium quaternaire de la choline, l’azote est tétravalent et chargé positivement."
+      },
       {
         "content": "Elle possède un groupe hydroxyle.",
         "correct": true,
@@ -238,11 +278,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Son azote est une amine tertiaire neutre.",
         "correct": false,
         "explanation": "Une amine tertiaire neutre possède trois substituants carbonés autour de l'azote. Ici, l'azote en porte quatre et est chargé positivement."
-      },
-      {
-        "content": "Elle possède un nitrile.",
-        "correct": false,
-        "explanation": "Aucune triple liaison carbone-azote $\\ce{C#N}$ n'est présente dans la structure de la choline."
       }
     ],
     "explanation": "La choline associe un groupe hydroxyle et un ammonium quaternaire. Sa structure illustre particulièrement bien la différence entre un azote quaternaire chargé positivement et une amine tertiaire neutre.",
@@ -257,6 +292,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "La cystéine est un acide aminé soufré présent dans les protéines. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Concernant ses fonctions azotée et soufrée, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Le groupe $\\ce{-SH}$ contient un atome d’oxygène.",
+        "correct": false,
+        "explanation": "Le groupe thiol $\\ce{-SH}$ contient du soufre et de l’hydrogène, pas d’oxygène."
+      },
       {
         "content": "Elle possède une fonction thiol.",
         "correct": true,
@@ -309,6 +349,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "L'oxygène simple de son ester constitue en plus une fonction éther indépendante.",
         "correct": false,
         "explanation": "L'oxygène lié par liaison simple au carbone carbonylé appartient au motif ester $\\ce{C(=O)-O-C}$. Il ne faut pas découper artificiellement ce motif pour lui attribuer une fonction éther indépendante."
+      },
+      {
+        "content": "Elle possède une fonction nitrile.",
+        "correct": false,
+        "explanation": "La structure considérée ne présente pas de motif $\\ce{C#N}$."
       }
     ],
     "explanation": "L'acétylcholine associe une fonction ester et un ammonium quaternaire. Cette question exige de reconnaître les motifs complets : l'oxygène de l'ester ne constitue pas une fonction éther séparée.",
@@ -324,11 +369,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Le paracétamol est un médicament antalgique et antipyrétique couramment utilisé. Il est représenté ci-dessous : [[QUESTION_DIAGRAM]] Concernant son azote, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il appartient à une fonction amide.",
-        "correct": true,
-        "explanation": "L'atome d'azote est directement lié au carbone d'un groupe carbonyle $\\ce{C=O}$ : cet environnement caractérise une fonction amide."
-      },
-      {
         "content": "Il ne constitue pas une amine libre.",
         "correct": true,
         "explanation": "La liaison directe entre l'azote et le carbone carbonylé classe ce motif parmi les amides ; l'azote ne doit donc pas être interprété comme celui d'une amine libre."
@@ -342,6 +382,16 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La présence d'un atome d'azote suffit à classer la molécule comme amine.",
         "correct": false,
         "explanation": "La fonction chimique dépend de l'environnement de l'azote. Ici, sa liaison directe avec un carbone carbonylé conduit à une amide et non à une amine."
+      },
+      {
+        "content": "Son azote est celui d’un ammonium quaternaire.",
+        "correct": false,
+        "explanation": "L’azote engagé dans le motif amide n’est pas un ammonium quaternaire."
+      },
+      {
+        "content": "Il appartient à une fonction amide.",
+        "correct": true,
+        "explanation": "L'atome d'azote est directement lié au carbone d'un groupe carbonyle $\\ce{C=O}$ : cet environnement caractérise une fonction amide."
       }
     ],
     "explanation": "Le paracétamol illustre un piège fréquent : la présence d'un atome d'azote ne suffit pas à identifier une amine. Lorsqu'il est directement lié au carbone d'un groupe carbonyle, l'azote appartient à une fonction amide.",
@@ -357,16 +407,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "La N-acétylcystéine est un médicament utilisé notamment comme mucolytique. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Concernant ses fonctions azotée et soufrée, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle possède une fonction thiol.",
-        "correct": true,
-        "explanation": "La structure conserve un groupe sulfhydryle $\\ce{-SH}$, qui correspond à une fonction thiol."
-      },
-      {
-        "content": "Son azote appartient à une fonction amide.",
-        "correct": true,
-        "explanation": "L'azote est directement lié au carbone d'un groupe carbonyle dans le motif N-acétylé : cet environnement caractérise une amide."
-      },
-      {
         "content": "Son azote constitue encore une amine primaire libre, puisqu'il n'est lié qu'à un seul carbone non carbonylé.",
         "correct": false,
         "explanation": "Pour distinguer amine et amide, il faut tenir compte de la liaison directe de l'azote au carbone carbonylé. Cette liaison classe l'azote dans une fonction amide, même s'il porte encore un hydrogène."
@@ -375,6 +415,21 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Son groupe $\\ce{-SH}$ devient une fonction alcool parce que le soufre et l'oxygène appartiennent à la même colonne du tableau périodique.",
         "correct": false,
         "explanation": "Un groupe alcool contient $\\ce{-OH}$, tandis que $\\ce{-SH}$ définit un thiol. Des propriétés périodiques voisines ne rendent pas ces deux fonctions identiques."
+      },
+      {
+        "content": "Elle possède une fonction nitrile.",
+        "correct": false,
+        "explanation": "Aucune triple liaison $\\ce{C#N}$ n’est présente dans la structure."
+      },
+      {
+        "content": "Elle possède une fonction thiol.",
+        "correct": true,
+        "explanation": "La structure conserve un groupe sulfhydryle $\\ce{-SH}$, qui correspond à une fonction thiol."
+      },
+      {
+        "content": "Son azote appartient à une fonction amide.",
+        "correct": true,
+        "explanation": "L'azote est directement lié au carbone d'un groupe carbonyle dans le motif N-acétylé : cet environnement caractérise une amide."
       }
     ],
     "explanation": "La N-acétylcystéine associe notamment un thiol et une fonction amide. Le piège principal consiste à classer l'azote uniquement d'après le nombre de groupes carbonés qui lui sont liés sans remarquer sa liaison directe à un carbone carbonylé.",
@@ -391,6 +446,16 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare $\\ce{CH3NH2}$ et $\\ce{CH3CONH2}$. Sélectionnez exactement les deux propositions correctes.",
     "choices": [
       {
+        "content": "La présence du carbonyle ne change pas la famille fonctionnelle de l'azote.",
+        "correct": false,
+        "explanation": "Au contraire, la liaison directe de l'azote à un carbone carbonylé est précisément ce qui permet de distinguer une amide d'une amine."
+      },
+      {
+        "content": "$\\ce{CH3CN}$ est une amide.",
+        "correct": false,
+        "explanation": "$\\ce{CH3CN}$ est un nitrile ; une amide comporte un azote directement lié à un carbone carbonylé."
+      },
+      {
         "content": "La première molécule est une amine.",
         "correct": true,
         "explanation": "Dans $\\ce{CH3NH2}$, l'azote est lié à un groupe carboné mais n'est pas directement lié à un carbone carbonylé : il s'agit d'une amine primaire."
@@ -404,11 +469,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Les deux sont des nitriles.",
         "correct": false,
         "explanation": "Aucune des deux structures ne comporte de triple liaison carbone-azote $\\ce{C#N}$, motif nécessaire à une fonction nitrile."
-      },
-      {
-        "content": "La présence du carbonyle ne change pas la famille fonctionnelle de l'azote.",
-        "correct": false,
-        "explanation": "Au contraire, la liaison directe de l'azote à un carbone carbonylé est précisément ce qui permet de distinguer une amide d'une amine."
       }
     ],
     "explanation": "La comparaison entre $\\ce{CH3NH2}$ et $\\ce{CH3CONH2}$ montre que l'environnement immédiat de l'azote détermine la fonction : amine lorsqu'il n'est pas lié à un carbonyle, amide lorsqu'il l'est directement."
@@ -498,6 +558,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le mot « quaternaire » signifie que la molécule contient exactement quatre atomes de carbone.",
         "correct": false,
         "explanation": "Le qualificatif « quaternaire » se rapporte à l'azote : il est lié à quatre substituants organiques. Il ne fixe pas le nombre total d'atomes de carbone de la molécule."
+      },
+      {
+        "content": "Dans la triméthylamine, trois groupes carbonés sont directement liés à l’azote.",
+        "correct": true,
+        "explanation": "La triméthylamine est une amine tertiaire : l’azote est lié à trois groupes méthyle."
       }
     ],
     "explanation": "Cette comparaison permet de distinguer plusieurs termes proches mais non synonymes : tertiaire décrit trois substituants carbonés autour de l'azote, tandis que quaternaire décrit un azote portant quatre substituants et une charge positive."
@@ -508,11 +573,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Le captopril est un médicament utilisé notamment dans le traitement de l'hypertension artérielle. Il est représenté ci-dessous : [[QUESTION_DIAGRAM]] Concernant ses fonctions azotée et soufrée, quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Il possède une fonction thiol.",
-        "correct": true,
-        "explanation": "La structure comporte un groupe sulfhydryle $\\ce{-SH}$, caractéristique d'une fonction thiol."
-      },
       {
         "content": "Son azote appartient à une fonction amide.",
         "correct": true,
@@ -527,6 +587,16 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il possède un nitrile parce qu'il contient à la fois du carbone et de l'azote.",
         "correct": false,
         "explanation": "Un nitrile exige une triple liaison $\\ce{C#N}$. La présence séparée d'atomes de carbone et d'azote ne suffit pas à définir cette fonction."
+      },
+      {
+        "content": "Son groupe soufré est un pont disulfure $\\ce{-S-S-}$.",
+        "correct": false,
+        "explanation": "La structure représentée comporte un thiol $\\ce{-SH}$ et non un pont disulfure."
+      },
+      {
+        "content": "Il possède une fonction thiol.",
+        "correct": true,
+        "explanation": "La structure comporte un groupe sulfhydryle $\\ce{-SH}$, caractéristique d'une fonction thiol."
       }
     ],
     "explanation": "Le captopril montre qu'une molécule peut contenir plusieurs hétéroatomes sans que leur simple présence suffise à identifier les fonctions. Le groupe $\\ce{-SH}$ est un thiol, tandis que l'azote directement lié à un carbone carbonylé appartient à une amide.",
@@ -553,6 +623,16 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos d'un carbamate de motif $\\ce{RO-C(=O)-NR'R''}$, quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Le carbamate est identique à un ester, car les deux fonctions contiennent un motif $\\ce{C(=O)-O}$.",
+        "correct": false,
+        "explanation": "Le carbamate contient aussi un azote directement lié au carbone carbonylé. Cette partie azotée le distingue d'un ester simple."
+      },
+      {
+        "content": "Le motif comporte un groupe carbonyle $\\ce{C=O}$.",
+        "correct": true,
+        "explanation": "Le carbone de la fonction amide est un carbone carbonylé."
+      },
+      {
         "content": "Le carbone carbonylé est lié par des liaisons simples à un oxygène et à un azote.",
         "correct": true,
         "explanation": "Outre sa double liaison à l'oxygène du carbonyle, ce carbone est lié à l'oxygène du groupe $\\ce{-OR}$ et à l'azote du groupe $\\ce{-NR'R''}$."
@@ -566,11 +646,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Les deux oxygènes du carbamate sont directement liés l'un à l'autre par une liaison $\\ce{O-O}$.",
         "correct": false,
         "explanation": "Les deux oxygènes sont tous deux associés au carbone carbonylé mais ne sont pas liés directement entre eux. Une liaison $\\ce{O-O}$ évoquerait plutôt un motif peroxyde."
-      },
-      {
-        "content": "Le carbamate est identique à un ester, car les deux fonctions contiennent un motif $\\ce{C(=O)-O}$.",
-        "correct": false,
-        "explanation": "Le carbamate contient aussi un azote directement lié au carbone carbonylé. Cette partie azotée le distingue d'un ester simple."
       }
     ],
     "explanation": "Le carbamate doit être reconnu comme un motif complet : $\\ce{RO-C(=O)-NR'R''}$. Des fragments comme $\\ce{C(=O)-O}$ ou $\\ce{C(=O)-N}$ peuvent rappeler d'autres fonctions, mais ils ne doivent pas conduire à découper artificiellement le carbamate."
@@ -581,6 +656,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Dans certaines protéines, deux cystéines peuvent former un pont disulfure $\\ce{-S-S-}$ après oxydation. Dans ce contexte, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Le pont formé comporte une liaison directe entre les deux atomes de soufre.",
+        "correct": true,
+        "explanation": "Un pont disulfure contient le motif $\\ce{-S-S-}$."
+      },
       {
         "content": "Les deux groupes thiol initiaux participent à la formation du pont.",
         "correct": true,
@@ -630,6 +710,11 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle contient un acide carboxylique.",
         "correct": false,
         "explanation": "Correct : COOH est présent."
+      },
+      {
+        "content": "Dans cette écriture, le groupe $\\ce{NH2}$ correspond à une amine primaire.",
+        "correct": false,
+        "explanation": "Cette affirmation est correcte ; elle ne fait donc pas partie des deux propositions incorrectes à sélectionner."
       }
     ],
     "explanation": "Les deux propositions à sélectionner sont celles qui attribuent à tort un nitrile et un ammonium quaternaire à la cystéine."
@@ -640,11 +725,6 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Quelles affirmations de synthèse sur les fonctions azotées et soufrées sont exactes ?",
     "choices": [
-      {
-        "content": "L'environnement immédiat de l'azote est indispensable pour distinguer notamment amine, amide et ammonium.",
-        "correct": true,
-        "explanation": "Le même élément, l'azote, peut appartenir à plusieurs fonctions. Il faut examiner ses voisins, la présence éventuelle d'un carbone carbonylé et sa charge pour identifier correctement le motif."
-      },
       {
         "content": "Une triple liaison $\\ce{C#N}$ constitue le motif caractéristique d'un nitrile.",
         "correct": true,
@@ -659,6 +739,16 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Dans l'expression « ammonium quaternaire », le mot quaternaire indique que la molécule contient quatre atomes de carbone.",
         "correct": false,
         "explanation": "« Quaternaire » qualifie l'environnement de l'azote : celui-ci est lié à quatre substituants organiques et porte une charge positive. Le nombre total d'atomes de carbone de la molécule peut être différent de quatre."
+      },
+      {
+        "content": "$\\ce{R-SH}$ est le motif caractéristique d’un thiol.",
+        "correct": true,
+        "explanation": "Le motif sulfhydryle $\\ce{R-SH}$ définit la fonction thiol."
+      },
+      {
+        "content": "L'environnement immédiat de l'azote est indispensable pour distinguer notamment amine, amide et ammonium.",
+        "correct": true,
+        "explanation": "Le même élément, l'azote, peut appartenir à plusieurs fonctions. Il faut examiner ses voisins, la présence éventuelle d'un carbone carbonylé et sa charge pour identifier correctement le motif."
       }
     ],
     "explanation": "Les fonctions azotées et soufrées doivent être reconnues à partir de motifs structuraux complets. Les mots primaire, secondaire, tertiaire ou quaternaire décrivent un environnement atomique précis ; ils ne correspondent ni au nombre total d'éléments ni au nombre total de carbones de la molécule."

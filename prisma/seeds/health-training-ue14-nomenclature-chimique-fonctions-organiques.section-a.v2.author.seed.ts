@@ -15,11 +15,6 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la nomenclature chimique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle vise à désigner les molécules avec précision.",
-        "correct": true,
-        "explanation": "La nomenclature chimique fournit des règles permettant d'identifier les espèces chimiques de manière précise et aussi peu ambiguë que possible."
-      },
-      {
         "content": "Une nomenclature internationale facilite la communication entre chimistes.",
         "correct": true,
         "explanation": "L'utilisation de règles communes permet à des scientifiques de décrire une même espèce chimique de façon compréhensible indépendamment de leur langue ou de leur pays."
@@ -33,6 +28,16 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La nomenclature devient inutile lorsque la molécule est complexe.",
         "correct": false,
         "explanation": "Au contraire, plus une structure est complexe, plus une dénomination précise et normalisée est utile pour limiter les ambiguïtés."
+      },
+      {
+        "content": "La nomenclature chimique renseigne à elle seule sur l’effet pharmacologique d’une molécule.",
+        "correct": false,
+        "explanation": "La nomenclature décrit et nomme une structure chimique ; elle ne suffit pas à déterminer ses effets biologiques ou pharmacologiques."
+      },
+      {
+        "content": "Elle vise à désigner les molécules avec précision.",
+        "correct": true,
+        "explanation": "La nomenclature chimique fournit des règles permettant d'identifier les espèces chimiques de manière précise et aussi peu ambiguë que possible."
       }
     ],
     "explanation": "La nomenclature chimique constitue un langage commun permettant d'identifier et de décrire les espèces chimiques avec précision. Elle doit être distinguée des noms commerciaux, qui répondent à un autre usage."
@@ -44,16 +49,6 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Une formule brute telle que $\\ce{C2H6O}$ permet d'affirmer que :",
     "choices": [
       {
-        "content": "La molécule contient deux atomes de carbone.",
-        "correct": true,
-        "explanation": "L'indice 2 placé après C indique la présence de deux atomes de carbone."
-      },
-      {
-        "content": "Elle contient six atomes d'hydrogène.",
-        "correct": true,
-        "explanation": "L'indice 6 placé après H indique la présence de six atomes d'hydrogène."
-      },
-      {
         "content": "Elle contient un seul atome d'oxygène.",
         "correct": true,
         "explanation": "Lorsqu'aucun indice n'est écrit après un symbole chimique, l'indice vaut implicitement 1."
@@ -62,6 +57,21 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle impose un unique enchaînement possible des atomes.",
         "correct": false,
         "explanation": "Une formule brute renseigne sur la composition mais pas sur l'enchaînement des atomes. Plusieurs molécules différentes peuvent donc posséder la même formule brute."
+      },
+      {
+        "content": "Elle permet à elle seule de savoir si la molécule est un alcool ou un éther.",
+        "correct": false,
+        "explanation": "Une formule brute ne donne pas l’enchaînement des atomes ; des fonctions différentes peuvent partager la même formule brute."
+      },
+      {
+        "content": "La molécule contient deux atomes de carbone.",
+        "correct": true,
+        "explanation": "L'indice 2 placé après C indique la présence de deux atomes de carbone."
+      },
+      {
+        "content": "Elle contient six atomes d'hydrogène.",
+        "correct": true,
+        "explanation": "L'indice 6 placé après H indique la présence de six atomes d'hydrogène."
       }
     ],
     "explanation": "La formule brute indique la nature et le nombre des atomes constituant une molécule. Elle ne décrit pas nécessairement leurs liaisons ni leur organisation structurale."
@@ -73,6 +83,16 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "question": "L'éthanol $\\ce{CH3CH2OH}$ et l'éther diméthylique $\\ce{CH3OCH3}$ ont la même formule brute $\\ce{C2H6O}$. Sélectionnez exactement les deux propositions correctes.",
     "choices": [
+      {
+        "content": "Ils ont des masses molaires différentes.",
+        "correct": false,
+        "explanation": "Leur formule brute étant identique, ils contiennent les mêmes nombres et types d'atomes et possèdent donc la même masse molaire."
+      },
+      {
+        "content": "Ils ont nécessairement le même enchaînement d’atomes.",
+        "correct": false,
+        "explanation": "Ils ont la même formule brute, mais leurs atomes sont enchaînés différemment."
+      },
       {
         "content": "Ils ont la même composition élémentaire.",
         "correct": true,
@@ -87,11 +107,6 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Ils ont nécessairement la même fonction chimique.",
         "correct": false,
         "explanation": "Une même formule brute peut correspondre à plusieurs fonctions chimiques. Ici, l'éthanol appartient aux alcools et l'éther diméthylique aux éthers."
-      },
-      {
-        "content": "Ils ont des masses molaires différentes.",
-        "correct": false,
-        "explanation": "Leur formule brute étant identique, ils contiennent les mêmes nombres et types d'atomes et possèdent donc la même masse molaire."
       }
     ],
     "explanation": "Deux molécules distinctes peuvent partager une même formule brute. La formule brute indique la composition, mais une représentation structurale est nécessaire pour connaître l'enchaînement des atomes et identifier les fonctions chimiques."
@@ -102,6 +117,11 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos des éléments rencontrés dans les molécules organiques, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Toute molécule organique contient nécessairement du soufre.",
+        "correct": false,
+        "explanation": "Le soufre peut être présent dans certaines molécules organiques, mais sa présence n’est pas obligatoire."
+      },
       {
         "content": "Le carbone constitue un élément central de la chimie organique.",
         "correct": true,
@@ -150,6 +170,11 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le carbone neutre est généralement trivalent.",
         "correct": false,
         "explanation": "Le carbone neutre est généralement tétravalent : la somme des ordres de liaison autour de l'atome de carbone vaut habituellement quatre."
+      },
+      {
+        "content": "La valence usuelle d’un atome dépend du nombre total d’atomes présents dans la molécule.",
+        "correct": false,
+        "explanation": "La valence usuelle caractérise le nombre de liaisons formées par l’atome dans le modèle considéré ; elle ne dépend pas du nombre total d’atomes de la molécule."
       }
     ],
     "explanation": "Les valences usuelles constituent des repères utiles pour contrôler une représentation moléculaire : H et les halogènes sont généralement monovalents, O divalent, N trivalent et C tétravalent."
@@ -166,6 +191,16 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Dans le méthane, le carbone forme quatre liaisons simples avec quatre atomes d'hydrogène. Sa tétravalence est donc satisfaite."
       },
       {
+        "content": "$\\ce{C-H}$ comme unique liaison d'un carbone neutre isolé.",
+        "correct": false,
+        "explanation": "Une seule liaison ne satisfait pas la tétravalence usuelle du carbone."
+      },
+      {
+        "content": "$\\ce{CH2}$ neutre, représenté avec seulement deux liaisons simples et sans autre liaison.",
+        "correct": false,
+        "explanation": "Deux liaisons simples ne satisfont pas la tétravalence usuelle d’un carbone neutre dans ce cadre."
+      },
+      {
         "content": "$\\ce{CH5}$.",
         "correct": false,
         "explanation": "Cinq liaisons simples autour d'un carbone neutre dépasseraient sa tétravalence usuelle."
@@ -174,11 +209,6 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{CH3}$ neutre avec trois liaisons et aucun électron célibataire indiqué.",
         "correct": false,
         "explanation": "Trois liaisons simples ne suffisent pas à satisfaire la tétravalence d'un carbone neutre dans cette représentation."
-      },
-      {
-        "content": "$\\ce{C-H}$ comme unique liaison d'un carbone neutre isolé.",
-        "correct": false,
-        "explanation": "Une seule liaison ne satisfait pas la tétravalence usuelle du carbone."
       }
     ],
     "explanation": "Un carbone neutre usuel est tétravalent : la somme des ordres de liaison autour de cet atome vaut généralement quatre. Le méthane $\\ce{CH4}$ constitue l'exemple le plus simple avec quatre liaisons simples."
@@ -190,16 +220,6 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "La microanalyse chimique d'un composé pur peut fournir :",
     "choices": [
       {
-        "content": "La liste des éléments présents.",
-        "correct": true,
-        "explanation": "L'analyse élémentaire permet d'identifier les éléments chimiques constituant le composé, par exemple le carbone, l'hydrogène, l'azote ou le soufre."
-      },
-      {
-        "content": "Le pourcentage massique de chaque élément.",
-        "correct": true,
-        "explanation": "La microanalyse permet de déterminer la proportion massique de chacun des éléments présents dans l'échantillon, généralement exprimée en pourcentage."
-      },
-      {
         "content": "La géométrie tridimensionnelle exacte.",
         "correct": false,
         "explanation": "La microanalyse renseigne sur la composition élémentaire d'un composé, mais elle ne permet pas de déterminer l'organisation spatiale de ses atomes ni sa géométrie moléculaire."
@@ -208,6 +228,21 @@ export const UE14_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Toujours la formule brute exacte sans autre donnée.",
         "correct": false,
         "explanation": "La microanalyse permet d'établir les proportions relatives des différents éléments et donc une formule empirique. Une donnée supplémentaire, comme la masse molaire, peut être nécessaire pour déterminer la formule brute."
+      },
+      {
+        "content": "L’ordre d’enchaînement exact de tous les atomes.",
+        "correct": false,
+        "explanation": "La microanalyse renseigne sur la composition élémentaire et les proportions massiques, pas sur l’enchaînement des atomes."
+      },
+      {
+        "content": "La liste des éléments présents.",
+        "correct": true,
+        "explanation": "L'analyse élémentaire permet d'identifier les éléments chimiques constituant le composé, par exemple le carbone, l'hydrogène, l'azote ou le soufre."
+      },
+      {
+        "content": "Le pourcentage massique de chaque élément.",
+        "correct": true,
+        "explanation": "La microanalyse permet de déterminer la proportion massique de chacun des éléments présents dans l'échantillon, généralement exprimée en pourcentage."
       }
     ],
     "explanation": "La microanalyse fournit des informations sur la nature des éléments présents et leurs proportions massiques. Elle permet d'établir une composition élémentaire et éventuellement une formule empirique, mais ne renseigne pas directement sur la structure ou la géométrie de la molécule."
@@ -268,6 +303,11 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$ et $M_{\mathrm O}=${t
         "content": "Utiliser directement les pourcentages massiques comme indices de la formule empirique.",
         "correct": false,
         "explanation": "Les pourcentages représentent des proportions de masse et non des rapports entre nombres d'atomes. Il faut d'abord les convertir en quantités relatives de matière à l'aide des masses molaires atomiques avant de rechercher les rapports entiers."
+      },
+      {
+        "content": "Utiliser directement les pourcentages massiques comme nombres d’atomes, sans tenir compte des masses molaires atomiques.",
+        "correct": false,
+        "explanation": "Il faut convertir les proportions massiques en quantités de matière relatives avant d’obtenir les rapports atomiques."
       }
     ],
     "explanation": "Une microanalyse fournit des proportions massiques. Pour déterminer une formule empirique, on convertit ces proportions en quantités relatives de matière, puis on ramène leurs rapports à de petits nombres entiers. La masse molaire du composé peut ensuite être utilisée, si elle est connue, pour déterminer si la formule brute est un multiple de la formule empirique."
@@ -290,16 +330,6 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$ et $M_{\mathrm O}=${t
     "question": "Pour $\\ce{CH3-CH(OH)-CH2-NH2}$, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La formule brute est $\\ce{C3H9NO}$.",
-        "correct": true,
-        "explanation": "Le décompte donne 3 atomes de carbone, 9 atomes d'hydrogène, 1 atome d'azote et 1 atome d'oxygène, soit $\\ce{C3H9NO}$."
-      },
-      {
-        "content": "La molécule contient trois carbones.",
-        "correct": true,
-        "explanation": "La formule semi-développée fait apparaître successivement les trois groupes carbonés $\\ce{CH3}$, $\\ce{CH(OH)}$ et $\\ce{CH2}$."
-      },
-      {
         "content": "Elle contient deux oxygènes.",
         "correct": false,
         "explanation": "Un seul atome d'oxygène est présent : il appartient au groupe hydroxyle $\\ce{OH}$."
@@ -308,6 +338,21 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$ et $M_{\mathrm O}=${t
         "content": "Elle contient une fonction amine.",
         "correct": true,
         "explanation": "Le motif terminal $\\ce{NH2}$ porté par un carbone correspond à une fonction amine primaire."
+      },
+      {
+        "content": "Le groupe $\\ce{NH2}$ contient deux atomes d’azote.",
+        "correct": false,
+        "explanation": "Le groupe $\\ce{NH2}$ contient un seul atome d’azote et deux atomes d’hydrogène."
+      },
+      {
+        "content": "La formule brute est $\\ce{C3H9NO}$.",
+        "correct": true,
+        "explanation": "Le décompte donne 3 atomes de carbone, 9 atomes d'hydrogène, 1 atome d'azote et 1 atome d'oxygène, soit $\\ce{C3H9NO}$."
+      },
+      {
+        "content": "La molécule contient trois carbones.",
+        "correct": true,
+        "explanation": "La formule semi-développée fait apparaître successivement les trois groupes carbonés $\\ce{CH3}$, $\\ce{CH(OH)}$ et $\\ce{CH2}$."
       }
     ],
     "explanation": "La lecture d'une formule semi-développée permet d'identifier les différents atomes et certaines fonctions chimiques. Pour obtenir la formule brute, il faut compter tous les atomes, y compris les hydrogènes portés par les hétéroatomes comme O et N."
@@ -334,6 +379,11 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "question": String.raw`Une espèce a pour formule empirique $\ce{CH2O}$ et une masse molaire de $${texQuantity(180, U.G_PER_MOL)}$. Quelles propositions sont exactes ?
 Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
     "choices": [
+      {
+        "content": "Le facteur multiplicatif permettant de passer de la formule empirique à la formule brute vaut 5.",
+        "correct": false,
+        "explanation": "Le facteur se déduit du rapport entre la masse molaire moléculaire et celle de la formule empirique ; ici il ne vaut pas 5."
+      },
       {
         "content": String.raw`La masse molaire de l'unité empirique vaut $${texQuantity(30, U.G_PER_MOL)}$.`,
         "correct": true,
@@ -364,6 +414,11 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "question": String.raw`Une microanalyse d'un composé contenant seulement C, H et O donne environ 40,0 % de C, 6,7 % de H et 53,3 % de O. Quelle formule empirique correspond à cette composition ?
 Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
     "choices": [
+      {
+        "content": "$\\ce{C3H8O}$",
+        "correct": false,
+        "explanation": "Cette formule ne respecte pas le rapport atomique 1:2:1 de la formule empirique considérée."
+      },
       {
         "content": String.raw`$\ce{CH2O}$.`,
         "correct": true,
@@ -415,16 +470,6 @@ La valeur demandée étant arrondie à l'unité, on obtient $47\,\%$.`
 Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
     "choices": [
       {
-        "content": String.raw`La masse molaire de $\ce{C2H4O}$ vaut $${texQuantity(44, U.G_PER_MOL)}$.`,
-        "correct": true,
-        "explanation": String.raw`La masse molaire de l'unité empirique vaut $2\times12+4\times1+16=44$, soit $${texQuantity(44, U.G_PER_MOL)}$.`
-      },
-      {
-        "content": String.raw`La formule brute est $\ce{C4H8O2}$.`,
-        "correct": true,
-        "explanation": String.raw`Le rapport entre la masse molaire mesurée et celle de l'unité empirique vaut $88/44=2$. Tous les indices de $\ce{C2H4O}$ doivent donc être multipliés par 2, ce qui donne $\ce{C4H8O2}$.`
-      },
-      {
         "content": "Le facteur multiplicatif vaut 4.",
         "correct": false,
         "explanation": String.raw`Le facteur multiplicatif est obtenu en divisant la masse molaire réelle par celle de l'unité empirique : $88/44=2$. Il vaut donc 2 et non 4.`
@@ -433,6 +478,21 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
         "content": String.raw`La formule brute reste forcément $\ce{C2H4O}$.`,
         "correct": false,
         "explanation": String.raw`$\ce{C2H4O}$ est la formule empirique, c'est-à-dire le plus petit rapport entier entre les nombres d'atomes. Comme la masse molaire mesurée est deux fois celle de l'unité empirique, la formule brute doit comporter deux fois chacun de ses indices.`
+      },
+      {
+        "content": "La formule brute est $\\ce{C6H12O3}$.",
+        "correct": false,
+        "explanation": "Cette proposition ne correspond pas au facteur multiplicatif obtenu à partir de la masse molaire."
+      },
+      {
+        "content": String.raw`La masse molaire de $\ce{C2H4O}$ vaut $${texQuantity(44, U.G_PER_MOL)}$.`,
+        "correct": true,
+        "explanation": String.raw`La masse molaire de l'unité empirique vaut $2\times12+4\times1+16=44$, soit $${texQuantity(44, U.G_PER_MOL)}$.`
+      },
+      {
+        "content": String.raw`La formule brute est $\ce{C4H8O2}$.`,
+        "correct": true,
+        "explanation": String.raw`Le rapport entre la masse molaire mesurée et celle de l'unité empirique vaut $88/44=2$. Tous les indices de $\ce{C2H4O}$ doivent donc être multipliés par 2, ce qui donne $\ce{C4H8O2}$.`
       }
     ],
     "explanation": String.raw`On calcule d'abord la masse molaire de l'unité empirique $\ce{C2H4O}$ : $2\times12+4\times1+16=44$, soit $${texQuantity(44, U.G_PER_MOL)}$. Le rapport entre la masse molaire réelle et cette valeur est $88/44=2$. Le facteur multiplicatif est donc 2 et tous les indices de la formule empirique doivent être doublés, ce qui conduit à $\ce{C4H8O2}$.`
@@ -443,6 +503,16 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "format": "QRM",
     "question": "Pour contrôler une formule développée neutre simple, quelles vérifications sont pertinentes ?",
     "choices": [
+      {
+        "content": "Un carbone neutre portant trois liaisons simples satisfait à lui seul sa tétravalence.",
+        "correct": false,
+        "explanation": "Trois liaisons simples correspondent à une somme des ordres de liaison égale à trois. Un carbone neutre usuel est tétravalent et doit généralement atteindre une somme des ordres de liaison égale à quatre."
+      },
+      {
+        "content": "Un halogène neutre usuel doit former deux liaisons simples.",
+        "correct": false,
+        "explanation": "Dans le cadre du chapitre, les halogènes sont monovalents et forment usuellement une liaison."
+      },
       {
         "content": "Un hydrogène ordinaire ne porte qu'une liaison.",
         "correct": true,
@@ -457,11 +527,6 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
         "content": "Un azote neutre usuel totalise généralement trois ordres de liaison.",
         "correct": true,
         "explanation": "Un azote neutre est généralement trivalent : la somme des ordres de liaison autour de l'atome d'azote vaut alors trois."
-      },
-      {
-        "content": "Un carbone neutre portant trois liaisons simples satisfait à lui seul sa tétravalence.",
-        "correct": false,
-        "explanation": "Trois liaisons simples correspondent à une somme des ordres de liaison égale à trois. Un carbone neutre usuel est tétravalent et doit généralement atteindre une somme des ordres de liaison égale à quatre."
       }
     ],
     "explanation": "Le contrôle des valences usuelles permet de repérer rapidement une représentation incohérente. H est généralement monovalent, O divalent, N trivalent et C tétravalent : il faut donc vérifier le nombre et l'ordre des liaisons autour de chaque atome."
@@ -510,6 +575,11 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
         "content": "Deux molécules différentes peuvent partager une même formule brute.",
         "correct": true,
         "explanation": "Des molécules possédant la même formule brute peuvent avoir des enchaînements ou des dispositions spatiales différents : ce phénomène correspond à l'isomérie."
+      },
+      {
+        "content": "Deux molécules ayant la même formule brute ont nécessairement la même structure.",
+        "correct": false,
+        "explanation": "Une même formule brute peut correspondre à plusieurs structures différentes."
       }
     ],
     "explanation": "La formule brute renseigne sur la composition d'une molécule, mais pas nécessairement sur son enchaînement atomique ni sur sa géométrie. Pour caractériser précisément une molécule, il faut donc distinguer formule brute, représentation structurale et dénomination chimique."

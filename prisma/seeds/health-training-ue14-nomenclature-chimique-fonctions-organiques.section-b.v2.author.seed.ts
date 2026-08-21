@@ -12,6 +12,16 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la fonction alcool, quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "L'eau est un alcool organique.",
+        "correct": false,
+        "explanation": "L'eau ne possède aucun groupe carboné et n'appartient donc pas à la famille des alcools organiques."
+      },
+      {
+        "content": "Le motif $\\ce{R-O-R'}$ caractérise à lui seul une fonction alcool.",
+        "correct": false,
+        "explanation": "Le motif $\\ce{R-O-R'}$ correspond à un éther ; un alcool comporte un groupe $\\ce{-OH}$."
+      },
+      {
         "content": "Elle comporte un groupe hydroxyle $\\ce{-OH}$.",
         "correct": true,
         "explanation": "Le groupe hydroxyle $\\ce{-OH}$ constitue le motif caractéristique de la fonction alcool."
@@ -25,11 +35,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Toute molécule contenant un atome d'oxygène est un alcool.",
         "correct": false,
         "explanation": "La présence d'oxygène ne suffit pas à caractériser un alcool : éthers, aldéhydes, cétones, esters ou acides carboxyliques contiennent également de l'oxygène."
-      },
-      {
-        "content": "L'eau est un alcool organique.",
-        "correct": false,
-        "explanation": "L'eau ne possède aucun groupe carboné et n'appartient donc pas à la famille des alcools organiques."
       }
     ],
     "explanation": "Une fonction alcool est caractérisée par un groupe hydroxyle porté par un carbone saturé. Elle doit être distinguée des autres fonctions oxygénées et des phénols, dont le groupe hydroxyle est directement lié à un cycle aromatique."
@@ -40,6 +45,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Concernant les classes d'alcools, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "La classe primaire, secondaire ou tertiaire d’un alcool est déterminée par le nombre total de carbones de la molécule.",
+        "correct": false,
+        "explanation": "La classe dépend de l’environnement carboné du carbone portant le groupe $\\ce{-OH}$, pas de la longueur totale de la chaîne."
+      },
       {
         "content": "Un alcool primaire possède un carbone fonctionnel lié à au plus un autre carbone dans les cas usuels.",
         "correct": true,
@@ -70,16 +80,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "$\\ce{CH3-CH(OH)-CH3}$ est :",
     "choices": [
       {
-        "content": "Un alcool secondaire.",
-        "correct": true,
-        "explanation": "Le carbone portant le groupe $\\ce{-OH}$ est lié aux deux carbones des groupes $\\ce{CH3}$ : l'alcool est donc secondaire."
-      },
-      {
-        "content": "Un alcool primaire.",
-        "correct": false,
-        "explanation": "Un alcool primaire possède un carbone porteur de $\\ce{-OH}$ lié à au plus un autre carbone ; ici, il est lié à deux carbones."
-      },
-      {
         "content": "Un alcool tertiaire.",
         "correct": false,
         "explanation": "Un alcool tertiaire possède un carbone porteur de $\\ce{-OH}$ lié à trois autres carbones ; ici, il n'en a que deux."
@@ -88,6 +88,21 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Un éther.",
         "correct": false,
         "explanation": "Dans un éther, l'oxygène est inséré entre deux groupes carbonés selon un motif $\\ce{R-O-R'}$, ce qui n'est pas le cas ici."
+      },
+      {
+        "content": "Un alcool secondaire.",
+        "correct": true,
+        "explanation": "Le carbone portant le groupe $\\ce{-OH}$ est lié aux deux carbones des groupes $\\ce{CH3}$ : l'alcool est donc secondaire."
+      },
+      {
+        "content": "Un acide carboxylique.",
+        "correct": false,
+        "explanation": "La structure ne comporte pas le motif $\\ce{-COOH}$ caractéristique d’un acide carboxylique."
+      },
+      {
+        "content": "Un alcool primaire.",
+        "correct": false,
+        "explanation": "Un alcool primaire possède un carbone porteur de $\\ce{-OH}$ lié à au plus un autre carbone ; ici, il est lié à deux carbones."
       }
     ],
     "explanation": "Dans le propan-2-ol, le carbone portant le groupe hydroxyle est lié à deux autres carbones : il s'agit donc d'un alcool secondaire."
@@ -98,11 +113,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Quelles associations motif → fonction sont exactes ?",
     "choices": [
-      {
-        "content": "$\\ce{R-COOH}$ → acide carboxylique.",
-        "correct": true,
-        "explanation": "Le motif $\\ce{-COOH}$ correspond au groupe carboxyle et caractérise une fonction acide carboxylique."
-      },
       {
         "content": "$\\ce{R-O-R'}$ → éther.",
         "correct": true,
@@ -117,6 +127,16 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{R-CO-R'}$ → aldéhyde lorsque R et R' sont carbonés.",
         "correct": false,
         "explanation": "Lorsque le carbone du groupe carbonyle est lié à deux groupes carbonés, le carbonyle est interne et la fonction est une cétone. Un aldéhyde possède au contraire au moins un hydrogène directement lié au carbone carbonylé."
+      },
+      {
+        "content": "$\\ce{R-CHO}$ → cétone.",
+        "correct": false,
+        "explanation": "Le motif $\\ce{R-CHO}$ correspond à un aldéhyde, pas à une cétone."
+      },
+      {
+        "content": "$\\ce{R-COOH}$ → acide carboxylique.",
+        "correct": true,
+        "explanation": "Le motif $\\ce{-COOH}$ correspond au groupe carboxyle et caractérise une fonction acide carboxylique."
       }
     ],
     "explanation": "La reconnaissance d'une fonction oxygénée repose sur l'identification du motif complet et sur l'environnement du carbone fonctionnel, notamment autour d'un groupe carbonyle."
@@ -128,9 +148,9 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Quelle formule représente un aldéhyde ?",
     "choices": [
       {
-        "content": "$\\ce{R-CHO}$.",
-        "correct": true,
-        "explanation": "Le carbone du groupe carbonyle est lié à un hydrogène : le carbonyle est terminal, ce qui caractérise un aldéhyde."
+        "content": "$\\ce{R-COOH}$",
+        "correct": false,
+        "explanation": "Le motif $\\ce{R-COOH}$ correspond à un acide carboxylique."
       },
       {
         "content": "$\\ce{R-CO-R'}$.",
@@ -141,6 +161,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{R-O-R'}$.",
         "correct": false,
         "explanation": "Ce motif comporte un oxygène entre deux groupes carbonés et correspond à une fonction éther."
+      },
+      {
+        "content": "$\\ce{R-CHO}$.",
+        "correct": true,
+        "explanation": "Le carbone du groupe carbonyle est lié à un hydrogène : le carbonyle est terminal, ce qui caractérise un aldéhyde."
       },
       {
         "content": "$\\ce{R-COO-R'}$.",
@@ -158,6 +183,16 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Sélectionnez exactement les deux motifs contenant une liaison $\\ce{O-O}$.",
     "choices": [
       {
+        "content": "Ester $\\ce{R-COO-R'}$.",
+        "correct": false,
+        "explanation": "Un ester comporte deux atomes d'oxygène, mais ils sont tous deux liés au carbone fonctionnel et ne sont pas directement liés l'un à l'autre."
+      },
+      {
+        "content": "Méthanol $\\ce{CH3OH}$.",
+        "correct": false,
+        "explanation": "Le méthanol contient un seul atome d’oxygène et aucune liaison $\\ce{O-O}$."
+      },
+      {
         "content": "Peroxyde $\\ce{R-O-O-R'}$.",
         "correct": true,
         "explanation": "Le motif peroxyde comporte une liaison covalente directe entre deux atomes d'oxygène."
@@ -171,11 +206,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Éther $\\ce{R-O-R'}$.",
         "correct": false,
         "explanation": "Un éther ne comporte qu'un seul atome d'oxygène entre deux groupes carbonés et ne possède donc pas de liaison $\\ce{O-O}$."
-      },
-      {
-        "content": "Ester $\\ce{R-COO-R'}$.",
-        "correct": false,
-        "explanation": "Un ester comporte deux atomes d'oxygène, mais ils sont tous deux liés au carbone fonctionnel et ne sont pas directement liés l'un à l'autre."
       }
     ],
     "explanation": "Un peroxyde se reconnaît par la présence d'une liaison directe $\\ce{O-O}$, qu'il s'agisse d'un peroxyde organique ou du peroxyde d'hydrogène."
@@ -186,6 +216,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos de la fonction carbonate organique, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Un carbonate organique ne comporte qu’un seul atome d’oxygène.",
+        "correct": false,
+        "explanation": "Le motif carbonate présenté comporte plusieurs oxygènes autour du carbone carbonylé."
+      },
       {
         "content": "Elle comporte un groupe carbonyle.",
         "correct": true,
@@ -234,6 +269,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{CH3OCH3}$ : éther.",
         "correct": true,
         "explanation": "L'atome d'oxygène est relié à deux groupes méthyle selon le motif $\\ce{R-O-R'}$ : la fonction est un éther."
+      },
+      {
+        "content": "$\\ce{CH3COOH}$ : ester.",
+        "correct": false,
+        "explanation": "$\\ce{CH3COOH}$ possède une fonction acide carboxylique, pas une fonction ester."
       }
     ],
     "explanation": "Pour identifier une fonction oxygénée, il faut examiner le motif complet et, pour les fonctions carbonylées, déterminer si le carbone du carbonyle est terminal ou lié à deux groupes carbonés."
@@ -285,6 +325,16 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Le paracétamol est représenté ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Son azote appartient à une amine libre.",
+        "correct": false,
+        "explanation": "L'azote est directement lié au carbone carbonylé : il appartient à une fonction amide et ne constitue donc pas une amine libre."
+      },
+      {
+        "content": "Il possède une fonction nitrile.",
+        "correct": false,
+        "explanation": "Aucun motif $\\ce{C#N}$ n’est présent dans la structure représentée."
+      },
+      {
         "content": "Il possède un groupe hydroxyle phénolique.",
         "correct": true,
         "explanation": "Le groupe $\\ce{-OH}$ est directement lié au cycle aromatique : il s'agit donc d'un hydroxyle phénolique et non d'un alcool aliphatique."
@@ -298,11 +348,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il possède une fonction ester.",
         "correct": false,
         "explanation": "Une fonction ester nécessite un motif $\\ce{C(=O)-O-R}$. Dans le paracétamol, le carbonyle est lié à un azote et appartient à une amide."
-      },
-      {
-        "content": "Son azote appartient à une amine libre.",
-        "correct": false,
-        "explanation": "L'azote est directement lié au carbone carbonylé : il appartient à une fonction amide et ne constitue donc pas une amine libre."
       }
     ],
     "explanation": "Le paracétamol est une molécule polyfonctionnelle. La lecture de l'environnement de chaque hétéroatome permet d'y reconnaître un phénol et une amide sans découper artificiellement ces fonctions en motifs plus simples.",
@@ -317,6 +362,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "L'aspirine est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles fonctions oxygénées y reconnaît-on ?",
     "choices": [
+      {
+        "content": "Un peroxyde.",
+        "correct": false,
+        "explanation": "La structure ne présente pas de liaison directe $\\ce{O-O}$ caractéristique d’un peroxyde."
+      },
       {
         "content": "Un acide carboxylique.",
         "correct": true,
@@ -370,6 +420,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "$\\ce{CH3OCH3}$.",
         "correct": false,
         "explanation": "Cette molécule possède un oxygène entre deux groupes carbonés et correspond à un éther ; elle ne contient aucun groupe hydroxyle $\\ce{-OH}$."
+      },
+      {
+        "content": "Phénol $\\ce{C6H5OH}$.",
+        "correct": false,
+        "explanation": "Dans ce classement, le groupe $\\ce{-OH}$ est directement porté par un cycle aromatique : il s’agit d’un phénol, pas d’un alcool aliphatique."
       }
     ],
     "explanation": "La présence d'un groupe $\\ce{-OH}$ ne suffit pas toujours à conclure à une fonction alcool : il faut vérifier qu'il est porté par un carbone saturé et qu'il n'appartient pas à une fonction plus complexe comme un acide carboxylique."
@@ -380,11 +435,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On compare $\\ce{CH3CHO}$ et $\\ce{CH3COCH3}$. Quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "La première molécule est un aldéhyde.",
-        "correct": true,
-        "explanation": "Dans $\\ce{CH3CHO}$, le carbone du groupe carbonyle porte un hydrogène : il s'agit d'un aldéhyde."
-      },
       {
         "content": "La seconde molécule est une cétone.",
         "correct": true,
@@ -399,6 +449,16 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Les deux molécules sont des esters.",
         "correct": false,
         "explanation": "Une fonction ester exige le motif $\\ce{C(=O)-O-R}$. Aucun oxygène simple lié au carbone carbonylé n'est présent dans ces deux molécules."
+      },
+      {
+        "content": "Les deux molécules ont la même formule brute.",
+        "correct": false,
+        "explanation": "L’éthanal et la propanone n’ont pas le même nombre de carbones et n’ont donc pas la même formule brute."
+      },
+      {
+        "content": "La première molécule est un aldéhyde.",
+        "correct": true,
+        "explanation": "Dans $\\ce{CH3CHO}$, le carbone du groupe carbonyle porte un hydrogène : il s'agit d'un aldéhyde."
       }
     ],
     "explanation": "Aldéhydes et cétones partagent un groupe carbonyle. Un aldéhyde possède un carbonyle terminal portant un hydrogène, tandis qu'une cétone possède un carbone carbonylé lié à deux groupes carbonés."
@@ -421,6 +481,16 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de $\\ce{CH3COOCH3}$, quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Elle possède une fonction acide carboxylique.",
+        "correct": false,
+        "explanation": "Une fonction acide carboxylique nécessite un groupe $\\ce{-COOH}$. Ici, le carbone carbonylé est lié à $\\ce{-OCH3}$ et non à $\\ce{-OH}$."
+      },
+      {
+        "content": "Elle comporte une liaison directe $\\ce{O-O}$.",
+        "correct": false,
+        "explanation": "Dans un ester, les deux oxygènes ne sont pas directement liés l’un à l’autre."
+      },
+      {
         "content": "La molécule possède une fonction ester.",
         "correct": true,
         "explanation": "Le motif $\\ce{C(=O)-O-C}$ associe un groupe carbonyle à un oxygène lié à un groupe carboné : il caractérise une fonction ester."
@@ -434,11 +504,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle possède une fonction éther indépendante.",
         "correct": false,
         "explanation": "L'oxygène lié par liaison simple fait partie du motif ester complet. Il ne doit pas être compté comme une fonction éther indépendante."
-      },
-      {
-        "content": "Elle possède une fonction acide carboxylique.",
-        "correct": false,
-        "explanation": "Une fonction acide carboxylique nécessite un groupe $\\ce{-COOH}$. Ici, le carbone carbonylé est lié à $\\ce{-OCH3}$ et non à $\\ce{-OH}$."
       }
     ],
     "explanation": "Une fonction complexe doit être reconnue comme un motif complet. Dans $\\ce{CH3COOCH3}$, les deux oxygènes appartiennent à une unique fonction ester ; il ne faut pas la découper artificiellement en carbonyle et éther."
@@ -449,6 +514,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Le peroxyde d'hydrogène $\\ce{H2O2}$ est utilisé comme oxydant et antiseptique dans certaines préparations. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Il contient au moins un atome de carbone.",
+        "correct": false,
+        "explanation": "Le peroxyde d’hydrogène $\\ce{H2O2}$ ne contient aucun atome de carbone."
+      },
       {
         "content": "Il contient une liaison $\\ce{O-O}$.",
         "correct": true,
@@ -497,6 +567,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il possède une fonction amide.",
         "correct": false,
         "explanation": "Une fonction amide contient un atome d'azote lié à un carbone carbonylé. Le propofol ne contient aucun atome d'azote."
+      },
+      {
+        "content": "Le groupe $\\ce{-OH}$ est porté par un carbone saturé.",
+        "correct": false,
+        "explanation": "Dans la structure représentée, le groupe hydroxyle est directement porté par le cycle aromatique."
       }
     ],
     "explanation": "La position du groupe hydroxyle est déterminante : dans le propofol, il est directement porté par un cycle aromatique et correspond donc à une fonction phénol, et non à un alcool aliphatique.",
@@ -572,16 +647,6 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos des molécules comportant plusieurs fonctions oxygénées, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une molécule polyfonctionnelle peut combiner plusieurs motifs fonctionnels différents.",
-        "correct": true,
-        "explanation": "Une même molécule peut comporter plusieurs groupes caractéristiques appartenant à des fonctions différentes, ce qui est fréquent dans les molécules biologiques et les médicaments."
-      },
-      {
-        "content": "L'aspirine associe par exemple une fonction acide carboxylique et une fonction ester.",
-        "correct": true,
-        "explanation": "La structure de l'aspirine comporte à la fois un groupe $\\ce{-COOH}$ et un motif ester $\\ce{C(=O)-O-C}$."
-      },
-      {
         "content": "La présence d'une fonction ester interdit toute autre fonction dans la même molécule.",
         "correct": false,
         "explanation": "Il n'existe aucune règle d'exclusion de ce type : une molécule peut porter une fonction ester ainsi qu'une ou plusieurs autres fonctions."
@@ -590,6 +655,21 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Il faut analyser chaque groupe caractéristique dans son environnement avant d'attribuer une fonction.",
         "correct": true,
         "explanation": "L'environnement évite les faux découpages : par exemple, l'oxygène simple d'un ester appartient au motif ester complet et ne constitue pas nécessairement une fonction éther indépendante."
+      },
+      {
+        "content": "Chaque atome d’oxygène présent doit être compté comme une fonction chimique indépendante.",
+        "correct": false,
+        "explanation": "Une fonction se reconnaît par un motif complet ; plusieurs oxygènes peuvent appartenir à une seule fonction, comme dans un ester ou un acide carboxylique."
+      },
+      {
+        "content": "Une molécule polyfonctionnelle peut combiner plusieurs motifs fonctionnels différents.",
+        "correct": true,
+        "explanation": "Une même molécule peut comporter plusieurs groupes caractéristiques appartenant à des fonctions différentes, ce qui est fréquent dans les molécules biologiques et les médicaments."
+      },
+      {
+        "content": "L'aspirine associe par exemple une fonction acide carboxylique et une fonction ester.",
+        "correct": true,
+        "explanation": "La structure de l'aspirine comporte à la fois un groupe $\\ce{-COOH}$ et un motif ester $\\ce{C(=O)-O-C}$."
       }
     ],
     "explanation": "Dans une molécule polyfonctionnelle, chaque groupe caractéristique doit être analysé dans son environnement. Cette lecture globale permet d'identifier correctement les fonctions sans découper artificiellement une fonction complexe en plusieurs fonctions simples."
@@ -621,6 +701,11 @@ export const UE14_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Dans un ester $\\ce{R-C(=O)-O-R'}$, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Le carbone carbonylé porte nécessairement un groupe $\\ce{-OH}$.",
+        "correct": false,
+        "explanation": "Un groupe carbonyle $\\ce{C=O}$ peut appartenir à plusieurs fonctions ; il ne porte pas nécessairement un groupe hydroxyle."
+      },
       {
         "content": "Le carbone carbonylé est doublement lié à un oxygène.",
         "correct": true,

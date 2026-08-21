@@ -12,16 +12,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Concernant le degré d'un atome de carbone dans une chaîne carbonée, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un carbone primaire est directement lié à un seul autre atome de carbone.",
-        "correct": true,
-        "explanation": "Le degré d'un carbone se détermine en comptant les autres atomes de carbone qui lui sont directement liés. Un seul voisin carboné correspond à un carbone primaire."
-      },
-      {
-        "content": "Un carbone secondaire est directement lié à deux autres atomes de carbone.",
-        "correct": true,
-        "explanation": "Deux voisins carbonés définissent un carbone secondaire."
-      },
-      {
         "content": "Un carbone tertiaire porte nécessairement un seul hydrogène.",
         "correct": false,
         "explanation": "Le caractère tertiaire dépend du nombre de voisins carbonés et non du nombre d'hydrogènes portés. Un carbone tertiaire est lié à trois autres carbones."
@@ -30,6 +20,21 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Un carbone quaternaire est directement lié à quatre autres atomes de carbone.",
         "correct": true,
         "explanation": "Quatre voisins carbonés définissent un carbone quaternaire ; un tel carbone ne porte alors aucun hydrogène dans une structure organique neutre usuelle."
+      },
+      {
+        "content": "Le degré d’un carbone se détermine en comptant uniquement les hydrogènes qu’il porte.",
+        "correct": false,
+        "explanation": "Le degré d’un carbone se détermine par le nombre d’atomes de carbone qui lui sont directement liés."
+      },
+      {
+        "content": "Un carbone primaire est directement lié à un seul autre atome de carbone.",
+        "correct": true,
+        "explanation": "Le degré d'un carbone se détermine en comptant les autres atomes de carbone qui lui sont directement liés. Un seul voisin carboné correspond à un carbone primaire."
+      },
+      {
+        "content": "Un carbone secondaire est directement lié à deux autres atomes de carbone.",
+        "correct": true,
+        "explanation": "Deux voisins carbonés définissent un carbone secondaire."
       }
     ],
     "explanation": "Le degré d'un carbone dépend du nombre d'atomes de carbone directement liés à celui-ci : un, deux, trois ou quatre voisins carbonés correspondent respectivement à un carbone primaire, secondaire, tertiaire ou quaternaire. Il ne faut pas définir ce degré en comptant simplement les hydrogènes portés."
@@ -40,6 +45,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Dans le propane $\\ce{CH3-CH2-CH3}$, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Les carbones terminaux sont secondaires parce qu'ils portent trois hydrogènes.",
+        "correct": false,
+        "explanation": "Le degré se détermine par le nombre de voisins carbonés, pas par le nombre d'hydrogènes. Chaque carbone terminal n'a qu'un voisin carboné et est donc primaire."
+      },
+      {
+        "content": "Le carbone central est tertiaire.",
+        "correct": false,
+        "explanation": "Le carbone central du propane est directement lié à deux carbones : il est secondaire."
+      },
       {
         "content": "Les deux carbones terminaux sont primaires.",
         "correct": true,
@@ -54,11 +69,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La molécule possède un carbone tertiaire.",
         "correct": false,
         "explanation": "Aucun carbone du propane n'est directement lié à trois autres carbones."
-      },
-      {
-        "content": "Les carbones terminaux sont secondaires parce qu'ils portent trois hydrogènes.",
-        "correct": false,
-        "explanation": "Le degré se détermine par le nombre de voisins carbonés, pas par le nombre d'hydrogènes. Chaque carbone terminal n'a qu'un voisin carboné et est donc primaire."
       }
     ],
     "explanation": "Dans le propane, les deux carbones terminaux possèdent chacun un voisin carboné et sont primaires ; le carbone central en possède deux et est secondaire."
@@ -69,6 +79,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Dans le butane $\\ce{CH3-CH2-CH2-CH3}$, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Les carbones terminaux sont tertiaires.",
+        "correct": false,
+        "explanation": "Les carbones terminaux du butane sont chacun directement liés à un seul carbone : ils sont primaires."
+      },
       {
         "content": "Deux carbones sont primaires.",
         "correct": true,
@@ -117,6 +132,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La molécule possède un carbone secondaire.",
         "correct": false,
         "explanation": "Aucun carbone n'est directement lié à exactement deux autres carbones."
+      },
+      {
+        "content": "Les trois carbones périphériques sont secondaires.",
+        "correct": false,
+        "explanation": "Chacun des trois carbones périphériques n’est lié qu’au carbone central : ils sont primaires."
       }
     ],
     "explanation": "Le 2-méthylpropane comporte trois carbones primaires et un carbone tertiaire. Le degré dépend du nombre de voisins carbonés, pas de la position du carbone sur le dessin.",
@@ -132,11 +152,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "La formule topologique du 2,2-diméthylpropane est donnée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les quatre carbones périphériques sont primaires.",
-        "correct": true,
-        "explanation": "Chaque carbone périphérique n'est lié qu'au carbone central : il possède un seul voisin carboné."
-      },
-      {
         "content": "Le carbone central est quaternaire.",
         "correct": true,
         "explanation": "Le carbone central est directement lié à quatre autres carbones : il est donc quaternaire."
@@ -150,6 +165,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La molécule possède deux carbones secondaires.",
         "correct": false,
         "explanation": "Aucun carbone de cette molécule n'est lié à exactement deux autres carbones."
+      },
+      {
+        "content": "Le carbone central porte un hydrogène.",
+        "correct": false,
+        "explanation": "Le carbone central du 2,2-diméthylpropane est lié à quatre carbones et ne porte aucun hydrogène."
+      },
+      {
+        "content": "Les quatre carbones périphériques sont primaires.",
+        "correct": true,
+        "explanation": "Chaque carbone périphérique n'est lié qu'au carbone central : il possède un seul voisin carboné."
       }
     ],
     "explanation": "Le 2,2-diméthylpropane illustre clairement un carbone quaternaire : le carbone central est lié à quatre carbones primaires.",
@@ -165,16 +190,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la propanone $\\ce{CH3-CO-CH3}$, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les deux carbones des groupes $\\ce{CH3}$ sont primaires.",
-        "correct": true,
-        "explanation": "Chacun de ces carbones méthyliques est directement lié uniquement au carbone carbonylé : ils sont primaires."
-      },
-      {
-        "content": "Le carbone carbonylé est directement lié à deux autres carbones.",
-        "correct": true,
-        "explanation": "Le carbone du groupe $\\ce{C=O}$ est relié aux deux groupes méthyle ; il possède donc deux voisins carbonés."
-      },
-      {
         "content": "Le carbone carbonylé est quaternaire parce qu'il ne porte aucun hydrogène.",
         "correct": false,
         "explanation": "Le degré d'un carbone se détermine en comptant ses voisins carbonés. Le carbone carbonylé de la propanone n'en possède que deux ; l'absence d'hydrogène ne suffit pas à le qualifier de quaternaire."
@@ -183,6 +198,21 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La double liaison $\\ce{C=O}$ compte comme deux voisins carbonés.",
         "correct": false,
         "explanation": "Le degré dépend du nombre d'atomes de carbone directement liés, pas de l'ordre des liaisons. L'oxygène du carbonyle n'est pas un voisin carboné."
+      },
+      {
+        "content": "Le carbone carbonylé est secondaire car il est directement lié à deux carbones.",
+        "correct": true,
+        "explanation": "Dans la propanone, le carbone du carbonyle a deux voisins carbonés ; il est donc secondaire."
+      },
+      {
+        "content": "Les deux carbones des groupes $\\ce{CH3}$ sont primaires.",
+        "correct": true,
+        "explanation": "Chacun de ces carbones méthyliques est directement lié uniquement au carbone carbonylé : ils sont primaires."
+      },
+      {
+        "content": "Le carbone carbonylé est directement lié à deux autres carbones.",
+        "correct": true,
+        "explanation": "Le carbone du groupe $\\ce{C=O}$ est relié aux deux groupes méthyle ; il possède donc deux voisins carbonés."
       }
     ],
     "explanation": "La propanone montre pourquoi il ne faut pas déduire le degré d'un carbone à partir du nombre d'hydrogènes qu'il porte. On compte uniquement les autres carbones qui lui sont directement liés."
@@ -193,6 +223,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "À propos de l'éthène $\\ce{CH2=CH2}$, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Une double liaison empêche de déterminer quels atomes de carbone sont directement voisins.",
+        "correct": false,
+        "explanation": "La formule indique au contraire clairement que les deux carbones sont directement liés l'un à l'autre."
+      },
+      {
+        "content": "La double liaison $\\ce{C=C}$ compte comme deux voisins carbonés pour chacun des deux carbones.",
+        "correct": false,
+        "explanation": "Le degré dépend du nombre d’atomes de carbone voisins, pas de l’ordre de la liaison qui les relie."
+      },
       {
         "content": "Chaque carbone est directement lié à un seul autre carbone.",
         "correct": true,
@@ -207,11 +247,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Chaque carbone doit être qualifié de secondaire uniquement parce qu'il porte deux hydrogènes.",
         "correct": false,
         "explanation": "Le nombre d'hydrogènes portés n'est pas le critère général de détermination du degré d'un carbone."
-      },
-      {
-        "content": "Une double liaison empêche de déterminer quels atomes de carbone sont directement voisins.",
-        "correct": false,
-        "explanation": "La formule indique au contraire clairement que les deux carbones sont directement liés l'un à l'autre."
       }
     ],
     "explanation": "Une liaison multiple ne modifie pas le principe de comptage des voisins carbonés : on compte les atomes de carbone directement liés, pas le nombre de liaisons qui les unissent."
@@ -223,6 +258,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "question": "Dans l'éthanal $\\ce{CH3-CHO}$, sélectionnez exactement les deux propositions incorrectes.",
     "choices": [
+      {
+        "content": "Les deux carbones de l’éthanal possèdent chacun un seul voisin carboné.",
+        "correct": false,
+        "explanation": "Cette affirmation est correcte ; elle ne fait donc pas partie des deux propositions incorrectes à sélectionner."
+      },
       {
         "content": "Le carbone du groupe $\\ce{CH3}$ est secondaire.",
         "correct": true,
@@ -271,6 +311,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Chaque segment représente un atome de carbone supplémentaire.",
         "correct": false,
         "explanation": "Un segment représente une liaison. Les carbones se trouvent aux extrémités et aux sommets non étiquetés, pas au milieu de chaque segment."
+      },
+      {
+        "content": "Les hétéroatomes comme O ou N sont généralement écrits explicitement dans une formule topologique.",
+        "correct": true,
+        "explanation": "La formule topologique omet surtout les carbones et les hydrogènes qui leur sont liés ; les hétéroatomes sont indiqués."
       }
     ],
     "explanation": "Pour lire une formule topologique, il faut distinguer les liaisons représentées par les segments des atomes de carbone implicites situés aux sommets et extrémités ; les hétéroatomes restent généralement explicites."
@@ -294,16 +339,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On considère le tert-butanol $\\ce{(CH3)3C-OH}$. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le carbone portant le groupe $\\ce{OH}$ est tertiaire.",
-        "correct": true,
-        "explanation": "Ce carbone est directement lié à trois groupes méthyle, donc à trois autres carbones : il est tertiaire."
-      },
-      {
-        "content": "La fonction alcool est tertiaire.",
-        "correct": true,
-        "explanation": "Un alcool est tertiaire lorsque le carbone portant $\\ce{OH}$ est directement lié à trois autres carbones."
-      },
-      {
         "content": "Le carbone portant $\\ce{OH}$ est quaternaire parce qu'il ne porte aucun hydrogène.",
         "correct": false,
         "explanation": "Il ne possède que trois voisins carbonés ; il est donc tertiaire. La liaison au groupe $\\ce{OH}$ ne constitue pas un quatrième voisin carboné."
@@ -312,6 +347,21 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Un alcool tertiaire contient nécessairement trois groupes $\\ce{OH}$.",
         "correct": false,
         "explanation": "Le terme tertiaire décrit l'environnement carboné du carbone portant le groupe hydroxyle, et non le nombre de groupes $\\ce{OH}$."
+      },
+      {
+        "content": "L’oxygène du groupe $\\ce{-OH}$ compte comme un voisin carboné du carbone fonctionnel.",
+        "correct": false,
+        "explanation": "Seuls les atomes de carbone directement liés sont comptés pour déterminer le degré d’un carbone."
+      },
+      {
+        "content": "Le carbone portant le groupe $\\ce{OH}$ est tertiaire.",
+        "correct": true,
+        "explanation": "Ce carbone est directement lié à trois groupes méthyle, donc à trois autres carbones : il est tertiaire."
+      },
+      {
+        "content": "La fonction alcool est tertiaire.",
+        "correct": true,
+        "explanation": "Un alcool est tertiaire lorsque le carbone portant $\\ce{OH}$ est directement lié à trois autres carbones."
       }
     ],
     "explanation": "Dans le tert-butanol, les deux classifications convergent : le carbone fonctionnel est tertiaire et la fonction alcool est tertiaire, car ce carbone est lié à trois autres carbones."
@@ -322,6 +372,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On considère le propan-2-ol $\\ce{CH3-CH(OH)-CH3}$. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Le préfixe prop- indique que la fonction alcool est primaire.",
+        "correct": false,
+        "explanation": "Le préfixe prop- indique seulement que la chaîne principale comporte trois carbones ; il ne détermine pas la classe de l'alcool."
+      },
+      {
+        "content": "Le carbone portant $\\ce{-OH}$ est primaire.",
+        "correct": false,
+        "explanation": "Il est directement lié à deux carbones ; il est donc secondaire."
+      },
       {
         "content": "Le carbone portant le groupe $\\ce{OH}$ est secondaire.",
         "correct": true,
@@ -336,11 +396,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le carbone portant $\\ce{OH}$ est tertiaire parce qu'il porte un seul hydrogène.",
         "correct": false,
         "explanation": "Le nombre d'hydrogènes n'est pas le critère de détermination du degré. Ce carbone possède deux voisins carbonés et est secondaire."
-      },
-      {
-        "content": "Le préfixe prop- indique que la fonction alcool est primaire.",
-        "correct": false,
-        "explanation": "Le préfixe prop- indique seulement que la chaîne principale comporte trois carbones ; il ne détermine pas la classe de l'alcool."
       }
     ],
     "explanation": "Dans le propan-2-ol, le carbone portant $\\ce{OH}$ possède deux voisins carbonés : ce carbone est secondaire et l'alcool est également secondaire."
@@ -351,6 +406,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "On considère le propan-1-ol $\\ce{CH3-CH2-CH2-OH}$. Quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Le carbone portant $\\ce{-OH}$ est tertiaire.",
+        "correct": false,
+        "explanation": "Il est directement lié à deux carbones ; il est secondaire."
+      },
       {
         "content": "Le carbone portant le groupe $\\ce{OH}$ est primaire.",
         "correct": true,
@@ -399,6 +459,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le groupe $\\ce{-OH}$ du carboxyle constitue une seconde fonction alcool.",
         "correct": false,
         "explanation": "Le groupe $\\ce{-OH}$ intégré à $\\ce{-COOH}$ appartient à la fonction acide carboxylique et ne constitue pas une fonction alcool indépendante."
+      },
+      {
+        "content": "Le carbone du groupe carboxyle est directement lié à un seul autre carbone.",
+        "correct": true,
+        "explanation": "Le carbone carboxylique est lié au carbone voisin de la chaîne et aux oxygènes de la fonction ; il n’a qu’un voisin carboné."
       }
     ],
     "explanation": "L'acide lactique associe une fonction alcool secondaire et une fonction acide carboxylique. Cette structure permet aussi de distinguer le degré d'un carbone du simple nombre d'hydrogènes qu'il porte."
@@ -409,11 +474,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "La valine est un acide aminé essentiel. Elle est représentée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes concernant le degré de ses carbones ?",
     "choices": [
-      {
-        "content": "Le carbone du groupe carboxyle est primaire.",
-        "correct": true,
-        "explanation": "Le carbone du carboxyle est directement lié à un seul autre carbone, le carbone alpha : il est primaire."
-      },
       {
         "content": "Le carbone ramifié de la chaîne latérale est tertiaire.",
         "correct": true,
@@ -428,6 +488,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Les deux carbones des groupes méthyle sont secondaires.",
         "correct": false,
         "explanation": "Chacun de ces carbones n'est directement lié qu'au carbone ramifié : ils sont primaires."
+      },
+      {
+        "content": "Le carbone ramifié de la chaîne latérale est quaternaire.",
+        "correct": false,
+        "explanation": "Le carbone ramifié représenté n’est pas lié à quatre atomes de carbone."
+      },
+      {
+        "content": "Le carbone du groupe carboxyle est primaire.",
+        "correct": true,
+        "explanation": "Le carbone du carboxyle est directement lié à un seul autre carbone, le carbone alpha : il est primaire."
       }
     ],
     "explanation": "Dans la valine, le degré de chaque carbone se déduit du nombre de voisins carbonés : le carbone du carboxyle et les méthyles sont primaires, le carbone alpha est secondaire et le carbone ramifié est tertiaire.",
@@ -443,16 +513,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Concernant les préfixes de nomenclature correspondant aux chaînes de 1 à 5 carbones, quelles associations sont exactes ?",
     "choices": [
       {
-        "content": "1 carbone → méth-.",
-        "correct": true,
-        "explanation": "Le préfixe méth- correspond à une chaîne comportant un seul carbone, comme dans le méthane."
-      },
-      {
-        "content": "2 carbones → éth-.",
-        "correct": true,
-        "explanation": "Le préfixe éth- correspond à deux carbones, comme dans l'éthane."
-      },
-      {
         "content": "3 carbones → but-.",
         "correct": false,
         "explanation": "Trois carbones correspondent au préfixe prop-. Le préfixe but- correspond à quatre carbones."
@@ -461,6 +521,21 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "5 carbones → hex-.",
         "correct": false,
         "explanation": "Cinq carbones correspondent au préfixe pent-. Le préfixe hex- correspond à six carbones."
+      },
+      {
+        "content": "Une chaîne de quatre carbones utilise le préfixe but-.",
+        "correct": true,
+        "explanation": "Quatre carbones correspondent au préfixe but-, comme dans butane."
+      },
+      {
+        "content": "1 carbone → méth-.",
+        "correct": true,
+        "explanation": "Le préfixe méth- correspond à une chaîne comportant un seul carbone, comme dans le méthane."
+      },
+      {
+        "content": "2 carbones → éth-.",
+        "correct": true,
+        "explanation": "Le préfixe éth- correspond à deux carbones, comme dans l'éthane."
       }
     ],
     "explanation": "Les cinq premiers préfixes sont méth-, éth-, prop-, but- et pent-, correspondant respectivement à 1, 2, 3, 4 et 5 carbones."
@@ -471,6 +546,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "Concernant les préfixes de nomenclature correspondant aux chaînes de 6 à 10 carbones, quelles associations sont exactes ?",
     "choices": [
+      {
+        "content": "10 carbones → non-.",
+        "correct": false,
+        "explanation": "Dix carbones correspondent au préfixe déc-. Le préfixe non- correspond à neuf carbones."
+      },
+      {
+        "content": "Une chaîne de neuf carbones utilise le préfixe déc-.",
+        "correct": false,
+        "explanation": "Neuf carbones correspondent au préfixe non- ; déc- correspond à dix carbones."
+      },
       {
         "content": "6 carbones → hex-.",
         "correct": true,
@@ -485,11 +570,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "8 carbones → non-.",
         "correct": false,
         "explanation": "Huit carbones correspondent au préfixe oct-. Le préfixe non- correspond à neuf carbones."
-      },
-      {
-        "content": "10 carbones → non-.",
-        "correct": false,
-        "explanation": "Dix carbones correspondent au préfixe déc-. Le préfixe non- correspond à neuf carbones."
       }
     ],
     "explanation": "De 6 à 10 carbones, les préfixes sont hex-, hept-, oct-, non- et déc-."
@@ -539,11 +619,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Dans le nom « 2-méthylbutane », quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le nom du parent indique une chaîne principale de quatre carbones.",
-        "correct": true,
-        "explanation": "Le préfixe but- correspond à quatre carbones : la chaîne principale retenue est donc un butane."
-      },
-      {
         "content": "Le substituant méthyle apporte un carbone supplémentaire à la molécule.",
         "correct": true,
         "explanation": "Un groupe méthyle correspond à $-\\ce{CH3}$ et contient un carbone."
@@ -557,6 +632,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le parent doit être appelé pentane dès qu'une molécule contient cinq carbones au total.",
         "correct": false,
         "explanation": "Le nom du parent dépend de la chaîne principale continue retenue, pas du simple nombre total de carbones présents dans toute la molécule."
+      },
+      {
+        "content": "Le substituant indiqué par « méthyl- » contient deux carbones.",
+        "correct": false,
+        "explanation": "Un groupe méthyle contient un seul carbone."
+      },
+      {
+        "content": "Le nom du parent indique une chaîne principale de quatre carbones.",
+        "correct": true,
+        "explanation": "Le préfixe but- correspond à quatre carbones : la chaîne principale retenue est donc un butane."
       }
     ],
     "explanation": "Dans une molécule ramifiée, le nombre total de carbones peut être supérieur au nombre de carbones de la chaîne principale. Le nom du parent décrit la chaîne principale, tandis que les ramifications sont nommées comme substituants."
@@ -568,16 +653,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos des groupes alkyles simples, quelles associations sont exactes ?",
     "choices": [
       {
-        "content": "Méthyle : $-\\ce{CH3}$.",
-        "correct": true,
-        "explanation": "Le groupe méthyle dérive du méthane $\\ce{CH4}$ par retrait d'un hydrogène."
-      },
-      {
-        "content": "Éthyle : $-\\ce{C2H5}$.",
-        "correct": true,
-        "explanation": "Le groupe éthyle dérive de l'éthane $\\ce{C2H6}$ par retrait d'un hydrogène."
-      },
-      {
         "content": "Propyle : $-\\ce{C3H8}$.",
         "correct": false,
         "explanation": "Le propane est $\\ce{C3H8}$ ; après retrait d'un hydrogène, le groupe propyle a pour formule $-\\ce{C3H7}$."
@@ -586,6 +661,21 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Butyle : $-\\ce{C4H10}$.",
         "correct": false,
         "explanation": "Le butane est $\\ce{C4H10}$ ; le groupe butyle obtenu par retrait d'un hydrogène est $-\\ce{C4H9}$."
+      },
+      {
+        "content": "Butyle : $\\ce{-C4H9}$.",
+        "correct": true,
+        "explanation": "Le groupe butyle dérive du butane par perte d’un hydrogène : $\\ce{C4H9-}$."
+      },
+      {
+        "content": "Méthyle : $-\\ce{CH3}$.",
+        "correct": true,
+        "explanation": "Le groupe méthyle dérive du méthane $\\ce{CH4}$ par retrait d'un hydrogène."
+      },
+      {
+        "content": "Éthyle : $-\\ce{C2H5}$.",
+        "correct": true,
+        "explanation": "Le groupe éthyle dérive de l'éthane $\\ce{C2H6}$ par retrait d'un hydrogène."
       }
     ],
     "explanation": "Un groupe alkyle dérive d'un alcane par retrait d'un atome d'hydrogène. Sa dénomination utilise le suffixe -yl."
@@ -657,6 +747,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "La formule topologique de l'heptane est donnée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "La formule brute de l’heptane est $\\ce{C7H14}$.",
+        "correct": false,
+        "explanation": "Un alcane acyclique saturé de sept carbones a pour formule $\\ce{C7H16}$."
+      },
+      {
         "content": "La molécule comporte sept carbones.",
         "correct": true,
         "explanation": "En comptant les deux extrémités et les sommets non étiquetés de la chaîne, on obtient sept atomes de carbone."
@@ -709,6 +804,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Butane $\\ce{C4H10}$ → butyle $-\\ce{C4H10}$.",
         "correct": true,
         "explanation": "Incorrect : le groupe butyle a pour formule $-\\ce{C4H9}$ après retrait d'un hydrogène au butane."
+      },
+      {
+        "content": "Propane $\\ce{C3H8}$ → propyle $\\ce{-C3H7}$.",
+        "correct": false,
+        "explanation": "Cette association est correcte ; elle ne fait donc pas partie des deux propositions incorrectes à sélectionner."
       }
     ],
     "explanation": "Un groupe alkyle se forme formellement par retrait d'un hydrogène à l'alcane correspondant. La consigne demande ici de sélectionner les deux associations incorrectes."
@@ -719,6 +819,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRU",
     "question": "Quel nom correspond à la structure $\\ce{CH3-CH(CH3)-CH2-CH3}$ ?",
     "choices": [
+      {
+        "content": "1-méthylbutane.",
+        "correct": false,
+        "explanation": "Ce nom ne respecte pas le choix de la plus longue chaîne principale pour la structure considérée."
+      },
       {
         "content": "2-méthylbutane.",
         "correct": true,
@@ -749,16 +854,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "La formule topologique du 3-méthylhexane est donnée ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La chaîne principale comporte six carbones.",
-        "correct": true,
-        "explanation": "Le parent hexane correspond à une chaîne principale de six carbones."
-      },
-      {
-        "content": "La molécule comporte sept carbones au total.",
-        "correct": true,
-        "explanation": "La chaîne principale apporte six carbones et le substituant méthyle en apporte un supplémentaire."
-      },
-      {
         "content": "Le nom 4-méthylhexane doit être préféré à 3-méthylhexane.",
         "correct": false,
         "explanation": "On choisit le sens de numérotation donnant l'indice le plus faible au substituant : 3 est préféré à 4."
@@ -767,6 +862,21 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Le préfixe hex- indique que la molécule ne peut contenir aucun carbone en dehors de la chaîne principale.",
         "correct": false,
         "explanation": "Le préfixe hex- décrit la chaîne principale. Des substituants carbonés peuvent ajouter d'autres carbones à la molécule."
+      },
+      {
+        "content": "Le substituant méthyle apporte un carbone qui n’appartient pas à la chaîne principale.",
+        "correct": true,
+        "explanation": "Le parent hexane comporte six carbones ; le groupe méthyle apporte le septième carbone de la molécule."
+      },
+      {
+        "content": "La chaîne principale comporte six carbones.",
+        "correct": true,
+        "explanation": "Le parent hexane correspond à une chaîne principale de six carbones."
+      },
+      {
+        "content": "La molécule comporte sept carbones au total.",
+        "correct": true,
+        "explanation": "La chaîne principale apporte six carbones et le substituant méthyle en apporte un supplémentaire."
       }
     ],
     "explanation": "Le 3-méthylhexane illustre la distinction entre longueur de la chaîne principale et nombre total de carbones, ainsi que la règle du plus petit indice.",
@@ -782,6 +892,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "L'isooctane est représenté ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
+        "content": "Le parent doit être octane simplement parce que la molécule possède huit carbones au total.",
+        "correct": false,
+        "explanation": "Le parent correspond à la chaîne principale continue retenue, pas au nombre total de carbones présents dans la molécule. Le nom systématique est 2,2,4-triméthylpentane."
+      },
+      {
+        "content": "La chaîne principale de son nom systématique comporte huit carbones.",
+        "correct": false,
+        "explanation": "La structure représentée ne conduit pas à une chaîne principale de huit carbones."
+      },
+      {
         "content": "La molécule comporte huit carbones au total.",
         "correct": true,
         "explanation": "L'isooctane possède huit atomes de carbone, ce qui explique son nom usuel."
@@ -795,11 +915,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Elle porte trois substituants méthyle en positions 2, 2 et 4.",
         "correct": true,
         "explanation": "La structure comporte deux groupes méthyle sur le carbone 2 et un groupe méthyle sur le carbone 4."
-      },
-      {
-        "content": "Le parent doit être octane simplement parce que la molécule possède huit carbones au total.",
-        "correct": false,
-        "explanation": "Le parent correspond à la chaîne principale continue retenue, pas au nombre total de carbones présents dans la molécule. Le nom systématique est 2,2,4-triméthylpentane."
       }
     ],
     "explanation": "L'isooctane, ou 2,2,4-triméthylpentane, montre qu'une molécule peut contenir davantage de carbones au total que sa chaîne principale.",
@@ -814,6 +929,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "format": "QRM",
     "question": "La valine est un acide aminé essentiel et peut s'écrire $\\ce{HOOC-CH(NH2)-CH(CH3)2}$. Quelles propositions sont exactes pour la chaîne principale contenant le carboxyle ?",
     "choices": [
+      {
+        "content": "La chaîne principale contenant le groupe carboxyle comporte cinq carbones.",
+        "correct": false,
+        "explanation": "Le nombre de carbones de la chaîne principale se détermine en incluant le carbone de la fonction acide carboxylique ; ici il ne vaut pas cinq."
+      },
       {
         "content": "La chaîne principale comporte quatre carbones.",
         "correct": true,
@@ -862,6 +982,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Tous les carbones de cette molécule sont secondaires.",
         "correct": false,
         "explanation": "Trois carbones sont primaires, un carbone est secondaire et le carbone ramifié est tertiaire."
+      },
+      {
+        "content": "Le carbone portant la ramification méthyle est tertiaire.",
+        "correct": true,
+        "explanation": "Ce carbone est directement lié à trois autres carbones ; il est tertiaire."
       }
     ],
     "explanation": "La lecture correcte combine le comptage des carbones, le choix de la plus longue chaîne et la numérotation donnant l'indice le plus faible au substituant.",
@@ -877,11 +1002,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On considère le 3-méthylhexan-2-ol représenté ci-dessous : [[QUESTION_DIAGRAM]] Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La chaîne principale comporte six carbones.",
-        "correct": true,
-        "explanation": "Le parent hexan- correspond à une chaîne principale de six carbones."
-      },
-      {
         "content": "Le groupe hydroxyle reçoit l'indice 2.",
         "correct": true,
         "explanation": "La chaîne est numérotée de façon à attribuer au groupe hydroxyle, fonction principale ici, l'indice le plus faible : 2 plutôt que 5."
@@ -895,6 +1015,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "La fonction alcool est tertiaire.",
         "correct": false,
         "explanation": "Le carbone portant $\\ce{OH}$ est directement lié à deux autres carbones : la fonction alcool est secondaire."
+      },
+      {
+        "content": "Le carbone portant le groupe $\\ce{-OH}$ est tertiaire.",
+        "correct": false,
+        "explanation": "Le carbone fonctionnel est directement lié à deux carbones ; il est secondaire."
+      },
+      {
+        "content": "La chaîne principale comporte six carbones.",
+        "correct": true,
+        "explanation": "Le parent hexan- correspond à une chaîne principale de six carbones."
       }
     ],
     "explanation": "Cette molécule combine plusieurs règles : choix d'une chaîne de six carbones, priorité de numérotation du groupe hydroxyle, localisation du substituant méthyle et classification de l'alcool.",
@@ -922,6 +1052,16 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Pour nommer une chaîne carbonée ramifiée simple, quelles démarches sont pertinentes ?",
     "choices": [
       {
+        "content": "Numéroter systématiquement la chaîne de gauche à droite telle qu'elle est dessinée.",
+        "correct": false,
+        "explanation": "L'orientation du dessin n'a pas de valeur nomenclaturale. On choisit le sens de numérotation conformément aux règles d'attribution des indices."
+      },
+      {
+        "content": "Identifier et nommer les substituants portés par la chaîne principale fait partie de la démarche.",
+        "correct": true,
+        "explanation": "Après le choix et la numérotation du parent, les substituants doivent être identifiés et localisés pour construire le nom."
+      },
+      {
         "content": "Identifier une chaîne principale appropriée, généralement la plus longue compatible avec la fonction principale.",
         "correct": true,
         "explanation": "La chaîne principale fournit le nom du parent et doit respecter les règles de priorité fonctionnelle lorsqu'une fonction principale est présente."
@@ -935,11 +1075,6 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "content": "Choisir comme parent le nombre total de carbones de la molécule, même si ces carbones ne forment pas une chaîne continue.",
         "correct": false,
         "explanation": "Le parent correspond à une chaîne principale continue appropriée ; les carbones portés par les ramifications ne sont pas automatiquement inclus dans cette chaîne."
-      },
-      {
-        "content": "Numéroter systématiquement la chaîne de gauche à droite telle qu'elle est dessinée.",
-        "correct": false,
-        "explanation": "L'orientation du dessin n'a pas de valeur nomenclaturale. On choisit le sens de numérotation conformément aux règles d'attribution des indices."
       }
     ],
     "explanation": "La nomenclature d'une chaîne ramifiée repose sur trois idées : choisir correctement le parent, numéroter selon les règles de plus faibles indices et identifier les substituants. L'orientation du dessin ou le nombre total de carbones ne suffisent pas."
@@ -951,6 +1086,11 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "question": "Sélectionnez exactement les deux molécules comportant sept carbones au total.",
     "choices": [
+      {
+        "content": "2-éthylbutane.",
+        "correct": false,
+        "explanation": "Cette proposition ne correspond pas au nom systématique retenu pour la structure considérée."
+      },
       {
         "content": "3-méthylhexane.",
         "correct": true,
