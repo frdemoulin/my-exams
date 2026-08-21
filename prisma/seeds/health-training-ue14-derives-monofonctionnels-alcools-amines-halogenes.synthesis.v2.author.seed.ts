@@ -105,7 +105,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
       }
     ],
-    "explanation": "Le support relie alcool primaire, aldéhyde et acide par degré croissant d'oxydation."
+    "explanation": "L'oxydation d'un alcool primaire conduit d'abord à l'aldéhyde puis, si elle est poursuivie, à l'acide carboxylique."
   },
   {
     "order": 104,
@@ -124,19 +124,19 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La formation d’un hémiacétal résulte de l’addition d’une fonction alcool sur une fonction aldéhyde."
       },
       {
-        "content": "Elle met en jeu une fonction alcool et une fonction aldéhyde dans le bilan simplifié.",
+        "content": "La formation d'un hémiacétal met en jeu une fonction alcool et une fonction aldéhyde dans le bilan simplifié.",
         "correct": true,
-        "explanation": "Bilan alcool + aldéhyde → hémiacétal."
+        "explanation": "Une fonction alcool s'additionne sur la fonction aldéhyde pour former un hémiacétal."
       },
       {
-        "content": "La ne forme pas hémiacétalique est indiquée comme fréquente dans les sucres cyclisés.",
+        "content": "La forme hémiacétalique n'est pas fréquente dans les sucres cyclisés.",
         "correct": false,
         "explanation": "La relation correcte est: « La forme hémiacétalique est indiquée comme fréquente dans les sucres cyclisés ». La négation proposée est donc fausse."
       },
       {
-        "content": "Elle correspond à une hydrogénation catalytique.",
+        "content": "La formation d'un hémiacétal correspond à une hydrogénation catalytique.",
         "correct": false,
-        "explanation": "Aucun dihydrogène n'est ajouté: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La formation d'un hémiacétal n'implique aucune addition de dihydrogène."
       }
     ],
     "explanation": "Cette réaction permet de relier la chimie organique fonctionnelle à la cyclisation des oses."
@@ -148,7 +148,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Une amine primaire réagit avec un acide activé dans une synthèse de motif peptidique. Quelles propositions sont exactes?",
     "choices": [
       {
-        "content": "La relie les amides aux peptides et protéines.",
+        "content": "Les fonctions amides sont présentes dans les peptides et les protéines.",
         "correct": true,
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
@@ -170,7 +170,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une fonction amide peut être obtenue.",
         "correct": true,
-        "explanation": "Bilan: amine + acide activé ↔ amide."
+        "explanation": "L'amine attaque le dérivé acylé activé et conduit à la formation d'une fonction amide."
       }
     ],
     "explanation": "L'amidification constitue le lien direct entre la réactivité des amines et les fonctions amides des peptides."

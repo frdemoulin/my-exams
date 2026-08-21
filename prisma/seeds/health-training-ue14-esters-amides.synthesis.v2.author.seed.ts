@@ -19,22 +19,22 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Avec l'alcool, on peut former un ester.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "L'oxygène de l'alcool attaque le dérivé acylé activé ; le produit formé est un ester."
       },
       {
         "content": "Avec l'amine, on peut former une amide.",
         "correct": true,
-        "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
+        "explanation": "L'azote de l'amine attaque le dérivé acylé activé ; le produit formé est une amide."
       },
       {
         "content": "Avec le thiol, on peut former un thioester.",
         "correct": true,
-        "explanation": "Acide activé + thiol: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le soufre du thiol réagit avec le dérivé acylé activé ; le produit formé est un thioester."
       },
       {
         "content": "La nature de l'hétéroatome du partenaire détermine la famille du produit.",
         "correct": true,
-        "explanation": "O, N ou S: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Selon que le nucléophile apporte O, N ou S, le dérivé acylé formé est respectivement un ester, une amide ou un thioester."
       }
     ],
     "explanation": "Un même fragment acyle activé peut conduire aux trois familles principales du chapitre."
@@ -53,7 +53,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les trois fonctions sont absolument non hydrolysables.",
         "correct": false,
-        "explanation": "La décrit l'hydrolyse des trois."
+        "explanation": "Les fonctions ester, amide et thioester sont toutes hydrolysables, mais dans des conditions et avec des facilités différentes."
       },
       {
         "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
@@ -145,7 +145,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 105,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un contexte biologique, quelles associations sont soutenues par la?",
+    "question": "Dans un contexte biologique, quelles associations sont exactes ?",
     "choices": [
       {
         "content": "Protéases/peptidases → hydrolyse de fonctions amides des peptides.",
@@ -282,7 +282,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux fonctions pour lesquelles la insiste explicitement sur une différence de facilité d'hydrolyse permettant une sélectivité dans une même molécule.",
+    "question": "Sélectionnez exactement les deux fonctions dont la différence de facilité d'hydrolyse permet une sélectivité dans une même molécule.",
     "choices": [
       {
         "content": "Alcène.",
@@ -362,7 +362,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un acide non activé + amine donne directement l'amide.",
         "correct": false,
-        "explanation": "Le support met en avant le sel."
+        "explanation": "Un acide carboxylique non activé et une amine réagissent d'abord par transfert de proton pour former un sel."
       },
       {
         "content": "Un thioester est absolument non hydrolysable.",
@@ -376,7 +376,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un intermédiaire pharmaceutique contient une fonction ester et une fonction amide. On veut d'abord retirer sélectivement l'ester, puis hydrolyser l'amide. Quel enchaînement est cohérent avec la?",
+    "question": "Un intermédiaire pharmaceutique contient une fonction ester et une fonction amide. On veut d'abord hydrolyser sélectivement l'ester, puis l'amide. Quel enchaînement est cohérent ?",
     "choices": [
       {
         "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",

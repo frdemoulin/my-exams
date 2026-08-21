@@ -17,9 +17,9 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
       },
       {
-        "content": "Il peut être représenté par $\\mathrm{R{-}CHO}$.",
+        "content": "Un aldéhyde peut être représenté par $\\mathrm{R{-}CHO}$.",
         "correct": true,
-        "explanation": "C'est l'écriture recommandée par la."
+        "explanation": "L'écriture $\\mathrm{R{-}CHO}$ met clairement en évidence le groupe aldéhyde terminal."
       },
       {
         "content": "Le carbone carbonylé est situé en bout de chaîne.",
@@ -32,9 +32,9 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "nom de l'hydrocarbure + -al."
       },
       {
-        "content": "Il s'écrit de préférence RCOH pour ne pas le confondre avec un alcool.",
+        "content": "Un aldéhyde s'écrit de préférence RCOH pour ne pas le confondre avec un alcool.",
         "correct": false,
-        "explanation": "La recommande au contraire RCHO afin d'éviter la confusion avec un alcool."
+        "explanation": "L'écriture RCHO est préférable car elle fait apparaître sans ambiguïté le groupe aldéhyde."
       }
     ],
     "explanation": "L'aldéhyde se reconnaît par un carbonyle terminal portant H et s'écrit RCHO."
@@ -71,7 +71,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
       }
     ],
-    "explanation": "Le méthanal est le formaldéhyde; en solution aqueuse, la mentionne le formol."
+    "explanation": "Le méthanal est aussi appelé formaldéhyde ; sa solution aqueuse est appelée formol."
   },
   {
     "order": 3,
@@ -85,7 +85,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Synonyme indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "En solution aqueuse, la emploie le terme formol.",
+        "content": "En solution aqueuse, le méthanal est appelé formol.",
         "correct": true,
         "explanation": "Précision donnée: cette relation est conforme à la propriété ou à la transformation décrite."
       },
@@ -124,9 +124,9 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’oxygène attire la densité électronique de la liaison $\\ce{C=O}$, ce qui appauvrit le carbone."
       },
       {
-        "content": "Elle ne peut pas être représentée par $\\mathrm{R{-}CO{-}R'}$.",
+        "content": "Une cétone ne peut pas être représentée par $\\mathrm{R{-}CO{-}R'}$.",
         "correct": false,
-        "explanation": "La relation correcte est: « Elle peut être représentée par $\\mathrm{R{-}CO{-}R'}$ ». La négation proposée est donc fausse."
+        "explanation": "Une cétone peut être représentée par $\\mathrm{R{-}CO{-}R'}$ : le carbone carbonylé est lié à deux groupes carbonés."
       },
       {
         "content": "R et R' ne peuvent pas être H dans la définition présentée.",
@@ -238,7 +238,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une oxydation trop poussée peut conduire à un acide carboxylique.",
         "correct": true,
-        "explanation": "La parle de suroxydation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Si l'oxydation d'un alcool primaire est trop poussée, l'aldéhyde intermédiaire peut être oxydé en acide carboxylique."
       }
     ],
     "explanation": "L'oxydation doit être contrôlée si l'on veut isoler l'aldéhyde."
@@ -250,9 +250,9 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Concernant l'oxydation d'un alcool secondaire :",
     "choices": [
       {
-        "content": "Elle ne conduit pas à une cétone.",
+        "content": "L'oxydation d'un alcool secondaire ne conduit pas à une cétone.",
         "correct": false,
-        "explanation": "La relation correcte est: « Elle conduit à une cétone ». La négation proposée est donc fausse."
+        "explanation": "L'oxydation d'un alcool secondaire conduit à une cétone ; la proposition est donc fausse."
       },
       {
         "content": "La cétone est présentée comme le degré d'oxydation maximal de cette voie.",
@@ -260,7 +260,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le support l'indique: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "La ne prévoit pas de risque de suroxydation comparable à celui de l'aldéhyde.",
+        "content": "Une cétone ne présente pas, dans ce modèle, le même risque de suroxydation qu'un aldéhyde.",
         "correct": true,
         "explanation": "C'est le contraste donné: cette relation est conforme à la propriété ou à la transformation décrite."
       },
@@ -471,7 +471,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Des conditions fortes sont nécessaires dans le modèle présenté.",
         "correct": true,
-        "explanation": "Le support le précise: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réduction d'un acide carboxylique nécessite des conditions plus fortes que celle d'un aldéhyde ou d'une cétone."
       },
       {
         "content": "Ces conditions fortes risquent de poursuivre la réduction de l'aldéhyde jusqu'à l'alcool.",

@@ -281,7 +281,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 87,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles analogies ester/thioester sont explicitement ou directement soutenues par la?",
+    "question": "Quelles analogies entre ester et thioester sont exactes ?",
     "choices": [
       {
         "content": "Le carbone carbonylé peut être électrophile.",
@@ -425,7 +425,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le groupe acétyle est lié au soufre de la CoA par une liaison thioester."
       },
       {
-        "content": "Elle rompt la liaison acyle-soufre dans le bilan simplifié.",
+        "content": "L'hydrolyse d'un thioester rompt la liaison acyle-soufre dans le bilan simplifié.",
         "correct": true,
         "explanation": "On retrouve acide + thiol."
       },
@@ -479,7 +479,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le groupe SH est le partenaire."
       }
     ],
-    "explanation": "Le support utilise ce couple pour illustrer l'interconversion biologique d'un thioester."
+    "explanation": "Le couple acétyl-CoA / CoA-SH illustre l'hydrolyse puis la reformation biologique d'un thioester."
   },
   {
     "order": 93,

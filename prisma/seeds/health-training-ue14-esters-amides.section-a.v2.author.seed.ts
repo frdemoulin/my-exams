@@ -17,14 +17,14 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le motif $\\ce{R-C(=O)-OH}$ correspond à un acide carboxylique, pas à un ester."
       },
       {
-        "content": "Elle comporte un groupement carbonyle lié à un oxygène portant un substituant carboné.",
+        "content": "La fonction ester comporte un groupement carbonyle lié à un oxygène portant un substituant carboné.",
         "correct": true,
         "explanation": "C'est le motif général d'un ester."
       },
       {
         "content": "Le substituant porté par l'oxygène est carboné dans la définition.",
         "correct": true,
-        "explanation": "ce groupement n'est pas H."
+        "explanation": "Dans un ester, l'oxygène est lié à un groupe carboné ; s'il portait un hydrogène, on aurait un acide carboxylique."
       },
       {
         "content": "Si l'oxygène portait H à la place du substituant carboné, on aurait un acide carboxylique.",
@@ -80,7 +80,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la fonction amide:",
     "choices": [
       {
-        "content": "Elle comporte un carbonyle lié à un atome d'azote.",
+        "content": "La fonction amide comporte un carbonyle lié à un atome d'azote.",
         "correct": true,
         "explanation": "C'est le motif caractéristique: cette relation est conforme à la propriété ou à la transformation décrite."
       },
@@ -105,7 +105,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
       }
     ],
-    "explanation": "plusieurs degrés de substitution de l'azote amide."
+    "explanation": "L'azote d'une amide peut être non substitué, monosubstitué ou disubstitué par des groupes carbonés."
   },
   {
     "order": 4,
@@ -148,17 +148,17 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Pourquoi la fonction amide est-elle importante biologiquement?",
     "choices": [
       {
-        "content": "Elle est retrouvée dans les protéines.",
+        "content": "La fonction amide est retrouvée dans les protéines.",
         "correct": true,
         "explanation": "Même raison: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Elle constitue la liaison peptidique.",
+        "content": "La fonction amide constitue la liaison peptidique.",
         "correct": true,
         "explanation": "C'est l'application biologique majeure du rappel."
       },
       {
-        "content": "Elle est absente des biomolécules.",
+        "content": "La fonction amide est absente des biomolécules.",
         "correct": false,
         "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
       },
@@ -168,7 +168,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La liaison peptidique correspond à une fonction amide."
       },
       {
-        "content": "Elle est retrouvée dans les peptides.",
+        "content": "La fonction amide est retrouvée dans les peptides.",
         "correct": true,
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
@@ -179,7 +179,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans l'exemple peptidique comportant un résidu proline, quelles propositions sont soutenues par la?",
+    "question": "Dans l'exemple peptidique comportant un résidu proline, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "La liaison peptidique est une fonction ester.",
@@ -199,12 +199,12 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le résidu proline influence la structure secondaire.",
         "correct": true,
-        "explanation": "une déformation de la chaîne."
+        "explanation": "Le cycle de la proline contraint la géométrie locale et peut déformer la chaîne peptidique."
       },
       {
         "content": "Tous les azotes du peptide sont nécessairement identiques.",
         "correct": false,
-        "explanation": "Le support compare justement plusieurs environnements d'azote."
+        "explanation": "Les atomes d'azote d'un peptide peuvent présenter des environnements différents, notamment avec un résidu proline."
       }
     ],
     "explanation": "Le résidu proline sert à montrer qu'une fonction amide peptidique peut avoir des environnements d'azote différents et influencer la conformation de la chaîne."
@@ -223,7 +223,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'alcool est remplacé par une amine pour obtenir toujours le même ester.",
         "correct": false,
-        "explanation": "Avec une amine on forme une amide."
+        "explanation": "Avec une amine, l'acylation par un acide activé conduit à une amide et non à un ester."
       },
       {
         "content": "Un acide activé peut réagir avec une amine pour former une amide.",

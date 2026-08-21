@@ -92,7 +92,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Elles peuvent contenir des atomes d'oxygène.",
         "correct": true,
-        "explanation": "Le support cite O et N comme constituants."
+        "explanation": "Les bases nucléiques contiennent notamment des atomes d'azote et, pour certaines, d'oxygène."
       },
       {
         "content": "Elles sont riches en électrons.",
@@ -105,7 +105,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Conséquence de leur caractère basique."
       }
     ],
-    "explanation": "Le support relie richesse électronique, basicité et nucléophilie des bases nucléiques."
+    "explanation": "La richesse électronique de certains sites des bases nucléiques explique leur comportement nucléophile."
   },
   {
     "order": 82,
@@ -145,12 +145,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 83,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": ", les dérivés halogénés sont préoccupants pour les êtres vivants car:",
+    "question": "Pourquoi certains dérivés halogénés sont-ils préoccupants pour les êtres vivants ?",
     "choices": [
       {
         "content": "Ils sont décrits comme de bons électrophiles.",
         "correct": true,
-        "explanation": "Le support les oppose aux bases nucléiques nucléophiles."
+        "explanation": "Les dérivés halogénés électrophiles peuvent réagir avec des sites riches en électrons des bases nucléiques."
       },
       {
         "content": "Ils peuvent réagir avec les bases nucléiques.",
@@ -179,7 +179,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 84,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles conséquences la associe-t-elle à la modification des bases nucléiques par des dérivés halogénés?",
+    "question": "Quelles conséquences peuvent résulter de la modification des bases nucléiques par des dérivés halogénés ?",
     "choices": [
       {
         "content": "Une protection systématique de l'ADN contre toute mutation.",

@@ -587,7 +587,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 84,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "plusieurs facteurs peuvent orienter le choix entre SN1 et SN2. Sont cités:",
+    "question": "Plusieurs facteurs peuvent orienter le choix entre SN1 et SN2. Lesquels sont à prendre en compte ?",
     "choices": [
       {
         "content": "La couleur du flacon.",
@@ -612,7 +612,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La nature des substituants autour du carbone réactif.",
         "correct": true,
-        "explanation": "La évoque la nature de B et C."
+        "explanation": "La substitution autour du carbone réactif modifie son encombrement et peut orienter le choix entre SN1 et SN2."
       }
     ],
     "explanation": "La voie de substitution dépend du contexte réactionnel; qu'on peut souvent chercher à privilégier SN2."
@@ -624,17 +624,17 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Pourquoi la SN2 est-elle présentée comme souvent intéressante?",
     "choices": [
       {
-        "content": "Elle conserve l'asymétrie tout en inversant la configuration géométrique.",
+        "content": "La SN2 conserve un centre stéréogène tout en inversant sa configuration.",
         "correct": true,
         "explanation": "Conséquence stéréochimique: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Elle permet un contrôle stéréochimique plus net.",
+        "content": "La SN2 permet un contrôle stéréochimique plus net.",
         "correct": true,
         "explanation": "C'est l'intérêt par rapport au mélange racémique SN1."
       },
       {
-        "content": "Elle forme nécessairement un mélange racémique.",
+        "content": "La SN2 forme nécessairement un mélange racémique.",
         "correct": false,
         "explanation": "C'est précisément ce qu'elle évite."
       },
@@ -644,7 +644,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbocation plan et la racémisation caractérisent ici la SN1."
       },
       {
-        "content": "Elle évite la racémisation dans le modèle idéal.",
+        "content": "La SN2 évite la racémisation dans le modèle idéal.",
         "correct": true,
         "explanation": "Le produit reste optiquement pur."
       }

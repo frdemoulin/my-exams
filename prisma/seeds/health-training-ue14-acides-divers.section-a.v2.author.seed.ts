@@ -9,7 +9,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": ", quelles propositions décrivent un acide?",
+    "question": "À propos de la notion d'acide, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Dans la hiérarchie donnée, un alcool est plus acide qu’un acide carboxylique.",
@@ -37,7 +37,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "l'acidité dépasse la seule désignation de la fonction carboxylique."
       }
     ],
-    "explanation": "La juxtapose une définition protonique et une définition électronique de l'acide."
+    "explanation": "Un acide peut être décrit comme une espèce capable de céder un proton ou, dans une définition électronique, d'accepter un doublet d'électrons."
   },
   {
     "order": 2,
@@ -97,7 +97,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{CH_3COOH}$ est l'acide propionique.",
         "correct": false,
-        "explanation": "La l'appelle acide acétique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\mathrm{CH_3COOH}$ est l'acide éthanoïque, aussi appelé acide acétique ; ce n'est pas l'acide propionique."
       },
       {
         "content": "L’acide méthanoïque est aussi appelé acide butyrique.",
@@ -139,7 +139,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Nom usuel: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
-    "explanation": "Le support associe systématiquement les noms usuels aux quatre premiers acides."
+    "explanation": "Les premiers acides carboxyliques possèdent des noms usuels classiques : formique, acétique, propionique et butyrique."
   },
   {
     "order": 5,
@@ -179,7 +179,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos du carboxylate, quelles propositions sont soutenues par la?",
+    "question": "À propos de l'ion carboxylate, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "La déprotonation d’un acide carboxylique forme nécessairement un ammonium quaternaire.",
@@ -204,7 +204,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La charge négative reste localisée sur un seul carbone.",
         "correct": false,
-        "explanation": "La insiste sur sa délocalisation entre les oxygènes."
+        "explanation": "Dans l'ion carboxylate, la charge négative est délocalisée sur les deux atomes d'oxygène."
       }
     ],
     "explanation": "La délocalisation de la charge du carboxylate participe au modèle de faible réactivité électrophile de l'acide."
@@ -241,7 +241,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La classe R-COOH > R-OH > -CH2-CO-."
       }
     ],
-    "explanation": "La propose la hiérarchie: acide carboxylique > alcool > hydrogène du carbone voisin d'un carbonyle."
+    "explanation": "Dans la hiérarchie retenue, l'acidité décroît de l'acide carboxylique vers l'alcool puis vers l'hydrogène porté par un carbone voisin d'un carbonyle."
   },
   {
     "order": 8,
@@ -386,9 +386,9 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Quels dérivés sont explicitement associés à l'activation des acides?",
     "choices": [
       {
-        "content": "Esters, dans la définition élargie présentée par la.",
+        "content": "Les esters font partie des dérivés d'acides considérés dans cette classification.",
         "correct": true,
-        "explanation": "La inclut OR' dans sa liste de dérivés activés."
+        "explanation": "Dans cette classification, le groupe $\\ce{OR'}$ fait partie des substituants envisagés pour les dérivés d'acides."
       },
       {
         "content": "Alcanes.",
@@ -587,7 +587,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel nom usuel -t-elle à l'acide éthanoïque?",
+    "question": "Quel est le nom usuel de l'acide éthanoïque ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [

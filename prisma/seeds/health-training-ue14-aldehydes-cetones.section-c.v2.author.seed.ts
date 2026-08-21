@@ -689,7 +689,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel produit azoté est formé,, par réaction d'une amine primaire avec un aldéhyde ou une cétone?",
+    "question": "Quel produit azoté est formé par réaction d'une amine primaire avec un aldéhyde ou une cétone ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -703,7 +703,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "Le support associe amine primaire + carbonyle à une imine."
+    "explanation": "Une amine primaire se condense avec un aldéhyde ou une cétone pour former une imine avec élimination d'eau."
   },
   {
     "order": 78,

@@ -451,12 +451,12 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel enchaînement est conforme au support?",
+    "question": "Quel enchaînement correspond à l'hydrolyse d'un nitrile vers un acide carboxylique ?",
     "choices": [
       {
         "content": "Nitrile → alcool → alcane.",
         "correct": false,
-        "explanation": "Non enseigné ici: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L'hydrolyse d'un nitrile ne passe pas par un alcool puis un alcane ; elle conduit vers l'amide puis l'acide."
       },
       {
         "content": "Amide → nitrile → acide.",

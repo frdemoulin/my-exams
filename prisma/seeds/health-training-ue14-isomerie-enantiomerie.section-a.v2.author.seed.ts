@@ -129,12 +129,12 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Dans la définition utilisée ici, la chaîne carbonée reste la même et la position de la fonction change."
       },
       {
-        "content": "Elles conservent la même chaîne carbonée.",
+        "content": "Les isomères de position conservent la même chaîne carbonée.",
         "correct": true,
         "explanation": "La chaîne carbonée reste identique."
       },
       {
-        "content": "Elles portent le même groupe fonctionnel.",
+        "content": "Les isomères de position portent le même groupe fonctionnel.",
         "correct": true,
         "explanation": "C'est la position de la fonction qui varie."
       }

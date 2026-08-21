@@ -136,7 +136,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une substitution nucléophile SN2 comme unique description de la réaction.",
         "correct": false,
-        "explanation": "Le support la présente simplement comme formation d'hémiacétal."
+        "explanation": "Cette réaction correspond à la formation d'un hémiacétal ; elle n'est pas décrite comme une substitution nucléophile SN2."
       }
     ],
     "explanation": "Le bilan à retenir est alcool + aldéhyde → hémiacétal."
@@ -153,7 +153,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les protéines sont reliées ici à l'amidification."
       },
       {
-        "content": "Elle ne concerne aucun composé biologique.",
+        "content": "La formation d'hémiacétals ne concerne aucun composé biologique.",
         "correct": false,
         "explanation": "Les sucres sont précisément cités."
       },
@@ -165,7 +165,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L’exemple retenu est la cyclisation des sucres.",
         "correct": true,
-        "explanation": "C'est l'exemple donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La cyclisation des sucres constitue un exemple biologique de formation d'un hémiacétal."
       },
       {
         "content": "La forme hémiacétalique est décrite comme fréquente dans les sucres cyclisés.",
@@ -213,7 +213,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L'oxydation d'un alcool secondaire conduit,:",
+    "question": "L'oxydation d'un alcool secondaire conduit :",
     "choices": [
       {
         "content": "À la disparition de la fonction alcool.",
@@ -354,7 +354,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le premier produit est un aldéhyde.",
         "correct": true,
-        "explanation": "Oxydation douce: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation douce d'un alcool primaire conduit d'abord à un aldéhyde."
       },
       {
         "content": "Le produit final est un acide carboxylique.",
@@ -505,7 +505,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'estérification utilise un acide activé.",
         "correct": true,
-        "explanation": "Chlorure d'acyle ou anhydride: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un chlorure d'acyle ou un anhydride d'acide peut acyler l'alcool pour former l'ester."
       },
       {
         "content": "La formation d'hémiacétal utilise un aldéhyde.",

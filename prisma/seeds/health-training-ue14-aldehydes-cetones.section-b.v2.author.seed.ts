@@ -87,7 +87,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La polarisation du carbonyle contribue à cette réactivité.",
         "correct": true,
-        "explanation": "Le support relie ce caractère à l'effet électroattracteur de O."
+        "explanation": "L'effet électroattracteur de l'oxygène du carbonyle contribue à l'acidité du proton en position alpha."
       },
       {
         "content": "Il ne porte jamais d'hydrogène.",
@@ -102,7 +102,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il est lié à un hydrogène.",
         "correct": true,
-        "explanation": "Condition explicitement précisée par la."
+        "explanation": "Le carbone en position alpha doit porter un hydrogène pour pouvoir être déprotoné dans le modèle étudié."
       }
     ],
     "explanation": "La distingue le carbone carbonylé électrophile et le carbone voisin potentiellement nucléophile."
@@ -880,7 +880,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Seul le côté portant H satisfait la condition de nucléophilie alpha décrite.",
         "correct": true,
-        "explanation": "La exige un H: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La déprotonation en position alpha nécessite la présence d'un hydrogène sur le carbone concerné."
       },
       {
         "content": "Le carbone carbonylé reste électrophile.",

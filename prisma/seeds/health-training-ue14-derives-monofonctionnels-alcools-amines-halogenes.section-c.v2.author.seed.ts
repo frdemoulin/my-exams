@@ -129,9 +129,9 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est le principe de l'alkylation."
       },
       {
-        "content": "Elle conduit uniquement à une amine primaire et ne peut pas se poursuivre.",
+        "content": "L'alkylation de l'ammoniac conduit uniquement à une amine primaire et ne peut pas se poursuivre.",
         "correct": false,
-        "explanation": "les alkylations successives: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Des alkylations successives peuvent conduire à des amines de plus en plus substituées puis à un ammonium quaternaire."
       },
       {
         "content": "L’azote d’une amine est nucléophile grâce à son doublet non liant.",
@@ -148,7 +148,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de l'amidification avec une amine primaire ou secondaire:",
     "choices": [
       {
-        "content": "Elle transforme nécessairement l'amine en alcool.",
+        "content": "L'amidification transforme nécessairement l'amine en alcool.",
         "correct": false,
         "explanation": "Le produit attendu est une amide."
       },
@@ -158,14 +158,14 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La condensation d’une amine primaire avec un composé carbonylé forme une imine et libère de l’eau."
       },
       {
-        "content": "Elle peut utiliser un acide activé.",
+        "content": "L'amidification peut utiliser un acide activé.",
         "correct": true,
-        "explanation": "Chlorure d'acide ou anhydride d'acide."
+        "explanation": "Un chlorure d'acide ou un anhydride d'acide peut fournir le groupe acyle nécessaire à l'amidification."
       },
       {
         "content": "Le produit est une amide.",
         "correct": true,
-        "explanation": "Bilan: amine + acide activé ↔ amide."
+        "explanation": "Une amine réagit avec un acide activé pour former une fonction amide."
       },
       {
         "content": "La fonction amide est retrouvée dans les peptides et protéines.",

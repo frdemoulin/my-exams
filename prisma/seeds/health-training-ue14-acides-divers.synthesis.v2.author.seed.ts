@@ -580,7 +580,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 117,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une molécule organique à 8 carbones perd une molécule de CO2 par voie enzymatique. Quelles propositions sont compatibles avec la?",
+    "question": "Une molécule organique à 8 carbones perd une molécule de $\\ce{CO2}$ par voie enzymatique. Quelles propositions sont compatibles avec cette décarboxylation ?",
     "choices": [
       {
         "content": "La voie enzymatique est prévue par la définition.",
@@ -661,9 +661,9 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le chapitre utilise les deux cadres."
       },
       {
-        "content": "Il faut donc lire chaque question selon le cadre explicitement indiqué.",
+        "content": "Une affirmation doit être interprétée à partir des conditions chimiques explicitement indiquées dans la question.",
         "correct": true,
-        "explanation": "Principe éditorial nécessaire pour respecter le support."
+        "explanation": "Les conditions réactionnelles précisées dans l'énoncé déterminent quelles transformations sont pertinentes."
       },
       {
         "content": "La déprotonation d’un acide carboxylique forme nécessairement un ammonium quaternaire.",

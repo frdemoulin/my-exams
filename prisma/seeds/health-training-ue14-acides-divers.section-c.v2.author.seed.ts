@@ -173,7 +173,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cité: cette relation est conforme à la propriété ou à la transformation décrite."
       }
     ],
-    "explanation": "La énumère cétone, aldéhyde, autre acide carboxylique et ester."
+    "explanation": "Les fonctions carbonylées citées comme pouvant favoriser la décarboxylation comprennent notamment cétone, aldéhyde, acide carboxylique et ester."
   },
   {
     "order": 62,
@@ -272,7 +272,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Elle est exclue des organismes vivants par définition.",
         "correct": false,
-        "explanation": "Le support mentionne précisément la voie enzymatique."
+        "explanation": "Une décarboxylation peut se produire par voie chimique ou par voie enzymatique."
       }
     ],
     "explanation": "Le mécanisme détaillé n'est pas développé, mais la possibilité d'une décarboxylation enzymatique doit être retenue."
@@ -429,7 +429,7 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 70,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une structure possède une fonction acide carboxylique et un carbonyle dans l'environnement favorable décrit par la. Quelles conclusions sont soutenues?",
+    "question": "Une structure possède une fonction acide carboxylique et un carbonyle dans un environnement favorable à la décarboxylation. Quelles conclusions sont exactes ?",
     "choices": [
       {
         "content": "Le carbonyle peut appartenir à plusieurs familles fonctionnelles.",
@@ -645,10 +645,10 @@ export const UE14_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un mécanisme électronique exhaustif avec toutes les étapes élémentaires.",
         "correct": false,
-        "explanation": "Ce niveau n'est pas fourni par le support."
+        "explanation": "La question porte sur le bilan et les facteurs structuraux, sans exiger un mécanisme électronique détaillé étape par étape."
       }
     ],
-    "explanation": "La banque reste au niveau de la définition, du bilan carbone et des structures favorables du document."
+    "explanation": "Le niveau attendu porte sur la définition de la décarboxylation, le bilan carbone et les structures qui la favorisent."
   },
   {
     "order": 77,

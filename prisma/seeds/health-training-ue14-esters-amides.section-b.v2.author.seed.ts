@@ -656,12 +656,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est l'une des représentations proposées."
       },
       {
-        "content": "Elle précise que cette structure n'est pas exactement un énol classique en raison de la persistance du groupe OR'.",
+        "content": "Cette structure n'est pas exactement un énol classique en raison de la persistance du groupe $\\ce{OR'}$.",
         "correct": true,
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Le support emploie ces représentations pour rendre compte de la réactivité du carbone alpha de l'ester."
+    "explanation": "Ces représentations permettent de rendre compte de la réactivité du carbone alpha de l'ester."
   },
   {
     "order": 43,
@@ -803,7 +803,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 47,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À partir d'un ester $\\mathrm{RCOOR'}$, quelles transformations sont directement soutenues par la?",
+    "question": "À partir d'un ester $\\mathrm{RCOOR'}$, quelles transformations sont cohérentes avec la réactivité étudiée ?",
     "choices": [
       {
         "content": "Nucléophile → remplacement de OR' par Nu dans le bilan simplifié.",
@@ -905,7 +905,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 50,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un étudiant affirme qu'un ester ne possède qu'un seul site réactionnel. Pourquoi cette affirmation est-elle incorrecte dans le cadre?",
+    "question": "Un étudiant affirme qu'un ester ne possède qu'un seul site réactionnel. Pourquoi cette affirmation est-elle incorrecte ?",
     "choices": [
       {
         "content": "Le carbone alpha peut devenir nucléophile.",
@@ -918,7 +918,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Nucléophile ou base forte/électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "La décrit donc au moins deux centres carbonés de réactivité.",
+        "content": "Un ester présente donc au moins deux centres carbonés de réactivité.",
         "correct": true,
         "explanation": "Synthèse du modèle: cette relation est conforme à la propriété ou à la transformation décrite."
       },

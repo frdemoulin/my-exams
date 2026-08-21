@@ -90,17 +90,17 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’ester est plus facilement hydrolysé que l’amide."
       },
       {
-        "content": "Elle est plus difficile que celle d'un ester.",
+        "content": "L'hydrolyse d'une amide est plus difficile que celle d'un ester.",
         "correct": true,
         "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
       },
       {
-        "content": "Elle nécessite un milieu très acide dans le modèle présenté.",
+        "content": "L'hydrolyse chimique d'une amide nécessite un milieu très acide dans le modèle présenté.",
         "correct": true,
         "explanation": "Condition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Elle nécessite du chauffage.",
+        "content": "L'hydrolyse chimique d'une amide nécessite du chauffage.",
         "correct": true,
         "explanation": "Deuxième condition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
       }
@@ -207,7 +207,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Le support distingue hydrolyse enzymatique des esters et hydrolyse sélective des fonctions amides des peptides."
+    "explanation": "Les estérases hydrolysent les fonctions ester, tandis que les peptidases et protéases hydrolysent les liaisons amide des peptides."
   },
   {
     "order": 63,
@@ -267,9 +267,9 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
-        "content": "Une rotation demande de l'énergie et la évoque un chauffage.",
+        "content": "La rotation autour de la liaison $\\ce{C-N}$ demande un apport d'énergie ; un chauffage peut la favoriser.",
         "correct": true,
-        "explanation": "Le support relie la rotation à un apport énergétique."
+        "explanation": "Le caractère partiel de double liaison de $\\ce{C-N}$ crée une barrière de rotation qui peut être franchie grâce à un apport d'énergie."
       },
       {
         "content": "Elle se comporte exactement comme une simple liaison C-N d'amine sans délocalisation.",
@@ -471,12 +471,12 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La liaison peptidique correspond à une fonction amide."
       },
       {
-        "content": "Elle comporte un oxygène.",
+        "content": "La fonction amide comporte un atome d'oxygène.",
         "correct": true,
         "explanation": "O du carbonyle: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Elle comporte un azote.",
+        "content": "La fonction amide comporte un atome d'azote.",
         "correct": true,
         "explanation": "N directement lié au carbonyle."
       },
@@ -486,7 +486,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Explication: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Elle comporte obligatoirement deux oxygènes comme l'ester.",
+        "content": "La fonction amide comporte obligatoirement deux oxygènes comme l'ester.",
         "correct": false,
         "explanation": "L'amide simple contient un O et un N."
       }

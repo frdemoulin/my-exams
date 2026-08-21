@@ -17,7 +17,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La fonction alcool est définie par le groupe $\\ce{-OH}$ et ne nécessite aucun atome d’azote."
       },
       {
-        "content": "Elle peut être représentée par $\\ce{R-OH}$.",
+        "content": "La fonction alcool peut être représentée par $\\ce{R-OH}$.",
         "correct": true,
         "explanation": "R représente le radical carboné."
       },
@@ -37,7 +37,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La capacité à former des liaisons hydrogène n'implique pas une espèce ionique."
       }
     ],
-    "explanation": "La introduit les alcools par le motif $\\ce{R-OH}$ et leur capacité à former des liaisons hydrogène."
+    "explanation": "La fonction alcool est définie par le motif $\\ce{R-OH}$ ; le groupe hydroxyle permet aux alcools de participer à des liaisons hydrogène."
   },
   {
     "order": 2,
@@ -80,22 +80,22 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Concernant l'hydratation d'un alcène :",
     "choices": [
       {
-        "content": "Elle utilise de l'eau en milieu acide.",
+        "content": "L'hydratation d'un alcène utilise de l'eau en milieu acide.",
         "correct": true,
         "explanation": "Le bilan indique $\\ce{H2O, H+}$."
       },
       {
-        "content": "Elle conduit à une fonction alcool.",
+        "content": "L'hydratation d'un alcène conduit à une fonction alcool.",
         "correct": true,
-        "explanation": "Bilan: alcène + eau → alcool."
+        "explanation": "L'eau s'ajoute sur la double liaison de l'alcène, qui est consommée, pour former un alcool."
       },
       {
-        "content": "Elle consomme la double liaison.",
+        "content": "L'hydratation d'un alcène consomme la double liaison.",
         "correct": true,
         "explanation": "H et OH s'ajoutent sur les carbones de C=C."
       },
       {
-        "content": "Elle produit nécessairement un alcane.",
+        "content": "L'hydratation d'un alcène produit nécessairement un alcane.",
         "correct": false,
         "explanation": "Le produit recherché est un alcool."
       },
@@ -168,9 +168,9 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       },
       {
-        "content": "Elle nécessite un réducteur puissant dans le cadre présenté.",
+        "content": "La réduction d'un acide carboxylique nécessite un réducteur puissant dans le cadre présenté.",
         "correct": true,
-        "explanation": "L’exemple retenu est $\\ce{BH3}$: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\ce{BH3}$ est l'exemple de réducteur puissant retenu pour cette transformation."
       }
     ],
     "explanation": "La réduction forte d'un acide carboxylique est une voie de préparation d'un alcool primaire."
@@ -204,7 +204,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un dérivé halogéné.",
         "correct": false,
-        "explanation": "Aucun halogène n'est introduit: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Aucun halogène n'est introduit lors de cette réduction ; un dérivé halogéné n'est donc pas formé."
       }
     ],
     "explanation": "Un aldéhyde réduit par $\\ce{NaBH4}$ donne un alcool primaire."

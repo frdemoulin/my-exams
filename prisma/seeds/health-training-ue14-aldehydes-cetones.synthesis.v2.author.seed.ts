@@ -622,7 +622,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Structure 3D: cette relation est conforme à la propriété ou à la transformation décrite."
       },
       {
-        "content": "Elle qualifie la représentation en perspective de plus fidèle à la réalité.",
+        "content": "La représentation en perspective rend mieux compte de la géométrie réelle du sucre cyclique.",
         "correct": true,
         "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
       },
@@ -664,7 +664,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "Le support associe amine secondaire et composé carbonylé à un iminium."
+    "explanation": "Une amine secondaire réagissant avec un composé carbonylé conduit à un ion iminium dans le bilan étudié."
   },
   {
     "order": 120,

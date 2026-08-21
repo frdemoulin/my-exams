@@ -281,12 +281,12 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 87,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelle représentation la qualifie-t-elle de plus fidèle à la réalité pour la forme cyclique d'un sucre?",
+    "question": "Quelle représentation rend le mieux compte de la géométrie tridimensionnelle de la forme cyclique d'un sucre ?",
     "choices": [
       {
         "content": "Une projection strictement plane comme seule représentation réaliste.",
         "correct": false,
-        "explanation": "Le support préfère la perspective."
+        "explanation": "La représentation en perspective rend mieux compte de la géométrie tridimensionnelle du cycle."
       },
       {
         "content": "Une écriture RCHO uniquement.",
@@ -541,12 +541,12 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 95,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans la représentation linéaire expliquée par la, les liaisons C-H et C-OH horizontales sont décrites comme:",
+    "question": "Dans la représentation linéaire, comment interprète-t-on les liaisons C-H et C-OH horizontales ?",
     "choices": [
       {
         "content": "Liées à une géométrie tétraédrique du carbone.",
         "correct": true,
-        "explanation": "Le support relie la projection au volume."
+        "explanation": "La projection plane code une géométrie tridimensionnelle autour des carbones tétraédriques."
       },
       {
         "content": "Différentes spatialement des liaisons C-C verticales.",
@@ -609,7 +609,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 97,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un sucre porte dans sa forme linéaire une fonction aldéhyde et plusieurs alcools. Quelles propositions sont cohérentes avec la?",
+    "question": "Un sucre porte dans sa forme linéaire une fonction aldéhyde et plusieurs alcools. Quelles propositions sont cohérentes avec ces fonctions ?",
     "choices": [
       {
         "content": "La forme cyclique peut être représentée en perspective.",
