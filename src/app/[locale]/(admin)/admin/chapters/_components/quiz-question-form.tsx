@@ -73,7 +73,7 @@ interface QuizQuestionFormProps {
   revalidatePaths?: string[];
 }
 
-const choiceLabels = ["A", "B", "C", "D"] as const;
+const choiceLabels = ["A", "B", "C", "D", "E"] as const;
 const richContentHelpText = 'Tex: $...$ ou $$...$$. Image/schéma: ![Légende](/uploads/mon-schema.png).';
 const questionFormatOptions = editableQuestionFormatCodes.map((format) => ({
   value: format,
@@ -105,7 +105,7 @@ export function QuizQuestionForm({
     answerFormat: initialAnswerFormat,
     correctChoiceIndex: initialData.correctChoiceIndex,
     correctChoiceIndexes: initialData.correctChoiceIndexes,
-    choiceCount: choiceLabels.length,
+    choiceCount: initialData.choices.length || choiceLabels.length,
   });
 
   const form = useForm<QuizQuestionFormValues>({
@@ -115,14 +115,14 @@ export function QuizQuestionForm({
       questionFormat: initialData.questionFormat,
       answerFormat: initialAnswerFormat,
       question: initialData.question,
-      choices: initialData.choices.length === 4 ? initialData.choices : ["", "", "", ""],
+      choices: initialData.choices.length > 0 ? initialData.choices : ["", "", "", "", ""],
       correctChoiceIndexes:
         initialCorrectChoiceIndexes.length > 0 ? initialCorrectChoiceIndexes : [0],
       explanation: initialData.explanation,
       choiceExplanations:
-        initialData.choiceExplanations.length === 4
+        initialData.choiceExplanations.length > 0
           ? initialData.choiceExplanations
-          : ["", "", "", ""],
+          : ["", "", "", "", ""],
       shortAnswerType: initialData.shortAnswerType,
       acceptedAnswers: initialData.acceptedAnswers,
       numericAnswerValue: initialData.numericAnswerValue,

@@ -6,6 +6,8 @@ export type HealthAuthorQuestionValidationContext = {
   fileName?: string;
   chapterSlug?: string;
   quizSlug?: string;
+  strict5Choices?: boolean;
+  checkAutonomy?: boolean;
 };
 
 export type HealthAuthorQuestionValidationResult = {
@@ -14,6 +16,29 @@ export type HealthAuthorQuestionValidationResult = {
 };
 
 const validDifficulties = new Set(["EASY", "MEDIUM", "HARD"]);
+
+const forbiddenAutonomyPatterns = [
+  /selon\s+la\s+fiche/i,
+  /d['’]après\s+la\s+fiche/i,
+  /dans\s+la\s+fiche/i,
+  /d['’]après\s+le\s+cours/i,
+  /selon\s+le\s+cours/i,
+  /dans\s+le\s+cours/i,
+  /tutorat\s+précise/i,
+  /dans\s+le\s+document/i,
+  /selon\s+le\s+document/i,
+  /document\s+fourni/i,
+];
+
+function checkAutonomyText(text: string, fieldName: string, prefix: string, issues: string[]) {
+  for (const pattern of forbiddenAutonomyPatterns) {
+    if (pattern.test(text)) {
+      issues.push(
+        `${prefix} Non-respect de l'autonomie de la question dans '${fieldName}' : contient une référence externe interdite ('${text.match(pattern)?.[0]}').`,
+      );
+    }
+  }
+}
 
 function formatContextPrefix(
   question: HealthTrainingAuthorQuestion,
@@ -33,6 +58,8 @@ export function validateHealthTrainingAuthorQuestion(
 ): HealthAuthorQuestionValidationResult {
   const issues: string[] = [];
   const prefix = formatContextPrefix(question, context);
+  const shouldCheck5Choices = Boolean(context?.strict5Choices || question.reims5Items);
+  const shouldCheckAutonomy = context?.checkAutonomy !== false;
 
   if (!Number.isInteger(question.order) || question.order <= 0) {
     issues.push(`${prefix} Champ 'order' invalide : doit être un entier positif.`);
@@ -40,6 +67,12 @@ export function validateHealthTrainingAuthorQuestion(
 
   if (typeof question.question !== "string" || !question.question.trim()) {
     issues.push(`${prefix} L'énoncé ('question') ne peut pas être vide.`);
+  } else if (shouldCheckAutonomy) {
+    checkAutonomyText(question.question, "question", prefix, issues);
+  }
+
+  if (question.explanation && shouldCheckAutonomy) {
+    checkAutonomyText(question.explanation, "explanation", prefix, issues);
   }
 
   if (!validDifficulties.has(question.difficulty)) {
@@ -48,11 +81,28 @@ export function validateHealthTrainingAuthorQuestion(
     );
   }
 
+  if ("choices" in question && Array.isArray(question.choices) && shouldCheckAutonomy) {
+    question.choices.forEach((choice, idx) => {
+      if (typeof choice.content === "string") {
+        checkAutonomyText(choice.content, `choices[${idx}].content`, prefix, issues);
+      }
+      if (choice.explanation) {
+        checkAutonomyText(choice.explanation, `choices[${idx}].explanation`, prefix, issues);
+      }
+    });
+  }
+
   switch (question.format) {
     case "QRU": {
       if (!Array.isArray(question.choices) || question.choices.length === 0) {
         issues.push(`${prefix} Doit comporter au moins une proposition.`);
         break;
+      }
+
+      if (shouldCheck5Choices && question.choices.length !== 5) {
+        issues.push(
+          `${prefix} Format QRU (Reims 5 items) : doit comporter exactement 5 propositions (${question.choices.length} trouvée(s)).`,
+        );
       }
 
       const correctCount = question.choices.filter((choice) => choice.correct).length;
@@ -70,6 +120,12 @@ export function validateHealthTrainingAuthorQuestion(
         break;
       }
 
+      if (shouldCheck5Choices && question.choices.length !== 5) {
+        issues.push(
+          `${prefix} Format QRM (Reims 5 items) : doit comporter exactement 5 propositions (${question.choices.length} trouvée(s)).`,
+        );
+      }
+
       const correctCount = question.choices.filter((choice) => choice.correct).length;
       if (correctCount === 0) {
         issues.push(
@@ -83,6 +139,12 @@ export function validateHealthTrainingAuthorQuestion(
       if (!Array.isArray(question.choices) || question.choices.length === 0) {
         issues.push(`${prefix} Doit comporter au moins une proposition.`);
         break;
+      }
+
+      if (shouldCheck5Choices && question.choices.length !== 5) {
+        issues.push(
+          `${prefix} Format QRP (Reims 5 items) : doit comporter exactement 5 propositions (${question.choices.length} trouvée(s)).`,
+        );
       }
 
       const reqCount = question.requiredSelectionCount;

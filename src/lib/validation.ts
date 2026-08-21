@@ -502,11 +502,11 @@ export const createQuizQuestionSchema = z.object({
 
     const uniqueCorrectChoiceIndexes = new Set(values.correctChoiceIndexes);
 
-    if (values.choices.length !== 4) {
+    if (values.choices.length < 4 || values.choices.length > 5) {
         ctx.addIssue({
             code: z.ZodIssueCode.custom,
             path: ["choices"],
-            message: "Quatre choix sont requis",
+            message: "Entre 4 et 5 choix sont requis",
         });
     }
 

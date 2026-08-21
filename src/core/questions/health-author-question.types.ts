@@ -18,6 +18,7 @@ export type BaseHealthAuthorQuestion = {
   points?: number;
   tags?: string[];
   source?: string;
+  reims5Items?: boolean;
 };
 
 export type HealthTrainingAuthorQruQuestion = BaseHealthAuthorQuestion & {

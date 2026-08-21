@@ -217,13 +217,13 @@ export function validateHealthMockExamForPublication(
       const questionType = normalizePersistedQuestionType(question.questionType);
       if (questionType === "mcq") {
         const choices = normalizeTrainingChoiceContents(question.choices);
-        if (choices.length !== 4) {
-          issues.push(`La question ${question.globalOrder} doit comporter exactement quatre items.`);
+        if (choices.length < 4 || choices.length > 5) {
+          issues.push(`La question ${question.globalOrder} doit comporter entre quatre et cinq items.`);
         }
 
         const choiceExplanations = normalizeChoiceExplanations(question.choiceExplanations);
-        if (choiceExplanations.length !== 4 || choiceExplanations.some((entry) => !entry)) {
-          issues.push(`La question ${question.globalOrder} doit comporter une explication pour chacun des quatre items.`);
+        if (choiceExplanations.length !== choices.length || choiceExplanations.some((entry) => !entry)) {
+          issues.push(`La question ${question.globalOrder} doit comporter une explication pour chacun de ses items.`);
         }
 
         const answerFormat = resolveQuizAnswerFormat(question.answerFormat);
