@@ -1,260 +1,258 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 1 – Éléments chimiques et classification périodique
- * Section A – Atomes
- * Quiz 2 – PRACTICE
- *
- * Le quiz 1 « Atomes » (DISCOVER) est déjà validé dans le repo et n'est pas redéfini ici.
- */
+/** UE14 – Chimie générale – Chapitre 1.1 – Section A – Atomes – PRACTICE */
 export const UE14_CH1_ATOMES_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 25,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `Le diamètre caractéristique d'un atome est de l'ordre de $0{,}1\\,\\mathrm{nm}$. Combien cela représente-t-il en ångströms ? Saisissez uniquement la valeur numérique.`,
-    answer: { type: 'number', value: 1, tolerance: 0 },
-    explanation:
-      `$1\\,\\text{Å} = 0{,}1\\,\\mathrm{nm}$. Une dimension de $0{,}1\\,\\mathrm{nm}$ correspond donc à $1\\,\\text{Å}$.`,
+    "order": 25,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Le diamètre caractéristique d'un atome est d'environ $0{,}1\\,\\mathrm{nm}$. Combien cela représente-t-il en ångströms ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "$1\\,\\text{Å}=0{,}1\\,\\mathrm{nm}$, donc $0{,}1\\,\\mathrm{nm}=1\\,\\text{Å}$."
   },
   {
-    order: 14,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question:
-      `Deux isotopes d'un même élément sont comparés sous forme d'atomes neutres. Quelle proposition est la plus juste ?`,
-    choices: [
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de deux isotopes d'un même élément, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Ils ont le même nombre de neutrons mais des nombres de protons différents.`,
-        correct: false,
-        explanation:
-          `Faux : des isotopes ont le même numéro atomique $\\mathrm{Z}$ et diffèrent par leur nombre de neutrons.`,
+        "content": "Ils ont nécessairement la même stabilité nucléaire.",
+        "correct": false,
+        "explanation": "La stabilité peut varier fortement d'un isotope à l'autre."
       },
       {
-        content: `Ils ont des propriétés chimiques très proches, mais certaines propriétés physiques peuvent différer.`,
-        correct: true,
-        explanation:
-          `Vrai : le même $\\mathrm{Z}$ conduit au même cortège électronique pour des atomes neutres, tandis que la différence de masse peut modifier certaines propriétés physiques.`,
+        "content": "Ils possèdent des nombres de neutrons différents.",
+        "correct": true,
+        "explanation": "La différence isotopique porte sur N."
       },
       {
-        content: `Ils ont nécessairement la même masse atomique.`,
-        correct: false,
-        explanation:
-          `Faux : leurs nombres de masse $\\mathrm{A}$ sont différents.`,
+        "content": "Ils possèdent nécessairement des nombres de masse A différents.",
+        "correct": true,
+        "explanation": "À Z constant, des N différents donnent des A différents."
       },
       {
-        content: `Ils appartiennent à deux éléments chimiques différents.`,
-        correct: false,
-        explanation:
-          `Faux : le numéro atomique identifie l'élément chimique et reste identique pour deux isotopes.`,
+        "content": "Ils possèdent nécessairement des charges électriques différentes.",
+        "correct": false,
+        "explanation": "La charge dépend de l'ionisation, pas de l'isotopie."
       },
+      {
+        "content": "Ils possèdent le même numéro atomique Z.",
+        "correct": true,
+        "explanation": "Ils appartiennent au même élément chimique."
+      }
     ],
-    explanation:
-      `La relation isotopique conserve $\\mathrm{Z}$ mais modifie $\\mathrm{N}$ et donc $\\mathrm{A}$. Les propriétés chimiques restent très proches, alors que la masse et certaines propriétés physiques peuvent différer.`,
+    "explanation": "Même Z, N différent, donc A différent : c'est le cœur de la définition isotopique."
   },
   {
-    order: 26,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `L'ion $\\ce{^{27}_{13}Al^{3+}}$ possède combien d'électrons ? Saisissez uniquement la valeur numérique.`,
-    answer: { type: 'number', value: 10, tolerance: 0 },
-    explanation:
-      `L'aluminium possède $\\mathrm{Z}=13$, donc 13 électrons à l'état neutre. La charge $3+$ correspond à la perte de trois électrons : $13-3=10$.`,
+    "order": 26,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "L'ion $\\ce{^{27}_{13}Al^{3+}}$ possède combien d'électrons ?",
+    "answer": {
+      "type": "number",
+      "value": 10,
+      "tolerance": 0
+    },
+    "explanation": "L'aluminium neutre possède 13 électrons. La charge $3+$ correspond à la perte de 3 électrons : $13-3=10$."
   },
   {
-    order: 16,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant la masse du noyau et de ses constituants, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la masse du noyau et l'énergie de liaison, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content:
-          `Pour un noyau lié, sa masse est inférieure à la somme des masses de ses nucléons pris séparément.`,
-        correct: true,
-        explanation:
-          `Vrai : cette différence correspond au défaut de masse associé à l'énergie de liaison du noyau.`,
+        "content": "Le noyau du protium $\\ce{^{1}_{1}H}$ ne contient aucun neutron.",
+        "correct": true,
+        "explanation": "Pour A=1 et Z=1, N=0."
       },
       {
-        content: `La masse d'un électron est du même ordre de grandeur que celle d'un proton.`,
-        correct: false,
-        explanation:
-          `Faux : l'électron est environ 2 000 fois plus léger qu'un nucléon.`,
+        "content": "La masse d'un noyau lié est inférieure à la somme des masses de ses nucléons séparés.",
+        "correct": true,
+        "explanation": "Cette différence est le défaut de masse."
       },
       {
-        content: `Le noyau du protium $\\ce{^{1}_{1}H}$ ne contient aucun neutron.`,
-        correct: true,
-        explanation:
-          `Vrai : pour le protium, $\\mathrm{A}=1$ et $\\mathrm{Z}=1$, donc $\\mathrm{N}=0$.`,
+        "content": "La masse d'un électron est voisine de $1\\,\\mathrm{u}$.",
+        "correct": false,
+        "explanation": "La masse électronique est très inférieure à 1 u."
       },
       {
-        content: `Tout noyau atomique contient nécessairement au moins un neutron.`,
-        correct: false,
-        explanation:
-          `Faux : le noyau du protium constitue le contre-exemple classique.`,
+        "content": "Le défaut de masse est associé à l'énergie de liaison du noyau.",
+        "correct": true,
+        "explanation": "La relation $E=\\Delta mc^2$ relie défaut de masse et énergie."
       },
+      {
+        "content": "Tout noyau contient obligatoirement au moins un neutron.",
+        "correct": false,
+        "explanation": "Le protium est un contre-exemple."
+      }
     ],
-    explanation:
-      `La masse atomique est essentiellement portée par les nucléons. Un noyau lié présente un défaut de masse, et le protium rappelle qu'un neutron n'est pas obligatoire dans tout noyau.`,
+    "explanation": "La masse nucléaire réelle reflète l'énergie de liaison ; le protium rappelle qu'un noyau peut ne contenir aucun neutron."
   },
   {
-    order: 17,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question:
-      `On propose la notation générique $^{1}_{3}\\mathrm{X}$. Pourquoi ne peut-elle pas correspondre à un nucléide réel ?`,
-    choices: [
+    "order": 17,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Pourquoi la notation générique $\\ce{^{1}_{3}X}$ ne peut-elle pas correspondre à un nucléide réel ?",
+    "choices": [
       {
-        content: `Parce qu'un numéro atomique ne peut jamais être supérieur à 2.`,
-        correct: false,
-        explanation:
-          `Faux : de nombreux éléments possèdent un numéro atomique bien supérieur à 2.`,
+        "content": "Elle conduirait à un nombre de neutrons négatif.",
+        "correct": true,
+        "explanation": "$N=A-Z=1-3=-2$, ce qui est impossible."
       },
       {
-        content: `Parce qu'elle conduirait à un nombre de neutrons négatif.`,
-        correct: true,
-        explanation:
-          `Vrai : $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}=1-3=-2$, ce qui est physiquement impossible.`,
+        "content": "Un nombre de masse doit toujours être pair.",
+        "correct": false,
+        "explanation": "De nombreux nucléides ont un A impair."
       },
       {
-        content: `Parce qu'un nombre de masse doit toujours être pair.`,
-        correct: false,
-        explanation:
-          `Faux : de nombreux nucléides possèdent un nombre de masse impair.`,
+        "content": "Le symbole X est interdit dans une écriture générique.",
+        "correct": false,
+        "explanation": "X peut être utilisé comme symbole générique."
       },
       {
-        content: `Parce que tout nucléide doit contenir autant de protons que de neutrons.`,
-        correct: false,
-        explanation:
-          `Faux : l'égalité $\\mathrm{Z}=\\mathrm{N}$ n'est pas une condition générale d'existence d'un nucléide.`,
+        "content": "Un nucléide doit avoir autant de protons que de neutrons.",
+        "correct": false,
+        "explanation": "Cette égalité n'est pas une règle générale."
       },
+      {
+        "content": "Un numéro atomique ne peut jamais dépasser 2.",
+        "correct": false,
+        "explanation": "De nombreux éléments ont Z>2."
+      }
     ],
-    explanation:
-      `Une notation nucléaire doit respecter $\\mathrm{A}\\geq\\mathrm{Z}$, puisque $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}$ ne peut pas être négatif.`,
+    "explanation": "Une notation nucléaire doit respecter $A\\ge Z$ afin que $N=A-Z$ soit un entier positif ou nul."
   },
   {
-    order: 18,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux propositions compatibles avec un atome électriquement neutre.`,
-    choices: [
+    "order": 18,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux propositions compatibles avec un atome électriquement neutre.",
+    "choices": [
       {
-        content: `Il possède autant de protons que d'électrons.`,
-        correct: true,
-        explanation:
-          `Vrai : la neutralité électrique impose la compensation des charges positives et négatives.`,
+        "content": "Il peut posséder davantage de neutrons que de protons.",
+        "correct": true,
+        "explanation": "La neutralité ne contraint pas N."
       },
       {
-        content: `Il peut posséder davantage de neutrons que de protons.`,
-        correct: true,
-        explanation:
-          `Vrai : de nombreux noyaux stables ou radioactifs présentent $\\mathrm{N}>\\mathrm{Z}$.`,
+        "content": "Il possède autant de protons que d'électrons.",
+        "correct": true,
+        "explanation": "C'est la condition de neutralité."
       },
       {
-        content: `Il possède nécessairement autant de neutrons que d'électrons.`,
-        correct: false,
-        explanation:
-          `Faux : le nombre d'électrons est égal à $\\mathrm{Z}$ dans l'atome neutre, mais $\\mathrm{N}$ peut être différent.`,
+        "content": "Il peut posséder moins d'électrons que de protons tout en restant neutre.",
+        "correct": false,
+        "explanation": "Il serait alors chargé positivement."
       },
       {
-        content: `Il peut posséder moins d'électrons que de protons tout en restant un atome neutre.`,
-        correct: false,
-        explanation:
-          `Faux : une telle espèce serait chargée positivement, donc ce serait un cation.`,
+        "content": "Son noyau ne contient aucune charge positive.",
+        "correct": false,
+        "explanation": "Les protons du noyau portent les charges positives."
       },
+      {
+        "content": "Il possède nécessairement autant de neutrons que d'électrons.",
+        "correct": false,
+        "explanation": "N est indépendant de la neutralité."
+      }
     ],
-    explanation:
-      `Dans un atome neutre, le nombre d'électrons est égal au nombre de protons. Le nombre de neutrons reste indépendant de cette condition de neutralité.`,
+    "explanation": "La neutralité impose seulement l'égalité entre protons et électrons ; le nombre de neutrons peut varier."
   },
   {
-    order: 19,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Quelle affirmation rend le mieux compte de la répartition de la masse dans un atome ?`,
-    choices: [
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation rend le mieux compte de la répartition de la masse dans un atome ?",
+    "choices": [
       {
-        content: `La masse est répartie à parts égales entre le noyau et le nuage électronique.`,
-        correct: false,
-        explanation:
-          `Faux : la masse des électrons est très faible devant celle des nucléons.`,
+        "content": "La masse dépend essentiellement du volume du nuage électronique.",
+        "correct": false,
+        "explanation": "Un grand volume n'implique pas une grande masse."
       },
       {
-        content: `La quasi-totalité de la masse est concentrée dans le noyau.`,
-        correct: true,
-        explanation:
-          `Vrai : protons et neutrons portent presque toute la masse de l'atome.`,
+        "content": "Le noyau contribue très peu à la masse de l'atome.",
+        "correct": false,
+        "explanation": "C'est l'inverse : il en porte presque toute la masse."
       },
       {
-        content: `La masse est principalement portée par les électrons de valence.`,
-        correct: false,
-        explanation:
-          `Faux : les électrons de valence sont aussi très légers.`,
+        "content": "La quasi-totalité de la masse est concentrée dans le noyau.",
+        "correct": true,
+        "explanation": "Les protons et neutrons sont beaucoup plus massifs que les électrons."
       },
       {
-        content: `La masse dépend essentiellement du volume occupé par le nuage électronique.`,
-        correct: false,
-        explanation:
-          `Faux : le grand volume électronique ne signifie pas qu'il porte l'essentiel de la masse.`,
+        "content": "La masse est surtout portée par les électrons de valence.",
+        "correct": false,
+        "explanation": "Les électrons de valence ont la même faible masse que les autres électrons."
       },
+      {
+        "content": "La masse est répartie à parts égales entre noyau et électrons.",
+        "correct": false,
+        "explanation": "La contribution massique des électrons est très faible."
+      }
     ],
-    explanation:
-      `Le nuage électronique occupe presque tout le volume atomique, mais la masse est presque entièrement concentrée dans le noyau.`,
+    "explanation": "Le noyau est minuscule par rapport à l'atome mais concentre presque toute sa masse."
   },
   {
-    order: 20,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `Le fluor 18 est un radionucléide utilisé en imagerie TEP. Pour $\\ce{^{18}_{9}F}$, combien le noyau contient-il de neutrons ? Saisissez uniquement la valeur numérique.`,
-    answer: { type: 'number', value: 9, tolerance: 0 },
-    explanation:
-      `Le fluor possède $\\mathrm{Z}=9$. Pour $\\ce{^{18}_{9}F}$ : $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}=18-9=9$. Le contexte d'imagerie n'intervient pas dans le calcul.`,
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Le fluor 18 est utilisé en imagerie TEP. Pour $\\ce{^{18}_{9}F}$, combien le noyau contient-il de neutrons ?",
+    "answer": {
+      "type": "number",
+      "value": 9,
+      "tolerance": 0
+    },
+    "explanation": "$N=A-Z=18-9=9$."
   },
   {
-    order: 23,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant l'unité de masse atomique, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 23,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant l'unité de masse atomique unifiée, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Une unité de masse atomique vaut par définition un douzième de la masse d'un atome de carbone 12.`,
-        correct: true,
-        explanation:
-          `Vrai : c'est la définition de l'unité de masse atomique unifiée.`,
+        "content": "La masse d'un proton est proche de $1\\,\\mathrm{u}$ sans lui être exactement égale.",
+        "correct": true,
+        "explanation": "La masse du proton est légèrement supérieure à 1 u."
       },
       {
-        content: `Le dalton et l'unité de masse atomique unifiée correspondent à la même unité de masse.`,
-        correct: true,
-        explanation:
-          `Vrai : $1\\,\\mathrm{Da}=1\\,\\mathrm{u}$.`,
+        "content": "Le symbole de l'unité u est kg.",
+        "correct": false,
+        "explanation": "kg est l'unité SI de masse ; u est une unité atomique."
       },
       {
-        content: `La masse d'un proton vaut exactement $1\\,\\mathrm{u}$.`,
-        correct: false,
-        explanation:
-          `Faux : elle est voisine de $1\\,\\mathrm{u}$ mais n'est pas exactement égale à cette valeur.`,
+        "content": "Une unité u vaut un douzième de la masse d'un atome de carbone 12 neutre et au repos dans son état fondamental.",
+        "correct": true,
+        "explanation": "C'est la définition moderne de l'unité de masse atomique unifiée."
       },
       {
-        content: `Le symbole de l'unité de masse atomique unifiée est $\\mathrm{kg}$.`,
-        correct: false,
-        explanation:
-          `Faux : son symbole est $\\mathrm{u}$.`,
+        "content": "Une molécule de masse 100 Da a une masse molaire exactement égale à 100 kg·mol⁻¹.",
+        "correct": false,
+        "explanation": "Numériquement, 100 Da par molécule correspond approximativement à 100 g·mol⁻¹, pas 100 kg·mol⁻¹."
       },
+      {
+        "content": "$1\\,\\mathrm{Da}=1\\,\\mathrm{u}$.",
+        "correct": true,
+        "explanation": "Dalton et unité u correspondent à la même unité."
+      }
     ],
-    explanation:
-      `L'unité de masse atomique est définie à partir du carbone 12. En biochimie, le dalton est utilisé comme unité équivalente.`,
+    "explanation": "L'unité u et le dalton sont adaptées aux masses microscopiques et se relient naturellement aux masses molaires en g·mol⁻¹."
   },
   {
-    order: 24,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `Une hématie a un diamètre d'environ $7\\,\\mathrm{\\mu m}$, alors qu'un atome mesure environ $0{,}1\\,\\mathrm{nm}$. En ordre de grandeur, combien de fois l'hématie est-elle plus grande en diamètre ? Saisissez uniquement la valeur numérique.`,
-    answer: { type: 'number', value: 70000, tolerance: 0 },
-    explanation:
-      `$7\\,\\mathrm{\\mu m}=7\\times10^{-6}\\,\\mathrm{m}$ et $0{,}1\\,\\mathrm{nm}=10^{-10}\\,\\mathrm{m}$. Le rapport vaut $7\\times10^4=70\\,000$.`,
-  },
+    "order": 24,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Une hématie mesure environ $7\\,\\mathrm{\\mu m}$ de diamètre, contre $0{,}1\\,\\mathrm{nm}$ pour un atome. En ordre de grandeur, combien de fois l'hématie est-elle plus grande en diamètre ?",
+    "answer": {
+      "type": "number",
+      "value": 70000,
+      "tolerance": 0
+    },
+    "explanation": "$7\\,\\mathrm{\\mu m}=7\\times10^{-6}\\,\\mathrm{m}$ et $0{,}1\\,\\mathrm{nm}=10^{-10}\\,\\mathrm{m}$ ; le rapport vaut $7\\times10^4=70\\,000$."
+  }
 ];
