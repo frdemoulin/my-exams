@@ -1,139 +1,328 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 3 – Orbitales moléculaires
- * Section C – Liaisons multiples, carbone et aromaticité
- */
-
+/** UE14 – Chimie générale – Chapitre 1.3 – Section C – Liaisons multiples, carbone et aromaticité */
 export const UE14_CH3_MULTIPLES_CARBONE_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 41,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux propositions correctes concernant les liaisons multiples.`,
-    choices: [
-      { content: `Une double liaison contient une liaison $\\sigma$ et une liaison $\\pi$.`, correct: true, explanation: `Vrai.` },
-      { content: `Une triple liaison contient une liaison $\\sigma$ et deux liaisons $\\pi$.`, correct: true, explanation: `Vrai.` },
-      { content: `Une double liaison contient deux liaisons $\\sigma$.`, correct: false, explanation: `Elle contient une sigma et une pi.` },
-      { content: `Une triple liaison ne contient aucune liaison $\\sigma$.`, correct: false, explanation: `La première composante est toujours sigma.` },
+    "order": 41,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les liaisons multiples entre deux carbones, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Une double liaison contient deux sigma.",
+        "correct": false,
+        "explanation": "Une seule composante est sigma."
+      },
+      {
+        "content": "Une triple liaison contient trois sigma.",
+        "correct": false,
+        "explanation": "Elle ne contient qu'une sigma."
+      },
+      {
+        "content": "Une triple liaison contient une sigma et deux pi.",
+        "correct": true,
+        "explanation": "Deux recouvrements latéraux complètent la sigma."
+      },
+      {
+        "content": "Une liaison simple contient une sigma.",
+        "correct": true,
+        "explanation": "Elle ne possède pas de pi."
+      },
+      {
+        "content": "Une double liaison contient une sigma et une pi.",
+        "correct": true,
+        "explanation": "C'est le modèle local standard."
+      }
     ],
-    explanation: `Entre deux atomes, la première composante est sigma ; les composantes supplémentaires d'une liaison multiple sont de type pi.`,
+    "explanation": "Le décompte sigma/pi prépare directement l'identification de l'hybridation des carbones."
   },
   {
-    order: 42,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos de l'éthylène $\\ce{CH2=CH2}$, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Chaque carbone est hybridé $\\mathrm{sp}^2$.`, correct: true, explanation: `Trois directions sigma autour de chaque carbone.` },
-      { content: `Autour de chaque carbone, les trois directions sigma sont approximativement coplanaires à $120^\\circ$.`, correct: true, explanation: `C'est l'organisation sp2.` },
-      { content: `Chaque carbone conserve une orbitale $\\mathrm{p}$ non hybridée.`, correct: true, explanation: `Elle participe à la liaison pi C=C.` },
-      { content: `Chaque carbone est $\\mathrm{sp}^3$.`, correct: false, explanation: `Une hybridation sp3 ne laisserait pas d'orbitale p pour la liaison pi.` },
+    "order": 42,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de l'éthylène $\\ce{H2C=CH2}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Chaque carbone est sp3.",
+        "correct": false,
+        "explanation": "Une double liaison est incompatible avec sp3 local."
+      },
+      {
+        "content": "Chaque carbone conserve une orbitale p non hybridée.",
+        "correct": true,
+        "explanation": "Les deux orbitales p forment la pi."
+      },
+      {
+        "content": "Chaque carbone est sp2.",
+        "correct": true,
+        "explanation": "Chaque carbone possède trois directions sigma."
+      },
+      {
+        "content": "Les six atomes sont approximativement coplanaires.",
+        "correct": true,
+        "explanation": "La géométrie autour de chaque carbone est trigonale plane."
+      },
+      {
+        "content": "La liaison C=C est formée de deux sigma.",
+        "correct": false,
+        "explanation": "Elle contient sigma + pi."
+      }
     ],
-    explanation: `L'éthylène constitue l'exemple classique de deux carbones sp2 reliés par une composante sigma et une composante pi.`,
+    "explanation": "L'éthylène est l'exemple canonique d'un système sp2–sp2 avec une liaison pi."
   },
   {
-    order: 43,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Dans l'éthylène $\\ce{CH2=CH2}$, combien de liaisons $\\sigma$ sont présentes au total ?`,
-    answer: { type: 'number', value: 5, tolerance: 0 },
-    explanation: `Les quatre liaisons C–H sont sigma et la double liaison C=C contient une composante sigma : total 5.`,
+    "order": 43,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de liaisons $\\sigma$ contient l'éthylène $\\ce{H2C=CH2}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 5,
+      "tolerance": 0
+    },
+    "explanation": "Quatre liaisons C–H et la composante sigma de C=C donnent cinq sigma."
   },
   {
-    order: 44,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Pourquoi la rotation autour de la double liaison $\\ce{C=C}$ de l'éthylène n'est-elle pas libre ?`,
-    choices: [
-      { content: `Parce qu'une rotation désalignerait les orbitales $\\mathrm{p}$ parallèles responsables de la liaison $\\pi$.`, correct: true, explanation: `C'est la contrainte imposée par le recouvrement latéral.` },
-      { content: `Parce que la liaison $\\sigma$ est dépourvue de symétrie axiale.`, correct: false, explanation: `La liaison sigma possède au contraire une symétrie axiale.` },
-      { content: `Parce que chaque carbone porte deux doublets non liants.`, correct: false, explanation: `Ce n'est pas le cas dans l'éthylène.` },
-      { content: `Parce que la double liaison comporte deux liaisons sigma rigides.`, correct: false, explanation: `Elle comporte une sigma et une pi.` },
+    "order": 44,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Pourquoi la rotation autour de la liaison C=C de l'éthylène est-elle fortement limitée ?",
+    "choices": [
+      {
+        "content": "Parce que les hydrogènes deviennent des ions.",
+        "correct": false,
+        "explanation": "La limitation est orbitale."
+      },
+      {
+        "content": "Parce que le carbone devient automatiquement sp3.",
+        "correct": false,
+        "explanation": "La rotation ne provoque pas spontanément une réhybridation."
+      },
+      {
+        "content": "Parce que la liaison sigma seule interdit toute rotation.",
+        "correct": false,
+        "explanation": "Une sigma seule permet généralement une rotation."
+      },
+      {
+        "content": "Parce que les noyaux fusionnent pendant la rotation.",
+        "correct": false,
+        "explanation": "Aucune transformation nucléaire."
+      },
+      {
+        "content": "Parce qu'elle désalignerait les orbitales p et détruirait le recouvrement pi.",
+        "correct": true,
+        "explanation": "La liaison pi impose le maintien du parallélisme."
+      }
     ],
-    explanation: `La composante pi nécessite le maintien du parallélisme des orbitales p ; une rotation détruirait progressivement leur recouvrement.`,
+    "explanation": "La rigidité des doubles liaisons explique notamment l'existence d'isomères géométriques."
   },
   {
-    order: 45,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos de l'acétylène $\\ce{HC#CH}$, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Chaque carbone est hybridé $\\mathrm{sp}$.`, correct: true, explanation: `Deux directions sigma autour de chaque carbone.` },
-      { content: `La molécule est linéaire avec un angle de $180^\\circ$.`, correct: true, explanation: `Deux orbitales sp sont opposées.` },
-      { content: `La triple liaison C≡C contient une sigma et deux pi.`, correct: true, explanation: `Composition d'une triple liaison.` },
-      { content: `Chaque carbone est hybridé $\\mathrm{sp}^3$.`, correct: false, explanation: `Cela ne laisserait aucune orbitale p pour les deux pi.` },
+    "order": 45,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de l'acétylène $\\ce{HC#CH}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Chaque carbone est sp.",
+        "correct": true,
+        "explanation": "Deux directions sigma."
+      },
+      {
+        "content": "Chaque carbone conserve deux orbitales p non hybridées.",
+        "correct": true,
+        "explanation": "Elles forment deux liaisons pi."
+      },
+      {
+        "content": "La molécule est linéaire.",
+        "correct": true,
+        "explanation": "Les hybrides sp sont opposés."
+      },
+      {
+        "content": "Chaque carbone est sp3.",
+        "correct": false,
+        "explanation": "Cela exclurait les deux pi."
+      },
+      {
+        "content": "La triple liaison contient trois sigma.",
+        "correct": false,
+        "explanation": "Elle contient une sigma et deux pi."
+      }
     ],
-    explanation: `L'acétylène illustre l'hybridation sp et la présence de deux orbitales p non hybridées sur chaque carbone.`,
+    "explanation": "L'acétylène relie parfaitement hybridation sp, linéarité et deux composantes pi."
   },
   {
-    order: 46,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Après hybridation $\\mathrm{sp}$ d'un carbone, combien d'orbitales $\\mathrm{p}$ non hybridées restent disponibles ?`,
-    answer: { type: 'number', value: 2, tolerance: 0 },
-    explanation: `Une orbitale s et une orbitale p forment deux sp ; les deux autres orbitales p restent non hybridées.`,
+    "order": 46,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien d'orbitales p non hybridées reste-t-il sur un carbone sp ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "Une orbitale s et une p sont hybridées ; deux p restent non hybridées."
   },
   {
-    order: 47,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Le carbone est parfois présenté comme un « caméléon » dans la fiche. Quelles associations sont exactes ?`,
-    choices: [
-      { content: `$\\mathrm{sp}^3$ → environnement tétraédrique et liaisons simples.`, correct: true, explanation: `C'est le modèle tétragonal.` },
-      { content: `$\\mathrm{sp}^2$ → environnement trigonal plan et double liaison ou système aromatique.`, correct: true, explanation: `C'est le modèle trigonal.` },
-      { content: `$\\mathrm{sp}$ → environnement linéaire et triple liaison.`, correct: true, explanation: `C'est le modèle diagonal.` },
-      { content: `$\\mathrm{sp}$ → quatre liaisons simples tétraédriques.`, correct: false, explanation: `Cela correspond à sp3.` },
+    "order": 47,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Le carbone peut adopter différents états d'hybridation. Quelles associations sont exactes ?",
+    "choices": [
+      {
+        "content": "Tout carbone est toujours sp3.",
+        "correct": false,
+        "explanation": "L'hybridation dépend de l'environnement local."
+      },
+      {
+        "content": "Carbone saturé tétraédrique : sp3.",
+        "correct": true,
+        "explanation": "Quatre directions sigma."
+      },
+      {
+        "content": "Carbone d'une double liaison : sp2.",
+        "correct": true,
+        "explanation": "Trois directions sigma et une p."
+      },
+      {
+        "content": "Carbone d'une triple liaison : sp.",
+        "correct": true,
+        "explanation": "Deux directions sigma et deux p."
+      },
+      {
+        "content": "Un carbone sp possède quatre domaines sigma.",
+        "correct": false,
+        "explanation": "Il n'en possède que deux."
+      }
     ],
-    explanation: `Le carbone peut adopter des hybridations différentes selon son environnement de liaison : sp3, sp2 ou sp.`,
+    "explanation": "La diversité des hybridations explique la variété géométrique du squelette carboné."
   },
   {
-    order: 48,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos du benzène $\\ce{C6H6}$ dans le modèle du cours, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Les six carbones sont hybridés $\\mathrm{sp}^2$.`, correct: true, explanation: `Chaque carbone est trigonal plan.` },
-      { content: `Les liaisons $\\sigma$ du squelette sont dans le plan de la molécule.`, correct: true, explanation: `Les orbitales sp2 sont coplanaires.` },
-      { content: `Chaque carbone conserve une orbitale $\\mathrm{p}$ perpendiculaire au plan.`, correct: true, explanation: `Ces orbitales participent au système pi.` },
-      { content: `Les six carbones sont hybridés $\\mathrm{sp}^3$.`, correct: false, explanation: `Le benzène est un système sp2 plan.` },
+    "order": 48,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le benzène $\\ce{C6H6}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le benzène comporte trois doubles liaisons totalement indépendantes et localisées dans la structure réelle.",
+        "correct": false,
+        "explanation": "Les formes de Kekulé sont des représentations limites."
+      },
+      {
+        "content": "Le système pi est délocalisé sur l'ensemble du cycle.",
+        "correct": true,
+        "explanation": "C'est une caractéristique essentielle de l'aromaticité."
+      },
+      {
+        "content": "Le cycle benzénique est fortement non plan.",
+        "correct": false,
+        "explanation": "Il est plan."
+      },
+      {
+        "content": "Chaque carbone possède une orbitale p perpendiculaire au plan du cycle.",
+        "correct": true,
+        "explanation": "Ces orbitales constituent le système pi."
+      },
+      {
+        "content": "Les six carbones sont sp2.",
+        "correct": true,
+        "explanation": "Chaque carbone forme trois liaisons sigma."
+      }
     ],
-    explanation: `Le benzène est un cycle plan de carbones sp2 dont les orbitales p forment un système électronique pi délocalisé.`,
+    "explanation": "Le benzène est mieux décrit par un système pi délocalisé que par trois doubles liaisons figées."
   },
   {
-    order: 49,
-    difficulty: 'EASY',
-    format: 'QRPL',
-    requiredSelectionCount: 5,
-    question: `Parmi les dix associations suivantes, sélectionnez exactement les cinq où l'atome de carbone indiqué est correctement décrit comme hybridé $\\mathrm{sp}^2$.`,
-    choices: [
-      { content: `Carbone d'une double liaison dans $\\ce{CH2=CH2}$.`, correct: true, explanation: `Les carbones de l'éthylène sont sp2.` },
-      { content: `Carbone d'un carbonyle dans l'acétone $\\ce{CH3-C(=O)-CH3}$.`, correct: true, explanation: `Le carbone carbonylé est sp2.` },
-      { content: `Carbone du méthanal $\\ce{H2C=O}$.`, correct: true, explanation: `Le carbone carbonylé est sp2.` },
-      { content: `Carbone du noyau benzénique.`, correct: true, explanation: `Chaque carbone aromatique est sp2.` },
-      { content: `Carbone du groupement carboxyle $\\ce{-C(=O)-OH}$.`, correct: true, explanation: `Le carbone carbonylé est sp2.` },
-      { content: `Carbone du méthane $\\ce{CH4}$.`, correct: false, explanation: `Il est sp3.` },
-      { content: `Carbone de l'acétylène $\\ce{HC#CH}$.`, correct: false, explanation: `Il est sp.` },
-      { content: `Carbone du cyanure d'hydrogène $\\ce{HCN}$.`, correct: false, explanation: `Il est sp.` },
-      { content: `Carbone de l'éthane $\\ce{CH3-CH3}$.`, correct: false, explanation: `Il est sp3.` },
-      { content: `Carbone central du dioxyde de carbone $\\ce{CO2}$.`, correct: false, explanation: `Il est sp.` },
+    "order": 49,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux centres carbonés $\\mathrm{sp}^2$.",
+    "choices": [
+      {
+        "content": "Un carbone du méthane.",
+        "correct": false,
+        "explanation": "Il est sp3."
+      },
+      {
+        "content": "Le carbone du nitrile de HCN.",
+        "correct": false,
+        "explanation": "Il est sp."
+      },
+      {
+        "content": "Un carbone de l'éthane.",
+        "correct": false,
+        "explanation": "Il est sp3."
+      },
+      {
+        "content": "Le carbone carbonylé de $\\ce{CH3CHO}$.",
+        "correct": true,
+        "explanation": "Un carbonyle est localement trigonale plan."
+      },
+      {
+        "content": "Un carbone du benzène.",
+        "correct": true,
+        "explanation": "Tous les carbones du benzène sont sp2."
+      }
     ],
-    explanation: `Un carbone sp2 possède trois directions sigma coplanaires et une orbitale p non hybridée ; on le rencontre notamment dans les doubles liaisons, carbonyles et cycles aromatiques.`,
+    "explanation": "La présence d'une double liaison ou d'un système aromatique conduit typiquement à sp2."
   },
   {
-    order: 50,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `On compare l'éthane $\\ce{CH3-CH3}$, l'éthylène $\\ce{CH2=CH2}$ et l'acétylène $\\ce{HC#CH}$. Sélectionnez exactement les deux propositions correctes.`,
-    choices: [
-      { content: `Le carbone passe respectivement de $\\mathrm{sp}^3$ à $\\mathrm{sp}^2$ puis $\\mathrm{sp}$.`, correct: true, explanation: `Simple, double puis triple liaison.` },
-      { content: `La géométrie locale autour du carbone évolue de tétraédrique à trigonale plane puis linéaire.`, correct: true, explanation: `Correspondance sp3/sp2/sp.` },
-      { content: `Le nombre d'orbitales p non hybridées diminue de l'éthane vers l'acétylène.`, correct: false, explanation: `Il augmente : 0, puis 1, puis 2.` },
-      { content: `Les trois molécules autorisent la même liberté de rotation autour de la liaison carbone-carbone.`, correct: false, explanation: `Les liaisons multiples limitent fortement la rotation.` },
+    "order": 50,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix associations suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "Une triple liaison C≡C contient trois composantes sigma.",
+        "correct": false,
+        "explanation": "Elle contient sigma + 2 pi."
+      },
+      {
+        "content": "Un carbone sp2 conserve deux orbitales p non hybridées.",
+        "correct": false,
+        "explanation": "Il n'en conserve qu'une."
+      },
+      {
+        "content": "$\\ce{CO2}$ : carbone central sp3.",
+        "correct": false,
+        "explanation": "Il est sp."
+      },
+      {
+        "content": "Carbone carbonylé : généralement sp2.",
+        "correct": true,
+        "explanation": "Le groupe C=O est trigonale plan autour du carbone."
+      },
+      {
+        "content": "$\\ce{CH2=CH2}$ : carbones sp2.",
+        "correct": true,
+        "explanation": "La double liaison exige une orbitale p."
+      },
+      {
+        "content": "$\\ce{CH3-CH3}$ : carbones sp3.",
+        "correct": true,
+        "explanation": "L'éthane ne possède que des liaisons simples."
+      },
+      {
+        "content": "$\\ce{HC#CH}$ : carbones sp.",
+        "correct": true,
+        "explanation": "La triple liaison exige deux orbitales p."
+      },
+      {
+        "content": "$\\ce{CH4}$ : carbone sp.",
+        "correct": false,
+        "explanation": "Il est sp3."
+      },
+      {
+        "content": "Benzène : six carbones sp2.",
+        "correct": true,
+        "explanation": "Le cycle est plan et conjugué."
+      },
+      {
+        "content": "Un carbone sp conserve zéro orbitale p non hybridée.",
+        "correct": false,
+        "explanation": "Il en conserve deux."
+      }
     ],
-    explanation: `L'augmentation du caractère multiple de la liaison C–C s'accompagne d'une évolution sp3 → sp2 → sp et d'une augmentation du nombre d'orbitales p non hybridées.`,
-  },
+    "explanation": "Cette synthèse relie saturation, liaisons multiples, aromaticité et hybridation."
+  }
 ];

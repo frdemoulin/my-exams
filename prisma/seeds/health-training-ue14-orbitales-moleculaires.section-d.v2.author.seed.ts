@@ -1,147 +1,314 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 3 – Orbitales moléculaires
- * Section D – Règle de Gillespie et géométrie moléculaire
- */
-
+/** UE14 – Chimie générale – Chapitre 1.3 – Section D – Règle de Gillespie et géométrie moléculaire */
 export const UE14_CH3_GILLESPIE_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 51,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos de la règle de Gillespie (VSEPR), quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Les doublets électroniques de valence se repoussent.`, correct: true, explanation: `Vrai.` },
-      { content: `Ils tendent à se disposer aussi loin que possible les uns des autres autour de l'atome central.`, correct: true, explanation: `C'est le principe géométrique du modèle.` },
-      { content: `Les doublets non liants doivent être pris en compte.`, correct: true, explanation: `Ils occupent de l'espace et influencent la géométrie.` },
-      { content: `Seuls les atomes visibles déterminent toujours la géométrie.`, correct: false, explanation: `Les doublets non liants modifient aussi l'organisation spatiale.` },
-    ],
-    explanation: `Le modèle VSEPR prévoit la géométrie à partir de la répulsion entre les domaines électroniques de la couche de valence.`,
-  },
-  {
-    order: 52,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Dans la notation de Gillespie $\\mathrm{AX}_m\\mathrm{E}_n$, sélectionnez exactement les deux propositions correctes.`,
-    choices: [
-      { content: `$\\mathrm{A}$ représente l'atome central.`, correct: true, explanation: `Vrai.` },
-      { content: `$\\mathrm{E}_n$ indique le nombre de doublets non liants portés par l'atome central.`, correct: true, explanation: `Vrai.` },
-      { content: `$m$ indique le nombre total d'électrons de la molécule.`, correct: false, explanation: `Il indique le nombre de directions de liaison X autour du centre.` },
-      { content: `$\\mathrm{E}$ représente obligatoirement un élément chimique lié à A.`, correct: false, explanation: `E représente ici un doublet non liant.` },
-    ],
-    explanation: `Dans AXmEn, A est le centre, X les atomes liés et E les doublets non liants du centre.`,
-  },
-  {
-    order: 53,
-    difficulty: 'EASY',
-    format: 'QZONE',
-    question: `Cliquez sur la géométrie moléculaire correspondant à un centre de type $\\mathrm{AX}_3\\mathrm{E}_1$, comme dans $\\ce{NH3}$.`,
-    image: {
-      src: '/images/training/ue14/chimie/vsepr-geometries-qzone.svg',
-      alt: 'Six géométries moléculaires schématiques : linéaire, trigonale plane, tétraédrique, pyramidale, coudée et octaédrique',
-      width: 1200,
-      height: 700,
-    },
-    expectedZones: [
+    "order": 51,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le modèle VSEPR (règle de Gillespie), quelles propositions sont exactes ?",
+    "choices": [
       {
-        id: 'pyramidale-ax3e1',
-        label: 'Géométrie pyramidale AX3E1',
-        x: 0.17,
-        y: 0.73,
-        tolerance: 0.10,
+        "content": "Une liaison multiple compte comme un seul domaine de liaison autour du centre.",
+        "correct": true,
+        "explanation": "Elle occupe une direction principale."
       },
+      {
+        "content": "Les domaines électroniques de valence autour d'un centre se repoussent.",
+        "correct": true,
+        "explanation": "Ils tendent à maximiser leur séparation."
+      },
+      {
+        "content": "Le modèle prédit exactement toutes les longueurs de liaison.",
+        "correct": false,
+        "explanation": "Il vise surtout la géométrie qualitative."
+      },
+      {
+        "content": "Seuls les atomes visibles comptent pour la géométrie.",
+        "correct": false,
+        "explanation": "Les doublets non liants modifient la forme."
+      },
+      {
+        "content": "Les doublets non liants doivent être pris en compte.",
+        "correct": true,
+        "explanation": "Ils occupent un volume important."
+      }
     ],
-    explanation: `Un centre AX3E1 possède trois liaisons et un doublet non liant. L'organisation électronique est tétraédrique, mais la géométrie moléculaire est pyramidale.`,
+    "explanation": "VSEPR fournit une géométrie à partir du nombre de domaines liants et non liants autour de l'atome central."
   },
   {
-    order: 54,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Le dioxyde de carbone $\\ce{O=C=O}$ est produit par le métabolisme cellulaire. Quelles propositions sont exactes selon Gillespie ?`,
-    choices: [
-      { content: `Le carbone central possède deux directions de liaison.`, correct: true, explanation: `Chaque double liaison compte comme une seule direction.` },
-      { content: `La molécule est de type $\\mathrm{AX}_2$.`, correct: true, explanation: `Deux atomes périphériques, aucun doublet non liant sur le carbone dans le modèle utilisé.` },
-      { content: `La géométrie est linéaire avec un angle de $180^\\circ$.`, correct: true, explanation: `Deux domaines se placent à l'opposé.` },
-      { content: `Les deux doubles liaisons imposent un type $\\mathrm{AX}_4$.`, correct: false, explanation: `Une liaison multiple ne compte que comme une direction autour du centre.` },
+    "order": 52,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Dans la notation $\\mathrm{AX}_m\\mathrm{E}_n$, sélectionnez exactement les deux propositions correctes.",
+    "choices": [
+      {
+        "content": "X représente les neutrons du noyau.",
+        "correct": false,
+        "explanation": "X représente des atomes liés au centre."
+      },
+      {
+        "content": "E désigne les doublets non liants portés par A.",
+        "correct": true,
+        "explanation": "n est leur nombre."
+      },
+      {
+        "content": "E désigne obligatoirement un élément chimique.",
+        "correct": false,
+        "explanation": "Ici E signifie doublet non liant."
+      },
+      {
+        "content": "m est le nombre total d'électrons de la molécule.",
+        "correct": false,
+        "explanation": "m compte les directions de liaison X."
+      },
+      {
+        "content": "A désigne l'atome central.",
+        "correct": true,
+        "explanation": "C'est le centre étudié."
+      }
     ],
-    explanation: `Dans VSEPR, une liaison simple, double ou triple correspond à une seule direction électronique autour de l'atome central.`,
+    "explanation": "La notation AXmEn sépare les domaines liants X et les doublets non liants E."
   },
   {
-    order: 55,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux associations correctes.`,
-    choices: [
-      { content: `$\\ce{BH3}$ : $\\mathrm{AX}_3$, géométrie trigonale plane.`, correct: true, explanation: `Trois directions de liaison, aucun doublet non liant sur B dans le modèle.` },
-      { content: `$\\ce{SO2}$ : $\\mathrm{AX}_2\\mathrm{E}_1$, géométrie coudée.`, correct: true, explanation: `Deux directions de liaison et un doublet non liant autour du soufre dans le modèle du cours.` },
-      { content: `$\\ce{BH3}$ : $\\mathrm{AX}_4$, géométrie tétraédrique.`, correct: false, explanation: `Il n'y a que trois directions autour du bore.` },
-      { content: `$\\ce{SO2}$ : $\\mathrm{AX}_2$, géométrie linéaire.`, correct: false, explanation: `Le doublet non liant conduit à une forme coudée.` },
+    "order": 53,
+    "difficulty": "EASY",
+    "format": "QZONE",
+    "question": "Cliquez sur la géométrie moléculaire correspondant à un centre de type $\\mathrm{AX}_3\\mathrm{E}_1$, comme dans $\\ce{NH3}$.",
+    "image": {
+      "src": "/images/training/ue14/chimie/vsepr-geometries-qzone.svg",
+      "alt": "Six géométries moléculaires schématiques : linéaire, trigonale plane, tétraédrique, pyramidale, coudée et octaédrique",
+      "width": 1200,
+      "height": 700
+    },
+    "expectedZones": [
+      {
+        "id": "pyramidale-ax3e1",
+        "label": "Géométrie pyramidale AX3E1",
+        "x": 0.17,
+        "y": 0.73,
+        "tolerance": 0.1
+      }
     ],
-    explanation: `Trois domaines donnent une organisation trigonale ; la présence d'un doublet non liant transforme AX2E1 en géométrie coudée.`,
+    "explanation": "AX3E1 possède quatre domaines électroniques mais seulement trois liaisons visibles ; la géométrie moléculaire est pyramidale."
   },
   {
-    order: 56,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Dans l'ion ammonium $\\ce{NH4+}$, combien de directions de liaison entourent l'atome d'azote ?`,
-    answer: { type: 'number', value: 4, tolerance: 0 },
-    explanation: `$\\ce{NH4+}$ possède quatre liaisons N–H et aucun doublet non liant sur l'azote : type AX4, géométrie tétraédrique.`,
+    "order": 54,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant $\\ce{CO2}$ dans le modèle VSEPR, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le carbone central possède deux domaines de liaison.",
+        "correct": true,
+        "explanation": "Chaque double liaison compte comme un domaine."
+      },
+      {
+        "content": "La géométrie est linéaire.",
+        "correct": true,
+        "explanation": "Deux domaines se placent à 180°."
+      },
+      {
+        "content": "Les deux doubles liaisons imposent AX4.",
+        "correct": false,
+        "explanation": "Le multiplicité de liaison ne multiplie pas le nombre de domaines."
+      },
+      {
+        "content": "Le type est AX2.",
+        "correct": true,
+        "explanation": "Deux atomes périphériques et aucun doublet non liant sur C."
+      },
+      {
+        "content": "La géométrie est coudée.",
+        "correct": false,
+        "explanation": "Elle est linéaire."
+      }
+    ],
+    "explanation": "CO2 illustre la règle fondamentale : une liaison multiple compte comme une seule direction en VSEPR."
   },
   {
-    order: 57,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos de $\\ce{NH3}$ et $\\ce{H2O}$, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `$\\ce{NH3}$ est de type $\\mathrm{AX}_3\\mathrm{E}_1$ et possède une géométrie pyramidale.`, correct: true, explanation: `Trois liaisons et un doublet non liant.` },
-      { content: `$\\ce{H2O}$ est de type $\\mathrm{AX}_2\\mathrm{E}_2$ et possède une géométrie coudée.`, correct: true, explanation: `Deux liaisons et deux doublets non liants.` },
-      { content: `Les doublets non liants contribuent à réduire les angles par rapport au tétraèdre idéal.`, correct: true, explanation: `Ils exercent une répulsion importante.` },
-      { content: `Les deux molécules sont linéaires.`, correct: false, explanation: `Leurs doublets non liants conduisent à des géométries non linéaires.` },
+    "order": 55,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux associations correctes.",
+    "choices": [
+      {
+        "content": "$\\ce{SO2}$ : AX2, linéaire.",
+        "correct": false,
+        "explanation": "Le doublet non liant modifie la forme."
+      },
+      {
+        "content": "$\\ce{BH3}$ : AX3, trigonale plane.",
+        "correct": true,
+        "explanation": "Trois liaisons et aucun doublet non liant sur B."
+      },
+      {
+        "content": "$\\ce{BH3}$ : AX4, tétraédrique.",
+        "correct": false,
+        "explanation": "Il n'y a que trois domaines."
+      },
+      {
+        "content": "$\\ce{NH4+}$ : AX3E1.",
+        "correct": false,
+        "explanation": "NH4+ est AX4."
+      },
+      {
+        "content": "$\\ce{SO2}$ : AX2E1, coudée.",
+        "correct": true,
+        "explanation": "Deux directions de liaison et un doublet non liant."
+      }
     ],
-    explanation: `NH3 et H2O partagent une organisation électronique à quatre domaines, mais les doublets non liants donnent des formes pyramidale et coudée.`,
+    "explanation": "Le nombre total de domaines électroniques fixe l'organisation ; les doublets E déterminent la forme moléculaire visible."
   },
   {
-    order: 58,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux espèces de type $\\mathrm{AX}_3\\mathrm{E}_1$ dans le modèle du cours.`,
-    choices: [
-      { content: `$\\ce{NH3}$.`, correct: true, explanation: `Trois liaisons et un doublet non liant.` },
-      { content: `$\\ce{H3O+}$.`, correct: true, explanation: `Trois liaisons O–H et un doublet non liant.` },
-      { content: `$\\ce{CH4}$.`, correct: false, explanation: `Type AX4.` },
-      { content: `$\\ce{H2O}$.`, correct: false, explanation: `Type AX2E2.` },
-    ],
-    explanation: `NH3 et H3O+ sont tous deux pyramidaux de type AX3E1.`,
+    "order": 56,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Dans $\\ce{NH4+}$, combien de directions de liaison entourent l'azote ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "L'ion ammonium est AX4 et tétraédrique."
   },
   {
-    order: 59,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos de $\\ce{PCl5}$ et $\\ce{SF6}$, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `$\\ce{PCl5}$ est de type $\\mathrm{AX}_5$ et adopte une bipyramide trigonale.`, correct: true, explanation: `Cinq directions de liaison.` },
-      { content: `$\\ce{SF6}$ est de type $\\mathrm{AX}_6$ et adopte une géométrie octaédrique.`, correct: true, explanation: `Six directions de liaison.` },
-      { content: `Dans $\\ce{PCl5}$, on rencontre des angles de $90^\\circ$ et $120^\\circ$.`, correct: true, explanation: `Positions axiales et équatoriales.` },
-      { content: `$\\ce{SF6}$ est linéaire.`, correct: false, explanation: `Sa géométrie est octaédrique.` },
+    "order": 57,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de $\\ce{NH3}$ et $\\ce{H2O}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "$\\ce{H2O}$ est AX2E2 et coudée.",
+        "correct": true,
+        "explanation": "Deux liaisons, deux doublets."
+      },
+      {
+        "content": "Les deux molécules sont linéaires.",
+        "correct": false,
+        "explanation": "Elles sont pyramidale et coudée."
+      },
+      {
+        "content": "Les doublets non liants réduisent les angles par rapport au tétraèdre idéal.",
+        "correct": true,
+        "explanation": "Leur répulsion est forte."
+      },
+      {
+        "content": "$\\ce{NH3}$ est AX3E1 et pyramidale.",
+        "correct": true,
+        "explanation": "Trois liaisons, un doublet."
+      },
+      {
+        "content": "H2O ne possède aucun doublet non liant.",
+        "correct": false,
+        "explanation": "Elle en possède deux."
+      }
     ],
-    explanation: `Le modèle de Gillespie s'étend aux coordinences cinq et six : bipyramide trigonale et octaèdre.`,
+    "explanation": "NH3 et H2O illustrent l'effet des doublets non liants sur une organisation électronique à quatre domaines."
   },
   {
-    order: 60,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Quelles correspondances molécule → type de Gillespie sont exactes ?`,
-    choices: [
-      { content: `$\\ce{BeH2}$ → $\\mathrm{AX}_2$.`, correct: true, explanation: `Deux directions, linéaire.` },
-      { content: `$\\ce{BH3}$ → $\\mathrm{AX}_3$.`, correct: true, explanation: `Trois directions, trigonale plane.` },
-      { content: `$\\ce{CH4}$ → $\\mathrm{AX}_4$.`, correct: true, explanation: `Quatre directions, tétraédrique.` },
-      { content: `$\\ce{H2O}$ → $\\mathrm{AX}_4$.`, correct: false, explanation: `La nomenclature détaillée est AX2E2.` },
+    "order": 58,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux espèces de type AX3E1.",
+    "choices": [
+      {
+        "content": "$\\ce{CH4}$.",
+        "correct": false,
+        "explanation": "AX4."
+      },
+      {
+        "content": "$\\ce{H2O}$.",
+        "correct": false,
+        "explanation": "AX2E2."
+      },
+      {
+        "content": "$\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "AX2."
+      },
+      {
+        "content": "$\\ce{H3O+}$.",
+        "correct": true,
+        "explanation": "Trois liaisons et un doublet."
+      },
+      {
+        "content": "$\\ce{NH3}$.",
+        "correct": true,
+        "explanation": "Trois liaisons et un doublet."
+      }
     ],
-    explanation: `La notation de Gillespie distingue les directions de liaison X et les doublets non liants E portés par l'atome central.`,
+    "explanation": "NH3 et H3O+ sont pyramidaux de type AX3E1."
   },
+  {
+    "order": 59,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de $\\ce{PCl5}$ et $\\ce{SF6}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Dans PCl5, on rencontre des angles de 90° et 120°.",
+        "correct": true,
+        "explanation": "Positions axiales et équatoriales."
+      },
+      {
+        "content": "PCl5 est tétraédrique.",
+        "correct": false,
+        "explanation": "Il possède cinq domaines."
+      },
+      {
+        "content": "$\\ce{PCl5}$ est AX5 et bipyramidal trigonale.",
+        "correct": true,
+        "explanation": "Cinq directions de liaison."
+      },
+      {
+        "content": "SF6 est linéaire.",
+        "correct": false,
+        "explanation": "Il est octaédrique."
+      },
+      {
+        "content": "$\\ce{SF6}$ est AX6 et octaédrique.",
+        "correct": true,
+        "explanation": "Six directions de liaison."
+      }
+    ],
+    "explanation": "VSEPR s'étend aux coordinences cinq et six, au-delà des géométries sp/sp2/sp3 simples."
+  },
+  {
+    "order": 60,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles correspondances molécule → type VSEPR sont exactes ?",
+    "choices": [
+      {
+        "content": "$\\ce{CH4}$ → AX4.",
+        "correct": true,
+        "explanation": "Tétraédrique."
+      },
+      {
+        "content": "$\\ce{BeH2}$ → AX2.",
+        "correct": true,
+        "explanation": "Linéaire."
+      },
+      {
+        "content": "$\\ce{BH3}$ → AX3.",
+        "correct": true,
+        "explanation": "Trigonale plane."
+      },
+      {
+        "content": "$\\ce{H2O}$ → AX4.",
+        "correct": false,
+        "explanation": "La notation détaillée est AX2E2."
+      },
+      {
+        "content": "$\\ce{NH3}$ → AX2E2.",
+        "correct": false,
+        "explanation": "NH3 est AX3E1."
+      }
+    ],
+    "explanation": "La notation détaillée distingue les atomes liés X et les doublets non liants E."
+  }
 ];
