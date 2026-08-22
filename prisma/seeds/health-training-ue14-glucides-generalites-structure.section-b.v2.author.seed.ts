@@ -445,7 +445,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de le nombre de stéréoisomères d'un ose, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos du nombre de stéréoisomères d'un ose, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Un cétohexose usuel comme le fructose ouvert possède trois centres stéréogènes, C3 à C5.",
@@ -535,7 +535,7 @@ export const UE14_BIOCH_CH1_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de les exceptions biologiques de série L, quelle proposition est exacte ?",
+    "question": "À propos des exceptions biologiques de série L, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Le L-fucose est l'énantiomère du D-glucose.",

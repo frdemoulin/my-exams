@@ -130,7 +130,7 @@ export const UE14_BIOCH_CH2_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 27,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le mannitol, quelle proposition est exacte ?",
+    "question": "À propos du mannitol, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Le mannitol ne contient aucun oxygène.",
@@ -447,7 +447,7 @@ export const UE14_BIOCH_CH2_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de le mannitol, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos du mannitol, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Le mannitol est un cétose.",

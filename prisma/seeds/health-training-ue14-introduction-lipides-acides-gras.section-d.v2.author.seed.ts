@@ -1,645 +1,683 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Introduction générale sur les lipides et acides gras — Section D
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Chapitre 2.1–2.2 — Lipides et acides gras — Section D — Propriétés physiques, chimiques et biologiques */
 export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 79,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de quelques propriétés physiques des acides gras usuels :",
+    "question": "Concernant la solubilité aqueuse des acides gras, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les acides gras à 16–18 carbones ont une masse molaire de l’ordre de 250 à 300 g·mol⁻¹.",
+        "content": "La solubilité aqueuse diminue généralement quand la chaîne hydrocarbonée s'allonge.",
         "correct": true,
-        "explanation": "Ordre de grandeur."
+        "explanation": "La part hydrophobe devient plus importante."
       },
       {
-        "content": "L’acide palmitique est donné à environ 256 Da.",
-        "correct": true,
-        "explanation": "La masse molaire de l'acide palmitique est voisine de 256 g·mol⁻¹."
-      },
-      {
-        "content": "De nombreux acides gras usuels ont une masse volumique inférieure à celle de l’eau.",
-        "correct": true,
-        "explanation": "Propriété."
-      },
-      {
-        "content": "Tous les acides gras ont une densité très supérieure à celle de l’eau.",
+        "content": "Le pH ne peut jamais influencer la solubilité d'un acide gras.",
         "correct": false,
-        "explanation": "Les acides gras usuels ne présentent pas tous une masse volumique très supérieure à celle de l’eau."
+        "explanation": "L'état d'ionisation du carboxyle dépend du pH."
+      },
+      {
+        "content": "Un acide gras à longue chaîne est aussi soluble que le glucose.",
+        "correct": false,
+        "explanation": "Le glucose est beaucoup plus hydrophile."
+      },
+      {
+        "content": "Les acides gras à longue chaîne sont très peu solubles dans l'eau sous forme non ionisée.",
+        "correct": true,
+        "explanation": "Ils nécessitent souvent des transporteurs ou des assemblages lipidiques en biologie."
+      },
+      {
+        "content": "Allonger la chaîne augmente fortement la solubilité dans l'eau.",
+        "correct": false,
+        "explanation": "La tendance générale est inverse."
       }
     ],
-    "explanation": "La faible densité contribue au comportement des acides gras en milieu aqueux."
+    "explanation": "La longue chaîne hydrocarbonée réduit la solubilité dans l'eau, tandis que l'ionisation du carboxyle favorise la dispersion."
   },
   {
     "order": 80,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La solubilité des acides gras :",
+    "format": "QRU",
+    "question": "À propos du point de fusion et la longueur de chaîne, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Dès huit carbones, leur solubilité dans l’eau devient très faible.",
-        "correct": true,
-        "explanation": "L’allongement de la chaîne hydrophobe entraîne une forte diminution de la solubilité aqueuse."
-      },
-      {
-        "content": "Ils sont solubles dans des solvants organiques comme benzène, éther ou chloroforme.",
-        "correct": true,
-        "explanation": "Exemples."
-      },
-      {
-        "content": "La longue chaîne carbonée contribue à l’insolubilité aqueuse.",
-        "correct": true,
-        "explanation": "Lien structure/propriété."
-      },
-      {
-        "content": "Ils deviennent tous très solubles dans l’eau au-delà de huit carbones.",
+        "content": "Allonger une chaîne saturée abaisse toujours son point de fusion.",
         "correct": false,
-        "explanation": "C’est l’inverse."
+        "explanation": "La tendance est plutôt à l'augmenter."
+      },
+      {
+        "content": "Une chaîne plus longue possède nécessairement moins d'interactions de dispersion.",
+        "correct": false,
+        "explanation": "Elle en possède généralement davantage."
+      },
+      {
+        "content": "La comparaison doit tenir compte à la fois de la longueur et de l'insaturation.",
+        "correct": true,
+        "explanation": "Ces deux paramètres interagissent."
+      },
+      {
+        "content": "Le point de fusion décrit le passage liquide-gaz.",
+        "correct": false,
+        "explanation": "Cela correspond à l'ébullition."
+      },
+      {
+        "content": "Le point de fusion ne dépend jamais de la structure moléculaire.",
+        "correct": false,
+        "explanation": "La longueur et l'insaturation sont déterminantes."
       }
     ],
-    "explanation": "La longueur de la chaîne renforce le caractère hydrophobe."
+    "explanation": "Les chaînes plus longues ont généralement un point de fusion plus élevé à degré d'insaturation comparable."
   },
   {
     "order": 81,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "En milieu aqueux, les acides gras :",
-    "choices": [
-      {
-        "content": "Peuvent surnager à la surface de l’eau.",
-        "correct": true,
-        "explanation": "Densité inférieure."
-      },
-      {
-        "content": "Peuvent former une couche monomoléculaire.",
-        "correct": true,
-        "explanation": "Comportement décrit."
-      },
-      {
-        "content": "Peuvent former des micelles après agitation, souvent peu stables.",
-        "correct": true,
-        "explanation": "En milieu aqueux, des acides gras peuvent former des agrégats amphiphiles."
-      },
-      {
-        "content": "Se dissolvent toujours complètement sous forme moléculaire.",
-        "correct": false,
-        "explanation": "Ils sont peu ou pas solubles selon la longueur."
+    "format": "QROC",
+    "question": "Quel effet général une double liaison cis a-t-elle sur le point de fusion d'un acide gras de longueur comparable ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "elle l'abaisse",
+        "diminution",
+        "abaissement",
+        "le point de fusion diminue"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le comportement interfacial découle des deux pôles de la molécule."
+    },
+    "explanation": "Les doubles liaisons cis perturbent l'empilement et abaissent généralement le point de fusion."
   },
   {
     "order": 82,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le point de fusion des acides gras :",
-    "choices": [
-      {
-        "content": "Augmente globalement avec le nombre de carbones.",
-        "correct": true,
-        "explanation": "Premier facteur."
-      },
-      {
-        "content": "Diminue avec la présence de doubles liaisons.",
-        "correct": true,
-        "explanation": "Deuxième facteur."
-      },
-      {
-        "content": "Dépend donc de la longueur et de l’insaturation.",
-        "correct": true,
-        "explanation": "Synthèse."
-      },
-      {
-        "content": "Est indépendant de la structure de la chaîne.",
-        "correct": false,
-        "explanation": "Deux caractères structuraux sont déterminants."
+    "format": "QROC",
+    "question": "Quel acide gras C18 mono-insaturé cis, noté 18:1 Δ9, est liquide à température ambiante ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acide oléique",
+        "oléique",
+        "oleique",
+        "acide oleique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Longueur de chaîne et désaturation influencent en sens opposé le point de fusion."
+    },
+    "explanation": "L'acide oléique 18:1 cis-Δ9 a un point de fusion nettement plus bas que l'acide stéarique 18:0 de même longueur."
   },
   {
     "order": 83,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de l’acide oléique 18:1 :",
+    "format": "QRU",
+    "question": "À propos de l'estérification des acides gras, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Liquide à température ambiante.",
+        "content": "Des phospholipides comportent aussi des acides gras liés par ester dans de nombreuses familles.",
         "correct": true,
-        "explanation": "Exemple physique."
+        "explanation": "C'est le cas des glycérophospholipides."
       },
       {
-        "content": "Un acide gras désaturé.",
-        "correct": true,
-        "explanation": "18:1."
-      },
-      {
-        "content": "Un exemple illustrant l’abaissement du point de fusion par une double liaison.",
-        "correct": true,
-        "explanation": "Lien propriété."
-      },
-      {
-        "content": "Un acide gras saturé solide à 37 °C.",
+        "content": "L'estérification transforme un acide gras en acide aminé.",
         "correct": false,
-        "explanation": "Il est monodésaturé."
+        "explanation": "Elle forme un ester."
+      },
+      {
+        "content": "Une liaison ester se forme entre deux fonctions amine.",
+        "correct": false,
+        "explanation": "Elle implique ici un acide carboxylique et un alcool."
+      },
+      {
+        "content": "Un ester est une double liaison C=C.",
+        "correct": false,
+        "explanation": "C'est une fonction contenant C(=O)-O."
+      },
+      {
+        "content": "Le glycérol ne possède aucune fonction alcool.",
+        "correct": false,
+        "explanation": "Il en possède trois."
       }
     ],
-    "explanation": "L’oléique illustre l’effet des doubles liaisons sur le point de fusion."
+    "explanation": "L'estérification du carboxyle d'un acide gras par un alcool forme une liaison ester."
   },
   {
     "order": 84,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de l’état physique des acides gras saturés :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur les rôles biologiques des acides gras, sélectionnez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Les chaînes courtes ont généralement un point de fusion plus bas que les chaînes longues.",
-        "correct": true,
-        "explanation": "Les interactions hydrophobes augmentent globalement avec la longueur de chaîne."
-      },
-      {
-        "content": "L’acide octanoïque C8 est liquide aux températures ambiantes usuelles.",
-        "correct": true,
-        "explanation": "Son point de fusion est inférieur à une température ambiante voisine de 20–25 °C."
-      },
-      {
-        "content": "L’acide laurique C12 reste solide à 37 °C.",
-        "correct": true,
-        "explanation": "Son point de fusion est supérieur à la température corporelle."
-      },
-      {
-        "content": "Tous sont liquides à 37 °C quelle que soit la longueur.",
+        "content": "Aucun acide gras ne sert de précurseur de médiateur.",
         "correct": false,
-        "explanation": "L’état physique dépend de la longueur de chaîne et ne peut être identique pour tous les acides gras saturés."
+        "explanation": "L'arachidonique en est un exemple important."
+      },
+      {
+        "content": "Ils sont des constituants de lipides membranaires.",
+        "correct": true,
+        "explanation": "Ils forment les chaînes hydrophobes des phospholipides et sphingolipides."
+      },
+      {
+        "content": "Les acides gras sont des substrats énergétiques importants.",
+        "correct": true,
+        "explanation": "Leur oxydation fournit beaucoup d'énergie."
+      },
+      {
+        "content": "Les acides gras n'ont aucun rôle énergétique.",
+        "correct": false,
+        "explanation": "Leur oxydation est une source majeure d'énergie."
+      },
+      {
+        "content": "Ils sont absents des membranes biologiques.",
+        "correct": false,
+        "explanation": "Ils entrent dans de nombreux lipides membranaires."
       }
     ],
-    "explanation": "La longueur de chaîne modifie fortement l’état physique des acides gras saturés."
+    "explanation": "Les acides gras ont des rôles énergétiques, structuraux et précurseurs de médiateurs ; ils sont stockés notamment dans les triacylglycérols.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 85,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La réaction d’estérification d’un acide gras :",
+    "question": "Concernant les acides gras oméga-3, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Fait réagir sa fonction acide avec une fonction alcool.",
+        "content": "EPA et DHA appartiennent également à la série n-3.",
         "correct": true,
-        "explanation": "Principe."
+        "explanation": "Ils sont des acides gras à plus longue chaîne."
       },
       {
-        "content": "Conduit à la formation d’un ester.",
+        "content": "La conversion de l'alpha-linolénique en EPA puis DHA est limitée chez l'être humain.",
         "correct": true,
-        "explanation": "Produit."
+        "explanation": "L'alimentation peut donc apporter directement des n-3 à longue chaîne."
       },
       {
-        "content": "Est très fréquente in vivo.",
-        "correct": true,
-        "explanation": "Importance."
-      },
-      {
-        "content": "Transforme nécessairement l’acide gras en protéine.",
+        "content": "La conversion d'ALA en DHA est toujours quantitative et complète.",
         "correct": false,
-        "explanation": "Elle forme un ester lipidique."
+        "explanation": "Elle est limitée."
+      },
+      {
+        "content": "Le DHA est important dans les membranes du système nerveux et de la rétine.",
+        "correct": true,
+        "explanation": "Il est très enrichi dans ces tissus."
+      },
+      {
+        "content": "L'acide alpha-linolénique est le précurseur indispensable n-3.",
+        "correct": true,
+        "explanation": "Il doit être apporté par l'alimentation."
       }
     ],
-    "explanation": "L’estérification permet d'incorporer les acides gras dans les glycérides et d'autres lipides complexes."
+    "explanation": "L'alpha-linolénique est indispensable ; la conversion humaine vers EPA/DHA existe mais reste limitée."
   },
   {
     "order": 86,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Parmi les rôles biologiques des acides gras :",
-    "choices": [
-      {
-        "content": "Rôle structural dans les membranes.",
-        "correct": true,
-        "explanation": "Rôle."
-      },
-      {
-        "content": "Rôle énergétique par oxydation et réserve.",
-        "correct": true,
-        "explanation": "Rôle."
-      },
-      {
-        "content": "Rôle métabolique comme précurseurs de médiateurs/hormones pour certains acides gras tels que l’arachidonique.",
-        "correct": true,
-        "explanation": "L’acide arachidonique peut être converti en eicosanoïdes biologiquement actifs."
-      },
-      {
-        "content": "Absence totale de rôle cellulaire.",
-        "correct": false,
-        "explanation": "Les acides gras ont des rôles structuraux, énergétiques et métaboliques."
+    "format": "QROC",
+    "question": "Quelle partie d'un acide gras se place préférentiellement au contact de l'eau dans une couche interfaciale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "tête carboxylique",
+        "tête polaire",
+        "carboxyle",
+        "carboxylate",
+        "groupement carboxylique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les acides gras ont des fonctions structurales, énergétiques et métaboliques."
+    },
+    "explanation": "Les acides gras sont amphiphiles ; leur organisation interfaciale dépend de l'équilibre entre tête polaire et chaîne hydrophobe."
   },
   {
     "order": 87,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos des acides gras trans alimentaires :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la solubilité aqueuse des acides gras, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Ils peuvent provenir de procédés industriels et être présents dans certains produits transformés.",
-        "correct": true,
-        "explanation": "Contexte."
-      },
-      {
-        "content": "Une consommation élevée augmente le risque cardiovasculaire.",
-        "correct": true,
-        "explanation": "Les acides gras trans augmentent notamment le risque de cardiopathie coronarienne."
-      },
-      {
-        "content": "L’OMS recommande de limiter leur apport à moins de 1 % de l’apport énergétique total.",
-        "correct": true,
-        "explanation": "Cette limite vise à réduire le risque cardiovasculaire associé aux acides gras trans."
-      },
-      {
-        "content": "Les présente comme toujours indispensables à l’alimentation.",
+        "content": "Allonger la chaîne augmente fortement la solubilité dans l'eau.",
         "correct": false,
-        "explanation": "Les acides gras trans n’ont pas de caractère indispensable connu."
+        "explanation": "La tendance générale est inverse."
+      },
+      {
+        "content": "La solubilité aqueuse diminue généralement quand la chaîne hydrocarbonée s'allonge.",
+        "correct": true,
+        "explanation": "La part hydrophobe devient plus importante."
+      },
+      {
+        "content": "Un acide gras à longue chaîne est aussi soluble que le glucose.",
+        "correct": false,
+        "explanation": "Le glucose est beaucoup plus hydrophile."
+      },
+      {
+        "content": "Le pH ne peut jamais influencer la solubilité d'un acide gras.",
+        "correct": false,
+        "explanation": "L'état d'ionisation du carboxyle dépend du pH."
+      },
+      {
+        "content": "Les solvants organiques ne dissolvent jamais les lipides.",
+        "correct": false,
+        "explanation": "De nombreux lipides y sont solubles."
       }
     ],
-    "explanation": "Les acides gras trans, notamment ceux produits industriellement, doivent être limités en raison de leur risque cardiovasculaire."
+    "explanation": "La longue chaîne hydrocarbonée réduit la solubilité dans l'eau, tandis que l'ionisation du carboxyle favorise la dispersion."
   },
   {
     "order": 88,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel changement structural tend à abaisser le point de fusion d’un acide gras ?",
+    "format": "QRM",
+    "question": "Concernant le point de fusion et la longueur de chaîne, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’introduction d’une ou plusieurs doubles liaisons.",
+        "content": "Les acides gras saturés longs s'empilent efficacement.",
         "correct": true,
-        "explanation": "Effet de la désaturation."
+        "explanation": "Leurs chaînes rectilignes favorisent les contacts."
       },
       {
-        "content": "L’augmentation du nombre de carbones.",
+        "content": "Allonger une chaîne saturée abaisse toujours son point de fusion.",
         "correct": false,
-        "explanation": "Elle augmente le point de fusion."
+        "explanation": "La tendance est plutôt à l'augmenter."
       },
       {
-        "content": "La suppression du carboxyle.",
-        "correct": false,
-        "explanation": "Ce n’est plus le même type de molécule."
+        "content": "Le point de fusion est une propriété physique mesurable.",
+        "correct": true,
+        "explanation": "Il correspond au passage solide-liquide."
       },
       {
-        "content": "La conversion en protéine.",
+        "content": "Une chaîne plus longue possède nécessairement moins d'interactions de dispersion.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Elle en possède généralement davantage."
+      },
+      {
+        "content": "Le point de fusion décrit le passage liquide-gaz.",
+        "correct": false,
+        "explanation": "Cela correspond à l'ébullition."
       }
     ],
-    "explanation": "La désaturation abaisse le point de fusion."
+    "explanation": "Les chaînes plus longues ont généralement un point de fusion plus élevé à degré d'insaturation comparable."
   },
   {
     "order": 89,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Comparer deux acides gras de même longueur, l’un saturé et l’autre désaturé :",
+    "question": "Concernant la solubilité aqueuse des acides gras, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le désaturé aura tendance à avoir un point de fusion plus bas.",
-        "correct": true,
-        "explanation": "Effet des doubles liaisons."
-      },
-      {
-        "content": "Le nombre de carbones est contrôlé dans la comparaison.",
-        "correct": true,
-        "explanation": "Même longueur."
-      },
-      {
-        "content": "La présence de doubles liaisons constitue alors la variable structurale principale.",
-        "correct": true,
-        "explanation": "Raisonnement."
-      },
-      {
-        "content": "Le désaturé aura forcément un point de fusion plus élevé.",
+        "content": "Allonger la chaîne augmente fortement la solubilité dans l'eau.",
         "correct": false,
-        "explanation": "À longueur égale, les doubles liaisons cis désorganisent l’empilement et abaissent le point de fusion."
+        "explanation": "La tendance générale est inverse."
+      },
+      {
+        "content": "L'ionisation du carboxyle augmente le caractère hydrophile de la tête.",
+        "correct": true,
+        "explanation": "Le carboxylate est chargé."
+      },
+      {
+        "content": "La solubilité aqueuse diminue généralement quand la chaîne hydrocarbonée s'allonge.",
+        "correct": true,
+        "explanation": "La part hydrophobe devient plus importante."
+      },
+      {
+        "content": "Le pH ne peut jamais influencer la solubilité d'un acide gras.",
+        "correct": false,
+        "explanation": "L'état d'ionisation du carboxyle dépend du pH."
+      },
+      {
+        "content": "Un acide gras à longue chaîne est aussi soluble que le glucose.",
+        "correct": false,
+        "explanation": "Le glucose est beaucoup plus hydrophile."
       }
     ],
-    "explanation": "À longueur égale, l’insaturation tend à abaisser le point de fusion."
+    "explanation": "La longue chaîne hydrocarbonée réduit la solubilité dans l'eau, tandis que l'ionisation du carboxyle favorise la dispersion."
   },
   {
     "order": 90,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Comparer deux acides gras saturés de longueurs différentes :",
-    "choices": [
-      {
-        "content": "Le plus long tend à avoir un point de fusion plus élevé.",
-        "correct": true,
-        "explanation": "Effet de la longueur."
-      },
-      {
-        "content": "Le nombre de carbones est alors le facteur discriminant.",
-        "correct": true,
-        "explanation": "Comparaison."
-      },
-      {
-        "content": "Cette tendance est cohérente avec le classement des états physiques des saturés.",
-        "correct": true,
-        "explanation": "L’augmentation de la longueur renforce les interactions entre chaînes saturées."
-      },
-      {
-        "content": "Le plus long doit toujours fondre plus bas.",
-        "correct": false,
-        "explanation": "L’allongement d’une chaîne saturée tend au contraire à élever son point de fusion."
+    "format": "QROC",
+    "question": "À saturation comparable, comment évolue généralement le point de fusion quand la chaîne s'allonge ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "il augmente",
+        "augmentation",
+        "augmente",
+        "hausse"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La longueur de chaîne augmente globalement le point de fusion."
+    },
+    "explanation": "Les chaînes plus longues ont généralement un point de fusion plus élevé à degré d'insaturation comparable."
   },
   {
     "order": 91,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un acide gras de 12 carbones en milieu aqueux :",
+    "question": "Concernant le comportement d'un acide gras à longue chaîne en milieu aqueux, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Présente une solubilité très faible dans l’eau.",
+        "content": "Sa solubilité sous forme non ionisée est faible.",
         "correct": true,
-        "explanation": "Seuil."
+        "explanation": "La longue chaîne hydrocarbonée domine le comportement hydrophobe."
       },
       {
-        "content": "Présente une forte contribution hydrophobe de sa chaîne.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Peut se comporter à l’interface eau/lipide plutôt que se dissoudre complètement.",
-        "correct": true,
-        "explanation": "Comportement."
-      },
-      {
-        "content": "Est décrit comme très soluble dans l’eau.",
+        "content": "Tout acide gras forme obligatoirement la même micelle stable, quel que soit le pH.",
         "correct": false,
-        "explanation": "La chaîne hydrophobe de douze carbones limite fortement la solubilité aqueuse."
+        "explanation": "L'agrégation des acides gras dépend fortement de leurs conditions physicochimiques."
+      },
+      {
+        "content": "Son état d'ionisation dépend du pH et modifie sa dispersibilité.",
+        "correct": true,
+        "explanation": "Le carboxylate chargé est plus hydrophile que la forme COOH."
+      },
+      {
+        "content": "Des organisations interfaciales ou agrégées sont possibles selon les conditions.",
+        "correct": true,
+        "explanation": "Concentration, pH, longueur de chaîne et environnement déterminent l'organisation."
+      },
+      {
+        "content": "La chaîne hydrocarbonée constitue la région la plus hydrophile.",
+        "correct": false,
+        "explanation": "Elle est la région hydrophobe."
       }
     ],
-    "explanation": "La solubilité diminue avec l’importance de la chaîne hydrophobe."
+    "explanation": "Le comportement aqueux des acides gras est amphiphile mais dépend du pH, de la longueur de chaîne et de la concentration."
   },
   {
     "order": 92,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La formation d’une couche monomoléculaire à la surface de l’eau s’explique par :",
+    "question": "Concernant les acides gras trans, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La masse volumique inférieure à celle de l’eau de nombreux acides gras usuels.",
-        "correct": true,
-        "explanation": "Ils surnagent."
-      },
-      {
-        "content": "La coexistence d’un pôle hydrophile et d’une chaîne hydrophobe.",
-        "correct": true,
-        "explanation": "Orientation interfaciale."
-      },
-      {
-        "content": "Le comportement amphiphile simplifié de la molécule.",
-        "correct": true,
-        "explanation": "Lien structure/propriété."
-      },
-      {
-        "content": "Une solubilité aqueuse totale de la chaîne hydrocarbonée.",
+        "content": "Une double liaison trans crée toujours un coude plus marqué qu'une cis.",
         "correct": false,
-        "explanation": "La chaîne est hydrophobe."
+        "explanation": "C'est généralement l'inverse."
+      },
+      {
+        "content": "Une double liaison trans maintient une chaîne plus rectiligne qu'une double liaison cis.",
+        "correct": true,
+        "explanation": "L'empilement est plus efficace."
+      },
+      {
+        "content": "Une consommation élevée d'acides gras trans industriels augmente le risque cardiovasculaire.",
+        "correct": true,
+        "explanation": "Ils dégradent notamment le profil lipidique sanguin."
+      },
+      {
+        "content": "Cis et trans n'ont aucun effet sur les propriétés physiques.",
+        "correct": false,
+        "explanation": "La géométrie modifie l'empilement."
+      },
+      {
+        "content": "Réduire les acides gras trans industriels fait partie des recommandations de santé publique.",
+        "correct": true,
+        "explanation": "Leur apport doit être très faible."
       }
     ],
-    "explanation": "Les deux pôles orientent les acides gras à l’interface."
+    "explanation": "Les acides gras trans industriels sont associés à un risque cardiovasculaire accru ; l'effet n'a pas besoin d'être étendu à des affirmations non établies."
   },
   {
     "order": 93,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quelle masse moléculaire approximative, en daltons, est donnée pour l’acide palmitique ?",
-    "answer": {
-      "type": "number",
-      "value": 256,
-      "tolerance": 0
-    },
-    "explanation": "La masse molaire de l’acide palmitique est voisine de 256 g·mol⁻¹."
+    "format": "QRP",
+    "question": "À propos de l'estérification des acides gras, retenez exactement les deux affirmations correctes.",
+    "choices": [
+      {
+        "content": "Un ester est une double liaison C=C.",
+        "correct": false,
+        "explanation": "C'est une fonction contenant C(=O)-O."
+      },
+      {
+        "content": "Une liaison ester se forme entre deux fonctions amine.",
+        "correct": false,
+        "explanation": "Elle implique ici un acide carboxylique et un alcool."
+      },
+      {
+        "content": "L'estérification transforme un acide gras en acide aminé.",
+        "correct": false,
+        "explanation": "Elle forme un ester."
+      },
+      {
+        "content": "Une fonction carboxylique peut réagir avec une fonction alcool pour former un ester.",
+        "correct": true,
+        "explanation": "C'est le principe de l'estérification."
+      },
+      {
+        "content": "Des phospholipides comportent aussi des acides gras liés par ester dans de nombreuses familles.",
+        "correct": true,
+        "explanation": "C'est le cas des glycérophospholipides."
+      }
+    ],
+    "explanation": "L'estérification du carboxyle d'un acide gras par un alcool forme une liaison ester.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 94,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Combien de carbones comporte l’acide octanoïque, dont la solubilité aqueuse est déjà faible ?",
-    "answer": {
-      "type": "number",
-      "value": 8,
-      "tolerance": 0
-    },
-    "explanation": "Le préfixe « octan- » indique une chaîne comportant huit carbones."
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur les rôles biologiques des acides gras, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Ils peuvent être stockés dans les triacylglycérols.",
+        "correct": true,
+        "explanation": "Cela constitue une réserve énergétique dense."
+      },
+      {
+        "content": "Les acides gras sont des substrats énergétiques importants.",
+        "correct": true,
+        "explanation": "Leur oxydation fournit beaucoup d'énergie."
+      },
+      {
+        "content": "Ils sont des constituants de lipides membranaires.",
+        "correct": true,
+        "explanation": "Ils forment les chaînes hydrophobes des phospholipides et sphingolipides."
+      },
+      {
+        "content": "Certains acides gras servent de précurseurs à des médiateurs lipidiques.",
+        "correct": true,
+        "explanation": "L'acide arachidonique est un précurseur d'eicosanoïdes."
+      },
+      {
+        "content": "Ils ne peuvent jamais être stockés.",
+        "correct": false,
+        "explanation": "Ils sont stockés notamment sous forme de triacylglycérols."
+      }
+    ],
+    "explanation": "Les acides gras ont des rôles énergétiques, structuraux et précurseurs de médiateurs ; ils sont stockés notamment dans les triacylglycérols."
   },
   {
     "order": 95,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une membrane cellulaire, la présence de chaînes d’acides gras illustre surtout :",
-    "choices": [
-      {
-        "content": "Le rôle structural des acides gras.",
-        "correct": true,
-        "explanation": "Les chaînes acyles participent à la structure des lipides membranaires."
-      },
-      {
-        "content": "La contribution de leurs chaînes carbonées à l’organisation lipidique.",
-        "correct": true,
-        "explanation": "Lien structure/fonction."
-      },
-      {
-        "content": "L’intégration des chaînes acyles dans les lipides membranaires.",
-        "correct": true,
-        "explanation": "Les acides gras sont incorporés dans les phospholipides et d’autres lipides membranaires."
-      },
-      {
-        "content": "Un rôle exclusivement glucidique.",
-        "correct": false,
-        "explanation": "Il s’agit de lipides."
+    "format": "QROC",
+    "question": "Quel acide gras polyinsaturé C20 sert de précurseur majeur aux eicosanoïdes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acide arachidonique",
+        "arachidonique",
+        "acide arachidonique 20:4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les chaînes acyles sont des constituants structuraux majeurs des lipides membranaires."
+    },
+    "explanation": "L'acide arachidonique 20:4 n-6 est un précurseur majeur de nombreux eicosanoïdes."
   },
   {
     "order": 96,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Lorsqu’un acide gras est oxydé pour fournir de l’énergie :",
+    "format": "QRU",
+    "question": "À propos de l'organisation des acides gras à une interface, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Cela illustre son rôle énergétique.",
-        "correct": true,
-        "explanation": "L'oxydation des acides gras fournit de l'énergie."
-      },
-      {
-        "content": "Les acides gras peuvent être stockés sous forme de triacylglycérols.",
-        "correct": true,
-        "explanation": "Rôle."
-      },
-      {
-        "content": "La fonction est distincte de leur rôle structural membranaire.",
-        "correct": true,
-        "explanation": "Plusieurs fonctions coexistent."
-      },
-      {
-        "content": "Cela prouve que tous les acides gras sont des enzymes.",
+        "content": "Le pH ne peut influencer aucune organisation interfaciale.",
         "correct": false,
-        "explanation": "Ce sont des substrats énergétiques, pas des enzymes."
+        "explanation": "L'ionisation du carboxyle dépend du pH."
+      },
+      {
+        "content": "La tête polaire tend à interagir avec l'eau.",
+        "correct": true,
+        "explanation": "Elle se place préférentiellement vers la phase aqueuse."
+      },
+      {
+        "content": "La chaîne hydrocarbonée recherche préférentiellement le contact avec l'eau.",
+        "correct": false,
+        "explanation": "Elle est hydrophobe."
+      },
+      {
+        "content": "Tous les acides gras forment spontanément la même micelle stable dans toutes les conditions.",
+        "correct": false,
+        "explanation": "L'agrégation dépend du pH, de la longueur et de la concentration."
+      },
+      {
+        "content": "Une interface eau-air force la tête polaire à pointer vers l'air.",
+        "correct": false,
+        "explanation": "La tête interagit préférentiellement avec l'eau."
       }
     ],
-    "explanation": "Les acides gras peuvent être des composants structuraux et des sources d’énergie."
+    "explanation": "Les acides gras sont amphiphiles ; leur organisation interfaciale dépend de l'équilibre entre tête polaire et chaîne hydrophobe."
   },
   {
     "order": 97,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de l’acide arachidonique :",
+    "question": "Parmi les propositions suivantes sur la solubilité aqueuse des acides gras, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Il constitue un précurseur métabolique de médiateurs lipidiques.",
-        "correct": true,
-        "explanation": "Rôle biologique."
-      },
-      {
-        "content": "Il peut être converti en eicosanoïdes.",
-        "correct": true,
-        "explanation": "Les voies COX et lipoxygénases transforment l’acide arachidonique en eicosanoïdes."
-      },
-      {
-        "content": "Ce rôle est distinct du simple stockage énergétique.",
-        "correct": true,
-        "explanation": "Fonction métabolique."
-      },
-      {
-        "content": "Il est présenté comme une protéine membranaire.",
+        "content": "Le pH ne peut jamais influencer la solubilité d'un acide gras.",
         "correct": false,
-        "explanation": "C’est un acide gras."
+        "explanation": "L'état d'ionisation du carboxyle dépend du pH."
+      },
+      {
+        "content": "Les solvants organiques ne dissolvent jamais les lipides.",
+        "correct": false,
+        "explanation": "De nombreux lipides y sont solubles."
+      },
+      {
+        "content": "Allonger la chaîne augmente fortement la solubilité dans l'eau.",
+        "correct": false,
+        "explanation": "La tendance générale est inverse."
+      },
+      {
+        "content": "Les acides gras à longue chaîne sont très peu solubles dans l'eau sous forme non ionisée.",
+        "correct": true,
+        "explanation": "Ils nécessitent souvent des transporteurs ou des assemblages lipidiques en biologie."
+      },
+      {
+        "content": "Les acides gras sont solubles dans de nombreux solvants organiques.",
+        "correct": true,
+        "explanation": "Leur chaîne hydrocarbonée y est mieux solvatisée."
       }
     ],
-    "explanation": "Certains acides gras polyinsaturés, dont l’acide arachidonique, sont des précurseurs de médiateurs lipidiques."
+    "explanation": "La longue chaîne hydrocarbonée réduit la solubilité dans l'eau, tandis que l'ionisation du carboxyle favorise la dispersion."
   },
   {
     "order": 98,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides gras trans alimentaires :",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant les acides gras trans d'origine industrielle.",
     "choices": [
       {
-        "content": "Ils peuvent être présents dans certains produits industriels ou transformés.",
-        "correct": true,
-        "explanation": "Les procédés industriels peuvent générer des isomères trans."
-      },
-      {
-        "content": "Une consommation élevée est délétère pour la santé cardiovasculaire.",
-        "correct": true,
-        "explanation": "Affirmation locale."
-      },
-      {
-        "content": "L’OMS recommande un apport inférieur à 1 % de l’apport énergétique total.",
-        "correct": true,
-        "explanation": "Exemples locaux."
-      },
-      {
-        "content": "Ils constituent des nutriments indispensables qui doivent être consommés en quantité élevée.",
+        "content": "Ils sont recommandés pour prévenir les maladies cardiovasculaires.",
         "correct": false,
-        "explanation": "Les acides gras trans n’ont pas de bénéfice nutritionnel connu et leur consommation doit être limitée."
+        "explanation": "Les recommandations vont au contraire vers une consommation minimale."
+      },
+      {
+        "content": "Une consommation élevée est associée à une augmentation du risque cardiovasculaire.",
+        "correct": true,
+        "explanation": "Les données nutritionnelles justifient de réduire fortement leur consommation."
+      },
+      {
+        "content": "Ils sont démontrés comme cause unique de tous les cancers.",
+        "correct": false,
+        "explanation": "Cette généralisation n'est ni nécessaire ni scientifiquement justifiée."
+      },
+      {
+        "content": "Ils sont chimiquement des acides gras saturés dépourvus de double liaison.",
+        "correct": false,
+        "explanation": "Une configuration trans suppose une double liaison C=C."
+      },
+      {
+        "content": "Ils peuvent altérer défavorablement le profil des lipoprotéines sanguines.",
+        "correct": true,
+        "explanation": "Ils tendent notamment à augmenter le LDL-cholestérol et à dégrader le profil lipidique."
       }
     ],
-    "explanation": "Le risque cardiovasculaire justifie la limitation des acides gras trans, particulièrement ceux produits industriellement."
+    "explanation": "Le risque cardiovasculaire est le point robuste à retenir ; il faut éviter les généralisations causales excessives.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 99,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois grands rôles biologiques des acides gras.",
+    "format": "QRM",
+    "question": "À propos de l'effet d'une double liaison cis sur le point de fusion, quelles affirmations sont correctes ?",
     "choices": [
       {
-        "content": "Structural.",
-        "correct": true,
-        "explanation": "Membranes."
-      },
-      {
-        "content": "Énergétique.",
-        "correct": true,
-        "explanation": "Oxydation/réserve."
-      },
-      {
-        "content": "Métabolique.",
-        "correct": true,
-        "explanation": "Précurseurs."
-      },
-      {
-        "content": "Rôle de traduction de l’ARNm.",
+        "content": "Une double liaison cis augmente toujours le point de fusion.",
         "correct": false,
-        "explanation": "La traduction de l'ARNm relève du ribosome, pas des acides gras."
+        "explanation": "Elle le diminue généralement."
+      },
+      {
+        "content": "Plusieurs doubles liaisons cis peuvent accentuer la désorganisation des chaînes.",
+        "correct": true,
+        "explanation": "Les polyinsaturés ont souvent des points de fusion bas."
+      },
+      {
+        "content": "Une double liaison cis rend la chaîne plus rectiligne qu'une chaîne saturée.",
+        "correct": false,
+        "explanation": "Elle crée un coude."
+      },
+      {
+        "content": "Une double liaison cis introduit un coude dans la chaîne.",
+        "correct": true,
+        "explanation": "Elle perturbe l'empilement des chaînes."
+      },
+      {
+        "content": "À longueur comparable, une double liaison cis tend à abaisser le point de fusion.",
+        "correct": true,
+        "explanation": "La cohésion du solide diminue."
       }
     ],
-    "explanation": "Les trois axes sont structural, énergétique et métabolique."
+    "explanation": "Les doubles liaisons cis perturbent l'empilement et abaissent généralement le point de fusion."
   },
   {
     "order": 100,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Propriétés physiques, chimiques et biologiques des acides gras : sélectionnez exactement cinq propositions correctes.",
-    "choices": [
-      {
-        "content": "Le point de fusion augmente avec la longueur de chaîne.",
-        "correct": true,
-        "explanation": "Tendance."
-      },
-      {
-        "content": "Les doubles liaisons abaissent le point de fusion.",
-        "correct": true,
-        "explanation": "Tendance."
-      },
-      {
-        "content": "La solubilité aqueuse des acides gras devient très faible lorsque la chaîne s’allonge.",
-        "correct": true,
-        "explanation": "Seuil."
-      },
-      {
-        "content": "L’estérification forme un ester avec un alcool.",
-        "correct": true,
-        "explanation": "Réaction."
-      },
-      {
-        "content": "Les acides gras ont un rôle énergétique.",
-        "correct": true,
-        "explanation": "Fonction."
-      },
-      {
-        "content": "L’oléique 18:1 est saturé.",
-        "correct": false,
-        "explanation": "Monodésaturé."
-      },
-      {
-        "content": "Tous les acides gras sont plus denses que l’eau.",
-        "correct": false,
-        "explanation": "De nombreux acides gras usuels ont une masse volumique inférieure à celle de l’eau."
-      },
-      {
-        "content": "Une double liaison augmente toujours le point de fusion.",
-        "correct": false,
-        "explanation": "Elle l’abaisse."
-      },
-      {
-        "content": "Les acides gras trans sont présentés comme bénéfiques sans réserve.",
-        "correct": false,
-        "explanation": "Une consommation élevée d’acides gras trans augmente le risque cardiovasculaire."
-      },
-      {
-        "content": "Les acides gras n’ont aucun rôle membranaire.",
-        "correct": false,
-        "explanation": "Les chaînes acyles participent à la structure des lipides membranaires."
+    "format": "QROC",
+    "question": "Quel type de risque est solidement associé à une consommation élevée d'acides gras trans industriels ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "risque cardiovasculaire",
+        "maladies cardiovasculaires",
+        "risque cardio-vasculaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette QRPL consolide propriétés physiques, chimiques et biologiques."
+    },
+    "explanation": "Les acides gras trans industriels sont associés à un risque cardiovasculaire accru ; l'effet n'a pas besoin d'être étendu à des affirmations non établies."
   }
 ];

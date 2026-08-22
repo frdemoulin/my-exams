@@ -40,7 +40,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de les énantiomères, quelle proposition est exacte ?",
+    "question": "À propos des énantiomères, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Les enzymes sont incapables de distinguer des énantiomères.",
@@ -666,7 +666,7 @@ export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les diastéréoisomères, quelles propositions sont correctes ?",
+    "question": "À propos des diastéréoisomères, quelles propositions sont correctes ?",
     "choices": [
       {
         "content": "Deux diastéréoisomères sont des stéréoisomères qui ne sont pas images miroir l'un de l'autre.",

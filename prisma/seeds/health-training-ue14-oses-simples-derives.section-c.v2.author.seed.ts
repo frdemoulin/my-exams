@@ -40,7 +40,7 @@ export const UE14_BIOCH_CH2_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de les osamines N-acétylées, quelle proposition est exacte ?",
+    "question": "À propos des osamines N-acétylées, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Une N-acétylation retire tout l'azote de l'ose.",
@@ -539,7 +539,7 @@ export const UE14_BIOCH_CH2_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de les glycoconjugués contenant des osamines, quelle proposition est exacte ?",
+    "question": "À propos des glycoconjugués contenant des osamines, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Les GAG sont uniquement constitués d'acides aminés.",

@@ -131,7 +131,7 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 49,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de les glycosaminoglycanes, quelle proposition est exacte ?",
+    "question": "À propos des glycosaminoglycanes, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Ils sont très hydrophiles.",
@@ -446,7 +446,7 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 59,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de les glycosaminoglycanes, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos des glycosaminoglycanes, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Un GAG contient toujours uniquement du glucose non modifié.",
@@ -536,7 +536,7 @@ export const UE14_BIOCH_CH3_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de les hyaluronidases, quelle proposition est exacte ?",
+    "question": "À propos des hyaluronidases, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Elles transforment l'hyaluronane en cellulose.",

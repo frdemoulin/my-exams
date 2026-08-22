@@ -120,7 +120,7 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 105,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de le ribose et le 2-désoxyribose, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos du ribose et le 2-désoxyribose, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Le 2-désoxyribose est le sucre de l'ADN.",
@@ -210,7 +210,7 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de les trioses phosphorylés de la glycolyse, quelle proposition est exacte ?",
+    "question": "À propos des trioses phosphorylés de la glycolyse, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "DHAP est un aldohexose.",
@@ -453,7 +453,7 @@ export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 115,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "À propos de le ribose et le 2-désoxyribose, quelle proposition est exacte ?",
+    "question": "À propos du ribose et le 2-désoxyribose, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Le ribose est un pentose de l'ARN.",

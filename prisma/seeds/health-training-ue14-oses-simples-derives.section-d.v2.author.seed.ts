@@ -40,7 +40,7 @@ export const UE14_BIOCH_CH2_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 80,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le glucose-6-phosphate, quelle proposition est exacte ?",
+    "question": "À propos du glucose-6-phosphate, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Il ne participe jamais au métabolisme énergétique.",
@@ -120,7 +120,7 @@ export const UE14_BIOCH_CH2_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 83,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le fructose-2,6-bisphosphate, quelle proposition est exacte ?",
+    "question": "À propos du fructose-2,6-bisphosphate, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Il constitue un polymère de fructose.",
@@ -448,7 +448,7 @@ export const UE14_BIOCH_CH2_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 93,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de le fructose-2,6-bisphosphate, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos du fructose-2,6-bisphosphate, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Il est distinct du fructose-1,6-bisphosphate.",
@@ -667,7 +667,7 @@ export const UE14_BIOCH_CH2_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 99,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le glucose-1-phosphate, quelles propositions sont correctes ?",
+    "question": "À propos du glucose-1-phosphate, quelles propositions sont correctes ?",
     "choices": [
       {
         "content": "Le glucose est exclusivement sous forme ouverte en eau.",

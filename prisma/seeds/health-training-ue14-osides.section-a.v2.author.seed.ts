@@ -129,7 +129,7 @@ export const UE14_BIOCH_CH3_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 5,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le maltose, quelle proposition est exacte ?",
+    "question": "À propos du maltose, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "La maltase produit du fructose à partir du maltose.",
@@ -434,7 +434,7 @@ export const UE14_BIOCH_CH3_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de le maltose, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos du maltose, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Le maltose associe galactose et glucose.",
@@ -651,7 +651,7 @@ export const UE14_BIOCH_CH3_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le caractère réducteur des diholosides, quelles propositions sont correctes ?",
+    "question": "À propos du caractère réducteur des diholosides, quelles propositions sont correctes ?",
     "choices": [
       {
         "content": "Un diholoside réducteur ne peut jamais s'ouvrir localement.",

@@ -130,7 +130,7 @@ export const UE14_BIOCH_CH3_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 27,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le glycogène, quelle proposition est exacte ?",
+    "question": "À propos du glycogène, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "La glycogénine est une enzyme digestive intestinale du lactose.",
@@ -447,7 +447,7 @@ export const UE14_BIOCH_CH3_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de le glycogène, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos du glycogène, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Il ne possède aucun branchement.",

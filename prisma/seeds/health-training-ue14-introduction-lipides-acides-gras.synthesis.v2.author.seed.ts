@@ -1,682 +1,746 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Introduction générale sur les lipides et acides gras — Synthèse
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Chapitre 2.1–2.2 — Lipides et acides gras — Synthèse du chapitre */
 export const UE14_BIOCH_CH4_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une molécule R–COOH à longue chaîne :",
+    "question": "Concernant la définition biochimique générale des lipides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Peut être un acide gras.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Possède un pôle hydrophile au niveau du carboxyle.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Possède une chaîne hydrophobe.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Est nécessairement une protéine.",
+        "content": "Tous les lipides sont très solubles dans l'eau.",
         "correct": false,
-        "explanation": "C’est un lipide simple dans cette classification."
+        "explanation": "Beaucoup sont peu solubles ou insolubles."
+      },
+      {
+        "content": "Le terme lipide désigne uniquement les triglycérides.",
+        "correct": false,
+        "explanation": "Il englobe de nombreuses familles."
+      },
+      {
+        "content": "Une faible solubilité dans l'eau est un caractère fréquent des lipides.",
+        "correct": true,
+        "explanation": "Leur portion hydrocarbonée importante interagit peu avec l'eau."
+      },
+      {
+        "content": "Graisses, huiles, cires et stéroïdes appartiennent à des familles lipidiques.",
+        "correct": true,
+        "explanation": "Le terme lipide regroupe plusieurs classes."
+      },
+      {
+        "content": "Tous les lipides ont exactement la même structure chimique.",
+        "correct": false,
+        "explanation": "Le groupe est chimiquement très divers."
       }
     ],
-    "explanation": "Un acide gras associe une fonction carboxylique hydrophile à une chaîne hydrocarbonée hydrophobe."
+    "explanation": "Les lipides forment un ensemble chimique hétérogène souvent caractérisé par une faible solubilité dans l'eau."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Comparer palmitique et stéarique :",
-    "choices": [
-      {
-        "content": "Palmitique = 16:0.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Stéarique = 18:0.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Les deux sont saturés.",
-        "correct": true,
-        "explanation": "0 double liaison."
-      },
-      {
-        "content": "Les deux sont ω3.",
-        "correct": false,
-        "explanation": "La série ω n’est pas définie ainsi pour ces saturés."
+    "format": "QROC",
+    "question": "Quelle grande famille lipidique contient un groupement phosphate et joue un rôle membranaire majeur ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "phospholipides",
+        "phospholipide",
+        "les phospholipides"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Palmitique et stéarique sont les repères saturés majeurs."
+    },
+    "explanation": "Une classification introductive distingue plusieurs familles lipidiques sans leur attribuer une structure chimique unique."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Comparer oléique et palmitoléique :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la structure générale d'un acide gras, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Les deux sont monodésaturés Δ9.",
-        "correct": true,
-        "explanation": "Point commun."
-      },
-      {
-        "content": "Oléique = 18:1 ω9.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Palmitoléique = 16:1 ω7.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Ils ont la même série ω.",
+        "content": "Un acide gras ne contient jamais de fonction carboxylique.",
         "correct": false,
-        "explanation": "ω9 versus ω7."
+        "explanation": "Cette fonction définit la famille."
+      },
+      {
+        "content": "Tous les acides gras possèdent obligatoirement plusieurs doubles liaisons.",
+        "correct": false,
+        "explanation": "Les acides gras saturés n'en possèdent aucune."
+      },
+      {
+        "content": "La chaîne hydrocarbonée constitue la partie la plus hydrophile.",
+        "correct": false,
+        "explanation": "Elle est hydrophobe."
+      },
+      {
+        "content": "Un acide gras peut être saturé ou insaturé.",
+        "correct": true,
+        "explanation": "Cela dépend de la présence de doubles liaisons C=C."
+      },
+      {
+        "content": "Un acide gras est nécessairement une protéine.",
+        "correct": false,
+        "explanation": "C'est un acide carboxylique à chaîne hydrocarbonée."
       }
     ],
-    "explanation": "Une même position Δ peut correspondre à une série ω différente."
+    "explanation": "Un acide gras associe une fonction carboxylique polaire à une chaîne hydrocarbonée hydrophobe."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Comparer acides linoléique et α-linolénique :",
+    "question": "Concernant le caractère amphiphile des acides gras, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les deux sont polyinsaturés.",
+        "content": "La tête carboxylique est hydrophile par rapport à la chaîne hydrocarbonée.",
         "correct": true,
-        "explanation": "2 et 3 DL."
+        "explanation": "Elle interagit davantage avec l'eau."
       },
       {
-        "content": "Le linoléique est ω6.",
+        "content": "Le comportement en milieu aqueux dépend de la longueur de chaîne, du pH et de l'état d'ionisation.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Il ne se résume pas à une règle unique."
       },
       {
-        "content": "L’acide α-linolénique est ω3.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Les deux sont saturés.",
+        "content": "La chaîne hydrocarbonée porte habituellement une charge entière négative.",
         "correct": false,
-        "explanation": "Ils sont désaturés."
+        "explanation": "Elle est essentiellement apolaire."
+      },
+      {
+        "content": "Un acide gras ionisé possède une tête carboxylate chargée.",
+        "correct": true,
+        "explanation": "Cette ionisation augmente le caractère hydrophile de la tête."
+      },
+      {
+        "content": "La tête carboxylique est la région la plus hydrophobe.",
+        "correct": false,
+        "explanation": "Elle est au contraire la région polaire."
       }
     ],
-    "explanation": "Les acides linoléique et α-linolénique sont les précurseurs indispensables des familles ω6 et ω3."
+    "explanation": "Les acides gras possèdent une tête polaire et une queue hydrophobe ; leur comportement dépend aussi de l'ionisation."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans un contexte nutritionnel, la notion d’acide gras indispensable signifie :",
+    "format": "QRP",
+    "question": "À propos des critères de classification des acides gras, retenez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Que l’organisme mammifère ne peut pas le synthétiser dans le cadre étudié.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Qu’un apport alimentaire est nécessaire.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "Que les acides linoléique et α-linolénique en sont des exemples.",
-        "correct": true,
-        "explanation": "Ces deux acides gras polyinsaturés doivent être apportés par l’alimentation."
-      },
-      {
-        "content": "Qu’il s’agit nécessairement d’un acide gras saturé.",
+        "content": "La longueur de chaîne est sans intérêt.",
         "correct": false,
-        "explanation": "Les exemples sont polyinsaturés."
+        "explanation": "Elle influence classification et propriétés."
+      },
+      {
+        "content": "Le nombre total de carbones est un critère important.",
+        "correct": true,
+        "explanation": "Il décrit la longueur de chaîne."
+      },
+      {
+        "content": "Un acide gras saturé possède nécessairement une double liaison trans.",
+        "correct": false,
+        "explanation": "Il ne possède aucune double liaison C=C."
+      },
+      {
+        "content": "La position des doubles liaisons précise la structure d'un acide gras insaturé.",
+        "correct": true,
+        "explanation": "Elle est indiquée notamment par la notation Δ."
+      },
+      {
+        "content": "La couleur en solution est le critère principal.",
+        "correct": false,
+        "explanation": "Elle n'est pas utilisée pour classer les acides gras."
       }
     ],
-    "explanation": "Le contexte santé reste strictement relié à l’indispensabilité enseignée."
+    "explanation": "La longueur de chaîne et le degré d'insaturation sont deux axes majeurs de classification.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour un acide gras, une augmentation du nombre de carbones :",
+    "question": "Parmi les propositions suivantes sur la numérotation depuis le carboxyle, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Tend à augmenter le point de fusion.",
+        "content": "Le carbone du groupement carboxyle est C1.",
         "correct": true,
-        "explanation": "Propriété."
+        "explanation": "La numérotation systématique part de l'extrémité la plus oxydée."
       },
       {
-        "content": "Renforce la contribution de la chaîne hydrophobe.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Peut s’accompagner d’une moindre solubilité aqueuse.",
-        "correct": true,
-        "explanation": "Tendance cohérente."
-      },
-      {
-        "content": "Transforme automatiquement un saturé en polyinsaturé.",
+        "content": "Δ9 signifie que la chaîne contient exactement neuf carbones.",
         "correct": false,
-        "explanation": "Longueur et insaturation sont indépendantes."
+        "explanation": "La valeur indique une position de double liaison."
+      },
+      {
+        "content": "Une position Δ9 désigne une double liaison débutant au carbone 9 depuis le carboxyle.",
+        "correct": true,
+        "explanation": "Elle se situe entre C9 et C10."
+      },
+      {
+        "content": "La numérotation Δ et la série oméga utilisent des extrémités différentes.",
+        "correct": true,
+        "explanation": "Il faut savoir passer de l'une à l'autre."
+      },
+      {
+        "content": "Le carbone adjacent au carboxyle est C2.",
+        "correct": true,
+        "explanation": "Il correspond au carbone alpha de la nomenclature traditionnelle."
       }
     ],
-    "explanation": "Longueur et insaturation sont deux paramètres distincts aux effets différents."
+    "explanation": "Le carbone carboxylique est C1 ; le carbone adjacent est C2 et correspond au carbone alpha."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "La présence de doubles liaisons :",
-    "choices": [
-      {
-        "content": "Classe l’acide gras comme désaturé.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Tend à abaisser son point de fusion.",
-        "correct": true,
-        "explanation": "Propriété."
-      },
-      {
-        "content": "Peut être décrite par des positions Δ et une série ω.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Augmente obligatoirement le nombre total de carbones.",
-        "correct": false,
-        "explanation": "Le nombre de carbones est indépendant."
+    "format": "QROC",
+    "question": "Comment appelle-t-on le dernier carbone d'une chaîne d'acide gras du côté méthyle ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "carbone oméga",
+        "carbone omega",
+        "oméga",
+        "omega",
+        "ω"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La désaturation intervient dans la nomenclature comme dans les propriétés physiques."
+    },
+    "explanation": "Le carbone alpha est C2 près du carboxyle ; le carbone oméga est le carbone méthyle terminal."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel acide gras est noté 18:2 Δ9,12 et appartient à la série ω6 ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "acide linoleique",
-        "acide linoléique",
-        "linoleique",
-        "linoléique",
-        "l'acide linoléique"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRU",
+    "question": "À propos de saturation et insaturation, quelle affirmation est correcte ?",
+    "choices": [
+      {
+        "content": "18:0 décrit un acide gras à 18 doubles liaisons.",
+        "correct": false,
+        "explanation": "Le premier nombre est le nombre de carbones."
+      },
+      {
+        "content": "Un acide gras polyinsaturé possède au moins deux doubles liaisons C=C.",
+        "correct": true,
+        "explanation": "Les acides linoléique et alpha-linolénique en sont des exemples."
+      },
+      {
+        "content": "Le nombre après les deux-points donne le nombre d'atomes d'oxygène.",
+        "correct": false,
+        "explanation": "Il donne le nombre de doubles liaisons."
+      },
+      {
+        "content": "Un acide gras saturé possède au moins une double liaison.",
+        "correct": false,
+        "explanation": "Il n'en possède aucune."
+      },
+      {
+        "content": "Un acide gras mono-insaturé possède toujours trois doubles liaisons.",
+        "correct": false,
+        "explanation": "Il en possède une."
       }
-    },
-    "explanation": "Il s’agit de l’acide linoléique."
+    ],
+    "explanation": "La notation C:D indique le nombre de carbones puis le nombre de doubles liaisons."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux facteurs structuraux majeurs qui déterminent le point de fusion d’un acide gras.",
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur la parité des acides gras chez les mammifères, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Nombre de carbones.",
-        "correct": true,
-        "explanation": "La longueur augmente le point de fusion."
-      },
-      {
-        "content": "Présence de doubles liaisons.",
-        "correct": true,
-        "explanation": "Les doubles liaisons l’abaissent."
-      },
-      {
-        "content": "Nombre de fonctions amines.",
+        "content": "Tous les acides gras biologiques ont obligatoirement un nombre pair de carbones.",
         "correct": false,
-        "explanation": "Non pertinent."
+        "explanation": "Des chaînes impaires existent."
       },
       {
-        "content": "Présence d’un noyau stérane.",
+        "content": "Les acides gras à nombre pair de carbones sont très fréquents chez les mammifères.",
+        "correct": true,
+        "explanation": "La synthèse et la bêta-oxydation utilisent largement des unités à deux carbones."
+      },
+      {
+        "content": "Un nombre impair de carbones implique automatiquement une double liaison.",
         "correct": false,
-        "explanation": "Autre famille."
+        "explanation": "Parité et insaturation sont distinctes."
+      },
+      {
+        "content": "La bêta-oxydation enlève des unités de cinq carbones.",
+        "correct": false,
+        "explanation": "Elle enlève classiquement des unités à deux carbones."
+      },
+      {
+        "content": "Des acides gras à nombre impair existent néanmoins.",
+        "correct": true,
+        "explanation": "La règle de parité est une tendance, pas une impossibilité."
       }
     ],
-    "explanation": "Longueur de chaîne et désaturation sont les deux facteurs retenus."
+    "explanation": "La prédominance des chaînes paires s'explique par un métabolisme construit autour d'unités à deux carbones."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Pour cette synthèse appliquée des lipides et acides gras, sélectionnez exactement cinq propositions correctes.",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Palmitique = 16:0.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Stéarique = 18:0.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Oléique = 18:1 ω9.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Linoléique = 18:2 ω6.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Linolénique = 18:3 ω3.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Palmitoléique = 18:1.",
+        "content": "Il appartient à la série oméga-3.",
         "correct": false,
-        "explanation": "16:1."
+        "explanation": "Une série oméga concerne les acides gras insaturés."
       },
       {
-        "content": "Le carboxyle est le pôle hydrophobe.",
-        "correct": false,
-        "explanation": "Hydrophile."
+        "content": "Il est fréquent dans les lipides biologiques.",
+        "correct": true,
+        "explanation": "C'est un acide gras saturé majeur."
       },
       {
-        "content": "La série ω se compte depuis le carboxyle.",
-        "correct": false,
-        "explanation": "Depuis l’extrémité ω."
+        "content": "Dans 16:0, 16 est le nombre de carbones.",
+        "correct": true,
+        "explanation": "Le premier nombre décrit la longueur de chaîne."
       },
       {
-        "content": "Les doubles liaisons augmentent le point de fusion.",
+        "content": "Un symbole :0 décrit un acide gras polyinsaturé.",
         "correct": false,
-        "explanation": "Elles l’abaissent."
+        "explanation": "Il décrit un saturé."
       },
       {
-        "content": "Les acides gras n’ont aucun rôle énergétique.",
+        "content": "18:1 suffit à distinguer toutes les positions possibles de la double liaison.",
         "correct": false,
-        "explanation": "L'oxydation des acides gras fournit de l'énergie."
+        "explanation": "La position doit être précisée."
+      },
+      {
+        "content": "Son nom systématique est acide octadécanoïque.",
+        "correct": false,
+        "explanation": "C'est celui du stéarique."
+      },
+      {
+        "content": "L'acide palmitique comporte 16 carbones.",
+        "correct": true,
+        "explanation": "Sa notation est 16:0."
+      },
+      {
+        "content": "Il possède une double liaison Δ9.",
+        "correct": false,
+        "explanation": "Cela décrit le palmitoléique en C16."
+      },
+      {
+        "content": "Dans 18:0, 0 indique l'absence de double liaison.",
+        "correct": true,
+        "explanation": "Le second nombre décrit le nombre de doubles liaisons."
+      },
+      {
+        "content": "Son nom systématique est acide hexadécanoïque.",
+        "correct": true,
+        "explanation": "Hexadéc- correspond à 16 carbones."
       }
     ],
-    "explanation": "La synthèse PRACTICE rassemble les principaux repères structuraux et fonctionnels."
+    "explanation": "L'acide palmitique est l'acide hexadécanoïque saturé 16:0. La notation C:D code la longueur puis le nombre de doubles liaisons, mais pas leur position."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "L’acide oléique 18:1 Δ9 est liquide à température ambiante. Cette observation est cohérente avec :",
+    "question": "Concernant la définition biochimique générale des lipides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’identification de l’acide oléique.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "La présence d’une double liaison.",
-        "correct": true,
-        "explanation": "Désaturation."
-      },
-      {
-        "content": "L’abaissement du point de fusion par l’insaturation.",
-        "correct": true,
-        "explanation": "Lien propriété."
-      },
-      {
-        "content": "Le caractère saturé 18:0.",
+        "content": "Les lipides sont tous des polymères d'acides aminés.",
         "correct": false,
-        "explanation": "Ce serait l’acide stéarique."
+        "explanation": "Cela décrit les protéines."
+      },
+      {
+        "content": "Certains lipides ont un rôle structural membranaire.",
+        "correct": true,
+        "explanation": "Phospholipides et cholestérol en sont des exemples."
+      },
+      {
+        "content": "Tous les lipides sont très solubles dans l'eau.",
+        "correct": false,
+        "explanation": "Beaucoup sont peu solubles ou insolubles."
+      },
+      {
+        "content": "Tous les lipides ont exactement la même structure chimique.",
+        "correct": false,
+        "explanation": "Le groupe est chimiquement très divers."
+      },
+      {
+        "content": "Les lipides constituent un ensemble chimiquement hétérogène.",
+        "correct": true,
+        "explanation": "Ils ne partagent pas une structure covalente unique."
       }
     ],
-    "explanation": "La structure du 18:1 explique sa propriété physique relative."
+    "explanation": "Les lipides forment un ensemble chimique hétérogène souvent caractérisé par une faible solubilité dans l'eau."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un acide gras 16:1 Δ9 est comparé à un 18:1 Δ9. Quelles différences sont attendues ?",
-    "choices": [
-      {
-        "content": "Le premier est palmitoléique, le second oléique.",
-        "correct": true,
-        "explanation": "Noms."
-      },
-      {
-        "content": "Leurs séries ω sont respectivement 7 et 9.",
-        "correct": true,
-        "explanation": "Conversion."
-      },
-      {
-        "content": "Ils ont chacun une seule double liaison.",
-        "correct": true,
-        "explanation": "Notation :1."
-      },
-      {
-        "content": "Ils ont la même longueur de chaîne.",
-        "correct": false,
-        "explanation": "16 versus 18 carbones."
+    "format": "QROC",
+    "question": "Quelle grande famille lipidique contient un groupement phosphate et joue un rôle membranaire majeur ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "phospholipides",
+        "phospholipide",
+        "les phospholipides"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette question combine nomenclature, longueur et série ω."
+    },
+    "explanation": "Une classification introductive distingue plusieurs familles lipidiques sans leur attribuer une structure chimique unique."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un acide gras indispensable 18:3 Δ9,12,15 doit être apporté par l’alimentation. On peut l’identifier comme :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la structure générale d'un acide gras, sélectionnez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Acide α-linolénique.",
+        "content": "La chaîne hydrocarbonée contribue fortement au caractère hydrophobe.",
         "correct": true,
-        "explanation": "Notation."
+        "explanation": "Elle est essentiellement apolaire."
       },
       {
-        "content": "Acide gras polyinsaturé.",
-        "correct": true,
-        "explanation": "Trois doubles liaisons."
-      },
-      {
-        "content": "Acide gras de série ω3.",
-        "correct": true,
-        "explanation": "Série."
-      },
-      {
-        "content": "Acide stéarique.",
+        "content": "Un acide gras ne contient jamais de fonction carboxylique.",
         "correct": false,
-        "explanation": "18:0."
+        "explanation": "Cette fonction définit la famille."
+      },
+      {
+        "content": "Un acide gras est nécessairement une protéine.",
+        "correct": false,
+        "explanation": "C'est un acide carboxylique à chaîne hydrocarbonée."
+      },
+      {
+        "content": "Tous les acides gras possèdent obligatoirement plusieurs doubles liaisons.",
+        "correct": false,
+        "explanation": "Les acides gras saturés n'en possèdent aucune."
+      },
+      {
+        "content": "Un acide gras peut être saturé ou insaturé.",
+        "correct": true,
+        "explanation": "Cela dépend de la présence de doubles liaisons C=C."
       }
     ],
-    "explanation": "L’acide α-linolénique combine une structure 18:3 n-3 avec un caractère nutritionnel indispensable."
+    "explanation": "Un acide gras associe une fonction carboxylique polaire à une chaîne hydrocarbonée hydrophobe.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un acide gras 18:2 Δ9,12 indispensable est identifié. On peut conclure :",
+    "question": "Concernant le caractère amphiphile des acides gras, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il s’agit du linoléique.",
+        "content": "La tête carboxylique est hydrophile par rapport à la chaîne hydrocarbonée.",
         "correct": true,
-        "explanation": "Notation."
+        "explanation": "Elle interagit davantage avec l'eau."
       },
       {
-        "content": "Il appartient à la série ω6.",
+        "content": "Le comportement en milieu aqueux dépend de la longueur de chaîne, du pH et de l'état d'ionisation.",
         "correct": true,
-        "explanation": "Série."
+        "explanation": "Il ne se résume pas à une règle unique."
       },
       {
-        "content": "Il possède deux doubles liaisons.",
-        "correct": true,
-        "explanation": "18:2."
-      },
-      {
-        "content": "Il est saturé.",
+        "content": "La tête carboxylique est la région la plus hydrophobe.",
         "correct": false,
-        "explanation": "Il est polyinsaturé."
+        "explanation": "Elle est au contraire la région polaire."
+      },
+      {
+        "content": "La chaîne hydrocarbonée est hydrophobe.",
+        "correct": true,
+        "explanation": "Sa longueur réduit globalement la solubilité aqueuse."
+      },
+      {
+        "content": "La chaîne hydrocarbonée porte habituellement une charge entière négative.",
+        "correct": false,
+        "explanation": "Elle est essentiellement apolaire."
       }
     ],
-    "explanation": "Le linoléique est le second exemple d’acide gras indispensable."
+    "explanation": "Les acides gras possèdent une tête polaire et une queue hydrophobe ; leur comportement dépend aussi de l'ionisation."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Une molécule lipidique flotte à la surface de l’eau et forme une couche monomoléculaire. Cela est cohérent avec :",
+    "format": "QRU",
+    "question": "À propos des critères de classification des acides gras, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Une densité inférieure à celle de l’eau.",
-        "correct": true,
-        "explanation": "Propriété."
-      },
-      {
-        "content": "Une tête hydrophile et une chaîne hydrophobe.",
-        "correct": true,
-        "explanation": "Architecture."
-      },
-      {
-        "content": "Un comportement interfacial des acides gras.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "Une solubilité complète de la longue chaîne dans l’eau.",
+        "content": "La couleur en solution est le critère principal.",
         "correct": false,
-        "explanation": "La chaîne est hydrophobe."
+        "explanation": "Elle n'est pas utilisée pour classer les acides gras."
+      },
+      {
+        "content": "Le nombre d'atomes d'azote définit saturation et insaturation.",
+        "correct": false,
+        "explanation": "Ce sont les doubles liaisons C=C qui comptent."
+      },
+      {
+        "content": "Un acide gras saturé possède nécessairement une double liaison trans.",
+        "correct": false,
+        "explanation": "Il ne possède aucune double liaison C=C."
+      },
+      {
+        "content": "La position des doubles liaisons précise la structure d'un acide gras insaturé.",
+        "correct": true,
+        "explanation": "Elle est indiquée notamment par la notation Δ."
+      },
+      {
+        "content": "La longueur de chaîne est sans intérêt.",
+        "correct": false,
+        "explanation": "Elle influence classification et propriétés."
       }
     ],
-    "explanation": "Les propriétés physiques découlent directement de la structure bipolaire simplifiée."
+    "explanation": "La longueur de chaîne et le degré d'insaturation sont deux axes majeurs de classification."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un produit transformé contient des acides gras trans. Quelles propositions sont exactes ?",
+    "question": "Parmi les propositions suivantes sur la numérotation depuis le carboxyle, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Certains procédés industriels et produits transformés peuvent en constituer une source.",
+        "content": "Le carbone adjacent au carboxyle est C2.",
         "correct": true,
-        "explanation": "Source."
+        "explanation": "Il correspond au carbone alpha de la nomenclature traditionnelle."
       },
       {
-        "content": "Une consommation élevée augmente le risque cardiovasculaire.",
-        "correct": true,
-        "explanation": "Source."
-      },
-      {
-        "content": "L’OMS recommande de limiter leur apport à moins de 1 % de l’apport énergétique total.",
-        "correct": true,
-        "explanation": "Source."
-      },
-      {
-        "content": "Ils sont indispensables et doivent représenter une part importante de l’apport énergétique.",
+        "content": "Le carbone carboxylique est toujours le carbone oméga.",
         "correct": false,
-        "explanation": "Il n’entre pas dans ce niveau clinique."
+        "explanation": "Oméga désigne l'extrémité méthyle opposée."
+      },
+      {
+        "content": "Une position Δ9 désigne une double liaison débutant au carbone 9 depuis le carboxyle.",
+        "correct": true,
+        "explanation": "Elle se situe entre C9 et C10."
+      },
+      {
+        "content": "La numérotation Δ et la série oméga utilisent des extrémités différentes.",
+        "correct": true,
+        "explanation": "Il faut savoir passer de l'une à l'autre."
+      },
+      {
+        "content": "Le carbone du groupement carboxyle est C1.",
+        "correct": true,
+        "explanation": "La numérotation systématique part de l'extrémité la plus oxydée."
       }
     ],
-    "explanation": "Les acides gras trans n’ont pas de bénéfice nutritionnel connu et leur consommation augmente le risque cardiovasculaire."
+    "explanation": "Le carbone carboxylique est C1 ; le carbone adjacent est C2 et correspond au carbone alpha."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Un acide gras saturé à 18 carbones est comparé à un acide gras saturé à 16 carbones. Combien de carbones supplémentaires possède le premier ?",
-    "answer": {
-      "type": "number",
-      "value": 2,
-      "tolerance": 0
-    },
-    "explanation": "18 − 16 = 2 carbones."
-  },
-  {
-    "order": 118,
-    "difficulty": "HARD",
-    "format": "QROC",
-    "question": "Quel est le terme utilisé pour le carbone terminal opposé au carboxyle ?",
+    "question": "Comment appelle-t-on le dernier carbone d'une chaîne d'acide gras du côté méthyle ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "omega",
-        "oméga",
-        "carbone omega",
         "carbone oméga",
+        "carbone omega",
+        "oméga",
+        "omega",
         "ω"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Il s’agit du carbone oméga."
+    "explanation": "Le carbone alpha est C2 près du carboxyle ; le carbone oméga est le carbone méthyle terminal."
+  },
+  {
+    "order": 118,
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "Son nom systématique est acide hexadécanoïque.",
+        "correct": false,
+        "explanation": "C'est celui du palmitique."
+      },
+      {
+        "content": "Il est un acide gras à longue chaîne.",
+        "correct": true,
+        "explanation": "C16 et C18 sont des représentants classiques de cette catégorie."
+      },
+      {
+        "content": "Le nombre après les deux-points donne le nombre d'atomes d'oxygène.",
+        "correct": false,
+        "explanation": "Il donne le nombre de doubles liaisons."
+      },
+      {
+        "content": "Un acide gras polyinsaturé possède au moins deux doubles liaisons C=C.",
+        "correct": true,
+        "explanation": "Les acides linoléique et alpha-linolénique en sont des exemples."
+      },
+      {
+        "content": "Un acide gras saturé ne possède pas de double liaison C=C.",
+        "correct": true,
+        "explanation": "Sa chaîne hydrocarbonée ne comporte que des liaisons simples C-C."
+      },
+      {
+        "content": "Son nom systématique est acide octadécanoïque.",
+        "correct": true,
+        "explanation": "Octadéc- correspond à 18 carbones."
+      },
+      {
+        "content": "Il est saturé.",
+        "correct": true,
+        "explanation": "Il ne possède aucune double liaison C=C."
+      },
+      {
+        "content": "Un acide gras saturé possède au moins une double liaison.",
+        "correct": false,
+        "explanation": "Il n'en possède aucune."
+      },
+      {
+        "content": "18:0 décrit un acide gras à 18 doubles liaisons.",
+        "correct": false,
+        "explanation": "Le premier nombre est le nombre de carbones."
+      },
+      {
+        "content": "L'acide stéarique est 16:0.",
+        "correct": false,
+        "explanation": "16:0 correspond au palmitique."
+      }
+    ],
+    "explanation": "La notation C:D indique le nombre de carbones puis le nombre de doubles liaisons. L'acide stéarique est l'acide octadécanoïque saturé 18:0."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un acide gras joue un rôle à la fois membranaire et énergétique. Cela illustre :",
+    "question": "Parmi les propositions suivantes sur la parité des acides gras chez les mammifères, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "La pluralité des rôles biologiques des acides gras.",
-        "correct": true,
-        "explanation": "Plusieurs fonctions."
-      },
-      {
-        "content": "Un rôle structural dans les membranes.",
-        "correct": true,
-        "explanation": "Les chaînes acyles contribuent à la structure des lipides membranaires."
-      },
-      {
-        "content": "Un rôle énergétique via l’oxydation/réserve.",
-        "correct": true,
-        "explanation": "L'oxydation et le stockage sous forme de triacylglycérols illustrent le rôle énergétique."
-      },
-      {
-        "content": "Une contradiction rendant la molécule impossible.",
+        "content": "La parité permet à elle seule d'identifier le nom commun d'un acide gras.",
         "correct": false,
-        "explanation": "Une même famille peut avoir plusieurs rôles."
+        "explanation": "Plusieurs structures peuvent partager la même longueur."
+      },
+      {
+        "content": "La parité du nombre de carbones est indépendante de la présence d'une double liaison.",
+        "correct": true,
+        "explanation": "Un acide gras impair peut être saturé ou insaturé."
+      },
+      {
+        "content": "Les acides gras à nombre pair de carbones sont très fréquents chez les mammifères.",
+        "correct": true,
+        "explanation": "La synthèse et la bêta-oxydation utilisent largement des unités à deux carbones."
+      },
+      {
+        "content": "La bêta-oxydation enlève des unités de cinq carbones.",
+        "correct": false,
+        "explanation": "Elle enlève classiquement des unités à deux carbones."
+      },
+      {
+        "content": "Un nombre impair de carbones implique automatiquement une double liaison.",
+        "correct": false,
+        "explanation": "Parité et insaturation sont distinctes."
       }
     ],
-    "explanation": "Un même acide gras peut contribuer à la structure membranaire et servir de substrat énergétique."
+    "explanation": "La prédominance des chaînes paires s'explique par un métabolisme construit autour d'unités à deux carbones."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "L’estérification d’un acide gras permet de former des lipides complexes parce que :",
-    "choices": [
-      {
-        "content": "La fonction carboxylique peut réagir avec un alcool.",
-        "correct": true,
-        "explanation": "Principe."
-      },
-      {
-        "content": "Un ester est formé.",
-        "correct": true,
-        "explanation": "Produit."
-      },
-      {
-        "content": "De nombreux lipides physiologiques comportent des liaisons ester.",
-        "correct": true,
-        "explanation": "Lien pédagogique."
-      },
-      {
-        "content": "La réaction supprime tous les atomes de carbone.",
-        "correct": false,
-        "explanation": "Impossible."
+    "format": "QROC",
+    "question": "Quelle notation abrégée correspond à l'acide palmitique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "16:0",
+        "C16:0"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’estérification est une charnière entre acides gras et lipides dérivés."
+    },
+    "explanation": "L'acide palmitique est l'acide hexadécanoïque saturé 16:0."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Synthèse finale : sélectionnez exactement les trois associations complètes correctes.",
+    "question": "À propos de l'acide stéarique, retenez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "18:1 Δ9 — oléique — ω9.",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "18:2 Δ9,12 — linoléique — ω6.",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "18:3 Δ9,12,15 — α-linolénique — ω3.",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "16:0 — stéarique — ω3.",
+        "content": "Il est polyinsaturé.",
         "correct": false,
-        "explanation": "16:0 est palmitique, saturé."
+        "explanation": "Il est saturé."
+      },
+      {
+        "content": "L'acide stéarique est 16:0.",
+        "correct": false,
+        "explanation": "16:0 correspond au palmitique."
+      },
+      {
+        "content": "Il est saturé.",
+        "correct": true,
+        "explanation": "Il ne possède aucune double liaison C=C."
+      },
+      {
+        "content": "Son nom systématique est acide hexadécanoïque.",
+        "correct": false,
+        "explanation": "C'est celui du palmitique."
+      },
+      {
+        "content": "Son nom systématique est acide octadécanoïque.",
+        "correct": true,
+        "explanation": "Octadéc- correspond à 18 carbones."
       }
     ],
-    "explanation": "La notation Δ, le nom usuel et la série ω décrivent de façon complémentaire un acide gras."
+    "explanation": "L'acide stéarique est l'acide octadécanoïque saturé 18:0.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour la synthèse finale de maîtrise des lipides et acides gras, sélectionnez exactement cinq propositions correctes.",
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur les catégories de longueur de chaîne, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Le C1 est le carbone carboxylique.",
-        "correct": true,
-        "explanation": "Numérotation."
-      },
-      {
-        "content": "Le carbone α est C2.",
-        "correct": true,
-        "explanation": "Numérotation."
-      },
-      {
-        "content": "Palmitique = 16:0.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Oléique = 18:1 ω9.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Linolénique = 18:3 ω3.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Le carbone ω est le carbone carboxylique.",
+        "content": "Tous les domaines de la biochimie utilisent exactement les mêmes seuils sans variation.",
         "correct": false,
-        "explanation": "Extrémité opposée."
+        "explanation": "Les conventions de seuil peuvent varier."
       },
       {
-        "content": "Stéarique = 16:0.",
-        "correct": false,
-        "explanation": "18:0."
+        "content": "Les seuils précis peuvent varier légèrement selon les conventions utilisées.",
+        "correct": true,
+        "explanation": "La catégorie doit donc être interprétée avec son contexte."
       },
       {
-        "content": "Linoléique = ω3.",
-        "correct": false,
-        "explanation": "ω6."
+        "content": "C16 et C18 sont classiquement des acides gras à longue chaîne.",
+        "correct": true,
+        "explanation": "Palmitique et stéarique en sont des exemples."
       },
       {
-        "content": "Les doubles liaisons augmentent le point de fusion.",
-        "correct": false,
-        "explanation": "Elles l’abaissent."
+        "content": "Les termes courte, moyenne, longue et très longue chaîne décrivent la longueur du squelette carboné.",
+        "correct": true,
+        "explanation": "Ils ne décrivent pas le nombre de doubles liaisons."
       },
       {
-        "content": "Les acides gras sont tous très solubles dans l’eau au-delà de 8C.",
+        "content": "La catégorie de longueur indique directement cis ou trans.",
         "correct": false,
-        "explanation": "Ils sont décrits comme insolubles."
+        "explanation": "Ce sont des caractéristiques différentes."
       }
     ],
-    "explanation": "Le MASTER final mobilise nomenclature, propriétés et rôles biologiques."
+    "explanation": "Les catégories de longueur sont utiles, mais leurs frontières exactes peuvent varier ; C16-C18 sont des longues chaînes et C24 une très longue chaîne."
   }
 ];

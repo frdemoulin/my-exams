@@ -40,7 +40,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le galactose, quelle proposition est exacte ?",
+    "question": "À propos du galactose, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Le galactose est absent des glycoconjugués.",
@@ -120,7 +120,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 5,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le ribose et le 2-désoxyribose, quelle proposition est exacte ?",
+    "question": "À propos du ribose et le 2-désoxyribose, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Le 2-désoxyribose est le sucre de l'ADN.",
@@ -426,7 +426,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de le ribose et le 2-désoxyribose, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos du ribose et le 2-désoxyribose, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Le ribose est un hexose.",
@@ -632,7 +632,7 @@ export const UE14_BIOCH_CH2_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de le mannose, quelles propositions sont correctes ?",
+    "question": "À propos du mannose, quelles propositions sont correctes ?",
     "choices": [
       {
         "content": "Il est fréquent dans les N-glycanes de glycoprotéines.",

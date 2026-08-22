@@ -40,7 +40,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 68,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de le kératane sulfate, quelle proposition est exacte ?",
+    "question": "À propos du kératane sulfate, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Il est une protéine structurale.",
@@ -129,7 +129,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 71,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de les protéoglycanes, quelle proposition est exacte ?",
+    "question": "À propos des protéoglycanes, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Les protéoglycanes sont absents de la matrice extracellulaire.",
@@ -443,7 +443,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 81,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de les protéoglycanes, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos des protéoglycanes, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Les protéoglycanes sont absents de la matrice extracellulaire.",
@@ -830,7 +830,7 @@ export const UE14_BIOCH_CH3_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 93,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "À propos de les protéoglycanes, quelle proposition est exacte ?",
+    "question": "À propos des protéoglycanes, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Les GAG d'un protéoglycane sont toujours neutres.",

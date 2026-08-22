@@ -40,7 +40,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 68,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de les pyranoses, quelle proposition est exacte ?",
+    "question": "À propos des pyranoses, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Un pyranose possède un cycle à six sommets incluant un oxygène.",
@@ -508,7 +508,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 84,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de un mélange racémique, quelle proposition est exacte ?",
+    "question": "À propos d'un mélange racémique, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Un mélange racémique contient uniquement un énantiomère.",
@@ -636,7 +636,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de les furanoses, quelles propositions sont correctes ?",
+    "question": "À propos des furanoses, quelles propositions sont correctes ?",
     "choices": [
       {
         "content": "Un furanose possède un cycle à cinq sommets incluant un oxygène.",
@@ -956,7 +956,7 @@ export const UE14_BIOCH_CH1_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 99,
     "difficulty": "HARD",
     "format": "QRP",
-    "question": "À propos de les furanoses, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos des furanoses, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "La forme furanose impose la série L.",

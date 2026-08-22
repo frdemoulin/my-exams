@@ -130,7 +130,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 5,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos de les cétoses, quelle proposition est exacte ?",
+    "question": "À propos des cétoses, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "La dihydroxyacétone possède un carbone asymétrique.",
@@ -450,7 +450,7 @@ export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "À propos de les cétoses, sélectionnez exactement les deux affirmations correctes.",
+    "question": "À propos des cétoses, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
         "content": "Un cétose possède nécessairement un aldéhyde terminal en C1.",

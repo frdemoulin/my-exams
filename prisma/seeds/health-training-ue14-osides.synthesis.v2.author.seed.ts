@@ -461,7 +461,7 @@ export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 115,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "À propos de le maltose, quelle proposition est exacte ?",
+    "question": "À propos du maltose, quelle proposition est exacte ?",
     "choices": [
       {
         "content": "Le maltose possède une liaison bêta(1→4).",
