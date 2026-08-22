@@ -1,650 +1,723 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 4 – Forces intermoléculaires
- * Section B – Interactions entre molécules
- */
-
+/** UE14 – Chimie générale – Chapitre 1.4 – Section B – Interactions entre molécules */
 export const UE14_CH4_INTERACTIONS_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 11,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos des interactions intermoléculaires, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 11,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les interactions intermoléculaires, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Elles s'exercent entre des molécules ou des groupes distincts.`,
-        correct: true,
-        explanation: `Le préfixe « inter- » renvoie à une interaction entre entités distinctes.`,
+        "content": "Elles sont généralement plus faibles qu'une liaison covalente individuelle.",
+        "correct": true,
+        "explanation": "Les énergies caractéristiques sont plus faibles, même si leur cumul peut être important."
       },
       {
-        content: `Elles sont généralement plus faibles qu'une liaison covalente.`,
-        correct: true,
-        explanation: `Les interactions non covalentes sont moins énergétiques qu'une liaison covalente.`,
+        "content": "Elles modifient obligatoirement la connectivité covalente de chaque molécule.",
+        "correct": false,
+        "explanation": "Une interaction non covalente n'implique pas normalement de réarrangement covalent."
       },
       {
-        content: `Elles correspondent exclusivement aux liaisons covalentes à l'intérieur d'une molécule.`,
-        correct: false,
-        explanation: `Une liaison covalente interne est intramoléculaire.`,
+        "content": "Elles contribuent à la cohésion de la matière condensée.",
+        "correct": true,
+        "explanation": "Liquides et solides moléculaires sont stabilisés par ces interactions."
       },
       {
-        content: `Elles nécessitent toujours des ions portant des charges entières.`,
-        correct: false,
-        explanation: `Des molécules neutres polaires ou apolaires peuvent interagir.`,
+        "content": "Elles exigent toujours des charges ioniques entières.",
+        "correct": false,
+        "explanation": "Les charges partielles et dipôles instantanés suffisent."
       },
+      {
+        "content": "Elles peuvent exister entre molécules neutres.",
+        "correct": true,
+        "explanation": "Dispersion, dipôle-dipôle et liaison hydrogène en sont des exemples."
+      }
     ],
-    explanation:
-      `Les interactions intermoléculaires contribuent à la cohésion de la matière sans modifier l'enchaînement covalent des molécules.`,
+    "explanation": "Les interactions intermoléculaires expliquent de nombreuses propriétés physiques sans changer l'identité covalente des molécules."
   },
   {
-    order: 12,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant les interactions de Van der Waals entre molécules apolaires, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 12,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les forces de dispersion de London, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Une fluctuation momentanée du nuage électronique peut créer un dipôle instantané.`,
-        correct: true,
-        explanation: `La répartition électronique n'est pas parfaitement figée.`,
+        "content": "Elles peuvent induire un dipôle dans une espèce voisine.",
+        "correct": true,
+        "explanation": "Le dipôle instantané polarise le nuage voisin."
       },
       {
-        content: `Un dipôle instantané peut induire une polarisation dans une molécule voisine.`,
-        correct: true,
-        explanation: `Cette polarisation induite permet une attraction temporaire.`,
+        "content": "Elles existent en principe entre toutes les espèces polarisables.",
+        "correct": true,
+        "explanation": "Elles ne sont pas réservées aux molécules apolaires."
       },
       {
-        content: `Chaque molécule doit posséder un dipôle permanent.`,
-        correct: false,
-        explanation: `Les molécules apolaires peuvent justement subir ces interactions.`,
+        "content": "Elles sont des liaisons covalentes temporaires.",
+        "correct": false,
+        "explanation": "Ce sont des interactions non covalentes."
       },
       {
-        content: `Elles sont plus fortes qu'une liaison covalente.`,
-        correct: false,
-        explanation: `Elles sont beaucoup plus faibles individuellement.`,
+        "content": "Elles résultent de fluctuations instantanées de la distribution électronique.",
+        "correct": true,
+        "explanation": "Un dipôle instantané peut apparaître même dans une molécule apolaire."
       },
+      {
+        "content": "Elles nécessitent un dipôle permanent initial.",
+        "correct": false,
+        "explanation": "Elles existent justement sans dipôle permanent."
+      }
     ],
-    explanation:
-      `Les interactions de Van der Waals peuvent résulter de dipôles instantanés et induits, même entre molécules globalement apolaires.`,
+    "explanation": "La dispersion est universelle et devient plus importante lorsque la polarisabilité augmente."
   },
   {
-    order: 13,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux caractéristiques correctes des interactions de Van der Waals dans le modèle du cours.`,
-    choices: [
+    "order": 13,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux facteurs qui tendent à renforcer les forces de dispersion entre molécules comparables.",
+    "choices": [
       {
-        content: `Elles sont faibles lorsqu'elles sont considérées individuellement.`,
-        correct: true,
-        explanation: `Une interaction isolée est de faible intensité.`,
+        "content": "Une plus grande polarisabilité électronique.",
+        "correct": true,
+        "explanation": "Un nuage électronique facilement déformable génère des dipôles instantanés plus importants."
       },
       {
-        content: `Leur très grand nombre peut contribuer fortement à la cohésion de la matière.`,
-        correct: true,
-        explanation: `L'effet cumulatif peut devenir important.`,
+        "content": "La suppression totale du nuage électronique.",
+        "correct": false,
+        "explanation": "La dispersion dépend précisément du nuage électronique."
       },
       {
-        content: `Elles sont absentes des substances apolaires.`,
-        correct: false,
-        explanation: `Elles sont particulièrement importantes pour expliquer la cohésion entre espèces apolaires.`,
+        "content": "Une diminution systématique du nombre d'électrons.",
+        "correct": false,
+        "explanation": "Moins d'électrons tend souvent à diminuer la polarisabilité."
       },
       {
-        content: `Elles forment systématiquement de nouvelles liaisons covalentes.`,
-        correct: false,
-        explanation: `Il s'agit d'interactions non covalentes.`,
+        "content": "Une plus grande surface de contact entre les molécules.",
+        "correct": true,
+        "explanation": "Davantage de zones peuvent interagir simultanément."
       },
+      {
+        "content": "Une séparation infinie entre les molécules.",
+        "correct": false,
+        "explanation": "Les interactions décroissent fortement avec la distance."
+      }
     ],
-    explanation:
-      `Le caractère faible d'une interaction de Van der Waals n'empêche pas un effet macroscopique lorsque des milliers d'interactions s'additionnent.`,
+    "explanation": "Polarisabilité et surface de contact sont deux déterminants majeurs de la dispersion."
   },
   {
-    order: 14,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Les chaînes hydrocarbonées des lipides membranaires sont très proches les unes des autres. Dans le modèle simplifié de la fiche, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 14,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle interaction est particulièrement caractéristique de deux molécules possédant des dipôles permanents ?",
+    "choices": [
       {
-        content: `De nombreuses interactions de Van der Waals entre chaînes contribuent à la cohésion de la membrane plasmique.`,
-        correct: true,
-        explanation: `La fiche cite explicitement la membrane plasmique comme exemple.`,
+        "content": "Une liaison métallique.",
+        "correct": false,
+        "explanation": "Elle concerne un réseau métallique."
       },
       {
-        content: `Une grande surface de contact peut multiplier les interactions faibles.`,
-        correct: true,
-        explanation: `Davantage d'atomes proches signifie davantage d'interactions possibles.`,
+        "content": "Une liaison covalente obligatoire.",
+        "correct": false,
+        "explanation": "Les molécules restent distinctes."
       },
       {
-        content: `Les chaînes de lipides voisins doivent former entre elles de nouvelles liaisons covalentes permanentes.`,
-        correct: false,
-        explanation: `Les lipides restent des molécules distinctes.`,
+        "content": "Une transmutation isotopique.",
+        "correct": false,
+        "explanation": "Aucune modification du noyau."
       },
       {
-        content: `Seules les molécules d'eau subissent des interactions de Van der Waals.`,
-        correct: false,
-        explanation: `Ces interactions existent aussi entre chaînes carbonées apolaires.`,
+        "content": "Une interaction nucléaire forte.",
+        "correct": false,
+        "explanation": "Elle n'intervient pas à l'échelle moléculaire."
       },
+      {
+        "content": "Une interaction dipôle-dipôle.",
+        "correct": true,
+        "explanation": "Les orientations favorables rapprochent les pôles de signes opposés."
+      }
     ],
-    explanation:
-      `La cohésion des régions hydrophobes membranaires peut être renforcée par l'accumulation de nombreuses interactions faibles entre chaînes.`,
+    "explanation": "Les interactions dipôle-dipôle, ou interactions de Keesom, s'ajoutent aux forces de dispersion dans les espèces polaires."
   },
   {
-    order: 15,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Quelle proposition décrit correctement une interaction dipôle-dipôle entre deux molécules polaires ?`,
-    choices: [
+    "order": 15,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant une liaison hydrogène classique, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Le pôle partiellement positif d'une molécule est attiré par le pôle partiellement négatif d'une autre.`,
-        correct: true,
-        explanation: `C'est l'origine électrostatique de cette interaction.`,
+        "content": "Un atome accepteur voisin possède une zone riche en électrons, souvent un doublet non liant.",
+        "correct": true,
+        "explanation": "Cette zone attire l'hydrogène partiellement positif."
       },
       {
-        content: `Deux pôles de même signe s'attirent préférentiellement.`,
-        correct: false,
-        explanation: `Des charges de même signe se repoussent.`,
+        "content": "Elle peut être intermoléculaire ou intramoléculaire.",
+        "correct": true,
+        "explanation": "Les deux situations sont possibles."
       },
       {
-        content: `Elle exige la formation d'une nouvelle liaison covalente.`,
-        correct: false,
-        explanation: `Il s'agit d'une interaction non covalente.`,
+        "content": "Toute liaison C–H est un donneur classique équivalent à O–H.",
+        "correct": false,
+        "explanation": "Les liaisons C–H ordinaires ne sont pas des donneurs classiques dans ce niveau de description."
       },
       {
-        content: `Elle n'existe qu'entre molécules apolaires.`,
-        correct: false,
-        explanation: `Elle met en jeu des dipôles permanents de molécules polaires.`,
+        "content": "Un hydrogène est lié covalemment à un atome très électronégatif, typiquement O, N ou F.",
+        "correct": true,
+        "explanation": "La liaison X–H est fortement polarisée."
       },
+      {
+        "content": "Elle est une liaison covalente ordinaire identique à O–H.",
+        "correct": false,
+        "explanation": "C'est une interaction non covalente distincte de la liaison donneur–H."
+      }
     ],
-    explanation:
-      `Les molécules polaires peuvent s'orienter de façon à rapprocher leurs pôles partiels de signes opposés.`,
+    "explanation": "Une liaison hydrogène met en jeu un donneur X–H et un accepteur électronégatif."
   },
   {
-    order: 16,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Quelles conséquences générales peut avoir une augmentation de la cohésion intermoléculaire ?`,
-    choices: [
+    "order": 16,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Dans un dimère de molécules d'eau, quel motif correspond à une liaison hydrogène ?",
+    "choices": [
       {
-        content: `Elle peut tendre à augmenter la température de vaporisation.`,
-        correct: true,
-        explanation: `Il faut davantage d'énergie pour éloigner les molécules.`,
+        "content": "Une liaison O=O entre les deux molécules.",
+        "correct": false,
+        "explanation": "Aucune double liaison ne se forme."
       },
       {
-        content: `Elle peut tendre à augmenter la température de fusion.`,
-        correct: true,
-        explanation: `Le cours relie une cohésion accrue à des températures de changement d'état plus élevées.`,
+        "content": "La liaison covalente O–H à l'intérieur d'une seule molécule.",
+        "correct": false,
+        "explanation": "C'est une liaison intramoléculaire covalente."
       },
       {
-        content: `Elle impose la rupture des liaisons covalentes lors de l'ébullition.`,
-        correct: false,
-        explanation: `La vaporisation est un changement d'état physique.`,
+        "content": "Une attraction entre deux hydrogènes partiellement positifs.",
+        "correct": false,
+        "explanation": "Des charges de même signe se repoussent."
       },
       {
-        content: `Elle rend toujours la substance moins visqueuse.`,
-        correct: false,
-        explanation: `Une forte cohésion peut au contraire contribuer à une viscosité élevée.`,
+        "content": "L'attraction entre l'hydrogène d'une liaison O–H d'une molécule et l'oxygène d'une autre molécule.",
+        "correct": true,
+        "explanation": "L'hydrogène donneur interagit avec un doublet de l'oxygène accepteur."
       },
+      {
+        "content": "Un transfert permanent d'un proton à chaque collision.",
+        "correct": false,
+        "explanation": "Ce n'est pas nécessaire à la liaison hydrogène."
+      }
     ],
-    explanation:
-      `Des attractions plus fortes entre molécules nécessitent généralement davantage d'énergie pour les séparer ou les réorganiser.`,
+    "explanation": "La liaison hydrogène relie des molécules sans créer une nouvelle liaison covalente O–H."
   },
   {
-    order: 17,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Le butane et la propanone, ou acétone, ont des masses molaires voisines. Sélectionnez exactement les deux propositions expliquant pourquoi l'acétone a une température de vaporisation plus élevée.`,
-    choices: [
+    "order": 17,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les propriétés de l'eau liquide liées aux liaisons hydrogène, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `L'acétone est polaire alors que le butane est apolaire.`,
-        correct: true,
-        explanation: `Le groupe carbonyle de l'acétone lui confère un dipôle permanent.`,
+        "content": "Les liaisons hydrogène contribuent à la cohésion du liquide.",
+        "correct": true,
+        "explanation": "Elles augmentent l'attraction entre molécules."
       },
       {
-        content: `Des interactions dipôle-dipôle s'ajoutent entre molécules d'acétone.`,
-        correct: true,
-        explanation: `Ces attractions renforcent la cohésion du liquide.`,
+        "content": "Un réseau dynamique de liaisons hydrogène se forme et se rompt continuellement.",
+        "correct": true,
+        "explanation": "Les interactions sont transitoires mais nombreuses."
       },
       {
-        content: `Le butane possède nécessairement les interactions les plus fortes parce qu'il est apolaire.`,
-        correct: false,
-        explanation: `Le caractère apolaire ne renforce pas les interactions par rapport à un dipôle permanent comparable.`,
+        "content": "Elles contribuent à la température d'ébullition relativement élevée de l'eau.",
+        "correct": true,
+        "explanation": "Il faut fournir de l'énergie pour séparer les molécules."
       },
       {
-        content: `Deux substances de masses molaires proches ont obligatoirement la même température de vaporisation.`,
-        correct: false,
-        explanation: `La nature des interactions intermoléculaires est déterminante.`,
+        "content": "L'eau liquide ne contient aucune force de dispersion.",
+        "correct": false,
+        "explanation": "La dispersion existe aussi, même si les liaisons hydrogène sont très importantes."
       },
+      {
+        "content": "Chaque molécule conserve exactement les mêmes quatre liaisons hydrogène en permanence.",
+        "correct": false,
+        "explanation": "Le réseau liquide fluctue en permanence."
+      }
     ],
-    explanation:
-      `À masses molaires proches, la présence d'un dipôle permanent dans l'acétone explique des interactions supplémentaires et une cohésion plus forte.`,
+    "explanation": "Dans l'eau liquide, plusieurs types d'interactions coexistent ; les liaisons hydrogène jouent un rôle particulièrement marqué."
   },
   {
-    order: 18,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Pour qu'une liaison hydrogène classique puisse s'établir dans le modèle du cours, sélectionnez exactement les deux conditions essentielles.`,
-    choices: [
+    "order": 18,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les interactions dans les chaînes hydrocarbonées, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Un hydrogène doit être lié à un atome très électronégatif, typiquement $\\ce{N}$, $\\ce{O}$ ou $\\ce{F}$.`,
-        correct: true,
-        explanation: `Cette liaison rend l'hydrogène fortement $\\delta^{+}$.`,
+        "content": "Les interactions de dispersion sont des liaisons hydrogène.",
+        "correct": false,
+        "explanation": "Ce sont deux mécanismes différents."
       },
       {
-        content: `Un autre atome électronégatif, typiquement $\\ce{N}$, $\\ce{O}$ ou $\\ce{F}$, doit pouvoir jouer le rôle d'accepteur.`,
-        correct: true,
-        explanation: `Il fournit une zone riche en électrons, souvent un doublet non liant.`,
+        "content": "La proximité des chaînes peut influencer la cohésion d'un assemblage lipidique.",
+        "correct": true,
+        "explanation": "Les contacts entre chaînes contribuent à l'organisation des régions hydrophobes."
       },
       {
-        content: `L'hydrogène doit obligatoirement être lié au carbone.`,
-        correct: false,
-        explanation: `Une liaison C-H ordinaire n'est pas un donneur classique dans le modèle simplifié du cours.`,
+        "content": "Le grand nombre de contacts peut produire un effet cumulatif notable.",
+        "correct": true,
+        "explanation": "Des interactions faibles individuellement peuvent devenir importantes collectivement."
       },
       {
-        content: `Les deux partenaires doivent porter des charges électriques entières.`,
-        correct: false,
-        explanation: `Les charges mises en jeu sont généralement partielles.`,
+        "content": "Une chaîne hydrocarbonée apolaire ne subit aucune interaction intermoléculaire.",
+        "correct": false,
+        "explanation": "La dispersion est toujours présente."
       },
+      {
+        "content": "Les forces de dispersion sont importantes entre segments apolaires proches.",
+        "correct": true,
+        "explanation": "Les nuages électroniques polarisables interagissent."
+      }
     ],
-    explanation:
-      `La liaison hydrogène associe un donneur X-H fortement polarisé et un atome accepteur électronégatif riche en électrons.`,
+    "explanation": "Les membranes illustrent l'importance cumulative de nombreuses interactions faibles entre chaînes."
   },
   {
-    order: 19,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Dans les ordres de grandeur simplifiés donnés par la fiche, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 19,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Pourquoi un alcool à courte chaîne possède-t-il souvent une température d'ébullition plus élevée que l'alcane de masse molaire voisine ?",
+    "choices": [
       {
-        content: `Une liaison hydrogène est environ vingt fois plus faible qu'une liaison covalente.`,
-        correct: true,
-        explanation: `C'est l'ordre de grandeur retenu dans le cours.`,
+        "content": "Les molécules d'alcool contiennent moins d'électrons.",
+        "correct": false,
+        "explanation": "Ce n'est pas le mécanisme pertinent."
       },
       {
-        content: `Une liaison hydrogène est environ dix fois plus forte qu'une interaction de Van der Waals isolée.`,
-        correct: true,
-        explanation: `C'est également l'ordre de grandeur donné.`,
+        "content": "L'alcool possède nécessairement des liaisons covalentes plus faibles à l'intérieur de la molécule.",
+        "correct": false,
+        "explanation": "La vaporisation ne repose pas sur leur rupture."
       },
       {
-        content: `Une liaison hydrogène est plus forte qu'une liaison covalente.`,
-        correct: false,
-        explanation: `Elle est nettement plus faible.`,
+        "content": "L'alcane est ionique.",
+        "correct": false,
+        "explanation": "Un alcane est moléculaire et apolaire."
       },
       {
-        content: `Une interaction de Van der Waals est plus forte qu'une liaison hydrogène.`,
-        correct: false,
-        explanation: `L'ordre indiqué dans la fiche est inverse.`,
+        "content": "Les molécules d'alcool peuvent former des liaisons hydrogène en plus des forces de dispersion.",
+        "correct": true,
+        "explanation": "Ces interactions supplémentaires renforcent la cohésion du liquide."
       },
+      {
+        "content": "La vaporisation transforme l'alcool en ions.",
+        "correct": false,
+        "explanation": "Il s'agit d'un changement d'état."
+      }
     ],
-    explanation:
-      `On retient qualitativement : liaison covalente > liaison hydrogène > interaction de Van der Waals.`,
+    "explanation": "La température d'ébullition dépend fortement des interactions intermoléculaires."
   },
   {
-    order: 20,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos du réseau de liaisons hydrogène de l'eau, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 20,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les interactions qui stabilisent les biomolécules, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Une molécule d'eau peut, dans une organisation favorable, participer à quatre liaisons hydrogène avec des voisines.`,
-        correct: true,
-        explanation: `Deux hydrogènes peuvent être donneurs et deux doublets de l'oxygène accepteurs.`,
+        "content": "Les liaisons hydrogène peuvent stabiliser des structures secondaires de protéines.",
+        "correct": true,
+        "explanation": "Elles participent notamment aux hélices et feuillets."
       },
       {
-        content: `Ce réseau contribue à la température de vaporisation anormalement élevée de l'eau.`,
-        correct: true,
-        explanation: `La cohésion du liquide est fortement renforcée.`,
+        "content": "Les forces de dispersion contribuent à l'empilement de groupes apolaires rapprochés.",
+        "correct": true,
+        "explanation": "Elles s'additionnent sur de nombreuses surfaces de contact."
       },
       {
-        content: `L'oxygène de l'eau ne possède aucun doublet non liant.`,
-        correct: false,
-        explanation: `Il en possède deux.`,
+        "content": "Les interactions électrostatiques peuvent contribuer à la structure des protéines.",
+        "correct": true,
+        "explanation": "Des groupes chargés peuvent s'attirer."
       },
       {
-        content: `L'eau ne peut jamais jouer le rôle d'accepteur de liaison hydrogène.`,
-        correct: false,
-        explanation: `Ses doublets non liants lui permettent précisément de jouer ce rôle.`,
+        "content": "La structure d'une protéine est stabilisée uniquement par des liaisons covalentes.",
+        "correct": false,
+        "explanation": "De nombreuses interactions non covalentes sont essentielles."
       },
+      {
+        "content": "Les interactions non covalentes sont sans importance biologique parce qu'elles sont faibles individuellement.",
+        "correct": false,
+        "explanation": "Leur nombre et leur réversibilité sont précisément utiles au vivant."
+      }
     ],
-    explanation:
-      `Chaque molécule d'eau peut être à la fois donneur et accepteur, ce qui permet un réseau intermoléculaire étendu.`,
-  },
+    "explanation": "Les structures biologiques reposent souvent sur la somme de nombreuses interactions faibles, directionnelles ou non."
+  }
 ];
 
 export const UE14_CH4_INTERACTIONS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 41,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `On compare les interactions dominantes entre molécules de méthane $\\ce{CH4}$, de chlorométhane $\\ce{CH3Cl}$ et de méthanol $\\ce{CH3OH}$. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 41,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "On compare le pentane et le néopentane, de même formule brute. Quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Entre molécules de méthane, les interactions de Van der Waals sont les principales attractions.`,
-        correct: true,
-        explanation: `Le méthane est apolaire.`,
+        "content": "Des forces de dispersion plus importantes peuvent en résulter pour le pentane.",
+        "correct": true,
+        "explanation": "La surface de contact influence l'intensité cumulée."
       },
       {
-        content: `Le chlorométhane peut présenter des interactions dipôle-dipôle.`,
-        correct: true,
-        explanation: `Il possède un dipôle permanent.`,
+        "content": "Les forces de dispersion sont absentes des alcanes.",
+        "correct": false,
+        "explanation": "Elles sont les interactions dominantes entre alcanes."
       },
       {
-        content: `Deux molécules de méthanol peuvent former des liaisons hydrogène.`,
-        correct: true,
-        explanation: `Le groupe O-H peut donner et l'oxygène peut accepter.`,
+        "content": "La ramification peut modifier la température d'ébullition.",
+        "correct": true,
+        "explanation": "Elle change la surface de contact et donc les interactions."
       },
       {
-        content: `Le méthane forme des liaisons hydrogène grâce à ses liaisons C-H.`,
-        correct: false,
-        explanation: `Les liaisons C-H ordinaires ne répondent pas au modèle simplifié du donneur de liaison hydrogène.`,
+        "content": "Deux isomères de même formule brute ont nécessairement exactement la même température d'ébullition.",
+        "correct": false,
+        "explanation": "Leur forme peut modifier les interactions."
       },
+      {
+        "content": "Le pentane linéaire présente une surface de contact intermoléculaire plus grande.",
+        "correct": true,
+        "explanation": "Sa forme allongée permet davantage de contacts."
+      }
     ],
-    explanation:
-      `Cette série permet de distinguer successivement interactions de Van der Waals, dipôle-dipôle et liaison hydrogène.`,
+    "explanation": "La ramification illustre l'effet de la forme moléculaire sur la cohésion intermoléculaire."
   },
   {
-    order: 42,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `On donne les températures de vaporisation approximatives : $\\ce{CH4}$ : $-161\\,^{\\circ}\\mathrm{C}$ ; $\\ce{NH3}$ : $-33\\,^{\\circ}\\mathrm{C}$ ; $\\ce{H2O}$ : $100\\,^{\\circ}\\mathrm{C}$. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 42,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "On compare méthane, méthanol et éthane. Quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Les liaisons hydrogène renforcent la cohésion de $\\ce{NH3}$ et de $\\ce{H2O}$ par rapport au méthane.`,
-        correct: true,
-        explanation: `N-H et O-H permettent ces interactions.`,
+        "content": "L'éthane est plus polarisable que le méthane.",
+        "correct": true,
+        "explanation": "Son nuage électronique est plus grand."
       },
       {
-        content: `Le réseau étendu de liaisons hydrogène de l'eau contribue à sa température de vaporisation très élevée.`,
-        correct: true,
-        explanation: `Chaque molécule d'eau peut participer à plusieurs interactions.`,
+        "content": "Le méthanol peut former des liaisons hydrogène.",
+        "correct": true,
+        "explanation": "Il possède un groupe O–H donneur et un oxygène accepteur."
       },
       {
-        content: `La masse molaire suffit à elle seule à expliquer ces trois valeurs.`,
-        correct: false,
-        explanation: `La nature des interactions est essentielle.`,
+        "content": "Le méthane et l'éthane présentent principalement des forces de dispersion.",
+        "correct": true,
+        "explanation": "Ce sont des hydrocarbures apolaires."
       },
       {
-        content: `Le méthane présente les interactions intermoléculaires les plus fortes.`,
-        correct: false,
-        explanation: `Il ne présente principalement que de faibles interactions de Van der Waals.`,
+        "content": "Le méthanol ne possède aucune force de dispersion.",
+        "correct": false,
+        "explanation": "La dispersion est présente dans toutes les molécules."
       },
+      {
+        "content": "Le méthane forme des liaisons hydrogène classiques aussi fortes que le méthanol.",
+        "correct": false,
+        "explanation": "Il ne possède pas de donneur classique X–H."
+      }
     ],
-    explanation:
-      `Les températures de changement d'état constituent un indice macroscopique de la cohésion intermoléculaire.`,
+    "explanation": "Plusieurs interactions peuvent coexister ; on parle d'interaction dominante sans exclure les autres."
   },
   {
-    order: 43,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `À propos du fluorure d'hydrogène $\\ce{HF}$, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 43,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant l'éthanol et l'éther diméthylique, isomères de formule $\\ce{C2H6O}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `L'hydrogène porte une charge partielle positive.`,
-        correct: true,
-        explanation: `Le fluor attire fortement les électrons de la liaison covalente.`,
+        "content": "L'éthanol peut donner et accepter des liaisons hydrogène.",
+        "correct": true,
+        "explanation": "Le groupe O–H est donneur et l'oxygène accepteur."
       },
       {
-        content: `Le fluor d'une molécule voisine peut jouer le rôle d'accepteur de liaison hydrogène.`,
-        correct: true,
-        explanation: `Il possède des doublets non liants.`,
+        "content": "Cette différence peut contribuer à des températures d'ébullition différentes.",
+        "correct": true,
+        "explanation": "Le réseau intermoléculaire de l'éthanol est plus riche."
       },
       {
-        content: `La liaison covalente H-F à l'intérieur d'une molécule est elle-même une liaison hydrogène.`,
-        correct: false,
-        explanation: `La liaison H-F interne est covalente polarisée.`,
+        "content": "L'éther diméthylique ne possède aucune interaction avec l'eau.",
+        "correct": false,
+        "explanation": "Son oxygène peut accepter des liaisons hydrogène de l'eau."
       },
       {
-        content: `Dans l'organisation simplifiée retenue dans le cours, une molécule de $\\ce{HF}$ peut participer à deux liaisons hydrogène avec ses voisines, l'une comme donneur et l'autre comme accepteur.`,
-        correct: true,
-        explanation: `C'est le schéma en chaîne présenté dans la fiche pour le fluorure d'hydrogène.`,
+        "content": "Les deux molécules ont nécessairement exactement les mêmes propriétés physiques car elles sont isomères.",
+        "correct": false,
+        "explanation": "La connectivité modifie les interactions."
       },
+      {
+        "content": "L'éther diméthylique peut accepter une liaison hydrogène mais ne possède pas de groupe O–H donneur.",
+        "correct": true,
+        "explanation": "L'oxygène porte des doublets mais aucun H n'y est lié."
+      }
     ],
-    explanation:
-      `Dans une chaîne de HF, une molécule peut être donneuse par son H et accepteur par son F.`,
+    "explanation": "La présence d'un donneur O–H change profondément le réseau de liaisons hydrogène possible."
   },
   {
-    order: 44,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Dans un mélange d'eau et de méthanol $\\ce{CH3OH}$, sélectionnez exactement les deux propositions correctes.`,
-    choices: [
+    "order": 44,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les liaisons hydrogène dans l'ADN bicaténaire, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `L'oxygène de l'eau peut accepter une liaison hydrogène donnée par le groupe O-H du méthanol.`,
-        correct: true,
-        explanation: `L'oxygène possède des doublets non liants.`,
+        "content": "Elles impliquent uniquement des atomes de carbone et d'hydrogène.",
+        "correct": false,
+        "explanation": "N et O jouent des rôles essentiels de donneur/accepteur."
       },
       {
-        content: `L'eau peut donner une liaison hydrogène vers l'oxygène du méthanol.`,
-        correct: true,
-        explanation: `L'oxygène du méthanol peut jouer le rôle d'accepteur.`,
+        "content": "Elles sont des liaisons covalentes reliant définitivement les deux brins.",
+        "correct": false,
+        "explanation": "Ce sont des interactions non covalentes."
       },
       {
-        content: `La miscibilité repose uniquement sur des interactions de Van der Waals.`,
-        correct: false,
-        explanation: `Les liaisons hydrogène jouent un rôle majeur.`,
+        "content": "Elles ne sont pas les seules forces stabilisant la double hélice.",
+        "correct": true,
+        "explanation": "L'empilement des bases et d'autres interactions contribuent également."
       },
       {
-        content: `Le méthanol ne peut jamais être accepteur de liaison hydrogène.`,
-        correct: false,
-        explanation: `Son oxygène possède des doublets non liants.`,
+        "content": "Elles sont individuellement réversibles.",
+        "correct": true,
+        "explanation": "Cette propriété facilite séparation et réassociation des brins."
       },
+      {
+        "content": "Elles contribuent à la reconnaissance complémentaire des bases.",
+        "correct": true,
+        "explanation": "La disposition des donneurs et accepteurs est spécifique."
+      }
     ],
-    explanation:
-      `L'eau et le méthanol peuvent tous deux agir comme donneurs et accepteurs, ce qui favorise leur miscibilité.`,
+    "explanation": "La stabilité de l'ADN résulte de plusieurs contributions, dont les liaisons hydrogène et l'empilement des bases."
   },
   {
-    order: 45,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `L'éthanol $\\ce{CH3CH2OH}$ et l'éther diméthylique $\\ce{CH3OCH3}$ ont la même formule brute $\\ce{C2H6O}$. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 45,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle situation correspond à une liaison hydrogène intramoléculaire ?",
+    "choices": [
       {
-        content: `L'éthanol peut donner des liaisons hydrogène entre ses propres molécules grâce à sa liaison O-H.`,
-        correct: true,
-        explanation: `Il possède un hydrogène lié directement à l'oxygène.`,
+        "content": "Deux chaînes d'alcane interagissent par dispersion.",
+        "correct": false,
+        "explanation": "Ce n'est pas une liaison hydrogène."
       },
       {
-        content: `L'éther diméthylique peut accepter une liaison hydrogène grâce à l'oxygène.`,
-        correct: true,
-        explanation: `Son oxygène possède des doublets non liants.`,
+        "content": "Deux ions Na+ et Cl− s'attirent.",
+        "correct": false,
+        "explanation": "Il s'agit d'une interaction ionique."
       },
       {
-        content: `L'éther diméthylique peut donner une liaison hydrogène classique entre ses propres molécules.`,
-        correct: false,
-        explanation: `Il ne possède aucun hydrogène directement lié à O, N ou F.`,
+        "content": "Une liaison covalente C–C se forme.",
+        "correct": false,
+        "explanation": "Une liaison hydrogène n'est pas une nouvelle liaison covalente C–C."
       },
       {
-        content: `La formule brute identique impose des propriétés intermoléculaires identiques.`,
-        correct: false,
-        explanation: `La connectivité des atomes modifie les possibilités d'interaction.`,
+        "content": "Deux molécules d'eau distinctes interagissent par O–H···O.",
+        "correct": false,
+        "explanation": "C'est une interaction intermoléculaire."
       },
+      {
+        "content": "Un groupe O–H d'une molécule interagit avec un atome accepteur suffisamment proche de la même molécule.",
+        "correct": true,
+        "explanation": "L'interaction se forme à l'intérieur d'une seule entité moléculaire."
+      }
     ],
-    explanation:
-      `Deux isomères de même formule brute peuvent présenter des capacités différentes de donation de liaison hydrogène.`,
+    "explanation": "Une liaison hydrogène intramoléculaire peut favoriser certaines conformations et parfois diminuer l'accessibilité des groupes polaires au solvant."
   },
   {
-    order: 46,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Deux molécules d'acide éthanoïque $\\ce{CH3COOH}$ peuvent former un dimère cyclique. Sélectionnez exactement les deux propositions correctes.`,
-    choices: [
+    "order": 46,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant viscosité et interactions intermoléculaires, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `L'hydrogène du groupe O-H peut jouer le rôle de donneur.`,
-        correct: true,
-        explanation: `Il est fortement polarisé.`,
+        "content": "Des interactions intermoléculaires plus nombreuses ou plus fortes peuvent augmenter la résistance à l'écoulement.",
+        "correct": true,
+        "explanation": "Les molécules se déplacent plus difficilement les unes par rapport aux autres."
       },
       {
-        content: `L'oxygène carbonylé peut jouer le rôle d'accepteur.`,
-        correct: true,
-        explanation: `Il possède des doublets non liants.`,
+        "content": "La viscosité dépend aussi de la taille et de la forme des molécules.",
+        "correct": true,
+        "explanation": "L'enchevêtrement et les contacts jouent un rôle."
       },
       {
-        content: `Le dimère est créé par deux nouvelles liaisons covalentes O-H entre molécules.`,
-        correct: false,
-        explanation: `Les deux interactions sont des liaisons hydrogène.`,
+        "content": "Des interactions plus fortes rendent toujours tout liquide moins visqueux.",
+        "correct": false,
+        "explanation": "La tendance générale est plutôt inverse."
       },
       {
-        content: `Cette association diminue nécessairement la cohésion entre les deux molécules.`,
-        correct: false,
-        explanation: `Les interactions attractives renforcent leur association.`,
+        "content": "Un réseau de liaisons hydrogène peut contribuer à une viscosité élevée.",
+        "correct": true,
+        "explanation": "C'est notamment le cas de polyols."
       },
+      {
+        "content": "La viscosité est déterminée uniquement par la masse molaire.",
+        "correct": false,
+        "explanation": "Les interactions et la géométrie sont aussi importantes."
+      }
     ],
-    explanation:
-      `Un acide carboxylique possède à la fois un site donneur et un site accepteur permettant la formation de dimères par deux liaisons hydrogène.`,
+    "explanation": "La viscosité est une propriété collective sensible aux interactions et à l'architecture moléculaire."
   },
   {
-    order: 47,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Le glycérol possède trois groupes hydroxyle et une viscosité élevée. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 47,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pourquoi le glycérol $\\ce{HOCH2-CHOH-CH2OH}$ est-il très miscible à l'eau ?",
+    "choices": [
       {
-        content: `Ses groupes O-H permettent la formation d'un réseau de liaisons hydrogène.`,
-        correct: true,
-        explanation: `Le glycérol peut multiplier les interactions avec ses voisines.`,
+        "content": "Il est fortement polaire.",
+        "correct": true,
+        "explanation": "Les trois groupes hydroxyle dominent son comportement."
       },
       {
-        content: `Une forte cohésion intermoléculaire peut contribuer à sa viscosité.`,
-        correct: true,
-        explanation: `Les molécules se déplacent moins facilement les unes par rapport aux autres.`,
+        "content": "Ses oxygènes peuvent accepter des liaisons hydrogène.",
+        "correct": true,
+        "explanation": "Les doublets non liants interagissent avec l'eau."
       },
       {
-        content: `Le glycérol est apolaire car il contient trois carbones.`,
-        correct: false,
-        explanation: `Les trois groupes hydroxyle lui confèrent un fort caractère polaire.`,
+        "content": "Il est totalement apolaire.",
+        "correct": false,
+        "explanation": "C'est l'inverse."
       },
       {
-        content: `Ses groupes hydroxyle empêchent toute interaction avec l'eau.`,
-        correct: false,
-        explanation: `Ils favorisent au contraire les liaisons hydrogène avec l'eau.`,
+        "content": "Sa miscibilité exige la rupture de ses liaisons C–C.",
+        "correct": false,
+        "explanation": "La dissolution ne rompt pas le squelette covalent."
       },
+      {
+        "content": "Il possède plusieurs groupes hydroxyle capables de donner des liaisons hydrogène.",
+        "correct": true,
+        "explanation": "Chaque O–H peut agir comme donneur."
+      }
     ],
-    explanation:
-      `Les nombreux groupes hydroxyle du glycérol expliquent une forte capacité à établir des liaisons hydrogène et contribuent à sa viscosité.`,
+    "explanation": "Le glycérol illustre la forte affinité de petites molécules polyhydroxylées pour l'eau."
   },
   {
-    order: 48,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Dans l'aldéhyde salicylique, une liaison hydrogène peut se former à l'intérieur d'une même molécule entre deux groupes voisins. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 48,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant l'effet de la masse molaire et de la polarisabilité dans une série d'alcanes, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Il s'agit d'une liaison hydrogène intramoléculaire.`,
-        correct: true,
-        explanation: `Le donneur et l'accepteur appartiennent au même édifice moléculaire.`,
+        "content": "La température d'ébullition tend globalement à augmenter dans une série homologue d'alcanes linéaires.",
+        "correct": true,
+        "explanation": "La cohésion intermoléculaire augmente."
       },
       {
-        content: `Elle peut limiter certaines rotations et stabiliser une conformation plus rigide.`,
-        correct: true,
-        explanation: `L'interaction peut verrouiller une géométrie particulière.`,
+        "content": "Les forces de dispersion tendent à devenir plus importantes lorsque la chaîne s'allonge.",
+        "correct": true,
+        "explanation": "La polarisabilité et la surface de contact augmentent."
       },
       {
-        content: `Une liaison hydrogène relie obligatoirement deux molécules distinctes.`,
-        correct: false,
-        explanation: `Elle peut être intermoléculaire ou intramoléculaire.`,
+        "content": "La polarisabilité tend généralement à augmenter avec la taille du nuage électronique.",
+        "correct": true,
+        "explanation": "Les électrons sont plus nombreux et plus déformables."
       },
       {
-        content: `Cette interaction rend nécessairement la molécule plus flexible.`,
-        correct: false,
-        explanation: `Elle peut au contraire réduire la liberté conformationnelle.`,
+        "content": "Les forces de dispersion disparaissent pour les grosses molécules.",
+        "correct": false,
+        "explanation": "Elles deviennent au contraire plus importantes."
       },
+      {
+        "content": "La masse molaire n'a jamais aucun lien avec la polarisabilité.",
+        "correct": false,
+        "explanation": "Dans une famille comparable, les deux évoluent souvent ensemble."
+      }
     ],
-    explanation:
-      `Les liaisons hydrogène peuvent aussi stabiliser localement la géométrie d'une molécule unique.`,
+    "explanation": "Dans une série homologue, l'augmentation de taille renforce généralement la dispersion."
   },
   {
-    order: 49,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `À propos des liaisons hydrogène dans les biomolécules, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 49,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les interactions ion-dipôle, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Elles contribuent à stabiliser certaines hélices et certains feuillets des protéines.`,
-        correct: true,
-        explanation: `Les groupes amide du squelette peptidique peuvent former des réseaux de liaisons hydrogène.`,
+        "content": "Elles sont identiques à une liaison covalente.",
+        "correct": false,
+        "explanation": "Il s'agit d'une interaction non covalente électrostatique."
       },
       {
-        content: `Une paire guanine-cytosine comporte classiquement trois liaisons hydrogène, contre deux pour une paire adénine-thymine.`,
-        correct: true,
-        explanation: `C'est le décompte retenu dans le cours.`,
+        "content": "Elles peuvent être importantes pour la dissolution d'un sel dans l'eau.",
+        "correct": true,
+        "explanation": "La solvatation stabilise les ions séparés."
       },
       {
-        content: `Les deux brins d'ADN sont unis uniquement par des liaisons covalentes entre bases complémentaires.`,
-        correct: false,
-        explanation: `Les bases des deux brins sont notamment associées par des interactions non covalentes.`,
+        "content": "Elles sont impossibles avec une molécule neutre.",
+        "correct": false,
+        "explanation": "Une molécule polaire peut être globalement neutre."
       },
       {
-        content: `Le caractère labile des liaisons hydrogène interdit toute ouverture de la double hélice.`,
-        correct: false,
-        explanation: `Cette labilité permet au contraire des ruptures transitoires.`,
+        "content": "Elles contribuent à l'hydratation des ions en solution aqueuse.",
+        "correct": true,
+        "explanation": "L'eau s'oriente autour des ions."
       },
+      {
+        "content": "Elles peuvent apparaître entre un ion et une molécule polaire.",
+        "correct": true,
+        "explanation": "L'ion attire l'extrémité de signe opposé du dipôle."
+      }
     ],
-    explanation:
-      `Les liaisons hydrogène sont assez nombreuses pour stabiliser des structures biologiques tout en restant réversibles.`,
+    "explanation": "Les interactions ion-dipôle constituent un pont entre chimie ionique et polarité moléculaire."
   },
   {
-    order: 50,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant les interactions intermoléculaires et les changements d'état, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 50,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle interaction est particulièrement importante entre $\\ce{Na+}$ et les molécules d'eau de sa couche d'hydratation ?",
+    "choices": [
       {
-        content: `Une cohésion plus importante tend à élever les températures de fusion et de vaporisation.`,
-        correct: true,
-        explanation: `Davantage d'énergie est nécessaire pour séparer ou réorganiser les molécules.`,
+        "content": "Une liaison hydrogène avec Na+ comme donneur O–H.",
+        "correct": false,
+        "explanation": "Na+ n'est pas un donneur d'hydrogène."
       },
       {
-        content: `Lors de la vaporisation, les molécules sont éloignées sans rupture systématique de leurs liaisons covalentes.`,
-        correct: true,
-        explanation: `La vaporisation est un changement physique.`,
+        "content": "Aucune interaction, car l'eau est neutre.",
+        "correct": false,
+        "explanation": "Son dipôle permanent interagit fortement avec l'ion."
       },
       {
-        content: `Une liaison hydrogène est plus faible qu'une interaction de Van der Waals dans les ordres de grandeur du cours.`,
-        correct: false,
-        explanation: `La fiche donne l'ordre inverse.`,
+        "content": "Une interaction ion-dipôle.",
+        "correct": true,
+        "explanation": "L'oxygène partiellement négatif de l'eau s'oriente vers le cation."
       },
       {
-        content: `Les interactions intermoléculaires sont irréversibles.`,
-        correct: false,
-        explanation: `Elles peuvent se rompre et se reformer.`,
+        "content": "Une liaison covalente Na–O obligatoire.",
+        "correct": false,
+        "explanation": "L'hydratation ne requiert pas une liaison covalente classique."
       },
+      {
+        "content": "Une force uniquement nucléaire.",
+        "correct": false,
+        "explanation": "L'interaction est électrostatique."
+      }
     ],
-    explanation:
-      `Les propriétés macroscopiques des liquides traduisent en partie l'intensité et le nombre des interactions entre molécules.`,
+    "explanation": "L'hydratation d'un ion repose sur l'orientation des dipôles de l'eau autour de la charge."
   },
   {
-    order: 53,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Dans un modèle électrostatique simplifié, l'intensité d'une attraction varie comme $F\\propto1/d^2$. Si la distance entre les deux partenaires est doublée sans modifier les charges, par quel facteur la force est-elle multipliée ?`,
-    answer: { type: 'number', value: 0.25, tolerance: 0.001 },
-    explanation:
-      `Si $d$ devient $2d$, alors $F$ est multipliée par $1/2^2=1/4=0{,}25$.`,
-  },
-  {
-    order: 54,
-    difficulty: 'MEDIUM',
-    format: 'QZONE',
-    question: `Dans le schéma, cliquez sur la liaison hydrogène intermoléculaire entre le méthanol et l'eau.`,
-    image: {
-      src: '/images/training/ue14/chimie/liaison-hydrogene-methanol-eau-qzone.svg',
-      alt: 'Schéma d’une molécule de méthanol et d’une molécule d’eau reliées par une liaison hydrogène en pointillés',
-      width: 1100,
-      height: 520,
+    "order": 53,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Dans un modèle électrostatique simplifié où $F\\propto1/d^2$, si la distance entre deux partenaires est doublée, par quel facteur la force est-elle multipliée ?",
+    "answer": {
+      "type": "number",
+      "value": 0.25,
+      "tolerance": 0.001
     },
-    expectedZones: [
-      {
-        id: 'hydrogen-bond',
-        label: `Liaison hydrogène O···H`,
-        x: 0.51,
-        y: 0.50,
-        tolerance: 0.075,
-      },
-    ],
-    explanation:
-      `La liaison hydrogène est représentée par les pointillés entre l'oxygène accepteur du méthanol et l'hydrogène $\\delta^{+}$ lié à l'oxygène de la molécule d'eau. Les traits pleins correspondent aux liaisons covalentes internes aux molécules.`,
+    "explanation": "Si $d$ devient $2d$, alors $F$ est multipliée par $1/2^2=1/4=0{,}25$."
   },
+  {
+    "order": 54,
+    "difficulty": "MEDIUM",
+    "format": "QZONE",
+    "question": "Dans le schéma, cliquez sur la liaison hydrogène intermoléculaire entre le méthanol et l'eau.",
+    "image": {
+      "src": "/images/training/ue14/chimie/liaison-hydrogene-methanol-eau-qzone.svg",
+      "alt": "Schéma d'une molécule de méthanol et d'une molécule d'eau reliées par une liaison hydrogène en pointillés",
+      "width": 1100,
+      "height": 520
+    },
+    "expectedZones": [
+      {
+        "id": "hydrogen-bond",
+        "label": "Liaison hydrogène O···H",
+        "x": 0.51,
+        "y": 0.5,
+        "tolerance": 0.09
+      }
+    ],
+    "explanation": "La liaison hydrogène est l'interaction en pointillés entre l'hydrogène donneur lié à l'oxygène et l'oxygène accepteur de la molécule voisine."
+  }
 ];

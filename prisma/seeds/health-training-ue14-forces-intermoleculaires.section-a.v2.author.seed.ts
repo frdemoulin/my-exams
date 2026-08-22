@@ -1,627 +1,742 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 4 – Forces intermoléculaires
- * Section A – Polarité des molécules
- */
-
+/** UE14 – Chimie générale – Chapitre 1.4 – Section A – Polarité des molécules */
 export const UE14_CH4_POLARITE_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 1,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Concernant le vecteur moment dipolaire d'une liaison polarisée, quelle proposition est correcte dans la convention utilisée dans le cours ?`,
-    choices: [
+    "order": 1,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle proposition décrit correctement une liaison covalente polarisée ?",
+    "choices": [
       {
-        content: `Il est orienté du pôle partiellement positif vers le pôle partiellement négatif.`,
-        correct: true,
-        explanation: `C'est la convention chimique retenue dans la fiche.`,
+        "content": "Le doublet liant est attiré davantage vers l'atome le plus électronégatif, ce qui crée des charges partielles.",
+        "correct": true,
+        "explanation": "Une différence d'électronégativité déplace la densité électronique sans imposer nécessairement un transfert complet d'électron."
       },
       {
-        content: `Il est orienté du pôle partiellement négatif vers le pôle partiellement positif.`,
-        correct: false,
-        explanation: `Cette orientation est opposée à la convention utilisée dans le cours.`,
+        "content": "Les deux atomes portent nécessairement des charges entières opposées.",
+        "correct": false,
+        "explanation": "Des charges partielles $\\delta^+$ et $\\delta^-$ suffisent à décrire une liaison covalente polarisée."
       },
       {
-        content: `Il est toujours nul dès que la molécule est électriquement neutre.`,
-        correct: false,
-        explanation: `Une molécule neutre peut présenter une séparation dissymétrique de charges partielles.`,
+        "content": "La liaison ne contient aucun électron partagé.",
+        "correct": false,
+        "explanation": "Une liaison covalente repose sur un partage électronique."
       },
       {
-        content: `Il est dirigé vers l'atome le moins électronégatif.`,
-        correct: false,
-        explanation: `Le pôle négatif se situe du côté de l'atome le plus électronégatif.`,
+        "content": "Une liaison entre deux atomes identiques est toujours fortement polarisée.",
+        "correct": false,
+        "explanation": "Deux atomes identiques ont la même électronégativité."
       },
+      {
+        "content": "La polarisation dépend uniquement de la masse des noyaux.",
+        "correct": false,
+        "explanation": "Elle dépend surtout de la distribution électronique et des électronégativités."
+      }
     ],
-    explanation:
-      `Une liaison polarisée présente deux charges partielles opposées. Dans la convention du cours, le vecteur moment dipolaire est orienté de $\\delta^{+}$ vers $\\delta^{-}$.`,
+    "explanation": "Une liaison polarisée est une liaison covalente dont la densité électronique est dissymétrique."
   },
   {
-    order: 2,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Pour une molécule diatomique, on utilise $\\mu=q\\,d$. Si $q=2{,}0\\times10^{-20}\\,\\mathrm{C}$ et $d=1{,}5\\times10^{-10}\\,\\mathrm{m}$, quelle est la valeur de $\\mu$ en $\\mathrm{C\\cdot m}$ ?`,
-    answer: { type: 'number', value: 3.0e-30, tolerance: 0.05e-30 },
-    explanation:
-      `$\\mu=q\\,d=(2{,}0\\times10^{-20})(1{,}5\\times10^{-10})=3{,}0\\times10^{-30}\\,\\mathrm{C\\cdot m}$.`,
+    "order": 2,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Pour une liaison polarisée, on utilise $\\mu=q\\,d$. Si $q=2{,}0\\times10^{-20}\\,\\mathrm C$ et $d=1{,}5\\times10^{-10}\\,\\mathrm m$, quelle est la valeur de $\\mu$ en $\\mathrm{C\\,m}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 3e-30,
+      "tolerance": 5e-32
+    },
+    "explanation": "$\\mu=(2{,}0\\times10^{-20})(1{,}5\\times10^{-10})=3{,}0\\times10^{-30}\\,\\mathrm{C\\,m}$."
   },
   {
-    order: 3,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant le moment dipolaire d'une molécule polyatomique, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 3,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le moment dipolaire global d'une molécule, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Il résulte de la somme vectorielle des moments dipolaires de liaison.`,
-        correct: true,
-        explanation: `Les directions et les sens des vecteurs doivent être pris en compte.`,
+        "content": "Il est toujours égal à la somme arithmétique des modules des dipôles de liaison.",
+        "correct": false,
+        "explanation": "Les directions doivent être prises en compte."
       },
       {
-        content: `Il peut être nul alors que plusieurs liaisons de la molécule sont polarisées.`,
-        correct: true,
-        explanation: `Une géométrie suffisamment symétrique peut conduire à une compensation des dipôles.`,
+        "content": "Il dépend de la polarisation des liaisons.",
+        "correct": true,
+        "explanation": "Des liaisons très polarisées peuvent contribuer fortement au dipôle moléculaire."
       },
       {
-        content: `Il correspond toujours à la somme arithmétique des modules des dipôles de liaison.`,
-        correct: false,
-        explanation: `Une addition scalaire ignorerait la géométrie et la direction des vecteurs.`,
+        "content": "Une molécule électriquement neutre a nécessairement un moment dipolaire nul.",
+        "correct": false,
+        "explanation": "L'eau est neutre mais polaire."
       },
       {
-        content: `Il dépend uniquement de la formule brute de la molécule.`,
-        correct: false,
-        explanation: `La géométrie moléculaire est déterminante.`,
+        "content": "Il dépend de la géométrie de la molécule.",
+        "correct": true,
+        "explanation": "La somme vectorielle peut conduire à une compensation ou à une résultante."
       },
+      {
+        "content": "Il peut être nul même si certaines liaisons sont polarisées.",
+        "correct": true,
+        "explanation": "Une géométrie symétrique peut annuler les contributions."
+      }
     ],
-    explanation:
-      `La polarité globale dépend à la fois de la polarisation des liaisons et de leur orientation dans l'espace.`,
+    "explanation": "La polarité moléculaire est une propriété vectorielle globale : liaison et géométrie doivent être analysées ensemble."
   },
   {
-    order: 4,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `La molécule d'eau $\\ce{H2O}$ possède une géométrie coudée. Pourquoi son moment dipolaire global est-il non nul ?`,
-    choices: [
+    "order": 4,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Pourquoi la molécule d'eau $\\ce{H2O}$ est-elle polaire ?",
+    "choices": [
       {
-        content: `Les deux moments dipolaires des liaisons $\\ce{O-H}$ ne sont pas opposés et leur somme est dirigée globalement vers l'oxygène.`,
-        correct: true,
-        explanation: `La géométrie coudée empêche l'annulation des deux vecteurs.`,
+        "content": "Parce que l'hydrogène est plus électronégatif que l'oxygène.",
+        "correct": false,
+        "explanation": "L'oxygène est plus électronégatif."
       },
       {
-        content: `La molécule possède une charge électrique entière négative.`,
-        correct: false,
-        explanation: `L'eau est globalement neutre.`,
+        "content": "Les liaisons O–H sont polarisées et la géométrie coudée empêche leur compensation.",
+        "correct": true,
+        "explanation": "Les deux contributions donnent une résultante non nulle."
       },
       {
-        content: `Les deux liaisons $\\ce{O-H}$ sont apolaires.`,
-        correct: false,
-        explanation: `L'oxygène est plus électronégatif que l'hydrogène.`,
+        "content": "Parce que toute molécule à trois atomes est polaire.",
+        "correct": false,
+        "explanation": "La géométrie et les liaisons déterminent la polarité."
       },
       {
-        content: `Les deux moments dipolaires sont exactement opposés.`,
-        correct: false,
-        explanation: `Ils ne le sont pas dans une géométrie coudée.`,
+        "content": "Parce que la molécule porte une charge entière négative.",
+        "correct": false,
+        "explanation": "L'eau est globalement neutre."
       },
+      {
+        "content": "Parce que les deux liaisons O–H sont exactement opposées.",
+        "correct": false,
+        "explanation": "L'angle H–O–H est voisin de 104,5°, pas 180°."
+      }
     ],
-    explanation:
-      `La neutralité électrique n'empêche pas une molécule d'être polaire. Dans l'eau, la géométrie coudée laisse une résultante dipolaire orientée vers l'oxygène.`,
+    "explanation": "L'eau illustre l'importance de la géométrie dans l'addition des moments de liaison."
   },
   {
-    order: 5,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux propositions correctes concernant $\\ce{BCl3}$.`,
-    choices: [
+    "order": 5,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux propositions correctes concernant $\\ce{BCl3}$.",
+    "choices": [
       {
-        content: `Les liaisons $\\ce{B-Cl}$ sont polarisées.`,
-        correct: true,
-        explanation: `Le chlore est plus électronégatif que le bore.`,
+        "content": "Les liaisons B–Cl sont polarisées.",
+        "correct": true,
+        "explanation": "Le chlore est plus électronégatif que le bore."
       },
       {
-        content: `La somme vectorielle des trois moments dipolaires est nulle dans la géométrie trigonale plane symétrique.`,
-        correct: true,
-        explanation: `Trois vecteurs identiques séparés d'environ $120^\\circ$ se compensent.`,
+        "content": "La molécule est globalement apolaire dans sa géométrie trigonale plane idéale.",
+        "correct": true,
+        "explanation": "Les trois dipôles se compensent par symétrie."
       },
       {
-        content: `La molécule est nécessairement polaire parce qu'elle contient trois liaisons polarisées.`,
-        correct: false,
-        explanation: `La géométrie permet leur annulation.`,
+        "content": "La molécule est pyramidale.",
+        "correct": false,
+        "explanation": "Le bore central est trigonal plan."
       },
       {
-        content: `Le moment dipolaire global est orienté vers un seul atome de chlore.`,
-        correct: false,
-        explanation: `Aucun chlore n'est privilégié dans cette géométrie symétrique.`,
+        "content": "Le moment dipolaire global est dirigé vers un chlore privilégié.",
+        "correct": false,
+        "explanation": "Les trois positions sont équivalentes."
       },
+      {
+        "content": "Les liaisons B–Cl sont apolaires car la molécule est apolaire.",
+        "correct": false,
+        "explanation": "Polarité de liaison et polarité moléculaire sont distinctes."
+      }
     ],
-    explanation:
-      `$\\ce{BCl3}$ illustre une molécule apolaire malgré la présence de plusieurs liaisons polarisées.`,
+    "explanation": "BCl3 montre qu'une molécule peut être apolaire alors que toutes ses liaisons sont polarisées."
   },
   {
-    order: 6,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos de $\\ce{CH4}$ et $\\ce{CCl4}$, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 6,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant $\\ce{CH4}$ et $\\ce{CCl4}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Les deux molécules présentent une géométrie tétraédrique symétrique.`,
-        correct: true,
-        explanation: `Les quatre substituants identiques sont répartis de façon tétraédrique.`,
+        "content": "$\\ce{CCl4}$ possède des liaisons C–Cl polarisées.",
+        "correct": true,
+        "explanation": "Cl est plus électronégatif que C."
       },
       {
-        content: `Dans $\\ce{CCl4}$, les quatre moments dipolaires $\\ce{C-Cl}$ s'annulent.`,
-        correct: true,
-        explanation: `La symétrie tétraédrique conduit à une résultante nulle.`,
+        "content": "Les deux molécules sont tétraédriques.",
+        "correct": true,
+        "explanation": "Le carbone central possède quatre directions de liaison."
       },
       {
-        content: `$\\ce{CCl4}$ est polaire parce que chacune de ses liaisons $\\ce{C-Cl}$ est polarisée.`,
-        correct: false,
-        explanation: `Il faut prendre en compte la somme vectorielle des quatre dipôles.`,
+        "content": "Une molécule tétraédrique est toujours apolaire.",
+        "correct": false,
+        "explanation": "La nature des substituants peut rompre la symétrie."
       },
       {
-        content: `$\\ce{CH4}$ et $\\ce{CCl4}$ sont classées comme molécules polaires dans la fiche.`,
-        correct: false,
-        explanation: `Elles sont classées parmi les molécules apolaires.`,
+        "content": "$\\ce{CH4}$ possède un fort moment dipolaire global.",
+        "correct": false,
+        "explanation": "La molécule est très symétrique et globalement apolaire."
       },
+      {
+        "content": "$\\ce{CCl4}$ est globalement apolaire dans sa géométrie tétraédrique symétrique.",
+        "correct": true,
+        "explanation": "Les quatre dipôles se compensent."
+      }
     ],
-    explanation:
-      `Une géométrie très symétrique peut annuler des moments de liaison, même lorsque chaque liaison prise séparément est polarisée.`,
+    "explanation": "La symétrie permet de comprendre pourquoi CCl4 est apolaire alors que CH3Cl ne l'est pas."
   },
   {
-    order: 7,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `On compare les isomères cis et trans du dichloroéthène. Quelles propositions sont exactes dans le modèle du cours ?`,
-    choices: [
+    "order": 7,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "On compare les isomères cis- et trans-1,2-dichloroéthène. Quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Dans l'isomère cis, les deux atomes de chlore sont situés du même côté de la double liaison.`,
-        correct: true,
-        explanation: `C'est la définition géométrique de l'isomère cis considéré.`,
+        "content": "Les deux isomères doivent avoir exactement le même moment dipolaire car ils ont la même formule brute.",
+        "correct": false,
+        "explanation": "La géométrie modifie la somme vectorielle."
       },
       {
-        content: `Dans l'isomère cis, les contributions des liaisons polarisées peuvent s'additionner et donner une résultante non nulle.`,
-        correct: true,
-        explanation: `La disposition des chlores ne permet pas une compensation complète.`,
+        "content": "L'isomérie géométrique ne peut jamais influencer une propriété physique.",
+        "correct": false,
+        "explanation": "Elle peut modifier polarité, température d'ébullition ou solubilité."
       },
       {
-        content: `Dans l'isomère trans, la disposition opposée des chlores favorise l'annulation des dipôles.`,
-        correct: true,
-        explanation: `La symétrie plus élevée favorise leur compensation.`,
+        "content": "Dans l'isomère trans idéal, les contributions peuvent se compenser beaucoup plus fortement.",
+        "correct": true,
+        "explanation": "La géométrie est plus symétrique."
       },
       {
-        content: `Les deux isomères ont nécessairement le même moment dipolaire puisqu'ils ont la même formule brute.`,
-        correct: false,
-        explanation: `La géométrie spatiale influence directement la somme vectorielle.`,
+        "content": "L'isomère cis possède généralement une résultante dipolaire non nulle.",
+        "correct": true,
+        "explanation": "Les dipôles C–Cl ne se compensent pas complètement."
       },
+      {
+        "content": "La disposition spatiale des liaisons C–Cl diffère entre les deux isomères.",
+        "correct": true,
+        "explanation": "L'isomérie géométrique change l'orientation relative des dipôles."
+      }
     ],
-    explanation:
-      `L'isomérie géométrique montre que la formule brute ne suffit pas à prévoir la polarité : l'orientation des liaisons est déterminante.`,
+    "explanation": "La formule brute ne suffit pas : la géométrie moléculaire peut modifier fortement la polarité globale."
   },
   {
-    order: 8,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux associations correctes entre molécule et polarité.`,
-    choices: [
+    "order": 8,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux molécules globalement polaires.",
+    "choices": [
       {
-        content: `Le benzène $\\ce{C6H6}$ est globalement apolaire.`,
-        correct: true,
-        explanation: `Sa structure symétrique conduit à une résultante dipolaire nulle.`,
+        "content": "$\\ce{BCl3}$.",
+        "correct": false,
+        "explanation": "La géométrie trigonale plane symétrique annule les contributions."
       },
       {
-        content: `Le méthanol $\\ce{CH3OH}$ est polaire, avec une résultante orientée globalement vers l'oxygène.`,
-        correct: true,
-        explanation: `Le groupe oxygéné introduit une forte dissymétrie électronique.`,
+        "content": "$\\ce{CH3Cl}$.",
+        "correct": true,
+        "explanation": "La substitution par Cl rompt la symétrie tétraédrique."
       },
       {
-        content: `La propanone $\\ce{CH3COCH3}$ est apolaire.`,
-        correct: false,
-        explanation: `Le groupe carbonyle confère à la propanone un moment dipolaire global.`,
+        "content": "$\\ce{CCl4}$.",
+        "correct": false,
+        "explanation": "La symétrie tétraédrique annule les dipôles."
       },
       {
-        content: `L'eau est moins polaire que le méthane.`,
-        correct: false,
-        explanation: `Le méthane est apolaire alors que l'eau est très polaire.`,
+        "content": "$\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "Les deux dipôles C=O se compensent dans la géométrie linéaire."
       },
+      {
+        "content": "$\\ce{H2O}$.",
+        "correct": true,
+        "explanation": "La géométrie coudée donne une résultante non nulle."
+      }
     ],
-    explanation:
-      `La polarité globale résulte de la structure complète de la molécule, et non de la seule présence de certains atomes.`,
+    "explanation": "La polarité moléculaire dépend de la présence de liaisons polarisées et de l'absence de compensation géométrique."
   },
   {
-    order: 9,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant la miscibilité et la polarité, quelles propositions constituent de bons repères qualitatifs dans le cadre du cours ?`,
-    choices: [
+    "order": 9,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant polarité et miscibilité, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Les substances polaires sont généralement miscibles avec des solvants polaires.`,
-        correct: true,
-        explanation: `Des interactions favorables peuvent s'établir entre espèces de polarités comparables.`,
+        "content": "La géométrie moléculaire n'a aucun effet sur la miscibilité.",
+        "correct": false,
+        "explanation": "Elle influence la polarité et les interactions."
       },
       {
-        content: `Les substances apolaires sont généralement miscibles avec des solvants apolaires.`,
-        correct: true,
-        explanation: `C'est le repère qualitatif « le semblable dissout le semblable ».`,
+        "content": "Une substance apolaire se mélange souvent mieux avec un solvant apolaire qu'avec l'eau.",
+        "correct": true,
+        "explanation": "C'est l'idée qualitative « le semblable dissout le semblable »."
       },
       {
-        content: `Toute molécule apolaire est parfaitement miscible avec l'eau.`,
-        correct: false,
-        explanation: `L'eau est très polaire et les substances apolaires y sont généralement peu solubles.`,
+        "content": "Deux liquides polaires capables d'interactions favorables ont souvent une bonne miscibilité.",
+        "correct": true,
+        "explanation": "Les interactions soluté-solvant peuvent compenser la séparation des molécules initiales."
       },
       {
-        content: `La polarité n'a aucune influence sur la miscibilité.`,
-        correct: false,
-        explanation: `Elle constitue au contraire un facteur important.`,
+        "content": "La polarité est un facteur important mais ne suffit pas toujours à prédire quantitativement la miscibilité.",
+        "correct": true,
+        "explanation": "Taille, structure et interactions spécifiques interviennent aussi."
       },
+      {
+        "content": "Toute substance polaire est miscible à l'eau en toute proportion.",
+        "correct": false,
+        "explanation": "La polarité seule ne garantit pas une miscibilité totale."
+      }
     ],
-    explanation:
-      `La règle « le semblable dissout le semblable » est un repère qualitatif utile, même si la miscibilité réelle dépend aussi d'autres paramètres.`,
+    "explanation": "La miscibilité se raisonne à partir de l'ensemble des interactions possibles, pas d'une seule étiquette polaire/apolaire."
   },
   {
-    order: 10,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Pour déterminer qualitativement si une molécule est polaire, sélectionnez exactement les deux étapes indispensables.`,
-    choices: [
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quel énoncé décrit le mieux le méthanol $\\ce{CH3OH}$ ?",
+    "choices": [
       {
-        content: `Repérer les liaisons polarisées et le sens de leurs moments dipolaires.`,
-        correct: true,
-        explanation: `Il faut identifier les dipôles élémentaires.`,
+        "content": "C'est une molécule polaire capable de former des liaisons hydrogène.",
+        "correct": true,
+        "explanation": "Le groupe O–H est donneur et l'oxygène est accepteur."
       },
       {
-        content: `Prendre en compte la géométrie afin d'effectuer leur somme vectorielle.`,
-        correct: true,
-        explanation: `La géométrie détermine si les vecteurs s'additionnent ou se compensent.`,
+        "content": "Elle ne peut interagir qu'avec d'autres molécules de méthanol.",
+        "correct": false,
+        "explanation": "Elle peut interagir avec de nombreuses espèces polaires."
       },
       {
-        content: `Conclure qu'une liaison polarisée rend toujours toute la molécule polaire.`,
-        correct: false,
-        explanation: `$\\ce{BCl3}$ ou $\\ce{CCl4}$ montrent que c'est faux.`,
+        "content": "Elle ne possède aucune interaction avec l'eau.",
+        "correct": false,
+        "explanation": "Elle est miscible à l'eau grâce aux interactions polaires et aux liaisons hydrogène."
       },
       {
-        content: `Utiliser uniquement la masse molaire de la molécule.`,
-        correct: false,
-        explanation: `La masse molaire ne permet pas de déterminer la somme vectorielle des dipôles.`,
+        "content": "Son oxygène ne possède aucun doublet non liant.",
+        "correct": false,
+        "explanation": "L'oxygène en possède deux dans le modèle de Lewis usuel."
       },
+      {
+        "content": "C'est une molécule apolaire car elle contient un groupe méthyle.",
+        "correct": false,
+        "explanation": "Le groupe hydroxyle domine fortement le comportement polaire."
+      }
     ],
-    explanation:
-      `La démarche repose sur deux informations : la polarisation des liaisons puis leur disposition géométrique.`,
-  },
+    "explanation": "Le méthanol est un exemple simple de molécule polaire protique."
+  }
 ];
 
 export const UE14_CH4_POLARITE_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 31,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Pour une liaison polarisée, $q=1{,}6\\times10^{-19}\\,\\mathrm{C}$ et $d=120\\,\\mathrm{pm}$. Quelle est la valeur de $\\mu=q\\,d$ en $\\mathrm{C\\cdot m}$ ?`,
-    answer: { type: 'number', value: 1.92e-29, tolerance: 0.05e-29 },
-    explanation:
-      `$120\\,\\mathrm{pm}=1{,}20\\times10^{-10}\\,\\mathrm{m}$, donc $\\mu=(1{,}6\\times10^{-19})(1{,}20\\times10^{-10})=1{,}92\\times10^{-29}\\,\\mathrm{C\\cdot m}$.`,
+    "order": 31,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Pour une liaison polarisée, $q=1{,}6\\times10^{-19}\\,\\mathrm C$ et $d=120\\,\\mathrm{pm}$. Quelle est la valeur de $\\mu=q\\,d$ en $\\mathrm{C\\,m}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 1.92e-29,
+      "tolerance": 5e-31
+    },
+    "explanation": "$120\\,\\mathrm{pm}=1{,}20\\times10^{-10}\\,\\mathrm m$, donc $\\mu=1{,}92\\times10^{-29}\\,\\mathrm{C\\,m}$."
   },
   {
-    order: 32,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `On compare $\\ce{CO2}$, linéaire, et $\\ce{SO2}$, coudée. Les liaisons avec l'oxygène sont polarisées. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 32,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "On compare $\\ce{CO2}$, linéaire, et $\\ce{SO2}$, coudée. Quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Dans $\\ce{CO2}$, les deux moments dipolaires de liaison sont opposés et s'annulent.`,
-        correct: true,
-        explanation: `La géométrie linéaire et la symétrie conduisent à une résultante nulle.`,
+        "content": "La formule brute seule suffit à déterminer la polarité.",
+        "correct": false,
+        "explanation": "La géométrie est indispensable."
       },
       {
-        content: `Dans $\\ce{SO2}$, la géométrie coudée conduit à une résultante dipolaire non nulle.`,
-        correct: true,
-        explanation: `Les deux vecteurs ne sont pas opposés.`,
+        "content": "Dans CO2, les deux moments de liaison C=O se compensent dans la géométrie idéale.",
+        "correct": true,
+        "explanation": "Ils sont opposés et de même intensité."
       },
       {
-        content: `$\\ce{CO2}$ est nécessairement polaire car chaque liaison $\\ce{C=O}$ est polarisée.`,
-        correct: false,
-        explanation: `Les deux dipôles s'annulent.`,
+        "content": "CO2 est globalement apolaire malgré ses liaisons polarisées.",
+        "correct": true,
+        "explanation": "La symétrie annule la résultante."
       },
       {
-        content: `$\\ce{SO2}$ est apolaire parce qu'elle possède deux liaisons identiques.`,
-        correct: false,
-        explanation: `L'identité des liaisons ne suffit pas ; leur orientation est déterminante.`,
+        "content": "SO2 possède une résultante dipolaire non nulle.",
+        "correct": true,
+        "explanation": "Les deux liaisons ne sont pas colinéaires et opposées."
       },
+      {
+        "content": "SO2 est apolaire parce que ses deux liaisons S–O sont identiques.",
+        "correct": false,
+        "explanation": "La géométrie coudée empêche l'annulation."
+      }
     ],
-    explanation:
-      `La comparaison de $\\ce{CO2}$ et $\\ce{SO2}$ illustre directement l'effet de la géométrie sur la polarité globale.`,
+    "explanation": "CO2 et SO2 constituent un contraste classique entre compensation géométrique et moment dipolaire non nul."
   },
   {
-    order: 33,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `À propos de l'ammoniac $\\ce{NH3}$, de géométrie pyramidale, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 33,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de l'ammoniac $\\ce{NH3}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Les liaisons $\\ce{N-H}$ sont polarisées vers l'azote.`,
-        correct: true,
-        explanation: `L'azote est plus électronégatif que l'hydrogène.`,
+        "content": "La neutralité de NH3 impose un moment dipolaire nul.",
+        "correct": false,
+        "explanation": "Neutralité et polarité sont compatibles."
       },
       {
-        content: `La molécule possède un moment dipolaire global non nul.`,
-        correct: true,
-        explanation: `La géométrie pyramidale empêche une annulation complète.`,
+        "content": "Le doublet non liant participe à la géométrie électronique du centre azoté.",
+        "correct": true,
+        "explanation": "Il contribue au type AX3E1."
       },
       {
-        content: `Les trois moments de liaison s'annulent comme dans une géométrie trigonale plane parfaite.`,
-        correct: false,
-        explanation: `$\\ce{NH3}$ n'est pas trigonal plan.`,
+        "content": "La molécule possède un moment dipolaire global non nul.",
+        "correct": true,
+        "explanation": "La géométrie pyramidale ne permet pas une annulation complète."
       },
       {
-        content: `La neutralité électrique de $\\ce{NH3}$ impose son caractère apolaire.`,
-        correct: false,
-        explanation: `Une molécule neutre peut être polaire.`,
+        "content": "Les liaisons N–H sont polarisées vers l'azote.",
+        "correct": true,
+        "explanation": "N est plus électronégatif que H."
       },
+      {
+        "content": "NH3 est trigonal plan.",
+        "correct": false,
+        "explanation": "La géométrie moléculaire est pyramidale."
+      }
     ],
-    explanation:
-      `La géométrie pyramidale de l'ammoniac laisse une résultante dipolaire non nulle.`,
+    "explanation": "La géométrie pyramidale de NH3 explique sa polarité moléculaire."
   },
   {
-    order: 34,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `On compare les molécules tétraédriques $\\ce{CCl4}$ et $\\ce{CH2Cl2}$. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 34,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "On compare les molécules tétraédriques $\\ce{CCl4}$ et $\\ce{CH2Cl2}$. Quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Dans $\\ce{CCl4}$, les quatre moments $\\ce{C-Cl}$ s'annulent par symétrie.`,
-        correct: true,
-        explanation: `Les quatre substituants sont identiques.`,
+        "content": "Toute géométrie tétraédrique implique un moment dipolaire nul.",
+        "correct": false,
+        "explanation": "Cela dépend des substituants."
       },
       {
-        content: `$\\ce{CH2Cl2}$ possède un moment dipolaire global non nul.`,
-        correct: true,
-        explanation: `La présence de deux types de substituants rompt la symétrie.`,
+        "content": "Dans CCl4, les moments C–Cl se compensent par symétrie.",
+        "correct": true,
+        "explanation": "Les quatre substituants sont équivalents."
       },
       {
-        content: `$\\ce{CH2Cl2}$ possède exactement la même symétrie que $\\ce{CCl4}$.`,
-        correct: false,
-        explanation: `Deux hydrogènes remplacent deux chlores et rompent la symétrie.`,
+        "content": "CH2Cl2 est plus symétrique que CCl4.",
+        "correct": false,
+        "explanation": "CCl4 possède la symétrie la plus élevée."
       },
       {
-        content: `Toute molécule tétraédrique est apolaire.`,
-        correct: false,
-        explanation: `La nature des substituants doit être prise en compte.`,
+        "content": "CH2Cl2 possède un moment dipolaire global non nul.",
+        "correct": true,
+        "explanation": "Deux hydrogènes et deux chlores rompent la symétrie."
       },
+      {
+        "content": "Les deux molécules ont la même géométrie électronique autour du carbone.",
+        "correct": true,
+        "explanation": "Le centre est tétraédrique."
+      }
     ],
-    explanation:
-      `La géométrie tétraédrique n'implique l'apolarité que si la répartition des substituants permet une compensation des moments de liaison.`,
+    "explanation": "La nature des substituants est aussi importante que la géométrie générale."
   },
   {
-    order: 35,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Dans le chlorométhane $\\ce{CH3Cl}$, on néglige la faible polarité des liaisons $\\ce{C-H}$. Quelle proposition est correcte ?`,
-    choices: [
+    "order": 35,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle proposition décrit correctement le chlorométhane $\\ce{CH3Cl}$ ?",
+    "choices": [
       {
-        content: `La molécule possède un moment dipolaire global orienté vers le chlore.`,
-        correct: true,
-        explanation: `Le chlore est le pôle $\\delta^{-}$ de la liaison $\\ce{C-Cl}$.`,
+        "content": "La molécule porte nécessairement une charge entière.",
+        "correct": false,
+        "explanation": "Elle reste neutre."
       },
       {
-        content: `Le chlore porte une charge partielle positive.`,
-        correct: false,
-        explanation: `Il porte une charge partielle négative.`,
+        "content": "Le chlore porte une charge partielle positive.",
+        "correct": false,
+        "explanation": "Cl est le pôle partiellement négatif."
       },
       {
-        content: `Les trois hydrogènes annulent exactement le dipôle $\\ce{C-Cl}$.`,
-        correct: false,
-        explanation: `La molécule n'est pas suffisamment symétrique pour cela.`,
+        "content": "Il possède un moment dipolaire global non nul, largement influencé par la liaison C–Cl.",
+        "correct": true,
+        "explanation": "La molécule n'est pas assez symétrique pour annuler cette contribution."
       },
       {
-        content: `La molécule est apolaire parce qu'elle est globalement neutre.`,
-        correct: false,
-        explanation: `Neutralité et polarité ne sont pas contradictoires.`,
+        "content": "Les trois liaisons C–H annulent exactement la liaison C–Cl.",
+        "correct": false,
+        "explanation": "La compensation n'est pas complète."
       },
+      {
+        "content": "Il est apolaire comme CCl4.",
+        "correct": false,
+        "explanation": "Les trois H et le Cl ne sont pas équivalents."
+      }
     ],
-    explanation:
-      `Le chlorométhane est une molécule polaire ; sa résultante est orientée globalement vers le chlore.`,
+    "explanation": "CH3Cl illustre comment une seule substitution peut rendre polaire un squelette tétraédrique."
   },
   {
-    order: 36,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Le méthanal $\\ce{H2C=O}$ comporte une liaison carbonyle fortement polarisée. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Le méthanal $\\ce{H2C=O}$ possède un groupe carbonyle. Quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Le moment de la liaison $\\ce{C=O}$ est orienté vers l'oxygène.`,
-        correct: true,
-        explanation: `L'oxygène est plus électronégatif.`,
+        "content": "La molécule possède un moment dipolaire global non nul.",
+        "correct": true,
+        "explanation": "Le dipôle du carbonyle n'est pas compensé."
       },
       {
-        content: `Le méthanal possède un moment dipolaire global non nul.`,
-        correct: true,
-        explanation: `Les liaisons $\\ce{C-H}$ ne compensent pas le dipôle du carbonyle.`,
+        "content": "Le carbone carbonylé porte une charge partielle positive.",
+        "correct": true,
+        "explanation": "La densité électronique est déplacée vers O."
       },
       {
-        content: `Le carbone du carbonyle constitue le pôle négatif principal.`,
-        correct: false,
-        explanation: `Il est relativement appauvri en électrons et porte plutôt $\\delta^{+}$.`,
+        "content": "La présence de deux hydrogènes impose une molécule apolaire.",
+        "correct": false,
+        "explanation": "La géométrie et le carbonyle conduisent à une résultante."
       },
       {
-        content: `La présence de deux hydrogènes rend obligatoirement la molécule apolaire.`,
-        correct: false,
-        explanation: `La symétrie n'annule pas la forte contribution du carbonyle.`,
+        "content": "La liaison C=O est fortement polarisée vers l'oxygène.",
+        "correct": true,
+        "explanation": "O est nettement plus électronégatif que C."
       },
+      {
+        "content": "Le carbone carbonylé est le pôle partiellement négatif.",
+        "correct": false,
+        "explanation": "Il est au contraire appauvri en densité électronique."
+      }
     ],
-    explanation:
-      `Le groupe carbonyle constitue un motif fortement polarisé qui confère au méthanal un moment dipolaire global.`,
+    "explanation": "La polarisation du carbonyle est à la fois une propriété physique et un déterminant majeur de sa réactivité."
   },
   {
-    order: 37,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `On compare $\\ce{BF3}$, trigonale plane, et $\\ce{NH3}$, pyramidale. Sélectionnez exactement les deux propositions correctes.`,
-    choices: [
+    "order": 37,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "On compare $\\ce{BF3}$ et $\\ce{NH3}$. Sélectionnez exactement les deux propositions correctes.",
+    "choices": [
       {
-        content: `$\\ce{BF3}$ est apolaire malgré des liaisons $\\ce{B-F}$ polarisées.`,
-        correct: true,
-        explanation: `Les trois moments s'annulent dans la géométrie trigonale plane symétrique.`,
+        "content": "$\\ce{BF3}$ est globalement apolaire dans sa géométrie trigonale plane idéale.",
+        "correct": true,
+        "explanation": "Les trois dipôles B–F se compensent."
       },
       {
-        content: `$\\ce{NH3}$ est polaire.`,
-        correct: true,
-        explanation: `Sa géométrie pyramidale laisse une résultante non nulle.`,
+        "content": "Les deux molécules sont trigonal planes.",
+        "correct": false,
+        "explanation": "NH3 est pyramidale."
       },
       {
-        content: `Les deux molécules sont apolaires car elles possèdent trois liaisons autour du centre.`,
-        correct: false,
-        explanation: `Le nombre de liaisons ne suffit pas.`,
+        "content": "Les deux molécules sont apolaires.",
+        "correct": false,
+        "explanation": "NH3 est polaire."
       },
       {
-        content: `La polarité dépend uniquement du nombre d'atomes dans la molécule.`,
-        correct: false,
-        explanation: `La nature et la géométrie des liaisons sont essentielles.`,
+        "content": "$\\ce{NH3}$ est polaire.",
+        "correct": true,
+        "explanation": "La géométrie pyramidale donne une résultante."
       },
+      {
+        "content": "La présence de trois liaisons autour du centre suffit à imposer la même polarité.",
+        "correct": false,
+        "explanation": "Les doublets non liants et la géométrie changent la résultante."
+      }
     ],
-    explanation:
-      `Deux molécules comportant trois liaisons autour de l'atome central peuvent avoir des polarités opposées si leur géométrie diffère.`,
+    "explanation": "Même nombre de liaisons autour du centre ne signifie pas même géométrie ni même polarité."
   },
   {
-    order: 38,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `La molécule $\\ce{PCl5}$ est bipyramidale trigonale avec cinq liaisons $\\ce{P-Cl}$ identiques. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 38,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "La molécule $\\ce{PCl5}$ est bipyramidale trigonale et possède cinq liaisons P–Cl polarisées. Quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Chaque liaison est polarisée vers le chlore.`,
-        correct: true,
-        explanation: `Le chlore est plus électronégatif que le phosphore.`,
+        "content": "Cinq liaisons polarisées imposent nécessairement une molécule polaire.",
+        "correct": false,
+        "explanation": "La géométrie peut annuler les contributions."
       },
       {
-        content: `Dans cette géométrie symétrique, la somme vectorielle des cinq moments peut être nulle.`,
-        correct: true,
-        explanation: `Les trois dipôles équatoriaux se compensent et les deux axiaux sont opposés.`,
+        "content": "Les deux contributions axiales sont opposées.",
+        "correct": true,
+        "explanation": "Elles se compensent l'une l'autre."
       },
       {
-        content: `Cinq liaisons polarisées imposent nécessairement un moment dipolaire moléculaire non nul.`,
-        correct: false,
-        explanation: `La géométrie peut permettre une compensation complète.`,
+        "content": "Le chlore est moins électronégatif que le phosphore.",
+        "correct": false,
+        "explanation": "Le chlore est plus électronégatif."
       },
       {
-        content: `La molécule est polaire uniquement parce que le chlore est électronégatif.`,
-        correct: false,
-        explanation: `L'électronégativité ne suffit pas sans l'analyse géométrique.`,
+        "content": "La résultante dipolaire idéale peut être nulle.",
+        "correct": true,
+        "explanation": "La symétrie globale permet la compensation."
       },
+      {
+        "content": "Les trois contributions équatoriales peuvent se compenser dans le plan.",
+        "correct": true,
+        "explanation": "Elles sont séparées de 120° dans le modèle idéal."
+      }
     ],
-    explanation:
-      `La symétrie de $\\ce{PCl5}$ permet une résultante dipolaire nulle dans le modèle idéal.`,
+    "explanation": "La polarité moléculaire ne se déduit jamais du seul nombre de liaisons polarisées."
   },
   {
-    order: 39,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `On cherche à prévoir qualitativement la miscibilité. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 39,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la dissolution d'un composé moléculaire dans un solvant, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Le méthanol et l'eau sont miscibles car ce sont deux liquides polaires capables d'interactions favorables.`,
-        correct: true,
-        explanation: `Ils peuvent notamment établir des liaisons hydrogène.`,
+        "content": "La dissolution exige normalement la rupture des liaisons covalentes internes du soluté.",
+        "correct": false,
+        "explanation": "Une dissolution physique conserve généralement les molécules."
       },
       {
-        content: `Le benzène et $\\ce{CCl4}$, tous deux apolaires, sont compatibles avec le repère « le semblable dissout le semblable ».`,
-        correct: true,
-        explanation: `Leur caractère apolaire favorise leur miscibilité mutuelle.`,
+        "content": "La polarité fournit un repère qualitatif utile.",
+        "correct": true,
+        "explanation": "Elle aide à prévoir les interactions dominantes."
       },
       {
-        content: `L'eau et un hydrocarbure apolaire sont toujours parfaitement miscibles.`,
-        correct: false,
-        explanation: `Ils sont généralement peu miscibles.`,
+        "content": "La formule brute suffit toujours à prévoir la miscibilité.",
+        "correct": false,
+        "explanation": "La géométrie et les groupes fonctionnels sont importants."
       },
       {
-        content: `La formule brute suffit à prévoir la miscibilité sans connaître la structure.`,
-        correct: false,
-        explanation: `La polarité dépend notamment de la géométrie.`,
+        "content": "Des interactions soluté-solvant favorables peuvent favoriser la dissolution.",
+        "correct": true,
+        "explanation": "Elles compensent le coût de séparation des espèces."
       },
+      {
+        "content": "Il faut considérer les interactions soluté-soluté, solvant-solvant et soluté-solvant.",
+        "correct": true,
+        "explanation": "La dissolution implique de rompre certaines interactions et d'en créer d'autres."
+      }
     ],
-    explanation:
-      `La miscibilité se relie qualitativement à la nature des interactions possibles entre les espèces.`,
+    "explanation": "La solubilité est une conséquence thermodynamique de plusieurs contributions, dont les interactions intermoléculaires."
   },
   {
-    order: 40,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Dans l'exemple du cours, le cis-dichloroéthène est plus polaire que l'isomère trans et sa température de vaporisation est d'environ $60\\,^{\\circ}\\mathrm{C}$ contre $47\\,^{\\circ}\\mathrm{C}$ pour le trans. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 40,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "On compare le cis- et le trans-1,2-dichloroéthène. Quelles conséquences peuvent découler d'une différence de polarité entre les isomères ?",
+    "choices": [
       {
-        content: `La polarité plus forte du cis permet des interactions dipôle-dipôle plus importantes.`,
-        correct: true,
-        explanation: `Une résultante dipolaire plus marquée renforce ces attractions.`,
+        "content": "La température d'ébullition peut être modifiée.",
+        "correct": true,
+        "explanation": "Les forces intermoléculaires influencent l'énergie nécessaire à la vaporisation."
       },
       {
-        content: `Une cohésion intermoléculaire plus importante peut contribuer à une température de vaporisation plus élevée.`,
-        correct: true,
-        explanation: `Il faut fournir davantage d'énergie pour séparer les molécules.`,
+        "content": "Des interactions dipôle-dipôle plus fortes peuvent apparaître dans l'isomère le plus polaire.",
+        "correct": true,
+        "explanation": "Un dipôle permanent favorise les interactions de Keesom."
       },
       {
-        content: `Le trans doit être plus polaire puisque sa température de vaporisation est plus basse.`,
-        correct: false,
-        explanation: `Le cours présente au contraire le cis comme plus polaire.`,
+        "content": "La solubilité dans un solvant polaire peut différer.",
+        "correct": true,
+        "explanation": "La polarité influence les interactions soluté-solvant."
       },
       {
-        content: `La vaporisation exige de rompre les doubles liaisons $\\ce{C=C}$.`,
-        correct: false,
-        explanation: `Un changement d'état ne rompt pas normalement les liaisons covalentes internes.`,
+        "content": "La formule brute devient différente.",
+        "correct": false,
+        "explanation": "Les deux isomères ont la même formule brute."
       },
+      {
+        "content": "La vaporisation exige de rompre la liaison C=C.",
+        "correct": false,
+        "explanation": "Un changement d'état rompt surtout des interactions intermoléculaires."
+      }
     ],
-    explanation:
-      `Cet exemple relie directement géométrie, moment dipolaire, interactions dipôle-dipôle et propriété macroscopique.`,
+    "explanation": "Une différence géométrique peut se traduire par des propriétés physiques différentes sans modifier la connectivité atomique."
   },
   {
-    order: 51,
-    difficulty: 'MEDIUM',
-    format: 'QRPL',
-    requiredSelectionCount: 5,
-    question: `Parmi les dix espèces suivantes, sélectionnez exactement les cinq molécules possédant un moment dipolaire global non nul (molécules polaires ou peu polaires dans la terminologie de la fiche).`,
-    choices: [
-      { content: `$\\ce{H2O}$.`, correct: true, explanation: `Géométrie coudée et liaisons O-H polarisées.` },
-      { content: `$\\ce{NH3}$.`, correct: true, explanation: `Géométrie pyramidale et résultante non nulle.` },
-      { content: `$\\ce{CH3OH}$.`, correct: true, explanation: `Le groupe hydroxyle rend la molécule polaire.` },
-      { content: `$\\ce{CH3Cl}$.`, correct: true, explanation: `Le dipôle C-Cl n'est pas compensé.` },
-      { content: `$\\ce{CH3COCH3}$.`, correct: true, explanation: `Le carbonyle confère un moment dipolaire global.` },
-      { content: `$\\ce{CH4}$.`, correct: false, explanation: `Molécule tétraédrique apolaire.` },
-      { content: `$\\ce{CO2}$.`, correct: false, explanation: `Les deux dipôles C=O s'annulent dans la géométrie linéaire.` },
-      { content: `$\\ce{BCl3}$.`, correct: false, explanation: `Les trois dipôles s'annulent dans la géométrie trigonale plane.` },
-      { content: `$\\ce{CCl4}$.`, correct: false, explanation: `Les quatre dipôles se compensent par symétrie.` },
-      { content: `$\\ce{C6H6}$.`, correct: false, explanation: `Le benzène est classé apolaire dans la fiche.` },
+    "order": 51,
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix molécules suivantes, sélectionnez exactement les cinq qui possèdent un moment dipolaire global non nul.",
+    "choices": [
+      {
+        "content": "$\\ce{CH3Cl}$.",
+        "correct": true,
+        "explanation": "Substitution dissymétrique."
+      },
+      {
+        "content": "$\\ce{SO2}$.",
+        "correct": true,
+        "explanation": "Coudée."
+      },
+      {
+        "content": "$\\ce{CO2}$.",
+        "correct": false,
+        "explanation": "Linéaire et symétrique."
+      },
+      {
+        "content": "$\\ce{H2O}$.",
+        "correct": true,
+        "explanation": "Coudée et polaire."
+      },
+      {
+        "content": "$\\ce{CCl4}$.",
+        "correct": false,
+        "explanation": "Tétraédrique symétrique."
+      },
+      {
+        "content": "$\\ce{CH4}$.",
+        "correct": false,
+        "explanation": "Tétraédrique symétrique."
+      },
+      {
+        "content": "$\\ce{CH3OH}$.",
+        "correct": true,
+        "explanation": "Le groupe O–H et la géométrie donnent un dipôle net."
+      },
+      {
+        "content": "$\\ce{BCl3}$.",
+        "correct": false,
+        "explanation": "Trigonale plane symétrique."
+      },
+      {
+        "content": "$\\ce{C6H6}$.",
+        "correct": false,
+        "explanation": "Benzène globalement apolaire."
+      },
+      {
+        "content": "$\\ce{NH3}$.",
+        "correct": true,
+        "explanation": "Pyramidale et polaire."
+      }
     ],
-    explanation:
-      `Pour classer une molécule, il faut associer polarisation des liaisons et géométrie globale.`,
+    "explanation": "Le classement exige de combiner polarisation des liaisons et symétrie moléculaire."
   },
   {
-    order: 52,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux molécules dans lesquelles des liaisons polarisées s'annulent globalement par symétrie.`,
-    choices: [
+    "order": 52,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux molécules dans lesquelles des liaisons polarisées s'annulent globalement par symétrie.",
+    "choices": [
       {
-        content: `$\\ce{CO2}$.`,
-        correct: true,
-        explanation: `Les deux dipôles C=O sont opposés dans la géométrie linéaire.`,
+        "content": "$\\ce{NH3}$.",
+        "correct": false,
+        "explanation": "La géométrie pyramidale donne une résultante."
       },
       {
-        content: `$\\ce{BCl3}$.`,
-        correct: true,
-        explanation: `Les trois dipôles B-Cl se compensent dans la géométrie trigonale plane.`,
+        "content": "$\\ce{CO2}$.",
+        "correct": true,
+        "explanation": "Les deux contributions C=O sont opposées."
       },
       {
-        content: `$\\ce{NH3}$.`,
-        correct: false,
-        explanation: `La géométrie pyramidale laisse une résultante.`,
+        "content": "$\\ce{CH3Cl}$.",
+        "correct": false,
+        "explanation": "La substitution dissymétrique laisse un dipôle net."
       },
       {
-        content: `$\\ce{H2O}$.`,
-        correct: false,
-        explanation: `La géométrie coudée laisse une résultante.`,
+        "content": "$\\ce{BCl3}$.",
+        "correct": true,
+        "explanation": "Les trois contributions B–Cl s'annulent dans le plan."
       },
+      {
+        "content": "$\\ce{H2O}$.",
+        "correct": false,
+        "explanation": "La géométrie coudée empêche l'annulation."
+      }
     ],
-    explanation:
-      `La symétrie de $\\ce{CO2}$ et $\\ce{BCl3}$ permet une compensation complète de moments dipolaires de liaison pourtant non nuls.`,
-  },
+    "explanation": "La symétrie de CO2 et BCl3 compense des liaisons pourtant polarisées."
+  }
 ];
