@@ -26,6 +26,7 @@
     "db:seed:ue14": "tsx scripts/seed-health-training-ue14.ts",
     "db:seed:ue14:chimie-generale": "tsx scripts/seed-health-training-ue14-chimie-generale.ts",
     "db:seed:ue14:chimie-organique": "tsx scripts/seed-health-training-ue14-chimie-organique.ts",
+    "db:seed:ue14:nomenclature-organique": "tsx scripts/seed-health-training-ue14-nomenclature-organique.ts",
     "db:seed:ue14:biochimie": "tsx scripts/seed-health-training-ue14-biochimie.ts",
     "db:seed:ue14:biologie-cellulaire": "tsx scripts/seed-health-training-ue14-biologie-cellulaire.ts",
     "db:seed:health-mock-exams": "tsx scripts/seed-health-mock-exams.ts",

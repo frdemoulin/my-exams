@@ -146,6 +146,17 @@
       "displayGroupLabel": "Chimie organique",
       "displayGroupOrder": 2,
       "sourceFileLabel": "UE14-Chimie-2.7-Les-acides-et-divers.pdf"
+    },
+    {
+      "title": "Nomenclature organique",
+      "shortTitle": "Nomenclature organique",
+      "slug": "nomenclature-organique",
+      "description": "Nomenclature organique transversale et consolidation des règles IUPAC.",
+      "order": 12,
+      "displayGroupKey": "chimie-organique",
+      "displayGroupLabel": "Chimie organique",
+      "displayGroupOrder": 2,
+      "sourceFileLabel": "UE14-Chimie-2.8-Nomenclature-organique.pdf"
     }
   ]
 }

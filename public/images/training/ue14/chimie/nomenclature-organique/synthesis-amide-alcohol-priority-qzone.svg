@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="white"/>
+  <g stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="235" y1="260" x2="430" y2="260"/>
+    <line x1="430" y1="260" x2="625" y2="260"/>
+    <line x1="625" y1="246" x2="625" y2="105"/>
+    <line x1="653" y1="258" x2="653" y2="105"/>
+    <line x1="640" y1="260" x2="835" y2="260"/>
+  </g>
+  <text x="150" y="282" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" fill="#111">HO</text>
+  <text x="640" y="86" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" fill="#111">O</text>
+  <text x="925" y="282" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" fill="#111">NH₂</text>
+</svg>
