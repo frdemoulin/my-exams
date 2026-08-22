@@ -12,14 +12,14 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la fonction ester, quelles propositions sont exactes?",
     "choices": [
       {
-        "content": "Dans un ester, le groupe $\\ce{OR'}$ est remplacé par $\\ce{OH}$ sans changer de fonction.",
+        "content": "Remplacer le groupe $\\ce{OR'}$ d’un ester par $\\ce{OH}$ conserve la fonction ester.",
         "correct": false,
-        "explanation": "Le motif $\\ce{R-C(=O)-OH}$ correspond à un acide carboxylique, pas à un ester."
+        "explanation": "Le remplacement de $\\ce{OR'}$ par $\\ce{OH}$ transforme l’ester en acide carboxylique."
       },
       {
         "content": "La fonction ester comporte un groupement carbonyle lié à un oxygène portant un substituant carboné.",
         "correct": true,
-        "explanation": "C'est le motif général d'un ester."
+        "explanation": "Le motif ester associe un groupe carbonyle à un second oxygène lié à un substituant carboné."
       },
       {
         "content": "Le substituant porté par l'oxygène est carboné dans la définition.",
@@ -29,7 +29,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Si l'oxygène portait H à la place du substituant carboné, on aurait un acide carboxylique.",
         "correct": true,
-        "explanation": "C'est la distinction explicitement donnée."
+        "explanation": "Si cet oxygène porte un hydrogène au lieu d’un groupe carboné, le motif devient celui d’un acide carboxylique."
       },
       {
         "content": "Une fonction ester contient nécessairement un atome d'azote.",
@@ -37,7 +37,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'azote caractérise notamment la fonction amide."
       }
     ],
-    "explanation": "Le motif $\\ce{R-C(=O)-OH}$ correspond à un acide carboxylique, pas à un ester."
+    "explanation": "Un ester possède le motif $\\ce{R-C(=O)-OR'}$ : l’oxygène simple est lié à un substituant carboné ; s’il porte H, on obtient un acide carboxylique."
   },
   {
     "order": 2,
@@ -48,7 +48,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}OH}$.",
         "correct": false,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Le motif $\\ce{R-OH}$ correspond à un alcool, pas à un ester."
       },
       {
         "content": "Acide carboxylique.",
@@ -58,7 +58,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}C(=O){-}OR'}$.",
         "correct": true,
-        "explanation": "C'est le motif général de l'ester."
+        "explanation": "Le motif $\\ce{R-C(=O)-OR'}$ est celui d’un ester."
       },
       {
         "content": "$\\mathrm{R{-}C(=O){-}OH}$.",
@@ -71,7 +71,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le motif $\mathrm{R{-}C(=O){-}NH_2}$ correspond à une amide et non à un ester."
       }
     ],
-    "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+    "explanation": "Le motif caractéristique d’un ester est $\\ce{R-C(=O)-OR'}$ ; il comporte un carbonyle et un second oxygène lié à un groupe carboné."
   },
   {
     "order": 3,
@@ -87,7 +87,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'azote peut porter deux hydrogènes.",
         "correct": true,
-        "explanation": "Cas d'une amide non substituée."
+        "explanation": "Une amide non substituée peut porter deux hydrogènes sur l’azote."
       },
       {
         "content": "L'azote peut porter un hydrogène et un radical.",
@@ -100,12 +100,12 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une amide disubstituée porte deux groupes carbonés sur l’azote."
       },
       {
-        "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
+        "content": "Une amide simple comporte obligatoirement deux atomes d’oxygène.",
         "correct": false,
-        "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
+        "explanation": "Une amide simple comporte un oxygène carbonylé et un azote ; elle ne possède pas obligatoirement deux oxygènes."
       }
     ],
-    "explanation": "Une amide se caractérise par un azote directement lié au carbone du groupe carbonyle."
+    "explanation": "Une amide possède un motif $\\ce{C(=O)-N}$ ; l’azote peut porter deux hydrogènes, un hydrogène et un radical, ou deux radicaux."
   },
   {
     "order": 4,
@@ -131,7 +131,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}C(=O){-}NR'R''}$.",
         "correct": true,
-        "explanation": "Le carbonyle est directement lié à N."
+        "explanation": "Dans une amide, l’azote est directement lié au carbone du groupe carbonyle."
       },
       {
         "content": "Éther.",
@@ -139,7 +139,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un éther comporte un motif $\\ce{R-O-R'}$ sans groupe carbonyle lié à l’azote."
       }
     ],
-    "explanation": "Une amide associe directement le carbone carbonylé à l'azote."
+    "explanation": "Une amide se reconnaît à un atome d’azote directement lié au carbone du groupe carbonyle."
   },
   {
     "order": 5,
@@ -155,25 +155,25 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La fonction amide constitue la liaison peptidique.",
         "correct": true,
-        "explanation": "C'est l'application biologique majeure du rappel."
+        "explanation": "La liaison peptidique reliant deux résidus d’acides aminés est une fonction amide."
       },
       {
         "content": "La fonction amide est absente des biomolécules.",
         "correct": false,
-        "explanation": "Une fonction amide se reconnaît au motif $\\ce{R-C(=O)-N}$."
+        "explanation": "Les peptides et protéines contiennent des liaisons peptidiques, donc des fonctions amides."
       },
       {
-        "content": "La liaison peptidique est une fonction ester.",
+        "content": "La liaison peptidique est un ester.",
         "correct": false,
-        "explanation": "La liaison peptidique correspond à une fonction amide."
+        "explanation": "La liaison peptidique est une fonction amide, et non une fonction ester."
       },
       {
         "content": "La fonction amide est retrouvée dans les peptides.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Les peptides contiennent des liaisons peptidiques, qui sont des fonctions amides."
       }
     ],
-    "explanation": "Les peptides contiennent des liaisons peptidiques, qui sont des fonctions amides."
+    "explanation": "La liaison peptidique des peptides et protéines est une fonction amide."
   },
   {
     "order": 6,
@@ -182,19 +182,19 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Dans l'exemple peptidique comportant un résidu proline, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La liaison peptidique est une fonction ester.",
+        "content": "Une liaison peptidique correspond à une fonction ester.",
         "correct": false,
-        "explanation": "La liaison peptidique correspond à une fonction amide."
+        "explanation": "La liaison reliant les résidus d’acides aminés est une amide."
       },
       {
         "content": "On ne peut pas rencontrer des atomes d'azote portant deux substituants et un hydrogène.",
         "correct": false,
-        "explanation": "La relation correcte est: « On peut rencontrer des atomes d'azote portant deux substituants et un hydrogène ». La négation proposée est donc fausse."
+        "explanation": "Dans l’exemple peptidique, certains azotes portent deux substituants et un hydrogène ; la proposition qui exclut cette possibilité est donc fausse."
       },
       {
         "content": "On peut rencontrer un azote trisubstitué.",
         "correct": true,
-        "explanation": "Le résidu proline fournit ce cas particulier."
+        "explanation": "Le résidu proline peut conduire à un azote amide trisubstitué dans la chaîne peptidique."
       },
       {
         "content": "Le résidu proline influence la structure secondaire.",
@@ -207,7 +207,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les atomes d'azote d'un peptide peuvent présenter des environnements différents, notamment avec un résidu proline."
       }
     ],
-    "explanation": "La liaison peptidique correspond à une fonction amide."
+    "explanation": "Dans un peptide, l’environnement de l’azote amide peut varier ; le résidu proline peut notamment contraindre la chaîne et influencer sa structure secondaire."
   },
   {
     "order": 7,
@@ -218,7 +218,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le terme activation se rapporte à la fonction acide carboxylique.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "L’activation concerne la fonction acide carboxylique, transformée en dérivé plus réactif."
       },
       {
         "content": "L'alcool est remplacé par une amine pour obtenir toujours le même ester.",
@@ -226,14 +226,14 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Avec une amine, l'acylation par un acide activé conduit à une amide et non à un ester."
       },
       {
-        "content": "Un acide activé peut réagir avec une amine pour former une amide.",
+        "content": "Un chlorure d’acyle ou un anhydride d’acide peut jouer le rôle d’acide activé.",
         "correct": true,
-        "explanation": "L’amine attaque le dérivé acylé activé et le produit possède le motif amide."
+        "explanation": "Le chlorure d’acyle et l’anhydride d’acide sont deux dérivés activés d’acides carboxyliques."
       },
       {
         "content": "Un acide activé réagit avec un alcool.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’alcool réagit avec le carbone acylé de l’acide activé pour former une fonction ester."
       },
       {
         "content": "Le produit organique est un ester.",
@@ -241,13 +241,13 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’acylation d’un alcool par un acide activé forme une fonction ester."
       }
     ],
-    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+    "explanation": "La synthèse d’un ester associe un acide carboxylique activé et un alcool ; le produit porte le motif ester."
   },
   {
     "order": 8,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quels dérivés sont cités comme acides activés?",
+    "question": "Quels dérivés peuvent jouer le rôle d’acides carboxyliques activés ?",
     "choices": [
       {
         "content": "Chlorure d'acyle.",
@@ -262,12 +262,12 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcane.",
         "correct": false,
-        "explanation": "Ce n'est pas un acide activé."
+        "explanation": "Un alcane n’est pas un dérivé activé d’un acide carboxylique."
       },
       {
         "content": "Alcyne.",
         "correct": false,
-        "explanation": "Ce n'est pas un dérivé activé de l'acide carboxylique."
+        "explanation": "Un alcyne n’est pas un chlorure d’acyle ni un anhydride d’acide."
       },
       {
         "content": "Un acide activé peut réagir avec un alcool pour former un ester.",
@@ -286,17 +286,17 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Associe nécessairement un alcane et de l'eau.",
         "correct": false,
-        "explanation": "Ce n'est pas le bilan."
+        "explanation": "La formation d’une amide nécessite un partenaire azoté de type amine et un acide activé, pas un alcane et de l’eau."
       },
       {
-        "content": "La préparation d’un ester étudiée exige nécessairement une amine comme nucléophile.",
+        "content": "Un acide carboxylique non activé et une amine donnent directement une amide.",
         "correct": false,
-        "explanation": "L’ester est formé ici à partir d’un alcool et d’un acide activé."
+        "explanation": "Sans activation, l’acide carboxylique et l’amine donnent d’abord un sel acide-base."
       },
       {
         "content": "Associe un acide activé et une amine.",
         "correct": true,
-        "explanation": "Ce bilan reprend directement la transformation attendue dans cette réaction."
+        "explanation": "La réaction d’un acide activé avec une amine conduit à une fonction amide."
       },
       {
         "content": "Peut utiliser un chlorure d'acyle.",
@@ -309,7 +309,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un anhydride d’acide peut également fournir le groupe acyle nécessaire à la formation d’une amide."
       }
     ],
-    "explanation": "Ce n'est pas le bilan."
+    "explanation": "Une amide se prépare à partir d’un acide carboxylique activé et d’une amine ; sans activation, l’acide et l’amine forment d’abord un sel."
   },
   {
     "order": 10,
@@ -320,7 +320,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un thioester.",
         "correct": false,
-        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
+        "explanation": "Un thioester nécessite un thiol comme partenaire nucléophile ; le mélange acide-amine donne ici un sel."
       },
       {
         "content": "Alcène.",
@@ -335,7 +335,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un ester.",
         "correct": false,
-        "explanation": "Il faudrait un alcool dans la synthèse d'ester."
+        "explanation": "Un ester se forme à partir d’un acide activé et d’un alcool ; le mélange acide non activé–amine ne suit pas cette voie."
       },
       {
         "content": "Un sel acide-base.",
@@ -352,9 +352,9 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On compare les synthèses d'un ester et d'une amide à partir du même chlorure d'acyle. Quelles propositions sont exactes?",
     "choices": [
       {
-        "content": "La préparation d’un ester étudiée exige nécessairement une amine comme nucléophile.",
+        "content": "Avec un alcool, le chlorure d’acyle forme une amide.",
         "correct": false,
-        "explanation": "L’ester est formé ici à partir d’un alcool et d’un acide activé."
+        "explanation": "Avec un alcool, le chlorure d’acyle forme un ester et non une amide."
       },
       {
         "content": "Avec un alcool, on forme un ester.",
@@ -374,10 +374,10 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux réactions exigent le même nucléophile.",
         "correct": false,
-        "explanation": "Alcool et amine sont différents."
+        "explanation": "L’alcool et l’amine sont deux nucléophiles différents et conduisent respectivement à un ester et à une amide."
       }
     ],
-    "explanation": "L’ester est formé ici à partir d’un alcool et d’un acide activé."
+    "explanation": "À partir d’un même chlorure d’acyle, un alcool conduit à un ester tandis qu’une amine conduit à une amide."
   },
   {
     "order": 12,
@@ -388,7 +388,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un motif C(=O)-O-R' oriente vers un ester.",
         "correct": true,
-        "explanation": "Un motif $\ce{C(=O)-O-R'}$ indique une fonction ester."
+        "explanation": "Le motif $\\ce{C(=O)-O-R'}$ caractérise une fonction ester."
       },
       {
         "content": "Un motif C(=O)-N oriente vers une amide.",
@@ -396,19 +396,19 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une amide se reconnaît au motif où l’azote est directement lié au carbone du groupe carbonyle."
       },
       {
-        "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
+        "content": "Un motif $\\ce{C(=O)-O-R'}$ oriente vers une amide.",
         "correct": false,
-        "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
+        "explanation": "Le motif $\\ce{C(=O)-O-R'}$ correspond à un ester, pas à une amide."
       },
       {
         "content": "Identifier d'abord le carbone carbonylé.",
         "correct": true,
-        "explanation": "Les deux fonctions contiennent C=O."
+        "explanation": "Le carbone du groupe carbonyle est commun aux fonctions ester et amide."
       },
       {
         "content": "Regarder l'atome directement lié au carbonyle du côté du substituant hétéroatomique.",
         "correct": true,
-        "explanation": "O pour l'ester, N pour l'amide."
+        "explanation": "L’atome directement lié au carbonyle est un oxygène dans l’ester et un azote dans l’amide."
       }
     ],
     "explanation": "Le couple carbonyle + nature de l'hétéroatome adjacent permet de reconnaître efficacement les deux fonctions."
@@ -446,7 +446,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'environnement de l'azote amide peut varier selon le résidu.",
         "correct": true,
-        "explanation": "Le cas de la proline l'illustre."
+        "explanation": "L’environnement de l’azote amide dépend des substituants du résidu considéré ; la proline fournit un cas particulier."
       },
       {
         "content": "La proline peut influencer la structure secondaire de la chaîne.",
@@ -454,14 +454,14 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le cycle de la proline contraint la géométrie locale de la chaîne peptidique et peut influencer sa structure secondaire."
       },
       {
-        "content": "La liaison peptidique est une fonction ester.",
+        "content": "Dans les peptides, la liaison entre deux résidus est une fonction ester.",
         "correct": false,
-        "explanation": "La liaison peptidique correspond à une fonction amide."
+        "explanation": "La liaison peptidique correspond à une fonction amide, pas à un ester."
       },
       {
-        "content": "Dans un ester, le groupe $\\ce{OR'}$ est remplacé par $\\ce{OH}$ sans changer de fonction.",
+        "content": "La proline n’influence jamais la géométrie locale de la chaîne peptidique.",
         "correct": false,
-        "explanation": "Le motif $\\ce{R-C(=O)-OH}$ correspond à un acide carboxylique, pas à un ester."
+        "explanation": "Le cycle de la proline contraint la géométrie locale de la chaîne et peut influencer sa structure secondaire."
       },
       {
         "content": "La liaison peptidique est une fonction amide.",
@@ -469,7 +469,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La liaison peptidique correspond à une fonction amide reliant deux résidus d’acides aminés."
       }
     ],
-    "explanation": "Le cas de la proline l'illustre."
+    "explanation": "La liaison peptidique est une amide et l’environnement de son azote peut varier ; la proline peut modifier localement la géométrie de la chaîne."
   },
   {
     "order": 16,
@@ -478,19 +478,19 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On dispose d’un chlorure d’acyle et de trois partenaires : méthanol, méthylamine et méthanethiol. Quelles associations sont exactes ?",
     "choices": [
       {
-        "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
+        "content": "Le méthanol conduit à une amide.",
         "correct": false,
-        "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
+        "explanation": "Le méthanol est un alcool : avec un chlorure d’acyle, il forme un ester et non une amide."
       },
       {
         "content": "Méthanol → ester.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Le méthanol apporte l’oxygène du groupe alkoxy de l’ester."
       },
       {
         "content": "Méthylamine → amide.",
         "correct": true,
-        "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
+        "explanation": "La méthylamine apporte l’azote de la fonction amide."
       },
       {
         "content": "Méthanethiol → thioester.",
@@ -500,10 +500,10 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les trois partenaires donnent nécessairement une amide.",
         "correct": false,
-        "explanation": "Le produit dépend de O, N ou S."
+        "explanation": "La nature O, N ou S du nucléophile détermine si le produit est un ester, une amide ou un thioester."
       }
     ],
-    "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
+    "explanation": "Avec un même chlorure d’acyle, un alcool, une amine et un thiol conduisent respectivement à un ester, une amide et un thioester."
   },
   {
     "order": 17,
@@ -522,9 +522,9 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un acide carboxylique non activé et une amine réagissent d’abord par transfert de proton pour former un sel."
       },
       {
-        "content": "La préparation d’un ester étudiée exige nécessairement une amine comme nucléophile.",
+        "content": "L’activation concerne l’alcool et non la fonction acide carboxylique.",
         "correct": false,
-        "explanation": "L’ester est formé ici à partir d’un alcool et d’un acide activé."
+        "explanation": "L’activation se rapporte à la fonction acide carboxylique, pas à l’alcool."
       },
       {
         "content": "Il désigne une forme plus réactive de la fonction acide carboxylique dans les synthèses présentées.",
@@ -548,30 +548,30 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amide.",
         "correct": true,
-        "explanation": "Le carbonyle est directement lié à N."
+        "explanation": "Le motif $\\ce{-C(=O)-NH-}$ associe directement un carbonyle à un azote : il correspond à une fonction amide."
       },
       {
         "content": "Alcool.",
         "correct": false,
-        "explanation": "Il faudrait un groupe OH sans ce motif carbonylé."
+        "explanation": "Un alcool porte un groupe $\\ce{-OH}$ et non un motif $\\ce{-C(=O)-N}$."
       },
       {
-        "content": "Ammonium quaternaire.",
+        "content": "Une amine tertiaire.",
         "correct": false,
-        "explanation": "Un thioester ne se définit pas par un azote tétrasubstitué."
+        "explanation": "Une amine tertiaire ne possède pas le motif $\\ce{-C(=O)-N}$ d’une amide."
       },
       {
-        "content": "Ester.",
+        "content": "Un ester.",
         "correct": false,
-        "explanation": "Une condensation entre une amine et un aldéhyde ou une cétone ne forme pas un ester."
+        "explanation": "Un ester possède un oxygène lié au carbonyle, tandis que le motif proposé comporte un azote."
       },
       {
-        "content": "Thioester.",
+        "content": "Un thioester.",
         "correct": false,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Un thioester possède un soufre lié au groupe acyle, et non un azote."
       }
     ],
-    "explanation": "Le carbonyle est directement lié à N."
+    "explanation": "Le motif $\\ce{-C(=O)-NH-}$ correspond à une fonction amide."
   },
   {
     "order": 19,
@@ -585,19 +585,19 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Aucun N n'est directement lié au carbonyle."
       },
       {
-        "content": "La liaison $\\ce{C-N}$ d’une amide est décrite comme totalement libre en rotation à température ordinaire.",
+        "content": "Le motif contient un atome d’azote directement lié au carbonyle.",
         "correct": false,
-        "explanation": "Le caractère partiel de double liaison perturbe fortement la rotation."
+        "explanation": "Le motif $\\ce{-C(=O)-O-CH3}$ ne contient aucun azote ; il ne peut donc pas être une amide."
       },
       {
         "content": "Il s'agit d'un ester.",
         "correct": true,
-        "explanation": "Le carbonyle est lié à O-CH3."
+        "explanation": "Le carbonyle lié à $\\ce{O-CH3}$ correspond au motif d’un ester."
       },
       {
         "content": "Le substituant porté par l'oxygène est carboné.",
         "correct": true,
-        "explanation": "CH3 est un groupe carboné."
+        "explanation": "$\\ce{CH3}$ est bien un substituant carboné porté par l’oxygène de l’ester."
       },
       {
         "content": "Si O portait H, la fonction deviendrait un acide carboxylique.",
@@ -605,7 +605,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Dans un ester, l’oxygène porte un groupe carboné ; s’il portait un hydrogène, le motif serait celui d’un acide carboxylique."
       }
     ],
-    "explanation": "Aucun N n'est directement lié au carbonyle."
+    "explanation": "Le motif $\\ce{-C(=O)-O-CH3}$ correspond à un ester : le carbonyle est lié à un oxygène portant un substituant carboné."
   },
   {
     "order": 20,
@@ -617,7 +617,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Acide activé + amine → amide.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Un acide activé réagit avec une amine pour former une amide."
       },
       {
         "content": "Acide non activé + amine → ester.",
@@ -627,7 +627,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcane + alcool → amide.",
         "correct": false,
-        "explanation": "Aucun acide activé ni amine adéquate."
+        "explanation": "La formation d’une amide nécessite une amine et un acide activé ; un alcane et un alcool ne fournissent pas ce motif."
       },
       {
         "content": "Un acide carboxylique non activé et une amine donnent directement et quantitativement une amide dans les conditions ordinaires décrites.",
@@ -637,10 +637,10 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Acide activé + alcool → ester.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Un acide activé réagit avec un alcool pour former un ester."
       }
     ],
-    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+    "explanation": "Un acide activé réagit avec un alcool pour former un ester et avec une amine pour former une amide."
   },
   {
     "order": 21,
@@ -652,12 +652,12 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un ester comporte un motif C(=O)-O-R'.",
         "correct": true,
-        "explanation": "Par définition, un ester comporte un motif C(=O)-O-R'."
+        "explanation": "Le motif $\\ce{C(=O)-O-R'}$ définit la fonction ester."
       },
       {
         "content": "Une amide comporte un motif C(=O)-N.",
         "correct": true,
-        "explanation": "Par définition, une amide comporte un motif C(=O)-N."
+        "explanation": "Le motif $\\ce{C(=O)-N}$ définit la fonction amide."
       },
       {
         "content": "La liaison peptidique est une amide.",
@@ -677,27 +677,27 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une fonction ester comporte obligatoirement un azote.",
         "correct": false,
-        "explanation": "Aucun atome d’azote n’est introduit par cette transformation, donc aucune fonction azotée n’est formée."
+        "explanation": "Le motif ester contient deux oxygènes et n’exige aucun atome d’azote."
       },
       {
         "content": "Un acide non activé et une amine donnent directement une amide.",
         "correct": false,
-        "explanation": "La proposition est fausse : un acide activé et une amine peuvent former une amide."
+        "explanation": "Un acide carboxylique non activé et une amine forment d’abord un sel acide-base."
       },
       {
         "content": "La proline n'a aucun effet sur la chaîne peptidique.",
         "correct": false,
-        "explanation": "Elle influence la structure secondaire."
+        "explanation": "La proline peut contraindre la géométrie locale de la chaîne peptidique et influencer sa structure secondaire."
       },
       {
         "content": "Un ester ne contient qu'un seul oxygène.",
         "correct": false,
-        "explanation": "Il en contient deux dans son motif."
+        "explanation": "Le motif ester comporte deux oxygènes : un oxygène carbonylé et un oxygène du groupe $\\ce{OR'}$."
       },
       {
         "content": "Un chlorure d'acyle est un alcane.",
         "correct": false,
-        "explanation": "C'est un dérivé activé de l'acide."
+        "explanation": "Un chlorure d’acyle est un dérivé activé d’un acide carboxylique, pas un alcane."
       }
     ],
     "explanation": "L’amine attaque le carbone acylé électrophile d’un dérivé activé et forme une fonction amide. Un anhydride d’acide fait partie des dérivés activés d’acides carboxyliques."
@@ -706,7 +706,7 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel type de liaison fonctionnelle relie les acides aminés au sein des peptides et protéines dans le cadre?",
+    "question": "Quel type de liaison fonctionnelle relie les acides aminés au sein des peptides et protéines ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [

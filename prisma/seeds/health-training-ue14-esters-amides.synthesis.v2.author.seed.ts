@@ -12,9 +12,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "On dispose du même chlorure d'acyle et de trois partenaires: un alcool, une amine et un thiol. Quelles propositions sont exactes?",
     "choices": [
       {
-        "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
+        "content": "Avec le thiol, le chlorure d’acyle forme une amide.",
         "correct": false,
-        "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
+        "explanation": "Avec un thiol, le chlorure d’acyle forme un thioester et non une amide."
       },
       {
         "content": "Avec l'alcool, on peut former un ester.",
@@ -37,7 +37,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Selon que le nucléophile apporte O, N ou S, le dérivé acylé formé est respectivement un ester, une amide ou un thioester."
       }
     ],
-    "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
+    "explanation": "Avec un même chlorure d’acyle, un alcool, une amine et un thiol conduisent respectivement à un ester, une amide et un thioester."
   },
   {
     "order": 102,
@@ -56,19 +56,19 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les fonctions ester, amide et thioester sont toutes hydrolysables, mais dans des conditions et avec des facilités différentes."
       },
       {
-        "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
+        "content": "L’amide est la fonction la plus facile à hydrolyser chimiquement.",
         "correct": false,
-        "explanation": "L’ester est plus facilement hydrolysé que l’amide."
+        "explanation": "Dans les conditions chimiques comparées, l’ester est plus facilement hydrolysé que l’amide."
       },
       {
         "content": "L'ester n’est pas hydrolysable.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'ester est hydrolysable ». La négation proposée est donc fausse."
+        "explanation": "La fonction ester est hydrolysable ; elle est même plus facilement hydrolysée chimiquement que l’amide dans la comparaison retenue."
       },
       {
         "content": "L'amide est hydrolysable mais demande des conditions chimiques plus sévères.",
         "correct": true,
-        "explanation": "Milieu très acide et chauffage."
+        "explanation": "L’hydrolyse chimique d’une amide nécessite un milieu très acide et du chauffage."
       }
     ],
     "explanation": "L’ester est plus facilement hydrolysable que l’amide ; cette différence de stabilité permet une hydrolyse sélective dans des conditions adaptées."
@@ -92,17 +92,17 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Cette différence de stabilité permet une sélectivité fonctionnelle.",
         "correct": true,
-        "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
+        "explanation": "La plus grande fragilité de l’ester permet de l’hydrolyser dans des conditions qui préservent l’amide."
       },
       {
         "content": "L'amide doit être hydrolysée en premier.",
         "correct": false,
-        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
+        "explanation": "L’amide est plus résistante à l’hydrolyse que l’ester ; elle n’a donc pas à être hydrolysée en premier."
       },
       {
-        "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
+        "content": "Des conditions douces hydrolysent l’amide mais préservent l’ester.",
         "correct": false,
-        "explanation": "L’ester est plus facilement hydrolysé que l’amide."
+        "explanation": "Les conditions douces permettent l’inverse : hydrolyser l’ester tout en préservant l’amide."
       }
     ],
     "explanation": "L’ester est plus facilement hydrolysable que l’amide ; cette différence de stabilité permet une hydrolyse sélective dans des conditions adaptées."
@@ -116,12 +116,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcane → liaison peptidique.",
         "correct": false,
-        "explanation": "L'alcane n'est pas le partenaire utilisé."
+        "explanation": "Un alcane n’est pas le nucléophile utilisé pour former une liaison peptidique à partir d’un acide activé."
       },
       {
-        "content": "La préparation d’un ester étudiée exige nécessairement une amine comme nucléophile.",
+        "content": "Alcool → amide.",
         "correct": false,
-        "explanation": "L’ester est formé ici à partir d’un alcool et d’un acide activé."
+        "explanation": "Un alcool réagit avec un acide activé pour former un ester, pas une amide."
       },
       {
         "content": "Alcool → ester.",
@@ -139,7 +139,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       }
     ],
-    "explanation": "L'alcane n'est pas le partenaire utilisé."
+    "explanation": "À partir d’un acide activé, un alcool forme un ester, une amine une amide et un thiol un thioester."
   },
   {
     "order": 105,
@@ -150,7 +150,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Protéases/peptidases → hydrolyse de fonctions amides des peptides.",
         "correct": true,
-        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
+        "explanation": "Les peptidases/protéases catalysent l’hydrolyse des liaisons amide des peptides."
       },
       {
         "content": "Estérases → hydrolyse de fonctions ester.",
@@ -160,12 +160,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Acétyl-CoA → thioester du CoA-SH.",
         "correct": true,
-        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
+        "explanation": "L’acétyl-CoA est le thioester biologique formé à partir du groupe thiol du coenzyme A."
       },
       {
-        "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
+        "content": "L’existence de protéases signifie que l’amide est chimiquement plus fragile que l’ester.",
         "correct": false,
-        "explanation": "L’ester est plus facilement hydrolysé que l’amide."
+        "explanation": "L’hydrolyse enzymatique des amides ne signifie pas qu’elles sont chimiquement plus fragiles que les esters."
       },
       {
         "content": "Liaison peptidique → fonction amide.",
@@ -173,7 +173,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La liaison peptidique correspond à une fonction amide reliant deux résidus d’acides aminés."
       }
     ],
-    "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
+    "explanation": "Les fonctions ester, amide et thioester ont des exemples biologiques distincts : estérases, liaisons peptidiques/protéases et acétyl-CoA."
   },
   {
     "order": 106,
@@ -182,32 +182,32 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos des propriétés électroniques des esters et des amides:",
     "choices": [
       {
-        "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
+        "content": "Le carbone alpha d’un ester est toujours électrophile.",
         "correct": false,
-        "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
+        "explanation": "Le carbone alpha de l’ester peut devenir nucléophile après déprotonation ; il n’est pas toujours électrophile."
       },
       {
         "content": "Le carbone carbonylé d'un ester n’est pas électrophile.",
         "correct": false,
-        "explanation": "La relation correcte est: « Le carbone carbonylé d'un ester est électrophile ». La négation proposée est donc fausse."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ rend le carbone carbonylé de l’ester électrophile."
       },
       {
         "content": "Le carbone alpha d'un ester peut devenir nucléophile sous l'action d'une base forte.",
         "correct": true,
-        "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
+        "explanation": "Une base forte peut déprotoner la position alpha et créer un centre carboné nucléophile."
       },
       {
         "content": "Le doublet de l'azote d'une amide est délocalisé vers le carbonyle.",
         "correct": true,
-        "explanation": "Origine du caractère partiel de double liaison."
+        "explanation": "Le doublet de l’azote d’une amide est délocalisé vers le groupe carbonyle."
       },
       {
         "content": "La liaison C-N amide est décrite comme totalement libre en rotation.",
         "correct": false,
-        "explanation": "La rotation est fortement perturbée."
+        "explanation": "Le caractère partiel de double liaison de $\\ce{C-N}$ limite fortement la rotation de l’amide."
       }
     ],
-    "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
+    "explanation": "Dans un ester, le carbone carbonylé est électrophile et le carbone alpha peut devenir nucléophile ; dans une amide, le doublet de l’azote est délocalisé vers le carbonyle."
   },
   {
     "order": 107,
@@ -252,12 +252,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'acétyl-CoA ne contient pas une liaison thioester.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'acétyl-CoA contient une liaison thioester ». La négation proposée est donc fausse."
+        "explanation": "L’acétyl-CoA contient bien une liaison thioester entre le groupe acétyle et le soufre du coenzyme A."
       },
       {
         "content": "Son hydrolyse libère CoA-SH et acide acétique.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’hydrolyse de l’acétyl-CoA rompt la liaison thioester et libère $\\ce{CoA-SH}$ et l’acide acétique."
       },
       {
         "content": "La réaction inverse peut être réalisée par des enzymes.",
@@ -265,9 +265,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La liaison thioester peut être reformée enzymatiquement à partir des partenaires issus de l’hydrolyse."
       },
       {
-        "content": "CoA-SH est présenté comme un alcool.",
+        "content": "CoA-SH est un alcool.",
         "correct": false,
-        "explanation": "La fonction mise en avant est un thiol."
+        "explanation": "$\\ce{CoA-SH}$ porte une fonction thiol $\\ce{-SH}$ et non une fonction alcool."
       },
       {
         "content": "Un thioester comporte le motif $\\ce{R-C(=O)-SR'}$.",
@@ -275,7 +275,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le soufre remplace l’oxygène alkoxy d’un ester classique."
       }
     ],
-    "explanation": "La relation correcte est: « L'acétyl-CoA contient une liaison thioester ». La négation proposée est donc fausse."
+    "explanation": "L’acétyl-CoA contient une liaison thioester ; son hydrolyse libère $\\ce{CoA-SH}$ et l’acide acétique, et la liaison peut être reformée enzymatiquement."
   },
   {
     "order": 109,
@@ -287,30 +287,30 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcène.",
         "correct": false,
-        "explanation": "Pas concerné par cette comparaison."
+        "explanation": "Un alcène n’est pas l’une des deux fonctions comparées pour cette sélectivité d’hydrolyse."
       },
       {
-        "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
+        "content": "Thioester.",
         "correct": false,
-        "explanation": "L’ester est plus facilement hydrolysé que l’amide."
+        "explanation": "Le thioester est hydrolysable, mais la sélectivité décrite ici compare spécifiquement une fonction ester et une fonction amide présentes dans la même molécule."
       },
       {
         "content": "Ester.",
         "correct": true,
-        "explanation": "Fonction la plus fragile dans la comparaison."
+        "explanation": "La fonction ester est la fonction la plus facilement hydrolysable des deux dans la comparaison."
       },
       {
         "content": "Amide.",
         "correct": true,
-        "explanation": "L’oxydation d’un alcool ne crée pas de fonction amide."
+        "explanation": "La fonction amide est plus résistante à l’hydrolyse et peut rester intacte lors d’une hydrolyse douce de l’ester."
       },
       {
         "content": "Alcane.",
         "correct": false,
-        "explanation": "Pas une fonction hydrolysée dans les transformations étudiées."
+        "explanation": "Un alcane n’est pas une fonction hydrolysable de la comparaison ester/amide."
       }
     ],
-    "explanation": "Pas concerné par cette comparaison."
+    "explanation": "La sélectivité d’hydrolyse considérée repose sur la différence de stabilité entre une fonction ester, plus facile à hydrolyser, et une fonction amide, plus résistante."
   },
   {
     "order": 110,
@@ -347,7 +347,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une amide est plus facile à hydrolyser chimiquement qu'un ester.",
         "correct": false,
-        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
+        "explanation": "Dans les conditions comparées, l’amide est plus résistante à l’hydrolyse chimique que l’ester."
       },
       {
         "content": "Le carbone carbonylé d'un ester est toujours nucléophile.",
@@ -379,9 +379,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "Un intermédiaire pharmaceutique contient une fonction ester et une fonction amide. On veut d'abord hydrolyser sélectivement l'ester, puis l'amide. Quel enchaînement est cohérent ?",
     "choices": [
       {
-        "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
+        "content": "La première étape doit hydrolyser l’amide avant l’ester.",
         "correct": false,
-        "explanation": "L’ester est plus facilement hydrolysé que l’amide."
+        "explanation": "La séquence sélective commence par l’ester, plus facilement hydrolysable, puis traite l’amide dans des conditions plus sévères."
       },
       {
         "content": "Étape 1: conditions suffisamment douces pour hydrolyser l'ester.",
@@ -391,12 +391,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Étape 2: milieu très acide avec chauffage pour hydrolyser l'amide.",
         "correct": true,
-        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
+        "explanation": "L’hydrolyse chimique de l’amide nécessite un milieu très acide et un chauffage."
       },
       {
         "content": "L'ordre inverse préserverait nécessairement l'ester pendant l'hydrolyse de l'amide.",
         "correct": false,
-        "explanation": "L'ester, plus fragile, serait affecté."
+        "explanation": "Hydrolyser l’amide exige des conditions sévères qui affecteraient déjà l’ester, plus fragile."
       },
       {
         "content": "La différence de stabilité permet donc d'organiser la séquence.",
@@ -420,7 +420,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les trois produits possèdent le même hétéroatome lié au carbonyle.",
         "correct": false,
-        "explanation": "O, N et S diffèrent."
+        "explanation": "Les trois produits se distinguent par l’hétéroatome lié au carbonyle : O pour l’ester, N pour l’amide et S pour le thioester."
       },
       {
         "content": "Un thioester comporte le motif $\\ce{R-C(=O)-SR'}$.",
@@ -467,9 +467,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le site réactionnel exploité dépend des conditions : nucléophile au carbonyle ou base forte pour activer le carbone alpha."
       },
       {
-        "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
+        "content": "Dans l’expérience A, le carbone carbonylé repousse le nucléophile.",
         "correct": false,
-        "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
+        "explanation": "Dans l’expérience A, le nucléophile attaque le carbone carbonylé électrophile."
       }
     ],
     "explanation": "L’ester possède un carbone carbonylé électrophile et un carbone alpha qui peut devenir nucléophile après déprotonation par une base forte."
@@ -483,7 +483,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux fonctions ont exactement la même nature d'hétéroatome lié au carbonyle.",
         "correct": false,
-        "explanation": "O pour ester, N pour amide."
+        "explanation": "L’ester possède un oxygène lié au carbonyle, tandis que l’amide possède un azote ; les hétéroatomes sont donc différents."
       },
       {
         "content": "La liaison $\\ce{C-N}$ d’une amide est décrite comme totalement libre en rotation à température ordinaire.",
@@ -493,7 +493,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'ester n’est pas plus facilement hydrolysé chimiquement.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'ester est plus facilement hydrolysé chimiquement ». La négation proposée est donc fausse."
+        "explanation": "Dans les conditions chimiques comparées, l’ester est plus facilement hydrolysé que l’amide."
       },
       {
         "content": "L'amide possède une liaison C-N à caractère partiel de double liaison.",
@@ -506,7 +506,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La liaison C–O de l’ester reste plus libre en rotation que la liaison C–N d’une amide, fortement contrainte par délocalisation."
       }
     ],
-    "explanation": "O pour ester, N pour amide."
+    "explanation": "L’ester et l’amide diffèrent notamment par l’hétéroatome lié au carbonyle et par la mobilité de la liaison correspondante : $\\ce{C-O}$ est plus libre que $\\ce{C-N}$ amide."
   },
   {
     "order": 115,
@@ -517,12 +517,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les peptidases/protéases réalisent une hydrolyse sélective de fonctions amides.",
         "correct": true,
-        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
+        "explanation": "Les peptidases/protéases catalysent l’hydrolyse sélective des liaisons amide des peptides."
       },
       {
-        "content": "Trypsine, chymotrypsine et pepsine sont citées comme exemples.",
+        "content": "Trypsine, chymotrypsine et pepsine sont des exemples de peptidases digestives.",
         "correct": true,
-        "explanation": "La trypsine, la chymotrypsine et la pepsine sont des exemples de protéases capables d’hydrolyser des liaisons peptidiques."
+        "explanation": "Ces trois enzymes sont des protéases capables d’hydrolyser des liaisons peptidiques."
       },
       {
         "content": "L'exemple prouve que l'amide est chimiquement plus fragile que l'ester.",
@@ -530,9 +530,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'hydrolyse enzymatique ne renverse pas la comparaison chimique."
       },
       {
-        "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
+        "content": "Une protéase est une estérase.",
         "correct": false,
-        "explanation": "L’ester est plus facilement hydrolysé que l’amide."
+        "explanation": "Une protéase hydrolyse les liaisons peptidiques ; une estérase est associée aux fonctions ester."
       },
       {
         "content": "La liaison peptidique est une amide.",
@@ -549,9 +549,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de la rigidité d'une liaison peptidique, quelles propositions sont compatibles avec les propriétés de l'amide enseignées?",
     "choices": [
       {
-        "content": "La liaison peptidique est une fonction ester.",
+        "content": "La liaison peptidique ne possède pas de fonction amide.",
         "correct": false,
-        "explanation": "La liaison peptidique correspond à une fonction amide."
+        "explanation": "La liaison peptidique est précisément une fonction amide."
       },
       {
         "content": "Le doublet de l'azote est délocalisé vers le carbonyle.",
@@ -561,12 +561,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La liaison C-N acquiert un caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "Cette délocalisation confère à la liaison $\ce{C-N}$ un caractère partiel de double liaison."
+        "explanation": "La délocalisation du doublet de l’azote confère à la liaison $\\ce{C-N}$ un caractère partiel de double liaison."
       },
       {
         "content": "La rotation autour de C-N est donc fortement perturbée.",
         "correct": true,
-        "explanation": "Le caractère partiel de double liaison limite la rotation autour de $\ce{C-N}$ et rigidifie la liaison peptidique."
+        "explanation": "Ce caractère partiel de double liaison limite la rotation autour de $\\ce{C-N}$ et rigidifie la liaison peptidique."
       },
       {
         "content": "Le résidu proline peut influencer la structure secondaire de la chaîne.",
@@ -574,7 +574,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le cycle de la proline contraint la géométrie locale du peptide et peut ainsi influencer sa structure secondaire."
       }
     ],
-    "explanation": "La liaison peptidique correspond à une fonction amide."
+    "explanation": "La liaison peptidique est une fonction amide : la délocalisation du doublet de l’azote vers le carbonyle confère à $\\ce{C-N}$ un caractère partiel de double liaison et limite sa rotation."
   },
   {
     "order": 117,
@@ -593,9 +593,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La réaction inverse reforme enzymatiquement la liaison thioester de l’acétyl-CoA."
       },
       {
-        "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
+        "content": "L’hydrolyse de l’acétyl-CoA ne régénère pas $\\ce{CoA-SH}$.",
         "correct": false,
-        "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
+        "explanation": "L’hydrolyse de l’acétyl-CoA régénère $\\ce{CoA-SH}$."
       },
       {
         "content": "L'hydrolyse rompt la liaison thioester.",
@@ -626,12 +626,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un étudiant affirme: « amine et amide ont le même doublet d'azote disponible ». Quelles propositions corrigent cette affirmation dans le cadre étudié?",
+    "question": "Un étudiant affirme : « amine et amide ont le même doublet d’azote disponible ». Quelles propositions corrigent cette affirmation ?",
     "choices": [
       {
         "content": "Le carbonyle adjacent est sans effet sur l'azote.",
         "correct": false,
-        "explanation": "Il est précisément à l'origine de la différence."
+        "explanation": "Le carbonyle adjacent est précisément à l’origine de la délocalisation du doublet de l’azote."
       },
       {
         "content": "La liaison carbone-azote d’une amide possède un caractère partiel de double liaison.",
@@ -641,7 +641,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le doublet de N de l'amide est délocalisé.",
         "correct": true,
-        "explanation": "Il participe au système carbonylé."
+        "explanation": "Le doublet de l’azote participe au système délocalisé avec le carbonyle."
       },
       {
         "content": "Cette délocalisation explique le caractère partiel de double liaison C-N.",
@@ -654,7 +654,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La délocalisation du doublet de l’azote vers le carbonyle diminue sa disponibilité par rapport à celui d’une amine simple."
       }
     ],
-    "explanation": "Il est précisément à l'origine de la différence."
+    "explanation": "Dans une amide, le carbonyle voisin attire et délocalise le doublet de l’azote ; ce doublet est donc moins disponible que dans une amine simple."
   },
   {
     "order": 120,
@@ -665,7 +665,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'électrophile se fixe ensuite au niveau de ce carbone.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Après déprotonation en alpha par la base forte, l’électrophile se fixe sur ce carbone devenu nucléophile."
       },
       {
         "content": "Le carbone carbonylé reste, dans un autre type de réaction, le centre électrophile attaqué par un nucléophile.",
@@ -678,9 +678,9 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’ester présente au moins deux centres carbonés de réactivité : le carbone carbonylé électrophile et le carbone alpha activable par une base forte."
       },
       {
-        "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
+        "content": "La base forte transforme le carbone carbonylé en centre nucléophile.",
         "correct": false,
-        "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
+        "explanation": "La base forte déprotone la position alpha ; elle ne transforme pas le carbone carbonylé en centre nucléophile."
       },
       {
         "content": "La base rend le carbone alpha plus nucléophile.",
@@ -688,41 +688,41 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       }
     ],
-    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+    "explanation": "Une base forte peut déprotoner le carbone alpha d’un ester et le rendre nucléophile ; l’électrophile ajouté ensuite se fixe sur ce carbone."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Parmi les bilans proposés, lequel compare correctement les produits d’hydrolyse ?",
+    "question": "À propos des produits d’hydrolyse d’un ester, d’une amide et d’un thioester, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
+        "content": "Thioester → acide carboxylique sans formation de thiol.",
         "correct": false,
-        "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
+        "explanation": "L’hydrolyse d’un thioester donne un acide carboxylique et un thiol."
       },
       {
         "content": "Ester acide → acide carboxylique + alcool.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’hydrolyse acide d’un ester conduit à un acide carboxylique et à un alcool."
       },
       {
-        "content": "Amide en milieu très acide/chauffé → acide carboxylique + composante aminée protonée.",
+        "content": "Amide en milieu très acide et chauffé → acide carboxylique + amine.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Dans le bilan simplifié, l’hydrolyse d’une amide conduit à un acide carboxylique et à une amine ; elle nécessite ici un milieu très acide et du chauffage."
       },
       {
         "content": "Thioester → acide carboxylique + thiol.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’hydrolyse d’un thioester conduit à un acide carboxylique et à un thiol."
       },
       {
-        "content": "Les trois hydrolyses donnent nécessairement le même hétéroatomique partenaire.",
+        "content": "Les trois hydrolyses libèrent nécessairement le même partenaire portant l’hétéroatome.",
         "correct": false,
-        "explanation": "Alcool, amine protonée ou thiol diffèrent."
+        "explanation": "Les partenaires libérés diffèrent : alcool pour l’ester, composante aminée pour l’amide et thiol pour le thioester."
       }
     ],
-    "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
+    "explanation": "Les hydrolyses libèrent des partenaires différents : ester → alcool, amide → amine, thioester → thiol."
   },
   {
     "order": 122,
@@ -739,7 +739,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone alpha d'un ester peut devenir nucléophile avec une base forte.",
         "correct": true,
-        "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
+        "explanation": "Une base forte peut déprotoner le carbone alpha d’un ester et le rendre nucléophile."
       },
       {
         "content": "La liaison C-N d'une amide possède un caractère partiel de double liaison.",
@@ -764,12 +764,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un acide non activé et une amine donnent directement une amide.",
         "correct": false,
-        "explanation": "La proposition est fausse : une amide contient un carbonyle directement lié à N."
+        "explanation": "Un acide carboxylique non activé et une amine forment d’abord un sel acide-base, pas directement une amide."
       },
       {
         "content": "Une estérase hydrolyse sélectivement une liaison peptidique dans l'exemple.",
         "correct": false,
-        "explanation": "Les peptidases/protéases sont associées aux amides."
+        "explanation": "Les liaisons peptidiques sont hydrolysées par des peptidases/protéases ; les estérases sont associées aux esters."
       },
       {
         "content": "Le doublet de N d'une amide est totalement disponible.",
