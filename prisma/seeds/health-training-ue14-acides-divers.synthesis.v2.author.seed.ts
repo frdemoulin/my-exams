@@ -12,14 +12,14 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Quelles propositions relient correctement acidité et activation dans le modèle?",
     "choices": [
       {
-        "content": "La déprotonation d’un acide carboxylique forme nécessairement un ammonium quaternaire.",
+        "content": "Un acide carboxylique non activé est plus électrophile qu’un halogénure d’acyle.",
         "correct": false,
-        "explanation": "Elle forme un ion carboxylate et ne crée aucun azote."
+        "explanation": "L’acide non activé est moins électrophile qu’un dérivé activé comme un halogénure d’acyle."
       },
       {
         "content": "RCOOH peut libérer H+ et former RCOO−.",
         "correct": true,
-        "explanation": "Par définition, rCOOH peut libérer H+ et former RCOO−."
+        "explanation": "La définition protonique retenue décrit un acide comme une espèce capable de céder un proton."
       },
       {
         "content": "Le carboxylate présente une charge négative délocalisée entre les oxygènes.",
@@ -37,7 +37,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’activation augmente le caractère électrophile du carbone acylé et facilite l’attaque d’un nucléophile."
       }
     ],
-    "explanation": "Elle forme un ion carboxylate et ne crée aucun azote."
+    "explanation": "La déprotonation forme un carboxylate stabilisé par délocalisation, tandis que l’activation d’un acide augmente l’électrophilie de son carbone acylé."
   },
   {
     "order": 102,
@@ -53,7 +53,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La hiérarchie est alcool > acide carboxylique > -CH2-CO-.",
         "correct": false,
-        "explanation": "L'acide carboxylique est placé en tête."
+        "explanation": "L’acide carboxylique est placé avant l’alcool dans la hiérarchie ; l’ordre proposé inverse donc les deux premiers termes."
       },
       {
         "content": "Dans la hiérarchie donnée, un alcool est plus acide qu’un acide carboxylique.",
@@ -61,17 +61,17 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La hiérarchie retenue place l’acide carboxylique au-dessus de l’alcool."
       },
       {
-        "content": "L'acide carboxylique n’est pas le plus acide des trois.",
+        "content": "L’acide carboxylique n’est pas le plus acide des trois.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'acide carboxylique est le plus acide des trois ». La négation proposée est donc fausse."
+        "explanation": "La hiérarchie retenue place l’acide carboxylique avant l’alcool, puis l’hydrogène en alpha d’un carbonyle."
       },
       {
         "content": "L'alcool occupe la position intermédiaire.",
         "correct": true,
-        "explanation": "Acidité moyenne dans cette comparaison."
+        "explanation": "La hiérarchie retenue est : acide carboxylique > alcool > hydrogène en alpha d’un carbonyle."
       }
     ],
-    "explanation": "Dans la hiérarchie retenue, l’hydrogène en alpha d’un carbonyle est moins acide que celui d’un alcool, lui-même moins acide que celui d’un acide carboxylique."
+    "explanation": "La hiérarchie retenue est : acide carboxylique > alcool > hydrogène en alpha d’un carbonyle."
   },
   {
     "order": 103,
@@ -87,25 +87,25 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Ester → acide + alcool par hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’hydrolyse d’un ester régénère l’acide carboxylique du fragment acyle et libère l’alcool correspondant au groupe $\\ce{OR'}$."
       },
       {
         "content": "Amide → amine + acide par hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’hydrolyse d’une amide conduit, dans le bilan simplifié, à un acide carboxylique et une amine."
       },
       {
         "content": "Nitrile → amide → acide.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’amide est l’intermédiaire fonctionnel de l’hydrolyse du nitrile avant formation de l’acide."
       },
       {
-        "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
+        "content": "Nitrile → alcane sans intermédiaire.",
         "correct": false,
-        "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
+        "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire et conserve le carbone du groupe nitrile jusqu’au carboxyle."
       }
     ],
-    "explanation": "Une oxydation suffisamment poussée d’un alcool primaire conduit à l’acide carboxylique correspondant."
+    "explanation": "Les voies étudiées vers un acide carboxylique comprennent l’oxydation d’un alcool primaire, l’hydrolyse d’un ester ou d’une amide, l’hydrolyse d’un nitrile et la carboxylation d’un organomagnésien."
   },
   {
     "order": 104,
@@ -116,7 +116,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le produit final contient un carbone de moins que R.",
         "correct": false,
-        "explanation": "Il en contient un de plus."
+        "explanation": "La carboxylation d’un organomagnésien suit le bilan $\\ce{R-MgX + CO2 -> R-COOH}$ : le $\\ce{CO2}$ apporte le carbone du groupe carboxyle."
       },
       {
         "content": "Un organomagnésien peut réagir avec $\\ce{CO2}$ pour conduire à un acide carboxylique après traitement approprié.",
@@ -126,20 +126,20 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le fragment R doit contenir 4 carbones.",
         "correct": true,
-        "explanation": "Le CO2 apporte le cinquième."
+        "explanation": "La carboxylation d’un organomagnésien suit le bilan $\\ce{R-MgX + CO2 -> R-COOH}$ : le $\\ce{CO2}$ apporte le carbone du groupe carboxyle."
       },
       {
-        "content": "CO2 n’est pas consommé.",
+        "content": "$\\ce{CO2}$ n’est pas consommé lors de la carboxylation.",
         "correct": false,
-        "explanation": "La relation correcte est: « CO2 est consommé ». La négation proposée est donc fausse."
+        "explanation": "La carboxylation d’un organomagnésien suit le bilan $\\ce{R-MgX + CO2 -> R-COOH}$ : le $\\ce{CO2}$ apporte le carbone du groupe carboxyle."
       },
       {
         "content": "Le carbone de CO2 devient le carbone carboxylique.",
         "correct": true,
-        "explanation": "Bilan R-MgX + CO2 → R-COOH."
+        "explanation": "La carboxylation d’un organomagnésien suit le bilan $\\ce{R-MgX + CO2 -> R-COOH}$ : le $\\ce{CO2}$ apporte le carbone du groupe carboxyle."
       }
     ],
-    "explanation": "Il en contient un de plus."
+    "explanation": "La carboxylation d’un organomagnésien suit le bilan $\\ce{R-MgX + CO2 -> R-COOH}$ : le $\\ce{CO2}$ apporte le carbone du groupe carboxyle."
   },
   {
     "order": 105,
@@ -155,25 +155,25 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La première ajoute un carbone au squelette de R.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Carboxylation et décarboxylation ont des bilans carbone opposés : la première incorpore le carbone du $\\ce{CO2}$, la seconde élimine un carbone sous forme de $\\ce{CO2}$."
       },
       {
         "content": "La seconde retire un carbone au squelette organique.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Carboxylation et décarboxylation ont des bilans carbone opposés : la première incorpore le carbone du $\\ce{CO2}$, la seconde élimine un carbone sous forme de $\\ce{CO2}$."
       },
       {
-        "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
+        "content": "La carboxylation par $\\ce{CO2}$ diminue le squelette d’un carbone.",
         "correct": false,
-        "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
+        "explanation": "Carboxylation et décarboxylation ont des bilans carbone opposés : la première incorpore le carbone du $\\ce{CO2}$, la seconde élimine un carbone sous forme de $\\ce{CO2}$."
       },
       {
         "content": "La carboxylation d'un organomagnésien consomme CO2.",
         "correct": true,
-        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
+        "explanation": "Le $\\ce{CO2}$ est un réactif de la carboxylation et fournit le carbone du nouveau groupe carboxyle."
       }
     ],
-    "explanation": "La carboxylation par $\\ce{CO2}$ ajoute une unité carbone au squelette, tandis que la décarboxylation en retire une sous forme de $\\ce{CO2}$."
+    "explanation": "Carboxylation et décarboxylation ont des bilans carbone opposés : la première incorpore le carbone du $\\ce{CO2}$, la seconde élimine un carbone sous forme de $\\ce{CO2}$."
   },
   {
     "order": 106,
@@ -182,14 +182,14 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Une molécule acide contient la configuration carbonylée favorable décrite. Que faut-il retenir?",
     "choices": [
       {
-        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "content": "La réaction conduit à un gain de carbone par consommation de $\\ce{CO2}$.",
         "correct": false,
-        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+        "explanation": "La décarboxylation est favorisée lorsque la fonction acide carboxylique se trouve dans une structure comportant un autre carbonyle adapté, par exemple de type cétone, aldéhyde, acide ou ester."
       },
       {
         "content": "Une décarboxylation peut être facilitée.",
         "correct": true,
-        "explanation": "Une décarboxylation correspond à la perte d’un groupe carboxyle sous forme de $\\ce{CO2}$."
+        "explanation": "La décarboxylation est favorisée lorsque la fonction acide carboxylique se trouve dans une structure comportant un autre carbonyle adapté, par exemple de type cétone, aldéhyde, acide ou ester."
       },
       {
         "content": "La réaction peut être chimique.",
@@ -207,7 +207,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Par définition, le bilan implique une perte de CO2."
       }
     ],
-    "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+    "explanation": "La décarboxylation est favorisée lorsque la fonction acide carboxylique se trouve dans une structure comportant un autre carbonyle adapté, par exemple de type cétone, aldéhyde, acide ou ester."
   },
   {
     "order": 107,
@@ -226,22 +226,22 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La polarisation de la liaison carbone–halogène rend le carbone lié à l’halogène électrophile."
       },
       {
-        "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
+        "content": "Une base électronique capte nécessairement un doublet d’électrons.",
         "correct": false,
-        "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
+        "explanation": "Dans la définition électronique utilisée ici, une base donne des électrons alors qu’un acide les capte."
       },
       {
         "content": "Base → donneuse d'électrons.",
         "correct": true,
-        "explanation": "Une base est ici décrite comme une espèce capable de donner un doublet d’électrons."
+        "explanation": "Dans la définition électronique retenue, une base peut donner un doublet d’électrons."
       },
       {
         "content": "Acide → accepteur d'électrons.",
         "correct": true,
-        "explanation": "Par définition, acide → accepteur d'électrons."
+        "explanation": "Dans la définition électronique utilisée ici, un acide capte un doublet d’électrons."
       }
     ],
-    "explanation": "Les bases nucléiques possèdent des sites riches en électrons qui peuvent se comporter comme des nucléophiles."
+    "explanation": "Dans la définition électronique utilisée ici, une base donne des électrons alors qu’un acide les capte."
   },
   {
     "order": 108,
@@ -275,7 +275,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le ribose est associé à l’ARN; l’ADN contient un 2-désoxyribose."
       }
     ],
-    "explanation": "Un nucléoside associe une base nucléique à un sucre."
+    "explanation": "Un nucléoside associe une base à un sucre ; l’ajout d’un phosphate forme un nucléotide, dont le phosphate contribue au caractère acide."
   },
   {
     "order": 109,
@@ -287,12 +287,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Hydrolyse d'une amide.",
         "correct": false,
-        "explanation": "Pas de gain/perte carbonée dans le bilan donné."
+        "explanation": "Une amide hydrolysée donne un acide et une amine ; elle ne libère pas un alcool comme produit azoté."
       },
       {
-        "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
+        "content": "Oxydation d’un alcool primaire en acide.",
         "correct": false,
-        "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
+        "explanation": "L’oxydation poussée d’un alcool primaire ne nécessite ni nitrile ni ajout de $\\ce{CO2}$."
       },
       {
         "content": "Carboxylation d'un organomagnésien par CO2.",
@@ -307,10 +307,10 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Hydrolyse d'un ester.",
         "correct": false,
-        "explanation": "Pas de changement du squelette acyle dans le bilan simplifié."
+        "explanation": "L’hydrolyse d’un ester conserve le squelette du fragment acyle et ne correspond ni à une perte de $\\ce{CO2}$ ni à un gain de carbone."
       }
     ],
-    "explanation": "Pas de gain/perte carbonée dans le bilan donné."
+    "explanation": "Carboxylation et décarboxylation ont des bilans carbone opposés : la première incorpore le carbone du $\\ce{CO2}$, la seconde élimine un carbone sous forme de $\\ce{CO2}$."
   },
   {
     "order": 110,
@@ -327,12 +327,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Nitrile → amide → acide.",
         "correct": true,
-        "explanation": "L’hydrolyse rompt la liaison fonctionnelle en présence d’eau et conduit aux produits indiqués."
+        "explanation": "L’amide est l’intermédiaire fonctionnel de l’hydrolyse du nitrile avant formation de l’acide."
       },
       {
         "content": "Une décarboxylation libère CO2.",
         "correct": true,
-        "explanation": "Par définition, une décarboxylation libère CO2."
+        "explanation": "Une décarboxylation élimine un carbone du squelette organique sous forme de $\\ce{CO2}$."
       },
       {
         "content": "Une base nucléique est décrite comme nucléophile.",
@@ -345,9 +345,9 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La présence de groupements phosphate contribue au caractère acide des nucléotides et des acides nucléiques."
       },
       {
-        "content": "L'organomagnésien doit avoir un carbone de plus que l'acide cible.",
+        "content": "L’organomagnésien doit avoir un carbone de plus que l’acide cible.",
         "correct": false,
-        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
+        "explanation": "La carboxylation ajoute une unité carbone au fragment R ; elle ne diminue pas le squelette."
       },
       {
         "content": "La décarboxylation ajoute un carbone.",
@@ -355,14 +355,14 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une décarboxylation correspond à la perte d’un groupe carboxyle sous forme de $\\ce{CO2}$."
       },
       {
-        "content": "Le ribose est associé à l'ADN.",
+        "content": "Le ribose est associé à l’ADN.",
         "correct": false,
-        "explanation": "La proposition est fausse : le phosphate est responsable de l'acidité des nucléotides."
+        "explanation": "Le ribose est associé à l’ARN et le 2-désoxyribose à l’ADN ; les autres sucres proposés ne correspondent pas à ces séries."
       },
       {
-        "content": "Un dérivé halogéné est décrit comme nucléophile dans l'exemple toxicologique.",
+        "content": "Le dérivé halogéné est décrit comme nucléophile dans le modèle toxicologique.",
         "correct": false,
-        "explanation": "Le centre considéré est déficient en électrons et peut donc être attaqué par un nucléophile."
+        "explanation": "Dans le modèle toxicologique, le dérivé halogéné est l’électrophile ; la base nucléique est le nucléophile."
       },
       {
         "content": "L'hydrolyse d'une amide donne un alcool.",
@@ -370,7 +370,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Elle donne une amine et un acide."
       }
     ],
-    "explanation": "Les sites riches en électrons des bases nucléiques peuvent donner un doublet et se comporter comme des nucléophiles."
+    "explanation": "La synthèse associe activation des acides, hydrolyse du nitrile, décarboxylation et propriétés électroniques des bases nucléiques et des nucléotides."
   },
   {
     "order": 111,
@@ -401,16 +401,16 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le bilan final impose 6 carbones.",
         "correct": false,
-        "explanation": "Ce n'est pas le résultat du comptage."
+        "explanation": "Carboxylation et décarboxylation ont des bilans carbone opposés : la première incorpore le carbone du $\\ce{CO2}$, la seconde élimine un carbone sous forme de $\\ce{CO2}$."
       }
     ],
-    "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
+    "explanation": "Carboxylation et décarboxylation ont des bilans carbone opposés : la première incorpore le carbone du $\\ce{CO2}$, la seconde élimine un carbone sous forme de $\\ce{CO2}$."
   },
   {
     "order": 112,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On veut choisir entre un acide carboxylique et un dérivé activé pour un couplage, en restant dans le modèle. Quelles propositions sont pertinentes?",
+    "question": "On compare un acide carboxylique et un dérivé activé pour une réaction de couplage. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "L'électronégativité du nouveau groupement fragilise la liaison.",
@@ -423,14 +423,14 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Un dérivé activé réagit plus facilement avec un nucléophile, ce qui favorise les réactions de couplage."
       },
       {
-        "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
+        "content": "L’activation diminue le caractère électrophile du carbone acylé.",
         "correct": false,
-        "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
+        "explanation": "L’activation augmente au contraire le caractère électrophile du carbone acylé et facilite l’attaque nucléophile."
       },
       {
         "content": "L'acide est décrit comme peu électrophile.",
         "correct": true,
-        "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
+        "explanation": "La délocalisation électronique du groupe carboxyle rend le carbone d’un acide non activé relativement peu électrophile."
       },
       {
         "content": "Le dérivé activé rend le carbone plus électrophile.",
@@ -438,7 +438,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’activation augmente le caractère électrophile du carbone acylé et facilite l’attaque d’un nucléophile."
       }
     ],
-    "explanation": "Un substituant électronégatif modifie la polarisation de la fonction acylée et peut faciliter la rupture de la liaison au groupe partant."
+    "explanation": "Un dérivé activé d’acide remplace le groupe $\\ce{-OH}$ par un groupe plus favorable au départ, ce qui augmente l’électrophilie du carbone acylé et facilite les couplages."
   },
   {
     "order": 113,
@@ -449,12 +449,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'hydrolyse passe par une amide.",
         "correct": true,
-        "explanation": "Nitrile → amide → acide."
+        "explanation": "L’hydrolyse d’une amide conduit, dans le bilan simplifié, à un acide carboxylique et une amine."
       },
       {
         "content": "L'acide issu de l'hydrolyse conserve 6 carbones dans le schéma simplifié.",
         "correct": true,
-        "explanation": "Cette proposition est écartée: de gain/perte indiquée ne correspond pas au bilan ou à la propriété attendue."
+        "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire avant de conduire à l’acide carboxylique, sans perte de carbone."
       },
       {
         "content": "La décarboxylation conduit ensuite à un produit organique à 5 carbones.",
@@ -462,17 +462,17 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une décarboxylation retire une unité carbone du squelette sous forme de $\\ce{CO2}$."
       },
       {
-        "content": "La première étape utilise obligatoirement CO2.",
+        "content": "L’hydrolyse du nitrile nécessite l’ajout de $\\ce{CO2}$.",
         "correct": false,
-        "explanation": "CO2 intervient dans la carboxylation, pas l'hydrolyse du nitrile."
+        "explanation": "L’hydrolyse du nitrile n’utilise pas de $\\ce{CO2}$ ; ce réactif intervient dans la carboxylation d’un organomagnésien."
       },
       {
-        "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
+        "content": "L’hydrolyse du nitrile élimine le carbone du groupe nitrile.",
         "correct": false,
-        "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
+        "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire et conserve le carbone du groupe nitrile jusqu’au carboxyle."
       }
     ],
-    "explanation": "Nitrile → amide → acide."
+    "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire avant de conduire à l’acide carboxylique, sans perte de carbone."
   },
   {
     "order": 114,
@@ -483,12 +483,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Ces modifications peuvent être associées à des propriétés mutagènes ou cancérigènes.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Certains dérivés halogénés électrophiles peuvent réagir avec les sites nucléophiles des bases nucléiques, les modifier et favoriser des effets mutagènes ou cancérigènes."
       },
       {
-        "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
+        "content": "La base nucléique joue le rôle d’électrophile.",
         "correct": false,
-        "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
+        "explanation": "Les bases nucléiques sont décrites comme nucléophiles, tandis que le dérivé halogéné joue le rôle d’électrophile."
       },
       {
         "content": "La base nucléique est le partenaire nucléophile.",
@@ -506,7 +506,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La réaction avec l’électrophile peut modifier covalemment la base nucléique."
       }
     ],
-    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+    "explanation": "Certains dérivés halogénés électrophiles peuvent réagir avec les sites nucléophiles des bases nucléiques, les modifier et favoriser des effets mutagènes ou cancérigènes."
   },
   {
     "order": 115,
@@ -527,12 +527,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La phrase initiale attribue donc l'acidité au mauvais groupement.",
         "correct": true,
-        "explanation": "C'est le phosphate qui est mis en avant."
+        "explanation": "Un nucléoside associe une base à un sucre ; l’ajout d’un phosphate forme un nucléotide, dont le phosphate contribue au caractère acide."
       },
       {
-        "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
+        "content": "L’acidité du nucléotide provient du caractère électrophile de sa base nucléique.",
         "correct": false,
-        "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
+        "explanation": "Les bases nucléiques sont décrites comme nucléophiles, tandis que le dérivé halogéné joue le rôle d’électrophile."
       },
       {
         "content": "Les bases nucléiques sont décrites comme nucléophiles, pas comme électrophiles.",
@@ -540,7 +540,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Les sites riches en électrons des bases nucléiques peuvent donner un doublet et se comporter comme des nucléophiles."
       }
     ],
-    "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
+    "explanation": "Un nucléoside associe une base à un sucre ; l’ajout d’un phosphate forme un nucléotide, dont le phosphate contribue au caractère acide."
   },
   {
     "order": 116,
@@ -549,24 +549,24 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "On veut préparer un acide à 7 carbones sans apporter de carbone extérieur. Quelles voies sont compatibles si l’on dispose du précurseur fonctionnel correspondant à 7 carbones ?",
     "choices": [
       {
-        "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
+        "content": "Hydrolyse d’un nitrile à 6 carbones.",
         "correct": false,
-        "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
+        "explanation": "L’hydrolyse conserve le carbone du nitrile : un nitrile à six carbones conduit à un acide à six carbones, pas à sept."
       },
       {
         "content": "Oxydation d'un alcool primaire.",
         "correct": true,
-        "explanation": "Pas de gain carboné explicite."
+        "explanation": "Une oxydation suffisamment poussée d’un alcool primaire conduit à l’acide carboxylique correspondant."
       },
       {
         "content": "Hydrolyse d'un ester.",
         "correct": true,
-        "explanation": "L’hydrolyse d’un ester conserve le squelette carboné du fragment acyle ; elle ne lui ajoute pas de carbone."
+        "explanation": "L’hydrolyse d’un ester régénère l’acide carboxylique du fragment acyle et libère l’alcool correspondant au groupe $\\ce{OR'}$."
       },
       {
         "content": "Hydrolyse d'une amide.",
         "correct": true,
-        "explanation": "L’hydrolyse d’une amide conserve le squelette carboné du fragment acyle ; elle ne lui ajoute pas de carbone."
+        "explanation": "L’hydrolyse d’une amide conduit, dans le bilan simplifié, à un acide carboxylique et une amine."
       },
       {
         "content": "Carboxylation d'un organomagnésien à 7 carbones.",
@@ -574,7 +574,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Elle donnerait un acide à 8 carbones."
       }
     ],
-    "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
+    "explanation": "Les voies étudiées vers un acide carboxylique comprennent l’oxydation d’un alcool primaire, l’hydrolyse d’un ester ou d’une amide, l’hydrolyse d’un nitrile et la carboxylation d’un organomagnésien."
   },
   {
     "order": 117,
@@ -588,14 +588,14 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une décarboxylation peut être réalisée par voie enzymatique tout en conservant le même bilan global de perte de $\\ce{CO2}$."
       },
       {
-        "content": "La réaction correspond à une hydrolyse de nitrile.",
+        "content": "Le produit organique conserve 8 carbones.",
         "correct": false,
-        "explanation": "Ce n'est pas le critère donné."
+        "explanation": "Une décarboxylation correspond à la perte de $\\ce{CO2}$ et diminue d’une unité le nombre de carbones du produit organique."
       },
       {
-        "content": "Une décarboxylation ajoute un atome de carbone provenant de $\\ce{CO2}$.",
+        "content": "La réaction consomme du $\\ce{CO2}$.",
         "correct": false,
-        "explanation": "L’ajout de $\\ce{CO2}$ intervient au contraire dans la carboxylation d’un organomagnésien."
+        "explanation": "Une décarboxylation correspond à la perte de $\\ce{CO2}$ et diminue d’une unité le nombre de carbones du produit organique."
       },
       {
         "content": "Il s'agit d'une décarboxylation.",
@@ -608,7 +608,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La perte d’un $\\ce{CO2}$ retire un carbone à la molécule organique : huit carbones deviennent sept."
       }
     ],
-    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+    "explanation": "Une décarboxylation correspond à la perte de $\\ce{CO2}$ et diminue d’une unité le nombre de carbones du produit organique."
   },
   {
     "order": 118,
@@ -620,7 +620,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       "value": 10,
       "tolerance": 0
     },
-    "explanation": "Le CO2 apporte un carbone supplémentaire."
+    "explanation": "Le raisonnement repose sur le bilan fonctionnel et le comptage des carbones indiqués dans la transformation."
   },
   {
     "order": 119,
@@ -642,7 +642,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "Le remplacement de OH par X forme un halogénure d'acide."
+    "explanation": "Le raisonnement repose sur le bilan fonctionnel et le comptage des carbones indiqués dans la transformation."
   },
   {
     "order": 120,
@@ -663,12 +663,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une affirmation doit être interprétée à partir des conditions chimiques explicitement indiquées dans la question.",
         "correct": true,
-        "explanation": "Les conditions réactionnelles précisées dans l'énoncé déterminent quelles transformations sont pertinentes."
+        "explanation": "Dans la définition électronique utilisée ici, une base donne des électrons alors qu’un acide les capte."
       },
       {
-        "content": "La déprotonation d’un acide carboxylique forme nécessairement un ammonium quaternaire.",
+        "content": "Les deux définitions de l’acide sont identiques et indépendantes du contexte.",
         "correct": false,
-        "explanation": "Elle forme un ion carboxylate et ne crée aucun azote."
+        "explanation": "Dans la définition électronique utilisée ici, une base donne des électrons alors qu’un acide les capte."
       },
       {
         "content": "Un acide carboxylique peut libérer un proton.",
@@ -676,18 +676,18 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Dans la définition protonique, un acide carboxylique peut céder le proton de son groupe $\\ce{-COOH}$."
       }
     ],
-    "explanation": "Les conditions réactionnelles précisées dans l'énoncé déterminent quelles transformations sont pertinentes."
+    "explanation": "Dans la définition électronique utilisée ici, une base donne des électrons alors qu’un acide les capte."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un composé considéré est riche en électrons et peut réagir avec un électrophile. Quelles propositions permettent de l'identifier comme une base nucléique dans le cadre?",
+    "question": "Un composé riche en électrons au niveau de ses hétéroatomes peut réagir avec un électrophile. Quelles propositions sont compatibles avec le comportement d’une base nucléique ?",
     "choices": [
       {
-        "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
+        "content": "Le composé doit être déficient en électrons.",
         "correct": false,
-        "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
+        "explanation": "Les bases nucléiques comportent des sites riches en électrons qui peuvent donner un doublet et se comporter comme des nucléophiles."
       },
       {
         "content": "Le comportement est celui d'un nucléophile.",
@@ -705,12 +705,12 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La réaction d’un dérivé halogéné électrophile avec une base nucléique peut modifier covalemment cette base."
       },
       {
-        "content": "Le groupement phosphate du nucléotide est un autre élément distinct, responsable de l'acidité des nucléotides.",
+        "content": "Une base nucléique peut être liée à un ribose ou à un 2-désoxyribose dans un nucléoside.",
         "correct": true,
-        "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
+        "explanation": "Les bases nucléiques comportent des atomes riches en électrons, notamment des atomes d’azote et parfois d’oxygène, capables de participer à des réactions nucléophiles."
       }
     ],
-    "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
+    "explanation": "Les bases nucléiques comportent des sites riches en électrons qui peuvent donner un doublet et se comporter comme des nucléophiles."
   },
   {
     "order": 122,
@@ -747,7 +747,7 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le nitrile est hydrolysé directement en alcool sans intermédiaire.",
         "correct": false,
-        "explanation": "Il passe par une amide."
+        "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire et conserve le carbone du groupe nitrile jusqu’au carboxyle."
       },
       {
         "content": "Une décarboxylation consomme CO2.",
@@ -770,6 +770,6 @@ export const UE14_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Les bases nucléiques sont décrites comme riches en électrons et nucléophiles, pas comme de bons électrophiles."
       }
     ],
-    "explanation": "Dans la hiérarchie étudiée, l’acide carboxylique est plus acide que l’alcool, lui-même plus acide que l’hydrogène en alpha du carbonyle."
+    "explanation": "La synthèse combine hiérarchie d’acidité, activation des acides, carboxylation, décarboxylation, hydrolyse des nitriles et repères sur les acides nucléiques."
   }
 ];
