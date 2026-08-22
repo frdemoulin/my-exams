@@ -14,17 +14,17 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La fonction ester est hydrolysable.",
         "correct": true,
-        "explanation": "C'est le point de départ de la section."
+        "explanation": "La fonction ester peut être rompue par hydrolyse lorsque les conditions sont adaptées."
       },
       {
         "content": "L'eau participe à la rupture de la fonction.",
         "correct": true,
-        "explanation": "La décrit une rupture en présence d'eau."
+        "explanation": "Une hydrolyse consomme de l’eau pour rompre la fonction ester et former les produits hydrolysés."
       },
       {
         "content": "Une hydrolyse acide est réalisée à pH acide.",
         "correct": true,
-        "explanation": "Définition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, une hydrolyse acide est réalisée à pH acide."
       },
       {
         "content": "Une hydrolyse alcaline est également appelée saponification.",
@@ -37,28 +37,28 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La fonction ester est hydrolysable en milieu acide ou basique dans les conditions appropriées."
       }
     ],
-    "explanation": "La distingue hydrolyse acide et hydrolyse alcaline des esters."
+    "explanation": "La fonction ester est hydrolysable en milieu acide ou basique dans des conditions appropriées."
   },
   {
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel autre nom -t-elle à l'hydrolyse alcaline d'un ester?",
+    "question": "Quel autre nom donne-t-on à l’hydrolyse alcaline d’un ester ?",
     "choices": [
       {
         "content": "Hydrogénation.",
         "correct": false,
-        "explanation": "Aucun H2 n'est impliqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrogénation ne désigne pas l’hydrolyse basique d’un ester."
       },
       {
         "content": "Saponification.",
         "correct": true,
-        "explanation": "C'est le terme indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La saponification est l’hydrolyse d’un ester en milieu basique."
       },
       {
         "content": "Amidification.",
         "correct": false,
-        "explanation": "Cela forme une amide: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’amidification forme une amide à partir d’un partenaire azoté ; ce n’est pas le nom de l’hydrolyse alcaline d’un ester."
       },
       {
         "content": "Déshydratation.",
@@ -71,7 +71,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La fonction ester est hydrolysable en milieu acide ou basique dans les conditions appropriées."
       }
     ],
-    "explanation": "Hydrolyse basique et saponification désignent ici la même transformation."
+    "explanation": "La saponification est l’hydrolyse d’un ester en milieu basique."
   },
   {
     "order": 25,
@@ -92,7 +92,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un organomagnésien.",
         "correct": false,
-        "explanation": "Aucun Mg n'intervient: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition est écartée: de mg ne correspond pas au bilan ou à la propriété attendue."
       },
       {
         "content": "Dans un ester, le groupe $\\ce{OR'}$ est remplacé par $\\ce{OH}$ sans changer de fonction.",
@@ -102,16 +102,16 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un acide carboxylique $\\mathrm{RCOOH}$.",
         "correct": true,
-        "explanation": "Produit acyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En hydrolyse acide, le fragment acyle de l’ester est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
       }
     ],
-    "explanation": "L'hydrolyse acide régénère l'acide carboxylique et l'alcool."
+    "explanation": "Produit issu du groupe OR'."
   },
   {
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "En hydrolyse alcaline d'un ester, la met en avant:",
+    "question": "À propos de l’hydrolyse alcaline d’un ester, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Un ester est totalement insensible à l’eau quelles que soient les conditions.",
@@ -131,7 +131,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une saponification.",
         "correct": true,
-        "explanation": "Nom de la transformation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La saponification est l’hydrolyse d’un ester en milieu basique."
       },
       {
         "content": "Un acide carboxylique non ionisé comme seul produit acyle en milieu basique.",
@@ -139,7 +139,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La forme mise en avant est le carboxylate."
       }
     ],
-    "explanation": "En milieu basique, l'ester donne un carboxylate et un alcool."
+    "explanation": "La fonction ester est hydrolysable en milieu acide ou basique dans les conditions appropriées."
   },
   {
     "order": 27,
@@ -150,12 +150,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\ce{H2O}$ intervient.",
         "correct": true,
-        "explanation": "L'eau participe à l'hydrolyse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’eau est un réactif de l’hydrolyse et participe à la rupture de la fonction ester."
       },
       {
         "content": "Aucun proton n'est impliqué.",
         "correct": false,
-        "explanation": "Le milieu est acide: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le milieu étant acide, des espèces protonantes interviennent ; l’absence totale de proton est donc incompatible avec les conditions indiquées."
       },
       {
         "content": "Dans un ester, le groupe $\\ce{OR'}$ est remplacé par $\\ce{OH}$ sans changer de fonction.",
@@ -173,7 +173,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "OH− caractérise plutôt le milieu basique."
       }
     ],
-    "explanation": "la formation d'ion oxonium/hydronium dans l'eau acide."
+    "explanation": "L’eau est un réactif de l’hydrolyse et participe à la rupture de la fonction ester. $\\ce{H2O + H+ -> H3O+}$."
   },
   {
     "order": 28,
@@ -194,7 +194,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La liaison C-O est décrite comme totalement bloquée par une double liaison partielle dans l'ester.",
         "correct": false,
-        "explanation": "libre rotation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans l’ester, la liaison C–O considérée est décrite comme libre en rotation ; le blocage par caractère partiel de double liaison concerne surtout l’amide C–N."
       },
       {
         "content": "Le comportement de rotation fait partie des propriétés structurales du groupe ester.",
@@ -207,7 +207,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La délocalisation du doublet de l’azote vers le carbonyle limite la libre rotation autour de la liaison $\\ce{C-N}$."
       }
     ],
-    "explanation": "une libre rotation autour de C-O pour l'ester."
+    "explanation": "La relation correcte est: « Une libre rotation est indiquée autour de la liaison C-O ». La négation proposée est donc fausse."
   },
   {
     "order": 29,
@@ -218,7 +218,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Aucun hétéroatome.",
         "correct": false,
-        "explanation": "Les oxygènes sont indispensables: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un ester possède deux hétéroatomes, tous deux des oxygènes."
       },
       {
         "content": "Dans un ester, le groupe $\\ce{OR'}$ est remplacé par $\\ce{OH}$ sans changer de fonction.",
@@ -241,7 +241,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les deux sont des oxygènes."
       }
     ],
-    "explanation": "Le motif ester contient deux oxygènes, ce qui conditionne sa polarisation."
+    "explanation": "Un oxygène carbonylé et un oxygène du groupe OR'. Les deux sont des oxygènes."
   },
   {
     "order": 30,
@@ -275,7 +275,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'oxygène attire la densité électronique."
       }
     ],
-    "explanation": "L'effet électroattracteur de l'oxygène rend le carbone carbonylé électrophile."
+    "explanation": "ester + nucléophile → dérivé acylé."
   },
   {
     "order": 31,
@@ -291,7 +291,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Acquérir un caractère nucléophile selon les conditions.",
         "correct": true,
-        "explanation": "Le support décrit ce comportement du CH2 adjacent."
+        "explanation": "Après déprotonation en position alpha, le carbone voisin du carbonyle peut acquérir un caractère nucléophile."
       },
       {
         "content": "Être rendu plus nucléophile par une base forte.",
@@ -301,7 +301,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Réagir ensuite avec un électrophile.",
         "correct": true,
-        "explanation": "Conséquence du caractère nucléophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha, le carbone devenu nucléophile peut former une nouvelle liaison avec un électrophile."
       },
       {
         "content": "Être toujours le centre électrophile principal sans possibilité de changement.",
@@ -309,7 +309,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La distingue carbonyle électrophile et carbone adjacent nucléophile."
       }
     ],
-    "explanation": "La fonction ester possède ainsi deux centres de réactivité complémentaires selon les conditions."
+    "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
   },
   {
     "order": 32,
@@ -320,7 +320,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone alpha rendu nucléophile par une base forte.",
         "correct": false,
-        "explanation": "Ce carbone devient nucléophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha, le carbone voisin du carbonyle devient riche en électrons et peut attaquer un électrophile."
       },
       {
         "content": "L'alcool produit après hydrolyse.",
@@ -343,7 +343,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’attaque nucléophile considérée vise le carbone électrophile du groupe carbonyle."
       }
     ],
-    "explanation": "Le carbone carbonylé est le centre électrophile de l'ester."
+    "explanation": "Il est appauvri en électrons par l'oxygène."
   },
   {
     "order": 33,
@@ -354,12 +354,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le nucléophile attaque le carbone électrophile du carbonyle.",
         "correct": true,
-        "explanation": "C'est la réaction décrite: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du carbonyle rend son carbone électrophile ; c’est donc ce centre qui est attaqué par le nucléophile."
       },
       {
         "content": "Le groupement OR' est remplacé par le nucléophile dans le bilan simplifié.",
         "correct": true,
-        "explanation": "Le support écrit ester + Nu → R-CO-Nu."
+        "explanation": "Lors de la substitution acyle, le nucléophile attaque le carbone carbonylé et le groupe $\\ce{OR'}$ est remplacé dans le bilan simplifié."
       },
       {
         "content": "Le carbone alpha est nécessairement le site d'attaque dans cette réaction.",
@@ -377,7 +377,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
       }
     ],
-    "explanation": "une substitution au niveau du carbone acyle par attaque nucléophile."
+    "explanation": "Lors de la substitution acyle, le nucléophile attaque le carbone carbonylé et le groupe $\\ce{OR'}$ est remplacé dans le bilan simplifié."
   },
   {
     "order": 34,
@@ -411,7 +411,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La relation correcte est: « Le carbonyle peut rester présent ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "La base forte permet l'activation nucléophile du carbone voisin du carbonyle."
+    "explanation": "Il devient nucléophile dans les conditions décrites."
   },
   {
     "order": 35,
@@ -432,7 +432,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un électrophile peut réagir avec le carbone alpha rendu nucléophile.",
         "correct": true,
-        "explanation": "Deuxième voie présentée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -445,7 +445,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Il peut être attaqué par un nucléophile."
       }
     ],
-    "explanation": "La section met en miroir carbonyle électrophile et carbone alpha potentiellement nucléophile."
+    "explanation": "Sous l'action d'une base forte."
   },
   {
     "order": 36,
@@ -461,7 +461,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux rompent la fonction ester.",
         "correct": true,
-        "explanation": "Ce sont deux hydrolyses: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Hydrolyse acide et saponification rompent toutes deux la fonction ester, mais elles diffèrent par le milieu et la forme du produit acyle."
       },
       {
         "content": "L'hydrolyse acide ne conduit pas à un acide carboxylique.",
@@ -471,7 +471,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La saponification conduit à un carboxylate.",
         "correct": true,
-        "explanation": "Milieu basique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En milieu basique, l’ester est hydrolysé vers un carboxylate et un alcool : c’est la saponification."
       },
       {
         "content": "Les deux conduisent nécessairement à une amide.",
@@ -479,7 +479,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Aucun atome d’azote n’est introduit par cette transformation, donc aucune fonction azotée n’est formée."
       }
     ],
-    "explanation": "Le pH détermine notamment l'état d'ionisation du produit carboxylique."
+    "explanation": "L’eau rompt la liaison ester et restitue les deux fonctions correspondantes."
   },
   {
     "order": 37,
@@ -505,7 +505,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un carboxylate.",
         "correct": true,
-        "explanation": "Produit de la saponification: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le milieu basique conduit au carboxylate."
       },
       {
         "content": "Une amide.",
@@ -513,7 +513,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Cette proposition est écartée: d'azote ajouté ne correspond pas au bilan ou à la propriété attendue."
       }
     ],
-    "explanation": "La saponification forme le carboxylate correspondant."
+    "explanation": "Ce n'est pas une activation."
   },
   {
     "order": 38,
@@ -529,17 +529,17 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un acide carboxylique est formé.",
         "correct": true,
-        "explanation": "RCOOH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
       },
       {
         "content": "La fonction ester est rompue.",
         "correct": true,
-        "explanation": "Définition de l'hydrolyse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, la fonction ester est rompue."
       },
       {
         "content": "Le groupe OR' reste obligatoirement attaché au carbonyle.",
         "correct": false,
-        "explanation": "Il est justement séparé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse ou la substitution acyle rompt précisément la liaison permettant de séparer le groupe $\\ce{OR'}$ du fragment acyle."
       },
       {
         "content": "Dans un ester, le groupe $\\ce{OR'}$ est remplacé par $\\ce{OH}$ sans changer de fonction.",
@@ -547,7 +547,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le motif $\\ce{R-C(=O)-OH}$ correspond à un acide carboxylique, pas à un ester."
       }
     ],
-    "explanation": "L'eau scinde l'ester en ses deux partenaires fonctionnels dans le bilan simplifié."
+    "explanation": "La relation correcte est: « Un alcool est libéré ». La négation proposée est donc fausse."
   },
   {
     "order": 39,
@@ -558,7 +558,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une absence totale de réactivité électronique.",
         "correct": false,
-        "explanation": "La section porte précisément sur cette réactivité."
+        "explanation": "Un ester possède des centres réactifs ; une absence totale de réactivité électronique est donc incorrecte."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -568,12 +568,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une attaque nucléophile au niveau du carbonyle.",
         "correct": true,
-        "explanation": "Carbone électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "Une réaction avec un électrophile au niveau du carbone alpha préalablement rendu nucléophile.",
         "correct": true,
-        "explanation": "Après base forte: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       },
       {
         "content": "Deux comportements dépendant des conditions expérimentales.",
@@ -581,7 +581,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Le même ester peut donc présenter des comportements complémentaires selon le réactif et les conditions."
+    "explanation": "Le carbone carbonylé d’un ester est électrophile et peut être attaqué par un nucléophile."
   },
   {
     "order": 40,
@@ -599,7 +599,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une base forte est ajoutée à un ester possédant un hydrogène en alpha. Quel raisonnement correspond au support?",
+    "question": "Une base forte est ajoutée à un ester possédant un hydrogène en alpha. Quel raisonnement décrit correctement sa réactivité ?",
     "choices": [
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -609,7 +609,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La densité électronique peut être déplacée vers le carbone alpha.",
         "correct": true,
-        "explanation": "Le support décrit un caractère carbanionique/nucléophile."
+        "explanation": "La déprotonation en alpha forme un centre carboné riche en électrons qui peut être représenté comme nucléophile."
       },
       {
         "content": "Le carbone alpha peut ensuite attaquer un électrophile.",
@@ -627,7 +627,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
       }
     ],
-    "explanation": "La déprotonation/activation du carbone alpha ouvre une voie de réaction avec des électrophiles."
+    "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
   },
   {
     "order": 42,
@@ -638,7 +638,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une autre représentation conserve C=O et place un caractère négatif sur le carbone voisin.",
         "correct": true,
-        "explanation": "Autre possibilité décrite: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une forme limite peut conserver le carbonyle tout en représentant un caractère carbanionique sur le carbone alpha."
       },
       {
         "content": "Ces représentations servent à expliquer le caractère nucléophile possible du carbone alpha.",
@@ -651,7 +651,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
       },
       {
-        "content": "La décrit une possibilité de déplacement électronique menant à une structure avec C=C et OH.",
+        "content": "Une forme limite peut représenter un déplacement électronique conduisant à une structure avec $\\ce{C=C}$ et $\\ce{OH}$.",
         "correct": true,
         "explanation": "C'est l'une des représentations proposées."
       },
@@ -661,7 +661,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Ces représentations permettent de rendre compte de la réactivité du carbone alpha de l'ester."
+    "explanation": "Une forme limite peut conserver le carbonyle tout en représentant un caractère carbanionique sur le carbone alpha."
   },
   {
     "order": 43,
@@ -672,7 +672,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone du carbonyle.",
         "correct": true,
-        "explanation": "Il est électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "Le carbone alpha parce qu'il est toujours électrophile.",
@@ -682,7 +682,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le nucléophile peut remplacer le groupement OR' dans le bilan simplifié.",
         "correct": true,
-        "explanation": "R-CO-Nu est formé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une attaque nucléophile sur le carbone carbonylé peut conduire au remplacement du groupe $\\ce{OR'}$ dans le bilan simplifié."
       },
       {
         "content": "Le carbonyle ne joue aucun rôle.",
@@ -695,7 +695,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
       }
     ],
-    "explanation": "L'attaque nucléophile vise le carbone acyle de l'ester."
+    "explanation": "Une attaque nucléophile sur le carbone carbonylé peut conduire au remplacement du groupe $\\ce{OR'}$ dans le bilan simplifié."
   },
   {
     "order": 44,
@@ -716,20 +716,20 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Il exerce un effet électroattracteur.",
         "correct": true,
-        "explanation": "Propriété centrale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe carbonyle attire la densité électronique en raison de la forte électronégativité de l’oxygène."
       },
       {
         "content": "Il contribue à rendre le carbone carbonylé électrophile.",
         "correct": true,
-        "explanation": "Conséquence directe: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’effet électroattracteur de l’oxygène polarise $\\ce{C=O}$ et rend le carbone carbonylé électrophile."
       },
       {
         "content": "Il influence aussi la distribution électronique au niveau du carbone alpha.",
         "correct": true,
-        "explanation": "Le support relie cet effet au caractère nucléophile du CH2 voisin."
+        "explanation": "Le carbonyle influence aussi les hydrogènes et la densité électronique du carbone alpha, ce qui permet sa déprotonation dans certaines conditions."
       }
     ],
-    "explanation": "L'oxygène carbonylé est au cœur des deux polarités mises en avant."
+    "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
   },
   {
     "order": 45,
@@ -740,7 +740,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Dans B, le carbone alpha est rendu nucléophile.",
         "correct": true,
-        "explanation": "Activation par base forte: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       },
       {
         "content": "Dans B, l'électrophile se fixe au carbone alpha.",
@@ -750,7 +750,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux expériences illustrent des polarités différentes au sein de la même fonction ester.",
         "correct": true,
-        "explanation": "C'est la synthèse de la section."
+        "explanation": "Les deux expériences mettent en évidence des réactivités différentes du carbone carbonylé et du carbone alpha d’un même ester."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -760,10 +760,10 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Dans A, le carbone carbonylé est le centre électrophile attaqué.",
         "correct": true,
-        "explanation": "Voie acyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans cette voie, le nucléophile attaque le carbone électrophile du groupe carbonyle."
       }
     ],
-    "explanation": "Le MASTER doit relier les deux centres de réactivité plutôt que les apprendre isolément."
+    "explanation": "L’ester possède un carbone carbonylé électrophile et un carbone alpha qui peut devenir nucléophile après déprotonation par une base forte."
   },
   {
     "order": 46,
@@ -779,12 +779,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Utiliser un nucléophile pour viser le carbone carbonylé.",
         "correct": true,
-        "explanation": "Centre électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "Utiliser une base forte puis un électrophile pour fonctionnaliser le carbone alpha.",
         "correct": true,
-        "explanation": "Centre nucléophile après activation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha, le carbone voisin du carbonyle devient riche en électrons et peut attaquer un électrophile."
       },
       {
         "content": "Choisir les conditions ne permet pas donc de changer le site de réactivité mobilisé.",
@@ -794,10 +794,10 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux voies exigent obligatoirement une rupture complète du squelette carboné.",
         "correct": false,
-        "explanation": "Ce n'est pas indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Ces réactions modifient la fonction ou le carbone alpha sans imposer une rupture complète du squelette carboné."
       }
     ],
-    "explanation": "Le choix des conditions oriente la fonction ester vers deux types de réactivité."
+    "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
   },
   {
     "order": 47,
@@ -808,7 +808,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Nucléophile → remplacement de OR' par Nu dans le bilan simplifié.",
         "correct": true,
-        "explanation": "Substitution acyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le nucléophile attaque le carbone acylé et remplace le groupe partant ; le squelette acyle est conservé."
       },
       {
         "content": "Base forte puis électrophile → fixation de l'électrophile en alpha.",
@@ -831,7 +831,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La saponification correspond à l’hydrolyse d’un ester en milieu basique."
       }
     ],
-    "explanation": "Le chapitre présente quatre conséquences directes de la polarisation et de l'hydrolysabilité de l'ester."
+    "explanation": "Le nucléophile attaque le carbone acylé et remplace le groupe partant ; le squelette acyle est conservé."
   },
   {
     "order": 48,
@@ -847,7 +847,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Carbone alpha / toujours électrophile.",
         "correct": false,
-        "explanation": "Il peut devenir nucléophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha, le carbone voisin du carbonyle devient riche en électrons et peut attaquer un électrophile."
       },
       {
         "content": "Oxygène carbonylé / groupe partant principal du bilan R-CO-Nu.",
@@ -862,10 +862,10 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Carbone carbonylé / électrophile.",
         "correct": true,
-        "explanation": "Couple principal: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       }
     ],
-    "explanation": "Le carbone carbonylé est le centre électrophile de l'ester."
+    "explanation": "Il est décrit comme électrophile."
   },
   {
     "order": 49,
@@ -899,7 +899,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La perte du proton du groupe carboxyle conduit bien à l’ion carboxylate."
       }
     ],
-    "explanation": "L'état de protonation du fragment carboxylique dépend du milieu."
+    "explanation": "Aucun atome d’azote n’est introduit par cette transformation, donc aucune fonction azotée n’est formée."
   },
   {
     "order": 50,
@@ -920,7 +920,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un ester présente donc au moins deux centres carbonés de réactivité.",
         "correct": true,
-        "explanation": "Synthèse du modèle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’ester possède un carbone carbonylé électrophile et, après activation par une base forte, un carbone alpha pouvant devenir nucléophile."
       },
       {
         "content": "Le carbone du groupe carbonyle d’un ester possède un caractère électrophile.",
@@ -930,10 +930,10 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone carbonylé est électrophile.",
         "correct": true,
-        "explanation": "Premier site: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       }
     ],
-    "explanation": "La fonction ester est présentée comme ambivalente du point de vue de ses centres réactifs."
+    "explanation": "Après déprotonation en position alpha, ce carbone peut devenir un second site nucléophile de l’ester."
   },
   {
     "order": 51,
@@ -967,7 +967,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est précisément le résultat attendu."
       }
     ],
-    "explanation": "Le MASTER distingue les deux scénarios de réactivité de l'ester."
+    "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
   },
   {
     "order": 52,
@@ -1000,22 +1000,22 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux réactions exploitent des centres différents de la fonction.",
         "correct": true,
-        "explanation": "Carbonyle versus carbone alpha: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’attaque sur le carbone carbonylé et la fonctionnalisation du carbone alpha exploitent deux centres réactifs distincts."
       },
       {
         "content": "La première met en jeu le caractère électrophile du carbone carbonylé.",
         "correct": true,
-        "explanation": "Attaque nucléophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       },
       {
         "content": "La seconde met en jeu le caractère nucléophile du carbone alpha.",
         "correct": true,
-        "explanation": "Après base forte: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       },
       {
         "content": "Ces comportements sont contradictoires et ne peuvent pas coexister dans le même cadre.",
         "correct": false,
-        "explanation": "La les présente comme dépendants des conditions."
+        "explanation": "Ces comportements ne sont pas contradictoires : ils apparaissent dans des conditions différentes, notamment selon la présence d’un nucléophile ou d’une base forte."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -1023,7 +1023,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
       }
     ],
-    "explanation": "Le caractère réactif de l'ester dépend du site et des conditions."
+    "explanation": "L’ester possède un carbone carbonylé électrophile et un carbone alpha qui peut devenir nucléophile après déprotonation par une base forte."
   },
   {
     "order": 54,
@@ -1044,7 +1044,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le nucléophile vise le carbone carbonylé.",
         "correct": true,
-        "explanation": "Centre électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "Le groupe OR' n’est pas remplacé dans le bilan.",
@@ -1057,7 +1057,7 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le groupe acyle est conservé."
       }
     ],
-    "explanation": "Cette réaction illustre le caractère électrophile du carbone acyle."
+    "explanation": "C'est une autre voie de réactivité."
   },
   {
     "order": 55,
@@ -1074,12 +1074,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Hydrolyse alcaline = saponification.",
         "correct": true,
-        "explanation": "Définition : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, hydrolyse alcaline = saponification."
       },
       {
         "content": "Le carbone carbonylé d'un ester est électrophile.",
         "correct": true,
-        "explanation": "Polarisation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison $\\ce{C=O}$ est polarisée : l’oxygène est riche en électrons et le carbone carbonylé est électrophile."
       },
       {
         "content": "Une base forte peut rendre le carbone alpha nucléophile.",
@@ -1089,12 +1089,12 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un nucléophile peut remplacer OR' au niveau du groupe acyle dans le bilan simplifié.",
         "correct": true,
-        "explanation": "Substitution acyle : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une attaque nucléophile sur le carbone carbonylé peut conduire au remplacement du groupe $\\ce{OR'}$ dans le bilan simplifié."
       },
       {
         "content": "Le carbone carbonylé est toujours nucléophile.",
         "correct": false,
-        "explanation": "Il est électrophile : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "La saponification forme obligatoirement une amide.",
@@ -1104,20 +1104,20 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'ester ne contient qu'un oxygène.",
         "correct": false,
-        "explanation": "Deux oxygènes : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif ester comporte deux oxygènes : un oxygène carbonylé et un oxygène du groupe $\\ce{OR'}$."
       },
       {
         "content": "La liaison C-O de l'ester est décrite comme totalement bloquée.",
         "correct": false,
-        "explanation": "Libre rotation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans l’ester, la liaison C–O considérée est décrite comme libre en rotation ; le blocage par caractère partiel de double liaison concerne surtout l’amide C–N."
       },
       {
         "content": "Une base forte rend le carbone alpha électrophile.",
         "correct": false,
-        "explanation": "Elle le rend nucléophile : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha, le carbone voisin du carbonyle devient riche en électrons et peut attaquer un électrophile."
       }
     ],
-    "explanation": "Cette sélection réunit hydrolyse, polarisation et centres réactifs."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 56,
@@ -1138,6 +1138,6 @@ export const UE14_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "ignoreAccents": true
       }
     },
-    "explanation": "La emploie « hydrolyse alcaline = saponification »."
+    "explanation": "L’hydrolyse d’un ester en milieu basique est appelée saponification."
   }
 ];

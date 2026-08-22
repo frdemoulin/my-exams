@@ -37,18 +37,18 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
       }
     ],
-    "explanation": "La rassemble plusieurs voies fonctionnelles de préparation des acides carboxyliques."
+    "explanation": "Bilan: alcool primaire → acide."
   },
   {
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel produit acide est obtenu par oxydation d'un alcool primaire dans le tableau?",
+    "question": "Quel produit acide obtient-on par oxydation suffisamment poussée d’un alcool primaire ?",
     "choices": [
       {
         "content": "Une cétone.",
         "correct": false,
-        "explanation": "Ce n'est pas le bilan du tableau."
+        "explanation": "Une cétone est obtenue par oxydation d’un alcool secondaire, pas par oxydation poussée d’un alcool primaire."
       },
       {
         "content": "Une amide.",
@@ -68,10 +68,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide carboxylique.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Cette proposition est écartée: d'oxydation ne correspond pas au bilan ou à la propriété attendue."
       }
     ],
-    "explanation": "Le bilan simplifié est alcool primaire → acide."
+    "explanation": "Une oxydation suffisamment poussée d’un alcool primaire conduit à un acide carboxylique."
   },
   {
     "order": 25,
@@ -82,17 +82,17 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "À un alcool.",
         "correct": true,
-        "explanation": "Fragment OR': cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Lors de l’hydrolyse d’un ester, le groupe $\\ce{OR'}$ est libéré sous forme d’alcool $\\ce{R'OH}$."
       },
       {
         "content": "À une rupture de la fonction ester.",
         "correct": true,
-        "explanation": "C'est l'hydrolyse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une fonction ester se reconnaît au motif $\\ce{R-C(=O)-OR'}$, qui comporte deux atomes d’oxygène."
       },
       {
         "content": "À un organomagnésien.",
         "correct": false,
-        "explanation": "Aucun Mg n'intervient: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
@@ -102,10 +102,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "À un acide carboxylique.",
         "correct": true,
-        "explanation": "Fragment acyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’une amide forme également l’acide carboxylique correspondant."
       }
     ],
-    "explanation": "Le bilan est ester → acide + alcool."
+    "explanation": "Lors de l’hydrolyse d’un ester, le groupe $\\ce{OR'}$ est libéré sous forme d’alcool $\\ce{R'OH}$."
   },
   {
     "order": 26,
@@ -124,9 +124,9 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La relation correcte est: « Elle est mentionnée comme voie de préparation des acides ». La négation proposée est donc fausse."
       },
       {
-        "content": "Elle n'est pas développée dans ce chapitre.",
+        "content": "Seul le bilan global est considéré, sans mécanisme détaillé.",
         "correct": true,
-        "explanation": "Le tableau indique « Pas développé »."
+        "explanation": "Seul le bilan global est retenu ; le mécanisme détaillé n’est pas développé."
       },
       {
         "content": "La détaille ici tout son mécanisme.",
@@ -136,10 +136,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il ne faut donc pas exiger des détails mécanistiques absents.",
         "correct": true,
-        "explanation": "La banque reste au niveau explicitement fourni."
+        "explanation": "La voie est seulement signalée au niveau du bilan global ; aucun mécanisme détaillé n’est requis ici."
       }
     ],
-    "explanation": "La saponification est seulement signalée dans ce chapitre, sans développement supplémentaire."
+    "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
   },
   {
     "order": 27,
@@ -155,7 +155,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "À une rupture de la fonction amide.",
         "correct": true,
-        "explanation": "Principe de l'hydrolyse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une fonction amide se reconnaît au motif $\\ce{R-C(=O)-N}$."
       },
       {
         "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
@@ -173,7 +173,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’hydrolyse d’une amide forme également l’acide carboxylique correspondant."
       }
     ],
-    "explanation": "Le support résume: amide → amine + acide."
+    "explanation": "Ce bilan correspondrait à l'ester."
   },
   {
     "order": 28,
@@ -189,12 +189,12 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'amide conduit ensuite à un acide.",
         "correct": true,
-        "explanation": "Deuxième terme: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Lors de l’hydrolyse d’un nitrile, l’amide est un intermédiaire qui est ensuite hydrolysé en acide carboxylique."
       },
       {
         "content": "Le bilan global est nitrile → amide → acide.",
         "correct": true,
-        "explanation": "Écriture: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire avant d’aboutir à l’acide carboxylique."
       },
       {
         "content": "Le nitrile conduit directement à un alcane sans intermédiaire.",
@@ -207,7 +207,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "En poursuivant l’oxydation au-delà de l’aldéhyde, on atteint la fonction acide carboxylique."
       }
     ],
-    "explanation": "La insiste sur l'intermédiaire amide dans l'hydrolyse du nitrile."
+    "explanation": "La relation correcte est: « Le nitrile conduit d'abord à une amide ». La négation proposée est donc fausse."
   },
   {
     "order": 29,
@@ -241,7 +241,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
-    "explanation": "L'amide est l'intermédiaire de la séquence d'hydrolyse du nitrile."
+    "explanation": "Nitrile → amide → acide."
   },
   {
     "order": 30,
@@ -262,7 +262,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le nombre de carbones diminue d'une unité.",
         "correct": false,
-        "explanation": "Il augmente d'une unité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La carboxylation par $\\ce{CO2}$ ajoute au contraire une unité carbone au squelette de l’organomagnésien."
       },
       {
         "content": "Pour obtenir un acide à cinq carbones, il faut nécessairement utiliser un organomagnésien à six carbones.",
@@ -275,7 +275,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La relation correcte est: « L'organomagnésien réagit avec $\\ce{CO2}$ ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "La carboxylation par CO2 permet d'allonger le squelette carboné d'un carbone."
+    "explanation": "R-MgX + CO2 → R-COOH."
   },
   {
     "order": 31,
@@ -309,7 +309,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le produit final serait plus long."
       }
     ],
-    "explanation": "L'organomagnésien doit contenir un carbone de moins que l'acide final."
+    "explanation": "L’eau seule n’apporte pas le carbone supplémentaire nécessaire à la carboxylation."
   },
   {
     "order": 32,
@@ -340,10 +340,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un carbone supplémentaire provient de CO2.",
         "correct": true,
-        "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
+        "explanation": "Le carbone du $\\ce{CO2}$ devient le carbone du nouveau groupe carboxyle, ce qui ajoute une unité carbone au squelette."
       }
     ],
-    "explanation": "La carboxylation est une réaction d'allongement d'une unité carbone."
+    "explanation": "C'est le bilan R-MgX + CO2 → R-COOH."
   },
   {
     "order": 33,
@@ -364,7 +364,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La fonction ester est rompue.",
         "correct": true,
-        "explanation": "C'est l'hydrolyse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une fonction ester se reconnaît au motif $\\ce{R-C(=O)-OR'}$, qui comporte deux atomes d’oxygène."
       },
       {
         "content": "Le squelette carboné de l'acide doit obligatoirement gagner un carbone.",
@@ -377,7 +377,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
       }
     ],
-    "explanation": "L'hydrolyse d'un ester et la carboxylation d'un organomagnésien conduisent toutes deux à un acide, mais par des bilans différents."
+    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
   },
   {
     "order": 34,
@@ -408,10 +408,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux donnent un acide carboxylique.",
         "correct": true,
-        "explanation": "Point commun: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les deux voies considérées ont pour produit final une fonction acide carboxylique, même si leurs précurseurs diffèrent."
       }
     ],
-    "explanation": "Identifier le partenaire libéré permet de distinguer les deux hydrolyses."
+    "explanation": "L'amide donne une amine dans le bilan."
   },
   {
     "order": 35,
@@ -445,7 +445,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Nitrile → amide → acide."
       }
     ],
-    "explanation": "La séquence nitrile → amide → acide conserve le carbone fonctionnel dans le bilan représenté."
+    "explanation": "Le carbone du groupe nitrile devient le carbone du carboxyle."
   },
   {
     "order": 36,
@@ -461,12 +461,12 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Amide → nitrile → acide.",
         "correct": false,
-        "explanation": "Ordre inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire avant d’aboutir à l’acide carboxylique."
       },
       {
         "content": "Nitrile → amide → acide.",
         "correct": true,
-        "explanation": "Séquence exacte: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "Acide → nitrile → amide.",
@@ -479,7 +479,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Les voies d’hydrolyse et d’oxydation décrites ne visent pas la formation d’un ammonium quaternaire."
       }
     ],
-    "explanation": "L'hydrolyse progressive du nitrile passe par l'amide."
+    "explanation": "L'hydrolyse d'un nitrile ne passe pas par un alcool puis un alcane ; elle conduit vers l'amide puis l'acide."
   },
   {
     "order": 37,
@@ -513,7 +513,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
-    "explanation": "Pour un acide C3, l'organomagnésien doit porter un fragment C2."
+    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
   },
   {
     "order": 38,
@@ -551,15 +551,15 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'hydrolyse d'un ester correspondant peut donner l'acide.",
         "correct": true,
-        "explanation": "Voie listée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un ester rompt la liaison ester et régénère l’acide carboxylique correspondant."
       },
       {
         "content": "L'hydrolyse d'une amide correspondante peut donner l'acide.",
         "correct": true,
-        "explanation": "Voie listée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       }
     ],
-    "explanation": "Le chapitre présente plusieurs voies d'accès à un même type de fonction acide."
+    "explanation": "Seule la carboxylation par CO2 impose ce gain."
   },
   {
     "order": 40,
@@ -570,7 +570,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Retirer un carbone pour obtenir la taille de R.",
         "correct": true,
-        "explanation": "CO2 apportera l'unité manquante: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le $\\ce{CO2}$ apportant le carbone du groupe carboxyle, le radical R doit compter un carbone de moins que l’acide final."
       },
       {
         "content": "Le carbone ajouté n’est pas celui de CO2.",
@@ -590,10 +590,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Compter les carbones de l'acide final désiré.",
         "correct": true,
-        "explanation": "Point de départ: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Pour choisir l’organomagnésien, on part du nombre de carbones souhaité dans l’acide final puis on retire l’unité apportée par $\\ce{CO2}$."
       }
     ],
-    "explanation": "La règle est simple: taille de R = taille de l'acide final − 1."
+    "explanation": "Pour choisir l’organomagnésien, on part du nombre de carbones souhaité dans l’acide final puis on retire l’unité apportée par $\\ce{CO2}$."
   },
   {
     "order": 41,
@@ -609,7 +609,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Elle est listée comme voie de préparation.",
         "correct": true,
-        "explanation": "Tableau: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxydation d’un alcool primaire fait partie des voies permettant d’obtenir un acide carboxylique."
       },
       {
         "content": "Le produit final est une fonction acide carboxylique.",
@@ -627,7 +627,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette proposition est écartée: dans cette voie ne correspond pas au bilan ou à la propriété attendue."
       }
     ],
-    "explanation": "La comparaison des voies repose notamment sur le bilan carbone."
+    "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
   },
   {
     "order": 42,
@@ -638,7 +638,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La carboxylation augmente le nombre de carbones d'une unité.",
         "correct": true,
-        "explanation": "CO2 apporte un carbone: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Lors d’une carboxylation d’un organomagnésien, le carbone du $\\ce{CO2}$ devient celui du groupe carboxyle et allonge le squelette d’une unité."
       },
       {
         "content": "L'hydrolyse du nitrile exige un organomagnésien.",
@@ -661,7 +661,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Les deux voies convergent vers un acide mais n'ont ni le même intermédiaire ni le même bilan carbone."
+    "explanation": "Lors d’une carboxylation d’un organomagnésien, le carbone du $\\ce{CO2}$ devient celui du groupe carboxyle et allonge le squelette d’une unité."
   },
   {
     "order": 43,
@@ -682,7 +682,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La fonction acide est créée au niveau du groupement acyle.",
         "correct": true,
-        "explanation": "Le schéma fonctionnel l'indique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse transforme le dérivé acylé en fonction acide carboxylique tout en conservant le carbone du groupe acyle."
       },
       {
         "content": "CO2 doit obligatoirement être ajouté.",
@@ -695,7 +695,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
       }
     ],
-    "explanation": "L'hydrolyse des amides constitue une voie directe de formation des acides."
+    "explanation": "L’hydrolyse rompt la fonction amide et conduit à l’acide carboxylique correspondant."
   },
   {
     "order": 44,
@@ -736,7 +736,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La carboxylation par CO2 augmente la longueur du squelette d'un carbone.",
         "correct": true,
-        "explanation": "Spécificité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbone du $\\ce{CO2}$ devient celui du groupe carboxyle ; le squelette gagne donc une unité carbone."
       },
       {
         "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
@@ -746,10 +746,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les quatre conduisent à une fonction acide carboxylique.",
         "correct": true,
-        "explanation": "C'est leur point commun: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Malgré des réactifs différents, les quatre voies recensées convergent vers une fonction acide carboxylique."
       }
     ],
-    "explanation": "Le MASTER doit faire distinguer les bilans associés à chaque voie."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 46,
@@ -770,7 +770,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone supplémentaire provient de CO2.",
         "correct": true,
-        "explanation": "Règle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la carboxylation d’un organomagnésien, l’unité carbone supplémentaire est fournie par le $\\ce{CO2}$."
       },
       {
         "content": "Le carbone du CO2 devient le carbone carboxylique.",
@@ -780,10 +780,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'organomagnésien devait comporter 8 carbones.",
         "correct": false,
-        "explanation": "Ce serait trop long: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       }
     ],
-    "explanation": "La carboxylation est l'occasion de vérifier un bilan carbone simple mais fréquent."
+    "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
   },
   {
     "order": 47,
@@ -799,7 +799,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'acide final possède nécessairement 5 carbones.",
         "correct": false,
-        "explanation": "Aucun CO2 n'est ajouté: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : l'acide final conserve 4 carbones dans le schéma."
       },
       {
         "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
@@ -817,13 +817,13 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Aucune perte ou addition de carbone n'est indiquée."
       }
     ],
-    "explanation": "L'hydrolyse du nitrile se distingue de la carboxylation par l'absence de gain carboné."
+    "explanation": "Lecture du schéma nitrile → amide → acide."
   },
   {
     "order": 48,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On souhaite obtenir un acide sans modifier le nombre de carbones du précurseur. Quelles voies du tableau sont compatibles dans leur bilan simplifié?",
+    "question": "On souhaite obtenir un acide sans modifier le nombre de carbones du précurseur. Quelles voies sont compatibles avec ce bilan ?",
     "choices": [
       {
         "content": "Oxydation d'un alcool primaire correspondant.",
@@ -843,7 +843,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Carboxylation d'un organomagnésien par CO2.",
         "correct": false,
-        "explanation": "Elle ajoute un carbone: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "L’hydrolyse d’un nitrile conduit directement à un alcane sans intermédiaire fonctionnel.",
@@ -851,7 +851,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
       }
     ],
-    "explanation": "Le bilan carbone permet de classer rapidement les voies."
+    "explanation": "Pas de gain carboné explicite."
   },
   {
     "order": 49,
@@ -872,7 +872,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Sa réaction avec CO2 peut conduire à un acide à 4 carbones.",
         "correct": true,
-        "explanation": "Gain d'un carbone: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien à trois carbones gagne l’unité carbone du $\\ce{CO2}$ et conduit à un acide à quatre carbones."
       },
       {
         "content": "Le carbone carboxylique du produit vient de CO2.",
@@ -882,10 +882,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La règle impose un organomagnésien ayant un carbone de moins que l'acide final.",
         "correct": true,
-        "explanation": "Application directe: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le $\\ce{CO2}$ apporte un carbone ; l’organomagnésien doit donc en posséder un de moins que l’acide final."
       }
     ],
-    "explanation": "La règle n−1 doit pouvoir être appliquée dans les deux sens."
+    "explanation": "Le nombre augmente, il ne diminue pas."
   },
   {
     "order": 50,
@@ -923,25 +923,25 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Elle correspond à l'hydrolyse du nitrile.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’hydrolyse du nitrile conduit vers l’amide puis vers l’acide carboxylique correspondant."
       },
       {
         "content": "L'amide est un intermédiaire.",
         "correct": true,
-        "explanation": "Étape centrale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’amide constitue l’intermédiaire fonctionnel entre le nitrile et l’acide carboxylique."
       },
       {
         "content": "Le produit final est une fonction acide carboxylique.",
         "correct": true,
-        "explanation": "Dernier terme: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La poursuite de l’hydrolyse conduit finalement à la fonction acide carboxylique."
       },
       {
         "content": "Cette voie repose sur une perte obligatoire de CO2.",
         "correct": false,
-        "explanation": "Aucune décarboxylation n'est impliquée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un nitrile n’implique aucune perte de $\\ce{CO2}$ ; elle conserve le squelette carboné."
       }
     ],
-    "explanation": "Il faut distinguer hydrolyse du nitrile et décarboxylation."
+    "explanation": "Le bilan présenté passe par une amide avant d’aboutir à l’acide."
   },
   {
     "order": 52,
@@ -972,10 +972,10 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "CO2 apparaît comme réactif.",
         "correct": true,
-        "explanation": "Signature de la voie: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La présence de $\\ce{CO2}$ comme réactif est caractéristique de la carboxylation d’un organomagnésien."
       }
     ],
-    "explanation": "La combinaison organomagnésien + CO2 + gain d'un carbone identifie la carboxylation."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 53,
@@ -996,7 +996,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La réaction finale est résumée par R-MgX + CO2 → R-COOH.",
         "correct": true,
-        "explanation": "Écriture: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbone nucléophile de $\\ce{R-MgX}$ réagit avec $\\ce{CO2}$ puis, après hydrolyse, donne l’acide $\\ce{R-COOH}$."
       },
       {
         "content": "Le fragment R doit comporter 5 carbones.",
@@ -1009,7 +1009,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le réactif organomagnésien doit comporter un carbone de moins que l’acide final."
       }
     ],
-    "explanation": "La longueur du précurseur se déduit directement de l'acide cible."
+    "explanation": "Le CO2 apporte le cinquième."
   },
   {
     "order": 54,
@@ -1030,7 +1030,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'hydrolyse d'ester libère un alcool.",
         "correct": true,
-        "explanation": "Produit associé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un ester libère l’alcool correspondant au groupe $\\ce{OR'}$."
       },
       {
         "content": "La carboxylation utilise CO2.",
@@ -1043,7 +1043,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
-    "explanation": "Le raisonnement croise nature des réactifs, co-produits et bilan carbone."
+    "explanation": "Ce n'est pas le bilan."
   },
   {
     "order": 55,
@@ -1055,7 +1055,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Alcool primaire → acide par oxydation.",
         "correct": true,
-        "explanation": "Voie de préparation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation suffisamment poussée d’un alcool primaire conduit à l’acide carboxylique correspondant."
       },
       {
         "content": "Ester → acide + alcool par hydrolyse.",
@@ -1080,17 +1080,17 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La saponification est détaillée mécanistiquement.",
         "correct": false,
-        "explanation": "Elle est seulement mentionnée : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La saponification est seulement mentionnée comme hydrolyse basique d’un ester ; son mécanisme détaillé n’est pas développé ici."
       },
       {
         "content": "Le nitrile perd un carbone lors de l'hydrolyse.",
         "correct": false,
-        "explanation": "Aucune perte n'est indiquée : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un nitrile passe par une amide intermédiaire avant d’aboutir à l’acide carboxylique."
       },
       {
         "content": "L'organomagnésien doit contenir un carbone de plus que l'acide cible.",
         "correct": false,
-        "explanation": "Un de moins : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "L'hydrolyse d'une amide libère un alcool.",
@@ -1103,7 +1103,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Il apporte le carbone carboxylique."
       }
     ],
-    "explanation": "Cette question rassemble toutes les voies de préparation explicitement données."
+    "explanation": "Une oxydation suffisamment poussée d’un alcool primaire conduit à l’acide carboxylique correspondant."
   },
   {
     "order": 56,

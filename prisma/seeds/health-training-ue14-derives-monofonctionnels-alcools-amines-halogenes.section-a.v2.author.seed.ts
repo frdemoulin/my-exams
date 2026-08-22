@@ -37,7 +37,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La capacité à former des liaisons hydrogène n'implique pas une espèce ionique."
       }
     ],
-    "explanation": "La fonction alcool est définie par le motif $\\ce{R-OH}$ ; le groupe hydroxyle permet aux alcools de participer à des liaisons hydrogène."
+    "explanation": "La fonction alcool est définie par le groupe $\\ce{-OH}$ et ne nécessite aucun atome d’azote."
   },
   {
     "order": 2,
@@ -71,7 +71,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est cohérent avec le modèle de liaison hydrogène déjà étudié."
       }
     ],
-    "explanation": "Le groupe hydroxyle explique la capacité des alcools à participer à un réseau de liaisons hydrogène."
+    "explanation": "L’hydrogène porté par l’oxygène peut jouer le rôle de donneur dans une liaison hydrogène."
   },
   {
     "order": 3,
@@ -105,7 +105,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’addition d’eau sur l’alcène conduit à une fonction alcool, sans introduire d’azote."
       }
     ],
-    "explanation": "L'hydratation transforme une double liaison en fonction alcool."
+    "explanation": "Le bilan indique $\\ce{H2O, H+}$."
   },
   {
     "order": 4,
@@ -160,12 +160,12 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit attendu est un alcool tertiaire.",
         "correct": false,
-        "explanation": "Le tableau donne un alcool primaire."
+        "explanation": "La réduction d’un acide carboxylique conduit à un alcool primaire, pas à un alcool tertiaire."
       },
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+        "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       },
       {
         "content": "La réduction d'un acide carboxylique nécessite un réducteur puissant dans le cadre présenté.",
@@ -173,7 +173,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "$\\ce{BH3}$ est l'exemple de réducteur puissant retenu pour cette transformation."
       }
     ],
-    "explanation": "La réduction forte d'un acide carboxylique est une voie de préparation d'un alcool primaire."
+    "explanation": "La réduction poussée d’un acide carboxylique conduit à l’alcool primaire correspondant."
   },
   {
     "order": 6,
@@ -184,7 +184,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+        "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       },
       {
         "content": "À un alcool primaire.",
@@ -199,7 +199,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un alcool secondaire.",
         "correct": false,
-        "explanation": "Le tableau réserve ce produit à la réduction d'une cétone."
+        "explanation": "Un alcool secondaire est obtenu par réduction d’une cétone ; la réduction d’un aldéhyde donne un alcool primaire."
       },
       {
         "content": "À un dérivé halogéné.",
@@ -207,7 +207,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Aucun halogène n'est introduit lors de cette réduction ; un dérivé halogéné n'est donc pas formé."
       }
     ],
-    "explanation": "Un aldéhyde réduit par $\\ce{NaBH4}$ donne un alcool primaire."
+    "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
   },
   {
     "order": 7,
@@ -228,7 +228,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+        "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       },
       {
         "content": "À un alcool secondaire.",
@@ -238,7 +238,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un alcool primaire.",
         "correct": false,
-        "explanation": "Cela correspond à la réduction d'un aldéhyde dans le tableau."
+        "explanation": "La réduction d’un aldéhyde conduit à un alcool primaire ; une cétone donne un alcool secondaire."
       }
     ],
     "explanation": "Une cétone réduite par le borohydrure donne un alcool secondaire."
@@ -275,7 +275,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
       }
     ],
-    "explanation": "Le tableau de préparation permet d'associer directement la nature du carbonyle à la classe d'alcool obtenue."
+    "explanation": "Des conditions de réduction plus fortes sont nécessaires pour atteindre le produit indiqué à partir de ce substrat."
   },
   {
     "order": 9,
@@ -296,7 +296,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+        "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       },
       {
         "content": "$\\ce{NaBH4}$.",
@@ -309,7 +309,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Mg sert à préparer un organomagnésien à partir de RX."
       }
     ],
-    "explanation": "Le $\\ce{NaBH4}$ est le réducteur doux utilisé pour aldéhydes et cétones."
+    "explanation": "C'est un acide halogéné, pas le réducteur indiqué."
   },
   {
     "order": 10,
@@ -335,7 +335,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+        "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       },
       {
         "content": "Une hydratation part d'un alcène.",
@@ -343,7 +343,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’hydratation d’un alcène est bien une voie directe de préparation d’un alcool."
       }
     ],
-    "explanation": "La classe de l'alcool final dépend de la nature du substrat et de la voie utilisée."
+    "explanation": "La relation correcte est: « Une réduction peut partir d'un acide, d'un aldéhyde ou d'une cétone ». La négation proposée est donc fausse."
   },
   {
     "order": 11,
@@ -359,7 +359,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit est un alcool secondaire.",
         "correct": true,
-        "explanation": "Ce bilan reprend directement la transformation attendue dans cette réaction."
+        "explanation": "L’addition d’un organomagnésien sur le carbonyle permet d’obtenir le produit correspondant après hydrolyse."
       },
       {
         "content": "Une étape d'hydrolyse est nécessaire.",
@@ -374,10 +374,10 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit est nécessairement un alcool primaire.",
         "correct": false,
-        "explanation": "Le tableau donne un alcool secondaire."
+        "explanation": "Avec un aldéhyde, l’addition d’un organomagnésien suivie d’une hydrolyse conduit à un alcool secondaire, pas primaire."
       }
     ],
-    "explanation": "Organomagnésien + aldéhyde, suivi d'hydrolyse, conduit à un alcool secondaire."
+    "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
   },
   {
     "order": 12,
@@ -411,7 +411,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le groupe R'' du Grignard s'ajoute au carbone carbonylé."
       }
     ],
-    "explanation": "Une cétone possède déjà deux substituants carbonés; l'ajout du groupe du Grignard conduit à un alcool tertiaire."
+    "explanation": "L’hydrolyse est nécessaire pour transformer l’intermédiaire magnésien en alcool."
   },
   {
     "order": 13,
@@ -445,7 +445,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
       }
     ],
-    "explanation": "L'ester est le cas particulier où deux équivalents du même organomagnésien sont intégrés au carbone fonctionnel."
+    "explanation": "Ce bilan correspond à la transformation attendue et relie correctement le substrat au produit."
   },
   {
     "order": 14,
@@ -491,7 +491,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
-    "explanation": "La classe du produit est un repère fondamental de la préparation des alcools par Grignard."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 16,
@@ -525,7 +525,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une cétone + organomagnésien donne un alcool tertiaire."
       }
     ],
-    "explanation": "La propanone possède deux groupes méthyle; l'addition d'un troisième groupe méthyle donne un carbone alcool tertiaire."
+    "explanation": "Avec une cétone, l’addition d’un organomagnésien conduit à un alcool tertiaire après hydrolyse, et non à un alcool primaire."
   },
   {
     "order": 17,
@@ -556,16 +556,16 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le groupe méthyle du réactif de Grignard est incorporé au squelette.",
         "correct": true,
-        "explanation": "Création d'une liaison C-C: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       }
     ],
-    "explanation": "L'éthanal illustre le cas général de formation d'un alcool secondaire par addition d'un Grignard sur un aldéhyde."
+    "explanation": "Ce serait le cas d'une cétone."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une préparation d'alcool tertiaire peut,, faire intervenir:",
+    "question": "Une préparation d’alcool tertiaire peut faire intervenir :",
     "choices": [
       {
         "content": "Une cétone et un organomagnésien.",
@@ -590,10 +590,10 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "Dans le cadre du chapitre, une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+        "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       }
     ],
-    "explanation": "Les organomagnésiens sont les voies mises en avant pour former les alcools tertiaires."
+    "explanation": "Cette voie conduit directement au type de produit indiqué dans le bilan de la réaction."
   },
   {
     "order": 19,
@@ -619,7 +619,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un contexte de synthèse, pourquoi les organomagnésiens sont-ils particulièrement utiles dans cette section?",
+    "question": "Dans un contexte de synthèse, pourquoi les organomagnésiens sont-ils particulièrement utiles ?",
     "choices": [
       {
         "content": "Ils permettent d'accéder à plusieurs classes d'alcools.",
@@ -647,7 +647,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le groupe carboné du Grignard s'ajoute au carbone électrophile du carbonyle."
       }
     ],
-    "explanation": "Leur intérêt synthétique tient à l'allongement du squelette carboné tout en générant une fonction alcool."
+    "explanation": "Un aldéhyde conduit à un alcool secondaire, tandis qu’une cétone ou un ester conduit à un alcool tertiaire dans les cas étudiés."
   },
   {
     "order": 21,
@@ -689,17 +689,17 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ester + organomagnésien → alcool primaire.",
         "correct": false,
-        "explanation": "Le produit est tertiaire : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un ester réagit deux fois avec l’organomagnésien et conduit, après hydrolyse, à un alcool tertiaire et non primaire."
       },
       {
         "content": "Aldéhyde + organomagnésien → alcool tertiaire.",
         "correct": false,
-        "explanation": "Le produit est secondaire : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde réagit avec l’organomagnésien pour donner, après hydrolyse, un alcool secondaire et non tertiaire."
       },
       {
         "content": "Cétone + $\\ce{NaBH4}$ → amine.",
         "correct": false,
-        "explanation": "Cette proposition est écartée : d'azote ne correspond pas au bilan ou à la propriété attendue."
+        "explanation": "$\\ce{NaBH4}$ réduit une cétone en alcool secondaire ; aucun atome d’azote n’est introduit."
       },
       {
         "content": "Hydratation d'alcène → dérivé halogéné.",
@@ -707,13 +707,13 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le produit est un alcool."
       }
     ],
-    "explanation": "Cette sélection consolide les principales voies de préparation des alcools."
+    "explanation": "L’hydratation d’un alcène par l’eau en milieu acide conduit à un alcool."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le tableau, combien de grandes familles de substrats carbonylés sont explicitement utilisées avec les organomagnésiens: aldéhydes, cétones et esters?",
+    "question": "Combien de grandes familles de substrats carbonylés sont explicitement utilisées avec les organomagnésiens : aldéhydes, cétones et esters ?",
     "answer": {
       "type": "number",
       "value": 3,

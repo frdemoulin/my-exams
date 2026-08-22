@@ -14,12 +14,12 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un anhydride d'acide peut jouer le rôle d'acide activé.",
         "correct": true,
-        "explanation": "Autre exemple cité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un anhydride d’acide fait partie des dérivés activés d’acides carboxyliques."
       },
       {
         "content": "Un acide carboxylique non activé et une amine donnent directement l'amide dans le modèle.",
         "correct": false,
-        "explanation": "Le support met en avant la formation d'un sel."
+        "explanation": "La proposition est fausse : un acide activé peut réagir avec une amine."
       },
       {
         "content": "La préparation d’un ester étudiée exige nécessairement une amine comme nucléophile.",
@@ -34,10 +34,10 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un chlorure d'acyle peut jouer le rôle d'acide activé.",
         "correct": true,
-        "explanation": "Exemple cité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un chlorure d’acyle est un dérivé activé de l’acide carboxylique et peut servir à former une amide."
       }
     ],
-    "explanation": "L'amidification nécessite ici l'activation de la fonction acide carboxylique."
+    "explanation": "Un chlorure d’acyle est un dérivé activé de l’acide carboxylique et peut servir à former une amide."
   },
   {
     "order": 58,
@@ -53,7 +53,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un organomagnésien.",
         "correct": false,
-        "explanation": "Aucun Mg n'intervient: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition est écartée: de mg ne correspond pas au bilan ou à la propriété attendue."
       },
       {
         "content": "Alcène.",
@@ -68,10 +68,10 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un thioester.",
         "correct": false,
-        "explanation": "Il faudrait un thiol: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester se forme avec un partenaire soufré de type thiol ; ce n’est pas le produit de la réaction acide-amine considérée."
       }
     ],
-    "explanation": "Sans activation, la réaction acide + amine est présentée comme une neutralisation acide-base."
+    "explanation": "C'est le contraste présenté avec l'amidification."
   },
   {
     "order": 59,
@@ -82,7 +82,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Elle est décrite comme plus facile que l'hydrolyse d'un ester.",
         "correct": false,
-        "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide est plus résistante à l’hydrolyse qu’un ester dans les conditions comparées."
       },
       {
         "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
@@ -92,20 +92,20 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'hydrolyse d'une amide est plus difficile que celle d'un ester.",
         "correct": true,
-        "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
+        "explanation": "Cette différence de réactivité permet d’hydrolyser plus facilement un ester tout en laissant une amide intacte dans des conditions douces."
       },
       {
         "content": "L'hydrolyse chimique d'une amide nécessite un milieu très acide dans le modèle présenté.",
         "correct": true,
-        "explanation": "Condition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse chimique d’une amide exige ici des conditions acides fortes, souvent associées à un chauffage."
       },
       {
         "content": "L'hydrolyse chimique d'une amide nécessite du chauffage.",
         "correct": true,
-        "explanation": "Deuxième condition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le chauffage fournit l’énergie nécessaire aux conditions sévères retenues pour l’hydrolyse chimique d’une amide."
       }
     ],
-    "explanation": "La fonction amide est hydrolysable, mais demande des conditions plus sévères que l'ester."
+    "explanation": "L’hydrolyse d’une amide rompt la liaison acyle–azote et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
   },
   {
     "order": 60,
@@ -139,7 +139,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La relation correcte est: « Un acide carboxylique est formé ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "L'hydrolyse acide de l'amide libère l'acide carboxylique et la composante aminée protonée."
+    "explanation": "Le schéma donne un ammonium."
   },
   {
     "order": 61,
@@ -165,15 +165,15 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Des conditions capables d'hydrolyser chimiquement l'amide auront déjà affecté l'ester.",
         "correct": true,
-        "explanation": "Le support l'indique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       },
       {
         "content": "L'amide s'hydrolyse toujours avant l'ester.",
         "correct": false,
-        "explanation": "L'ordre est inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       }
     ],
-    "explanation": "La différence de sensibilité ester/amide permet une hydrolyse sélective."
+    "explanation": "L’ester est plus facilement hydrolysé que l’amide."
   },
   {
     "order": 62,
@@ -199,15 +199,15 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Estérases → esters.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Les estérases catalysent l’hydrolyse des fonctions ester."
       },
       {
         "content": "Peptidases/protéases → amides.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Les peptidases et protéases catalysent l’hydrolyse des liaisons amide des peptides."
       }
     ],
-    "explanation": "Les estérases hydrolysent les fonctions ester, tandis que les peptidases et protéases hydrolysent les liaisons amide des peptides."
+    "explanation": "Exemple de peptidase/protéase digestive cité."
   },
   {
     "order": 63,
@@ -218,17 +218,17 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Trypsine.",
         "correct": true,
-        "explanation": "Citée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La trypsine est une protéase capable d’hydrolyser des liaisons peptidiques."
       },
       {
         "content": "Chymotrypsine.",
         "correct": true,
-        "explanation": "Citée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La chymotrypsine est une protéase capable d’hydrolyser des liaisons peptidiques."
       },
       {
         "content": "Pepsine.",
         "correct": true,
-        "explanation": "Citée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La pepsine est une protéase capable d’hydrolyser des liaisons peptidiques."
       },
       {
         "content": "Estérase uniquement.",
@@ -241,7 +241,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La fonction ester est plus fragile que la fonction amide."
       }
     ],
-    "explanation": "Trypsine, chymotrypsine et pepsine sont les trois exemples donnés."
+    "explanation": "La chymotrypsine est une protéase capable d’hydrolyser des liaisons peptidiques. La fonction ester est plus fragile que la fonction amide."
   },
   {
     "order": 64,
@@ -284,10 +284,10 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Elle possède un caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "Propriété centrale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison $\\ce{C-N}$ un caractère partiel de double liaison."
       }
     ],
-    "explanation": "Le caractère partiel de double liaison rigidifie la fonction amide."
+    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
   },
   {
     "order": 66,
@@ -308,7 +308,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le doublet libre de l'azote est attiré/délocalisé vers le système carbonylé.",
         "correct": true,
-        "explanation": "Explication fournie: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans une amide, le doublet de l’azote est délocalisé vers le groupe carbonyle, ce qui confère à $\\ce{C-N}$ un caractère partiel de double liaison."
       },
       {
         "content": "Cette délocalisation réduit la disponibilité du doublet de l'azote.",
@@ -321,18 +321,18 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Il en possède un, mais il est engagé dans la délocalisation."
       }
     ],
-    "explanation": "La délocalisation du doublet de N vers le carbonyle explique la liaison C-N partiellement double."
+    "explanation": "Le caractère partiel de double liaison perturbe fortement la rotation."
   },
   {
     "order": 67,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On compare une amine et une amide vis-à-vis de leur doublet d'azote. Quelles propositions sont soutenues par le chapitre?",
+    "question": "On compare une amine et une amide vis-à-vis de leur doublet d’azote. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "L'amide et l'amine ont exactement la même réactivité vis-à-vis des électrophiles.",
         "correct": false,
-        "explanation": "La fait précisément distinguer les deux."
+        "explanation": "Une amine et une amide n’ont pas la même réactivité : dans l’amide, le doublet de l’azote est délocalisé vers le carbonyle."
       },
       {
         "content": "La présence du carbonyle adjacent explique cette différence.",
@@ -355,7 +355,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Conséquence mise en avant par l'auto-évaluation."
       }
     ],
-    "explanation": "Le carbonyle modifie fortement la disponibilité électronique de l'azote amide."
+    "explanation": "Dans une amide, le doublet de l’azote est délocalisé vers le carbonyle et devient moins disponible que dans une amine simple."
   },
   {
     "order": 68,
@@ -366,12 +366,12 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'ester ne peut pas être hydrolysé sélectivement.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'ester peut être hydrolysé sélectivement ». La négation proposée est donc fausse."
+        "explanation": "La fonction ester est plus facilement hydrolysable que l’amide, ce qui permet une hydrolyse sélective dans des conditions adaptées."
       },
       {
         "content": "L'amide peut rester intacte.",
         "correct": true,
-        "explanation": "Elle est plus résistante: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La fonction ester est plus facilement hydrolysable que l’amide, ce qui permet une hydrolyse sélective dans des conditions adaptées."
       },
       {
         "content": "Cette différence peut être exploitée en synthèse.",
@@ -381,7 +381,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'amide doit obligatoirement s'hydrolyser avant l'ester.",
         "correct": false,
-        "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       },
       {
         "content": "L’hydrolyse d’une amide est plus difficile que celle d’un ester dans les conditions comparées.",
@@ -389,7 +389,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La fonction amide est plus résistante et nécessite des conditions plus sévères pour l’hydrolyse chimique."
       }
     ],
-    "explanation": "L'ester est le groupe le plus sensible aux conditions douces d'hydrolyse."
+    "explanation": "La relation correcte est: « L'ester peut être hydrolysé sélectivement ». La négation proposée est donc fausse."
   },
   {
     "order": 69,
@@ -400,7 +400,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'ester est plus résistant que l'amide.",
         "correct": false,
-        "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’ester est plus facilement hydrolysé que l’amide ; il est donc moins résistant dans les conditions comparées."
       },
       {
         "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
@@ -410,20 +410,20 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les conditions sont compatibles avec l'hydrolyse de l'amide.",
         "correct": true,
-        "explanation": "Très acide + chauffage: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un milieu très acide associé à un chauffage fournit les conditions sévères nécessaires à l’hydrolyse chimique d’une amide."
       },
       {
-        "content": "La fonction ester, plus fragile, aura été affectée avant ou au cours de ce traitement.",
+        "content": "La fonction ester, plus facilement hydrolysable, aura été affectée avant ou pendant ce traitement.",
         "correct": true,
-        "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
+        "explanation": "Comme l’ester est plus facilement hydrolysé, il ne peut pas être supposé intact après un traitement suffisamment sévère pour hydrolyser l’amide."
       },
       {
         "content": "On ne peut pas espérer conserver intact l'ester tout en hydrolysant chimiquement l'amide dans ce modèle.",
         "correct": true,
-        "explanation": "Conséquence de la sélectivité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les conditions nécessaires à l’hydrolyse de l’amide sont assez sévères pour affecter auparavant la fonction ester."
       }
     ],
-    "explanation": "La hiérarchie de sensibilité impose l'ordre des transformations."
+    "explanation": "L’ester est plus facilement hydrolysable que l’amide ; cette différence de stabilité permet une hydrolyse sélective dans des conditions adaptées."
   },
   {
     "order": 70,
@@ -434,12 +434,12 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le doublet de N n’est pas délocalisé vers le carbonyle.",
         "correct": false,
-        "explanation": "La relation correcte est: « Le doublet de N est délocalisé vers le carbonyle ». La négation proposée est donc fausse."
+        "explanation": "Le doublet de l’azote est au contraire délocalisé vers le carbonyle dans une amide."
       },
       {
         "content": "Rompre temporairement cette conjugaison pour tourner demande de l'énergie.",
         "correct": true,
-        "explanation": "La évoque un chauffage: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La rotation autour de $\\ce{C-N}$ nécessite de franchir la barrière liée à la délocalisation électronique ; un apport d’énergie la favorise."
       },
       {
         "content": "Parce que l'amide contient deux atomes de soufre.",
@@ -454,10 +454,10 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La liaison C-N possède un caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "Cause directe: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison $\\ce{C-N}$ un caractère partiel de double liaison."
       }
     ],
-    "explanation": "La rigidité de l'amide découle de sa délocalisation électronique."
+    "explanation": "La relation correcte est: « Le doublet de N est délocalisé vers le carbonyle ». La négation proposée est donc fausse."
   },
   {
     "order": 71,
@@ -473,7 +473,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La fonction amide comporte un atome d'oxygène.",
         "correct": true,
-        "explanation": "O du carbonyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxygène de la fonction amide est celui du groupe carbonyle $\\ce{C=O}$."
       },
       {
         "content": "La fonction amide comporte un atome d'azote.",
@@ -483,7 +483,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'effet électroattracteur de l'oxygène influence le doublet de l'azote.",
         "correct": true,
-        "explanation": "Explication: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbonyle favorise la délocalisation du doublet de l’azote, ce qui diminue sa disponibilité électronique."
       },
       {
         "content": "La fonction amide comporte obligatoirement deux oxygènes comme l'ester.",
@@ -491,28 +491,28 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'amide simple contient un O et un N."
       }
     ],
-    "explanation": "La comparaison ester/amide repose aussi sur la nature des hétéroatomes adjacents au carbonyle."
+    "explanation": "La liaison peptidique correspond à une fonction amide."
   },
   {
     "order": 72,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel mécanisme structural explique le mieux,, que le doublet de l'azote d'une amide soit moins disponible?",
+    "question": "Quel mécanisme structural explique le mieux que le doublet de l’azote d’une amide soit moins disponible ?",
     "choices": [
       {
         "content": "L'absence totale de doublet sur N.",
         "correct": false,
-        "explanation": "Le doublet existe: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’azote possède bien un doublet ; c’est sa délocalisation vers le carbonyle qui réduit sa disponibilité."
       },
       {
         "content": "Sa délocalisation vers le carbonyle.",
         "correct": true,
-        "explanation": "C'est l'explication enseignée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation du doublet de l’azote vers le carbonyle explique le caractère partiel de double liaison de $\\ce{C-N}$."
       },
       {
         "content": "La présence obligatoire d'un ion Mg.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Aucun ion magnésium n’est nécessaire pour expliquer la délocalisation électronique d’une fonction amide."
       },
       {
         "content": "Une saponification permanente.",
@@ -525,13 +525,13 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’hydrogénation ne désigne pas l’hydrolyse basique d’un ester."
       }
     ],
-    "explanation": "La résonance/délocalisation au sein de la fonction amide réduit la disponibilité du doublet de N."
+    "explanation": "La délocalisation du doublet de l’azote vers le carbonyle explique le caractère partiel de double liaison de $\\ce{C-N}$."
   },
   {
     "order": 73,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans un contexte digestif, quelles propositions sont cohérentes avec la?",
+    "question": "Dans un contexte digestif, quelles propositions sont cohérentes avec l’hydrolyse des liaisons peptidiques ?",
     "choices": [
       {
         "content": "Des protéases peuvent hydrolyser sélectivement des fonctions amides des peptides.",
@@ -546,7 +546,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les estérases sont, elles, associées aux fonctions ester.",
         "correct": true,
-        "explanation": "Autre association enzymatique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les estérases catalysent l’hydrolyse des fonctions ester."
       },
       {
         "content": "Toutes les hydrolyses physiologiques exigent un milieu très acide et un chauffage externe.",
@@ -559,7 +559,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’ester est plus facilement hydrolysé que l’amide."
       }
     ],
-    "explanation": "Le support oppose les conditions chimiques sévères de l'amide à l'hydrolyse enzymatique physiologique."
+    "explanation": "L’exemple retenu est les peptidases/protéases."
   },
   {
     "order": 74,
@@ -580,7 +580,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Elle demande des conditions chimiques plus sévères.",
         "correct": true,
-        "explanation": "Très acide + chauffage: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide est plus résistante à l’hydrolyse qu’un ester et nécessite donc des conditions chimiques plus sévères."
       },
       {
         "content": "Un ester ne peut pas être hydrolysé sans toucher à l'amide dans des conditions adaptées.",
@@ -590,16 +590,16 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'inverse sélectif est beaucoup plus difficile dans le modèle présenté.",
         "correct": true,
-        "explanation": "L'ester s'hydrolyse d'abord: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Comme l’ester est plus facile à hydrolyser que l’amide, hydrolyser sélectivement l’amide tout en conservant l’ester est beaucoup plus difficile."
       }
     ],
-    "explanation": "« Plus stable » ne signifie pas « non hydrolysable »: la décrit les conditions nécessaires."
+    "explanation": "Elle l'est, mais plus difficilement."
   },
   {
     "order": 75,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel terme générique la emploie-t-elle pour les enzymes qui hydrolysent sélectivement les fonctions amides des peptides?",
+    "question": "Quel terme générique désigne les enzymes qui hydrolysent sélectivement les fonctions amides des peptides ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -617,13 +617,13 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "ignoreAccents": true
       }
     },
-    "explanation": "Le support parle de peptidases, c'est-à-dire de protéases."
+    "explanation": "Les peptidases, ou protéases, catalysent l’hydrolyse des liaisons peptidiques."
   },
   {
     "order": 76,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la liaison peptidique, quelles propositions sont exactes dans le cadre de cette section?",
+    "question": "À propos de la liaison peptidique, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "L’hydrolyse d’une amide est plus difficile que celle d’un ester dans les conditions comparées.",
@@ -643,7 +643,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Des protéases/peptidases peuvent l'hydrolyser.",
         "correct": true,
-        "explanation": "Application physiologique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les peptidases et protéases catalysent l’hydrolyse des liaisons amide des peptides."
       },
       {
         "content": "Elle se comporte comme une liaison C-N totalement libre sans effet électronique du carbonyle.",
@@ -651,7 +651,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est précisément ce que le caractère partiel de double liaison exclut."
       }
     ],
-    "explanation": "La structure électronique de l'amide éclaire la rigidité de la liaison peptidique et son hydrolyse enzymatique."
+    "explanation": "La fonction amide est plus résistante et nécessite des conditions plus sévères pour l’hydrolyse chimique."
   },
   {
     "order": 77,
@@ -673,7 +673,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le chauffage est également cité.",
         "correct": true,
-        "explanation": "Condition citée : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le chauffage fournit l’énergie nécessaire aux conditions sévères retenues pour l’hydrolyse chimique d’une amide."
       },
       {
         "content": "La liaison C-N d'une amide a un caractère partiel de double liaison.",
@@ -708,10 +708,10 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amine et amide ont nécessairement la même disponibilité du doublet d'azote.",
         "correct": false,
-        "explanation": "La délocalisation les distingue : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le doublet non liant de l’azote peut être engagé dans une nouvelle liaison, ce qui explique le caractère nucléophile d’une amine."
       }
     ],
-    "explanation": "Cette sélection regroupe hydrolyse, sélectivité, enzymes et structure électronique."
+    "explanation": "Une amide est chimiquement plus résistante à l’hydrolyse qu’un ester dans les conditions comparées."
   },
   {
     "order": 78,
@@ -723,12 +723,12 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Estérases → hydrolyse de fonctions ester.",
         "correct": true,
-        "explanation": "Association: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les estérases catalysent l’hydrolyse des fonctions ester."
       },
       {
         "content": "Peptidases/protéases → hydrolyse de fonctions amide des peptides.",
         "correct": true,
-        "explanation": "Association: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les peptidases et protéases catalysent l’hydrolyse des liaisons amide des peptides."
       },
       {
         "content": "Trypsine → hydrolyse exclusive de thioesters.",
@@ -746,6 +746,6 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’ester est plus facilement hydrolysé que l’amide."
       }
     ],
-    "explanation": "Les deux familles enzymatiques sont explicitement distinguées."
+    "explanation": "Les peptidases et protéases catalysent l’hydrolyse des liaisons amide des peptides."
   }
 ];

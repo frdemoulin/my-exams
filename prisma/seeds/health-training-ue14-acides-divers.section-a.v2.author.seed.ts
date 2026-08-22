@@ -14,7 +14,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Dans la hiérarchie donnée, un alcool est plus acide qu’un acide carboxylique.",
         "correct": false,
-        "explanation": "Le classement du chapitre place l’acide carboxylique au-dessus de l’alcool."
+        "explanation": "La hiérarchie retenue place l’acide carboxylique au-dessus de l’alcool."
       },
       {
         "content": "Une espèce pouvant libérer un proton.",
@@ -24,7 +24,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une espèce pouvant capter des électrons.",
         "correct": true,
-        "explanation": "également cette définition électronique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la définition électronique utilisée ici, un acide accepte un doublet d’électrons."
       },
       {
         "content": "Une espèce nécessairement dépourvue d'hydrogène.",
@@ -37,7 +37,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "l'acidité dépasse la seule désignation de la fonction carboxylique."
       }
     ],
-    "explanation": "Un acide peut être décrit comme une espèce capable de céder un proton ou, dans une définition électronique, d'accepter un doublet d'électrons."
+    "explanation": "La hiérarchie retenue place l’acide carboxylique au-dessus de l’alcool."
   },
   {
     "order": 2,
@@ -71,7 +71,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Il s'agit d'une transformation fonctionnelle, pas d'une dissociation acide."
       }
     ],
-    "explanation": "La dissociation RCOOH → RCOO− + H+ illustre le caractère acide protonique."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 3,
@@ -82,17 +82,17 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{HCOOH}$ est l'acide méthanoïque.",
         "correct": true,
-        "explanation": "Nom systématique donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\mathrm{HCOOH}$ est l'acide méthanoïque."
       },
       {
         "content": "$\\mathrm{HCOOH}$ est aussi appelé acide formique.",
         "correct": true,
-        "explanation": "Nom usuel donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\ce{HCOOH}$ est l’acide méthanoïque, dont le nom usuel est acide formique."
       },
       {
         "content": "$\\mathrm{CH_3COOH}$ est l'acide éthanoïque.",
         "correct": true,
-        "explanation": "Nom systématique donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\mathrm{CH_3COOH}$ est l'acide éthanoïque."
       },
       {
         "content": "$\\mathrm{CH_3COOH}$ est l'acide propionique.",
@@ -105,7 +105,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’acide méthanoïque correspond à l’acide formique; l’acide butyrique est l’acide butanoïque."
       }
     ],
-    "explanation": "Les noms systématiques et usuels des premiers acides sont explicitement listés."
+    "explanation": "$\\ce{HCOOH}$ est l’acide méthanoïque, dont le nom usuel est acide formique. $\\mathrm{CH_3COOH}$ est l'acide éthanoïque."
   },
   {
     "order": 4,
@@ -116,7 +116,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{CH_3CH_2CH_2COOH}$ → acide méthanoïque.",
         "correct": false,
-        "explanation": "C'est l'acide butanoïque: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : $\\mathrm{CH_3CH_2COOH}$ → acide propanoïque."
       },
       {
         "content": "L’acide méthanoïque est aussi appelé acide butyrique.",
@@ -131,15 +131,15 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{CH_3CH_2COOH}$ → acide propanoïque.",
         "correct": true,
-        "explanation": "Nom systématique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\mathrm{CH_3CH_2COOH}$ → acide propanoïque."
       },
       {
         "content": "$\\mathrm{CH_3CH_2COOH}$ → acide propionique.",
         "correct": true,
-        "explanation": "Nom usuel: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\ce{CH3CH2COOH}$ est l’acide propanoïque, aussi appelé acide propionique."
       }
     ],
-    "explanation": "Les premiers acides carboxyliques possèdent des noms usuels classiques : formique, acétique, propionique et butyrique."
+    "explanation": "$\\ce{CH3CH2COOH}$ est l’acide propanoïque, aussi appelé acide propionique. Nom usuel de l'acide éthanoïque."
   },
   {
     "order": 5,
@@ -170,10 +170,10 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Acide formique.",
         "correct": false,
-        "explanation": "Acide méthanoïque: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : acide butyrique."
       }
     ],
-    "explanation": "L'acide butanoïque est aussi appelé acide butyrique."
+    "explanation": "L’acide acétique est le nom usuel de l’acide éthanoïque, et non de l’acide butanoïque."
   },
   {
     "order": 6,
@@ -199,7 +199,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Cette délocalisation est liée à la faible électrophilie du carbone de la fonction acide.",
         "correct": true,
-        "explanation": "C'est le raisonnement proposé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation électronique stabilise la fonction carboxylique et contribue à diminuer le caractère électrophile du carbone carbonylé."
       },
       {
         "content": "La charge négative reste localisée sur un seul carbone.",
@@ -207,7 +207,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Dans l'ion carboxylate, la charge négative est délocalisée sur les deux atomes d'oxygène."
       }
     ],
-    "explanation": "La délocalisation de la charge du carboxylate participe au modèle de faible réactivité électrophile de l'acide."
+    "explanation": "Elle forme un ion carboxylate et ne crée aucun azote."
   },
   {
     "order": 7,
@@ -223,7 +223,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'alcool est plus acide que l'acide carboxylique.",
         "correct": false,
-        "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la hiérarchie retenue, l’acide carboxylique est plus acide que l’alcool."
       },
       {
         "content": "Dans la hiérarchie donnée, un acide carboxylique est plus acide qu’un alcool.",
@@ -233,7 +233,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide carboxylique est plus acide qu'un alcool.",
         "correct": true,
-        "explanation": "Hiérarchie donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le proton du groupe carboxyle est plus facilement libéré que celui d’un alcool dans la hiérarchie étudiée."
       },
       {
         "content": "Un alcool est plus acide qu'un hydrogène porté par un carbone voisin d'un carbonyle dans l'exemple indiqué.",
@@ -241,7 +241,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La classe R-COOH > R-OH > -CH2-CO-."
       }
     ],
-    "explanation": "Dans la hiérarchie retenue, l'acidité décroît de l'acide carboxylique vers l'alcool puis vers l'hydrogène porté par un carbone voisin d'un carbonyle."
+    "explanation": "C'est le dernier terme de la hiérarchie."
   },
   {
     "order": 8,
@@ -275,7 +275,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce site est classé moins acide que l’alcool et l’acide carboxylique dans la hiérarchie donnée."
       }
     ],
-    "explanation": "Le groupe carboxylique occupe le sommet de la hiérarchie proposée."
+    "explanation": "Acidité moyenne dans cette comparaison."
   },
   {
     "order": 9,
@@ -286,12 +286,12 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Comparer plusieurs fonctions permet d'établir une hiérarchie d'acidité.",
         "correct": true,
-        "explanation": "Le tableau RCOOH > ROH > -CH2-CO- l'illustre."
+        "explanation": "Comparer ces fonctions permet d’établir la hiérarchie : acide carboxylique > alcool > hydrogène en alpha d’un carbonyle."
       },
       {
         "content": "Dans la hiérarchie donnée, un alcool est plus acide qu’un acide carboxylique.",
         "correct": false,
-        "explanation": "Le classement du chapitre place l’acide carboxylique au-dessus de l’alcool."
+        "explanation": "La hiérarchie retenue place l’acide carboxylique au-dessus de l’alcool."
       },
       {
         "content": "L'hydrogène d'un alcool possède également un caractère acide.",
@@ -309,7 +309,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’acidité ne se limite pas au groupe $\ce{-COOH}$ : un alcool ou certains hydrogènes en alpha d’un carbonyle peuvent aussi présenter un caractère acide."
       }
     ],
-    "explanation": "Le chapitre élargit la notion d'acidité au-delà de la seule fonction carboxylique."
+    "explanation": "La hiérarchie d’acidité retenue est : acide carboxylique > alcool > hydrogène en alpha d’un carbonyle."
   },
   {
     "order": 10,
@@ -328,7 +328,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La faible électrophilie du carbone carboxylique explique pourquoi l’acide non activé réagit moins facilement avec un nucléophile."
       },
       {
-        "content": "Le carbone carboxylique est présenté comme l'électrophile le plus réactif du chapitre.",
+        "content": "Le carbone carboxylique est l’électrophile le plus réactif parmi les dérivés étudiés.",
         "correct": false,
         "explanation": "Le carbone carboxylique d’un acide non activé n’est pas le centre électrophile le plus réactif parmi les dérivés étudiés."
       },
@@ -340,10 +340,10 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone n’est pas décrit comme très peu électrophile.",
         "correct": false,
-        "explanation": "La relation correcte est: « Le carbone est décrit comme très peu électrophile ». La négation proposée est donc fausse."
+        "explanation": "La délocalisation électronique du groupe carboxyle stabilise la fonction et rend le carbone de l’acide non activé relativement peu électrophile."
       }
     ],
-    "explanation": "Le modèle explique pourquoi on utilise des dérivés activés pour les réactions de couplage."
+    "explanation": "La délocalisation électronique entre les deux oxygènes stabilise la fonction carboxylique et contribue à sa faible électrophilie."
   },
   {
     "order": 11,
@@ -359,7 +359,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il s'agit d'un dérivé de l'acide carboxylique.",
         "correct": true,
-        "explanation": "Définition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, il s'agit d'un dérivé de l'acide carboxylique."
       },
       {
         "content": "Le but est d'augmenter le caractère électrophile du carbone porteur de la fonction.",
@@ -369,7 +369,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un halogène peut remplacer le groupe OH.",
         "correct": true,
-        "explanation": "Cas des halogénures d'acide: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le remplacement du groupe $\\ce{-OH}$ d’un acide carboxylique par un halogène conduit à un halogénure d’acyle."
       },
       {
         "content": "L'activation rend le carbone moins réactif dans les couplages.",
@@ -377,7 +377,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Elle augmente au contraire le rendement des couplages."
       }
     ],
-    "explanation": "L'activation vise à rendre le centre acyle plus électrophile et donc plus réactif."
+    "explanation": "Le dérivé halogéné d’acide est au contraire présenté comme plus réactif et plus électrophile."
   },
   {
     "order": 12,
@@ -411,7 +411,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "OH est remplacé par un motif de type -OCOR."
       }
     ],
-    "explanation": "Cette classification regroupe plusieurs dérivés d’acides selon la nature du groupe lié au carbone acylé."
+    "explanation": "Dans cette classification, le groupe $\\ce{OR'}$ fait partie des substituants envisagés pour les dérivés d'acides."
   },
   {
     "order": 13,
@@ -437,7 +437,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Remplacer le groupe OH de l'acide par X.",
         "correct": true,
-        "explanation": "C'est la définition donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le remplacement du groupe $\\ce{-OH}$ d’un acide carboxylique par un halogène conduit à un halogénure d’acyle."
       },
       {
         "content": "Remplacer le carbonyle par NH2.",
@@ -445,7 +445,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce n'est pas l'halogénure d'acide."
       }
     ],
-    "explanation": "Un halogénure d'acide s'obtient, dans le schéma, en remplaçant OH par un halogène."
+    "explanation": "Ce n'est pas une activation de l'acide."
   },
   {
     "order": 14,
@@ -479,7 +479,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La relation correcte est: « Ils sont présentés comme des acides activés ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "L'anhydride est un dérivé activé de l'acide."
+    "explanation": "Ils comportent deux fragments acyle autour d'un oxygène."
   },
   {
     "order": 15,
@@ -490,7 +490,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone porteur de la fonction devient plus électrophile.",
         "correct": true,
-        "explanation": "Conséquence de l'activation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’activation diminue la stabilisation de la fonction et augmente le caractère électrophile du carbone acylé."
       },
       {
         "content": "Le rendement des réactions de couplage augmente.",
@@ -510,10 +510,10 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Leur électronégativité fragilise la liaison concernée.",
         "correct": true,
-        "explanation": "Explication donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’électronégativité du substituant lié au groupe acyle influence la polarisation de la liaison et la réactivité du dérivé."
       }
     ],
-    "explanation": "La notion d'activation relie structure électronique et efficacité des couplages."
+    "explanation": "L’électronégativité du substituant lié au groupe acyle influence la polarisation de la liaison et la réactivité du dérivé."
   },
   {
     "order": 16,
@@ -534,20 +534,20 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le dérivé activé est plus électrophile.",
         "correct": true,
-        "explanation": "But de l'activation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’activation rend le carbone acylé plus électrophile et donc plus réactif vis-à-vis d’un nucléophile."
       },
       {
         "content": "Le dérivé activé est plus adapté aux réactions de couplage.",
         "correct": true,
-        "explanation": "Le rendement est amélioré: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La plus grande électrophilie du dérivé activé facilite les réactions de couplage avec un nucléophile."
       },
       {
         "content": "Les deux sont décrits comme strictement identiques en réactivité.",
         "correct": false,
-        "explanation": "La les oppose: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un acide carboxylique et son dérivé activé n’ont pas la même réactivité : le dérivé activé est plus électrophile."
       }
     ],
-    "explanation": "L'activation répond à la faible électrophilie de l'acide carboxylique."
+    "explanation": "L’activation diminue la stabilisation électronique associée au groupe hydroxyle et facilite l’attaque nucléophile."
   },
   {
     "order": 17,
@@ -558,7 +558,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone de la fonction acide est donc présenté comme peu électrophile.",
         "correct": true,
-        "explanation": "Conclusion: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation électronique du groupe carboxyle stabilise la fonction et rend le carbone de l’acide non activé relativement peu électrophile."
       },
       {
         "content": "La charge négative est confinée sur le proton acide.",
@@ -573,7 +573,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les électrons peuvent être délocalisés entre les deux oxygènes.",
         "correct": true,
-        "explanation": "Schéma: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le groupement carboxyle/carboxylate, la délocalisation électronique implique les deux oxygènes et contribue à la stabilisation de la fonction."
       },
       {
         "content": "Cette délocalisation stabilise la distribution électronique.",
@@ -581,7 +581,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "C'est le sens du schéma proposé."
       }
     ],
-    "explanation": "La délocalisation électronique du groupe carboxyle contribue à stabiliser la fonction et à diminuer le caractère électrophile du carbone carbonylé."
+    "explanation": "Dans le groupement carboxyle/carboxylate, la délocalisation électronique implique les deux oxygènes et contribue à la stabilisation de la fonction."
   },
   {
     "order": 18,
@@ -609,7 +609,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel nom usuel -t-elle à l'acide méthanoïque?",
+    "question": "Quel est le nom usuel de l’acide méthanoïque ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -630,12 +630,12 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux familles de dérivés d'acide formées,, par remplacement du groupe OH respectivement par X et par un motif acyle-oxy.",
+    "question": "Sélectionnez exactement les deux familles de dérivés d’acide formées par remplacement du groupe $\\ce{-OH}$ respectivement par X et par un motif acyle-oxy.",
     "choices": [
       {
         "content": "Anhydride d'acide.",
         "correct": true,
-        "explanation": "Motif acyle-O-acyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un anhydride d’acide fait partie des dérivés activés d’acides carboxyliques."
       },
       {
         "content": "Alcane.",
@@ -655,10 +655,10 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Halogénure d'acide.",
         "correct": true,
-        "explanation": "OH remplacé par X: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un halogénure d’acyle est un dérivé d’acide dans lequel le groupe $\\ce{-OH}$ est remplacé par un halogène."
       }
     ],
-    "explanation": "Les deux familles explicitement illustrées sont halogénures et anhydrides d'acide."
+    "explanation": "Un halogénure d’acyle est un dérivé d’acide dans lequel le groupe $\\ce{-OH}$ est remplacé par un halogène."
   },
   {
     "order": 21,
@@ -670,27 +670,27 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "RCOOH peut libérer H+ et donner RCOO−.",
         "correct": true,
-        "explanation": "Définition protonique : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un acide carboxylique peut céder le proton de $\\ce{-COOH}$ pour former l’ion carboxylate $\\ce{RCOO^-}$."
       },
       {
         "content": "Une base électronique donne des électrons.",
         "correct": true,
-        "explanation": "Définition utilisée ensuite dans le chapitre."
+        "explanation": "Cette définition électronique distingue les espèces selon leur capacité à accepter ou à donner un doublet d’électrons."
       },
       {
         "content": "Le carbone d'un acide carboxylique est décrit comme peu électrophile.",
         "correct": true,
-        "explanation": "Propriété : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation électronique du groupe carboxyle stabilise la fonction et rend le carbone de l’acide non activé relativement peu électrophile."
       },
       {
         "content": "Un dérivé activé possède un carbone plus électrophile.",
         "correct": true,
-        "explanation": "Activation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’activation augmente le caractère électrophile du carbone acylé par rapport à l’acide carboxylique correspondant."
       },
       {
         "content": "Un alcool est moins acide qu'un acide carboxylique dans la hiérarchie.",
         "correct": true,
-        "explanation": "Hiérarchie : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la hiérarchie donnée, l’acide carboxylique est plus acide que l’alcool."
       },
       {
         "content": "L'acide méthanoïque est l'acide acétique.",
@@ -705,12 +705,12 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'activation diminue le rendement des couplages.",
         "correct": false,
-        "explanation": "Elle l'augmente : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’activation facilite l’attaque nucléophile et améliore ainsi l’efficacité des réactions de couplage."
       },
       {
         "content": "Le carboxylate porte une charge positive délocalisée.",
         "correct": false,
-        "explanation": "La charge est négative : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’ion carboxylate porte une charge négative délocalisée sur les deux oxygènes."
       },
       {
         "content": "Seuls les acides carboxyliques peuvent présenter une acidité.",
@@ -718,7 +718,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’exemple retenu est aussi les alcools."
       }
     ],
-    "explanation": "Cette sélection consolide les repères d'acidité, de nomenclature et d'activation."
+    "explanation": "La délocalisation électronique du groupe carboxyle stabilise la fonction et rend le carbone de l’acide non activé relativement peu électrophile."
   },
   {
     "order": 22,

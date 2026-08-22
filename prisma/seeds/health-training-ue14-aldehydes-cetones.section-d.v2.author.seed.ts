@@ -14,7 +14,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le fructose est cité comme sucre réducteur.",
         "correct": false,
-        "explanation": "La le classe ici comme non réducteur."
+        "explanation": "Dans le modèle simplifié retenu, le fructose est classé comme non réducteur."
       },
       {
         "content": "Dans ce modèle, la fonction aldéhyde est décrite comme non oxydable.",
@@ -34,10 +34,10 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un sucre portant une fonction cétone est présenté comme non réducteur dans ce modèle.",
         "correct": true,
-        "explanation": "C'est la formulation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, un sucre portant une fonction cétone linéaire est classé comme non réducteur."
       }
     ],
-    "explanation": "La banque suit volontairement le modèle: glucose aldéhydique réducteur, fructose cétonique non réducteur."
+    "explanation": "Dans le modèle simplifié retenu, un sucre portant une fonction cétone linéaire est classé comme non réducteur."
   },
   {
     "order": 80,
@@ -48,7 +48,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Fructose.",
         "correct": false,
-        "explanation": "La le classe ici comme non réducteur."
+        "explanation": "La fonction cétone est présentée comme non oxydable dans ce modèle."
       },
       {
         "content": "Glucose.",
@@ -58,12 +58,12 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Aucun sucre.",
         "correct": false,
-        "explanation": "Le glucose est explicitement cité."
+        "explanation": "Le glucose est l’exemple de sucre réducteur retenu dans ce modèle."
       },
       {
         "content": "Tous les sucres sans distinction.",
         "correct": false,
-        "explanation": "Le support distingue glucose et fructose."
+        "explanation": "Le modèle simplifié distingue le glucose, classé réducteur, du fructose, classé non réducteur."
       },
       {
         "content": "Dans ce modèle, la fonction aldéhyde est décrite comme non oxydable.",
@@ -71,7 +71,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Elle est au contraire utilisée pour expliquer le caractère réducteur des sucres portant un aldéhyde."
       }
     ],
-    "explanation": "Le glucose illustre le lien entre fonction aldéhyde et caractère réducteur."
+    "explanation": "Il est relié à une fonction aldéhyde."
   },
   {
     "order": 81,
@@ -105,7 +105,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Il est donné comme réducteur."
       }
     ],
-    "explanation": "Pour respecter le support local, le fructose est traité ici comme sucre non réducteur."
+    "explanation": "Ce n'est pas un sucre."
   },
   {
     "order": 82,
@@ -116,17 +116,17 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le glucose est l'exemple cité.",
         "correct": true,
-        "explanation": "Application: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le glucose est l’exemple de sucre réducteur retenu dans le modèle simplifié."
       },
       {
         "content": "Parce que la fonction aldéhyde est inerte à l'oxydation.",
         "correct": false,
-        "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "L’oxydation d’un alcool secondaire conduit directement à un aldéhyde.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone dans le cadre du chapitre."
+        "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
       },
       {
         "content": "La fonction aldéhyde n’est pas oxydable.",
@@ -139,7 +139,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Le caractère réducteur découle ici de l'oxydabilité de la fonction aldéhyde."
+    "explanation": "Le glucose est l’exemple de sucre réducteur retenu dans le modèle simplifié."
   },
   {
     "order": 83,
@@ -150,17 +150,17 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une fonction aldéhyde.",
         "correct": true,
-        "explanation": "Placée en haut: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la forme linéaire du glucose, le groupe terminal $\\ce{CHO}$ correspond à une fonction aldéhyde."
       },
       {
         "content": "La chaîne carbonée.",
         "correct": true,
-        "explanation": "Partie centrale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La projection linéaire permet de suivre la chaîne carbonée portant les différentes fonctions alcool."
       },
       {
         "content": "Un alcool primaire.",
         "correct": true,
-        "explanation": "Placée en bas: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
       },
       {
         "content": "Une fonction amide terminale.",
@@ -173,7 +173,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
       }
     ],
-    "explanation": "explicitement cette lecture verticale de la forme linéaire du glucose."
+    "explanation": "Dans la forme linéaire du glucose, le groupe terminal $\\ce{CHO}$ correspond à une fonction aldéhyde."
   },
   {
     "order": 84,
@@ -199,15 +199,15 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{CHO}$.",
         "correct": true,
-        "explanation": "Fonction aldéhyde: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe $\\ce{CHO}$ est le motif caractéristique de la fonction aldéhyde."
       },
       {
         "content": "Fructose.",
         "correct": false,
-        "explanation": "Le support classe le fructose parmi les sucres non réducteurs dans ce modèle simplifié."
+        "explanation": "Dans le modèle simplifié retenu, le fructose est classé comme non réducteur."
       }
     ],
-    "explanation": "Le groupe CHO terminal est représenté en haut."
+    "explanation": "Le groupe alcool primaire est placé en bas."
   },
   {
     "order": 85,
@@ -218,22 +218,22 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{COCl}$.",
         "correct": false,
-        "explanation": "Chlorure d'acyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : $\\mathrm{CH_2OH}$."
       },
       {
         "content": "$\\mathrm{MgX}$.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition ne correspond pas à la transformation ou à la propriété demandée."
       },
       {
         "content": "Fructose.",
         "correct": false,
-        "explanation": "Le support classe le fructose parmi les sucres non réducteurs dans ce modèle simplifié."
+        "explanation": "Dans le modèle simplifié retenu, le fructose est classé comme non réducteur."
       },
       {
         "content": "$\\mathrm{CHO}$.",
         "correct": false,
-        "explanation": "Placé en haut: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe $\\ce{CHO}$ est le motif caractéristique de la fonction aldéhyde."
       },
       {
         "content": "$\\mathrm{CH_2OH}$.",
@@ -241,7 +241,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
       }
     ],
-    "explanation": "Le groupe CH2OH terminal se trouve en bas de la projection linéaire donnée."
+    "explanation": "Le groupe terminal $\\ce{CH2OH}$ placé en bas de la projection correspond à une fonction alcool primaire."
   },
   {
     "order": 86,
@@ -262,20 +262,20 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les liaisons C-H et C-OH dessinées horizontalement sont décrites comme dirigées vers l'observateur.",
         "correct": true,
-        "explanation": "C'est la convention expliquée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans cette convention de projection, les liaisons horizontales sont dirigées vers l’observateur."
       },
       {
         "content": "Les liaisons C-C de l'axe vertical sont décrites comme dirigées vers l'arrière dans l'explication.",
         "correct": true,
-        "explanation": "La oppose les directions horizontales et verticales."
+        "explanation": "Dans une projection de Fischer, les liaisons horizontales et verticales représentent des orientations spatiales différentes."
       },
       {
         "content": "La molécule réelle est strictement plane.",
         "correct": false,
-        "explanation": "Le support insiste sur son caractère tridimensionnel."
+        "explanation": "La projection est plane, mais la molécule réelle est tridimensionnelle et les carbones saturés sont tétraédriques."
       }
     ],
-    "explanation": "La projection plane encode une géométrie tridimensionnelle."
+    "explanation": "Au contraire, une fonction alcool participe à la fermeture du cycle."
   },
   {
     "order": 87,
@@ -309,7 +309,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Elle ne représente pas la géométrie."
       }
     ],
-    "explanation": "La perspective rend mieux la disposition spatiale du cycle."
+    "explanation": "La représentation en perspective rend mieux compte de la géométrie tridimensionnelle du cycle."
   },
   {
     "order": 88,
@@ -325,12 +325,12 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un hémiacétal est formé.",
         "correct": true,
-        "explanation": "Produit indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réaction intramoléculaire entre l’aldéhyde et une fonction alcool forme un hémiacétal."
       },
       {
         "content": "La transformation conduit à une forme cyclique.",
         "correct": true,
-        "explanation": "Conséquence structurale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La formation de l’hémiacétal ferme la chaîne et conduit à une structure cyclique."
       },
       {
         "content": "La fonction aldéhyde doit obligatoirement rester intacte dans le cycle.",
@@ -343,7 +343,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette réaction forme une fonction hémiacétal et ferme le cycle."
       }
     ],
-    "explanation": "La cyclisation est expliquée par la réaction aldéhyde + alcool → hémiacétal."
+    "explanation": "La relation correcte est: « La fonction aldéhyde peut réagir avec une fonction alcool de la même molécule ». La négation proposée est donc fausse."
   },
   {
     "order": 89,
@@ -352,9 +352,9 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "On compare glucose et fructose dans le modèle simplifié. Quelles propositions sont exactes?",
     "choices": [
       {
-        "content": "Le fructose est classé comme non réducteur dans ce modèle de cours.",
+        "content": "Dans ce modèle simplifié, le fructose est classé comme non réducteur.",
         "correct": true,
-        "explanation": "Formulation local: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, le fructose est classé comme non réducteur."
       },
       {
         "content": "Dans ce modèle, la fonction aldéhyde est décrite comme non oxydable.",
@@ -364,20 +364,20 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le glucose porte une fonction aldéhyde dans sa forme linéaire présentée.",
         "correct": true,
-        "explanation": "Schéma: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la forme linéaire considérée, le glucose porte un groupe aldéhyde terminal."
       },
       {
         "content": "Le fructose porte une fonction cétone dans la forme linéaire présentée.",
         "correct": true,
-        "explanation": "Schéma: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la forme linéaire considérée, le fructose porte une fonction cétone."
       },
       {
         "content": "Le glucose est classé comme réducteur.",
         "correct": true,
-        "explanation": "Application de l'oxydabilité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié, le caractère oxydable de la fonction aldéhyde conduit à classer le glucose comme réducteur."
       }
     ],
-    "explanation": "Cette banque reprend explicitement le classement du document local, sans l'étendre à d'autres contextes chimiques."
+    "explanation": "Dans le modèle simplifié retenu, le glucose est associé à une fonction aldéhyde et classé réducteur, tandis que le fructose est associé à une cétone et classé non réducteur."
   },
   {
     "order": 90,
@@ -388,7 +388,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le groupe CH2OH correspond à un alcool primaire.",
         "correct": true,
-        "explanation": "Lecture de la projection: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe terminal $\\ce{CH2OH}$ correspond à une fonction alcool primaire."
       },
       {
         "content": "La molécule porte plusieurs fonctions alcool en plus de l'aldéhyde.",
@@ -403,7 +403,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L’oxydation d’un alcool secondaire conduit directement à un aldéhyde.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone dans le cadre du chapitre."
+        "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
       },
       {
         "content": "Le groupe CHO ne permet pas d'identifier une fonction aldéhyde.",
@@ -411,7 +411,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La relation correcte est: « Le groupe CHO permet d'identifier une fonction aldéhyde ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "La forme linéaire du glucose permet de relier nomenclature fonctionnelle et représentation des sucres."
+    "explanation": "Dans la forme linéaire du glucose, le groupe $\\ce{CHO}$ correspond à un aldéhyde et le groupe terminal $\\ce{CH2OH}$ à un alcool primaire."
   },
   {
     "order": 91,
@@ -427,25 +427,25 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les carbones sont tétraédriques.",
         "correct": true,
-        "explanation": "Rappel: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les carbones saturés ont une géométrie tétraédrique ; la projection plane n’est qu’une convention de représentation."
       },
       {
         "content": "Les liaisons horizontales et verticales codent des directions différentes dans l'espace.",
         "correct": true,
-        "explanation": "Convention expliquée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans une projection de Fischer, les liaisons horizontales et verticales codent des orientations spatiales différentes."
       },
       {
-        "content": "La propose une représentation tridimensionnelle pour mieux rendre la réalité.",
+        "content": "Une représentation tridimensionnelle rend mieux compte de la géométrie réelle.",
         "correct": true,
-        "explanation": "Section suivante: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La représentation en perspective rend mieux compte de la disposition tridimensionnelle réelle du cycle et de ses substituants."
       },
       {
         "content": "Parce que toutes les liaisons sont triples.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition ne correspond pas à la transformation ou à la propriété demandée."
       }
     ],
-    "explanation": "La projection est une convention bidimensionnelle d'une géométrie tridimensionnelle."
+    "explanation": "Cette réaction forme une fonction hémiacétal et ferme le cycle."
   },
   {
     "order": 92,
@@ -456,7 +456,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La chaîne linéaire devient cyclique.",
         "correct": true,
-        "explanation": "Conséquence: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réaction intramoléculaire entre une fonction alcool et le carbonyle ferme la chaîne et produit une forme cyclique."
       },
       {
         "content": "Une protéase est nécessaire.",
@@ -476,10 +476,10 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le produit possède une fonction hémiacétal.",
         "correct": true,
-        "explanation": "Produit de cyclisation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un hémiacétal se forme par addition d’une fonction alcool sur un groupe carbonyle, notamment lors de la cyclisation de certains sucres."
       }
     ],
-    "explanation": "La réaction intramoléculaire alcool-aldéhyde explique le passage à la forme cyclique."
+    "explanation": "Un hémiacétal se forme par addition d’une fonction alcool sur un groupe carbonyle, notamment lors de la cyclisation de certains sucres."
   },
   {
     "order": 93,
@@ -490,17 +490,17 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Formation d'un hémiacétal.",
         "correct": true,
-        "explanation": "Point central: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un hémiacétal se forme par addition d’une fonction alcool sur un groupe carbonyle, notamment lors de la cyclisation de certains sucres."
       },
       {
         "content": "Réaction entre fonction aldéhyde et fonction alcool.",
         "correct": true,
-        "explanation": "Origine de la cyclisation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La cyclisation résulte de l’addition intramoléculaire d’une fonction alcool sur la fonction aldéhyde."
       },
       {
         "content": "Représentation en perspective pour mieux montrer l'espace.",
         "correct": true,
-        "explanation": "Représentation la plus fidèle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La représentation en perspective rend mieux compte de la disposition tridimensionnelle réelle du cycle et de ses substituants."
       },
       {
         "content": "Transformation obligatoire en cétone.",
@@ -513,7 +513,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Au contraire, une fonction alcool participe à la fermeture du cycle."
       }
     ],
-    "explanation": "Structure fonctionnelle et représentation spatiale sont liées dans la dernière partie du chapitre."
+    "explanation": "Un hémiacétal se forme par addition d’une fonction alcool sur un groupe carbonyle, notamment lors de la cyclisation de certains sucres."
   },
   {
     "order": 94,
@@ -556,7 +556,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Forcément coplanaires avec toute la chaîne dans la molécule réelle.",
         "correct": false,
-        "explanation": "La molécule est tridimensionnelle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les substituants ne sont pas tous coplanaires dans la molécule réelle, car les carbones saturés sont tétraédriques."
       },
       {
         "content": "La formation d’un hémiacétal cyclique exige la suppression de tous les groupes hydroxyle du sucre.",
@@ -569,7 +569,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Il faut lire la projection comme une convention spatiale et non comme une structure plane réelle."
+    "explanation": "La projection plane code une géométrie tridimensionnelle autour des carbones tétraédriques."
   },
   {
     "order": 96,
@@ -595,15 +595,15 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Elle aide à visualiser la géométrie tridimensionnelle.",
         "correct": true,
-        "explanation": "Objectif: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La représentation en perspective montre plus clairement l’orientation spatiale des liaisons et des substituants."
       },
       {
         "content": "Elle supprime toutes les fonctions alcool.",
         "correct": false,
-        "explanation": "Les substituants restent présents: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La cyclisation conserve plusieurs groupes hydroxyle ; elle ne supprime pas les fonctions alcool du sucre."
       }
     ],
-    "explanation": "La perspective complète la projection linéaire en mettant en évidence la géométrie spatiale."
+    "explanation": "Cette réaction forme une fonction hémiacétal et ferme le cycle."
   },
   {
     "order": 97,
@@ -614,7 +614,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La forme cyclique peut être représentée en perspective.",
         "correct": true,
-        "explanation": "Représentation conseillée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une représentation en perspective permet de rendre visible la géométrie tridimensionnelle de la forme cyclique."
       },
       {
         "content": "La présence des alcools annule toute réactivité de l'aldéhyde.",
@@ -629,15 +629,15 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il peut être présenté comme réducteur dans le modèle.",
         "correct": true,
-        "explanation": "Fonction aldéhyde oxydable: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié, la fonction aldéhyde de la forme linéaire explique le caractère réducteur du glucose."
       },
       {
         "content": "Une fonction alcool peut participer à une cyclisation intramoléculaire.",
         "correct": true,
-        "explanation": "Formation d'un hémiacétal: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une fonction alcool interne peut attaquer le carbonyle de la même molécule et former un hémiacétal cyclique."
       }
     ],
-    "explanation": "Le glucose illustre la convergence entre oxydabilité et cyclisation."
+    "explanation": "Une représentation en perspective permet de rendre visible la géométrie tridimensionnelle de la forme cyclique."
   },
   {
     "order": 98,
@@ -648,22 +648,22 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Forme linéaire avec aldéhyde + fonction alcool interne.",
         "correct": true,
-        "explanation": "Réactifs intramoléculaires: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La forme linéaire réunit dans la même molécule une fonction aldéhyde et des fonctions alcool, ce qui permet une cyclisation intramoléculaire."
       },
       {
         "content": "Réaction entre ces deux fonctions.",
         "correct": true,
-        "explanation": "Étape fonctionnelle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’alcool intramoléculaire attaque la fonction aldéhyde ; cette addition est l’étape fonctionnelle de la cyclisation."
       },
       {
         "content": "Formation d'un hémiacétal.",
         "correct": true,
-        "explanation": "Produit: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un hémiacétal se forme par addition d’une fonction alcool sur un groupe carbonyle, notamment lors de la cyclisation de certains sucres."
       },
       {
         "content": "Obtention d'une forme cyclique.",
         "correct": true,
-        "explanation": "Conséquence: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réaction intramoléculaire entre une fonction alcool et le carbonyle ferme la chaîne et produit une forme cyclique."
       },
       {
         "content": "La formation d’un hémiacétal cyclique exige la suppression de tous les groupes hydroxyle du sucre.",
@@ -671,7 +671,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Au contraire, une fonction alcool participe à la fermeture du cycle."
       }
     ],
-    "explanation": "L'enchaînement fonctionnel doit pouvoir être restitué sans dépendre d'une figure."
+    "explanation": "La forme linéaire réunit dans la même molécule une fonction aldéhyde et des fonctions alcool, ce qui permet une cyclisation intramoléculaire."
   },
   {
     "order": 99,
@@ -693,7 +693,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Glucose → fonction aldéhyde linéaire → sucre réducteur.",
         "correct": true,
-        "explanation": "Association: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié, le glucose possède une fonction aldéhyde linéaire oxydable, d’où son classement comme sucre réducteur."
       },
       {
         "content": "Fructose → fonction cétone linéaire → sucre non réducteur.",
@@ -706,7 +706,7 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce n'est pas le classement."
       }
     ],
-    "explanation": "Cette question applique le classement simplifié retenu pour distinguer glucose et fructose dans ce chapitre."
+    "explanation": "Ce n'est pas le modèle présenté."
   },
   {
     "order": 100,
@@ -718,17 +718,17 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le glucose est présenté comme sucre réducteur.",
         "correct": true,
-        "explanation": "Fonction aldéhyde : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, la fonction aldéhyde de la forme linéaire du glucose explique son classement comme sucre réducteur."
       },
       {
         "content": "Le fructose est présenté comme sucre non réducteur dans le modèle.",
         "correct": true,
-        "explanation": "Fonction cétone : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, le fructose est classé comme sucre non réducteur."
       },
       {
         "content": "Le groupe CHO est placé en haut de la forme linéaire du glucose.",
         "correct": true,
-        "explanation": "Représentation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la projection linéaire considérée, le groupe aldéhyde $\\ce{CHO}$ est placé à l’extrémité supérieure."
       },
       {
         "content": "Le groupe CH2OH est placé en bas.",
@@ -743,12 +743,12 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La projection linéaire représente une molécule réellement plane.",
         "correct": false,
-        "explanation": "Carbones tétraédriques : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La projection linéaire est une convention graphique : les carbones restent tétraédriques dans l’espace."
       },
       {
         "content": "La perspective est décrite comme moins fidèle à la réalité.",
         "correct": false,
-        "explanation": "Elle est plus fidèle : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La représentation en perspective est au contraire plus fidèle que la projection plane pour rendre la géométrie réelle."
       },
       {
         "content": "Le fructose est présenté comme aldéhyde.",
@@ -763,9 +763,9 @@ export const UE14_CH10_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le glucose ne possède aucune fonction alcool.",
         "correct": false,
-        "explanation": "Il en possède plusieurs : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le glucose comporte plusieurs groupes hydroxyle ; il possède donc plusieurs fonctions alcool."
       }
     ],
-    "explanation": "Cette sélection couvre caractère réducteur, projection linéaire et cyclisation."
+    "explanation": "Dans le modèle simplifié retenu, la fonction aldéhyde de la forme linéaire du glucose explique son classement comme sucre réducteur."
   }
 ];

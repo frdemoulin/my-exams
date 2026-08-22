@@ -14,7 +14,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone de C=O présente un caractère électrophile.",
         "correct": true,
-        "explanation": "La l'indique pour aldéhydes et cétones."
+        "explanation": "Les aldéhydes et les cétones sont tous deux des composés carbonylés susceptibles d’être réduits par un hydrure."
       },
       {
         "content": "L'oxygène attire la densité électronique.",
@@ -29,7 +29,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone du carbonyle est décrit comme nucléophile.",
         "correct": false,
-        "explanation": "Il est électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -37,7 +37,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
       }
     ],
-    "explanation": "La polarisation C=O rend le carbone carbonylé déficitaire en électrons et donc électrophile."
+    "explanation": "Les aldéhydes et les cétones peuvent être réduits par addition d’un hydrure sur le carbone carbonylé."
   },
   {
     "order": 24,
@@ -58,7 +58,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le proton d'une amine.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition ne correspond pas à la transformation ou à la propriété demandée."
       },
       {
         "content": "Oxygène du carbonyle comme centre électrophile principal.",
@@ -68,10 +68,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone du groupement carbonyle.",
         "correct": true,
-        "explanation": "C'est le centre électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       }
     ],
-    "explanation": "Le carbone carbonylé est la cible des nucléophiles étudiés."
+    "explanation": "L'oxygène est le pôle riche en électrons."
   },
   {
     "order": 25,
@@ -105,7 +105,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le carbone en position alpha doit porter un hydrogène pour pouvoir être déprotoné dans le modèle étudié."
       }
     ],
-    "explanation": "La distingue le carbone carbonylé électrophile et le carbone voisin potentiellement nucléophile."
+    "explanation": "C'est la position alpha mise en avant."
   },
   {
     "order": 26,
@@ -139,18 +139,18 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cela empêcherait le caractère décrit."
       }
     ],
-    "explanation": "Une cétone peut présenter deux positions alpha réactives si elles portent des hydrogènes."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
   },
   {
     "order": 27,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos d'un hydrure dans cette section:",
+    "question": "À propos de l’ion hydrure, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "$\\ce{NaBH4}$ est cité.",
         "correct": true,
-        "explanation": "Borohydrure de sodium: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\ce{NaBH4}$ est utilisé ici comme réducteur des aldéhydes et des cétones."
       },
       {
         "content": "Il oxyde l'aldéhyde en acide.",
@@ -165,7 +165,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il est décrit comme riche en électrons.",
         "correct": true,
-        "explanation": "H−: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’ion hydrure est riche en électrons et se comporte comme un nucléophile vis-à-vis du carbone carbonylé électrophile."
       },
       {
         "content": "Il joue un rôle nucléophile face au carbonyle.",
@@ -173,7 +173,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Il attaque le carbone électrophile."
       }
     ],
-    "explanation": "Les hydrures sont les nucléophiles réducteurs utilisés pour convertir les carbonyles en alcools."
+    "explanation": "L’ion hydrure est riche en électrons et se comporte comme un nucléophile vis-à-vis du carbone carbonylé électrophile."
   },
   {
     "order": 28,
@@ -189,12 +189,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\ce{SOCl2}$.",
         "correct": false,
-        "explanation": "Agent chlorant étudié auparavant: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Il est cité comme agent halogénant des alcools."
       },
       {
         "content": "$\\ce{H3O+}$.",
         "correct": false,
-        "explanation": "Milieu acide: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un milieu acide contient des espèces protonantes telles que $\\ce{H3O+}$ ; $\\ce{OH^-}$ caractérise au contraire un milieu basique."
       },
       {
         "content": "$\\ce{Mg}$ seul.",
@@ -207,7 +207,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une cétone porte deux substituants carbonés sur le carbone du carbonyle."
       }
     ],
-    "explanation": "NaBH4 est le réducteur doux cité."
+    "explanation": "Le borohydrure de sodium est indiqué."
   },
   {
     "order": 29,
@@ -218,7 +218,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "À un acide carboxylique.",
         "correct": false,
-        "explanation": "Ce serait une oxydation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’une amide forme également l’acide carboxylique correspondant."
       },
       {
         "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
@@ -241,7 +241,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce n'est pas le produit."
       }
     ],
-    "explanation": "Aldéhyde → alcool primaire lors d'une réduction par hydrure."
+    "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
   },
   {
     "order": 30,
@@ -275,7 +275,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
-    "explanation": "Cétone → alcool secondaire lors de la réduction par hydrure."
+    "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
   },
   {
     "order": 31,
@@ -309,7 +309,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "L'organomagnésien ajoute un groupe carboné au carbone électrophile du carbonyle, puis l'hydrolyse conduit à l'alcool."
+    "explanation": "Une cétone traitée par un organomagnésien conduit à un alcool tertiaire."
   },
   {
     "order": 32,
@@ -343,7 +343,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le centre électrophile visé par les nucléophiles est le carbone du carbonyle."
       }
     ],
-    "explanation": "Le Grignard est un nucléophile carboné."
+    "explanation": "Le carbone du Grignard est le nucléophile."
   },
   {
     "order": 33,
@@ -377,7 +377,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
       }
     ],
-    "explanation": "La nature du carbonyle détermine la classe de l'alcool formé par réduction."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 34,
@@ -408,10 +408,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les polarités sont complémentaires.",
         "correct": true,
-        "explanation": "Nucléophile vers électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le nucléophile riche en électrons est attiré par le carbone carbonylé électrophile : leurs polarités sont complémentaires."
       }
     ],
-    "explanation": "La réduction découle directement de la polarité de la liaison carbonyle."
+    "explanation": "Il est au contraire déficitaire en électrons."
   },
   {
     "order": 35,
@@ -427,7 +427,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé est le site d'attaque.",
         "correct": true,
-        "explanation": "Centre électrophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "L'hydrolyse est inutile.",
@@ -445,7 +445,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
-    "explanation": "Organomagnésien + aldéhyde → alcool secondaire après hydrolyse."
+    "explanation": "Le fragment carboné du Grignard s'ajoute."
   },
   {
     "order": 36,
@@ -471,7 +471,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone du Grignard agit comme nucléophile.",
         "correct": true,
-        "explanation": "R''−: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Il attaque le carbone électrophile du carbonyle."
       },
       {
         "content": "Le produit est un alcool secondaire.",
@@ -479,7 +479,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Avec une cétone, le produit est tertiaire."
       }
     ],
-    "explanation": "La cétone porte déjà deux substituants carbonés; l'ajout du Grignard conduit à un carbone alcool tertiaire."
+    "explanation": "Le groupe carboné nucléophile du réactif de Grignard s’ajoute au carbone du groupe $\\ce{C=O}$."
   },
   {
     "order": 37,
@@ -490,7 +490,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'organomagnésien crée une liaison C-C.",
         "correct": true,
-        "explanation": "Le squelette est allongé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "NaBH4 ajoute un nouveau substituant carboné.",
@@ -513,7 +513,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
       }
     ],
-    "explanation": "La distinction réduction versus addition de Grignard est un objectif majeur de la section."
+    "explanation": "$\\ce{NaBH4}$ réduit le carbonyle sans ajouter de carbone, tandis qu’un organomagnésien crée une nouvelle liaison C–C avant l’hydrolyse finale."
   },
   {
     "order": 38,
@@ -534,7 +534,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un alcool tertiaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’addition d’un organomagnésien sur le carbonyle permet d’obtenir le produit correspondant après hydrolyse."
       },
       {
         "content": "Un alcool primaire.",
@@ -544,10 +544,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un aldéhyde.",
         "correct": false,
-        "explanation": "Le carbonyle est consommé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un alcool secondaire s’oxyde en cétone ; un aldéhyde est obtenu à partir d’un alcool primaire."
       }
     ],
-    "explanation": "Cétone + RMgX → alcool tertiaire après hydrolyse."
+    "explanation": "Cette proposition est écartée: d'oxydation ne correspond pas au bilan ou à la propriété attendue."
   },
   {
     "order": 39,
@@ -581,7 +581,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
       }
     ],
-    "explanation": "Un carbone voisin du carbonyle ne peut être déprotoné que s’il porte au moins un hydrogène."
+    "explanation": "Le modèle exige un H."
   },
   {
     "order": 40,
@@ -592,12 +592,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé reste électrophile.",
         "correct": true,
-        "explanation": "Propriété du C=O: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
       },
       {
         "content": "La molécule présente donc plusieurs centres de réactivité potentiels dans le modèle.",
         "correct": true,
-        "explanation": "Carbonyle et positions voisines: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbone carbonylé est électrophile, tandis que les carbones alpha peuvent devenir nucléophiles après déprotonation."
       },
       {
         "content": "Aucun nucléophile ne peut attaquer le carbonyle.",
@@ -612,10 +612,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux carbones voisins peuvent présenter un caractère nucléophile.",
         "correct": true,
-        "explanation": "La l'indique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Si chacun porte un hydrogène en alpha, les deux carbones voisins du carbonyle peuvent être déprotonés et devenir nucléophiles."
       }
     ],
-    "explanation": "Le modèle met en évidence une réactivité complémentaire du centre carbonylé et des positions alpha."
+    "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
   },
   {
     "order": 41,
@@ -635,7 +635,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "La associe cétone + hydrure à un alcool secondaire."
+    "explanation": "L’addition d’un hydrure sur une cétone réduit le groupe carbonyle et conduit à un alcool secondaire."
   },
   {
     "order": 42,
@@ -661,7 +661,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un intermédiaire de synthèse porte une cétone. On veut augmenter le nombre de carbones et obtenir un alcool. Quelle approche du chapitre est cohérente?",
+    "question": "Un intermédiaire de synthèse porte une cétone. On veut augmenter le nombre de carbones et obtenir un alcool. Quelle approche est cohérente ?",
     "choices": [
       {
         "content": "Utiliser un organomagnésien.",
@@ -676,7 +676,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Attendre un alcool tertiaire.",
         "correct": true,
-        "explanation": "Cétone + Grignard: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’addition d’un organomagnésien sur une cétone donne, après hydrolyse, un alcool tertiaire."
       },
       {
         "content": "Utiliser uniquement NaBH4 si l'objectif est d'ajouter un carbone.",
@@ -689,13 +689,13 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une cétone traitée par un organomagnésien conduit à un alcool tertiaire."
       }
     ],
-    "explanation": "Le Grignard est la voie adaptée lorsque l'on souhaite allonger le squelette carboné."
+    "explanation": "Il apporte un substituant carboné."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour prédire la classe d'alcool formée par une réaction du chapitre, il faut distinguer:",
+    "question": "Pour prédire la classe d’alcool formée, quels éléments faut-il distinguer ?",
     "choices": [
       {
         "content": "Addition de Grignard sur une cétone.",
@@ -705,7 +705,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
         "correct": false,
-        "explanation": "Le chapitre souligne au contraire que la fonction acide est plus difficile à réduire."
+        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
       },
       {
         "content": "Réduction par hydrure d'un aldéhyde.",
@@ -723,7 +723,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
       }
     ],
-    "explanation": "Les quatre associations doivent être maîtrisées sans confusion."
+    "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
   },
   {
     "order": 45,
@@ -739,7 +739,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Seul l'organomagnésien ajoute un substituant carboné.",
         "correct": true,
-        "explanation": "Création C-C: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "Les deux voies donnent nécessairement le même produit.",
@@ -757,7 +757,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
       }
     ],
-    "explanation": "Le même aldéhyde peut être réduit ou allongé selon le nucléophile choisi."
+    "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
   },
   {
     "order": 46,
@@ -778,12 +778,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\ce{CH3MgX}$ conduit à un alcool tertiaire.",
         "correct": true,
-        "explanation": "Grignard sur cétone: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\ce{CH3MgX}$ ajoute un groupe méthyle au carbone carbonylé de la cétone ; après hydrolyse, l’alcool obtenu est tertiaire."
       },
       {
         "content": "La voie Grignard crée une nouvelle liaison C-C.",
         "correct": true,
-        "explanation": "Ajout du méthyle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "La voie NaBH4 augmente le nombre de carbones.",
@@ -791,7 +791,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Aucun groupe carboné n'est ajouté."
       }
     ],
-    "explanation": "Cette comparaison distingue réduction et synthèse carbonée."
+    "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
   },
   {
     "order": 47,
@@ -802,7 +802,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La polarisation C=O dirige l'attaque.",
         "correct": true,
-        "explanation": "Origine électronique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone carbonylé électrophile et dirige l’attaque du nucléophile vers ce centre."
       },
       {
         "content": "L'oxygène du carbonyle rend le carbone nucléophile.",
@@ -817,7 +817,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone du carbonyle est électrophile.",
         "correct": true,
-        "explanation": "Centre attaqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone du carbonyle électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "Le nucléophile est riche en électrons.",
@@ -825,7 +825,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Hydrure ou carbone de Grignard."
       }
     ],
-    "explanation": "La polarité explique l'ensemble des additions nucléophiles de cette section."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone carbonylé électrophile et dirige l’attaque du nucléophile vers ce centre."
   },
   {
     "order": 48,
@@ -851,15 +851,15 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'hydrolyse finale est indiquée dans les deux cas.",
         "correct": true,
-        "explanation": "Point commun: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après l’addition de l’organomagnésien, une hydrolyse finale est nécessaire dans les deux cas pour former l’alcool."
       },
       {
         "content": "L’oxydation d’un alcool secondaire conduit directement à un aldéhyde.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone dans le cadre du chapitre."
+        "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
       }
     ],
-    "explanation": "La nature du carbonyle fixe la classe d'alcool, mais le principe d'addition est commun."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 49,
@@ -870,7 +870,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux côtés sont obligatoirement équivalents.",
         "correct": false,
-        "explanation": "Leur substitution peut différer: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les deux carbones en alpha d’une cétone peuvent avoir des substitutions différentes et ne sont donc pas nécessairement équivalents."
       },
       {
         "content": "Un carbone voisin du carbonyle portant un hydrogène peut acquérir un caractère nucléophile après action d’une base forte.",
@@ -885,15 +885,15 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé reste électrophile.",
         "correct": true,
-        "explanation": "Toujours: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
       },
       {
         "content": "La présence de H en alpha est une information utile pour prévoir la réactivité ultérieure avec une base forte.",
         "correct": true,
-        "explanation": "Lien avec la section suivante."
+        "explanation": "La présence d’un hydrogène en alpha conditionne la possibilité d’une déprotonation ultérieure par une base forte."
       }
     ],
-    "explanation": "La condition de présence d'un H en alpha prépare la compréhension de la fonctionnalisation par base forte."
+    "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
   },
   {
     "order": 50,
@@ -931,12 +931,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux positions peuvent présenter un caractère nucléophile.",
         "correct": true,
-        "explanation": "La l'indique pour les deux côtés d'une cétone."
+        "explanation": "Dans une cétone portant des hydrogènes en alpha des deux côtés, chacun de ces carbones peut être déprotoné dans les conditions adaptées."
       },
       {
         "content": "Le carbone carbonylé demeure électrophile.",
         "correct": true,
-        "explanation": "Polarité C=O: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       },
       {
         "content": "La molécule peut donc réagir avec des nucléophiles au carbonyle et, dans d'autres conditions, avec des électrophiles en alpha.",
@@ -949,7 +949,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le groupe C=O reste présent."
       }
     ],
-    "explanation": "La molécule possède des centres réactifs complémentaires dépendant des conditions."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
   },
   {
     "order": 52,
@@ -975,15 +975,15 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'hydrure réduit le carbonyle sans apporter de carbone.",
         "correct": true,
-        "explanation": "NaBH4: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrure de $\\ce{NaBH4}$ s’ajoute au carbone du carbonyle et le réduit sans modifier le nombre d’atomes de carbone."
       },
       {
         "content": "L'organomagnésien apporte un groupe carboné.",
         "correct": true,
-        "explanation": "Création de liaison C-C: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       }
     ],
-    "explanation": "Le bilan carboné est un repère particulièrement robuste."
+    "explanation": "Secondaire avec hydrure, tertiaire avec Grignard."
   },
   {
     "order": 53,
@@ -1017,18 +1017,18 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
       }
     ],
-    "explanation": "La réaction de Grignard est l'outil du chapitre pour construire une liaison carbone-carbone au niveau du carbonyle."
+    "explanation": "Le nucléophile carboné s'ajoute au carbonyle."
   },
   {
     "order": 54,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un composé donne un alcool tertiaire après réaction avec un organomagnésien et hydrolyse. Quel substrat du chapitre est cohérent?",
+    "question": "Un composé donne un alcool tertiaire après réaction avec un organomagnésien puis hydrolyse. Quel substrat est cohérent ?",
     "choices": [
       {
         "content": "Le substrat initial possède un carbone carbonylé électrophile.",
         "correct": true,
-        "explanation": "Condition de l'attaque: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -1051,7 +1051,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le réactif organomagnésien apporte un groupe carboné nucléophile qui crée une nouvelle liaison carbone-carbone."
       }
     ],
-    "explanation": "Le type de produit permet de remonter au type de carbonyle initial."
+    "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
   },
   {
     "order": 55,
@@ -1063,7 +1063,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone du carbonyle est électrophile.",
         "correct": true,
-        "explanation": "Polarisation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone du carbonyle électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "$\\ce{NaBH4}$ réduit un aldéhyde en alcool primaire.",
@@ -1093,12 +1093,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "NaBH4 ajoute un nouveau substituant carboné.",
         "correct": false,
-        "explanation": "Hydrure : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Il apporte un hydrure, pas un groupe carboné."
       },
       {
         "content": "Une cétone + Grignard donne un alcool primaire.",
         "correct": false,
-        "explanation": "Tertiaire : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "Le carbone carbonylé est nucléophile.",
@@ -1108,16 +1108,16 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un carbone alpha sans hydrogène satisfait automatiquement la condition de nucléophilie alpha.",
         "correct": false,
-        "explanation": "La exige un H : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       }
     ],
-    "explanation": "Cette sélection résume polarité, réduction et addition des organomagnésiens."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone du carbonyle électrophile et donc sensible à l’attaque d’un nucléophile."
   },
   {
     "order": 56,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Combien de classes d'alcools différentes sont obtenues dans les quatre associations de base du chapitre (aldéhyde/hydrure, cétone/hydrure, aldéhyde/Grignard, cétone/Grignard): primaire, secondaire, tertiaire?",
+    "question": "Combien de classes d'alcools différentes sont obtenues dans les quatre associations de base considérées (aldéhyde/hydrure, cétone/hydrure, aldéhyde/Grignard, cétone/Grignard): primaire, secondaire, tertiaire?",
     "answer": {
       "type": "number",
       "value": 3,

@@ -19,7 +19,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une amine tertiaire porte trois substituants carbonés sur l'azote.",
         "correct": true,
-        "explanation": "Motif $\\ce{RR'R''N}$: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amine tertiaire possède trois substituants carbonés liés à l’azote et conserve un doublet non liant."
       },
       {
         "content": "Un ammonium quaternaire est classé comme une amine tertiaire.",
@@ -37,7 +37,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un seul substituant carboné sur N."
       }
     ],
-    "explanation": "Le support distingue amines primaire, secondaire, tertiaire et ammonium quaternaire."
+    "explanation": "Deux groupes carbonés sont liés à l'azote."
   },
   {
     "order": 46,
@@ -58,12 +58,12 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ce doublet peut être donné pour former une nouvelle liaison.",
         "correct": true,
-        "explanation": "C'est le comportement nucléophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le don du doublet non liant de l’azote permet la formation d’une nouvelle liaison et explique le caractère nucléophile de l’amine."
       },
       {
         "content": "Parce que l'azote est dépourvu d'électrons.",
         "correct": false,
-        "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’azote d’une amine possède au contraire un doublet non liant, à l’origine de sa nucléophilie."
       },
       {
         "content": "Parce que toute amine est chargée positivement.",
@@ -71,7 +71,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une amine simple peut être neutre."
       }
     ],
-    "explanation": "Le doublet libre de l'azote est la base de la nucléophilie des amines."
+    "explanation": "L’ammonium quaternaire possède quatre substituants sur l’azote et porte une charge positive; ce n’est pas une amine neutre."
   },
   {
     "order": 47,
@@ -97,7 +97,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ammonium quaternaire.",
         "correct": true,
-        "explanation": "La le distingue explicitement des amines."
+        "explanation": "Les voies d’hydrolyse et d’oxydation décrites ne visent pas la formation d’un ammonium quaternaire."
       },
       {
         "content": "Amine tertiaire.",
@@ -105,7 +105,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
       }
     ],
-    "explanation": "Après trois classes d'amines, l'alkylation supplémentaire conduit à un ammonium quaternaire."
+    "explanation": "Une condensation entre une amine et un aldéhyde ou une cétone ne forme pas un ester."
   },
   {
     "order": 48,
@@ -139,7 +139,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le doublet libre de l’azote peut être engagé dans une réaction avec un centre électrophile."
       }
     ],
-    "explanation": "L'alkylation successive de l'ammoniac explique la progression jusqu'à l'ammonium quaternaire."
+    "explanation": "La relation correcte est: « Elle permet d'obtenir successivement des amines plus substituées ». La négation proposée est donc fausse."
   },
   {
     "order": 49,
@@ -173,7 +173,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "L'amidification relie la réactivité des amines à la synthèse de fonctions amides présentes dans les peptides et protéines."
+    "explanation": "Le produit attendu est une amide."
   },
   {
     "order": 50,
@@ -207,7 +207,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Le chlorure d'acide et l'anhydride d'acide sont les deux acides activés rappelés."
+    "explanation": "Cette proposition est écartée: un dérivé d'acide ne correspond pas au bilan ou à la propriété attendue."
   },
   {
     "order": 51,
@@ -241,7 +241,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce n'est pas une alkylation exhaustive."
       }
     ],
-    "explanation": "Amine primaire + composé carbonylé ↔ imine + eau."
+    "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
   },
   {
     "order": 52,
@@ -252,7 +252,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réaction peut être inversée par hydrolyse.",
         "correct": true,
-        "explanation": "la réversibilité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse est la réaction inverse de la condensation et peut régénérer le composé carbonylé et l’amine."
       },
       {
         "content": "Le produit est une imine neutre identique au cas d'une amine primaire.",
@@ -272,10 +272,10 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une molécule d'eau est formée.",
         "correct": true,
-        "explanation": "Condensation avec perte d'eau: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le bilan écrit imine + H2O."
       }
     ],
-    "explanation": "Amine secondaire + composé carbonylé ↔ iminium + eau."
+    "explanation": "L’hydrolyse est la réaction inverse de la condensation et peut régénérer le composé carbonylé et l’amine."
   },
   {
     "order": 53,
@@ -286,12 +286,12 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amine primaire + carbonyle → imine.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "La réaction de condensation associe les deux fonctions et s’accompagne ici d’une élimination d’eau."
       },
       {
         "content": "Amine secondaire + carbonyle → iminium.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "La réaction de condensation associe les deux fonctions et s’accompagne ici d’une élimination d’eau."
       },
       {
         "content": "Amine primaire ou secondaire + acide activé → amide.",
@@ -299,7 +299,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Cette transformation forme une fonction amide à partir d’une amine et d’un dérivé acylé adapté."
       },
       {
-        "content": "Amine tertiaire + carbonyle → imine selon le tableau.",
+        "content": "Amine tertiaire + carbonyle → imine dans le modèle étudié.",
         "correct": false,
         "explanation": "Ce cas n'est pas donné."
       },
@@ -309,7 +309,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
       }
     ],
-    "explanation": "La classe de l'amine détermine le produit de condensation avec un composé carbonylé."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 54,
@@ -343,7 +343,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’eau intervient dans le sens inverse de la condensation en permettant l’hydrolyse de l’imine ou de l’iminium."
       }
     ],
-    "explanation": "Les imines et les ions iminium peuvent être hydrolysés, ce qui explique le caractère réversible de leur formation."
+    "explanation": "Sans rapport avec cette réversibilité."
   },
   {
     "order": 55,
@@ -354,7 +354,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amine primaire → amine secondaire.",
         "correct": true,
-        "explanation": "Deuxième alkylation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une nouvelle alkylation d’une amine primaire ajoute un second substituant carboné sur l’azote et forme une amine secondaire."
       },
       {
         "content": "Amine secondaire → amine tertiaire.",
@@ -377,13 +377,13 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une première alkylation de l’ammoniac conduit à une amine primaire."
       }
     ],
-    "explanation": "La progression montre que le contrôle du nombre d'alkylations détermine le degré de substitution de l'azote."
+    "explanation": "Une nouvelle alkylation d’une amine primaire ajoute un second substituant carboné sur l’azote et forme une amine secondaire."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de classes d'amines neutres la distingue-t-elle avant l'ammonium quaternaire?",
+    "question": "Combien de classes d’amines neutres distingue-t-on avant l’ammonium quaternaire ?",
     "answer": {
       "type": "number",
       "value": 3,
@@ -400,7 +400,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un chlorure d'acide peut jouer le rôle d'acide activé.",
         "correct": true,
-        "explanation": "Exemple: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un chlorure d’acide est un dérivé activé dont le carbone acylé peut être attaqué par une amine pour former une amide."
       },
       {
         "content": "La réaction conduit nécessairement à une fonction alcool.",
@@ -423,7 +423,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Le contexte peptidique illustre directement l'intérêt biologique de l'amidification."
+    "explanation": "Une amine attaque le carbone acylé électrophile d’un dérivé activé pour former une fonction amide."
   },
   {
     "order": 58,
@@ -457,7 +457,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
       }
     ],
-    "explanation": "La classe de l'amine se lit dans la nature du produit azoté obtenu avec le carbonyle."
+    "explanation": "La relation correcte est: « L'amine primaire conduit à une imine ». La négation proposée est donc fausse."
   },
   {
     "order": 59,
@@ -478,12 +478,12 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Elle correspond au sens inverse de la condensation avec le carbonyle.",
         "correct": true,
-        "explanation": "Réaction réversible: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse est la réaction inverse de la condensation et peut régénérer le composé carbonylé et l’amine."
       },
       {
         "content": "Elle peut régénérer les partenaires de départ.",
         "correct": true,
-        "explanation": "Principe de l'hydrolyse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse est la réaction inverse de la condensation et peut régénérer le composé carbonylé et l’amine."
       },
       {
         "content": "Elle nécessite de considérer la présence d'eau.",
@@ -491,13 +491,13 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'eau intervient dans le sens inverse."
       }
     ],
-    "explanation": "La réversibilité permet de relier formation et hydrolyse des imines/iminium."
+    "explanation": "Ce n'est pas une alkylation."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Une cétone réagit avec une amine secondaire. Quel type de produit azoté la prévoit-elle?",
+    "question": "Une cétone réagit avec une amine secondaire. Quel type de produit azoté est formé ?",
     "choices": [
       {
         "content": "Un iminium.",
@@ -525,7 +525,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une condensation entre une amine et un aldéhyde ou une cétone ne forme pas un ester."
       }
     ],
-    "explanation": "Amine secondaire + cétone ↔ iminium + eau."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 61,
@@ -551,7 +551,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réaction peut être hydrolysée.",
         "correct": true,
-        "explanation": "Réversibilité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse est la réaction inverse de la condensation et peut régénérer le composé carbonylé et l’amine."
       },
       {
         "content": "Un organomagnésien est obligatoirement nécessaire.",
@@ -559,7 +559,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Cette proposition est écartée: dans cette transformation ne correspond pas au bilan ou à la propriété attendue."
       }
     ],
-    "explanation": "Le couple amine primaire/aldéhyde est le cas simple de formation d'une imine."
+    "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
   },
   {
     "order": 62,
@@ -586,15 +586,15 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amidification d'une amine avec un acide activé.",
         "correct": true,
-        "explanation": "L'amide contient C=O: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’amidification d’une amine par un dérivé d’acide activé forme une liaison amide contenant un groupe carbonyle."
       },
       {
         "content": "Oxydation d'un alcool secondaire en cétone.",
         "correct": true,
-        "explanation": "La cétone contient C=O: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxydation d’un alcool secondaire transforme le carbone portant $\\ce{-OH}$ en carbone carbonylé et donne une cétone."
       }
     ],
-    "explanation": "Cette question relie la chimie des amines à la réactivité des alcools sans quitter le périmètre du chapitre."
+    "explanation": "Cette transformation ne crée pas de groupe carbonyle dans le produit considéré."
   },
   {
     "order": 63,
@@ -628,7 +628,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La polarisation de la liaison carbone-halogène rend ce carbone sensible à l’attaque d’un nucléophile."
       }
     ],
-    "explanation": "Le doublet libre de l'azote explique la diversité des réactions d'addition/substitution de l'amine."
+    "explanation": "L'azote attaque le carbone électrophile de RX."
   },
   {
     "order": 64,
@@ -655,12 +655,12 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ammoniac + RX → amine primaire après une alkylation.",
         "correct": true,
-        "explanation": "Séquence d'Hoffman : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La première alkylation de l’ammoniac par un dérivé halogéné conduit à une amine primaire."
       },
       {
         "content": "Amine tertiaire + RX → ammonium quaternaire.",
         "correct": true,
-        "explanation": "Alkylation supplémentaire : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une alkylation supplémentaire d’une amine tertiaire conduit à un ammonium quaternaire."
       },
       {
         "content": "Amine primaire + carbonyle → ammonium quaternaire.",
@@ -675,7 +675,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ammonium quaternaire = amine tertiaire neutre.",
         "correct": false,
-        "explanation": "La les distingue : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amine tertiaire est neutre et porte trois substituants carbonés ; un ammonium quaternaire en porte quatre et est chargé positivement."
       },
       {
         "content": "Imine = produit spécifique d'une amine secondaire.",
@@ -688,7 +688,7 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée : il s’agit de la classe d’amine attendue."
       }
     ],
-    "explanation": "La sélection consolide la classe d'amine et le produit fonctionnel attendu."
+    "explanation": "La réaction de condensation associe les deux fonctions et s’accompagne ici d’une élimination d’eau."
   },
   {
     "order": 65,
@@ -729,19 +729,19 @@ export const UE14_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La classe primaire ou secondaire de l'amine pour prévoir imine ou iminium.",
         "correct": true,
-        "explanation": "Distinction du tableau: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amine primaire conduit à une imine, tandis qu’une amine secondaire conduit à un ion iminium dans le bilan étudié."
       },
       {
         "content": "Le doublet libre de l'azote, qui explique la nucléophilie.",
         "correct": true,
-        "explanation": "Propriété générale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le doublet non liant de l’azote peut être engagé dans une nouvelle liaison, ce qui explique le caractère nucléophile d’une amine."
       },
       {
         "content": "Uniquement la formule brute globale de la molécule.",
         "correct": false,
-        "explanation": "L'environnement fonctionnel est indispensable: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La formule brute ne suffit pas : la nature du partenaire réactionnel et la classe de l’amine déterminent la transformation."
       }
     ],
-    "explanation": "La réactivité des amines se raisonne d'abord par identification du partenaire électrophile."
+    "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
   }
 ];

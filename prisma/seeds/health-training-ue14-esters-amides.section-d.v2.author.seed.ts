@@ -24,20 +24,20 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ils sont présentés comme un cas particulier d'ester contenant du soufre.",
         "correct": true,
-        "explanation": "Le support parle d'ester soufré."
+        "explanation": "Un thioester est l’analogue soufré d’un ester : le soufre remplace l’oxygène alkoxy."
       },
       {
         "content": "Le motif général est de type $\\mathrm{R{-}C(=O){-}SR'}$.",
         "correct": true,
-        "explanation": "Structure donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif général d’un thioester est $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Ils contiennent un atome de soufre à la place de l'oxygène alkoxy d'un ester classique.",
         "correct": true,
-        "explanation": "Différence structurale essentielle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans un thioester, le soufre remplace l’oxygène alkoxy de l’ester tout en conservant le groupe carbonyle."
       }
     ],
-    "explanation": "Le thioester est l'analogue soufré de l'ester au niveau du groupe lié au carbonyle."
+    "explanation": "Une amide porte N, pas S."
   },
   {
     "order": 80,
@@ -58,7 +58,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}C(=O){-}SR'}$.",
         "correct": true,
-        "explanation": "Motif général: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif général d’un thioester est $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "$\\mathrm{R{-}SH}$.",
@@ -71,7 +71,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un thioester ne se définit pas par un azote tétrasubstitué."
       }
     ],
-    "explanation": "Le thioester se reconnaît par C(=O)-S-R'."
+    "explanation": "Le motif ou le produit considéré correspond bien à une fonction ester."
   },
   {
     "order": 81,
@@ -92,20 +92,20 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le thiol est noté $\\mathrm{R{-}SH}$.",
         "correct": true,
-        "explanation": "Définition rappelée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, le thiol est noté $\\mathrm{R{-}SH}$."
       },
       {
         "content": "Un chlorure d'acyle peut être l'acide activé.",
         "correct": true,
-        "explanation": "Cité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un chlorure d’acyle peut fournir le groupe acyle nécessaire à la formation d’un thioester avec un thiol."
       },
       {
         "content": "Un anhydride d'acide peut être l'acide activé.",
         "correct": true,
-        "explanation": "Cité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un anhydride d’acide peut également acyler un thiol pour former un thioester."
       }
     ],
-    "explanation": "La préparation du thioester est l'analogue soufré de l'estérification."
+    "explanation": "L’ester est formé ici à partir d’un alcool et d’un acide activé."
   },
   {
     "order": 82,
@@ -119,9 +119,9 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La relation correcte est: « Le carbone du groupement CH3 voisin du carbonyle peut présenter un caractère nucléophile dans l'exemple ». La négation proposée est donc fausse."
       },
       {
-        "content": "La décrit le carbonyle comme totalement apolaire.",
+        "content": "Le groupe carbonyle est totalement apolaire.",
         "correct": false,
-        "explanation": "La polarisation est centrale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison $\\ce{C=O}$ est polarisée : l’oxygène est riche en électrons et le carbone carbonylé est électrophile."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -131,15 +131,15 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'oxygène du carbonyle exerce un effet électroattracteur.",
         "correct": true,
-        "explanation": "Comme pour les esters: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Comme dans un ester, l’oxygène du carbonyle attire la densité électronique et rend le carbone carbonylé électrophile."
       },
       {
         "content": "Le carbone carbonylé possède un caractère électrophile.",
         "correct": true,
-        "explanation": "Conséquence indiquée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ rend le carbone carbonylé électrophile."
       }
     ],
-    "explanation": "Le support transpose aux thioesters le modèle de centres électrophile et nucléophile présenté pour les esters."
+    "explanation": "La relation correcte est: « Le carbone du groupement CH3 voisin du carbonyle peut présenter un caractère nucléophile dans l'exemple ». La négation proposée est donc fausse."
   },
   {
     "order": 83,
@@ -155,7 +155,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À l'aide d'enzymes.",
         "correct": true,
-        "explanation": "Deuxième possibilité citée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le contexte biologique considéré, l’interconversion du thioester peut être catalysée par des enzymes."
       },
       {
         "content": "En donnant un acide carboxylique et un thiol.",
@@ -173,7 +173,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
       }
     ],
-    "explanation": "L'hydrolyse d'un thioester régénère la fonction acide et le thiol."
+    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
   },
   {
     "order": 84,
@@ -204,10 +204,10 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Son hydrolyse conduit notamment au coenzyme A-SH.",
         "correct": true,
-        "explanation": "Produit indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse de l’acétyl-CoA rompt la liaison thioester et régénère le coenzyme A sous forme $\\ce{CoA-SH}$."
       }
     ],
-    "explanation": "L'acétyl-CoA est l'exemple biologique majeur du thioester."
+    "explanation": "Il contient une fonction thioester."
   },
   {
     "order": 85,
@@ -218,17 +218,17 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À l'acide acétique.",
         "correct": true,
-        "explanation": "Produit acide cité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse de l’acétyl-CoA libère le fragment acétyle sous forme d’acide acétique dans le bilan simplifié."
       },
       {
         "content": "À une rupture de la liaison thioester.",
         "correct": true,
-        "explanation": "C'est la transformation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "À une formation obligatoire de liaison peptidique.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition ne correspond pas au bilan d’hydrolyse considéré."
       },
       {
         "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
@@ -238,10 +238,10 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Au coenzyme A-SH.",
         "correct": true,
-        "explanation": "Le thiol est régénéré: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La rupture de la liaison thioester régénère le thiol du coenzyme A, $\\ce{CoA-SH}$."
       }
     ],
-    "explanation": "Le bilan relie acétyl-CoA, CoA-SH et acide acétique."
+    "explanation": "L’hydrolyse de l’acétyl-CoA libère le fragment acétyle sous forme d’acide acétique dans le bilan simplifié."
   },
   {
     "order": 86,
@@ -275,7 +275,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’hydrolyse rompt la liaison thioester ; elle correspond donc à la réaction inverse de sa formation."
       }
     ],
-    "explanation": "Le passage CoA-SH → acétyl-CoA reforme la liaison thioester."
+    "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
   },
   {
     "order": 87,
@@ -306,10 +306,10 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux peuvent être hydrolysés.",
         "correct": true,
-        "explanation": "Hydrolysabilité décrite: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Esters et thioesters possèdent une liaison acyle–hétéroatome pouvant être rompue par hydrolyse."
       }
     ],
-    "explanation": "Le thioester est présenté comme un ester soufré avec une réactivité apparentée."
+    "explanation": "Dans un ester comme dans un thioester, la polarisation du carbonyle rend le carbone carbonylé électrophile."
   },
   {
     "order": 88,
@@ -320,12 +320,12 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une amine.",
         "correct": false,
-        "explanation": "Elle donnerait une amide: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Ce n'est pas la voie décrite."
       },
       {
         "content": "Un alcool.",
         "correct": false,
-        "explanation": "Il donnerait un ester: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La fonction alcool apporte l’oxygène qui participe à la formation de l’hémiacétal."
       },
       {
         "content": "Un alcane.",
@@ -343,7 +343,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Cette transformation ne crée pas de double liaison carbone-carbone."
       }
     ],
-    "explanation": "Le thiol R-SH est le partenaire de formation du thioester."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 89,
@@ -364,20 +364,20 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool → ester.",
         "correct": true,
-        "explanation": "Acylation de O: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxygène de l’alcool attaque le carbone acylé électrophile et forme la liaison ester."
       },
       {
         "content": "Amine → amide.",
         "correct": true,
-        "explanation": "Acylation de N: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’azote de l’amine attaque le carbone acylé électrophile et forme la liaison amide."
       },
       {
         "content": "Thiol → thioester.",
         "correct": true,
-        "explanation": "Acylation de S: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       }
     ],
-    "explanation": "Un même fragment acyle peut donner trois familles en changeant le nucléophile."
+    "explanation": "O, N ou S déterminent la fonction."
   },
   {
     "order": 90,
@@ -388,17 +388,17 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone du CH3 adjacent peut présenter un caractère nucléophile.",
         "correct": true,
-        "explanation": "Le support le précise: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha, le carbone du groupe méthyle voisin du carbonyle peut acquérir un caractère nucléophile."
       },
       {
         "content": "La fonction possède donc deux zones de polarité réactive dans le modèle simplifié.",
         "correct": true,
-        "explanation": "Analogie avec l'ester: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbone carbonylé est électrophile, tandis que le carbone alpha peut devenir nucléophile après déprotonation."
       },
       {
         "content": "Le soufre supprime toute polarisation du carbonyle.",
         "correct": false,
-        "explanation": "La décrit explicitement la polarisation."
+        "explanation": "La présence du soufre n’annule pas la polarisation du groupe carbonyle ; le carbone carbonylé reste électrophile."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -411,7 +411,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La relation correcte est: « Le carbone du carbonyle est électrophile ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "Le thioester reprend le schéma carbonyle électrophile / carbone alpha nucléophile."
+    "explanation": "Après déprotonation en alpha, le carbone du groupe méthyle voisin du carbonyle peut acquérir un caractère nucléophile."
   },
   {
     "order": 91,
@@ -432,20 +432,20 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le thiol est régénéré.",
         "correct": true,
-        "explanation": "R'SH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse du thioester rompt la liaison acyle–soufre et libère de nouveau le thiol $\\ce{R'SH}$."
       },
       {
         "content": "L'acide carboxylique est régénéré.",
         "correct": true,
-        "explanation": "RCOOH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
       },
       {
         "content": "La fonction thioester est décrite comme non hydrolysable.",
         "correct": false,
-        "explanation": "Elle est hydrolysable: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un thioester rompt la liaison acyle–soufre et régénère notamment un thiol."
       }
     ],
-    "explanation": "L'hydrolyse restitue les deux partenaires fonctionnels du thioester."
+    "explanation": "Le groupe acétyle est lié au soufre de la CoA par une liaison thioester."
   },
   {
     "order": 92,
@@ -461,7 +461,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réaction inverse peut être enzymatique.",
         "correct": true,
-        "explanation": "La le précise: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le contexte biologique considéré, l’interconversion du thioester peut être catalysée par des enzymes."
       },
       {
         "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
@@ -471,7 +471,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'acétyl-CoA est la forme thioester.",
         "correct": true,
-        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, l'acétyl-CoA est la forme thioester."
       },
       {
         "content": "CoA-SH porte la fonction thiol utilisée pour reformer le thioester.",
@@ -479,13 +479,13 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le groupe SH est le partenaire."
       }
     ],
-    "explanation": "Le couple acétyl-CoA / CoA-SH illustre l'hydrolyse puis la reformation biologique d'un thioester."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 93,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pourquoi l'acétyl-CoA est-il un bon exemple pédagogique pour cette section?",
+    "question": "Pourquoi l’acétyl-CoA est-il un bon exemple de thioester biologique ?",
     "choices": [
       {
         "content": "Il montre qu'une fonction thioester existe dans un composé biologique majeur.",
@@ -500,7 +500,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Il illustre la formation enzymatique inverse du thioester.",
         "correct": true,
-        "explanation": "CoA-SH → acétyl-CoA: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Il sert à démontrer que tous les thioesters sont des peptides.",
@@ -513,7 +513,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
       }
     ],
-    "explanation": "L'exemple relie structure, hydrolyse et formation du thioester dans un contexte biologique."
+    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
   },
   {
     "order": 94,
@@ -547,17 +547,17 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'ester donne un alcool comme partenaire hétéroatomique.",
         "correct": true,
-        "explanation": "R'OH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe $\\ce{OR'}$ de l’ester donne l’alcool $\\ce{R'OH}$ après hydrolyse."
       },
       {
         "content": "Le thioester donne un thiol.",
         "correct": true,
-        "explanation": "R'SH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Les deux donnent nécessairement une amine protonée.",
         "correct": false,
-        "explanation": "Cela concerne l'amide: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un ester ou d’un thioester ne forme pas nécessairement une amine ; les produits dépendent de l’hétéroatome de la fonction."
       },
       {
         "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
@@ -567,10 +567,10 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux fonctions sont hydrolysables.",
         "correct": true,
-        "explanation": "Propriété commune: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Esters et thioesters possèdent une liaison acyle–hétéroatome pouvant être rompue par hydrolyse."
       }
     ],
-    "explanation": "Le produit hétéroatomique révèle la nature O ou S du dérivé initial."
+    "explanation": "Esters et thioesters possèdent une liaison acyle–hétéroatome pouvant être rompue par hydrolyse."
   },
   {
     "order": 96,
@@ -586,7 +586,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Formation de RCOOH.",
         "correct": true,
-        "explanation": "Acide carboxylique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
       },
       {
         "content": "Formation de R'SH.",
@@ -604,7 +604,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce n'est pas le bilan de l'hydrolyse."
       }
     ],
-    "explanation": "L'enzyme réalise le même bilan fonctionnel général que l'hydrolyse par l'eau."
+    "explanation": "La fonction ester est hydrolysable en milieu acide ou basique dans les conditions appropriées."
   },
   {
     "order": 97,
@@ -615,7 +615,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Cette réactivité est présentée comme analogue à celle des esters.",
         "correct": true,
-        "explanation": "Le support dit « de la même façon que les esters »."
+        "explanation": "La polarisation du carbonyle et la réactivité en position alpha sont traitées de manière analogue à celles des esters."
       },
       {
         "content": "Aucun atome d'oxygène n'est présent.",
@@ -630,15 +630,15 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone carbonylé est électrophile.",
         "correct": true,
-        "explanation": "Polarisation du C=O: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison $\\ce{C=O}$ est polarisée : l’oxygène est riche en électrons et le carbone carbonylé est électrophile."
       },
       {
         "content": "Le carbone du CH3 voisin peut présenter un caractère nucléophile.",
         "correct": true,
-        "explanation": "Point indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha du carbonyle, le carbone du groupe méthyle voisin peut acquérir un caractère nucléophile."
       }
     ],
-    "explanation": "Le thioester conserve l'oxygène carbonylé responsable de la polarisation."
+    "explanation": "La polarisation du carbonyle et la réactivité en position alpha sont traitées de manière analogue à celles des esters."
   },
   {
     "order": 98,
@@ -672,7 +672,7 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’ester est formé ici à partir d’un alcool et d’un acide activé."
       }
     ],
-    "explanation": "La séquence formation/hydrolyse est réversible au niveau fonctionnel dans le schéma."
+    "explanation": "La relation correcte est: « La première étape forme un thioester ». La négation proposée est donc fausse."
   },
   {
     "order": 99,
@@ -684,22 +684,22 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un thioester possède le motif C(=O)-S-R'.",
         "correct": true,
-        "explanation": "Structure : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif d’un thioester est $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Acide activé + thiol → thioester.",
         "correct": true,
-        "explanation": "Préparation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’acylation d’un thiol par un dérivé d’acide activé conduit à un thioester."
       },
       {
         "content": "Un thioester est hydrolysable.",
         "correct": true,
-        "explanation": "Propriété : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un thioester rompt la liaison acyle-soufre et régénère notamment un thiol."
       },
       {
         "content": "L'acétyl-CoA est un thioester du CoA-SH.",
         "correct": true,
-        "explanation": "Application : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Hydrolyse de l'acétyl-CoA → CoA-SH + acide acétique.",
@@ -709,12 +709,12 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un thioester est une amide.",
         "correct": false,
-        "explanation": "S remplace N : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester comporte un soufre lié au groupe acyle, alors qu’une amide comporte un azote."
       },
       {
         "content": "Le carbone carbonylé du thioester est toujours nucléophile.",
         "correct": false,
-        "explanation": "Il est électrophile : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbone du groupe carbonyle d’un thioester est électrophile et peut être attaqué par un nucléophile."
       },
       {
         "content": "Un thioester ne peut jamais être hydrolysé par une enzyme.",
@@ -729,10 +729,10 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La formation d'acétyl-CoA est une hydrolyse.",
         "correct": false,
-        "explanation": "C'est la réaction inverse : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : l'acétyl-CoA est un thioester du CoA-SH."
       }
     ],
-    "explanation": "Cette sélection consolide structure, préparation, hydrolyse et application acétyl-CoA."
+    "explanation": "L’hydrolyse d’un thioester rompt la liaison acyle-soufre et régénère notamment un thiol. Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
   },
   {
     "order": 100,
@@ -744,12 +744,12 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "CoA-SH → acétyl-CoA par une réaction enzymatique de formation du thioester.",
         "correct": true,
-        "explanation": "Réaction inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Acétyl-CoA → peptide par simple rotation.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition ne correspond pas à la transformation ou à la propriété demandée."
       },
       {
         "content": "CoA-SH + amine → amide obligatoire.",
@@ -767,6 +767,6 @@ export const UE14_CH9_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’hydrolyse rompt la liaison fonctionnelle en présence d’eau et conduit aux produits indiqués."
       }
     ],
-    "explanation": "Les deux sens illustrent hydrolyse et reformation enzymatique du thioester."
+    "explanation": "L’hydrolyse rompt la liaison fonctionnelle en présence d’eau et conduit aux produits indiqués. Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
   }
 ];

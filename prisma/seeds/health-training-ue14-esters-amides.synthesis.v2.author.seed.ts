@@ -37,7 +37,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Selon que le nucléophile apporte O, N ou S, le dérivé acylé formé est respectivement un ester, une amide ou un thioester."
       }
     ],
-    "explanation": "Un même fragment acyle activé peut conduire aux trois familles principales du chapitre."
+    "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
   },
   {
     "order": 102,
@@ -48,7 +48,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le thioester est hydrolysable.",
         "correct": true,
-        "explanation": "Avec eau ou enzymes: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un thioester rompt la liaison acyle–soufre et régénère notamment un thiol."
       },
       {
         "content": "Les trois fonctions sont absolument non hydrolysables.",
@@ -71,7 +71,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Milieu très acide et chauffage."
       }
     ],
-    "explanation": "Les trois dérivés sont hydrolysables, mais leur facilité et leurs produits diffèrent."
+    "explanation": "L’ester est plus facilement hydrolysable que l’amide ; cette différence de stabilité permet une hydrolyse sélective dans des conditions adaptées."
   },
   {
     "order": 103,
@@ -82,12 +82,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'ester peut être hydrolysé sélectivement.",
         "correct": true,
-        "explanation": "Il est plus fragile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La fonction ester est plus facilement hydrolysable que l’amide, ce qui permet une hydrolyse sélective dans des conditions adaptées."
       },
       {
         "content": "L'amide peut rester intacte.",
         "correct": true,
-        "explanation": "Elle résiste davantage: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La fonction ester est plus facilement hydrolysable que l’amide, ce qui permet une hydrolyse sélective dans des conditions adaptées."
       },
       {
         "content": "Cette différence de stabilité permet une sélectivité fonctionnelle.",
@@ -97,7 +97,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'amide doit être hydrolysée en premier.",
         "correct": false,
-        "explanation": "C'est l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       },
       {
         "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
@@ -105,7 +105,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’ester est plus facilement hydrolysé que l’amide."
       }
     ],
-    "explanation": "La différence de sensibilité ester/amide est une compétence transversale centrale du chapitre."
+    "explanation": "L’ester est plus facilement hydrolysable que l’amide ; cette différence de stabilité permet une hydrolyse sélective dans des conditions adaptées."
   },
   {
     "order": 104,
@@ -126,20 +126,20 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool → ester.",
         "correct": true,
-        "explanation": "Acylation de O: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxygène de l’alcool attaque le carbone acylé électrophile et forme la liaison ester."
       },
       {
         "content": "Amine → amide.",
         "correct": true,
-        "explanation": "Acylation de N: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’azote de l’amine attaque le carbone acylé électrophile et forme la liaison amide."
       },
       {
         "content": "Thiol → thioester.",
         "correct": true,
-        "explanation": "Acylation de S: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       }
     ],
-    "explanation": "La nature du nucléophile commande le dérivé d'acide formé."
+    "explanation": "L'alcane n'est pas le partenaire utilisé."
   },
   {
     "order": 105,
@@ -150,17 +150,17 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Protéases/peptidases → hydrolyse de fonctions amides des peptides.",
         "correct": true,
-        "explanation": "Application enzymatique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       },
       {
         "content": "Estérases → hydrolyse de fonctions ester.",
         "correct": true,
-        "explanation": "Application enzymatique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les estérases catalysent l’hydrolyse sélective des fonctions ester."
       },
       {
         "content": "Acétyl-CoA → thioester du CoA-SH.",
         "correct": true,
-        "explanation": "Application des thioesters: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Une amide s’hydrolyse toujours avant un ester soumis aux mêmes conditions.",
@@ -170,10 +170,10 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Liaison peptidique → fonction amide.",
         "correct": true,
-        "explanation": "Application des amides: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison peptidique correspond à une fonction amide reliant deux résidus d’acides aminés."
       }
     ],
-    "explanation": "Le chapitre relie chacune des trois familles à un contexte biologique précis."
+    "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
   },
   {
     "order": 106,
@@ -207,7 +207,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La rotation est fortement perturbée."
       }
     ],
-    "explanation": "La synthèse doit distinguer polarisation de l'ester et délocalisation de l'amide."
+    "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
   },
   {
     "order": 107,
@@ -218,12 +218,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Dans les deux cas, un alcool peut être libéré.",
         "correct": true,
-        "explanation": "R'OH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe $\\ce{OR'}$ de l’ester donne l’alcool $\\ce{R'OH}$ après hydrolyse."
       },
       {
         "content": "L'hydrolyse basique est appelée saponification.",
         "correct": true,
-        "explanation": "Terminologie: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un ester en milieu basique est appelée saponification."
       },
       {
         "content": "Un ester est totalement insensible à l’eau quelles que soient les conditions.",
@@ -233,15 +233,15 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "En milieu acide, le fragment acyle est retrouvé sous forme d'acide carboxylique.",
         "correct": true,
-        "explanation": "RCOOH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
       },
       {
         "content": "En milieu basique, il est retrouvé sous forme de carboxylate.",
         "correct": true,
-        "explanation": "RCOO−: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En milieu basique, l’acide carboxylique formé est déprotoné et se retrouve sous forme de carboxylate $\\ce{RCOO^-}$."
       }
     ],
-    "explanation": "Le pH modifie notamment l'état de protonation du fragment carboxylique."
+    "explanation": "En milieu basique, l’acide carboxylique formé est déprotoné et se retrouve sous forme de carboxylate $\\ce{RCOO^-}$."
   },
   {
     "order": 108,
@@ -262,7 +262,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réaction inverse peut être réalisée par des enzymes.",
         "correct": true,
-        "explanation": "Formation du thioester: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison thioester peut être reformée enzymatiquement à partir des partenaires issus de l’hydrolyse."
       },
       {
         "content": "CoA-SH est présenté comme un alcool.",
@@ -275,7 +275,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le soufre remplace l’oxygène alkoxy d’un ester classique."
       }
     ],
-    "explanation": "Le couple acétyl-CoA/CoA-SH résume la chimie biologique du thioester étudiée."
+    "explanation": "La relation correcte est: « L'acétyl-CoA contient une liaison thioester ». La négation proposée est donc fausse."
   },
   {
     "order": 109,
@@ -302,15 +302,15 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amide.",
         "correct": true,
-        "explanation": "Fonction plus résistante: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxydation d’un alcool ne crée pas de fonction amide."
       },
       {
         "content": "Alcane.",
         "correct": false,
-        "explanation": "Pas une fonction hydrolysée dans ce chapitre."
+        "explanation": "Pas une fonction hydrolysée dans les transformations étudiées."
       }
     ],
-    "explanation": "La comparaison ester/amide est utilisée pour raisonner sur l'hydrolyse sélective."
+    "explanation": "Pas concerné par cette comparaison."
   },
   {
     "order": 110,
@@ -322,42 +322,42 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un ester contient deux oxygènes dans son motif fonctionnel.",
         "correct": true,
-        "explanation": "C=O et O-R' : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le motif ester comporte deux oxygènes : celui du carbonyle et celui du groupe $\\ce{OR'}$."
       },
       {
         "content": "Une amide contient un carbonyle directement lié à N.",
         "correct": true,
-        "explanation": "Motif amide : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une amide se reconnaît au motif où l’azote est directement lié au carbone du groupe carbonyle."
       },
       {
         "content": "Un thioester contient le motif C(=O)-S-R'.",
         "correct": true,
-        "explanation": "Motif thioester : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Une saponification est une hydrolyse basique d'ester.",
         "correct": true,
-        "explanation": "Définition : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, une saponification est une hydrolyse basique d'ester."
       },
       {
         "content": "L'acétyl-CoA est un thioester.",
         "correct": true,
-        "explanation": "Application : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "Une amide est plus facile à hydrolyser chimiquement qu'un ester.",
         "correct": false,
-        "explanation": "C'est l'inverse : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       },
       {
         "content": "Le carbone carbonylé d'un ester est toujours nucléophile.",
         "correct": false,
-        "explanation": "Il est électrophile : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
         "content": "Le doublet de l'azote amide est totalement libre et non délocalisé.",
         "correct": false,
-        "explanation": "Il est délocalisé : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le doublet de l’azote est au contraire délocalisé vers le carbonyle dans une amide."
       },
       {
         "content": "Un acide non activé + amine donne directement l'amide.",
@@ -367,10 +367,10 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un thioester est absolument non hydrolysable.",
         "correct": false,
-        "explanation": "Il est hydrolysable : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un thioester rompt la liaison acyle–soufre et régénère notamment un thiol."
       }
     ],
-    "explanation": "Cette synthèse consolide structures, hydrolyses et propriétés électroniques."
+    "explanation": "Une amide se reconnaît au motif où l’azote est directement lié au carbone du groupe carbonyle. Le motif ester comporte deux oxygènes : celui du carbonyle et celui du groupe $\\ce{OR'}$."
   },
   {
     "order": 111,
@@ -386,12 +386,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Étape 1: conditions suffisamment douces pour hydrolyser l'ester.",
         "correct": true,
-        "explanation": "L'amide peut rester intacte: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Comme l’ester est plus facilement hydrolysable que l’amide, des conditions douces peuvent hydrolyser l’ester tout en préservant l’amide."
       },
       {
         "content": "Étape 2: milieu très acide avec chauffage pour hydrolyser l'amide.",
         "correct": true,
-        "explanation": "Conditions: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       },
       {
         "content": "L'ordre inverse préserverait nécessairement l'ester pendant l'hydrolyse de l'amide.",
@@ -401,10 +401,10 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La différence de stabilité permet donc d'organiser la séquence.",
         "correct": true,
-        "explanation": "Application de la sélectivité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La plus grande résistance de l’amide permet d’ordonner les étapes et d’exploiter une hydrolyse sélective de l’ester."
       }
     ],
-    "explanation": "Cette situation mobilise directement la hiérarchie d'hydrolysabilité des deux fonctions."
+    "explanation": "L’ester est plus facilement hydrolysé que l’amide."
   },
   {
     "order": 112,
@@ -415,7 +415,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Méthanethiol → thioester.",
         "correct": true,
-        "explanation": "S est acylé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le soufre du méthanethiol est acylé par le chlorure d’acyle, ce qui forme un thioester."
       },
       {
         "content": "Les trois produits possèdent le même hétéroatome lié au carbonyle.",
@@ -430,15 +430,15 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Méthanol → ester.",
         "correct": true,
-        "explanation": "O est acylé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’oxygène du méthanol est acylé et le produit obtenu porte une fonction ester."
       },
       {
         "content": "Méthylamine → amide.",
         "correct": true,
-        "explanation": "N est acylé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’azote de la méthylamine est acylé et le produit obtenu porte une fonction amide."
       }
     ],
-    "explanation": "Le MASTER compare les trois dérivés d'acide issus d'un même fragment acyle."
+    "explanation": "Le soufre du méthanethiol est acylé par le chlorure d’acyle, ce qui forme un thioester. L’azote de la méthylamine est acylé et le produit obtenu porte une fonction amide."
   },
   {
     "order": 113,
@@ -449,22 +449,22 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "A exploite le caractère électrophile du carbone carbonylé.",
         "correct": true,
-        "explanation": "Attaque nucléophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans l’expérience A, le nucléophile attaque le carbone électrophile du groupe carbonyle."
       },
       {
         "content": "B exploite le caractère nucléophile du carbone alpha après activation.",
         "correct": true,
-        "explanation": "Base forte: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans l’expérience B, la base forte déprotone le carbone alpha et crée un centre nucléophile."
       },
       {
         "content": "Les deux centres de réactivité sont distincts.",
         "correct": true,
-        "explanation": "Carbonyle versus alpha: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le carbone carbonylé est électrophile, tandis que le carbone alpha peut devenir nucléophile après déprotonation."
       },
       {
         "content": "Les conditions expérimentales sélectionnent le comportement observé.",
         "correct": true,
-        "explanation": "Point clé: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le site réactionnel exploité dépend des conditions : nucléophile au carbonyle ou base forte pour activer le carbone alpha."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -472,7 +472,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone du carbonyle est au contraire le centre électrophile attaqué par un nucléophile."
       }
     ],
-    "explanation": "La fonction ester peut être abordée par son carbonyle ou par son carbone alpha selon les conditions."
+    "explanation": "L’ester possède un carbone carbonylé électrophile et un carbone alpha qui peut devenir nucléophile après déprotonation par une base forte."
   },
   {
     "order": 114,
@@ -498,26 +498,26 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'amide possède une liaison C-N à caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "Délocalisation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation du doublet de l’azote vers le carbonyle donne à la liaison $\\ce{C-N}$ un caractère partiel de double liaison."
       },
       {
         "content": "La liaison C-O de l'ester est décrite comme libre en rotation.",
         "correct": true,
-        "explanation": "Propriété de l'ester: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison C–O de l’ester reste plus libre en rotation que la liaison C–N d’une amide, fortement contrainte par délocalisation."
       }
     ],
-    "explanation": "La comparaison structure/réactivité explique la différence de comportement des deux fonctions."
+    "explanation": "O pour ester, N pour amide."
   },
   {
     "order": 115,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une protéase digestive hydrolyse une liaison peptidique. Quelles propositions relient correctement cet exemple au chapitre?",
+    "question": "Une protéase digestive hydrolyse une liaison peptidique. Quelles propositions relient correctement cet exemple à la chimie des amides ?",
     "choices": [
       {
         "content": "Les peptidases/protéases réalisent une hydrolyse sélective de fonctions amides.",
         "correct": true,
-        "explanation": "Application physiologique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse rompt la liaison amide et conduit, dans le bilan simplifié, à un acide carboxylique et à une amine."
       },
       {
         "content": "Trypsine, chymotrypsine et pepsine sont citées comme exemples.",
@@ -540,7 +540,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une liaison peptidique correspond chimiquement à une fonction amide."
       }
     ],
-    "explanation": "L'enzyme permet l'hydrolyse sélective d'une fonction pourtant résistante chimiquement."
+    "explanation": "La trypsine, la chymotrypsine et la pepsine sont des exemples de protéases capables d’hydrolyser des liaisons peptidiques."
   },
   {
     "order": 116,
@@ -571,10 +571,10 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le résidu proline peut influencer la structure secondaire de la chaîne.",
         "correct": true,
-        "explanation": "Exemple biologique du rappel: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le cycle de la proline contraint la géométrie locale du peptide et peut ainsi influencer sa structure secondaire."
       }
     ],
-    "explanation": "Cette question relie la structure électronique de l'amide au contexte peptidique."
+    "explanation": "La liaison peptidique correspond à une fonction amide."
   },
   {
     "order": 117,
@@ -600,15 +600,15 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'hydrolyse rompt la liaison thioester.",
         "correct": true,
-        "explanation": "Première transformation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un thioester rompt la liaison acyle–soufre et régénère notamment un thiol."
       },
       {
         "content": "CoA-SH est régénéré lors de l'hydrolyse.",
         "correct": true,
-        "explanation": "Produit: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse de la liaison thioester de l’acétyl-CoA régénère le coenzyme A sous forme $\\ce{CoA-SH}$."
       }
     ],
-    "explanation": "Le cycle illustre la réversibilité fonctionnelle formation/hydrolyse du thioester."
+    "explanation": "L’hydrolyse de l’acétyl-CoA libère notamment le fragment acétyle sous forme d’acide acétique dans le bilan simplifié."
   },
   {
     "order": 118,
@@ -646,15 +646,15 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Cette délocalisation explique le caractère partiel de double liaison C-N.",
         "correct": true,
-        "explanation": "Propriété structurale: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation du doublet de l’azote vers le carbonyle donne à la liaison $\\ce{C-N}$ un caractère partiel de double liaison."
       },
       {
         "content": "Le doublet est donc moins disponible que dans une amine simple.",
         "correct": true,
-        "explanation": "Conséquence de l'auto-évaluation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation du doublet de l’azote vers le carbonyle diminue sa disponibilité par rapport à celui d’une amine simple."
       }
     ],
-    "explanation": "L'amide ne doit pas être assimilée à une amine portant simplement un carbonyle voisin."
+    "explanation": "Il est précisément à l'origine de la différence."
   },
   {
     "order": 120,
@@ -670,12 +670,12 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone carbonylé reste, dans un autre type de réaction, le centre électrophile attaqué par un nucléophile.",
         "correct": true,
-        "explanation": "Deux comportements complémentaires: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       },
       {
-        "content": "Le chapitre impose un seul centre de réactivité pour l'ester.",
+        "content": "Un ester ne possède qu’un seul centre carboné de réactivité.",
         "correct": false,
-        "explanation": "Il en distingue deux: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’ester présente au moins deux centres carbonés de réactivité : le carbone carbonylé électrophile et le carbone alpha activable par une base forte."
       },
       {
         "content": "Le carbone carbonylé d’un ester est décrit comme fortement nucléophile et repousse tous les nucléophiles.",
@@ -685,16 +685,16 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La base rend le carbone alpha plus nucléophile.",
         "correct": true,
-        "explanation": "Modèle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       }
     ],
-    "explanation": "Le MASTER croise la réactivité alpha avec celle du carbone acyle."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Quel tableau comparatif est correct pour les produits d'hydrolyse dans le modèle du chapitre?",
+    "question": "Parmi les bilans proposés, lequel compare correctement les produits d’hydrolyse ?",
     "choices": [
       {
         "content": "L’hydrolyse d’un thioester ne peut jamais régénérer un thiol.",
@@ -722,7 +722,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Alcool, amine protonée ou thiol diffèrent."
       }
     ],
-    "explanation": "Les produits permettent de remonter à la nature du dérivé d'acide initial."
+    "explanation": "L’hydrolyse conduit à l’acide carboxylique et au thiol correspondant."
   },
   {
     "order": 122,
@@ -734,7 +734,7 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone carbonylé d'un ester est électrophile.",
         "correct": true,
-        "explanation": "Polarisation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La liaison $\\ce{C=O}$ est polarisée : l’oxygène est riche en électrons et le carbone carbonylé est électrophile."
       },
       {
         "content": "Le carbone alpha d'un ester peut devenir nucléophile avec une base forte.",
@@ -744,27 +744,27 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La liaison C-N d'une amide possède un caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "Délocalisation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La délocalisation du doublet de l’azote vers le carbonyle donne à la liaison $\\ce{C-N}$ un caractère partiel de double liaison."
       },
       {
         "content": "Une amide est plus résistante à l'hydrolyse chimique qu'un ester.",
         "correct": true,
-        "explanation": "Sélectivité : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La fonction amide est plus résistante à l’hydrolyse que la fonction ester et nécessite des conditions plus sévères."
       },
       {
         "content": "L'acétyl-CoA est un thioester du CoA-SH.",
         "correct": true,
-        "explanation": "Application : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un thioester est l’analogue soufré d’un ester et possède le motif $\\ce{R-C(=O)-S-R'}$."
       },
       {
         "content": "La saponification est une hydrolyse acide.",
         "correct": false,
-        "explanation": "Elle est basique : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : une saponification est une hydrolyse basique d'ester."
       },
       {
         "content": "Un acide non activé et une amine donnent directement une amide.",
         "correct": false,
-        "explanation": "Sel acide-base : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : une amide contient un carbonyle directement lié à N."
       },
       {
         "content": "Une estérase hydrolyse sélectivement une liaison peptidique dans l'exemple.",
@@ -774,14 +774,14 @@ export const UE14_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le doublet de N d'une amide est totalement disponible.",
         "correct": false,
-        "explanation": "Il est délocalisé : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le doublet de l’azote d’une amide est délocalisé vers le carbonyle et n’est donc pas totalement disponible."
       },
       {
         "content": "Le thioester est non hydrolysable.",
         "correct": false,
-        "explanation": "Il est hydrolysable : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’hydrolyse d’un thioester rompt la liaison acyle–soufre et régénère notamment un thiol."
       }
     ],
-    "explanation": "Le MASTER final croise les pièges majeurs des cinq sections."
+    "explanation": "La délocalisation du doublet de l’azote vers le carbonyle donne à la liaison $\\ce{C-N}$ un caractère partiel de double liaison."
   }
 ];

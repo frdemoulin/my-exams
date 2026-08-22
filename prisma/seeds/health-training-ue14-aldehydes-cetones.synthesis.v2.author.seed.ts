@@ -9,7 +9,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quelles associations fondamentales du chapitre sont exactes?",
+    "question": "Quelles associations fondamentales sont exactes ?",
     "choices": [
       {
         "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
@@ -19,12 +19,12 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Alcool primaire + oxydation ménagée → aldéhyde.",
         "correct": true,
-        "explanation": "Préparation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation ménagée d’un alcool primaire conduit d’abord à l’aldéhyde correspondant."
       },
       {
         "content": "Alcool secondaire + oxydation → cétone.",
         "correct": true,
-        "explanation": "Préparation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "Aldéhyde + réduction par hydrure → alcool primaire.",
@@ -37,7 +37,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette transformation diminue le degré d’oxydation de la fonction concernée: il s’agit bien d’une réduction."
       }
     ],
-    "explanation": "Ces quatre transformations relient directement alcools et composés carbonylés."
+    "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
   },
   {
     "order": 102,
@@ -48,12 +48,12 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'aldéhyde est oxydable en acide carboxylique.",
         "correct": true,
-        "explanation": "Oxydabilité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "La cétone est décrite comme inerte à l'oxydation.",
         "correct": true,
-        "explanation": "Contraste: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, la cétone est considérée comme inerte à l’oxydation, contrairement à l’aldéhyde."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -63,15 +63,15 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux possèdent un carbonyle.",
         "correct": true,
-        "explanation": "Point commun: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les esters et les thioesters possèdent tous deux un groupe carbonyle."
       },
       {
         "content": "Le carbone carbonylé est électrophile dans les deux cas.",
         "correct": true,
-        "explanation": "Polarité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       }
     ],
-    "explanation": "Le chapitre oppose surtout leur position de carbonyle et leur oxydabilité, tout en partageant une polarité commune."
+    "explanation": "Dans le modèle simplifié retenu, la cétone est considérée comme inerte à l’oxydation, contrairement à l’aldéhyde."
   },
   {
     "order": 103,
@@ -92,12 +92,12 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé est le centre électrophile attaqué dans les deux cas.",
         "correct": true,
-        "explanation": "Polarité commune: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       },
       {
         "content": "Seul l'organomagnésien crée une nouvelle liaison C-C.",
         "correct": true,
-        "explanation": "Différence essentielle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -105,41 +105,41 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
       }
     ],
-    "explanation": "Les deux réactifs sont nucléophiles mais n'ont pas le même impact sur le squelette carboné."
+    "explanation": "Cette transformation diminue le degré d’oxydation de la fonction concernée: il s’agit bien d’une réduction."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On souhaite préparer un aldéhyde à partir d'un dérivé d'acide. Quelles propositions sont conformes à la?",
+    "question": "On souhaite préparer un aldéhyde à partir d’un dérivé d’acide. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "L'activation de l'acide peut faciliter l'accès au stade aldéhyde.",
         "correct": true,
-        "explanation": "Conclusion: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’activation transforme l’acide en dérivé plus réactif et permet une réduction mieux contrôlée vers l’aldéhyde."
       },
       {
         "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
         "correct": false,
-        "explanation": "Le chapitre souligne au contraire que la fonction acide est plus difficile à réduire."
+        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
       },
       {
         "content": "La réduction directe d'un acide carboxylique est difficile à arrêter au stade aldéhyde.",
         "correct": true,
-        "explanation": "Conditions fortes: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réduction d’un acide carboxylique libre exige des conditions fortes, ce qui rend difficile l’arrêt sélectif au stade aldéhyde."
       },
       {
         "content": "L'aldéhyde peut être réduit ensuite en alcool si les conditions sont fortes.",
         "correct": true,
-        "explanation": "Difficulté d'isolement: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Si la réduction est poursuivie, l’aldéhyde formé peut être réduit en alcool ; son isolement nécessite donc des conditions contrôlées."
       },
       {
         "content": "Un chlorure d'acyle peut être réduit en aldéhyde.",
         "correct": true,
-        "explanation": "Voie sélective présentée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réduction contrôlée d’un chlorure d’acyle constitue une voie sélective d’accès à un aldéhyde."
       }
     ],
-    "explanation": "La préparation d'un aldéhyde à partir d'un dérivé d'acide repose sur la notion d'activation et de sélectivité."
+    "explanation": "La réduction contrôlée d’un dérivé d’acide activé, tel qu’un chlorure d’acyle, permet d’accéder plus sélectivement au stade aldéhyde."
   },
   {
     "order": 105,
@@ -155,12 +155,12 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'amine est nucléophile.",
         "correct": true,
-        "explanation": "Rôle: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le doublet non liant de l’azote rend l’amine nucléophile vis-à-vis du carbone carbonylé électrophile."
       },
       {
         "content": "L'élimination d'eau est indiquée pour pousser la réaction dans le modèle.",
         "correct": true,
-        "explanation": "Condition: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Comme l’eau est un produit de la condensation, son élimination favorise la formation de l’imine ou de l’iminium."
       },
       {
         "content": "Une amine secondaire donne nécessairement une amide lorsqu’elle réagit avec une cétone.",
@@ -173,7 +173,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       }
     ],
-    "explanation": "La classe de l'amine détermine le type de produit carbone-azote."
+    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
   },
   {
     "order": 106,
@@ -189,17 +189,17 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une base forte peut mettre en valeur son caractère nucléophile.",
         "correct": true,
-        "explanation": "Première étape: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut mettre en valeur son caractère nucléophile. Cette étape intervient en premier dans l’enchaînement réactionnel considéré."
       },
       {
         "content": "Un électrophile peut ensuite réagir avec ce carbone.",
         "correct": true,
-        "explanation": "Deuxième étape: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un électrophile peut ensuite réagir avec ce carbone. Cette étape suit la première transformation de l’enchaînement."
       },
       {
         "content": "Une nouvelle liaison C-E peut être créée.",
         "correct": true,
-        "explanation": "Fonctionnalisation alpha: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Après déprotonation en alpha, le carbone nucléophile formé peut attaquer $\\ce{E+}$ et créer une nouvelle liaison C–E."
       },
       {
         "content": "Le carbone carbonylé reste le centre électrophile de la fonction.",
@@ -207,18 +207,18 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Les deux réactivités coexistent selon les conditions."
       }
     ],
-    "explanation": "deux centres de réactivité complémentaires: carbonyle électrophile et position alpha nucléophile sous base forte."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans l'application aux sucres, selon le modèle simplifié du document:",
+    "question": "Dans l’application aux sucres, quelles propositions sont exactes dans le modèle simplifié retenu ?",
     "choices": [
       {
         "content": "Le fructose est relié à une fonction cétone linéaire.",
         "correct": true,
-        "explanation": "Forme présentée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans sa forme linéaire considérée ici, le fructose porte une fonction cétone."
       },
       {
         "content": "Il est classé comme non réducteur.",
@@ -241,7 +241,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le caractère oxydable de la fonction aldéhyde explique le classement du glucose comme sucre réducteur dans ce modèle."
       }
     ],
-    "explanation": "Le classement glucose réducteur / fructose non réducteur est utilisé ici uniquement dans le cadre simplifié du chapitre."
+    "explanation": "Dans le modèle simplifié retenu, le fructose est associé à une fonction cétone linéaire et classé comme non réducteur."
   },
   {
     "order": 108,
@@ -262,12 +262,12 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Formation d'un hémiacétal.",
         "correct": true,
-        "explanation": "Produit: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un hémiacétal se forme par addition d’une fonction alcool sur un groupe carbonyle, notamment lors de la cyclisation de certains sucres."
       },
       {
         "content": "Passage d'une forme linéaire à une forme cyclique.",
         "correct": true,
-        "explanation": "Conséquence: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’addition intramoléculaire d’une fonction alcool sur le carbonyle ferme la chaîne et produit une forme cyclique."
       },
       {
         "content": "La formation d’un hémiacétal cyclique exige la suppression de tous les groupes hydroxyle du sucre.",
@@ -275,7 +275,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Au contraire, une fonction alcool participe à la fermeture du cycle."
       }
     ],
-    "explanation": "La cyclisation constitue l'application structurale finale du chapitre."
+    "explanation": "Cette catégorie de composés constitue l’un des réactifs clés de cette transformation."
   },
   {
     "order": 109,
@@ -287,7 +287,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Oxydation d'un aldéhyde en acide.",
         "correct": false,
-        "explanation": "Aucune nouvelle liaison C-C: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -310,7 +310,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Aucun nouveau carbone n'est ajouté."
       }
     ],
-    "explanation": "Les deux voies de construction carbonée du chapitre passent par un nucléophile carboné."
+    "explanation": "Une liaison est formée entre le carbone alpha et l'électrophile. Le fragment carboné du Grignard est ajouté."
   },
   {
     "order": 110,
@@ -322,7 +322,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé est électrophile.",
         "correct": true,
-        "explanation": "Polarité : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       },
       {
         "content": "Aldéhyde + NaBH4 → alcool primaire.",
@@ -342,12 +342,12 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Aldéhyde + oxydation → acide carboxylique.",
         "correct": true,
-        "explanation": "Oxydabilité : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "Cétone + NaBH4 → alcool tertiaire.",
         "correct": false,
-        "explanation": "Secondaire : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool secondaire, et non tertiaire."
       },
       {
         "content": "Amine secondaire + carbonyle → imine.",
@@ -357,20 +357,20 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une cétone est décrite comme facilement oxydable.",
         "correct": false,
-        "explanation": "Inerte : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, la cétone est considérée comme inerte à l’oxydation, contrairement à l’aldéhyde."
       },
       {
         "content": "Le carbone alpha est toujours nucléophile même sans hydrogène.",
         "correct": false,
-        "explanation": "Condition de H : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       },
       {
         "content": "La cyclisation d'un sucre aldéhydique forme une amide.",
         "correct": false,
-        "explanation": "Hémiacétal : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La cyclisation d’un sucre aldéhydique forme un hémiacétal par réaction intramoléculaire entre une fonction alcool et l’aldéhyde."
       }
     ],
-    "explanation": "Cette synthèse rassemble les transformations essentielles."
+    "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
   },
   {
     "order": 111,
@@ -381,7 +381,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
         "correct": false,
-        "explanation": "Le chapitre souligne au contraire que la fonction acide est plus difficile à réduire."
+        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
       },
       {
         "content": "A est un aldéhyde.",
@@ -391,7 +391,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "B est un alcool secondaire dans le cadre général présenté.",
         "correct": true,
-        "explanation": "Aldéhyde + Grignard: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’addition d’un organomagnésien sur un aldéhyde conduit, après hydrolyse, à un alcool secondaire dans le cas général."
       },
       {
         "content": "La seconde étape crée une liaison C-C.",
@@ -404,7 +404,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le carbonyle est converti en alcool."
       }
     ],
-    "explanation": "Cette séquence relie préparation de l'aldéhyde et réaction d'organomagnésien."
+    "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
   },
   {
     "order": 112,
@@ -415,7 +415,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le Grignard augmente le squelette carboné.",
         "correct": true,
-        "explanation": "Nouveau substituant: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       },
       {
         "content": "NaBH4 et Grignard ont exactement le même bilan carboné.",
@@ -438,7 +438,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
       }
     ],
-    "explanation": "Le bilan carboné et la classe d'alcool final permettent d'identifier la voie."
+    "explanation": "$\\ce{NaBH4}$ réduit le carbonyle sans ajouter de carbone, tandis qu’un organomagnésien crée une nouvelle liaison C–C avant l’hydrolyse finale."
   },
   {
     "order": 113,
@@ -449,12 +449,12 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le CH2 alpha devient le centre nucléophile mobilisé.",
         "correct": true,
-        "explanation": "Activation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
       },
       {
         "content": "L'électrophile est ajouté dans un second temps.",
         "correct": true,
-        "explanation": "Ordre: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La base forte crée d’abord le centre nucléophile en alpha ; l’électrophile est ensuite ajouté pour former la nouvelle liaison."
       },
       {
         "content": "La liaison formée implique le carbone voisin du carbonyle.",
@@ -464,7 +464,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Cette transformation est différente de l'attaque d'un nucléophile sur le carbone carbonylé.",
         "correct": true,
-        "explanation": "Sites et rôles inversés: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Ici, le carbone alpha devient nucléophile et attaque un électrophile ; dans l’autre voie, c’est le carbone carbonylé électrophile qui est attaqué."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -472,7 +472,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
       }
     ],
-    "explanation": "Le MASTER doit distinguer nettement réactivité du carbonyle et réactivité alpha."
+    "explanation": "Ici, le carbone alpha devient nucléophile et attaque un électrophile ; dans l’autre voie, c’est le carbone carbonylé électrophile qui est attaqué."
   },
   {
     "order": 114,
@@ -488,7 +488,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
         "correct": false,
-        "explanation": "Le chapitre souligne au contraire que la fonction acide est plus difficile à réduire."
+        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
       },
       {
         "content": "La réduction ne peut pas donner un alcool primaire.",
@@ -498,15 +498,15 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'oxydation d'un alcool primaire peut redonner un aldéhyde si elle est ménagée.",
         "correct": true,
-        "explanation": "Préparation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation ménagée d’un alcool primaire conduit d’abord à l’aldéhyde correspondant."
       },
       {
         "content": "Une oxydation trop forte peut aller jusqu'à l'acide carboxylique.",
         "correct": true,
-        "explanation": "Suroxydation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation trop poussée d’un aldéhyde peut conduire à l’acide carboxylique correspondant."
       }
     ],
-    "explanation": "Le couple alcool primaire/aldéhyde doit être relié au contrôle du degré d'oxydation."
+    "explanation": "Cette proposition est écartée: dans ce couple ne correspond pas au bilan ou à la propriété attendue."
   },
   {
     "order": 115,
@@ -522,7 +522,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé porte un hydrogène dans le motif général.",
         "correct": true,
-        "explanation": "RCHO: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans un aldéhyde $\\ce{R-CHO}$, le carbone carbonylé est directement lié à un hydrogène."
       },
       {
         "content": "Le suffixe de nomenclature est -al.",
@@ -537,10 +537,10 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Aldéhyde.",
         "correct": true,
-        "explanation": "Les deux propriétés concordent: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Oxydable et donne un alcool primaire."
       }
     ],
-    "explanation": "Croiser plusieurs propriétés permet d'identifier la fonction sans structure complète."
+    "explanation": "Elle est inerte à l'oxydation et sa réduction donne un alcool secondaire."
   },
   {
     "order": 116,
@@ -556,7 +556,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Cétone.",
         "correct": true,
-        "explanation": "Deux propriétés caractéristiques du chapitre."
+        "explanation": "Deux propriétés caractéristiques."
       },
       {
         "content": "Aldéhyde.",
@@ -571,10 +571,10 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le suffixe est -one.",
         "correct": true,
-        "explanation": "Nomenclature: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le suffixe « -one » est utilisé dans la nomenclature des cétones."
       }
     ],
-    "explanation": "Réactivité et nomenclature convergent vers l'identification de la cétone."
+    "explanation": "L’aldéhyde correspond au premier produit d’oxydation retenu avant la sur-oxydation en acide."
   },
   {
     "order": 117,
@@ -590,7 +590,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La projection doit être comprise comme une convention d'une structure tridimensionnelle.",
         "correct": true,
-        "explanation": "Carbones tétraédriques: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La projection plane code une molécule tridimensionnelle dont les carbones saturés présentent une géométrie tétraédrique."
       },
       {
         "content": "La formation d’un hémiacétal cyclique exige la suppression de tous les groupes hydroxyle du sucre.",
@@ -600,15 +600,15 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La fonction du haut est un aldéhyde.",
         "correct": true,
-        "explanation": "CHO: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe terminal $\\ce{CHO}$ placé en haut de la projection correspond à une fonction aldéhyde."
       },
       {
         "content": "La fonction du bas est un alcool primaire.",
         "correct": true,
-        "explanation": "CH2OH: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupe terminal $\\ce{CH2OH}$ correspond à une fonction alcool primaire."
       }
     ],
-    "explanation": "La lecture fonctionnelle de la projection doit être reliée à la cyclisation et à la géométrie."
+    "explanation": "Réaction d'un OH avec l'aldéhyde."
   },
   {
     "order": 118,
@@ -619,22 +619,22 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "la géométrie tétraédrique des carbones.",
         "correct": true,
-        "explanation": "Structure 3D: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La géométrie tétraédrique des carbones montre que le cycle ne doit pas être interprété comme une structure réellement plane."
       },
       {
         "content": "La représentation en perspective rend mieux compte de la géométrie réelle du sucre cyclique.",
         "correct": true,
-        "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
+        "explanation": "La perspective représente plus fidèlement la disposition spatiale des substituants autour du cycle."
       },
       {
         "content": "La cyclisation forme une structure qui occupe l'espace.",
         "correct": true,
-        "explanation": "Conséquence: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La forme cyclique est tridimensionnelle ; une représentation en perspective rend mieux compte de sa géométrie."
       },
       {
         "content": "La projection linéaire encode déjà des liaisons vers l'observateur et vers l'arrière.",
         "correct": true,
-        "explanation": "Convention: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la projection linéaire, les liaisons horizontales et verticales codent des orientations spatiales différentes autour des carbones tétraédriques."
       },
       {
         "content": "La formation d’un hémiacétal cyclique exige la suppression de tous les groupes hydroxyle du sucre.",
@@ -642,7 +642,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Au contraire, une fonction alcool participe à la fermeture du cycle."
       }
     ],
-    "explanation": "La dernière partie du chapitre insiste autant sur la chimie fonctionnelle que sur la représentation spatiale."
+    "explanation": "Dans la projection linéaire, les liaisons horizontales et verticales codent des orientations spatiales différentes autour des carbones tétraédriques."
   },
   {
     "order": 119,
@@ -692,7 +692,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Alcool primaire → aldéhyde par oxydation contrôlée.",
         "correct": true,
-        "explanation": "Préparation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation ménagée d’un alcool primaire conduit d’abord à l’aldéhyde correspondant."
       },
       {
         "content": "Aldéhyde → alcool primaire par réduction.",
@@ -702,7 +702,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé électrophile peut recevoir un nucléophile.",
         "correct": true,
-        "explanation": "Propriété: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
       },
       {
         "content": "Le carbone alpha portant H peut, après base forte, réagir avec un électrophile.",
@@ -710,7 +710,7 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
       }
     ],
-    "explanation": "Le chapitre s'organise autour de la réversibilité de certaines transformations et de deux centres de réactivité."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
   },
   {
     "order": 122,
@@ -722,17 +722,17 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le méthanal est le formaldéhyde.",
         "correct": true,
-        "explanation": "Rappel : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le méthanal et le formaldéhyde désignent le même aldéhyde à un carbone."
       },
       {
         "content": "La propanone est l'acétone.",
         "correct": true,
-        "explanation": "Rappel : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La propanone est le nom systématique de l’acétone."
       },
       {
         "content": "Un aldéhyde est oxydable en acide carboxylique.",
         "correct": true,
-        "explanation": "Oxydabilité : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "Une cétone + organomagnésien donne un alcool tertiaire après hydrolyse.",
@@ -742,17 +742,17 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La cyclisation d'un sucre aldéhydique forme un hémiacétal.",
         "correct": true,
-        "explanation": "Application : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une fonction alcool du sucre s’additionne intramoléculairement sur l’aldéhyde et forme un hémiacétal cyclique."
       },
       {
         "content": "Un aldéhyde + NaBH4 donne un alcool secondaire.",
         "correct": false,
-        "explanation": "Primaire : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "$\\ce{NaBH4}$ réduit un aldéhyde en alcool primaire, et non en alcool secondaire."
       },
       {
         "content": "Une cétone est décrite comme oxydable en acide.",
         "correct": false,
-        "explanation": "Inerte : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : un aldéhyde est oxydable en acide carboxylique."
       },
       {
         "content": "Amine primaire + carbonyle → iminium.",
@@ -767,9 +767,9 @@ export const UE14_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Dans le modèle, le glucose est classé non réducteur.",
         "correct": false,
-        "explanation": "Il est classé réducteur : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle simplifié retenu, la fonction aldéhyde de la forme linéaire du glucose explique son classement comme sucre réducteur."
       }
     ],
-    "explanation": "La dernière question mobilise les cinq axes du chapitre sans dépendre d'une seule section."
+    "explanation": "Le réactif organomagnésien apporte un groupe carboné nucléophile qui crée une nouvelle liaison carbone-carbone."
   }
 ];

@@ -37,7 +37,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L'écriture RCHO est préférable car elle fait apparaître sans ambiguïté le groupe aldéhyde."
       }
     ],
-    "explanation": "L'aldéhyde se reconnaît par un carbonyle terminal portant H et s'écrit RCHO."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
   },
   {
     "order": 2,
@@ -53,7 +53,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'acide méthanoïque.",
         "correct": false,
-        "explanation": "C'est un acide carboxylique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
       },
       {
         "content": "Cétone.",
@@ -63,7 +63,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La propanone.",
         "correct": false,
-        "explanation": "C'est l'acétone: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La propanone est une cétone ; le méthanal, lui, est l’aldéhyde à un carbone."
       },
       {
         "content": "L'éthanol.",
@@ -71,7 +71,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
       }
     ],
-    "explanation": "Le méthanal est aussi appelé formaldéhyde ; sa solution aqueuse est appelée formol."
+    "explanation": "Le méthanal est aussi appelé formaldéhyde."
   },
   {
     "order": 3,
@@ -82,17 +82,17 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Son nom usuel est formaldéhyde.",
         "correct": true,
-        "explanation": "Synonyme indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le méthanal est aussi appelé formaldéhyde."
       },
       {
         "content": "En solution aqueuse, le méthanal est appelé formol.",
         "correct": true,
-        "explanation": "Précision donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le formol désigne une solution aqueuse de méthanal."
       },
       {
         "content": "Dans RCHO, R est ici un hydrogène.",
         "correct": true,
-        "explanation": "Cas particulier du méthanal: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le méthanal est le cas particulier $\\ce{H-CHO}$ : le substituant noté R est donc un hydrogène."
       },
       {
         "content": "C'est une cétone.",
@@ -105,7 +105,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La propanone possède un carbonyle lié à deux groupes carbonés: c’est une cétone."
       }
     ],
-    "explanation": "Le méthanal est un cas particulier d'aldéhyde où le substituant R est lui-même H."
+    "explanation": "Le méthanal est le cas particulier $\\ce{H-CHO}$ : le substituant noté R est donc un hydrogène. Le formol désigne une solution aqueuse de méthanal."
   },
   {
     "order": 4,
@@ -131,15 +131,15 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "R et R' ne peuvent pas être H dans la définition présentée.",
         "correct": true,
-        "explanation": "Le carbonyle est interne: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans une cétone $\\ce{R-CO-R'}$, le carbone carbonylé est lié à deux groupes carbonés ; ni R ni R’ n’est donc un hydrogène."
       },
       {
         "content": "Le suffixe est -one.",
         "correct": true,
-        "explanation": "Nomenclature indiquée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le suffixe « -one » est utilisé pour nommer une cétone."
       }
     ],
-    "explanation": "Une cétone possède un carbonyle interne lié à deux substituants carbonés."
+    "explanation": "C'est l'aldéhyde qui possède un carbonyle terminal."
   },
   {
     "order": 5,
@@ -150,17 +150,17 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Éthanal.",
         "correct": false,
-        "explanation": "C'est un aldéhyde: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’éthanal porte une fonction aldéhyde et ne correspond pas au nom usuel de la propanone."
       },
       {
         "content": "Acétone.",
         "correct": true,
-        "explanation": "Cas usuel cité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’acétone est le nom usuel de la propanone."
       },
       {
         "content": "Acide propanoïque.",
         "correct": false,
-        "explanation": "C'est un acide carboxylique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’acide propanoïque est un acide carboxylique ; il ne s’agit pas d’un nom usuel de la propanone."
       },
       {
         "content": "Une cétone possède nécessairement un hydrogène directement lié au carbone carbonylé.",
@@ -173,7 +173,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Formol désigne le méthanal en solution aqueuse."
       }
     ],
-    "explanation": "La propanone est l'acétone : cette relation est conforme à la propriété ou à la transformation décrite."
+    "explanation": "L’acétone est le nom usuel de la propanone."
   },
   {
     "order": 6,
@@ -207,7 +207,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une cétone contient aussi un carbonyle."
       }
     ],
-    "explanation": "Il faut regarder l'environnement du carbone carbonylé."
+    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
   },
   {
     "order": 7,
@@ -218,7 +218,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'aldéhyde peut ne pas être isolé si les conditions sont trop fortes.",
         "correct": true,
-        "explanation": "Précision: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Lorsqu’une oxydation est trop poussée, l’aldéhyde intermédiaire peut être oxydé plus loin en acide carboxylique."
       },
       {
         "content": "Un alcool primaire oxydé donne directement une cétone.",
@@ -233,7 +233,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un alcool primaire peut être oxydé en aldéhyde.",
         "correct": true,
-        "explanation": "Voie de préparation donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "Une oxydation trop poussée peut conduire à un acide carboxylique.",
@@ -241,7 +241,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Si l'oxydation d'un alcool primaire est trop poussée, l'aldéhyde intermédiaire peut être oxydé en acide carboxylique."
       }
     ],
-    "explanation": "L'oxydation doit être contrôlée si l'on veut isoler l'aldéhyde."
+    "explanation": "Un alcool primaire s’oxyde d’abord en aldéhyde puis, si l’oxydation est poursuivie, en acide carboxylique."
   },
   {
     "order": 8,
@@ -257,12 +257,12 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La cétone est présentée comme le degré d'oxydation maximal de cette voie.",
         "correct": true,
-        "explanation": "Le support l'indique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Pour l’oxydation d’un alcool secondaire dans le modèle étudié, la cétone constitue le produit carbonylé atteint."
       },
       {
         "content": "Une cétone ne présente pas, dans ce modèle, le même risque de suroxydation qu'un aldéhyde.",
         "correct": true,
-        "explanation": "C'est le contraste donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "Elle conduit d'abord à un aldéhyde.",
@@ -275,7 +275,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’aldéhyde correspond au premier produit d’oxydation retenu avant la sur-oxydation en acide."
       }
     ],
-    "explanation": "Alcool secondaire → cétone, sans suroxydation dans le modèle."
+    "explanation": "L'oxydation d'un alcool secondaire conduit à une cétone ; la proposition est donc fausse."
   },
   {
     "order": 9,
@@ -296,7 +296,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La double liaison est coupée.",
         "correct": true,
-        "explanation": "C'est le principe présenté: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation forte d’un alcène peut rompre la liaison $\\ce{C=C}$ et former des fragments carbonylés."
       },
       {
         "content": "Selon les substituants, on peut former un aldéhyde et/ou une cétone.",
@@ -309,7 +309,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le choix d’un alcène symétrique peut simplifier la synthèse en limitant le nombre de fragments carbonylés différents obtenus après coupure."
       }
     ],
-    "explanation": "La coupure oxydante d'un alcène permet d'accéder à des aldéhydes et/ou cétones."
+    "explanation": "Elle est rompue en conditions d'oxydation forte."
   },
   {
     "order": 10,
@@ -343,7 +343,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Il n'a pas de double liaison à couper."
       }
     ],
-    "explanation": "Le support conseille un alcène symétrique pour simplifier la préparation."
+    "explanation": "La question porte sur l'oxydation d'un alcène."
   },
   {
     "order": 11,
@@ -354,17 +354,17 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L’oxydation d’un alcool secondaire conduit directement à un aldéhyde.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone dans le cadre du chapitre."
+        "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
       },
       {
         "content": "Conditions ménagées: aldéhyde.",
         "correct": true,
-        "explanation": "Premier degré d'oxydation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Des conditions d’oxydation ménagées permettent d’arrêter un alcool primaire au stade aldéhyde."
       },
       {
         "content": "Conditions fortes: l'aldéhyde peut être dépassé au profit de l'acide carboxylique.",
         "correct": true,
-        "explanation": "Suroxydation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Des conditions plus oxydantes peuvent poursuivre l’oxydation de l’aldéhyde jusqu’à l’acide carboxylique."
       },
       {
         "content": "La cétone est l'intermédiaire obligatoire.",
@@ -374,10 +374,10 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le degré d'oxydation augmente de l'alcool vers l'acide.",
         "correct": true,
-        "explanation": "C'est le raisonnement: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le passage alcool primaire → aldéhyde → acide carboxylique correspond à une augmentation progressive du degré d’oxydation."
       }
     ],
-    "explanation": "La maîtrise de l'intensité d'oxydation permet de comprendre la difficulté d'isoler certains aldéhydes."
+    "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
   },
   {
     "order": 12,
@@ -411,7 +411,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette proposition est écartée: de suroxydation retenue ne correspond pas au bilan ou à la propriété attendue."
       }
     ],
-    "explanation": "Alcool secondaire et cétone constituent le couple d'oxydoréduction retenu."
+    "explanation": "l'absence de risque de suroxydation."
   },
   {
     "order": 13,
@@ -422,7 +422,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Des substituants portés par les carbones de la double liaison.",
         "correct": true,
-        "explanation": "C'est le critère donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Lors d’une coupure oxydante d’alcène, la nature des fragments carbonylés dépend des substituants initialement portés par les deux carbones de la double liaison."
       },
       {
         "content": "De la présence ou non d'un hydrogène sur ces carbones.",
@@ -437,7 +437,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Uniquement du nombre total d'atomes d'oxygène avant réaction.",
         "correct": false,
-        "explanation": "Le support raisonne sur les substituants de C=C."
+        "explanation": "La nature des produits dépend de la substitution des deux carbones de la double liaison, pas seulement du nombre total d’atomes d’oxygène."
       },
       {
         "content": "Une oxydation forte d’un alcène conserve toujours intacte la liaison entre les deux carbones de $\\ce{C=C}$.",
@@ -445,7 +445,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La coupure de la double liaison fait partie du bilan retenu."
       }
     ],
-    "explanation": "La structure locale de l'alcène prédit les fragments carbonylés."
+    "explanation": "Lors d’une coupure oxydante d’alcène, la nature des fragments carbonylés dépend des substituants initialement portés par les deux carbones de la double liaison."
   },
   {
     "order": 14,
@@ -461,7 +461,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
         "correct": false,
-        "explanation": "Le chapitre souligne au contraire que la fonction acide est plus difficile à réduire."
+        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
       },
       {
         "content": "La fonction acide n’est pas difficile à réduire.",
@@ -479,7 +479,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "D'où la difficulté à isoler l'aldéhyde."
       }
     ],
-    "explanation": "La réduction directe de l'acide est peu sélective vers l'aldéhyde dans le modèle étudié."
+    "explanation": "C'est précisément la difficulté évoquée."
   },
   {
     "order": 15,
@@ -490,12 +490,12 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Transformer l'acide en acide activé peut permettre une réduction vers l'aldéhyde.",
         "correct": true,
-        "explanation": "Voie préparative citée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’activation de la fonction acide permet d’utiliser un dérivé plus réactif et d’accéder plus sélectivement au stade aldéhyde."
       },
       {
         "content": "Réduire un chlorure d'acyle peut conduire à un aldéhyde.",
         "correct": true,
-        "explanation": "Section suivante: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réduction contrôlée d’un chlorure d’acyle permet d’obtenir l’aldéhyde correspondant."
       },
       {
         "content": "Oxydation forte d'une cétone donne systématiquement un aldéhyde.",
@@ -505,7 +505,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
         "correct": false,
-        "explanation": "Le chapitre souligne au contraire que la fonction acide est plus difficile à réduire."
+        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
       },
       {
         "content": "Certaines enzymes de l'organisme peuvent réduire un acide carboxylique en aldéhyde.",
@@ -513,7 +513,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "Le support distingue la difficulté de l'acide libre et la possibilité de passer par un dérivé activé."
+    "explanation": "La réduction contrôlée d’un dérivé d’acide activé, tel qu’un chlorure d’acyle, permet d’accéder plus sélectivement au stade aldéhyde."
   },
   {
     "order": 16,
@@ -534,12 +534,12 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un alcool tertiaire.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition ne correspond pas à la transformation ou à la propriété demandée."
       },
       {
         "content": "Un chlorure d'acyle.",
         "correct": true,
-        "explanation": "La écrit chlorure d'acyle → aldéhyde."
+        "explanation": "La réduction contrôlée d’un chlorure d’acyle peut conduire à l’aldéhyde correspondant."
       },
       {
         "content": "Ammonium quaternaire.",
@@ -547,7 +547,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La réduction d’un dérivé d’acide ne crée pas un ammonium quaternaire."
       }
     ],
-    "explanation": "La réduction contrôlée d'un chlorure d'acyle est une voie d'accès à l'aldéhyde."
+    "explanation": "Ce n'est pas un dérivé d'acide."
   },
   {
     "order": 17,
@@ -558,17 +558,17 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'activation de l'acide facilite l'accès au stade aldéhyde.",
         "correct": true,
-        "explanation": "Conclusion: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un dérivé activé de l’acide est plus adapté à une réduction contrôlée vers l’aldéhyde que l’acide carboxylique libre."
       },
       {
         "content": "Les deux précurseurs sont strictement équivalents sans différence de sélectivité.",
         "correct": false,
-        "explanation": "La insiste sur leur différence."
+        "explanation": "Un acide carboxylique libre et un dérivé activé n’ont pas la même réactivité ; l’activation modifie la sélectivité de la réduction."
       },
       {
         "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
         "correct": false,
-        "explanation": "Le chapitre souligne au contraire que la fonction acide est plus difficile à réduire."
+        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
       },
       {
         "content": "L'acide carboxylique est décrit comme difficile à arrêter au stade aldéhyde.",
@@ -578,10 +578,10 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le chlorure d'acyle peut être réduit en aldéhyde.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "La réduction contrôlée d’un chlorure d’acyle permet d’obtenir l’aldéhyde correspondant."
       }
     ],
-    "explanation": "La notion d'acide activé explique la stratégie de préparation plus sélective de l'aldéhyde."
+    "explanation": "Un dérivé activé de l’acide est plus adapté à une réduction contrôlée vers l’aldéhyde que l’acide carboxylique libre."
   },
   {
     "order": 18,
@@ -602,7 +602,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Confondre le produit attendu avec une cétone.",
         "correct": true,
-        "explanation": "Un alcool primaire ne donne pas une cétone dans ce tableau."
+        "explanation": "Un alcool primaire s’oxyde d’abord en aldéhyde ; la cétone est le produit d’oxydation d’un alcool secondaire."
       },
       {
         "content": "Considérer qu'un alcool primaire ne peut jamais être oxydé.",
@@ -612,10 +612,10 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L’oxydation d’un alcool secondaire conduit directement à un aldéhyde.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone dans le cadre du chapitre."
+        "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
       }
     ],
-    "explanation": "Le contrôle des conditions est essentiel pour isoler l'aldéhyde."
+    "explanation": "Elles peuvent mener à l'acide."
   },
   {
     "order": 19,
@@ -636,7 +636,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il peut limiter le nombre de produits carbonylés distincts.",
         "correct": true,
-        "explanation": "Intérêt préparatif indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un alcène symétrique donne moins de fragments carbonylés différents lors d’une coupure oxydante."
       },
       {
         "content": "Deux fragments identiques peuvent être obtenus.",
@@ -649,13 +649,13 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Intérêt pédagogique et préparatif cohérent avec la."
       }
     ],
-    "explanation": "La symétrie simplifie le bilan de la coupure oxydante."
+    "explanation": "La coupure a bien lieu."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel type de dérivé d'acide la propose-t-elle de réduire pour accéder directement à un aldéhyde?",
+    "question": "Quel type de dérivé d’acide peut être réduit pour accéder directement à un aldéhyde ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -682,27 +682,27 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Alcool primaire + oxydation ménagée → aldéhyde.",
         "correct": true,
-        "explanation": "Préparation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation ménagée d’un alcool primaire conduit d’abord à l’aldéhyde correspondant."
       },
       {
         "content": "Alcool secondaire + oxydation → cétone.",
         "correct": true,
-        "explanation": "Préparation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
       },
       {
         "content": "Aldéhyde + oxydation poussée → acide carboxylique.",
         "correct": true,
-        "explanation": "Suroxydation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "Chlorure d'acyle + réduction → aldéhyde.",
         "correct": true,
-        "explanation": "Voie citée : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réduction contrôlée d’un chlorure d’acyle permet d’obtenir l’aldéhyde correspondant."
       },
       {
         "content": "Oxydation forte d'un alcène → coupure de C=C.",
         "correct": true,
-        "explanation": "Préparation : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une oxydation forte peut cliver la double liaison $\\ce{C=C}$ et conduire à des composés carbonylés."
       },
       {
         "content": "Alcool primaire + oxydation → cétone.",
@@ -727,10 +727,10 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Propanone = formaldéhyde.",
         "correct": false,
-        "explanation": "Propanone = acétone : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La propanone est l’acétone ; le formaldéhyde est le méthanal."
       }
     ],
-    "explanation": "Cette sélection consolide reconnaissance et principales voies de préparation."
+    "explanation": "Une oxydation forte peut cliver la double liaison $\\ce{C=C}$ et conduire à des composés carbonylés."
   },
   {
     "order": 22,

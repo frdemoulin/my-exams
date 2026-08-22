@@ -14,7 +14,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un acide est défini ici comme un donneur d'électrons.",
         "correct": false,
-        "explanation": "La dit l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : un acide est un composé capable de capter des électrons."
       },
       {
         "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
@@ -24,26 +24,26 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une base est un composé capable de donner des électrons.",
         "correct": true,
-        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, une base est un composé capable de donner des électrons."
       },
       {
         "content": "Un acide est un composé capable de capter des électrons.",
         "correct": true,
-        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, un acide est un composé capable de capter des électrons."
       },
       {
         "content": "Une base est définie ici comme un accepteur d'électrons.",
         "correct": false,
-        "explanation": "La dit l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La proposition est fausse : une base est un composé capable de donner des électrons."
       }
     ],
-    "explanation": "Cette partie du chapitre emploie explicitement un raisonnement donneur/accepteur d'électrons."
+    "explanation": "Par définition, une base est un composé capable de donner des électrons."
   },
   {
     "order": 80,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Selon la définition électronique de cette section, quel comportement correspond à une base?",
+    "question": "Selon la définition électronique retenue, quel comportement correspond à une base ?",
     "choices": [
       {
         "content": "Capter uniquement des protons sans autre définition.",
@@ -53,17 +53,17 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Donner des électrons.",
         "correct": true,
-        "explanation": "Définition: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, donner des électrons."
       },
       {
         "content": "Capter des électrons.",
         "correct": false,
-        "explanation": "C'est la définition de l'acide dans cette section."
+        "explanation": "Capter un doublet d’électrons correspond au comportement d’un acide électronique, pas d’une base."
       },
       {
         "content": "Libérer obligatoirement CO2.",
         "correct": false,
-        "explanation": "Cela concerne la décarboxylation: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La libération de $\\ce{CO2}$ caractérise une décarboxylation ; elle n’est pas une conséquence générale de la réactivité des dérivés halogénés."
       },
       {
         "content": "Électrophile donneur de doublet.",
@@ -71,7 +71,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Un électrophile est au contraire un accepteur d’électrons."
       }
     ],
-    "explanation": "La base est présentée comme donneuse d'électrons."
+    "explanation": "Ce n'est pas la définition électronique demandée ici."
   },
   {
     "order": 81,
@@ -87,7 +87,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Elles contiennent des atomes d'azote.",
         "correct": true,
-        "explanation": "Le support le précise: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les bases nucléiques comportent des hétéroatomes azotés dont certains portent des doublets électroniques."
       },
       {
         "content": "Elles peuvent contenir des atomes d'oxygène.",
@@ -105,7 +105,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Conséquence de leur caractère basique."
       }
     ],
-    "explanation": "La richesse électronique de certains sites des bases nucléiques explique leur comportement nucléophile."
+    "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
   },
   {
     "order": 82,
@@ -126,20 +126,20 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Parce qu'elles sont riches en électrons et peuvent en donner.",
         "correct": true,
-        "explanation": "C'est le raisonnement: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La richesse électronique de certains atomes permet aux bases nucléiques de donner un doublet et d’agir comme nucléophiles."
       },
       {
         "content": "Parce qu'elles sont de très bons électrophiles.",
         "correct": false,
-        "explanation": "La les décrit comme nucléophiles."
+        "explanation": "La proposition est fausse : parce qu'elles sont riches en électrons et peuvent en donner."
       },
       {
         "content": "Parce qu'elles perdent toujours CO2.",
         "correct": false,
-        "explanation": "Sans rapport: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Cette proposition ne renseigne pas le caractère nucléophile ou électrophile étudié ici."
       }
     ],
-    "explanation": "La nucléophilie est reliée à la capacité de donner des électrons."
+    "explanation": "O et N sont cités."
   },
   {
     "order": 83,
@@ -160,12 +160,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Cette réaction peut modifier les bases nucléiques.",
         "correct": true,
-        "explanation": "La parle de bases modifiées/mutées."
+        "explanation": "La réaction covalente d’un électrophile avec une base nucléique peut modifier sa structure et favoriser une mutation."
       },
       {
         "content": "Ils sont chimiquement inertes vis-à-vis des bases nucléiques.",
         "correct": false,
-        "explanation": "Le support dit l'inverse: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Certains dérivés halogénés sont électrophiles et peuvent réagir avec des sites nucléophiles des bases nucléiques."
       },
       {
         "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
@@ -173,7 +173,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’électrophile accepte des électrons; le nucléophile les fournit."
       }
     ],
-    "explanation": "La toxicité est expliquée, dans le modèle, par la rencontre d'électrophiles halogénés et de bases nucléiques nucléophiles."
+    "explanation": "Les dérivés halogénés électrophiles peuvent réagir avec des sites riches en électrons des bases nucléiques."
   },
   {
     "order": 84,
@@ -184,7 +184,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une protection systématique de l'ADN contre toute mutation.",
         "correct": false,
-        "explanation": "Le support décrit au contraire un risque de modification."
+        "explanation": "Une modification chimique d’une base nucléique peut au contraire favoriser une mutation ; elle n’assure aucune protection systématique de l’ADN."
       },
       {
         "content": "Des dérivés halogénés électrophiles peuvent réagir avec des sites nucléophiles des bases nucléiques.",
@@ -194,7 +194,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Des bases nucléiques modifiées.",
         "correct": true,
-        "explanation": "Conséquence directe: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une réaction covalente avec un électrophile peut modifier la structure d’une base nucléique."
       },
       {
         "content": "Des propriétés mutagènes.",
@@ -207,7 +207,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       }
     ],
-    "explanation": "La banque reprend ici le lien toxicologique tel qu'il est formulé."
+    "explanation": "Une réaction covalente avec un électrophile peut modifier la structure d’une base nucléique. Cette réactivité peut modifier chimiquement les bases et altérer l’information génétique."
   },
   {
     "order": 85,
@@ -218,12 +218,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le 2-désoxyribose est associé à la série ADN.",
         "correct": true,
-        "explanation": "Indication: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le 2-désoxyribose est le pentose caractéristique de la série ADN."
       },
       {
         "content": "La différence entre les deux sucres est explicitement utilisée pour distinguer ARN et ADN.",
         "correct": true,
-        "explanation": "C'est le repère donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le ribose caractérise la série ARN, tandis que le 2-désoxyribose caractérise la série ADN."
       },
       {
         "content": "Le ribose est présenté comme le sucre de l'ADN dans cette figure.",
@@ -238,10 +238,10 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le ribose est associé à la série ARN.",
         "correct": true,
-        "explanation": "Indication: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le ribose est le pentose caractéristique de la série ARN."
       }
     ],
-    "explanation": "La relie nucléosides de l'ARN au ribose et nucléosides de l'ADN au 2-désoxyribose."
+    "explanation": "Le ribose caractérise la série ARN, tandis que le 2-désoxyribose caractérise la série ADN."
   },
   {
     "order": 86,
@@ -262,12 +262,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "2-désoxyribose.",
         "correct": false,
-        "explanation": "Associé à l'ADN: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
       },
       {
         "content": "Ribose.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Le ribose est le sucre associé aux nucléosides de la série ARN."
       },
       {
         "content": "Glucose.",
@@ -275,7 +275,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce n'est pas le sucre indiqué."
       }
     ],
-    "explanation": "Le ribose est le sucre représenté pour la série ARN."
+    "explanation": "Ce n'est pas le sucre indiqué."
   },
   {
     "order": 87,
@@ -291,12 +291,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Ribose.",
         "correct": false,
-        "explanation": "Associé à l'ARN: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le ribose est associé à l’ARN et non à l’ADN."
       },
       {
         "content": "Galactose.",
         "correct": false,
-        "explanation": "Non indiqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le galactose n’est pas le pentose constitutif de l’ADN ; celui-ci contient du 2-désoxyribose."
       },
       {
         "content": "Acide ribonucléique.",
@@ -306,10 +306,10 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "2-désoxyribose.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Le 2-désoxyribose est le sucre associé aux nucléosides de la série ADN."
       }
     ],
-    "explanation": "Le 2-désoxyribose est le sucre représenté pour la série ADN."
+    "explanation": "Le 2-désoxyribose est associé à la série ADN."
   },
   {
     "order": 88,
@@ -320,7 +320,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Ils portent un groupement phosphate.",
         "correct": true,
-        "explanation": "Structure représentée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un nucléotide se distingue d’un nucléoside notamment par la présence d’un groupement phosphate."
       },
       {
         "content": "Le phosphate n’est pas responsable de leur acidité dans le modèle présenté.",
@@ -330,20 +330,20 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le phosphate est comparé au carboxylate des acides carboxyliques.",
         "correct": true,
-        "explanation": "Comparaison donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le phosphate et le carboxylate sont tous deux présentés comme des groupements pouvant porter une charge négative."
       },
       {
         "content": "Le phosphate est décrit comme responsable de leur caractère alcalin exclusif.",
         "correct": false,
-        "explanation": "La l'associe à l'acidité: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupement phosphate contribue au caractère acide des nucléotides ; il n’est pas responsable d’un caractère alcalin exclusif."
       },
       {
         "content": "Le groupement phosphate contribue au caractère acide des nucléotides.",
         "correct": true,
-        "explanation": "Le phosphate peut porter des charges négatives après perte de protons et explique l’acidité mise en avant dans le chapitre."
+        "explanation": "Le phosphate peut perdre des protons et porter des charges négatives ; il contribue ainsi au caractère acide des nucléotides."
       }
     ],
-    "explanation": "La fonction phosphate explique l'appellation « acides nucléiques » dans le raisonnement."
+    "explanation": "Le phosphate peut perdre des protons et porter des charges négatives ; il contribue ainsi au caractère acide des nucléotides."
   },
   {
     "order": 89,
@@ -354,7 +354,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Réaction → base nucléique potentiellement modifiée.",
         "correct": true,
-        "explanation": "Conséquence décrite: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réaction d’un dérivé halogéné électrophile avec une base nucléique peut conduire à une base chimiquement modifiée."
       },
       {
         "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
@@ -364,20 +364,20 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Dérivé halogéné: électrophile.",
         "correct": true,
-        "explanation": "Rôle attribué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle toxicologique, le dérivé halogéné joue le rôle d’électrophile."
       },
       {
         "content": "Base nucléique: nucléophile.",
         "correct": true,
-        "explanation": "Rôle attribué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les sites riches en électrons des bases nucléiques leur permettent de se comporter comme des nucléophiles."
       },
       {
         "content": "Rencontre des deux → réaction.",
         "correct": true,
-        "explanation": "Conséquence chimique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La complémentarité entre électrophile et nucléophile permet une réaction covalente susceptible de modifier la base."
       }
     ],
-    "explanation": "un raisonnement électrophile/nucléophile simple pour expliquer la toxicité."
+    "explanation": "La réaction d’un dérivé halogéné électrophile avec une base nucléique peut conduire à une base chimiquement modifiée."
   },
   {
     "order": 90,
@@ -393,7 +393,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Leur complémentarité électronique favorise la réaction.",
         "correct": true,
-        "explanation": "Raisonnement: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un centre électrophile et un centre nucléophile présentent une complémentarité électronique favorable à la réaction."
       },
       {
         "content": "Ils sont tous deux décrits comme exclusivement nucléophiles.",
@@ -411,23 +411,23 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La relation correcte est: « La base nucléique est donneuse d'électrons ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "Le risque de réaction découle de la complémentarité nucléophile-électrophile."
+    "explanation": "Il reçoit l'attaque du nucléophile."
   },
   {
     "order": 91,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un composé riche en électrons au niveau de ses hétéroatomes est décrit comme une base dans cette section. Que peut-on en déduire?",
+    "question": "Un composé riche en électrons au niveau de ses hétéroatomes est décrit comme une base. Que peut-on en déduire ?",
     "choices": [
       {
-        "content": "Dans la description électronique du chapitre, une base peut donner un doublet d’électrons et se comporter comme un nucléophile.",
+        "content": "Dans la description électronique retenue, une base peut donner un doublet d’électrons et se comporter comme un nucléophile.",
         "correct": true,
         "explanation": "Les atomes riches en électrons peuvent fournir un doublet à un centre électrophile."
       },
       {
         "content": "Il peut donner des électrons.",
         "correct": true,
-        "explanation": "Définition de la base: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Par définition, il peut donner des électrons."
       },
       {
         "content": "Il peut présenter un caractère nucléophile.",
@@ -437,7 +437,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il réagit potentiellement avec un électrophile.",
         "correct": true,
-        "explanation": "Conséquence du caractère nucléophile: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un site nucléophile riche en électrons peut former une liaison avec un centre électrophile."
       },
       {
         "content": "Il est nécessairement un dérivé halogéné.",
@@ -445,7 +445,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce sont au contraire les électrophiles du modèle toxicologique."
       }
     ],
-    "explanation": "Le support relie base électronique et nucléophile."
+    "explanation": "Les atomes riches en électrons peuvent fournir un doublet à un centre électrophile."
   },
   {
     "order": 92,
@@ -456,7 +456,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les nucléosides sont présentés avec un sucre lié à une base.",
         "correct": true,
-        "explanation": "Schémas: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Un nucléoside associe une base nucléique à un sucre ; l’ajout d’un phosphate forme un nucléotide."
       },
       {
         "content": "Le nucléoside est défini ici par la présence obligatoire d'un phosphate.",
@@ -466,12 +466,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le groupement phosphate contribue au caractère acide des nucléotides.",
         "correct": true,
-        "explanation": "Le phosphate peut porter des charges négatives après perte de protons et explique l’acidité mise en avant dans le chapitre."
+        "explanation": "Le phosphate peut perdre des protons et porter des charges négatives ; il contribue ainsi au caractère acide des nucléotides."
       },
       {
         "content": "Le nucléotide porte un groupement phosphate dans les représentations.",
         "correct": true,
-        "explanation": "Point visuel et fonctionnel: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La présence d’un groupement phosphate distingue un nucléotide du nucléoside correspondant."
       },
       {
         "content": "Le phosphate n’est pas responsable de l'acidité des nucléotides.",
@@ -479,7 +479,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La relation correcte est: « Le phosphate est responsable de l'acidité des nucléotides ». La négation proposée est donc fausse."
       }
     ],
-    "explanation": "Le phosphate est le repère majeur du nucléotide."
+    "explanation": "Le phosphate peut perdre des protons et porter des charges négatives ; il contribue ainsi au caractère acide des nucléotides."
   },
   {
     "order": 93,
@@ -490,41 +490,41 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il est comparé au groupement carboxylate.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Le phosphate est rapproché du carboxylate pour illustrer des groupements capables de porter une charge négative."
       },
       {
         "content": "Il est responsable de l'acidité des nucléotides.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "La capacité du phosphate à perdre des protons et à porter des charges négatives contribue à l’acidité des nucléotides."
       },
       {
         "content": "Il fait partie des éléments représentés dans les nucléotides.",
         "correct": true,
-        "explanation": "Schémas: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupement phosphate fait partie de la structure d’un nucléotide."
       },
       {
         "content": "Il transforme le nucléotide en dérivé halogéné.",
         "correct": false,
-        "explanation": "Aucun halogène n'est impliqué: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "L’ajout d’un phosphate ne transforme pas un nucléotide en dérivé halogéné ; aucun halogène n’est introduit."
       },
       {
         "content": "Un nucléotide ne contient jamais de groupement phosphate.",
         "correct": false,
-        "explanation": "Le phosphate distingue le nucléotide du nucléoside dans la présentation du chapitre."
+        "explanation": "Le phosphate distingue le nucléotide du nucléoside dans la définition retenue."
       }
     ],
-    "explanation": "Le phosphate relie la chimie des acides à celle des acides nucléiques."
+    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
   },
   {
     "order": 94,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un étudiant affirme: « une base nucléique est un bon électrophile ». Quelle correction correspond à la?",
+    "question": "Un étudiant affirme : « une base nucléique est un bon électrophile ». Quelles propositions corrigent cette affirmation ?",
     "choices": [
       {
         "content": "Le bon électrophile de l'exemple toxicologique est le dérivé halogéné.",
         "correct": true,
-        "explanation": "Opposition: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans le modèle toxicologique, le dérivé halogéné est l’électrophile qui réagit avec la base nucléique."
       },
       {
         "content": "Un électrophile est défini ici comme une espèce qui donne spontanément un doublet d’électrons à un nucléophile.",
@@ -534,20 +534,20 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La base nucléique est décrite comme nucléophile.",
         "correct": true,
-        "explanation": "Point: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les sites riches en électrons de la base nucléique lui confèrent un comportement nucléophile."
       },
       {
         "content": "Elle est riche en électrons.",
         "correct": true,
-        "explanation": "Raison donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La richesse électronique de certains atomes de la base nucléique explique sa nucléophilie."
       },
       {
         "content": "Elle peut donner des électrons.",
         "correct": true,
-        "explanation": "Comportement de base: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Une base électronique peut fournir un doublet d’électrons à un centre électrophile."
       }
     ],
-    "explanation": "La confusion entre nucléophile et électrophile est un piège central de cette section."
+    "explanation": "Dans le modèle toxicologique, le dérivé halogéné est l’électrophile qui réagit avec la base nucléique."
   },
   {
     "order": 95,
@@ -558,12 +558,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Attaque/réaction avec une base nucléique nucléophile.",
         "correct": true,
-        "explanation": "Interaction chimique: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le dérivé halogéné électrophile peut être attaqué par un site nucléophile d’une base nucléique."
       },
       {
         "content": "Modification de la base nucléique.",
         "correct": true,
-        "explanation": "Conséquence: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La réaction covalente peut modifier la structure de la base nucléique."
       },
       {
         "content": "Propriétés mutagènes possibles de la base modifiée.",
@@ -578,10 +578,10 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Réactivité électrophile du dérivé halogéné.",
         "correct": true,
-        "explanation": "Première propriété: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison carbone–halogène rend le carbone lié à l’halogène électrophile."
       }
     ],
-    "explanation": "La propose une chaîne causale simple allant de la réactivité chimique à la modification des bases."
+    "explanation": "La richesse électronique de certains atomes des bases nucléiques explique leur comportement nucléophile."
   },
   {
     "order": 96,
@@ -636,28 +636,28 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le 2-désoxyribose est le sucre associé à la série ADN."
       }
     ],
-    "explanation": "Le type de pentose différencie les deux séries."
+    "explanation": "C'est précisément ce que montrent les schémas."
   },
   {
     "order": 98,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quel niveau de détail la fournit-elle sur les bases nucléiques?",
+    "question": "Quelles propriétés électroniques caractérisent les bases nucléiques ?",
     "choices": [
       {
         "content": "Leur caractère riche en électrons.",
         "correct": true,
-        "explanation": "Donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les atomes riches en électrons constituent les sites susceptibles de réagir avec un électrophile."
       },
       {
         "content": "Leur comportement de bases et de nucléophiles.",
         "correct": true,
-        "explanation": "Donné: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Leur richesse électronique permet aux bases nucléiques de se comporter comme des nucléophiles."
       },
       {
         "content": "Leur réactivité avec des électrophiles halogénés.",
         "correct": true,
-        "explanation": "Donnée: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les sites nucléophiles des bases nucléiques peuvent réagir avec certains dérivés halogénés électrophiles."
       },
       {
         "content": "Un mécanisme détaillé de réplication de l'ADN.",
@@ -665,12 +665,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Ce n'est pas le contenu."
       },
       {
-        "content": "Dans la description électronique du chapitre, une base peut donner un doublet d’électrons et se comporter comme un nucléophile.",
+        "content": "Dans la description électronique retenue, une base peut donner un doublet d’électrons et se comporter comme un nucléophile.",
         "correct": true,
         "explanation": "Les atomes riches en électrons peuvent fournir un doublet à un centre électrophile."
       }
     ],
-    "explanation": "La banque reste centrée sur les propriétés chimiques présentées, sans ajouter de biologie moléculaire extérieure."
+    "explanation": "Les sites nucléophiles des bases nucléiques peuvent réagir avec certains dérivés halogénés électrophiles."
   },
   {
     "order": 99,
@@ -692,12 +692,12 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Ribose → ARN.",
         "correct": true,
-        "explanation": "Association: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le ribose est le pentose associé à la série ARN."
       },
       {
         "content": "2-désoxyribose → ADN.",
         "correct": true,
-        "explanation": "Association: cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le 2-désoxyribose est le pentose associé à la série ADN."
       },
       {
         "content": "Ribose → ADN uniquement.",
@@ -705,7 +705,7 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette affirmation ne correspond pas à la propriété ou à la transformation décrite."
       }
     ],
-    "explanation": "Les deux pentoses permettent de distinguer les nucléosides des séries ARN et ADN."
+    "explanation": "Cette affirmation ne correspond pas à la propriété ou à la transformation décrite."
   },
   {
     "order": 100,
@@ -717,27 +717,27 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une base électronique donne des électrons.",
         "correct": true,
-        "explanation": "Définition : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Dans la définition électronique utilisée ici, une base donne un doublet d’électrons."
       },
       {
         "content": "Une base nucléique est décrite comme nucléophile.",
         "correct": true,
-        "explanation": "Propriété : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La richesse électronique de la base nucléique lui permet d’attaquer un centre électrophile."
       },
       {
         "content": "Un dérivé halogéné est décrit comme électrophile.",
         "correct": true,
-        "explanation": "Modèle toxicologique : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La polarisation de la liaison carbone-halogène rend le carbone suffisamment électrophile pour réagir avec un nucléophile."
       },
       {
         "content": "Le ribose est associé à l'ARN.",
         "correct": true,
-        "explanation": "Nucléosides : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Les nucléosides de la série ARN contiennent un ribose."
       },
       {
         "content": "Le phosphate est responsable de l'acidité des nucléotides.",
         "correct": true,
-        "explanation": "Nucléotides : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "Le groupement phosphate peut perdre des protons et porter des charges négatives ; il contribue donc au caractère acide des nucléotides."
       },
       {
         "content": "Le 2-désoxyribose est associé à l'ARN.",
@@ -757,14 +757,14 @@ export const UE14_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le phosphate est absent des nucléotides représentés.",
         "correct": false,
-        "explanation": "Il est présent : cette relation est conforme à la propriété ou à la transformation décrite."
+        "explanation": "La présence d’un groupement phosphate distingue un nucléotide du nucléoside correspondant."
       },
       {
         "content": "La modification des bases est présentée comme protectrice contre les mutations.",
         "correct": false,
-        "explanation": "La évoque des propriétés mutagènes/cancérigènes."
+        "explanation": "La modification covalente d’une base peut être mutagène ; elle n’est pas présentée comme protectrice."
       }
     ],
-    "explanation": "Cette sélection consolide le vocabulaire électronique et les repères des acides nucléiques."
+    "explanation": "Le groupement phosphate peut perdre des protons et porter des charges négatives ; il contribue donc au caractère acide des nucléotides."
   }
 ];
