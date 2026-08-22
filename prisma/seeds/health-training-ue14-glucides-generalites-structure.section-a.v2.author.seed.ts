@@ -1,677 +1,714 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie – Chapitre 1.1 – Section A – Généralités, structure et nomenclature des oses
- */
-
+/** UE14 Biochimie – Chapitre 1.1 – Section A – Généralités, structure et nomenclature des oses */
 export const UE14_BIOCH_CH1_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la présence des glucides dans le monde vivant, quelles propositions sont exactes ?",
+    "question": "Concernant les rôles biologiques des glucides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils sont rencontrés dans le monde végétal.",
+        "content": "Des motifs glucidiques participent à la reconnaissance cellulaire.",
         "correct": true,
-        "explanation": "Les végétaux produisent notamment des glucides par photosynthèse."
+        "explanation": "Les glycoconjugués de surface contribuent au glycocalyx."
       },
       {
-        "content": "Ils sont également rencontrés dans le monde animal.",
-        "correct": true,
-        "explanation": "Ils sont présents et métabolisés chez l'Homme."
-      },
-      {
-        "content": "Les glucides constituent une part majeure de la matière sèche de nombreux végétaux.",
-        "correct": true,
-        "explanation": "La cellulose et les glucides de réserve contribuent fortement à la matière sèche végétale."
-      },
-      {
-        "content": "Ils sont absents des animaux.",
+        "content": "Ils sont absents du monde animal.",
         "correct": false,
-        "explanation": "Les animaux contiennent et métabolisent de nombreux glucides, notamment le glucose et le glycogène."
+        "explanation": "Les animaux contiennent et métabolisent de nombreux glucides."
+      },
+      {
+        "content": "Ils peuvent fournir de l'énergie aux cellules.",
+        "correct": true,
+        "explanation": "Le glucose est un substrat énergétique majeur."
+      },
+      {
+        "content": "Le ribose et le 2-désoxyribose entrent dans la constitution des acides nucléiques.",
+        "correct": true,
+        "explanation": "Ils appartiennent respectivement à l'ARN et à l'ADN."
+      },
+      {
+        "content": "Le glycogène est la réserve glucidique principale des végétaux.",
+        "correct": false,
+        "explanation": "Chez les végétaux, la réserve majeure est l'amidon."
       }
     ],
-    "explanation": "Les glucides sont des composés organiques majeurs des mondes végétal et animal."
+    "explanation": "Les glucides assurent des fonctions énergétiques, de réserve, structurales et de reconnaissance."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel processus permet aux végétaux chlorophylliens de synthétiser des glucides à partir de dioxyde de carbone et d'eau ?",
+    "question": "À propos de la valeur énergétique des macronutriments, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La photosynthèse.",
-        "correct": true,
-        "explanation": "La photosynthèse utilise l'énergie lumineuse pour produire de la matière organique."
-      },
-      {
-        "content": "La traduction.",
+        "content": "Glucides et lipides ont la même densité énergétique.",
         "correct": false,
-        "explanation": "Ce n'est pas la production végétale des glucides."
+        "explanation": "Leur valeur énergétique par gramme diffère nettement."
       },
       {
-        "content": "La protéolyse.",
+        "content": "Un gramme de glucides fournit environ 9 kcal.",
         "correct": false,
-        "explanation": "Elle concerne les protéines."
-      },
-      {
-        "content": "La décarboxylation uniquement.",
-        "correct": false,
-        "explanation": "Une décarboxylation isolée ne correspond pas à la synthèse photosynthétique des glucides."
-      }
-    ],
-    "explanation": "La photosynthèse permet la fixation du carbone minéral dans des molécules organiques, dont des glucides."
-  },
-  {
-    "order": 3,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant l'énergie fournie par les macronutriments, quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "1 g de glucides fournit environ 4 kcal.",
-        "correct": true,
-        "explanation": "La valeur énergétique conventionnelle des glucides assimilables est d'environ 4 kcal par gramme."
-      },
-      {
-        "content": "1 g de protéines fournit environ 4 kcal.",
-        "correct": true,
-        "explanation": "La valeur énergétique conventionnelle des protéines est d'environ 4 kcal par gramme."
-      },
-      {
-        "content": "1 g de lipides fournit environ 9 kcal.",
-        "correct": true,
-        "explanation": "Les lipides fournissent environ 9 kcal par gramme, soit davantage que les glucides ou les protéines."
+        "explanation": "Environ 9 kcal/g correspond aux lipides."
       },
       {
         "content": "Les lipides fournissent moins d'énergie par gramme que les glucides.",
         "correct": false,
-        "explanation": "Les lipides fournissent environ 9 kcal/g, contre environ 4 kcal/g pour les glucides."
+        "explanation": "Ils en fournissent environ deux fois plus."
+      },
+      {
+        "content": "Les protéines fournissent environ 20 kcal/g.",
+        "correct": false,
+        "explanation": "Leur valeur conventionnelle est proche de 4 kcal/g."
+      },
+      {
+        "content": "Un gramme de lipides fournit environ 9 kcal.",
+        "correct": true,
+        "explanation": "Les lipides sont plus énergétiques par unité de masse."
       }
     ],
-    "explanation": "Les valeurs énergétiques conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines, et 9 kcal/g pour les lipides."
+    "explanation": "Les valeurs conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines et 9 kcal/g pour les lipides."
+  },
+  {
+    "order": 3,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel terme désigne un glucide simple non hydrolysable en unités glucidiques plus petites ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ose",
+        "monosaccharide",
+        "un ose",
+        "un monosaccharide"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Un ose est un monosaccharide portant une fonction carbonyle et plusieurs groupes hydroxyle."
   },
   {
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quels rôles biologiques peuvent être assurés par les glucides ?",
+    "question": "Concernant les aldoses, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Rôle énergétique.",
+        "content": "Un aldose possède une fonction aldéhyde en C1 dans sa forme ouverte.",
         "correct": true,
-        "explanation": "L'oxydation du glucose fournit de l'énergie aux cellules."
+        "explanation": "Le carbone carbonylé terminal est numéroté C1."
       },
       {
-        "content": "Réserve énergétique dans le foie et le muscle.",
-        "correct": true,
-        "explanation": "Le glycogène constitue une réserve glucidique dans le foie et les muscles."
-      },
-      {
-        "content": "Rôle structural et de soutien cellulaire.",
-        "correct": true,
-        "explanation": "Des glucides participent à des structures biologiques, comme la cellulose ou les glycosaminoglycanes."
-      },
-      {
-        "content": "Absence de rôle à la surface cellulaire.",
+        "content": "Le fructose est un aldose.",
         "correct": false,
-        "explanation": "Ils interviennent au contraire dans interactions, protection et reconnaissance."
+        "explanation": "Le fructose est un cétose."
+      },
+      {
+        "content": "Le glycéraldéhyde est l'aldotriose de référence.",
+        "correct": true,
+        "explanation": "Il contient trois carbones."
+      },
+      {
+        "content": "Le carbone aldéhydique d'un aldose est toujours C6.",
+        "correct": false,
+        "explanation": "Il est C1."
+      },
+      {
+        "content": "La numérotation d'un aldose commence du côté de la fonction aldéhyde.",
+        "correct": true,
+        "explanation": "Le carbone le plus oxydé reçoit le plus petit indice."
       }
     ],
-    "explanation": "Les glucides ont des fonctions énergétiques, structurales et de surface cellulaire."
+    "explanation": "Dans un aldose, la fonction aldéhyde terminale définit le carbone C1."
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À la surface des cellules, les glucides peuvent participer :",
+    "format": "QRU",
+    "question": "À propos de les cétoses, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Aux interactions cellulaires.",
-        "correct": true,
-        "explanation": "Les glycoconjugués de surface participent à l'adhérence et aux interactions cellulaires."
+        "content": "La dihydroxyacétone possède un carbone asymétrique.",
+        "correct": false,
+        "explanation": "Elle est achirale."
       },
       {
-        "content": "À la protection.",
-        "correct": true,
-        "explanation": "Le glycocalyx contribue à la protection de la membrane plasmique."
+        "content": "Un cétose possède nécessairement un aldéhyde terminal en C1.",
+        "correct": false,
+        "explanation": "Cela définit un aldose."
       },
       {
-        "content": "Aux signaux de reconnaissance.",
-        "correct": true,
-        "explanation": "Les motifs glucidiques de surface interviennent dans la reconnaissance cellulaire."
+        "content": "Un cétose ne contient aucun groupe hydroxyle.",
+        "correct": false,
+        "explanation": "Il en contient plusieurs."
       },
       {
-        "content": "À certains déterminants antigéniques comme les groupes sanguins.",
+        "content": "Le fructose est un cétohexose.",
         "correct": true,
-        "explanation": "Les chaînes glucidiques de surface participent à des déterminants antigéniques, notamment ceux des groupes sanguins ABO."
+        "explanation": "Il possède six carbones et une cétone dans sa forme ouverte."
+      },
+      {
+        "content": "Le glucose est un cétose.",
+        "correct": false,
+        "explanation": "Le glucose est un aldose."
       }
     ],
-    "explanation": "Les fonctions de surface dépassent largement le seul rôle énergétique."
+    "explanation": "Un cétose possède un carbonyle interne ; le fructose est le cétohexose classique."
   },
   {
     "order": 6,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les glucides entrent dans la constitution de molécules fondamentales telles que :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la nomenclature selon le nombre de carbones, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "ARN.",
+        "content": "Un hexose possède six carbones.",
         "correct": true,
-        "explanation": "L'ARN contient du ribose."
+        "explanation": "Glucose, galactose et mannose sont des aldohexoses."
       },
       {
-        "content": "ADN.",
-        "correct": true,
-        "explanation": "L'ADN contient du 2-désoxyribose."
+        "content": "Le terme triose désigne une molécule à trois oxygènes quel que soit le nombre de carbones.",
+        "correct": false,
+        "explanation": "Il décrit le nombre de carbones."
       },
       {
-        "content": "Certaines coenzymes.",
-        "correct": true,
-        "explanation": "Plusieurs coenzymes, comme le NAD, comportent un motif ribose."
+        "content": "Un hexose possède trois carbones.",
+        "correct": false,
+        "explanation": "Un hexose en possède six."
       },
       {
-        "content": "Certaines vitamines.",
+        "content": "Le terme aldohexose combine nature du carbonyle et nombre de carbones.",
         "correct": true,
-        "explanation": "Certaines vitamines, comme la vitamine C, sont des dérivés d'oses."
+        "explanation": "Aldo- indique l'aldéhyde et hex- six carbones."
+      },
+      {
+        "content": "Un cétohexose est nécessairement un aldéhyde.",
+        "correct": false,
+        "explanation": "Céto- indique une cétone."
       }
     ],
-    "explanation": "Des motifs glucidiques sont intégrés à de nombreuses molécules biologiques essentielles."
+    "explanation": "Triose, tétrose, pentose et hexose décrivent respectivement 3, 4, 5 et 6 carbones.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles associations entre pathologies et métabolisme glucidique sont exactes ?",
+    "question": "Concernant quelques situations cliniques liées aux glucides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Diabète → anomalie du métabolisme du glucose.",
+        "content": "Le diabète sucré se caractérise notamment par une anomalie de la régulation de la glycémie.",
         "correct": true,
-        "explanation": "Le diabète se caractérise notamment par une perturbation de l'homéostasie du glucose."
+        "explanation": "L'hyperglycémie chronique est un élément central du diabète sucré."
       },
       {
-        "content": "Galactosémie → anomalie du métabolisme du galactose.",
+        "content": "Une hypoglycémie correspond à une glycémie anormalement basse.",
         "correct": true,
-        "explanation": "Les galactosémies sont des maladies héréditaires touchant le métabolisme du galactose."
+        "explanation": "Le terme décrit une concentration sanguine de glucose insuffisante."
       },
       {
-        "content": "Glycogénoses → déficits enzymatiques.",
+        "content": "L'intolérance au lactose peut résulter d'une activité lactase insuffisante.",
         "correct": true,
-        "explanation": "Les glycogénoses sont dues à des déficits enzymatiques affectant la synthèse ou la dégradation du glycogène."
+        "explanation": "Le lactose mal digéré atteint le côlon, où il peut être fermenté."
       },
       {
-        "content": "Intolérance au lait → nécessairement allergie aux protéines du lait.",
+        "content": "L'intolérance au lactose est toujours une allergie immunologique aux protéines du lait.",
         "correct": false,
-        "explanation": "L'intolérance au lactose résulte d'une maldigestion du lactose, tandis qu'une allergie met en jeu une réponse immunitaire dirigée contre des protéines du lait."
+        "explanation": "L'intolérance au lactose est un trouble digestif enzymatique, distinct d'une allergie aux protéines du lait."
+      },
+      {
+        "content": "La glycémie désigne la concentration sanguine de glycogène.",
+        "correct": false,
+        "explanation": "La glycémie correspond à la concentration de glucose dans le sang."
       }
     ],
-    "explanation": "Le diabète, les galactosémies et les glycogénoses concernent le métabolisme glucidique ; l'intolérance au lactose est distincte d'une allergie aux protéines du lait."
+    "explanation": "Les notions de glycémie, hypoglycémie, diabète et intolérance au lactose doivent être distinguées sur le plan physiopathologique."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Un patient digère mal le lactose sans réaction allergique aux protéines du lait. À quelle situation cela correspond-il ?",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes permettant de distinguer intolérance au lactose et allergie aux protéines du lait.",
     "choices": [
       {
-        "content": "Intolérance au lactose.",
+        "content": "L'intolérance au lactose est liée à une digestion insuffisante du lactose, souvent par déficit en lactase.",
         "correct": true,
-        "explanation": "Il s'agit d'une anomalie de digestion du lactose."
+        "explanation": "Le mécanisme est principalement enzymatique et digestif."
       },
       {
-        "content": "Allergie aux protéines du lait.",
+        "content": "Les deux situations sont dues au même déficit enzymatique.",
         "correct": false,
-        "explanation": "Une allergie aux protéines du lait implique un mécanisme immunitaire, absent de la situation décrite."
+        "explanation": "L'allergie est immunologique, alors que l'intolérance au lactose est digestive."
       },
       {
-        "content": "Glycogénose certaine.",
+        "content": "Une intolérance au lactose implique nécessairement une réaction anaphylactique.",
         "correct": false,
-        "explanation": "Ce n'est pas le tableau décrit."
+        "explanation": "L'anaphylaxie relève d'une réaction allergique sévère, pas du mécanisme habituel de l'intolérance au lactose."
       },
       {
-        "content": "Diabète nécessairement.",
+        "content": "Le lactose est une protéine capable de déclencher directement l'allergie aux protéines du lait.",
         "correct": false,
-        "explanation": "La situation concerne le lactose."
+        "explanation": "Le lactose est un glucide, pas une protéine."
+      },
+      {
+        "content": "L'allergie aux protéines du lait implique une réponse immunitaire contre des protéines alimentaires.",
+        "correct": true,
+        "explanation": "Le mécanisme allergique vise des antigènes protéiques et non le lactose."
       }
     ],
-    "explanation": "L'intolérance au lactose est un trouble digestif distinct d'une allergie aux protéines du lait."
+    "explanation": "Intolérance au lactose et allergie aux protéines du lait ont des mécanismes différents : enzymatique/digestif versus immunologique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 9,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La famille des oses et de leurs dérivés peut comporter :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les rôles biologiques des glucides, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Une chaîne carbonée.",
+        "content": "Le ribose et le 2-désoxyribose entrent dans la constitution des acides nucléiques.",
         "correct": true,
-        "explanation": "Élément de base."
+        "explanation": "Ils appartiennent respectivement à l'ARN et à l'ADN."
       },
       {
-        "content": "Une fonction carbonyle.",
-        "correct": true,
-        "explanation": "Aldéhyde ou cétone."
+        "content": "Les groupes sanguins ABO sont indépendants de tout motif glucidique.",
+        "correct": false,
+        "explanation": "Des déterminants glucidiques participent aux antigènes ABO."
       },
       {
-        "content": "Plusieurs fonctions alcool.",
-        "correct": true,
-        "explanation": "Primaires et secondaires."
+        "content": "Ils n'ont qu'un rôle énergétique.",
+        "correct": false,
+        "explanation": "Ils ont aussi des rôles structuraux et de reconnaissance."
       },
       {
-        "content": "Parfois des fonctions acides ou amines dans certains dérivés.",
-        "correct": true,
-        "explanation": "Les oses peuvent donner des dérivés acides, comme les acides uroniques, ou aminés, comme les osamines."
+        "content": "Ils sont absents du monde animal.",
+        "correct": false,
+        "explanation": "Les animaux contiennent et métabolisent de nombreux glucides."
+      },
+      {
+        "content": "Le glycogène est la réserve glucidique principale des végétaux.",
+        "correct": false,
+        "explanation": "Chez les végétaux, la réserve majeure est l'amidon."
       }
     ],
-    "explanation": "Un ose associe une chaîne carbonée, une fonction carbonyle et plusieurs fonctions alcool ; ses dérivés peuvent porter d'autres fonctions."
+    "explanation": "Les glucides assurent des fonctions énergétiques, de réserve, structurales et de reconnaissance."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Pour un ose simple constitué de C, H et O, quelles écritures générales sont algébriquement équivalentes ?",
+    "question": "Concernant la valeur énergétique des macronutriments, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "$\\mathrm{C_nH_{2n}O_n}$.",
-        "correct": true,
-        "explanation": "Première écriture."
-      },
-      {
-        "content": "$(\\mathrm{CH_2O})_n$.",
-        "correct": true,
-        "explanation": "Deuxième écriture."
-      },
-      {
-        "content": "$\\mathrm{C_n(H_2O)_n}$.",
-        "correct": true,
-        "explanation": "Troisième écriture."
-      },
-      {
-        "content": "$\\mathrm{C_nH_nO_{2n}}$.",
+        "content": "Les lipides fournissent moins d'énergie par gramme que les glucides.",
         "correct": false,
-        "explanation": "Elle ne respecte pas le rapport H/O égal à 2."
+        "explanation": "Ils en fournissent environ deux fois plus."
+      },
+      {
+        "content": "Les protéines fournissent environ 20 kcal/g.",
+        "correct": false,
+        "explanation": "Leur valeur conventionnelle est proche de 4 kcal/g."
+      },
+      {
+        "content": "Les valeurs 4-4-9 sont des repères nutritionnels usuels.",
+        "correct": true,
+        "explanation": "Elles correspondent respectivement aux glucides, protéines et lipides."
+      },
+      {
+        "content": "Un gramme de lipides fournit environ 9 kcal.",
+        "correct": true,
+        "explanation": "Les lipides sont plus énergétiques par unité de masse."
+      },
+      {
+        "content": "Un gramme de glucides assimilables fournit environ 4 kcal.",
+        "correct": true,
+        "explanation": "C'est la valeur énergétique conventionnelle."
       }
     ],
-    "explanation": "Les trois écritures correctes expriment le même rapport atomique : un carbone, deux hydrogènes et un oxygène par motif."
+    "explanation": "Les valeurs conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines et 9 kcal/g pour les lipides."
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la chaîne carbonée des oses simples :",
+    "question": "Concernant les rôles biologiques des glucides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle comporte au minimum 3 carbones.",
-        "correct": true,
-        "explanation": "Les trioses sont les plus petits oses usuels."
-      },
-      {
-        "content": "Elle est non ramifiée.",
-        "correct": true,
-        "explanation": "La chaîne carbonée des oses usuels est non ramifiée."
-      },
-      {
-        "content": "La numérotation débute au carbone le plus oxydé.",
-        "correct": true,
-        "explanation": "La numérotation minimise l'indice du carbone portant la fonction carbonyle."
-      },
-      {
-        "content": "La numérotation débute toujours au carbone le moins oxydé.",
+        "content": "Ils sont absents du monde animal.",
         "correct": false,
-        "explanation": "C'est l'inverse."
+        "explanation": "Les animaux contiennent et métabolisent de nombreux glucides."
+      },
+      {
+        "content": "Le glycogène est la réserve glucidique principale des végétaux.",
+        "correct": false,
+        "explanation": "Chez les végétaux, la réserve majeure est l'amidon."
+      },
+      {
+        "content": "Ils n'ont qu'un rôle énergétique.",
+        "correct": false,
+        "explanation": "Ils ont aussi des rôles structuraux et de reconnaissance."
+      },
+      {
+        "content": "Des motifs glucidiques participent à la reconnaissance cellulaire.",
+        "correct": true,
+        "explanation": "Les glycoconjugués de surface contribuent au glycocalyx."
+      },
+      {
+        "content": "Le glycogène constitue une réserve glucidique chez l'être humain.",
+        "correct": true,
+        "explanation": "Il est stocké surtout dans le foie et les muscles."
       }
     ],
-    "explanation": "La numérotation permet notamment de fixer la position de la fonction carbonyle."
+    "explanation": "Les glucides assurent des fonctions énergétiques, de réserve, structurales et de reconnaissance."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un aldose sous forme linéaire :",
-    "choices": [
-      {
-        "content": "Porte une fonction aldéhyde en C1.",
-        "correct": true,
-        "explanation": "Définition de l'aldose."
-      },
-      {
-        "content": "Est numéroté à partir du carbone aldéhydique.",
-        "correct": true,
-        "explanation": "Carbone le plus oxydé."
-      },
-      {
-        "content": "Porte une cétone en C2.",
-        "correct": false,
-        "explanation": "Cela caractérise un cétose."
-      },
-      {
-        "content": "Peut comporter des alcools primaires et secondaires.",
-        "correct": true,
-        "explanation": "La longueur de la chaîne peut permettre la présence d'un alcool primaire terminal et de plusieurs alcools secondaires."
-      }
-    ],
-    "explanation": "Le carbonyle terminal en C1 caractérise l'aldose."
+    "format": "QROC",
+    "question": "Combien de kilocalories fournit approximativement 1 g de glucides assimilables ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0.2
+    },
+    "explanation": "Les valeurs conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines et 9 kcal/g pour les lipides."
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un cétose sous forme linéaire :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la structure générale d'un ose simple, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Porte classiquement une fonction cétone en C2.",
+        "content": "De nombreux oses simples suivent la formule approchée $\\mathrm{C_nH_{2n}O_n}$.",
         "correct": true,
-        "explanation": "Dans les cétoses usuels, la fonction cétone est classiquement portée par C2."
+        "explanation": "Cette écriture correspond au motif $(\\mathrm{CH_2O})_n$."
       },
       {
-        "content": "Possède des groupes alcool, notamment CH2OH.",
-        "correct": true,
-        "explanation": "Les autres carbones portent généralement des groupes hydroxyle, dont certains sous forme CH2OH."
-      },
-      {
-        "content": "Est nécessairement un aldéhyde en C1.",
+        "content": "Un ose simple est dépourvu d'oxygène.",
         "correct": false,
-        "explanation": "Ce serait un aldose."
+        "explanation": "Les oses comportent plusieurs atomes d'oxygène."
       },
       {
-        "content": "Est numéroté depuis l'extrémité la plus proche du carbone le plus oxydé.",
-        "correct": true,
-        "explanation": "Règle de numérotation."
+        "content": "Un ose ne possède jamais de fonction carbonyle.",
+        "correct": false,
+        "explanation": "La forme ouverte comporte un aldéhyde ou une cétone."
+      },
+      {
+        "content": "La formule générale usuelle est $\\mathrm{C_nH_nO_{2n}}$.",
+        "correct": false,
+        "explanation": "Le rapport H/O usuel n'est pas celui-ci."
+      },
+      {
+        "content": "Les oses usuels possèdent obligatoirement une chaîne très ramifiée.",
+        "correct": false,
+        "explanation": "Les chaînes simples étudiées sont non ramifiées."
       }
     ],
-    "explanation": "Dans les 2-cétoses usuels, le carbonyle interne est porté par C2."
+    "explanation": "Un ose est un monosaccharide portant une fonction carbonyle et plusieurs groupes hydroxyle."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "La formule générale $\\mathrm{CH_2OH-(CHOH)_{n-2}-CHO}$ correspond à :",
+    "format": "QRM",
+    "question": "Concernant les aldoses, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un aldose.",
+        "content": "Un aldose possède nécessairement une cétone en C2.",
+        "correct": false,
+        "explanation": "Cela décrit un 2-cétose usuel."
+      },
+      {
+        "content": "Un aldose possède une fonction aldéhyde en C1 dans sa forme ouverte.",
         "correct": true,
-        "explanation": "Le groupe terminal CHO est un aldéhyde."
+        "explanation": "Le carbone carbonylé terminal est numéroté C1."
       },
       {
-        "content": "Un cétose.",
-        "correct": false,
-        "explanation": "Un cétose possède un carbonyle interne."
+        "content": "Le glucose est un aldohexose.",
+        "correct": true,
+        "explanation": "Il possède six carbones et une fonction aldéhyde dans sa forme ouverte."
       },
       {
-        "content": "Un acide gras.",
-        "correct": false,
-        "explanation": "Cette écriture comporte un aldéhyde terminal et plusieurs groupes alcool, contrairement à un acide gras."
+        "content": "Le glycéraldéhyde est l'aldotriose de référence.",
+        "correct": true,
+        "explanation": "Il contient trois carbones."
       },
       {
-        "content": "Un nucléotide.",
-        "correct": false,
-        "explanation": "Aucun phosphate/base n'apparaît."
+        "content": "La numérotation d'un aldose commence du côté de la fonction aldéhyde.",
+        "correct": true,
+        "explanation": "Le carbone le plus oxydé reçoit le plus petit indice."
       }
     ],
-    "explanation": "La présence du groupe CHO terminal identifie un aldose."
+    "explanation": "Dans un aldose, la fonction aldéhyde terminale définit le carbone C1."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "La formule générale $\\mathrm{CH_2OH-CO-(CHOH)_{n-3}-CH_2OH}$ correspond à :",
+    "format": "QRP",
+    "question": "À propos de les cétoses, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Un cétose.",
+        "content": "Un cétose possède nécessairement un aldéhyde terminal en C1.",
+        "correct": false,
+        "explanation": "Cela définit un aldose."
+      },
+      {
+        "content": "Un cétose ne contient aucun groupe hydroxyle.",
+        "correct": false,
+        "explanation": "Il en contient plusieurs."
+      },
+      {
+        "content": "Le fructose est un cétohexose.",
+        "correct": true,
+        "explanation": "Il possède six carbones et une cétone dans sa forme ouverte."
+      },
+      {
+        "content": "Un cétose porte une fonction cétone dans sa forme ouverte.",
         "correct": true,
         "explanation": "Le carbonyle est interne."
       },
       {
-        "content": "Un aldose.",
+        "content": "La dihydroxyacétone possède un carbone asymétrique.",
         "correct": false,
-        "explanation": "L'aldose possède un CHO terminal."
-      },
-      {
-        "content": "Une protéine.",
-        "correct": false,
-        "explanation": "Pas de liaison peptidique."
-      },
-      {
-        "content": "Un acide carboxylique.",
-        "correct": false,
-        "explanation": "Pas de COOH."
+        "explanation": "Elle est achirale."
       }
     ],
-    "explanation": "La cétone en C2 caractérise le cétose."
+    "explanation": "Un cétose possède un carbonyle interne ; le fructose est le cétohexose classique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des fonctions alcool des oses linéaires :",
+    "question": "Parmi les affirmations suivantes sur la nomenclature selon le nombre de carbones, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "$\\mathrm{CH_2OH}$ correspond à un alcool primaire.",
-        "correct": true,
-        "explanation": "Carbone terminal."
-      },
-      {
-        "content": "Un motif interne $\\mathrm{H-C-OH}$ correspond à un alcool secondaire.",
-        "correct": true,
-        "explanation": "Carbone lié à deux carbones."
-      },
-      {
-        "content": "Tous les OH d'un ose sont des fonctions acides carboxyliques.",
+        "content": "Un cétohexose est nécessairement un aldéhyde.",
         "correct": false,
-        "explanation": "Ce sont des fonctions alcool."
+        "explanation": "Céto- indique une cétone."
       },
       {
-        "content": "Les oses possèdent plusieurs groupes hydroxyle.",
+        "content": "Un pentose possède cinq carbones.",
         "correct": true,
-        "explanation": "Caractère polyalcool."
+        "explanation": "Le ribose est un aldopentose."
+      },
+      {
+        "content": "Un hexose possède six carbones.",
+        "correct": true,
+        "explanation": "Glucose, galactose et mannose sont des aldohexoses."
+      },
+      {
+        "content": "Le terme aldohexose combine nature du carbonyle et nombre de carbones.",
+        "correct": true,
+        "explanation": "Aldo- indique l'aldéhyde et hex- six carbones."
+      },
+      {
+        "content": "Un triose possède trois carbones.",
+        "correct": true,
+        "explanation": "Le préfixe tri- indique trois carbones."
       }
     ],
-    "explanation": "La distinction alcool primaire/secondaire est utilisée pour lire la structure des oses."
+    "explanation": "Triose, tétrose, pentose et hexose décrivent respectivement 3, 4, 5 et 6 carbones."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Le nom générique d'un ose dépend notamment :",
-    "choices": [
-      {
-        "content": "Du nombre de carbones.",
-        "correct": true,
-        "explanation": "Triose, tétrose, pentose, hexose, heptose."
-      },
-      {
-        "content": "De la famille aldose ou cétose.",
-        "correct": true,
-        "explanation": "Préfixes aldo-/céto-."
-      },
-      {
-        "content": "De la position de la fonction carbonyle.",
-        "correct": true,
-        "explanation": "Elle distingue les deux familles."
-      },
-      {
-        "content": "De la couleur de la solution.",
-        "correct": false,
-        "explanation": "Elle n'intervient pas dans cette nomenclature."
+    "format": "QROC",
+    "question": "Quel triose est achiral ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "dihydroxyacétone",
+        "dihydroxyacetone",
+        "la dihydroxyacétone",
+        "la dihydroxyacetone"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La nomenclature combine famille fonctionnelle et longueur de chaîne."
+    },
+    "explanation": "Le glycéraldéhyde est un aldotriose chiral ; la dihydroxyacétone est un cétotriose achiral."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quelles associations nombre de carbones / nom sont exactes ?",
+    "format": "QRU",
+    "question": "À propos de la numérotation des oses ouverts, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "3 → triose.",
-        "correct": true,
-        "explanation": "Association du tableau."
+        "content": "Le glucose ouvert possède son carbonyle en C6.",
+        "correct": false,
+        "explanation": "Il est en C1."
       },
       {
-        "content": "4 → tétrose.",
+        "content": "La numérotation vise à donner le plus petit indice au carbone carbonylé.",
         "correct": true,
-        "explanation": "Association du tableau."
+        "explanation": "Le carbone le plus oxydé est prioritaire."
       },
       {
-        "content": "5 → pentose.",
-        "correct": true,
-        "explanation": "Association du tableau."
+        "content": "La numérotation commence toujours par l'extrémité la plus éloignée du carbonyle.",
+        "correct": false,
+        "explanation": "Elle commence du côté le plus proche."
       },
       {
-        "content": "6 → hexose.",
-        "correct": true,
-        "explanation": "Association du tableau."
+        "content": "La numérotation des carbones est sans intérêt pour l'épimérie.",
+        "correct": false,
+        "explanation": "L'épimérie est définie par une position carbonée précise."
+      },
+      {
+        "content": "Le fructose ouvert possède sa cétone en C6.",
+        "correct": false,
+        "explanation": "Elle est en C2."
       }
     ],
-    "explanation": "Les préfixes tri-, tétr-, pent- et hex- codent le nombre de carbones."
+    "explanation": "La numérotation des oses part du côté du carbone le plus oxydé."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quelles associations composées sont correctes ?",
+    "question": "Parmi les affirmations suivantes sur les rôles biologiques des glucides, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Aldose à 3 carbones → aldotriose.",
+        "content": "Le ribose et le 2-désoxyribose entrent dans la constitution des acides nucléiques.",
         "correct": true,
-        "explanation": "Association correcte."
+        "explanation": "Ils appartiennent respectivement à l'ARN et à l'ADN."
       },
       {
-        "content": "Cétose à 4 carbones → cétotétrose.",
+        "content": "Le glycogène constitue une réserve glucidique chez l'être humain.",
         "correct": true,
-        "explanation": "Association correcte."
+        "explanation": "Il est stocké surtout dans le foie et les muscles."
       },
       {
-        "content": "Aldose à 6 carbones → aldohexose.",
-        "correct": true,
-        "explanation": "Association correcte."
+        "content": "Le glycogène est la réserve glucidique principale des végétaux.",
+        "correct": false,
+        "explanation": "Chez les végétaux, la réserve majeure est l'amidon."
       },
       {
-        "content": "Cétose à 7 carbones → cétoheptose.",
+        "content": "Les groupes sanguins ABO sont indépendants de tout motif glucidique.",
+        "correct": false,
+        "explanation": "Des déterminants glucidiques participent aux antigènes ABO."
+      },
+      {
+        "content": "Des motifs glucidiques participent à la reconnaissance cellulaire.",
         "correct": true,
-        "explanation": "Association correcte."
+        "explanation": "Les glycoconjugués de surface contribuent au glycocalyx."
       }
     ],
-    "explanation": "La nomenclature combine aldo-/céto- avec le nombre de carbones."
+    "explanation": "Les glucides assurent des fonctions énergétiques, de réserve, structurales et de reconnaissance."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans la classification structurale des oses, le glucose est :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Un aldohexose.",
+        "content": "Un cétose ne contient aucun groupe hydroxyle.",
+        "correct": false,
+        "explanation": "Il en contient plusieurs."
+      },
+      {
+        "content": "Un gramme de protéines fournit environ 4 kcal.",
         "correct": true,
-        "explanation": "Il possède six carbones et une fonction aldéhyde dans sa forme linéaire."
+        "explanation": "La valeur conventionnelle est voisine de celle des glucides."
       },
       {
-        "content": "Un cétopentose.",
-        "correct": false,
-        "explanation": "Mauvaise famille et mauvais nombre de carbones."
+        "content": "Les valeurs 4-4-9 sont des repères nutritionnels usuels.",
+        "correct": true,
+        "explanation": "Elles correspondent respectivement aux glucides, protéines et lipides."
       },
       {
-        "content": "Un aldotriose.",
+        "content": "Les lipides fournissent moins d'énergie par gramme que les glucides.",
         "correct": false,
-        "explanation": "Il possède six carbones."
+        "explanation": "Ils en fournissent environ deux fois plus."
       },
       {
-        "content": "Un cétohexose.",
+        "content": "Un cétose possède nécessairement un aldéhyde terminal en C1.",
         "correct": false,
-        "explanation": "Le fructose est l'exemple de cétohexose."
+        "explanation": "Cela définit un aldose."
+      },
+      {
+        "content": "Un gramme de lipides fournit environ 9 kcal.",
+        "correct": true,
+        "explanation": "Les lipides sont plus énergétiques par unité de masse."
+      },
+      {
+        "content": "La dihydroxyacétone possède un carbone asymétrique.",
+        "correct": false,
+        "explanation": "Elle est achirale."
+      },
+      {
+        "content": "Un gramme de glucides assimilables fournit environ 4 kcal.",
+        "correct": true,
+        "explanation": "C'est la valeur énergétique conventionnelle."
+      },
+      {
+        "content": "Dans les cétoses usuels étudiés, le carbonyle est souvent en C2.",
+        "correct": true,
+        "explanation": "Le fructose en est l'exemple majeur."
+      },
+      {
+        "content": "Le glucose est un cétose.",
+        "correct": false,
+        "explanation": "Le glucose est un aldose."
       }
     ],
-    "explanation": "Le glucose est l'aldohexose de référence du chapitre."
+    "explanation": "Les valeurs conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines et 9 kcal/g pour les lipides. Un cétose possède un carbonyle interne ; le fructose est le cétohexose classique."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans la classification structurale des oses, le fructose est :",
+    "format": "QRM",
+    "question": "À propos de la structure générale d'un ose simple, quelles propositions sont correctes ?",
     "choices": [
       {
-        "content": "Un cétohexose.",
+        "content": "Un ose simple est dépourvu d'oxygène.",
+        "correct": false,
+        "explanation": "Les oses comportent plusieurs atomes d'oxygène."
+      },
+      {
+        "content": "Un ose porte une fonction carbonyle dans sa forme ouverte.",
         "correct": true,
-        "explanation": "Six carbones et fonction cétone."
+        "explanation": "Cette fonction est un aldéhyde ou une cétone."
       },
       {
-        "content": "Un aldohexose.",
+        "content": "La formule générale usuelle est $\\mathrm{C_nH_nO_{2n}}$.",
         "correct": false,
-        "explanation": "C'est le glucose."
+        "explanation": "Le rapport H/O usuel n'est pas celui-ci."
       },
       {
-        "content": "Un cétotriose.",
+        "content": "Un ose ne possède jamais de fonction carbonyle.",
         "correct": false,
-        "explanation": "Le fructose possède six carbones."
+        "explanation": "La forme ouverte comporte un aldéhyde ou une cétone."
       },
       {
-        "content": "Un aldopentose.",
-        "correct": false,
-        "explanation": "Famille et longueur incorrectes."
+        "content": "De nombreux oses simples suivent la formule approchée $\\mathrm{C_nH_{2n}O_n}$.",
+        "correct": true,
+        "explanation": "Cette écriture correspond au motif $(\\mathrm{CH_2O})_n$."
       }
     ],
-    "explanation": "Le fructose est un cétohexose."
+    "explanation": "Un ose est un monosaccharide portant une fonction carbonyle et plusieurs groupes hydroxyle."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
-    "choices": [
-      {
-        "content": "Un ose simple possède au minimum trois carbones.",
-        "correct": true,
-        "explanation": "Les trioses sont les plus petits oses usuels."
-      },
-      {
-        "content": "Un aldose porte un aldéhyde en C1.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Un cétose porte classiquement une cétone en C2.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Un hexose possède six carbones.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Le glucose est un aldohexose.",
-        "correct": true,
-        "explanation": "Application."
-      },
-      {
-        "content": "Le fructose est un aldopentose.",
-        "correct": false,
-        "explanation": "C'est un cétohexose."
-      },
-      {
-        "content": "La numérotation commence au carbone le moins oxydé.",
-        "correct": false,
-        "explanation": "Au plus oxydé."
-      },
-      {
-        "content": "CH2OH correspond à un alcool secondaire.",
-        "correct": false,
-        "explanation": "Alcool primaire."
-      },
-      {
-        "content": "La formule générale est CnHnO2n.",
-        "correct": false,
-        "explanation": "Formule incorrecte."
-      },
-      {
-        "content": "Les oses sont nécessairement ramifiés.",
-        "correct": false,
-        "explanation": "La chaîne est décrite comme non ramifiée."
-      }
-    ],
-    "explanation": "Cette sélection consolide structure, numérotation et nomenclature des oses."
+    "format": "QROC",
+    "question": "Quel numéro porte le carbone aldéhydique d'un aldose sous forme ouverte ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "Dans un aldose, la fonction aldéhyde terminale définit le carbone C1."
   }
 ];

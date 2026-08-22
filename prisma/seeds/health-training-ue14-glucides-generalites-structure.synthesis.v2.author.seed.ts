@@ -1,674 +1,718 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie – Chapitre 1.1 – Synthèse
- */
-
+/** UE14 Biochimie – Chapitre 1.1 – Synthèse */
 export const UE14_BIOCH_CH1_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos d'un ose linéaire de formule $\\mathrm{C_5H_{10}O_5}$ :",
+    "question": "Concernant les rôles biologiques des glucides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il s'agit d'un pentose.",
-        "correct": true,
-        "explanation": "Cinq carbones."
-      },
-      {
-        "content": "Il peut appartenir à la famille des aldoses ou des cétoses.",
-        "correct": true,
-        "explanation": "La formule brute seule ne distingue pas la fonction."
-      },
-      {
-        "content": "Sa formule brute suffit à déterminer sa série D/L.",
+        "content": "Ils sont absents du monde animal.",
         "correct": false,
-        "explanation": "La série dépend de la configuration spatiale."
+        "explanation": "Les animaux contiennent et métabolisent de nombreux glucides."
       },
       {
-        "content": "Il respecte la formule générale $\\mathrm{C_nH_{2n}O_n}$.",
+        "content": "Ils peuvent fournir de l'énergie aux cellules.",
         "correct": true,
-        "explanation": "n=5."
+        "explanation": "Le glucose est un substrat énergétique majeur."
+      },
+      {
+        "content": "Le ribose et le 2-désoxyribose entrent dans la constitution des acides nucléiques.",
+        "correct": true,
+        "explanation": "Ils appartiennent respectivement à l'ARN et à l'ADN."
+      },
+      {
+        "content": "Le glycogène constitue une réserve glucidique chez l'être humain.",
+        "correct": true,
+        "explanation": "Il est stocké surtout dans le foie et les muscles."
+      },
+      {
+        "content": "Des motifs glucidiques participent à la reconnaissance cellulaire.",
+        "correct": true,
+        "explanation": "Les glycoconjugués de surface contribuent au glycocalyx."
       }
     ],
-    "explanation": "La formule brute renseigne sur le nombre de carbones mais pas sur toute la stéréochimie."
+    "explanation": "Les glucides assurent des fonctions énergétiques, de réserve, structurales et de reconnaissance."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Le glycéraldéhyde et la dihydroxyacétone illustrent simultanément :",
-    "choices": [
-      {
-        "content": "Deux trioses.",
-        "correct": true,
-        "explanation": "Trois carbones."
-      },
-      {
-        "content": "Une isomérie de fonction.",
-        "correct": true,
-        "explanation": "Aldéhyde versus cétone."
-      },
-      {
-        "content": "Une différence chiral/achiral.",
-        "correct": true,
-        "explanation": "Glycéraldéhyde chiral, dihydroxyacétone achirale."
-      },
-      {
-        "content": "Une paire d'énantiomères.",
-        "correct": false,
-        "explanation": "Leur connectivité diffère."
-      }
-    ],
-    "explanation": "Ces deux molécules sont un exemple transversal particulièrement utile du chapitre."
+    "format": "QROC",
+    "question": "Combien de kilocalories fournit approximativement 1 g de glucides assimilables ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0.2
+    },
+    "explanation": "Les valeurs conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines et 9 kcal/g pour les lipides."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un aldohexose de série D dans le modèle de filiation :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la structure générale d'un ose simple, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Possède quatre carbones asymétriques en forme linéaire.",
-        "correct": true,
-        "explanation": "n−2=4."
-      },
-      {
-        "content": "Appartient à un ensemble de 16 stéréoisomères.",
-        "correct": true,
-        "explanation": "$2^4$."
-      },
-      {
-        "content": "A son OH du dernier C* à droite en Fischer.",
-        "correct": true,
-        "explanation": "Critère D."
-      },
-      {
-        "content": "Est nécessairement dextrogyre.",
+        "content": "Les oses usuels possèdent obligatoirement une chaîne très ramifiée.",
         "correct": false,
-        "explanation": "D/L et +/− sont indépendants."
+        "explanation": "Les chaînes simples étudiées sont non ramifiées."
+      },
+      {
+        "content": "Un ose ne possède jamais de fonction carbonyle.",
+        "correct": false,
+        "explanation": "La forme ouverte comporte un aldéhyde ou une cétone."
+      },
+      {
+        "content": "Les oses usuels étudiés possèdent une chaîne carbonée non ramifiée avant cyclisation.",
+        "correct": true,
+        "explanation": "La numérotation suit le carbone le plus oxydé."
+      },
+      {
+        "content": "La formule générale usuelle est $\\mathrm{C_nH_nO_{2n}}$.",
+        "correct": false,
+        "explanation": "Le rapport H/O usuel n'est pas celui-ci."
+      },
+      {
+        "content": "Un ose simple est dépourvu d'oxygène.",
+        "correct": false,
+        "explanation": "Les oses comportent plusieurs atomes d'oxygène."
       }
     ],
-    "explanation": "Cette question croise filiation et lecture de Fischer."
+    "explanation": "Un ose est un monosaccharide portant une fonction carbonyle et plusieurs groupes hydroxyle."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "D-glucose, D-galactose et D-mannose :",
+    "question": "Concernant les aldoses, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sont des aldohexoses.",
+        "content": "Le glycéraldéhyde est l'aldotriose de référence.",
         "correct": true,
-        "explanation": "Même famille générale."
+        "explanation": "Il contient trois carbones."
       },
       {
-        "content": "D-galactose est épimère en C4 du D-glucose.",
+        "content": "Un aldose possède une fonction aldéhyde en C1 dans sa forme ouverte.",
         "correct": true,
-        "explanation": "Le D-galactose ne diffère du D-glucose que par la configuration de C4."
+        "explanation": "Le carbone carbonylé terminal est numéroté C1."
       },
       {
-        "content": "D-mannose est épimère en C2 du D-glucose.",
-        "correct": true,
-        "explanation": "Le D-mannose ne diffère du D-glucose que par la configuration de C2."
-      },
-      {
-        "content": "Les trois sont tous énantiomères entre eux.",
+        "content": "Un aldose ne peut pas se cycliser.",
         "correct": false,
-        "explanation": "Ils sont de série D et diffèrent localement."
+        "explanation": "De nombreux aldoses sont majoritairement cycliques en solution."
+      },
+      {
+        "content": "Le fructose est un aldose.",
+        "correct": false,
+        "explanation": "Le fructose est un cétose."
+      },
+      {
+        "content": "Le glucose est un aldohexose.",
+        "correct": true,
+        "explanation": "Il possède six carbones et une fonction aldéhyde dans sa forme ouverte."
       }
     ],
-    "explanation": "Les relations d'épimérie relient directement filiation et isomérie."
+    "explanation": "Dans un aldose, la fonction aldéhyde terminale définit le carbone C1."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la cyclisation prédominante du D-glucose en solution aqueuse :",
+    "format": "QRP",
+    "question": "À propos de les cétoses, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Donne un pyranose.",
+        "content": "Le fructose est un cétohexose.",
         "correct": true,
-        "explanation": "Les formes glucopyraniques prédominent en solution aqueuse."
+        "explanation": "Il possède six carbones et une cétone dans sa forme ouverte."
       },
       {
-        "content": "Relie C1 et C5.",
-        "correct": true,
-        "explanation": "Pont de cyclisation."
-      },
-      {
-        "content": "Crée un carbone anomérique en C1.",
-        "correct": true,
-        "explanation": "Nouveau C*."
-      },
-      {
-        "content": "Produit uniquement un anomère α.",
+        "content": "Un cétose ne contient aucun groupe hydroxyle.",
         "correct": false,
-        "explanation": "α et β sont possibles."
+        "explanation": "Il en contient plusieurs."
+      },
+      {
+        "content": "La dihydroxyacétone possède un carbone asymétrique.",
+        "correct": false,
+        "explanation": "Elle est achirale."
+      },
+      {
+        "content": "Dans les cétoses usuels étudiés, le carbonyle est souvent en C2.",
+        "correct": true,
+        "explanation": "Le fructose en est l'exemple majeur."
+      },
+      {
+        "content": "Un cétose possède nécessairement un aldéhyde terminal en C1.",
+        "correct": false,
+        "explanation": "Cela définit un aldose."
       }
     ],
-    "explanation": "La cyclisation transforme le carbonyle linéaire en centre anomérique."
+    "explanation": "Un cétose possède un carbonyle interne ; le fructose est le cétohexose classique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des anomères du glucose :",
+    "question": "Parmi les affirmations suivantes sur la nomenclature selon le nombre de carbones, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "α et β diffèrent au C1.",
+        "content": "Un pentose possède cinq carbones.",
         "correct": true,
-        "explanation": "Carbone anomérique."
+        "explanation": "Le ribose est un aldopentose."
       },
       {
-        "content": "Ils sont des diastéréoisomères.",
+        "content": "Un hexose possède six carbones.",
         "correct": true,
-        "explanation": "Ils diffèrent sur un centre stéréogène sans être images miroir l'un de l'autre."
+        "explanation": "Glucose, galactose et mannose sont des aldohexoses."
       },
       {
-        "content": "Ils peuvent être considérés comme épimères.",
-        "correct": true,
-        "explanation": "Différence sur un seul C*."
-      },
-      {
-        "content": "Ils ont exactement le même pouvoir rotatoire.",
+        "content": "Un pentose possède six carbones.",
         "correct": false,
-        "explanation": "Les anomères α et β du glucose ont des pouvoirs rotatoires spécifiques différents."
+        "explanation": "Un pentose en possède cinq."
+      },
+      {
+        "content": "Un triose possède trois carbones.",
+        "correct": true,
+        "explanation": "Le préfixe tri- indique trois carbones."
+      },
+      {
+        "content": "Le terme aldohexose combine nature du carbonyle et nombre de carbones.",
+        "correct": true,
+        "explanation": "Aldo- indique l'aldéhyde et hex- six carbones."
       }
     ],
-    "explanation": "L'anomérie est une relation stéréochimique créée par la cyclisation."
+    "explanation": "Triose, tétrose, pentose et hexose décrivent respectivement 3, 4, 5 et 6 carbones."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour le D-glucose à l'équilibre en solution aqueuse proche de pH 7 :",
-    "choices": [
-      {
-        "content": "Les formes cycliques sont très majoritaires.",
-        "correct": true,
-        "explanation": "Plus de 99 % des molécules de D-glucose sont sous forme cyclique."
-      },
-      {
-        "content": "La forme β est environ deux fois plus abondante que la forme α.",
-        "correct": true,
-        "explanation": "Le β-D-glucopyranose représente environ deux tiers du mélange, contre environ un tiers pour la forme α."
-      },
-      {
-        "content": "La forme linéaire est très minoritaire.",
-        "correct": true,
-        "explanation": "La forme ouverte représente une fraction très inférieure à 1 %."
-      },
-      {
-        "content": "99 % des molécules sont linéaires.",
-        "correct": false,
-        "explanation": "À l'équilibre dans l'eau, le D-glucose est presque entièrement cyclique."
+    "format": "QROC",
+    "question": "Quel triose est achiral ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "dihydroxyacétone",
+        "dihydroxyacetone",
+        "la dihydroxyacétone",
+        "la dihydroxyacetone"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "À l'équilibre en solution aqueuse, les formes cycliques α et β du D-glucose sont très majoritaires et la forme linéaire est transitoire."
+    },
+    "explanation": "Le glycéraldéhyde est un aldotriose chiral ; la dihydroxyacétone est un cétotriose achiral."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quelles propositions sur le pouvoir rotatoire sont exactes ?",
+    "format": "QRU",
+    "question": "À propos de la numérotation des oses ouverts, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Dextrogyre correspond à (+).",
+        "content": "La numérotation vise à donner le plus petit indice au carbone carbonylé.",
         "correct": true,
-        "explanation": "Déviation vers la droite."
+        "explanation": "Le carbone le plus oxydé est prioritaire."
       },
       {
-        "content": "Lévogyre correspond à (−).",
-        "correct": true,
-        "explanation": "Déviation vers la gauche."
+        "content": "La numérotation commence toujours par l'extrémité la plus éloignée du carbonyle.",
+        "correct": false,
+        "explanation": "Elle commence du côté le plus proche."
       },
       {
-        "content": "D/L et +/− sont indépendants.",
-        "correct": true,
-        "explanation": "Avertissement majeur."
+        "content": "Le glucose ouvert possède son carbonyle en C6.",
+        "correct": false,
+        "explanation": "Il est en C1."
       },
       {
-        "content": "Le fructose naturel est l'exemple D(−).",
-        "correct": true,
-        "explanation": "Le D-fructose naturel est lévogyre."
+        "content": "Le fructose ouvert possède sa cétone en C6.",
+        "correct": false,
+        "explanation": "Elle est en C2."
+      },
+      {
+        "content": "La numérotation des carbones est sans intérêt pour l'épimérie.",
+        "correct": false,
+        "explanation": "L'épimérie est définie par une position carbonée précise."
       }
     ],
-    "explanation": "Série structurale et signe optique doivent rester distincts."
+    "explanation": "La numérotation des oses part du côté du carbone le plus oxydé."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la galactosémie par déficit en UDP-galactose 4-épimérase, dite de type III :",
+    "question": "Parmi les affirmations suivantes sur un carbone asymétrique, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Un déficit en UDP-galactose 4-épimérase est impliqué.",
-        "correct": true,
-        "explanation": "La galactosémie de type III est liée à un déficit de l'enzyme GALE."
-      },
-      {
-        "content": "L'interconversion de l'UDP-galactose et de l'UDP-glucose est perturbée.",
-        "correct": true,
-        "explanation": "GALE catalyse cette interconversion dans la voie de Leloir."
-      },
-      {
-        "content": "L'exemple illustre la stéréospécificité enzymatique.",
-        "correct": true,
-        "explanation": "Lien pédagogique."
-      },
-      {
-        "content": "Le problème est une absence de fonction carbonyle dans tous les oses.",
+        "content": "Tout carbone portant un OH est asymétrique.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Il faut quatre substituants différents."
+      },
+      {
+        "content": "On note souvent un tel carbone $\\mathrm{C^*}$.",
+        "correct": true,
+        "explanation": "Cette notation signale un centre de chiralité."
+      },
+      {
+        "content": "Un carbone sp2 trigonal plan n'est pas un carbone asymétrique tétraédrique classique.",
+        "correct": true,
+        "explanation": "Il ne porte pas quatre substituants tétraédriques."
+      },
+      {
+        "content": "Un carbone asymétrique peut rendre une molécule chirale.",
+        "correct": true,
+        "explanation": "La symétrie globale de la molécule doit aussi être considérée."
+      },
+      {
+        "content": "Un carbone asymétrique tétraédrique porte quatre substituants différents.",
+        "correct": true,
+        "explanation": "Cette condition en fait un centre stéréogène."
       }
     ],
-    "explanation": "La galactosémie de type III illustre les conséquences métaboliques d'un déficit touchant une épimérase stéréospécifique."
+    "explanation": "Un carbone asymétrique est un centre tétraédrique lié à quatre substituants différents."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Le glucose est un aldohexose.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Le fructose est un cétohexose.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "D-glucose et L-glucose sont énantiomères.",
-        "correct": true,
-        "explanation": "Relation miroir."
-      },
-      {
-        "content": "Le glucopyranose se forme par cyclisation C1-C5.",
-        "correct": true,
-        "explanation": "Cyclisation."
-      },
-      {
-        "content": "D/L est indépendant de +/−.",
-        "correct": true,
-        "explanation": "Pouvoir rotatoire."
-      },
-      {
-        "content": "Un 2-cétose porte son carbonyle en C1.",
+        "content": "Le carbone carbonylé sp2 du glucose ouvert est un centre asymétrique.",
         "correct": false,
-        "explanation": "C2."
+        "explanation": "Il est plan."
       },
       {
-        "content": "Le D-galactose est épimère en C2 du D-glucose.",
+        "content": "Le nombre maximal de stéréoisomères est toujours égal au nombre de carbones.",
         "correct": false,
-        "explanation": "C4."
+        "explanation": "Il dépend des centres stéréogènes."
       },
       {
-        "content": "Une forme furanique possède six sommets.",
-        "correct": false,
-        "explanation": "Cinq."
+        "content": "Un aldohexose ouvert possède quatre centres stéréogènes usuels, C2 à C5.",
+        "correct": true,
+        "explanation": "C1 est carbonylé et C6 est CH2OH."
       },
       {
-        "content": "Un ose réducteur reste exclusivement sous une forme cyclique unique en milieu basique.",
+        "content": "Le carbone le plus oxydé est obligatoirement placé en bas.",
         "correct": false,
-        "explanation": "L'ouverture du cycle et des interconversions via un intermédiaire énediol peuvent se produire."
+        "explanation": "La convention usuelle le place en haut."
       },
       {
-        "content": "La dihydroxyacétone est chirale.",
+        "content": "Une projection de Fischer ne permet pas de comparer deux oses.",
         "correct": false,
-        "explanation": "Achirale."
+        "explanation": "Elle est précisément utilisée pour cela."
+      },
+      {
+        "content": "Un cétohexose usuel comme le fructose ouvert possède trois centres stéréogènes, C3 à C5.",
+        "correct": true,
+        "explanation": "C2 est carbonylé."
+      },
+      {
+        "content": "Avec n centres stéréogènes indépendants et sans symétrie réductrice, le maximum est $2^n$.",
+        "correct": true,
+        "explanation": "Chaque centre peut prendre deux configurations."
+      },
+      {
+        "content": "Les liaisons horizontales sont dirigées vers l'observateur.",
+        "correct": true,
+        "explanation": "C'est la convention géométrique de Fischer."
+      },
+      {
+        "content": "Un aldohexose ne peut avoir que deux stéréoisomères.",
+        "correct": false,
+        "explanation": "Quatre centres conduisent jusqu'à 16 configurations."
+      },
+      {
+        "content": "Les liaisons verticales sont dirigées vers l'arrière.",
+        "correct": true,
+        "explanation": "Elles s'éloignent de l'observateur."
       }
     ],
-    "explanation": "Cette synthèse consolide les cinq axes structuraux du chapitre."
+    "explanation": "La projection de Fischer encode la stéréochimie avec chaîne verticale et liaisons horizontales vers l'observateur. Le nombre maximal de configurations est $2^n$ pour n centres stéréogènes indépendants."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un ose linéaire possède six carbones, une fonction cétone en C2 et trois carbones asymétriques. Quelles conclusions sont cohérentes ?",
+    "question": "Concernant les rôles biologiques des glucides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il s'agit d'un cétohexose.",
-        "correct": true,
-        "explanation": "Six carbones + cétone."
-      },
-      {
-        "content": "Le modèle de filiation prévoit huit stéréoisomères.",
-        "correct": true,
-        "explanation": "$2^3$."
-      },
-      {
-        "content": "Le fructose appartient à cette famille.",
-        "correct": true,
-        "explanation": "Exemple majeur."
-      },
-      {
-        "content": "Il s'agit nécessairement du glucose.",
+        "content": "Les groupes sanguins ABO sont indépendants de tout motif glucidique.",
         "correct": false,
-        "explanation": "Le glucose est un aldohexose."
+        "explanation": "Des déterminants glucidiques participent aux antigènes ABO."
+      },
+      {
+        "content": "Le glycogène constitue une réserve glucidique chez l'être humain.",
+        "correct": true,
+        "explanation": "Il est stocké surtout dans le foie et les muscles."
+      },
+      {
+        "content": "Ils peuvent fournir de l'énergie aux cellules.",
+        "correct": true,
+        "explanation": "Le glucose est un substrat énergétique majeur."
+      },
+      {
+        "content": "Des motifs glucidiques participent à la reconnaissance cellulaire.",
+        "correct": true,
+        "explanation": "Les glycoconjugués de surface contribuent au glycocalyx."
+      },
+      {
+        "content": "Le ribose et le 2-désoxyribose entrent dans la constitution des acides nucléiques.",
+        "correct": true,
+        "explanation": "Ils appartiennent respectivement à l'ARN et à l'ADN."
       }
     ],
-    "explanation": "Structure, nomenclature et filiation permettent d'identifier la famille."
+    "explanation": "Les glucides assurent des fonctions énergétiques, de réserve, structurales et de reconnaissance."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Une projection de Fischer d'un hexose a le OH du dernier C* à gauche. Quelles propositions sont justifiées ?",
-    "choices": [
-      {
-        "content": "L'ose appartient à la série L.",
-        "correct": true,
-        "explanation": "Dans une projection de Fischer conventionnelle, OH à gauche sur le dernier C* définit la série L."
-      },
-      {
-        "content": "Le signe de son pouvoir rotatoire reste indéterminé par cette seule information.",
-        "correct": true,
-        "explanation": "Indépendance."
-      },
-      {
-        "content": "Il est nécessairement lévogyre.",
-        "correct": false,
-        "explanation": "L ne signifie pas −."
-      },
-      {
-        "content": "La lecture se fait sur le dernier carbone asymétrique.",
-        "correct": true,
-        "explanation": "Règle."
-      }
-    ],
-    "explanation": "La série D/L est une information de configuration, non une mesure optique."
+    "format": "QROC",
+    "question": "Combien de kilocalories fournit approximativement 1 g de glucides assimilables ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0.2
+    },
+    "explanation": "Les valeurs conventionnelles sont d'environ 4 kcal/g pour les glucides et les protéines et 9 kcal/g pour les lipides."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "On compare D-glucose, D-galactose et D-mannose. Quelle analyse est correcte ?",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la structure générale d'un ose simple, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Glucose/galactose : épimères en C4.",
-        "correct": true,
-        "explanation": "Exemple."
+        "content": "Un ose ne possède jamais de fonction carbonyle.",
+        "correct": false,
+        "explanation": "La forme ouverte comporte un aldéhyde ou une cétone."
       },
       {
-        "content": "Glucose/mannose : épimères en C2.",
-        "correct": true,
-        "explanation": "Exemple."
+        "content": "La formule générale usuelle est $\\mathrm{C_nH_nO_{2n}}$.",
+        "correct": false,
+        "explanation": "Le rapport H/O usuel n'est pas celui-ci."
       },
       {
-        "content": "Galactose/mannose diffèrent sur plus d'un C*.",
+        "content": "Un ose porte une fonction carbonyle dans sa forme ouverte.",
         "correct": true,
-        "explanation": "Ils ne sont donc pas épimères l'un de l'autre."
+        "explanation": "Cette fonction est un aldéhyde ou une cétone."
       },
       {
-        "content": "Les trois ont la même formule brute.",
+        "content": "Les oses usuels possèdent obligatoirement une chaîne très ramifiée.",
+        "correct": false,
+        "explanation": "Les chaînes simples étudiées sont non ramifiées."
+      },
+      {
+        "content": "De nombreux oses simples suivent la formule approchée $\\mathrm{C_nH_{2n}O_n}$.",
         "correct": true,
-        "explanation": "Stéréoisomères de la même famille générale."
+        "explanation": "Cette écriture correspond au motif $(\\mathrm{CH_2O})_n$."
       }
     ],
-    "explanation": "L'analyse carbone par carbone distingue correctement les relations."
+    "explanation": "Un ose est un monosaccharide portant une fonction carbonyle et plusieurs groupes hydroxyle.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un D-glucose passe de la forme linéaire à la forme pyranique. Quelles conséquences structurales sont attendues ?",
+    "question": "Concernant les aldoses, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "C1 devient asymétrique.",
-        "correct": true,
-        "explanation": "Carbone anomérique."
-      },
-      {
-        "content": "Deux anomères peuvent apparaître.",
-        "correct": true,
-        "explanation": "α et β."
-      },
-      {
-        "content": "La molécule devient un hétérocycle à six sommets.",
-        "correct": true,
-        "explanation": "Pyranose."
-      },
-      {
-        "content": "La série D devient automatiquement L.",
+        "content": "Un aldose possède nécessairement une cétone en C2.",
         "correct": false,
-        "explanation": "La cyclisation ne change pas ainsi la série."
+        "explanation": "Cela décrit un 2-cétose usuel."
+      },
+      {
+        "content": "Le glucose est un aldohexose.",
+        "correct": true,
+        "explanation": "Il possède six carbones et une fonction aldéhyde dans sa forme ouverte."
+      },
+      {
+        "content": "Le fructose est un aldose.",
+        "correct": false,
+        "explanation": "Le fructose est un cétose."
+      },
+      {
+        "content": "Un aldose possède une fonction aldéhyde en C1 dans sa forme ouverte.",
+        "correct": true,
+        "explanation": "Le carbone carbonylé terminal est numéroté C1."
+      },
+      {
+        "content": "Le carbone aldéhydique d'un aldose est toujours C6.",
+        "correct": false,
+        "explanation": "Il est C1."
       }
     ],
-    "explanation": "La cyclisation ajoute une information stéréochimique sans inverser la série globale."
+    "explanation": "Dans un aldose, la fonction aldéhyde terminale définit le carbone C1."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un D-fructose cyclise sous sa forme furanique la plus fréquente. Quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "À propos de les cétoses, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La fermeture implique C2 et C5.",
-        "correct": true,
-        "explanation": "Bilan."
-      },
-      {
-        "content": "Le carbone anomérique est C2.",
-        "correct": true,
-        "explanation": "Ancien carbone cétonique."
-      },
-      {
-        "content": "Le cycle comporte cinq sommets.",
-        "correct": true,
-        "explanation": "Furanose."
-      },
-      {
-        "content": "Cette cyclisation est C1-C5.",
+        "content": "Le glucose est un cétose.",
         "correct": false,
-        "explanation": "C1-C5 correspond au glucose pyranique."
+        "explanation": "Le glucose est un aldose."
+      },
+      {
+        "content": "Un cétose possède nécessairement un aldéhyde terminal en C1.",
+        "correct": false,
+        "explanation": "Cela définit un aldose."
+      },
+      {
+        "content": "Un cétose ne contient aucun groupe hydroxyle.",
+        "correct": false,
+        "explanation": "Il en contient plusieurs."
+      },
+      {
+        "content": "La dihydroxyacétone possède un carbone asymétrique.",
+        "correct": false,
+        "explanation": "Elle est achirale."
+      },
+      {
+        "content": "Un cétose porte une fonction cétone dans sa forme ouverte.",
+        "correct": true,
+        "explanation": "Le carbonyle est interne."
       }
     ],
-    "explanation": "Le fructose illustre la différence de cyclisation entre aldoses et cétoses."
+    "explanation": "Un cétose possède un carbonyle interne ; le fructose est le cétohexose classique."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une solution contient uniquement α-D-glucose au départ puis atteint l'équilibre en solution. Pourquoi la rotation mesurée peut-elle évoluer ?",
+    "question": "Parmi les affirmations suivantes sur la nomenclature selon le nombre de carbones, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "α et β ont des pouvoirs rotatoires différents.",
+        "content": "Un pentose possède cinq carbones.",
         "correct": true,
-        "explanation": "Les valeurs usuelles sont proches de +112° pour α et +19° pour β."
+        "explanation": "Le ribose est un aldopentose."
       },
       {
-        "content": "Les anomères s'interconvertissent via la forme linéaire.",
-        "correct": true,
-        "explanation": "L'ouverture du cycle donne une forme linéaire qui peut se refermer sous l'un ou l'autre anomère."
-      },
-      {
-        "content": "Les proportions changent au cours du temps.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "La molécule devient obligatoirement L-glucose.",
+        "content": "Un hexose possède trois carbones.",
         "correct": false,
-        "explanation": "La série D est conservée."
+        "explanation": "Un hexose en possède six."
+      },
+      {
+        "content": "Un triose possède trois carbones.",
+        "correct": true,
+        "explanation": "Le préfixe tri- indique trois carbones."
+      },
+      {
+        "content": "Un cétohexose est nécessairement un aldéhyde.",
+        "correct": false,
+        "explanation": "Céto- indique une cétone."
+      },
+      {
+        "content": "Le terme aldohexose combine nature du carbonyle et nombre de carbones.",
+        "correct": true,
+        "explanation": "Aldo- indique l'aldéhyde et hex- six carbones."
       }
     ],
-    "explanation": "La mutarotation résulte de l'évolution de la composition anomérique."
+    "explanation": "Triose, tétrose, pentose et hexose décrivent respectivement 3, 4, 5 et 6 carbones."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Un mélange équimolaire de D-glucose (+52,5°) et L-glucose (−52,5°) a quelle rotation résultante, en degrés ?",
+    "question": "Un mélange contient 70 % d'un énantiomère de rotation +50° et 30 % de son énantiomère de rotation -50°. Quelle rotation moyenne obtient-on en degrés ?",
     "answer": {
       "type": "number",
-      "value": 0,
-      "tolerance": 0
+      "value": 20,
+      "tolerance": 0.1
     },
-    "explanation": "Les rotations opposées et égales s'annulent."
+    "explanation": "La moyenne vaut $0{,}70\\times50+0{,}30\\times(-50)=20^\\circ$."
   },
   {
     "order": 118,
-    "difficulty": "HARD",
-    "format": "QROC",
-    "question": "On admet qu'à l'équilibre en solution aqueuse, environ deux tiers des molécules cycliques de D-glucose sont sous forme β. Combien de molécules β attend-on parmi 600 molécules cycliques ?",
-    "answer": {
-      "type": "number",
-      "value": 400,
-      "tolerance": 0
-    },
-    "explanation": "Deux tiers de 600 donnent 400."
-  },
-  {
-    "order": 119,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Une molécule D(−) est observée. Quelle conclusion est correcte ?",
-    "choices": [
-      {
-        "content": "Elle appartient à la série D.",
-        "correct": true,
-        "explanation": "Information structurale."
-      },
-      {
-        "content": "Elle est lévogyre.",
-        "correct": true,
-        "explanation": "Signe négatif."
-      },
-      {
-        "content": "Cette association est possible.",
-        "correct": true,
-        "explanation": "Le D-fructose naturel est lévogyre : il constitue un exemple D(−)."
-      },
-      {
-        "content": "Elle viole la règle D = +.",
-        "correct": false,
-        "explanation": "Il n'existe pas de règle D = + : D/L et le signe du pouvoir rotatoire sont indépendants."
-      }
-    ],
-    "explanation": "L'existence d'un composé D(−) démontre que la série D/L ne prédit pas le signe du pouvoir rotatoire."
-  },
-  {
-    "order": 120,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des conformations des cycles :",
-    "choices": [
-      {
-        "content": "Le pyranose peut adopter une chaise.",
-        "correct": true,
-        "explanation": "Une conformation chaise limite la tension du cycle pyranique."
-      },
-      {
-        "content": "Une conformation chaise est généralement plus stable qu'une conformation bateau pour un même pyranose.",
-        "correct": true,
-        "explanation": "La chaise limite les interactions défavorables et la tension du cycle."
-      },
-      {
-        "content": "Le furanose peut adopter une enveloppe.",
-        "correct": true,
-        "explanation": "Le plissement d'un cycle furanique peut produire une conformation enveloppe."
-      },
-      {
-        "content": "Ces conformations rappellent que les cycles ne sont pas strictement plans.",
-        "correct": true,
-        "explanation": "Le plissement du cycle réduit les contraintes géométriques ; ces conformations sont donc tridimensionnelles."
-      }
-    ],
-    "explanation": "La représentation cyclique doit rester tridimensionnelle."
-  },
-  {
-    "order": 121,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Quelle démarche permet de classer complètement un ose simple à partir d'une formule linéaire de Fischer ?",
-    "choices": [
-      {
-        "content": "Compter les carbones.",
-        "correct": true,
-        "explanation": "Triose à heptose."
-      },
-      {
-        "content": "Identifier aldéhyde ou cétone.",
-        "correct": true,
-        "explanation": "Aldose/cétose."
-      },
-      {
-        "content": "Repérer le dernier carbone asymétrique pour D/L.",
-        "correct": true,
-        "explanation": "Série."
-      },
-      {
-        "content": "Comparer les configurations des C* pour identifier éventuellement épimères ou énantiomères.",
-        "correct": true,
-        "explanation": "Stéréochimie."
-      }
-    ],
-    "explanation": "La classification combine constitution, longueur de chaîne et configuration."
-  },
-  {
-    "order": 122,
     "difficulty": "HARD",
     "format": "QRPL",
     "requiredSelectionCount": 5,
     "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Un aldohexose linéaire non substitué possède quatre C*.",
-        "correct": true,
-        "explanation": "n−2."
-      },
-      {
-        "content": "Un 2-cétohexose linéaire non substitué possède huit stéréoisomères.",
-        "correct": true,
-        "explanation": "$2^3$."
-      },
-      {
-        "content": "Les anomères α et β sont des diastéréoisomères.",
-        "correct": true,
-        "explanation": "Ils diffèrent au carbone anomérique sans être images miroir l'un de l'autre."
-      },
-      {
-        "content": "À l'équilibre dans l'eau, les formes cycliques du D-glucose dominent largement.",
-        "correct": true,
-        "explanation": "99 %."
-      },
-      {
-        "content": "L'α-D-glucose a un pouvoir rotatoire spécifique plus élevé que le β-D-glucose.",
-        "correct": true,
-        "explanation": "Les valeurs usuelles sont proches de +112° pour α et +19° pour β."
-      },
-      {
-        "content": "D-glucose et L-glucose sont épimères.",
+        "content": "La numérotation des carbones est sans intérêt pour l'épimérie.",
         "correct": false,
-        "explanation": "Énantiomères."
+        "explanation": "L'épimérie est définie par une position carbonée précise."
       },
       {
-        "content": "Le glucose furanique C1-C4 est la forme la plus fréquente.",
-        "correct": false,
-        "explanation": "Peu fréquente."
+        "content": "Le D-glucose appartient à la série D.",
+        "correct": true,
+        "explanation": "Son OH de référence est à droite en Fischer."
       },
       {
-        "content": "Le OH à gauche sur le dernier C* définit la série D.",
-        "correct": false,
-        "explanation": "Série L."
+        "content": "Dans un aldose, le carbone carbonylé est C1.",
+        "correct": true,
+        "explanation": "La fonction aldéhyde est terminale."
       },
       {
-        "content": "Une dihydroxyacétone possède un C*.",
+        "content": "Le fructose ouvert possède sa cétone en C6.",
         "correct": false,
-        "explanation": "Aucun."
+        "explanation": "Elle est en C2."
       },
       {
-        "content": "D/L permet de connaître automatiquement le signe optique.",
+        "content": "La position des hydroxyles est définie relativement à cette numérotation.",
+        "correct": true,
+        "explanation": "Elle sert à comparer les stéréoisomères."
+      },
+      {
+        "content": "D signifie obligatoirement que le pouvoir rotatoire est positif.",
         "correct": false,
-        "explanation": "Indépendance."
+        "explanation": "D/L et +/− sont indépendants."
+      },
+      {
+        "content": "La numérotation commence toujours par l'extrémité la plus éloignée du carbonyle.",
+        "correct": false,
+        "explanation": "Elle commence du côté le plus proche."
+      },
+      {
+        "content": "La numérotation vise à donner le plus petit indice au carbone carbonylé.",
+        "correct": true,
+        "explanation": "Le carbone le plus oxydé est prioritaire."
+      },
+      {
+        "content": "La série D est déterminée par la position du premier OH en haut de la chaîne.",
+        "correct": false,
+        "explanation": "On examine le carbone asymétrique le plus éloigné du carbonyle."
+      },
+      {
+        "content": "En projection de Fischer, l'OH de ce carbone est à droite pour un D-ose.",
+        "correct": true,
+        "explanation": "C'est la convention relative au D-glycéraldéhyde."
       }
     ],
-    "explanation": "Le MASTER final croise filiation, stéréochimie, cyclisation et activité optique."
+    "explanation": "La numérotation des oses part du côté du carbone le plus oxydé. La série D/L est une configuration relative et ne prédit pas le signe du pouvoir rotatoire."
+  },
+  {
+    "order": 119,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur un carbone asymétrique, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Tout carbone portant un OH est asymétrique.",
+        "correct": false,
+        "explanation": "Il faut quatre substituants différents."
+      },
+      {
+        "content": "Un carbone sp2 trigonal plan n'est pas un carbone asymétrique tétraédrique classique.",
+        "correct": true,
+        "explanation": "Il ne porte pas quatre substituants tétraédriques."
+      },
+      {
+        "content": "Un carbone asymétrique peut rendre une molécule chirale.",
+        "correct": true,
+        "explanation": "La symétrie globale de la molécule doit aussi être considérée."
+      },
+      {
+        "content": "Un carbone d'un groupe carbonyle est un centre chiral tétraédrique.",
+        "correct": false,
+        "explanation": "Il est sp2 et plan."
+      },
+      {
+        "content": "Un carbone asymétrique tétraédrique porte quatre substituants différents.",
+        "correct": true,
+        "explanation": "Cette condition en fait un centre stéréogène."
+      }
+    ],
+    "explanation": "Un carbone asymétrique est un centre tétraédrique lié à quatre substituants différents."
+  },
+  {
+    "order": 120,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Comment s'appelle la représentation plane à chaîne verticale utilisée classiquement pour comparer les oses ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "projection de Fischer",
+        "Fischer",
+        "représentation de Fischer",
+        "representation de Fischer"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La projection de Fischer encode la stéréochimie avec chaîne verticale et liaisons horizontales vers l'observateur."
+  },
+  {
+    "order": 121,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "question": "À propos de la série D d'un ose, sélectionnez exactement les deux affirmations correctes.",
+    "choices": [
+      {
+        "content": "Dans un D-ose, l'OH de référence est à gauche en Fischer.",
+        "correct": false,
+        "explanation": "À gauche correspond à la série L."
+      },
+      {
+        "content": "Elle est déterminée par la configuration du carbone asymétrique le plus éloigné du carbonyle.",
+        "correct": true,
+        "explanation": "C'est le carbone de référence de la filiation."
+      },
+      {
+        "content": "La série D est déterminée par la position du premier OH en haut de la chaîne.",
+        "correct": false,
+        "explanation": "On examine le carbone asymétrique le plus éloigné du carbonyle."
+      },
+      {
+        "content": "La série D dépend uniquement du nombre total de carbones.",
+        "correct": false,
+        "explanation": "Elle dépend de la configuration."
+      },
+      {
+        "content": "La lettre D ne signifie pas nécessairement dextrogyre.",
+        "correct": true,
+        "explanation": "Le signe du pouvoir rotatoire est une propriété expérimentale distincte."
+      }
+    ],
+    "explanation": "La série D/L est une configuration relative et ne prédit pas le signe du pouvoir rotatoire.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 122,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur la série L d'un ose, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "D et L sont déterminés par la masse moléculaire.",
+        "correct": false,
+        "explanation": "Ils dépendent de la configuration."
+      },
+      {
+        "content": "Le L-fucose est un exemple biologique de sucre de série L chez l'être humain.",
+        "correct": true,
+        "explanation": "Il intervient dans des glycoconjugués."
+      },
+      {
+        "content": "La lettre L ne signifie pas nécessairement lévogyre.",
+        "correct": true,
+        "explanation": "Le signe optique est indépendant de D/L."
+      },
+      {
+        "content": "En Fischer, l'OH de référence d'un L-ose est à droite.",
+        "correct": false,
+        "explanation": "À droite correspond à D."
+      },
+      {
+        "content": "En projection de Fischer, l'OH du carbone asymétrique de référence est à gauche pour un L-ose.",
+        "correct": true,
+        "explanation": "C'est la convention relative au L-glycéraldéhyde."
+      }
+    ],
+    "explanation": "Les séries D et L sont définies par configuration relative ; quelques dérivés de série L ont un rôle biologique humain."
   }
 ];

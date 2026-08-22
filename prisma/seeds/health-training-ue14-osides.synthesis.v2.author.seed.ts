@@ -1,678 +1,733 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Chapitre 1.3 — Les osides — Synthèse
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie – Chapitre 1.3 – Synthèse */
 export const UE14_BIOCH_CH3_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Associer les diholosides à leurs constituants :",
+    "question": "Concernant les osides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Lactose → galactose + glucose.",
-        "correct": true,
-        "explanation": "L’hydrolyse du lactose libère un galactose et un glucose."
-      },
-      {
-        "content": "Saccharose → glucose + fructose.",
-        "correct": true,
-        "explanation": "L’hydrolyse du saccharose libère un glucose et un fructose."
-      },
-      {
-        "content": "Maltose → glucose + glucose.",
-        "correct": true,
-        "explanation": "Le maltose est constitué de deux résidus de glucose."
-      },
-      {
-        "content": "Saccharose → galactose + mannose.",
+        "content": "Un oside contient toujours exactement deux oses.",
         "correct": false,
-        "explanation": "Le saccharose associe glucose et fructose, sans galactose ni mannose."
+        "explanation": "Les polyosides en contiennent beaucoup."
+      },
+      {
+        "content": "Les osides peuvent être constitués de deux à de très nombreux résidus.",
+        "correct": true,
+        "explanation": "Diholosides et polyosides appartiennent à cette famille."
+      },
+      {
+        "content": "Un hétéroside est dépourvu de tout sucre.",
+        "correct": false,
+        "explanation": "Il possède au moins une partie glucidique."
+      },
+      {
+        "content": "Un oside comporte au moins une liaison glycosidique impliquant un carbone anomérique.",
+        "correct": true,
+        "explanation": "Cette liaison relie un ose à un autre groupe."
+      },
+      {
+        "content": "Un holoside ne libère que des oses ou dérivés d'oses après hydrolyse complète.",
+        "correct": true,
+        "explanation": "Il est entièrement glucidique."
       }
     ],
-    "explanation": "Les trois diholosides se distinguent par leur composition."
+    "explanation": "Les osides sont définis par des liaisons glycosidiques ; holosides et hétérosides se distinguent par la nature des produits d'hydrolyse."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Comparer amidon, glycogène et cellulose :",
-    "choices": [
-      {
-        "content": "Amidon : réserve végétale.",
-        "correct": true,
-        "explanation": "L’amidon est la principale forme de réserve glucidique des végétaux."
-      },
-      {
-        "content": "Glycogène : réserve animale.",
-        "correct": true,
-        "explanation": "Le glycogène permet le stockage intracellulaire du glucose chez les animaux."
-      },
-      {
-        "content": "Cellulose : structure végétale.",
-        "correct": true,
-        "explanation": "La cellulose est un constituant structural majeur de la paroi végétale."
-      },
-      {
-        "content": "Cellulose : réserve musculaire humaine.",
-        "correct": false,
-        "explanation": "La réserve glucidique du muscle humain est le glycogène, et non la cellulose."
+    "format": "QROC",
+    "question": "Comment note-t-on une liaison entre le C1 anomérique d'un glucose et le C4 du résidu suivant en configuration alpha ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha(1→4)",
+        "α(1→4)",
+        "alpha 1-4",
+        "α1→4",
+        "alpha(1-4)"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les trois glucanes ont des rôles biologiques différents."
+    },
+    "explanation": "Une liaison O-glycosidique est décrite par l'anomérie du carbone donneur et les positions carbonées reliées."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un branchement α(1→6) peut être rencontré dans :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur le caractère réducteur des diholosides, laquelle est exacte ?",
     "choices": [
       {
-        "content": "L’amylopectine.",
-        "correct": true,
-        "explanation": "Les points de branchement de l’amylopectine sont constitués de liaisons α(1→6)."
-      },
-      {
-        "content": "Le glycogène.",
-        "correct": true,
-        "explanation": "Les nombreux embranchements du glycogène utilisent des liaisons α(1→6)."
-      },
-      {
-        "content": "Des glucanes de réserve ramifiés.",
-        "correct": true,
-        "explanation": "L’amylopectine et le glycogène sont des glucanes de réserve ramifiés."
-      },
-      {
-        "content": "La chaîne de cellulose β(1→4).",
+        "content": "Un diholoside réducteur ne peut jamais s'ouvrir localement.",
         "correct": false,
-        "explanation": "Cellulose non ramifiée dans ce modèle."
+        "explanation": "Le résidu à hémiacétal libre peut s'ouvrir."
+      },
+      {
+        "content": "Le saccharose possède un carbone anomérique libre.",
+        "correct": false,
+        "explanation": "Ses deux carbones anomériques sont engagés."
+      },
+      {
+        "content": "Le pouvoir réducteur dépend uniquement du nombre total de carbones.",
+        "correct": false,
+        "explanation": "Il dépend de la disponibilité du carbone anomérique."
+      },
+      {
+        "content": "Tous les diholosides sont non réducteurs.",
+        "correct": false,
+        "explanation": "Maltose et lactose sont réducteurs."
+      },
+      {
+        "content": "Le lactose est réducteur.",
+        "correct": true,
+        "explanation": "Le glucose terminal possède un carbone anomérique libre."
       }
     ],
-    "explanation": "Les liaisons α1→6 caractérisent les branchements des réserves glucidiques."
+    "explanation": "Le caractère réducteur d'un oside dépend de la présence d'un carbone anomérique libre."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les charges des GAG :",
+    "question": "Concernant le lactose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les carboxylates peuvent apporter des charges négatives.",
-        "correct": true,
-        "explanation": "Les fonctions carboxylates des acides uroniques sont chargées négativement au pH physiologique."
-      },
-      {
-        "content": "Les sulfates peuvent apporter des charges négatives.",
-        "correct": true,
-        "explanation": "Les esters sulfate augmentent la densité de charges négatives des GAG sulfatés."
-      },
-      {
-        "content": "La chondroïtine sulfate est un polyanion.",
-        "correct": true,
-        "explanation": "Ses carboxylates et ses groupements sulfate lui confèrent de nombreuses charges négatives."
-      },
-      {
-        "content": "L’acide hyaluronique n’a aucune charge car il n’est pas sulfaté.",
+        "content": "Le lactose associe glucose et fructose.",
         "correct": false,
-        "explanation": "Ses COO− apportent des charges."
+        "explanation": "Cela décrit le saccharose."
+      },
+      {
+        "content": "Le lactose est non réducteur parce que ses deux carbones anomériques sont engagés.",
+        "correct": false,
+        "explanation": "Un seul est engagé."
+      },
+      {
+        "content": "Le lactose est un diholoside réducteur.",
+        "correct": true,
+        "explanation": "Le carbone anomérique du glucose reste libre."
+      },
+      {
+        "content": "La liaison du lactose est alpha(1→4) glucose-glucose.",
+        "correct": false,
+        "explanation": "Cela décrit le maltose."
+      },
+      {
+        "content": "La lactase hydrolyse le lactose dans l'intestin grêle.",
+        "correct": true,
+        "explanation": "Un déficit en lactase favorise l'intolérance au lactose."
       }
     ],
-    "explanation": "La charge négative peut provenir des carboxylates et/ou des sulfates."
+    "explanation": "Le lactose est galactose-bêta(1→4)-glucose et reste réducteur."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du GAG utilisé comme anticoagulant dans un contexte de thrombose :",
-    "choices": [
-      {
-        "content": "L’héparine.",
-        "correct": true,
-        "explanation": "L’héparine est utilisée pour prévenir ou traiter des événements thromboemboliques."
-      },
-      {
-        "content": "Il est fortement sulfaté.",
-        "correct": true,
-        "explanation": "L’héparine possède une densité particulièrement élevée de groupements sulfate."
-      },
-      {
-        "content": "Il est proche de l’héparane sulfate.",
-        "correct": true,
-        "explanation": "L’héparine et l’héparane sulfate appartiennent à la même famille structurale."
-      },
-      {
-        "content": "La cellulose.",
-        "correct": false,
-        "explanation": "La cellulose est un polyoside structural végétal dépourvu d’activité anticoagulante."
+    "format": "QROC",
+    "question": "Quel GAG très sulfaté est utilisé pour son activité anticoagulante ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "héparine",
+        "heparine",
+        "l'héparine",
+        "l'heparine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’héparine est un GAG très sulfaté dont l’activité anticoagulante est exploitée en thérapeutique."
+    },
+    "explanation": "L'héparine est un GAG fortement sulfaté qui potentialise notamment l'antithrombine."
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans le contexte de la fécondation :",
+    "question": "Parmi les affirmations suivantes sur le saccharose, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Une hyaluronidase peut intervenir.",
+        "content": "La liaison implique C1 anomérique du glucose et C2 anomérique du fructose.",
         "correct": true,
-        "explanation": "Des hyaluronidases associées aux spermatozoïdes participent au franchissement de la matrice du cumulus."
+        "explanation": "Les deux carbones anomériques sont engagés."
       },
       {
-        "content": "Elle hydrolyse l’acide hyaluronique.",
+        "content": "Son hydrolyse libère glucose et fructose.",
         "correct": true,
-        "explanation": "Les hyaluronidases catalysent la dégradation de l’acide hyaluronique."
+        "explanation": "La sucrase-isomaltase intestinale catalyse cette hydrolyse."
       },
       {
-        "content": "Cette action participe à la progression du spermatozoïde à travers le cumulus.",
+        "content": "Le saccharose est non réducteur.",
         "correct": true,
-        "explanation": "La dégradation de la matrice riche en hyaluronane facilite la progression à travers le cumulus."
+        "explanation": "Il ne possède pas de carbone anomérique libre."
       },
       {
-        "content": "Elle hydrolyse spécifiquement le glycogène musculaire.",
+        "content": "Il possède un carbone anomérique libre facilement ouvrable.",
         "correct": false,
-        "explanation": "Le glycogène est dégradé par des enzymes distinctes des hyaluronidases."
+        "explanation": "Les deux sont engagés."
+      },
+      {
+        "content": "Son hydrolyse libère deux mannoses.",
+        "correct": false,
+        "explanation": "Elle libère glucose et fructose."
       }
     ],
-    "explanation": "Lors de la fécondation, des hyaluronidases facilitent la progression du spermatozoïde dans la matrice hyaluronique du cumulus."
+    "explanation": "Le saccharose relie les deux carbones anomériques du glucose et du fructose, ce qui le rend non réducteur."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une glycoprotéine de surface peut contribuer :",
-    "choices": [
-      {
-        "content": "À la reconnaissance spécifique.",
-        "correct": true,
-        "explanation": "Les glycanes de surface peuvent former des déterminants de reconnaissance spécifique."
-      },
-      {
-        "content": "Aux interactions cellulaires.",
-        "correct": true,
-        "explanation": "Les glycoprotéines membranaires participent aux interactions entre cellules."
-      },
-      {
-        "content": "À la spécificité de groupes sanguins.",
-        "correct": true,
-        "explanation": "Certains déterminants de groupes sanguins sont portés par des glycoconjugués de surface."
-      },
-      {
-        "content": "Uniquement à la réserve énergétique.",
-        "correct": false,
-        "explanation": "Les fonctions des glycoprotéines dépassent largement le stockage énergétique."
+    "format": "QROC",
+    "question": "Quel type de réaction rompt une liaison glycosidique en utilisant de l'eau ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "hydrolyse",
+        "une hydrolyse"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fraction glucidique des glycoprotéines joue de nombreux rôles de surface."
+    },
+    "explanation": "Condensation et hydrolyse sont des transformations inverses de formation et de rupture de liaison glycosidique."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel est le polyoside de réserve principal des cellules animales ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "glycogene",
-        "glycogène",
-        "le glycogène",
-        "le glycogene"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRU",
+    "question": "À propos de la spécificité digestive des glycosidases, quelle proposition est exacte ?",
+    "choices": [
+      {
+        "content": "La lactase hydrolyse la liaison bêta(1→4) du lactose.",
+        "correct": true,
+        "explanation": "Elle libère glucose et galactose."
+      },
+      {
+        "content": "La maltase hydrolyse le saccharose en glucose et fructose.",
+        "correct": false,
+        "explanation": "La sucrase est responsable de cette hydrolyse."
+      },
+      {
+        "content": "La lactase hydrolyse la cellulose.",
+        "correct": false,
+        "explanation": "Elle cible le lactose."
+      },
+      {
+        "content": "Toutes les liaisons glycosidiques ont la même sensibilité enzymatique.",
+        "correct": false,
+        "explanation": "La stéréochimie et les positions sont déterminantes."
+      },
+      {
+        "content": "L'alpha-amylase hydrolyse efficacement les liaisons bêta(1→4) de la cellulose.",
+        "correct": false,
+        "explanation": "Elle cible les liaisons alpha de l'amidon."
       }
-    },
-    "explanation": "Il s’agit du glycogène."
+    ],
+    "explanation": "La digestion des osides dépend de glycosidases très spécifiques de la liaison."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux GAG correspondant respectivement aux propriétés « non sulfaté » et « très fortement sulfaté ».",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur les polyosides, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Acide hyaluronique.",
+        "content": "Un homoglycane répète un seul type de monosaccharide.",
         "correct": true,
-        "explanation": "L’acide hyaluronique est un GAG dépourvu de groupements sulfate."
+        "explanation": "Amidon, glycogène et cellulose sont des glucanes."
       },
       {
-        "content": "Héparine.",
+        "content": "Un hétéroglycane comporte plusieurs types de résidus.",
         "correct": true,
-        "explanation": "L’héparine se caractérise par une sulfatation particulièrement importante."
+        "explanation": "De nombreux GAG sont hétéroglycanes."
       },
       {
-        "content": "Amylose.",
-        "correct": false,
-        "explanation": "L’amylose est un glucane de réserve végétal et non un GAG."
+        "content": "Les polyosides peuvent avoir des rôles de réserve ou de structure.",
+        "correct": true,
+        "explanation": "Amidon/glycogène versus cellulose."
       },
       {
-        "content": "Maltose.",
+        "content": "Un polyoside est constitué d'un grand nombre de résidus d'oses ou dérivés.",
+        "correct": true,
+        "explanation": "Il s'agit d'un polymère glucidique."
+      },
+      {
+        "content": "Un homoglycane contient de nombreux types d'oses différents.",
         "correct": false,
-        "explanation": "Le maltose est un diholoside de glucose et non un GAG."
+        "explanation": "Il répète un seul type."
       }
     ],
-    "explanation": "Acide hyaluronique et héparine représentent deux extrêmes utiles à comparer."
+    "explanation": "Les polyosides peuvent être homogènes ou hétérogènes et remplir des fonctions de réserve ou de structure."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Pour cette synthèse appliquée des osides, sélectionnez exactement cinq propositions correctes.",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Le saccharose est non réducteur.",
-        "correct": true,
-        "explanation": "Les deux carbones anomériques du saccharose participent à la liaison osidique."
-      },
-      {
-        "content": "Le glycogène est associé à la glycogénine.",
-        "correct": true,
-        "explanation": "La glycogénine sert d’amorce protéique à la synthèse du glycogène."
-      },
-      {
-        "content": "La cellulose n’est pas digérée par l’Homme.",
-        "correct": true,
-        "explanation": "Les enzymes digestives humaines ne rompent pas les liaisons β(1→4) de la cellulose."
-      },
-      {
-        "content": "L’acide hyaluronique participe à l’hydratation tissulaire.",
-        "correct": true,
-        "explanation": "L’acide hyaluronique retient l’eau et contribue à l’hydratation de la matrice."
-      },
-      {
-        "content": "L’héparine est anticoagulante.",
-        "correct": true,
-        "explanation": "L’héparine potentialise l’antithrombine et est utilisée comme anticoagulant."
-      },
-      {
-        "content": "Le lactose contient du fructose.",
+        "content": "Le glycogène est un polymère bêta(1→4) de glucose.",
         "correct": false,
-        "explanation": "Le lactose associe un galactose à un glucose et ne contient pas de fructose."
+        "explanation": "Cela décrit la cellulose."
       },
       {
-        "content": "L’amylose est fortement ramifiée.",
+        "content": "Le glycogène est la réserve végétale majeure.",
         "correct": false,
-        "explanation": "L’amylose est essentiellement une chaîne linéaire de glucoses liés en α(1→4)."
+        "explanation": "Il est la réserve animale."
       },
       {
-        "content": "La cellulose est α1→4.",
-        "correct": false,
-        "explanation": "La cellulose est constituée de glucoses reliés par des liaisons β(1→4)."
+        "content": "La glycogénine sert de protéine amorce au centre d'une particule de glycogène.",
+        "correct": true,
+        "explanation": "Elle initie la synthèse."
       },
       {
-        "content": "L’acide hyaluronique est fortement sulfaté.",
-        "correct": false,
-        "explanation": "L’acide hyaluronique ne porte pas de groupements sulfate."
+        "content": "Le glycogène est la principale réserve glucidique animale.",
+        "correct": true,
+        "explanation": "Il est particulièrement abondant dans le foie et le muscle."
       },
       {
-        "content": "Les glycoprotéines sont dépourvues de glucides.",
+        "content": "L'amylose peut adopter une conformation hélicoïdale.",
+        "correct": true,
+        "explanation": "La chaîne s'enroule."
+      },
+      {
+        "content": "Il est constitué de glucose en alpha(1→4) avec branches alpha(1→6).",
+        "correct": true,
+        "explanation": "Son architecture ressemble à une amylopectine plus ramifiée."
+      },
+      {
+        "content": "L'amylose est la composante la plus ramifiée du glycogène.",
         "correct": false,
-        "explanation": "Par définition, elles en contiennent."
+        "explanation": "Elle est essentiellement linéaire."
+      },
+      {
+        "content": "Les glucoses sont reliés principalement par des liaisons alpha(1→4).",
+        "correct": true,
+        "explanation": "Cette liaison construit la chaîne."
+      },
+      {
+        "content": "Il ne possède aucun branchement.",
+        "correct": false,
+        "explanation": "Il est fortement ramifié."
+      },
+      {
+        "content": "Elle est constituée de fructose uniquement.",
+        "correct": false,
+        "explanation": "Elle est constituée de glucose."
       }
     ],
-    "explanation": "Ce bilan mobilise la structure, la digestion et les fonctions biologiques des principaux osides."
+    "explanation": "L'amylose est un glucane essentiellement linéaire en alpha(1→4). Le glycogène est un glucane de réserve animale très ramifié, construit autour de la glycogénine."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une personne présente une faible activité lactasique et consomme du lait. Quelles notions sont directement mobilisées ?",
+    "question": "Concernant les osides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le lactose est le diholoside concerné.",
-        "correct": true,
-        "explanation": "Le lactose est le principal diholoside naturellement présent dans le lait."
-      },
-      {
-        "content": "La lactase est une β-galactosidase.",
-        "correct": true,
-        "explanation": "La lactase hydrolyse la liaison β-galactosidique du lactose."
-      },
-      {
-        "content": "Les produits d’hydrolyse attendus sont glucose et galactose.",
-        "correct": true,
-        "explanation": "L’hydrolyse du lactose libère un glucose et un galactose."
-      },
-      {
-        "content": "Le mécanisme concerne l’hydrolyse de cellulose.",
+        "content": "Un holoside comporte obligatoirement une protéine.",
         "correct": false,
-        "explanation": "La cellulose est un polymère β(1→4) distinct du lactose."
+        "explanation": "Il est constitué uniquement de résidus glucidiques."
+      },
+      {
+        "content": "Un oside comporte au moins une liaison glycosidique impliquant un carbone anomérique.",
+        "correct": true,
+        "explanation": "Cette liaison relie un ose à un autre groupe."
+      },
+      {
+        "content": "Un hétéroside associe une partie glucidique à un aglycone non glucidique.",
+        "correct": true,
+        "explanation": "L'aglycone peut être lipidique, protéique ou autre."
+      },
+      {
+        "content": "Les osides peuvent être constitués de deux à de très nombreux résidus.",
+        "correct": true,
+        "explanation": "Diholosides et polyosides appartiennent à cette famille."
+      },
+      {
+        "content": "Un holoside ne libère que des oses ou dérivés d'oses après hydrolyse complète.",
+        "correct": true,
+        "explanation": "Il est entièrement glucidique."
       }
     ],
-    "explanation": "Le contexte médical est entièrement résoluble à partir de la digestion du lactose."
+    "explanation": "Les osides sont définis par des liaisons glycosidiques ; holosides et hétérosides se distinguent par la nature des produits d'hydrolyse."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Une réserve glucidique présente des chaînes α1→4 et de nombreux embranchements α1→6 dans une cellule musculaire. Il s’agit probablement :",
-    "choices": [
-      {
-        "content": "De glycogène.",
-        "correct": true,
-        "explanation": "Réserve musculaire et architecture."
-      },
-      {
-        "content": "D’un glucane ramifié.",
-        "correct": true,
-        "explanation": "Le glycogène est un homopolymère ramifié de résidus de glucose."
-      },
-      {
-        "content": "D’un polymère associé à la glycogénine.",
-        "correct": true,
-        "explanation": "La glycogénine constitue l’amorce protéique située au cœur d’une particule de glycogène."
-      },
-      {
-        "content": "De cellulose.",
-        "correct": false,
-        "explanation": "La cellulose est un polymère végétal linéaire en β(1→4), distinct du glycogène."
+    "format": "QROC",
+    "question": "Comment note-t-on une liaison entre le C1 anomérique d'un glucose et le C4 du résidu suivant en configuration alpha ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha(1→4)",
+        "α(1→4)",
+        "alpha 1-4",
+        "α1→4",
+        "alpha(1-4)"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La localisation cellulaire et l’architecture convergent vers le glycogène."
+    },
+    "explanation": "Une liaison O-glycosidique est décrite par l'anomérie du carbone donneur et les positions carbonées reliées."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un polysaccharide végétal est β(1→4), hydrophile mais insoluble, et non digéré par l’Homme. Il s’agit :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur le caractère réducteur des diholosides, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "De cellulose.",
-        "correct": true,
-        "explanation": "Tous les indices concordent."
-      },
-      {
-        "content": "D’un polymère de glucose.",
-        "correct": true,
-        "explanation": "La cellulose est un homopolymère constitué exclusivement de résidus de glucose."
-      },
-      {
-        "content": "D’une fibre alimentaire.",
-        "correct": true,
-        "explanation": "Non hydrolysée par les enzymes digestives humaines, la cellulose appartient aux fibres alimentaires."
-      },
-      {
-        "content": "D’amylopectine.",
+        "content": "Le pouvoir réducteur dépend uniquement du nombre total de carbones.",
         "correct": false,
-        "explanation": "L’amylopectine est un α-glucane ramifié digestible, contrairement à la cellulose."
+        "explanation": "Il dépend de la disponibilité du carbone anomérique."
+      },
+      {
+        "content": "Le saccharose possède un carbone anomérique libre.",
+        "correct": false,
+        "explanation": "Ses deux carbones anomériques sont engagés."
+      },
+      {
+        "content": "Un diholoside réducteur ne peut jamais s'ouvrir localement.",
+        "correct": false,
+        "explanation": "Le résidu à hémiacétal libre peut s'ouvrir."
+      },
+      {
+        "content": "Un diholoside est réducteur s'il conserve un carbone anomérique libre capable de s'ouvrir.",
+        "correct": true,
+        "explanation": "Une fonction hémiacétalique reste disponible."
+      },
+      {
+        "content": "Le saccharose est non réducteur.",
+        "correct": true,
+        "explanation": "Les deux carbones anomériques sont engagés dans la liaison."
       }
     ],
-    "explanation": "La cellulose se reconnaît par sa liaison β1→4 et son rôle structural."
+    "explanation": "Le caractère réducteur d'un oside dépend de la présence d'un carbone anomérique libre.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un GAG de MEC est non sulfaté, riche en COO− et impliqué dans la viscoélasticité. Il s’agit :",
+    "question": "Concernant le lactose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "D’acide hyaluronique.",
+        "content": "Sa liaison est bêta(1→4) du galactose vers le glucose.",
         "correct": true,
-        "explanation": "Tous les indices concordent."
+        "explanation": "Le C1 du galactose est engagé avec C4 du glucose."
       },
       {
-        "content": "D’un polymère contribuant à l’hydratation.",
+        "content": "Le lactose est un diholoside réducteur.",
         "correct": true,
-        "explanation": "Ses nombreuses charges favorisent la rétention d’eau et la viscoélasticité de la matrice."
+        "explanation": "Le carbone anomérique du glucose reste libre."
       },
       {
-        "content": "D’un GAG généralement non lié de façon covalente à une protéine cœur.",
+        "content": "Le lactose associe galactose et glucose.",
         "correct": true,
-        "explanation": "Contrairement aux autres GAG, l’acide hyaluronique n’est généralement pas synthétisé comme chaîne d’un protéoglycane."
+        "explanation": "Ce sont ses deux résidus."
       },
       {
-        "content": "D’héparine.",
+        "content": "La lactase hydrolyse le lactose dans l'intestin grêle.",
+        "correct": true,
+        "explanation": "Un déficit en lactase favorise l'intolérance au lactose."
+      },
+      {
+        "content": "Le lactose associe glucose et fructose.",
         "correct": false,
-        "explanation": "Très sulfatée et anticoagulante."
+        "explanation": "Cela décrit le saccharose."
       }
     ],
-    "explanation": "Le profil structural et fonctionnel identifie l’acide hyaluronique."
+    "explanation": "Le lactose est galactose-bêta(1→4)-glucose et reste réducteur."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un GAG est stocké dans les granulations mastocytaires et utilisé en thérapeutique pour son activité anticoagulante :",
+    "format": "QRU",
+    "question": "À propos de le maltose, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Il s’agit de l’héparine.",
-        "correct": true,
-        "explanation": "Les indices de stockage mastocytaire et d’usage anticoagulant identifient l’héparine."
-      },
-      {
-        "content": "Le GAG est fortement sulfaté.",
-        "correct": true,
-        "explanation": "L’héparine présente une sulfatation plus extensive que l’héparane sulfate."
-      },
-      {
-        "content": "Il est proche de l’héparane sulfate.",
-        "correct": true,
-        "explanation": "L’héparine et l’héparane sulfate appartiennent à la même famille structurale."
-      },
-      {
-        "content": "Il s’agit d’un homoglycane de glucose.",
+        "content": "Le maltose possède une liaison bêta(1→4).",
         "correct": false,
-        "explanation": "L’héparine est un hétéropolyoside comportant des osamines et des acides uroniques."
+        "explanation": "Cela correspond à la cellobiose."
+      },
+      {
+        "content": "Le maltose associe galactose et glucose.",
+        "correct": false,
+        "explanation": "Cela décrit le lactose."
+      },
+      {
+        "content": "Le maltose associe deux résidus de glucose.",
+        "correct": true,
+        "explanation": "C'est un diholoside homogène."
+      },
+      {
+        "content": "Le maltose est formé de glucose et fructose.",
+        "correct": false,
+        "explanation": "Cela décrit le saccharose."
+      },
+      {
+        "content": "La maltase produit du fructose à partir du maltose.",
+        "correct": false,
+        "explanation": "Elle libère du glucose."
       }
     ],
-    "explanation": "L’héparine est un GAG très sulfaté produit notamment par les mastocytes et utilisé comme anticoagulant."
+    "explanation": "Le maltose est un diholoside réducteur de deux glucoses liés en alpha(1→4)."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une glycoprotéine porte des déterminants glucidiques responsables d’une reconnaissance spécifique. Cette propriété peut être reliée :",
+    "question": "Parmi les affirmations suivantes sur le saccharose, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Aux interactions cellulaires.",
-        "correct": true,
-        "explanation": "Les glycanes de surface participent aux interactions entre cellules."
-      },
-      {
-        "content": "À la spécificité de certains groupes sanguins.",
-        "correct": true,
-        "explanation": "Certains antigènes de groupes sanguins correspondent à des structures glucidiques de surface."
-      },
-      {
-        "content": "À une fraction glucidique pouvant contenir fucose ou NANA.",
-        "correct": true,
-        "explanation": "Le fucose et l’acide N-acétylneuraminique peuvent appartenir aux glycanes."
-      },
-      {
-        "content": "À l’absence totale de ramifications glucidiques.",
+        "content": "Le saccharose associe deux galactoses.",
         "correct": false,
-        "explanation": "La fraction peut être très ramifiée."
+        "explanation": "Il associe glucose et fructose."
+      },
+      {
+        "content": "Il possède un carbone anomérique libre facilement ouvrable.",
+        "correct": false,
+        "explanation": "Les deux sont engagés."
+      },
+      {
+        "content": "Il est un polysaccharide de réserve animale.",
+        "correct": false,
+        "explanation": "C'est un diholoside alimentaire."
+      },
+      {
+        "content": "Son hydrolyse libère glucose et fructose.",
+        "correct": true,
+        "explanation": "La sucrase-isomaltase intestinale catalyse cette hydrolyse."
+      },
+      {
+        "content": "La liaison implique C1 anomérique du glucose et C2 anomérique du fructose.",
+        "correct": true,
+        "explanation": "Les deux carbones anomériques sont engagés."
       }
     ],
-    "explanation": "Les glycanes de surface portent des déterminants qui participent à la reconnaissance moléculaire et aux interactions cellulaires."
+    "explanation": "Le saccharose relie les deux carbones anomériques du glucose et du fructose, ce qui le rend non réducteur."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Dans un modèle simplifié, un amidon contient environ 20 % d’amylose et 80 % d’amylopectine. Quelle est la somme de ces proportions, en pourcentage ?",
+    "question": "Quel type de réaction rompt une liaison glycosidique en utilisant de l'eau ?",
     "answer": {
-      "type": "number",
-      "value": 100,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "hydrolyse",
+        "une hydrolyse"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "Les deux fractions représentent l’ensemble de l’amidon dans cette présentation simplifiée."
+    "explanation": "Condensation et hydrolyse sont des transformations inverses de formation et de rupture de liaison glycosidique."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QROC",
-    "question": "Quel nom porte le dimère de deux β-D-glucoses liés en β(1→4), représentatif de l’enchaînement de la cellulose ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "cellobiose",
-        "la cellobiose"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "La lactase hydrolyse la cellulose.",
+        "correct": false,
+        "explanation": "Elle cible le lactose."
+      },
+      {
+        "content": "La maltase hydrolyse des liaisons alpha du maltose.",
+        "correct": true,
+        "explanation": "Elle libère du glucose."
+      },
+      {
+        "content": "L'amylopectine est un polymère strictement linéaire.",
+        "correct": false,
+        "explanation": "Elle est ramifiée."
+      },
+      {
+        "content": "Ses chaînes utilisent des liaisons alpha(1→4).",
+        "correct": true,
+        "explanation": "Elles forment les segments linéaires."
+      },
+      {
+        "content": "Elle est moins densément ramifiée que le glycogène.",
+        "correct": true,
+        "explanation": "Le glycogène possède des branches plus fréquentes."
+      },
+      {
+        "content": "L'alpha-amylase hydrolyse efficacement les liaisons bêta(1→4) de la cellulose.",
+        "correct": false,
+        "explanation": "Elle cible les liaisons alpha de l'amidon."
+      },
+      {
+        "content": "Ses branches utilisent des liaisons bêta(1→4).",
+        "correct": false,
+        "explanation": "Elles utilisent alpha(1→6)."
+      },
+      {
+        "content": "Toutes les liaisons glycosidiques ont la même sensibilité enzymatique.",
+        "correct": false,
+        "explanation": "La stéréochimie et les positions sont déterminantes."
+      },
+      {
+        "content": "La lactase hydrolyse la liaison bêta(1→4) du lactose.",
+        "correct": true,
+        "explanation": "Elle libère glucose et galactose."
+      },
+      {
+        "content": "L'être humain ne possède pas de cellulase digestive efficace contre la cellulose bêta(1→4).",
+        "correct": true,
+        "explanation": "La cellulose est donc une fibre."
       }
-    },
-    "explanation": "Il s’agit de la cellobiose."
+    ],
+    "explanation": "La digestion des osides dépend de glycosidases très spécifiques de la liaison. L'amylopectine est la fraction ramifiée de l'amidon, avec chaînes alpha(1→4) et branches alpha(1→6)."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Comparer pouvoir réducteur et hydrolyse :",
+    "question": "Parmi les affirmations suivantes sur les polyosides, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Le saccharose est non réducteur mais hydrolysable.",
-        "correct": true,
-        "explanation": "Le saccharose reste hydrolysable bien que ses deux carbones anomériques soient engagés."
-      },
-      {
-        "content": "Le lactose est réducteur et hydrolysable par la lactase.",
-        "correct": true,
-        "explanation": "Le lactose conserve un carbone anomérique libre et sa liaison est hydrolysée par la lactase."
-      },
-      {
-        "content": "Le maltose est réducteur et hydrolysable par la maltase.",
-        "correct": true,
-        "explanation": "Le maltose possède un carbone anomérique libre et peut être hydrolysé par la maltase."
-      },
-      {
-        "content": "« Non réducteur » signifie « impossible à hydrolyser ».",
+        "content": "Tous les polyosides sont de réserve.",
         "correct": false,
-        "explanation": "Les notions sont différentes."
+        "explanation": "La cellulose est structurale."
+      },
+      {
+        "content": "Un polyoside contient toujours exactement deux résidus.",
+        "correct": false,
+        "explanation": "Cela décrit un diholoside."
+      },
+      {
+        "content": "Un polyoside est constitué d'un grand nombre de résidus d'oses ou dérivés.",
+        "correct": true,
+        "explanation": "Il s'agit d'un polymère glucidique."
+      },
+      {
+        "content": "Un homoglycane répète un seul type de monosaccharide.",
+        "correct": true,
+        "explanation": "Amidon, glycogène et cellulose sont des glucanes."
+      },
+      {
+        "content": "Les polyosides sont des protéines.",
+        "correct": false,
+        "explanation": "Ce sont des glucides."
       }
     ],
-    "explanation": "Le pouvoir réducteur dépend du centre anomérique libre, pas de la possibilité d’hydrolyse."
+    "explanation": "Les polyosides peuvent être homogènes ou hétérogènes et remplir des fonctions de réserve ou de structure."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Comparer acide hyaluronique et agrégats de protéoglycanes :",
-    "choices": [
-      {
-        "content": "L’acide hyaluronique peut constituer un long axe moléculaire.",
-        "correct": true,
-        "explanation": "Une longue chaîne d’acide hyaluronique forme l’axe central de certains agrégats."
-      },
-      {
-        "content": "Plusieurs protéoglycanes peuvent s’y fixer.",
-        "correct": true,
-        "explanation": "De nombreux protéoglycanes peuvent s’associer le long de cet axe hyaluronique."
-      },
-      {
-        "content": "Les protéoglycanes possèdent des protéines cœur.",
-        "correct": true,
-        "explanation": "Chaque protéoglycane possède une protéine cœur portant des chaînes de GAG."
-      },
-      {
-        "content": "Le filament hyaluronique doit être fortement sulfaté.",
-        "correct": false,
-        "explanation": "L’acide hyaluronique est non sulfaté."
+    "format": "QROC",
+    "question": "Quelle liaison glycosidique principale relie les glucoses de l'amylose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha(1→4)",
+        "α(1→4)",
+        "alpha 1-4",
+        "α1→4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La structure des agrégats est un exemple transversal d’organisation de la MEC."
+    },
+    "explanation": "L'amylose est un glucane essentiellement linéaire en alpha(1→4)."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement trois associations biologiques ou médicales correctes.",
+    "question": "À propos de l'amylopectine, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Héparine — anticoagulation.",
-        "correct": true,
-        "explanation": "L’héparine est utilisée en thérapeutique pour son activité anticoagulante."
-      },
-      {
-        "content": "Hyaluronidase — fécondation.",
-        "correct": true,
-        "explanation": "Des hyaluronidases facilitent la progression du spermatozoïde à travers la matrice du cumulus."
-      },
-      {
-        "content": "Glycoprotéines — spécificité des groupes sanguins.",
-        "correct": true,
-        "explanation": "Certains déterminants de groupes sanguins sont portés par les glycanes de glycoprotéines."
-      },
-      {
-        "content": "Cellulose — réserve énergétique des neurones.",
+        "content": "Elle est composée de galactose et fructose alternés.",
         "correct": false,
-        "explanation": "Les neurones n’utilisent pas la cellulose comme réserve énergétique."
+        "explanation": "C'est un homoglycane de glucose."
+      },
+      {
+        "content": "Ses branches utilisent des liaisons bêta(1→4).",
+        "correct": false,
+        "explanation": "Elles utilisent alpha(1→6)."
+      },
+      {
+        "content": "Elle est la réserve animale principale.",
+        "correct": false,
+        "explanation": "L'amidon est végétal ; le glycogène est animal."
+      },
+      {
+        "content": "Les points de branchement utilisent des liaisons alpha(1→6).",
+        "correct": true,
+        "explanation": "Le C1 d'un glucose se lie au C6 d'un autre."
+      },
+      {
+        "content": "L'amylopectine est un glucane ramifié.",
+        "correct": true,
+        "explanation": "Elle constitue la fraction ramifiée de l'amidon."
       }
     ],
-    "explanation": "Ces associations donnent du sens biologique aux structures glucidiques."
+    "explanation": "L'amylopectine est la fraction ramifiée de l'amidon, avec chaînes alpha(1→4) et branches alpha(1→6).",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour la synthèse finale de maîtrise des osides, sélectionnez exactement cinq propositions correctes.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur l'amidon, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Lactose : galactose + glucose.",
+        "content": "L'amidon est une réserve glucidique végétale.",
         "correct": true,
-        "explanation": "Le lactose est constitué d’un galactose et d’un glucose."
+        "explanation": "Il stocke des résidus de glucose."
       },
       {
-        "content": "Amidon : réserve végétale.",
+        "content": "La cuisson dans l'eau peut provoquer une gélatinisation de l'amidon.",
         "correct": true,
-        "explanation": "L’amidon est la principale forme de réserve glucidique des végétaux."
+        "explanation": "Les granules absorbent l'eau et se désorganisent."
       },
       {
-        "content": "Glycogène : réserve animale.",
+        "content": "Les alpha-amylases hydrolysent des liaisons alpha(1→4) de l'amidon.",
         "correct": true,
-        "explanation": "Le glycogène assure le stockage intracellulaire du glucose chez les animaux."
+        "explanation": "Elles produisent notamment des dextrines et du maltose."
       },
       {
-        "content": "Cellulose : liaisons β(1→4).",
+        "content": "Il associe amylose et amylopectine.",
         "correct": true,
-        "explanation": "Les glucoses de la cellulose sont reliés par des liaisons β(1→4)."
+        "explanation": "Les proportions varient selon l'origine végétale."
       },
       {
-        "content": "Héparine : anticoagulant fortement sulfaté.",
-        "correct": true,
-        "explanation": "L’héparine est un GAG très sulfaté utilisé comme médicament anticoagulant."
-      },
-      {
-        "content": "Saccharose : réducteur.",
+        "content": "L'amidon est uniquement bêta(1→4).",
         "correct": false,
-        "explanation": "Le saccharose est non réducteur car ses deux carbones anomériques sont engagés."
-      },
-      {
-        "content": "Amylose : ramifiée α1→6.",
-        "correct": false,
-        "explanation": "L’amylose est essentiellement linéaire et comporte des liaisons α(1→4)."
-      },
-      {
-        "content": "Acide hyaluronique : fortement sulfaté.",
-        "correct": false,
-        "explanation": "L’acide hyaluronique est un glycosaminoglycane dépourvu de groupements sulfate."
-      },
-      {
-        "content": "Kératane : homoglycane de glucose.",
-        "correct": false,
-        "explanation": "Le kératane sulfate associe galactose et N-acétylglucosamine."
-      },
-      {
-        "content": "Protéoglycane : dépourvu de protéine cœur.",
-        "correct": false,
-        "explanation": "Un protéoglycane possède une protéine cœur portant ses chaînes de GAG."
+        "explanation": "Ses liaisons principales sont alpha."
       }
     ],
-    "explanation": "Ce bilan final mobilise la composition, les liaisons, l’organisation et les fonctions des principaux osides."
+    "explanation": "L'amidon est une réserve végétale combinant amylose linéaire et amylopectine ramifiée."
   }
 ];

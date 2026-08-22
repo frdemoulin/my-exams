@@ -1,995 +1,1096 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie – Chapitre 1.2 – Section C – Osamines et acides sialiques
- */
-
+/** UE14 Biochimie – Chapitre 1.2 – Section C – Osamines et acides sialiques */
 export const UE14_BIOCH_CH2_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Une osamine telle que la glucosamine se caractérise par :",
+    "question": "Concernant les osamines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Remplacement d'une fonction alcool en C2 par une fonction amine primaire.",
-        "correct": true,
-        "explanation": "Dans un 2-amino-2-désoxyhexose, la fonction hydroxyle portée par C2 est remplacée par une fonction amine."
-      },
-      {
-        "content": "Introduction d'un groupe NH2 en C2.",
-        "correct": true,
-        "explanation": "Le remplacement de OH par NH2 en C2 est le repère structural d'une osamine comme la glucosamine."
-      },
-      {
-        "content": "Conservation possible d'une forme α ou β.",
-        "correct": true,
-        "explanation": "La fonction anomérique reste présente ; des formes α et β peuvent donc exister."
-      },
-      {
-        "content": "Oxydation de C6 en COOH.",
+        "content": "Une osamine est nécessairement un acide uronique.",
         "correct": false,
-        "explanation": "Cela forme un acide uronique, pas une osamine."
+        "explanation": "Ce sont deux modifications différentes."
+      },
+      {
+        "content": "La substitution amino porte obligatoirement sur C6.",
+        "correct": false,
+        "explanation": "Elle est classiquement en C2."
+      },
+      {
+        "content": "Les osamines entrent dans de nombreux glycoconjugués.",
+        "correct": true,
+        "explanation": "GAG, glycoprotéines et glycolipides peuvent en contenir."
+      },
+      {
+        "content": "Une osamine est un ose totalement dépourvu d'azote.",
+        "correct": false,
+        "explanation": "Elle contient précisément de l'azote."
+      },
+      {
+        "content": "Une osamine conserve plusieurs fonctions hydroxyle.",
+        "correct": true,
+        "explanation": "La substitution ne supprime pas tous les OH."
       }
     ],
-    "explanation": "L'osamine est un dérivé aminé obtenu par substitution du OH de C2."
+    "explanation": "Les osamines sont souvent des 2-amino-2-désoxyoses."
   },
   {
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Dans une osamine comme la glucosamine, sur quel carbone la fonction amine remplace-t-elle une fonction hydroxyle ?",
+    "question": "À propos de les osamines N-acétylées, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "C2.",
+        "content": "Une N-acétylation retire tout l'azote de l'ose.",
+        "correct": false,
+        "explanation": "L'azote est conservé."
+      },
+      {
+        "content": "N-acétylé signifie que l'acétyle est fixé uniquement sur un oxygène.",
+        "correct": false,
+        "explanation": "Le préfixe N indique une fixation sur l'azote."
+      },
+      {
+        "content": "GalNAc est identique au galactose non aminé.",
+        "correct": false,
+        "explanation": "Il porte une fonction N-acétylée en C2."
+      },
+      {
+        "content": "La N-acétylation conserve l'azote dans la molécule.",
         "correct": true,
-        "explanation": "La glucosamine est un 2-amino-2-désoxyose : le groupe NH2 remplace le OH porté par C2."
+        "explanation": "Il devient l'azote d'une amide."
       },
       {
-        "content": "C1.",
+        "content": "GlcNAc est un acide gras.",
         "correct": false,
-        "explanation": "C1 est le carbone anomérique ; dans la glucosamine, la substitution aminée concerne C2."
-      },
-      {
-        "content": "C5.",
-        "correct": false,
-        "explanation": "La glucosamine conserve un hydroxyle en C5 ; l'amine est portée par C2."
-      },
-      {
-        "content": "C6.",
-        "correct": false,
-        "explanation": "C6 porte une fonction alcool primaire ; l'amine de la glucosamine est introduite en C2."
+        "explanation": "C'est un dérivé aminé du glucose."
       }
     ],
-    "explanation": "La substitution OH → NH2 concerne C2."
+    "explanation": "GlcNAc et GalNAc sont des osamines N-acétylées très fréquentes dans les glycoconjugués."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les osamines peuvent entrer dans la composition de :",
-    "choices": [
-      {
-        "content": "Glycosaminoglycanes.",
-        "correct": true,
-        "explanation": "Plusieurs GAG contiennent des osamines, notamment la N-acétylglucosamine ou la N-acétylgalactosamine."
-      },
-      {
-        "content": "Glycoprotéines.",
-        "correct": true,
-        "explanation": "Les glycannes de nombreuses glycoprotéines contiennent des osamines N-acétylées."
-      },
-      {
-        "content": "Protéoglycanes.",
-        "correct": true,
-        "explanation": "Les chaînes de GAG des protéoglycanes comportent fréquemment des osamines N-acétylées."
-      },
-      {
-        "content": "Glycolipides, notamment sphingolipides.",
-        "correct": true,
-        "explanation": "Des osamines N-acétylées sont présentes dans les glycannes de plusieurs glycolipides, notamment des glycosphingolipides."
+    "format": "QROC",
+    "question": "Quel monomère dérivé constitue la chitine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "N-acétylglucosamine",
+        "GlcNAc",
+        "N acetylglucosamine",
+        "N-acetylglucosamine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les osamines sont très présentes dans les glycoconjugués."
+    },
+    "explanation": "La chitine est un polymère structural de GlcNAc en bêta(1→4)."
   },
   {
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Une osamine N-acétylée :",
+    "question": "Concernant le peptidoglycane bactérien, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Porte un groupement acétyl sur la fonction amine en C2.",
+        "content": "Des chaînes peptidiques réticulent les motifs glucidiques.",
         "correct": true,
-        "explanation": "La N-acétylation transforme l'amine en groupement acétamide NHCOCH3."
+        "explanation": "Elles renforcent la paroi bactérienne."
       },
       {
-        "content": "Contient un motif dérivé de CH3CO lié à l'azote.",
-        "correct": true,
-        "explanation": "Le préfixe N-acétyl signifie que le groupement acétyl CH3CO est lié à l'atome d'azote."
-      },
-      {
-        "content": "Peut être présente dans la paroi bactérienne.",
-        "correct": true,
-        "explanation": "Le peptidoglycane bactérien contient notamment de la N-acétylglucosamine et de l'acide N-acétylmuramique."
-      },
-      {
-        "content": "Résulte uniquement d'une phosphorylation.",
+        "content": "Le peptidoglycane est exclusivement constitué de cellulose.",
         "correct": false,
-        "explanation": "La transformation est une N-acétylation."
+        "explanation": "Il contient GlcNAc et MurNAc."
+      },
+      {
+        "content": "Le peptidoglycane contient de la N-acétylglucosamine.",
+        "correct": true,
+        "explanation": "GlcNAc est une unité glucidique du réseau."
+      },
+      {
+        "content": "Il est un constituant normal majeur de la membrane nucléaire humaine.",
+        "correct": false,
+        "explanation": "Il appartient à la paroi bactérienne."
+      },
+      {
+        "content": "Les unités glucidiques sont reliées par des liaisons bêta(1→4).",
+        "correct": true,
+        "explanation": "Le lysozyme cible cette chaîne."
       }
     ],
-    "explanation": "La N-acétylation modifie l'amine de l'osamine."
+    "explanation": "La paroi bactérienne contient une chaîne GlcNAc–MurNAc réticulée par des peptides."
   },
   {
     "order": 49,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel homopolymère est constitué de résidus de N-acétylglucosamine liés en β(1→4) ?",
+    "question": "À propos de l'acide sialique Neu5Ac, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La chitine.",
+        "content": "Neu5Ac est un acide aminé protéinogène.",
+        "correct": false,
+        "explanation": "C'est un dérivé glucidique."
+      },
+      {
+        "content": "Il est souvent situé à l'extrémité de chaînes glycaniques.",
         "correct": true,
-        "explanation": "La chitine est un homopolymère linéaire de N-acétylglucosamine liée en β(1→4)."
+        "explanation": "Cette position influence reconnaissance et interactions."
       },
       {
-        "content": "Le glycogène.",
+        "content": "Il confère une charge positive forte aux glycoconjugués.",
         "correct": false,
-        "explanation": "Le glycogène est un polymère ramifié de glucose lié principalement en α(1→4) et α(1→6)."
+        "explanation": "Son carboxylate est négatif."
       },
       {
-        "content": "L'amidon.",
+        "content": "Il est uniquement présent dans le noyau cellulaire.",
         "correct": false,
-        "explanation": "L'amidon est constitué de polymères de glucose, l'amylose et l'amylopectine."
+        "explanation": "Il est notamment abondant à la surface cellulaire."
       },
       {
-        "content": "Le collagène.",
+        "content": "Il est dépourvu de fonction acide.",
         "correct": false,
-        "explanation": "Ce n'est pas un polymère glucidique."
+        "explanation": "Il possède un carboxyle."
       }
     ],
-    "explanation": "La chitine est un homopolymère structural de résidus de N-acétylglucosamine liés en β(1→4)."
+    "explanation": "Neu5Ac ou NANA est le principal acide sialique humain et contribue à la charge négative de nombreux glycoconjugués."
   },
   {
     "order": 50,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la chitine :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la biosynthèse du Neu5Ac, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Elle est présente dans la carapace des insectes.",
-        "correct": true,
-        "explanation": "La chitine est un constituant structural majeur de l'exosquelette des arthropodes, dont les insectes."
-      },
-      {
-        "content": "Elle est présente dans la carapace des crustacés.",
-        "correct": true,
-        "explanation": "L'exosquelette des crustacés contient de la chitine associée notamment à des protéines et à des minéraux."
-      },
-      {
-        "content": "Elle est constituée d'un polymère de N-acétylglucosamine lié en β(1→4).",
-        "correct": true,
-        "explanation": "La chitine est un homopolymère linéaire de résidus de N-acétylglucosamine liés en β(1→4)."
-      },
-      {
-        "content": "C'est un polyol issu de la réduction du glucose.",
+        "content": "Le phosphoénolpyruvate n'intervient jamais.",
         "correct": false,
-        "explanation": "La chitine est un polysaccharide structural ; le polyol issu de la réduction du glucose est le sorbitol."
+        "explanation": "Il participe à la condensation."
+      },
+      {
+        "content": "Un intermédiaire Neu5Ac-9-phosphate est formé.",
+        "correct": true,
+        "explanation": "Il est ensuite déphosphorylé."
+      },
+      {
+        "content": "Le produit final physiologique doit rester obligatoirement phosphorylé en C9.",
+        "correct": false,
+        "explanation": "Le phosphate est retiré."
+      },
+      {
+        "content": "La voie produit du glycogène.",
+        "correct": false,
+        "explanation": "Elle produit un acide sialique."
+      },
+      {
+        "content": "La déphosphorylation finale produit le Neu5Ac libre.",
+        "correct": true,
+        "explanation": "Une phosphatase retire le phosphate."
       }
     ],
-    "explanation": "La chitine illustre un rôle structural majeur des osamines N-acétylées."
+    "explanation": "La biosynthèse du Neu5Ac passe par ManNAc-6-P, PEP, Neu5Ac-9-P puis déphosphorylation.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la biosynthèse cytosolique du Neu5Ac chez les vertébrés :",
+    "question": "Concernant la charge des acides sialiques, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le N-acétyl-D-mannosamine-6-phosphate (ManNAc-6-P) est un précurseur.",
+        "content": "Des répulsions électrostatiques peuvent apparaître entre chaînes riches en acides sialiques.",
         "correct": true,
-        "explanation": "Le ManNAc-6-P est le précurseur glucidique engagé dans la synthèse du Neu5Ac."
+        "explanation": "Les charges de même signe se repoussent."
       },
       {
-        "content": "Le phosphoénolpyruvate (PEP) fournit un fragment de trois carbones.",
-        "correct": true,
-        "explanation": "Le PEP se condense avec le ManNAc-6-P pour former un ose à neuf carbones."
-      },
-      {
-        "content": "Le Neu5Ac-9-phosphate est formé comme intermédiaire.",
-        "correct": true,
-        "explanation": "La condensation produit d'abord le Neu5Ac-9-phosphate, qui sera ensuite déphosphorylé."
-      },
-      {
-        "content": "Le sorbitol et le mannitol en sont les seuls précurseurs.",
+        "content": "Les acides sialiques ne participent jamais à la reconnaissance cellulaire.",
         "correct": false,
-        "explanation": "Ces polyols ne participent pas à la voie de biosynthèse du Neu5Ac."
+        "explanation": "Ils y jouent un rôle important."
+      },
+      {
+        "content": "Le carboxylate du Neu5Ac est négatif à pH physiologique.",
+        "correct": true,
+        "explanation": "Son carboxyle est largement déprotoné."
+      },
+      {
+        "content": "Les chaînes sialylées sont nécessairement électriquement neutres.",
+        "correct": false,
+        "explanation": "Elles portent souvent des charges négatives."
+      },
+      {
+        "content": "La charge peut influencer les interactions avec des protéines de reconnaissance.",
+        "correct": true,
+        "explanation": "Des lectines et récepteurs reconnaissent des motifs sialylés."
       }
     ],
-    "explanation": "Chez les vertébrés, le ManNAc-6-P et le PEP forment le Neu5Ac-9-phosphate, ensuite déphosphorylé en Neu5Ac."
+    "explanation": "Le carboxylate du Neu5Ac explique une part importante de la charge négative des surfaces sialylées."
   },
   {
     "order": 52,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel composé à trois carbones se condense avec le ManNAc-6-P pour former le Neu5Ac-9-phosphate ?",
-    "choices": [
-      {
-        "content": "Phosphoénolpyruvate (PEP).",
-        "correct": true,
-        "explanation": "La N-acétylneuraminate-9-phosphate synthase condense le ManNAc-6-P avec le PEP."
-      },
-      {
-        "content": "Acide ascorbique.",
-        "correct": false,
-        "explanation": "L'acide ascorbique est un dérivé du métabolisme glucidique, mais il ne fournit pas les trois carbones de cette condensation."
-      },
-      {
-        "content": "Acide glucuronique.",
-        "correct": false,
-        "explanation": "L'acide glucuronique est un acide uronique à six carbones et n'est pas le co-substrat de la synthase."
-      },
-      {
-        "content": "Acide sulfurique.",
-        "correct": false,
-        "explanation": "L'acide sulfurique ne fournit aucun squelette carboné à la biosynthèse du Neu5Ac."
+    "format": "QROC",
+    "question": "Citez un dérivé d'ose aminé fréquent dans les glycoconjugués.",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "N-acétylglucosamine",
+        "GlcNAc",
+        "N-acétylgalactosamine",
+        "GalNAc",
+        "glucosamine",
+        "galactosamine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le PEP fournit trois carbones qui s'ajoutent aux six carbones du ManNAc-6-P."
+    },
+    "explanation": "Les osamines et leurs dérivés N-acétylés sont des briques majeures des glycoconjugués."
   },
   {
     "order": 53,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos des dernières étapes de biosynthèse du Neu5Ac chez les vertébrés :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les osamines, laquelle est exacte ?",
     "choices": [
       {
-        "content": "La condensation du ManNAc-6-P et du PEP forme le Neu5Ac-9-phosphate.",
-        "correct": true,
-        "explanation": "Le produit direct de la synthase est un intermédiaire phosphorylé à neuf carbones."
-      },
-      {
-        "content": "Une phosphatase spécifique libère ensuite le Neu5Ac.",
-        "correct": true,
-        "explanation": "La déphosphorylation du Neu5Ac-9-phosphate produit le Neu5Ac libre."
-      },
-      {
-        "content": "La N-acétylation n'intervient qu'après la formation de l'acide neuraminique.",
+        "content": "La substitution amino porte obligatoirement sur C6.",
         "correct": false,
-        "explanation": "Le précurseur ManNAc-6-P est déjà N-acétylé avant la condensation avec le PEP."
+        "explanation": "Elle est classiquement en C2."
       },
       {
-        "content": "La condensation conduit à un composé comportant neuf carbones.",
+        "content": "Une osamine conserve plusieurs fonctions hydroxyle.",
         "correct": true,
-        "explanation": "Les six carbones du ManNAc-6-P et les trois carbones apportés par le PEP donnent le squelette à neuf carbones du Neu5Ac."
+        "explanation": "La substitution ne supprime pas tous les OH."
+      },
+      {
+        "content": "Une osamine est nécessairement un acide uronique.",
+        "correct": false,
+        "explanation": "Ce sont deux modifications différentes."
+      },
+      {
+        "content": "Une osamine ne peut jamais être cyclique.",
+        "correct": false,
+        "explanation": "Elle peut conserver des formes anomériques."
+      },
+      {
+        "content": "Une osamine est un ose totalement dépourvu d'azote.",
+        "correct": false,
+        "explanation": "Elle contient précisément de l'azote."
       }
     ],
-    "explanation": "La biosynthèse vertébrée du Neu5Ac passe par le Neu5Ac-9-phosphate, puis par sa déphosphorylation."
+    "explanation": "Les osamines sont souvent des 2-amino-2-désoxyoses."
   },
   {
     "order": 54,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel type d'enzyme libère le Neu5Ac à partir du Neu5Ac-9-phosphate ?",
+    "format": "QRM",
+    "question": "Concernant les osamines N-acétylées, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une phosphatase spécifique.",
+        "content": "Une osamine est un ose totalement dépourvu d'azote.",
+        "correct": false,
+        "explanation": "Elle contient précisément de l'azote."
+      },
+      {
+        "content": "La substitution amino porte obligatoirement sur C6.",
+        "correct": false,
+        "explanation": "Elle est classiquement en C2."
+      },
+      {
+        "content": "Une osamine ne peut jamais être cyclique.",
+        "correct": false,
+        "explanation": "Elle peut conserver des formes anomériques."
+      },
+      {
+        "content": "Dans les osamines biologiques classiques, la substitution concerne souvent C2.",
         "correct": true,
-        "explanation": "Une phosphatase retire le phosphate porté par le Neu5Ac-9-phosphate."
+        "explanation": "Glucosamine et galactosamine sont des 2-amino-2-désoxyoses."
       },
       {
-        "content": "Une protéase.",
-        "correct": false,
-        "explanation": "Une protéase hydrolyse des liaisons peptidiques ; elle ne déphosphoryle pas un ose."
-      },
-      {
-        "content": "Une kinase ajoutant un second phosphate.",
-        "correct": false,
-        "explanation": "Une kinase ajoute un phosphate, alors que cette étape doit retirer celui du Neu5Ac-9-phosphate."
-      },
-      {
-        "content": "Une ADN polymérase.",
-        "correct": false,
-        "explanation": "Une ADN polymérase synthétise de l'ADN et n'intervient pas dans cette déphosphorylation."
+        "content": "Les osamines entrent dans de nombreux glycoconjugués.",
+        "correct": true,
+        "explanation": "GAG, glycoprotéines et glycolipides peuvent en contenir."
       }
     ],
-    "explanation": "La déphosphorylation du Neu5Ac-9-phosphate est catalysée par une phosphatase spécifique."
+    "explanation": "Les osamines sont souvent des 2-amino-2-désoxyoses."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de l'acide N-acétylneuraminique (Neu5Ac ou NANA) :",
+    "question": "Concernant les osamines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il porte un groupement N-acétyl en C5.",
+        "content": "Dans les osamines biologiques classiques, la substitution concerne souvent C2.",
         "correct": true,
-        "explanation": "Le nom N-acétylneuraminique traduit la présence d'un groupement acétyl lié à l'azote porté en C5."
+        "explanation": "Glucosamine et galactosamine sont des 2-amino-2-désoxyoses."
       },
       {
-        "content": "Son squelette comporte neuf carbones.",
+        "content": "Une osamine est un dérivé d'ose portant une fonction amine.",
         "correct": true,
-        "explanation": "Le Neu5Ac appartient aux nonulosonates, des oses acides à neuf carbones."
+        "explanation": "Un OH est remplacé par un groupe amino."
       },
       {
-        "content": "Le produit est l'acide N-acétylneuraminique.",
+        "content": "Les osamines entrent dans de nombreux glycoconjugués.",
         "correct": true,
-        "explanation": "Neu5Ac et NANA sont deux abréviations de l'acide N-acétylneuraminique."
+        "explanation": "GAG, glycoprotéines et glycolipides peuvent en contenir."
       },
       {
-        "content": "Il constitue le principal acide sialique chez l'être humain.",
+        "content": "Une osamine ne peut jamais être cyclique.",
+        "correct": false,
+        "explanation": "Elle peut conserver des formes anomériques."
+      },
+      {
+        "content": "Une osamine conserve plusieurs fonctions hydroxyle.",
         "correct": true,
-        "explanation": "Le terme acides sialiques désigne une famille dont le Neu5Ac est le représentant majeur chez l'être humain."
+        "explanation": "La substitution ne supprime pas tous les OH."
       }
     ],
-    "explanation": "Le Neu5Ac ou NANA est un ose acide à neuf carbones et le principal membre de la famille des acides sialiques chez l'être humain."
+    "explanation": "Les osamines sont souvent des 2-amino-2-désoxyoses."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "NANA signifie :",
-    "choices": [
-      {
-        "content": "Acide N-acétylneuraminique.",
-        "correct": true,
-        "explanation": "NANA est l'abréviation historique anglaise de N-acetylneuraminic acid, soit acide N-acétylneuraminique."
-      },
-      {
-        "content": "N-acétyl-nicotinamide.",
-        "correct": false,
-        "explanation": "La nicotinamide n'entre pas dans le développement de l'abréviation NANA."
-      },
-      {
-        "content": "Acide N-nitro-aminé.",
-        "correct": false,
-        "explanation": "NANA ne désigne pas un composé nitro ; ses lettres renvoient à l'acide N-acétylneuraminique."
-      },
-      {
-        "content": "Noyau anomérique non acétylé.",
-        "correct": false,
-        "explanation": "Le terme N-acétyl indique au contraire la présence d'un groupement acétyl lié à l'azote."
+    "format": "QROC",
+    "question": "Que signifie l'abréviation GlcNAc ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "N-acétylglucosamine",
+        "N acetylglucosamine",
+        "N-acetylglucosamine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "NANA = acide N-acétylneuraminique."
+    },
+    "explanation": "GlcNAc et GalNAc sont des osamines N-acétylées très fréquentes dans les glycoconjugués."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Le Neu5Ac, principal acide sialique humain, peut être présent dans :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la chitine, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Glycoprotéines de la surface des cellules eucaryotes.",
-        "correct": true,
-        "explanation": "Les acides sialiques occupent fréquemment l'extrémité des glycannes portés par les glycoprotéines de surface."
-      },
-      {
-        "content": "Glycolipides des cellules eucaryotes.",
-        "correct": true,
-        "explanation": "Les gangliosides sont des glycosphingolipides contenant un ou plusieurs résidus d'acide sialique."
-      },
-      {
-        "content": "Structures impliquées dans la reconnaissance cellulaire.",
-        "correct": true,
-        "explanation": "Les acides sialiques terminaux peuvent servir de déterminants reconnus par des lectines et moduler les interactions entre cellules."
-      },
-      {
-        "content": "Uniquement des triglycérides.",
+        "content": "La chitine est un polymère de fructose.",
         "correct": false,
-        "explanation": "Les triglycérides ne portent pas de chaîne glycannique ; les acides sialiques se trouvent notamment sur des glycoprotéines et des glycolipides."
+        "explanation": "Elle est formée de GlcNAc."
+      },
+      {
+        "content": "La chitine est une protéine.",
+        "correct": false,
+        "explanation": "C'est un glucide polymérique."
+      },
+      {
+        "content": "Les unités sont reliées principalement par des liaisons bêta(1→4).",
+        "correct": true,
+        "explanation": "Cette architecture rappelle celle de la cellulose."
+      },
+      {
+        "content": "La chitine constitue la réserve de glycogène du foie.",
+        "correct": false,
+        "explanation": "C'est un polymère structural."
+      },
+      {
+        "content": "Ses unités sont reliées par des liaisons alpha(1→6) uniquement.",
+        "correct": false,
+        "explanation": "La liaison principale est bêta(1→4)."
       }
     ],
-    "explanation": "Le NANA intervient dans les glycoconjugués de surface et la reconnaissance cellulaire."
+    "explanation": "La chitine est un polymère structural de GlcNAc en bêta(1→4)."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la fonction acide du NANA :",
+    "question": "Concernant le peptidoglycane bactérien, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le COOH peut s'ioniser en COO−.",
+        "content": "Le peptidoglycane contient de la N-acétylglucosamine.",
         "correct": true,
-        "explanation": "La fonction carboxylique peut perdre un proton et devenir un carboxylate COO−."
+        "explanation": "GlcNAc est une unité glucidique du réseau."
       },
       {
-        "content": "La forme COO− porte une charge négative.",
+        "content": "Les unités glucidiques sont reliées par des liaisons bêta(1→4).",
         "correct": true,
-        "explanation": "La déprotonation laisse une charge négative délocalisée sur les deux oxygènes du carboxylate."
+        "explanation": "Le lysozyme cible cette chaîne."
       },
       {
-        "content": "Les charges négatives peuvent se repousser.",
-        "correct": true,
-        "explanation": "Deux carboxylates proches portent des charges de même signe et peuvent donc exercer une répulsion électrostatique."
-      },
-      {
-        "content": "L'ionisation transforme le NANA en polyol neutre.",
+        "content": "Il ne contient aucun dérivé aminé d'ose.",
         "correct": false,
-        "explanation": "La charge est au contraire négative."
+        "explanation": "Il en contient plusieurs."
+      },
+      {
+        "content": "Des chaînes peptidiques réticulent les motifs glucidiques.",
+        "correct": true,
+        "explanation": "Elles renforcent la paroi bactérienne."
+      },
+      {
+        "content": "Il contient aussi de l'acide N-acétylmuramique.",
+        "correct": true,
+        "explanation": "MurNAc alterne avec GlcNAc."
       }
     ],
-    "explanation": "L'ionisation du COOH confère une charge négative au NANA."
+    "explanation": "La paroi bactérienne contient une chaîne GlcNAc–MurNAc réticulée par des peptides."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quelles conséquences peuvent avoir les charges négatives des acides sialiques de surface ?",
+    "format": "QRP",
+    "question": "À propos de l'acide sialique Neu5Ac, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Contribuer à la répulsion entre surfaces ou macromolécules proches.",
-        "correct": true,
-        "explanation": "Une forte densité de charges négatives peut limiter le rapprochement de structures voisines."
-      },
-      {
-        "content": "Produire une répulsion lorsque des carboxylates COO− de même signe sont rapprochés.",
-        "correct": true,
-        "explanation": "Des charges électriques de même signe se repoussent."
-      },
-      {
-        "content": "Moduler des interactions avec des protéines ou des ions.",
-        "correct": true,
-        "explanation": "La charge des acides sialiques contribue à leurs interactions électrostatiques avec l'environnement moléculaire."
-      },
-      {
-        "content": "Résultant d'une attraction entre charges opposées.",
+        "content": "Neu5Ac est un acide aminé protéinogène.",
         "correct": false,
-        "explanation": "Il s'agit d'une répulsion."
+        "explanation": "C'est un dérivé glucidique."
+      },
+      {
+        "content": "Il possède une fonction carboxylique largement ionisée à pH physiologique.",
+        "correct": true,
+        "explanation": "Elle contribue à une charge négative de surface."
+      },
+      {
+        "content": "Il est uniquement présent dans le noyau cellulaire.",
+        "correct": false,
+        "explanation": "Il est notamment abondant à la surface cellulaire."
+      },
+      {
+        "content": "Il confère une charge positive forte aux glycoconjugués.",
+        "correct": false,
+        "explanation": "Son carboxylate est négatif."
+      },
+      {
+        "content": "Il est souvent situé à l'extrémité de chaînes glycaniques.",
+        "correct": true,
+        "explanation": "Cette position influence reconnaissance et interactions."
       }
     ],
-    "explanation": "Les carboxylates des acides sialiques contribuent aux propriétés électrostatiques des surfaces cellulaires et des glycoconjugués."
+    "explanation": "Neu5Ac ou NANA est le principal acide sialique humain et contribue à la charge négative de nombreux glycoconjugués.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Comparer osamine et osamine N-acétylée permet d'affirmer que :",
+    "question": "Parmi les affirmations suivantes sur la biosynthèse du Neu5Ac, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "L'osamine porte une amine primaire en C2.",
+        "content": "Un intermédiaire Neu5Ac-9-phosphate est formé.",
         "correct": true,
-        "explanation": "Dans une osamine comme la glucosamine, le OH de C2 est remplacé par NH2."
+        "explanation": "Il est ensuite déphosphorylé."
       },
       {
-        "content": "L'osamine N-acétylée porte un groupement acétyl sur cet azote.",
+        "content": "La déphosphorylation finale produit le Neu5Ac libre.",
         "correct": true,
-        "explanation": "La N-acétylation transforme le groupe amine en motif acétamide NHCOCH3."
+        "explanation": "Une phosphatase retire le phosphate."
       },
       {
-        "content": "La N-acétylation ajoute un motif CH3CO.",
-        "correct": true,
-        "explanation": "Le groupement acétyl CH3CO est fixé sur l'azote de l'osamine."
-      },
-      {
-        "content": "La N-acétylation retire tout atome d'azote.",
+        "content": "Le produit final physiologique doit rester obligatoirement phosphorylé en C9.",
         "correct": false,
-        "explanation": "L'azote est conservé et acétylé."
+        "explanation": "Le phosphate est retiré."
+      },
+      {
+        "content": "Le phosphoénolpyruvate contribue au squelette carboné lors de la condensation.",
+        "correct": true,
+        "explanation": "Il fournit une partie du squelette du Neu5Ac."
+      },
+      {
+        "content": "La voie produit du glycogène.",
+        "correct": false,
+        "explanation": "Elle produit un acide sialique."
       }
     ],
-    "explanation": "La N-acétylation modifie la fonction amine sans supprimer l'azote."
+    "explanation": "La biosynthèse du Neu5Ac passe par ManNAc-6-P, PEP, Neu5Ac-9-P puis déphosphorylation."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un dérivé glucidique est retrouvé dans une paroi bactérienne et possède un motif N-acétylé en C2. Quelle famille est compatible ?",
-    "choices": [
-      {
-        "content": "Osamine N-acétylée.",
-        "correct": true,
-        "explanation": "Un motif N-acétylé en C2 correspond à une osamine dont l'amine a été acétylée."
-      },
-      {
-        "content": "Dérivé aminé d'ose.",
-        "correct": true,
-        "explanation": "La présence d'un atome d'azote sur le squelette glucidique classe la molécule parmi les dérivés aminés d'oses."
-      },
-      {
-        "content": "Polyol nécessairement.",
-        "correct": false,
-        "explanation": "Ce n'est pas un produit de réduction du carbonyle."
-      },
-      {
-        "content": "Dérivé pouvant correspondre à un motif de N-acétylglucosamine ou de N-acétylmuramique.",
-        "correct": true,
-        "explanation": "Le peptidoglycane bactérien contient des résidus de N-acétylglucosamine et de N-acétylmuramique."
+    "format": "QROC",
+    "question": "Quel groupement du Neu5Ac porte principalement la charge négative à pH physiologique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "carboxylate",
+        "COO-",
+        "fonction carboxylate",
+        "groupement carboxylate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le peptidoglycane de la paroi bactérienne contient des osamines N-acétylées, notamment la N-acétylglucosamine et l'acide N-acétylmuramique."
+    },
+    "explanation": "Le carboxylate du Neu5Ac explique une part importante de la charge négative des surfaces sialylées."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une molécule de surface cellulaire porte un acide sialique terminal. Quelles propriétés sont cohérentes ?",
+    "format": "QRU",
+    "question": "À propos de les glycoconjugués contenant des osamines, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Elle peut participer à la reconnaissance cellulaire.",
-        "correct": true,
-        "explanation": "Un acide sialique terminal peut être reconnu par des lectines et moduler des interactions cellulaires."
-      },
-      {
-        "content": "Elle peut porter une charge négative via COO−.",
-        "correct": true,
-        "explanation": "La fonction carboxylique de l'acide sialique peut être déprotonée sous forme COO−."
-      },
-      {
-        "content": "Elle peut moduler des interactions intermoléculaires par sa charge.",
-        "correct": true,
-        "explanation": "La charge négative des acides sialiques intervient dans des phénomènes de répulsion et dans des interactions avec des protéines ou des ions."
-      },
-      {
-        "content": "Elle est dépourvue de glucide.",
+        "content": "Les GAG sont uniquement constitués d'acides aminés.",
         "correct": false,
-        "explanation": "L'acide sialique est un dérivé glucidique."
+        "explanation": "Ce sont des polysaccharides."
+      },
+      {
+        "content": "Les osamines sont absentes de toutes les molécules humaines.",
+        "correct": false,
+        "explanation": "Elles sont très répandues."
+      },
+      {
+        "content": "Les glycolipides sont obligatoirement dépourvus de glucides.",
+        "correct": false,
+        "explanation": "Leur nom indique précisément une portion glucidique."
+      },
+      {
+        "content": "Une glycoprotéine ne peut contenir aucun sucre aminé.",
+        "correct": false,
+        "explanation": "Elle peut en contenir plusieurs."
+      },
+      {
+        "content": "Certains glycolipides portent des oses aminés ou sialylés.",
+        "correct": true,
+        "explanation": "Les glycosphingolipides en sont des exemples."
       }
     ],
-    "explanation": "Le NANA relie structure, charge et reconnaissance cellulaire."
+    "explanation": "Les osamines et leurs dérivés N-acétylés sont des briques majeures des glycoconjugués."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Donnez soit l'abréviation historique à quatre lettres de l'acide N-acétylneuraminique, soit le nom de la famille à laquelle il appartient.",
+    "question": "Quel est le principal acide sialique humain, souvent abrégé Neu5Ac ou NANA ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "acide sialique",
-        "sialique",
+        "acide N-acétylneuraminique",
+        "Neu5Ac",
         "NANA",
-        "nana"
+        "acide sialique"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "L'acide N-acétylneuraminique est abrégé NANA ou Neu5Ac ; il appartient à la famille des acides sialiques."
+    "explanation": "Neu5Ac, ou acide N-acétylneuraminique, est le principal acide sialique humain."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quel enchaînement respecte la biosynthèse cytosolique du Neu5Ac chez les vertébrés ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "UDP-GlcNAc → ManNAc-6-P après épimérisation et phosphorylation.",
+        "content": "Il possède une fonction carboxylique largement ionisée à pH physiologique.",
         "correct": true,
-        "explanation": "L'enzyme bifonctionnelle GNE forme le ManNAc puis le phosphoryle en ManNAc-6-P."
+        "explanation": "Elle contribue à une charge négative de surface."
       },
       {
-        "content": "ManNAc-6-P + PEP → Neu5Ac-9-P.",
+        "content": "Il est souvent situé à l'extrémité de chaînes glycaniques.",
         "correct": true,
-        "explanation": "La N-acétylneuraminate-9-phosphate synthase catalyse cette condensation."
+        "explanation": "Cette position influence reconnaissance et interactions."
       },
       {
-        "content": "Neu5Ac-9-P → Neu5Ac par déphosphorylation.",
-        "correct": true,
-        "explanation": "Une phosphatase spécifique libère le Neu5Ac non phosphorylé."
-      },
-      {
-        "content": "NANA → D-mannosamine par simple phosphorylation.",
+        "content": "Une N-acétylation retire tout l'azote de l'ose.",
         "correct": false,
-        "explanation": "La voie va de l'UDP-GlcNAc au ManNAc-6-P puis au Neu5Ac ; une simple phosphorylation du Neu5Ac ne produit pas la mannosamine."
+        "explanation": "L'azote est conservé."
+      },
+      {
+        "content": "Il est dépourvu de fonction acide.",
+        "correct": false,
+        "explanation": "Il possède un carboxyle."
+      },
+      {
+        "content": "Il confère une charge positive forte aux glycoconjugués.",
+        "correct": false,
+        "explanation": "Son carboxylate est négatif."
+      },
+      {
+        "content": "Il est présent dans des glycoprotéines et glycolipides.",
+        "correct": true,
+        "explanation": "Il contribue au glycocalyx."
+      },
+      {
+        "content": "GlcNAc est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un dérivé aminé du glucose."
+      },
+      {
+        "content": "La N-acétylgalactosamine est souvent abrégée GalNAc.",
+        "correct": true,
+        "explanation": "Elle intervient notamment dans certains GAG et O-glycanes."
+      },
+      {
+        "content": "Une N-acétylation transforme une amine en fonction amide N-acétylée.",
+        "correct": true,
+        "explanation": "Le groupe acétyl est fixé sur l'azote."
+      },
+      {
+        "content": "Il est uniquement présent dans le noyau cellulaire.",
+        "correct": false,
+        "explanation": "Il est notamment abondant à la surface cellulaire."
       }
     ],
-    "explanation": "La voie vertébrée passe par le ManNAc-6-P et le Neu5Ac-9-P avant de produire le Neu5Ac libre."
+    "explanation": "GlcNAc et GalNAc sont des osamines N-acétylées très fréquentes dans les glycoconjugués. Neu5Ac ou NANA est le principal acide sialique humain et contribue à la charge négative de nombreux glycoconjugués."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quels couples structure/rôle sont corrects ?",
+    "question": "À propos de la chitine, quelles propositions sont correctes ?",
     "choices": [
       {
-        "content": "Osamine → NH2 en C2.",
+        "content": "Les unités sont reliées principalement par des liaisons bêta(1→4).",
         "correct": true,
-        "explanation": "Dans une osamine comme la glucosamine, le OH de C2 est remplacé par NH2."
+        "explanation": "Cette architecture rappelle celle de la cellulose."
       },
       {
-        "content": "Osamine N-acétylée → groupement acétyl sur N.",
+        "content": "La chitine est présente dans l'exosquelette des arthropodes.",
         "correct": true,
-        "explanation": "Le groupement acétyl CH3CO est fixé sur l'azote de l'osamine."
+        "explanation": "Crustacés et insectes en contiennent."
       },
       {
-        "content": "NANA → reconnaissance cellulaire.",
-        "correct": true,
-        "explanation": "Le Neu5Ac terminal des glycoconjugués peut participer à la reconnaissance par des lectines."
-      },
-      {
-        "content": "NANA → absence de toute fonction acide.",
+        "content": "La chitine est une protéine.",
         "correct": false,
-        "explanation": "Il possède un COOH ionisable."
+        "explanation": "C'est un glucide polymérique."
+      },
+      {
+        "content": "La chitine est un polysaccharide structural.",
+        "correct": true,
+        "explanation": "Elle n'est pas une réserve énergétique humaine."
+      },
+      {
+        "content": "Ses unités sont reliées par des liaisons alpha(1→6) uniquement.",
+        "correct": false,
+        "explanation": "La liaison principale est bêta(1→4)."
       }
     ],
-    "explanation": "Les dérivés aminés se distinguent par leurs substitutions et leurs rôles biologiques."
+    "explanation": "La chitine est un polymère structural de GlcNAc en bêta(1→4)."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "La chitine et le NANA illustrent deux usages biologiques différents des dérivés aminés :",
-    "choices": [
-      {
-        "content": "Chitine : rôle structural.",
-        "correct": true,
-        "explanation": "La chitine contribue à la rigidité des exosquelettes d'insectes et de crustacés."
-      },
-      {
-        "content": "NANA : rôle dans la reconnaissance cellulaire.",
-        "correct": true,
-        "explanation": "Le Neu5Ac terminal peut être reconnu par des protéines de liaison aux acides sialiques et moduler les interactions cellulaires."
-      },
-      {
-        "content": "Tous deux sont des dérivés d'oses comportant de l'azote.",
-        "correct": true,
-        "explanation": "La chitine est constituée de N-acétylglucosamine et le NANA porte un groupement N-acétyl."
-      },
-      {
-        "content": "Tous deux sont des polyols issus d'une simple réduction.",
-        "correct": false,
-        "explanation": "La chitine est un polysaccharide d'osamine N-acétylée et le Neu5Ac résulte d'une voie biosynthétique distincte impliquant ManNAc-6-P et PEP."
+    "format": "QROC",
+    "question": "Citez l'un des deux dérivés glucidiques alternants du peptidoglycane bactérien.",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "N-acétylglucosamine",
+        "GlcNAc",
+        "acide N-acétylmuramique",
+        "MurNAc",
+        "N-acetylglucosamine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les dérivés aminés ont des fonctions structurales et de signalisation/reconnaissance."
+    },
+    "explanation": "La paroi bactérienne contient une chaîne GlcNAc–MurNAc réticulée par des peptides."
   },
   {
     "order": 67,
     "difficulty": "HARD",
     "format": "QZONE",
-    "question": "Sur ce schéma original simplifié d'une osamine, cliquez sur le carbone C2 portant la fonction amine qui remplace le OH.",
+    "question": "Cliquez sur le carbone qui porte classiquement la fonction amine dans la glucosamine.",
     "image": {
-      "src": "/images/training/ue14/biochimie/oses-simples-derives/osamine-c2-qzone.svg",
-      "alt": "Projection simplifiée d'une osamine linéaire avec C1 à C6 et NH2 porté par C2",
-      "width": 700,
-      "height": 900
+      "src": "/images/training/ue14/biochimie/glucides/ch2-glucosamine-c2-qzone.svg",
+      "alt": "Chaîne glucidique simplifiée numérotée C1 à C6 avec NH2 sur C2",
+      "width": 1200,
+      "height": 600
     },
     "expectedZones": [
       {
-        "id": "c2",
-        "label": "C2 portant NH2",
-        "x": 0.5,
-        "y": 0.28,
+        "id": "zone-67",
+        "label": "Carbone C2",
+        "x": 0.292,
+        "y": 0.5,
         "tolerance": 0.075
       }
     ],
-    "explanation": "Dans une osamine telle que la glucosamine, la fonction hydroxyle portée par C2 est remplacée par une fonction amine primaire."
+    "explanation": "La glucosamine est un 2-amino-2-désoxyglucose : la substitution NH2 caractéristique est portée par C2."
   },
   {
     "order": 68,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un dérivé glucidique possède NHCOCH3 en C2. Quelles conclusions sont justifiées ?",
-    "choices": [
-      {
-        "content": "Il est compatible avec une osamine N-acétylée.",
-        "correct": true,
-        "explanation": "Le motif NHCOCH3 correspond à une amine portant un groupement acétyl."
-      },
-      {
-        "content": "Le groupement acétyl est lié à l'azote.",
-        "correct": true,
-        "explanation": "Dans NHCOCH3, le carbonyle du groupement acétyl est directement lié à l'azote."
-      },
-      {
-        "content": "Ce type de dérivé peut participer à des polymères structuraux comme la chitine.",
-        "correct": true,
-        "explanation": "La chitine est constituée de résidus de N-acétylglucosamine, qui portent ce motif en C2."
-      },
-      {
-        "content": "Il s'agit nécessairement d'acide glucuronique.",
-        "correct": false,
-        "explanation": "L'acide glucuronique est un dérivé oxydé de C6."
+    "format": "QROC",
+    "question": "Que signifie l'abréviation GlcNAc ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "N-acétylglucosamine",
+        "N acetylglucosamine",
+        "N-acetylglucosamine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le motif NHCOCH3 est le repère fonctionnel d'une osamine N-acétylée."
+    },
+    "explanation": "GlcNAc et GalNAc sont des osamines N-acétylées très fréquentes dans les glycoconjugués."
   },
   {
     "order": 69,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un NANA est représenté sous forme ionisée. Quelles propositions sont exactes ?",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la chitine, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Son groupement carboxylique est sous forme COO−.",
-        "correct": true,
-        "explanation": "La forme ionisée résulte de la déprotonation du COOH en carboxylate COO−."
-      },
-      {
-        "content": "La molécule porte une charge négative.",
-        "correct": true,
-        "explanation": "Le carboxylate COO− confère une charge négative à la molécule."
-      },
-      {
-        "content": "Des NANA proches peuvent contribuer à des répulsions électrostatiques.",
-        "correct": true,
-        "explanation": "Des charges négatives voisines peuvent engendrer des interactions électrostatiques répulsives."
-      },
-      {
-        "content": "Le COOH ionisé devient NH2.",
+        "content": "La chitine est un polymère de fructose.",
         "correct": false,
-        "explanation": "L'ionisation transforme COOH en COO− ; elle ne convertit pas une fonction carboxylique en fonction amine."
+        "explanation": "Elle est formée de GlcNAc."
+      },
+      {
+        "content": "La chitine est une protéine.",
+        "correct": false,
+        "explanation": "C'est un glucide polymérique."
+      },
+      {
+        "content": "La chitine constitue la réserve de glycogène du foie.",
+        "correct": false,
+        "explanation": "C'est un polymère structural."
+      },
+      {
+        "content": "La chitine est un polymère de N-acétylglucosamine.",
+        "correct": true,
+        "explanation": "Ses unités sont répétées."
+      },
+      {
+        "content": "La chitine est un polysaccharide structural.",
+        "correct": true,
+        "explanation": "Elle n'est pas une réserve énergétique humaine."
       }
     ],
-    "explanation": "L'état ionisé explique une partie des propriétés de surface du NANA."
+    "explanation": "La chitine est un polymère structural de GlcNAc en bêta(1→4).",
+    "requiredSelectionCount": 2
   },
   {
     "order": 70,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une surface cellulaire est riche en glycannes terminés par du Neu5Ac. Quel raisonnement est cohérent ?",
+    "question": "Concernant le peptidoglycane bactérien, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les carboxylates portent des charges négatives.",
+        "content": "Il contient aussi de l'acide N-acétylmuramique.",
         "correct": true,
-        "explanation": "La déprotonation du groupement carboxylique produit la forme COO−."
+        "explanation": "MurNAc alterne avec GlcNAc."
       },
       {
-        "content": "Les charges de même signe se repoussent.",
+        "content": "Le peptidoglycane contient de la N-acétylglucosamine.",
         "correct": true,
-        "explanation": "Deux charges négatives proches exercent une interaction électrostatique répulsive."
+        "explanation": "GlcNAc est une unité glucidique du réseau."
       },
       {
-        "content": "Cette répulsion peut limiter le rapprochement de surfaces voisines.",
+        "content": "Des chaînes peptidiques réticulent les motifs glucidiques.",
         "correct": true,
-        "explanation": "La densité de charges négatives peut contribuer à des effets anti-adhésifs ou de répulsion électrostatique."
+        "explanation": "Elles renforcent la paroi bactérienne."
       },
       {
-        "content": "La reconnaissance cellulaire peut être impliquée.",
-        "correct": true,
-        "explanation": "Les résidus terminaux de Neu5Ac peuvent servir de déterminants reconnus par certaines lectines."
+        "content": "Il ne contient aucun dérivé aminé d'ose.",
+        "correct": false,
+        "explanation": "Il en contient plusieurs."
+      },
+      {
+        "content": "Le peptidoglycane est exclusivement constitué de cellulose.",
+        "correct": false,
+        "explanation": "Il contient GlcNAc et MurNAc."
       }
     ],
-    "explanation": "Les carboxylates du Neu5Ac contribuent aux propriétés électrostatiques de la surface, tandis que ses résidus terminaux peuvent participer à la reconnaissance moléculaire."
+    "explanation": "La paroi bactérienne contient une chaîne GlcNAc–MurNAc réticulée par des peptides."
   },
   {
     "order": 71,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "On compare glucosamine, osamine N-acétylée et NANA. Quelles propositions sont cohérentes ?",
+    "format": "QRU",
+    "question": "À propos de l'acide sialique Neu5Ac, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La glucosamine illustre une osamine.",
-        "correct": true,
-        "explanation": "Dans la glucosamine, le groupement NH2 remplace le OH porté par C2 du glucose."
+        "content": "Il est uniquement présent dans le noyau cellulaire.",
+        "correct": false,
+        "explanation": "Il est notamment abondant à la surface cellulaire."
       },
       {
-        "content": "L'osamine N-acétylée porte un acétyl sur N.",
-        "correct": true,
-        "explanation": "La N-acétylation fixe le groupement CH3CO sur l'atome d'azote de l'osamine."
+        "content": "Il confère une charge positive forte aux glycoconjugués.",
+        "correct": false,
+        "explanation": "Son carboxylate est négatif."
       },
       {
-        "content": "Le NANA possède une fonction acide ionisable.",
-        "correct": true,
-        "explanation": "Sa fonction carboxylique COOH peut se déprotoner en carboxylate COO−."
+        "content": "Il est dépourvu de fonction acide.",
+        "correct": false,
+        "explanation": "Il possède un carboxyle."
       },
       {
-        "content": "Les trois sont des dérivés glucidiques.",
+        "content": "Il possède une fonction carboxylique largement ionisée à pH physiologique.",
         "correct": true,
-        "explanation": "La glucosamine, les osamines N-acétylées et le Neu5Ac possèdent tous un squelette dérivé d'un ose."
+        "explanation": "Elle contribue à une charge négative de surface."
+      },
+      {
+        "content": "Neu5Ac est un acide aminé protéinogène.",
+        "correct": false,
+        "explanation": "C'est un dérivé glucidique."
       }
     ],
-    "explanation": "Ces trois niveaux de dérivés aminés doivent être distingués."
+    "explanation": "Neu5Ac ou NANA est le principal acide sialique humain et contribue à la charge négative de nombreux glycoconjugués."
   },
   {
     "order": 72,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une molécule est décrite comme acide N-acétylneuraminique. Quelles informations peut-on déduire de ce nom ?",
+    "question": "Parmi les affirmations suivantes sur la biosynthèse du Neu5Ac, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Elle est N-acétylée.",
+        "content": "La déphosphorylation finale produit le Neu5Ac libre.",
         "correct": true,
-        "explanation": "Le préfixe N-acétyl signifie qu'un groupement acétyl est lié à un atome d'azote."
+        "explanation": "Une phosphatase retire le phosphate."
       },
       {
-        "content": "Elle dérive de l'acide neuraminique.",
-        "correct": true,
-        "explanation": "Le terme neuraminique identifie le squelette parent, modifié ici par N-acétylation."
-      },
-      {
-        "content": "Elle appartient à la famille des acides sialiques.",
-        "correct": true,
-        "explanation": "Le Neu5Ac est le principal représentant humain de la famille des acides sialiques."
-      },
-      {
-        "content": "Elle ne contient aucune fonction acide.",
+        "content": "Neu5Ac est synthétisé directement à partir d'un acide gras sans précurseur glucidique.",
         "correct": false,
-        "explanation": "L'acide N-acétylneuraminique porte une fonction carboxylique ionisable."
+        "explanation": "La voie part d'un dérivé du mannose."
+      },
+      {
+        "content": "Le phosphoénolpyruvate contribue au squelette carboné lors de la condensation.",
+        "correct": true,
+        "explanation": "Il fournit une partie du squelette du Neu5Ac."
+      },
+      {
+        "content": "Un intermédiaire Neu5Ac-9-phosphate est formé.",
+        "correct": true,
+        "explanation": "Il est ensuite déphosphorylé."
+      },
+      {
+        "content": "La voie humaine passe par la N-acétylmannosamine-6-phosphate.",
+        "correct": true,
+        "explanation": "ManNAc-6-P est un précurseur."
       }
     ],
-    "explanation": "Le nom complet résume l'origine et la modification du NANA."
+    "explanation": "La biosynthèse du Neu5Ac passe par ManNAc-6-P, PEP, Neu5Ac-9-P puis déphosphorylation."
   },
   {
     "order": 73,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Dans la biosynthèse cytosolique du Neu5Ac chez les vertébrés, quels éléments doivent être reconnus ?",
-    "choices": [
-      {
-        "content": "Formation de ManNAc-6-P.",
-        "correct": true,
-        "explanation": "Le ManNAc est phosphorylé en C6 avant la condensation qui construit le squelette à neuf carbones."
-      },
-      {
-        "content": "Condensation avec le phosphoénolpyruvate.",
-        "correct": true,
-        "explanation": "Le PEP apporte trois carbones au précurseur ManNAc-6-P."
-      },
-      {
-        "content": "Formation de Neu5Ac-9-phosphate.",
-        "correct": true,
-        "explanation": "Le produit direct de la condensation est le Neu5Ac-9-phosphate."
-      },
-      {
-        "content": "Déphosphorylation en Neu5Ac.",
-        "correct": true,
-        "explanation": "Le retrait du phosphate libère le Neu5Ac, aussi abrégé NANA."
+    "format": "QROC",
+    "question": "Quel groupement du Neu5Ac porte principalement la charge négative à pH physiologique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "carboxylate",
+        "COO-",
+        "fonction carboxylate",
+        "groupement carboxylate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La voie vertébrée associe ManNAc-6-P, PEP, Neu5Ac-9-P puis une déphosphorylation finale."
+    },
+    "explanation": "Le carboxylate du Neu5Ac explique une part importante de la charge négative des surfaces sialylées."
   },
   {
     "order": 74,
     "difficulty": "HARD",
-    "format": "QROC",
-    "question": "Après la formation du ManNAc-6-P, combien d'étapes enzymatiques distinctes conduisent au Neu5Ac libre : condensation avec le PEP, puis déphosphorylation ?",
-    "answer": {
-      "type": "number",
-      "value": 2,
-      "tolerance": 0
-    },
-    "explanation": "Deux étapes sont nécessaires : formation du Neu5Ac-9-phosphate par condensation, puis déphosphorylation en Neu5Ac."
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "Les glycolipides sont obligatoirement dépourvus de glucides.",
+        "correct": false,
+        "explanation": "Leur nom indique précisément une portion glucidique."
+      },
+      {
+        "content": "La chitine est un polysaccharide structural.",
+        "correct": true,
+        "explanation": "Elle n'est pas une réserve énergétique humaine."
+      },
+      {
+        "content": "Les unités sont reliées principalement par des liaisons bêta(1→4).",
+        "correct": true,
+        "explanation": "Cette architecture rappelle celle de la cellulose."
+      },
+      {
+        "content": "La chitine est une protéine.",
+        "correct": false,
+        "explanation": "C'est un glucide polymérique."
+      },
+      {
+        "content": "Les osamines sont absentes de toutes les molécules humaines.",
+        "correct": false,
+        "explanation": "Elles sont très répandues."
+      },
+      {
+        "content": "Les glycosaminoglycanes contiennent souvent une osamine.",
+        "correct": true,
+        "explanation": "GlcNAc ou GalNAc est répétée avec un autre dérivé glucidique."
+      },
+      {
+        "content": "La chitine est un polymère de N-acétylglucosamine.",
+        "correct": true,
+        "explanation": "Ses unités sont répétées."
+      },
+      {
+        "content": "La chitine est présente dans l'exosquelette des arthropodes.",
+        "correct": true,
+        "explanation": "Crustacés et insectes en contiennent."
+      },
+      {
+        "content": "Les GAG sont uniquement constitués d'acides aminés.",
+        "correct": false,
+        "explanation": "Ce sont des polysaccharides."
+      },
+      {
+        "content": "Une glycoprotéine ne peut contenir aucun sucre aminé.",
+        "correct": false,
+        "explanation": "Elle peut en contenir plusieurs."
+      }
+    ],
+    "explanation": "Les osamines et leurs dérivés N-acétylés sont des briques majeures des glycoconjugués. La chitine est un polymère structural de GlcNAc en bêta(1→4)."
   },
   {
     "order": 75,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Quel parallèle est correct entre glucuronate et NANA ionisé ?",
+    "question": "Parmi les affirmations suivantes sur les osamines, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Les deux peuvent porter un carboxylate COO−.",
-        "correct": true,
-        "explanation": "La déprotonation de leur fonction carboxylique produit dans les deux cas un groupement COO−."
-      },
-      {
-        "content": "Les deux peuvent donc contribuer à une charge négative.",
-        "correct": true,
-        "explanation": "Chaque groupement carboxylate porte une charge négative."
-      },
-      {
-        "content": "Ils sont obtenus par la même transformation structurale.",
+        "content": "Une osamine est nécessairement un acide uronique.",
         "correct": false,
-        "explanation": "Le glucuronate dérive de l'oxydation du glucose, tandis que le Neu5Ac est notamment formé à partir de ManNAc-6-P et de PEP."
+        "explanation": "Ce sont deux modifications différentes."
       },
       {
-        "content": "Ce sont deux dérivés d'oses.",
+        "content": "Dans les osamines biologiques classiques, la substitution concerne souvent C2.",
         "correct": true,
-        "explanation": "Le glucuronate dérive du glucose et le Neu5Ac est un nonulosonate issu du métabolisme d'une osamine N-acétylée."
+        "explanation": "Glucosamine et galactosamine sont des 2-amino-2-désoxyoses."
+      },
+      {
+        "content": "La substitution amino porte obligatoirement sur C6.",
+        "correct": false,
+        "explanation": "Elle est classiquement en C2."
+      },
+      {
+        "content": "Les osamines entrent dans de nombreux glycoconjugués.",
+        "correct": true,
+        "explanation": "GAG, glycoprotéines et glycolipides peuvent en contenir."
+      },
+      {
+        "content": "Une osamine est un ose totalement dépourvu d'azote.",
+        "correct": false,
+        "explanation": "Elle contient précisément de l'azote."
       }
     ],
-    "explanation": "La présence d'un carboxylate est commune, mais leurs origines structurales diffèrent."
+    "explanation": "Les osamines sont souvent des 2-amino-2-désoxyoses."
   },
   {
     "order": 76,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des localisations biologiques des dérivés aminés :",
-    "choices": [
-      {
-        "content": "Osamines : GAG, glycoprotéines, protéoglycanes, glycolipides.",
-        "correct": true,
-        "explanation": "Des osamines N-acétylées sont intégrées aux glycannes de ces macromolécules et glycoconjugués."
-      },
-      {
-        "content": "Osamines N-acétylées : paroi bactérienne.",
-        "correct": true,
-        "explanation": "Le peptidoglycane bactérien contient de la N-acétylglucosamine et de l'acide N-acétylmuramique."
-      },
-      {
-        "content": "Chitine : insectes et crustacés.",
-        "correct": true,
-        "explanation": "La chitine est un constituant structural de l'exosquelette des insectes et des crustacés."
-      },
-      {
-        "content": "NANA : glycoconjugués de surface des cellules eucaryotes.",
-        "correct": true,
-        "explanation": "Le Neu5Ac occupe fréquemment l'extrémité des glycannes de glycoprotéines et de glycolipides membranaires."
+    "format": "QROC",
+    "question": "Quelle abréviation désigne classiquement la N-acétylgalactosamine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GalNAc",
+        "galnac"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La section associe chaque dérivé à des structures biologiques caractéristiques."
+    },
+    "explanation": "GalNAc est l'abréviation usuelle de la N-acétylgalactosamine."
   },
   {
     "order": 77,
     "difficulty": "HARD",
     "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux modifications qui permettent de passer d'un ose à une osamine puis à une osamine N-acétylée.",
+    "question": "À propos de la chitine, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Substitution OH de C2 par NH2.",
-        "correct": true,
-        "explanation": "Le remplacement du OH de C2 par NH2 transforme l'ose en 2-amino-2-désoxyose."
-      },
-      {
-        "content": "Ajout d'un groupement acétyl sur N.",
-        "correct": true,
-        "explanation": "La fixation de CH3CO sur l'azote forme le motif acétamide de l'osamine N-acétylée."
-      },
-      {
-        "content": "Oxydation C6 en COOH.",
+        "content": "La chitine est un polymère de fructose.",
         "correct": false,
-        "explanation": "L'oxydation de C6 en COOH forme un acide uronique et n'introduit pas d'azote."
+        "explanation": "Elle est formée de GlcNAc."
       },
       {
-        "content": "Réduction du carbonyle en alcool.",
+        "content": "La chitine est une protéine.",
         "correct": false,
-        "explanation": "La réduction du carbonyle forme un polyol, pas une osamine."
+        "explanation": "C'est un glucide polymérique."
+      },
+      {
+        "content": "Ses unités sont reliées par des liaisons alpha(1→6) uniquement.",
+        "correct": false,
+        "explanation": "La liaison principale est bêta(1→4)."
+      },
+      {
+        "content": "La chitine est un polysaccharide structural.",
+        "correct": true,
+        "explanation": "Elle n'est pas une réserve énergétique humaine."
+      },
+      {
+        "content": "La chitine est présente dans l'exosquelette des arthropodes.",
+        "correct": true,
+        "explanation": "Crustacés et insectes en contiennent."
       }
     ],
-    "explanation": "Les deux transformations azotées sont amination de C2 puis N-acétylation."
+    "explanation": "La chitine est un polymère structural de GlcNAc en bêta(1→4).",
+    "requiredSelectionCount": 2
   },
   {
     "order": 78,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur le peptidoglycane bactérien, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Une osamine porte NH2 en C2.",
+        "content": "Les unités glucidiques sont reliées par des liaisons bêta(1→4).",
         "correct": true,
-        "explanation": "Dans une osamine comme la glucosamine, NH2 remplace le OH porté par C2."
+        "explanation": "Le lysozyme cible cette chaîne."
       },
       {
-        "content": "Une osamine peut être N-acétylée.",
+        "content": "Le peptidoglycane contient de la N-acétylglucosamine.",
         "correct": true,
-        "explanation": "La fonction amine peut recevoir un groupement acétyl et former un motif NHCOCH3."
+        "explanation": "GlcNAc est une unité glucidique du réseau."
       },
       {
-        "content": "La chitine est un polymère de N-acétylglucosamine liée en β(1→4).",
+        "content": "Des chaînes peptidiques réticulent les motifs glucidiques.",
         "correct": true,
-        "explanation": "La chitine est un homopolymère structural linéaire de N-acétylglucosamine."
+        "explanation": "Elles renforcent la paroi bactérienne."
       },
       {
-        "content": "Le Neu5Ac, aussi abrégé NANA, appartient à la famille des acides sialiques.",
+        "content": "Il contient aussi de l'acide N-acétylmuramique.",
         "correct": true,
-        "explanation": "Le Neu5Ac est le principal acide sialique chez l'être humain."
+        "explanation": "MurNAc alterne avec GlcNAc."
       },
       {
-        "content": "Le NANA participe à la reconnaissance cellulaire.",
-        "correct": true,
-        "explanation": "Le Neu5Ac terminal des glycoconjugués peut être reconnu par des lectines et moduler les interactions cellulaires."
-      },
-      {
-        "content": "La formation du NANA commence par la réduction du glucose en sorbitol.",
+        "content": "Il est un constituant normal majeur de la membrane nucléaire humaine.",
         "correct": false,
-        "explanation": "La voie vertébrée part de l'UDP-GlcNAc et passe par le ManNAc-6-P, sans étape initiale de formation du sorbitol."
-      },
-      {
-        "content": "Le NANA est dépourvu de fonction acide.",
-        "correct": false,
-        "explanation": "Le Neu5Ac porte une fonction carboxylique pouvant s'ioniser en COO−."
-      },
-      {
-        "content": "La biosynthèse vertébrée du Neu5Ac ne fait intervenir ni PEP ni intermédiaire phosphorylé.",
-        "correct": false,
-        "explanation": "Elle fait intervenir le PEP et passe par le Neu5Ac-9-phosphate."
-      },
-      {
-        "content": "Une osamine résulte de l'oxydation de C6.",
-        "correct": false,
-        "explanation": "Une osamine résulte de la substitution du OH de C2 par NH2 ; l'oxydation de C6 forme un acide uronique."
-      },
-      {
-        "content": "La chitine est un triglycéride.",
-        "correct": false,
-        "explanation": "La chitine est un polysaccharide structural, alors qu'un triglycéride associe du glycérol à trois acides gras."
+        "explanation": "Il appartient à la paroi bactérienne."
       }
     ],
-    "explanation": "Cette sélection consolide structure, transformations et rôles des dérivés aminés."
+    "explanation": "La paroi bactérienne contient une chaîne GlcNAc–MurNAc réticulée par des peptides."
   }
 ];

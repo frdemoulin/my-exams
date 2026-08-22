@@ -1,660 +1,718 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie – Chapitre 1.2 – Section B – Oxydation, réduction et polyols
- */
-
+/** UE14 Biochimie – Chapitre 1.2 – Section B – Oxydation, réduction et polyols */
 export const UE14_BIOCH_CH2_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l'oxydation des oses :",
+    "question": "Concernant l'acide glucuronique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle peut donner des dérivés acides.",
+        "content": "Le glucuronate entre dans la composition de glycosaminoglycanes.",
         "correct": true,
-        "explanation": "L'oxydation d'une fonction aldéhyde ou alcool terminale d'un ose peut former une fonction carboxylique."
+        "explanation": "Il est présent dans hyaluronane et chondroïtine sulfate."
       },
       {
-        "content": "Une oxydation peut correspondre à une perte d'électron.",
+        "content": "À pH physiologique, il est largement sous forme glucuronate.",
         "correct": true,
-        "explanation": "Par définition, une espèce chimique oxydée cède un ou plusieurs électrons."
+        "explanation": "La fonction carboxylique est déprotonée."
       },
       {
-        "content": "Une oxydation peut correspondre à une perte d'hydrogène ou un gain d'oxygène.",
+        "content": "Il dérive du glucose par oxydation de l'alcool primaire C6.",
         "correct": true,
-        "explanation": "Dans de nombreuses réactions organiques, la perte d'hydrogène ou le gain d'oxygène traduit une augmentation de l'état d'oxydation."
+        "explanation": "CH2OH devient COOH."
       },
       {
-        "content": "Elle correspond nécessairement à un gain d'hydrogène.",
+        "content": "Le carbone C1 n'est pas celui oxydé lors de sa formation à partir du glucose.",
+        "correct": true,
+        "explanation": "L'oxydation caractéristique porte sur C6."
+      },
+      {
+        "content": "Le glucuronate est un polyol dépourvu de fonction acide.",
         "correct": false,
-        "explanation": "Cela évoque plutôt une réduction."
+        "explanation": "Il porte un carboxylate."
       }
     ],
-    "explanation": "Une oxydation correspond à une perte d'électrons et peut se traduire, selon la transformation, par une perte d'hydrogène ou un gain d'oxygène."
+    "explanation": "L'acide glucuronique est l'acide uronique C6 du glucose."
   },
   {
     "order": 24,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L'oxydation du glucose vers l'acide glucuronique :",
+    "format": "QRU",
+    "question": "À propos de la glucuronoconjugaison, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Concerne le carbone C6.",
-        "correct": true,
-        "explanation": "La fonction alcool primaire CH2OH portée par C6 est oxydée en fonction carboxylique COOH."
-      },
-      {
-        "content": "Transforme un CH2OH terminal en COOH.",
-        "correct": true,
-        "explanation": "L'oxydation de l'alcool primaire terminal forme une fonction acide carboxylique."
-      },
-      {
-        "content": "Donne un dérivé acide.",
-        "correct": true,
-        "explanation": "Le produit formé est l'acide glucuronique, qui porte une fonction carboxylique en C6."
-      },
-      {
-        "content": "Transforme C1 en fonction amine.",
+        "content": "Elle rend toujours un composé plus lipophile.",
         "correct": false,
-        "explanation": "La formation de l'acide glucuronique oxyde C6 et n'introduit aucune fonction amine en C1."
+        "explanation": "Elle augmente généralement la polarité."
+      },
+      {
+        "content": "Le donneur activé est l'UDP-acide glucuronique.",
+        "correct": true,
+        "explanation": "Il fournit le groupement glucuronyle."
+      },
+      {
+        "content": "Elle détruit le noyau de l'acide glucuronique.",
+        "correct": false,
+        "explanation": "Le groupement glucuronyle est transféré."
+      },
+      {
+        "content": "Elle ne concerne jamais les médicaments.",
+        "correct": false,
+        "explanation": "De nombreux médicaments sont glucuronidés."
+      },
+      {
+        "content": "Elle consiste à réduire un carbonyle en alcool.",
+        "correct": false,
+        "explanation": "C'est une réaction de conjugaison."
       }
     ],
-    "explanation": "L'acide glucuronique résulte de l'oxydation de l'alcool primaire C6 du glucose."
+    "explanation": "La glucuronoconjugaison est une voie majeure de conjugaison augmentant souvent l'hydrosolubilité et l'élimination."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle fonction apparaît en C6 lors de la formation d'acide glucuronique à partir du glucose ?",
-    "choices": [
-      {
-        "content": "Une fonction acide carboxylique.",
-        "correct": true,
-        "explanation": "L'alcool primaire CH2OH de C6 est oxydé en fonction carboxylique COOH."
-      },
-      {
-        "content": "Une fonction amine.",
-        "correct": false,
-        "explanation": "Aucun atome d'azote n'est introduit lors de cette oxydation."
-      },
-      {
-        "content": "Une fonction cétone.",
-        "correct": false,
-        "explanation": "Le produit final en C6 est une fonction carboxylique, et non une cétone."
-      },
-      {
-        "content": "Une fonction phosphate.",
-        "correct": false,
-        "explanation": "La formation d'acide glucuronique est une oxydation, pas une phosphorylation."
+    "format": "QROC",
+    "question": "Quel polyol obtient-on classiquement par réduction du glucose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sorbitol",
+        "glucitol",
+        "le sorbitol",
+        "le glucitol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le carbone C6 porte alors une fonction carboxylique."
+    },
+    "explanation": "La réduction du carbonyle d'un ose forme un polyol : glucose→sorbitol, mannose→mannitol."
   },
   {
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "En solution, l'acide glucuronique peut se rencontrer :",
+    "question": "Concernant le sorbitol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sous forme non chargée.",
+        "content": "Il est aussi appelé glucitol.",
         "correct": true,
-        "explanation": "Lorsque la fonction carboxylique est protonée, la molécule correspond à la forme acide non chargée."
+        "explanation": "Les deux noms désignent le même polyol."
       },
       {
-        "content": "Sous forme ionisée.",
-        "correct": true,
-        "explanation": "La déprotonation de la fonction carboxylique forme un anion."
-      },
-      {
-        "content": "Sous forme glucuronate.",
-        "correct": true,
-        "explanation": "Glucuronate est le nom de la forme carboxylate ionisée de l'acide glucuronique."
-      },
-      {
-        "content": "Uniquement sous forme neutre.",
+        "content": "Le sorbitol est un acide uronique.",
         "correct": false,
-        "explanation": "L'état de protonation de la fonction carboxylique dépend du pH ; sa déprotonation forme l'ion glucuronate."
+        "explanation": "C'est un polyol."
+      },
+      {
+        "content": "Il peut s'accumuler dans certaines cellules lorsque la voie des polyols est très active.",
+        "correct": true,
+        "explanation": "Cette accumulation est discutée dans certaines complications du diabète."
+      },
+      {
+        "content": "Le sorbitol est obtenu par oxydation de C6.",
+        "correct": false,
+        "explanation": "Cela donne du glucuronate."
+      },
+      {
+        "content": "Il ne possède plus la fonction aldéhyde du glucose ouvert.",
+        "correct": true,
+        "explanation": "Elle a été réduite en alcool."
       }
     ],
-    "explanation": "La fonction acide peut être protonée ou ionisée."
+    "explanation": "Le sorbitol ou glucitol est l'alditol du glucose."
   },
   {
     "order": 27,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Comment s'appelle la forme ionisée de l'acide glucuronique ?",
+    "question": "À propos de le mannitol, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Glucuronate.",
+        "content": "Le mannitol ne contient aucun oxygène.",
+        "correct": false,
+        "explanation": "Il possède plusieurs OH."
+      },
+      {
+        "content": "Le mannitol est un cétose.",
+        "correct": false,
+        "explanation": "Il ne possède plus de carbonyle."
+      },
+      {
+        "content": "Le mannitol est le polyol correspondant au mannose.",
         "correct": true,
-        "explanation": "La déprotonation de la fonction carboxylique de l'acide glucuronique donne l'ion glucuronate."
+        "explanation": "Il résulte de la réduction du carbonyle."
       },
       {
-        "content": "Sorbitol.",
+        "content": "Le mannitol est obtenu par oxydation du mannose en acide.",
         "correct": false,
-        "explanation": "Le sorbitol est le polyol obtenu par réduction du glucose, pas sa forme acide ionisée."
+        "explanation": "C'est un produit de réduction."
       },
       {
-        "content": "Mannitol.",
+        "content": "Le mannitol est un peptide.",
         "correct": false,
-        "explanation": "Le mannitol est le polyol obtenu par réduction du mannose."
-      },
-      {
-        "content": "Glucosamine.",
-        "correct": false,
-        "explanation": "La glucosamine est une osamine dérivée du glucose par substitution d'un hydroxyle par une fonction amine."
+        "explanation": "C'est un dérivé glucidique."
       }
     ],
-    "explanation": "Le glucuronate est la forme ionisée de l'acide glucuronique."
+    "explanation": "Le mannitol est l'alditol du mannose et possède des usages médicaux osmotiques."
   },
   {
     "order": 28,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la glucuronoconjugaison :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur le glycérol, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Un mécanisme important notamment dans le foie.",
-        "correct": true,
-        "explanation": "De nombreuses UDP-glucuronosyltransférases hépatiques conjuguent des métabolites endogènes et des xénobiotiques."
-      },
-      {
-        "content": "Une voie de solubilisation de substances initialement peu solubles.",
-        "correct": true,
-        "explanation": "L'ajout d'un groupement glucuronyle polaire augmente généralement l'hydrosolubilité du composé conjugué."
-      },
-      {
-        "content": "Un mécanisme facilitant l'élimination urinaire.",
-        "correct": true,
-        "explanation": "L'augmentation de polarité favorise souvent l'excrétion urinaire ; certains glucuronides sont aussi éliminés dans la bile."
-      },
-      {
-        "content": "Une réduction du glucose en sorbitol.",
+        "content": "Il ne contient aucun groupe hydroxyle.",
         "correct": false,
-        "explanation": "La réduction du glucose en sorbitol est une réaction redox distincte d'une conjugaison avec un groupement glucuronyle."
+        "explanation": "Il en possède trois."
+      },
+      {
+        "content": "Il possède six carbones.",
+        "correct": false,
+        "explanation": "Il en possède trois."
+      },
+      {
+        "content": "Le glycérol est un triol à trois carbones.",
+        "correct": true,
+        "explanation": "Il porte trois fonctions alcool."
+      },
+      {
+        "content": "Il est très hydrophile.",
+        "correct": true,
+        "explanation": "Ses trois OH forment des liaisons hydrogène avec l'eau."
+      },
+      {
+        "content": "Le glycérol est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un polyol."
       }
     ],
-    "explanation": "La glucuronoconjugaison augmente la solubilité et facilite l'excrétion."
+    "explanation": "Le glycérol est un triol à trois carbones, central dans de nombreux lipides.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles molécules peuvent faire l'objet d'une glucuronoconjugaison ?",
+    "question": "Concernant la réduction du fructose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La bilirubine.",
+        "content": "La réduction supprime le carbonyle libre.",
         "correct": true,
-        "explanation": "La conjugaison de la bilirubine avec l'acide glucuronique augmente sa solubilité et permet son élimination biliaire."
+        "explanation": "Il est converti en alcool."
       },
       {
-        "content": "Certains médicaments.",
+        "content": "Deux alditols peuvent apparaître parce que la réduction crée un nouveau centre stéréogène.",
         "correct": true,
-        "explanation": "De nombreux médicaments ou leurs métabolites sont transformés en glucuronides plus polaires."
+        "explanation": "Les deux orientations conduisent à deux produits."
       },
       {
-        "content": "Uniquement le saccharose.",
+        "content": "Le fructose est un cétose avant réduction.",
+        "correct": true,
+        "explanation": "Son carbonyle est en C2."
+      },
+      {
+        "content": "La réduction du fructose donne uniquement de l'acide glucuronique.",
         "correct": false,
-        "explanation": "La glucuronoconjugaison concerne de nombreux composés endogènes et xénobiotiques ; elle n'est pas limitée au saccharose."
+        "explanation": "Cela n'est pas une réduction du carbonyle."
       },
       {
-        "content": "Divers xénobiotiques possédant un groupement fonctionnel accessible à la conjugaison.",
+        "content": "La réduction du fructose peut produire du sorbitol et du mannitol.",
         "correct": true,
-        "explanation": "Les UDP-glucuronosyltransférases conjuguent de nombreux xénobiotiques et métabolites endogènes."
+        "explanation": "La cétone C2 devient un nouvel alcool stéréogène."
       }
     ],
-    "explanation": "La glucuronoconjugaison concerne des composés endogènes, comme la bilirubine, et de nombreux médicaments ou autres xénobiotiques."
+    "explanation": "La réduction du fructose peut conduire à deux polyols stéréoisomères, sorbitol et mannitol."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L'acide glucuronique ou sa forme glucuronate entre dans la composition de :",
-    "choices": [
-      {
-        "content": "Plusieurs glycosaminoglycanes.",
-        "correct": true,
-        "explanation": "Le glucuronate est un constituant de plusieurs GAG, notamment l'hyaluronane et les sulfates de chondroïtine."
-      },
-      {
-        "content": "Chaînes de protéoglycanes.",
-        "correct": true,
-        "explanation": "Les chaînes de GAG fixées aux protéines des protéoglycanes contiennent fréquemment du glucuronate."
-      },
-      {
-        "content": "Hyaluronane.",
-        "correct": true,
-        "explanation": "L'hyaluronane alterne des résidus d'acide glucuronique et de N-acétylglucosamine."
-      },
-      {
-        "content": "Sulfates de chondroïtine.",
-        "correct": true,
-        "explanation": "Les sulfates de chondroïtine contiennent des unités répétées comprenant du glucuronate."
+    "format": "QROC",
+    "question": "Quel type de réaction transforme le glucose en sorbitol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "réduction",
+        "reduction",
+        "une réduction",
+        "une reduction"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le glucuronate est un constituant important de plusieurs GAG libres ou portés par des protéoglycanes."
+    },
+    "explanation": "Oxydation et réduction modifient le degré d'oxydation des fonctions de l'ose et conduisent à des familles distinctes."
   },
   {
     "order": 31,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Un polyol dérivé d'un ose :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur l'acide glucuronique, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Est obtenu par réduction d'une fonction carbonyle d'un ose en fonction alcool.",
-        "correct": true,
-        "explanation": "La réduction du carbonyle d'un ose le transforme en hydroxyle et produit un alditol, aussi appelé polyol."
-      },
-      {
-        "content": "Peut provenir d'un aldéhyde en C1.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde en C1 d'un aldose forme un alcool primaire."
-      },
-      {
-        "content": "Peut provenir d'une cétone en C2.",
-        "correct": true,
-        "explanation": "La réduction de la fonction cétone en C2 d'un cétose forme une fonction alcool secondaire."
-      },
-      {
-        "content": "Est nécessairement un acide carboxylique.",
+        "content": "Le glucuronate est un polyol dépourvu de fonction acide.",
         "correct": false,
-        "explanation": "C'est au contraire un dérivé réduit."
+        "explanation": "Il porte un carboxylate."
+      },
+      {
+        "content": "Il dérive du glucose par oxydation de l'alcool primaire C6.",
+        "correct": true,
+        "explanation": "CH2OH devient COOH."
+      },
+      {
+        "content": "Il est obtenu par réduction du glucose.",
+        "correct": false,
+        "explanation": "Il est obtenu par oxydation."
+      },
+      {
+        "content": "La transformation caractéristique oxyde C2 en amine.",
+        "correct": false,
+        "explanation": "Elle oxyde C6 en acide carboxylique."
+      },
+      {
+        "content": "Il n'existe pas dans les GAG.",
+        "correct": false,
+        "explanation": "Il est fréquent dans plusieurs GAG."
       }
     ],
-    "explanation": "La réduction du carbonyle transforme l'ose en polyol."
+    "explanation": "L'acide glucuronique est l'acide uronique C6 du glucose."
   },
   {
     "order": 32,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel produit obtient-on par réduction du glycéraldéhyde ?",
+    "format": "QRM",
+    "question": "Concernant la glucuronoconjugaison, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Glycérol.",
+        "content": "La bilirubine est glucuronoconjuguée avant son excrétion biliaire.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glycéraldéhyde la transforme en alcool primaire et forme le glycérol."
+        "explanation": "La conjugaison augmente sa solubilité."
       },
       {
-        "content": "Sorbitol.",
+        "content": "Elle consiste à réduire un carbonyle en alcool.",
         "correct": false,
-        "explanation": "Le sorbitol est obtenu par réduction du glucose, qui est un hexose."
+        "explanation": "C'est une réaction de conjugaison."
       },
       {
-        "content": "Mannitol.",
-        "correct": false,
-        "explanation": "Le mannitol est obtenu par réduction du mannose."
+        "content": "Le donneur activé est l'UDP-acide glucuronique.",
+        "correct": true,
+        "explanation": "Il fournit le groupement glucuronyle."
       },
       {
-        "content": "Glucuronate.",
-        "correct": false,
-        "explanation": "Le glucuronate est la forme ionisée d'un produit d'oxydation du glucose."
+        "content": "Elle est importante dans le métabolisme hépatique de nombreux xénobiotiques.",
+        "correct": true,
+        "explanation": "Des UDP-glucuronosyltransférases catalysent ces réactions."
+      },
+      {
+        "content": "Elle augmente souvent l'hydrosolubilité d'un composé.",
+        "correct": true,
+        "explanation": "L'ajout d'un glucuronide facilite fréquemment l'élimination."
       }
     ],
-    "explanation": "Le glycéraldéhyde réduit donne le glycérol."
+    "explanation": "La glucuronoconjugaison est une voie majeure de conjugaison augmentant souvent l'hydrosolubilité et l'élimination."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos du glycérol :",
+    "question": "Concernant l'acide glucuronique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il résulte de la réduction du glycéraldéhyde.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glycéraldéhyde forme le glycérol."
-      },
-      {
-        "content": "Il constitue la charpente des triglycérides.",
-        "correct": true,
-        "explanation": "Dans un triglycéride, les trois fonctions alcool du glycérol sont estérifiées par trois acides gras."
-      },
-      {
-        "content": "Il est couramment utilisé comme excipient pharmaceutique et appelé glycérine dans l'usage courant.",
-        "correct": true,
-        "explanation": "Le glycérol est notamment employé comme humectant, solvant ou excipient dans des préparations pharmaceutiques."
-      },
-      {
-        "content": "Il porte une fonction acide carboxylique en C1.",
+        "content": "Il n'existe pas dans les GAG.",
         "correct": false,
-        "explanation": "Le carbonyle a été réduit en alcool."
+        "explanation": "Il est fréquent dans plusieurs GAG."
+      },
+      {
+        "content": "Il dérive du glucose par oxydation de l'alcool primaire C6.",
+        "correct": true,
+        "explanation": "CH2OH devient COOH."
+      },
+      {
+        "content": "Le carbone C1 n'est pas celui oxydé lors de sa formation à partir du glucose.",
+        "correct": true,
+        "explanation": "L'oxydation caractéristique porte sur C6."
+      },
+      {
+        "content": "À pH physiologique, il est largement sous forme glucuronate.",
+        "correct": true,
+        "explanation": "La fonction carboxylique est déprotonée."
+      },
+      {
+        "content": "La transformation caractéristique oxyde C2 en amine.",
+        "correct": false,
+        "explanation": "Elle oxyde C6 en acide carboxylique."
       }
     ],
-    "explanation": "Le glycérol est à la fois un produit de réduction et une molécule biologique/industrielle importante."
+    "explanation": "L'acide glucuronique est l'acide uronique C6 du glucose."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel polyol est obtenu par réduction du mannose ?",
-    "choices": [
-      {
-        "content": "Mannitol.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du mannose produit le mannitol."
-      },
-      {
-        "content": "Sorbitol.",
-        "correct": false,
-        "explanation": "Le sorbitol est obtenu par réduction du glucose, pas du mannose."
-      },
-      {
-        "content": "Glycérol.",
-        "correct": false,
-        "explanation": "Le glycérol est obtenu par réduction du glycéraldéhyde."
-      },
-      {
-        "content": "Glucuronate.",
-        "correct": false,
-        "explanation": "Le glucuronate est la forme ionisée d'un produit d'oxydation du glucose."
+    "format": "QROC",
+    "question": "Quel nucléotide-sucre activé fournit le groupement glucuronyle lors de la glucuronoconjugaison ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "UDP-acide glucuronique",
+        "UDP glucuronate",
+        "UDP-glucuronate",
+        "UDP-glucuronic acid"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La réduction de la fonction aldéhyde du mannose produit le mannitol."
+    },
+    "explanation": "La glucuronoconjugaison est une voie majeure de conjugaison augmentant souvent l'hydrosolubilité et l'élimination."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Le mannitol peut être utilisé comme :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la réduction des oses en polyols, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Édulcorant.",
-        "correct": true,
-        "explanation": "Le mannitol est un polyol au goût sucré employé comme édulcorant dans certains aliments et médicaments."
-      },
-      {
-        "content": "Substitut possible du saccharose.",
-        "correct": true,
-        "explanation": "Le mannitol est un polyol employé comme édulcorant à la place du saccharose dans certains produits."
-      },
-      {
-        "content": "Agent osmotique administrable par voie intraveineuse dans certaines indications.",
-        "correct": true,
-        "explanation": "Le mannitol peut être administré comme diurétique osmotique, notamment dans des situations cliniques sélectionnées."
-      },
-      {
-        "content": "Produit d'oxydation du mannose.",
+        "content": "La réduction du glucose donne directement de l'acide glucuronique.",
         "correct": false,
-        "explanation": "Il résulte d'une réduction."
+        "explanation": "Cela correspond à une oxydation C6."
+      },
+      {
+        "content": "La réduction supprime tous les groupes hydroxyle.",
+        "correct": false,
+        "explanation": "Elle transforme le carbonyle en hydroxyle."
+      },
+      {
+        "content": "La réduction du mannose donne du mannitol.",
+        "correct": true,
+        "explanation": "Le mannitol est l'alditol correspondant."
+      },
+      {
+        "content": "Le mannitol est le produit d'oxydation C6 du mannose.",
+        "correct": false,
+        "explanation": "Il est un produit de réduction."
+      },
+      {
+        "content": "Un polyol possède obligatoirement une fonction aldéhyde libre.",
+        "correct": false,
+        "explanation": "Le carbonyle a été réduit."
       }
     ],
-    "explanation": "Le mannitol est un polyol utilisé notamment comme édulcorant et, par voie intraveineuse, comme agent osmotique dans certaines indications."
+    "explanation": "La réduction du carbonyle d'un ose forme un polyol : glucose→sorbitol, mannose→mannitol."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel polyol est obtenu par réduction du glucose ?",
+    "format": "QRM",
+    "question": "Concernant le sorbitol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sorbitol.",
+        "content": "Le sorbitol est le même composé que le glucose.",
+        "correct": false,
+        "explanation": "La fonction carbonyle a été réduite."
+      },
+      {
+        "content": "Il ne possède plus la fonction aldéhyde du glucose ouvert.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glucose produit le sorbitol."
+        "explanation": "Elle a été réduite en alcool."
       },
       {
-        "content": "Mannitol.",
-        "correct": false,
-        "explanation": "Le mannitol est obtenu par réduction du mannose."
+        "content": "Le sorbitol est un polyol dérivé du glucose.",
+        "correct": true,
+        "explanation": "Il est obtenu par réduction du carbonyle."
       },
       {
-        "content": "Glycérol.",
+        "content": "Le sorbitol ne possède aucun groupe hydroxyle.",
         "correct": false,
-        "explanation": "Le glycérol est obtenu par réduction du glycéraldéhyde."
+        "explanation": "Il en possède plusieurs."
       },
       {
-        "content": "Acide glucuronique.",
+        "content": "Le sorbitol est un acide uronique.",
         "correct": false,
-        "explanation": "L'acide glucuronique résulte d'une oxydation du glucose en C6, et non de sa réduction."
+        "explanation": "C'est un polyol."
       }
     ],
-    "explanation": "La réduction de la fonction aldéhyde du glucose produit le sorbitol."
+    "explanation": "Le sorbitol ou glucitol est l'alditol du glucose."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Le sorbitol peut être utilisé comme :",
+    "format": "QRP",
+    "question": "À propos de le mannitol, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Édulcorant.",
-        "correct": true,
-        "explanation": "Le sorbitol possède un goût sucré et peut remplacer tout ou partie du saccharose dans certains produits."
-      },
-      {
-        "content": "Agent humidifiant dans des préparations alimentaires.",
-        "correct": true,
-        "explanation": "Son caractère hygroscopique permet de retenir l'eau et d'agir comme humectant."
-      },
-      {
-        "content": "Humectant dans certains dentifrices.",
-        "correct": true,
-        "explanation": "Le sorbitol aide à maintenir l'humidité et la texture de certaines pâtes dentifrices."
-      },
-      {
-        "content": "Acide uronique.",
+        "content": "Le mannitol est un cétose.",
         "correct": false,
-        "explanation": "Le sorbitol est un polyol dépourvu de fonction carboxylique."
+        "explanation": "Il ne possède plus de carbonyle."
+      },
+      {
+        "content": "Le mannitol est obtenu par oxydation du mannose en acide.",
+        "correct": false,
+        "explanation": "C'est un produit de réduction."
+      },
+      {
+        "content": "Le mannitol est le polyol correspondant au mannose.",
+        "correct": true,
+        "explanation": "Il résulte de la réduction du carbonyle."
+      },
+      {
+        "content": "Le mannitol est un peptide.",
+        "correct": false,
+        "explanation": "C'est un dérivé glucidique."
+      },
+      {
+        "content": "Il est plus réduit que le mannose correspondant.",
+        "correct": true,
+        "explanation": "Le carbonyle a été transformé en alcool."
       }
     ],
-    "explanation": "Le sorbitol cumule plusieurs usages alimentaires et d'hygiène."
+    "explanation": "Le mannitol est l'alditol du mannose et possède des usages médicaux osmotiques.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Comparer oxydation et réduction du glucose permet d'affirmer que :",
+    "question": "Parmi les affirmations suivantes sur le glycérol, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Oxydation en C6 → acide glucuronique.",
+        "content": "Il est très hydrophile.",
         "correct": true,
-        "explanation": "L'oxydation de l'alcool primaire porté par C6 forme la fonction carboxylique de l'acide glucuronique."
+        "explanation": "Ses trois OH forment des liaisons hydrogène avec l'eau."
       },
       {
-        "content": "Réduction du carbonyle → sorbitol.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glucose en alcool primaire forme le sorbitol."
-      },
-      {
-        "content": "Les deux transformations donnent le même dérivé.",
+        "content": "Il ne contient aucun groupe hydroxyle.",
         "correct": false,
-        "explanation": "L'oxydation en C6 donne un acide uronique, tandis que la réduction du carbonyle donne un polyol."
+        "explanation": "Il en possède trois."
       },
       {
-        "content": "L'une crée une fonction acide, l'autre augmente le nombre de fonctions alcool.",
+        "content": "Le glycérol est un triol à trois carbones.",
         "correct": true,
-        "explanation": "L'oxydation crée une fonction carboxylique ; la réduction transforme le carbonyle en hydroxyle."
+        "explanation": "Il porte trois fonctions alcool."
+      },
+      {
+        "content": "Le glycérol est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un polyol."
+      },
+      {
+        "content": "Il possède six carbones.",
+        "correct": false,
+        "explanation": "Il en possède trois."
       }
     ],
-    "explanation": "Le sens redox détermine deux familles de dérivés très différentes."
+    "explanation": "Le glycérol est un triol à trois carbones, central dans de nombreux lipides."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un médicament devient plus hydrosoluble après une transformation hépatique, ce qui facilite son élimination. Quelle voie est compatible ?",
-    "choices": [
-      {
-        "content": "Glucuronoconjugaison.",
-        "correct": true,
-        "explanation": "La conjugaison avec un groupement glucuronyle augmente généralement la polarité du médicament ou de son métabolite."
-      },
-      {
-        "content": "Participation de l'acide glucuronique.",
-        "correct": true,
-        "explanation": "Le groupement glucuronyle transféré provient de l'UDP-acide glucuronique."
-      },
-      {
-        "content": "Augmentation de la solubilité.",
-        "correct": true,
-        "explanation": "Le glucuronide formé est souvent plus hydrosoluble que le composé initial."
-      },
-      {
-        "content": "Réduction obligatoire en mannitol.",
-        "correct": false,
-        "explanation": "Le mannitol provient de la réduction du mannose et n'intervient pas obligatoirement dans l'élimination d'un médicament."
-      }
-    ],
-    "explanation": "La conjugaison d'un médicament avec un groupement glucuronyle augmente souvent sa polarité et facilite son élimination urinaire ou biliaire."
-  },
-  {
-    "order": 40,
-    "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel polyol provient de la réduction du glucose ?",
+    "question": "Citez un des deux polyols pouvant résulter de la réduction du fructose.",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
         "sorbitol",
-        "le sorbitol"
+        "mannitol",
+        "glucitol"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La réduction du glucose donne le sorbitol."
+    "explanation": "La réduction du fructose peut conduire à deux polyols stéréoisomères, sorbitol et mannitol."
+  },
+  {
+    "order": 40,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "À propos de oxydation et réduction en chimie des oses, quelle proposition est exacte ?",
+    "choices": [
+      {
+        "content": "L'oxydation de C6 du glucose forme un acide uronique.",
+        "correct": true,
+        "explanation": "L'alcool primaire devient acide carboxylique."
+      },
+      {
+        "content": "La réduction du glucose en sorbitol crée une fonction acide carboxylique.",
+        "correct": false,
+        "explanation": "Elle crée un alcool."
+      },
+      {
+        "content": "Une oxydation correspond nécessairement à un gain d'hydrogène.",
+        "correct": false,
+        "explanation": "Cela correspond plutôt à une réduction."
+      },
+      {
+        "content": "Oxydation et réduction sont synonymes.",
+        "correct": false,
+        "explanation": "Ce sont des transformations opposées."
+      },
+      {
+        "content": "L'oxydation C6 du glucose forme du mannitol.",
+        "correct": false,
+        "explanation": "Elle forme l'acide glucuronique."
+      }
+    ],
+    "explanation": "Oxydation et réduction modifient le degré d'oxydation des fonctions de l'ose et conduisent à des familles distinctes."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel polyol provient de la réduction du mannose ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "mannitol",
-        "le mannitol"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur l'acide glucuronique, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Il dérive du glucose par oxydation de l'alcool primaire C6.",
+        "correct": true,
+        "explanation": "CH2OH devient COOH."
+      },
+      {
+        "content": "Le glucuronate entre dans la composition de glycosaminoglycanes.",
+        "correct": true,
+        "explanation": "Il est présent dans hyaluronane et chondroïtine sulfate."
+      },
+      {
+        "content": "Il est obtenu par réduction du glucose.",
+        "correct": false,
+        "explanation": "Il est obtenu par oxydation."
+      },
+      {
+        "content": "La transformation caractéristique oxyde C2 en amine.",
+        "correct": false,
+        "explanation": "Elle oxyde C6 en acide carboxylique."
+      },
+      {
+        "content": "Le glucuronate est un polyol dépourvu de fonction acide.",
+        "correct": false,
+        "explanation": "Il porte un carboxylate."
       }
-    },
-    "explanation": "La réduction du mannose donne le mannitol."
+    ],
+    "explanation": "L'acide glucuronique est l'acide uronique C6 du glucose."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quels couples transformation → produit sont corrects ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Glucose oxydé en C6 → acide glucuronique.",
-        "correct": true,
-        "explanation": "L'oxydation de l'alcool primaire en C6 du glucose forme l'acide glucuronique."
+        "content": "Le mannitol est un peptide.",
+        "correct": false,
+        "explanation": "C'est un dérivé glucidique."
       },
       {
-        "content": "Glucose réduit → sorbitol.",
+        "content": "Le mannitol est le polyol correspondant au mannose.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glucose forme le sorbitol."
+        "explanation": "Il résulte de la réduction du carbonyle."
       },
       {
-        "content": "Mannose réduit → mannitol.",
+        "content": "Le mannitol possède plusieurs fonctions alcool.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du mannose forme le mannitol."
+        "explanation": "C'est un polyol."
       },
       {
-        "content": "Glycéraldéhyde réduit → glycérol.",
+        "content": "Le mannitol est obtenu par oxydation du mannose en acide.",
+        "correct": false,
+        "explanation": "C'est un produit de réduction."
+      },
+      {
+        "content": "Elle augmente souvent l'hydrosolubilité d'un composé.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glycéraldéhyde forme le glycérol."
+        "explanation": "L'ajout d'un glucuronide facilite fréquemment l'élimination."
+      },
+      {
+        "content": "Elle rend toujours un composé plus lipophile.",
+        "correct": false,
+        "explanation": "Elle augmente généralement la polarité."
+      },
+      {
+        "content": "Le mannitol peut être utilisé comme agent osmotique en médecine.",
+        "correct": true,
+        "explanation": "Il est notamment utilisé comme diurétique osmotique dans certaines indications."
+      },
+      {
+        "content": "Le donneur activé est l'UDP-acide glucuronique.",
+        "correct": true,
+        "explanation": "Il fournit le groupement glucuronyle."
+      },
+      {
+        "content": "Le mannitol ne contient aucun oxygène.",
+        "correct": false,
+        "explanation": "Il possède plusieurs OH."
+      },
+      {
+        "content": "Elle détruit le noyau de l'acide glucuronique.",
+        "correct": false,
+        "explanation": "Le groupement glucuronyle est transféré."
       }
     ],
-    "explanation": "Ces quatre couples structurent la section redox."
+    "explanation": "La glucuronoconjugaison est une voie majeure de conjugaison augmentant souvent l'hydrosolubilité et l'élimination. Le mannitol est l'alditol du mannose et possède des usages médicaux osmotiques."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux dérivés obtenus par réduction du glucose ou du mannose.",
+    "format": "QRM",
+    "question": "À propos de la réduction des oses en polyols, quelles propositions sont correctes ?",
     "choices": [
       {
-        "content": "Mannitol.",
+        "content": "La réduction du glycéraldéhyde donne du glycérol.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du mannose produit le mannitol."
+        "explanation": "Le carbonyle devient alcool."
       },
       {
-        "content": "Sorbitol.",
+        "content": "La réduction du mannose donne du mannitol.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glucose produit le sorbitol."
+        "explanation": "Le mannitol est l'alditol correspondant."
       },
       {
-        "content": "Acide glucuronique.",
-        "correct": false,
-        "explanation": "L'acide glucuronique provient de l'oxydation du glucose en C6."
+        "content": "La réduction du glucose donne du sorbitol.",
+        "correct": true,
+        "explanation": "Le sorbitol est aussi appelé glucitol."
       },
       {
-        "content": "Glucuronate.",
+        "content": "Le mannitol est le produit d'oxydation C6 du mannose.",
         "correct": false,
-        "explanation": "Le glucuronate est la forme ionisée de l'acide glucuronique, un dérivé oxydé du glucose."
+        "explanation": "Il est un produit de réduction."
+      },
+      {
+        "content": "La réduction d'une fonction carbonyle d'un ose donne une fonction alcool.",
+        "correct": true,
+        "explanation": "Le produit est un alditol ou polyol."
       }
     ],
-    "explanation": "Le mannitol résulte de la réduction du mannose et le sorbitol de la réduction du glucose."
+    "explanation": "La réduction du carbonyle d'un ose forme un polyol : glucose→sorbitol, mannose→mannitol."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
-    "choices": [
-      {
-        "content": "L'acide glucuronique provient d'une oxydation du glucose en C6.",
-        "correct": true,
-        "explanation": "L'alcool primaire en C6 du glucose est oxydé en fonction carboxylique."
-      },
-      {
-        "content": "Le glucuronate est la forme ionisée de l'acide glucuronique.",
-        "correct": true,
-        "explanation": "La déprotonation de la fonction carboxylique forme l'anion glucuronate."
-      },
-      {
-        "content": "La glucuronoconjugaison peut faciliter l'élimination de médicaments.",
-        "correct": true,
-        "explanation": "Le glucuronide formé est généralement plus polaire et peut être plus facilement excrété."
-      },
-      {
-        "content": "Le mannitol provient du mannose.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du mannose forme le mannitol."
-      },
-      {
-        "content": "Le sorbitol provient du glucose.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glucose forme le sorbitol."
-      },
-      {
-        "content": "Le glycérol provient de l'oxydation du glycéraldéhyde.",
-        "correct": false,
-        "explanation": "Le glycérol provient de la réduction, et non de l'oxydation, du glycéraldéhyde."
-      },
-      {
-        "content": "Le sorbitol est un acide uronique.",
-        "correct": false,
-        "explanation": "Le sorbitol est un polyol dépourvu de fonction carboxylique."
-      },
-      {
-        "content": "La glucuronoconjugaison diminue la solubilité.",
-        "correct": false,
-        "explanation": "L'ajout d'un groupement glucuronyle polaire augmente généralement l'hydrosolubilité du composé conjugué."
-      },
-      {
-        "content": "L'acide glucuronique est absent des GAG.",
-        "correct": false,
-        "explanation": "Le glucuronate entre notamment dans la composition de l'hyaluronane et des chondroïtine sulfates."
-      },
-      {
-        "content": "Le mannitol est le produit d'oxydation du mannose.",
-        "correct": false,
-        "explanation": "Le mannitol est le produit de réduction du mannose."
+    "format": "QROC",
+    "question": "Quel autre nom chimique est donné au sorbitol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "glucitol",
+        "le glucitol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette sélection consolide oxydation, polyols et glucuronoconjugaison."
+    },
+    "explanation": "Le sorbitol ou glucitol est l'alditol du glucose."
   }
 ];
