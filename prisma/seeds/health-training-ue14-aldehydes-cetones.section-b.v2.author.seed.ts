@@ -14,17 +14,17 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone de C=O présente un caractère électrophile.",
         "correct": true,
-        "explanation": "Les aldéhydes et les cétones sont tous deux des composés carbonylés susceptibles d’être réduits par un hydrure."
+        "explanation": "L’oxygène attire la densité électronique de la liaison $\\ce{C=O}$, ce qui confère au carbone carbonylé un caractère électrophile."
       },
       {
         "content": "L'oxygène attire la densité électronique.",
         "correct": true,
-        "explanation": "C'est l'origine de la polarisation."
+        "explanation": "L’oxygène, plus électronégatif, attire la densité électronique de la liaison $\\ce{C=O}$."
       },
       {
         "content": "Cette polarisation permet l'attaque de nucléophiles sur le carbone carbonylé.",
         "correct": true,
-        "explanation": "C'est le fil conducteur des réactions suivantes."
+        "explanation": "La polarisation du carbonyle explique l’attaque des nucléophiles sur son carbone électrophile."
       },
       {
         "content": "Le carbone du carbonyle est décrit comme nucléophile.",
@@ -32,12 +32,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       },
       {
-        "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
+        "content": "L'oxygène du carbonyle est moins électronégatif que le carbone.",
         "correct": false,
-        "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
+        "explanation": "L’oxygène est plus électronégatif que le carbone ; il attire la densité électronique de la liaison $\\ce{C=O}$."
       }
     ],
-    "explanation": "Les aldéhydes et les cétones peuvent être réduits par addition d’un hydrure sur le carbone carbonylé."
+    "explanation": "La polarisation de $\\ce{C=O}$ appauvrit le carbone en électrons : il est électrophile et peut être attaqué par un nucléophile."
   },
   {
     "order": 24,
@@ -48,22 +48,22 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'oxygène du carbonyle.",
         "correct": false,
-        "explanation": "L'oxygène est le pôle riche en électrons."
+        "explanation": "L’oxygène du carbonyle est le pôle riche en électrons ; le centre électrophile est le carbone du groupe $\\ce{C=O}$."
       },
       {
         "content": "Tout carbone voisin sans distinction.",
         "correct": false,
-        "explanation": "Le caractère voisin dépend notamment de la présence d'un H."
+        "explanation": "Les carbones voisins du carbonyle ne sont pas tous électrophiles par définition ; le centre électrophile directement décrit est le carbone de $\\ce{C=O}$."
       },
       {
-        "content": "Le proton d'une amine.",
+        "content": "Le carbone voisin du carbonyle, dans tous les cas.",
         "correct": false,
-        "explanation": "Cette proposition ne correspond pas à la transformation ou à la propriété demandée."
+        "explanation": "Un carbone alpha peut devenir nucléophile après déprotonation, mais le centre directement électrophile du carbonyle reste son carbone."
       },
       {
-        "content": "Oxygène du carbonyle comme centre électrophile principal.",
+        "content": "Le carbone alpha après déprotonation.",
         "correct": false,
-        "explanation": "Le centre électrophile visé par les nucléophiles est le carbone du carbonyle."
+        "explanation": "Après déprotonation, le carbone alpha est un centre nucléophile ; le centre électrophile du carbonyle est son carbone."
       },
       {
         "content": "Le carbone du groupement carbonyle.",
@@ -71,18 +71,18 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La polarisation du groupe carbonyle rend le carbone carbonylé électrophile et donc sensible à l’attaque d’un nucléophile."
       }
     ],
-    "explanation": "L'oxygène est le pôle riche en électrons."
+    "explanation": "Dans un aldéhyde comme dans une cétone, le centre électrophile directement visé par les nucléophiles est le carbone du carbonyle."
   },
   {
     "order": 25,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans un aldéhyde possédant un carbone voisin du carbonyle, ce carbone voisin peut présenter un caractère nucléophile si:",
+    "question": "Dans un aldéhyde possédant un carbone voisin du carbonyle, à quelles conditions ce carbone peut-il acquérir un caractère nucléophile ?",
     "choices": [
       {
         "content": "Il est voisin du carbonyle.",
         "correct": true,
-        "explanation": "C'est la position alpha mise en avant."
+        "explanation": "Le carbone immédiatement voisin du carbonyle correspond à la position alpha, site concerné par la déprotonation décrite."
       },
       {
         "content": "La polarisation du carbonyle contribue à cette réactivité.",
@@ -92,7 +92,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il ne porte jamais d'hydrogène.",
         "correct": false,
-        "explanation": "La présence d'un H est au contraire requise dans le modèle."
+        "explanation": "La présence d’un hydrogène sur le carbone alpha est au contraire nécessaire à la déprotonation qui met en valeur son caractère nucléophile."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -105,13 +105,13 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le carbone en position alpha doit porter un hydrogène pour pouvoir être déprotoné dans le modèle étudié."
       }
     ],
-    "explanation": "C'est la position alpha mise en avant."
+    "explanation": "Un hydrogène porté par le carbone alpha permet sa déprotonation par une base forte et la formation d'un centre nucléophile."
   },
   {
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans une cétone, les carbones voisins du carbonyle:",
+    "question": "À propos des carbones voisins du carbonyle d'une cétone, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -126,26 +126,26 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Doivent porter un hydrogène pour présenter ce caractère dans le modèle.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "La présence d’au moins un hydrogène en alpha est nécessaire pour former le centre nucléophile par déprotonation."
       },
       {
         "content": "Sont identiques au carbone carbonylé.",
         "correct": false,
-        "explanation": "Ce sont des positions voisines."
+        "explanation": "Les carbones alpha sont voisins du carbone carbonylé ; ils ne se confondent pas avec lui."
       },
       {
         "content": "Sont tous nécessairement dépourvus d'hydrogène.",
         "correct": false,
-        "explanation": "Cela empêcherait le caractère décrit."
+        "explanation": "Les carbones alpha peuvent porter des hydrogènes ; leur présence conditionne la réactivité de déprotonation étudiée."
       }
     ],
-    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
+    "explanation": "Dans une cétone, chacun des carbones alpha portant au moins un hydrogène peut devenir nucléophile après déprotonation."
   },
   {
     "order": 27,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l’ion hydrure, quelles propositions sont exactes ?",
+    "question": "À propos de l'ion hydrure, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "$\\ce{NaBH4}$ est cité.",
@@ -155,7 +155,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il oxyde l'aldéhyde en acide.",
         "correct": false,
-        "explanation": "Il le réduit en alcool."
+        "explanation": "Un hydrure est un réducteur : il réduit l’aldéhyde en alcool primaire au lieu de l’oxyder."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -170,10 +170,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il joue un rôle nucléophile face au carbonyle.",
         "correct": true,
-        "explanation": "Il attaque le carbone électrophile."
+        "explanation": "L’hydrure attaque le carbone carbonylé électrophile et initie la réduction."
       }
     ],
-    "explanation": "L’ion hydrure est riche en électrons et se comporte comme un nucléophile vis-à-vis du carbone carbonylé électrophile."
+    "explanation": "L'ion hydrure est riche en électrons et agit comme nucléophile sur le carbone carbonylé électrophile ; $\\ce{NaBH4}$ est le réducteur doux cité."
   },
   {
     "order": 28,
@@ -184,75 +184,75 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\ce{NaBH4}$.",
         "correct": true,
-        "explanation": "Le borohydrure de sodium est indiqué."
+        "explanation": "$\\ce{NaBH4}$ est le borohydrure de sodium, réducteur doux cité pour les aldéhydes et cétones."
       },
       {
         "content": "$\\ce{SOCl2}$.",
         "correct": false,
-        "explanation": "Il est cité comme agent halogénant des alcools."
+        "explanation": "$\\ce{SOCl2}$ est un agent chlorant des alcools ; ce n’est pas le réducteur doux d’un aldéhyde ou d’une cétone."
       },
       {
         "content": "$\\ce{H3O+}$.",
         "correct": false,
-        "explanation": "Un milieu acide contient des espèces protonantes telles que $\\ce{H3O+}$ ; $\\ce{OH^-}$ caractérise au contraire un milieu basique."
+        "explanation": "$\\ce{H3O+}$ correspond à une espèce acide ; ce n’est pas le réducteur doux utilisé pour réduire un carbonyle."
       },
       {
         "content": "$\\ce{Mg}$ seul.",
         "correct": false,
-        "explanation": "Mg sert à former un organomagnésien."
+        "explanation": "Le magnésium sert à préparer un organomagnésien à partir d’un dérivé halogéné ; il n’est pas le réducteur doux demandé."
       },
       {
-        "content": "Cétone.",
+        "content": "Un organomagnésien $\\ce{RMgX}$.",
         "correct": false,
-        "explanation": "Une cétone porte deux substituants carbonés sur le carbone du carbonyle."
+        "explanation": "Un organomagnésien peut s’ajouter au carbonyle, mais le réducteur doux cité pour cette réduction est $\\ce{NaBH4}$."
       }
     ],
-    "explanation": "Le borohydrure de sodium est indiqué."
+    "explanation": "Le borohydrure de sodium $\\ce{NaBH4}$ est le réducteur doux cité pour les aldéhydes et les cétones."
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La réduction d'un aldéhyde par hydrure conduit:",
+    "question": "La réduction d'un aldéhyde par un hydrure conduit :",
     "choices": [
       {
         "content": "À un acide carboxylique.",
         "correct": false,
-        "explanation": "L’hydrolyse d’une amide forme également l’acide carboxylique correspondant."
+        "explanation": "La réduction d’un aldéhyde conduit à un alcool primaire ; un acide carboxylique correspond au produit d’oxydation de l’aldéhyde."
       },
       {
-        "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
+        "content": "À un alcool secondaire.",
         "correct": false,
-        "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
+        "explanation": "La réduction d’un aldéhyde conduit à un alcool primaire ; l’alcool secondaire correspond à la réduction d’une cétone."
       },
       {
         "content": "À un alcool primaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "La réduction d’un aldéhyde transforme $\\ce{-CHO}$ en $\\ce{-CH2OH}$ : le produit est un alcool primaire."
       },
       {
         "content": "À une diminution du degré d'oxydation.",
         "correct": true,
-        "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+        "explanation": "Le passage de l’aldéhyde à l’alcool primaire diminue le degré d’oxydation du carbone fonctionnel."
       },
       {
         "content": "À une cétone.",
         "correct": false,
-        "explanation": "Ce n'est pas le produit."
+        "explanation": "Une réduction d’aldéhyde ne forme pas de cétone ; elle conduit à l’alcool primaire correspondant."
       }
     ],
-    "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+    "explanation": "La réduction d'un aldéhyde par hydrure transforme le carbonyle en alcool primaire."
   },
   {
     "order": 30,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La réduction d'une cétone par hydrure conduit:",
+    "question": "La réduction d'une cétone par un hydrure conduit :",
     "choices": [
       {
         "content": "À une diminution du degré d'oxydation.",
         "correct": true,
-        "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+        "explanation": "Le passage de la cétone à l’alcool secondaire diminue le degré d’oxydation du carbone fonctionnel."
       },
       {
         "content": "À un alcool tertiaire.",
@@ -262,26 +262,26 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "À un aldéhyde.",
         "correct": false,
-        "explanation": "Ce n'est pas la voie retenue."
+        "explanation": "La réduction d’une cétone conduit à un alcool secondaire, pas à un aldéhyde."
       },
       {
-        "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
+        "content": "À un alcool primaire.",
         "correct": false,
-        "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
+        "explanation": "La réduction d’une cétone conduit à un alcool secondaire ; un alcool primaire est obtenu par réduction d’un aldéhyde."
       },
       {
         "content": "À un alcool secondaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "La réduction d’une cétone conserve ses deux substituants carbonés et donne un alcool secondaire."
       }
     ],
-    "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+    "explanation": "La réduction d'une cétone par hydrure transforme le carbonyle en alcool secondaire."
   },
   {
     "order": 31,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos d'un organomagnésien:",
+    "question": "À propos de la réaction d'un organomagnésien avec un aldéhyde ou une cétone, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Après hydrolyse, une cétone et un organomagnésien donnent systématiquement un alcool primaire.",
@@ -296,54 +296,54 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il peut réagir avec un aldéhyde.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Le carbone nucléophile de l’organomagnésien peut attaquer le carbone carbonylé électrophile d’un aldéhyde."
       },
       {
         "content": "Il peut réagir avec une cétone.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Le carbone nucléophile de l’organomagnésien peut attaquer le carbone carbonylé électrophile d’une cétone."
       },
       {
         "content": "Une hydrolyse finale est nécessaire.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Après l’addition de l’organomagnésien, l’hydrolyse protonne l’intermédiaire et permet d’obtenir l’alcool."
       }
     ],
-    "explanation": "Une cétone traitée par un organomagnésien conduit à un alcool tertiaire."
+    "explanation": "Le carbone de l'organomagnésien est nucléophile et attaque le carbone carbonylé électrophile ; une hydrolyse finale donne un alcool secondaire avec un aldéhyde et tertiaire avec une cétone."
   },
   {
     "order": 32,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel rôle joue le carbone de l'organomagnésien face au carbonyle?",
+    "question": "Quel rôle joue le carbone du fragment organomagnésien lors de sa réaction avec une cétone ?",
     "choices": [
       {
         "content": "Uniquement électrophile.",
         "correct": false,
-        "explanation": "Le carbone du Grignard est le nucléophile."
+        "explanation": "Le carbone de l’organomagnésien est riche en électrons et agit comme nucléophile, non comme électrophile."
       },
       {
         "content": "Nucléophile.",
         "correct": true,
-        "explanation": "Il est riche en électrons."
+        "explanation": "Le carbone lié au magnésium est riche en électrons et se comporte comme un nucléophile."
       },
       {
         "content": "Groupe partant.",
         "correct": false,
-        "explanation": "Ce n'est pas son rôle."
+        "explanation": "Le carbone de l’organomagnésien est le nucléophile de la réaction ; il n’agit pas comme groupe partant."
       },
       {
         "content": "Oxydant.",
         "correct": false,
-        "explanation": "La réaction est une addition nucléophile."
+        "explanation": "La réaction considérée est une addition nucléophile sur un carbonyle ; le carbone de l’organomagnésien n’agit pas comme oxydant."
       },
       {
-        "content": "Oxygène du carbonyle comme centre électrophile principal.",
+        "content": "Acide de Brønsted.",
         "correct": false,
-        "explanation": "Le centre électrophile visé par les nucléophiles est le carbone du carbonyle."
+        "explanation": "Le carbone de l’organomagnésien agit comme nucléophile dans cette réaction ; il n’est pas décrit ici comme un acide de Brønsted."
       }
     ],
-    "explanation": "Le carbone du Grignard est le nucléophile."
+    "explanation": "Le carbone lié au magnésium est riche en électrons et agit comme nucléophile sur le carbone carbonylé électrophile."
   },
   {
     "order": 33,
@@ -354,22 +354,22 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'aldéhyde donne un alcool primaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "$\\ce{NaBH4}$ réduit un aldéhyde en alcool primaire."
       },
       {
         "content": "La cétone donne un alcool secondaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "$\\ce{NaBH4}$ réduit une cétone en alcool secondaire."
       },
       {
         "content": "Dans les deux cas, le nucléophile est un hydrure.",
         "correct": true,
-        "explanation": "H− est la particule réactive du modèle."
+        "explanation": "Dans les deux réductions, l’espèce nucléophile transférée est un hydrure $\\ce{H^-}$."
       },
       {
         "content": "La cétone donne un alcool tertiaire avec NaBH4.",
         "correct": false,
-        "explanation": "Ce serait une addition de Grignard."
+        "explanation": "$\\ce{NaBH4}$ réduit une cétone en alcool secondaire ; un alcool tertiaire est obtenu avec un organomagnésien."
       },
       {
         "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
@@ -377,7 +377,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
       }
     ],
-    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+    "explanation": "Avec $\\ce{NaBH4}$, un aldéhyde est réduit en alcool primaire et une cétone en alcool secondaire ; dans les deux cas, l'espèce transférée est un hydrure."
   },
   {
     "order": 34,
@@ -388,7 +388,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Parce que le carbone carbonylé est chargé négativement dans le modèle.",
         "correct": false,
-        "explanation": "Il est au contraire déficitaire en électrons."
+        "explanation": "Le carbone carbonylé est déficient en électrons en raison de la polarisation de $\\ce{C=O}$ ; il n’est pas chargé négativement."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -398,7 +398,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Il n’est pas électrophile.",
         "correct": false,
-        "explanation": "La relation correcte est: « Il est électrophile ». La négation proposée est donc fausse."
+        "explanation": "La polarisation de $\\ce{C=O}$ rend précisément le carbone carbonylé électrophile."
       },
       {
         "content": "L'hydrure est riche en électrons.",
@@ -411,7 +411,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le nucléophile riche en électrons est attiré par le carbone carbonylé électrophile : leurs polarités sont complémentaires."
       }
     ],
-    "explanation": "Il est au contraire déficitaire en électrons."
+    "explanation": "Le carbone carbonylé est électrophile en raison de la polarisation de $\\ce{C=O}$, tandis que l'hydrure est un nucléophile riche en électrons."
   },
   {
     "order": 35,
@@ -422,7 +422,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une nouvelle liaison C-C est formée.",
         "correct": true,
-        "explanation": "Le fragment carboné du Grignard s'ajoute."
+        "explanation": "Le fragment carboné de l’organomagnésien s’ajoute au carbone carbonylé et crée une nouvelle liaison carbone–carbone."
       },
       {
         "content": "Le carbone carbonylé est le site d'attaque.",
@@ -432,20 +432,20 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'hydrolyse est inutile.",
         "correct": false,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "L’hydrolyse finale est nécessaire pour protoner l’intermédiaire et obtenir l’alcool."
       },
       {
-        "content": "Un carbone voisin du carbonyle portant un hydrogène peut acquérir un caractère nucléophile après action d’une base forte.",
+        "content": "Une hydrolyse finale permet d'obtenir l'alcool.",
         "correct": true,
-        "explanation": "La déprotonation au voisinage du carbonyle crée un centre carboné riche en électrons."
+        "explanation": "L’hydrolyse finale protonne l’intermédiaire issu de l’addition de l’organomagnésien et permet d’obtenir l’alcool."
       },
       {
         "content": "Un alcool secondaire est obtenu.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’addition d’un organomagnésien sur un aldéhyde conduit, après hydrolyse, à un alcool secondaire."
       }
     ],
-    "explanation": "Le fragment carboné du Grignard s'ajoute."
+    "explanation": "Un organomagnésien attaque le carbone électrophile de l'aldéhyde, crée une liaison C–C puis, après hydrolyse, conduit à un alcool secondaire."
   },
   {
     "order": 36,
@@ -461,25 +461,25 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un alcool tertiaire n’est pas obtenu.",
         "correct": false,
-        "explanation": "La relation correcte est: « Un alcool tertiaire est obtenu ». La négation proposée est donc fausse."
+        "explanation": "Avec une cétone, l’addition d’un organomagnésien suivie d’une hydrolyse conduit bien à un alcool tertiaire."
       },
       {
         "content": "Une nouvelle liaison C-C est formée.",
         "correct": true,
-        "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
+        "explanation": "Le fragment carboné de l’organomagnésien s’ajoute au carbone carbonylé et crée une nouvelle liaison carbone–carbone."
       },
       {
         "content": "Le carbone du Grignard agit comme nucléophile.",
         "correct": true,
-        "explanation": "Il attaque le carbone électrophile du carbonyle."
+        "explanation": "Le carbone de l’organomagnésien agit comme nucléophile et attaque le carbone carbonylé électrophile."
       },
       {
         "content": "Le produit est un alcool secondaire.",
         "correct": false,
-        "explanation": "Avec une cétone, le produit est tertiaire."
+        "explanation": "Une cétone + organomagnésien conduit à un alcool tertiaire ; l’alcool secondaire correspond au cas d’un aldéhyde."
       }
     ],
-    "explanation": "Le groupe carboné nucléophile du réactif de Grignard s’ajoute au carbone du groupe $\\ce{C=O}$."
+    "explanation": "L'hydrolyse finale protonne l'intermédiaire issu de l'addition de l'organomagnésien et permet d'obtenir l'alcool."
   },
   {
     "order": 37,
@@ -495,12 +495,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "NaBH4 ajoute un nouveau substituant carboné.",
         "correct": false,
-        "explanation": "Il apporte un hydrure, pas un groupe carboné."
+        "explanation": "$\\ce{NaBH4}$ apporte un hydrure, pas un substituant carboné ; il ne crée donc pas de liaison C–C."
       },
       {
-        "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
+        "content": "$\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
+        "explanation": "Sur une cétone, $\\ce{NaBH4}$ conduit à un alcool secondaire ; l’alcool tertiaire est obtenu avec un organomagnésien après hydrolyse."
       },
       {
         "content": "NaBH4 conduit à un alcool secondaire.",
@@ -510,55 +510,55 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'organomagnésien conduit à un alcool tertiaire après hydrolyse.",
         "correct": true,
-        "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
+        "explanation": "L’addition d’un organomagnésien sur une cétone forme, après hydrolyse, un alcool tertiaire."
       }
     ],
-    "explanation": "$\\ce{NaBH4}$ réduit le carbonyle sans ajouter de carbone, tandis qu’un organomagnésien crée une nouvelle liaison C–C avant l’hydrolyse finale."
+    "explanation": "Sur une cétone, $\\ce{NaBH4}$ réduit le carbonyle en alcool secondaire sans ajouter de carbone, tandis qu'un organomagnésien crée une liaison C–C et donne un alcool tertiaire après hydrolyse."
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel produit fonctionnel obtient-on après addition d'un organomagnésien sur une cétone puis hydrolyse?",
+    "question": "Quel produit fonctionnel obtient-on après addition d'un organomagnésien sur une cétone puis hydrolyse ?",
     "choices": [
       {
         "content": "Un acide carboxylique.",
         "correct": false,
-        "explanation": "Cette proposition est écartée: d'oxydation ne correspond pas au bilan ou à la propriété attendue."
+        "explanation": "Une cétone traitée par un organomagnésien donne un alcool tertiaire après hydrolyse, pas un acide carboxylique."
       },
       {
-        "content": "Ammonium quaternaire.",
+        "content": "Un alcool secondaire.",
         "correct": false,
-        "explanation": "La réduction d’un dérivé d’acide ne crée pas un ammonium quaternaire."
+        "explanation": "Une cétone traitée par un organomagnésien donne un alcool tertiaire après hydrolyse, pas un alcool secondaire."
       },
       {
         "content": "Un alcool tertiaire.",
         "correct": true,
-        "explanation": "L’addition d’un organomagnésien sur le carbonyle permet d’obtenir le produit correspondant après hydrolyse."
+        "explanation": "Une cétone réagit avec un organomagnésien pour donner, après hydrolyse, un alcool tertiaire."
       },
       {
         "content": "Un alcool primaire.",
         "correct": false,
-        "explanation": "Cette affirmation ne correspond pas à la propriété ou à la transformation décrite."
+        "explanation": "Le produit d’une cétone avec un organomagnésien est un alcool tertiaire ; un alcool primaire n’est pas obtenu dans ce cas."
       },
       {
         "content": "Un aldéhyde.",
         "correct": false,
-        "explanation": "Un alcool secondaire s’oxyde en cétone ; un aldéhyde est obtenu à partir d’un alcool primaire."
+        "explanation": "L’addition d’un organomagnésien sur une cétone transforme le carbonyle en alcool après hydrolyse ; elle ne forme pas un aldéhyde."
       }
     ],
-    "explanation": "Cette proposition est écartée: d'oxydation ne correspond pas au bilan ou à la propriété attendue."
+    "explanation": "Une cétone réagissant avec un organomagnésien conduit, après hydrolyse, à un alcool tertiaire."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un carbone voisin du carbonyle ne porte aucun hydrogène. Dans le modèle:",
+    "question": "Un carbone voisin du carbonyle ne porte aucun hydrogène. Quelles conséquences en tire-t-on dans le modèle étudié ?",
     "choices": [
       {
         "content": "Le carbone voisin devient automatiquement plus nucléophile.",
         "correct": false,
-        "explanation": "Le modèle exige un H."
+        "explanation": "Sans hydrogène en alpha, ce carbone ne peut pas être déprotoné selon la voie décrite et ne devient donc pas automatiquement nucléophile."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -568,12 +568,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le caractère nucléophile alpha décrit dans le cadre étudié n'est pas mis en valeur sur ce carbone.",
         "correct": true,
-        "explanation": "La présence d'un H est requise."
+        "explanation": "L’absence d’hydrogène en alpha empêche de mettre en valeur le caractère nucléophile de ce carbone par déprotonation."
       },
       {
         "content": "La condition « carbone voisin lié à H » n'est pas satisfaite.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "L’absence d’hydrogène sur ce carbone signifie que la condition nécessaire à sa déprotonation n’est pas remplie."
       },
       {
         "content": "Le carbone carbonylé reste électrophile.",
@@ -581,13 +581,13 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
       }
     ],
-    "explanation": "Le modèle exige un H."
+    "explanation": "Sans hydrogène en alpha, le carbone voisin ne peut pas être déprotoné selon la voie décrite ; le carbone carbonylé reste néanmoins électrophile."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos d'une cétone possédant des hydrogènes de part et d'autre du carbonyle:",
+    "question": "À propos d'une cétone possédant des hydrogènes en alpha de part et d'autre du carbonyle, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Le carbone carbonylé reste électrophile.",
@@ -615,7 +615,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Si chacun porte un hydrogène en alpha, les deux carbones voisins du carbonyle peuvent être déprotonés et devenir nucléophiles."
       }
     ],
-    "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
+    "explanation": "Une cétone possédant des hydrogènes en alpha présente deux types de réactivité : carbone carbonylé électrophile et carbones alpha potentiellement nucléophiles après déprotonation."
   },
   {
     "order": 41,
@@ -635,7 +635,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "L’addition d’un hydrure sur une cétone réduit le groupe carbonyle et conduit à un alcool secondaire."
+    "explanation": "La réduction d'une cétone par $\\ce{NaBH4}$ donne un alcool secondaire."
   },
   {
     "order": 42,
@@ -655,7 +655,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "Le bilan est organomagnésien + aldéhyde → alcool secondaire."
+    "explanation": "Un organomagnésien réagissant avec un aldéhyde conduit, après hydrolyse, à un alcool secondaire dans le cas général."
   },
   {
     "order": 43,
@@ -666,12 +666,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Utiliser un organomagnésien.",
         "correct": true,
-        "explanation": "Il apporte un substituant carboné."
+        "explanation": "L’organomagnésien apporte un fragment carboné nucléophile et permet d’allonger le squelette."
       },
       {
         "content": "Prévoir une hydrolyse finale.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Après l’addition de l’organomagnésien, l’hydrolyse protonne l’intermédiaire et permet d’obtenir l’alcool tertiaire."
       },
       {
         "content": "Attendre un alcool tertiaire.",
@@ -681,7 +681,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Utiliser uniquement NaBH4 si l'objectif est d'ajouter un carbone.",
         "correct": false,
-        "explanation": "NaBH4 ne crée pas de liaison C-C."
+        "explanation": "$\\ce{NaBH4}$ réduit la cétone mais n’ajoute aucun carbone ; il ne répond donc pas à l’objectif d’allongement du squelette."
       },
       {
         "content": "Après hydrolyse, une cétone et un organomagnésien donnent systématiquement un alcool primaire.",
@@ -689,41 +689,41 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une cétone traitée par un organomagnésien conduit à un alcool tertiaire."
       }
     ],
-    "explanation": "Il apporte un substituant carboné."
+    "explanation": "Pour allonger le squelette carboné d'une cétone tout en formant un alcool, on utilise un organomagnésien puis une hydrolyse ; le produit est un alcool tertiaire."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour prédire la classe d’alcool formée, quels éléments faut-il distinguer ?",
+    "question": "Pour prévoir la classe d'alcool formée à partir d'un composé carbonylé, quelles associations faut-il distinguer ?",
     "choices": [
       {
         "content": "Addition de Grignard sur une cétone.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Une cétone + organomagnésien conduit, après hydrolyse, à un alcool tertiaire."
       },
       {
-        "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
+        "content": "Réduction par hydrure d'une cétone → alcool tertiaire.",
         "correct": false,
-        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
+        "explanation": "La réduction d’une cétone par hydrure conduit à un alcool secondaire, pas à un alcool tertiaire."
       },
       {
         "content": "Réduction par hydrure d'un aldéhyde.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Un aldéhyde réduit par un hydrure conduit à un alcool primaire."
       },
       {
         "content": "Réduction par hydrure d'une cétone.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Une cétone réduite par un hydrure conduit à un alcool secondaire."
       },
       {
         "content": "Addition de Grignard sur un aldéhyde.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Un aldéhyde + organomagnésien conduit, après hydrolyse, à un alcool secondaire."
       }
     ],
-    "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+    "explanation": "Hydrure et organomagnésien donnent des classes d'alcools différentes selon que le substrat est un aldéhyde ou une cétone."
   },
   {
     "order": 45,
@@ -734,7 +734,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'organomagnésien donne un alcool secondaire.",
         "correct": true,
-        "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
+        "explanation": "L’addition d’un organomagnésien sur un aldéhyde donne, après hydrolyse, un alcool secondaire."
       },
       {
         "content": "Seul l'organomagnésien ajoute un substituant carboné.",
@@ -744,20 +744,20 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux voies donnent nécessairement le même produit.",
         "correct": false,
-        "explanation": "La classe et le squelette peuvent différer."
+        "explanation": "$\\ce{NaBH4}$ et l’organomagnésien ne donnent pas le même produit : ils diffèrent à la fois par l’allongement du squelette et par la classe d’alcool obtenue."
       },
       {
-        "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
+        "content": "$\\ce{NaBH4}$ crée une nouvelle liaison C-C.",
         "correct": false,
-        "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
+        "explanation": "$\\ce{NaBH4}$ apporte un hydrure et ne crée aucune nouvelle liaison carbone–carbone."
       },
       {
         "content": "NaBH4 donne un alcool primaire.",
         "correct": true,
-        "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+        "explanation": "$\\ce{NaBH4}$ réduit le groupe aldéhyde en groupe $\\ce{-CH2OH}$ sans ajouter de carbone ; l’alcool obtenu est primaire."
       }
     ],
-    "explanation": "L’addition ou l’hydratation sur la double liaison constitue une voie d’accès directe à ce produit."
+    "explanation": "Sur l'éthanal, $\\ce{NaBH4}$ donne un alcool primaire sans allonger le squelette, alors qu'un organomagnésien ajoute un groupe carboné et donne un alcool secondaire après hydrolyse."
   },
   {
     "order": 46,
@@ -773,7 +773,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "NaBH4 ne conduit pas à un alcool secondaire.",
         "correct": false,
-        "explanation": "La relation correcte est: « NaBH4 conduit à un alcool secondaire ». La négation proposée est donc fausse."
+        "explanation": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit bien à un alcool secondaire."
       },
       {
         "content": "$\\ce{CH3MgX}$ conduit à un alcool tertiaire.",
@@ -788,16 +788,16 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La voie NaBH4 augmente le nombre de carbones.",
         "correct": false,
-        "explanation": "Aucun groupe carboné n'est ajouté."
+        "explanation": "$\\ce{NaBH4}$ apporte un hydrure et ne crée aucune nouvelle liaison carbone–carbone."
       }
     ],
-    "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
+    "explanation": "Sur la propanone, $\\ce{NaBH4}$ donne un alcool secondaire ; un organomagnésien crée une liaison C–C et donne un alcool tertiaire après hydrolyse."
   },
   {
     "order": 47,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un composé carbonylé réagit avec un nucléophile. Quels éléments permettent d'expliquer la réaction?",
+    "question": "Un composé carbonylé réagit avec un nucléophile. Quelles propriétés expliquent cette réaction ?",
     "choices": [
       {
         "content": "La polarisation C=O dirige l'attaque.",
@@ -822,10 +822,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le nucléophile est riche en électrons.",
         "correct": true,
-        "explanation": "Hydrure ou carbone de Grignard."
+        "explanation": "Un nucléophile est riche en électrons ; c’est le cas d’un hydrure ou du carbone d’un organomagnésien."
       }
     ],
-    "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone carbonylé électrophile et dirige l’attaque du nucléophile vers ce centre."
+    "explanation": "La polarisation du carbonyle explique l'attaque d'un nucléophile riche en électrons sur son carbone électrophile."
   },
   {
     "order": 48,
@@ -836,17 +836,17 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le produit de l'aldéhyde est un alcool secondaire après hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’addition d’un organomagnésien sur un aldéhyde conduit, après hydrolyse, à un alcool secondaire."
       },
       {
         "content": "Le produit de la cétone est un alcool tertiaire après hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Avec une cétone, l’addition du fragment carboné puis l’hydrolyse conduit à un alcool tertiaire."
       },
       {
         "content": "Une liaison C-C est créée dans les deux cas.",
         "correct": true,
-        "explanation": "Le groupe R'' est ajouté."
+        "explanation": "Le fragment carboné de l’organomagnésien s’ajoute au carbone du carbonyle : une nouvelle liaison C–C est créée dans les deux cas."
       },
       {
         "content": "L'hydrolyse finale est indiquée dans les deux cas.",
@@ -854,12 +854,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Après l’addition de l’organomagnésien, une hydrolyse finale est nécessaire dans les deux cas pour former l’alcool."
       },
       {
-        "content": "L’oxydation d’un alcool secondaire conduit directement à un aldéhyde.",
+        "content": "L'aldéhyde et la cétone donnent tous deux un alcool tertiaire.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
+        "explanation": "Avec un organomagnésien, un aldéhyde donne un alcool secondaire alors qu’une cétone donne un alcool tertiaire."
       }
     ],
-    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+    "explanation": "Un organomagnésien donne un alcool secondaire avec un aldéhyde et un alcool tertiaire avec une cétone, après hydrolyse ; une liaison C–C est créée dans les deux cas."
   },
   {
     "order": 49,
@@ -893,7 +893,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La présence d’un hydrogène en alpha conditionne la possibilité d’une déprotonation ultérieure par une base forte."
       }
     ],
-    "explanation": "L’électrophilie du carbone carbonylé et l’acidité éventuelle d’un hydrogène en alpha sont deux propriétés distinctes d’un même composé carbonylé."
+    "explanation": "La possibilité de déprotoner une position alpha dépend de la présence d'un hydrogène sur ce carbone ; le carbone carbonylé reste électrophile."
   },
   {
     "order": 50,
@@ -915,7 +915,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "tolerance": 0.085
       }
     ],
-    "explanation": "L'oxygène du C=O attire la densité électronique; le carbone du carbonyle est donc le centre électrophile attaqué par les nucléophiles."
+    "explanation": "Dans la propanone, le carbone du groupe $\\ce{C=O}$ est le centre électrophile."
   },
   {
     "order": 51,
@@ -941,31 +941,31 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La molécule peut donc réagir avec des nucléophiles au carbonyle et, dans d'autres conditions, avec des électrophiles en alpha.",
         "correct": true,
-        "explanation": "Synthèse des sections B et C."
+        "explanation": "Le carbonyle peut recevoir un nucléophile, tandis qu’après déprotonation un carbone alpha peut attaquer un électrophile."
       },
       {
         "content": "La présence d'hydrogènes alpha supprime le carbonyle.",
         "correct": false,
-        "explanation": "Le groupe C=O reste présent."
+        "explanation": "La présence d’hydrogènes en alpha ne supprime pas la fonction carbonyle."
       }
     ],
-    "explanation": "La polarisation de $\\ce{C=O}$ rend au contraire le carbone électrophile."
+    "explanation": "Une cétone portant des hydrogènes en alpha des deux côtés peut être fonctionnalisée en alpha, tout en conservant un carbone carbonylé électrophile."
   },
   {
     "order": 52,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Quelle stratégie permet de distinguer un hydrure d'un organomagnésien dans une question de synthèse?",
+    "question": "Quelles différences permettent de distinguer l'action d'un hydrure de celle d'un organomagnésien sur un composé carbonylé ?",
     "choices": [
       {
         "content": "La classe d'alcool final diffère notamment pour une cétone.",
         "correct": true,
-        "explanation": "Secondaire avec hydrure, tertiaire avec Grignard."
+        "explanation": "Avec une cétone, un hydrure conduit à un alcool secondaire tandis qu’un organomagnésien conduit à un alcool tertiaire après hydrolyse."
       },
       {
         "content": "Les deux réactifs sont identiques du point de vue du squelette carboné.",
         "correct": false,
-        "explanation": "Le Grignard allonge le squelette."
+        "explanation": "Seul l’organomagnésien apporte un fragment carboné ; l’hydrure ne modifie pas le nombre de carbones."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -983,47 +983,47 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
       }
     ],
-    "explanation": "Secondaire avec hydrure, tertiaire avec Grignard."
+    "explanation": "Un hydrure réduit le carbonyle sans modifier le nombre de carbones ; un organomagnésien apporte un fragment carboné et crée une liaison C–C."
   },
   {
     "order": 53,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un chercheur souhaite former une nouvelle liaison C-C au niveau du carbone d'un aldéhyde. Quelle réaction répond à cet objectif?",
+    "question": "Un chercheur souhaite former une nouvelle liaison C-C à partir du carbone carbonylé d'un aldéhyde. Quelles propositions décrivent une stratégie adaptée ?",
     "choices": [
       {
         "content": "Addition d'un organomagnésien.",
         "correct": true,
-        "explanation": "Le nucléophile carboné s'ajoute au carbonyle."
+        "explanation": "L’organomagnésien apporte un nucléophile carboné qui attaque le carbonyle et crée la nouvelle liaison C–C recherchée."
       },
       {
         "content": "Hydrolyse finale.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Après l’addition du fragment carboné de l’organomagnésien, l’hydrolyse permet d’obtenir l’alcool secondaire."
       },
       {
         "content": "Formation d'un alcool secondaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’addition d’un organomagnésien sur un aldéhyde conduit, après hydrolyse, à un alcool secondaire."
       },
       {
         "content": "Réduction par NaBH4 seule.",
         "correct": false,
-        "explanation": "Elle ne crée pas de liaison C-C."
+        "explanation": "$\\ce{NaBH4}$ réduit le carbonyle mais ne crée pas de nouvelle liaison carbone–carbone."
       },
       {
-        "content": "$\\ce{NaBH4}$ transforme une cétone directement en acide carboxylique.",
+        "content": "$\\ce{NaBH4}$ seul permet d'ajouter un groupe carboné à l'aldéhyde.",
         "correct": false,
-        "explanation": "Le borohydrure est un réducteur; le produit attendu est un alcool secondaire."
+        "explanation": "$\\ce{NaBH4}$ apporte un hydrure et ne crée aucune nouvelle liaison carbone–carbone."
       }
     ],
-    "explanation": "Le nucléophile carboné s'ajoute au carbonyle."
+    "explanation": "L'addition d'un organomagnésien sur un aldéhyde crée une nouvelle liaison C–C ; l'hydrolyse finale conduit à un alcool secondaire."
   },
   {
     "order": 54,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un composé donne un alcool tertiaire après réaction avec un organomagnésien puis hydrolyse. Quel substrat est cohérent ?",
+    "question": "Un composé donne un alcool tertiaire après réaction avec un organomagnésien puis hydrolyse. Quelles propositions sont cohérentes ?",
     "choices": [
       {
         "content": "Le substrat initial possède un carbone carbonylé électrophile.",
@@ -1038,12 +1038,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une cétone.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Une cétone donne un alcool tertiaire après addition d’un organomagnésien puis hydrolyse."
       },
       {
         "content": "Un aldéhyde dans le cadre général présenté.",
         "correct": false,
-        "explanation": "Il donne un alcool secondaire."
+        "explanation": "Dans le cadre général présenté, un aldéhyde donne un alcool secondaire avec un organomagnésien, pas un alcool tertiaire."
       },
       {
         "content": "La réaction implique une addition nucléophile carbonée.",
@@ -1051,7 +1051,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le réactif organomagnésien apporte un groupe carboné nucléophile qui crée une nouvelle liaison carbone-carbone."
       }
     ],
-    "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et lui confère un caractère électrophile."
+    "explanation": "Une cétone est cohérente avec la formation d'un alcool tertiaire après addition d'un organomagnésien puis hydrolyse."
   },
   {
     "order": 55,
@@ -1068,22 +1068,22 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\ce{NaBH4}$ réduit un aldéhyde en alcool primaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "$\\ce{NaBH4}$ réduit le groupe aldéhyde $\\ce{-CHO}$ en groupe $\\ce{-CH2OH}$ d’un alcool primaire."
       },
       {
         "content": "$\\ce{NaBH4}$ réduit une cétone en alcool secondaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "$\\ce{NaBH4}$ réduit une cétone en alcool secondaire en transformant le groupe $\\ce{C=O}$ en carbone portant $\\ce{-OH}$."
       },
       {
         "content": "Un organomagnésien + aldéhyde donne un alcool secondaire après hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Un organomagnésien s’ajoute au carbone carbonylé d’un aldéhyde et donne, après hydrolyse, un alcool secondaire."
       },
       {
         "content": "Un organomagnésien + cétone donne un alcool tertiaire après hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Une cétone réagit avec un organomagnésien pour donner, après hydrolyse, un alcool tertiaire."
       },
       {
         "content": "Le carbone du Grignard est uniquement électrophile.",
@@ -1093,12 +1093,12 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "NaBH4 ajoute un nouveau substituant carboné.",
         "correct": false,
-        "explanation": "Il apporte un hydrure, pas un groupe carboné."
+        "explanation": "$\\ce{NaBH4}$ apporte un hydrure et n’introduit aucun nouveau carbone."
       },
       {
         "content": "Une cétone + Grignard donne un alcool primaire.",
         "correct": false,
-        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
+        "explanation": "Une cétone réagit avec un organomagnésien pour former, après hydrolyse, un alcool tertiaire et non un alcool primaire."
       },
       {
         "content": "Le carbone carbonylé est nucléophile.",
@@ -1108,10 +1108,10 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un carbone alpha sans hydrogène satisfait automatiquement la condition de nucléophilie alpha.",
         "correct": false,
-        "explanation": "Une base forte peut arracher un hydrogène en position alpha du carbonyle et créer un centre carboné nucléophile."
+        "explanation": "Sans hydrogène en position alpha, la déprotonation par une base forte ne peut pas créer le centre nucléophile décrit."
       }
     ],
-    "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone du carbonyle électrophile et donc sensible à l’attaque d’un nucléophile."
+    "explanation": "Le carbone carbonylé est électrophile ; hydrures et organomagnésiens sont des nucléophiles qui conduisent respectivement aux alcools attendus."
   },
   {
     "order": 56,
@@ -1123,6 +1123,6 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       "value": 3,
       "tolerance": 0
     },
-    "explanation": "Les quatre réactions mobilisent au total les trois classes d'alcools: primaire, secondaire et tertiaire."
+    "explanation": "Les quatre associations considérées mobilisent les trois classes d'alcools : primaire, secondaire et tertiaire."
   }
 ];

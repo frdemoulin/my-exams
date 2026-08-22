@@ -9,17 +9,17 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 57,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la réaction d'un aldéhyde ou d'une cétone avec une amine, quelles propositions sont exactes?",
+    "question": "À propos de la réaction d'un aldéhyde ou d'une cétone avec une amine, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "La classe de l'amine influence le produit azoté.",
         "correct": true,
-        "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
+        "explanation": "Une amine primaire conduit à une imine, tandis qu’une amine secondaire conduit à un ion iminium."
       },
       {
         "content": "Le carbone carbonylé n'intervient pas.",
         "correct": false,
-        "explanation": "Il est le centre électrophile attaqué."
+        "explanation": "Le carbone carbonylé est précisément le centre électrophile attaqué par le doublet nucléophile de l’amine."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -34,36 +34,36 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une élimination d'eau est nécessaire pour que la réaction soit totale dans le modèle.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "La condensation forme de l’eau ; son élimination favorise la formation de l’imine ou de l’iminium."
       }
     ],
-    "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
+    "explanation": "L'amine agit comme nucléophile sur le carbonyle ; une amine primaire conduit à une imine et une amine secondaire à un iminium, avec élimination d'eau."
   },
   {
     "order": 58,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Un aldéhyde réagit avec une amine primaire. Quel produit azoté est formé ?",
+    "question": "Un aldéhyde réagit avec une amine primaire. Quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une imine.",
+        "content": "Une imine est formée.",
         "correct": true,
-        "explanation": "Ce bilan reprend directement la transformation attendue dans cette réaction."
+        "explanation": "Une amine primaire se condense avec le carbonyle pour former une imine."
       },
       {
-        "content": "Un alcool primaire.",
+        "content": "Un alcool primaire est formé.",
         "correct": false,
-        "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+        "explanation": "La condensation d’une amine primaire avec un aldéhyde conduit à une imine, pas à un alcool primaire."
       },
       {
-        "content": "Un iminium dans le cas d'une amine primaire.",
+        "content": "Un iminium est formé avec l'amine primaire.",
         "correct": false,
         "explanation": "Une amine primaire conduit à une imine ; l’ion iminium est obtenu avec une amine secondaire dans le bilan étudié."
       },
       {
-        "content": "Un acide carboxylique.",
+        "content": "Une amide est formée.",
         "correct": false,
-        "explanation": "Cette proposition est écartée: d'oxydation ne correspond pas au bilan ou à la propriété attendue."
+        "explanation": "La condensation d’une amine primaire avec un aldéhyde forme une imine ; une amide nécessiterait une acylation."
       },
       {
         "content": "Une amine primaire peut réagir avec un aldéhyde ou une cétone pour former une imine avec élimination d’eau.",
@@ -71,7 +71,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La condensation de l’amine primaire avec le carbonyle conduit à une imine."
       }
     ],
-    "explanation": "Ce bilan reprend directement la transformation attendue dans cette réaction."
+    "explanation": "Une amine primaire se condense avec un aldéhyde pour former une imine avec élimination d'eau."
   },
   {
     "order": 59,
@@ -92,7 +92,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un iminium est formé.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Une amine secondaire se condense avec le composé carbonylé pour former un ion iminium."
       },
       {
         "content": "L'amine joue le rôle de nucléophile.",
@@ -105,7 +105,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La condensation avec l’amine s’accompagne d’une élimination d’eau ; retirer l’eau favorise le sens de formation du produit."
       }
     ],
-    "explanation": "Une amine primaire se condense avec un composé carbonylé pour former une imine avec élimination d’eau."
+    "explanation": "Une amine secondaire se condense avec un aldéhyde pour former un iminium avec élimination d'eau."
   },
   {
     "order": 60,
@@ -126,7 +126,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La formation d'un alcool tertiaire.",
         "correct": false,
-        "explanation": "L’addition d’un organomagnésien sur le carbonyle permet d’obtenir le produit correspondant après hydrolyse."
+        "explanation": "Un alcool tertiaire serait obtenu par addition d’un organomagnésien sur la cétone, pas par condensation avec une amine primaire."
       },
       {
         "content": "Une amine secondaire donne nécessairement une amide lorsqu’elle réagit avec une cétone.",
@@ -136,10 +136,10 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La formation d'une imine.",
         "correct": true,
-        "explanation": "Ce bilan correspond à la transformation attendue et relie correctement le substrat au produit."
+        "explanation": "Une amine primaire se condense avec une cétone pour former une imine avec élimination d’eau."
       }
     ],
-    "explanation": "La condensation avec l’amine s’accompagne d’une élimination d’eau ; retirer l’eau favorise le sens de formation du produit."
+    "explanation": "Une amine primaire se condense avec une cétone pour former une imine ; l'amine attaque comme nucléophile et de l'eau est éliminée."
   },
   {
     "order": 61,
@@ -155,7 +155,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un iminium est formé.",
         "correct": true,
-        "explanation": "Ce bilan correspond à la transformation attendue et relie correctement le substrat au produit."
+        "explanation": "Une amine secondaire se condense avec le composé carbonylé pour former un ion iminium."
       },
       {
         "content": "L'eau doit être éliminée dans le modèle pour pousser la réaction.",
@@ -165,26 +165,26 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Le carbone carbonylé est le centre électrophile initial.",
         "correct": true,
-        "explanation": "Cohérent avec la polarité étudiée."
+        "explanation": "La polarisation de $\\ce{C=O}$ rend le carbone carbonylé électrophile ; c’est le centre attaqué initialement par l’amine."
       },
       {
         "content": "Le produit est une amide.",
         "correct": false,
-        "explanation": "Ce n'est pas une acylation d'amine."
+        "explanation": "La réaction d’une amine secondaire avec une cétone forme ici un iminium, pas une amide."
       }
     ],
-    "explanation": "Avec une cétone ou un aldéhyde, le produit étudié est un iminium, pas une amide."
+    "explanation": "Une amine secondaire se condense avec une cétone pour former un iminium avec élimination d'eau."
   },
   {
     "order": 62,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel produit azoté est associé à une amine primaire réagissant avec un carbonyle?",
+    "question": "Quel produit azoté est associé à une amine primaire réagissant avec un aldéhyde ou une cétone ?",
     "choices": [
       {
         "content": "Ammonium quaternaire.",
         "correct": false,
-        "explanation": "Ce n'est pas le bilan."
+        "explanation": "Une amine primaire réagissant avec un carbonyle forme une imine, pas un ammonium quaternaire."
       },
       {
         "content": "Ester.",
@@ -194,7 +194,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Iminium.",
         "correct": false,
-        "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
+        "explanation": "L’iminium est associé à une amine secondaire ; une amine primaire conduit à une imine."
       },
       {
         "content": "Imine.",
@@ -204,26 +204,26 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Amide.",
         "correct": false,
-        "explanation": "Il faudrait un dérivé d'acide activé."
+        "explanation": "Une amide se forme par acylation d’une amine avec un dérivé d’acide, pas par condensation avec un carbonyle simple."
       }
     ],
-    "explanation": "Ce n'est pas le bilan."
+    "explanation": "Une amine primaire réagissant avec un aldéhyde ou une cétone forme une imine."
   },
   {
     "order": 63,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel produit azoté est associé à une amine secondaire réagissant avec un carbonyle?",
+    "question": "Quel produit azoté est associé à une amine secondaire réagissant avec un aldéhyde ou une cétone ?",
     "choices": [
       {
-        "content": "Une amine secondaire donne nécessairement une amide lorsqu’elle réagit avec une cétone.",
+        "content": "Amide.",
         "correct": false,
-        "explanation": "Avec une cétone ou un aldéhyde, le produit étudié est un iminium, pas une amide."
+        "explanation": "Une amide résulte d’une acylation d’amine ; avec un aldéhyde ou une cétone, une amine secondaire forme ici un iminium."
       },
       {
         "content": "Imine.",
         "correct": false,
-        "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
+        "explanation": "L’imine est le produit d’une amine primaire ; une amine secondaire conduit à un iminium."
       },
       {
         "content": "Ester.",
@@ -231,9 +231,9 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une condensation entre une amine et un aldéhyde ou une cétone ne forme pas un ester."
       },
       {
-        "content": "Alcane.",
+        "content": "Un alcool tertiaire.",
         "correct": false,
-        "explanation": "Cette proposition ne correspond pas à la transformation ou à la propriété demandée."
+        "explanation": "La condensation d’une amine secondaire avec un carbonyle forme un iminium, pas un alcool tertiaire."
       },
       {
         "content": "Iminium.",
@@ -241,13 +241,13 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une amine secondaire réagissant avec un composé carbonylé conduit à un ion iminium."
       }
     ],
-    "explanation": "Avec une cétone ou un aldéhyde, le produit étudié est un iminium, pas une amide."
+    "explanation": "Une amine secondaire réagissant avec un aldéhyde ou une cétone forme un ion iminium."
   },
   {
     "order": 64,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la réaction d'un dérivé carbonylé avec un électrophile:",
+    "question": "À propos de la fonctionnalisation en position alpha d'un dérivé carbonylé par un électrophile, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "L'électrophile attaque directement l'oxygène du carbonyle dans le bilan présenté.",
@@ -262,31 +262,31 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une base forte intervient d'abord.",
         "correct": true,
-        "explanation": "Une base forte intervient d'abord. Cette étape intervient en premier dans l’enchaînement réactionnel considéré."
+        "explanation": "La base forte intervient avant l’électrophile afin de déprotoner la position alpha et de créer le centre nucléophile."
       },
       {
         "content": "Elle met en valeur le caractère nucléophile du carbone voisin du carbonyle.",
         "correct": true,
-        "explanation": "Centre nucléophile créé au CH2."
+        "explanation": "La base forte déprotone le carbone alpha et crée un centre carboné nucléophile."
       },
       {
         "content": "L'électrophile intervient ensuite.",
         "correct": true,
-        "explanation": "L'électrophile intervient ensuite. Cette étape suit la première transformation de l’enchaînement."
+        "explanation": "Après formation du centre nucléophile en alpha, l’électrophile est ajouté et réagit avec ce carbone."
       }
     ],
-    "explanation": "La liaison se forme avec le carbone voisin devenu nucléophile."
+    "explanation": "La fonctionnalisation en alpha se déroule en deux étapes : une base forte crée le centre nucléophile, puis celui-ci réagit avec l'électrophile."
   },
   {
     "order": 65,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Pourquoi la base forte est-elle utilisée avant l'électrophile?",
+    "question": "Pourquoi une base forte est-elle utilisée avant l'ajout de l'électrophile dans la fonctionnalisation en position alpha ?",
     "choices": [
       {
         "content": "Parce que ce carbone doit porter un hydrogène dans le modèle.",
         "correct": true,
-        "explanation": "Condition donnée dans les propriétés."
+        "explanation": "La déprotonation nécessite la présence d’un hydrogène sur le carbone alpha."
       },
       {
         "content": "Pour transformer le carbone voisin en centre capable de réagir avec E+.",
@@ -306,31 +306,31 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Pour créer/mettre en valeur un centre nucléophile sur le carbone voisin du carbonyle.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "La base forte déprotone le carbone alpha et crée un centre carboné nucléophile."
       }
     ],
-    "explanation": "Condition donnée dans les propriétés."
+    "explanation": "La base forte arrache un hydrogène en alpha et crée un centre carboné nucléophile capable de réagir ensuite avec $\\ce{E+}$."
   },
   {
     "order": 66,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l'oxydabilité des fonctions carbonylées :",
+    "question": "Concernant l'oxydabilité des aldéhydes et des cétones, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
+        "content": "Une cétone est oxydée facilement en acide carboxylique.",
         "correct": false,
-        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
+        "explanation": "Dans le modèle simplifié, la cétone est considérée comme inerte à l’oxydation ; elle n’est pas transformée facilement en acide carboxylique."
       },
       {
         "content": "Un aldéhyde ne peut pas être oxydé en acide carboxylique.",
         "correct": false,
-        "explanation": "La relation correcte est: « Un aldéhyde peut être oxydé en acide carboxylique ». La négation proposée est donc fausse."
+        "explanation": "Un aldéhyde est oxydable en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "Une cétone est décrite comme inerte à l'oxydation dans le modèle.",
         "correct": true,
-        "explanation": "Cette relation constitue l’un des éléments directement utiles pour prévoir le produit de la réaction."
+        "explanation": "Dans le modèle simplifié, la cétone est considérée comme inerte à l’oxydation."
       },
       {
         "content": "Dire qu'un aldéhyde est oxydé signifie qu'il peut réduire l'agent d'oxydation.",
@@ -343,7 +343,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Dans le modèle simplifié, l’aldéhyde est oxydable alors que la cétone est considérée comme inerte à l’oxydation."
       }
     ],
-    "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
+    "explanation": "Dans le modèle étudié, un aldéhyde est oxydable en acide carboxylique alors qu'une cétone est considérée comme inerte à l'oxydation."
   },
   {
     "order": 67,
@@ -377,7 +377,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Une amine secondaire comme la diméthylamine conduit à un ion iminium dans le bilan étudié."
       }
     ],
-    "explanation": "Les condensations avec une amine primaire ou secondaire s’accompagnent toutes deux d’une élimination d’eau."
+    "explanation": "Une amine primaire donne une imine et une amine secondaire un iminium ; les deux condensations s'accompagnent d'une élimination d'eau."
   },
   {
     "order": 68,
@@ -388,12 +388,12 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux peuvent former une imine.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Avec une amine primaire, un aldéhyde comme une cétone peut former une imine."
       },
       {
         "content": "L'amine n’est pas nucléophile dans les deux cas.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'amine est nucléophile dans les deux cas ». La négation proposée est donc fausse."
+        "explanation": "Une amine possède un doublet non liant et agit comme nucléophile face au carbone carbonylé électrophile."
       },
       {
         "content": "L'élimination d'eau intervient dans les deux cas.",
@@ -411,18 +411,18 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La condensation de l’amine primaire avec le carbonyle conduit à une imine."
       }
     ],
-    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+    "explanation": "Avec une même amine primaire, un aldéhyde comme une cétone peut donner une imine avec élimination d'eau."
   },
   {
     "order": 69,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un dérivé aldéhydique comporte un $\\ce{CH2}$ voisin de la fonction aldéhyde. Après base forte puis ajout d’un électrophile E+, quelles transformations sont attendues ?",
+    "question": "Un dérivé aldéhydique comporte un $\\ce{CH2}$ voisin de la fonction aldéhyde. Après action d'une base forte puis ajout d'un électrophile $\\ce{E+}$, quelles transformations sont attendues ?",
     "choices": [
       {
         "content": "Une réduction obligatoire du carbonyle en alcool.",
         "correct": false,
-        "explanation": "Ce n'est pas le bilan présenté."
+        "explanation": "La fonctionnalisation alpha ne nécessite pas de réduire le groupe carbonyle en alcool."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -432,12 +432,12 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La création d'un centre nucléophile au niveau du CH2.",
         "correct": true,
-        "explanation": "La création d'un centre nucléophile au niveau du CH2. Cette étape intervient en premier dans l’enchaînement réactionnel considéré."
+        "explanation": "La base forte arrache un hydrogène au $\\ce{CH2}$ en alpha du carbonyle et crée à cet endroit un centre carboné nucléophile."
       },
       {
         "content": "La formation d'une liaison entre ce carbone voisin et E+.",
         "correct": true,
-        "explanation": "La formation d'une liaison entre ce carbone voisin et E+. Cette étape suit la première transformation de l’enchaînement."
+        "explanation": "Le centre nucléophile formé en alpha attaque ensuite $\\ce{E+}$ et crée une nouvelle liaison carbone–électrophile."
       },
       {
         "content": "Une fonctionnalisation de la position alpha.",
@@ -445,13 +445,13 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La déprotonation en alpha suivie de l’attaque d’un électrophile correspond à une fonctionnalisation du carbone alpha."
       }
     ],
-    "explanation": "Ce n'est pas le bilan présenté."
+    "explanation": "La base forte crée d'abord un centre nucléophile au carbone alpha, qui forme ensuite une liaison avec l'électrophile."
   },
   {
     "order": 70,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quelles conditions doivent être réunies pour la fonctionnalisation alpha décrite?",
+    "question": "Quelles conditions sont nécessaires à la fonctionnalisation en position alpha décrite ?",
     "choices": [
       {
         "content": "Une base forte.",
@@ -466,12 +466,12 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un organomagnésien obligatoire.",
         "correct": false,
-        "explanation": "Ce n'est pas la voie présentée ici."
+        "explanation": "La voie décrite utilise une base forte puis un électrophile ; un organomagnésien n’est pas obligatoire."
       },
       {
-        "content": "Le carbone du groupe carbonyle présente un caractère électrophile.",
+        "content": "Le carbone alpha doit pouvoir être déprotoné.",
         "correct": true,
-        "explanation": "L’oxygène attire la densité électronique de la liaison $\\ce{C=O}$, ce qui appauvrit le carbone."
+        "explanation": "La base forte doit pouvoir arracher un hydrogène en alpha pour créer le centre nucléophile avant l’ajout de l’électrophile."
       },
       {
         "content": "Un carbone voisin du carbonyle portant un hydrogène.",
@@ -479,7 +479,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La formation du centre nucléophile en alpha nécessite qu’un hydrogène puisse être arraché sur le carbone voisin du carbonyle."
       }
     ],
-    "explanation": "La base forte arrache d’abord un hydrogène en position alpha et crée un centre carboné nucléophile."
+    "explanation": "La fonctionnalisation alpha nécessite un hydrogène en alpha, une base forte puis un électrophile."
   },
   {
     "order": 71,
@@ -488,24 +488,24 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "À propos de l'oxydation d'un aldéhyde:",
     "choices": [
       {
-        "content": "Un acide carboxylique est toujours plus facile à réduire qu’un aldéhyde.",
+        "content": "L'oxydation transforme l'aldéhyde en alcool primaire.",
         "correct": false,
-        "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
+        "explanation": "L’oxydation d’un aldéhyde conduit à un acide carboxylique ; l’alcool primaire est au contraire obtenu par réduction."
       },
       {
         "content": "Le produit est un acide carboxylique.",
         "correct": true,
-        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
+        "explanation": "L’oxydation de $\\ce{RCHO}$ conduit à l’acide carboxylique correspondant $\\ce{RCOOH}$."
       },
       {
         "content": "L'aldéhyde joue alors le rôle de réducteur vis-à-vis de l'agent d'oxydation.",
         "correct": true,
-        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
+        "explanation": "L’aldéhyde est oxydé et cède des électrons à l’agent oxydant ; il joue donc le rôle de réducteur."
       },
       {
         "content": "La transformation est une réaction d'oxydo-réduction.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "L’aldéhyde est oxydé tandis que l’agent oxydant est réduit : il s’agit d’une réaction d’oxydo-réduction."
       },
       {
         "content": "La fonction aldéhyde est inerte à l'oxydation.",
@@ -513,18 +513,18 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       }
     ],
-    "explanation": "La fonction acide carboxylique est plus difficile à réduire que les aldéhydes et les cétones."
+    "explanation": "Un aldéhyde peut être oxydé en acide carboxylique ; il joue alors le rôle de réducteur vis-à-vis de l'agent oxydant."
   },
   {
     "order": 72,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la cétone dans la rubrique oxydabilité:",
+    "question": "Concernant l'oxydabilité d'une cétone dans le modèle étudié, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle est oxydée facilement en acide carboxylique.",
+        "content": "La cétone est oxydée facilement en acide carboxylique.",
         "correct": false,
-        "explanation": "Ce n'est pas le modèle."
+        "explanation": "La cétone est considérée comme inerte à l’oxydation dans le modèle, contrairement à l’aldéhyde."
       },
       {
         "content": "Cette différence avec l'aldéhyde sert à l'application aux sucres.",
@@ -532,22 +532,22 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La différence d’oxydabilité entre aldéhyde et cétone est utilisée dans l’application aux sucres."
       },
       {
-        "content": "La réduction directe d’un acide carboxylique sous conditions fortes peut poursuivre jusqu’à l’alcool.",
+        "content": "À l'inverse, un aldéhyde peut être oxydé en acide carboxylique.",
         "correct": true,
-        "explanation": "L’aldéhyde intermédiaire est difficile à isoler lorsque les conditions sont suffisamment réductrices."
+        "explanation": "À l’inverse d’une cétone, un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
       },
       {
-        "content": "Elle n’est pas décrite comme inerte à l'oxydation.",
+        "content": "La cétone n’est pas décrite comme inerte à l'oxydation.",
         "correct": false,
-        "explanation": "La relation correcte est: « Elle est décrite comme inerte à l'oxydation ». La négation proposée est donc fausse."
+        "explanation": "La cétone est précisément décrite comme inerte à l’oxydation dans le modèle simplifié."
       },
       {
-        "content": "Elle ne peut donc pas réduire l'agent d'oxydation dans le modèle présenté.",
+        "content": "La cétone ne peut donc pas réduire l'agent d'oxydation dans le modèle présenté.",
         "correct": true,
-        "explanation": "Conséquence utilisée ensuite pour les sucres."
+        "explanation": "Une cétone considérée comme non oxydable ne peut pas réduire l’agent oxydant dans ce modèle ; cette propriété est utilisée pour les sucres."
       }
     ],
-    "explanation": "Ce n'est pas le modèle."
+    "explanation": "Dans le modèle simplifié, une cétone est considérée comme inerte à l'oxydation et ne réduit donc pas l'agent oxydant."
   },
   {
     "order": 73,
@@ -558,36 +558,36 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "$\\mathrm{RCOOH}$.",
         "correct": true,
-        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
+        "explanation": "L’oxydation du groupe $\\ce{RCHO}$ conduit au groupe acide carboxylique $\\ce{RCOOH}$."
       },
       {
         "content": "$\\mathrm{RCOR'}$.",
         "correct": false,
-        "explanation": "Le motif ou le produit considéré correspond bien à une fonction cétone."
+        "explanation": "Un groupe cétone $\\ce{RCOR'}$ n’est pas le produit de l’oxydation d’un aldéhyde ; le produit attendu est $\\ce{RCOOH}$."
       },
       {
         "content": "$\\mathrm{RMgX}$.",
         "correct": false,
-        "explanation": "L’addition d’un organomagnésien sur le carbonyle permet d’obtenir le produit correspondant après hydrolyse."
+        "explanation": "$\\ce{RMgX}$ est un organomagnésien ; ce n’est pas le produit de l’oxydation d’un aldéhyde."
       },
       {
-        "content": "Cétone.",
+        "content": "$\\mathrm{RCHO}$.",
         "correct": false,
-        "explanation": "Une cétone porte deux substituants carbonés sur le carbone du carbonyle."
+        "explanation": "$\\ce{RCHO}$ est l’aldéhyde de départ ; son oxydation conduit au groupe acide carboxylique $\\ce{RCOOH}$."
       },
       {
         "content": "$\\mathrm{RCH_2OH}$.",
         "correct": false,
-        "explanation": "La réduction du groupe fonctionnel conduit à la formation du produit correspondant."
+        "explanation": "$\\ce{RCH2OH}$ est le produit de réduction d’un aldéhyde, pas son produit d’oxydation."
       }
     ],
-    "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
+    "explanation": "L'oxydation d'un aldéhyde $\\ce{RCHO}$ conduit à l'acide carboxylique correspondant $\\ce{RCOOH}$."
   },
   {
     "order": 74,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On souhaite distinguer expérimentalement deux fonctions dans le modèle simplifié: un aldéhyde et une cétone. Quel raisonnement est pertinent?",
+    "question": "Dans le modèle simplifié, quelles propriétés permettent de distinguer un aldéhyde d'une cétone par leur oxydabilité ?",
     "choices": [
       {
         "content": "Les deux fonctions sont nécessairement aussi oxydables l'une que l'autre.",
@@ -595,14 +595,14 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Dans le modèle étudié, l’aldéhyde est oxydable alors que la cétone est considérée comme inerte à l’oxydation."
       },
       {
-        "content": "L’oxydation d’un alcool secondaire conduit directement à un aldéhyde.",
+        "content": "Une cétone est facilement oxydée en acide carboxylique dans ce modèle.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone dans le modèle étudié."
+        "explanation": "La cétone est au contraire considérée comme inerte à l’oxydation dans le modèle simplifié."
       },
       {
         "content": "L'aldéhyde n’est pas oxydable.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'aldéhyde est oxydable ». La négation proposée est donc fausse."
+        "explanation": "Un aldéhyde est oxydable en acide carboxylique dans le modèle étudié."
       },
       {
         "content": "La cétone est décrite comme inerte à l'oxydation.",
@@ -615,13 +615,13 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La différence d’oxydabilité peut donc être utilisée comme critère fonctionnel pour distinguer aldéhyde et cétone dans ce modèle."
       }
     ],
-    "explanation": "La différence d’oxydabilité peut donc être utilisée comme critère fonctionnel pour distinguer aldéhyde et cétone dans ce modèle."
+    "explanation": "L'aldéhyde est oxydable alors que la cétone est considérée comme inerte à l'oxydation ; cette différence permet de les distinguer dans ce modèle."
   },
   {
     "order": 75,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une base forte est ajoutée à une cétone possédant des hydrogènes en alpha. Quelles propositions décrivent correctement la réactivité obtenue ?",
+    "question": "Une base forte est ajoutée à une cétone possédant des hydrogènes en alpha. Quelles propositions décrivent la réactivité obtenue ?",
     "choices": [
       {
         "content": "Un électrophile peut être ajouté ensuite.",
@@ -631,12 +631,12 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Une nouvelle liaison C-E peut se former en alpha.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Le carbone alpha nucléophile attaque l’électrophile et forme une liaison entre C et E."
       },
       {
         "content": "L'objectif est nécessairement d'oxyder la cétone.",
         "correct": false,
-        "explanation": "Il s'agit d'une fonctionnalisation alpha."
+        "explanation": "La séquence base forte puis électrophile correspond à une fonctionnalisation en alpha, pas à une oxydation de la cétone."
       },
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
@@ -646,16 +646,16 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Un centre nucléophile peut être créé au niveau du carbone alpha.",
         "correct": true,
-        "explanation": "Mise en valeur du caractère nucléophile."
+        "explanation": "La base forte peut arracher un hydrogène en alpha et créer un centre carboné nucléophile."
       }
     ],
-    "explanation": "Après déprotonation en alpha, le centre nucléophile formé peut réagir avec un électrophile. Mise en valeur du caractère nucléophile."
+    "explanation": "Une base forte peut déprotoner un carbone alpha portant un hydrogène ; le centre nucléophile obtenu peut ensuite réagir avec un électrophile."
   },
   {
     "order": 76,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un composé carbonylé ne possède aucun hydrogène sur ses carbones voisins. Dans le modèle:",
+    "question": "Un composé carbonylé ne possède aucun hydrogène sur ses carbones voisins. Quelles conséquences en tire-t-on ?",
     "choices": [
       {
         "content": "Le carbone du groupe carbonyle présente un caractère électrophile.",
@@ -665,25 +665,25 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La voie de fonctionnalisation alpha décrite n'est pas directement applicable à ces positions.",
         "correct": true,
-        "explanation": "La présence d'un H est requise."
+        "explanation": "Sans hydrogène en alpha, la déprotonation par une base forte ne peut pas créer le centre nucléophile décrit."
       },
       {
         "content": "Le carbonyle ne peut pas néanmoins rester électrophile.",
         "correct": false,
-        "explanation": "La relation correcte est: « Le carbonyle peut néanmoins rester électrophile ». La négation proposée est donc fausse."
+        "explanation": "L’absence d’hydrogène en alpha n’empêche pas le carbone du carbonyle de rester électrophile."
       },
       {
-        "content": "Un hydrure peut toujours être envisagé comme nucléophile au carbonyle selon la famille.",
+        "content": "Le carbone carbonylé reste susceptible d'être attaqué par un hydrure.",
         "correct": true,
-        "explanation": "Un hydrure peut agir comme nucléophile sur le carbone électrophile du carbonyle lors d’une réduction."
+        "explanation": "L’absence d’hydrogène en alpha n’empêche pas un hydrure nucléophile d’attaquer le carbone carbonylé électrophile."
       },
       {
         "content": "Une base forte crée automatiquement un centre alpha nucléophile malgré l'absence de H.",
         "correct": false,
-        "explanation": "La condition n'est pas remplie."
+        "explanation": "Sans hydrogène en alpha, une base forte ne peut pas créer automatiquement un centre carboné nucléophile par déprotonation."
       }
     ],
-    "explanation": "L’oxygène attire la densité électronique de la liaison $\\ce{C=O}$, ce qui appauvrit le carbone."
+    "explanation": "L'absence d'hydrogène en alpha empêche la fonctionnalisation alpha par déprotonation, sans supprimer l'électrophilie du carbone carbonylé."
   },
   {
     "order": 77,
@@ -703,7 +703,7 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "ignoreAccents": true
       }
     },
-    "explanation": "Une amine primaire se condense avec un aldéhyde ou une cétone pour former une imine avec élimination d'eau."
+    "explanation": "Une amine primaire se condense avec un aldéhyde ou une cétone pour former une imine."
   },
   {
     "order": 78,
@@ -745,12 +745,12 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'iminium est le produit spécifique d'une amine primaire.",
         "correct": false,
-        "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée : il s’agit de la classe d’amine attendue."
+        "explanation": "L’iminium est le produit associé à une amine secondaire ; une amine primaire conduit à une imine."
       },
       {
         "content": "La fonctionnalisation alpha commence par un organomagnésien obligatoire.",
         "correct": false,
-        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
+        "explanation": "La fonctionnalisation en alpha débute par l’action d’une base forte sur un hydrogène alpha ; un organomagnésien n’est pas une étape obligatoire."
       },
       {
         "content": "Un aldéhyde est inerte à l'oxydation.",
@@ -763,6 +763,6 @@ export const UE14_CH10_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La liaison se forme avec le carbone alpha dans le schéma."
       }
     ],
-    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+    "explanation": "Les réactions étudiées associent condensation des amines, fonctionnalisation alpha en deux étapes et oxydation sélective de l'aldéhyde."
   }
 ];
