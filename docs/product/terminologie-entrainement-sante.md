@@ -10,7 +10,7 @@ Ce document définit la terminologie produit officielle pour l'interface, la con
 Un **quiz** est une séance d'entraînement composée d'un ensemble de questions.
 - **Rôle** : C'est le CONTENANT d'une séance d'entraînement pédagogique.
 - **Chronométrage** : **Non chronométré**. Quel que soit son niveau ou stage (`Découvrir`, `S'entraîner`, `Maîtriser`, `Synthèse`), un quiz est dispensé de toute contrainte temporelle.
-- **Terminologie UI** : Utiliser le mot `quiz` (ex: « 2 quiz », colonne « QUIZ », « Les quiz sont regroupés par section »).
+- **Terminologie UI** : Utiliser le mot `quiz` (ex: « 2 quiz », colonne « QUIZ », « Des quiz regroupés par section »).
 - **Interdiction** : Ne pas utiliser le mot `QCM` pour désigner une séance d'entraînement.
 
 ### Question

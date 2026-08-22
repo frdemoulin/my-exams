@@ -40,6 +40,7 @@ import {
   getQuestionSelectionLimit,
   type HotspotPoint,
   type HotspotQuestion,
+  type ShortAnswerQuestion,
   type StudentAnswer,
 } from "@/core/questions";
 import { HotspotQuestionView } from "@/components/training/hotspot-question-view";
@@ -496,6 +497,7 @@ export function HealthMockExamSession({
             selectedPoint={getHotspotPoint(currentAnswer)}
             onPointSelect={updateCurrentHotspotPoint}
             readOnly={isSubmitting}
+            showHeader={false}
           />
         ) : currentQuestion.questionType === "short-answer" ? (
           <div className="space-y-2">
@@ -505,14 +507,32 @@ export function HealthMockExamSession({
             >
               Votre réponse
             </label>
-            <Input
-              id={`health-mock-exam-short-answer-${currentQuestion.attemptQuestionId}`}
-              value={getShortAnswerValue(currentAnswer)}
-              onChange={(event) => updateCurrentShortAnswer(event.target.value)}
-              data-testid="health-mock-exam-short-answer-input"
-              placeholder="Saisissez votre réponse courte"
-              autoComplete="off"
-            />
+            <div className="flex items-center gap-2">
+              <Input
+                id={`health-mock-exam-short-answer-${currentQuestion.attemptQuestionId}`}
+                value={getShortAnswerValue(currentAnswer)}
+                onChange={(event) => updateCurrentShortAnswer(event.target.value)}
+                data-testid="health-mock-exam-short-answer-input"
+                placeholder={
+                  (currentQuestion.canonicalQuestion as ShortAnswerQuestion).answerType === "number"
+                    ? "Saisissez la valeur numérique"
+                    : "Saisissez votre réponse courte"
+                }
+                autoComplete="off"
+                className="flex-1"
+              />
+              {(currentQuestion.canonicalQuestion as ShortAnswerQuestion).answerType === "number" && (
+                (currentQuestion.canonicalQuestion as ShortAnswerQuestion).numericAnswer?.displayUnit ? (
+                  <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+                    <MathContent value={`$${(currentQuestion.canonicalQuestion as ShortAnswerQuestion).numericAnswer!.displayUnit!}$`} />
+                  </span>
+                ) : (currentQuestion.canonicalQuestion as ShortAnswerQuestion).numericAnswer?.unit ? (
+                  <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+                    {(currentQuestion.canonicalQuestion as ShortAnswerQuestion).numericAnswer!.unit}
+                  </span>
+                ) : null
+              )}
+            </div>
           </div>
         ) : currentQuestion.canonicalQuestion.format === "QRPL" || currentQuestion.choices.length > 5 ? (
           <LongChoiceListView

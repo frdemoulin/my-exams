@@ -1,22 +1,54 @@
-/** UE14 – Biologie cellulaire – Chapitre 3 */
 import type { PrismaClient } from '@prisma/client';
 import type { SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
-import { SECTION_A_QUESTIONS, SECTION_A_QUIZZES } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-a.seed';
-import { SECTION_B_QUESTIONS, SECTION_B_QUIZZES } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-b.seed';
-import { SECTION_C_QUESTIONS, SECTION_C_QUIZZES } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-c.seed';
-import { SECTION_D_QUESTIONS, SECTION_D_QUIZZES } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-d.seed';
-import { SYNTHESIS_QUESTIONS, SYNTHESIS_QUIZZES } from './health-training-ue14-biologie-cellulaire-cytosquelette.synthesis.seed';
+import { SECTION_A_QUESTIONS } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-a.seed';
+import { SECTION_B_QUESTIONS } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-b.seed';
+import { SECTION_C_QUESTIONS } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-c.seed';
+import { SECTION_D_QUESTIONS } from './health-training-ue14-biologie-cellulaire-cytosquelette.section-d.seed';
+import { SYNTHESIS_QUESTIONS } from './health-training-ue14-biologie-cellulaire-cytosquelette.synthesis.seed';
+import {
+  UE14_CELL_CH3_V2_QUIZ_MAP,
+  UE14_CELL_CH3_V2_THEME_LABELS_BY_ORDER,
+} from './health-training-ue14-biologie-cellulaire-cytosquelette.quiz-map-v2.author';
 import { seedHealthTrainingChapter } from './health-training-ue14.shared';
 
 const SUBJECT_LONG_DESCRIPTION = 'Sciences de la Vie et de la Terre';
 const CHAPTER_SLUG = 'cytosquelette';
 
 const sections: SeedSection[] = [
-  { order: 1, title: `Généralités, structure et polymérisation des microtubules`, description: `Trois réseaux du cytosquelette, structure des microtubules, centrosome et dynamique de polymérisation.`, kind: 'THEME' },
-  { order: 2, title: `Fonctions des microtubules et protéines motrices`, description: `Cils, flagelles, trafic intracellulaire, kinésine, dynéine et fuseau mitotique.`, kind: 'THEME' },
-  { order: 3, title: `Microfilaments d’actine : structure, dynamique et fonctions`, description: `Actine G/F, polymérisation, protéines associées, transport et contraction.`, kind: 'THEME' },
-  { order: 4, title: `Migration cellulaire et filaments intermédiaires`, description: `Organisation de l’actine dans la migration, filaments intermédiaires et résistance mécanique.`, kind: 'THEME' },
-  { order: 5, title: `Synthèse du chapitre`, description: `Révision transversale et situations intégratives sur les trois réseaux.`, kind: 'SYNTHESIS' },
+  {
+    order: 1,
+    title: 'Généralités, structure et organisation des microtubules',
+    description:
+      'Trois réseaux du cytosquelette, structure des microtubules, centrosome, polarité et structures à microtubules stabilisés.',
+    kind: 'THEME',
+  },
+  {
+    order: 2,
+    title: 'Polymérisation, fonctions des microtubules et protéines motrices',
+    description:
+      'Tubuline α/β, GTP, polymérisation, cils et flagelles, transport par kinésine/dynéine et fuseau mitotique.',
+    kind: 'THEME',
+  },
+  {
+    order: 3,
+    title: 'Microfilaments d’actine : structure, dynamique et fonctions',
+    description:
+      'Actine G/F, polymérisation ATP-dépendante, protéines associées, microvillosités, anneau contractile et sarcomère.',
+    kind: 'THEME',
+  },
+  {
+    order: 4,
+    title: 'Migration cellulaire et filaments intermédiaires',
+    description:
+      'Lamellipodes, filopodes, front migratoire, adhésions focales, filaments intermédiaires, résistance mécanique et cytokératines.',
+    kind: 'THEME',
+  },
+  {
+    order: 5,
+    title: 'Synthèse du chapitre',
+    description: 'Révision transversale de l’ensemble du chapitre.',
+    kind: 'SYNTHESIS',
+  },
 ];
 
 const questions: SeedQuestion[] = [
@@ -27,167 +59,21 @@ const questions: SeedQuestion[] = [
   ...SYNTHESIS_QUESTIONS,
 ];
 
-const quizSeeds: SeedQuiz[] = [
-  ...SECTION_A_QUIZZES,
-  ...SECTION_B_QUIZZES,
-  ...SECTION_C_QUIZZES,
-  ...SECTION_D_QUIZZES,
-  ...SYNTHESIS_QUIZZES,
-];
+const quizSeeds: SeedQuiz[] = UE14_CELL_CH3_V2_QUIZ_MAP as unknown as SeedQuiz[];
 
-const QUESTION_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
-  1: ["Structure et dynamique des microtubules"],
-  2: ["Structure et dynamique des microtubules"],
-  3: ["Structure et dynamique des microtubules"],
-  4: ["Structure et dynamique des microtubules"],
-  5: ["Structure et dynamique des microtubules"],
-  6: ["Structure et dynamique des microtubules"],
-  7: ["Structure et dynamique des microtubules"],
-  8: ["Structure et dynamique des microtubules"],
-  9: ["Structure et dynamique des microtubules"],
-  10: ["Structure et dynamique des microtubules"],
-  11: ["Structure et dynamique des microtubules"],
-  12: ["Structure et dynamique des microtubules"],
-  13: ["Structure et dynamique des microtubules"],
-  14: ["Structure et dynamique des microtubules"],
-  15: ["Structure et dynamique des microtubules"],
-  16: ["Structure et dynamique des microtubules"],
-  17: ["Structure et dynamique des microtubules"],
-  18: ["Structure et dynamique des microtubules"],
-  19: ["Structure et dynamique des microtubules"],
-  20: ["Structure et dynamique des microtubules"],
-  21: ["Structure et dynamique des microtubules"],
-  22: ["Structure et dynamique des microtubules"],
-  23: ["Structure et dynamique des microtubules"],
-  24: ["Structure et dynamique des microtubules"],
-  25: ["Structure et dynamique des microtubules"],
-  26: ["Structure et dynamique des microtubules"],
-  27: ["Structure et dynamique des microtubules"],
-  28: ["Structure et dynamique des microtubules"],
-  29: ["Structure et dynamique des microtubules"],
-  30: ["Structure et dynamique des microtubules"],
-  31: ["Fonctions des microtubules"],
-  32: ["Fonctions des microtubules"],
-  33: ["Fonctions des microtubules"],
-  34: ["Fonctions des microtubules"],
-  35: ["Fonctions des microtubules"],
-  36: ["Fonctions des microtubules"],
-  37: ["Fonctions des microtubules"],
-  38: ["Fonctions des microtubules"],
-  39: ["Fonctions des microtubules"],
-  40: ["Fonctions des microtubules"],
-  41: ["Fonctions des microtubules"],
-  42: ["Fonctions des microtubules"],
-  43: ["Fonctions des microtubules"],
-  44: ["Fonctions des microtubules"],
-  45: ["Fonctions des microtubules"],
-  46: ["Fonctions des microtubules"],
-  47: ["Fonctions des microtubules"],
-  48: ["Fonctions des microtubules"],
-  49: ["Fonctions des microtubules"],
-  50: ["Fonctions des microtubules"],
-  51: ["Fonctions des microtubules"],
-  52: ["Fonctions des microtubules"],
-  53: ["Fonctions des microtubules"],
-  54: ["Fonctions des microtubules"],
-  55: ["Fonctions des microtubules"],
-  56: ["Fonctions des microtubules"],
-  57: ["Fonctions des microtubules"],
-  58: ["Fonctions des microtubules"],
-  59: ["Fonctions des microtubules"],
-  60: ["Fonctions des microtubules"],
-  61: ["Microfilaments d’actine"],
-  62: ["Microfilaments d’actine"],
-  63: ["Microfilaments d’actine"],
-  64: ["Microfilaments d’actine"],
-  65: ["Microfilaments d’actine"],
-  66: ["Microfilaments d’actine"],
-  67: ["Microfilaments d’actine"],
-  68: ["Microfilaments d’actine"],
-  69: ["Microfilaments d’actine"],
-  70: ["Microfilaments d’actine"],
-  71: ["Microfilaments d’actine"],
-  72: ["Microfilaments d’actine"],
-  73: ["Microfilaments d’actine"],
-  74: ["Microfilaments d’actine"],
-  75: ["Microfilaments d’actine"],
-  76: ["Microfilaments d’actine"],
-  77: ["Microfilaments d’actine"],
-  78: ["Microfilaments d’actine"],
-  79: ["Microfilaments d’actine"],
-  80: ["Microfilaments d’actine"],
-  81: ["Microfilaments d’actine"],
-  82: ["Microfilaments d’actine"],
-  83: ["Microfilaments d’actine"],
-  84: ["Microfilaments d’actine"],
-  85: ["Microfilaments d’actine"],
-  86: ["Microfilaments d’actine"],
-  87: ["Microfilaments d’actine"],
-  88: ["Microfilaments d’actine"],
-  89: ["Microfilaments d’actine"],
-  90: ["Microfilaments d’actine"],
-  91: ["Migration et filaments intermédiaires"],
-  92: ["Migration et filaments intermédiaires"],
-  93: ["Migration et filaments intermédiaires"],
-  94: ["Migration et filaments intermédiaires"],
-  95: ["Migration et filaments intermédiaires"],
-  96: ["Migration et filaments intermédiaires"],
-  97: ["Migration et filaments intermédiaires"],
-  98: ["Migration et filaments intermédiaires"],
-  99: ["Migration et filaments intermédiaires"],
-  100: ["Migration et filaments intermédiaires"],
-  101: ["Migration et filaments intermédiaires"],
-  102: ["Migration et filaments intermédiaires"],
-  103: ["Migration et filaments intermédiaires"],
-  104: ["Migration et filaments intermédiaires"],
-  105: ["Migration et filaments intermédiaires"],
-  106: ["Migration et filaments intermédiaires"],
-  107: ["Migration et filaments intermédiaires"],
-  108: ["Migration et filaments intermédiaires"],
-  109: ["Migration et filaments intermédiaires"],
-  110: ["Migration et filaments intermédiaires"],
-  111: ["Migration et filaments intermédiaires"],
-  112: ["Migration et filaments intermédiaires"],
-  113: ["Migration et filaments intermédiaires"],
-  114: ["Migration et filaments intermédiaires"],
-  115: ["Migration et filaments intermédiaires"],
-  116: ["Migration et filaments intermédiaires"],
-  117: ["Migration et filaments intermédiaires"],
-  118: ["Migration et filaments intermédiaires"],
-  119: ["Migration et filaments intermédiaires"],
-  120: ["Migration et filaments intermédiaires"],
-  121: ["Synthèse du cytosquelette"],
-  122: ["Synthèse du cytosquelette"],
-  123: ["Synthèse du cytosquelette"],
-  124: ["Synthèse du cytosquelette"],
-  125: ["Synthèse du cytosquelette"],
-  126: ["Synthèse du cytosquelette"],
-  127: ["Synthèse du cytosquelette"],
-  128: ["Synthèse du cytosquelette"],
-  129: ["Synthèse du cytosquelette"],
-  130: ["Synthèse du cytosquelette"],
-  131: ["Synthèse du cytosquelette"],
-  132: ["Synthèse du cytosquelette"],
-  133: ["Synthèse du cytosquelette"],
-  134: ["Synthèse du cytosquelette"],
-  135: ["Synthèse du cytosquelette"],
-  136: ["Synthèse du cytosquelette"],
-  137: ["Synthèse du cytosquelette"],
-  138: ["Synthèse du cytosquelette"],
-  139: ["Synthèse du cytosquelette"],
-  140: ["Synthèse du cytosquelette"],
-};
-
-export async function seedHealthTrainingUe14BiologieCellulaireCytosquelette(prisma: PrismaClient) {
+export async function seedHealthTrainingUe14BiologieCellulaireCytosquelette(
+  prisma: PrismaClient
+) {
   await seedHealthTrainingChapter({
     prisma,
     subjectLongDescription: SUBJECT_LONG_DESCRIPTION,
     chapterSlug: CHAPTER_SLUG,
     logLabel: 'UE14 Biologie cellulaire — chapitre 3',
-    questionThemeLabelsByOrder: QUESTION_THEME_LABELS_BY_ORDER,
+    questionThemeLabelsByOrder: UE14_CELL_CH3_V2_THEME_LABELS_BY_ORDER,
     questions,
     sections,
     quizSeeds,
     cleanupSectionOrders: [1, 2, 3, 4, 5],
+    purgeObsoleteQuestions: true,
   });
 }

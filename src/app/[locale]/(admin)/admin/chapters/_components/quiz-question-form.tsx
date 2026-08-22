@@ -73,7 +73,7 @@ interface QuizQuestionFormProps {
   revalidatePaths?: string[];
 }
 
-const choiceLabels = ["A", "B", "C", "D"] as const;
+const choiceLabels = ["A", "B", "C", "D", "E"] as const;
 const richContentHelpText = 'Tex: $...$ ou $$...$$. Image/schéma: ![Légende](/uploads/mon-schema.png).';
 const questionFormatOptions = editableQuestionFormatCodes.map((format) => ({
   value: format,
@@ -93,20 +93,35 @@ export function QuizQuestionForm({
   revalidatePaths,
 }: QuizQuestionFormProps) {
   const common = useCommonTranslations();
-  const sortedChapterOptions = useMemo(
-    () => [...(chapterOptions ?? [])].sort((left, right) =>
+  const sortedChapterOptions = useMemo(() => {
+    const list = [...(chapterOptions ?? [])];
+    if (
+      initialData.chapterId &&
+      !list.some((option) => option.value === initialData.chapterId)
+    ) {
+      list.push({ value: initialData.chapterId, label: initialData.chapterId });
+    }
+    return list.sort((left, right) =>
       left.label.localeCompare(right.label, "fr", { sensitivity: "base", numeric: true })
-    ),
-    [chapterOptions]
-  );
+    );
+  }, [chapterOptions, initialData.chapterId]);
   const initialAnswerFormat =
     resolveAnswerFormatForQuestionFormat(initialData.questionFormat);
   const initialCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
     answerFormat: initialAnswerFormat,
     correctChoiceIndex: initialData.correctChoiceIndex,
     correctChoiceIndexes: initialData.correctChoiceIndexes,
-    choiceCount: choiceLabels.length,
+    choiceCount: initialData.choices.length || choiceLabels.length,
   });
+
+  const defaultChoices = Array.from(
+    { length: choiceLabels.length },
+    (_, i) => initialData.choices[i] ?? ""
+  );
+  const defaultChoiceExplanations = Array.from(
+    { length: choiceLabels.length },
+    (_, i) => initialData.choiceExplanations[i] ?? ""
+  );
 
   const form = useForm<QuizQuestionFormValues>({
     defaultValues: {
@@ -115,14 +130,11 @@ export function QuizQuestionForm({
       questionFormat: initialData.questionFormat,
       answerFormat: initialAnswerFormat,
       question: initialData.question,
-      choices: initialData.choices.length === 4 ? initialData.choices : ["", "", "", ""],
+      choices: defaultChoices,
       correctChoiceIndexes:
         initialCorrectChoiceIndexes.length > 0 ? initialCorrectChoiceIndexes : [0],
       explanation: initialData.explanation,
-      choiceExplanations:
-        initialData.choiceExplanations.length === 4
-          ? initialData.choiceExplanations
-          : ["", "", "", ""],
+      choiceExplanations: defaultChoiceExplanations,
       shortAnswerType: initialData.shortAnswerType,
       acceptedAnswers: initialData.acceptedAnswers,
       numericAnswerValue: initialData.numericAnswerValue,

@@ -17,14 +17,14 @@ export type HealthMockExamBlueprint = {
 export const healthMockExamBlueprints: Record<string, HealthMockExamBlueprint> = {
   "fixture-examen-blanc-sante": {
     durationMinutes: 15,
-    questionCount: 4,
+    questionCount: 5,
     sections: [
       {
         teachingElementSlug: "interface-uness",
         title: "Interface UNESS",
-        questionCount: 4,
+        questionCount: 5,
         firstQuestion: 1,
-        lastQuestion: 4,
+        lastQuestion: 5,
       },
     ],
   },

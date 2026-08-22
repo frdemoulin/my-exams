@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+<title id="title">Enzyme et régulation allostérique</title>
+<desc id="desc">Schéma pédagogique original d'une enzyme possédant deux poches distinctes, l'une occupée par un substrat et l'autre par un ligand régulateur.</desc>
+<rect width="900" height="520" fill="white"/>
+<text x="450" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700">Enzyme régulée par un ligand</text>
+<path d="M150 290 C135 195, 195 120, 285 132 C345 140, 358 186, 398 192 C445 199, 470 145, 542 133 C625 119, 735 164, 754 252 C770 325, 709 407, 622 409 C558 410, 516 365, 454 373 C385 382, 338 423, 260 405 C190 389, 159 350, 150 290 Z" fill="#fafafa" stroke="#222" stroke-width="5"/>
+<!-- site actif -->
+<path d="M305 145 C320 176, 347 187, 378 192 C365 218, 343 236, 310 238 C287 214, 283 178, 305 145 Z" fill="white" stroke="#222" stroke-width="4"/>
+<path d="M322 161 L350 172 L335 207 L308 197 Z" fill="white" stroke="#222" stroke-width="3"/>
+<text x="330" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700">S</text>
+<!-- site régulateur, cible -->
+<path d="M605 155 C646 144, 685 165, 700 200 C682 228, 645 240, 610 223 C594 199, 592 176, 605 155 Z" fill="white" stroke="#222" stroke-width="4"/>
+<circle cx="641" cy="190" r="22" fill="white" stroke="#222" stroke-width="3"/>
+<text x="641" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700">L</text>
+<text x="330" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="17">poche occupée par S</text>
+<text x="641" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="17">poche occupée par L</text>
+<path d="M552 323 C602 345, 661 344, 710 314" fill="none" stroke="#222" stroke-width="3" stroke-dasharray="9 7"/>
+<text x="632" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">changement de conformation</text>
+</svg>

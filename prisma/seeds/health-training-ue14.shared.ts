@@ -454,6 +454,7 @@ type SeedHealthTrainingChapterParams = {
   quizSeeds: SeedQuiz[];
   masterCleanupSectionOrders?: number[];
   cleanupSectionOrders?: number[];
+  purgeObsoleteQuestions?: boolean;
 };
 
 const trainingQuizStageLogLabels: Record<TrainingQuizStage, string> = {
@@ -482,6 +483,7 @@ export async function seedHealthTrainingChapter({
   quizSeeds,
   masterCleanupSectionOrders = [],
   cleanupSectionOrders = [],
+  purgeObsoleteQuestions = false,
 }: SeedHealthTrainingChapterParams) {
   const subject = await prisma.subject.findFirst({
     where: { longDescription: subjectLongDescription },
@@ -720,6 +722,27 @@ export async function seedHealthTrainingChapter({
       });
     } else {
       await prisma.quizQuestion.create({ data });
+    }
+  }
+
+  if (purgeObsoleteQuestions && questions.length > 0) {
+    const declaredQuestionOrders = questions.map((item) => item.order);
+    const obsoleteQuestions = await prisma.quizQuestion.findMany({
+      where: {
+        chapterId: chapter.id,
+        order: { notIn: declaredQuestionOrders },
+      },
+      select: { id: true },
+    });
+
+    if (obsoleteQuestions.length > 0) {
+      const obsoleteQuestionIds = obsoleteQuestions.map((q) => q.id);
+      await prisma.trainingQuizQuestion.deleteMany({
+        where: { questionId: { in: obsoleteQuestionIds } },
+      });
+      await prisma.quizQuestion.deleteMany({
+        where: { id: { in: obsoleteQuestionIds } },
+      });
     }
   }
 

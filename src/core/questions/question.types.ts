@@ -84,6 +84,8 @@ export type NumericShortAnswer = {
   value: number;
   tolerance?: number;
   unit?: string;
+  displayUnit?: string;
+  /** @deprecated Compatibilité anciens contenus. */
   acceptedUnits?: string[];
 };
 

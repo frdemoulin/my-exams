@@ -61,6 +61,25 @@ const enzymologyChapterCases = [
   },
 ] as const;
 
+const cellOrganisationChapterSlug = "organisation-methodes-etude-cellule";
+const cellMembraneChapterSlug = "membrane-plasmique-communication-transports-membranaires";
+const cellCytosqueletteChapterSlug = "cytosquelette";
+
+const biocellV2ChapterCases = [
+  {
+    label: "Organisation et méthodes d'étude de la cellule",
+    slug: cellOrganisationChapterSlug,
+  },
+  {
+    label: "Membrane plasmique",
+    slug: cellMembraneChapterSlug,
+  },
+  {
+    label: "Cytosquelette",
+    slug: cellCytosqueletteChapterSlug,
+  },
+] as const;
+
 type ChapterFixture = {
   title: string;
   sectionCount: number;
@@ -866,15 +885,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(osidesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${osidesChapterSlug}`);
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -888,8 +907,8 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(introductionLipidesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(
       `${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${introductionLipidesChapterSlug}`,
@@ -897,8 +916,8 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -910,15 +929,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(eicosanoidesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${eicosanoidesChapterSlug}`);
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -932,15 +951,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(glyceridesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${glyceridesChapterSlug}`);
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -952,15 +971,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(sphingolipidesChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${sphingolipidesChapterSlug}`);
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -974,15 +993,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     const chapter = await getChapterFixture(sterolsChapterSlug);
 
     expect(chapter.sectionCount).toBe(5);
-    expect(chapter.quizCount).toBe(14);
-    expect(chapter.questionCount).toBe(140);
+    expect(chapter.quizCount).toBe(11);
+    expect(chapter.questionCount).toBe(122);
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${sterolsChapterSlug}`);
 
     await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
     await expect(page.getByText("5 sections")).toBeVisible();
-    await expect(page.getByText("14 quiz")).toBeVisible();
-    await expect(page.getByText("140 questions")).toBeVisible();
+    await expect(page.getByText("11 quiz")).toBeVisible();
+    await expect(page.getByText("122 questions")).toBeVisible();
 
     for (const [sectionIndex, section] of chapter.sections.entries()) {
       const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -995,15 +1014,15 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
       const chapter = await getChapterFixture(chapterCase.slug);
 
       expect(chapter.sectionCount).toBe(5);
-      expect(chapter.quizCount).toBe(14);
-      expect(chapter.questionCount).toBe(140);
+      expect(chapter.quizCount).toBe(11);
+      expect(chapter.questionCount).toBe(122);
 
       await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${chapterCase.slug}`);
 
       await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
       await expect(page.getByText("5 sections")).toBeVisible();
-      await expect(page.getByText("14 quiz")).toBeVisible();
-      await expect(page.getByText("140 questions")).toBeVisible();
+      await expect(page.getByText("11 quiz")).toBeVisible();
+      await expect(page.getByText("122 questions")).toBeVisible();
 
       for (const [sectionIndex, section] of chapter.sections.entries()) {
         const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
@@ -1019,15 +1038,39 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
       const chapter = await getChapterFixture(chapterCase.slug);
 
       expect(chapter.sectionCount).toBe(5);
-      expect(chapter.quizCount).toBe(14);
-      expect(chapter.questionCount).toBe(140);
+      expect(chapter.quizCount).toBe(11);
+      expect(chapter.questionCount).toBe(122);
 
       await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${chapterCase.slug}`);
 
       await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
       await expect(page.getByText("5 sections")).toBeVisible();
-      await expect(page.getByText("14 quiz")).toBeVisible();
-      await expect(page.getByText("140 questions")).toBeVisible();
+      await expect(page.getByText("11 quiz")).toBeVisible();
+      await expect(page.getByText("122 questions")).toBeVisible();
+
+      for (const [sectionIndex, section] of chapter.sections.entries()) {
+        const sectionHeading = getSectionHeadingLabel(section, sectionIndex);
+        await expect(
+          page.getByRole("heading", { name: sectionHeading, exact: true }),
+        ).toBeVisible();
+      }
+    });
+  }
+
+  for (const chapterCase of biocellV2ChapterCases) {
+    test(`le chapitre ${chapterCase.label} de Biologie cellulaire expose sa structure seedée`, async ({ page }) => {
+      const chapter = await getChapterFixture(chapterCase.slug);
+
+      expect(chapter.sectionCount).toBe(5);
+      expect(chapter.quizCount).toBe(11);
+      expect(chapter.questionCount).toBe(122);
+
+      await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}/chapitres/${chapterCase.slug}`);
+
+      await expect(page.getByRole("heading", { name: chapter.title })).toBeVisible();
+      await expect(page.getByText("5 sections")).toBeVisible();
+      await expect(page.getByText("11 quiz")).toBeVisible();
+      await expect(page.getByText("122 questions")).toBeVisible();
 
       for (const [sectionIndex, section] of chapter.sections.entries()) {
         const sectionHeading = getSectionHeadingLabel(section, sectionIndex);

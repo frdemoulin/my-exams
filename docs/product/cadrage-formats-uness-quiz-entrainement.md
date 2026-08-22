@@ -313,7 +313,7 @@ La documentation pédagogique doit expliquer :
 | Admin création QROC en quiz de chapitre | Réalisé V1 | Formulaire et persistance disponibles. |
 | Admin création QRP en quiz de chapitre | Réalisé V1 | Nombre de réponses attendu pris en charge. |
 | Vocabulaire UNESS côté étudiant | Réalisé V1 | Instructions par format affichées dans le player. |
-| QZONE en quiz d'entrainement | A faire | Modèle et évaluation existent, renderer interactif manquant. |
+| QZONE en quiz d'entrainement | Réalisé V1 | Rendu interactif, tolérance de ciblage, modes instantané et final/revue intégrés. |
 | QRPL en quiz d'entrainement | A prévoir | Format référencé, non éditable. |
 | QROL en quiz d'entrainement | A prévoir | Format référencé, non éditable. |
 | Statistiques par format | A faire | Nécessaire pour analyser les performances par format. |
@@ -322,7 +322,7 @@ La documentation pédagogique doit expliquer :
 
 ## Critères d'acceptation fonctionnels
 
-- Un quiz classique peut contenir au moins QRU, QRM, QRP et QROC.
+- Un quiz classique peut contenir au moins QRU, QRM, QRP, QROC et QZONE.
 - L'étudiant voit une consigne claire pour chaque format.
 - Une QRP empêche ou signale la sélection au-delà du nombre attendu.
 - Une QROC corrige de manière déterministe en conservant la réponse brute.

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+<rect width="1200" height="500" fill="white"/>
+<g stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <line x1="130" y1="310" x2="300" y2="210"/>
+  <line x1="300" y1="210" x2="470" y2="310"/>
+  <line x1="300" y1="210" x2="300" y2="75"/>
+  <line x1="470" y1="310" x2="640" y2="210"/>
+  <line x1="640" y1="210" x2="775" y2="290"/>
+  <line x1="628" y1="202" x2="628" y2="80"/>
+  <line x1="652" y1="216" x2="652" y2="80"/>
+  <line x1="775" y1="290" x2="950" y2="210"/>
+</g>
+<text x="640" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" fill="#111">O</text>
+<text x="800" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" fill="#111">O</text>
+</svg>

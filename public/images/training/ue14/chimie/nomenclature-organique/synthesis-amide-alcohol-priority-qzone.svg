@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+<rect width="1200" height="500" fill="white"/>
+<g stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <line x1="210" y1="300" x2="400" y2="205"/>
+  <line x1="400" y1="205" x2="590" y2="300"/>
+  <line x1="590" y1="300" x2="755" y2="205"/>
+  <line x1="743" y1="197" x2="743" y2="75"/>
+  <line x1="767" y1="211" x2="767" y2="75"/>
+  <line x1="755" y1="205" x2="925" y2="300"/>
+</g>
+<text x="125" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" fill="#111">HO</text>
+<text x="755" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" fill="#111">O</text>
+<text x="1010" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" fill="#111">NH₂</text>
+</svg>

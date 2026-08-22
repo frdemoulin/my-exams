@@ -90,6 +90,7 @@ export function compileHealthTrainingAuthorQuestion(
                 value: question.answer.value,
                 tolerance: question.answer.tolerance,
                 unit: question.answer.unit,
+                displayUnit: question.answer.displayUnit,
                 acceptedUnits: question.answer.acceptedUnits,
               },
             };

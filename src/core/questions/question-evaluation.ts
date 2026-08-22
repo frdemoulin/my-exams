@@ -247,8 +247,9 @@ export function evaluateShortAnswerQuestion(
   const tolerance = numericAnswer.tolerance ?? 0;
   const isWithinTolerance = Math.abs(parsedAnswer.value - numericAnswer.value) <= tolerance;
   const hasValidUnit =
+    parsedAnswer.unit === null ||
     acceptedUnits.length === 0 ||
-    (parsedAnswer.unit !== null && acceptedUnits.includes(parsedAnswer.unit));
+    acceptedUnits.includes(parsedAnswer.unit);
   const isCorrect = isWithinTolerance && hasValidUnit;
 
   return {

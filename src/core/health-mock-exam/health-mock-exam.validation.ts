@@ -217,13 +217,13 @@ export function validateHealthMockExamForPublication(
       const questionType = normalizePersistedQuestionType(question.questionType);
       if (questionType === "mcq") {
         const choices = normalizeTrainingChoiceContents(question.choices);
-        if (choices.length !== 4) {
-          issues.push(`La question ${question.globalOrder} doit comporter exactement quatre items.`);
+        if (choices.length < 4 || choices.length > 5) {
+          issues.push(`La question ${question.globalOrder} doit comporter entre quatre et cinq items.`);
         }
 
         const choiceExplanations = normalizeChoiceExplanations(question.choiceExplanations);
-        if (choiceExplanations.length !== 4 || choiceExplanations.some((entry) => !entry)) {
-          issues.push(`La question ${question.globalOrder} doit comporter une explication pour chacun des quatre items.`);
+        if (choiceExplanations.length !== choices.length || choiceExplanations.some((entry) => !entry)) {
+          issues.push(`La question ${question.globalOrder} doit comporter une explication pour chacun de ses items.`);
         }
 
         const answerFormat = resolveQuizAnswerFormat(question.answerFormat);
@@ -257,6 +257,19 @@ export function validateHealthMockExamForPublication(
           (canonicalQuestion.acceptedAnswers ?? []).length === 0
         ) {
           issues.push(`La question ${question.globalOrder} n'a pas de réponse textuelle attendue valide.`);
+        }
+      } else if (questionType === "hotspot") {
+        const canonicalQuestion = normalizePersistedQuestion({
+          ...question,
+          choices: [],
+        });
+
+        if (canonicalQuestion.type !== "hotspot") {
+          issues.push(`La question ${question.globalOrder} n'a pas de type QZONE exploitable.`);
+        } else if (!canonicalQuestion.image?.src) {
+          issues.push(`La question ${question.globalOrder} n'a pas d'image support QZONE valide.`);
+        } else if ((canonicalQuestion.expectedZones ?? []).length === 0) {
+          issues.push(`La question ${question.globalOrder} n'a pas de zone attendue configurée.`);
         }
       } else {
         issues.push(

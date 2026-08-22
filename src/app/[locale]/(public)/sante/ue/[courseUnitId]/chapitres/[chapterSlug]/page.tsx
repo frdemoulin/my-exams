@@ -186,7 +186,7 @@ export default async function HealthChapterDetailPage({
               Parcours du chapitre
             </h2>
             <p className="text-sm text-muted-foreground">
-              Les quiz sont regroupés par section pour te permettre d&apos;aller vite vers la bonne partie du cours.
+              Des quiz regroupés par section pour réviser de façon ciblée et progressive.
             </p>
           </div>
 

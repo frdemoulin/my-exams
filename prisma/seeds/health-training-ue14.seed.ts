@@ -16,6 +16,7 @@ import { seedHealthTrainingUe14BiologieCellulaireMitochondrie } from './health-t
 import { seedHealthTrainingUe14BiologieCellulaireNoyau } from './health-training-ue14-biologie-cellulaire-noyau.seed';
 import { seedHealthTrainingUe14BiologieCellulaireCycleCellulaire } from './health-training-ue14-biologie-cellulaire-cycle-cellulaire.seed';
 import { seedHealthTrainingUe14AcidesDivers } from './health-training-ue14-acides-divers.seed';
+import { seedHealthTrainingUe14NomenclatureOrganique } from './health-training-ue14-nomenclature-organique.seed';
 import { seedHealthTrainingUe14AcidesAminesStructureRolesBiologiques } from './health-training-ue14-acides-amines-structure-roles-biologiques.seed';
 import { seedHealthTrainingUe14AldehydesCetones } from './health-training-ue14-aldehydes-cetones.seed';
 import { seedHealthTrainingUe14ElementsChimiquesClassificationPeriodique } from './health-training-ue14-elements-chimiques-classification-periodique.seed';
@@ -57,6 +58,7 @@ export async function seedHealthTrainingUe14ChimieOrganique(prisma: PrismaClient
   await seedHealthTrainingUe14EstersAmides(prisma);
   await seedHealthTrainingUe14AldehydesCetones(prisma);
   await seedHealthTrainingUe14AcidesDivers(prisma);
+  await seedHealthTrainingUe14NomenclatureOrganique(prisma);
 }
 
 export async function seedHealthTrainingUe14Biochimie(prisma: PrismaClient) {

@@ -8,22 +8,22 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     question: "Quel est le principal organite responsable de la synthèse d'ATP lors de la respiration cellulaire ?",
     choices: [
       {
-        content: "Appareil de Golgi",
+        content: "Appareil de Golgi.",
         correct: false,
         explanation: "L'appareil de Golgi est impliqué dans la maturation et le tri des protéines.",
       },
       {
-        content: "Mitochondrie",
+        content: "Mitochondrie.",
         correct: true,
         explanation: "La mitochondrie est la centrale énergétique cellulaire produisant l'ATP par phosphorylation oxydative.",
       },
       {
-        content: "Lysosome",
+        content: "Lysosome.",
         correct: false,
         explanation: "Le lysosome est le compartiment de dégradation hydrolytique.",
       },
       {
-        content: "Réticulum endoplasmique lisse",
+        content: "Réticulum endoplasmique lisse.",
         correct: false,
         explanation: "Le REL intervient principalement dans la synthèse des lipides et le stockage du calcium.",
       },
@@ -73,22 +73,22 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     question: "Sélectionnez les deux acides aminés dicarboxyliques.",
     choices: [
       {
-        content: "Acide aspartique (Aspartate)",
+        content: "Acide aspartique (Aspartate).",
         correct: true,
         explanation: "L'aspartate possède un groupement β-carboxyle (pKa ~ 3,9).",
       },
       {
-        content: "Lysine",
+        content: "Lysine.",
         correct: false,
         explanation: "La lysine possède une chaîne latérale aliphatique basique.",
       },
       {
-        content: "Acide glutamique (Glutamate)",
+        content: "Acide glutamique (Glutamate).",
         correct: true,
         explanation: "Le glutamate possède un groupement γ-carboxyle (pKa ~ 4,3).",
       },
       {
-        content: "Alanine",
+        content: "Alanine.",
         correct: false,
         explanation: "L'alanine possède un groupement méthyle neutre.",
       },
@@ -106,52 +106,52 @@ export const healthTrainingDemoAuthorQuestions: HealthTrainingAuthorQuestion[] =
     question: "Parmi la liste suivante d'acides aminés, sélectionnez les trois acides aminés à chaîne latérale strictement aromatique.",
     choices: [
       {
-        content: "Phénylalanine",
+        content: "Phénylalanine.",
         correct: true,
         explanation: "La phénylalanine possède un noyau benzénique aromatique.",
       },
       {
-        content: "Tyrosine",
+        content: "Tyrosine.",
         correct: true,
         explanation: "La tyrosine possède un noyau phénol aromatique.",
       },
       {
-        content: "Tryptophane",
+        content: "Tryptophane.",
         correct: true,
         explanation: "Le tryptophane possède un noyau indole aromatique.",
       },
       {
-        content: "Alanine",
+        content: "Alanine.",
         correct: false,
         explanation: "L'alanine possède un groupement méthyle aliphatique.",
       },
       {
-        content: "Leucine",
+        content: "Leucine.",
         correct: false,
         explanation: "La leucine est un acide aminé ramifié aliphatique.",
       },
       {
-        content: "Lysine",
+        content: "Lysine.",
         correct: false,
         explanation: "La lysine est un acide aminé basique aliphatique.",
       },
       {
-        content: "Sérine",
+        content: "Sérine.",
         correct: false,
         explanation: "La sérine possède une fonction alcool aliphatique.",
       },
       {
-        content: "Proline",
+        content: "Proline.",
         correct: false,
         explanation: "La proline est un iminoacide cyclique aliphatique.",
       },
       {
-        content: "Valine",
+        content: "Valine.",
         correct: false,
         explanation: "La valine est un acide aminé ramifié aliphatique.",
       },
       {
-        content: "Glutamate",
+        content: "Glutamate.",
         correct: false,
         explanation: "Le glutamate est un acide aminé dicarboxylique acide.",
       },

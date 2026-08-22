@@ -28,6 +28,14 @@ Le moteur My Exams prend en charge :
 
 ---
 
+## 1.1. Progression pédagogique et répétition espacée entre quiz
+
+La répétition d'une même compétence, d'un même type de calcul ou d'une même démarche entre plusieurs quiz d'un chapitre est autorisée et souvent souhaitable. Une procédure (par exemple un calcul de charge partielle à partir d'un moment dipolaire ou la conversion d'une énergie de liaison) peut être rencontrée à plusieurs étapes de la progression (DISCOVER $\rightarrow$ PRACTICE $\rightarrow$ SYNTHÈSE $\rightarrow$ MASTER) afin de favoriser sa consolidation et son ancrage mnésique.
+
+Éviter en revanche les questions quasi identiques au sein d'un même quiz, sauf justification pédagogique explicite. La répétition doit être espacée à travers les quiz de la progression.
+
+---
+
 ## 2. Structure d'une question auteur (`HealthTrainingAuthorQuestion`)
 
 Toute question d'auteur Santé partage le socle de champs suivants :
@@ -322,6 +330,18 @@ export const quizGroupExample = {
 
 ## 4. Orientations éditoriales & Directives de composition
 
+### Autonomie éditoriale & Interdiction des références aux supports externes (Fiches, Cours, Tutorat)
+Toute question rédigée pour My Exams doit être :
+- **Autonome et autosuffisante** : l'étudiant doit pouvoir comprendre et résoudre la question à partir des seules connaissances du programme et des données réellement fournies dans l'énoncé.
+- **Dépourvue de toute mention de support externe** : ne jamais faire référence à « la fiche », « cette fiche », « le cours », « le tutorat », « le poly » ou « la ronéo ». My Exams ne diffusant pas ces supports, l'étudiant ne doit jamais avoir l'impression qu'un support invisible est requis.
+- **Régie par les règles de traitement au cas par cas** :
+  1. *Vérité scientifique générale* : formuler directement la notion sans formule d'attribution (ex : ❌ « Selon la fiche, le glucose... » $\rightarrow$ ✅ « Le glucose... »).
+  2. *Donnée nécessaire au raisonnement/calcul* : fournir explicitement la valeur numérique ou l'hypothèse dans l'énoncé.
+  3. *Modèle simplifié ou convention particulière* : expliciter le modèle dans l'énoncé (ex : « Dans le modèle simplifié de filiation des aldoses... », « Par convention... »).
+  4. *Affirmation locale ou ambiguë* : vérifier la validité scientifique, contextualiser ou corriger l'item.
+  5. *Explications* : justifier scientifiquement pourquoi la proposition est vraie ou fausse (bannir « La fiche le précise », « Conforme à la fiche », « Valeur du support »).
+- **Préservation des locutions temporelles légitimes** : les expressions scientifiques naturelles telles que *« au cours du temps »*, *« au cours d'une réaction »*, *« au cours de la glycolyse »*, *« au cours du développement »* ou *« en cours de réplication »* restent évidemment autorisées.
+
 ### Règle des quatre propositions A à D
 Sauf exception documentée (telle que la QRPL qui utilise une liste longue de 10 à 25 choix), chaque QRU, QRM ou QRP produit pour les quiz Santé de My Exams comporte **exactement quatre propositions de réponse (A, B, C, D)**. Les formats QROC et QZONE ne comportent naturellement pas de choix.
 
@@ -346,16 +366,16 @@ Les titres de quiz ne doivent pas inclure le nom du niveau (`Découverte`, `Entr
 | **Découverte (`DISCOVER`)** | 8 – 10 | Découvrir les notions, mémorisation directe. Priorité aux QRU et QRM simples, QROC directes. |
 | **Entraînement (`PRACTICE`)** | 10 – 12 | Consolider et récupérer activement. Renforcer QRM, QRP, QROC et QZONE. |
 | **Maîtrise (`MASTER`)** | 12 – 15 | Réduire le guidage. QROC, QRP, QZONE discriminantes et QRM transversales. |
-| **Synthèse (`SYNTHESIS`)** | 15 – 20 | Assemblage complet du chapitre. Mélange de tous les formats de la matière. |
 | **Examen blanc** | Blueprint exact | Conforme à la maquette universitaire (ex: 28/34/38 en UE14 Reims). |
 
 > **Note :** Le compilateur ne rejette pas un quiz qui sort légèrement de ces fourchettes ; il s'agit de recommandations éditoriales.
+> **Note d'architecture :** La synthèse d'un chapitre est portée par une **section** (`kind: 'SYNTHESIS'`). Au sein de cette section, les quiz conservent un stage d'entraînement (`PRACTICE` ou `MASTER`). Il n'existe pas de stage technique `SYNTHESIS` distinct dans le modèle des quiz.
 
 ### Pas de quotas artificiels
 Ne pas appliquer de règles mécaniques (ex: "chaque quiz doit avoir 5 QCM et 2 QROC"). Le choix des formats dépend exclusivement de la compétence évaluée et de la nature de la matière (histologie, chimie, biochimie).
 
 ### Absence de chronométrage dans les quiz d'entraînement
-Les quiz d'entraînement Santé (`DISCOVER`, `PRACTICE`, `MASTER`, `SYNTHESIS`) ne comportent **aucun chronométrage, compte à rebours ou durée maximale**, quel que soit leur stage. Le chronométrage apparaît à partir des colles et des examens blancs (consulter `docs/product/terminologie-entrainement-sante.md`).
+Les quiz d'entraînement Santé (`DISCOVER`, `PRACTICE`, `MASTER`) ne comportent **aucun chronométrage, compte à rebours ou durée maximale**, quel que soit leur stage. Le chronométrage apparaît à partir des colles et des examens blancs (consulter `docs/product/terminologie-entrainement-sante.md`).
 
 ### Contextualisation médicale des quiz
 
@@ -387,6 +407,15 @@ Toutes les questions n'ont pas besoin d'un contexte médical. Il convient de pr�
 - questions calculatoires ;
 - questions avec contexte médical concrétisant l'usage en santé ;
 - groupes de questions et figures.
+
+#### 5. Placement du bloc Données pour les questions calculatoires
+Pour les questions calculatoires comportant des constantes, masses molaires ou valeurs numériques nécessaires au calcul, le bloc `Données :` doit être placé **sur une nouvelle ligne immédiatement après l'énoncé, sans ligne blanche intermédiaire**.
+
+```typescript
+// ✅ Correct (sans ligne blanche intermédiaire)
+"question": String.raw`Quelle est la masse molaire de l'éthanol $\ce{C2H6O}$ ? Donnez uniquement la valeur numérique, exprimée en $${U.G_PER_MOL}$.
+Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`
+```
 
 ---
 

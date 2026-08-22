@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+<rect width="1200" height="520" fill="#ffffff"/>
+<text x="600" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#111827">SN1 — schéma simplifié</text>
+<g font-family="Arial,sans-serif" fill="#111827" stroke="#334155" stroke-width="5" stroke-linecap="round">
+  <circle cx="210" cy="260" r="42" fill="#ffffff"/><text x="210" y="271" text-anchor="middle" font-size="30" stroke="none">C*</text>
+  <line x1="250" y1="260" x2="320" y2="260"/><text x="350" y="271" font-size="30" stroke="none">X</text>
+  <line x1="400" y1="260" x2="500" y2="260"/>
+  <circle cx="600" cy="260" r="55" fill="#ffffff"/><text x="600" y="271" text-anchor="middle" font-size="30" stroke="none">C⁺</text>
+  <line x1="700" y1="260" x2="800" y2="260"/>
+  <circle cx="930" cy="190" r="40" fill="#ffffff"/><text x="930" y="201" text-anchor="middle" font-size="27" stroke="none">Nu</text>
+  <circle cx="930" cy="330" r="40" fill="#ffffff"/><text x="930" y="341" text-anchor="middle" font-size="27" stroke="none">Nu</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="22" fill="#475569">
+<text x="210" y="380" text-anchor="middle">substrat halogéné chiral</text>
+<text x="600" y="380" text-anchor="middle">carbocation plan</text>
+<text x="930" y="405" text-anchor="middle">attaque possible des deux faces</text>
+</g>
+</svg>

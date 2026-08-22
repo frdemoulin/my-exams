@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+<rect width="1200" height="500" fill="white"/>
+<g stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <line x1="210" y1="305" x2="365" y2="215"/>
+  <line x1="365" y1="215" x2="525" y2="305"/>
+  <line x1="513" y1="297" x2="513" y2="175"/>
+  <line x1="537" y1="311" x2="537" y2="175"/>
+  <line x1="525" y1="305" x2="690" y2="215"/>
+  <line x1="690" y1="215" x2="790" y2="305"/>
+  <line x1="778" y1="297" x2="778" y2="175"/>
+  <line x1="802" y1="311" x2="802" y2="175"/>
+  <line x1="790" y1="305" x2="945" y2="215"/>
+</g>
+<text x="115" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" fill="#111">NH₂</text>
+<text x="525" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" fill="#111">O</text>
+<text x="790" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" fill="#111">O</text>
+<text x="1025" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" fill="#111">OH</text>
+</svg>

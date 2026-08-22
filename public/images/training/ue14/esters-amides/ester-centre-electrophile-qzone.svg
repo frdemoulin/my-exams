@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+<rect width="1200" height="500" fill="#ffffff"/>
+<text x="600" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#111827">Ester — centre électrophile</text>
+<g stroke="#334155" stroke-width="6" stroke-linecap="round" fill="none">
+  <line x1="265" y1="250" x2="515" y2="250"/>
+  <line x1="565" y1="210" x2="565" y2="115"/>
+  <line x1="600" y1="210" x2="600" y2="115"/>
+  <line x1="635" y1="250" x2="790" y2="250"/>
+  <line x1="865" y1="250" x2="1010" y2="250"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#111827">
+  <text x="145" y="264" font-size="36">CH₃</text>
+  <circle cx="580" cy="250" r="43" fill="#ffffff" stroke="#334155" stroke-width="5"/>
+  <text x="580" y="262" text-anchor="middle" font-size="34">C</text>
+  <text x="582" y="94" text-anchor="middle" font-size="36">O</text>
+  <circle cx="830" cy="250" r="39" fill="#ffffff" stroke="#334155" stroke-width="5"/>
+  <text x="830" y="262" text-anchor="middle" font-size="34">O</text>
+  <text x="1025" y="264" font-size="36">CH₃</text>
+</g>
+<text x="580" y="380" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#475569">carbone du carbonyle</text>
+</svg>
