@@ -1,12 +1,10 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
 /**
- * UE14 – Chimie organique – Chapitre 2.8 – Synthèse du chapitre – Nomenclature organique
+ * UE14 – Chimie organique – Chapitre 2.8 – Synthèse – Synthèse du chapitre
  * Ordres 111–132 (22 questions)
- * Synthèse PRACTICE : ordres 111–120, 10 questions
- * Synthèse MASTER : ordres 121–132, 12 questions
+ * Version éditoriale finale : réponses brassées, nomenclature transversale et contrôle des biais.
  */
-
 export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 111,
@@ -15,9 +13,19 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Quel est le nom systématique de $\\ce{CH3-CH(CH3)-CH(OH)-CH3}$ ?",
     "choices": [
       {
+        "content": "2-méthylbutan-2-ol.",
+        "correct": false,
+        "explanation": "Le méthyle et le groupe hydroxyle ne sont pas portés par le même carbone dans cette structure."
+      },
+      {
         "content": "3-méthylbutan-2-ol.",
         "correct": true,
         "explanation": "La chaîne principale comporte quatre carbones et doit donner au groupe hydroxyle le locant 2 ; le méthyle est alors en C3."
+      },
+      {
+        "content": "Pentan-2-ol.",
+        "correct": false,
+        "explanation": "Les cinq carbones totaux ne forment pas une chaîne continue de cinq carbones."
       },
       {
         "content": "2-méthylbutan-3-ol.",
@@ -25,19 +33,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "La fonction alcool principale doit recevoir le plus petit locant : 2 plutôt que 3."
       },
       {
-        "content": "2-méthylbutan-2-ol.",
-        "correct": false,
-        "explanation": "Le méthyle et le groupe hydroxyle ne sont pas portés par le même carbone dans cette structure."
-      },
-      {
         "content": "3-méthylbutan-3-ol.",
         "correct": false,
         "explanation": "La numérotation correcte place le groupe hydroxyle en C2."
-      },
-      {
-        "content": "Pentan-2-ol.",
-        "correct": false,
-        "explanation": "Les cinq carbones totaux ne forment pas une chaîne continue de cinq carbones."
       }
     ],
     "explanation": "Méthode complète : fonction alcool → chaîne principale de quatre carbones → numérotation donnant -OH en C2 → substituant méthyle en C3 → 3-méthylbutan-2-ol."
@@ -49,19 +47,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Pour vérifier un nom de molécule organique avant de le valider, quelles étapes sont pertinentes ?",
     "choices": [
       {
-        "content": "Vérifier que la fonction principale a été correctement identifiée.",
-        "correct": true,
-        "explanation": "Une erreur de priorité fonctionnelle fausse le suffixe, le parent et souvent la numérotation."
-      },
-      {
-        "content": "Vérifier que la chaîne principale respecte la fonction principale.",
-        "correct": true,
-        "explanation": "Le parent doit être choisi selon les règles correspondant à la fonction principale."
-      },
-      {
         "content": "Vérifier les locants de la fonction principale, des insaturations et des substituants.",
         "correct": true,
         "explanation": "Les positions doivent être cohérentes avec le sens de numérotation retenu."
+      },
+      {
+        "content": "Vérifier que la fonction principale a été correctement identifiée.",
+        "correct": true,
+        "explanation": "Une erreur de priorité fonctionnelle fausse le suffixe, le parent et souvent la numérotation."
       },
       {
         "content": "Relire la correspondance entre préfixes, radical carboné et suffixe.",
@@ -72,6 +65,11 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "content": "Conserver obligatoirement le sens gauche-droite du dessin initial.",
         "correct": false,
         "explanation": "L'orientation du dessin n'impose jamais la numérotation."
+      },
+      {
+        "content": "Vérifier que la chaîne principale respecte la fonction principale.",
+        "correct": true,
+        "explanation": "Le parent doit être choisi selon les règles correspondant à la fonction principale."
       }
     ],
     "explanation": "La nomenclature est une procédure contrôlable : fonctions → priorité → parent → numérotation → préfixes/substituants → suffixe → relecture."
@@ -105,9 +103,19 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "À propos de $\\ce{HO-CH2-CH2-C#N}$, sélectionnez exactement les deux propositions incorrectes.",
     "choices": [
       {
+        "content": "Le groupe hydroxyle est exprimé par le préfixe hydroxy-.",
+        "correct": false,
+        "explanation": "Correct : l'alcool est ici une fonction secondaire."
+      },
+      {
         "content": "Le nitrile est prioritaire sur l'alcool.",
         "correct": false,
         "explanation": "Correct : le nitrile fournit le suffixe principal."
+      },
+      {
+        "content": "Le parent ne compte que deux carbones car le carbone du nitrile est exclu.",
+        "correct": true,
+        "explanation": "Incorrect : le carbone du nitrile est inclus, ce qui donne un parent à trois carbones."
       },
       {
         "content": "Le carbone du groupe $\\ce{C#N}$ constitue C1.",
@@ -115,19 +123,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Correct : ce carbone appartient au parent."
       },
       {
-        "content": "Le groupe hydroxyle est exprimé par le préfixe hydroxy-.",
-        "correct": false,
-        "explanation": "Correct : l'alcool est ici une fonction secondaire."
-      },
-      {
         "content": "Le nom est 1-cyanoéthanol.",
         "correct": true,
         "explanation": "Incorrect : cette proposition traite à tort l'alcool comme fonction principale."
-      },
-      {
-        "content": "Le parent ne compte que deux carbones car le carbone du nitrile est exclu.",
-        "correct": true,
-        "explanation": "Incorrect : le carbone du nitrile est inclus, ce qui donne un parent à trois carbones."
       }
     ],
     "explanation": "Le nom attendu est 3-hydroxypropanenitrile : nitrile principal, carbone nitrile C1, alcool secondaire en C3."
@@ -140,9 +138,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Parmi les dix associations suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "$\\ce{CH3-CH2-CHO}$ : propanal.",
+        "content": "$\\ce{CH3-CH2-C#N}$ : éthanenitrile.",
+        "correct": false,
+        "explanation": "Cette proposition oublie le carbone du nitrile."
+      },
+      {
+        "content": "$\\ce{CH3-C(=O)-NH-CH3}$ : N-méthyléthanamide.",
         "correct": true,
-        "explanation": "Le carbone aldéhydique compte dans le parent de trois carbones."
+        "explanation": "Le méthyle est directement porté par l'azote de l'amide."
       },
       {
         "content": "$\\ce{CH3-C(=O)-CH2-CH3}$ : butan-2-one.",
@@ -150,14 +153,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le carbonyle de la cétone reçoit le locant 2."
       },
       {
-        "content": "$\\ce{CH3-CH2-C#N}$ : propanenitrile.",
-        "correct": true,
-        "explanation": "Le carbone nitrile compte comme C1."
+        "content": "$\\ce{CH3-C(=O)-O-CH2-CH3}$ : propanoate de méthyle.",
+        "correct": false,
+        "explanation": "Les deux fragments de l'ester sont mal identifiés."
       },
       {
-        "content": "$\\ce{CH3-C(=O)-NH-CH3}$ : N-méthyléthanamide.",
-        "correct": true,
-        "explanation": "Le méthyle est directement porté par l'azote de l'amide."
+        "content": "$\\ce{CH3-C(=O)-NH-CH3}$ : 2-méthyléthanamide.",
+        "correct": false,
+        "explanation": "Le méthyle est porté par l'azote et doit être localisé par N-."
       },
       {
         "content": "$\\ce{CH3-C(=O)-O-CH2-CH3}$ : éthanoate d'éthyle.",
@@ -175,19 +178,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le carbonyle est interne : il s'agit d'une cétone."
       },
       {
-        "content": "$\\ce{CH3-CH2-C#N}$ : éthanenitrile.",
-        "correct": false,
-        "explanation": "Cette proposition oublie le carbone du nitrile."
+        "content": "$\\ce{CH3-CH2-C#N}$ : propanenitrile.",
+        "correct": true,
+        "explanation": "Le carbone nitrile compte comme C1."
       },
       {
-        "content": "$\\ce{CH3-C(=O)-NH-CH3}$ : 2-méthyléthanamide.",
-        "correct": false,
-        "explanation": "Le méthyle est porté par l'azote et doit être localisé par N-."
-      },
-      {
-        "content": "$\\ce{CH3-C(=O)-O-CH2-CH3}$ : propanoate de méthyle.",
-        "correct": false,
-        "explanation": "Les deux fragments de l'ester sont mal identifiés."
+        "content": "$\\ce{CH3-CH2-CHO}$ : propanal.",
+        "correct": true,
+        "explanation": "Le carbone aldéhydique compte dans le parent de trois carbones."
       }
     ],
     "explanation": "Cette révision mélange cinq familles et oblige à mobiliser les règles de comptage, de locant et de lecture des fonctions."
@@ -207,9 +205,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "id": "amide-principal-function",
         "label": "Fonction amide prioritaire",
-        "x": 0.79,
-        "y": 0.5,
-        "tolerance": 0.1
+        "x": 0.755,
+        "y": 0.55,
+        "tolerance": 0.12
       }
     ],
     "explanation": "L'amide est prioritaire sur l'alcool dans l'ordre retenu. Elle fournit le suffixe -amide ; le groupe $\\ce{-OH}$ devient hydroxy-."
@@ -239,19 +237,19 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Que peut-on déduire du nom « acide 3-oxobutanoïque » ?",
     "choices": [
       {
-        "content": "La fonction principale est un acide carboxylique.",
-        "correct": true,
-        "explanation": "La forme « acide …oïque » indique la fonction principale."
-      },
-      {
         "content": "Le parent comporte quatre carbones, carbone carboxylique compris.",
         "correct": true,
         "explanation": "Butanoïque correspond à quatre carbones."
       },
       {
-        "content": "Le carbone du groupe carboxyle est C1.",
+        "content": "La fonction principale est un acide carboxylique.",
         "correct": true,
-        "explanation": "La numérotation part de la fonction acide carboxylique."
+        "explanation": "La forme « acide …oïque » indique la fonction principale."
+      },
+      {
+        "content": "La cétone est la fonction principale parce que oxo- apparaît avant le nom du parent.",
+        "correct": false,
+        "explanation": "Oxo- est précisément un préfixe de fonction secondaire."
       },
       {
         "content": "Un groupe carbonylé secondaire est situé en C3.",
@@ -259,9 +257,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le préfixe 3-oxo- localise ce groupe carbonyle."
       },
       {
-        "content": "La cétone est la fonction principale parce que oxo- apparaît avant le nom du parent.",
-        "correct": false,
-        "explanation": "Oxo- est précisément un préfixe de fonction secondaire."
+        "content": "Le carbone du groupe carboxyle est C1.",
+        "correct": true,
+        "explanation": "La numérotation part de la fonction acide carboxylique."
       }
     ],
     "explanation": "Lire le nom par blocs permet de reconstruire la hiérarchie : acide principal, parent butanoïque, groupe oxo secondaire en C3."
@@ -273,14 +271,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Quel est le nom systématique de $\\ce{CH3-C(=O)-CH2-COOH}$ ?",
     "choices": [
       {
-        "content": "Acide 3-oxobutanoïque.",
-        "correct": true,
-        "explanation": "L'acide carboxylique est prioritaire ; son carbone est C1 et le carbonyle secondaire est en C3."
-      },
-      {
         "content": "Acide 2-oxobutanoïque.",
         "correct": false,
         "explanation": "En comptant depuis le carbone carboxylique C1, le groupe oxo est en C3."
+      },
+      {
+        "content": "Acide 3-hydroxybutanoïque.",
+        "correct": false,
+        "explanation": "La fonction secondaire est un groupe carbonyle, pas un alcool."
       },
       {
         "content": "4-carboxybutan-2-one.",
@@ -288,14 +286,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette proposition traite à tort la cétone comme fonction principale."
       },
       {
+        "content": "Acide 3-oxobutanoïque.",
+        "correct": true,
+        "explanation": "L'acide carboxylique est prioritaire ; son carbone est C1 et le carbonyle secondaire est en C3."
+      },
+      {
         "content": "Butan-2-one-4-oïque.",
         "correct": false,
         "explanation": "On n'assemble pas deux suffixes fonctionnels de cette façon."
-      },
-      {
-        "content": "Acide 3-hydroxybutanoïque.",
-        "correct": false,
-        "explanation": "La fonction secondaire est un groupe carbonyle, pas un alcool."
       }
     ],
     "explanation": "Acide carboxylique > cétone. La fonction acide impose le suffixe et C1 ; la cétone secondaire devient 3-oxo-."
@@ -349,9 +347,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Tous apparaissent avant le parent, mais ils ne traduisent pas le même type d'information."
       },
       {
-        "content": "Associer chaque préfixe à son locant avant d'assembler le nom.",
-        "correct": true,
-        "explanation": "Chaque fonction secondaire ou substituant doit être localisé correctement."
+        "content": "Numéroter chaque fonction indépendamment avec sa propre chaîne principale.",
+        "correct": false,
+        "explanation": "Le nom final repose sur un parent unique et une numérotation cohérente."
       },
       {
         "content": "Respecter l'ordre de présentation prévu pour les préfixes lors de l'assemblage final.",
@@ -364,9 +362,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Les fonctions secondaires sont généralement exprimées par des préfixes."
       },
       {
-        "content": "Numéroter chaque fonction indépendamment avec sa propre chaîne principale.",
-        "correct": false,
-        "explanation": "Le nom final repose sur un parent unique et une numérotation cohérente."
+        "content": "Associer chaque préfixe à son locant avant d'assembler le nom.",
+        "correct": true,
+        "explanation": "Chaque fonction secondaire ou substituant doit être localisé correctement."
       }
     ],
     "explanation": "Au niveau MASTER, le risque n'est plus seulement d'oublier une règle isolée, mais de perdre la cohérence globale du nom. Toutes les informations doivent converger vers un parent et une numérotation uniques."
@@ -378,14 +376,19 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Quel est le nom systématique de $\\ce{CH3-CH(OH)-CH2-C(=O)-O-CH3}$ ?",
     "choices": [
       {
+        "content": "Acide 3-hydroxybutanoïque.",
+        "correct": false,
+        "explanation": "La fonction carboxylique est estérifiée ; la molécule n'est pas l'acide libre."
+      },
+      {
         "content": "3-hydroxybutanoate de méthyle.",
         "correct": true,
         "explanation": "L'ester est prioritaire sur l'alcool. Le carbone carbonylé est C1 de la partie butanoate et le groupe hydroxy est en C3."
       },
       {
-        "content": "2-hydroxybutanoate de méthyle.",
+        "content": "4-méthoxy-4-oxobutan-2-ol.",
         "correct": false,
-        "explanation": "En comptant depuis le carbone carbonylé C1, le groupe hydroxyle est porté par C3."
+        "explanation": "Cette formulation ne respecte pas la priorité de l'ester comme fonction principale."
       },
       {
         "content": "Méthanoate de 3-hydroxybutyle.",
@@ -393,14 +396,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette proposition inverse la partie acyle et le groupe porté par l'oxygène."
       },
       {
-        "content": "4-méthoxy-4-oxobutan-2-ol.",
+        "content": "2-hydroxybutanoate de méthyle.",
         "correct": false,
-        "explanation": "Cette formulation ne respecte pas le choix de l'ester comme fonction principale dans le cadre étudié."
-      },
-      {
-        "content": "Acide 3-hydroxybutanoïque.",
-        "correct": false,
-        "explanation": "La fonction carboxylique est estérifiée ; la molécule n'est pas l'acide libre."
+        "explanation": "En comptant depuis le carbone carbonylé C1, le groupe hydroxyle est porté par C3."
       }
     ],
     "explanation": "Ester > alcool. On nomme la partie acyle en partant du carbone carbonylé C1 : butanoate avec hydroxy en C3, puis « de méthyle »."
@@ -420,8 +418,8 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "id": "carboxylic-carbon-c1",
         "label": "Carbone du groupe carboxyle, C1",
-        "x": 0.82,
-        "y": 0.51,
+        "x": 0.79,
+        "y": 0.58,
         "tolerance": 0.07
       }
     ],
@@ -435,16 +433,6 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Sélectionnez exactement les deux propositions incorrectes à propos de la nomenclature polyfonctionnelle.",
     "choices": [
       {
-        "content": "La fonction principale est déterminée avant le choix définitif du suffixe.",
-        "correct": false,
-        "explanation": "Correct : le suffixe dépend de la fonction principale."
-      },
-      {
-        "content": "Une fonction secondaire peut être traduite par un préfixe tel que hydroxy-, amino-, oxo- ou cyano-.",
-        "correct": false,
-        "explanation": "Correct : ces préfixes permettent d'exprimer des fonctions devenues secondaires."
-      },
-      {
         "content": "Le parent et la numérotation doivent rester cohérents avec la fonction principale.",
         "correct": false,
         "explanation": "Correct : c'est un principe central de la méthode."
@@ -453,6 +441,16 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "content": "Chaque fonction présente doit obligatoirement conserver son suffixe propre dans le nom final.",
         "correct": true,
         "explanation": "Incorrect : une seule fonction principale fournit le suffixe ; les autres deviennent généralement des préfixes."
+      },
+      {
+        "content": "Une fonction secondaire peut être traduite par un préfixe tel que hydroxy-, amino-, oxo- ou cyano-.",
+        "correct": false,
+        "explanation": "Correct : ces préfixes permettent d'exprimer des fonctions devenues secondaires."
+      },
+      {
+        "content": "La fonction principale est déterminée avant le choix définitif du suffixe.",
+        "correct": false,
+        "explanation": "Correct : le suffixe dépend de la fonction principale."
       },
       {
         "content": "La fonction dessinée le plus à gauche devient toujours la fonction principale.",
@@ -475,29 +473,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Acide principal, amino en C2 et hydroxy en C3."
       },
       {
+        "content": "$\\ce{CH3-C(=O)-CH(OH)-CH3}$ : 2-oxobutan-3-ol.",
+        "correct": false,
+        "explanation": "La cétone est prioritaire sur l'alcool et doit fournir le suffixe -one."
+      },
+      {
         "content": "$\\ce{HO-CH2-CH2-CHO}$ : 3-hydroxypropanal.",
         "correct": true,
         "explanation": "Aldéhyde principal, carbone aldéhydique C1, hydroxy en C3."
-      },
-      {
-        "content": "$\\ce{CH3-C(=O)-CH(OH)-CH3}$ : 3-hydroxybutan-2-one.",
-        "correct": true,
-        "explanation": "Cétone principale en C2, hydroxy en C3."
-      },
-      {
-        "content": "$\\ce{NH2-CH2-CH2-COOH}$ : acide 3-aminopropanoïque.",
-        "correct": true,
-        "explanation": "Acide principal et amino en C3."
-      },
-      {
-        "content": "$\\ce{HO-CH2-CH2-C#N}$ : 3-hydroxypropanenitrile.",
-        "correct": true,
-        "explanation": "Nitrile principal, carbone nitrile C1, hydroxy en C3."
-      },
-      {
-        "content": "$\\ce{HOOC-CH(NH2)-CH2-OH}$ : 1-carboxy-2-amino-propan-3-ol.",
-        "correct": false,
-        "explanation": "Cette proposition ne traite pas l'acide carboxylique comme fonction principale."
       },
       {
         "content": "$\\ce{HO-CH2-CH2-CHO}$ : propan-1-al-3-ol.",
@@ -505,9 +488,24 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "On n'emploie pas deux suffixes fonctionnels de cette manière."
       },
       {
-        "content": "$\\ce{CH3-C(=O)-CH(OH)-CH3}$ : 2-oxobutan-3-ol.",
+        "content": "$\\ce{HOOC-CH(NH2)-CH2-OH}$ : 1-carboxy-2-amino-propan-3-ol.",
         "correct": false,
-        "explanation": "La cétone est prioritaire sur l'alcool et doit fournir le suffixe -one."
+        "explanation": "Cette proposition ne traite pas l'acide carboxylique comme fonction principale."
+      },
+      {
+        "content": "$\\ce{CH3-C(=O)-CH(OH)-CH3}$ : 3-hydroxybutan-2-one.",
+        "correct": true,
+        "explanation": "Cétone principale en C2, hydroxy en C3."
+      },
+      {
+        "content": "$\\ce{HO-CH2-CH2-C#N}$ : 1-cyanoéthanol.",
+        "correct": false,
+        "explanation": "Le nitrile est la fonction principale et son carbone doit être inclus dans le parent."
+      },
+      {
+        "content": "$\\ce{NH2-CH2-CH2-COOH}$ : acide 3-aminopropanoïque.",
+        "correct": true,
+        "explanation": "Acide principal et amino en C3."
       },
       {
         "content": "$\\ce{NH2-CH2-CH2-COOH}$ : acide 1-aminopropanoïque.",
@@ -515,12 +513,12 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Le groupe amino est en C3 lorsque le carbone carboxylique est C1."
       },
       {
-        "content": "$\\ce{HO-CH2-CH2-C#N}$ : 1-cyanoéthanol.",
-        "correct": false,
-        "explanation": "Le nitrile est la fonction principale et son carbone doit être inclus dans le parent."
+        "content": "$\\ce{HO-CH2-CH2-C#N}$ : 3-hydroxypropanenitrile.",
+        "correct": true,
+        "explanation": "Nitrile principal, carbone nitrile C1, hydroxy en C3."
       }
     ],
-    "explanation": "Cette question réunit les principaux couples de fonctions du chapitre. La bonne réponse dépend toujours de la priorité puis d'un comptage correct à partir de la fonction principale."
+    "explanation": "Ces exemples réunissent plusieurs couples de fonctions. La bonne réponse dépend de la priorité puis d'un comptage correct à partir de la fonction principale."
   },
   {
     "order": 127,
@@ -560,14 +558,14 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Propanamide correspond à trois carbones."
       },
       {
-        "content": "Un groupe hydroxyle est porté par le carbone 3.",
-        "correct": true,
-        "explanation": "Le préfixe 3-hydroxy- localise la fonction alcool secondaire."
-      },
-      {
         "content": "Un groupe méthyle est directement lié à l'azote.",
         "correct": true,
         "explanation": "Le locant N- indique une substitution sur l'azote."
+      },
+      {
+        "content": "Un groupe hydroxyle est porté par le carbone 3.",
+        "correct": true,
+        "explanation": "Le préfixe 3-hydroxy- localise la fonction alcool secondaire."
       },
       {
         "content": "Le groupe méthyle est porté par le carbone 1 du parent.",
@@ -584,14 +582,9 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "question": "Quel est le nom systématique de $\\ce{CH3-C(=O)-CH2-C#N}$ ?",
     "choices": [
       {
-        "content": "3-oxobutanenitrile.",
-        "correct": true,
-        "explanation": "Le nitrile est prioritaire sur la cétone. Son carbone est C1 ; le groupe carbonyle secondaire est en C3 et devient oxo-."
-      },
-      {
-        "content": "2-oxobutanenitrile.",
+        "content": "3-hydroxybutanenitrile.",
         "correct": false,
-        "explanation": "En numérotant depuis le carbone nitrile C1, le groupe oxo est en C3."
+        "explanation": "La fonction secondaire est un carbonyle, pas un alcool."
       },
       {
         "content": "4-cyanobutan-2-one.",
@@ -599,14 +592,19 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette proposition traite à tort la cétone comme fonction principale."
       },
       {
+        "content": "3-oxobutanenitrile.",
+        "correct": true,
+        "explanation": "Le nitrile est prioritaire sur la cétone. Son carbone est C1 ; le groupe carbonyle secondaire est en C3 et devient oxo-."
+      },
+      {
         "content": "Butan-2-one-4-nitrile.",
         "correct": false,
         "explanation": "On n'assemble pas deux suffixes fonctionnels de cette manière."
       },
       {
-        "content": "3-hydroxybutanenitrile.",
+        "content": "2-oxobutanenitrile.",
         "correct": false,
-        "explanation": "La fonction secondaire est un carbonyle, pas un alcool."
+        "explanation": "En numérotant depuis le carbone nitrile C1, le groupe oxo est en C3."
       }
     ],
     "explanation": "Nitrile > cétone. Le carbone de $\\ce{C#N}$ est C1 ; le carbonyle secondaire se trouve en C3 et est exprimé par oxo- : 3-oxobutanenitrile."
@@ -615,7 +613,7 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
     "order": 130,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Donnez le nom systématique de $\\ce{CH3-CH(SH)-CH(NH2)-CH3}$ selon la hiérarchie de fonctions utilisée dans ce chapitre.",
+    "question": "Donnez le nom systématique de $\\ce{CH3-CH(SH)-CH(NH2)-CH3}$.",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -627,7 +625,7 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "collapseWhitespace": true
       }
     },
-    "explanation": "Le thiol est prioritaire sur l'amine dans le tableau utilisé. La numérotation donne le locant 2 au thiol et place l'amine secondaire en C3 : 3-aminobutan-2-thiol."
+    "explanation": "Le thiol est prioritaire sur l'amine. La numérotation donne le locant 2 au thiol et place l'amine secondaire en C3 : 3-aminobutan-2-thiol."
   },
   {
     "order": 131,
@@ -646,6 +644,11 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "explanation": "Cette comparaison identifie la fonction principale."
       },
       {
+        "content": "Choisir directement le nom qui paraît le plus court sans analyser les fonctions.",
+        "correct": false,
+        "explanation": "La longueur du nom n'est pas un critère de validité."
+      },
+      {
         "content": "Numéroter le parent sur le schéma avant d'assembler les préfixes et le suffixe.",
         "correct": true,
         "explanation": "Les locants deviennent alors vérifiables visuellement."
@@ -654,11 +657,6 @@ export const UE14_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
         "content": "Relire le nom obtenu dans le sens inverse pour vérifier qu'il reconstruit bien la structure.",
         "correct": true,
         "explanation": "C'est un excellent contrôle final : préfixes, locants, parent et suffixe doivent restituer la molécule."
-      },
-      {
-        "content": "Choisir directement le nom qui paraît le plus court sans analyser les fonctions.",
-        "correct": false,
-        "explanation": "La longueur du nom n'est pas un critère de validité."
       }
     ],
     "explanation": "La méthode devient réellement robuste lorsqu'elle est appliquée dans les deux sens : structure → nom, puis nom → structure pour contrôler le résultat."

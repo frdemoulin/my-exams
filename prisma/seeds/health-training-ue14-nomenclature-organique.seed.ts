@@ -19,37 +19,37 @@ const sections: SeedSection[] = [
   {
     order: 1,
     title: `La méthode : chaîne principale et numérotation`,
-    description: `Identification de la fonction principale, sélection de la chaîne carbonée prioritaire, sens de numérotation et assemblage du nom systématique.`,
+    description: `Identification de la fonction principale, sélection de la chaîne carbonée, sens de numérotation, substituants et insaturations.`,
     kind: 'THEME',
   },
   {
     order: 2,
     title: `Alcools, thiols et amines`,
-    description: `Nomenclature des fonctions hydroxyle, thiol et amine, gestion des indices de position et dérivation des préfixes/suffixes.`,
+    description: `Nomenclature des alcools, thiols et amines : suffixes, locants, ramifications et substitutions sur l'azote.`,
     kind: 'THEME',
   },
   {
     order: 3,
     title: `Aldéhydes, cétones et nitriles`,
-    description: `Nomenclature des fonctions carbo-carbonylées et nitriles : carbone fonctionnel, suffixes -al, -one, -nitrile et substituants secondaires.`,
+    description: `Nomenclature des aldéhydes, cétones et nitriles : carbone fonctionnel, suffixes et numérotation.`,
     kind: 'THEME',
   },
   {
     order: 4,
     title: `Acides, esters et amides`,
-    description: `Nomenclature des acides carboxyliques et de leurs dérivés (esters, amides, anhydrides et halogénures d'acide).`,
+    description: `Nomenclature des acides carboxyliques, des esters et des amides, y compris les formes ramifiées et N-substituées.`,
     kind: 'THEME',
   },
   {
     order: 5,
     title: `Molécules polyfonctionnelles et priorités`,
-    description: `Hiérarchie des groupes fonctionnels, détermination de la fonction principale et nomenclature des molécules polyfonctionnelles.`,
+    description: `Hiérarchie des groupes fonctionnels, détermination de la fonction principale et expression des fonctions secondaires.`,
     kind: 'THEME',
   },
   {
     order: 6,
     title: `Synthèse du chapitre`,
-    description: `Consolidation transversale des règles IUPAC et entraînement global sur l'ensemble des familles chimiques de l'UE14.`,
+    description: `Consolidation transversale de la méthode de nomenclature et entraînement global sur les familles étudiées.`,
     kind: 'SYNTHESIS',
   },
 ];
