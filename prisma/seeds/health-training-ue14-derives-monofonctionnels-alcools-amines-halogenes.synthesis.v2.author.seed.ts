@@ -19,25 +19,25 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'hydratation d'un alcène conduit à un alcool.",
         "correct": true,
-        "explanation": "C'est une voie explicitement donnée."
+        "explanation": "L’hydratation ajoute les éléments de l’eau sur un alcène et conduit à une fonction alcool."
       },
       {
         "content": "La réduction d'un aldéhyde par $\\ce{NaBH4}$ conduit à un alcool primaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "$\\ce{NaBH4}$ réduit un aldéhyde en alcool primaire."
       },
       {
         "content": "La réduction d'une cétone par $\\ce{NaBH4}$ conduit à un alcool secondaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "$\\ce{NaBH4}$ réduit une cétone en alcool secondaire."
       },
       {
         "content": "Un organomagnésien et une cétone peuvent conduire à un alcool tertiaire après hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’addition d’un organomagnésien sur une cétone puis hydrolyse conduit à un alcool tertiaire."
       }
     ],
-    "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
+    "explanation": "Les voies étudiées de préparation des alcools comprennent l’hydratation, la réduction et l’addition d’organomagnésiens sur des composés carbonylés."
   },
   {
     "order": 102,
@@ -48,7 +48,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réaction avec le Grignard crée une nouvelle liaison C-C.",
         "correct": true,
-        "explanation": "Le groupe méthyle est ajouté au carbone carbonylé."
+        "explanation": "Le groupe méthyle de $\\ce{CH3MgBr}$ se fixe sur le carbone carbonylé de la propanone et crée une nouvelle liaison C-C."
       },
       {
         "content": "Les deux transformations donnent nécessairement le même alcool.",
@@ -56,22 +56,22 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les produits diffèrent par leur squelette et leur classe."
       },
       {
-        "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
+        "content": "Avec $\\ce{NaBH4}$, une nouvelle liaison C-C est créée.",
         "correct": false,
-        "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
+        "explanation": "$\\ce{NaBH4}$ réduit le groupe carbonyle sans ajouter de fragment carboné ; la nouvelle liaison C-C est créée dans la réaction avec $\\ce{CH3MgBr}$."
       },
       {
         "content": "Avec $\\ce{NaBH4}$, on obtient un alcool secondaire.",
         "correct": true,
-        "explanation": "Une cétone réduite donne un alcool secondaire."
+        "explanation": "La propanone est une cétone ; sa réduction par $\\ce{NaBH4}$ conduit donc à un alcool secondaire."
       },
       {
         "content": "Avec $\\ce{CH3MgBr}$, on obtient un alcool tertiaire.",
         "correct": true,
-        "explanation": "Une cétone + Grignard donne un alcool tertiaire."
+        "explanation": "L’addition de $\\ce{CH3MgBr}$ sur la propanone suivie d’une hydrolyse conduit à un alcool tertiaire."
       }
     ],
-    "explanation": "Le groupe méthyle est ajouté au carbone carbonylé."
+    "explanation": "Le $\\ce{NaBH4}$ réduit la propanone en alcool secondaire, tandis que $\\ce{CH3MgBr}$ ajoute un groupe méthyle et conduit après hydrolyse à un alcool tertiaire."
   },
   {
     "order": 103,
@@ -82,7 +82,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'oxydation douce conduit à un aldéhyde.",
         "correct": true,
-        "explanation": "Un aldéhyde peut être oxydé en acide carboxylique dans le modèle étudié."
+        "explanation": "Une oxydation douce d’un alcool primaire conduit d’abord à l’aldéhyde correspondant."
       },
       {
         "content": "L'oxydation forte conduit finalement à un acide carboxylique.",
@@ -92,7 +92,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La cétone est l'intermédiaire obligatoire.",
         "correct": false,
-        "explanation": "Ce n'est pas le trajet d'un alcool primaire."
+        "explanation": "Dans l’oxydation progressive d’un alcool primaire, l’intermédiaire est un aldéhyde ; une cétone n’est pas obligatoire."
       },
       {
         "content": "La classe initiale de l'alcool conditionne les produits.",
@@ -100,9 +100,9 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La classe initiale de l’alcool détermine les produits accessibles par oxydation."
       },
       {
-        "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
+        "content": "L’oxydation douce conduit directement à un acide carboxylique.",
         "correct": false,
-        "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
+        "explanation": "L’oxydation douce d’un alcool primaire s’arrête au stade aldéhyde ; l’acide carboxylique correspond à une oxydation plus poussée."
       }
     ],
     "explanation": "Un alcool primaire s’oxyde d’abord en aldéhyde puis, si l’oxydation est poursuivie, en acide carboxylique."
@@ -116,7 +116,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit est un hémiacétal.",
         "correct": true,
-        "explanation": "Ce bilan reprend directement la transformation attendue dans cette réaction."
+        "explanation": "La réaction intramoléculaire entre une fonction alcool et une fonction aldéhyde d’un sucre peut former un hémiacétal cyclique."
       },
       {
         "content": "Un alcool et un aldéhyde peuvent former un hémiacétal.",
@@ -131,7 +131,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La forme hémiacétalique n'est pas fréquente dans les sucres cyclisés.",
         "correct": false,
-        "explanation": "La relation correcte est: « La forme hémiacétalique est indiquée comme fréquente dans les sucres cyclisés ». La négation proposée est donc fausse."
+        "explanation": "La forme hémiacétalique est au contraire décrite comme fréquente lors de la cyclisation des sucres."
       },
       {
         "content": "La formation d'un hémiacétal correspond à une hydrogénation catalytique.",
@@ -139,7 +139,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La formation d'un hémiacétal n'implique aucune addition de dihydrogène."
       }
     ],
-    "explanation": "Ce bilan reprend directement la transformation attendue dans cette réaction."
+    "explanation": "Une fonction alcool peut réagir avec une fonction aldéhyde pour former un hémiacétal ; cette cyclisation est fréquente pour les sucres."
   },
   {
     "order": 105,
@@ -150,7 +150,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les fonctions amides sont présentes dans les peptides et les protéines.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Les peptides et les protéines contiennent des fonctions amides, correspondant notamment aux liaisons peptidiques."
       },
       {
         "content": "Un chlorure d'acide peut être l'acide activé.",
@@ -163,9 +163,9 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'iminium provient d'une amine secondaire avec un carbonyle."
       },
       {
-        "content": "Un alcool peut réagir avec un acide activé pour former un ester.",
+        "content": "Une amine secondaire peut aussi être amidifiée par un acide activé.",
         "correct": true,
-        "explanation": "Le chlorure d’acyle ou l’anhydride d’acide fournit un carbone acylé suffisamment réactif pour former l’ester."
+        "explanation": "L’amidification concerne aussi une amine secondaire : une amine primaire ou secondaire peut réagir avec un acide activé pour former une amide."
       },
       {
         "content": "Une fonction amide peut être obtenue.",
@@ -173,7 +173,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'amine attaque le dérivé acylé activé et conduit à la formation d'une fonction amide."
       }
     ],
-    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+    "explanation": "Une amine peut réagir avec un acide activé pour former une amide, fonction retrouvée dans les peptides et les protéines."
   },
   {
     "order": 106,
@@ -184,17 +184,17 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une amine secondaire réagissant avec un composé carbonylé conduit à une imine neutre dans le bilan étudié.",
         "correct": false,
-        "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
+        "explanation": "Une amine secondaire conduit à un ion iminium avec une cétone, et non à une imine neutre."
       },
       {
         "content": "L'amine primaire ne conduit pas à une imine.",
         "correct": false,
-        "explanation": "La relation correcte est: « L'amine primaire conduit à une imine ». La négation proposée est donc fausse."
+        "explanation": "Une amine primaire conduit bien à une imine avec une cétone ; la proposition affirme l’inverse."
       },
       {
         "content": "L'amine secondaire conduit à un iminium.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Avec une amine secondaire, la condensation sur une cétone conduit à un ion iminium."
       },
       {
         "content": "De l'eau est formée dans les deux bilans.",
@@ -207,7 +207,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La formation d’une imine ou d’un iminium est réversible : l’hydrolyse peut régénérer les partenaires de départ."
       }
     ],
-    "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
+    "explanation": "Une cétone donne une imine avec une amine primaire et un iminium avec une amine secondaire ; les deux condensations libèrent de l’eau et sont réversibles."
   },
   {
     "order": 107,
@@ -218,30 +218,30 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le produit peut ensuite réagir avec un carbone électrophile.",
         "correct": true,
-        "explanation": "Aldéhydes, cétones et esters sont cités."
+        "explanation": "Le carbone de $\\ce{RMgX}$ est nucléophile et peut donc attaquer un carbone électrophile, notamment celui d’un composé carbonylé."
       },
       {
         "content": "Le produit est une amide.",
         "correct": false,
-        "explanation": "Aucun acide activé ni amine n'intervient."
+        "explanation": "La réaction de $\\ce{R-X}$ avec Mg forme un organomagnésien ; aucune amine ni acide activé n’intervient pour former une amide."
       },
       {
-        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "content": "L’eau remplace le magnésium lors de la formation initiale de $\\ce{RMgX}$.",
         "correct": false,
-        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+        "explanation": "La formation de $\\ce{RMgX}$ exige Mg ; l’eau n’est pas le réactif qui forme l’organomagnésien à partir de $\\ce{R-X}$."
       },
       {
         "content": "On forme un organomagnésien $\\ce{RMgX}$.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "L’insertion du magnésium dans le dérivé halogéné transforme $\\ce{R-X}$ en organomagnésien $\\ce{RMgX}$."
       },
       {
         "content": "Le carbone de RX, décrit comme électrophile, devient nucléophile dans le Grignard.",
         "correct": true,
-        "explanation": "Renversement de polarité du modèle."
+        "explanation": "L’insertion de Mg transforme le carbone de $\\ce{R-X}$, électrophile, en carbone nucléophile dans $\\ce{RMgX}$."
       }
     ],
-    "explanation": "Aldéhydes, cétones et esters sont cités."
+    "explanation": "La réaction de $\\ce{R-X}$ avec Mg forme $\\ce{RMgX}$ ; le carbone du fragment R devient nucléophile et peut ensuite attaquer un carbone électrophile."
   },
   {
     "order": 108,
@@ -257,7 +257,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "SN1 ne peut pas conduire à une racémisation.",
         "correct": false,
-        "explanation": "La relation correcte est: « SN1 peut conduire à une racémisation ». La négation proposée est donc fausse."
+        "explanation": "Une SN1 peut conduire à une racémisation parce que le carbocation plan peut être attaqué par les deux faces."
       },
       {
         "content": "SN2 est concertée et conduit à une inversion.",
@@ -270,9 +270,9 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La SN1 passe par un carbocation plan formé après le départ du groupe partant."
       },
       {
-        "content": "Une SN1 passe par un carbocation plan dans le modèle étudié.",
+        "content": "SN1 peut conduire à une racémisation dans le modèle idéal.",
         "correct": true,
-        "explanation": "Le départ du groupe partant précède l’attaque du nucléophile, ce qui crée un intermédiaire carbocationique plan."
+        "explanation": "Le carbocation plan formé en SN1 peut être attaqué par les deux faces, ce qui permet une racémisation."
       }
     ],
     "explanation": "La SN1 se déroule en deux étapes avec formation intermédiaire d’un carbocation ; elle n’est pas concertée."
@@ -286,12 +286,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Cette séquence interdit toute création de liaison C-C.",
         "correct": false,
-        "explanation": "Le Grignard crée précisément une nouvelle liaison C-C."
+        "explanation": "La dernière étape faisant intervenir $\\ce{RMgX}$ et un carbonyle crée précisément une nouvelle liaison C-C."
       },
       {
-        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "content": "La formation de $\\ce{RMgX}$ se fait directement à partir de l’alcool sans dérivé halogéné.",
         "correct": false,
-        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+        "explanation": "La séquence passe par un dérivé halogéné : l’alcool est d’abord transformé en $\\ce{R-X}$, puis Mg permet d’obtenir $\\ce{RMgX}$."
       },
       {
         "content": "Un agent halogénant peut convertir l'alcool en RX.",
@@ -306,10 +306,10 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "RMgX peut réagir avec une cétone puis, après hydrolyse, donner un alcool tertiaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Le carbone nucléophile de $\\ce{RMgX}$ s’ajoute sur la cétone et l’hydrolyse finale conduit à un alcool tertiaire."
       }
     ],
-    "explanation": "Le Grignard crée précisément une nouvelle liaison C-C."
+    "explanation": "La séquence alcool → dérivé halogéné → organomagnésien → alcool associe halogénation, formation du Grignard puis addition sur un carbonyle suivie d’une hydrolyse."
   },
   {
     "order": 110,
@@ -321,12 +321,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool primaire + oxydation douce → aldéhyde.",
         "correct": true,
-        "explanation": "Cette transformation augmente le degré d’oxydation de la fonction concernée."
+        "explanation": "Une oxydation douce d’un alcool primaire conduit à un aldéhyde."
       },
       {
         "content": "Alcool secondaire + oxydation → cétone.",
         "correct": true,
-        "explanation": "Cette transformation augmente le degré d’oxydation de la fonction concernée."
+        "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
       },
       {
         "content": "Amine primaire + carbonyle → imine.",
@@ -336,7 +336,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "RX + Mg → RMgX.",
         "correct": true,
-        "explanation": "Le réactif organomagnésien apporte un groupe carboné nucléophile qui crée une nouvelle liaison carbone-carbone."
+        "explanation": "Le magnésium transforme le dérivé halogéné $\\ce{R-X}$ en organomagnésien $\\ce{RMgX}$ ; la nouvelle liaison C-C sera créée lors d’une réaction ultérieure avec un carbone électrophile."
       },
       {
         "content": "SN2 → inversion de configuration dans le modèle étudié.",
@@ -346,12 +346,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool tertiaire + oxydation simple → aldéhyde.",
         "correct": false,
-        "explanation": "Pas de réaction dans le modèle."
+        "explanation": "Dans le modèle étudié, un alcool tertiaire est insensible à l’oxydation considérée et ne donne donc pas d’aldéhyde."
       },
       {
         "content": "Amine secondaire + carbonyle → imine.",
         "correct": false,
-        "explanation": "Le produit considéré correspond bien à un ion iminium."
+        "explanation": "Une amine secondaire avec un composé carbonylé forme un iminium ; l’imine est associée à une amine primaire."
       },
       {
         "content": "SN1 est concertée.",
@@ -361,7 +361,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "RMgX est un électrophile carboné.",
         "correct": false,
-        "explanation": "Le centre considéré est riche en électrons et peut donc se comporter comme un nucléophile."
+        "explanation": "Le carbone de $\\ce{RMgX}$ est riche en électrons et se comporte comme un nucléophile, pas comme un électrophile."
       },
       {
         "content": "Alcool + déshydratation → amide.",
@@ -369,7 +369,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La déshydratation d’un alcool forme un alcène et de l’eau, pas une amide."
       }
     ],
-    "explanation": "Cette transformation augmente le degré d’oxydation de la fonction concernée."
+    "explanation": "Les cinq associations correctes résument l’oxydation des alcools, la formation d’une imine, la préparation d’un organomagnésien et la stéréochimie de la SN2."
   },
   {
     "order": 111,
@@ -380,17 +380,17 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool tertiaire.",
         "correct": false,
-        "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+        "explanation": "Une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
       },
       {
         "content": "Réduction par $\\ce{NaBH4}$ → propan-2-ol.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "$\\ce{NaBH4}$ réduit la propanone, une cétone, en propan-2-ol, qui est un alcool secondaire."
       },
       {
         "content": "Oxydation du propan-2-ol → propanone.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "L’oxydation d’un alcool secondaire comme le propan-2-ol conduit à la cétone correspondante."
       },
       {
         "content": "La séquence est réversible au sens synthétique avec des réactifs différents.",
@@ -400,10 +400,10 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'étape d'oxydation donne un aldéhyde.",
         "correct": false,
-        "explanation": "Un alcool secondaire donne une cétone."
+        "explanation": "Le propan-2-ol est secondaire ; son oxydation conduit à une cétone et non à un aldéhyde."
       }
     ],
-    "explanation": "une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire."
+    "explanation": "Le $\\ce{NaBH4}$ réduit la propanone en alcool secondaire ; l’oxydation de cet alcool permet de reformer une cétone."
   },
   {
     "order": 112,
@@ -414,30 +414,30 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Ester → alcool tertiaire après deux réactions de l'organomagnésien.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Avec un ester, deux additions successives de l’organomagnésien sont nécessaires avant l’hydrolyse qui donne l’alcool tertiaire."
       },
       {
         "content": "Dans les trois cas, le Grignard ne crée aucune liaison C-C.",
         "correct": false,
-        "explanation": "Il apporte un substituant carboné."
+        "explanation": "Dans chaque réaction avec un aldéhyde, une cétone ou un ester, le fragment carboné du Grignard forme une nouvelle liaison C-C."
       },
       {
-        "content": "Une oxydation douce d’un alcool primaire peut conduire à un aldéhyde.",
+        "content": "Dans les trois cas, une hydrolyse finale est utilisée pour obtenir l’alcool.",
         "correct": true,
-        "explanation": "L’aldéhyde correspond au premier niveau d’oxydation retenu pour un alcool primaire."
+        "explanation": "Les bilans avec aldéhyde, cétone et ester comportent une hydrolyse finale permettant d’obtenir l’alcool."
       },
       {
         "content": "Aldéhyde → alcool secondaire après hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Un aldéhyde réagit avec un organomagnésien pour donner, après hydrolyse, un alcool secondaire."
       },
       {
         "content": "Cétone → alcool tertiaire après hydrolyse.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Une cétone réagit avec un organomagnésien pour donner, après hydrolyse, un alcool tertiaire."
       }
     ],
-    "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+    "explanation": "Avec un organomagnésien, un aldéhyde donne un alcool secondaire, une cétone un alcool tertiaire et un ester un alcool tertiaire après deux additions."
   },
   {
     "order": 113,
@@ -463,12 +463,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une SN2 idéale seule expliquerait ce mélange 50/50.",
         "correct": false,
-        "explanation": "SN2 donne un seul produit inversé dans le modèle."
+        "explanation": "Une SN2 donne un seul produit inversé dans le modèle idéal ; elle ne produit pas un mélange racémique 50/50."
       },
       {
         "content": "Une SN1 est décrite comme un mécanisme concerté en une seule étape.",
         "correct": false,
-        "explanation": "Le mécanisme SN1 est présenté en deux étapes, contrairement à la SN2 concertée."
+        "explanation": "La SN1 est un mécanisme en deux étapes passant par un carbocation ; elle n’est donc pas concertée."
       }
     ],
     "explanation": "Une voie SN1 est compatible car elle passe par un carbocation plan susceptible d’être attaqué par les deux faces."
@@ -482,17 +482,17 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une racémisation est nécessairement obtenue.",
         "correct": false,
-        "explanation": "Le produit est unique dans le modèle."
+        "explanation": "Une racémisation donnerait deux énantiomères ; elle est incompatible avec l’observation d’un seul produit inversé."
       },
       {
-        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "content": "Un mécanisme passant par un carbocation plan est nécessaire pour obtenir ce produit unique inversé.",
         "correct": false,
-        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+        "explanation": "Un carbocation plan caractérise la SN1 et favorise la racémisation ; un produit unique inversé est au contraire compatible avec une SN2."
       },
       {
         "content": "Une voie SN2 n’est pas compatible.",
         "correct": false,
-        "explanation": "La relation correcte est: « Une voie SN2 est compatible ». La négation proposée est donc fausse."
+        "explanation": "Un produit unique avec inversion est précisément compatible avec une SN2 ; la proposition affirme l’inverse."
       },
       {
         "content": "Le mécanisme peut être concerté.",
@@ -505,7 +505,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le centre reste chiral si les substituants restent différents."
       }
     ],
-    "explanation": "Le produit est unique dans le modèle."
+    "explanation": "Un produit unique avec inversion de configuration est compatible avec une SN2 et non avec une racémisation de type SN1."
   },
   {
     "order": 115,
@@ -516,22 +516,22 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Dans RMgX, il est décrit comme nucléophile.",
         "correct": true,
-        "explanation": "Caractère négatif après insertion de Mg."
+        "explanation": "Après insertion de Mg, le carbone de $\\ce{RMgX}$ porte un caractère négatif et se comporte comme un nucléophile."
       },
       {
         "content": "La transformation constitue un renversement de polarité dans le raisonnement.",
         "correct": true,
-        "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
+        "explanation": "L’insertion de Mg inverse le caractère du carbone : électrophile dans $\\ce{R-X}$, il devient nucléophile dans $\\ce{RMgX}$."
       },
       {
         "content": "Dans les deux espèces, il est nécessairement un carbocation libre.",
         "correct": false,
-        "explanation": "Ce n'est pas la description donnée."
+        "explanation": "Ni le carbone de $\\ce{R-X}$ ni celui de $\\ce{RMgX}$ n’est décrit comme un carbocation libre dans cette comparaison de polarité."
       },
       {
-        "content": "Un organomagnésien réagit avec un ester une seule fois avant l’alcool tertiaire final.",
+        "content": "L’insertion de Mg ne modifie pas le caractère électronique de ce carbone.",
         "correct": false,
-        "explanation": "Le cas de l’ester nécessite deux additions du même organomagnésien dans le modèle étudié."
+        "explanation": "Le carbone est électrophile dans $\\ce{R-X}$ puis devient nucléophile dans $\\ce{RMgX}$ : son caractère électronique est donc inversé."
       },
       {
         "content": "Dans RX, il est décrit comme électrophile.",
@@ -539,7 +539,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La polarisation de la liaison carbone–halogène rend le carbone lié à l’halogène électrophile."
       }
     ],
-    "explanation": "Caractère négatif après insertion de Mg."
+    "explanation": "Le carbone de $\\ce{R-X}$ est électrophile ; après insertion de Mg dans $\\ce{RMgX}$, il devient nucléophile."
   },
   {
     "order": 116,
@@ -555,17 +555,17 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Avec un alcool, il ne peut pas conduire à un ester.",
         "correct": false,
-        "explanation": "La relation correcte est: « Avec un alcool, il peut conduire à un ester ». La négation proposée est donc fausse."
+        "explanation": "Un chlorure d’acyle peut réagir avec un alcool pour former un ester ; la proposition nie cette réactivité."
       },
       {
         "content": "Avec une amine primaire ou secondaire, il peut conduire à une amide.",
         "correct": true,
-        "explanation": "Cette transformation forme une fonction amide à partir d’une amine et d’un dérivé acylé adapté."
+        "explanation": "Une amine primaire ou secondaire peut attaquer un chlorure d’acyle pour former une amide."
       },
       {
-        "content": "Dans les deux cas, le carbone acyle joue le rôle de centre électrophile dans le raisonnement fonctionnel.",
+        "content": "Dans les deux cas, le chlorure d’acyle fournit le groupe acyle du produit.",
         "correct": true,
-        "explanation": "Le nucléophile O ou N réagit sur le carbone activé."
+        "explanation": "Le groupe acyle du chlorure d’acyle est retrouvé dans la fonction ester ou amide formée."
       },
       {
         "content": "Il conduit toujours à un organomagnésien sans Mg.",
@@ -573,7 +573,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La formation de Grignard requiert un dérivé halogéné carboné et Mg."
       }
     ],
-    "explanation": "Le chlorure d’acyle ou l’anhydride d’acide fournit un carbone acylé suffisamment réactif pour former l’ester."
+    "explanation": "Un chlorure d’acyle est un acide activé pouvant réagir avec un alcool pour former un ester ou avec une amine primaire/secondaire pour former une amide."
   },
   {
     "order": 117,
@@ -589,12 +589,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le choix du réactif/conditions détermine donc la voie.",
         "correct": true,
-        "explanation": "La fonction alcool est un carrefour réactionnel."
+        "explanation": "Selon les réactifs, un alcool primaire peut être oxydé ou déshydraté ; les conditions choisies déterminent donc le produit final."
       },
       {
-        "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
+        "content": "Une oxydation douce d’un alcool primaire conduit directement à un acide carboxylique.",
         "correct": false,
-        "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
+        "explanation": "Une oxydation douce d’un alcool primaire conduit d’abord à un aldéhyde ; l’acide carboxylique nécessite une oxydation plus poussée."
       },
       {
         "content": "Oxydation forte → acide carboxylique.",
@@ -604,7 +604,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Déshydratation → alcène + eau.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "La déshydratation d’un alcool élimine une molécule d’eau et forme un alcène."
       }
     ],
     "explanation": "Une oxydation forte d’un alcool primaire conduit à un acide carboxylique, tandis qu’une déshydratation conduit à un alcène et à de l’eau."
@@ -618,12 +618,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Avec Mg, il ne peut pas former un organomagnésien.",
         "correct": false,
-        "explanation": "La relation correcte est: « Avec Mg, il peut former un organomagnésien ». La négation proposée est donc fausse."
+        "explanation": "Un dérivé halogéné peut réagir avec Mg pour former un organomagnésien $\\ce{RMgX}$ ; la proposition nie cette voie."
       },
       {
         "content": "Avec un nucléophile, il peut subir une substitution.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Dans une substitution nucléophile, le nucléophile attaque le carbone électrophile de $\\ce{R-X}$ et remplace X."
       },
       {
         "content": "Avec l'ammoniac, il peut participer à la formation d'une amine primaire.",
@@ -631,23 +631,23 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L’ammoniac attaque le carbone électrophile d’un dérivé halogéné ; une première alkylation conduit à une amine primaire."
       },
       {
-        "content": "Il n'a aucun rôle de carrefour synthétique.",
+        "content": "Il ne peut participer qu’à une seule des transformations considérées.",
         "correct": false,
-        "explanation": "Il relie plusieurs parties étudiées."
+        "explanation": "$\\ce{R-X}$ peut subir plusieurs transformations : substitution nucléophile, alkylation d’une amine ou formation d’un organomagnésien avec Mg."
       },
       {
-        "content": "Un dérivé halogéné se forme nécessairement par réduction d’un aldéhyde avec $\\ce{NaBH4}$.",
+        "content": "Avec Mg, $\\ce{R-X}$ donne directement un alcool sans former d’organomagnésien.",
         "correct": false,
-        "explanation": "Cette réduction conduit à un alcool et n’introduit pas d’halogène."
+        "explanation": "Avec Mg, $\\ce{R-X}$ forme d’abord $\\ce{RMgX}$ ; l’obtention d’un alcool nécessite ensuite une réaction adaptée puis une hydrolyse."
       }
     ],
-    "explanation": "La relation correcte est: « Avec Mg, il peut former un organomagnésien ». La négation proposée est donc fausse."
+    "explanation": "Un dérivé halogéné $\\ce{R-X}$ peut subir une substitution nucléophile, réagir avec l’ammoniac pour former une amine ou réagir avec Mg pour former un organomagnésien."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Pourquoi la réaction d'un organomagnésien avec un ester se distingue-t-elle de celle avec une cétone?",
+    "question": "À propos de la réaction d’un organomagnésien avec un ester, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Aucune hydrolyse n'est nécessaire dans le bilan.",
@@ -667,12 +667,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le substituant apporté par le Grignard apparaît deux fois dans l'alcool final.",
         "correct": true,
-        "explanation": "Ce point constitue l’un des éléments directement utiles pour prévoir la réaction."
+        "explanation": "Deux additions du même organomagnésien sur l’ester expliquent que le substituant qu’il apporte apparaisse deux fois dans l’alcool final."
       },
       {
         "content": "Le produit final est un alcool tertiaire.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Après les deux additions puis l’hydrolyse, l’ester conduit à un alcool tertiaire."
       }
     ],
     "explanation": "Avec un ester, deux additions successives de l’organomagnésien sont nécessaires avant l’hydrolyse qui conduit à l’alcool tertiaire."
@@ -686,7 +686,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'amine secondaire peut donner un iminium.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Une amine secondaire réagissant avec un aldéhyde conduit à un ion iminium dans le bilan étudié."
       },
       {
         "content": "Les deux bilans font apparaître de l'eau.",
@@ -701,42 +701,42 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une amine secondaire réagissant avec un composé carbonylé conduit à une imine neutre dans le bilan étudié.",
         "correct": false,
-        "explanation": "Le produit retenu pour une amine secondaire est un ion iminium."
+        "explanation": "Une amine secondaire réagissant avec un aldéhyde forme un iminium, et non une imine neutre."
       },
       {
         "content": "L'amine primaire peut donner une imine.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Une amine primaire réagissant avec un aldéhyde conduit à une imine."
       }
     ],
-    "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+    "explanation": "Une amine primaire forme une imine avec un aldéhyde, tandis qu’une amine secondaire forme un iminium ; les deux condensations libèrent de l’eau et sont réversibles."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux transformations conduisant directement à un dérivé carboxylique acylé contenant encore un carbonyle.",
+    "question": "Sélectionnez exactement les deux transformations formant directement un ester ou une amide contenant encore un groupe carbonyle.",
     "choices": [
       {
-        "content": "L’estérification étudiée transforme l’alcool en ammonium quaternaire.",
+        "content": "Alcool + chlorure d’acyle → ammonium quaternaire.",
         "correct": false,
-        "explanation": "La réaction avec un acide activé conduit à un ester et ne quaternise pas un atome d’azote."
+        "explanation": "Un alcool réagit avec un chlorure d’acyle pour former un ester ; aucun ammonium quaternaire n’est formé."
       },
       {
         "content": "Alcool + chlorure d'acyle → ester.",
         "correct": true,
-        "explanation": "L'ester conserve le carbonyle acyle."
+        "explanation": "Un alcool réagissant avec un chlorure d’acyle forme un ester qui conserve le groupe carbonyle du fragment acyle."
       },
       {
         "content": "Amine + chlorure d'acide → amide.",
         "correct": true,
-        "explanation": "L'amide conserve le carbonyle acyle."
+        "explanation": "Une amine réagissant avec un chlorure d’acide forme une amide qui conserve le groupe carbonyle du fragment acyle."
       },
       {
         "content": "RX + Mg → RMgX.",
         "correct": false,
-        "explanation": "Cette transformation ne crée pas de groupe carbonyle dans le produit considéré."
+        "explanation": "La réaction $\\ce{R-X + Mg -> RMgX}$ forme un organomagnésien et ne produit ni ester ni amide."
       },
       {
         "content": "SN2 sur RX → R-Nu.",
@@ -744,7 +744,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La présence d'un carbonyle dépendrait du nucléophile, elle n'est pas intrinsèque au bilan."
       }
     ],
-    "explanation": "La réaction avec un acide activé conduit à un ester et ne quaternise pas un atome d’azote."
+    "explanation": "L’estérification et l’amidification avec un chlorure d’acyle conduisent respectivement à un ester et à une amide, deux fonctions qui conservent le groupe carbonyle acyle."
   },
   {
     "order": 122,
@@ -756,7 +756,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Aldéhyde + $\\ce{NaBH4}$ → alcool primaire.",
         "correct": true,
-        "explanation": "Les conditions de réduction douce permettent ici de transformer le groupe fonctionnel sans poursuivre vers un produit plus réduit."
+        "explanation": "$\\ce{NaBH4}$ réduit un aldéhyde en alcool primaire."
       },
       {
         "content": "Cétone + organomagnésien → alcool tertiaire après hydrolyse.",
@@ -766,7 +766,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool primaire + oxydation douce → aldéhyde.",
         "correct": true,
-        "explanation": "Cette transformation augmente le degré d’oxydation de la fonction concernée."
+        "explanation": "Une oxydation douce d’un alcool primaire conduit à l’aldéhyde correspondant."
       },
       {
         "content": "Amine primaire + carbonyle → imine.",
@@ -781,12 +781,12 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool tertiaire + oxydation → acide carboxylique dans le modèle simplifié.",
         "correct": false,
-        "explanation": "Aucune transformation de ce type n’est attendue dans le cadre simplifié considéré."
+        "explanation": "Un alcool tertiaire est décrit comme insensible à l’oxydation considérée ; il ne conduit pas à un acide carboxylique."
       },
       {
         "content": "Amine secondaire + carbonyle → imine.",
         "correct": false,
-        "explanation": "Le produit considéré correspond bien à un ion iminium."
+        "explanation": "Une amine secondaire avec un composé carbonylé forme un iminium ; la formation d’une imine correspond à une amine primaire."
       },
       {
         "content": "SN2 passe par un carbocation plan.",
@@ -796,7 +796,7 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "RMgX est obtenu par hydrolyse de RX.",
         "correct": false,
-        "explanation": "Il est obtenu avec Mg."
+        "explanation": "$\\ce{RMgX}$ est obtenu par réaction de $\\ce{R-X}$ avec Mg ; l’hydrolyse intervient ensuite dans les réactions donnant des alcools."
       },
       {
         "content": "Ammonium quaternaire = amine tertiaire neutre.",
@@ -804,6 +804,6 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une amine tertiaire est neutre et porte trois substituants carbonés ; un ammonium quaternaire en porte quatre et est chargé positivement."
       }
     ],
-    "explanation": "Cette transformation diminue le degré d’oxydation de la fonction concernée : il s’agit bien d’une réduction."
+    "explanation": "Cette synthèse mobilise les principales transformations du chapitre : préparation et oxydation des alcools, réactions des amines, organomagnésiens et substitutions nucléophiles."
   }
 ];

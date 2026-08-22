@@ -14,12 +14,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un alcool peut réagir avec un chlorure d'acyle.",
         "correct": true,
-        "explanation": "Le chlorure d'acyle est l'un des acides activés cités."
+        "explanation": "Un chlorure d’acyle est un acide activé qui peut acyler un alcool et conduire à un ester."
       },
       {
         "content": "Un alcool peut réagir avec un anhydride d'acide.",
         "correct": true,
-        "explanation": "Cette catégorie de composés constitue l’un des réactifs clés de cette transformation."
+        "explanation": "Un anhydride d’acide est un acide activé capable d’acyl­er un alcool pour former un ester."
       },
       {
         "content": "Le produit organique recherché est un ester.",
@@ -29,7 +29,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une cétone est obligatoirement formée.",
         "correct": false,
-        "explanation": "Le bilan donne un ester."
+        "explanation": "L’estérification d’un alcool par un acide activé forme un ester ; une cétone n’est pas le produit attendu."
       },
       {
         "content": "L’estérification étudiée transforme l’alcool en ammonium quaternaire.",
@@ -37,7 +37,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La réaction avec un acide activé conduit à un ester et ne quaternise pas un atome d’azote."
       }
     ],
-    "explanation": "Le chlorure d'acyle est l'un des acides activés cités."
+    "explanation": "Un alcool peut réagir avec un chlorure d’acyle ou un anhydride d’acide pour former un ester."
   },
   {
     "order": 24,
@@ -48,27 +48,27 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\ce{R-COCl}$.",
         "correct": true,
-        "explanation": "Un chlorure d’acyle possède le motif $\ce{R-COCl}$."
+        "explanation": "Le motif $\\ce{R-COCl}$ correspond à un chlorure d’acyle : le chlore est directement lié au carbone du carbonyle."
       },
       {
         "content": "$\\ce{R-OH}$.",
         "correct": false,
-        "explanation": "Le motif ou le produit considéré correspond bien à une fonction alcool."
+        "explanation": "$\\ce{R-OH}$ correspond à une fonction alcool et ne contient ni carbonyle ni chlore acylé."
       },
       {
         "content": "$\\ce{R-NH2}$.",
         "correct": false,
-        "explanation": "Le composé comporte un groupe amino lié à la chaîne carbonée: il s’agit de la classe d’amine attendue."
+        "explanation": "$\\ce{R-NH2}$ correspond à une amine primaire, pas à un chlorure d’acyle."
       },
       {
         "content": "$\\ce{R-CHO}$.",
         "correct": false,
-        "explanation": "Le motif ou le produit considéré correspond bien à une fonction aldéhyde."
+        "explanation": "$\\ce{R-CHO}$ correspond à un aldéhyde ; un chlorure d’acyle possède le motif $\\ce{R-COCl}$."
       },
       {
         "content": "Alcane.",
         "correct": false,
-        "explanation": "Un alcane ne correspond pas au produit d’une estérification d’un alcool."
+        "explanation": "Un alcane ne possède pas le groupe $\\ce{-COCl}$ caractéristique d’un chlorure d’acyle."
       }
     ],
     "explanation": "Le chlorure d'acyle est l'un des deux acides activés utilisés pour l'estérification et l'amidification."
@@ -82,30 +82,30 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Il est classé parmi les acides activés.",
         "correct": true,
-        "explanation": "Il est utilisé pour les réactions d'acylation."
+        "explanation": "L’anhydride d’acide appartient aux acides activés utilisés pour les réactions d’acylation."
       },
       {
         "content": "Il peut réagir avec un alcool pour former un ester.",
         "correct": true,
-        "explanation": "La présence du groupe fonctionnel conditionne la réactivité et les propriétés de cette famille."
+        "explanation": "L’anhydride d’acide peut transférer un groupe acyle à l’alcool et former un ester."
       },
       {
         "content": "Il est identique à un alcane.",
         "correct": false,
-        "explanation": "Il contient des carbonyles et un oxygène pontant."
+        "explanation": "Un anhydride d’acide contient deux groupes carbonyle reliés par un oxygène ; sa structure n’est donc pas celle d’un alcane."
       },
       {
-        "content": "L’estérification étudiée transforme l’alcool en ammonium quaternaire.",
+        "content": "Il ne peut pas réagir avec un alcool pour former un ester.",
         "correct": false,
-        "explanation": "La réaction avec un acide activé conduit à un ester et ne quaternise pas un atome d’azote."
+        "explanation": "Un anhydride d’acide peut acyler un alcool et conduire à un ester ; la proposition affirme l’inverse."
       },
       {
         "content": "Il comporte un motif $\\ce{R-CO-O-CO-R'}$.",
         "correct": true,
-        "explanation": "C'est la structure générique présentée."
+        "explanation": "Le motif d’un anhydride d’acide comporte deux groupes acyle reliés par un oxygène : $\\ce{R-CO-O-CO-R'}$."
       }
     ],
-    "explanation": "Il est utilisé pour les réactions d'acylation."
+    "explanation": "Un anhydride d’acide est un acide activé ; il peut acyler un alcool pour former un ester."
   },
   {
     "order": 26,
@@ -131,7 +131,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un hémiacétal comme produit.",
         "correct": true,
-        "explanation": "Ce bilan reprend directement la transformation attendue dans cette réaction."
+        "explanation": "L’addition d’une fonction alcool sur une fonction aldéhyde conduit au produit hémiacétalique."
       },
       {
         "content": "Une substitution nucléophile SN2 comme unique description de la réaction.",
@@ -139,7 +139,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Cette réaction correspond à la formation d'un hémiacétal ; elle n'est pas décrite comme une substitution nucléophile SN2."
       }
     ],
-    "explanation": "Le produit hémiacétal conserve des fonctions oxygénées."
+    "explanation": "La formation d’un hémiacétal associe une fonction alcool et une fonction aldéhyde pour former un produit qui conserve des fonctions oxygénées."
   },
   {
     "order": 27,
@@ -150,12 +150,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Cette réaction explique la formation des protéines.",
         "correct": false,
-        "explanation": "Les protéines sont reliées ici à l'amidification."
+        "explanation": "La formation des protéines est reliée à l’amidification ; la formation d’un hémiacétal est illustrée ici par la cyclisation des sucres."
       },
       {
         "content": "La formation d'hémiacétals ne concerne aucun composé biologique.",
         "correct": false,
-        "explanation": "Les sucres sont précisément cités."
+        "explanation": "La cyclisation des sucres constitue précisément un exemple biologique de formation d’hémiacétal."
       },
       {
         "content": "La formation d’un hémiacétal exige la disparition de tout atome d’oxygène.",
@@ -173,7 +173,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La cyclisation de nombreux sucres passe par la formation intramoléculaire d’un hémiacétal."
       }
     ],
-    "explanation": "Les protéines sont reliées ici à l'amidification."
+    "explanation": "La cyclisation des sucres illustre la formation d’un hémiacétal, forme fréquemment rencontrée pour les sucres cyclisés."
   },
   {
     "order": 28,
@@ -184,7 +184,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une oxydation douce ne conduit pas à un aldéhyde.",
         "correct": false,
-        "explanation": "La relation correcte est: « Une oxydation douce conduit à un aldéhyde ». La négation proposée est donc fausse."
+        "explanation": "Une oxydation douce d’un alcool primaire conduit à un aldéhyde ; la proposition affirme l’inverse."
       },
       {
         "content": "Une oxydation forte conduit à un acide carboxylique.",
@@ -194,7 +194,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une oxydation douce donne nécessairement une cétone.",
         "correct": false,
-        "explanation": "La cétone est issue d'un alcool secondaire."
+        "explanation": "Une oxydation douce d’un alcool primaire donne un aldéhyde ; une cétone provient de l’oxydation d’un alcool secondaire."
       },
       {
         "content": "La classe de l'alcool influence donc le produit.",
@@ -204,10 +204,10 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une oxydation douce d’un alcool primaire peut conduire à un aldéhyde.",
         "correct": true,
-        "explanation": "L’aldéhyde correspond au premier niveau d’oxydation retenu pour un alcool primaire."
+        "explanation": "L’aldéhyde correspond au premier produit d’oxydation d’un alcool primaire lorsque l’oxydation est douce."
       }
     ],
-    "explanation": "La relation correcte est: « Une oxydation douce conduit à un aldéhyde ». La négation proposée est donc fausse."
+    "explanation": "Un alcool primaire donne un aldéhyde par oxydation douce et un acide carboxylique lorsque l’oxydation est plus poussée."
   },
   {
     "order": 29,
@@ -228,20 +228,20 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À une cétone.",
         "correct": true,
-        "explanation": "Ce bilan correspond à la transformation attendue et relie correctement le substrat au produit."
+        "explanation": "L’oxydation d’un alcool secondaire transforme le carbone portant $\\ce{-OH}$ en carbone carbonylé : le produit est une cétone."
       },
       {
         "content": "À un aldéhyde.",
         "correct": false,
-        "explanation": "Produit de l'alcool primaire en oxydation douce."
+        "explanation": "Un aldéhyde est obtenu par oxydation douce d’un alcool primaire ; l’alcool secondaire donne une cétone."
       },
       {
         "content": "À un acide carboxylique directement.",
         "correct": false,
-        "explanation": "Ce n'est pas le bilan présenté."
+        "explanation": "Dans le modèle étudié, l’oxydation d’un alcool secondaire s’arrête au stade cétone et ne conduit pas directement à un acide carboxylique."
       }
     ],
-    "explanation": "Un alcool secondaire est oxydé en cétone."
+    "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
   },
   {
     "order": 30,
@@ -252,7 +252,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Il ne donne pas l'aldéhyde correspondant.",
         "correct": true,
-        "explanation": "Aucun tel produit n'est prévu."
+        "explanation": "Dans le modèle étudié, l’alcool tertiaire est insensible à l’oxydation considérée et ne donne donc pas l’aldéhyde correspondant."
       },
       {
         "content": "Il ne donne pas la cétone correspondante dans ce modèle.",
@@ -265,17 +265,17 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Dans le modèle étudié, un alcool tertiaire ne donne pas directement l’acide carboxylique correspondant par cette oxydation."
       },
       {
-        "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
+        "content": "Il se comporte comme un alcool primaire vis-à-vis de l’oxydation.",
         "correct": false,
-        "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
+        "explanation": "Un alcool tertiaire ne suit pas le comportement d’un alcool primaire : dans le modèle étudié, il est insensible à l’oxydation considérée."
       },
       {
         "content": "Il n’est pas décrit comme insensible à l'oxydation dans le cadre étudié.",
         "correct": false,
-        "explanation": "La relation correcte est: « Il est décrit comme insensible à l'oxydation dans le cadre étudié ». La négation proposée est donc fausse."
+        "explanation": "L’alcool tertiaire est précisément décrit comme insensible à l’oxydation considérée dans ce modèle."
       }
     ],
-    "explanation": "Aucun tel produit n'est prévu."
+    "explanation": "Dans le modèle étudié, un alcool tertiaire est insensible à l’oxydation considérée."
   },
   {
     "order": 31,
@@ -291,7 +291,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Élimine une molécule d'eau.",
         "correct": true,
-        "explanation": "Ce bilan correspond à la transformation attendue et relie correctement le substrat au produit."
+        "explanation": "La déshydratation retire les éléments de l’eau de l’alcool et libère une molécule de $\\ce{H2O}$."
       },
       {
         "content": "Forme un alcène.",
@@ -301,7 +301,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Est une réaction d'élimination.",
         "correct": true,
-        "explanation": "Elle retire H et OH."
+        "explanation": "La déshydratation est une élimination : elle retire H et OH sous forme d’eau et crée une double liaison."
       },
       {
         "content": "Forme nécessairement une amide.",
@@ -309,7 +309,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Aucun atome d’azote n’est introduit par cette transformation, donc aucune fonction azotée n’est formée."
       }
     ],
-    "explanation": "Cette description correspond à l’opération inverse: l’hydratation d’un alcène."
+    "explanation": "La déshydratation d’un alcool élimine une molécule d’eau et forme un alcène ; elle est l’inverse conceptuel de l’hydratation d’un alcène."
   },
   {
     "order": 32,
@@ -325,12 +325,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool → alcène + $\\ce{H2O}$.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "La déshydratation d’un alcool conduit à un alcène avec élimination d’une molécule d’eau."
       },
       {
         "content": "Alcool + Mg → organomagnésien.",
         "correct": false,
-        "explanation": "Le substrat de Grignard est un dérivé halogéné."
+        "explanation": "Le magnésium réagit avec un dérivé halogéné pour former un organomagnésien ; il ne transforme pas directement un alcool en $\\ce{R-X}$."
       },
       {
         "content": "Alcool → amine + $\\ce{H2O}$.",
@@ -369,7 +369,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une cétone est l'intermédiaire obligatoire.",
         "correct": false,
-        "explanation": "Pas pour un alcool primaire."
+        "explanation": "Pour un alcool primaire, l’intermédiaire d’une oxydation progressive est un aldéhyde, pas une cétone."
       },
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
@@ -393,12 +393,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Amide.",
         "correct": false,
-        "explanation": "L’oxydation d’un alcool ne crée pas de fonction amide."
+        "explanation": "L’oxydation du propan-2-ol conduit à une cétone et n’introduit aucun atome d’azote ; une amide n’est donc pas formée."
       },
       {
         "content": "Une cétone.",
         "correct": true,
-        "explanation": "Un alcool secondaire donne une cétone."
+        "explanation": "Le propan-2-ol étant un alcool secondaire, son oxydation conduit à une cétone."
       },
       {
         "content": "Un aldéhyde.",
@@ -411,7 +411,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Dans le modèle étudié, le propan-2-ol s’oxyde en propanone et non directement en acide carboxylique."
       }
     ],
-    "explanation": "L’oxydation du propan-2-ol n’introduit aucun atome d’azote ; un ammonium quaternaire ne peut donc pas être formé."
+    "explanation": "Le propan-2-ol est un alcool secondaire ; son oxydation conduit donc à une cétone."
   },
   {
     "order": 35,
@@ -422,30 +422,30 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le deuxième peut donner une cétone.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Le propan-2-ol est un alcool secondaire ; son oxydation conduit à une cétone."
       },
       {
         "content": "Le troisième est décrit comme insensible à l'oxydation.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Le 2-méthylpropan-2-ol est tertiaire ; dans le modèle étudié, il est insensible à l’oxydation considérée."
       },
       {
         "content": "Les trois donnent le même produit d'oxydation.",
         "correct": false,
-        "explanation": "Leur classe modifie la réactivité."
+        "explanation": "Les trois alcools n’appartiennent pas à la même classe ; leurs produits d’oxydation ne sont donc pas identiques."
       },
       {
-        "content": "La réduction d’un aldéhyde conduit à un alcool primaire.",
+        "content": "Le propan-1-ol est un alcool primaire.",
         "correct": true,
-        "explanation": "Le carbone du groupe aldéhyde devient le carbone portant le groupe hydroxyle de l’alcool primaire."
+        "explanation": "Le propan-1-ol porte le groupe $\\ce{-OH}$ sur un carbone terminal : il appartient à la classe des alcools primaires."
       },
       {
         "content": "Le premier peut donner un aldéhyde par oxydation douce.",
         "correct": true,
-        "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+        "explanation": "Le propan-1-ol est primaire ; une oxydation douce peut donc conduire à un aldéhyde."
       }
     ],
-    "explanation": "Le groupe hydroxyle conditionne la réactivité et la classe de l’alcool considéré."
+    "explanation": "Le propan-1-ol, le propan-2-ol et le 2-méthylpropan-2-ol sont respectivement primaire, secondaire et tertiaire, ce qui explique leurs comportements différents à l’oxydation."
   },
   {
     "order": 36,
@@ -456,22 +456,22 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un alcool peut réagir avec un acide activé pour former un ester.",
         "correct": true,
-        "explanation": "Le chlorure d’acyle ou l’anhydride d’acide fournit un carbone acylé suffisamment réactif pour former l’ester."
+        "explanation": "Le chlorure d’acyle et l’anhydride d’acide sont les deux acides activés utilisés pour former un ester à partir d’un alcool."
       },
       {
         "content": "Le groupe alcool fournit l'oxygène simple de l'ester.",
         "correct": true,
-        "explanation": "Le motif RO-CO-R' est formé."
+        "explanation": "Dans l’ester formé, l’oxygène provenant de l’alcool constitue l’oxygène simple du motif $\\ce{R-O-CO-R'}$."
       },
       {
         "content": "Le carbone du chlorure d'acyle appartient au carbonyle de l'ester final.",
         "correct": true,
-        "explanation": "Le fragment acyle est conservé."
+        "explanation": "Le groupe acyle du chlorure d’acyle est conservé dans la fonction ester formée."
       },
       {
         "content": "Le produit organique n’est pas un ester.",
         "correct": false,
-        "explanation": "La relation correcte est: « Le produit organique est un ester ». La négation proposée est donc fausse."
+        "explanation": "La réaction d’un alcool avec un chlorure d’acyle forme bien un ester ; la proposition nie ce produit."
       },
       {
         "content": "Le produit est une amine.",
@@ -479,7 +479,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Aucun atome d’azote n’est introduit par cette transformation ; une fonction azotée ne peut donc pas être formée."
       }
     ],
-    "explanation": "Le chlorure d’acyle ou l’anhydride d’acide fournit un carbone acylé suffisamment réactif pour former l’ester."
+    "explanation": "Un alcool peut réagir avec un chlorure d’acyle ou un anhydride d’acide, deux acides activés, pour former un ester."
   },
   {
     "order": 37,
@@ -495,7 +495,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Les deux conduisent nécessairement au même groupe fonctionnel.",
         "correct": false,
-        "explanation": "Ester et hémiacétal sont différents."
+        "explanation": "L’estérification forme un ester alors que la réaction alcool–aldéhyde forme un hémiacétal ; les fonctions finales sont différentes."
       },
       {
         "content": "L’estérification étudiée transforme l’alcool en ammonium quaternaire.",
@@ -524,7 +524,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une réaction entre une fonction alcool et une fonction aldéhyde au sein ou entre fragments adaptés.",
         "correct": true,
-        "explanation": "C'est le principe fonctionnel rappelé."
+        "explanation": "Une fonction alcool peut attaquer une fonction aldéhyde ; lorsqu’elles appartiennent à la même molécule, cette réaction peut conduire à une cyclisation hémiacétalique."
       },
       {
         "content": "La formation d'un hémiacétal.",
@@ -539,7 +539,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une oxydation forte.",
         "correct": false,
-        "explanation": "La réaction n'est pas présentée comme une oxydation."
+        "explanation": "La formation d’un hémiacétal est une addition d’alcool sur un aldéhyde, pas une oxydation forte."
       },
       {
         "content": "La formation d’un hémiacétal exige la disparition de tout atome d’oxygène.",
@@ -547,18 +547,18 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le produit hémiacétal conserve des fonctions oxygénées."
       }
     ],
-    "explanation": "C'est le principe fonctionnel rappelé."
+    "explanation": "La cyclisation considérée résulte d’une réaction entre une fonction alcool et une fonction aldéhyde et conduit à un hémiacétal."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La déshydratation d'un alcool peut être vue comme l'inverse conceptuel de quelle préparation étudiée auparavant?",
+    "question": "Quelles propositions relient correctement la déshydratation d’un alcool et l’hydratation d’un alcène ?",
     "choices": [
       {
         "content": "L'alkylation d'une amine.",
         "correct": false,
-        "explanation": "Cette proposition est écartée: d'azote ne correspond pas au bilan ou à la propriété attendue."
+        "explanation": "L’alkylation d’une amine par un dérivé halogéné ne constitue pas l’inverse d’une déshydratation d’alcool."
       },
       {
         "content": "L’hydratation d’un alcène consomme la double liaison et conduit à un alcool.",
@@ -573,15 +573,15 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réduction d'une cétone.",
         "correct": false,
-        "explanation": "Ce n'est pas une addition/élimination d'eau."
+        "explanation": "La réduction d’une cétone transforme un carbonyle en alcool ; elle n’est pas l’inverse d’une élimination d’eau."
       },
       {
         "content": "La formation d'un organomagnésien.",
         "correct": false,
-        "explanation": "Un organomagnésien apporte un fragment carboné nucléophile qui forme une nouvelle liaison carbone–carbone avec un centre électrophile."
+        "explanation": "La formation d’un organomagnésien à partir de $\\ce{R-X}$ et Mg est distincte de l’équilibre hydratation/déshydratation d’un alcool."
       }
     ],
-    "explanation": "Cette proposition est écartée: d'azote ne correspond pas au bilan ou à la propriété attendue."
+    "explanation": "La déshydratation transforme un alcool en alcène avec élimination d’eau ; l’hydratation réalise la transformation inverse en ajoutant les éléments de l’eau sur l’alcène."
   },
   {
     "order": 40,
@@ -634,10 +634,10 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool tertiaire + oxydation simple → aldéhyde.",
         "correct": false,
-        "explanation": "Pas de réaction dans le modèle."
+        "explanation": "Un alcool tertiaire ne donne pas d’aldéhyde par l’oxydation considérée ; il est décrit comme insensible à cette transformation."
       }
     ],
-    "explanation": "L’oxydation d’un alcool secondaire conduit à une cétone."
+    "explanation": "L’oxydation dépend de la classe de l’alcool : primaire vers aldéhyde puis acide, secondaire vers cétone, tertiaire sans réaction dans le modèle."
   },
   {
     "order": 42,
@@ -659,22 +659,22 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool + aldéhyde → hémiacétal.",
         "correct": true,
-        "explanation": "Ce bilan correspond directement à la transformation attendue entre les réactifs et le produit."
+        "explanation": "Une fonction alcool réagit avec une fonction aldéhyde pour former un hémiacétal."
       },
       {
         "content": "Alcool primaire + oxydation douce → aldéhyde.",
         "correct": true,
-        "explanation": "Cette transformation augmente le degré d’oxydation de la fonction concernée."
+        "explanation": "L’oxydation douce d’un alcool primaire augmente son degré d’oxydation et conduit à un aldéhyde."
       },
       {
         "content": "Alcool secondaire + oxydation → cétone.",
         "correct": true,
-        "explanation": "Cette transformation augmente le degré d’oxydation de la fonction concernée."
+        "explanation": "L’oxydation d’un alcool secondaire transforme la fonction alcool en fonction cétone."
       },
       {
         "content": "Alcool tertiaire + oxydation → aldéhyde.",
         "correct": false,
-        "explanation": "Aucune transformation de ce type n’est attendue dans le cadre simplifié considéré."
+        "explanation": "Un alcool tertiaire est décrit comme insensible à l’oxydation considérée ; il ne donne donc pas un aldéhyde."
       },
       {
         "content": "Alcool + déshydratation → amine.",
@@ -684,12 +684,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool primaire + oxydation forte → alcène.",
         "correct": false,
-        "explanation": "En hydrolyse acide d’un ester, le fragment acyle est retrouvé sous forme d’acide carboxylique $\\ce{RCOOH}$."
+        "explanation": "Une oxydation forte d’un alcool primaire conduit à un acide carboxylique, pas à un alcène."
       },
       {
         "content": "Hémiacétal → produit d'une hydrogénation.",
         "correct": false,
-        "explanation": "Il vient de l'addition alcool/aldéhyde."
+        "explanation": "Un hémiacétal provient de l’addition d’une fonction alcool sur une fonction aldéhyde, pas d’une hydrogénation."
       },
       {
         "content": "Déshydratation → addition d'eau.",
@@ -697,7 +697,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une déshydratation élimine une molécule d’eau ; elle ne correspond donc pas à une addition d’eau."
       }
     ],
-    "explanation": "Cette transformation conduit à une fonction ester à partir d’un alcool et d’un dérivé acylé adapté."
+    "explanation": "Les transformations correctes associent ici estérification, formation d’un hémiacétal et oxydation des alcools ; la déshydratation conduit au contraire à un alcène."
   },
   {
     "order": 43,
@@ -723,9 +723,9 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La couleur ne permet pas de prévoir la réactivité d’un alcool ; sa classe et les réactifs présents sont les informations pertinentes."
       },
       {
-        "content": "La formation d’un hémiacétal exige la disparition de tout atome d’oxygène.",
+        "content": "La classe primaire, secondaire ou tertiaire de l’alcool est sans importance pour son oxydation.",
         "correct": false,
-        "explanation": "Le produit hémiacétal conserve des fonctions oxygénées."
+        "explanation": "La classe de l’alcool est au contraire déterminante : primaire, secondaire et tertiaire n’ont pas le même comportement à l’oxydation."
       },
       {
         "content": "Sa classe primaire, secondaire ou tertiaire.",
@@ -735,12 +735,12 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le type de réactif: acide activé, oxydant ou conditions de déshydratation.",
         "correct": true,
-        "explanation": "Chaque famille de réactifs oriente une transformation."
+        "explanation": "Un acide activé oriente vers l’estérification, un oxydant vers l’oxydation et des conditions de déshydratation vers la formation d’un alcène."
       },
       {
         "content": "La présence d'une autre fonction carbonylée lors d'une formation d'hémiacétal.",
         "correct": true,
-        "explanation": "Cette catégorie de composés constitue l’un des réactifs clés de cette transformation."
+        "explanation": "La formation d’un hémiacétal nécessite la présence d’une fonction carbonylée de type aldéhyde en plus de la fonction alcool."
       }
     ],
     "explanation": "La classe de l’alcool détermine son comportement à l’oxydation et la nature du produit accessible dans le modèle étudié."
