@@ -9,7 +9,7 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 41,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans le cadre de ce chapitre, un carbone asymétrique classique :",
+    "question": "Un carbone asymétrique classique :",
     "choices": [
       {
         "content": "Un carbone peut être asymétrique tout en portant deux substituants identiques.",
@@ -213,7 +213,7 @@ export const UE14_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 47,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Un carbone d'une double liaison $\\ce{C=C}$ est-il un carbone asymétrique classique au sens de ce chapitre ?",
+    "question": "Un carbone engagé dans une double liaison $\\ce{C=C}$ est-il un carbone asymétrique classique ?",
     "choices": [
       {
         "content": "Oui, toute double liaison crée un C*.",

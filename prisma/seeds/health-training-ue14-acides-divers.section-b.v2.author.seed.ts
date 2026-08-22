@@ -1035,8 +1035,7 @@ export const UE14_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "La carboxylation utilise CO2.",
         "correct": true,
-        "explanation": "$\ce{CO2}$ fournit le carbone supplémentaire qui devient le carbone du groupe carboxyle."
-      },
+        "explanation": "$\\ce{CO2}$ fournit le carbone supplémentaire qui devient le carbone du groupe carboxyle."},
       {
         "content": "La carboxylation ajoute un carbone au squelette de R.",
         "correct": true,

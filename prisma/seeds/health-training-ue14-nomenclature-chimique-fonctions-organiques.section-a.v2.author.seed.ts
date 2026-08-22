@@ -482,8 +482,7 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
       {
         "content": "La formule brute est $\\ce{C6H12O3}$.",
         "correct": false,
-        "explanation": "Cette proposition ne correspond pas au facteur multiplicatif obtenu à partir de la masse molaire."
-      },
+        "explanation": "Le facteur multiplicatif vaut 2 : la formule brute est donc $\\ce{C4H8O2}$, et non $\\ce{C6H12O3}$."},
       {
         "content": String.raw`La masse molaire de $\ce{C2H4O}$ vaut $${texQuantity(44, U.G_PER_MOL)}$.`,
         "correct": true,
@@ -511,8 +510,7 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
       {
         "content": "Un halogène neutre usuel doit former deux liaisons simples.",
         "correct": false,
-        "explanation": "Dans le cadre du chapitre, les halogènes sont monovalents et forment usuellement une liaison."
-      },
+        "explanation": "Les halogènes neutres usuels sont monovalents et forment généralement une seule liaison."},
       {
         "content": "Un hydrogène ordinaire ne porte qu'une liaison.",
         "correct": true,

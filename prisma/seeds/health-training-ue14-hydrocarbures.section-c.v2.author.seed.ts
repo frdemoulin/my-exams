@@ -111,7 +111,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 44,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "L'addition de $\\ce{Br2}$ sur l'éthène $\\ce{CH2=CH2}$ donne, dans le modèle du chapitre :",
+    "question": "L'addition de $\\ce{Br2}$ sur l'éthène $\\ce{CH2=CH2}$ donne :",
     "choices": [
       {
         "content": "$\\ce{CH2Br-CH2Br}$.",
@@ -148,7 +148,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "question": "À propos de l'addition de $\\ce{HX}$ sur un alcène dissymétrique selon la règle de Markovnikov présentée dans le modèle étudié :",
     "choices": [
       {
-        "content": "X se retrouve sur le carbone correspondant au site positif dans la représentation polarisée de le modèle étudié.",
+        "content": "Selon l’orientation de Markovnikov, X se fixe sur le carbone le plus substitué de la double liaison.",
         "correct": true,
         "explanation": "Le modèle étudié formule la règle en termes de charges partielles."
       },
@@ -207,8 +207,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ce serait le produit d'une hydratation."
       }
     ],
-    "explanation": "Dans l'exemple de le modèle étudié, $\\ce{R-CH=CH2 + HX}$ conduit à $\\ce{R-CHX-CH3}$."
-  },
+    "explanation": "Pour un alcène terminal de type $\\ce{R-CH=CH2}$, l’addition de $\\ce{HX}$ selon Markovnikov conduit majoritairement à $\\ce{R-CHX-CH3}$."},
   {
     "order": 47,
     "difficulty": "EASY",
@@ -233,8 +232,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Conduit à un alcool.",
         "correct": true,
-        "explanation": "C'est rappelé dans l'auto-évaluation de le modèle étudié."
-      },
+        "explanation": "L’hydratation d’un alcène forme une fonction alcool par addition de H et OH sur la double liaison."},
       {
         "content": "Consomme la double liaison.",
         "correct": true,
@@ -281,7 +279,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 49,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles additions diminuent le degré d'insaturation d'un alcène dans ce chapitre ?",
+    "question": "Quelles additions diminuent le degré d'insaturation d'un alcène ?",
     "choices": [
       {
         "content": "Déshydratation d’un alcool.",
@@ -325,8 +323,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La réactivité étudiée est liée au caractère insaturé des alcènes.",
         "correct": true,
-        "explanation": "C'est le fil conducteur de la section."
-      },
+        "explanation": "Le caractère insaturé de l’alcène, et en particulier sa liaison $\\pi$, est à l’origine de sa réactivité d’addition."},
       {
         "content": "Le caractère insaturé d’un alcène est sans lien avec sa réactivité d’addition.",
         "correct": false,
@@ -383,7 +380,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 52,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On ajoute une mole de $\\ce{Br2}$ à une mole de propène. Dans le modèle simplifié du chapitre :",
+    "question": "On ajoute une mole de $\\ce{Br2}$ à une mole de propène. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Le produit est un alcyne.",
@@ -485,7 +482,7 @@ export const UE14_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la règle de Markovnikov utilisée dans le chapitre :",
+    "question": "À propos de la règle de Markovnikov :",
     "choices": [
       {
         "content": "Elle permet de choisir entre des régioisomères possibles.",

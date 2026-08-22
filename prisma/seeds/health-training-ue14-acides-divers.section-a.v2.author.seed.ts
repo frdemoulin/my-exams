@@ -306,8 +306,7 @@ export const UE14_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Seule la fonction COOH peut être acide.",
         "correct": false,
-        "explanation": "L’acidité ne se limite pas au groupe $\ce{-COOH}$ : un alcool ou certains hydrogènes en alpha d’un carbonyle peuvent aussi présenter un caractère acide."
-      }
+        "explanation": "L’acidité ne se limite pas au groupe $\\ce{-COOH}$ : un alcool ou certains hydrogènes en alpha d’un carbonyle peuvent aussi présenter un caractère acide."}
     ],
     "explanation": "La hiérarchie retenue est : acide carboxylique > alcool > hydrogène en alpha d’un carbonyle."
   },

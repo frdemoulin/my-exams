@@ -233,8 +233,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Strictement électrophile comme dans RX.",
         "correct": false,
-        "explanation": "Après insertion du magnésium, le carbone du fragment $\ce{R}$ acquiert un caractère nucléophile ; il n’est plus décrit comme électrophile."
-      },
+        "explanation": "Après insertion du magnésium, le carbone du fragment $\\ce{R}$ acquiert un caractère nucléophile ; il n’est plus décrit comme électrophile."},
       {
         "content": "Déjà chargé positivement et électrophile comme un carbocation.",
         "correct": false,
@@ -920,8 +919,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "RX + Mg → organomagnésien.",
         "correct": true,
-        "explanation": "L’insertion du magnésium dans la liaison $\ce{C-X}$ permet de former l’organomagnésien $\ce{RMgX}$."
-      },
+        "explanation": "L’insertion du magnésium dans la liaison $\\ce{C-X}$ permet de former l’organomagnésien $\\ce{RMgX}$."},
       {
         "content": "Organomagnésien + cétone, puis hydrolyse → alcool tertiaire.",
         "correct": true,
@@ -940,8 +938,7 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcène + HX → dérivé halogéné.",
         "correct": true,
-        "explanation": "L’addition de $\ce{HX}$ sur un alcène peut conduire à un dérivé halogéné $\ce{R-X}$."
-      }
+        "explanation": "L’addition de $\\ce{HX}$ sur un alcène peut conduire à un dérivé halogéné $\\ce{R-X}$."}
     ],
     "explanation": "La séquence croise préparation de RX, Grignard et préparation des alcools tertiaires."
   },
@@ -1096,13 +1093,11 @@ export const UE14_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone de RX est décrit comme électrophile.",
         "correct": true,
-        "explanation": "Dans le dérivé halogéné $\ce{R-X}$, la polarisation de la liaison rend le carbone électrophile."
-      },
+        "explanation": "Dans le dérivé halogéné $\\ce{R-X}$, la polarisation de la liaison rend le carbone électrophile."},
       {
         "content": "Le carbone de RMgX est décrit comme nucléophile.",
         "correct": true,
-        "explanation": "Après formation de $\ce{RMgX}$, le carbone du fragment $\ce{R}$ présente un caractère nucléophile."
-      },
+        "explanation": "Après formation de $\\ce{RMgX}$, le carbone du fragment $\\ce{R}$ présente un caractère nucléophile."},
       {
         "content": "SN1 passe par un carbocation plan.",
         "correct": true,

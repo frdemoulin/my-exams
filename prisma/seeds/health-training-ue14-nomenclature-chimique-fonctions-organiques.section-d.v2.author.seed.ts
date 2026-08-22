@@ -1089,8 +1089,7 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "2-éthylbutane.",
         "correct": false,
-        "explanation": "Cette proposition ne correspond pas au nom systématique retenu pour la structure considérée."
-      },
+        "explanation": "Le nom 2-éthylbutane décrit six carbones au total : quatre dans la chaîne indiquée et deux dans le substituant éthyle."},
       {
         "content": "3-méthylhexane.",
         "correct": true,
@@ -1172,6 +1171,5 @@ export const UE14_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les hydrogènes liés aux carbones sont généralement implicites dans une formule topologique et sont déduits de la valence."
       }
     ],
-    "explanation": "Cette synthèse croise les notions essentielles de la section : degré des carbones, lecture topologique, préfixes de longueur de chaîne, groupes alkyles, distinction entre chaîne principale et nombre total de carbones, ainsi que classification d'un alcool."
-  }
+    "explanation": "La résolution mobilise le degré des carbones, la lecture topologique, les préfixes de longueur de chaîne, les groupes alkyles, la distinction entre chaîne principale et nombre total de carbones, ainsi que la classification d'un alcool."}
 ];

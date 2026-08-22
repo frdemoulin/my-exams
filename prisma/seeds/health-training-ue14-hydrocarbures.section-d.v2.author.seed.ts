@@ -9,7 +9,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 61,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Dans le modèle de le modèle étudié, l'oxydation douce d'un alcène :",
+    "question": "Lors d’une oxydation douce d’un alcène :",
     "choices": [
       {
         "content": "L’oxydation douce d’un alcène conduit au 1,2-diol comme produit caractéristique.",
@@ -34,8 +34,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L’oxydation douce conduit au 1,2-diol comme produit caractéristique.",
         "correct": false,
-        "explanation": "Dans le modèle du chapitre, l’oxydation douce conduit à l’époxyde ; le 1,2-diol correspond à l’oxydation modérée."
-      }
+        "explanation": "L’oxydation douce conduit à l’époxyde ; le 1,2-diol correspond à l’oxydation modérée."}
     ],
     "explanation": "L'oxydation douce transforme C=C en époxyde sans couper la liaison entre les deux carbones."
   },
@@ -77,7 +76,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 63,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L'oxydation forte d'un alcène, selon le modèle simplifié de le modèle étudié :",
+    "question": "Lors d’une oxydation forte d’un alcène :",
     "choices": [
       {
         "content": "Forme des composés carbonylés.",
@@ -155,8 +154,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Oxydation modérée.",
         "correct": true,
-        "explanation": "Produit de le modèle étudié."
-      },
+        "explanation": "L’oxydation modérée conduit au 1,2-diol."},
       {
         "content": "Oxydation forte.",
         "correct": false,
@@ -207,8 +205,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Alcool."
       }
     ],
-    "explanation": "La coupure du squelette au niveau de C=C est le marqueur de l'oxydation forte dans ce chapitre."
-  },
+    "explanation": "Une oxydation forte provoque la coupure de la double liaison et conduit à des composés carbonylés."},
   {
     "order": 67,
     "difficulty": "EASY",
@@ -349,7 +346,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 71,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans le modèle simplifié de le modèle étudié, l'oxydation forte du but-2-ène $\\ce{CH3-CH=CH-CH3}$ conduit :",
+    "question": "L’oxydation forte du but-2-ène $\\ce{CH3-CH=CH-CH3}$ conduit :",
     "choices": [
       {
         "content": "À deux fragments carbonylés identiques.",
@@ -383,7 +380,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 72,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans le modèle simplifié de le modèle étudié, l'oxydation forte du 2,3-diméthylbut-2-ène $\\ce{(CH3)2C=C(CH3)2}$ conduit :",
+    "question": "L’oxydation forte du 2,3-diméthylbut-2-ène $\\ce{(CH3)2C=C(CH3)2}$ conduit :",
     "choices": [
       {
         "content": "À deux éthanals.",
@@ -408,11 +405,9 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À des fonctions cétone.",
         "correct": true,
-        "explanation": "Un alcène tétrasubstitué donne des cétones dans le modèle de le modèle étudié."
-      }
+        "explanation": "Un alcène tétrasubstitué conduit à des cétones lors de la coupure oxydante forte."}
     ],
-    "explanation": "Cet exemple applique directement la précision de le modèle étudié : une double liaison tétrasubstituée conduit à des cétones lors de la coupure forte."
-  },
+    "explanation": "Une double liaison tétrasubstituée conduit à des cétones lors de la coupure oxydante forte."},
   {
     "order": 73,
     "difficulty": "MEDIUM",
@@ -451,7 +446,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 74,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Un produit d'oxydation contient deux groupes OH sur des carbones voisins et le squelette n'est pas coupé. Quelle transformation du chapitre est la plus cohérente ?",
+    "question": "Un produit d'oxydation contient deux groupes OH sur des carbones voisins et le squelette n'est pas coupé. Quelle transformation est la plus cohérente ?",
     "choices": [
       {
         "content": "Halogénation par $\\ce{Br2}$.",
@@ -479,8 +474,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Aucun O ne serait ajouté."
       }
     ],
-    "explanation": "Deux OH vicinaux signent le produit modéré dans le cadre de ce cadre."
-  },
+    "explanation": "Deux groupes OH vicinaux caractérisent le produit d’une oxydation modérée sans coupure du squelette carboné."},
   {
     "order": 75,
     "difficulty": "MEDIUM",
@@ -599,7 +593,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 79,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un alcène tétrasubstitué ne porte aucun hydrogène sur les deux carbones de sa double liaison. Dans le modèle de le modèle étudié, une coupure forte conduit :",
+    "question": "Un alcène tétrasubstitué ne porte aucun hydrogène sur les deux carbones de sa double liaison. Une coupure oxydante forte conduit :",
     "choices": [
       {
         "content": "Deux cétones différentes sont possibles si les substituants portés par les deux carbones de la double liaison sont différents.",
@@ -633,7 +627,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quelle stratégie permet de distinguer les trois niveaux d'oxydation de le modèle étudié ?",
+    "question": "Quelle stratégie permet de distinguer les trois niveaux d'oxydation d'un alcène ?",
     "choices": [
       {
         "content": "Forte : rechercher une coupure en carbonyles.",
@@ -653,8 +647,7 @@ export const UE14_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Oxydation douce → alcane.",
         "correct": false,
-        "explanation": "L’oxydation douce conduit à l’époxyde dans le modèle du chapitre."
-      },
+        "explanation": "L’oxydation douce conduit à l’époxyde, et non à l’alcane."},
       {
         "content": "Modérée : rechercher un 1,2-diol.",
         "correct": true,

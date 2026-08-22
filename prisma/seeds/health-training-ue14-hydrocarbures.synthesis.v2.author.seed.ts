@@ -117,13 +117,12 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Deux Br sont incorporés."
       }
     ],
-    "explanation": "Le propène est un support simple pour comparer plusieurs additions."
-  },
+    "explanation": "Le propène permet de comparer l’hydrogénation, l’halogénation, l’hydratation et l’hydrohalogénation d’un alcène."},
   {
     "order": 105,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On souhaite obtenir un alcène à partir d'un précurseur. Quelles voies sont proposées dans le chapitre ?",
+    "question": "On souhaite obtenir un alcène à partir d'un précurseur. Quelles voies permettent cette préparation ?",
     "choices": [
       {
         "content": "Hydrogénation partielle d'un alcyne.",
@@ -191,7 +190,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans le modèle du chapitre, quels produits associer aux trois niveaux d'oxydation d'un alcène ?",
+    "question": "Quels produits associer aux trois niveaux d'oxydation d'un alcène ?",
     "choices": [
       {
         "content": "Forte → alcane.",
@@ -257,8 +256,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Une tautomérie conduit ensuite à la cétone.",
         "correct": true,
-        "explanation": "Lien avec le chapitre isomérie."
-      },
+        "explanation": "La tautomérie énol-cétone transforme ensuite l’énol transitoire en cétone."},
       {
         "content": "Le produit final retenu est une méthylcétone.",
         "correct": true,
@@ -365,7 +363,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 112,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un composé acyclique $\\ce{C6H10}$ est annoncé comme ne comportant qu'une seule liaison multiple. Quelle hypothèse est cohérente avec le chapitre ?",
+    "question": "Un composé acyclique $\\ce{C6H10}$ est annoncé comme ne comportant qu'une seule liaison multiple. Quelle hypothèse est cohérente ?",
     "choices": [
       {
         "content": "Une hydrogénation complète de sa triple liaison demanderait deux équivalents de H2.",
@@ -467,7 +465,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 115,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Dans le modèle de le modèle étudié, l'oxydation forte du but-2-ène fournit deux éthanals. Quelles informations structurales peut-on en déduire ?",
+    "question": "L'oxydation forte du but-2-ène fournit deux éthanals. Quelles informations structurales peut-on en déduire ?",
     "choices": [
       {
         "content": "La coupure a lieu au niveau de C=C.",
@@ -575,13 +573,12 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La déshydratation est une élimination qui forme la double liaison."
       }
     ],
-    "explanation": "Ce parcours met en regard deux grandes classes de transformations du chapitre."
-  },
+    "explanation": "La déshydratation crée la double liaison par élimination, puis l’hydrogénation la consomme par addition de $\\ce{H2}$."},
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "On hydrate un alcyne interne dissymétrique puis on laisse les énols se tautomériser. Dans le modèle de le modèle étudié :",
+    "question": "On hydrate un alcyne interne dissymétrique puis on laisse les énols se tautomériser. Quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "La formule brute est conservée lors de la tautomérie énol-cétone.",
@@ -615,7 +612,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 120,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Quelles propositions résument correctement le chapitre ?",
+    "question": "Quelles propositions sur les alcanes, alcènes et alcynes sont correctes ?",
     "choices": [
       {
         "content": "Alcynes : hydrocarbures à triple liaison, capables d'additions successives.",
@@ -709,8 +706,7 @@ export const UE14_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L'hydratation d'un alcyne vrai donne une méthylcétone après tautomérie.",
         "correct": true,
-        "explanation": "Résultat de le modèle étudié."
-      },
+        "explanation": "L’hydratation d’un alcyne terminal conduit, après tautomérie, à une méthylcétone."},
       {
         "content": "L'oxydation modérée d'un alcène donne un alcane.",
         "correct": false,

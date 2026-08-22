@@ -678,8 +678,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La liaison C-N d'une amide a un caractère partiel de double liaison.",
         "correct": true,
-        "explanation": "La liaison $\ce{C-N}$ de l’amide possède un caractère partiel de double liaison dû à la délocalisation électronique."
-      },
+        "explanation": "La liaison $\\ce{C-N}$ de l’amide possède un caractère partiel de double liaison dû à la délocalisation électronique."},
       {
         "content": "Le doublet de N est délocalisé.",
         "correct": true,
@@ -703,8 +702,7 @@ export const UE14_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La libre rotation C-N est totale et sans coût énergétique.",
         "correct": false,
-        "explanation": "Le caractère partiel de double liaison limite fortement la rotation autour de la liaison $\ce{C-N}$."
-      },
+        "explanation": "Le caractère partiel de double liaison limite fortement la rotation autour de la liaison $\\ce{C-N}$."},
       {
         "content": "Amine et amide ont nécessairement la même disponibilité du doublet d'azote.",
         "correct": false,

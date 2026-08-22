@@ -322,8 +322,7 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est le contraste présenté."
       }
     ],
-    "explanation": "Le chapitre situe les alcanes dans leur contexte industriel tout en restant centré sur leurs propriétés structurales."
-  },
+    "explanation": "Les alcanes ont surtout des usages énergétiques et industriels ; leurs applications thérapeutiques directes sont beaucoup plus limitées."},
   {
     "order": 11,
     "difficulty": "MEDIUM",
@@ -448,8 +447,7 @@ export const UE14_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Oct- = 8."
       }
     ],
-    "explanation": "Les préfixes de chaîne réutilisent la nomenclature travaillée au chapitre précédent."
-  },
+    "explanation": "Les préfixes de chaîne suivent la série usuelle : hept- pour 7 carbones, oct- pour 8, non- pour 9 et déc- pour 10."},
   {
     "order": 16,
     "difficulty": "MEDIUM",

@@ -218,8 +218,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À la disparition de la fonction alcool.",
         "correct": true,
-        "explanation": "Lors de l’oxydation d’un alcool secondaire, le carbone portant $\ce{-OH}$ devient le carbone d’un groupe carbonyle."
-      },
+        "explanation": "Lors de l’oxydation d’un alcool secondaire, le carbone portant $\\ce{-OH}$ devient le carbone d’un groupe carbonyle."},
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
         "correct": false,
@@ -296,8 +295,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Forme un alcène.",
         "correct": true,
-        "explanation": "L’élimination de $\ce{H}$ et de $\ce{OH}$ conduit à la formation d’une double liaison $\ce{C=C}$."
-      },
+        "explanation": "L’élimination de $\\ce{H}$ et de $\\ce{OH}$ conduit à la formation d’une double liaison $\\ce{C=C}$."},
       {
         "content": "Est une réaction d'élimination.",
         "correct": true,
@@ -320,8 +318,7 @@ export const UE14_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool + $\\ce{H2}$ → alcane.",
         "correct": false,
-        "explanation": "L’addition de $\ce{H2}$ correspond à une hydrogénation ; ce n’est pas le bilan de déshydratation d’un alcool."
-      },
+        "explanation": "L’addition de $\\ce{H2}$ correspond à une hydrogénation ; ce n’est pas le bilan de déshydratation d’un alcool."},
       {
         "content": "Alcool → alcène + $\\ce{H2O}$.",
         "correct": true,

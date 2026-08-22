@@ -804,6 +804,5 @@ export const UE14_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une amine tertiaire est neutre et porte trois substituants carbonés ; un ammonium quaternaire en porte quatre et est chargé positivement."
       }
     ],
-    "explanation": "Cette synthèse mobilise les principales transformations du chapitre : préparation et oxydation des alcools, réactions des amines, organomagnésiens et substitutions nucléophiles."
-  }
+    "explanation": "Les propositions mobilisent la préparation et l’oxydation des alcools, les réactions des amines, les organomagnésiens et les substitutions nucléophiles."}
 ];

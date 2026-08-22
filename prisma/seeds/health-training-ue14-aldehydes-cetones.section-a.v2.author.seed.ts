@@ -199,8 +199,7 @@ export const UE14_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "Les deux contiennent un groupe carbonyle C=O.",
         "correct": true,
-        "explanation": "Aldéhydes et cétones possèdent tous deux un groupe carbonyle $\ce{C=O}$."
-      },
+        "explanation": "Aldéhydes et cétones possèdent tous deux un groupe carbonyle $\\ce{C=O}$."},
       {
         "content": "La présence d'un carbonyle suffit à conclure qu'il s'agit forcément d'un aldéhyde.",
         "correct": false,

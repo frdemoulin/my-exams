@@ -238,8 +238,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Il s'agit d'une voie de préparation d'un alcène.",
         "correct": true,
-        "explanation": "Elle figure dans le tableau de le modèle étudié."
-      }
+        "explanation": "La déshydrohalogénation élimine $\\ce{HX}$ et crée une liaison $\\ce{C=C}$ : elle constitue donc une voie de préparation d’un alcène."}
     ],
     "explanation": "La déshydrohalogénation est une élimination de HX créant une liaison C=C."
   },
@@ -398,8 +397,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "X représente un halogène.",
         "correct": true,
-        "explanation": "C'est la notation de le modèle étudié."
-      },
+        "explanation": "X désigne un halogène dans la notation $\\ce{R-CHX-CH2-R'}$."},
       {
         "content": "HX est éliminé.",
         "correct": true,
@@ -445,8 +443,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "L'alcyne est réduit au stade alcène."
       }
     ],
-    "explanation": "L'hydrogénation séquentielle alcyne → alcène → alcane est un axe central du chapitre."
-  },
+    "explanation": "Une hydrogénation partielle contrôlée réduit un alcyne au stade alcène ; une réduction supplémentaire conduit à l’alcane."},
   {
     "order": 34,
     "difficulty": "MEDIUM",
@@ -619,7 +616,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une stratégie de synthèse, quelles voies du chapitre permettent directement de créer une double liaison C=C ?",
+    "question": "Dans une stratégie de synthèse, quelles voies permettent directement de créer une double liaison $\\ce{C=C}$ ?",
     "choices": [
       {
         "content": "Hydrogénation partielle d'un alcyne.",

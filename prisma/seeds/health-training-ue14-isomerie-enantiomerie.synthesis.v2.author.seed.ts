@@ -154,8 +154,7 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Deux H sont portés par le carbone α."
       }
     ],
-    "explanation": "La comparaison glycine/alanine constitue un repère central du chapitre."
-  },
+    "explanation": "L’alanine possède un carbone α asymétrique, contrairement à la glycine dont le carbone α porte deux hydrogènes."},
   {
     "order": 106,
     "difficulty": "MEDIUM",
@@ -526,8 +525,7 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Interconversion avec déplacement de proton et de double liaison."
       }
     ],
-    "explanation": "Une synthèse de chapitre doit permettre de nommer la relation avant de chercher un descripteur stéréochimique."
-  },
+    "explanation": "Il faut d’abord identifier la relation d’isomérie avant d’utiliser, si nécessaire, un descripteur stéréochimique."},
   {
     "order": 120,
     "difficulty": "HARD",
@@ -594,8 +592,7 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les éléments stéréogènes varient indépendamment."
       }
     ],
-    "explanation": "Cette question combine les deux principales sources de stéréoisomérie traitées dans le chapitre."
-  },
+    "explanation": "Un centre R/S et une double liaison E/Z indépendants peuvent conduire à quatre combinaisons stéréoisomères."},
   {
     "order": 132,
     "difficulty": "HARD",
@@ -654,6 +651,5 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone α porte deux H."
       }
     ],
-    "explanation": "La dernière question croise les notions indispensables du chapitre sans introduire de notion extérieure."
-  }
+    "explanation": "Ces affirmations croisent les critères essentiels : chiralité, E/Z, règles CIP, racémate, tautomérie et relation entre R/S et pouvoir rotatoire."}
 ];

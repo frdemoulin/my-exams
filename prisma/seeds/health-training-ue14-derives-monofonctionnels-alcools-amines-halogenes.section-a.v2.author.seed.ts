@@ -24,13 +24,11 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le groupe caractéristique comporte une liaison O-H.",
         "correct": true,
-        "explanation": "Le groupe caractéristique d’un alcool est le groupe hydroxyle $\ce{-OH}$."
-      },
+        "explanation": "Le groupe caractéristique d’un alcool est le groupe hydroxyle $\\ce{-OH}$."},
       {
         "content": "Les alcools peuvent participer à des liaisons hydrogène grâce au H porté par O.",
         "correct": true,
-        "explanation": "Le groupe $\ce{-OH}$ permet à l’alcool de donner une liaison hydrogène par l’intermédiaire de son hydrogène."
-      },
+        "explanation": "Le groupe $\\ce{-OH}$ permet à l’alcool de donner une liaison hydrogène par l’intermédiaire de son hydrogène."},
       {
         "content": "Un alcool est obligatoirement ionique.",
         "correct": false,
@@ -116,8 +114,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Alcool + $\\ce{H2}$ → alcène.",
         "correct": false,
-        "explanation": "L’addition de $\ce{H2}$ ne correspond pas à une hydratation et ne transforme pas un alcool en alcène."
-      },
+        "explanation": "L’addition de $\\ce{H2}$ ne correspond pas à une hydratation et ne transforme pas un alcool en alcène."},
       {
         "content": "Aldéhyde + $\\ce{H2O}$ → alcane.",
         "correct": false,
@@ -155,8 +152,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\ce{BH3}$ est l'exemple de réducteur cité.",
         "correct": true,
-        "explanation": "$\ce{BH3}$ est l’exemple de réducteur puissant utilisé ici pour réduire l’acide carboxylique."
-      },
+        "explanation": "$\\ce{BH3}$ est l’exemple de réducteur puissant utilisé ici pour réduire l’acide carboxylique."},
       {
         "content": "Le produit attendu est un alcool tertiaire.",
         "correct": false,
@@ -189,8 +185,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un alcool primaire.",
         "correct": true,
-        "explanation": "La réduction de l’aldéhyde transforme le groupe $\ce{-CHO}$ en groupe $\ce{-CH2OH}$ : l’alcool obtenu est primaire."
-      },
+        "explanation": "La réduction de l’aldéhyde transforme le groupe $\\ce{-CHO}$ en groupe $\\ce{-CH2OH}$ : l’alcool obtenu est primaire."},
       {
         "content": "À une diminution du caractère oxydé du carbone carbonylé.",
         "correct": true,
@@ -218,8 +213,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À une disparition du groupe carbonyle.",
         "correct": true,
-        "explanation": "Le groupe carbonyle $\ce{C=O}$ est réduit en un carbone portant le groupe $\ce{-OH}$."
-      },
+        "explanation": "Le groupe carbonyle $\\ce{C=O}$ est réduit en un carbone portant le groupe $\\ce{-OH}$."},
       {
         "content": "À une amide.",
         "correct": false,
@@ -233,8 +227,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "À un alcool secondaire.",
         "correct": true,
-        "explanation": "La réduction d’une cétone par $\ce{NaBH4}$ conduit à un alcool secondaire."
-      },
+        "explanation": "La réduction d’une cétone par $\\ce{NaBH4}$ conduit à un alcool secondaire."},
       {
         "content": "À un alcool primaire.",
         "correct": false,
@@ -267,8 +260,7 @@ export const UE14_CH8_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Cétone + $\\ce{NaBH4}$ → alcool tertiaire.",
         "correct": false,
-        "explanation": "Une cétone réduite par $\ce{NaBH4}$ donne un alcool secondaire, et non un alcool tertiaire."
-      },
+        "explanation": "Une cétone réduite par $\\ce{NaBH4}$ donne un alcool secondaire, et non un alcool tertiaire."},
       {
         "content": "Un alcool secondaire s’oxyde en aldéhyde dans le modèle étudié.",
         "correct": false,

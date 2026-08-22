@@ -63,13 +63,11 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}C(=O){-}OH}$.",
         "correct": false,
-        "explanation": "Le motif $\mathrm{R{-}C(=O){-}OH}$ correspond à un acide carboxylique et non à un ester."
-      },
+        "explanation": "Le motif $\\mathrm{R{-}C(=O){-}OH}$ correspond à un acide carboxylique et non à un ester."},
       {
         "content": "$\\mathrm{R{-}C(=O){-}NH_2}$.",
         "correct": false,
-        "explanation": "Le motif $\mathrm{R{-}C(=O){-}NH_2}$ correspond à une amide et non à un ester."
-      }
+        "explanation": "Le motif $\\mathrm{R{-}C(=O){-}NH_2}$ correspond à une amide et non à un ester."}
     ],
     "explanation": "Le motif caractéristique d’un ester est $\\ce{R-C(=O)-OR'}$ ; il comporte un carbonyle et un second oxygène lié à un groupe carboné."
   },
@@ -116,18 +114,15 @@ export const UE14_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "$\\mathrm{R{-}C(=O){-}OR'}$.",
         "correct": false,
-        "explanation": "Le motif $\mathrm{R{-}C(=O){-}OR'}$ correspond à un ester."
-      },
+        "explanation": "Le motif $\\mathrm{R{-}C(=O){-}OR'}$ correspond à un ester."},
       {
         "content": "$\\mathrm{R{-}SH}$.",
         "correct": false,
-        "explanation": "Le motif $\mathrm{R{-}SH}$ correspond à un thiol."
-      },
+        "explanation": "Le motif $\\mathrm{R{-}SH}$ correspond à un thiol."},
       {
         "content": "$\\mathrm{R{-}X}$.",
         "correct": false,
-        "explanation": "Le motif $\mathrm{R{-}X}$ correspond à un dérivé halogéné."
-      },
+        "explanation": "Le motif $\\mathrm{R{-}X}$ correspond à un dérivé halogéné."},
       {
         "content": "$\\mathrm{R{-}C(=O){-}NR'R''}$.",
         "correct": true,

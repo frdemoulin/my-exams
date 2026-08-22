@@ -807,8 +807,7 @@ export const UE14_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = 
       {
         "content": "L'oxygène du carbonyle rend le carbone nucléophile.",
         "correct": false,
-        "explanation": "La polarisation de la liaison $\ce{C=O}$ appauvrit le carbone en électrons et le rend électrophile."
-      },
+        "explanation": "La polarisation de la liaison $\\ce{C=O}$ appauvrit le carbone en électrons et le rend électrophile."},
       {
         "content": "L’oxygène du carbonyle rend le carbone carbonylé fortement nucléophile.",
         "correct": false,

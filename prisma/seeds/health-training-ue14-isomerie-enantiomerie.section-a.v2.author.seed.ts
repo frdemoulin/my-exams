@@ -179,7 +179,7 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la tautomérie dans le cadre de ce chapitre, quelles propositions sont exactes ?",
+    "question": "Concernant la tautomérie, quelles propositions sont exactes ?",
     "choices": [
       {
         "content": "Une tautomérie modifie nécessairement le nombre total d’atomes de la molécule.",
@@ -676,8 +676,7 @@ export const UE14_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C'est l'inverse."
       }
     ],
-    "explanation": "Cette sélection consolide les distinctions fondamentales de la première section."
-  },
+    "explanation": "Ces affirmations vérifient notamment la distinction entre isomérie de constitution, isomérie de position, isomérie fonctionnelle et tautomérie."},
   {
     "order": 20,
     "difficulty": "MEDIUM",
