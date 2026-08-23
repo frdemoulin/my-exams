@@ -1,647 +1,684 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Les eicosanoïdes — Section D
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Les eicosanoïdes — Section D — Leucotriènes et lipoxines */
 export const UE14_BIOCH_CH5_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 79,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des leucotriènes de série 4 dérivés de l’acide arachidonique :",
+    "question": "Concernant les leucotriènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sont des dérivés d’acides eicosanoïques à 20 carbones.",
-        "correct": true,
-        "explanation": "Structure générale."
-      },
-      {
-        "content": "Contiennent quatre doubles liaisons.",
-        "correct": true,
-        "explanation": "L'indice 4 correspond au nombre de doubles liaisons."
-      },
-      {
-        "content": "Présentent trois doubles liaisons conjuguées formant un système triénique.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Sont des glucanes de réserve.",
+        "content": "Ils sont tous des protéines membranaires.",
         "correct": false,
-        "explanation": "Dérivés lipidiques."
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "Ils sont formés uniquement à partir de glucose.",
+        "correct": false,
+        "explanation": "Ils dérivent d'acides gras polyinsaturés."
+      },
+      {
+        "content": "Ils sont produits notamment par des leucocytes, mastocytes et macrophages.",
+        "correct": true,
+        "explanation": "Leur rôle est important dans l'inflammation."
+      },
+      {
+        "content": "Ils dérivent de la voie 5-lipoxygénase à partir de l'acide arachidonique.",
+        "correct": true,
+        "explanation": "La 5-LOX mène à LTA4."
+      },
+      {
+        "content": "Les leucotriènes sont des prostanoïdes cycliques produits par COX.",
+        "correct": false,
+        "explanation": "Ils relèvent de la voie 5-LOX et sont structurellement distincts."
       }
     ],
-    "explanation": "Le nom « leucotriène » renvoie historiquement aux leucocytes et au système de trois doubles liaisons conjuguées."
+    "explanation": "Les leucotriènes dérivent principalement de la voie 5-LOX et participent notamment aux réponses inflammatoires."
   },
   {
     "order": 80,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les cellules capables de synthétiser des leucotriènes comprennent :",
+    "format": "QRU",
+    "question": "À propos de LTA4, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Leucocytes.",
-        "correct": true,
-        "explanation": "Les leucocytes sont les principales cellules de synthèse des leucotriènes."
-      },
-      {
-        "content": "Mastocytes.",
-        "correct": true,
-        "explanation": "Les mastocytes synthétisent notamment des leucotriènes cystéinylés."
-      },
-      {
-        "content": "Macrophages et granulocytes.",
-        "correct": true,
-        "explanation": "Ces leucocytes disposent de la machinerie de la voie 5-lipoxygénase."
-      },
-      {
-        "content": "Uniquement les adipocytes.",
+        "content": "LTA4 est un prostanoïde produit par la thromboxane synthase.",
         "correct": false,
-        "explanation": "La synthèse a lieu principalement dans différentes cellules immunitaires."
+        "explanation": "Il appartient à la voie leucotriène."
+      },
+      {
+        "content": "LTA4 est un produit final très stable stocké pendant des jours.",
+        "correct": false,
+        "explanation": "C'est un intermédiaire réactif."
+      },
+      {
+        "content": "LTA4 est un époxyde intermédiaire de la voie des leucotriènes.",
+        "correct": true,
+        "explanation": "Il possède un époxyde entre C5 et C6."
+      },
+      {
+        "content": "Il ne peut donner aucun autre leucotriène.",
+        "correct": false,
+        "explanation": "Il est un précurseur central."
+      },
+      {
+        "content": "Il est un triglycéride à trois acides gras.",
+        "correct": false,
+        "explanation": "Structure sans rapport."
       }
     ],
-    "explanation": "La synthèse de novo des leucotriènes a lieu surtout dans les leucocytes ; d'autres cellules peuvent participer à des biosynthèses transcellulaires."
+    "explanation": "LTA4 est l'intermédiaire époxyde central de la voie 5-LOX, orientable vers LTB4 ou LTC4."
   },
   {
     "order": 81,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Parmi les effets des leucotriènes sur les muscles lisses :",
-    "choices": [
-      {
-        "content": "Vasoconstriction.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "Bronchoconstriction.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "Actions sur les muscles lisses.",
-        "correct": true,
-        "explanation": "Contexte."
-      },
-      {
-        "content": "Vasodilatation obligatoire de tous les leucotriènes.",
-        "correct": false,
-        "explanation": "Les effets varient selon le leucotriène et le tissu ; les cystéinyl-leucotriènes sont notamment bronchoconstricteurs."
+    "format": "QROC",
+    "question": "Quel leucotriène est particulièrement connu pour son chimiotactisme vis-à-vis des neutrophiles ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "LTB4",
+        "LTB₄",
+        "leucotriène B4",
+        "leucotriene B4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les leucotriènes sont notamment reliés à des effets constricteurs."
+    },
+    "explanation": "LTB4 est une branche de LTA4 fortement impliquée dans le recrutement et l'activation des leucocytes."
   },
   {
     "order": 82,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les effets immunitaires des leucotriènes :",
+    "question": "Concernant les cystéinyl-leucotriènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Chimiotactisme.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "Recrutement et activation de leucocytes.",
-        "correct": true,
-        "explanation": "LTB₄ est notamment un puissant agent chimiotactique des neutrophiles."
-      },
-      {
-        "content": "Participation à des réponses immunitaires.",
-        "correct": true,
-        "explanation": "Contexte."
-      },
-      {
-        "content": "Suppression obligatoire de toute activité leucocytaire.",
+        "content": "LTC4, LTD4 et LTE4 sont des prostacyclines.",
         "correct": false,
-        "explanation": "Plusieurs leucotriènes amplifient au contraire des réponses inflammatoires."
+        "explanation": "Ils appartiennent aux leucotriènes."
+      },
+      {
+        "content": "LTC4, LTD4 et LTE4 constituent les cystéinyl-leucotriènes majeurs.",
+        "correct": true,
+        "explanation": "Ils portent des résidus dérivés du glutathion."
+      },
+      {
+        "content": "LTC4 est formé par conjugaison de LTA4 au glutathion.",
+        "correct": true,
+        "explanation": "La LTC4 synthase réalise cette étape."
+      },
+      {
+        "content": "Le glutathion n'intervient jamais dans leur biosynthèse.",
+        "correct": false,
+        "explanation": "Il est conjugué à LTA4 pour former LTC4."
+      },
+      {
+        "content": "Ils sont de puissants bronchoconstricteurs.",
+        "correct": true,
+        "explanation": "Ils jouent un rôle important dans l'asthme."
       }
     ],
-    "explanation": "Les leucotriènes relient lipidologie et réponse immunitaire."
+    "explanation": "LTC4 initie la branche des cystéinyl-leucotriènes ; LTD4 et LTE4 résultent de clivages successifs."
   },
   {
     "order": 83,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le leucotriène A₄ (LTA₄) :",
+    "format": "QRU",
+    "question": "À propos du glutathion dans la voie des leucotriènes, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Est formé à partir de l’acide arachidonique.",
-        "correct": true,
-        "explanation": "Précurseur."
-      },
-      {
-        "content": "Fait intervenir la 5-lipoxygénase.",
-        "correct": true,
-        "explanation": "Enzyme."
-      },
-      {
-        "content": "Possède un pont époxyde en C5–C6.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Est formé directement par la voie COX.",
+        "content": "Il n'entre jamais dans la structure de LTC4.",
         "correct": false,
-        "explanation": "Il relève de la lipoxygénase."
+        "explanation": "Il y est conjugué."
+      },
+      {
+        "content": "La perte successive de résidus transforme LTC4 en LTD4 puis LTE4.",
+        "correct": true,
+        "explanation": "La portion peptidique est progressivement raccourcie."
+      },
+      {
+        "content": "Il transforme directement PGI2 en TXA2.",
+        "correct": false,
+        "explanation": "Il intervient dans une autre voie."
+      },
+      {
+        "content": "LTD4 contient davantage de résidus peptidiques que LTC4.",
+        "correct": false,
+        "explanation": "LTD4 résulte d'un clivage de LTC4."
+      },
+      {
+        "content": "Le glutathion est un monosaccharide.",
+        "correct": false,
+        "explanation": "C'est un tripeptide."
       }
     ],
-    "explanation": "LTA₄ est un intermédiaire central de la branche leucotriène/lipoxine."
+    "explanation": "Le glutathion est un tripeptide conjugué à LTA4 pour former LTC4, puis progressivement clivé vers LTD4 et LTE4."
   },
   {
     "order": 84,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À partir de LTA₄ :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la bronchoconstriction liée aux leucotriènes, sélectionnez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Des lipoxines peuvent être formées lors d’une coopération enzymatique entre plusieurs cellules.",
-        "correct": true,
-        "explanation": "La biosynthèse transcellulaire des lipoxines mobilise successivement plusieurs lipoxygénases."
-      },
-      {
-        "content": "LTB₄ peut être formé.",
-        "correct": true,
-        "explanation": "L'hydrolyse de LTA₄ forme LTB₄."
-      },
-      {
-        "content": "D’autres leucotriènes peuvent être formés.",
-        "correct": true,
-        "explanation": "Voies en aval."
-      },
-      {
-        "content": "Aucune autre molécule ne peut être obtenue.",
+        "content": "LTB4 et LTC4 sont strictement identiques.",
         "correct": false,
-        "explanation": "LTA₄ est un précurseur de plusieurs produits."
+        "explanation": "Ils diffèrent par structure et fonction."
+      },
+      {
+        "content": "Des antagonistes de leurs récepteurs peuvent être utilisés dans certaines formes d'asthme.",
+        "correct": true,
+        "explanation": "Le montélukast cible notamment le récepteur CysLT1."
+      },
+      {
+        "content": "Les cystéinyl-leucotriènes favorisent la bronchoconstriction.",
+        "correct": true,
+        "explanation": "Ils contractent le muscle lisse bronchique."
+      },
+      {
+        "content": "LTC4 et LTD4 sont de puissants bronchodilatateurs.",
+        "correct": false,
+        "explanation": "Ils sont bronchoconstricteurs."
+      },
+      {
+        "content": "Les leucotriènes n'ont aucun rôle dans l'asthme.",
+        "correct": false,
+        "explanation": "Ils y participent."
       }
     ],
-    "explanation": "LTA₄ est un carrefour de synthèse pour plusieurs eicosanoïdes."
+    "explanation": "Les cystéinyl-leucotriènes sont des bronchoconstricteurs importants et constituent une cible thérapeutique dans l'asthme.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 85,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La voie menant à LTC₄, LTD₄ et LTE₄ :",
+    "question": "Concernant les lipoxines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Fait intervenir le glutathion.",
+        "content": "Les lipoxines sont des médiateurs issus de voies lipoxygénases.",
         "correct": true,
-        "explanation": "La conjugaison de LTA₄ au glutathion forme LTC₄."
+        "explanation": "Leur biosynthèse peut impliquer plusieurs cellules ou enzymes."
       },
       {
-        "content": "S’accompagne d’un clivage progressif du motif ajouté.",
+        "content": "Elles participent à la résolution de l'inflammation.",
         "correct": true,
-        "explanation": "Évolution C4→D4→E4."
+        "explanation": "Elles limitent certains signaux pro-inflammatoires et favorisent le retour à l'homéostasie."
       },
       {
-        "content": "Conduit à plusieurs leucotriènes distincts.",
-        "correct": true,
-        "explanation": "Produits."
-      },
-      {
-        "content": "Est une voie de synthèse du glycogène.",
+        "content": "Les lipoxines sont produites exclusivement par COX comme TXA2.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Elles relèvent principalement des voies lipoxygénases."
+      },
+      {
+        "content": "LXA4 est une lipoxine majeure.",
+        "correct": true,
+        "explanation": "Elle est distincte de LTA4 malgré la proximité des abréviations."
+      },
+      {
+        "content": "Leur rôle fonctionnel diffère de celui des cystéinyl-leucotriènes bronchoconstricteurs.",
+        "correct": true,
+        "explanation": "Elles sont plutôt associées à la résolution."
       }
     ],
-    "explanation": "Le glutathion est un repère structural de la série LTC₄/LTD₄/LTE₄."
+    "explanation": "Les lipoxines sont des médiateurs lipidiques pro-résolutifs issus de réactions lipoxygénases."
   },
   {
     "order": 86,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle enzyme catalyse les étapes menant de l’acide arachidonique à LTA₄ ?",
-    "choices": [
-      {
-        "content": "5-lipoxygénase.",
-        "correct": true,
-        "explanation": "La 5-lipoxygénase transforme successivement l'acide arachidonique en 5-HPETE puis LTA₄."
-      },
-      {
-        "content": "COX uniquement.",
-        "correct": false,
-        "explanation": "Voie prostanoïde."
-      },
-      {
-        "content": "Lactase.",
-        "correct": false,
-        "explanation": "Enzyme digestive."
-      },
-      {
-        "content": "Glycogène synthase.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quel intermédiaire commun précède les branches LTB4 et LTC4 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "LTA4",
+        "LTA₄",
+        "leucotriène A4",
+        "leucotriene A4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La 5-lipoxygénase conduit à LTA₄."
+    },
+    "explanation": "LTA4 se situe au carrefour entre LTB4 chimiotactique et les cystéinyl-leucotriènes bronchoconstricteurs."
   },
   {
     "order": 87,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel eicosanoïde appartient à la famille des lipoxines ?",
+    "question": "Parmi les propositions suivantes sur les leucotriènes, laquelle est exacte ?",
     "choices": [
       {
-        "content": "LXA₄.",
+        "content": "Les leucotriènes sont des prostanoïdes cycliques produits par COX.",
+        "correct": false,
+        "explanation": "Ils relèvent de la voie 5-LOX et sont structurellement distincts."
+      },
+      {
+        "content": "Ils sont tous des protéines membranaires.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "Ils n'ont aucun lien avec l'inflammation.",
+        "correct": false,
+        "explanation": "Ils y jouent des rôles importants."
+      },
+      {
+        "content": "Ils peuvent agir sur muscles lisses et cellules immunitaires.",
         "correct": true,
-        "explanation": "LXA₄ signifie lipoxine A₄."
+        "explanation": "Les effets diffèrent selon le leucotriène."
       },
       {
-        "content": "TXA₂.",
+        "content": "Ils sont formés uniquement à partir de glucose.",
         "correct": false,
-        "explanation": "Prostanoïde de voie COX."
-      },
-      {
-        "content": "PGI₂.",
-        "correct": false,
-        "explanation": "Prostacycline."
-      },
-      {
-        "content": "PGE₁.",
-        "correct": false,
-        "explanation": "Prostaglandine."
+        "explanation": "Ils dérivent d'acides gras polyinsaturés."
       }
     ],
-    "explanation": "LXA₄ est une lipoxine issue de voies séquentielles impliquant plusieurs lipoxygénases."
+    "explanation": "Les leucotriènes dérivent principalement de la voie 5-LOX et participent notamment aux réponses inflammatoires."
   },
   {
     "order": 88,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Le système triénique des leucotriènes signifie :",
+    "question": "Concernant LTA4, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Trois doubles liaisons conjuguées.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Une alternance de doubles et simples liaisons sur le segment concerné.",
-        "correct": true,
-        "explanation": "Conjugaison."
-      },
-      {
-        "content": "Un repère structural de la famille.",
-        "correct": true,
-        "explanation": "Caractéristique."
-      },
-      {
-        "content": "Trois fonctions amines.",
+        "content": "Il ne peut donner aucun autre leucotriène.",
         "correct": false,
-        "explanation": "Le terme renvoie aux doubles liaisons."
+        "explanation": "Il est un précurseur central."
+      },
+      {
+        "content": "LTA4 est un époxyde intermédiaire de la voie des leucotriènes.",
+        "correct": true,
+        "explanation": "Il possède un époxyde entre C5 et C6."
+      },
+      {
+        "content": "Il peut être transformé en LTB4.",
+        "correct": true,
+        "explanation": "La LTA4 hydrolase catalyse cette branche."
+      },
+      {
+        "content": "LTA4 est un prostanoïde produit par la thromboxane synthase.",
+        "correct": false,
+        "explanation": "Il appartient à la voie leucotriène."
+      },
+      {
+        "content": "LTA4 est un produit final très stable stocké pendant des jours.",
+        "correct": false,
+        "explanation": "C'est un intermédiaire réactif."
       }
     ],
-    "explanation": "Le « triène » renvoie aux trois doubles liaisons conjuguées."
+    "explanation": "LTA4 est l'intermédiaire époxyde central de la voie 5-LOX, orientable vers LTB4 ou LTC4."
   },
   {
     "order": 89,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un médiateur produit par des mastocytes provoque une bronchoconstriction et appartient à une famille à système triénique. Il est cohérent avec :",
-    "choices": [
-      {
-        "content": "Un leucotriène.",
-        "correct": true,
-        "explanation": "Indices concordants."
-      },
-      {
-        "content": "Un dérivé eicosanoïque C20.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Un produit d’une voie lipoxygénase.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "Un glucane de réserve.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quel leucotriène est particulièrement chimiotactique pour les neutrophiles ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "LTB4",
+        "LTB₄",
+        "leucotriène B4",
+        "leucotriene B4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les cystéinyl-leucotriènes sont d'importants médiateurs de la bronchoconstriction."
+    },
+    "explanation": "LTB4 est un puissant facteur chimiotactique et activateur de leucocytes, notamment les neutrophiles."
   },
   {
     "order": 90,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une réponse immunitaire, un eicosanoïde augmente le chimiotactisme. La famille la plus cohérente est :",
-    "choices": [
-      {
-        "content": "Les leucotriènes.",
-        "correct": true,
-        "explanation": "LTB₄ stimule notamment le chimiotactisme des neutrophiles."
-      },
-      {
-        "content": "Une famille synthétisée notamment par des leucocytes/macrophages.",
-        "correct": true,
-        "explanation": "Cellules."
-      },
-      {
-        "content": "Une branche des lipoxygénases.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "Les triglycérides alimentaires uniquement.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quel leucotriène époxyde constitue un carrefour vers LTB4 et LTC4 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "LTA4",
+        "LTA₄",
+        "leucotriène A4",
+        "leucotriene A4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le chimiotactisme est une des fonctions immunitaires attribuées aux leucotriènes."
+    },
+    "explanation": "LTA4 est l'intermédiaire époxyde central de la voie 5-LOX, orientable vers LTB4 ou LTC4."
   },
   {
     "order": 91,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "LTA₄ fonctionne comme un carrefour parce que :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur LTB4, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Il peut conduire à LTB₄.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "Il peut conduire à LXA₄.",
-        "correct": true,
-        "explanation": "Une voie transcellulaire peut convertir LTA₄ en lipoxines, notamment via la 12-lipoxygénase plaquettaire."
-      },
-      {
-        "content": "Il participe aussi à une voie menant à LTC₄/LTD₄/LTE₄.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "Il ne possède aucun produit en aval.",
+        "content": "LTB4 est principalement un glucide de réserve.",
         "correct": false,
-        "explanation": "Plusieurs produits en dérivent."
+        "explanation": "C'est un médiateur lipidique."
+      },
+      {
+        "content": "LTB4 est formé par conjugaison directe au glutathion.",
+        "correct": false,
+        "explanation": "Cela mène à LTC4."
+      },
+      {
+        "content": "Il active plusieurs fonctions leucocytaires.",
+        "correct": true,
+        "explanation": "Il amplifie certaines réponses inflammatoires."
+      },
+      {
+        "content": "LTB4 bloque systématiquement le recrutement des neutrophiles.",
+        "correct": false,
+        "explanation": "Il est chimiotactique."
+      },
+      {
+        "content": "LTB4 est la prostacycline endothéliale antiagrégante.",
+        "correct": false,
+        "explanation": "Cela décrit PGI2."
       }
     ],
-    "explanation": "LTA₄ distribue plusieurs branches de la voie lipoxygénase."
+    "explanation": "LTB4 est une branche de LTA4 fortement impliquée dans le recrutement et l'activation des leucocytes."
   },
   {
     "order": 92,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "La présence de glutathion dans la voie des leucotriènes :",
+    "question": "Concernant les cystéinyl-leucotriènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Concerne notamment LTC₄.",
-        "correct": true,
-        "explanation": "Conjugaison initiale."
-      },
-      {
-        "content": "Est suivie de clivages progressifs conduisant à LTD₄ puis LTE₄.",
-        "correct": true,
-        "explanation": "Évolution."
-      },
-      {
-        "content": "Fournit un repère pour distinguer cette branche de LTB₄.",
-        "correct": true,
-        "explanation": "Comparaison."
-      },
-      {
-        "content": "Transforme directement le leucotriène en glycogène.",
+        "content": "Ils sont tous anti-bronchoconstricteurs.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Ils favorisent la bronchoconstriction."
+      },
+      {
+        "content": "LTD4 puis LTE4 résultent de clivages successifs de la portion peptidique.",
+        "correct": true,
+        "explanation": "Des acides aminés sont retirés progressivement."
+      },
+      {
+        "content": "LTC4 est formé par conjugaison de LTA4 au glutathion.",
+        "correct": true,
+        "explanation": "La LTC4 synthase réalise cette étape."
+      },
+      {
+        "content": "Ils sont de puissants bronchoconstricteurs.",
+        "correct": true,
+        "explanation": "Ils jouent un rôle important dans l'asthme."
+      },
+      {
+        "content": "Le glutathion n'intervient jamais dans leur biosynthèse.",
+        "correct": false,
+        "explanation": "Il est conjugué à LTA4 pour former LTC4."
       }
     ],
-    "explanation": "La conjugaison de LTA₄ au glutathion forme LTC₄, précurseur de LTD₄ puis LTE₄."
+    "explanation": "LTC4 initie la branche des cystéinyl-leucotriènes ; LTD4 et LTE4 résultent de clivages successifs."
   },
   {
     "order": 93,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quelle enzyme forme LTA₄ à partir de l’acide arachidonique ?",
+    "question": "Quel composé est formé par conjugaison de LTA4 au glutathion ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "5-lipoxygenase",
-        "5-lipoxygénase",
-        "5 lipoxygenase",
-        "5 lipoxygénase",
-        "la 5-lipoxygénase"
+        "LTC4",
+        "LTC₄",
+        "leucotriène C4",
+        "leucotriene C4"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Il s’agit de la 5-lipoxygénase."
+    "explanation": "La LTC4 synthase conjugue le glutathion à LTA4 pour former LTC4, précurseur de LTD4 puis LTE4."
   },
   {
     "order": 94,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel tripeptide est incorporé dans la voie menant notamment à LTC₄ ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "glutathion",
-        "le glutathion"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur la bronchoconstriction liée aux leucotriènes, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Les cystéinyl-leucotriènes favorisent la bronchoconstriction.",
+        "correct": true,
+        "explanation": "Ils contractent le muscle lisse bronchique."
+      },
+      {
+        "content": "Des antagonistes de leurs récepteurs peuvent être utilisés dans certaines formes d'asthme.",
+        "correct": true,
+        "explanation": "Le montélukast cible notamment le récepteur CysLT1."
+      },
+      {
+        "content": "Ils participent à la physiopathologie de l'asthme.",
+        "correct": true,
+        "explanation": "Ils augmentent aussi la perméabilité et les sécrétions selon le contexte."
+      },
+      {
+        "content": "Leur rôle respiratoire est distinct de celui de LTB4, surtout chimiotactique.",
+        "correct": true,
+        "explanation": "Les branches ont des fonctions différentes."
+      },
+      {
+        "content": "Les leucotriènes n'ont aucun rôle dans l'asthme.",
+        "correct": false,
+        "explanation": "Ils y participent."
       }
-    },
-    "explanation": "Il s’agit du glutathion."
+    ],
+    "explanation": "Les cystéinyl-leucotriènes sont des bronchoconstricteurs importants et constituent une cible thérapeutique dans l'asthme."
   },
   {
     "order": 95,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de doubles liaisons conjuguées constituent le système triénique des leucotriènes ?",
+    "question": "Quel processus inflammatoire les lipoxines favorisent-elles particulièrement ?",
     "answer": {
-      "type": "number",
-      "value": 3,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "résolution de l'inflammation",
+        "resolution de l'inflammation",
+        "résolution",
+        "resolution"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "Un triène comporte trois doubles liaisons conjuguées."
+    "explanation": "Les lipoxines sont des médiateurs lipidiques pro-résolutifs issus de réactions lipoxygénases."
   },
   {
     "order": 96,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Comparer voie COX et voie 5-lipoxygénase :",
+    "format": "QRU",
+    "question": "À propos de la comparaison LTB4 et cystéinyl-leucotriènes, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "COX conduit aux prostanoïdes.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "5-lipoxygénase conduit à LTA₄.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "Les deux utilisent l’acide arachidonique comme précurseur dans le schéma.",
-        "correct": true,
-        "explanation": "Point commun."
-      },
-      {
-        "content": "Les deux conduisent exclusivement au même produit final.",
+        "content": "LTB4 est le principal cystéinyl-leucotriène.",
         "correct": false,
-        "explanation": "Branches différentes."
+        "explanation": "Il n'appartient pas à cette sous-famille."
+      },
+      {
+        "content": "LTC4 est produit directement par PGI2 synthase.",
+        "correct": false,
+        "explanation": "Il dérive de LTA4 via LTC4 synthase."
+      },
+      {
+        "content": "LTB4 et LTC4 ont exactement la même structure.",
+        "correct": false,
+        "explanation": "LTC4 comporte une conjugaison au glutathion."
+      },
+      {
+        "content": "Aucun leucotriène n'agit sur les leucocytes.",
+        "correct": false,
+        "explanation": "LTB4 est un puissant médiateur leucocytaire."
+      },
+      {
+        "content": "LTB4 est particulièrement chimiotactique pour les neutrophiles.",
+        "correct": true,
+        "explanation": "Il recrute et active des cellules inflammatoires."
       }
     ],
-    "explanation": "L’acide arachidonique est un précurseur commun orienté par des enzymes différentes."
+    "explanation": "LTA4 se situe au carrefour entre LTB4 chimiotactique et les cystéinyl-leucotriènes bronchoconstricteurs."
   },
   {
     "order": 97,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "La bronchoconstriction peut être provoquée par :",
-    "choices": [
-      {
-        "content": "Des leucotriènes.",
-        "correct": true,
-        "explanation": "Effet de famille."
-      },
-      {
-        "content": "De PGF₂α parmi les exemples de prostaglandines.",
-        "correct": true,
-        "explanation": "Les cystéinyl-leucotriènes peuvent provoquer une bronchoconstriction."
-      },
-      {
-        "content": "De médiateurs lipidiques pouvant avoir des effets sur les muscles lisses.",
-        "correct": true,
-        "explanation": "Point transversal."
-      },
-      {
-        "content": "Exclusivement de l’acide hyaluronique.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quel antagoniste des récepteurs aux cystéinyl-leucotriènes est couramment utilisé dans certaines prises en charge de l'asthme ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "montélukast",
+        "montelukast",
+        "le montélukast",
+        "le montelukast"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Des familles différentes d’eicosanoïdes peuvent partager certains effets physiologiques."
+    },
+    "explanation": "Le montélukast bloque notamment le récepteur CysLT1 et s'oppose aux effets de LTD4 et médiateurs voisins."
   },
   {
     "order": 98,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une molécule comporte quatre doubles liaisons dont trois conjuguées et un pont époxyde C5–C6. Le profil correspond particulièrement à :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "LTA₄.",
+        "content": "Le rôle du glutathion dans cette voie est distinct de son rôle antioxydant.",
         "correct": true,
-        "explanation": "LTA₄ contient un époxyde entre C5 et C6."
+        "explanation": "La même molécule peut participer à plusieurs fonctions."
       },
       {
-        "content": "Un leucotriène.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Un produit de la 5-lipoxygénase.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "PGE₂.",
+        "content": "Il est un triglycéride à trois acides gras.",
         "correct": false,
-        "explanation": "Prostaglandine de voie COX."
+        "explanation": "Structure sans rapport."
+      },
+      {
+        "content": "Il n'entre jamais dans la structure de LTC4.",
+        "correct": false,
+        "explanation": "Il y est conjugué."
+      },
+      {
+        "content": "La perte successive de résidus transforme LTC4 en LTD4 puis LTE4.",
+        "correct": true,
+        "explanation": "La portion peptidique est progressivement raccourcie."
+      },
+      {
+        "content": "Il est formé en aval de la 5-lipoxygénase.",
+        "correct": true,
+        "explanation": "Il constitue un carrefour biosynthétique."
+      },
+      {
+        "content": "Il peut aussi être conjugué au glutathion pour former LTC4.",
+        "correct": true,
+        "explanation": "La LTC4 synthase initie la branche des cystéinyl-leucotriènes."
+      },
+      {
+        "content": "Il transforme directement PGI2 en TXA2.",
+        "correct": false,
+        "explanation": "Il intervient dans une autre voie."
+      },
+      {
+        "content": "LTA4 est un prostanoïde produit par la thromboxane synthase.",
+        "correct": false,
+        "explanation": "Il appartient à la voie leucotriène."
+      },
+      {
+        "content": "Il ne peut donner aucun autre leucotriène.",
+        "correct": false,
+        "explanation": "Il est un précurseur central."
+      },
+      {
+        "content": "Il est conjugué à LTA4 pour former LTC4.",
+        "correct": true,
+        "explanation": "Cette étape introduit la composante cystéinylée."
       }
     ],
-    "explanation": "LTA₄ est un intermédiaire époxyde instable de la voie de la 5-lipoxygénase."
+    "explanation": "LTA4 est l'intermédiaire époxyde central de la voie 5-LOX, orientable vers LTB4 ou LTC4. Le glutathion est un tripeptide conjugué à LTA4 pour former LTC4, puis progressivement clivé vers LTD4 et LTE4."
   },
   {
     "order": 99,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois produits pouvant être reliés en aval de LTA₄.",
+    "format": "QRM",
+    "question": "À propos de LTB4, quelles affirmations sont correctes ?",
     "choices": [
       {
-        "content": "LTB₄.",
+        "content": "Il active plusieurs fonctions leucocytaires.",
         "correct": true,
-        "explanation": "Branche."
+        "explanation": "Il amplifie certaines réponses inflammatoires."
       },
       {
-        "content": "LXA₄.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "LTC₄ puis LTD₄/LTE₄.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "Glycogène.",
+        "content": "LTB4 bloque systématiquement le recrutement des neutrophiles.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Il est chimiotactique."
+      },
+      {
+        "content": "LTB4 est formé par conjugaison directe au glutathion.",
+        "correct": false,
+        "explanation": "Cela mène à LTC4."
+      },
+      {
+        "content": "Il n'est pas un cystéinyl-leucotriène.",
+        "correct": true,
+        "explanation": "Il ne porte pas la chaîne dérivée du glutathion de LTC4/D4/E4."
+      },
+      {
+        "content": "LTB4 est un puissant facteur chimiotactique pour les neutrophiles.",
+        "correct": true,
+        "explanation": "Il participe au recrutement inflammatoire."
       }
     ],
-    "explanation": "LTA₄ est un précurseur de plusieurs branches leucotriène/lipoxine."
+    "explanation": "LTB4 est une branche de LTA4 fortement impliquée dans le recrutement et l'activation des leucocytes."
   },
   {
     "order": 100,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Leucotriènes, LTA₄ et branche du glutathion : sélectionnez exactement cinq propositions correctes.",
-    "choices": [
-      {
-        "content": "Les leucotriènes sont des dérivés C20.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Les leucotriènes de série 4 possèdent quatre doubles liaisons.",
-        "correct": true,
-        "explanation": "L'indice de série indique le nombre de doubles liaisons."
-      },
-      {
-        "content": "Trois doubles liaisons sont conjuguées.",
-        "correct": true,
-        "explanation": "Triène."
-      },
-      {
-        "content": "LTA₄ est formé par la 5-lipoxygénase.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "Le glutathion intervient dans la branche LTC₄/LTD₄/LTE₄.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "LTA₄ est un produit direct de COX.",
-        "correct": false,
-        "explanation": "5-lipoxygénase."
-      },
-      {
-        "content": "Les leucotriènes n’ont aucun effet sur les muscles lisses.",
-        "correct": false,
-        "explanation": "Bronchoconstriction/vasoconstriction."
-      },
-      {
-        "content": "Les leucotriènes ne sont jamais produits par des leucocytes.",
-        "correct": false,
-        "explanation": "Ils le sont."
-      },
-      {
-        "content": "LXA₄ est un thromboxane.",
-        "correct": false,
-        "explanation": "Lipoxine."
-      },
-      {
-        "content": "Les leucotriènes n’interviennent jamais dans le chimiotactisme.",
-        "correct": false,
-        "explanation": "LTB₄ est un puissant agent chimiotactique, notamment pour les neutrophiles."
+    "format": "QROC",
+    "question": "Quel leucotriène est formé directement par conjugaison de LTA4 au glutathion ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "LTC4",
+        "LTC₄",
+        "leucotriène C4",
+        "leucotriene C4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette QRPL consolide structure, cellules, effets et voies des leucotriènes."
+    },
+    "explanation": "LTC4 initie la branche des cystéinyl-leucotriènes ; LTD4 et LTE4 résultent de clivages successifs."
   }
 ];

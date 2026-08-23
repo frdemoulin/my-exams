@@ -40,7 +40,7 @@ export const UE14_BIOCH_CH4_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 80,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À propos du point de fusion et la longueur de chaîne, quelle affirmation est correcte ?",
+    "question": "À propos du point de fusion et de la longueur de chaîne, quelle affirmation est correcte ?",
     "choices": [
       {
         "content": "Allonger une chaîne saturée abaisse toujours son point de fusion.",

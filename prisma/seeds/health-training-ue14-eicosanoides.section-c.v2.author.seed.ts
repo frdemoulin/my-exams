@@ -1,509 +1,576 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Les eicosanoïdes — Section C
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Les eicosanoïdes — Section C — Effets biologiques et thérapeutiques des prostanoïdes */
 export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les prostanoïdes sont décrits comme :",
+    "question": "Concernant le caractère local des prostanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Des médiateurs locaux.",
+        "content": "Ils agissent souvent à courte distance.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Ils sont des médiateurs autocrines/paracrines."
       },
       {
-        "content": "Synthétisés par de nombreux tissus.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Ayant souvent une demi-vie très courte.",
-        "correct": true,
-        "explanation": "Quelques minutes."
-      },
-      {
-        "content": "Des hormones circulantes à demi-vie de plusieurs années.",
+        "content": "Ils agissent sans aucun récepteur.",
         "correct": false,
-        "explanation": "Les prostanoïdes agissent surtout localement et sont rapidement inactivés."
+        "explanation": "De nombreux effets passent par des récepteurs spécifiques."
+      },
+      {
+        "content": "Ils agissent via des récepteurs spécifiques.",
+        "correct": true,
+        "explanation": "Le récepteur conditionne la réponse cellulaire."
+      },
+      {
+        "content": "Ils sont tous des hormones stables circulant plusieurs jours.",
+        "correct": false,
+        "explanation": "Beaucoup sont des médiateurs locaux et brefs."
+      },
+      {
+        "content": "Une demi-vie courte empêche toute action biologique.",
+        "correct": false,
+        "explanation": "Ils peuvent être très puissants localement."
       }
     ],
-    "explanation": "Les prostanoïdes sont des médiateurs locaux à action rapide et brève."
+    "explanation": "Les prostanoïdes sont souvent produits à la demande, agissent localement et sont rapidement inactivés."
   },
   {
     "order": 46,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L’action des prostanoïdes :",
+    "format": "QRU",
+    "question": "À propos de l'antagonisme TXA2-PGI2, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Passe par des récepteurs cellulaires spécifiques.",
-        "correct": true,
-        "explanation": "Mécanisme général."
-      },
-      {
-        "content": "Peut varier selon le composé/la série.",
-        "correct": true,
-        "explanation": "Fonctions parfois contraires."
-      },
-      {
-        "content": "Peut conduire à des effets biologiques opposés entre molécules proches.",
-        "correct": true,
-        "explanation": "Le récepteur exprimé et le tissu cible déterminent la réponse."
-      },
-      {
-        "content": "Est identique pour toutes les prostaglandines.",
+        "content": "PGI2 favorise l'agrégation plaquettaire.",
         "correct": false,
-        "explanation": "Les effets peuvent être très différents."
+        "explanation": "Elle l'inhibe."
+      },
+      {
+        "content": "TXA2 et PGI2 ont exactement les mêmes effets.",
+        "correct": false,
+        "explanation": "Ils sont antagonistes sur plusieurs fonctions."
+      },
+      {
+        "content": "PGI2 inhibe l'agrégation plaquettaire.",
+        "correct": true,
+        "explanation": "Elle est produite notamment par l'endothélium."
+      },
+      {
+        "content": "Aucun de ces médiateurs n'agit sur les plaquettes.",
+        "correct": false,
+        "explanation": "Tous deux participent à leur régulation."
+      },
+      {
+        "content": "TXA2 est le vasodilatateur endothélial majeur du couple.",
+        "correct": false,
+        "explanation": "Ce rôle correspond à PGI2."
       }
     ],
-    "explanation": "Une structure proche n’implique pas un effet biologique identique."
+    "explanation": "Le couple TXA2/PGI2 illustre un antagonisme local entre signal plaquettaire proagrégant et signal endothélial antiagrégant."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de PGF₂α :",
-    "choices": [
-      {
-        "content": "Structurellement proche de PGE₂.",
-        "correct": true,
-        "explanation": "Comparaison."
-      },
-      {
-        "content": "Dont les effets dépendent des récepteurs et des tissus cibles.",
-        "correct": true,
-        "explanation": "Des prostaglandines proches peuvent activer des récepteurs distincts."
-      },
-      {
-        "content": "Associée notamment à vasoconstriction et bronchoconstriction dans les exemples.",
-        "correct": true,
-        "explanation": "PGF₂α peut contracter différents muscles lisses."
-      },
-      {
-        "content": "Toujours identique à PGE₂ sur le plan fonctionnel.",
-        "correct": false,
-        "explanation": "Une proximité structurale n'impose pas des effets identiques."
+    "format": "QROC",
+    "question": "Quel ordre de grandeur convient à la demi-vie du TXA2 : secondes, heures ou jours ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "secondes",
+        "quelques dizaines de secondes",
+        "environ 30 secondes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "PGF₂α illustre la diversité fonctionnelle des prostaglandines."
+    },
+    "explanation": "TXA2 a une demi-vie de l'ordre de dizaines de secondes, adaptée à un signal local rapide."
   },
   {
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos du misoprostol :",
+    "question": "Concernant la demi-vie de PGI2, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Est un analogue synthétique de PGE₁.",
+        "content": "Sa durée de vie est plus longue que celle de TXA2 mais reste brève.",
         "correct": true,
-        "explanation": "Nature."
+        "explanation": "On parle d'environ quelques minutes."
       },
       {
-        "content": "Peut être utilisé pour faciliter le déclenchement de l’accouchement.",
-        "correct": true,
-        "explanation": "Son usage obstétrical est encadré par des protocoles médicaux."
-      },
-      {
-        "content": "Favorise la contraction utérine et l’assouplissement du col dans ce contexte.",
-        "correct": true,
-        "explanation": "Il favorise la maturation cervicale et l'activité utérine."
-      },
-      {
-        "content": "Est une enzyme de la voie COX.",
+        "content": "PGI2 est stockée durablement dans des granules endothéliaux.",
         "correct": false,
-        "explanation": "C’est un analogue de prostaglandine."
+        "explanation": "Elle est synthétisée à la demande."
+      },
+      {
+        "content": "Elle inhibe l'agrégation plaquettaire pendant son action.",
+        "correct": true,
+        "explanation": "Elle s'oppose à TXA2."
+      },
+      {
+        "content": "PGI2 a une demi-vie courte, de l'ordre de quelques minutes.",
+        "correct": true,
+        "explanation": "Elle est néanmoins un puissant médiateur local."
+      },
+      {
+        "content": "Sa demi-vie est exactement celle d'un globule rouge.",
+        "correct": false,
+        "explanation": "Les ordres de grandeur sont sans rapport."
       }
     ],
-    "explanation": "Le misoprostol fournit une application thérapeutique directe des prostaglandines."
+    "explanation": "PGI2 est un médiateur très bref, avec une demi-vie de l'ordre de quelques minutes."
   },
   {
     "order": 49,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le TXA₂ :",
+    "format": "QRU",
+    "question": "À propos de l'aspirine et la synthèse de TXA2, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Est synthétisé notamment par les plaquettes.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Est un puissant vasoconstricteur.",
-        "correct": true,
-        "explanation": "TXA₂ contracte le muscle lisse vasculaire."
-      },
-      {
-        "content": "Favorise l’agrégation plaquettaire.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "Est produit surtout par l’endothélium et inhibe l’agrégation.",
+        "content": "L'aspirine stimule la synthèse de TXA2.",
         "correct": false,
-        "explanation": "Cette description correspond à PGI₂."
+        "explanation": "Elle la diminue."
+      },
+      {
+        "content": "La diminution de TXA2 réduit un signal proagrégant.",
+        "correct": true,
+        "explanation": "C'est le principe pharmacologique recherché."
+      },
+      {
+        "content": "Elle est un analogue de PGE1 utilisé pour le déclenchement de l'accouchement.",
+        "correct": false,
+        "explanation": "Cela décrit le misoprostol."
+      },
+      {
+        "content": "Elle agit principalement en hydrolysant le fibrinogène.",
+        "correct": false,
+        "explanation": "Ce n'est pas son mécanisme."
+      },
+      {
+        "content": "Elle augmente l'agrégation en activant directement TXA2.",
+        "correct": false,
+        "explanation": "Son faible dosage est utilisé comme antiagrégant."
       }
     ],
-    "explanation": "TXA₂ favorise vasoconstriction et agrégation plaquettaire."
+    "explanation": "L'aspirine à faible dose diminue durablement la synthèse plaquettaire de TXA2 et réduit ainsi un signal proagrégant."
   },
   {
     "order": 50,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La PGI₂ :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur l'ibuprofène et la COX, sélectionnez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Est synthétisée par l’endothélium vasculaire.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Est un puissant vasodilatateur.",
-        "correct": true,
-        "explanation": "PGI₂ favorise la relaxation du muscle lisse vasculaire."
-      },
-      {
-        "content": "Inhibe l’agrégation plaquettaire.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "Est le principal thromboxane plaquettaire proagrégant.",
+        "content": "Il ne possède aucune action sur la voie COX.",
         "correct": false,
-        "explanation": "Cette description correspond à TXA₂."
+        "explanation": "C'est sa cible pharmacologique majeure."
+      },
+      {
+        "content": "Il augmente directement la synthèse de PGE2.",
+        "correct": false,
+        "explanation": "Il la réduit via l'inhibition de COX."
+      },
+      {
+        "content": "Il n'est pas un analogue de prostaglandine.",
+        "correct": true,
+        "explanation": "Il inhibe leur synthèse plutôt qu'il n'en mime directement une."
+      },
+      {
+        "content": "L'ibuprofène active la 5-LOX pour augmenter les leucotriènes.",
+        "correct": false,
+        "explanation": "Ce n'est pas son mécanisme principal."
+      },
+      {
+        "content": "Il diminue la synthèse de plusieurs prostanoïdes.",
+        "correct": true,
+        "explanation": "Cela contribue à ses effets antalgique et anti-inflammatoire."
       }
     ],
-    "explanation": "PGI₂ s’oppose localement à plusieurs effets du TXA₂."
+    "explanation": "L'ibuprofène est un AINS qui inhibe réversiblement COX et réduit la synthèse de prostanoïdes.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Comparer TXA₂ et PGI₂ :",
+    "question": "Concernant le misoprostol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Leurs effets vasculaires sont antagonistes.",
+        "content": "Le misoprostol est un analogue synthétique de PGE1.",
         "correct": true,
-        "explanation": "Vasoconstriction versus vasodilatation."
+        "explanation": "Il mime certaines actions prostaglandines."
       },
       {
-        "content": "Leurs effets sur l’agrégation plaquettaire sont antagonistes.",
+        "content": "Il ne doit pas être confondu avec un inhibiteur de COX.",
         "correct": true,
-        "explanation": "Activation versus inhibition."
+        "explanation": "Il est un analogue de prostaglandine."
       },
       {
-        "content": "Ils participent à un équilibre local.",
+        "content": "Il peut être utilisé pour la maturation cervicale et le déclenchement du travail dans des indications encadrées.",
         "correct": true,
-        "explanation": "Leur balance contribue à la régulation de l'hémostase vasculaire."
+        "explanation": "L'utilisation obstétricale relève de protocoles médicaux."
       },
       {
-        "content": "Ils ont exactement la même origine cellulaire.",
+        "content": "Il peut stimuler la contractilité utérine.",
+        "correct": true,
+        "explanation": "C'est une propriété prostaglandine exploitée en obstétrique."
+      },
+      {
+        "content": "Il est un thromboxane naturel.",
         "correct": false,
-        "explanation": "Plaquettes versus endothélium."
+        "explanation": "C'est un analogue synthétique de PGE1."
       }
     ],
-    "explanation": "Le couple TXA₂/PGI₂ illustre un antagonisme local entre plaquettes et endothélium."
+    "explanation": "Le misoprostol est un analogue de PGE1 utilisé notamment pour ses effets sur le col et l'utérus dans des indications médicales."
   },
   {
     "order": 52,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La demi-vie du TXA₂ est donnée comme :",
-    "choices": [
-      {
-        "content": "Très courte.",
-        "correct": true,
-        "explanation": "Environ 30 s."
-      },
-      {
-        "content": "De l’ordre de 30 secondes.",
-        "correct": true,
-        "explanation": "TXA₂ a une demi-vie d'environ 30 secondes."
-      },
-      {
-        "content": "Compatible avec une action locale rapide.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "De plusieurs jours.",
-        "correct": false,
-        "explanation": "TXA₂ s'hydrolyse spontanément en quelques dizaines de secondes."
+    "format": "QROC",
+    "question": "Quel élément cellulaire explique qu'un même médiateur puisse avoir des effets différents selon le tissu ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "récepteur",
+        "récepteurs spécifiques",
+        "type de récepteur",
+        "récepteur cellulaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "TXA₂ est un médiateur extrêmement fugace."
+    },
+    "explanation": "Les effets des prostanoïdes dépendent du médiateur, du récepteur exprimé et du tissu cible."
   },
   {
     "order": 53,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La demi-vie de PGI₂ est donnée comme :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur le caractère local des prostanoïdes, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Très courte.",
-        "correct": true,
-        "explanation": "Quelques minutes."
-      },
-      {
-        "content": "De l’ordre de 2 à 3 minutes.",
-        "correct": true,
-        "explanation": "PGI₂ a une demi-vie de l'ordre de quelques minutes."
-      },
-      {
-        "content": "Compatible avec une action locale.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "De plusieurs semaines.",
+        "content": "Tous les tissus produisent exactement le même prostanoïde.",
         "correct": false,
-        "explanation": "PGI₂ est instable et sa demi-vie est de l'ordre de quelques minutes."
+        "explanation": "Le profil enzymatique diffère."
+      },
+      {
+        "content": "Ils agissent via des récepteurs spécifiques.",
+        "correct": true,
+        "explanation": "Le récepteur conditionne la réponse cellulaire."
+      },
+      {
+        "content": "Une demi-vie courte empêche toute action biologique.",
+        "correct": false,
+        "explanation": "Ils peuvent être très puissants localement."
+      },
+      {
+        "content": "Ils agissent sans aucun récepteur.",
+        "correct": false,
+        "explanation": "De nombreux effets passent par des récepteurs spécifiques."
+      },
+      {
+        "content": "Ils sont tous des hormones stables circulant plusieurs jours.",
+        "correct": false,
+        "explanation": "Beaucoup sont des médiateurs locaux et brefs."
       }
     ],
-    "explanation": "PGI₂ agit localement avec une demi-vie brève."
+    "explanation": "Les prostanoïdes sont souvent produits à la demande, agissent localement et sont rapidement inactivés."
   },
   {
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de COX, de l’aspirine et de l’ibuprofène :",
+    "question": "Concernant l'antagonisme TXA2-PGI2, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’aspirine peut inhiber COX.",
+        "content": "TXA2 favorise la vasoconstriction.",
         "correct": true,
-        "explanation": "L'aspirine acétyle et inhibe COX."
+        "explanation": "Il augmente localement le tonus vasculaire."
       },
       {
-        "content": "L’ibuprofène peut inhiber COX.",
-        "correct": true,
-        "explanation": "L'ibuprofène est un inhibiteur réversible de COX."
-      },
-      {
-        "content": "L’inhibition de COX réduit la production de prostanoïdes en aval.",
-        "correct": true,
-        "explanation": "Raisonnement de voie."
-      },
-      {
-        "content": "COX est stimulée obligatoirement par l’aspirine.",
+        "content": "Aucun de ces médiateurs n'agit sur les plaquettes.",
         "correct": false,
-        "explanation": "L'aspirine acétyle et inhibe la cyclo-oxygénase."
+        "explanation": "Tous deux participent à leur régulation."
+      },
+      {
+        "content": "TXA2 favorise l'agrégation plaquettaire.",
+        "correct": true,
+        "explanation": "Il est produit notamment par les plaquettes."
+      },
+      {
+        "content": "TXA2 est le vasodilatateur endothélial majeur du couple.",
+        "correct": false,
+        "explanation": "Ce rôle correspond à PGI2."
+      },
+      {
+        "content": "TXA2 et PGI2 ont exactement les mêmes effets.",
+        "correct": false,
+        "explanation": "Ils sont antagonistes sur plusieurs fonctions."
       }
     ],
-    "explanation": "L'aspirine et l'ibuprofène inhibent COX selon des mécanismes différents."
+    "explanation": "Le couple TXA2/PGI2 illustre un antagonisme local entre signal plaquettaire proagrégant et signal endothélial antiagrégant."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une plaquette activée produit un médiateur entraînant vasoconstriction et agrégation. Le profil correspond à :",
+    "question": "Concernant le caractère local des prostanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "TXA₂.",
+        "content": "Ils agissent via des récepteurs spécifiques.",
         "correct": true,
-        "explanation": "Origine + effets."
+        "explanation": "Le récepteur conditionne la réponse cellulaire."
       },
       {
-        "content": "Un prostanoïde.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Un médiateur à demi-vie très courte.",
-        "correct": true,
-        "explanation": "Environ 30 s."
-      },
-      {
-        "content": "PGI₂.",
+        "content": "Ils agissent sans aucun récepteur.",
         "correct": false,
-        "explanation": "PGI₂ est vasodilatatrice et antiagrégante."
+        "explanation": "De nombreux effets passent par des récepteurs spécifiques."
+      },
+      {
+        "content": "Une demi-vie courte empêche toute action biologique.",
+        "correct": false,
+        "explanation": "Ils peuvent être très puissants localement."
+      },
+      {
+        "content": "Ils sont tous des hormones stables circulant plusieurs jours.",
+        "correct": false,
+        "explanation": "Beaucoup sont des médiateurs locaux et brefs."
+      },
+      {
+        "content": "Leur demi-vie est généralement courte.",
+        "correct": true,
+        "explanation": "Ils sont rapidement métabolisés."
       }
     ],
-    "explanation": "Le contexte vasculaire permet d’identifier le thromboxane A₂."
+    "explanation": "Les prostanoïdes sont souvent produits à la demande, agissent localement et sont rapidement inactivés."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une cellule endothéliale produit un médiateur qui dilate le vaisseau et limite l’agrégation plaquettaire. Le profil correspond à :",
-    "choices": [
-      {
-        "content": "PGI₂.",
-        "correct": true,
-        "explanation": "Origine + effets."
-      },
-      {
-        "content": "Une prostacycline.",
-        "correct": true,
-        "explanation": "PGI."
-      },
-      {
-        "content": "Un médiateur à demi-vie de quelques minutes.",
-        "correct": true,
-        "explanation": "2–3 min."
-      },
-      {
-        "content": "TXA₂.",
-        "correct": false,
-        "explanation": "TXA₂ produit l’effet opposé."
+    "format": "QROC",
+    "question": "Quel prostanoïde endothélial inhibe l'agrégation plaquettaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PGI2",
+        "PGI₂",
+        "prostacycline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le contexte endothélial permet d’identifier la prostacycline PGI₂."
+    },
+    "explanation": "Le couple TXA2/PGI2 illustre un antagonisme local entre signal plaquettaire proagrégant et signal endothélial antiagrégant."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "L’équilibre local TXA₂/PGI₂ :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la demi-vie de TXA2, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Oppose une action plaquettaire proagrégante à une action endothéliale antiagrégante.",
-        "correct": true,
-        "explanation": "Antagonisme."
-      },
-      {
-        "content": "Oppose vasoconstriction et vasodilatation.",
-        "correct": true,
-        "explanation": "Antagonisme."
-      },
-      {
-        "content": "Illustre que deux eicosanoïdes proches peuvent avoir des effets contraires.",
-        "correct": true,
-        "explanation": "Principe."
-      },
-      {
-        "content": "Implique que les deux molécules sont identiques.",
+        "content": "TXA2 est stocké durablement dans les plaquettes avant activation.",
         "correct": false,
-        "explanation": "Elles sont distinctes."
+        "explanation": "Il est produit à la demande."
+      },
+      {
+        "content": "TXA2 est très instable.",
+        "correct": true,
+        "explanation": "Sa demi-vie est de l'ordre de dizaines de secondes."
+      },
+      {
+        "content": "TXA2 circule intact pendant plusieurs jours.",
+        "correct": false,
+        "explanation": "Il est très instable."
+      },
+      {
+        "content": "Sa demi-vie courte signifie qu'il ne peut pas activer de récepteur.",
+        "correct": false,
+        "explanation": "Il agit avant sa dégradation."
+      },
+      {
+        "content": "Une demi-vie courte rend tout effet vasculaire impossible.",
+        "correct": false,
+        "explanation": "Il peut être très puissant localement."
       }
     ],
-    "explanation": "Le couple TXA₂/PGI₂ est un exemple majeur de régulation locale antagoniste."
+    "explanation": "TXA2 a une demi-vie de l'ordre de dizaines de secondes, adaptée à un signal local rapide."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "L’aspirine à faible dose est antiagrégante parce que :",
+    "question": "Concernant la demi-vie de PGI2, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle diminue durablement la synthèse plaquettaire de TXA₂.",
+        "content": "Sa durée de vie est plus longue que celle de TXA2 mais reste brève.",
         "correct": true,
-        "explanation": "L'inhibition irréversible de COX-1 persiste dans la plaquette anucléée."
+        "explanation": "On parle d'environ quelques minutes."
       },
       {
-        "content": "Elle agit via l’inhibition de COX.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "La diminution de TXA₂ réduit un signal proagrégant.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "Elle augmente directement la synthèse de TXA₂.",
+        "content": "Une demi-vie courte empêche tout effet sur les vaisseaux.",
         "correct": false,
-        "explanation": "Une augmentation de TXA₂ favoriserait au contraire l'agrégation."
+        "explanation": "Elle agit puissamment localement."
+      },
+      {
+        "content": "Son action vasculaire est rapidement modulable.",
+        "correct": true,
+        "explanation": "Sa production dépend de l'endothélium."
+      },
+      {
+        "content": "PGI2 persiste plusieurs semaines dans le plasma.",
+        "correct": false,
+        "explanation": "Elle est instable."
+      },
+      {
+        "content": "Elle inhibe l'agrégation plaquettaire pendant son action.",
+        "correct": true,
+        "explanation": "Elle s'oppose à TXA2."
       }
     ],
-    "explanation": "À faible dose, l'aspirine inhibe irréversiblement la COX-1 plaquettaire, réduit TXA₂ et freine l'agrégation."
+    "explanation": "PGI2 est un médiateur très bref, avec une demi-vie de l'ordre de quelques minutes."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Le misoprostol dans le déclenchement de l’accouchement :",
+    "format": "QRP",
+    "question": "À propos de l'aspirine et la synthèse de TXA2, retenez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Mime fonctionnellement une prostaglandine de type PGE₁.",
-        "correct": true,
-        "explanation": "Analogue synthétique."
-      },
-      {
-        "content": "Favorise les contractions utérines.",
-        "correct": true,
-        "explanation": "Le misoprostol favorise les contractions utérines."
-      },
-      {
-        "content": "Contribue à l’assouplissement du col.",
-        "correct": true,
-        "explanation": "Le misoprostol favorise la maturation cervicale."
-      },
-      {
-        "content": "Est utilisé pour inhiber toute contraction utérine dans ce contexte.",
+        "content": "Elle agit principalement en hydrolysant le fibrinogène.",
         "correct": false,
-        "explanation": "Le misoprostol favorise au contraire la maturation cervicale et les contractions."
+        "explanation": "Ce n'est pas son mécanisme."
+      },
+      {
+        "content": "L'effet de l'aspirine est distinct d'une inhibition directe des récepteurs de l'ADP.",
+        "correct": true,
+        "explanation": "Ce sont d'autres antiagrégants qui ciblent P2Y12."
+      },
+      {
+        "content": "L'aspirine inhibe la cyclo-oxygénase.",
+        "correct": true,
+        "explanation": "Elle diminue la synthèse de prostanoïdes."
+      },
+      {
+        "content": "Elle augmente l'agrégation en activant directement TXA2.",
+        "correct": false,
+        "explanation": "Son faible dosage est utilisé comme antiagrégant."
+      },
+      {
+        "content": "Elle est un analogue de PGE1 utilisé pour le déclenchement de l'accouchement.",
+        "correct": false,
+        "explanation": "Cela décrit le misoprostol."
       }
     ],
-    "explanation": "Le misoprostol est un analogue de PGE₁ utilisé en obstétrique selon des protocoles médicaux."
+    "explanation": "L'aspirine à faible dose diminue durablement la synthèse plaquettaire de TXA2 et réduit ainsi un signal proagrégant.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel prostanoïde plaquettaire est proagrégant et vasoconstricteur ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "txa2",
-        "TXA2",
-        "TXA₂",
-        "thromboxane a2",
-        "thromboxane A2"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur l'ibuprofène et la COX, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "L'ibuprofène active la 5-LOX pour augmenter les leucotriènes.",
+        "correct": false,
+        "explanation": "Ce n'est pas son mécanisme principal."
+      },
+      {
+        "content": "Il diminue la synthèse de plusieurs prostanoïdes.",
+        "correct": true,
+        "explanation": "Cela contribue à ses effets antalgique et anti-inflammatoire."
+      },
+      {
+        "content": "L'ibuprofène est un anti-inflammatoire non stéroïdien.",
+        "correct": true,
+        "explanation": "Il inhibe de façon réversible les cyclo-oxygénases."
+      },
+      {
+        "content": "Il n'est pas un analogue de prostaglandine.",
+        "correct": true,
+        "explanation": "Il inhibe leur synthèse plutôt qu'il n'en mime directement une."
+      },
+      {
+        "content": "Son mécanisme COX le distingue d'un antagoniste des leucotriènes.",
+        "correct": true,
+        "explanation": "Les voies ciblées ne sont pas les mêmes."
       }
-    },
-    "explanation": "Il s’agit du thromboxane A₂, TXA₂."
+    ],
+    "explanation": "L'ibuprofène est un AINS qui inhibe réversiblement COX et réduit la synthèse de prostanoïdes."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel prostanoïde endothélial est vasodilatateur et antiagrégant ?",
+    "question": "De quelle prostaglandine le misoprostol est-il un analogue synthétique ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "pgi2",
-        "PGI2",
-        "PGI₂",
-        "prostacycline",
-        "prostacycline pgi2"
+        "PGE1",
+        "PGE₁",
+        "prostaglandine E1",
+        "prostaglandine E₁"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Il s’agit de PGI₂, une prostacycline."
+    "explanation": "Le misoprostol est un analogue de PGE1 utilisé notamment pour ses effets sur le col et l'utérus dans des indications médicales."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quelle demi-vie approximative en secondes est donnée pour TXA₂ ?",
-    "answer": {
-      "type": "number",
-      "value": 30,
-      "tolerance": 0
-    },
-    "explanation": "La demi-vie de TXA₂ est d'environ 30 secondes."
+    "format": "QRU",
+    "question": "À propos de la diversité des effets des prostaglandines, quelle affirmation est correcte ?",
+    "choices": [
+      {
+        "content": "L'effet biologique dépend uniquement du nombre total de carbones.",
+        "correct": false,
+        "explanation": "Le type de médiateur et le récepteur sont déterminants."
+      },
+      {
+        "content": "Toutes les prostaglandines ont exactement le même récepteur et le même effet.",
+        "correct": false,
+        "explanation": "La diversité des récepteurs est majeure."
+      },
+      {
+        "content": "Une différence de groupe structural n'a aucune conséquence possible.",
+        "correct": false,
+        "explanation": "Elle peut modifier l'affinité et l'effet."
+      },
+      {
+        "content": "PGF2α peut contracter certains muscles lisses.",
+        "correct": true,
+        "explanation": "C'est un exemple de diversité fonctionnelle."
+      },
+      {
+        "content": "PGF2α est obligatoirement identique à PGE2.",
+        "correct": false,
+        "explanation": "Ce sont des prostaglandines distinctes."
+      }
+    ],
+    "explanation": "Les effets des prostanoïdes dépendent du médiateur, du récepteur exprimé et du tissu cible."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quelle est, en minutes, la borne haute d'une demi-vie de PGI₂ estimée à 2–3 minutes ?",
+    "question": "PGI2 a une demi-vie de l'ordre de 2 à 3 minutes. Quelle valeur, en minutes, correspond à la borne haute de cet intervalle ?",
     "answer": {
       "type": "number",
       "value": 3,
@@ -515,40 +582,45 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "order": 64,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux effets caractéristiques du TXA₂.",
+    "question": "Sélectionnez exactement les deux effets caractéristiques du TXA2.",
     "choices": [
       {
-        "content": "Vasoconstriction.",
-        "correct": true,
-        "explanation": "Effet."
+        "content": "Chimiotactisme majeur des neutrophiles.",
+        "correct": false,
+        "explanation": "Ce rôle est particulièrement associé à LTB4."
       },
       {
         "content": "Agrégation plaquettaire.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "TXA2 est un signal proagrégant majeur des plaquettes."
+      },
+      {
+        "content": "Inhibition de l'agrégation plaquettaire.",
+        "correct": false,
+        "explanation": "Cet effet caractérise plutôt PGI2."
       },
       {
         "content": "Vasodilatation.",
         "correct": false,
-        "explanation": "PGI₂."
+        "explanation": "La vasodilatation caractérise plutôt PGI2 dans ce couple."
       },
       {
-        "content": "Inhibition de l’agrégation.",
-        "correct": false,
-        "explanation": "PGI₂."
+        "content": "Vasoconstriction.",
+        "correct": true,
+        "explanation": "TXA2 augmente le tonus vasculaire local."
       }
     ],
-    "explanation": "TXA₂ favorise vasoconstriction et agrégation."
+    "explanation": "TXA2 est vasoconstricteur et proagrégant ; PGI2 exerce les effets opposés sur ces deux fonctions.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 65,
     "difficulty": "HARD",
     "format": "QZONE",
-    "question": "Dans ce schéma simplifié d’un vaisseau, cliquez sur l’endothélium, principale source vasculaire de PGI₂.",
+    "question": "Dans ce schéma simplifié d'un vaisseau, cliquez sur l'endothélium, principale source vasculaire de PGI2.",
     "image": {
       "src": "/images/training/ue14/biochimie/eicosanoides/pgi2-txa2-endothelium-qzone.svg",
-      "alt": "Schéma simplifié d’un vaisseau avec plaquettes dans la lumière et endothélium en bas",
+      "alt": "Schéma simplifié d'un vaisseau avec plaquettes dans la lumière et endothélium en bas",
       "width": 1200,
       "height": 600
     },
@@ -561,415 +633,399 @@ export const UE14_BIOCH_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "tolerance": 0.09
       }
     ],
-    "explanation": "La PGI₂ est synthétisée par l’endothélium vasculaire et s’oppose localement au TXA₂ plaquettaire."
+    "explanation": "PGI2 est produite notamment par l'endothélium vasculaire ; elle est vasodilatatrice et antiagrégante, à l'opposé du TXA2 plaquettaire."
   },
   {
     "order": 66,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Une baisse de la production plaquettaire de TXA₂ devrait tendre à :",
-    "choices": [
-      {
-        "content": "Diminuer un signal d’agrégation plaquettaire.",
-        "correct": true,
-        "explanation": "TXA₂ est proagrégant."
-      },
-      {
-        "content": "Diminuer un signal vasoconstricteur.",
-        "correct": true,
-        "explanation": "TXA₂ est vasoconstricteur."
-      },
-      {
-        "content": "Être cohérente avec l’effet antiagrégant de l’aspirine à faible dose.",
-        "correct": true,
-        "explanation": "L'aspirine à faible dose réduit la synthèse plaquettaire de TXA₂."
-      },
-      {
-        "content": "Augmenter nécessairement l’action proagrégante du TXA₂.",
-        "correct": false,
-        "explanation": "Contradiction."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel ordre de grandeur convient à la demi-vie de PGI2 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "quelques minutes",
+        "minutes",
+        "2 à 3 minutes",
+        "2-3 minutes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le raisonnement se limite aux effets explicitement attribués à TXA₂."
+    },
+    "explanation": "PGI2 est un médiateur très bref, avec une demi-vie de l'ordre de quelques minutes."
   },
   {
     "order": 67,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une baisse de la production endothéliale de PGI₂ signifie la diminution :",
+    "question": "Concernant le caractère local des prostanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "D’un signal vasodilatateur.",
-        "correct": true,
-        "explanation": "Effet PGI₂."
-      },
-      {
-        "content": "D’un signal antiagrégant.",
-        "correct": true,
-        "explanation": "Effet PGI₂."
-      },
-      {
-        "content": "D’un médiateur produit par l’endothélium.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Du principal signal proagrégant produit par les plaquettes.",
+        "content": "Une demi-vie courte empêche toute action biologique.",
         "correct": false,
-        "explanation": "Cela correspond à TXA₂."
+        "explanation": "Ils peuvent être très puissants localement."
+      },
+      {
+        "content": "Ils sont tous des hormones stables circulant plusieurs jours.",
+        "correct": false,
+        "explanation": "Beaucoup sont des médiateurs locaux et brefs."
+      },
+      {
+        "content": "Ils agissent souvent à courte distance.",
+        "correct": true,
+        "explanation": "Ils sont des médiateurs autocrines/paracrines."
+      },
+      {
+        "content": "Ils agissent sans aucun récepteur.",
+        "correct": false,
+        "explanation": "De nombreux effets passent par des récepteurs spécifiques."
+      },
+      {
+        "content": "Leur demi-vie est généralement courte.",
+        "correct": true,
+        "explanation": "Ils sont rapidement métabolisés."
       }
     ],
-    "explanation": "PGI₂ est l’élément endothélial vasodilatateur et antiagrégant du couple."
+    "explanation": "Les prostanoïdes sont souvent produits à la demande, agissent localement et sont rapidement inactivés."
   },
   {
     "order": 68,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Quelle prostaglandine peut provoquer une vasoconstriction et une bronchoconstriction par contraction du muscle lisse ?",
-    "choices": [
-      {
-        "content": "PGF₂α.",
-        "correct": true,
-        "explanation": "PGF₂α peut contracter différents muscles lisses."
-      },
-      {
-        "content": "Une prostaglandine.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Un exemple d’effets différents malgré une structure proche.",
-        "correct": true,
-        "explanation": "Message pédagogique."
-      },
-      {
-        "content": "Du glycogène.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quel prostanoïde endothélial inhibe l'agrégation plaquettaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PGI2",
+        "PGI₂",
+        "prostacycline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "PGF₂α illustre la diversité fonctionnelle des prostaglandines."
+    },
+    "explanation": "Le couple TXA2/PGI2 illustre un antagonisme local entre signal plaquettaire proagrégant et signal endothélial antiagrégant."
   },
   {
     "order": 69,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un analogue synthétique de PGE₁ est utilisé en obstétrique. Quelles conclusions sont justifiées ?",
-    "choices": [
-      {
-        "content": "Il s’agit du misoprostol.",
-        "correct": true,
-        "explanation": "Le misoprostol est un analogue de PGE₁."
-      },
-      {
-        "content": "Il facilite le déclenchement de l’accouchement.",
-        "correct": true,
-        "explanation": "Il est utilisé pour la maturation cervicale et le déclenchement selon des protocoles médicaux."
-      },
-      {
-        "content": "Il favorise contraction utérine et assouplissement cervical.",
-        "correct": true,
-        "explanation": "Effets."
-      },
-      {
-        "content": "Il agit comme une β-glucosidase intestinale.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quel analogue synthétique de PGE1 est utilisé notamment en obstétrique pour la maturation cervicale et le déclenchement du travail dans des indications encadrées ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "misoprostol",
+        "le misoprostol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le contexte obstétrical relie une application thérapeutique à la famille des prostaglandines."
+    },
+    "explanation": "Le misoprostol est un analogue synthétique de PGE1 ; son emploi obstétrical relève d'indications et de protocoles médicaux."
   },
   {
     "order": 70,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Aspirine et ibuprofène ont en commun :",
+    "question": "Concernant la demi-vie de PGI2, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "D’être des inhibiteurs de COX.",
+        "content": "Sa durée de vie est plus longue que celle de TXA2 mais reste brève.",
         "correct": true,
-        "explanation": "Tous deux inhibent une cyclo-oxygénase, selon des mécanismes différents."
+        "explanation": "On parle d'environ quelques minutes."
       },
       {
-        "content": "D’agir en amont des prostanoïdes dans le schéma simplifié.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "De pouvoir réduire la synthèse de produits de la voie COX.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "D’être décrits comme activateurs de la 5-lipoxygénase.",
+        "content": "Sa demi-vie est exactement celle d'un globule rouge.",
         "correct": false,
-        "explanation": "Ces médicaments n'activent pas directement la 5-lipoxygénase."
+        "explanation": "Les ordres de grandeur sont sans rapport."
+      },
+      {
+        "content": "PGI2 persiste plusieurs semaines dans le plasma.",
+        "correct": false,
+        "explanation": "Elle est instable."
+      },
+      {
+        "content": "Son action vasculaire est rapidement modulable.",
+        "correct": true,
+        "explanation": "Sa production dépend de l'endothélium."
+      },
+      {
+        "content": "PGI2 a une demi-vie courte, de l'ordre de quelques minutes.",
+        "correct": true,
+        "explanation": "Elle est néanmoins un puissant médiateur local."
       }
     ],
-    "explanation": "Le point commun demandé est strictement l’inhibition de COX."
+    "explanation": "PGI2 est un médiateur très bref, avec une demi-vie de l'ordre de quelques minutes."
   },
   {
     "order": 71,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un étudiant affirme : « TXA₂ et PGI₂ ont les mêmes effets car ils sont tous deux des prostanoïdes ». La correction est :",
+    "format": "QRU",
+    "question": "À propos de l'aspirine et la synthèse de TXA2, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Ils ont des effets vasculaires opposés.",
-        "correct": true,
-        "explanation": "Vasoconstriction/vasodilatation."
-      },
-      {
-        "content": "Ils ont des effets opposés sur l’agrégation.",
-        "correct": true,
-        "explanation": "Pro-/antiagrégation."
-      },
-      {
-        "content": "Leur origine cellulaire principale diffère.",
-        "correct": true,
-        "explanation": "Plaquettes/endothélium."
-      },
-      {
-        "content": "L’appartenance à une même famille impose des effets identiques.",
+        "content": "L'aspirine stimule la synthèse de TXA2.",
         "correct": false,
-        "explanation": "TXA₂ et PGI₂ illustrent au contraire des effets antagonistes."
+        "explanation": "Elle la diminue."
+      },
+      {
+        "content": "Elle augmente l'agrégation en activant directement TXA2.",
+        "correct": false,
+        "explanation": "Son faible dosage est utilisé comme antiagrégant."
+      },
+      {
+        "content": "À faible dose, l'effet plaquettaire sur TXA2 contribue à l'action antiagrégante.",
+        "correct": true,
+        "explanation": "Les plaquettes ne renouvellent pas efficacement la COX acétylée."
+      },
+      {
+        "content": "Elle est un analogue de PGE1 utilisé pour le déclenchement de l'accouchement.",
+        "correct": false,
+        "explanation": "Cela décrit le misoprostol."
+      },
+      {
+        "content": "Elle agit principalement en hydrolysant le fibrinogène.",
+        "correct": false,
+        "explanation": "Ce n'est pas son mécanisme."
       }
     ],
-    "explanation": "L’appartenance à la même famille n’empêche pas des fonctions antagonistes."
+    "explanation": "L'aspirine à faible dose diminue durablement la synthèse plaquettaire de TXA2 et réduit ainsi un signal proagrégant."
   },
   {
     "order": 72,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Le caractère local des prostanoïdes est cohérent avec :",
+    "question": "Parmi les propositions suivantes sur l'ibuprofène et la COX, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Une synthèse par de nombreux tissus.",
+        "content": "Il n'est pas un analogue de prostaglandine.",
         "correct": true,
-        "explanation": "Origine locale."
+        "explanation": "Il inhibe leur synthèse plutôt qu'il n'en mime directement une."
       },
       {
-        "content": "Des demi-vies courtes.",
-        "correct": true,
-        "explanation": "Brièveté."
-      },
-      {
-        "content": "Une action via des récepteurs cellulaires spécifiques.",
-        "correct": true,
-        "explanation": "Signalisation."
-      },
-      {
-        "content": "Une obligation de circuler plusieurs mois dans le sang.",
+        "content": "L'ibuprofène active la 5-LOX pour augmenter les leucotriènes.",
         "correct": false,
-        "explanation": "Contradictoire avec la demi-vie courte."
+        "explanation": "Ce n'est pas son mécanisme principal."
+      },
+      {
+        "content": "Son mécanisme COX le distingue d'un antagoniste des leucotriènes.",
+        "correct": true,
+        "explanation": "Les voies ciblées ne sont pas les mêmes."
+      },
+      {
+        "content": "L'ibuprofène est un anti-inflammatoire non stéroïdien.",
+        "correct": true,
+        "explanation": "Il inhibe de façon réversible les cyclo-oxygénases."
+      },
+      {
+        "content": "Il diminue la synthèse de plusieurs prostanoïdes.",
+        "correct": true,
+        "explanation": "Cela contribue à ses effets antalgique et anti-inflammatoire."
       }
     ],
-    "explanation": "Synthèse locale, demi-vie courte et récepteurs spécifiques caractérisent ces médiateurs."
+    "explanation": "L'ibuprofène est un AINS qui inhibe réversiblement COX et réduit la synthèse de prostanoïdes."
   },
   {
     "order": 73,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "En comparant les demi-vies de TXA₂ et de PGI₂, on peut retenir :",
-    "choices": [
-      {
-        "content": "TXA₂ ≈ 30 s.",
-        "correct": true,
-        "explanation": "Valeur."
-      },
-      {
-        "content": "PGI₂ ≈ 2–3 min.",
-        "correct": true,
-        "explanation": "Valeur."
-      },
-      {
-        "content": "Les deux restent des médiateurs très brefs.",
-        "correct": true,
-        "explanation": "Ordre de grandeur."
-      },
-      {
-        "content": "PGI₂ a une demi-vie de plusieurs jours.",
-        "correct": false,
-        "explanation": "Quelques minutes."
+    "format": "QROC",
+    "question": "De quelle prostaglandine le misoprostol est-il un analogue synthétique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PGE1",
+        "PGE₁",
+        "prostaglandine E1",
+        "prostaglandine E₁"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les deux médiateurs agissent rapidement et localement."
+    },
+    "explanation": "Le misoprostol est un analogue de PGE1 utilisé notamment pour ses effets sur le col et l'utérus dans des indications médicales."
   },
   {
     "order": 74,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Dans un schéma vasculaire, une plaquette et une cellule endothéliale produisent des médiateurs antagonistes. Les associations correctes sont :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Plaquette → TXA₂.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Endothélium → PGI₂.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "TXA₂ → agrégation.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "PGI₂ → agrégation plaquettaire accrue.",
+        "content": "L'effet biologique dépend uniquement du nombre total de carbones.",
         "correct": false,
-        "explanation": "PGI₂ l’inhibe."
+        "explanation": "Le type de médiateur et le récepteur sont déterminants."
+      },
+      {
+        "content": "TXA2 circule intact pendant plusieurs jours.",
+        "correct": false,
+        "explanation": "Il est très instable."
+      },
+      {
+        "content": "Sa demi-vie courte signifie qu'il ne peut pas activer de récepteur.",
+        "correct": false,
+        "explanation": "Il agit avant sa dégradation."
+      },
+      {
+        "content": "PGE2 possède plusieurs sous-types de récepteurs EP.",
+        "correct": true,
+        "explanation": "Des récepteurs différents expliquent des réponses variées."
+      },
+      {
+        "content": "Une nomenclature structurale proche ne permet pas de prédire à elle seule l'effet biologique complet.",
+        "correct": true,
+        "explanation": "La pharmacologie des récepteurs compte."
+      },
+      {
+        "content": "Toutes les prostaglandines ont exactement le même récepteur et le même effet.",
+        "correct": false,
+        "explanation": "La diversité des récepteurs est majeure."
+      },
+      {
+        "content": "Des prostaglandines proches peuvent avoir des effets différents voire opposés.",
+        "correct": true,
+        "explanation": "Le type de récepteur et le tissu cible sont déterminants."
+      },
+      {
+        "content": "Son action est donc très locale.",
+        "correct": true,
+        "explanation": "Il se transforme rapidement en métabolites plus stables."
+      },
+      {
+        "content": "Une demi-vie courte rend tout effet vasculaire impossible.",
+        "correct": false,
+        "explanation": "Il peut être très puissant localement."
+      },
+      {
+        "content": "TXA2 est très instable.",
+        "correct": true,
+        "explanation": "Sa demi-vie est de l'ordre de dizaines de secondes."
       }
     ],
-    "explanation": "Le couple cellule–médiateur–effet constitue un repère transversal."
+    "explanation": "Les effets des prostanoïdes dépendent du médiateur, du récepteur exprimé et du tissu cible. TXA2 a une demi-vie de l'ordre de dizaines de secondes, adaptée à un signal local rapide."
   },
   {
     "order": 75,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Dans le modèle simplifié de l’aspirine à faible dose :",
-    "choices": [
-      {
-        "content": "La cible de voie est COX.",
-        "correct": true,
-        "explanation": "Inhibition."
-      },
-      {
-        "content": "La synthèse de thromboxanes est diminuée.",
-        "correct": true,
-        "explanation": "L'inhibition de COX-1 diminue la production plaquettaire de TXA₂."
-      },
-      {
-        "content": "L’agrégation plaquettaire est freinée.",
-        "correct": true,
-        "explanation": "Effet antiagrégant."
-      },
-      {
-        "content": "La synthèse de TXA₂ est stimulée.",
-        "correct": false,
-        "explanation": "Contradiction."
+    "format": "QROC",
+    "question": "Quel médiateur plaquettaire est réduit par l'aspirine à faible dose, expliquant une part majeure de son effet antiagrégant ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "TXA2",
+        "TXA₂",
+        "thromboxane A2",
+        "thromboxane A₂"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L'inhibition plaquettaire de COX-1 diminue TXA₂ et freine l'agrégation."
+    },
+    "explanation": "L'aspirine inhibe la COX plaquettaire et réduit durablement la formation de TXA2 pendant la vie de la plaquette."
   },
   {
     "order": 76,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Comparer le misoprostol et l’aspirine à faible dose :",
-    "choices": [
-      {
-        "content": "Le misoprostol est un analogue de PGE₁.",
-        "correct": true,
-        "explanation": "Nature."
-      },
-      {
-        "content": "L’aspirine inhibe la voie COX.",
-        "correct": true,
-        "explanation": "L'aspirine acétyle et inhibe la cyclo-oxygénase."
-      },
-      {
-        "content": "Les deux illustrent des applications thérapeutiques des eicosanoïdes ou de leur voie.",
-        "correct": true,
-        "explanation": "Point commun."
-      },
-      {
-        "content": "Les deux sont des glycosidases digestives.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Dans une situation d'application, quel prostanoïde endothélial inhibe l'agrégation plaquettaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PGI2",
+        "PGI₂",
+        "prostacycline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces deux médicaments illustrent des actions pharmacologiques sur un prostanoïde ou sur sa voie de synthèse."
+    },
+    "explanation": "Le couple TXA2/PGI2 illustre un antagonisme local entre signal plaquettaire proagrégant et signal endothélial antiagrégant."
   },
   {
     "order": 77,
     "difficulty": "HARD",
     "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois associations correctes.",
+    "question": "À propos de la demi-vie de TXA2, retenez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "TXA₂ — plaquettes — proagrégant.",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "PGI₂ — endothélium — antiagrégant.",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "Misoprostol — analogue PGE₁ — déclenchement de l’accouchement.",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "Ibuprofène — activation obligatoire de COX.",
+        "content": "TXA2 circule intact pendant plusieurs jours.",
         "correct": false,
-        "explanation": "L'ibuprofène inhibe COX."
+        "explanation": "Il est très instable."
+      },
+      {
+        "content": "TXA2 est stocké durablement dans les plaquettes avant activation.",
+        "correct": false,
+        "explanation": "Il est produit à la demande."
+      },
+      {
+        "content": "Son action est donc très locale.",
+        "correct": true,
+        "explanation": "Il se transforme rapidement en métabolites plus stables."
+      },
+      {
+        "content": "Son instabilité est cohérente avec une régulation fine de l'hémostase locale.",
+        "correct": true,
+        "explanation": "Le signal ne persiste pas durablement."
+      },
+      {
+        "content": "Une demi-vie courte rend tout effet vasculaire impossible.",
+        "correct": false,
+        "explanation": "Il peut être très puissant localement."
       }
     ],
-    "explanation": "Ces associations résument les principaux contextes biologiques et thérapeutiques de la section."
+    "explanation": "TXA2 a une demi-vie de l'ordre de dizaines de secondes, adaptée à un signal local rapide.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 78,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "TXA₂, PGI₂, COX et applications thérapeutiques : sélectionnez exactement cinq propositions correctes.",
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur la demi-vie de PGI2, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "TXA₂ favorise l’agrégation plaquettaire.",
+        "content": "Sa durée de vie est plus longue que celle de TXA2 mais reste brève.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "On parle d'environ quelques minutes."
       },
       {
-        "content": "TXA₂ est vasoconstricteur.",
+        "content": "Son action vasculaire est rapidement modulable.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "Sa production dépend de l'endothélium."
       },
       {
-        "content": "PGI₂ inhibe l’agrégation.",
+        "content": "Sa demi-vie est exactement celle d'un globule rouge.",
+        "correct": false,
+        "explanation": "Les ordres de grandeur sont sans rapport."
+      },
+      {
+        "content": "PGI2 persiste plusieurs semaines dans le plasma.",
+        "correct": false,
+        "explanation": "Elle est instable."
+      },
+      {
+        "content": "Elle inhibe l'agrégation plaquettaire pendant son action.",
         "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "PGI₂ est vasodilatatrice.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "L’aspirine à faible dose est antiagrégante.",
-        "correct": true,
-        "explanation": "Application."
-      },
-      {
-        "content": "TXA₂ est produit principalement par l’endothélium.",
-        "correct": false,
-        "explanation": "Plaquettes."
-      },
-      {
-        "content": "PGI₂ est principalement proagrégante.",
-        "correct": false,
-        "explanation": "Antiagrégante."
-      },
-      {
-        "content": "Le misoprostol inhibe les contractions utérines dans l’exemple.",
-        "correct": false,
-        "explanation": "Il les favorise."
-      },
-      {
-        "content": "L’ibuprofène active COX.",
-        "correct": false,
-        "explanation": "Il l’inhibe."
-      },
-      {
-        "content": "Les prostanoïdes ont tous des effets identiques.",
-        "correct": false,
-        "explanation": "Effets variés, parfois contraires."
+        "explanation": "Elle s'oppose à TXA2."
       }
     ],
-    "explanation": "Cette question consolide l'équilibre vasculaire TXA₂/PGI₂ et les applications pharmacologiques de leur voie."
+    "explanation": "PGI2 est un médiateur très bref, avec une demi-vie de l'ordre de quelques minutes."
   }
 ];
