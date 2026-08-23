@@ -1,657 +1,688 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH14_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — Enzymologie 4.1 — Section A — Catalyse, enzymes, cofacteurs et vitamines */
+export const UE14_BIOCH_CH14_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la définition d’un catalyseur :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes sur un catalyseur, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Un catalyseur accélère une réaction chimique.",
+        "content": "Il augmente la vitesse d'une réaction en proposant une voie réactionnelle de plus faible énergie d'activation.",
         "correct": true,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
+        "explanation": "La barrière cinétique est abaissée."
       },
       {
-        "content": "Un catalyseur interdit toute réaction chimique.",
+        "content": "Il rend spontanée une réaction dont le ΔG est positif dans les mêmes conditions.",
         "correct": false,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
+        "explanation": "Un catalyseur ne modifie pas le ΔG de réaction."
       },
       {
-        "content": "La fiche distingue des catalyseurs minéraux et organiques.",
-        "correct": true,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
-      },
-      {
-        "content": "Tous les catalyseurs sont obligatoirement des protéines.",
+        "content": "Il est consommé en quantité équimolaire avec le substrat.",
         "correct": false,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
+        "explanation": "Il est régénéré au cours du cycle."
+      },
+      {
+        "content": "Il augmente l'énergie d'activation de la réaction.",
+        "correct": false,
+        "explanation": "Il la diminue."
+      },
+      {
+        "content": "Il déplace obligatoirement l'équilibre vers les produits.",
+        "correct": false,
+        "explanation": "Il accélère les deux sens sans changer Keq."
       }
     ],
-    "explanation": "Le support part de la définition générale d’un catalyseur."
+    "explanation": "Un catalyseur agit sur la cinétique en abaissant l'énergie d'activation ; il ne modifie ni le ΔG global ni la constante d'équilibre."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement la catalyse hétérogène et homogène selon la fiche ?",
+    "question": "Concernant la nature des enzymes biologiques, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Les catalyseurs solubles comme les enzymes sont associés à la catalyse homogène.",
+        "content": "Une enzyme doit être consommée à chaque molécule de produit formée.",
+        "correct": false,
+        "explanation": "Elle est régénérée."
+      },
+      {
+        "content": "Toutes les enzymes biologiques sont obligatoirement des protéines.",
+        "correct": false,
+        "explanation": "Les ribozymes sont des ARN catalytiques."
+      },
+      {
+        "content": "Une enzyme reste toujours active après dénaturation complète.",
+        "correct": false,
+        "explanation": "La conformation native est généralement essentielle."
+      },
+      {
+        "content": "Certains ARN possèdent une activité catalytique et sont appelés ribozymes.",
         "correct": true,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
+        "explanation": "La catalyse biologique n'est donc pas exclusivement protéique."
       },
       {
-        "content": "La catalyse hétérogène est définie par l’absence de catalyseur.",
+        "content": "Les ribozymes sont des lipides catalytiques.",
         "correct": false,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "La solubilité ne joue aucun rôle dans la distinction proposée.",
-        "correct": false,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "Les enzymes sont systématiquement classées comme catalyseurs insolubles dans la fiche.",
-        "correct": false,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
+        "explanation": "Ce sont des ARN."
       }
     ],
-    "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
+    "explanation": "La majorité des enzymes sont protéiques, mais des ARN catalytiques existent : les ribozymes."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur les enzymes protéiques et les ribozymes :",
-    "choices": [
-      {
-        "content": "Les enzymes possèdent un pouvoir catalytique élevé et une spécificité.",
-        "correct": true,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
-      },
-      {
-        "content": "La fiche définit une enzyme comme une molécule dépourvue de pouvoir catalytique.",
-        "correct": false,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
-      },
-      {
-        "content": "La majorité des enzymes sont de nature protéique.",
-        "correct": true,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
-      },
-      {
-        "content": "Toutes les enzymes sont obligatoirement des lipides.",
-        "correct": false,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
+    "format": "QROC",
+    "question": "La spécificité enzymatique est-elle toujours absolue ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non",
+        "non, elle peut être relative",
+        "non, elle est souvent relative"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
+    },
+    "explanation": "La spécificité enzymatique concerne à la fois le type de réaction et la reconnaissance du substrat, avec un degré de sélectivité variable."
   },
   {
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur le pouvoir catalytique des enzymes, lesquelles sont exactes ?",
+    "question": "Parmi les affirmations suivantes sur l'affinité enzyme-substrat, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La fiche indique une accélération d’au moins 10^6 pour les réactions biologiques.",
+        "content": "Une forte affinité peut permettre une fixation efficace à faible concentration de substrat.",
         "correct": true,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
+        "explanation": "La concentration requise dépend cependant du système étudié."
       },
       {
-        "content": "La fiche indique que les enzymes ralentissent toutes les réactions d’un facteur 10^6.",
+        "content": "Une enzyme à forte affinité ne peut jamais libérer son produit.",
         "correct": false,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
+        "explanation": "La catalyse exige un cycle comprenant la libération des produits."
       },
       {
-        "content": "L’OMP décarboxylase est citée avec un facteur d’environ 10^17.",
+        "content": "Elle repose sur de multiples interactions non covalentes entre enzyme et substrat.",
         "correct": true,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
+        "explanation": "La somme de nombreuses interactions peut stabiliser ES."
       },
       {
-        "content": "L’OMP décarboxylase est décrite comme sans effet catalytique.",
+        "content": "L'affinité est nécessairement identique pour tous les analogues d'un substrat.",
         "correct": false,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
+        "explanation": "Les variations structurales modifient souvent la liaison."
+      },
+      {
+        "content": "L'affinité est indépendante de toute interaction moléculaire.",
+        "correct": false,
+        "explanation": "Elle résulte précisément des interactions enzyme-substrat."
       }
     ],
-    "explanation": "Les exemples illustrent des gains considérables de vitesse."
+    "explanation": "L'affinité décrit la liaison enzyme-substrat ; elle ne doit pas être confondue avec la vitesse de transformation chimique."
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant la spécificité enzymatique :",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les notions d'apoenzyme, cofacteur et holoenzyme.",
     "choices": [
       {
-        "content": "Elle peut être spécifique du substrat transformé.",
+        "content": "Un cofacteur est nécessairement une protéine.",
+        "correct": false,
+        "explanation": "Il est par définition non protéique dans ce contexte."
+      },
+      {
+        "content": "Une holoenzyme est une enzyme dont on a retiré son cofacteur.",
+        "correct": false,
+        "explanation": "C'est au contraire l'ensemble complet fonctionnel."
+      },
+      {
+        "content": "L'apoenzyme correspond à la partie protéique d'une enzyme nécessitant un cofacteur.",
         "correct": true,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+        "explanation": "Seule, elle peut être catalytiquement inactive ou moins active."
       },
       {
-        "content": "La spécificité ne concerne jamais la réaction.",
-        "correct": false,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+        "content": "Certaines enzymes fonctionnent sans cofacteur supplémentaire.",
+        "correct": true,
+        "explanation": "La présence d'un cofacteur n'est pas une propriété universelle."
       },
       {
-        "content": "La fiche affirme que la spécificité est absolue dans tous les cas.",
+        "content": "L'apoenzyme désigne uniquement le cofacteur métallique.",
         "correct": false,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
-      },
-      {
-        "content": "Toutes les enzymes transforment tous les substrats de la même façon.",
-        "correct": false,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+        "explanation": "Elle désigne la partie protéique."
       }
     ],
-    "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+    "explanation": "Apoenzyme = partie protéique ; cofacteur = composante non protéique requise ; holoenzyme = ensemble fonctionnel.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la subtilisine selon la fiche ?",
+    "question": "Concernant les coenzymes et groupements prosthétiques, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle peut couper entre deux acides aminés quelconques dans le modèle présenté.",
-        "correct": true,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
-      },
-      {
-        "content": "Elle possède une spécificité plus élevée que la thrombine selon la fiche.",
+        "content": "Un groupement prosthétique est toujours un ion métallique libre.",
         "correct": false,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+        "explanation": "Il peut être organique ou métallique et est fortement associé."
       },
       {
-        "content": "La subtilisine est d’origine bactérienne dans la fiche.",
+        "content": "Un groupement prosthétique est lié très fortement, souvent durablement, à la protéine.",
         "correct": true,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+        "explanation": "La liaison peut être covalente ou non covalente mais très stable."
       },
       {
-        "content": "La subtilisine ne coupe qu’Arg-Gly.",
+        "content": "Un coenzyme est un cofacteur organique.",
+        "correct": true,
+        "explanation": "NAD+, FAD ou PLP sont des exemples de coenzymes dans différents systèmes."
+      },
+      {
+        "content": "FAD peut être fortement lié comme groupement prosthétique dans de nombreuses flavoprotéines.",
+        "correct": true,
+        "explanation": "Ce n'est pas pour autant une règle universelle pour toute flavine."
+      },
+      {
+        "content": "FAD est toujours un cosubstrat libre dans toutes les enzymes.",
         "correct": false,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+        "explanation": "Il est souvent fortement lié dans les flavoprotéines."
       }
     ],
-    "explanation": "La subtilisine illustre une protéase à faible spécificité."
+    "explanation": "Les coenzymes sont des cofacteurs organiques ; certains sont mobiles, d'autres sont fortement liés comme groupements prosthétiques."
   },
   {
     "order": 7,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur la trypsine :",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement le phosphate de pyridoxal et la vitamine B6 ?",
     "choices": [
       {
-        "content": "La fiche associe la trypsine aux liaisons Arg-X et Lys-X.",
-        "correct": true,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
-      },
-      {
-        "content": "La trypsine ne reconnaît que Trp-X selon cette fiche.",
+        "content": "Le PLP dérive de la vitamine C.",
         "correct": false,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
+        "explanation": "Il dérive de la vitamine B6."
       },
       {
-        "content": "La trypsine est une enzyme protéolytique.",
-        "correct": true,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
-      },
-      {
-        "content": "La trypsine est un coenzyme dérivé de la vitamine B6.",
+        "content": "Le PLP est le principal coenzyme des réactions de réplication de l'ADN.",
         "correct": false,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
+        "explanation": "Il est surtout impliqué dans le métabolisme des acides aminés."
+      },
+      {
+        "content": "L'ALAT est une hydrolase du glycogène.",
+        "correct": false,
+        "explanation": "C'est une aminotransférase."
+      },
+      {
+        "content": "Le PLP est un ion métallique.",
+        "correct": false,
+        "explanation": "C'est un coenzyme organique."
+      },
+      {
+        "content": "Le PLP forme des intermédiaires covalents réversibles avec les substrats aminés.",
+        "correct": true,
+        "explanation": "Cette chimie stabilise des intermédiaires réactionnels."
       }
     ],
-    "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
+    "explanation": "Le PLP, dérivé de la vitamine B6, est un coenzyme central des aminotransférases telles que l'ALAT."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur la thrombine, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "Elle cite la liaison Arg-Gly.",
-        "correct": true,
-        "explanation": "La thrombine illustre une spécificité très élevée dans le support."
-      },
-      {
-        "content": "La thrombine est classée comme un lipide.",
-        "correct": false,
-        "explanation": "La thrombine illustre une spécificité très élevée dans le support."
-      },
-      {
-        "content": "La fiche la présente comme moins spécifique que la subtilisine.",
-        "correct": false,
-        "explanation": "La thrombine illustre une spécificité très élevée dans le support."
-      },
-      {
-        "content": "La thrombine coupe toutes les liaisons X-X sans préférence.",
-        "correct": false,
-        "explanation": "La thrombine illustre une spécificité très élevée dans le support."
+    "format": "QROC",
+    "question": "De quelle vitamine dérive le NAD+ ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "vitamine B3",
+        "B3",
+        "vitamine PP",
+        "niacine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La thrombine illustre une spécificité très élevée dans le support."
+    },
+    "explanation": "NAD(P) dérive de la vitamine B3/PP et FAD de la vitamine B2 ; ces coenzymes participent largement aux réactions redox."
   },
   {
     "order": 9,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les interactions enzyme-substrat :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Ces interactions expliquent qu’un substrat puisse être fixé à faible concentration.",
+        "content": "Une enzyme peut être spécifique d'un type de réaction.",
         "correct": true,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+        "explanation": "La spécificité catalytique porte sur la transformation chimique réalisée."
       },
       {
-        "content": "Une enzyme ne peut fixer un substrat qu’à des concentrations molaires très élevées.",
-        "correct": false,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
-      },
-      {
-        "content": "Des interactions hydrophobes peuvent contribuer à la fixation.",
+        "content": "La spécificité n'est pas toujours absolue.",
         "correct": true,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+        "explanation": "Certaines enzymes acceptent plusieurs substrats apparentés."
       },
       {
-        "content": "La fixation dépend uniquement de liaisons phosphodiester covalentes irréversibles.",
+        "content": "Une enzyme protéolytique reconnaît nécessairement toutes les liaisons peptidiques avec la même efficacité.",
         "correct": false,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+        "explanation": "Les protéases ont des préférences de séquence variables."
+      },
+      {
+        "content": "Toutes les enzymes ne catalysent qu'une seule réaction sur une seule molécule possible sans aucune tolérance.",
+        "correct": false,
+        "explanation": "La spécificité peut être plus ou moins étroite."
+      },
+      {
+        "content": "Le TPP intervient notamment dans la décarboxylation oxydative des alpha-cétoacides.",
+        "correct": true,
+        "explanation": "Il stabilise un carbanion grâce au noyau thiazolium."
+      },
+      {
+        "content": "Le TPP dérive de la vitamine B2.",
+        "correct": false,
+        "explanation": "Il dérive de la thiamine B1."
+      },
+      {
+        "content": "La biotine est le coenzyme principal des protéases à sérine.",
+        "correct": false,
+        "explanation": "Elle intervient surtout dans les carboxylases."
+      },
+      {
+        "content": "Elle peut aussi reconnaître préférentiellement certains substrats ou motifs structuraux.",
+        "correct": true,
+        "explanation": "La spécificité de substrat est variable selon l'enzyme."
+      },
+      {
+        "content": "Les interactions non covalentes du site actif contribuent à la reconnaissance du substrat.",
+        "correct": true,
+        "explanation": "Liaisons H, interactions ioniques, hydrophobes et Van der Waals peuvent intervenir."
+      },
+      {
+        "content": "La biotine transporte principalement des groupes phosphate.",
+        "correct": false,
+        "explanation": "Elle transporte du CO2 activé."
       }
     ],
-    "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+    "explanation": "Biotine et TPP sont des coenzymes vitaminiques : biotine pour les carboxylations, TPP pour plusieurs transferts/décarboxylations de fragments carbonés. La spécificité enzymatique concerne à la fois le type de réaction et la reconnaissance du substrat, avec un degré de sélectivité variable."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la forte affinité enzyme-substrat selon la fiche ?",
+    "question": "Concernant un catalyseur, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche évoque des fixations possibles à quelques micromoles par litre.",
+        "content": "Il est régénéré au terme du cycle catalytique.",
         "correct": true,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+        "explanation": "Un catalyseur n'est pas consommé stœchiométriquement par la réaction globale."
       },
       {
-        "content": "Une forte affinité impose nécessairement une concentration de substrat supérieure à 1 mol/L.",
-        "correct": false,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
-      },
-      {
-        "content": "Une grande affinité résulte de multiples interactions complémentaires.",
+        "content": "Il accélère l'approche de l'équilibre sans déplacer la position de cet équilibre.",
         "correct": true,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+        "explanation": "L'équilibre thermodynamique final est inchangé."
       },
       {
-        "content": "L’affinité ne dépend d’aucune interaction moléculaire.",
+        "content": "Il peut être de nature minérale ou organique.",
+        "correct": true,
+        "explanation": "La catalyse ne se limite pas aux enzymes biologiques."
+      },
+      {
+        "content": "Il augmente la vitesse d'une réaction en proposant une voie réactionnelle de plus faible énergie d'activation.",
+        "correct": true,
+        "explanation": "La barrière cinétique est abaissée."
+      },
+      {
+        "content": "Il augmente l'énergie d'activation de la réaction.",
         "correct": false,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+        "explanation": "Il la diminue."
       }
     ],
-    "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+    "explanation": "Un catalyseur agit sur la cinétique en abaissant l'énergie d'activation ; il ne modifie ni le ΔG global ni la constante d'équilibre."
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives aux enzymes protéiques et les ribozymes sont correctes ?",
+    "question": "Parmi les affirmations suivantes sur un catalyseur, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Le ribozyme est présenté comme une exception de nature ARN.",
-        "correct": true,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
-      },
-      {
-        "content": "Un ribozyme est une protéine membranaire.",
+        "content": "Il rend spontanée une réaction dont le ΔG est positif dans les mêmes conditions.",
         "correct": false,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
+        "explanation": "Un catalyseur ne modifie pas le ΔG de réaction."
       },
       {
-        "content": "Les enzymes possèdent un pouvoir catalytique élevé et une spécificité.",
-        "correct": true,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
-      },
-      {
-        "content": "La fiche définit une enzyme comme une molécule dépourvue de pouvoir catalytique.",
+        "content": "Il augmente l'énergie d'activation de la réaction.",
         "correct": false,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
+        "explanation": "Il la diminue."
+      },
+      {
+        "content": "Il est régénéré au terme du cycle catalytique.",
+        "correct": true,
+        "explanation": "Un catalyseur n'est pas consommé stœchiométriquement par la réaction globale."
+      },
+      {
+        "content": "Il peut être de nature minérale ou organique.",
+        "correct": true,
+        "explanation": "La catalyse ne se limite pas aux enzymes biologiques."
+      },
+      {
+        "content": "Il est consommé en quantité équimolaire avec le substrat.",
+        "correct": false,
+        "explanation": "Il est régénéré au cours du cycle."
       }
     ],
-    "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
+    "explanation": "Un catalyseur agit sur la cinétique en abaissant l'énergie d'activation ; il ne modifie ni le ΔG global ni la constante d'équilibre."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur le pouvoir catalytique des enzymes faut-il retenir ?",
-    "choices": [
-      {
-        "content": "L’anhydrase carbonique est citée avec un facteur d’environ 10^6.",
-        "correct": true,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
-      },
-      {
-        "content": "L’anhydrase carbonique est une immunoglobuline.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
-      },
-      {
-        "content": "La fiche indique que les enzymes ralentissent toutes les réactions d’un facteur 10^6.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
-      },
-      {
-        "content": "L’OMP décarboxylase est décrite comme sans effet catalytique.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
+    "format": "QROC",
+    "question": "Comment appelle-t-on un ARN possédant une activité catalytique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ribozyme",
+        "un ribozyme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les exemples illustrent des gains considérables de vitesse."
+    },
+    "explanation": "La majorité des enzymes sont protéiques, mais des ARN catalytiques existent : les ribozymes."
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur la spécificité enzymatique sont exactes ?",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes sur la spécificité enzymatique, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Une enzyme peut être spécifique de la réaction catalysée.",
-        "correct": true,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
-      },
-      {
-        "content": "Toutes les enzymes transforment tous les substrats de la même façon.",
+        "content": "La spécificité ne dépend jamais de la structure du site actif.",
         "correct": false,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+        "explanation": "La géométrie et la chimie du site actif sont déterminantes."
       },
       {
-        "content": "Elle peut être spécifique du substrat transformé.",
-        "correct": true,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
-      },
-      {
-        "content": "La spécificité ne concerne jamais la réaction.",
+        "content": "La reconnaissance d'un substrat repose uniquement sur une liaison covalente permanente.",
         "correct": false,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+        "explanation": "Elle repose surtout sur un ensemble d'interactions réversibles."
+      },
+      {
+        "content": "Elle peut aussi reconnaître préférentiellement certains substrats ou motifs structuraux.",
+        "correct": true,
+        "explanation": "La spécificité de substrat est variable selon l'enzyme."
+      },
+      {
+        "content": "Toutes les enzymes ne catalysent qu'une seule réaction sur une seule molécule possible sans aucune tolérance.",
+        "correct": false,
+        "explanation": "La spécificité peut être plus ou moins étroite."
+      },
+      {
+        "content": "Une enzyme protéolytique reconnaît nécessairement toutes les liaisons peptidiques avec la même efficacité.",
+        "correct": false,
+        "explanation": "Les protéases ont des préférences de séquence variables."
       }
     ],
-    "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+    "explanation": "La spécificité enzymatique concerne à la fois le type de réaction et la reconnaissance du substrat, avec un degré de sélectivité variable."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à la subtilisine sont correctes ?",
+    "format": "QRM",
+    "question": "Concernant l'affinité enzyme-substrat, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle présente une spécificité plus faible que la trypsine ou la thrombine.",
+        "content": "Une forte affinité peut permettre une fixation efficace à faible concentration de substrat.",
         "correct": true,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+        "explanation": "La concentration requise dépend cependant du système étudié."
       },
       {
-        "content": "Elle est décrite comme un récepteur nucléaire.",
+        "content": "Une forte affinité signifie automatiquement une vitesse maximale élevée.",
         "correct": false,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+        "explanation": "La liaison et la catalyse sont des propriétés distinctes."
       },
       {
-        "content": "Elle possède une spécificité plus élevée que la thrombine selon la fiche.",
-        "correct": false,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+        "content": "Elle repose sur de multiples interactions non covalentes entre enzyme et substrat.",
+        "correct": true,
+        "explanation": "La somme de nombreuses interactions peut stabiliser ES."
       },
       {
-        "content": "La subtilisine ne coupe qu’Arg-Gly.",
+        "content": "Une enzyme à forte affinité ne peut jamais libérer son produit.",
         "correct": false,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+        "explanation": "La catalyse exige un cycle comprenant la libération des produits."
+      },
+      {
+        "content": "L'affinité dépend du microenvironnement du site de liaison.",
+        "correct": true,
+        "explanation": "pH, ionisation et conformation peuvent l'influencer."
       }
     ],
-    "explanation": "La subtilisine illustre une protéase à faible spécificité."
+    "explanation": "L'affinité décrit la liaison enzyme-substrat ; elle ne doit pas être confondue avec la vitesse de transformation chimique."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur la trypsine faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Sa spécificité est plus restreinte que celle de la subtilisine dans l’exemple.",
-        "correct": true,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
-      },
-      {
-        "content": "La trypsine ne coupe aucune liaison peptidique.",
-        "correct": false,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
-      },
-      {
-        "content": "La fiche associe la trypsine aux liaisons Arg-X et Lys-X.",
-        "correct": true,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
-      },
-      {
-        "content": "La trypsine ne reconnaît que Trp-X selon cette fiche.",
-        "correct": false,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
+    "format": "QROC",
+    "question": "Comment appelle-t-on la partie protéique seule d'une enzyme nécessitant un cofacteur ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "apoenzyme",
+        "l'apoenzyme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
+    },
+    "explanation": "Apoenzyme = partie protéique ; cofacteur = composante non protéique requise ; holoenzyme = ensemble fonctionnel."
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique : quel exposant de 10 correspond au facteur minimal d’accélération enzymatique cité dans la fiche ?",
-    "answer": {
-      "type": "number",
-      "value": 6,
-      "tolerance": 0
-    },
-    "explanation": "Les exemples illustrent des gains considérables de vitesse."
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur les coenzymes et groupements prosthétiques, retenez exactement les deux correctes.",
+    "choices": [
+      {
+        "content": "NAD+ est nécessairement un groupement prosthétique fixé en permanence.",
+        "correct": false,
+        "explanation": "Il agit fréquemment comme cosubstrat mobile."
+      },
+      {
+        "content": "Un groupement prosthétique est lié très fortement, souvent durablement, à la protéine.",
+        "correct": true,
+        "explanation": "La liaison peut être covalente ou non covalente mais très stable."
+      },
+      {
+        "content": "Un groupement prosthétique est toujours un ion métallique libre.",
+        "correct": false,
+        "explanation": "Il peut être organique ou métallique et est fortement associé."
+      },
+      {
+        "content": "Un coenzyme est un cofacteur organique.",
+        "correct": true,
+        "explanation": "NAD+, FAD ou PLP sont des exemples de coenzymes dans différents systèmes."
+      },
+      {
+        "content": "Tout coenzyme est obligatoirement lié covalemment et définitivement à l'enzyme.",
+        "correct": false,
+        "explanation": "Certains sont des cosubstrats diffusibles."
+      }
+    ],
+    "explanation": "Les coenzymes sont des cofacteurs organiques ; certains sont mobiles, d'autres sont fortement liés comme groupements prosthétiques.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives aux interactions enzyme-substrat sont correctes ?",
+    "question": "Concernant le phosphate de pyridoxal et la vitamine B6, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Des liaisons ioniques et hydrogène peuvent contribuer à la fixation.",
+        "content": "L'ALAT utilise le PLP.",
         "correct": true,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+        "explanation": "Elle catalyse une transamination entre alanine/pyruvate et glutamate/alpha-cétoglutarate."
       },
       {
-        "content": "Aucune interaction non covalente ne participe à l’affinité.",
-        "correct": false,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
-      },
-      {
-        "content": "Ces interactions expliquent qu’un substrat puisse être fixé à faible concentration.",
+        "content": "Le PLP forme des intermédiaires covalents réversibles avec les substrats aminés.",
         "correct": true,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+        "explanation": "Cette chimie stabilise des intermédiaires réactionnels."
       },
       {
-        "content": "Une enzyme ne peut fixer un substrat qu’à des concentrations molaires très élevées.",
+        "content": "Le PLP dérive de la vitamine B6.",
+        "correct": true,
+        "explanation": "La pyridoxine et formes apparentées sont des précurseurs vitaminiques du PLP."
+      },
+      {
+        "content": "L'ALAT est une hydrolase du glycogène.",
         "correct": false,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+        "explanation": "C'est une aminotransférase."
+      },
+      {
+        "content": "Le PLP est un coenzyme majeur des aminotransférases.",
+        "correct": true,
+        "explanation": "Il permet notamment le transfert réversible de groupes aminés."
       }
     ],
-    "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+    "explanation": "Le PLP, dérivé de la vitamine B6, est un coenzyme central des aminotransférases telles que l'ALAT."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur la forte affinité enzyme-substrat faut-il retenir ?",
+    "question": "Concernant les coenzymes NAD et FAD, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "L’affinité est distincte de la notion de vitesse catalytique.",
+        "content": "NAD+ dérive de la vitamine B12.",
+        "correct": false,
+        "explanation": "Il dérive de la niacine B3."
+      },
+      {
+        "content": "NADP+ est chimiquement proche de NAD+ mais possède un phosphate supplémentaire.",
         "correct": true,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+        "explanation": "Cette différence contribue à la spécialisation métabolique des couples NAD(H) et NADP(H)."
       },
       {
-        "content": "La fiche assimile l’affinité à la masse moléculaire de l’enzyme.",
+        "content": "FAD dérive de la vitamine B6.",
         "correct": false,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+        "explanation": "Il dérive de la riboflavine B2."
       },
       {
-        "content": "Une forte affinité impose nécessairement une concentration de substrat supérieure à 1 mol/L.",
+        "content": "NADH est la forme oxydée du couple NAD+/NADH.",
         "correct": false,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+        "explanation": "NADH est la forme réduite."
       },
       {
-        "content": "L’affinité ne dépend d’aucune interaction moléculaire.",
+        "content": "FAD et NAD+ ne participent jamais aux réactions d'oxydoréduction.",
         "correct": false,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+        "explanation": "C'est précisément un de leurs rôles majeurs."
       }
     ],
-    "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
+    "explanation": "NAD(P) dérive de la vitamine B3/PP et FAD de la vitamine B2 ; ces coenzymes participent largement aux réactions redox."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur la définition d’un catalyseur sont exactes ?",
+    "question": "Quelles propositions décrivent correctement la biotine et le thiamine-pyrophosphate ?",
     "choices": [
       {
-        "content": "Un catalyseur accélère une réaction chimique.",
+        "content": "Le TPP intervient notamment dans la décarboxylation oxydative des alpha-cétoacides.",
         "correct": true,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
+        "explanation": "Il stabilise un carbanion grâce au noyau thiazolium."
       },
       {
-        "content": "Un catalyseur interdit toute réaction chimique.",
+        "content": "La biotine est le coenzyme principal des protéases à sérine.",
         "correct": false,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
+        "explanation": "Elle intervient surtout dans les carboxylases."
       },
       {
-        "content": "La fiche distingue des catalyseurs minéraux et organiques.",
+        "content": "Le TPP dérive de la vitamine B2.",
+        "correct": false,
+        "explanation": "Il dérive de la thiamine B1."
+      },
+      {
+        "content": "Le TPP est un ion métallique.",
+        "correct": false,
+        "explanation": "C'est un coenzyme organique."
+      },
+      {
+        "content": "La biotine transfère du CO2 activé dans les réactions de carboxylation.",
         "correct": true,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
-      },
-      {
-        "content": "Tous les catalyseurs sont obligatoirement des protéines.",
-        "correct": false,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
+        "explanation": "Les carboxylases biotine-dépendantes créent des liaisons C-C."
       }
     ],
-    "explanation": "Le support part de la définition générale d’un catalyseur."
+    "explanation": "Biotine et TPP sont des coenzymes vitaminiques : biotine pour les carboxylations, TPP pour plusieurs transferts/décarboxylations de fragments carbonés."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à la catalyse hétérogène et homogène sont correctes ?",
-    "choices": [
-      {
-        "content": "Les catalyseurs solubles comme les enzymes sont associés à la catalyse homogène.",
-        "correct": true,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "La catalyse hétérogène est définie par l’absence de catalyseur.",
-        "correct": false,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "La solubilité ne joue aucun rôle dans la distinction proposée.",
-        "correct": false,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "Les enzymes sont systématiquement classées comme catalyseurs insolubles dans la fiche.",
-        "correct": false,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
+    "format": "QROC",
+    "question": "Un catalyseur modifie-t-il la constante d'équilibre d'une réaction ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non",
+        "non, il ne modifie pas l'équilibre",
+        "non, Keq est inchangée"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
+    },
+    "explanation": "Un catalyseur agit sur la cinétique en abaissant l'énergie d'activation ; il ne modifie ni le ΔG global ni la constante d'équilibre."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour de la définition d’un catalyseur : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
-    "choices": [
-      {
-        "content": "Un catalyseur accélère une réaction chimique.",
-        "correct": true,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
-      },
-      {
-        "content": "Les catalyseurs solubles comme les enzymes sont associés à la catalyse homogène.",
-        "correct": true,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "Les enzymes possèdent un pouvoir catalytique élevé et une spécificité.",
-        "correct": true,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
-      },
-      {
-        "content": "La fiche indique que les enzymes ralentissent toutes les réactions d’un facteur 10^6.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
-      },
-      {
-        "content": "La spécificité ne concerne jamais la réaction.",
-        "correct": false,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
-      },
-      {
-        "content": "Elle possède une spécificité plus élevée que la thrombine selon la fiche.",
-        "correct": false,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
+    "format": "QROC",
+    "question": "Dans une autre application, comment appelle-t-on un ARN possédant une activité catalytique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ribozyme",
+        "un ribozyme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    },
+    "explanation": "La majorité des enzymes sont protéiques, mais des ARN catalytiques existent : les ribozymes."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation de la définition d’un catalyseur : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Les catalyseurs insolubles sont associés à la catalyse hétérogène.",
-        "correct": true,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "Le ribozyme est présenté comme une exception de nature ARN.",
-        "correct": true,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
-      },
-      {
-        "content": "L’anhydrase carbonique est citée avec un facteur d’environ 10^6.",
-        "correct": true,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
-      },
-      {
-        "content": "Une enzyme peut être spécifique de la réaction catalysée.",
-        "correct": true,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
-      },
-      {
-        "content": "Elle présente une spécificité plus faible que la trypsine ou la thrombine.",
-        "correct": true,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
-      },
-      {
-        "content": "La trypsine ne coupe aucune liaison peptidique.",
-        "correct": false,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
-      },
-      {
-        "content": "La thrombine coupe toutes les liaisons X-X sans préférence.",
-        "correct": false,
-        "explanation": "La thrombine illustre une spécificité très élevée dans le support."
-      },
-      {
-        "content": "Aucune interaction non covalente ne participe à l’affinité.",
-        "correct": false,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+    "format": "QROC",
+    "question": "La spécificité enzymatique est-elle toujours absolue ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non",
+        "non, elle peut être relative",
+        "non, elle est souvent relative"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "La spécificité enzymatique concerne à la fois le type de réaction et la reconnaissance du substrat, avec un degré de sélectivité variable."
   }
 ];

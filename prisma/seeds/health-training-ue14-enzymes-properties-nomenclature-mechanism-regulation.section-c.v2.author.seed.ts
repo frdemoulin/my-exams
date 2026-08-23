@@ -1,649 +1,730 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH14_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — Enzymologie 4.1 — Section C — Mécanisme d'action et site actif */
+export const UE14_BIOCH_CH14_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant le modèle clé-serrure de Fisher :",
+    "question": "Concernant les modèles de reconnaissance enzyme-substrat, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le modèle de Fisher date de 1894 dans la fiche.",
-        "correct": true,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
-      },
-      {
-        "content": "Le modèle de Fisher suppose un ajustement induit après fixation.",
+        "content": "Les deux modèles prouvent que les protéines sont immobiles.",
         "correct": false,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
+        "explanation": "Les protéines sont dynamiques."
       },
       {
-        "content": "Il repose sur une complémentarité géométrique préexistante entre enzyme et substrat.",
-        "correct": true,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
-      },
-      {
-        "content": "Il est présenté comme le modèle le plus récent de 1958.",
+        "content": "Koshland décrit une serrure parfaitement rigide.",
         "correct": false,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
+        "explanation": "Il a proposé l'ajustement induit."
+      },
+      {
+        "content": "Le modèle clé-serrure de Fischer est un modèle historique de complémentarité préexistante.",
+        "correct": true,
+        "explanation": "Il souligne la complémentarité géométrique."
+      },
+      {
+        "content": "Les enzymes sont des molécules dynamiques explorant plusieurs conformations.",
+        "correct": true,
+        "explanation": "La reconnaissance peut aussi comporter une composante de sélection conformationnelle."
+      },
+      {
+        "content": "Le modèle de Fischer affirme que l'enzyme change obligatoirement complètement de structure après fixation.",
+        "correct": false,
+        "explanation": "Il repose plutôt sur une complémentarité préexistante."
       }
     ],
-    "explanation": "Fisher représente une adaptation parfaite dès le départ."
+    "explanation": "Fischer a proposé le modèle clé-serrure ; Koshland a introduit l'ajustement induit, plus compatible avec la dynamique des protéines."
   },
   {
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement le modèle d’ajustement induit de Koshland selon la fiche ?",
+    "question": "Concernant l'énergie d'activation en catalyse enzymatique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "L’enzyme adapte sa forme au substrat lors de l’interaction.",
+        "content": "Une enzyme accélère une réaction en rendant ΔG° plus négatif.",
+        "correct": false,
+        "explanation": "Elle ne modifie pas le ΔG° de la réaction."
+      },
+      {
+        "content": "La catalyse enzymatique exige toujours une seule étape élémentaire.",
+        "correct": false,
+        "explanation": "Plusieurs étapes/intermédiaires sont fréquents."
+      },
+      {
+        "content": "Seule la réaction directe voit sa barrière diminuée ; la réaction inverse est inchangée.",
+        "correct": false,
+        "explanation": "Le catalyseur agit sur le chemin réactionnel dans les deux sens."
+      },
+      {
+        "content": "La catalyse peut décomposer une réaction en plusieurs étapes de plus faible barrière.",
         "correct": true,
-        "explanation": "Koshland introduit l’ajustement conformationnel induit."
+        "explanation": "Des intermédiaires enzymatiques peuvent apparaître."
       },
       {
-        "content": "Il est identique au modèle clé-serrure strict.",
+        "content": "Une enzyme augmente ΔG‡ pour stabiliser le substrat.",
         "correct": false,
-        "explanation": "Koshland introduit l’ajustement conformationnel induit."
-      },
-      {
-        "content": "Il date de 1894 selon la fiche.",
-        "correct": false,
-        "explanation": "Koshland introduit l’ajustement conformationnel induit."
-      },
-      {
-        "content": "Le modèle de Koshland exclut tout changement de conformation.",
-        "correct": false,
-        "explanation": "Koshland introduit l’ajustement conformationnel induit."
+        "explanation": "Elle diminue la barrière vers l'état de transition."
       }
     ],
-    "explanation": "Koshland introduit l’ajustement conformationnel induit."
+    "explanation": "Les enzymes accélèrent les réactions en abaissant ΔG‡, sans modifier le ΔG global ni l'équilibre."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur l’énergie d’activation sans enzyme :",
-    "choices": [
-      {
-        "content": "La fiche note cette barrière ΔGact.",
-        "correct": true,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
-      },
-      {
-        "content": "ΔGact désigne la concentration totale en enzyme.",
-        "correct": false,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
-      },
-      {
-        "content": "Sans enzyme, le substrat doit franchir une barrière d’énergie d’activation.",
-        "correct": true,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
-      },
-      {
-        "content": "Sans enzyme, aucune barrière énergétique n’existe.",
-        "correct": false,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+    "format": "QROC",
+    "question": "Une enzyme modifie-t-elle la constante d'équilibre Keq ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non",
+        "non, Keq est inchangée",
+        "non"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’énergie d’activation constitue une barrière cinétique."
+    },
+    "explanation": "La catalyse enzymatique modifie la vitesse, pas la thermodynamique : ΔG° et Keq restent inchangés."
   },
   {
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur l’effet d’une enzyme sur l’énergie d’activation, lesquelles sont exactes ?",
+    "question": "Concernant les complexes ES et EP, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’enzyme diminue considérablement l’énergie d’activation.",
-        "correct": true,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
-      },
-      {
-        "content": "L’enzyme augmente nécessairement la barrière globale jusqu’à bloquer la réaction.",
+        "content": "L'enzyme disparaît chimiquement après la libération du produit.",
         "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+        "explanation": "Elle est régénérée."
       },
       {
-        "content": "La réaction passe par plusieurs étapes incluant ES et EP.",
-        "correct": true,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
-      },
-      {
-        "content": "Une enzyme supprime tout complexe enzyme-substrat.",
+        "content": "ES signifie enzyme-synthétase.",
         "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+        "explanation": "ES signifie enzyme-substrat."
+      },
+      {
+        "content": "ES désigne le complexe enzyme-substrat.",
+        "correct": true,
+        "explanation": "Il précède la transformation chimique dans un schéma simple."
+      },
+      {
+        "content": "La catalyse réelle peut comporter plusieurs intermédiaires au-delà d'un simple schéma E+S↔ES↔EP↔E+P.",
+        "correct": true,
+        "explanation": "Le schéma simplifié reste pédagogique."
+      },
+      {
+        "content": "L'enzyme libre est régénérée après la libération du ou des produits.",
+        "correct": true,
+        "explanation": "Elle peut entamer un nouveau cycle."
       }
     ],
-    "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+    "explanation": "Les schémas ES et EP représentent des complexes transitoires ; l'enzyme est libérée à la fin du cycle."
   },
   {
     "order": 49,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant les complexes ES et EP :",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant le site actif enzymatique.",
     "choices": [
       {
-        "content": "Le produit peut rester transitoirement complexé à l’enzyme sous forme EP.",
+        "content": "Le site actif est indépendant de la structure tridimensionnelle.",
+        "correct": false,
+        "explanation": "Le repliement est essentiel à sa formation."
+      },
+      {
+        "content": "Le site actif réunit les fonctions nécessaires à la reconnaissance et à la catalyse.",
         "correct": true,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "explanation": "Des résidus de liaison et des résidus catalytiques y contribuent."
       },
       {
-        "content": "EP est une immunoglobuline pentamérique.",
+        "content": "Tous les résidus du site actif sont nécessairement voisins dans la séquence primaire.",
         "correct": false,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "explanation": "Ils peuvent être rapprochés uniquement après repliement."
       },
       {
-        "content": "Le produit est toujours lié irréversiblement à l’enzyme.",
+        "content": "Les résidus de liaison ne peuvent jamais participer à la catalyse.",
         "correct": false,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "explanation": "Les fonctions peuvent se chevaucher."
       },
       {
-        "content": "ES signifie enzyme-sodium.",
-        "correct": false,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "content": "Les fonctions de fixation et de catalyse peuvent être partiellement imbriquées.",
+        "correct": true,
+        "explanation": "Il n'existe pas toujours deux zones totalement séparées."
       }
     ],
-    "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+    "explanation": "Le site actif est une poche tridimensionnelle combinant reconnaissance et catalyse, formée par des résidus parfois éloignés dans la séquence.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement les effets entropiques et interactions lors de la fixation selon la fiche ?",
+    "question": "Parmi les affirmations suivantes sur la spécificité de la chymotrypsine, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "L’enzyme peut orienter et attirer le substrat.",
+        "content": "Elle hydrolyse préférentiellement les liaisons peptidiques après des résidus aromatiques tels que Tyr, Trp et Phe.",
         "correct": true,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "explanation": "Sa poche S1 favorise les chaînes latérales volumineuses et hydrophobes."
       },
       {
-        "content": "L’enzyme repousse nécessairement le substrat hors du site actif.",
-        "correct": false,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
-      },
-      {
-        "content": "La fixation augmente l’ordre du système dans le modèle de la fiche.",
+        "content": "La reconnaissance du résidu P1 et la réaction catalytique sont deux aspects distincts du site actif.",
         "correct": true,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "explanation": "La poche de spécificité positionne le substrat pour la catalyse."
       },
       {
-        "content": "La fixation ne modifie jamais l’ordre du système.",
+        "content": "La chymotrypsine coupe exclusivement après arginine et lysine.",
         "correct": false,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "explanation": "Cette spécificité caractérise plutôt la trypsine."
+      },
+      {
+        "content": "Leucine peut également être un résidu P1 préférentiel dans la nomenclature IUBMB de la chymotrypsine.",
+        "correct": true,
+        "explanation": "La spécificité n'est donc pas limitée à Phe et Trp."
+      },
+      {
+        "content": "La chymotrypsine est une sérine protéase digestive.",
+        "correct": true,
+        "explanation": "Son site actif comporte une triade catalytique Ser-His-Asp."
       }
     ],
-    "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+    "explanation": "La chymotrypsine est une sérine protéase qui préfère notamment Tyr, Trp et Phe, avec une spécificité plus large que deux résidus seulement."
   },
   {
     "order": 51,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur le site de fixation et le site catalytique :",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement la triade catalytique de la chymotrypsine ?",
     "choices": [
       {
-        "content": "Le site de fixation assure la reconnaissance spatiale du substrat.",
+        "content": "His57 agit comme base puis comme acide général au cours du mécanisme.",
         "correct": true,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+        "explanation": "Elle transfère des protons à plusieurs étapes."
       },
       {
-        "content": "Le site de fixation assure directement la transcription de l’ADN.",
+        "content": "Ser195 est uniquement un résidu structural sans rôle chimique.",
         "correct": false,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+        "explanation": "Elle agit comme nucléophile."
       },
       {
-        "content": "Le site catalytique contient des groupements d’acides aminés responsables de la transformation chimique.",
-        "correct": true,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "Le site catalytique ne contient jamais d’acides aminés.",
+        "content": "His57 ne participe à aucun transfert de proton.",
         "correct": false,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+        "explanation": "Elle joue un rôle acide-base."
+      },
+      {
+        "content": "La triade est Lys-Arg-Glu.",
+        "correct": false,
+        "explanation": "La triade classique est Ser-His-Asp."
+      },
+      {
+        "content": "Asp102 attaque directement le carbonyle comme nucléophile principal.",
+        "correct": false,
+        "explanation": "Le nucléophile principal est Ser195."
       }
     ],
-    "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+    "explanation": "La triade Ser-His-Asp active la sérine nucléophile et orchestre les transferts de proton de la chymotrypsine."
   },
   {
     "order": 52,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur la spécificité de la chymotrypsine dans la fiche, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "La fiche indique qu’elle clive des liaisons Phe-X et Trp-X.",
-        "correct": true,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
-      },
-      {
-        "content": "Elle clive uniquement Lys-X et Arg-X dans cette partie du support.",
-        "correct": false,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
-      },
-      {
-        "content": "Elle ne contient aucune sérine catalytique.",
-        "correct": false,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
-      },
-      {
-        "content": "La chymotrypsine est un récepteur nucléaire.",
-        "correct": false,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
+    "format": "QROC",
+    "question": "Comment appelle-t-on l'intermédiaire covalent où le substrat est lié à la sérine catalytique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acyl-enzyme",
+        "intermédiaire acyl-enzyme",
+        "acyl enzyme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
+    },
+    "explanation": "Les sérine protéases passent par des intermédiaires tétraédriques et un acyl-enzyme, puis l'eau régénère l'enzyme."
   },
   {
     "order": 53,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la triade catalytique de la chymotrypsine :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La triade appartient au site catalytique.",
+        "content": "EP désigne un complexe enzyme-produit avant libération du produit.",
         "correct": true,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "Il peut être transitoire."
       },
       {
-        "content": "La triade est localisée sur l’hème.",
+        "content": "Les deux modèles prouvent que les protéines sont immobiles.",
         "correct": false,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "Les protéines sont dynamiques."
       },
       {
-        "content": "La triade comprend sérine, histidine et aspartate.",
+        "content": "Koshland décrit une serrure parfaitement rigide.",
+        "correct": false,
+        "explanation": "Il a proposé l'ajustement induit."
+      },
+      {
+        "content": "La reconnaissance enzyme-substrat ne dépend jamais de la conformation.",
+        "correct": false,
+        "explanation": "La conformation est déterminante."
+      },
+      {
+        "content": "Le modèle d'ajustement induit de Koshland introduit une modification conformationnelle lors de la liaison.",
         "correct": true,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "L'enzyme et le substrat ne sont pas nécessairement rigides."
       },
       {
-        "content": "La triade comprend uniquement glycine, valine et leucine.",
+        "content": "Toutes les enzymes suivent exactement un mécanisme en une seule étape sans intermédiaire.",
         "correct": false,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "Les mécanismes peuvent être complexes."
+      },
+      {
+        "content": "La catalyse réelle peut comporter plusieurs intermédiaires au-delà d'un simple schéma E+S↔ES↔EP↔E+P.",
+        "correct": true,
+        "explanation": "Le schéma simplifié reste pédagogique."
+      },
+      {
+        "content": "L'ajustement induit reste un modèle utile pour comprendre la spécificité et la catalyse.",
+        "correct": true,
+        "explanation": "Il évite de représenter le site actif comme totalement rigide."
+      },
+      {
+        "content": "ES désigne le complexe enzyme-substrat.",
+        "correct": true,
+        "explanation": "Il précède la transformation chimique dans un schéma simple."
+      },
+      {
+        "content": "Le modèle de Fischer affirme que l'enzyme change obligatoirement complètement de structure après fixation.",
+        "correct": false,
+        "explanation": "Il repose plutôt sur une complémentarité préexistante."
       }
     ],
-    "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+    "explanation": "Fischer a proposé le modèle clé-serrure ; Koshland a introduit l'ajustement induit, plus compatible avec la dynamique des protéines. Les schémas ES et EP représentent des complexes transitoires ; l'enzyme est libérée à la fin du cycle."
   },
   {
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement les intermédiaires de la chymotrypsine selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l'énergie d'activation en catalyse enzymatique ?",
     "choices": [
       {
-        "content": "La fiche décrit un intermédiaire tétraédrique instable.",
-        "correct": true,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
-      },
-      {
-        "content": "Aucun intermédiaire n’est formé durant la catalyse.",
+        "content": "La catalyse enzymatique exige toujours une seule étape élémentaire.",
         "correct": false,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+        "explanation": "Plusieurs étapes/intermédiaires sont fréquents."
       },
       {
-        "content": "Elle décrit un intermédiaire acyl-enzyme.",
-        "correct": true,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
-      },
-      {
-        "content": "La catalyse ne libère qu’un seul atome de sodium.",
+        "content": "Une enzyme augmente ΔG‡ pour stabiliser le substrat.",
         "correct": false,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+        "explanation": "Elle diminue la barrière vers l'état de transition."
+      },
+      {
+        "content": "La catalyse peut décomposer une réaction en plusieurs étapes de plus faible barrière.",
+        "correct": true,
+        "explanation": "Des intermédiaires enzymatiques peuvent apparaître."
+      },
+      {
+        "content": "Une enzyme stabilise l'état de transition relativement aux réactifs.",
+        "correct": true,
+        "explanation": "Cette stabilisation réduit ΔG‡."
+      },
+      {
+        "content": "Une enzyme accélère une réaction en rendant ΔG° plus négatif.",
+        "correct": false,
+        "explanation": "Elle ne modifie pas le ΔG° de la réaction."
       }
     ],
-    "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+    "explanation": "Les enzymes accélèrent les réactions en abaissant ΔG‡, sans modifier le ΔG global ni l'équilibre."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à l’énergie d’activation sans enzyme sont correctes ?",
+    "question": "Concernant les modèles de reconnaissance enzyme-substrat, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une énergie d’activation élevée ralentit fortement la réaction.",
+        "content": "L'ajustement induit reste un modèle utile pour comprendre la spécificité et la catalyse.",
         "correct": true,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+        "explanation": "Il évite de représenter le site actif comme totalement rigide."
       },
       {
-        "content": "Une énergie d’activation élevée accélère toujours la réaction.",
-        "correct": false,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
-      },
-      {
-        "content": "La fiche note cette barrière ΔGact.",
+        "content": "Le modèle clé-serrure de Fischer est un modèle historique de complémentarité préexistante.",
         "correct": true,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+        "explanation": "Il souligne la complémentarité géométrique."
       },
       {
-        "content": "ΔGact désigne la concentration totale en enzyme.",
+        "content": "Les deux modèles prouvent que les protéines sont immobiles.",
         "correct": false,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+        "explanation": "Les protéines sont dynamiques."
+      },
+      {
+        "content": "Le modèle de Fischer affirme que l'enzyme change obligatoirement complètement de structure après fixation.",
+        "correct": false,
+        "explanation": "Il repose plutôt sur une complémentarité préexistante."
+      },
+      {
+        "content": "Le modèle d'ajustement induit de Koshland introduit une modification conformationnelle lors de la liaison.",
+        "correct": true,
+        "explanation": "L'enzyme et le substrat ne sont pas nécessairement rigides."
       }
     ],
-    "explanation": "L’énergie d’activation constitue une barrière cinétique."
+    "explanation": "Fischer a proposé le modèle clé-serrure ; Koshland a introduit l'ajustement induit, plus compatible avec la dynamique des protéines."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur l’effet d’une enzyme sur l’énergie d’activation faut-il retenir ?",
-    "choices": [
+    "format": "QZONE",
+    "question": "Sur le diagramme énergétique, cliquez sur le sommet de la barrière d'activation de la voie catalysée par l'enzyme.",
+    "image": {
+      "src": "/images/training/ue14/biochimie/proprietes-nomenclature-mecanisme-action-regulation/energie-activation-qzone.svg",
+      "alt": "Diagramme original comparant une voie non catalysée à haute barrière et une voie catalysée à barrière plus basse",
+      "width": 1100,
+      "height": 650
+    },
+    "expectedZones": [
       {
-        "content": "Cette diminution de barrières accélère la réaction.",
-        "correct": true,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
-      },
-      {
-        "content": "L’enzyme transforme définitivement le produit en enzyme.",
-        "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
-      },
-      {
-        "content": "L’enzyme augmente nécessairement la barrière globale jusqu’à bloquer la réaction.",
-        "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
-      },
-      {
-        "content": "Une enzyme supprime tout complexe enzyme-substrat.",
-        "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+        "id": "catalyzed-ts",
+        "label": "Sommet catalysé",
+        "x": 0.495,
+        "y": 0.462,
+        "tolerance": 0.07
       }
     ],
-    "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+    "explanation": "La voie catalysée passe par une barrière d'activation plus basse ; le ΔG global entre substrat et produit reste inchangé."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur les complexes ES et EP sont exactes ?",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes sur la thermodynamique d'une réaction enzymatique, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Le complexe ES associe enzyme et substrat.",
-        "correct": true,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
-      },
-      {
-        "content": "ES signifie enzyme-sodium.",
+        "content": "Une enzyme déplace Keq vers les produits.",
         "correct": false,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "explanation": "Keq est inchangée."
       },
       {
-        "content": "Le produit peut rester transitoirement complexé à l’enzyme sous forme EP.",
-        "correct": true,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
-      },
-      {
-        "content": "EP est une immunoglobuline pentamérique.",
+        "content": "Une enzyme n'accélère jamais la réaction inverse.",
         "correct": false,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "explanation": "Elle abaisse aussi la barrière inverse."
+      },
+      {
+        "content": "L'enzyme accélère à la fois la réaction directe et la réaction inverse.",
+        "correct": true,
+        "explanation": "C'est une conséquence de l'abaissement de la barrière commune."
+      },
+      {
+        "content": "Une enzyme peut changer directement le signe du ΔG d'une réaction isolée sans couplage.",
+        "correct": false,
+        "explanation": "Elle ne change pas la thermodynamique de la réaction."
+      },
+      {
+        "content": "À l'équilibre, une enzyme maintient un flux net permanent vers les produits.",
+        "correct": false,
+        "explanation": "Le flux net est nul à l'équilibre."
       }
     ],
-    "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+    "explanation": "La catalyse enzymatique modifie la vitesse, pas la thermodynamique : ΔG° et Keq restent inchangés."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives aux effets entropiques et interactions lors de la fixation sont correctes ?",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement les complexes ES et EP ?",
     "choices": [
       {
-        "content": "Des interactions ioniques, hydrogène et hydrophobes stabilisent certaines étapes.",
+        "content": "La catalyse réelle peut comporter plusieurs intermédiaires au-delà d'un simple schéma E+S↔ES↔EP↔E+P.",
         "correct": true,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "explanation": "Le schéma simplifié reste pédagogique."
       },
       {
-        "content": "Aucune interaction non covalente n’intervient.",
-        "correct": false,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "content": "ES désigne le complexe enzyme-substrat.",
+        "correct": true,
+        "explanation": "Il précède la transformation chimique dans un schéma simple."
       },
       {
-        "content": "L’enzyme repousse nécessairement le substrat hors du site actif.",
-        "correct": false,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "content": "L'enzyme libre est régénérée après la libération du ou des produits.",
+        "correct": true,
+        "explanation": "Elle peut entamer un nouveau cycle."
       },
       {
-        "content": "La fixation ne modifie jamais l’ordre du système.",
+        "content": "Toutes les enzymes suivent exactement un mécanisme en une seule étape sans intermédiaire.",
         "correct": false,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "explanation": "Les mécanismes peuvent être complexes."
+      },
+      {
+        "content": "EP désigne un complexe enzyme-produit avant libération du produit.",
+        "correct": true,
+        "explanation": "Il peut être transitoire."
       }
     ],
-    "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+    "explanation": "Les schémas ES et EP représentent des complexes transitoires ; l'enzyme est libérée à la fin du cycle."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur le site de fixation et le site catalytique faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Ces deux composantes appartiennent au site actif.",
-        "correct": true,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "Le site actif est situé sur le coenzyme uniquement.",
-        "correct": false,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "Le site de fixation assure la reconnaissance spatiale du substrat.",
-        "correct": true,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "Le site de fixation assure directement la transcription de l’ADN.",
-        "correct": false,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+    "format": "QROC",
+    "question": "Quel niveau de structure rapproche souvent des résidus éloignés dans la séquence pour former un site actif ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "structure tertiaire",
+        "repliement tridimensionnel",
+        "structure 3D"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+    },
+    "explanation": "Le site actif est une poche tridimensionnelle combinant reconnaissance et catalyse, formée par des résidus parfois éloignés dans la séquence."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel nom donne-t-on à la partie du site actif qui assure la reconnaissance spatiale du substrat ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "site de fixation",
-        "site de liaison",
-        "site fixation"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur la spécificité de la chymotrypsine, retenez exactement les deux correctes.",
+    "choices": [
+      {
+        "content": "Elle hydrolyse préférentiellement les liaisons peptidiques après des résidus aromatiques tels que Tyr, Trp et Phe.",
+        "correct": true,
+        "explanation": "Sa poche S1 favorise les chaînes latérales volumineuses et hydrophobes."
+      },
+      {
+        "content": "Sa spécificité est strictement limitée à une seule liaison Phe-Gly dans toutes les protéines.",
+        "correct": false,
+        "explanation": "Elle reconnaît plusieurs résidus hydrophobes/aromatiques."
+      },
+      {
+        "content": "Leucine peut également être un résidu P1 préférentiel dans la nomenclature IUBMB de la chymotrypsine.",
+        "correct": true,
+        "explanation": "La spécificité n'est donc pas limitée à Phe et Trp."
+      },
+      {
+        "content": "Elle est une métallo-protéase sans sérine catalytique.",
+        "correct": false,
+        "explanation": "C'est une sérine protéase."
+      },
+      {
+        "content": "La chymotrypsine coupe exclusivement après arginine et lysine.",
+        "correct": false,
+        "explanation": "Cette spécificité caractérise plutôt la trypsine."
       }
-    },
-    "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+    ],
+    "explanation": "La chymotrypsine est une sérine protéase qui préfère notamment Tyr, Trp et Phe, avec une spécificité plus large que deux résidus seulement.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à la triade catalytique de la chymotrypsine sont correctes ?",
+    "question": "Quelles propositions décrivent correctement la triade catalytique de la chymotrypsine ?",
     "choices": [
       {
-        "content": "La sérine est activée au cours du mécanisme.",
+        "content": "His57 agit comme base puis comme acide général au cours du mécanisme.",
         "correct": true,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "Elle transfère des protons à plusieurs étapes."
       },
       {
-        "content": "La sérine n’intervient jamais dans le mécanisme.",
-        "correct": false,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
-      },
-      {
-        "content": "La triade appartient au site catalytique.",
+        "content": "Ser195 fournit le nucléophile qui attaque le carbonyle de la liaison peptidique.",
         "correct": true,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "Un intermédiaire acyl-enzyme se forme ensuite."
       },
       {
-        "content": "La triade est localisée sur l’hème.",
+        "content": "His57 ne participe à aucun transfert de proton.",
         "correct": false,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "Elle joue un rôle acide-base."
+      },
+      {
+        "content": "Ser195 est uniquement un résidu structural sans rôle chimique.",
+        "correct": false,
+        "explanation": "Elle agit comme nucléophile."
+      },
+      {
+        "content": "La triade est Lys-Arg-Glu.",
+        "correct": false,
+        "explanation": "La triade classique est Ser-His-Asp."
       }
     ],
-    "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+    "explanation": "La triade Ser-His-Asp active la sérine nucléophile et orchestre les transferts de proton de la chymotrypsine."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur les intermédiaires de la chymotrypsine faut-il retenir ?",
+    "question": "Concernant le mécanisme des sérine protéases, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Une molécule d’eau intervient avant la libération du second produit.",
+        "content": "Un second intermédiaire tétraédrique précède la régénération de l'enzyme.",
         "correct": true,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+        "explanation": "La sérine est finalement libérée."
       },
       {
-        "content": "L’eau est explicitement absente du mécanisme.",
+        "content": "La réaction ne comporte aucun intermédiaire tétraédrique.",
         "correct": false,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+        "explanation": "Il y en a classiquement deux."
       },
       {
-        "content": "Aucun intermédiaire n’est formé durant la catalyse.",
+        "content": "L'enzyme reste définitivement acylée après une molécule de substrat.",
         "correct": false,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+        "explanation": "Elle est régénérée à la fin du cycle."
       },
       {
-        "content": "La catalyse ne libère qu’un seul atome de sodium.",
+        "content": "L'eau n'intervient à aucune étape.",
         "correct": false,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+        "explanation": "Elle est nécessaire à la désacylation."
+      },
+      {
+        "content": "La sérine catalytique ne forme jamais de liaison covalente transitoire avec le substrat.",
+        "correct": false,
+        "explanation": "Un acyl-enzyme covalent est central."
       }
     ],
-    "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
+    "explanation": "Les sérine protéases passent par des intermédiaires tétraédriques et un acyl-enzyme, puis l'eau régénère l'enzyme."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés constituent la triade catalytique Ser-His-Asp ?",
-    "answer": {
-      "type": "number",
-      "value": 3,
-      "tolerance": 0
-    },
-    "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+    "format": "QRM",
+    "question": "Dans une autre application, concernant les modèles de reconnaissance enzyme-substrat, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le modèle clé-serrure de Fischer est un modèle historique de complémentarité préexistante.",
+        "correct": true,
+        "explanation": "Il souligne la complémentarité géométrique."
+      },
+      {
+        "content": "Le modèle d'ajustement induit de Koshland introduit une modification conformationnelle lors de la liaison.",
+        "correct": true,
+        "explanation": "L'enzyme et le substrat ne sont pas nécessairement rigides."
+      },
+      {
+        "content": "Koshland décrit une serrure parfaitement rigide.",
+        "correct": false,
+        "explanation": "Il a proposé l'ajustement induit."
+      },
+      {
+        "content": "Les deux modèles prouvent que les protéines sont immobiles.",
+        "correct": false,
+        "explanation": "Les protéines sont dynamiques."
+      },
+      {
+        "content": "L'ajustement induit reste un modèle utile pour comprendre la spécificité et la catalyse.",
+        "correct": true,
+        "explanation": "Il évite de représenter le site actif comme totalement rigide."
+      }
+    ],
+    "explanation": "Fischer a proposé le modèle clé-serrure ; Koshland a introduit l'ajustement induit, plus compatible avec la dynamique des protéines."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives au modèle clé-serrure de Fisher sont correctes ?",
-    "choices": [
-      {
-        "content": "Il repose sur une complémentarité géométrique préexistante entre enzyme et substrat.",
-        "correct": true,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
-      },
-      {
-        "content": "Il est présenté comme le modèle le plus récent de 1958.",
-        "correct": false,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
-      },
-      {
-        "content": "Il nie toute complémentarité entre enzyme et substrat.",
-        "correct": false,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
-      },
-      {
-        "content": "Le modèle de Fisher suppose un ajustement induit après fixation.",
-        "correct": false,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
+    "format": "QROC",
+    "question": "Une enzyme augmente-t-elle ou diminue-t-elle l'énergie d'activation ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "diminue",
+        "elle diminue l'énergie d'activation",
+        "abaisse"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Fisher représente une adaptation parfaite dès le départ."
+    },
+    "explanation": "Les enzymes accélèrent les réactions en abaissant ΔG‡, sans modifier le ΔG global ni l'équilibre."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour du modèle clé-serrure de Fisher : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Après libération du second produit, la triade catalytique est régénérée.",
+        "content": "La reconnaissance du résidu P1 et la réaction catalytique sont deux aspects distincts du site actif.",
         "correct": true,
-        "explanation": "Le mécanisme se termine par la régénération du site catalytique."
+        "explanation": "La poche de spécificité positionne le substrat pour la catalyse."
       },
       {
-        "content": "Il repose sur une complémentarité géométrique préexistante entre enzyme et substrat.",
+        "content": "Elle est une métallo-protéase sans sérine catalytique.",
+        "correct": false,
+        "explanation": "C'est une sérine protéase."
+      },
+      {
+        "content": "Elle n'altère pas la constante d'équilibre Keq.",
         "correct": true,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
+        "explanation": "Elle accélère simplement l'établissement de l'équilibre."
       },
       {
-        "content": "La fiche le présente comme le modèle admis aujourd’hui.",
+        "content": "L'enzyme accélère à la fois la réaction directe et la réaction inverse.",
         "correct": true,
-        "explanation": "Koshland introduit l’ajustement conformationnel induit."
+        "explanation": "C'est une conséquence de l'abaissement de la barrière commune."
       },
       {
-        "content": "Sans enzyme, aucune barrière énergétique n’existe.",
+        "content": "Une enzyme n'accélère jamais la réaction inverse.",
         "correct": false,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+        "explanation": "Elle abaisse aussi la barrière inverse."
       },
       {
-        "content": "Une enzyme supprime tout complexe enzyme-substrat.",
-        "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+        "content": "La chymotrypsine est une sérine protéase digestive.",
+        "correct": true,
+        "explanation": "Son site actif comporte une triade catalytique Ser-His-Asp."
       },
       {
-        "content": "Le produit est toujours lié irréversiblement à l’enzyme.",
+        "content": "La chymotrypsine coupe exclusivement après arginine et lysine.",
         "correct": false,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "explanation": "Cette spécificité caractérise plutôt la trypsine."
+      },
+      {
+        "content": "Sa spécificité est strictement limitée à une seule liaison Phe-Gly dans toutes les protéines.",
+        "correct": false,
+        "explanation": "Elle reconnaît plusieurs résidus hydrophobes/aromatiques."
+      },
+      {
+        "content": "Une réaction thermodynamiquement défavorable ne devient pas favorable par la seule présence de l'enzyme.",
+        "correct": true,
+        "explanation": "Un couplage énergétique peut en revanche changer le bilan global."
+      },
+      {
+        "content": "Elle ne peut hydrolyser aucune liaison après tyrosine.",
+        "correct": false,
+        "explanation": "Tyr est un substrat préférentiel."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "La catalyse enzymatique modifie la vitesse, pas la thermodynamique : ΔG° et Keq restent inchangés. La chymotrypsine est une sérine protéase qui préfère notamment Tyr, Trp et Phe, avec une spécificité plus large que deux résidus seulement."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation du modèle clé-serrure de Fisher : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Le modèle de Fisher date de 1894 dans la fiche.",
-        "correct": true,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
-      },
-      {
-        "content": "L’enzyme adapte sa forme au substrat lors de l’interaction.",
-        "correct": true,
-        "explanation": "Koshland introduit l’ajustement conformationnel induit."
-      },
-      {
-        "content": "La fiche note cette barrière ΔGact.",
-        "correct": true,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
-      },
-      {
-        "content": "L’enzyme diminue considérablement l’énergie d’activation.",
-        "correct": true,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
-      },
-      {
-        "content": "Le produit peut rester transitoirement complexé à l’enzyme sous forme EP.",
-        "correct": true,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
-      },
-      {
-        "content": "L’enzyme repousse nécessairement le substrat hors du site actif.",
-        "correct": false,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
-      },
-      {
-        "content": "Le site de fixation assure directement la transcription de l’ADN.",
-        "correct": false,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "Elle clive uniquement Lys-X et Arg-X dans cette partie du support.",
-        "correct": false,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
+    "format": "QROC",
+    "question": "Que signifie l'abréviation EP ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "enzyme-produit",
+        "complexe enzyme-produit",
+        "enzyme produit"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Les schémas ES et EP représentent des complexes transitoires ; l'enzyme est libérée à la fin du cycle."
   }
 ];

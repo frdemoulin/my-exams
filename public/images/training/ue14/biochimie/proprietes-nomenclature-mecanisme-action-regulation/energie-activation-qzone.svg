@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+  <rect width="1100" height="650" fill="white"/>
+  <g stroke="#222" stroke-width="4" fill="none">
+    <line x1="120" y1="540" x2="1010" y2="540"/>
+    <line x1="120" y1="540" x2="120" y2="80"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#222">
+    <text x="560" y="615" font-size="28" text-anchor="middle">Coordonnée réactionnelle</text>
+    <text x="45" y="305" font-size="28" transform="rotate(-90 45 305)" text-anchor="middle">Énergie libre</text>
+    <text x="170" y="505" font-size="24">Substrat</text>
+    <text x="885" y="470" font-size="24">Produit</text>
+  </g>
+  <path d="M160 480 C300 475 350 160 545 155 C720 160 760 450 950 445" fill="none" stroke="#888" stroke-width="9"/>
+  <path d="M160 480 C300 475 380 305 545 300 C710 305 790 450 950 445" fill="none" stroke="#222" stroke-width="9"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="23">
+    <text x="655" y="185" fill="#666">sans enzyme</text>
+    <text x="650" y="325" fill="#222">avec enzyme</text>
+  </g>
+  <circle cx="545" cy="300" r="16" fill="#222"/>
+</svg>
