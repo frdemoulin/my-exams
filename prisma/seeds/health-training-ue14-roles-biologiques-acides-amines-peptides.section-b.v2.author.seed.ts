@@ -1,665 +1,692 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Rôles biologiques des acides aminés et des peptides — Section B — Précurseurs biologiques et formation des peptides */
 export const UE14_BIOCH_CH11_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la tyrosine comme précurseur :",
+    "question": "Concernant la tyrosine comme précurseur, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle participe à la formation de catécholamines.",
+        "content": "La mélanine dérive aussi de la voie de la tyrosine.",
         "correct": true,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "La tyrosinase initie cette voie."
       },
       {
-        "content": "Elle participe aussi à la formation des hormones thyroïdiennes.",
+        "content": "La tyrosine peut être synthétisée à partir de phénylalanine.",
         "correct": true,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "La phénylalanine hydroxylase catalyse cette conversion."
       },
       {
-        "content": "Elle est le précurseur direct unique de l’insuline.",
+        "content": "Les catécholamines dérivent exclusivement de la glycine.",
         "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "Elles dérivent de la tyrosine."
       },
       {
-        "content": "Elle ne peut former aucune molécule de signalisation.",
-        "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "content": "Elle est un précurseur des catécholamines.",
+        "correct": true,
+        "explanation": "Dopamine, noradrénaline et adrénaline dérivent de la tyrosine."
+      },
+      {
+        "content": "Les hormones thyroïdiennes comportent des résidus iodés dérivés de tyrosines de la thyroglobuline.",
+        "correct": true,
+        "explanation": "La tyrosine contribue à T3/T4."
       }
     ],
-    "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+    "explanation": "La tyrosine est un précurseur des catécholamines, de la mélanine et contribue aux hormones thyroïdiennes."
   },
   {
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle famille de médiateurs dérive notamment de la tyrosine ?",
+    "question": "Parmi les affirmations suivantes concernant la tyrosine comme précurseur, laquelle est correcte ?",
     "choices": [
       {
-        "content": "les catécholamines",
+        "content": "La tyrosine est un acide gras.",
+        "correct": false,
+        "explanation": "C’est un acide aminé aromatique."
+      },
+      {
+        "content": "La mélanine dérive aussi de la voie de la tyrosine.",
         "correct": true,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "La tyrosinase initie cette voie."
       },
       {
-        "content": "les prostaglandines",
+        "content": "La tyrosine est le précurseur direct du GABA par décarboxylation.",
         "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "Le GABA dérive du glutamate."
       },
       {
-        "content": "les acides biliaires uniquement",
+        "content": "Les catécholamines dérivent exclusivement de la glycine.",
         "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "Elles dérivent de la tyrosine."
       },
       {
-        "content": "les triglycérides",
+        "content": "Elle ne participe jamais à la synthèse hormonale.",
         "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "Elle contribue aux hormones thyroïdiennes."
       }
     ],
-    "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+    "explanation": "La tyrosine est un précurseur des catécholamines, de la mélanine et contribue aux hormones thyroïdiennes."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant le tryptophane comme précurseur :",
-    "choices": [
-      {
-        "content": "Il participe à la synthèse de la sérotonine.",
-        "correct": true,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
-      },
-      {
-        "content": "Il participe aussi à la synthèse de la mélatonine.",
-        "correct": true,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
-      },
-      {
-        "content": "Il est le précurseur direct du GABA.",
-        "correct": false,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
-      },
-      {
-        "content": "Il donne directement les hormones thyroïdiennes.",
-        "correct": false,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
+    "format": "QROC",
+    "question": "Quel neurotransmetteur monoaminergique dérive du tryptophane ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sérotonine",
+        "serotonine",
+        "5-HT"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
+    },
+    "explanation": "Le tryptophane est précurseur de la sérotonine, de la mélatonine et peut contribuer à la synthèse de NAD."
   },
   {
     "order": 26,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel neuromédiateur dérive du tryptophane ?",
+    "format": "QRM",
+    "question": "Concernant le tryptophane comme précurseur, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "la sérotonine",
+        "content": "La mélatonine est synthétisée à partir de la sérotonine.",
         "correct": true,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
+        "explanation": "Elle dérive donc indirectement du tryptophane."
       },
       {
-        "content": "le GABA",
+        "content": "Il est synthétisé en quantité suffisante par l’humain.",
         "correct": false,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
+        "explanation": "Il est indispensable."
       },
       {
-        "content": "l’adrénaline",
+        "content": "Il ne participe à aucune voie métabolique hors protéines.",
         "correct": false,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
+        "explanation": "Il est précurseur de plusieurs molécules."
       },
       {
-        "content": "l’acétylcholine",
+        "content": "Le tryptophane est le précurseur direct de l’adrénaline.",
         "correct": false,
-        "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
+        "explanation": "Les catécholamines dérivent de la tyrosine."
+      },
+      {
+        "content": "Il est un précurseur de la sérotonine.",
+        "correct": true,
+        "explanation": "La voie implique notamment le 5-hydroxytryptophane."
       }
     ],
-    "explanation": "Le tryptophane est relié à sérotonine et mélatonine."
+    "explanation": "Le tryptophane est précurseur de la sérotonine, de la mélatonine et peut contribuer à la synthèse de NAD."
   },
   {
     "order": 27,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant l’acide glutamique dans le système nerveux :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant le glutamate dans le système nerveux, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Il peut lui-même agir comme neurotransmetteur.",
-        "correct": true,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
-      },
-      {
-        "content": "Il est précurseur du GABA par décarboxylation.",
-        "correct": true,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
-      },
-      {
-        "content": "Il est précurseur direct de la mélatonine.",
+        "content": "La formation du GABA est une phosphorylation du glutamate.",
         "correct": false,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "explanation": "C’est une décarboxylation."
       },
       {
-        "content": "Il ne peut subir aucune décarboxylation.",
+        "content": "La glutamate décarboxylase utilise le PLP dérivé de la vitamine B6.",
+        "correct": true,
+        "explanation": "Le PLP est cofacteur de nombreuses décarboxylases d’acides aminés."
+      },
+      {
+        "content": "Le GABA dérive directement de la tyrosine.",
         "correct": false,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "explanation": "Il dérive du glutamate."
+      },
+      {
+        "content": "Le glutamate est uniquement un neurotransmetteur inhibiteur.",
+        "correct": false,
+        "explanation": "Il est principalement excitateur."
+      },
+      {
+        "content": "Le glutamate n’a aucun rôle dans le système nerveux.",
+        "correct": false,
+        "explanation": "Il y joue un rôle majeur."
       }
     ],
-    "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+    "explanation": "Glutamate est excitateur et précurseur du GABA inhibiteur par décarboxylation PLP-dépendante."
   },
   {
     "order": 28,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel neurotransmetteur inhibiteur dérive du glutamate par décarboxylation ?",
+    "format": "QRP",
+    "question": "Concernant le glutamate dans le système nerveux, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "le GABA",
+        "content": "Le glutamate n’a aucun rôle dans le système nerveux.",
+        "correct": false,
+        "explanation": "Il y joue un rôle majeur."
+      },
+      {
+        "content": "Le GABA est formé par décarboxylation du glutamate.",
         "correct": true,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "explanation": "La glutamate décarboxylase catalyse cette réaction."
       },
       {
-        "content": "la sérotonine",
-        "correct": false,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "content": "Le GABA est un neurotransmetteur inhibiteur majeur du cerveau adulte.",
+        "correct": true,
+        "explanation": "Il diminue l’excitabilité de nombreux neurones."
       },
       {
-        "content": "l’adrénaline",
+        "content": "La formation du GABA est une phosphorylation du glutamate.",
         "correct": false,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "explanation": "C’est une décarboxylation."
       },
       {
-        "content": "le glucagon",
+        "content": "Le glutamate est uniquement un neurotransmetteur inhibiteur.",
         "correct": false,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "explanation": "Il est principalement excitateur."
       }
     ],
-    "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+    "explanation": "Glutamate est excitateur et précurseur du GABA inhibiteur par décarboxylation PLP-dépendante.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la glycine et l’hème :",
+    "question": "Concernant la glycine et la biosynthèse de l’hème, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La glycine contribue à la biosynthèse de l’hème.",
-        "correct": true,
-        "explanation": "La glycine participe à la synthèse de l’hème."
-      },
-      {
-        "content": "L’hème est important notamment dans l’hémoglobine et les cytochromes.",
-        "correct": true,
-        "explanation": "La glycine participe à la synthèse de l’hème."
-      },
-      {
-        "content": "La glycine ne participe à aucune biosynthèse non protéique.",
+        "content": "Les cytochromes ne contiennent aucun hème.",
         "correct": false,
-        "explanation": "La glycine participe à la synthèse de l’hème."
+        "explanation": "De nombreux cytochromes sont des hémoprotéines."
       },
       {
-        "content": "L’hème est un polyoside.",
+        "content": "L’hème ne contient jamais de fer.",
         "correct": false,
-        "explanation": "La glycine participe à la synthèse de l’hème."
+        "explanation": "Le fer est central dans l’hème fonctionnel."
+      },
+      {
+        "content": "La vitamine B6 sous forme PLP est un cofacteur de l’ALA synthase.",
+        "correct": true,
+        "explanation": "Le PLP participe à cette condensation."
+      },
+      {
+        "content": "L’hème entre dans la structure de l’hémoglobine et des cytochromes.",
+        "correct": true,
+        "explanation": "Il contient un fer au centre de la porphyrine."
+      },
+      {
+        "content": "La glycine participe à la première étape de la biosynthèse de l’hème.",
+        "correct": true,
+        "explanation": "Elle se condense avec le succinyl-CoA."
       }
     ],
-    "explanation": "La glycine participe à la synthèse de l’hème."
+    "explanation": "La glycine et le succinyl-CoA donnent l’ALA, première étape de la biosynthèse de l’hème."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle molécule contenant du fer est synthétisée par une voie impliquant la glycine ?",
-    "choices": [
-      {
-        "content": "l’hème",
-        "correct": true,
-        "explanation": "La glycine participe à la synthèse de l’hème."
-      },
-      {
-        "content": "le glycogène",
-        "correct": false,
-        "explanation": "La glycine participe à la synthèse de l’hème."
-      },
-      {
-        "content": "la cellulose",
-        "correct": false,
-        "explanation": "La glycine participe à la synthèse de l’hème."
-      },
-      {
-        "content": "le cholestérol uniquement",
-        "correct": false,
-        "explanation": "La glycine participe à la synthèse de l’hème."
+    "format": "QROC",
+    "question": "Avec quel métabolite du cycle de Krebs la glycine se condense-t-elle au début de la biosynthèse de l’hème ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "succinyl-CoA",
+        "succinyl coenzyme A"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La glycine participe à la synthèse de l’hème."
+    },
+    "explanation": "La glycine et le succinyl-CoA donnent l’ALA, première étape de la biosynthèse de l’hème."
   },
   {
     "order": 31,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la glycine et les acides biliaires :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la glycine et les acides biliaires ?",
     "choices": [
       {
-        "content": "Elle peut entrer dans un conjugué comme l’acide glycocholique.",
-        "correct": true,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
-      },
-      {
-        "content": "L’acide glycocholique associe acide cholique et glycine.",
-        "correct": true,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
-      },
-      {
-        "content": "La glycine est absente des conjugués biliaires.",
+        "content": "La glycine transforme les acides biliaires en protéines.",
         "correct": false,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+        "explanation": "Elle forme une conjugaison amide."
       },
       {
-        "content": "L’acide glycocholique est un acide nucléique.",
+        "content": "La conjugaison empêche toute action digestive des acides biliaires.",
         "correct": false,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+        "explanation": "Elle favorise leur efficacité amphiphile."
+      },
+      {
+        "content": "L’acide glycocholique est un triacylglycérol.",
+        "correct": false,
+        "explanation": "C’est un acide biliaire conjugué."
+      },
+      {
+        "content": "Seule la glycine peut conjuguer les acides biliaires.",
+        "correct": false,
+        "explanation": "La taurine le peut aussi."
+      },
+      {
+        "content": "Les acides biliaires facilitent la digestion et l’absorption des lipides.",
+        "correct": true,
+        "explanation": "Ils participent aux micelles mixtes intestinales."
       }
     ],
-    "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+    "explanation": "La glycine peut conjuguer les acides biliaires ; l’acide glycocholique en est un exemple."
   },
   {
     "order": 32,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel acide aminé est conjugué à l’acide cholique pour former l’acide glycocholique ?",
+    "format": "QRM",
+    "question": "Concernant la glycine et les acides biliaires, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "la glycine",
+        "content": "Les acides biliaires facilitent la digestion et l’absorption des lipides.",
         "correct": true,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+        "explanation": "Ils participent aux micelles mixtes intestinales."
       },
       {
-        "content": "la valine",
-        "correct": false,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+        "content": "L’acide glycocholique est un conjugué de l’acide cholique avec la glycine.",
+        "correct": true,
+        "explanation": "Il participe au pool biliaire."
       },
       {
-        "content": "la proline",
-        "correct": false,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+        "content": "La glycine peut conjuguer certains acides biliaires.",
+        "correct": true,
+        "explanation": "La conjugaison augmente leur caractère amphiphile."
       },
       {
-        "content": "l’histidine",
+        "content": "Seule la glycine peut conjuguer les acides biliaires.",
         "correct": false,
-        "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+        "explanation": "La taurine le peut aussi."
+      },
+      {
+        "content": "La taurine peut aussi conjuguer des acides biliaires.",
+        "correct": true,
+        "explanation": "Les sels biliaires existent sous formes glyco- et tauro-conjuguées."
       }
     ],
-    "explanation": "La conjugaison de la glycine avec l’acide cholique forme l’acide glycocholique, l’un des acides biliaires conjugués."
+    "explanation": "La glycine peut conjuguer les acides biliaires ; l’acide glycocholique en est un exemple."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les précurseurs des bases azotées :",
+    "question": "Concernant les précurseurs azotés des nucléotides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La glycine, l’aspartate et la glutamine fournissent des atomes à la biosynthèse des bases azotées.",
-        "correct": true,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
-      },
-      {
-        "content": "Ces voies concernent les purines et les pyrimidines.",
-        "correct": true,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
-      },
-      {
-        "content": "Seule la leucine participe aux bases azotées.",
+        "content": "Les purines sont synthétisées uniquement à partir d’acides gras.",
         "correct": false,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
+        "explanation": "Plusieurs acides aminés contribuent au noyau."
       },
       {
-        "content": "Les acides aminés ne contribuent jamais aux nucléotides.",
+        "content": "Glycine, glutamine et aspartate contribuent tous à la biosynthèse des purines.",
+        "correct": true,
+        "explanation": "Le noyau purique reçoit des atomes de plusieurs précurseurs."
+      },
+      {
+        "content": "Aspartate n’intervient dans aucune base azotée.",
         "correct": false,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
+        "explanation": "Il contribue aux purines et pyrimidines."
+      },
+      {
+        "content": "Le métabolisme des acides aminés est donc directement connecté à la synthèse des acides nucléiques.",
+        "correct": true,
+        "explanation": "Les nucléotides utilisent leurs atomes comme précurseurs."
+      },
+      {
+        "content": "La glycine est un précurseur direct obligatoire du noyau pyrimidique.",
+        "correct": false,
+        "explanation": "Elle contribue aux purines mais pas directement au noyau pyrimidique."
       }
     ],
-    "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
+    "explanation": "Gly, Gln et Asp contribuent aux purines ; Gln et Asp contribuent directement aux pyrimidines."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel trio d’acides aminés fournit des atomes à la biosynthèse des bases azotées ?",
-    "choices": [
-      {
-        "content": "glycine, aspartate et glutamine",
-        "correct": true,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
-      },
-      {
-        "content": "valine, leucine et isoleucine",
-        "correct": false,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
-      },
-      {
-        "content": "cystéine, méthionine et proline",
-        "correct": false,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
-      },
-      {
-        "content": "tyrosine, tryptophane et phénylalanine",
-        "correct": false,
-        "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
+    "format": "QROC",
+    "question": "Quel acide aminé apporte des atomes au noyau purique mais n’est pas un précurseur direct du noyau pyrimidique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "glycine",
+        "la glycine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Plusieurs atomes des bases azotées proviennent du métabolisme des acides aminés."
+    },
+    "explanation": "Gly, Gln et Asp contribuent aux purines ; Gln et Asp contribuent directement aux pyrimidines."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant la créatine :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la biosynthèse de la créatine ?",
     "choices": [
       {
-        "content": "La glycine et l’arginine participent à sa biosynthèse.",
-        "correct": true,
-        "explanation": "Le système créatine/phosphocréatine est relié au rôle énergétique musculaire."
-      },
-      {
-        "content": "La créatine phosphorylée forme une réserve énergétique importante dans le muscle.",
-        "correct": true,
-        "explanation": "Le système créatine/phosphocréatine est relié au rôle énergétique musculaire."
-      },
-      {
-        "content": "Elle est synthétisée uniquement à partir du glucose sans acide aminé.",
+        "content": "La créatine est synthétisée uniquement à partir de glycine et arginine sans aucun donneur de méthyle.",
         "correct": false,
-        "explanation": "Le système créatine/phosphocréatine est relié au rôle énergétique musculaire."
+        "explanation": "La méthionine via SAM fournit le méthyle."
       },
       {
-        "content": "La créatine-phosphate ne participe jamais à l’énergétique musculaire.",
+        "content": "La phosphocréatine est un acide gras de réserve.",
         "correct": false,
-        "explanation": "Le système créatine/phosphocréatine est relié au rôle énergétique musculaire."
+        "explanation": "C’est un système tampon de phosphate à haute énergie."
+      },
+      {
+        "content": "AGAT transforme directement la créatine en glucose.",
+        "correct": false,
+        "explanation": "AGAT forme le guanidinoacétate."
+      },
+      {
+        "content": "La phosphocréatine constitue un tampon énergétique important dans le muscle.",
+        "correct": true,
+        "explanation": "La créatine kinase transfère rapidement un phosphate à l’ADP."
+      },
+      {
+        "content": "La créatine est un polysaccharide.",
+        "correct": false,
+        "explanation": "C’est un dérivé d’acides aminés."
       }
     ],
-    "explanation": "Le système créatine/phosphocréatine est relié au rôle énergétique musculaire."
+    "explanation": "La créatine mobilise glycine, arginine et méthionine/SAM, puis la phosphocréatine tamponne rapidement l’ATP musculaire."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse courte : donnez le nom du neurotransmetteur inhibiteur formé par décarboxylation du glutamate.",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "GABA",
-        "acide gamma aminobutyrique",
-        "acide γ-aminobutyrique"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Concernant la biosynthèse de la créatine, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La créatine est synthétisée uniquement à partir de glycine et arginine sans aucun donneur de méthyle.",
+        "correct": false,
+        "explanation": "La méthionine via SAM fournit le méthyle."
+      },
+      {
+        "content": "Le guanidinoacétate est ensuite méthylé par SAM pour former la créatine.",
+        "correct": true,
+        "explanation": "La méthionine fournit le méthyle via SAM."
+      },
+      {
+        "content": "La phosphocréatine est un acide gras de réserve.",
+        "correct": false,
+        "explanation": "C’est un système tampon de phosphate à haute énergie."
+      },
+      {
+        "content": "Arginine et glycine forment d’abord le guanidinoacétate via AGAT.",
+        "correct": true,
+        "explanation": "L’ornithine est également produite."
+      },
+      {
+        "content": "La phosphocréatine constitue un tampon énergétique important dans le muscle.",
+        "correct": true,
+        "explanation": "La créatine kinase transfère rapidement un phosphate à l’ADP."
       }
-    },
-    "explanation": "Le glutamate est le précurseur du GABA."
+    ],
+    "explanation": "La créatine mobilise glycine, arginine et méthionine/SAM, puis la phosphocréatine tamponne rapidement l’ATP musculaire."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant la définition d’un peptide :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la définition d’un peptide, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Il associe plusieurs acides aminés par des liaisons peptidiques.",
+        "content": "La séquence s’écrit conventionnellement de N vers C.",
         "correct": true,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
+        "explanation": "Le peptide possède une polarité structurale."
       },
       {
-        "content": "La liaison se forme entre le COOH d’un résidu et le NH2 du suivant.",
+        "content": "Les résidus sont reliés principalement par des liaisons glycosidiques.",
+        "correct": false,
+        "explanation": "Ils sont reliés par des liaisons peptidiques."
+      },
+      {
+        "content": "Un dipeptide contient deux résidus.",
         "correct": true,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
+        "explanation": "Il contient une liaison peptidique principale entre eux."
       },
       {
-        "content": "Il est constitué uniquement de monosaccharides.",
+        "content": "Un dipeptide contient nécessairement 20 résidus.",
         "correct": false,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
+        "explanation": "Il en contient deux."
       },
       {
-        "content": "Il ne comporte jamais d’azote.",
+        "content": "Un peptide est un polymère de nucléotides.",
         "correct": false,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
+        "explanation": "Il est formé de résidus d’acides aminés."
       }
     ],
-    "explanation": "Les peptides sont des chaînes d’acides aminés."
+    "explanation": "Les peptides sont des chaînes de résidus reliés principalement par des liaisons peptidiques.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel type de liaison unit les résidus d’un peptide ?",
-    "choices": [
-      {
-        "content": "la liaison peptidique",
-        "correct": true,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
-      },
-      {
-        "content": "la liaison glycosidique",
-        "correct": false,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
-      },
-      {
-        "content": "la liaison phosphodiester de l’ADN",
-        "correct": false,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
-      },
-      {
-        "content": "la liaison ester d’un triglycéride",
-        "correct": false,
-        "explanation": "Les peptides sont des chaînes d’acides aminés."
+    "format": "QROC",
+    "question": "Quel type de liaison relie principalement les résidus d’un peptide ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "liaison peptidique",
+        "liaison amide",
+        "amide"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les peptides sont des chaînes d’acides aminés."
+    },
+    "explanation": "Les peptides sont des chaînes de résidus reliés principalement par des liaisons peptidiques."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour cette question, on adopte par convention un seuil pratique de 100 résidus entre peptide et protéine :",
-    "choices": [
-      {
-        "content": "Une chaîne de moins de 100 résidus est classée ici comme peptide.",
-        "correct": true,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "Une chaîne de plus de 100 résidus est classée ici comme protéine.",
-        "correct": true,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "Un peptide contient nécessairement plus de 1000 acides aminés.",
-        "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "Le nombre de résidus n’est jamais utilisé comme repère.",
-        "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      }
-    ],
-    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
+    "format": "QROC",
+    "question": "Quel ordre de grandeur sert ici de repère pédagogique entre peptide et protéine ?",
+    "answer": {
+      "type": "number",
+      "value": 100,
+      "tolerance": 0
+    },
+    "explanation": "Le seuil proche de 100 résidus est une convention pédagogique et non une frontière universelle."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel seuil pratique est explicitement adopté ici pour distinguer peptide et protéine ?",
+    "question": "Parmi les affirmations suivantes concernant la limite conventionnelle entre peptide et protéine, laquelle est correcte ?",
     "choices": [
       {
-        "content": "100 acides aminés",
+        "content": "La fonction ne peut pas être déduite du seul nombre de résidus.",
         "correct": true,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
+        "explanation": "Séquence et conformation sont déterminantes."
       },
       {
-        "content": "2 acides aminés",
+        "content": "Une chaîne de 99 résidus ne peut jamais être appelée protéine.",
         "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
+        "explanation": "Le seuil n’est pas absolu."
       },
       {
-        "content": "10 000 acides aminés",
+        "content": "La longueur suffit à prédire la fonction.",
         "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
+        "explanation": "La fonction dépend d’autres propriétés."
       },
       {
-        "content": "1 million",
+        "content": "Une chaîne de 101 résidus possède obligatoirement plusieurs sous-unités.",
         "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
+        "explanation": "La longueur ne détermine pas la quaternarité."
+      },
+      {
+        "content": "Le seuil de 100 est une loi chimique stricte.",
+        "correct": false,
+        "explanation": "C’est un repère pédagogique."
       }
     ],
-    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
+    "explanation": "Le seuil proche de 100 résidus est une convention pédagogique et non une frontière universelle."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la formation de l’insuline :",
+    "question": "Quelles propositions sont exactes concernant la formation de l’insuline ?",
     "choices": [
       {
-        "content": "Un gène unique conduit d’abord à une préproinsuline.",
-        "correct": true,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
-      },
-      {
-        "content": "Après retrait de la séquence signal puis maturation, le peptide C est libéré.",
-        "correct": true,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
-      },
-      {
-        "content": "L’insuline mature conserve une chaîne C active entre A et B.",
+        "content": "L’insuline mature est traduite directement sous sa forme finale sans précurseur.",
         "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "explanation": "Elle passe par préproinsuline puis proinsuline."
       },
       {
-        "content": "L’insuline est formée par saponification d’un lipide.",
-        "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "content": "Le retrait du peptide signal donne la proinsuline.",
+        "correct": true,
+        "explanation": "Cette étape a lieu dans le réticulum endoplasmique."
+      },
+      {
+        "content": "La proinsuline contient les futures chaînes B et A reliées par le peptide C.",
+        "correct": true,
+        "explanation": "Elle se replie et forme ses ponts disulfure."
+      },
+      {
+        "content": "La traduction produit d’abord la préproinsuline.",
+        "correct": true,
+        "explanation": "Elle contient un peptide signal N-terminal."
+      },
+      {
+        "content": "Le clivage du peptide C et de segments dibasiques donne l’insuline mature.",
+        "correct": true,
+        "explanation": "La maturation a lieu dans la voie sécrétoire."
       }
     ],
-    "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+    "explanation": "Préproinsuline → proinsuline → insuline + peptide C : la maturation associe retrait du signal, repliement et clivages."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel précurseur précède la proinsuline ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "la préproinsuline",
+        "content": "Certaines molécules appelées protéines ont moins de 100 résidus et inversement certains peptides peuvent être longs.",
         "correct": true,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "explanation": "L’usage biologique compte aussi."
       },
       {
-        "content": "le glucagon",
+        "content": "La préproinsuline est un glucide.",
         "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "explanation": "C’est un précurseur polypeptidique."
       },
       {
-        "content": "l’ACTH",
-        "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "content": "Cette limite n’est pas une frontière physicochimique universelle.",
+        "correct": true,
+        "explanation": "La terminologie varie selon les protéines et peptides considérés."
       },
       {
-        "content": "le fibrinogène",
+        "content": "Aucun pont disulfure ne se forme avant la sécrétion.",
         "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "explanation": "Ils se forment pendant le repliement de la proinsuline."
+      },
+      {
+        "content": "La fonction ne peut pas être déduite du seul nombre de résidus.",
+        "correct": true,
+        "explanation": "Séquence et conformation sont déterminantes."
+      },
+      {
+        "content": "Le retrait du peptide signal donne la proinsuline.",
+        "correct": true,
+        "explanation": "Cette étape a lieu dans le réticulum endoplasmique."
+      },
+      {
+        "content": "Le peptide C reste une troisième chaîne permanente de l’insuline mature.",
+        "correct": false,
+        "explanation": "Il est clivé lors de la maturation."
+      },
+      {
+        "content": "Une chaîne de 101 résidus possède obligatoirement plusieurs sous-unités.",
+        "correct": false,
+        "explanation": "La longueur ne détermine pas la quaternarité."
+      },
+      {
+        "content": "La traduction produit d’abord la préproinsuline.",
+        "correct": true,
+        "explanation": "Elle contient un peptide signal N-terminal."
+      },
+      {
+        "content": "L’insuline mature est traduite directement sous sa forme finale sans précurseur.",
+        "correct": false,
+        "explanation": "Elle passe par préproinsuline puis proinsuline."
       }
     ],
-    "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+    "explanation": "Préproinsuline → proinsuline → insuline + peptide C : la maturation associe retrait du signal, repliement et clivages. Le seuil proche de 100 résidus est une convention pédagogique et non une frontière universelle."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant le peptide C :",
+    "question": "Parmi les affirmations suivantes concernant le peptide C, lesquelles sont correctes ?",
     "choices": [
+      {
+        "content": "Il est présent dans les préparations d’insuline exogène et empêche toute interprétation clinique.",
+        "correct": false,
+        "explanation": "Le dosage permet justement de distinguer la production endogène."
+      },
+      {
+        "content": "Son dosage aide à estimer la sécrétion endogène d’insuline.",
+        "correct": true,
+        "explanation": "L’insuline injectée exogène ne s’accompagne pas de peptide C."
+      },
       {
         "content": "Il est libéré lors de la maturation de la proinsuline.",
         "correct": true,
-        "explanation": "Le peptide C est un marqueur de production endogène d’insuline."
+        "explanation": "Les convertases clivent les jonctions."
       },
       {
-        "content": "Son dosage peut informer sur la synthèse endogène d’insuline.",
-        "correct": true,
-        "explanation": "Le peptide C est un marqueur de production endogène d’insuline."
-      },
-      {
-        "content": "Il constitue la troisième chaîne permanente de l’insuline mature.",
+        "content": "Sa concentration ne donne aucune information sur la sécrétion bêta-cellulaire.",
         "correct": false,
-        "explanation": "Le peptide C est un marqueur de production endogène d’insuline."
+        "explanation": "Elle est utilisée comme marqueur de sécrétion endogène."
       },
       {
-        "content": "Il est décrit comme hyperglycémiant.",
+        "content": "Il est une troisième chaîne permanente de l’insuline mature.",
         "correct": false,
-        "explanation": "Le peptide C est un marqueur de production endogène d’insuline."
+        "explanation": "Il est retiré."
       }
     ],
-    "explanation": "Le peptide C est un marqueur de production endogène d’insuline."
+    "explanation": "Le peptide C est libéré équimolairement avec l’insuline endogène et constitue un marqueur clinique utile."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos des précurseurs biologiques et de la formation des peptides, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "La tyrosine participe à la synthèse des catécholamines.",
-        "correct": true,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "Le tryptophane participe à la synthèse de la sérotonine.",
-        "correct": true,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "La glycine participe à la synthèse de l’hème.",
-        "correct": true,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "Glycine et arginine participent à la synthèse de créatine.",
-        "correct": true,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "Le peptide C est libéré lors de la maturation de la proinsuline.",
-        "correct": true,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "Le glutamate est le précurseur direct de la mélatonine.",
-        "correct": false,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "La glycine ne participe à aucune molécule non protéique.",
-        "correct": false,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "L’insuline mature possède trois chaînes A, B et C.",
-        "correct": false,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "La créatine-phosphate n’a aucun rôle énergétique musculaire.",
-        "correct": false,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
-      },
-      {
-        "content": "La tyrosine donne directement le GABA.",
-        "correct": false,
-        "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
+    "format": "QROC",
+    "question": "Quel peptide libéré avec l’insuline permet d’évaluer la sécrétion endogène des cellules bêta ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "peptide C",
+        "C-peptide",
+        "peptide connecting"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces cinq associations sont des repères fréquents des questions d’examen."
+    },
+    "explanation": "Le peptide C est libéré équimolairement avec l’insuline endogène et constitue un marqueur clinique utile."
   }
 ];

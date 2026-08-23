@@ -1,696 +1,709 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Rôles biologiques des acides aminés et des peptides — Synthèse — Rôles biologiques des acides aminés et peptides */
 export const UE14_BIOCH_CH11_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse — concernant le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile :",
+    "question": "Concernant les acides aminés indispensables chez l’adulte, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il réunit huit acides aminés indispensables.",
+        "content": "Le groupe Leu-Thr-Lys-Trp-Phe-Val-Met-Ile constitue donc un sous-ensemble de huit des neuf indispensables.",
         "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "Ce groupe constitue un sous-ensemble de huit des neuf indispensables."
+      },
+      {
+        "content": "L’histidine n’est indispensable que chez le nourrisson.",
+        "correct": false,
+        "explanation": "Elle est aussi indispensable chez l’adulte."
+      },
+      {
+        "content": "Leucine, threonine, lysine, tryptophane, phenylalanine, valine, methionine et isoleucine font partie des acides aminés indispensables.",
+        "correct": true,
+        "explanation": "Ces huit acides aminés appartiennent bien au groupe des indispensables."
       },
       {
         "content": "Ils doivent être apportés en quantité suffisante par l’alimentation.",
         "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "La synthèse endogène ne permet pas de couvrir le besoin en acides aminés indispensables."
       },
       {
-        "content": "La glycine et l’alanine appartiennent à ce groupe de huit acides aminés.",
+        "content": "La glycine et l’alanine sont toujours indispensables chez l’adulte sain.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
-      },
-      {
-        "content": "Tous les acides aminés de ce groupe sont synthétisés en quantité suffisante par l’être humain.",
-        "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "Elles sont généralement synthétisables."
       }
     ],
-    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables ; l’histidine en fait partie."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Synthèse transversale : combien d’acides aminés comporte le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile ?",
-    "choices": [
-      {
-        "content": "8",
-        "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
-      },
-      {
-        "content": "10",
-        "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
-      },
-      {
-        "content": "20",
-        "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
-      },
-      {
-        "content": "2",
-        "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
-      }
-    ],
-    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+    "format": "QROC",
+    "question": "Combien d’acides aminés sont classiquement indispensables chez l’adulte humain sain ?",
+    "answer": {
+      "type": "number",
+      "value": 9,
+      "tolerance": 0
+    },
+    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables ; l’histidine en fait partie."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — concernant le cycle de l’uréogenèse :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le cycle de l’urée ?",
     "choices": [
       {
-        "content": "La citrulline, l’ornithine et l’arginine sont des intermédiaires de l’uréogenèse.",
-        "correct": true,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
-      },
-      {
-        "content": "Il participe à la détoxification de l’ammoniaque par formation d’urée.",
-        "correct": true,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
-      },
-      {
-        "content": "Il produit directement du cholestérol.",
+        "content": "Le cycle de l’urée transforme l’urée en ammoniac pour le stocker.",
         "correct": false,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "explanation": "Le sens physiologique majeur est la détoxification de l’ammoniac."
       },
       {
-        "content": "Il accumule l’ammoniaque pour le rendre plus toxique.",
+        "content": "Le foie est l’organe majeur de l’uréogenèse.",
+        "correct": true,
+        "explanation": "Les hépatocytes expriment l’ensemble des enzymes du cycle."
+      },
+      {
+        "content": "L’ornithine et la citrulline sont des acides gras.",
         "correct": false,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "explanation": "Ce sont des acides aminés non protéinogènes du cycle."
+      },
+      {
+        "content": "L’uréogenèse n’a aucun lien avec le catabolisme azoté.",
+        "correct": false,
+        "explanation": "Elle élimine l’azote excédentaire."
+      },
+      {
+        "content": "Il se déroule exclusivement dans les globules rouges.",
+        "correct": false,
+        "explanation": "Le foie est le site principal."
       }
     ],
-    "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+    "explanation": "Le cycle hépatique de l’urée détoxifie l’azote ammoniacal et implique ornithine, citrulline et arginine."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quel déchet azoté est formé pour éliminer l’azote ammoniacal ?",
+    "format": "QRM",
+    "question": "Concernant le cycle de l’urée, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "l’urée",
+        "content": "Le foie est l’organe majeur de l’uréogenèse.",
         "correct": true,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "explanation": "Les hépatocytes expriment l’ensemble des enzymes du cycle."
       },
       {
-        "content": "le glycogène",
-        "correct": false,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "content": "Le cycle participe à la détoxification de l’ammoniaque produit notamment lors du catabolisme des acides aminés.",
+        "correct": true,
+        "explanation": "L’hyperammoniémie est neurotoxique."
       },
       {
-        "content": "le cholestérol",
-        "correct": false,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "content": "Il permet de convertir une partie de l’azote ammoniacal en urée moins toxique.",
+        "correct": true,
+        "explanation": "L’urée est ensuite éliminée principalement par le rein."
       },
       {
-        "content": "le lactate uniquement",
+        "content": "Il se déroule exclusivement dans les globules rouges.",
         "correct": false,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "explanation": "Le foie est le site principal."
+      },
+      {
+        "content": "L’ornithine, la citrulline et l’arginine sont des intermédiaires du cycle.",
+        "correct": true,
+        "explanation": "Ils assurent la progression cyclique de l’azote."
       }
     ],
-    "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+    "explanation": "Le cycle hépatique de l’urée détoxifie l’azote ammoniacal et implique ornithine, citrulline et arginine."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — concernant les acides aminés glucoformateurs :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les acides aminés glucoformateurs, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Ils peuvent donner des intermédiaires conduisant au glucose par néoglucogenèse.",
-        "correct": true,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
-      },
-      {
-        "content": "Ils sont reliés aux intermédiaires du cycle de l’acide citrique.",
-        "correct": true,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
-      },
-      {
-        "content": "Ils donnent exclusivement des corps cétoniques.",
+        "content": "Leucine et lysine sont exclusivement glucogéniques.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Elles sont exclusivement cétogènes."
       },
       {
-        "content": "Ils sont des polysaccharides.",
+        "content": "Tous les acides aminés sont exclusivement glucogéniques.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Certains sont aussi ou exclusivement cétogènes."
+      },
+      {
+        "content": "Un acide aminé peut être à la fois glucogénique et cétogénique.",
+        "correct": true,
+        "explanation": "Plusieurs acides aminés ont des produits de dégradation mixtes."
+      },
+      {
+        "content": "Le caractère glucogénique concerne le squelette carboné après élimination de l’azote.",
+        "correct": true,
+        "explanation": "Il ne signifie pas qu’un acide aminé est du glucose."
+      },
+      {
+        "content": "Aucun intermédiaire du cycle de Krebs ne peut contribuer à la néoglucogenèse.",
+        "correct": false,
+        "explanation": "Plusieurs y contribuent via oxaloacétate."
       }
     ],
-    "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+    "explanation": "La plupart des acides aminés sont glucogéniques ; leucine et lysine sont exclusivement cétogènes.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quelle voie permet de reformer du glucose à partir d’intermédiaires adaptés ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les acides aminés glucoformateurs ?",
     "choices": [
       {
-        "content": "la néoglucogenèse",
+        "content": "La plupart des acides aminés standards possèdent au moins un devenir glucogénique.",
         "correct": true,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Leucine et lysine sont les deux exceptions exclusivement cétogènes."
       },
       {
-        "content": "la saponification",
+        "content": "Tous les acides aminés sont exclusivement glucogéniques.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Certains sont aussi ou exclusivement cétogènes."
       },
       {
-        "content": "la β-oxydation uniquement",
+        "content": "Aucun intermédiaire du cycle de Krebs ne peut contribuer à la néoglucogenèse.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Plusieurs y contribuent via oxaloacétate."
       },
       {
-        "content": "la réplication",
+        "content": "Le caractère glucogénique concerne le squelette carboné après élimination de l’azote.",
+        "correct": true,
+        "explanation": "Il ne signifie pas qu’un acide aminé est du glucose."
+      },
+      {
+        "content": "Leucine et lysine sont exclusivement glucogéniques.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Elles sont exclusivement cétogènes."
       }
     ],
-    "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+    "explanation": "La plupart des acides aminés sont glucogéniques ; leucine et lysine sont exclusivement cétogènes."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — concernant la tyrosine comme précurseur :",
-    "choices": [
-      {
-        "content": "Elle participe à la formation de catécholamines.",
-        "correct": true,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
-      },
-      {
-        "content": "Elle participe aussi à la formation des hormones thyroïdiennes.",
-        "correct": true,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
-      },
-      {
-        "content": "Elle est le précurseur direct unique de l’insuline.",
-        "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
-      },
-      {
-        "content": "Elle ne peut former aucune molécule de signalisation.",
-        "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+    "format": "QROC",
+    "question": "Quelle famille de neurotransmetteurs comprend dopamine, noradrénaline et adrénaline dérivées de la tyrosine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "catécholamines",
+        "catecholamines"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+    },
+    "explanation": "La tyrosine est un précurseur des catécholamines, de la mélanine et contribue aux hormones thyroïdiennes."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Synthèse transversale : Quelle famille de médiateurs dérive notamment de la tyrosine ?",
+    "question": "Parmi les affirmations suivantes concernant la tyrosine comme précurseur, laquelle est correcte ?",
     "choices": [
       {
-        "content": "les catécholamines",
+        "content": "Les catécholamines dérivent exclusivement de la glycine.",
+        "correct": false,
+        "explanation": "Elles dérivent de la tyrosine."
+      },
+      {
+        "content": "La tyrosine est un acide gras.",
+        "correct": false,
+        "explanation": "C’est un acide aminé aromatique."
+      },
+      {
+        "content": "Elle ne participe jamais à la synthèse hormonale.",
+        "correct": false,
+        "explanation": "Elle contribue aux hormones thyroïdiennes."
+      },
+      {
+        "content": "La tyrosine est le précurseur direct du GABA par décarboxylation.",
+        "correct": false,
+        "explanation": "Le GABA dérive du glutamate."
+      },
+      {
+        "content": "La mélanine dérive aussi de la voie de la tyrosine.",
         "correct": true,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
-      },
-      {
-        "content": "les prostaglandines",
-        "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
-      },
-      {
-        "content": "les acides biliaires uniquement",
-        "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
-      },
-      {
-        "content": "les triglycérides",
-        "correct": false,
-        "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+        "explanation": "La tyrosinase initie cette voie."
       }
     ],
-    "explanation": "La tyrosine est un précurseur de plusieurs molécules de signalisation."
+    "explanation": "La tyrosine est un précurseur des catécholamines, de la mélanine et contribue aux hormones thyroïdiennes."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse — concernant l’acide glutamique dans le système nerveux :",
+    "question": "Quelles propositions sont exactes concernant le glutamate dans le système nerveux ?",
     "choices": [
       {
-        "content": "Il peut lui-même agir comme neurotransmetteur.",
-        "correct": true,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
-      },
-      {
-        "content": "Il est précurseur du GABA par décarboxylation.",
-        "correct": true,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
-      },
-      {
-        "content": "Il est précurseur direct de la mélatonine.",
+        "content": "La formation du GABA est une phosphorylation du glutamate.",
         "correct": false,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "explanation": "C’est une décarboxylation."
       },
       {
-        "content": "Il ne peut subir aucune décarboxylation.",
+        "content": "Le glutamate est un neurotransmetteur excitateur majeur du système nerveux central.",
+        "correct": true,
+        "explanation": "Il agit via des récepteurs ionotropiques et métabotropiques."
+      },
+      {
+        "content": "Le GABA est un neurotransmetteur inhibiteur majeur du cerveau adulte.",
+        "correct": true,
+        "explanation": "Il diminue l’excitabilité de nombreux neurones."
+      },
+      {
+        "content": "La glutamate décarboxylase utilise le PLP dérivé de la vitamine B6.",
+        "correct": true,
+        "explanation": "Le PLP est cofacteur de nombreuses décarboxylases d’acides aminés."
+      },
+      {
+        "content": "Le glutamate n’a aucun rôle dans le système nerveux.",
         "correct": false,
-        "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+        "explanation": "Il y joue un rôle majeur."
       }
     ],
-    "explanation": "Le glutamate est à la fois médiateur et précurseur du GABA."
+    "explanation": "Glutamate est excitateur et précurseur du GABA inhibiteur par décarboxylation PLP-dépendante."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Synthèse : sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Les acides aminés indispensables nécessitent un apport alimentaire.",
-        "correct": true,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
-      },
-      {
-        "content": "Le glutamate peut donner le GABA.",
-        "correct": true,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
-      },
-      {
-        "content": "L’insuline mature comporte les chaînes A et B.",
-        "correct": true,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
-      },
-      {
-        "content": "Le BNP favorise la natriurèse.",
-        "correct": true,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
-      },
-      {
-        "content": "La β-endorphine peut provenir de la POMC.",
-        "correct": true,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
-      },
-      {
-        "content": "L’arginine est absente du cycle de l’urée.",
+        "content": "Le glutamate est uniquement un neurotransmetteur inhibiteur.",
         "correct": false,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
+        "explanation": "Il est principalement excitateur."
       },
       {
-        "content": "Le peptide C est hyperglycémiant.",
-        "correct": false,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
+        "content": "Le GABA est formé par décarboxylation du glutamate.",
+        "correct": true,
+        "explanation": "La glutamate décarboxylase catalyse cette réaction."
       },
       {
-        "content": "Le glucagon diminue la glycémie.",
+        "content": "Elle ne participe jamais à la synthèse hormonale.",
         "correct": false,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
+        "explanation": "Elle contribue aux hormones thyroïdiennes."
       },
       {
-        "content": "Le BNP est produit par les cellules β pancréatiques.",
-        "correct": false,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
+        "content": "La glutamate décarboxylase utilise le PLP dérivé de la vitamine B6.",
+        "correct": true,
+        "explanation": "Le PLP est cofacteur de nombreuses décarboxylases d’acides aminés."
       },
       {
-        "content": "Le glutathion est un tétrapeptide.",
+        "content": "Les catécholamines dérivent exclusivement de la glycine.",
         "correct": false,
-        "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
+        "explanation": "Elles dérivent de la tyrosine."
+      },
+      {
+        "content": "La tyrosine peut être synthétisée à partir de phénylalanine.",
+        "correct": true,
+        "explanation": "La phénylalanine hydroxylase catalyse cette conversion."
+      },
+      {
+        "content": "Elle est un précurseur des catécholamines.",
+        "correct": true,
+        "explanation": "Dopamine, noradrénaline et adrénaline dérivent de la tyrosine."
+      },
+      {
+        "content": "La mélanine dérive aussi de la voie de la tyrosine.",
+        "correct": true,
+        "explanation": "La tyrosinase initie cette voie."
+      },
+      {
+        "content": "La tyrosine est un acide gras.",
+        "correct": false,
+        "explanation": "C’est un acide aminé aromatique."
+      },
+      {
+        "content": "La formation du GABA est une phosphorylation du glutamate.",
+        "correct": false,
+        "explanation": "C’est une décarboxylation."
       }
     ],
-    "explanation": "La synthèse croise nutrition, métabolisme et peptides de signalisation."
+    "explanation": "Glutamate est excitateur et précurseur du GABA inhibiteur par décarboxylation PLP-dépendante. La tyrosine est un précurseur des catécholamines, de la mélanine et contribue aux hormones thyroïdiennes."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Synthèse — concernant la formation de l’insuline :",
+    "question": "Concernant la formation de l’insuline, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un gène unique conduit d’abord à une préproinsuline.",
+        "content": "La traduction produit d’abord la préproinsuline.",
         "correct": true,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "explanation": "Elle contient un peptide signal N-terminal."
       },
       {
-        "content": "Après retrait de la séquence signal puis maturation, le peptide C est libéré.",
+        "content": "La proinsuline contient les futures chaînes B et A reliées par le peptide C.",
         "correct": true,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "explanation": "Elle se replie et forme ses ponts disulfure."
       },
       {
-        "content": "L’insuline mature conserve une chaîne C active entre A et B.",
-        "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "content": "Le retrait du peptide signal donne la proinsuline.",
+        "correct": true,
+        "explanation": "Cette étape a lieu dans le réticulum endoplasmique."
       },
       {
-        "content": "L’insuline est formée par saponification d’un lipide.",
+        "content": "La préproinsuline est un glucide.",
         "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+        "explanation": "C’est un précurseur polypeptidique."
+      },
+      {
+        "content": "Le clivage du peptide C et de segments dibasiques donne l’insuline mature.",
+        "correct": true,
+        "explanation": "La maturation a lieu dans la voie sécrétoire."
       }
     ],
-    "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+    "explanation": "Préproinsuline → proinsuline → insuline + peptide C : la maturation associe retrait du signal, repliement et clivages."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quel précurseur précède la proinsuline ?",
-    "choices": [
-      {
-        "content": "la préproinsuline",
-        "correct": true,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
-      },
-      {
-        "content": "le glucagon",
-        "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
-      },
-      {
-        "content": "l’ACTH",
-        "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
-      },
-      {
-        "content": "le fibrinogène",
-        "correct": false,
-        "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+    "format": "QROC",
+    "question": "Quel précurseur apparaît immédiatement après retrait du peptide signal de la préproinsuline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "proinsuline",
+        "la proinsuline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’insuline illustre traduction, adressage puis maturation protéolytique."
+    },
+    "explanation": "Préproinsuline → proinsuline → insuline + peptide C : la maturation associe retrait du signal, repliement et clivages."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Synthèse — concernant l’insuline mature :",
+    "format": "QRP",
+    "question": "Concernant l’insuline mature, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Elle comporte deux chaînes A et B.",
-        "correct": true,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
-      },
-      {
-        "content": "Les chaînes A et B sont reliées par deux ponts disulfure interchaînes.",
-        "correct": true,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
-      },
-      {
-        "content": "Elle comporte trois chaînes A, B et C définitives.",
+        "content": "Elle ne possède aucun pont disulfure.",
         "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "Elle en possède trois au total."
       },
       {
-        "content": "Elle est une hormone hyperglycémiante.",
+        "content": "Elle possède trois chaînes A, B et C dans sa forme mature.",
         "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "Le peptide C est clivé."
+      },
+      {
+        "content": "Elle abaisse la glycémie en favorisant l’utilisation et le stockage du glucose selon les tissus.",
+        "correct": true,
+        "explanation": "C’est l’hormone hypoglycémiante majeure."
+      },
+      {
+        "content": "Deux ponts disulfure relient les chaînes A et B.",
+        "correct": true,
+        "explanation": "Un troisième pont disulfure est intrachaîne dans A."
+      },
+      {
+        "content": "Elle comporte 29 acides aminés.",
+        "correct": false,
+        "explanation": "Ce nombre correspond au glucagon."
       }
     ],
-    "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+    "explanation": "L’insuline humaine mature compte 51 résidus, deux chaînes et trois ponts disulfure au total.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : quel est l’effet principal de l’insuline sur la glycémie ?",
+    "format": "QRM",
+    "question": "Concernant l’insuline mature, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "un effet hypoglycémiant",
+        "content": "Elle abaisse la glycémie en favorisant l’utilisation et le stockage du glucose selon les tissus.",
         "correct": true,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "C’est l’hormone hypoglycémiante majeure."
       },
       {
-        "content": "un effet hyperglycémiant",
-        "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "content": "L’insuline humaine mature comporte 51 acides aminés.",
+        "correct": true,
+        "explanation": "La chaîne A en contient 21 et la chaîne B 30."
       },
       {
-        "content": "aucun effet métabolique",
+        "content": "Elle possède trois chaînes A, B et C dans sa forme mature.",
         "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "Le peptide C est clivé."
       },
       {
-        "content": "une augmentation obligatoire de la glycémie",
+        "content": "Elle augmente la glycémie comme fonction principale.",
         "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "Elle est hypoglycémiante."
+      },
+      {
+        "content": "Elle ne possède aucun pont disulfure.",
+        "correct": false,
+        "explanation": "Elle en possède trois au total."
       }
     ],
-    "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+    "explanation": "L’insuline humaine mature compte 51 résidus, deux chaînes et trois ponts disulfure au total."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Synthèse — concernant la pro-opiomélanocortine :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la pro-opiomélanocortine, laquelle est correcte ?",
     "choices": [
       {
-        "content": "C’est un précurseur protéique pouvant être clivé différemment selon les tissus.",
-        "correct": true,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "Elle peut donner notamment ACTH et β-endorphine.",
-        "correct": true,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "Elle est un triglycéride de réserve.",
+        "content": "La POMC est un monosaccharide.",
         "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+        "explanation": "C’est une prohormone polypeptidique."
       },
       {
-        "content": "Elle ne subit jamais de clivage protéolytique.",
+        "content": "L’ACTH dérive de la POMC.",
+        "correct": true,
+        "explanation": "Elle stimule le cortex surrénalien."
+      },
+      {
+        "content": "L’ACTH est synthétisée à partir du cholestérol et non d’un précurseur peptidique.",
         "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+        "explanation": "Elle dérive de POMC."
+      },
+      {
+        "content": "La bêta-endorphine ne possède aucun lien avec POMC.",
+        "correct": false,
+        "explanation": "Elle en dérive."
+      },
+      {
+        "content": "Elle ne peut donner qu’un seul peptide final.",
+        "correct": false,
+        "explanation": "Elle donne plusieurs produits."
       }
     ],
-    "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+    "explanation": "La POMC illustre la production de plusieurs peptides par clivages tissulaires d’un même précurseur."
   },
   {
     "order": 116,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quel peptide opioïde peut provenir de la POMC ?",
-    "choices": [
-      {
-        "content": "la β-endorphine",
-        "correct": true,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "l’insuline",
-        "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "le BNP",
-        "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "la bradykinine uniquement",
-        "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+    "format": "QROC",
+    "question": "Quel précurseur polypeptidique donne notamment ACTH et bêta-endorphine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "POMC",
+        "pro-opiomélanocortine",
+        "proopiomelanocortine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+    },
+    "explanation": "La POMC illustre la production de plusieurs peptides par clivages tissulaires d’un même précurseur."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel précurseur transmembranaire est à l’origine des peptides β-amyloïdes ?",
+    "question": "Combien d’acides aminés comporte le glucagon humain mature ?",
     "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "APP",
-        "protéine précurseur amyloïde",
-        "proteine precurseur amyloide"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
-      }
+      "type": "number",
+      "value": 29,
+      "tolerance": 0
     },
-    "explanation": "L’APP est soumise à des clivages par des sécrétases."
+    "explanation": "Le glucagon est un peptide de 29 résidus sécrété par les cellules alpha et augmente la production hépatique de glucose."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quel type cellulaire pancréatique sécrète le glucagon ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "les cellules α",
+        "content": "Il est sécrété principalement par les cellules alpha pancréatiques.",
         "correct": true,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
+        "explanation": "Il s’oppose fonctionnellement à l’insuline sur la glycémie."
       },
       {
-        "content": "les cellules β",
-        "correct": false,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
+        "content": "Le profil de clivage dépend du tissu et des convertases exprimées.",
+        "correct": true,
+        "explanation": "Un même précurseur peut donner des produits différents."
       },
       {
-        "content": "les cardiomyocytes",
-        "correct": false,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
+        "content": "La POMC est un précurseur polypeptidique.",
+        "correct": true,
+        "explanation": "Elle est clivée en plusieurs peptides biologiquement actifs."
       },
       {
-        "content": "les hématies",
+        "content": "Il est un stéroïde dérivé du cholestérol.",
         "correct": false,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
+        "explanation": "C’est un peptide."
+      },
+      {
+        "content": "Il favorise la glycogénolyse et la néoglucogenèse hépatiques.",
+        "correct": true,
+        "explanation": "Ces actions augmentent la production hépatique de glucose."
+      },
+      {
+        "content": "Le glucagon est sécrété principalement par les cellules bêta.",
+        "correct": false,
+        "explanation": "Les cellules alpha le produisent."
+      },
+      {
+        "content": "Il dérive du proglucagon par maturation protéolytique.",
+        "correct": true,
+        "explanation": "Le tissu détermine les peptides issus du précurseur."
+      },
+      {
+        "content": "L’ACTH est synthétisée à partir du cholestérol et non d’un précurseur peptidique.",
+        "correct": false,
+        "explanation": "Elle dérive de POMC."
+      },
+      {
+        "content": "Il est principalement hypoglycémiant.",
+        "correct": false,
+        "explanation": "Il est hyperglycémiant."
+      },
+      {
+        "content": "Il comporte 51 résidus répartis en deux chaînes.",
+        "correct": false,
+        "explanation": "Cela décrit l’insuline."
       }
     ],
-    "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
+    "explanation": "Le glucagon est un peptide de 29 résidus sécrété par les cellules alpha et augmente la production hépatique de glucose. La POMC illustre la production de plusieurs peptides par clivages tissulaires d’un même précurseur."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Synthèse — concernant le BNP et le NT-proBNP en biologie clinique :",
+    "question": "Quelles propositions sont exactes concernant le BNP et le NT-proBNP en biologie clinique ?",
     "choices": [
       {
-        "content": "Leur dosage peut aider au diagnostic d’insuffisance cardiaque.",
-        "correct": true,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
-      },
-      {
-        "content": "Le NT-proBNP est décrit comme un fragment biologiquement inactif issu du pro-BNP.",
-        "correct": true,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
-      },
-      {
-        "content": "Ils servent uniquement à diagnostiquer une galactosémie.",
+        "content": "Le NT-proBNP est une hormone hyperglycémiante pancréatique.",
         "correct": false,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
+        "explanation": "C’est un fragment du proBNP."
       },
       {
-        "content": "Le NT-proBNP est l’hormone active principale responsable de la natriurèse.",
+        "content": "Le NT-proBNP possède une demi-vie circulante plus longue que le BNP.",
+        "correct": true,
+        "explanation": "Cela contribue à des concentrations plasmatiques plus élevées."
+      },
+      {
+        "content": "BNP et NT-proBNP peuvent aider au diagnostic et au suivi de l’insuffisance cardiaque.",
+        "correct": true,
+        "explanation": "Leur interprétation dépend de l’âge, de la fonction rénale et du contexte clinique."
+      },
+      {
+        "content": "Le BNP est un stéroïde.",
         "correct": false,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
+        "explanation": "C’est un peptide."
+      },
+      {
+        "content": "Le NT-proBNP est biologiquement beaucoup moins actif que le BNP.",
+        "correct": true,
+        "explanation": "Il sert principalement de biomarqueur."
       }
     ],
-    "explanation": "C’est un contexte clinique classique de dosage de peptides."
+    "explanation": "BNP actif et NT-proBNP marqueur sont issus du proBNP ; leur dosage aide à évaluer l’insuffisance cardiaque."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Dans quelle pathologie leur dosage est-il particulièrement utilisé ?",
-    "choices": [
-      {
-        "content": "l’insuffisance cardiaque",
-        "correct": true,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
-      },
-      {
-        "content": "le scorbut",
-        "correct": false,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
-      },
-      {
-        "content": "la drépanocytose uniquement",
-        "correct": false,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
-      },
-      {
-        "content": "la galactosémie",
-        "correct": false,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
+    "format": "QROC",
+    "question": "Quel précurseur est clivé en BNP et NT-proBNP ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "proBNP",
+        "pro-BNP"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "C’est un contexte clinique classique de dosage de peptides."
+    },
+    "explanation": "BNP actif et NT-proBNP marqueur sont issus du proBNP ; leur dosage aide à évaluer l’insuffisance cardiaque."
   },
   {
     "order": 121,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Synthèse — concernant le peptide β-amyloïde et la maladie d’Alzheimer :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les endorphines et les encéphalines, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La maladie est associée à des amas de peptides β-amyloïdes formant des plaques séniles.",
+        "content": "Ce sont des peptides opioïdes endogènes.",
         "correct": true,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+        "explanation": "Ils activent des récepteurs opioïdes."
       },
       {
-        "content": "L’APP peut suivre une voie de clivage amyloïdogénique ou une voie non amyloïdogénique.",
+        "content": "La bêta-endorphine est un stéroïde.",
+        "correct": false,
+        "explanation": "C’est un peptide."
+      },
+      {
+        "content": "Les encéphalines sont des protéines de 500 résidus.",
+        "correct": false,
+        "explanation": "Ce sont des pentapeptides."
+      },
+      {
+        "content": "Les encéphalines sont des pentapeptides.",
         "correct": true,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+        "explanation": "Met- et Leu-encéphaline diffèrent par leur résidu C-terminal."
       },
       {
-        "content": "Le peptide β-amyloïde est nécessairement protecteur et ne peut pas s’agréger.",
+        "content": "Ils ont une structure chimique identique à la morphine.",
         "correct": false,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
-      },
-      {
-        "content": "APP est une enzyme soluble sans domaine transmembranaire.",
-        "correct": false,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+        "explanation": "Ils partagent des récepteurs/effets opioïdes mais pas la même structure chimique."
       }
     ],
-    "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+    "explanation": "Endorphines et encéphalines sont des peptides opioïdes endogènes ; ils ne sont pas structurellement identiques à la morphine.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Maîtrise finale : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les endorphines et les encéphalines ?",
     "choices": [
       {
-        "content": "La tyrosine est un précurseur de catécholamines.",
+        "content": "La bêta-endorphine est un peptide issu de la POMC.",
         "correct": true,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
+        "explanation": "Elle est plus longue que les encéphalines."
       },
       {
-        "content": "Le glutamate est un précurseur du GABA.",
+        "content": "Ils modulent notamment la nociception.",
         "correct": true,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
+        "explanation": "Leur activation de récepteurs opioïdes peut réduire la transmission de la douleur."
       },
       {
-        "content": "La proinsuline libère le peptide C.",
+        "content": "Les encéphalines sont des pentapeptides.",
         "correct": true,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
+        "explanation": "Met- et Leu-encéphaline diffèrent par leur résidu C-terminal."
       },
       {
-        "content": "Les IFN-α et IFN-β sont de type I.",
+        "content": "Ce sont des peptides opioïdes endogènes.",
         "correct": true,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
+        "explanation": "Ils activent des récepteurs opioïdes."
       },
       {
-        "content": "Les peptides β-amyloïdes sont associés aux plaques séniles de la maladie d’Alzheimer.",
-        "correct": true,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
-      },
-      {
-        "content": "Le tryptophane est le précurseur direct des hormones thyroïdiennes.",
+        "content": "Ils n’interagissent jamais avec les récepteurs opioïdes.",
         "correct": false,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
-      },
-      {
-        "content": "L’insuline est hyperglycémiante.",
-        "correct": false,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
-      },
-      {
-        "content": "Le glucagon est sécrété par les cellules β.",
-        "correct": false,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
-      },
-      {
-        "content": "IL-10 est pro-inflammatoire.",
-        "correct": false,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
-      },
-      {
-        "content": "L’APP est une protéine soluble sans traversée membranaire.",
-        "correct": false,
-        "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
+        "explanation": "C’est leur cible majeure."
       }
     ],
-    "explanation": "Ces propositions reprennent les pièges les plus transversaux du chapitre."
+    "explanation": "Endorphines et encéphalines sont des peptides opioïdes endogènes ; ils ne sont pas structurellement identiques à la morphine."
   }
 ];

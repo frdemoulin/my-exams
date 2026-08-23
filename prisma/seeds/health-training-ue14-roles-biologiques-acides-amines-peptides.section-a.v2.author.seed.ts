@@ -1,656 +1,702 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Rôles biologiques des acides aminés et des peptides — Section A — Besoins et utilisations métaboliques des acides aminés */
 export const UE14_BIOCH_CH11_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile :",
+    "question": "Concernant les acides aminés indispensables chez l’adulte, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il réunit huit acides aminés indispensables.",
-        "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
-      },
-      {
-        "content": "Ils doivent être apportés en quantité suffisante par l’alimentation.",
-        "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
-      },
-      {
-        "content": "La glycine et l’alanine appartiennent à ce groupe de huit acides aminés.",
+        "content": "L’histidine n’est indispensable que chez le nourrisson.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "Elle est aussi indispensable chez l’adulte."
       },
       {
-        "content": "Tous les acides aminés de ce groupe sont synthétisés en quantité suffisante par l’être humain.",
+        "content": "Il n’existe que huit acides aminés indispensables chez l’adulte.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "L’histidine porte le total usuel à neuf."
+      },
+      {
+        "content": "Un acide aminé indispensable est absent des aliments.",
+        "correct": false,
+        "explanation": "Il doit au contraire être fourni par l’alimentation."
+      },
+      {
+        "content": "Leucine, threonine, lysine, tryptophane, phenylalanine, valine, methionine et isoleucine font partie des acides aminés indispensables.",
+        "correct": true,
+        "explanation": "Ces huit acides aminés appartiennent bien au groupe des indispensables."
+      },
+      {
+        "content": "L’histidine est également classée parmi les acides aminés indispensables chez l’adulte.",
+        "correct": true,
+        "explanation": "La liste de référence chez l’adulte sain comporte neuf acides aminés indispensables."
       }
     ],
-    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables ; l’histidine en fait partie."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien d’acides aminés comporte le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile ?",
+    "question": "Parmi les affirmations suivantes concernant les acides aminés indispensables chez l’adulte, laquelle est correcte ?",
     "choices": [
       {
-        "content": "8",
+        "content": "Leucine, threonine, lysine, tryptophane, phenylalanine, valine, methionine et isoleucine font partie des acides aminés indispensables.",
         "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "Ces huit acides aminés appartiennent bien au groupe des indispensables."
       },
       {
-        "content": "10",
+        "content": "Il n’existe que huit acides aminés indispensables chez l’adulte.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "L’histidine porte le total usuel à neuf."
       },
       {
-        "content": "20",
+        "content": "Un acide aminé indispensable est absent des aliments.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "Il doit au contraire être fourni par l’alimentation."
       },
       {
-        "content": "2",
+        "content": "L’histidine n’est indispensable que chez le nourrisson.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+        "explanation": "Elle est aussi indispensable chez l’adulte."
+      },
+      {
+        "content": "La glycine et l’alanine sont toujours indispensables chez l’adulte sain.",
+        "correct": false,
+        "explanation": "Elles sont généralement synthétisables."
       }
     ],
-    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile sont bien huit acides aminés indispensables. La formulation porte sur ce groupe précis sans prétendre dresser une liste exhaustive."
+    "explanation": "Chez l’adulte sain, neuf acides aminés sont indispensables ; l’histidine en fait partie."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les besoins nutritionnels en histidine et en arginine pendant la croissance :",
-    "choices": [
-      {
-        "content": "Un apport suffisant de ces acides aminés contribue à couvrir les besoins de la croissance.",
-        "correct": true,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
-      },
-      {
-        "content": "Pendant la croissance, les besoins en arginine peuvent dépasser les capacités de synthèse endogène.",
-        "correct": true,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
-      },
-      {
-        "content": "Elles sont décrites comme des glucides.",
-        "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
-      },
-      {
-        "content": "Elles remplacent toutes les autres dans l’alimentation adulte.",
-        "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+    "format": "QROC",
+    "question": "Quel acide aminé peut devenir conditionnellement indispensable lorsque les besoins dépassent les capacités de synthèse endogène ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "arginine",
+        "l’arginine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+    },
+    "explanation": "Histidine est indispensable chez l’adulte ; arginine est plutôt conditionnellement indispensable selon le contexte."
   },
   {
     "order": 4,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "À quelle période les besoins en arginine peuvent-ils dépasser les capacités de synthèse endogène ?",
+    "format": "QRM",
+    "question": "Concernant l’histidine et l’arginine pendant la croissance, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "pendant la croissance",
+        "content": "Un apport nutritionnel adéquat contribue à couvrir les besoins de croissance.",
         "correct": true,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "explanation": "Les besoins en azote et en substrats augmentent pendant la croissance."
       },
       {
-        "content": "uniquement après 80 ans",
+        "content": "La croissance supprime les besoins en acides aminés.",
         "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "explanation": "Elle les augmente au contraire."
       },
       {
-        "content": "uniquement pendant le sommeil",
+        "content": "L’histidine devient dispensable après l’enfance.",
         "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "explanation": "Elle reste indispensable chez l’adulte."
       },
       {
-        "content": "jamais",
-        "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "content": "La notion de besoin conditionnel dépend du contexte physiologique.",
+        "correct": true,
+        "explanation": "Elle n’est pas une propriété absolue identique à tout âge."
+      },
+      {
+        "content": "L’arginine peut devenir conditionnellement indispensable lorsque les besoins dépassent la synthèse endogène.",
+        "correct": true,
+        "explanation": "La croissance, certains stress ou pathologies peuvent augmenter le besoin relatif."
       }
     ],
-    "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+    "explanation": "Histidine est indispensable chez l’adulte ; arginine est plutôt conditionnellement indispensable selon le contexte."
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les réactions d’interconversion des acides aminés :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les réactions d’interconversion des acides aminés, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Elles permettent de synthétiser certains acides aminés non indispensables.",
-        "correct": true,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
-      },
-      {
-        "content": "Les transaminations permettent de transférer un groupement aminé entre un acide aminé et un α-cétoacide.",
-        "correct": true,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
-      },
-      {
-        "content": "Elles rendent tous les apports alimentaires inutiles.",
+        "content": "Ces réactions concernent uniquement les lipides.",
         "correct": false,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
+        "explanation": "Elles concernent le métabolisme des acides aminés."
       },
       {
-        "content": "Elles concernent uniquement les lipides.",
+        "content": "Elles rendent inutile tout apport d’acides aminés indispensables.",
         "correct": false,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
+        "explanation": "Les indispensables ne sont pas synthétisés en quantité suffisante."
+      },
+      {
+        "content": "Les aminotransférases n’utilisent jamais de cofacteur.",
+        "correct": false,
+        "explanation": "Beaucoup utilisent le PLP."
+      },
+      {
+        "content": "La vitamine B6 sous forme PLP est un cofacteur majeur de nombreuses aminotransférases.",
+        "correct": true,
+        "explanation": "Le phosphate de pyridoxal accepte temporairement le groupement aminé."
+      },
+      {
+        "content": "Une transamination transforme toujours un acide aminé en acide gras.",
+        "correct": false,
+        "explanation": "Elle échange un groupement aminé."
       }
     ],
-    "explanation": "Les interconversions relient le métabolisme des acides aminés."
+    "explanation": "Les transaminations sont des réactions centrales d’interconversion des acides aminés, généralement PLP-dépendantes."
   },
   {
     "order": 6,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel type de réaction transfère un groupement aminé entre un acide aminé et un α-cétoacide ?",
+    "format": "QRP",
+    "question": "Concernant les réactions d’interconversion des acides aminés, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "une transamination",
+        "content": "Une transamination transforme toujours un acide aminé en acide gras.",
+        "correct": false,
+        "explanation": "Elle échange un groupement aminé."
+      },
+      {
+        "content": "Les aminotransférases n’utilisent jamais de cofacteur.",
+        "correct": false,
+        "explanation": "Beaucoup utilisent le PLP."
+      },
+      {
+        "content": "La vitamine B6 sous forme PLP est un cofacteur majeur de nombreuses aminotransférases.",
         "correct": true,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
+        "explanation": "Le phosphate de pyridoxal accepte temporairement le groupement aminé."
       },
       {
-        "content": "une saponification",
+        "content": "Elles rendent inutile tout apport d’acides aminés indispensables.",
         "correct": false,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
+        "explanation": "Les indispensables ne sont pas synthétisés en quantité suffisante."
       },
       {
-        "content": "une glycosylation",
-        "correct": false,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
-      },
-      {
-        "content": "une hydrogénation",
-        "correct": false,
-        "explanation": "Les interconversions relient le métabolisme des acides aminés."
+        "content": "Les transaminations transfèrent un groupement aminé entre un acide aminé et un alpha-cétoacide.",
+        "correct": true,
+        "explanation": "Les aminotransférases catalysent ces échanges."
       }
     ],
-    "explanation": "Les interconversions relient le métabolisme des acides aminés."
+    "explanation": "Les transaminations sont des réactions centrales d’interconversion des acides aminés, généralement PLP-dépendantes.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant le rôle structural des acides aminés :",
+    "question": "Concernant le rôle structural des acides aminés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils sont les éléments de base des peptides et protéines.",
-        "correct": true,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
-      },
-      {
-        "content": "La sérine participe aussi à la composition de la phosphatidylsérine.",
-        "correct": true,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
-      },
-      {
-        "content": "Ils ne participent jamais à des lipides.",
+        "content": "La nature des résidus n’influence jamais la fonction.",
         "correct": false,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
+        "explanation": "Elle est déterminante."
       },
       {
-        "content": "Les protéines sont formées uniquement de glucides.",
-        "correct": false,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
+        "content": "La sérine peut entrer dans la tête polaire de la phosphatidylsérine.",
+        "correct": true,
+        "explanation": "Un acide aminé peut contribuer à d’autres biomolécules que les protéines."
+      },
+      {
+        "content": "Ils sont les constituants de base des peptides et protéines.",
+        "correct": true,
+        "explanation": "Les résidus sont reliés par des liaisons peptidiques."
+      },
+      {
+        "content": "La séquence des résidus influence le repliement protéique.",
+        "correct": true,
+        "explanation": "Structure et fonction dépendent de la séquence."
+      },
+      {
+        "content": "Les acides aminés servent aussi de précurseurs métaboliques.",
+        "correct": true,
+        "explanation": "Leur rôle dépasse la seule fonction structurale."
       }
     ],
-    "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
+    "explanation": "Les acides aminés sont à la fois briques des protéines et précurseurs de nombreuses molécules."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel acide aminé entre dans la structure de la phosphatidylsérine ?",
-    "choices": [
-      {
-        "content": "la sérine",
-        "correct": true,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
-      },
-      {
-        "content": "la leucine",
-        "correct": false,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
-      },
-      {
-        "content": "le tryptophane",
-        "correct": false,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
-      },
-      {
-        "content": "l’histidine",
-        "correct": false,
-        "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
+    "format": "QROC",
+    "question": "Quel acide aminé entre dans la tête polaire de la phosphatidylsérine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sérine",
+        "serine",
+        "la sérine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sérine illustre un rôle au-delà de la seule synthèse protéique."
+    },
+    "explanation": "Les acides aminés sont à la fois briques des protéines et précurseurs de nombreuses molécules."
   },
   {
     "order": 9,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant le cycle de l’uréogenèse :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le cycle de l’urée ?",
     "choices": [
       {
-        "content": "La citrulline, l’ornithine et l’arginine sont des intermédiaires de l’uréogenèse.",
-        "correct": true,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
-      },
-      {
-        "content": "Il participe à la détoxification de l’ammoniaque par formation d’urée.",
-        "correct": true,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
-      },
-      {
-        "content": "Il produit directement du cholestérol.",
+        "content": "L’ornithine et la citrulline sont des acides gras.",
         "correct": false,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "explanation": "Ce sont des acides aminés non protéinogènes du cycle."
       },
       {
-        "content": "Il accumule l’ammoniaque pour le rendre plus toxique.",
+        "content": "Le cycle de l’urée transforme l’urée en ammoniac pour le stocker.",
         "correct": false,
-        "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+        "explanation": "Le sens physiologique majeur est la détoxification de l’ammoniac."
+      },
+      {
+        "content": "L’uréogenèse n’a aucun lien avec le catabolisme azoté.",
+        "correct": false,
+        "explanation": "Elle élimine l’azote excédentaire."
+      },
+      {
+        "content": "Il se déroule exclusivement dans les globules rouges.",
+        "correct": false,
+        "explanation": "Le foie est le site principal."
+      },
+      {
+        "content": "Il permet de convertir une partie de l’azote ammoniacal en urée moins toxique.",
+        "correct": true,
+        "explanation": "L’urée est ensuite éliminée principalement par le rein."
       }
     ],
-    "explanation": "L’uréogenèse transforme l’azote toxique en urée éliminable."
+    "explanation": "Le cycle hépatique de l’urée détoxifie l’azote ammoniacal et implique ornithine, citrulline et arginine."
   },
   {
     "order": 10,
     "difficulty": "EASY",
-    "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile ?",
-    "answer": {
-      "type": "number",
-      "value": 8,
-      "tolerance": 0
-    },
-    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile forment un groupe de huit acides aminés indispensables ; d’autres acides aminés peuvent compléter cette classification."
+    "format": "QRM",
+    "question": "Concernant le cycle de l’urée, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "L’uréogenèse n’a aucun lien avec le catabolisme azoté.",
+        "correct": false,
+        "explanation": "Elle élimine l’azote excédentaire."
+      },
+      {
+        "content": "Il permet de convertir une partie de l’azote ammoniacal en urée moins toxique.",
+        "correct": true,
+        "explanation": "L’urée est ensuite éliminée principalement par le rein."
+      },
+      {
+        "content": "Le cycle de l’urée transforme l’urée en ammoniac pour le stocker.",
+        "correct": false,
+        "explanation": "Le sens physiologique majeur est la détoxification de l’ammoniac."
+      },
+      {
+        "content": "Le cycle participe à la détoxification de l’ammoniaque produit notamment lors du catabolisme des acides aminés.",
+        "correct": true,
+        "explanation": "L’hyperammoniémie est neurotoxique."
+      },
+      {
+        "content": "Il se déroule exclusivement dans les globules rouges.",
+        "correct": false,
+        "explanation": "Le foie est le site principal."
+      }
+    ],
+    "explanation": "Le cycle hépatique de l’urée détoxifie l’azote ammoniacal et implique ornithine, citrulline et arginine."
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la méthionine comme donneur de méthyle :",
+    "question": "Concernant la méthionine comme donneur de méthyle, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sous forme de S-adénosylméthionine, elle fournit des groupements méthyle à de nombreuses réactions.",
+        "content": "La méthionine est convertie en S-adénosylméthionine, ou SAM.",
         "correct": true,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
+        "explanation": "SAM est un donneur universel de groupements méthyle."
       },
       {
-        "content": "Après don du groupement méthyle, son métabolisme peut conduire à l’homocystéine.",
+        "content": "La méthionine donne directement un phosphate et non un méthyle.",
+        "correct": false,
+        "explanation": "Son dérivé SAM donne des méthyles."
+      },
+      {
+        "content": "La méthionine est un acide aminé indispensable.",
         "correct": true,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
+        "explanation": "Elle doit être fournie par l’alimentation."
       },
       {
-        "content": "Elle est décrite comme un ose.",
-        "correct": false,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
+        "content": "Après don du méthyle, le cycle conduit notamment à l’homocystéine.",
+        "correct": true,
+        "explanation": "La méthionine et l’homocystéine appartiennent au même cycle métabolique."
       },
       {
-        "content": "Elle ne contient aucun soufre.",
+        "content": "SAM est un monosaccharide.",
         "correct": false,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
+        "explanation": "C’est un dérivé de la méthionine et de l’adénosine."
       }
     ],
-    "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
+    "explanation": "La méthionine fournit des méthyles principalement via la S-adénosylméthionine, puis le cycle mène à l’homocystéine."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel composé soufré peut être formé après le transfert du groupement méthyle de la méthionine ?",
-    "choices": [
-      {
-        "content": "l’homocystéine",
-        "correct": true,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
-      },
-      {
-        "content": "le glucose",
-        "correct": false,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
-      },
-      {
-        "content": "le cholestérol",
-        "correct": false,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
-      },
-      {
-        "content": "le galactose",
-        "correct": false,
-        "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
+    "format": "QROC",
+    "question": "Quel dérivé activé de la méthionine est un grand donneur cellulaire de groupements méthyle ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "S-adénosylméthionine",
+        "SAM",
+        "S-adenosylmethionine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La méthionine intervient dans des transferts de méthyle et le métabolisme de l’homocystéine."
+    },
+    "explanation": "La méthionine fournit des méthyles principalement via la S-adénosylméthionine, puis le cycle mène à l’homocystéine."
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant la transamination Asp–2-oxoglutarate :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la transamination aspartate–2-oxoglutarate ?",
     "choices": [
       {
-        "content": "Elle peut former oxaloacétate et glutamate.",
-        "correct": true,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
-      },
-      {
-        "content": "Elle est catalysée par une aminotransférase, notamment l’ASAT.",
-        "correct": true,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
-      },
-      {
-        "content": "Elle produit nécessairement un triglycéride.",
+        "content": "L’aspartate devient acétyl-CoA sans autre étape.",
         "correct": false,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+        "explanation": "Il devient oxaloacétate dans cette transamination."
       },
       {
-        "content": "Elle ne met en jeu aucun acide aminé.",
+        "content": "Aucune aminotransférase n’intervient.",
         "correct": false,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+        "explanation": "L’AST est l’enzyme correspondante."
+      },
+      {
+        "content": "L’aspartate peut transférer son groupement aminé au 2-oxoglutarate.",
+        "correct": true,
+        "explanation": "L’aspartate aminotransférase catalyse cette réaction."
+      },
+      {
+        "content": "La réaction produit directement glucose et urée.",
+        "correct": false,
+        "explanation": "Elle produit oxaloacétate et glutamate."
+      },
+      {
+        "content": "Le 2-oxoglutarate donne du lactate.",
+        "correct": false,
+        "explanation": "Il reçoit l’azote et devient glutamate."
       }
     ],
-    "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+    "explanation": "AST transfère l’azote de l’aspartate au 2-oxoglutarate : aspartate + 2-oxoglutarate ⇌ oxaloacétate + glutamate."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel α-cétoacide est formé à partir de l’aspartate lors d’une transamination catalysée par l’ASAT ?",
+    "format": "QRM",
+    "question": "Concernant la transamination aspartate–2-oxoglutarate, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "l’oxaloacétate",
+        "content": "L’aspartate peut transférer son groupement aminé au 2-oxoglutarate.",
         "correct": true,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+        "explanation": "L’aspartate aminotransférase catalyse cette réaction."
       },
       {
-        "content": "le cholestérol",
-        "correct": false,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+        "content": "La réaction est réversible.",
+        "correct": true,
+        "explanation": "Les aminotransférases catalysent des équilibres proches."
       },
       {
-        "content": "le fructose-1,6-bisphosphate",
-        "correct": false,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+        "content": "Les produits sont l’oxaloacétate et le glutamate.",
+        "correct": true,
+        "explanation": "Le squelette de l’aspartate devient oxaloacétate."
       },
       {
-        "content": "le palmitate",
+        "content": "La réaction produit directement glucose et urée.",
         "correct": false,
-        "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+        "explanation": "Elle produit oxaloacétate et glutamate."
+      },
+      {
+        "content": "Le phosphate de pyridoxal participe au mécanisme enzymatique.",
+        "correct": true,
+        "explanation": "Le PLP transporte transitoirement le groupement aminé."
       }
     ],
-    "explanation": "L’ASAT transfère le groupement aminé de l’aspartate au 2-oxoglutarate et forme de l’oxaloacétate et du glutamate, reliant ainsi métabolisme azoté et cycle de l’acide citrique."
+    "explanation": "AST transfère l’azote de l’aspartate au 2-oxoglutarate : aspartate + 2-oxoglutarate ⇌ oxaloacétate + glutamate."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides aminés en excès :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant le devenir des acides aminés en excès, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Ils ne sont pas stockés dans une réserve spécialisée d’acides aminés libres.",
-        "correct": true,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
-      },
-      {
-        "content": "Ils peuvent être transformés en intermédiaires énergétiques.",
-        "correct": true,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
-      },
-      {
-        "content": "Ils sont stockés indéfiniment sous forme d’acides aminés libres.",
+        "content": "Les squelettes carbonés ne peuvent jamais fournir d’énergie.",
         "correct": false,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+        "explanation": "Ils peuvent être oxydés."
       },
       {
-        "content": "Ils ne peuvent jamais participer à la production d’énergie.",
+        "content": "L’azote en excès est converti principalement en cholestérol.",
         "correct": false,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+        "explanation": "Il est surtout éliminé sous forme d’urée."
+      },
+      {
+        "content": "Les protéines de réserve stockent systématiquement tout excès alimentaire chez l’adulte.",
+        "correct": false,
+        "explanation": "Il n’existe pas de stockage protéique dédié à cet usage."
+      },
+      {
+        "content": "Leur azote est éliminé après transfert et déamination, principalement sous forme d’urée.",
+        "correct": true,
+        "explanation": "Le foie joue un rôle majeur dans cette élimination."
+      },
+      {
+        "content": "Le squelette carboné peut être oxydé ou converti en intermédiaires métaboliques.",
+        "correct": true,
+        "explanation": "Il peut rejoindre gluconéogenèse ou cétogenèse selon l’acide aminé."
       }
     ],
-    "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+    "explanation": "Les acides aminés en excès sont catabolisés : azote vers l’urée, squelette carboné vers les voies énergétiques.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel devenir métabolique peut avoir un excès d’acides aminés ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le devenir des acides aminés en excès ?",
     "choices": [
       {
-        "content": "il est métabolisé vers des intermédiaires énergétiques",
+        "content": "Le renouvellement des protéines corporelles constitue un important flux d’acides aminés.",
         "correct": true,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+        "explanation": "Le pool libre est dynamique."
       },
       {
-        "content": "il est stocké indéfiniment comme AA libres",
+        "content": "L’azote en excès est converti principalement en cholestérol.",
         "correct": false,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+        "explanation": "Il est surtout éliminé sous forme d’urée."
       },
       {
-        "content": "il devient uniquement ADN",
+        "content": "Les protéines de réserve stockent systématiquement tout excès alimentaire chez l’adulte.",
         "correct": false,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+        "explanation": "Il n’existe pas de stockage protéique dédié à cet usage."
       },
       {
-        "content": "il est toujours éliminé intact",
+        "content": "Les squelettes carbonés ne peuvent jamais fournir d’énergie.",
         "correct": false,
-        "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+        "explanation": "Ils peuvent être oxydés."
+      },
+      {
+        "content": "Leur azote est éliminé après transfert et déamination, principalement sous forme d’urée.",
+        "correct": true,
+        "explanation": "Le foie joue un rôle majeur dans cette élimination."
       }
     ],
-    "explanation": "L’organisme transforme les excès plutôt que de les stocker sous forme d’AA libres."
+    "explanation": "Les acides aminés en excès sont catabolisés : azote vers l’urée, squelette carboné vers les voies énergétiques."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides aminés glucoformateurs :",
-    "choices": [
-      {
-        "content": "Ils peuvent donner des intermédiaires conduisant au glucose par néoglucogenèse.",
-        "correct": true,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
-      },
-      {
-        "content": "Ils sont reliés aux intermédiaires du cycle de l’acide citrique.",
-        "correct": true,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
-      },
-      {
-        "content": "Ils donnent exclusivement des corps cétoniques.",
-        "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
-      },
-      {
-        "content": "Ils sont des polysaccharides.",
-        "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+    "format": "QROC",
+    "question": "Quels sont les deux acides aminés standards exclusivement cétogènes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "leucine et lysine",
+        "lysine et leucine",
+        "Leu et Lys"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+    },
+    "explanation": "La plupart des acides aminés sont glucogéniques ; leucine et lysine sont exclusivement cétogènes."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle voie permet de reformer du glucose à partir d’intermédiaires adaptés ?",
+    "question": "Parmi les affirmations suivantes concernant les acides aminés glucoformateurs, laquelle est correcte ?",
     "choices": [
       {
-        "content": "la néoglucogenèse",
+        "content": "Glucogénique signifie que l’acide aminé contient du glucose.",
+        "correct": false,
+        "explanation": "Le terme décrit un devenir métabolique."
+      },
+      {
+        "content": "Le caractère glucogénique concerne le squelette carboné après élimination de l’azote.",
         "correct": true,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Il ne signifie pas qu’un acide aminé est du glucose."
       },
       {
-        "content": "la saponification",
+        "content": "Aucun intermédiaire du cycle de Krebs ne peut contribuer à la néoglucogenèse.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Plusieurs y contribuent via oxaloacétate."
       },
       {
-        "content": "la β-oxydation uniquement",
+        "content": "Leucine et lysine sont exclusivement glucogéniques.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Elles sont exclusivement cétogènes."
       },
       {
-        "content": "la réplication",
+        "content": "Tous les acides aminés sont exclusivement glucogéniques.",
         "correct": false,
-        "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+        "explanation": "Certains sont aussi ou exclusivement cétogènes."
       }
     ],
-    "explanation": "Le terme glucoformateur renvoie à la capacité de fournir des précurseurs du glucose."
+    "explanation": "La plupart des acides aminés sont glucogéniques ; leucine et lysine sont exclusivement cétogènes."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides aminés cétoformateurs :",
-    "choices": [
-      {
-        "content": "Ils peuvent fournir de l’acétyl-CoA ou de l’acétoacétyl-CoA.",
-        "correct": true,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
-      },
-      {
-        "content": "Ils sont reliés à la formation de corps cétoniques.",
-        "correct": true,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
-      },
-      {
-        "content": "Ils donnent obligatoirement du glycogène sans transformation.",
-        "correct": false,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
-      },
-      {
-        "content": "Ils ne participent jamais au métabolisme énergétique.",
-        "correct": false,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
+    "format": "QROC",
+    "question": "Quel métabolite à deux carbones est un produit fréquent du catabolisme des acides aminés cétogènes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acétyl-CoA",
+        "acetyl-CoA",
+        "acétyl coenzyme A"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
+    },
+    "explanation": "Les acides aminés cétogènes fournissent acétyl-CoA/acétoacétate ; leucine et lysine sont exclusivement cétogènes."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel intermédiaire est associé aux acides aminés cétoformateurs ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "l’acétyl-CoA",
+        "content": "Un acide aminé peut être à la fois glucogénique et cétogénique.",
         "correct": true,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
+        "explanation": "Plusieurs acides aminés ont des produits de dégradation mixtes."
       },
       {
-        "content": "le ribose-5-phosphate uniquement",
-        "correct": false,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
+        "content": "La leucine et la lysine sont exclusivement cétogènes.",
+        "correct": true,
+        "explanation": "Elles ne fournissent pas de carbone net pour la néoglucogenèse."
       },
       {
-        "content": "la cellulose",
+        "content": "Leucine et lysine sont exclusivement glucogéniques.",
         "correct": false,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
+        "explanation": "Elles sont exclusivement cétogènes."
       },
       {
-        "content": "l’ARNm",
+        "content": "Certains acides aminés sont à la fois cétogènes et glucogéniques.",
+        "correct": true,
+        "explanation": "Leur catabolisme produit plusieurs types de squelettes."
+      },
+      {
+        "content": "Le caractère cétogène dépend uniquement du nombre d’atomes d’azote.",
         "correct": false,
-        "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
+        "explanation": "Il dépend du devenir du squelette carboné."
+      },
+      {
+        "content": "Glucogénique signifie que l’acide aminé contient du glucose.",
+        "correct": false,
+        "explanation": "Le terme décrit un devenir métabolique."
+      },
+      {
+        "content": "Cétogène signifie que l’acide aminé produit directement du glucose.",
+        "correct": false,
+        "explanation": "Le terme renvoie aux précurseurs de corps cétoniques."
+      },
+      {
+        "content": "Tous les acides aminés sont exclusivement cétogènes.",
+        "correct": false,
+        "explanation": "Les devenirs sont variés."
+      },
+      {
+        "content": "La plupart des acides aminés standards possèdent au moins un devenir glucogénique.",
+        "correct": true,
+        "explanation": "Leucine et lysine sont les deux exceptions exclusivement cétogènes."
+      },
+      {
+        "content": "Ils donnent des précurseurs pouvant alimenter la néoglucogenèse.",
+        "correct": true,
+        "explanation": "Pyruvate et plusieurs intermédiaires du cycle de Krebs peuvent mener au glucose."
       }
     ],
-    "explanation": "Les acides aminés cétoformateurs fournissent de l’acétyl-CoA ou de l’acétoacétyl-CoA, précurseurs des corps cétoniques, tandis que les glucoformateurs alimentent la néoglucogenèse."
+    "explanation": "Les acides aminés cétogènes fournissent acétyl-CoA/acétoacétate ; leucine et lysine sont exclusivement cétogènes. La plupart des acides aminés sont glucogéniques ; leucine et lysine sont exclusivement cétogènes."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la place de l’alimentation dans les besoins en acides aminés :",
+    "question": "Parmi les affirmations suivantes concernant la place de l’alimentation dans les besoins en acides aminés, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Les apports alimentaires restent importants même si certains acides aminés peuvent être synthétisés.",
-        "correct": true,
-        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
-      },
-      {
-        "content": "Les indispensables doivent être apportés en quantité suffisante.",
-        "correct": true,
-        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
-      },
-      {
-        "content": "La synthèse endogène supprime tout besoin alimentaire en protéines.",
+        "content": "Les besoins sont identiques chez un adulte et un enfant en croissance.",
         "correct": false,
-        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
+        "explanation": "Ils varient avec le contexte."
       },
       {
-        "content": "Seuls les glucides alimentaires fournissent des acides aminés.",
+        "content": "Les besoins varient avec l’âge, la croissance et l’état physiologique.",
+        "correct": true,
+        "explanation": "Il n’existe pas un besoin fixe universel."
+      },
+      {
+        "content": "Tous les aliments protéiques ont exactement le même profil d’acides aminés.",
         "correct": false,
-        "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
+        "explanation": "Les profils diffèrent."
+      },
+      {
+        "content": "Les protéines corporelles sont continuellement synthétisées et dégradées.",
+        "correct": true,
+        "explanation": "Le pool d’acides aminés est alimenté par le régime et le turnover."
+      },
+      {
+        "content": "La qualité d’une protéine alimentaire dépend notamment de son profil en acides aminés indispensables.",
+        "correct": true,
+        "explanation": "Un acide aminé limitant peut réduire l’utilisation des autres."
       }
     ],
-    "explanation": "Les acides aminés indispensables ne sont pas synthétisés en quantité suffisante par l’organisme et doivent donc être apportés par l’alimentation."
+    "explanation": "L’alimentation doit couvrir les besoins en acides aminés indispensables et en azote total."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour conclure les besoins et utilisations métaboliques, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "Le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile comporte huit acides aminés indispensables.",
-        "correct": true,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "Les besoins en arginine peuvent dépasser les capacités de synthèse endogène pendant la croissance.",
-        "correct": true,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "Citrulline, ornithine et arginine participent à l’uréogenèse.",
-        "correct": true,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "Les excès d’acides aminés peuvent être métabolisés à des fins énergétiques.",
-        "correct": true,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "Des transaminations participent aux interconversions.",
-        "correct": true,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "La glycine fait partie du groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile.",
-        "correct": false,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "L’uréogenèse accumule l’ammoniaque.",
-        "correct": false,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "Tous les acides aminés en excès sont stockés comme AA libres.",
-        "correct": false,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "Les acides aminés ne participent jamais au cycle de Krebs.",
-        "correct": false,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
-      },
-      {
-        "content": "L’alimentation est inutile pour les indispensables.",
-        "correct": false,
-        "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
+    "format": "QROC",
+    "question": "Quel type d’acides aminés doit obligatoirement être fourni en quantité suffisante par l’alimentation ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acides aminés indispensables",
+        "acides aminés essentiels",
+        "AA indispensables"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces items reprennent les besoins nutritionnels et les voies métaboliques essentielles."
+    },
+    "explanation": "L’alimentation doit couvrir les besoins en acides aminés indispensables et en azote total."
   }
 ];
