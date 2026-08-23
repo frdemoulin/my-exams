@@ -1,695 +1,722 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Structure des peptides et protéines — Synthèse — Structure des peptides et protéines */
 export const UE14_BIOCH_CH10_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse — concernant la liaison peptidique :",
+    "question": "Concernant la liaison peptidique, quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Elle relie la fonction carboxyle d’un acide aminé à la fonction amine du suivant.",
-        "correct": true,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
-      {
-        "content": "Elle correspond à une liaison de type amide.",
-        "correct": true,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
       {
         "content": "Elle relie deux fonctions alcool.",
         "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
       },
       {
-        "content": "Elle correspond à une liaison glycosidique.",
-        "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+        "content": "Elle relie le carboxyle alpha d’un résidu à l’amine alpha du suivant.",
+        "correct": true,
+        "explanation": "Exact. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle appartient au squelette principal du polypeptide.",
+        "correct": true,
+        "explanation": "Exact. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "La séquence conventionnelle d’un peptide s’écrit de N vers C.",
+        "correct": true,
+        "explanation": "Exact. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle est une liaison covalente de type amide.",
+        "correct": true,
+        "explanation": "Exact. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
       }
     ],
-    "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+    "explanation": "La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quelles fonctions réagissent pour former une liaison peptidique ?",
-    "choices": [
-      {
-        "content": "carboxyle et amine",
-        "correct": true,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
-      {
-        "content": "deux thiols",
-        "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
-      {
-        "content": "deux phosphates",
-        "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
-      {
-        "content": "aldéhyde et alcool",
-        "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+    "format": "QROC",
+    "question": "Quel type de fonction chimique correspond à la liaison peptidique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "amide",
+        "fonction amide",
+        "liaison amide"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+    },
+    "explanation": "La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — concernant la dénaturation :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la dénaturation des protéines ?",
     "choices": [
       {
-        "content": "Elle correspond à une modification de structure ou de conformation.",
+        "content": "Elle peut diminuer ou abolir l’activité biologique.",
         "correct": true,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Exact. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "Elle peut être réversible ou irréversible selon les conditions.",
-        "correct": true,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
-      },
-      {
-        "content": "Elle modifie nécessairement la séquence primaire par rupture de toutes les liaisons peptidiques.",
+        "content": "Elle ne peut jamais être provoquée par la chaleur.",
         "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "Elle ne peut jamais modifier l’activité biologique.",
+        "content": "Elle augmente nécessairement l’activité biologique.",
         "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
+      },
+      {
+        "content": "Elle correspond toujours à l’hydrolyse complète des liaisons peptidiques.",
+        "correct": false,
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
+      },
+      {
+        "content": "Elle modifie obligatoirement la séquence codée par le gène.",
+        "correct": false,
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       }
     ],
-    "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+    "explanation": "La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quel terme désigne la perte de conformation d’une protéine ?",
+    "format": "QRM",
+    "question": "Concernant la dénaturation des protéines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "dénaturation",
+        "content": "Elle augmente nécessairement l’activité biologique.",
+        "correct": false,
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
+      },
+      {
+        "content": "Elle peut être réversible ou irréversible selon les conditions.",
         "correct": true,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Exact. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "glycolyse",
+        "content": "Elle ne peut jamais être provoquée par la chaleur.",
         "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "épimérisation",
+        "content": "Elle modifie obligatoirement la séquence codée par le gène.",
         "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "saponification",
-        "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "content": "Elle ne nécessite pas la rupture des liaisons peptidiques de la structure primaire.",
+        "correct": true,
+        "explanation": "Exact. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       }
     ],
-    "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+    "explanation": "La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — concernant la liaison peptidique dans la structure primaire :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la rigidité de la liaison peptidique, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Elle est plane et sa rotation autour de l’axe C–N est fortement limitée.",
-        "correct": true,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
-      },
-      {
-        "content": "La résonance limite la rotation autour de la liaison C–N.",
-        "correct": true,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
-      },
-      {
-        "content": "La liaison C–N tourne librement à 360° sans contrainte.",
+        "content": "La liaison C–N peptidique tourne librement sans contrainte.",
         "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "explanation": "Incorrect. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       },
       {
-        "content": "Elle est une liaison ionique.",
+        "content": "Aucune liaison du squelette ne peut tourner.",
         "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "explanation": "Incorrect. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
+      },
+      {
+        "content": "La liaison peptidique est ionique.",
+        "correct": false,
+        "explanation": "Incorrect. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
+      },
+      {
+        "content": "Le groupe peptidique est approximativement plan.",
+        "correct": true,
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
+      },
+      {
+        "content": "La rotation autour de C–N est fortement limitée.",
+        "correct": true,
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       }
     ],
-    "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+    "explanation": "La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Synthèse transversale : Autour de quelle liaison la rotation est-elle fortement limitée ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la rigidité de la liaison peptidique ?",
     "choices": [
       {
-        "content": "la liaison peptidique C–N",
+        "content": "La liaison C–N peptidique tourne librement sans contrainte.",
+        "correct": false,
+        "explanation": "Incorrect. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
+      },
+      {
+        "content": "Le groupe peptidique est approximativement plan.",
         "correct": true,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       },
       {
-        "content": "la liaison N–Cα",
-        "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "content": "Les rotations autour de N–Cα et Cα–C’ restent possibles.",
+        "correct": true,
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       },
       {
-        "content": "la liaison Cα–CO",
+        "content": "La liaison peptidique est ionique.",
         "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "explanation": "Incorrect. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       },
       {
-        "content": "toutes les liaisons simples de la chaîne",
-        "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "content": "La rotation autour de C–N est fortement limitée.",
+        "correct": true,
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       }
     ],
-    "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+    "explanation": "La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — concernant la carboxylation post-traductionnelle :",
-    "choices": [
-      {
-        "content": "L’acide glutamique peut devenir acide γ-carboxyglutamique.",
-        "correct": true,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
-      },
-      {
-        "content": "Cette modification favorise la fixation du calcium par certains facteurs de coagulation.",
-        "correct": true,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
-      },
-      {
-        "content": "Elle enlève une fonction carboxyle.",
-        "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
-      },
-      {
-        "content": "Elle est décrite comme inutile à la coagulation.",
-        "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+    "format": "QROC",
+    "question": "Quel ion divalent est efficacement complexé par les résidus gamma-carboxyglutamate ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "calcium",
+        "Ca2+",
+        "Ca²+"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+    },
+    "explanation": "La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Synthèse transversale : quel ion peut être complexé par les résidus γ-carboxyglutamate des facteurs de coagulation ?",
+    "question": "Parmi les affirmations suivantes concernant la gamma-carboxylation du glutamate, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Ca2+",
+        "content": "Elle transforme le glutamate en glucose.",
+        "correct": false,
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
+      },
+      {
+        "content": "Elle dépend exclusivement de la vitamine C.",
+        "correct": false,
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
+      },
+      {
+        "content": "Il s’agit d’une modification post-traductionnelle.",
         "correct": true,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Exact. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       },
       {
-        "content": "Na+",
+        "content": "Elle empêche toute fixation du calcium.",
         "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       },
       {
-        "content": "Cl−",
+        "content": "Elle enlève le carboxyle alpha du glutamate.",
         "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
-      },
-      {
-        "content": "Fe3+ uniquement",
-        "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       }
     ],
-    "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+    "explanation": "La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — concernant les ponts disulfure :",
-    "choices": [
-      {
-        "content": "Ils résultent de l’oxydation de deux cystéines.",
-        "correct": true,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
-      },
-      {
-        "content": "Ils peuvent être intra-chaîne ou inter-chaînes.",
-        "correct": true,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
-      },
-      {
-        "content": "Ils se forment entre deux méthionines uniquement.",
-        "correct": false,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
-      },
-      {
-        "content": "Ils sont toujours des interactions non covalentes.",
-        "correct": false,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
+    "format": "QROC",
+    "question": "Quel acide aminé doit être oxydé par paire pour former un pont disulfure ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cystéine",
+        "cysteine",
+        "Cys"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
+    },
+    "explanation": "Un pont disulfure est une liaison covalente S–S entre deux cystéines."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Synthèse : sélectionnez exactement les cinq affirmations correctes.",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Une liaison peptidique est une liaison de type amide.",
+        "content": "Elle forme des résidus gamma-carboxyglutamate.",
         "correct": true,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
-        "content": "La structure primaire est la séquence des résidus.",
+        "content": "Ce sont des liaisons hydrogène.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Il s’agit d’une modification post-traductionnelle.",
         "correct": true,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
-        "content": "Une hélice α appartient à la structure secondaire.",
+        "content": "Elle empêche toute fixation du calcium.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Elle enlève le carboxyle alpha du glutamate.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Elle dépend exclusivement de la vitamine C.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Ce sont des liaisons covalentes S–S.",
         "correct": true,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
-        "content": "La structure tertiaire peut être stabilisée par des interactions hydrophobes.",
+        "content": "Ils résultent de l’oxydation de deux thiols de cystéine.",
         "correct": true,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
-        "content": "L’hémoglobine α2β2 possède une structure quaternaire.",
+        "content": "Ils sont fréquents dans de nombreuses protéines sécrétées ou extracellulaires.",
         "correct": true,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
-        "content": "L’extrémité N-terminale porte le COOH libre.",
+        "content": "Ils se forment entre deux méthionines.",
         "correct": false,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
-      },
-      {
-        "content": "La liaison peptidique C–N tourne totalement librement.",
-        "correct": false,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
-      },
-      {
-        "content": "Les feuillets β sont des structures quaternaires.",
-        "correct": false,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
-      },
-      {
-        "content": "Une protéine globulaire expose préférentiellement tous ses résidus hydrophobes.",
-        "correct": false,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
-      },
-      {
-        "content": "CK-MM est un hétérotrimère.",
-        "correct": false,
-        "explanation": "Cette synthèse relie les quatre niveaux de structure."
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       }
     ],
-    "explanation": "Cette synthèse relie les quatre niveaux de structure."
+    "explanation": "Un pont disulfure est une liaison covalente S–S entre deux cystéines. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Synthèse — concernant les repères géométriques de l’hélice α :",
+    "question": "Concernant les repères géométriques de l’hélice alpha, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le pas de l’hélice α est d’environ 0,54 nm.",
+        "content": "Son pas est d’environ 0,54 nm.",
         "correct": true,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
+        "explanation": "Exact. Une hélice alpha possède environ 3,6 résidus par tour, un pas de 0,54 nm et une progression de 0,15 nm par résidu."
       },
       {
-        "content": "Un tour d’hélice α comporte en moyenne 3,6 résidus.",
+        "content": "Ces repères géométriques n’ont aucun lien entre eux.",
+        "correct": false,
+        "explanation": "Incorrect. Une hélice alpha possède environ 3,6 résidus par tour, un pas de 0,54 nm et une progression de 0,15 nm par résidu."
+      },
+      {
+        "content": "Son pas est de 5,4 nm.",
+        "correct": false,
+        "explanation": "Incorrect. Une hélice alpha possède environ 3,6 résidus par tour, un pas de 0,54 nm et une progression de 0,15 nm par résidu."
+      },
+      {
+        "content": "Elle comporte 10 résidus par tour.",
+        "correct": false,
+        "explanation": "Incorrect. Une hélice alpha possède environ 3,6 résidus par tour, un pas de 0,54 nm et une progression de 0,15 nm par résidu."
+      },
+      {
+        "content": "Ces valeurs sont des moyennes structurales.",
         "correct": true,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
-      },
-      {
-        "content": "Le pas de l’hélice α est de 5,4 µm.",
-        "correct": false,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
-      },
-      {
-        "content": "Un tour contient exactement 36 acides aminés.",
-        "correct": false,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
+        "explanation": "Exact. Une hélice alpha possède environ 3,6 résidus par tour, un pas de 0,54 nm et une progression de 0,15 nm par résidu."
       }
     ],
-    "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
+    "explanation": "Une hélice alpha possède environ 3,6 résidus par tour, un pas de 0,54 nm et une progression de 0,15 nm par résidu."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : combien de résidus comporte en moyenne un tour d’hélice α ?",
-    "choices": [
-      {
-        "content": "3,6",
-        "correct": true,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
-      },
-      {
-        "content": "36",
-        "correct": false,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
-      },
-      {
-        "content": "0,36",
-        "correct": false,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
-      },
-      {
-        "content": "10",
-        "correct": false,
-        "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
-      }
-    ],
-    "explanation": "Une hélice α comporte en moyenne 3,6 résidus par tour et présente un pas d’environ 0,54 nm."
+    "format": "QROC",
+    "question": "Combien de résidus compte approximativement un tour d’hélice alpha ?",
+    "answer": {
+      "type": "number",
+      "value": 3.6,
+      "tolerance": 0.15
+    },
+    "explanation": "Une hélice alpha possède environ 3,6 résidus par tour, un pas de 0,54 nm et une progression de 0,15 nm par résidu."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Synthèse — concernant les feuillets β :",
+    "format": "QRP",
+    "question": "Concernant les feuillets bêta, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Ils sont formés de brins associés par des liaisons hydrogène.",
-        "correct": true,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+        "content": "Toutes les chaînes latérales sont du même côté.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
+      },
+      {
+        "content": "Les brins sont reliés principalement par des liaisons glycosidiques.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
+      },
+      {
+        "content": "Tous les brins doivent être parallèles.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
       },
       {
         "content": "Les brins peuvent être parallèles ou antiparallèles.",
         "correct": true,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+        "explanation": "Exact. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
       },
       {
-        "content": "Ils sont toujours des hélices droites.",
-        "correct": false,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
-      },
-      {
-        "content": "Ils ne comportent jamais de liaison hydrogène.",
-        "correct": false,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+        "content": "Des segments éloignés dans la séquence peuvent former un même feuillet.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
       }
     ],
-    "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+    "explanation": "Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quelles orientations relatives peuvent adopter les brins β ?",
+    "format": "QRM",
+    "question": "Concernant les feuillets bêta, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "parallèles ou antiparallèles",
+        "content": "Les brins sont reliés principalement par des liaisons glycosidiques.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
+      },
+      {
+        "content": "Les chaînes latérales alternent de part et d’autre du feuillet.",
         "correct": true,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+        "explanation": "Exact. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
       },
       {
-        "content": "uniquement perpendiculaires",
-        "correct": false,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+        "content": "Les brins peuvent être parallèles ou antiparallèles.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
       },
       {
-        "content": "uniquement circulaires",
-        "correct": false,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+        "content": "Ils associent des brins bêta étendus par des liaisons hydrogène du squelette.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
       },
       {
-        "content": "aucune association n’est possible",
+        "content": "Un feuillet bêta est une hélice continue.",
         "correct": false,
-        "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+        "explanation": "Incorrect. Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
       }
     ],
-    "explanation": "Dans un feuillet β, les brins peuvent s’orienter parallèlement ou antiparallèlement et sont stabilisés par des liaisons hydrogène entre les éléments du squelette."
+    "explanation": "Les feuillets bêta associent des brins parallèles ou antiparallèles par des liaisons H du squelette."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Synthèse — concernant la structure tertiaire :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la structure tertiaire, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Elle correspond à l’arrangement spatial global des structures secondaires d’une chaîne.",
+        "content": "Elle rapproche des résidus éloignés dans la séquence.",
         "correct": true,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "explanation": "Exact. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       },
       {
-        "content": "Elle rapproche des résidus parfois éloignés dans la séquence.",
-        "correct": true,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "content": "Elle est parfaitement rigide.",
+        "correct": false,
+        "explanation": "Incorrect. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
+      },
+      {
+        "content": "Elle exige toujours plusieurs sous-unités.",
+        "correct": false,
+        "explanation": "Incorrect. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       },
       {
         "content": "Elle correspond uniquement à la séquence primaire.",
         "correct": false,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "explanation": "Incorrect. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       },
       {
-        "content": "Elle nécessite obligatoirement quatre sous-unités.",
+        "content": "Elle ne dépend d’aucune interaction entre chaînes latérales.",
         "correct": false,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "explanation": "Incorrect. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       }
     ],
-    "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+    "explanation": "La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
   },
   {
     "order": 116,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quel niveau décrit le repliement 3D global d’une chaîne polypeptidique ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la structure tertiaire ?",
     "choices": [
       {
-        "content": "la structure tertiaire",
+        "content": "Elle exige toujours plusieurs sous-unités.",
+        "correct": false,
+        "explanation": "Incorrect. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
+      },
+      {
+        "content": "Elle peut évoluer lors de la fixation d’un ligand.",
         "correct": true,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "explanation": "Exact. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       },
       {
-        "content": "la structure primaire",
-        "correct": false,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "content": "Elle rapproche des résidus éloignés dans la séquence.",
+        "correct": true,
+        "explanation": "Exact. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       },
       {
-        "content": "la structure quaternaire uniquement",
-        "correct": false,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "content": "Elle organise structures secondaires, boucles et domaines.",
+        "correct": true,
+        "explanation": "Exact. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       },
       {
-        "content": "la séquence d’ADN",
-        "correct": false,
-        "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+        "content": "Elle décrit le repliement tridimensionnel global d’une chaîne.",
+        "correct": true,
+        "explanation": "Exact. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
       }
     ],
-    "explanation": "La structure tertiaire construit l’organisation tridimensionnelle d’une chaîne."
+    "explanation": "La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel niveau structural correspond à l’association de plusieurs sous-unités polypeptidiques ?",
+    "question": "Où se trouvent préférentiellement de nombreux résidus hydrophobes d’une protéine globulaire soluble ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "structure quaternaire",
-        "quaternaire"
+        "dans le cœur",
+        "vers l’intérieur",
+        "au cœur hydrophobe",
+        "intérieur de la protéine"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La structure quaternaire décrit l’assemblage de plusieurs chaînes."
+    "explanation": "Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Où se placent préférentiellement les résidus hydrophobes d’une protéine globulaire soluble ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "vers l’intérieur",
+        "content": "Les résidus hydrophobes sont souvent enrichis dans le cœur.",
         "correct": true,
-        "explanation": "L’effet hydrophobe favorise un cœur apolaire et une surface plus polaire."
+        "explanation": "Exact. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
       },
       {
-        "content": "tous à la surface aqueuse",
+        "content": "Elle correspond uniquement à la séquence primaire.",
         "correct": false,
-        "explanation": "L’effet hydrophobe favorise un cœur apolaire et une surface plus polaire."
+        "explanation": "Incorrect. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
       },
       {
-        "content": "uniquement à l’extrémité N",
-        "correct": false,
-        "explanation": "L’effet hydrophobe favorise un cœur apolaire et une surface plus polaire."
+        "content": "Les protéines membranaires obéissent à un environnement différent.",
+        "correct": true,
+        "explanation": "Exact. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
       },
       {
-        "content": "ils sont absents",
+        "content": "Elle ne dépend d’aucune interaction entre chaînes latérales.",
         "correct": false,
-        "explanation": "L’effet hydrophobe favorise un cœur apolaire et une surface plus polaire."
+        "explanation": "Incorrect. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
+      },
+      {
+        "content": "Elle organise structures secondaires, boucles et domaines.",
+        "correct": true,
+        "explanation": "Exact. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
+      },
+      {
+        "content": "Les protéines membranaires ont la même distribution de surface que les protéines solubles.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
+      },
+      {
+        "content": "Aucun résidu polaire ne peut être enfoui.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
+      },
+      {
+        "content": "Elle rapproche des résidus éloignés dans la séquence.",
+        "correct": true,
+        "explanation": "Exact. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
+      },
+      {
+        "content": "Cette répartition est une tendance et non une loi absolue.",
+        "correct": true,
+        "explanation": "Exact. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
+      },
+      {
+        "content": "La polarité des chaînes latérales n’influence pas le repliement.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire."
       }
     ],
-    "explanation": "L’effet hydrophobe favorise un cœur apolaire et une surface plus polaire."
+    "explanation": "Les protéines globulaires solubles possèdent souvent un cœur hydrophobe et une surface plus polaire. La structure tertiaire est le repliement 3D global d’une chaîne et reste dynamique."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Synthèse — concernant la structure quaternaire :",
+    "question": "Quelles propositions sont exactes concernant la structure quaternaire ?",
     "choices": [
       {
-        "content": "Elle associe plusieurs sous-unités polypeptidiques déjà repliées.",
+        "content": "Elle est obligatoire pour toute protéine.",
+        "correct": false,
+        "explanation": "Incorrect. La structure quaternaire associe plusieurs sous-unités qui peuvent être identiques ou différentes."
+      },
+      {
+        "content": "Les interfaces sont souvent stabilisées par des interactions non covalentes.",
         "correct": true,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
+        "explanation": "Exact. La structure quaternaire associe plusieurs sous-unités qui peuvent être identiques ou différentes."
+      },
+      {
+        "content": "Elle correspond à la seule séquence des résidus.",
+        "correct": false,
+        "explanation": "Incorrect. La structure quaternaire associe plusieurs sous-unités qui peuvent être identiques ou différentes."
       },
       {
         "content": "Les sous-unités peuvent être identiques ou différentes.",
         "correct": true,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
+        "explanation": "Exact. La structure quaternaire associe plusieurs sous-unités qui peuvent être identiques ou différentes."
       },
       {
-        "content": "Elle est obligatoire pour toute protéine.",
+        "content": "Elle correspond à une hélice alpha locale.",
         "correct": false,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
-      },
-      {
-        "content": "Elle correspond uniquement à une hélice α locale.",
-        "correct": false,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
+        "explanation": "Incorrect. La structure quaternaire associe plusieurs sous-unités qui peuvent être identiques ou différentes."
       }
     ],
-    "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
+    "explanation": "La structure quaternaire associe plusieurs sous-unités qui peuvent être identiques ou différentes."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Synthèse transversale : Quel niveau concerne l’association de plusieurs sous-unités ?",
-    "choices": [
-      {
-        "content": "la structure quaternaire",
-        "correct": true,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
-      },
-      {
-        "content": "la structure primaire",
-        "correct": false,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
-      },
-      {
-        "content": "la structure secondaire",
-        "correct": false,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
-      },
-      {
-        "content": "la liaison peptidique seule",
-        "correct": false,
-        "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
+    "format": "QROC",
+    "question": "Quel niveau structural décrit l’association de plusieurs chaînes polypeptidiques ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "structure quaternaire",
+        "quaternaire",
+        "la structure quaternaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La quaternaire décrit l’assemblage de chaînes polypeptidiques."
+    },
+    "explanation": "La structure quaternaire associe plusieurs sous-unités qui peuvent être identiques ou différentes."
   },
   {
     "order": 121,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Synthèse — concernant l’hémoglobine A adulte :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant l’hémoglobine adulte HbA, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Elle est un tétramère α2β2.",
-        "correct": true,
-        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
-      },
-      {
-        "content": "Elle illustre une structure quaternaire.",
-        "correct": true,
-        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
-      },
-      {
-        "content": "Elle est un monomère sans sous-unités.",
+        "content": "HbA est un monomère.",
         "correct": false,
-        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
+        "explanation": "Incorrect. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
       },
       {
-        "content": "Elle est classée comme polyoside.",
+        "content": "Elle ne peut fixer qu’un O2 au total.",
         "correct": false,
-        "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
+        "explanation": "Incorrect. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
+      },
+      {
+        "content": "HbA est un hétérotétramère alpha2bêta2.",
+        "correct": true,
+        "explanation": "Exact. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
+      },
+      {
+        "content": "La quaternarité permet une fixation coopérative de l’oxygène.",
+        "correct": true,
+        "explanation": "Exact. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
+      },
+      {
+        "content": "Elle ne contient aucun hème.",
+        "correct": false,
+        "explanation": "Incorrect. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
       }
     ],
-    "explanation": "L’hémoglobine A adulte possède une structure quaternaire tétramérique α2β2."
+    "explanation": "HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Maîtrise finale : sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant l’hémoglobine adulte HbA ?",
     "choices": [
       {
-        "content": "La liaison peptidique est plane et rigide.",
+        "content": "La quaternarité permet une fixation coopérative de l’oxygène.",
         "correct": true,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
+        "explanation": "Exact. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
       },
       {
-        "content": "La proline peut induire une angulation.",
+        "content": "Elle ne peut fixer qu’un O2 au total.",
+        "correct": false,
+        "explanation": "Incorrect. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
+      },
+      {
+        "content": "HbA est un homotétramère alpha4.",
+        "correct": false,
+        "explanation": "Incorrect. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
+      },
+      {
+        "content": "Chaque sous-unité porte un groupe hème.",
         "correct": true,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
+        "explanation": "Exact. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
       },
       {
-        "content": "Les ponts disulfure impliquent des cystéines.",
+        "content": "HbA est un hétérotétramère alpha2bêta2.",
         "correct": true,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
-      },
-      {
-        "content": "Les feuillets β peuvent être parallèles ou antiparallèles.",
-        "correct": true,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
-      },
-      {
-        "content": "CK-MB est un hétérodimère.",
-        "correct": true,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
-      },
-      {
-        "content": "Une holoprotéine possède obligatoirement une partie non protéique.",
-        "correct": false,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
-      },
-      {
-        "content": "La structure primaire est une association de sous-unités.",
-        "correct": false,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
-      },
-      {
-        "content": "Les ponts disulfure sont des interactions non covalentes.",
-        "correct": false,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
-      },
-      {
-        "content": "Les immunoglobulines ne contiennent aucun feuillet β.",
-        "correct": false,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
-      },
-      {
-        "content": "L’hémoglobine est un monomère.",
-        "correct": false,
-        "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
+        "explanation": "Exact. HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
       }
     ],
-    "explanation": "Ces items couvrent les pièges structuraux majeurs du chapitre."
+    "explanation": "HbA est un hétérotétramère alpha2bêta2 portant quatre groupes hème."
   }
 ];

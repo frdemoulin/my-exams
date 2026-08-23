@@ -1,656 +1,698 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Structure des peptides et protéines — Section A — Liaison peptidique, nomenclature et classification */
 export const UE14_BIOCH_CH10_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la liaison peptidique :",
+    "question": "Concernant la liaison peptidique, quelles propositions sont exactes ?",
     "choices": [
-      {
-        "content": "Elle relie la fonction carboxyle d’un acide aminé à la fonction amine du suivant.",
-        "correct": true,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
-      {
-        "content": "Elle correspond à une liaison de type amide.",
-        "correct": true,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
       {
         "content": "Elle relie deux fonctions alcool.",
         "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
       },
       {
-        "content": "Elle correspond à une liaison glycosidique.",
+        "content": "Elle appartient au squelette principal du polypeptide.",
+        "correct": true,
+        "explanation": "Exact. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle est une interaction ionique non covalente.",
         "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle relie le carboxyle alpha d’un résidu à l’amine alpha du suivant.",
+        "correct": true,
+        "explanation": "Exact. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle relie obligatoirement deux chaînes latérales.",
+        "correct": false,
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
       }
     ],
-    "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+    "explanation": "La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelles fonctions réagissent pour former une liaison peptidique ?",
+    "question": "Parmi les affirmations suivantes concernant la liaison peptidique, laquelle est correcte ?",
     "choices": [
       {
-        "content": "carboxyle et amine",
+        "content": "Elle relie obligatoirement deux chaînes latérales.",
+        "correct": false,
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle relie deux fonctions alcool.",
+        "correct": false,
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle est une interaction ionique non covalente.",
+        "correct": false,
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
+      },
+      {
+        "content": "Elle appartient au squelette principal du polypeptide.",
         "correct": true,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+        "explanation": "Exact. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
       },
       {
-        "content": "deux thiols",
+        "content": "Elle est une liaison glycosidique.",
         "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
-      {
-        "content": "deux phosphates",
-        "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
-      },
-      {
-        "content": "aldéhyde et alcool",
-        "correct": false,
-        "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+        "explanation": "Incorrect. La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
       }
     ],
-    "explanation": "La liaison peptidique unit les acides aminés dans les peptides et protéines."
+    "explanation": "La liaison peptidique est une liaison amide covalente du squelette polypeptidique."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Pour cette question, on adopte par convention un seuil pratique de 100 résidus entre peptide et protéine :",
-    "choices": [
-      {
-        "content": "Une chaîne de moins de 100 résidus est classée ici comme peptide.",
-        "correct": true,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "Une chaîne dépassant 100 résidus ou un assemblage de plusieurs chaînes est classé ici comme protéine.",
-        "correct": true,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "Tout dipeptide est une protéine.",
-        "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "Une protéine doit toujours comporter une seule chaîne.",
-        "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      }
-    ],
-    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-  },
-  {
-    "order": 4,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel seuil pratique est explicitement adopté ici pour distinguer peptide et protéine ?",
-    "choices": [
-      {
-        "content": "environ 100 acides aminés",
-        "correct": true,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "10 acides aminés",
-        "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "1000 acides aminés",
-        "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      },
-      {
-        "content": "1 acide aminé",
-        "correct": false,
-        "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-      }
-    ],
-    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; la présente question adopte explicitement un seuil pratique de 100 résidus."
-  },
-  {
-    "order": 5,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant l’extrémité N-terminale :",
-    "choices": [
-      {
-        "content": "Elle porte la fonction amine libre au début de la chaîne.",
-        "correct": true,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      },
-      {
-        "content": "La séquence s’écrit conventionnellement à partir de cette extrémité.",
-        "correct": true,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      },
-      {
-        "content": "Elle porte nécessairement le COOH libre terminal.",
-        "correct": false,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      },
-      {
-        "content": "Elle est située au milieu de la liaison peptidique.",
-        "correct": false,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      }
-    ],
-    "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-  },
-  {
-    "order": 6,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle fonction est libre à l’extrémité N-terminale ?",
-    "choices": [
-      {
-        "content": "la fonction amine",
-        "correct": true,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      },
-      {
-        "content": "la fonction carboxyle",
-        "correct": false,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      },
-      {
-        "content": "une fonction thiol",
-        "correct": false,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      },
-      {
-        "content": "une fonction phosphate",
-        "correct": false,
-        "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-      }
-    ],
-    "explanation": "N-terminal désigne l’extrémité portant l’amine libre."
-  },
-  {
-    "order": 7,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant l’extrémité C-terminale :",
-    "choices": [
-      {
-        "content": "Elle correspond à l’extrémité portant le COOH libre.",
-        "correct": true,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      },
-      {
-        "content": "Elle termine la chaîne dans l’écriture conventionnelle N vers C.",
-        "correct": true,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      },
-      {
-        "content": "Elle porte nécessairement l’amine libre initiale.",
-        "correct": false,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      },
-      {
-        "content": "Elle n’existe que dans les protéines quaternaires.",
-        "correct": false,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      }
-    ],
-    "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-  },
-  {
-    "order": 8,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle fonction est libre à l’extrémité C-terminale ?",
-    "choices": [
-      {
-        "content": "la fonction carboxyle",
-        "correct": true,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      },
-      {
-        "content": "la fonction amine",
-        "correct": false,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      },
-      {
-        "content": "une fonction guanidinium",
-        "correct": false,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      },
-      {
-        "content": "une fonction alcool",
-        "correct": false,
-        "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-      }
-    ],
-    "explanation": "C-terminal désigne l’extrémité portant le carboxyle libre."
-  },
-  {
-    "order": 9,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la disposition des chaînes latérales dans un peptide :",
-    "choices": [
-      {
-        "content": "Les chaînes latérales sont disposées de part et d’autre du squelette peptidique.",
-        "correct": true,
-        "explanation": "Les radicaux R apportent la diversité chimique des résidus."
-      },
-      {
-        "content": "Leur nature contribue aux propriétés et à la conformation de la chaîne.",
-        "correct": true,
-        "explanation": "Les radicaux R apportent la diversité chimique des résidus."
-      },
-      {
-        "content": "Toutes les chaînes latérales sont identiques.",
-        "correct": false,
-        "explanation": "Les radicaux R apportent la diversité chimique des résidus."
-      },
-      {
-        "content": "Elles sont absentes des peptides.",
-        "correct": false,
-        "explanation": "Les radicaux R apportent la diversité chimique des résidus."
-      }
-    ],
-    "explanation": "Les radicaux R apportent la diversité chimique des résidus."
-  },
-  {
-    "order": 10,
-    "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : quel seuil pratique en nombre de résidus est explicitement adopté ici pour distinguer peptide et protéine ?",
+    "question": "Quel seuil approximatif est utilisé ici comme repère pédagogique entre peptide et protéine ?",
     "answer": {
       "type": "number",
       "value": 100,
       "tolerance": 0
     },
-    "explanation": "La frontière entre peptide et protéine n’est pas absolue ; cette question adopte explicitement un seuil pratique de 100 résidus."
+    "explanation": "Le seuil de 100 résidus est un repère pédagogique et non une frontière universelle."
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la distinction pratique entre peptide et protéine, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Cette limite n’est pas une frontière physicochimique universelle.",
+        "correct": true,
+        "explanation": "Exact. Le seuil de 100 résidus est un repère pédagogique et non une frontière universelle."
+      },
+      {
+        "content": "Toute chaîne de plus de 100 résidus possède obligatoirement une structure quaternaire.",
+        "correct": false,
+        "explanation": "Incorrect. Le seuil de 100 résidus est un repère pédagogique et non une frontière universelle."
+      },
+      {
+        "content": "Une protéine peut être monomérique.",
+        "correct": true,
+        "explanation": "Exact. Le seuil de 100 résidus est un repère pédagogique et non une frontière universelle."
+      },
+      {
+        "content": "Une protéine peut aussi comporter plusieurs chaînes polypeptidiques.",
+        "correct": true,
+        "explanation": "Exact. Le seuil de 100 résidus est un repère pédagogique et non une frontière universelle."
+      },
+      {
+        "content": "Un dipeptide est nécessairement une protéine globulaire.",
+        "correct": false,
+        "explanation": "Incorrect. Le seuil de 100 résidus est un repère pédagogique et non une frontière universelle."
+      }
+    ],
+    "explanation": "Le seuil de 100 résidus est un repère pédagogique et non une frontière universelle."
+  },
+  {
+    "order": 5,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant l’extrémité N-terminale, laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "Elle n’existe que dans les protéines multimériques.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Le premier résidu de la chaîne se trouve à cette extrémité.",
+        "correct": true,
+        "explanation": "Exact. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle porte nécessairement le carboxyle alpha terminal libre.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle désigne le carbone carbonylé de chaque liaison peptidique.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle se situe au milieu de la chaîne.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      }
+    ],
+    "explanation": "L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+  },
+  {
+    "order": 6,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant l’extrémité N-terminale, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "Elle peut subir des modifications terminales sans perdre sa définition structurale.",
+        "correct": true,
+        "explanation": "Exact. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle n’existe que dans les protéines multimériques.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Le premier résidu de la chaîne se trouve à cette extrémité.",
+        "correct": true,
+        "explanation": "Exact. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle se situe au milieu de la chaîne.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle désigne le carbone carbonylé de chaque liaison peptidique.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée."
+      }
+    ],
+    "explanation": "L’extrémité N-terminale porte l’amine alpha libre si elle n’est pas modifiée.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 7,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant l’extrémité C-terminale, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le dernier résidu de la chaîne se trouve à cette extrémité.",
+        "correct": true,
+        "explanation": "Exact. L’extrémité C-terminale porte le carboxyle alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle porte le carboxyle alpha libre si cette extrémité n’est pas modifiée.",
+        "correct": true,
+        "explanation": "Exact. L’extrémité C-terminale porte le carboxyle alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle est définie par un phosphate terminal.",
+        "correct": false,
+        "explanation": "Incorrect. L’extrémité C-terminale porte le carboxyle alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Elle termine conventionnellement une chaîne écrite N vers C.",
+        "correct": true,
+        "explanation": "Exact. L’extrémité C-terminale porte le carboxyle alpha libre si elle n’est pas modifiée."
+      },
+      {
+        "content": "Une amidation C-terminale peut masquer le carboxyle libre.",
+        "correct": true,
+        "explanation": "Exact. L’extrémité C-terminale porte le carboxyle alpha libre si elle n’est pas modifiée."
+      }
+    ],
+    "explanation": "L’extrémité C-terminale porte le carboxyle alpha libre si elle n’est pas modifiée."
+  },
+  {
+    "order": 8,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle fonction alpha est libre à l’extrémité C-terminale d’un peptide non modifié ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "carboxyle",
+        "fonction carboxyle",
+        "groupement carboxyle",
+        "COOH",
+        "COO-"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’extrémité C-terminale porte le carboxyle alpha libre si elle n’est pas modifiée."
+  },
+  {
+    "order": 9,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les chaînes latérales d’un peptide ?",
+    "choices": [
+      {
+        "content": "Elles constituent à elles seules la liaison peptidique principale.",
+        "correct": false,
+        "explanation": "Incorrect. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Leur nature contribue fortement aux propriétés chimiques de la protéine.",
+        "correct": true,
+        "explanation": "Exact. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Elles sont absentes des protéines.",
+        "correct": false,
+        "explanation": "Incorrect. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Elles sont toutes chargées positivement à pH physiologique.",
+        "correct": false,
+        "explanation": "Incorrect. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Elles sont identiques pour tous les résidus.",
+        "correct": false,
+        "explanation": "Incorrect. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      }
+    ],
+    "explanation": "Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les chaînes latérales d’un peptide, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Elles constituent à elles seules la liaison peptidique principale.",
+        "correct": false,
+        "explanation": "Incorrect. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Elles sont identiques pour tous les résidus.",
+        "correct": false,
+        "explanation": "Incorrect. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Elles sont portées par les carbones alpha des résidus.",
+        "correct": true,
+        "explanation": "Exact. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Elles participent aux interactions qui stabilisent le repliement.",
+        "correct": true,
+        "explanation": "Exact. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      },
+      {
+        "content": "Elles sont absentes des protéines.",
+        "correct": false,
+        "explanation": "Incorrect. Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
+      }
+    ],
+    "explanation": "Les chaînes latérales R portent une grande partie de la diversité chimique des protéines."
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la proline dans une chaîne peptidique :",
+    "question": "Concernant la proline dans une chaîne polypeptidique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sa structure particulière peut provoquer une angulation de la chaîne.",
+        "content": "Une liaison peptidique précédant une proline présente plus souvent une forme cis que les autres liaisons peptidiques.",
         "correct": true,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
+        "explanation": "Exact. La proline contraint le squelette et peut perturber les structures secondaires régulières."
       },
       {
-        "content": "Elle constitue une exception structurale utile pour comprendre les coudes.",
+        "content": "Elle réduit la liberté conformationnelle locale.",
         "correct": true,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
+        "explanation": "Exact. La proline contraint le squelette et peut perturber les structures secondaires régulières."
       },
       {
-        "content": "Elle impose toujours une chaîne parfaitement rectiligne.",
+        "content": "Elle est obligatoirement présente uniquement dans le premier tour de toute hélice alpha.",
         "correct": false,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
+        "explanation": "Incorrect. La proline contraint le squelette et peut perturber les structures secondaires régulières."
       },
       {
-        "content": "Elle est dépourvue d’azote.",
+        "content": "Elle peut introduire un coude ou perturber une hélice alpha.",
+        "correct": true,
+        "explanation": "Exact. La proline contraint le squelette et peut perturber les structures secondaires régulières."
+      },
+      {
+        "content": "Elle augmente systématiquement la flexibilité du squelette.",
         "correct": false,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
+        "explanation": "Incorrect. La proline contraint le squelette et peut perturber les structures secondaires régulières."
       }
     ],
-    "explanation": "La cyclicité de la proline contraint localement le squelette."
+    "explanation": "La proline contraint le squelette et peut perturber les structures secondaires régulières."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel acide aminé peut imposer une angulation locale au squelette peptidique en raison de sa structure cyclique ?",
-    "choices": [
-      {
-        "content": "la proline",
-        "correct": true,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
-      },
-      {
-        "content": "la glycine uniquement",
-        "correct": false,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
-      },
-      {
-        "content": "la lysine",
-        "correct": false,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
-      },
-      {
-        "content": "l’aspartate",
-        "correct": false,
-        "explanation": "La cyclicité de la proline contraint localement le squelette."
+    "format": "QROC",
+    "question": "Quel résidu cyclique contraint particulièrement la géométrie locale du squelette ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "proline",
+        "la proline",
+        "Pro"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La cyclicité de la proline contraint localement le squelette."
+    },
+    "explanation": "La proline contraint le squelette et peut perturber les structures secondaires régulières."
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les rôles généraux des peptides et protéines :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les rôles généraux des protéines ?",
     "choices": [
-      {
-        "content": "Le collagène illustre un rôle structural.",
-        "correct": true,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport ont des fonctions dynamiques."
-      },
-      {
-        "content": "Les enzymes et protéines de transport illustrent des rôles actifs.",
-        "correct": true,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
-      },
       {
         "content": "Les protéines n’ont jamais de rôle structural.",
         "correct": false,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+        "explanation": "Incorrect. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
       },
       {
-        "content": "Toutes les protéines ont exactement la même fonction.",
+        "content": "Toute protéine de transport est nécessairement une enzyme.",
         "correct": false,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+        "explanation": "Incorrect. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
+      },
+      {
+        "content": "Les enzymes catalysent des réactions chimiques.",
+        "correct": true,
+        "explanation": "Exact. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
+      },
+      {
+        "content": "Toutes les protéines ont la même fonction.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
+      },
+      {
+        "content": "La conformation n’influence pas la fonction.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
       }
     ],
-    "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+    "explanation": "Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle protéine illustre principalement un rôle structural ?",
+    "format": "QRM",
+    "question": "Concernant les rôles généraux des protéines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "le collagène",
+        "content": "La fonction dépend étroitement de la séquence et de la conformation.",
         "correct": true,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+        "explanation": "Exact. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
       },
       {
-        "content": "le glucose",
-        "correct": false,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+        "content": "Les enzymes catalysent des réactions chimiques.",
+        "correct": true,
+        "explanation": "Exact. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
       },
       {
-        "content": "le cholestérol",
-        "correct": false,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+        "content": "Certaines protéines assurent un transport.",
+        "correct": true,
+        "explanation": "Exact. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
       },
       {
-        "content": "le glycogène",
+        "content": "La conformation n’influence pas la fonction.",
         "correct": false,
-        "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+        "explanation": "Incorrect. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
+      },
+      {
+        "content": "Le collagène illustre un rôle structural.",
+        "correct": true,
+        "explanation": "Exact. Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
       }
     ],
-    "explanation": "Le collagène exerce principalement un rôle structural, tandis que les enzymes et de nombreuses protéines de transport assurent des fonctions dynamiques."
+    "explanation": "Les protéines peuvent avoir des rôles structuraux, catalytiques, de transport ou de signalisation."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant la dénaturation :",
-    "choices": [
-      {
-        "content": "Elle correspond à une modification de structure ou de conformation.",
-        "correct": true,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
-      },
-      {
-        "content": "Elle peut être réversible ou irréversible selon les conditions.",
-        "correct": true,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
-      },
-      {
-        "content": "Elle modifie nécessairement la séquence primaire par rupture de toutes les liaisons peptidiques.",
-        "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
-      },
-      {
-        "content": "Elle ne peut jamais modifier l’activité biologique.",
-        "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+    "format": "QROC",
+    "question": "Quel phénomène est en cause lorsqu’une protéine perd son repliement natif sans hydrolyse obligatoire de ses liaisons peptidiques ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "dénaturation",
+        "denaturation"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+    },
+    "explanation": "La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel terme désigne la perte de conformation d’une protéine ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la dénaturation des protéines ?",
     "choices": [
       {
-        "content": "dénaturation",
+        "content": "Elle modifie obligatoirement la séquence codée par le gène.",
+        "correct": false,
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
+      },
+      {
+        "content": "Elle altère la conformation native.",
         "correct": true,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Exact. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "glycolyse",
+        "content": "Elle correspond toujours à l’hydrolyse complète des liaisons peptidiques.",
         "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "épimérisation",
-        "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "content": "Elle ne nécessite pas la rupture des liaisons peptidiques de la structure primaire.",
+        "correct": true,
+        "explanation": "Exact. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       },
       {
-        "content": "saponification",
+        "content": "Elle augmente nécessairement l’activité biologique.",
         "correct": false,
-        "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+        "explanation": "Incorrect. La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
       }
     ],
-    "explanation": "La dénaturation altère la conformation et peut altérer la fonction."
+    "explanation": "La dénaturation touche surtout le repliement et n’implique pas nécessairement une protéolyse."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les facteurs susceptibles de dénaturer une protéine :",
-    "choices": [
-      {
-        "content": "Le pH et la température font partie des facteurs.",
-        "correct": true,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
-      },
-      {
-        "content": "La force ionique et la composition du milieu peuvent aussi modifier la stabilité conformationnelle.",
-        "correct": true,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
-      },
-      {
-        "content": "Seule la lumière visible peut dénaturer une protéine.",
-        "correct": false,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
-      },
-      {
-        "content": "La température n’a aucun effet possible.",
-        "correct": false,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
+    "format": "QROC",
+    "question": "Citez un paramètre physicochimique classique pouvant favoriser une dénaturation.",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "température",
+        "pH",
+        "force ionique",
+        "urée",
+        "solvant",
+        "chaleur"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
+    },
+    "explanation": "Température, pH et composition du milieu peuvent perturber le repliement protéique."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Lequel de ces paramètres peut favoriser une dénaturation ?",
+    "question": "Parmi les affirmations suivantes concernant les facteurs de dénaturation, laquelle est correcte ?",
     "choices": [
       {
-        "content": "la température",
+        "content": "La température n’a jamais d’effet sur le repliement.",
+        "correct": false,
+        "explanation": "Incorrect. Température, pH et composition du milieu peuvent perturber le repliement protéique."
+      },
+      {
+        "content": "Le pH n’influence aucune interaction protéique.",
+        "correct": false,
+        "explanation": "Incorrect. Température, pH et composition du milieu peuvent perturber le repliement protéique."
+      },
+      {
+        "content": "Un pH extrême peut modifier les états de protonation.",
         "correct": true,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
+        "explanation": "Exact. Température, pH et composition du milieu peuvent perturber le repliement protéique."
       },
       {
-        "content": "le numéro atomique",
+        "content": "Toutes les protéines répondent exactement pareil à un dénaturant.",
         "correct": false,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
+        "explanation": "Incorrect. Température, pH et composition du milieu peuvent perturber le repliement protéique."
       },
       {
-        "content": "le groupe sanguin",
+        "content": "Seule la lumière visible peut dénaturer une protéine.",
         "correct": false,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
-      },
-      {
-        "content": "la longueur d’un chromosome",
-        "correct": false,
-        "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
+        "explanation": "Incorrect. Température, pH et composition du milieu peuvent perturber le repliement protéique."
       }
     ],
-    "explanation": "Le pH, la température, la force ionique et la composition du milieu peuvent perturber les interactions qui stabilisent la conformation protéique."
+    "explanation": "Température, pH et composition du milieu peuvent perturber le repliement protéique."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les zymogènes :",
+    "question": "Quelles propositions sont exactes concernant les zymogènes ?",
     "choices": [
       {
-        "content": "Un zymogène est une forme inactive d’enzyme.",
-        "correct": true,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
-      },
-      {
-        "content": "Son activation peut nécessiter une modification de conformation ou une maturation.",
-        "correct": true,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
-      },
-      {
-        "content": "Un zymogène est toujours une molécule glucidique.",
+        "content": "Un zymogène est une enzyme définitivement détruite.",
         "correct": false,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+        "explanation": "Incorrect. Un zymogène est un précurseur souvent activé par protéolyse limitée."
       },
       {
-        "content": "Le terme désigne une enzyme définitivement détruite.",
+        "content": "Son activation est toujours une simple fixation réversible d’un ligand.",
         "correct": false,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+        "explanation": "Incorrect. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Son activation implique souvent un clivage protéolytique limité.",
+        "correct": true,
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Un zymogène est un précurseur enzymatique inactif ou peu actif.",
+        "correct": true,
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Les protéases digestives fournissent plusieurs exemples de zymogènes.",
+        "correct": true,
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
       }
     ],
-    "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+    "explanation": "Un zymogène est un précurseur souvent activé par protéolyse limitée."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Comment appelle-t-on une forme enzymatique inactive précurseur ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "zymogène",
+        "content": "L’urée peut agir comme agent chaotrope.",
         "correct": true,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
       },
       {
-        "content": "zwitterion",
+        "content": "Le pH n’influence aucune interaction protéique.",
         "correct": false,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+        "explanation": "Incorrect. Un zymogène est un précurseur souvent activé par protéolyse limitée."
       },
       {
-        "content": "prostanoïde",
-        "correct": false,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+        "content": "Les protéases digestives fournissent plusieurs exemples de zymogènes.",
+        "correct": true,
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
       },
       {
-        "content": "stéride",
+        "content": "Toutes les protéines répondent exactement pareil à un dénaturant.",
         "correct": false,
-        "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+        "explanation": "Incorrect. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Un zymogène est une enzyme définitivement détruite.",
+        "correct": false,
+        "explanation": "Incorrect. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Un zymogène est un précurseur enzymatique inactif ou peu actif.",
+        "correct": true,
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Un pH extrême peut modifier les états de protonation.",
+        "correct": true,
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Son activation est toujours une simple fixation réversible d’un ligand.",
+        "correct": false,
+        "explanation": "Incorrect. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "La force ionique ou certains solvants peuvent modifier la stabilité.",
+        "correct": true,
+        "explanation": "Exact. Un zymogène est un précurseur souvent activé par protéolyse limitée."
+      },
+      {
+        "content": "Le terme désigne un glucide de réserve.",
+        "correct": false,
+        "explanation": "Incorrect. Un zymogène est un précurseur souvent activé par protéolyse limitée."
       }
     ],
-    "explanation": "Les zymogènes permettent de contrôler l’activation enzymatique."
+    "explanation": "Un zymogène est un précurseur souvent activé par protéolyse limitée. Température, pH et composition du milieu peuvent perturber le repliement protéique."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la classification selon la composition :",
+    "question": "Parmi les affirmations suivantes concernant la classification des protéines selon leur composition, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Une holoprotéine est constituée uniquement d’acides aminés reliés par liaisons peptidiques.",
+        "content": "L’hémoglobine est une hétéroprotéine contenant des groupes hème.",
         "correct": true,
-        "explanation": "La classification distingue composition purement protéique et présence d’une partie non protéique."
+        "explanation": "Exact. La composition distingue holoprotéines et hétéroprotéines."
       },
       {
-        "content": "Une hétéroprotéine associe une partie protéique à une partie non protéique.",
+        "content": "Une hétéroprotéine ne contient aucun acide aminé.",
+        "correct": false,
+        "explanation": "Incorrect. La composition distingue holoprotéines et hétéroprotéines."
+      },
+      {
+        "content": "Cette classification est indépendante de la distinction globulaire/fibreuse.",
         "correct": true,
-        "explanation": "La classification distingue composition purement protéique et présence d’une partie non protéique."
+        "explanation": "Exact. La composition distingue holoprotéines et hétéroprotéines."
       },
       {
-        "content": "Une holoprotéine contient obligatoirement un groupement prosthétique non protéique.",
-        "correct": false,
-        "explanation": "La classification distingue composition purement protéique et présence d’une partie non protéique."
+        "content": "Une hétéroprotéine comporte une partie protéique et une composante non protéique.",
+        "correct": true,
+        "explanation": "Exact. La composition distingue holoprotéines et hétéroprotéines."
       },
       {
-        "content": "Une hétéroprotéine est simplement l’association de deux protéines différentes.",
-        "correct": false,
-        "explanation": "La classification distingue composition purement protéique et présence d’une partie non protéique."
+        "content": "Une holoprotéine est constituée uniquement de résidus d’acides aminés.",
+        "correct": true,
+        "explanation": "Exact. La composition distingue holoprotéines et hétéroprotéines."
       }
     ],
-    "explanation": "La classification distingue composition purement protéique et présence d’une partie non protéique."
+    "explanation": "La composition distingue holoprotéines et hétéroprotéines."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour conclure la section, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "La liaison peptidique relie carboxyle et amine.",
-        "correct": true,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "La chaîne s’écrit de N-terminal vers C-terminal.",
-        "correct": true,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "La proline peut induire une angulation.",
-        "correct": true,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "La dénaturation peut être réversible ou irréversible.",
-        "correct": true,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "Une holoprotéine est constituée uniquement d’acides aminés.",
-        "correct": true,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "Une liaison peptidique est glycosidique.",
-        "correct": false,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "L’extrémité N porte le COOH libre.",
-        "correct": false,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "La température n’influence jamais la conformation.",
-        "correct": false,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "Un zymogène est toujours actif.",
-        "correct": false,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
-      },
-      {
-        "content": "Une hétéroprotéine ne contient aucune partie protéique.",
-        "correct": false,
-        "explanation": "Ces propositions résument les définitions et classifications de la section."
+    "format": "QROC",
+    "question": "Quel terme désigne une protéine associée à une composante non protéique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "hétéroprotéine",
+        "heteroproteine",
+        "protéine conjuguée",
+        "proteine conjuguee"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces propositions résument les définitions et classifications de la section."
+    },
+    "explanation": "La composition distingue holoprotéines et hétéroprotéines."
   }
 ];
