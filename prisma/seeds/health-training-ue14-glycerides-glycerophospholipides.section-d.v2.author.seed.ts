@@ -1,647 +1,720 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Glycérides et glycérophospholipides — Section D
- */
-
+/** UE14 Biochimie — Glycérides et glycérophospholipides — Section D — Membranes, phospholipases et signalisation */
 export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l'amphiphilie des phospholipides :",
+    "question": "Concernant l'organisation des glycérophospholipides en bicouche, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La tête contient glycérol, phosphate et alcool de tête.",
-        "correct": true,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
-      },
-      {
-        "content": "Les acides gras forment les bras hydrophobes.",
-        "correct": true,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
-      },
-      {
-        "content": "Cette organisation permet la formation de bicouches en milieu aqueux.",
-        "correct": true,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
-      },
-      {
-        "content": "Les deux chaînes d'acides gras constituent la tête hydrophile.",
+        "content": "Une bicouche biologique est parfaitement rigide.",
         "correct": false,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "Elle est dynamique et fluide."
+      },
+      {
+        "content": "Les liposomes sont de simples protéines globulaires.",
+        "correct": false,
+        "explanation": "Ce sont des vésicules lipidiques."
+      },
+      {
+        "content": "Deux chaînes hydrophobes favorisent une géométrie compatible avec les bicouches.",
+        "correct": true,
+        "explanation": "Les phospholipides diacylés forment spontanément des structures lamellaires."
+      },
+      {
+        "content": "Les glycérophospholipides diacylés forment obligatoirement uniquement des micelles sphériques simples.",
+        "correct": false,
+        "explanation": "Leur géométrie favorise surtout les bicouches."
+      },
+      {
+        "content": "Les têtes polaires se tournent vers les milieux aqueux.",
+        "correct": true,
+        "explanation": "Les chaînes hydrophobes s'associent au cœur de la bicouche."
       }
     ],
-    "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+    "explanation": "Les glycérophospholipides diacylés sont adaptés aux bicouches ; les liposomes sont des vésicules formées de bicouches."
   },
   {
     "order": 68,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle partie constitue les bras hydrophobes ?",
+    "question": "Parmi les affirmations suivantes concernant la phospholipase A1, laquelle est correcte ?",
     "choices": [
       {
-        "content": "les acides gras",
+        "content": "La régiospécificité permet de prévoir le lysophospholipide formé.",
         "correct": true,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "La chaîne restante dépend du site hydrolysé."
       },
       {
-        "content": "le phosphate seul",
+        "content": "Elle hydrolyse spécifiquement l'acyle sn-2.",
         "correct": false,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "Cela décrit PLA2."
       },
       {
-        "content": "l'alcool de tête seul",
+        "content": "Elle transforme directement PIP2 en PIP3.",
         "correct": false,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "Cela relève de PI3K."
       },
       {
-        "content": "l'eau",
+        "content": "Elle coupe entre phosphate et tête polaire comme PLD.",
         "correct": false,
-        "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+        "explanation": "Ce n'est pas son site."
+      },
+      {
+        "content": "Elle ajoute une chaîne acyle au phospholipide.",
+        "correct": false,
+        "explanation": "C'est une hydrolase."
       }
     ],
-    "explanation": "Les chaînes acyles sont hydrophobes, la tête phosphate-alcool est hydrophile."
+    "explanation": "PLA1 hydrolyse l'acyle sn-1 d'un glycérophospholipide."
   },
   {
     "order": 69,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des bicouches phospholipidiques :",
-    "choices": [
-      {
-        "content": "Elles sont très stables en milieu aqueux.",
-        "correct": true,
-        "explanation": "La bicouche est stable mais dynamique."
-      },
-      {
-        "content": "Elles restent fluides et déformables.",
-        "correct": true,
-        "explanation": "La bicouche est stable mais dynamique."
-      },
-      {
-        "content": "Elles constituent la base des membranes cellulaires.",
-        "correct": true,
-        "explanation": "La bicouche est stable mais dynamique."
-      },
-      {
-        "content": "Elles sont obligatoirement rigides et cristallines.",
-        "correct": false,
-        "explanation": "La bicouche est stable mais dynamique."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle position est hydrolysée par la phospholipase A2 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sn-2",
+        "C2",
+        "position 2",
+        "2"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La bicouche est stable mais dynamique."
+    },
+    "explanation": "PLA2 cible l'acyle sn-2 et peut libérer l'acide arachidonique en laissant un lysophospholipide."
   },
   {
     "order": 70,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle propriété mécanique est conservée malgré leur stabilité ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la phospholipase C, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "fluidité et déformabilité",
+        "content": "Elle coupe la liaison phosphodiester entre le glycérol et le phosphate du phosphoinositide.",
         "correct": true,
-        "explanation": "La bicouche est stable mais dynamique."
+        "explanation": "Le DAG reste dans la membrane."
       },
       {
-        "content": "rigidité absolue",
+        "content": "Elle hydrolyse l'acyle sn-2 comme PLA2.",
         "correct": false,
-        "explanation": "La bicouche est stable mais dynamique."
+        "explanation": "Son site est différent."
       },
       {
-        "content": "solubilité totale",
-        "correct": false,
-        "explanation": "La bicouche est stable mais dynamique."
+        "content": "L'IP3 peut déclencher la libération de Ca2+ depuis le réticulum endoplasmique.",
+        "correct": true,
+        "explanation": "Il diffuse dans le cytosol."
       },
       {
-        "content": "absence de mouvement",
+        "content": "Sur PIP2, elle produit du DAG et de l'IP3.",
+        "correct": true,
+        "explanation": "Ces deux produits sont des seconds messagers."
+      },
+      {
+        "content": "Elle produit uniquement deux acides gras libres.",
         "correct": false,
-        "explanation": "La bicouche est stable mais dynamique."
+        "explanation": "Sur PIP2, les produits clés sont DAG et IP3."
       }
     ],
-    "explanation": "La bicouche est stable mais dynamique."
+    "explanation": "La PLC hydrolyse PIP2 en DAG membranaire et IP3 soluble, déclenchant deux branches de signalisation."
   },
   {
     "order": 71,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des liposomes :",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la phospholipase D, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Ils peuvent se former à partir de phospholipides.",
-        "correct": true,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
-      },
-      {
-        "content": "Ce sont des vésicules délimitées par une ou plusieurs bicouches lipidiques.",
-        "correct": true,
-        "explanation": "Un liposome possède un compartiment aqueux entouré d'une bicouche lipidique."
-      },
-      {
-        "content": "Ils peuvent servir de véhicules pour médicaments ou substances actives.",
-        "correct": true,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
-      },
-      {
-        "content": "Ils sont des enzymes qui hydrolysent le PIP2.",
+        "content": "Elle hydrolyse uniquement l'acyle sn-2.",
         "correct": false,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "Cela décrit PLA2."
+      },
+      {
+        "content": "Elle produit obligatoirement IP3 à partir de PIP2.",
+        "correct": false,
+        "explanation": "Cela décrit une activité PLC spécifique."
+      },
+      {
+        "content": "Elle ajoute un phosphate en C3 de l'inositol.",
+        "correct": false,
+        "explanation": "Cela relève de PI3K."
+      },
+      {
+        "content": "Elle est une lipase digestive des TAG uniquement.",
+        "correct": false,
+        "explanation": "C'est une phospholipase."
+      },
+      {
+        "content": "Elle hydrolyse la liaison entre le phosphate et la tête polaire.",
+        "correct": true,
+        "explanation": "Elle peut former de l'acide phosphatidique."
       }
     ],
-    "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+    "explanation": "PLD coupe du côté de la tête polaire et peut laisser un acide phosphatidique."
   },
   {
     "order": 72,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel usage biomédical peut être fait des liposomes ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant le PIP2, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "véhicules de médicaments",
+        "content": "PIP2 est un triacylglycérol de stockage.",
+        "correct": false,
+        "explanation": "C'est un phosphoinositide membranaire."
+      },
+      {
+        "content": "PI3K peut le phosphoryler en position 3 pour former PIP3.",
         "correct": true,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "Le produit est alors PI(3,4,5)P3."
       },
       {
-        "content": "synthèse d'ADN",
-        "correct": false,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "content": "La PLC peut l'hydrolyser en DAG et IP3.",
+        "correct": true,
+        "explanation": "Cette réaction produit deux seconds messagers."
       },
       {
-        "content": "réserve de glycogène",
+        "content": "Le terme bisphosphate signifie qu'une liaison pyrophosphate P-O-P relie nécessairement les deux phosphates.",
         "correct": false,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "Les phosphates sont portés sur des positions différentes de l'inositol."
       },
       {
-        "content": "production d'hémoglobine",
+        "content": "Il ne peut être substrat d'aucune phospholipase.",
         "correct": false,
-        "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+        "explanation": "La PLC l'hydrolyse."
       }
     ],
-    "explanation": "Le caractère amphiphile permet la formation de vésicules utilisables comme vecteurs."
+    "explanation": "PIP2 est PI(4,5)P2, phosphoinositide du feuillet cytosolique et précurseur de DAG/IP3 ou de PIP3.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 73,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la phospholipase A1 :",
+    "question": "Concernant les seconds messagers DAG et IP3, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle hydrolyse la fonction ester en C1.",
-        "correct": true,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
-      },
-      {
-        "content": "C'est une hydrolase spécifique de position.",
-        "correct": true,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
-      },
-      {
-        "content": "Son action retire l'acyle de C1.",
-        "correct": true,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
-      },
-      {
-        "content": "Elle coupe la liaison entre l'alcool de tête et le phosphate.",
+        "content": "L'IP3 est le produit direct de la bêta-oxydation.",
         "correct": false,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
+        "explanation": "Il provient notamment de PIP2 via PLC."
+      },
+      {
+        "content": "Le DAG peut contribuer à l'activation de la protéine kinase C.",
+        "correct": true,
+        "explanation": "L'activation dépend aussi du contexte et de l'isoforme."
+      },
+      {
+        "content": "Le DAG reste dans la membrane plasmique.",
+        "correct": true,
+        "explanation": "Ses deux chaînes acyles lui confèrent un caractère hydrophobe."
+      },
+      {
+        "content": "L'IP3 diffuse dans le cytosol.",
+        "correct": true,
+        "explanation": "Il ne possède pas de chaîne acyle."
+      },
+      {
+        "content": "L'IP3 ouvre des canaux calciques du réticulum endoplasmique via son récepteur.",
+        "correct": true,
+        "explanation": "Le Ca2+ cytosolique augmente rapidement."
       }
     ],
-    "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
+    "explanation": "DAG et IP3 sont les deux branches majeures de la signalisation PLC sur PIP2."
   },
   {
     "order": 74,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle position est hydrolysée par la phospholipase A1 ?",
-    "choices": [
-      {
-        "content": "C1",
-        "correct": true,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
-      },
-      {
-        "content": "C2",
-        "correct": false,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
-      },
-      {
-        "content": "C3 du PIP2",
-        "correct": false,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
-      },
-      {
-        "content": "le noyau stérane",
-        "correct": false,
-        "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel phosphoinositide est produit par PI3K à partir de PIP2 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PIP3",
+        "PIP₃",
+        "PI(3,4,5)P3",
+        "phosphatidylinositol-3,4,5-trisphosphate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La nomenclature A1 correspond à l'acyle en position 1."
+    },
+    "explanation": "PI3K convertit PIP2 en PIP3 ; PIP3 recrute AKT et permet son activation par phosphorylation enzymatique."
   },
   {
     "order": 75,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de la phospholipase A2 :",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant PTEN ?",
     "choices": [
       {
-        "content": "Elle hydrolyse la fonction ester en C2.",
-        "correct": true,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
-      },
-      {
-        "content": "Elle peut libérer de l'acide arachidonique.",
-        "correct": true,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
-      },
-      {
-        "content": "Elle forme aussi un lysophospholipide.",
-        "correct": true,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
-      },
-      {
-        "content": "Elle hydrolyse spécifiquement la liaison alcool-phosphate de la tête polaire.",
+        "content": "PTEN hydrolyse principalement les TAG alimentaires.",
         "correct": false,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+        "explanation": "Ce n'est pas sa fonction majeure."
+      },
+      {
+        "content": "PTEN ajoute un phosphate en C3 pour former PIP3.",
+        "correct": false,
+        "explanation": "Cela décrit PI3K."
+      },
+      {
+        "content": "PTEN active obligatoirement AKT en augmentant PIP3.",
+        "correct": false,
+        "explanation": "Elle réduit PIP3."
+      },
+      {
+        "content": "PTEN possède une activité phosphatase lipidique.",
+        "correct": true,
+        "explanation": "Elle retire notamment le phosphate en position 3 de PIP3."
+      },
+      {
+        "content": "PTEN est un type de triacylglycérol.",
+        "correct": false,
+        "explanation": "C'est une protéine phosphatase."
       }
     ],
-    "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+    "explanation": "PTEN déphosphoryle PIP3 en position 3 et freine la voie PI3K-AKT."
   },
   {
     "order": 76,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle position est hydrolysée par la phospholipase A2 ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les plasmalogènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "C2",
+        "content": "Ils sont absents du système nerveux.",
+        "correct": false,
+        "explanation": "Le cerveau en contient beaucoup."
+      },
+      {
+        "content": "Tout plasmalogène est un triacylglycérol.",
+        "correct": false,
+        "explanation": "C'est un glycérophospholipide éther."
+      },
+      {
+        "content": "Un plasmalogène porte obligatoirement un acide gras en sn-1 par liaison ester.",
+        "correct": false,
+        "explanation": "La liaison sn-1 est un vinyl-éther."
+      },
+      {
+        "content": "Ce sont des glycérophospholipides éther particuliers.",
         "correct": true,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+        "explanation": "Ils se distinguent des phospholipides diacylés classiques."
       },
       {
-        "content": "C1",
-        "correct": false,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
-      },
-      {
-        "content": "le C17 du cholestérol",
-        "correct": false,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
-      },
-      {
-        "content": "le C1 de l'inositol uniquement",
-        "correct": false,
-        "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+        "content": "La tête polaire est souvent éthanolamine ou choline.",
+        "correct": true,
+        "explanation": "Les plasmalogènes d'éthanolamine sont particulièrement abondants dans certains tissus."
       }
     ],
-    "explanation": "La PLA2 libère l'acide gras porté en C2, souvent arachidonique dans le contexte inflammatoire."
+    "explanation": "Les plasmalogènes sont des glycérophospholipides à vinyl-éther en sn-1, distincts des simples alkyl-éthers."
   },
   {
     "order": 77,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la phospholipase C :",
+    "question": "Concernant l'organisation des glycérophospholipides en bicouche, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle hydrolyse la liaison qui fixe le phosphate au glycérol.",
+        "content": "Les liposomes sont des vésicules fermées délimitées par une ou plusieurs bicouches.",
         "correct": true,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+        "explanation": "Ils peuvent encapsuler des molécules hydrophiles."
       },
       {
-        "content": "Sur le PIP2, elle conduit à DAG et IP3.",
+        "content": "Les têtes polaires se tournent vers les milieux aqueux.",
         "correct": true,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+        "explanation": "Les chaînes hydrophobes s'associent au cœur de la bicouche."
       },
       {
-        "content": "DAG et IP3 sont des seconds messagers.",
-        "correct": true,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
-      },
-      {
-        "content": "Elle retire uniquement l'acide gras de C2.",
+        "content": "Les liposomes sont de simples protéines globulaires.",
         "correct": false,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+        "explanation": "Ce sont des vésicules lipidiques."
+      },
+      {
+        "content": "Une bicouche biologique est parfaitement rigide.",
+        "correct": false,
+        "explanation": "Elle est dynamique et fluide."
+      },
+      {
+        "content": "Les glycérophospholipides diacylés forment obligatoirement uniquement des micelles sphériques simples.",
+        "correct": false,
+        "explanation": "Leur géométrie favorise surtout les bicouches."
       }
     ],
-    "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+    "explanation": "Les glycérophospholipides diacylés sont adaptés aux bicouches ; les liposomes sont des vésicules formées de bicouches."
   },
   {
     "order": 78,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quels seconds messagers sont libérés à partir du PIP2 par PLC ?",
-    "choices": [
-      {
-        "content": "DAG et IP3",
-        "correct": true,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
-      },
-      {
-        "content": "ATP et ADP",
-        "correct": false,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
-      },
-      {
-        "content": "cholestérol et cortisol",
-        "correct": false,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
-      },
-      {
-        "content": "glucose et galactose",
-        "correct": false,
-        "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quels deux seconds messagers sont formés lors de l'hydrolyse du PIP2 par la phospholipase C ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "DAG et IP3",
+        "IP3 et DAG",
+        "diacylglycérol et inositol-1,4,5-trisphosphate",
+        "DAG + IP3"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La PLC clive le PIP2 en diacylglycérol et inositol-1,4,5-trisphosphate."
+    },
+    "explanation": "La PLC hydrolyse PIP2 en DAG, qui reste membranaire, et IP3, qui diffuse dans le cytosol."
   },
   {
     "order": 79,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de la phospholipase D :",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la phospholipase A2 ?",
     "choices": [
       {
-        "content": "Elle hydrolyse la liaison entre l'alcool de tête et l'acide phosphorique.",
-        "correct": true,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
-      },
-      {
-        "content": "Elle est spécifique d'une liaison différente de PLA1/PLA2.",
-        "correct": true,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
-      },
-      {
-        "content": "Son site d'action se situe dans la tête polaire.",
-        "correct": true,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
-      },
-      {
-        "content": "Elle hydrolyse l'acide gras de C2 comme la PLA2.",
+        "content": "Elle ajoute un acide gras en sn-2.",
         "correct": false,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
+        "explanation": "Elle l'enlève par hydrolyse."
+      },
+      {
+        "content": "Elle hydrolyse l'ester acyle en sn-2.",
+        "correct": true,
+        "explanation": "Elle libère l'acide gras de cette position."
+      },
+      {
+        "content": "Elle ne peut jamais libérer d'acide arachidonique.",
+        "correct": false,
+        "explanation": "C'est une fonction biologique importante."
+      },
+      {
+        "content": "Elle hydrolyse spécifiquement la liaison entre phosphate et choline.",
+        "correct": false,
+        "explanation": "Cela correspond à PLD."
+      },
+      {
+        "content": "Elle forme PIP3 à partir de PIP2.",
+        "correct": false,
+        "explanation": "Cela relève de PI3K."
       }
     ],
-    "explanation": "La PLD sépare l'alcool de tête du phosphate."
+    "explanation": "PLA2 cible l'acyle sn-2 et peut libérer l'acide arachidonique en laissant un lysophospholipide."
   },
   {
     "order": 80,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle liaison est ciblée par la phospholipase D ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la phospholipase C, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "liaison alcool de tête–phosphate",
+        "content": "Le DAG peut activer certaines isoformes de protéine kinase C.",
         "correct": true,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
+        "explanation": "Il reste hydrophobe et membranaire."
       },
       {
-        "content": "ester de C1",
-        "correct": false,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
+        "content": "L'IP3 peut déclencher la libération de Ca2+ depuis le réticulum endoplasmique.",
+        "correct": true,
+        "explanation": "Il diffuse dans le cytosol."
       },
       {
-        "content": "ester de C2",
+        "content": "L'IP3 reste ancré dans la membrane par deux chaînes acyles.",
         "correct": false,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
+        "explanation": "Il est soluble et dépourvu de chaînes acyles."
       },
       {
-        "content": "liaison amide de la sphingosine",
+        "content": "Elle hydrolyse l'acyle sn-2 comme PLA2.",
         "correct": false,
-        "explanation": "La PLD sépare l'alcool de tête du phosphate."
+        "explanation": "Son site est différent."
+      },
+      {
+        "content": "Elle coupe la liaison phosphodiester entre le glycérol et le phosphate du phosphoinositide.",
+        "correct": true,
+        "explanation": "Le DAG reste dans la membrane."
       }
     ],
-    "explanation": "La PLD sépare l'alcool de tête du phosphate."
+    "explanation": "La PLC hydrolyse PIP2 en DAG membranaire et IP3 soluble, déclenchant deux branches de signalisation."
   },
   {
     "order": 81,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos du PIP2 :",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la phospholipase D, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Il s'agit de phosphatidylinositol-4,5-bisphosphate.",
-        "correct": true,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
-      },
-      {
-        "content": "Il est retrouvé sur le feuillet interne de la membrane plasmique.",
-        "correct": true,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
-      },
-      {
-        "content": "Les deux phosphates supplémentaires sont fixés sur deux fonctions alcool distinctes.",
-        "correct": true,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
-      },
-      {
-        "content": "Le terme correct est diphosphate parce que les deux phosphates sont liés entre eux.",
+        "content": "Elle est une lipase digestive des TAG uniquement.",
         "correct": false,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "explanation": "C'est une phospholipase."
+      },
+      {
+        "content": "Sur une phosphatidylcholine, elle peut libérer de la choline.",
+        "correct": true,
+        "explanation": "Le phosphatidate reste dans la membrane."
+      },
+      {
+        "content": "Elle hydrolyse uniquement l'acyle sn-2.",
+        "correct": false,
+        "explanation": "Cela décrit PLA2."
+      },
+      {
+        "content": "Elle contribue à des voies de signalisation et de remodelage membranaire.",
+        "correct": true,
+        "explanation": "L'acide phosphatidique est lui-même bioactif."
+      },
+      {
+        "content": "Elle ajoute un phosphate en C3 de l'inositol.",
+        "correct": false,
+        "explanation": "Cela relève de PI3K."
       }
     ],
-    "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
+    "explanation": "PLD coupe du côté de la tête polaire et peut laisser un acide phosphatidique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 82,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Sur quel feuillet de la membrane plasmique le PIP₂ est-il principalement situé ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le PIP2 ?",
     "choices": [
       {
-        "content": "feuillet interne",
+        "content": "Il est enrichi dans le feuillet cytosolique de la membrane plasmique.",
         "correct": true,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "explanation": "Il sert de plateforme de signalisation."
       },
       {
-        "content": "feuillet externe uniquement",
-        "correct": false,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "content": "Il s'agit du phosphatidylinositol-4,5-bisphosphate.",
+        "correct": true,
+        "explanation": "Les positions 4 et 5 de l'inositol portent des phosphates supplémentaires."
       },
       {
-        "content": "dans le noyau uniquement",
-        "correct": false,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "content": "PI3K peut le phosphoryler en position 3 pour former PIP3.",
+        "correct": true,
+        "explanation": "Le produit est alors PI(3,4,5)P3."
       },
       {
-        "content": "dans la matrice mitochondriale uniquement",
+        "content": "PIP2 est un triacylglycérol de stockage.",
         "correct": false,
-        "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
+        "explanation": "C'est un phosphoinositide membranaire."
+      },
+      {
+        "content": "La PLC peut l'hydrolyser en DAG et IP3.",
+        "correct": true,
+        "explanation": "Cette réaction produit deux seconds messagers."
       }
     ],
-    "explanation": "Le PIP2 est un phosphoinositide du feuillet cytosolique."
+    "explanation": "PIP2 est PI(4,5)P2, phosphoinositide du feuillet cytosolique et précurseur de DAG/IP3 ou de PIP3."
   },
   {
     "order": 83,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos du DAG produit à partir du PIP2 :",
-    "choices": [
-      {
-        "content": "Il reste associé à la membrane.",
-        "correct": true,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
-      },
-      {
-        "content": "Il peut activer des protéines kinases C.",
-        "correct": true,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
-      },
-      {
-        "content": "Il agit comme second messager.",
-        "correct": true,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
-      },
-      {
-        "content": "Il déclenche directement la synthèse de cellulose.",
-        "correct": false,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel phosphoinositide est produit lorsque PI3K phosphoryle PIP2 en position 3 de l'inositol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PIP3",
+        "PIP₃",
+        "PI(3,4,5)P3",
+        "phosphatidylinositol-3,4,5-trisphosphate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le DAG membranaire participe à la signalisation via PKC."
+    },
+    "explanation": "PI3K transforme PI(4,5)P2 en PI(3,4,5)P3."
   },
   {
     "order": 84,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle famille de kinases peut être activée par le DAG membranaire ?",
+    "question": "Parmi les affirmations suivantes concernant la voie PI3K-AKT, laquelle est correcte ?",
     "choices": [
       {
-        "content": "protéines kinases C (PKC)",
+        "content": "PI3K hydrolyse PIP2 en DAG et IP3.",
+        "correct": false,
+        "explanation": "Cela relève de PLC."
+      },
+      {
+        "content": "PIP3 recrute à la membrane des protéines possédant des domaines de liaison adaptés, dont AKT.",
         "correct": true,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
+        "explanation": "PIP3 sert de plateforme de recrutement."
       },
       {
-        "content": "glycérol kinase uniquement",
+        "content": "PIP3 phosphoryle chimiquement AKT sans intervention d'enzymes.",
         "correct": false,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
+        "explanation": "Il recrute AKT et des kinases d'activation."
       },
       {
-        "content": "hexokinase uniquement",
+        "content": "PIP3 est une enzyme protéique.",
         "correct": false,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
+        "explanation": "C'est un phosphoinositide."
       },
       {
-        "content": "ARN polymérase",
+        "content": "La voie PI3K-AKT n'a aucun lien avec la signalisation cellulaire.",
         "correct": false,
-        "explanation": "Le DAG membranaire participe à la signalisation via PKC."
+        "explanation": "C'est une voie centrale."
       }
     ],
-    "explanation": "Le DAG membranaire participe à la signalisation via PKC."
+    "explanation": "PI3K convertit PIP2 en PIP3 ; PIP3 recrute AKT et permet son activation par phosphorylation enzymatique."
   },
   {
     "order": 85,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de l'IP3 produit à partir du PIP2 :",
+    "question": "Quelles propositions sont exactes concernant PTEN ?",
     "choices": [
       {
-        "content": "C'est l'inositol-1,4,5-trisphosphate.",
-        "correct": true,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
-      },
-      {
-        "content": "Il agit comme second messager.",
-        "correct": true,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
-      },
-      {
-        "content": "Il peut déclencher la libération de Ca²⁺ depuis le réticulum endoplasmique.",
-        "correct": true,
-        "explanation": "L'IP₃ active des canaux calciques du réticulum endoplasmique."
-      },
-      {
-        "content": "Il reste une chaîne d'acide gras hydrophobe insérée dans la membrane.",
+        "content": "PTEN ajoute un phosphate en C3 pour former PIP3.",
         "correct": false,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "Cela décrit PI3K."
+      },
+      {
+        "content": "PTEN est un type de triacylglycérol.",
+        "correct": false,
+        "explanation": "C'est une protéine phosphatase."
+      },
+      {
+        "content": "PTEN limite la signalisation PI3K-AKT.",
+        "correct": true,
+        "explanation": "Sa perte peut favoriser une activation excessive de la voie."
+      },
+      {
+        "content": "PTEN hydrolyse principalement les TAG alimentaires.",
+        "correct": false,
+        "explanation": "Ce n'est pas sa fonction majeure."
+      },
+      {
+        "content": "PTEN possède une activité phosphatase lipidique.",
+        "correct": true,
+        "explanation": "Elle retire notamment le phosphate en position 3 de PIP3."
       }
     ],
-    "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+    "explanation": "PTEN déphosphoryle PIP3 en position 3 et freine la voie PI3K-AKT."
   },
   {
     "order": 86,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel ion est libéré du réticulum endoplasmique sous l’action de l’IP₃ ?",
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Ca2+",
+        "content": "Une bicouche biologique est parfaitement rigide.",
+        "correct": false,
+        "explanation": "Elle est dynamique et fluide."
+      },
+      {
+        "content": "La bicouche reste fluide et déformable.",
         "correct": true,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "Elle n'est pas un cristal rigide."
       },
       {
-        "content": "Na+ uniquement",
-        "correct": false,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "content": "Les liposomes sont des vésicules fermées délimitées par une ou plusieurs bicouches.",
+        "correct": true,
+        "explanation": "Ils peuvent encapsuler des molécules hydrophiles."
       },
       {
-        "content": "Fe3+",
+        "content": "Leur liaison sn-1 est une liaison amide.",
         "correct": false,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "C'est une liaison vinyl-éther."
       },
       {
-        "content": "Cl− uniquement",
+        "content": "Deux chaînes hydrophobes favorisent une géométrie compatible avec les bicouches.",
+        "correct": true,
+        "explanation": "Les phospholipides diacylés forment spontanément des structures lamellaires."
+      },
+      {
+        "content": "Ce sont des glycérophospholipides éther particuliers.",
+        "correct": true,
+        "explanation": "Ils se distinguent des phospholipides diacylés classiques."
+      },
+      {
+        "content": "Ils sont absents du système nerveux.",
         "correct": false,
-        "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+        "explanation": "Le cerveau en contient beaucoup."
+      },
+      {
+        "content": "Tout plasmalogène est un triacylglycérol.",
+        "correct": false,
+        "explanation": "C'est un glycérophospholipide éther."
+      },
+      {
+        "content": "En sn-1, ils portent typiquement une chaîne alk-1'-ényl liée par un vinyl-éther.",
+        "correct": true,
+        "explanation": "La liaison vinyl-éther est leur signature structurale."
+      },
+      {
+        "content": "Les chaînes acyles sont orientées vers l'eau tandis que les têtes polaires se cachent au centre.",
+        "correct": false,
+        "explanation": "L'organisation est inverse."
       }
     ],
-    "explanation": "L'IP3 est un messager soluble associé à la mobilisation du calcium."
+    "explanation": "Les plasmalogènes sont des glycérophospholipides à vinyl-éther en sn-1, distincts des simples alkyl-éthers. Les glycérophospholipides diacylés sont adaptés aux bicouches ; les liposomes sont des vésicules formées de bicouches."
   },
   {
     "order": 87,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la voie PI3K–AKT :",
+    "question": "Parmi les affirmations suivantes concernant le facteur d'activation plaquettaire PAF, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "PI3K ajoute un phosphate en C3 du PIP2.",
+        "content": "Il porte une chaîne alkyle en sn-1 par liaison éther.",
         "correct": true,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+        "explanation": "Cette liaison n'est pas le vinyl-éther caractéristique d'un plasmalogène."
       },
       {
-        "content": "Le produit est PIP3.",
+        "content": "Il porte un groupement acétyle court en sn-2.",
         "correct": true,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+        "explanation": "Cette particularité le distingue de nombreux phospholipides structuraux."
       },
       {
-        "content": "PIP3 permet le recrutement d'AKT à la membrane.",
-        "correct": true,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
-      },
-      {
-        "content": "PI3K transforme directement PIP2 en acide arachidonique.",
+        "content": "PAF est un plasmalogène typique à liaison vinyl-éther en sn-1.",
         "correct": false,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+        "explanation": "Il porte un alkyl-éther non vinylique."
+      },
+      {
+        "content": "Sa tête polaire est une phosphocholine.",
+        "correct": true,
+        "explanation": "Il appartient aux éther-glycérophospholipides."
+      },
+      {
+        "content": "PAF porte trois longues chaînes d'acides gras.",
+        "correct": false,
+        "explanation": "Il porte une chaîne alkyle en sn-1 et un acétyle court en sn-2."
       }
     ],
-    "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+    "explanation": "PAF est un éther-glycérophospholipide bioactif à alkyl-éther sn-1, acétyle sn-2 et phosphocholine sn-3."
   },
   {
     "order": 88,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel lipide est formé par PI3K à partir de PIP2 ?",
-    "choices": [
-      {
-        "content": "PIP3",
-        "correct": true,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
-      },
-      {
-        "content": "DAG",
-        "correct": false,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
-      },
-      {
-        "content": "IP3",
-        "correct": false,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
-      },
-      {
-        "content": "céramide",
-        "correct": false,
-        "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel effet respiratoire important peut être induit par le PAF ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "bronchoconstriction",
+        "constriction bronchique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La PI3K forme le phosphatidylinositol-3,4,5-trisphosphate."
+    },
+    "explanation": "PAF est un médiateur phospholipidique puissant pouvant favoriser agrégation plaquettaire, bronchoconstriction et inflammation."
   },
   {
     "order": 89,
@@ -650,7 +723,7 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
     "question": "Sur ce glycérophospholipide simplifié, cliquez sur la liaison ester en C2 ciblée par une phospholipase A2.",
     "image": {
       "src": "/images/training/ue14/biochimie/glycerides-glycerophospholipides/phospholipase-a2-c2-qzone.svg",
-      "alt": "Schéma original d'un glycérophospholipide avec glycérol vertical, chaînes acyles en C1 et C2 et phosphate en C3",
+      "alt": "Schéma d'un glycérophospholipide avec glycérol vertical, chaînes acyles en C1 et C2 et phosphate en C3",
       "width": 1000,
       "height": 650
     },
@@ -663,349 +736,360 @@ export const UE14_BIOCH_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "tolerance": 0.075
       }
     ],
-    "explanation": "La phospholipase A2 hydrolyse spécifiquement la liaison ester qui porte l'acide gras en C2."
+    "explanation": "La phospholipase A2 hydrolyse spécifiquement la liaison ester portant l'acide gras en sn-2."
   },
   {
     "order": 90,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel sens de réaction est associé à PTEN ?",
-    "choices": [
-      {
-        "content": "PIP3 vers PIP2",
-        "correct": true,
-        "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
-      },
-      {
-        "content": "PIP2 vers PIP3",
-        "correct": false,
-        "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
-      },
-      {
-        "content": "DAG vers triglycéride",
-        "correct": false,
-        "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
-      },
-      {
-        "content": "cholestérol vers cortisol",
-        "correct": false,
-        "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
+    "format": "QROC",
+    "question": "Quelle position acyle du glycérol est hydrolysée par la phospholipase A1 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sn-1",
+        "C1",
+        "position 1",
+        "1"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "PTEN réalise le chemin inverse de PI3K pour le phosphate en C3."
+    },
+    "explanation": "PLA1 hydrolyse l'acyle sn-1 d'un glycérophospholipide."
   },
   {
     "order": 91,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des plasmalogènes :",
+    "format": "QRP",
+    "question": "Concernant la phospholipase A2, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Ils constituent une sous-classe de glycérophospholipides à liaison éther.",
-        "correct": true,
-        "explanation": "Les plasmalogènes sont des glycérophospholipides éther."
-      },
-      {
-        "content": "En sn-1, ils portent une chaîne alk-1′-ényl liée par une liaison vinyl-éther.",
-        "correct": true,
-        "explanation": "La liaison vinyl-éther en sn-1 est la signature structurale des plasmalogènes."
-      },
-      {
-        "content": "Leur liaison vinyl-éther est chimiquement distincte d’une liaison ester et sensible à l’oxydation.",
-        "correct": true,
-        "explanation": "Le vinyl-éther est notamment acidolabile et sensible aux espèces oxydantes."
-      },
-      {
-        "content": "Leur C1 porte obligatoirement un acide gras par liaison amide.",
+        "content": "Elle ne peut jamais libérer d'acide arachidonique.",
         "correct": false,
-        "explanation": "Le substituant de sn-1 est relié par un vinyl-éther, pas par une liaison amide."
+        "explanation": "C'est une fonction biologique importante."
+      },
+      {
+        "content": "Elle ajoute un acide gras en sn-2.",
+        "correct": false,
+        "explanation": "Elle l'enlève par hydrolyse."
+      },
+      {
+        "content": "Elle forme PIP3 à partir de PIP2.",
+        "correct": false,
+        "explanation": "Cela relève de PI3K."
+      },
+      {
+        "content": "Son action relie métabolisme membranaire et médiateurs inflammatoires.",
+        "correct": true,
+        "explanation": "L'acide arachidonique est un précurseur majeur."
+      },
+      {
+        "content": "Elle peut libérer de l'acide arachidonique à partir de phospholipides membranaires.",
+        "correct": true,
+        "explanation": "Cela alimente la synthèse d'eicosanoïdes."
       }
     ],
-    "explanation": "Les plasmalogènes se distinguent par une liaison vinyl-éther en sn-1 du glycérol."
+    "explanation": "PLA2 cible l'acyle sn-2 et peut libérer l'acide arachidonique en laissant un lysophospholipide.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 92,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quels sont les deux seconds messagers libérés par hydrolyse du PIP2 par la phospholipase C ?",
+    "question": "Quel type de liaison en sn-1 caractérise un plasmalogène authentique ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "DAG et IP3",
-        "IP3 et DAG",
-        "diacylglycérol et inositol-1,4,5-trisphosphate"
+        "vinyl-éther",
+        "vinyl ether",
+        "liaison vinyl-éther",
+        "alk-1'-ényl éther"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La PLC sur PIP2 produit DAG et IP3."
+    "explanation": "Les plasmalogènes possèdent une liaison vinyl-éther en sn-1 ; un simple alkyl-éther non vinylique, comme dans le PAF, ne suffit pas à définir un plasmalogène."
   },
   {
     "order": 93,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des localisations des plasmalogènes :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la phospholipase D, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Ils sont présents dans le muscle.",
-        "correct": true,
-        "explanation": "Les plasmalogènes sont abondants dans plusieurs tissus musculaires."
-      },
-      {
-        "content": "Ils sont présents dans le cerveau.",
-        "correct": true,
-        "explanation": "Le cerveau est particulièrement riche en plasmalogènes."
-      },
-      {
-        "content": "Ils sont présents dans la rétine.",
-        "correct": true,
-        "explanation": "La rétine contient notamment des plasmalogènes riches en acides gras polyinsaturés."
-      },
-      {
-        "content": "Ils sont absents de tous les tissus humains.",
+        "content": "Elle est une lipase digestive des TAG uniquement.",
         "correct": false,
-        "explanation": "Ils sont largement distribués, notamment dans le cerveau, le cœur et le muscle."
+        "explanation": "C'est une phospholipase."
+      },
+      {
+        "content": "Elle produit obligatoirement IP3 à partir de PIP2.",
+        "correct": false,
+        "explanation": "Cela décrit une activité PLC spécifique."
+      },
+      {
+        "content": "Elle hydrolyse uniquement l'acyle sn-2.",
+        "correct": false,
+        "explanation": "Cela décrit PLA2."
+      },
+      {
+        "content": "Elle hydrolyse la liaison entre le phosphate et la tête polaire.",
+        "correct": true,
+        "explanation": "Elle peut former de l'acide phosphatidique."
+      },
+      {
+        "content": "Elle ajoute un phosphate en C3 de l'inositol.",
+        "correct": false,
+        "explanation": "Cela relève de PI3K."
       }
     ],
-    "explanation": "Les plasmalogènes sont largement distribués et particulièrement abondants dans certains tissus nerveux et musculaires."
+    "explanation": "PLD coupe du côté de la tête polaire et peut laisser un acide phosphatidique."
   },
   {
     "order": 94,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel tissu sensoriel contient des plasmalogènes ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le PIP2 ?",
     "choices": [
       {
-        "content": "rétine",
+        "content": "Il est localisé exclusivement dans la lumière du réticulum endoplasmique.",
+        "correct": false,
+        "explanation": "Il est notamment dans le feuillet cytosolique de la membrane plasmique."
+      },
+      {
+        "content": "La PLC peut l'hydrolyser en DAG et IP3.",
         "correct": true,
-        "explanation": "La rétine contient des plasmalogènes."
+        "explanation": "Cette réaction produit deux seconds messagers."
       },
       {
-        "content": "émail dentaire",
-        "correct": false,
-        "explanation": "L'émail dentaire est un tissu minéralisé et non un tissu riche en plasmalogènes."
+        "content": "PI3K peut le phosphoryler en position 3 pour former PIP3.",
+        "correct": true,
+        "explanation": "Le produit est alors PI(3,4,5)P3."
       },
       {
-        "content": "ongle uniquement",
+        "content": "Le terme bisphosphate signifie qu'une liaison pyrophosphate P-O-P relie nécessairement les deux phosphates.",
         "correct": false,
-        "explanation": "L'ongle est une structure kératinisée."
+        "explanation": "Les phosphates sont portés sur des positions différentes de l'inositol."
       },
       {
-        "content": "cartilage uniquement",
-        "correct": false,
-        "explanation": "La rétine est le tissu sensoriel attendu."
+        "content": "Il s'agit du phosphatidylinositol-4,5-bisphosphate.",
+        "correct": true,
+        "explanation": "Les positions 4 et 5 de l'inositol portent des phosphates supplémentaires."
       }
     ],
-    "explanation": "La rétine est un tissu sensoriel contenant des plasmalogènes."
+    "explanation": "PIP2 est PI(4,5)P2, phosphoinositide du feuillet cytosolique et précurseur de DAG/IP3 ou de PIP3."
   },
   {
     "order": 95,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos du PAF :",
-    "choices": [
-      {
-        "content": "PAF signifie Platelet Activating Factor.",
-        "correct": true,
-        "explanation": "PAF est l'abréviation de Platelet-Activating Factor."
-      },
-      {
-        "content": "C’est un phospholipide à liaison alkyl-éther en sn-1.",
-        "correct": true,
-        "explanation": "Contrairement aux plasmalogènes, le PAF porte un alkyl-éther non vinylique en sn-1."
-      },
-      {
-        "content": "Il peut être sécrété par des plaquettes ou des leucocytes.",
-        "correct": true,
-        "explanation": "Des leucocytes, des cellules endothéliales et des plaquettes peuvent produire du PAF."
-      },
-      {
-        "content": "PAF désigne une enzyme de synthèse du cholestérol.",
-        "correct": false,
-        "explanation": "Le PAF est un médiateur phospholipidique, pas une enzyme."
+    "format": "QROC",
+    "question": "Quel médiateur éther-phospholipidique comporte une chaîne alkyle en sn-1, un acétyle en sn-2 et une phosphocholine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PAF",
+        "Platelet-Activating Factor",
+        "facteur d'activation plaquettaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le PAF est un médiateur à alkyl-éther en sn-1, acétyle en sn-2 et phosphocholine en sn-3."
+    },
+    "explanation": "Le PAF est un éther-glycérophospholipide bioactif distinct d'un plasmalogène à vinyl-éther."
   },
   {
     "order": 96,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Que signifie PAF ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Platelet Activating Factor",
+        "content": "L'activation d'AKT nécessite des phosphorylations catalysées par des kinases.",
         "correct": true,
-        "explanation": "PAF signifie Platelet-Activating Factor."
+        "explanation": "PIP3 ne phosphoryle pas lui-même AKT."
       },
       {
-        "content": "Phosphatidic Acid Factor",
+        "content": "PAF est dépourvu de groupement phosphate.",
         "correct": false,
-        "explanation": "L'abréviation PAF ne désigne pas l'acide phosphatidique."
+        "explanation": "Il possède une phosphocholine."
       },
       {
-        "content": "Protein Assembly Fragment",
+        "content": "PIP3 phosphoryle chimiquement AKT sans intervention d'enzymes.",
         "correct": false,
-        "explanation": "PAF désigne un médiateur lipidique et non un fragment protéique."
+        "explanation": "Il recrute AKT et des kinases d'activation."
       },
       {
-        "content": "Plasma Apo Factor",
+        "content": "PI3K phosphoryle PIP2 en position 3 de l'inositol.",
+        "correct": true,
+        "explanation": "Elle forme PI(3,4,5)P3."
+      },
+      {
+        "content": "PAF est un plasmalogène typique à liaison vinyl-éther en sn-1.",
         "correct": false,
-        "explanation": "PAF signifie Platelet-Activating Factor."
+        "explanation": "Il porte un alkyl-éther non vinylique."
+      },
+      {
+        "content": "La voie PI3K-AKT n'a aucun lien avec la signalisation cellulaire.",
+        "correct": false,
+        "explanation": "C'est une voie centrale."
+      },
+      {
+        "content": "PI3K hydrolyse PIP2 en DAG et IP3.",
+        "correct": false,
+        "explanation": "Cela relève de PLC."
+      },
+      {
+        "content": "Il porte un groupement acétyle court en sn-2.",
+        "correct": true,
+        "explanation": "Cette particularité le distingue de nombreux phospholipides structuraux."
+      },
+      {
+        "content": "PAF signifie Platelet-Activating Factor.",
+        "correct": true,
+        "explanation": "C'est un médiateur phospholipidique puissant."
+      },
+      {
+        "content": "La voie PI3K-AKT participe à la survie, la croissance et la prolifération cellulaires.",
+        "correct": true,
+        "explanation": "Sa dérégulation est fréquente en cancérologie."
       }
     ],
-    "explanation": "PAF est l'abréviation de Platelet-Activating Factor."
+    "explanation": "PI3K convertit PIP2 en PIP3 ; PIP3 recrute AKT et permet son activation par phosphorylation enzymatique. PAF est un éther-glycérophospholipide bioactif à alkyl-éther sn-1, acétyle sn-2 et phosphocholine sn-3."
   },
   {
     "order": 97,
     "difficulty": "HARD",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux produits directs de l'action de PLA2 sur un phospholipide portant de l'acide arachidonique en C2.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant PTEN ?",
     "choices": [
       {
-        "content": "Acide arachidonique",
+        "content": "PTEN possède une activité phosphatase lipidique.",
         "correct": true,
-        "explanation": "Libéré de C2."
+        "explanation": "Elle retire notamment le phosphate en position 3 de PIP3."
       },
       {
-        "content": "Lysophospholipide",
+        "content": "PTEN limite la signalisation PI3K-AKT.",
         "correct": true,
-        "explanation": "Phospholipide privé de C2."
+        "explanation": "Sa perte peut favoriser une activation excessive de la voie."
       },
       {
-        "content": "IP3",
-        "correct": false,
-        "explanation": "Produit de PLC sur PIP2."
+        "content": "PTEN convertit PIP3 vers PIP2.",
+        "correct": true,
+        "explanation": "Elle s'oppose fonctionnellement à PI3K."
       },
       {
-        "content": "PIP3",
+        "content": "PTEN active obligatoirement AKT en augmentant PIP3.",
         "correct": false,
-        "explanation": "Produit de PI3K."
+        "explanation": "Elle réduit PIP3."
+      },
+      {
+        "content": "PTEN est un suppresseur de tumeur majeur.",
+        "correct": true,
+        "explanation": "Son inactivation est observée dans de nombreux cancers."
       }
     ],
-    "explanation": "PLA2 produit un acide gras libre et un lysophospholipide."
+    "explanation": "PTEN déphosphoryle PIP3 en position 3 et freine la voie PI3K-AKT."
   },
   {
     "order": 98,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Combien de carbones comporte une chaîne octadécyle parfois présente en sn-1 du PAF ?",
-    "choices": [
-      {
-        "content": "18",
-        "correct": true,
-        "explanation": "Le préfixe octadécyl désigne une chaîne à 18 carbones."
-      },
-      {
-        "content": "3",
-        "correct": false,
-        "explanation": "Une chaîne octadécyle comporte 18 carbones."
-      },
-      {
-        "content": "8",
-        "correct": false,
-        "explanation": "Une chaîne octadécyle comporte 18 carbones."
-      },
-      {
-        "content": "27",
-        "correct": false,
-        "explanation": "Une chaîne octadécyle comporte 18 carbones."
+    "format": "QROC",
+    "question": "Quel type de liaison caractérise la chaîne sn-1 d'un plasmalogène ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "vinyl-éther",
+        "vinyl ether",
+        "liaison vinyl-éther",
+        "liaison vinyl ether",
+        "alk-1'-ényl éther"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Une chaîne octadécyle comporte 18 carbones ; d'autres espèces moléculaires de PAF portent notamment une chaîne hexadécyle."
+    },
+    "explanation": "Les plasmalogènes sont des glycérophospholipides à vinyl-éther en sn-1, distincts des simples alkyl-éthers."
   },
   {
     "order": 99,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de la libération d'acide arachidonique :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant le facteur d'activation plaquettaire PAF, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Elle peut résulter de l'action de PLA2 sur un phospholipide.",
+        "content": "Il porte un groupement acétyle court en sn-2.",
         "correct": true,
-        "explanation": "La PLA2 est le lien direct entre phospholipides membranaires et précurseurs eicosanoïdes."
+        "explanation": "Cette particularité le distingue de nombreux phospholipides structuraux."
       },
       {
-        "content": "Elle s'accompagne de la formation d'un lysophospholipide.",
+        "content": "Il porte une chaîne alkyle en sn-1 par liaison éther.",
         "correct": true,
-        "explanation": "La PLA2 est le lien direct entre phospholipides membranaires et précurseurs eicosanoïdes."
+        "explanation": "Cette liaison n'est pas le vinyl-éther caractéristique d'un plasmalogène."
       },
       {
-        "content": "L'acide arachidonique est un précurseur d'eicosanoïdes impliqués dans l'inflammation.",
-        "correct": true,
-        "explanation": "La PLA2 est le lien direct entre phospholipides membranaires et précurseurs eicosanoïdes."
-      },
-      {
-        "content": "Elle résulte de l'action spécifique de la phospholipase D sur le cholestérol.",
+        "content": "PAF porte trois longues chaînes d'acides gras.",
         "correct": false,
-        "explanation": "La PLA2 est le lien direct entre phospholipides membranaires et précurseurs eicosanoïdes."
+        "explanation": "Il porte une chaîne alkyle en sn-1 et un acétyle court en sn-2."
+      },
+      {
+        "content": "PAF est un plasmalogène typique à liaison vinyl-éther en sn-1.",
+        "correct": false,
+        "explanation": "Il porte un alkyl-éther non vinylique."
+      },
+      {
+        "content": "PAF est dépourvu de groupement phosphate.",
+        "correct": false,
+        "explanation": "Il possède une phosphocholine."
       }
     ],
-    "explanation": "La PLA2 est le lien direct entre phospholipides membranaires et précurseurs eicosanoïdes."
+    "explanation": "PAF est un éther-glycérophospholipide bioactif à alkyl-éther sn-1, acétyle sn-2 et phosphocholine sn-3.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos de la signalisation phospholipidique et des plasmalogènes, sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les effets biologiques du PAF ?",
     "choices": [
       {
-        "content": "PLC peut produire DAG et IP3.",
-        "correct": true,
-        "explanation": "PIP2."
-      },
-      {
-        "content": "PI3K produit PIP3.",
-        "correct": true,
-        "explanation": "Phosphorylation."
-      },
-      {
-        "content": "PTEN permet PIP3 → PIP2.",
-        "correct": true,
-        "explanation": "Inverse."
-      },
-      {
-        "content": "Les plasmalogènes portent une liaison vinyl-éther en sn-1.",
-        "correct": true,
-        "explanation": "Le vinyl-éther en sn-1 est leur signature structurale."
-      },
-      {
-        "content": "Le PAF peut être produit par des plaquettes ou des leucocytes.",
-        "correct": true,
-        "explanation": "Plusieurs cellules hématopoïétiques produisent ce médiateur."
-      },
-      {
-        "content": "PLA2 coupe le phosphate du glycérol.",
+        "content": "PAF est exclusivement un médiateur anti-inflammatoire.",
         "correct": false,
-        "explanation": "C2."
+        "explanation": "Il est fortement pro-inflammatoire dans plusieurs contextes."
       },
       {
-        "content": "IP₃ active directement la PKC.",
+        "content": "PAF est dépourvu de tout effet sur les plaquettes.",
         "correct": false,
-        "explanation": "DAG/PKC."
+        "explanation": "Il peut les activer."
       },
       {
-        "content": "PIP2 est sur le feuillet externe.",
+        "content": "PAF ne peut agir sur aucun muscle lisse.",
         "correct": false,
-        "explanation": "Interne."
+        "explanation": "Il peut notamment favoriser la bronchoconstriction."
       },
       {
-        "content": "Plasmalogènes = triacylglycérols homogènes.",
-        "correct": false,
-        "explanation": "Non."
+        "content": "Il peut moduler le tonus vasculaire.",
+        "correct": true,
+        "explanation": "Ses effets vasculaires dépendent du contexte et du lit vasculaire."
       },
       {
-        "content": "PTEN forme PIP3 à partir de PIP2.",
-        "correct": false,
-        "explanation": "Inverse."
+        "content": "Il peut provoquer une bronchoconstriction.",
+        "correct": true,
+        "explanation": "Il participe à certaines réponses inflammatoires et allergiques."
       }
     ],
-    "explanation": "Cette QRPL clôt la section la plus transversale."
+    "explanation": "PAF est un médiateur phospholipidique puissant pouvant favoriser agrégation plaquettaire, bronchoconstriction et inflammation."
   }
 ];

@@ -1,669 +1,684 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Glycérides et glycérophospholipides — Section C
- */
-
+/** UE14 Biochimie — Glycérides et glycérophospholipides — Section C — Acide phosphatidique et classes de glycérophospholipides */
 export const UE14_BIOCH_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l'acide phosphatidique :",
+    "question": "Concernant l'acide phosphatidique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il contient du glycérol.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
-      },
-      {
-        "content": "Deux acides gras estérifient C1 et C2.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
-      },
-      {
-        "content": "Un acide phosphorique estérifie C3.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
-      },
-      {
-        "content": "Il comporte obligatoirement trois acides gras.",
+        "content": "Il est dépourvu de glycérol.",
         "correct": false,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "Le glycérol constitue son squelette."
+      },
+      {
+        "content": "Il est un intermédiaire de biosynthèse important pour TAG et glycérophospholipides.",
+        "correct": true,
+        "explanation": "Sa concentration tissulaire reste relativement faible."
+      },
+      {
+        "content": "Un groupement phosphate est lié en sn-3.",
+        "correct": true,
+        "explanation": "Il forme la base de nombreux glycérophospholipides."
+      },
+      {
+        "content": "Il est uniquement un produit terminal sans rôle de précurseur.",
+        "correct": false,
+        "explanation": "C'est un intermédiaire majeur."
+      },
+      {
+        "content": "Le phosphate est porté par sn-2 et les deux acides gras par sn-1 et sn-3.",
+        "correct": false,
+        "explanation": "Dans l'acide phosphatidique classique, les acyles sont sn-1/sn-2 et le phosphate sn-3."
       }
     ],
-    "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+    "explanation": "L'acide phosphatidique est un diacylglycérol-3-phosphate et constitue une charnière biosynthétique."
   },
   {
     "order": 46,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Sur quel carbone du glycérol l'acide phosphorique est-il fixé ?",
+    "question": "Parmi les affirmations suivantes concernant la tête polaire des glycérophospholipides, laquelle est correcte ?",
     "choices": [
       {
-        "content": "C3",
+        "content": "La nature de la tête ne change jamais le nom de la classe.",
+        "correct": false,
+        "explanation": "Elle est au contraire déterminante."
+      },
+      {
+        "content": "La nature du groupement polaire permet de définir plusieurs classes.",
         "correct": true,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "Choline, éthanolamine, sérine, glycérol ou inositol sont des exemples."
       },
       {
-        "content": "C1",
+        "content": "La tête polaire est constituée uniquement des deux acides gras.",
         "correct": false,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "Ce sont les queues hydrophobes."
       },
       {
-        "content": "C2",
+        "content": "Le phosphate est sans influence sur la polarité.",
         "correct": false,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "Il contribue fortement à la tête hydrophile."
       },
       {
-        "content": "aucun",
+        "content": "Les glycérophospholipides sont entièrement apolaires.",
         "correct": false,
-        "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+        "explanation": "Ils sont amphiphiles."
       }
     ],
-    "explanation": "L'acide phosphatidique est le squelette glycérol-2 acyles-phosphate."
+    "explanation": "Les glycérophospholipides sont amphiphiles : tête phosphatée polaire et deux chaînes acyles hydrophobes."
   },
   {
     "order": 47,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du rôle de l'acide phosphatidique :",
-    "choices": [
-      {
-        "content": "C'est un intermédiaire important de synthèse des di- et triglycérides.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
-      },
-      {
-        "content": "Il intervient dans la synthèse de phospholipides d'intérêt biologique.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
-      },
-      {
-        "content": "Il n'est pas présent en grande quantité dans les tissus.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
-      },
-      {
-        "content": "Il est le principal lipide de stockage quantitativement dominant dans les adipocytes.",
-        "correct": false,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel acide aminé constitue la tête polaire de la phosphatidylsérine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sérine",
+        "serine",
+        "la sérine",
+        "la serine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
+    },
+    "explanation": "La phosphatidylsérine est le glycérophospholipide à tête sérine."
   },
   {
     "order": 48,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle est l’abondance habituelle de l’acide phosphatidique libre dans les tissus ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la phosphatidyléthanolamine PE, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "faible",
+        "content": "PE possède une tête inositol.",
+        "correct": false,
+        "explanation": "Cela décrit PI."
+      },
+      {
+        "content": "PE est fréquente dans les membranes biologiques.",
         "correct": true,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
+        "explanation": "Elle est souvent enrichie dans le feuillet cytosolique."
       },
       {
-        "content": "majoritaire",
+        "content": "L'éthanolamine est un acide gras.",
         "correct": false,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
+        "explanation": "C'est un aminoalcool."
       },
       {
-        "content": "exclusive",
-        "correct": false,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
+        "content": "Sa tête polaire est l'éthanolamine.",
+        "correct": true,
+        "explanation": "La classe est définie par cette tête."
       },
       {
-        "content": "identique au glycogène",
-        "correct": false,
-        "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
+        "content": "Elle peut constituer la tête polaire de nombreux plasmalogènes.",
+        "correct": true,
+        "explanation": "Les plasmalogènes à éthanolamine sont fréquents."
       }
     ],
-    "explanation": "L'acide phosphatidique est surtout un intermédiaire métabolique."
+    "explanation": "La phosphatidyléthanolamine est un glycérophospholipide à tête éthanolamine."
   },
   {
     "order": 49,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la tête alcool des glycérophospholipides :",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la phosphatidylcholine PC, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Un alcool peut estérifier une fonction acide libre du phosphate.",
-        "correct": true,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
-      },
-      {
-        "content": "La nature de cet alcool détermine la série de phospholipide.",
-        "correct": true,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
-      },
-      {
-        "content": "Les OH du phosphate sont des fonctions acides, pas des fonctions alcool.",
-        "correct": true,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
-      },
-      {
-        "content": "L'alcool X détermine la longueur des deux acides gras.",
+        "content": "Lécithine désigne uniquement un triacylglycérol.",
         "correct": false,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "explanation": "Le terme est historiquement associé à la phosphatidylcholine."
+      },
+      {
+        "content": "PC est dépourvue de phosphate.",
+        "correct": false,
+        "explanation": "Elle est un glycérophospholipide."
+      },
+      {
+        "content": "La choline est un acide gras saturé.",
+        "correct": false,
+        "explanation": "C'est un aminoalcool quaternisé."
+      },
+      {
+        "content": "PC possède une tête sérine.",
+        "correct": false,
+        "explanation": "Cela décrit PS."
+      },
+      {
+        "content": "Sa tête polaire est la choline.",
+        "correct": true,
+        "explanation": "La choline est un ammonium quaternaire."
       }
     ],
-    "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+    "explanation": "La phosphatidylcholine est un glycérophospholipide majeur à tête choline, historiquement appelé lécithine."
   },
   {
     "order": 50,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Qu'est-ce qui détermine la série de glycérophospholipide ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant le phosphatidylglycérol PG, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "la nature de l'alcool fixé au phosphate",
+        "content": "PG est un triacylglycérol sans phosphate.",
+        "correct": false,
+        "explanation": "Il est phospholipidique."
+      },
+      {
+        "content": "PG appartient aux glycérophospholipides.",
         "correct": true,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "explanation": "Il conserve le squelette diacylglycérol-phosphate."
       },
       {
-        "content": "le nombre de carbones du glycérol",
+        "content": "PG est identique au glycérol libre.",
         "correct": false,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "explanation": "Il s'agit d'un phospholipide à tête glycérol."
       },
       {
-        "content": "la couleur du lipide",
-        "correct": false,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "content": "Il sert notamment de précurseur à la cardiolipine.",
+        "correct": true,
+        "explanation": "Cette voie est importante dans les membranes mitochondriales."
       },
       {
-        "content": "la présence d'une liaison peptidique",
+        "content": "PG possède une tête choline.",
         "correct": false,
-        "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+        "explanation": "Cela décrit PC."
       }
     ],
-    "explanation": "PS, PE, PC, PG ou PI se distinguent notamment par leur alcool de tête."
+    "explanation": "Le phosphatidylglycérol possède une tête glycérol et constitue notamment un précurseur de la cardiolipine.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des phosphatidylsérines :",
+    "question": "Concernant le phosphatidylinositol PI, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La sérine peut se fixer par sa fonction alcool.",
+        "content": "Sa tête polaire est un inositol cyclique.",
         "correct": true,
-        "explanation": "La sérine est l'alcool de tête des PS."
+        "explanation": "L'inositol possède six carbones et plusieurs fonctions alcool."
       },
       {
-        "content": "Elle donne la série des phosphatidylsérines.",
+        "content": "PIP2 et PIP3 sont des phosphoinositides dérivés de PI.",
         "correct": true,
-        "explanation": "La sérine est l'alcool de tête des PS."
+        "explanation": "Des phosphates supplémentaires sont portés par l'inositol."
       },
       {
-        "content": "L'abréviation utilisée est PS.",
+        "content": "Le groupement phosphatidyle est lié à l'inositol par une liaison phosphodiester.",
         "correct": true,
-        "explanation": "La sérine est l'alcool de tête des PS."
+        "explanation": "La tête est connectée via le phosphate."
       },
       {
-        "content": "La sérine donne les phosphatidylcholines.",
+        "content": "PI est un constituant minoritaire mais fonctionnellement important des membranes.",
+        "correct": true,
+        "explanation": "Ses dérivés phosphorylés participent à la signalisation."
+      },
+      {
+        "content": "L'inositol est une chaîne linéaire de trois carbones.",
         "correct": false,
-        "explanation": "La sérine est l'alcool de tête des PS."
+        "explanation": "C'est un cycle à six carbones."
       }
     ],
-    "explanation": "La sérine est l'alcool de tête des PS."
+    "explanation": "Le phosphatidylinositol est un glycérophospholipide à tête inositol, précurseur de phosphoinositides de signalisation."
   },
   {
     "order": 52,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle série est obtenue avec la sérine ?",
-    "choices": [
-      {
-        "content": "phosphatidylsérines (PS)",
-        "correct": true,
-        "explanation": "La sérine est l'alcool de tête des PS."
-      },
-      {
-        "content": "phosphatidylcholines (PC)",
-        "correct": false,
-        "explanation": "La sérine est l'alcool de tête des PS."
-      },
-      {
-        "content": "phosphatidyléthanolamines (PE)",
-        "correct": false,
-        "explanation": "La sérine est l'alcool de tête des PS."
-      },
-      {
-        "content": "sphingomyélines",
-        "correct": false,
-        "explanation": "La sérine est l'alcool de tête des PS."
-      }
-    ],
-    "explanation": "La sérine est l'alcool de tête des PS."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de chaînes acyles possède classiquement un lysophospholipide ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "Un lysophospholipide est un glycérophospholipide monoacylé ; PLA2 peut le former en hydrolysant l'acyle sn-2."
   },
   {
     "order": 53,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des phosphatidyléthanolamines :",
-    "choices": [
-      {
-        "content": "L'éthanolamine est un dérivé décarboxylé de la sérine.",
-        "correct": true,
-        "explanation": "L'éthanolamine définit la série PE."
-      },
-      {
-        "content": "Elle donne les phosphatidyléthanolamines.",
-        "correct": true,
-        "explanation": "L'éthanolamine définit la série PE."
-      },
-      {
-        "content": "L'abréviation utilisée est PE.",
-        "correct": true,
-        "explanation": "L'éthanolamine définit la série PE."
-      },
-      {
-        "content": "L'éthanolamine est un stérol à 27 carbones.",
-        "correct": false,
-        "explanation": "L'éthanolamine définit la série PE."
-      }
-    ],
-    "explanation": "L'éthanolamine définit la série PE."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de chaînes acyles comporte l'acide phosphatidique classique ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "L'acide phosphatidique comporte deux chaînes acyles en sn-1 et sn-2 et un phosphate en sn-3."
   },
   {
     "order": 54,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle série est obtenue avec l'éthanolamine ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la tête polaire des glycérophospholipides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "phosphatidyléthanolamines (PE)",
+        "content": "La nature du groupement polaire permet de définir plusieurs classes.",
         "correct": true,
-        "explanation": "L'éthanolamine définit la série PE."
+        "explanation": "Choline, éthanolamine, sérine, glycérol ou inositol sont des exemples."
       },
       {
-        "content": "phosphatidylsérines (PS)",
+        "content": "Le phosphate est sans influence sur la polarité.",
         "correct": false,
-        "explanation": "L'éthanolamine définit la série PE."
+        "explanation": "Il contribue fortement à la tête hydrophile."
       },
       {
-        "content": "phosphatidylcholines (PC)",
+        "content": "Les glycérophospholipides sont entièrement apolaires.",
         "correct": false,
-        "explanation": "L'éthanolamine définit la série PE."
+        "explanation": "Ils sont amphiphiles."
       },
       {
-        "content": "cérébrosides",
+        "content": "Cette architecture rend les glycérophospholipides amphiphiles.",
+        "correct": true,
+        "explanation": "Ils possèdent une tête polaire et des queues hydrophobes."
+      },
+      {
+        "content": "La nature de la tête ne change jamais le nom de la classe.",
         "correct": false,
-        "explanation": "L'éthanolamine définit la série PE."
+        "explanation": "Elle est au contraire déterminante."
       }
     ],
-    "explanation": "L'éthanolamine définit la série PE."
+    "explanation": "Les glycérophospholipides sont amphiphiles : tête phosphatée polaire et deux chaînes acyles hydrophobes."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des phosphatidylcholines :",
+    "question": "Concernant l'acide phosphatidique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La choline est un dérivé triméthylé de l'éthanolamine.",
-        "correct": true,
-        "explanation": "La choline correspond à une éthanolamine portant trois groupes méthyle sur l'azote."
-      },
-      {
-        "content": "Elle donne les phosphatidylcholines.",
-        "correct": true,
-        "explanation": "La choline constitue la tête polaire des phosphatidylcholines."
-      },
-      {
-        "content": "Les phosphatidylcholines sont aussi appelées lécithines.",
-        "correct": true,
-        "explanation": "Le terme « lécithines » désigne classiquement les phosphatidylcholines."
-      },
-      {
-        "content": "Les phosphatidylcholines sont des gangliosides.",
+        "content": "Il est dépourvu de glycérol.",
         "correct": false,
-        "explanation": "Les gangliosides sont des glycosphingolipides, et non des phosphatidylcholines."
+        "explanation": "Le glycérol constitue son squelette."
+      },
+      {
+        "content": "Il est uniquement un produit terminal sans rôle de précurseur.",
+        "correct": false,
+        "explanation": "C'est un intermédiaire majeur."
+      },
+      {
+        "content": "Il est un intermédiaire de biosynthèse important pour TAG et glycérophospholipides.",
+        "correct": true,
+        "explanation": "Sa concentration tissulaire reste relativement faible."
+      },
+      {
+        "content": "Il possède trois acides gras et aucun phosphate.",
+        "correct": false,
+        "explanation": "Cela décrit un TAG."
+      },
+      {
+        "content": "Un groupement phosphate est lié en sn-3.",
+        "correct": true,
+        "explanation": "Il forme la base de nombreux glycérophospholipides."
       }
     ],
-    "explanation": "Les phosphatidylcholines, ou lécithines, possèdent une tête polaire choline."
+    "explanation": "L'acide phosphatidique est un diacylglycérol-3-phosphate et constitue une charnière biosynthétique."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel autre nom est donné aux phosphatidylcholines ?",
-    "choices": [
-      {
-        "content": "lécithines",
-        "correct": true,
-        "explanation": "Les phosphatidylcholines sont aussi appelées lécithines."
-      },
-      {
-        "content": "céramides",
-        "correct": false,
-        "explanation": "Les céramides possèdent un squelette sphingosine."
-      },
-      {
-        "content": "stérides",
-        "correct": false,
-        "explanation": "Les stérides sont des esters de stérols et d'acides gras."
-      },
-      {
-        "content": "cérébrosides",
-        "correct": false,
-        "explanation": "Les cérébrosides sont des glycosphingolipides."
+    "format": "QROC",
+    "question": "Quel caractère physicochimique résulte de la coexistence d'une tête polaire et de deux chaînes hydrophobes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "amphiphile",
+        "amphipathique",
+        "amphiphilie"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le terme « lécithines » désigne classiquement les phosphatidylcholines."
+    },
+    "explanation": "Les glycérophospholipides sont amphiphiles : tête phosphatée polaire et deux chaînes acyles hydrophobes."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des phosphatidylglycérols :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la phosphatidylsérine PS ?",
     "choices": [
       {
-        "content": "Le glycérol peut servir d'alcool de tête.",
-        "correct": true,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
-      },
-      {
-        "content": "Il donne la série des phosphatidylglycérols.",
-        "correct": true,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
-      },
-      {
-        "content": "L'abréviation utilisée est PG.",
-        "correct": true,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
-      },
-      {
-        "content": "PG signifie phosphatidylglucose.",
+        "content": "PS est un triacylglycérol neutre.",
         "correct": false,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
+        "explanation": "Elle porte un phosphate et une tête sérine."
+      },
+      {
+        "content": "La sérine n'est jamais liée à un phosphate dans PS.",
+        "correct": false,
+        "explanation": "Elle constitue précisément la tête polaire."
+      },
+      {
+        "content": "Sa tête polaire contient de la sérine.",
+        "correct": true,
+        "explanation": "La sérine est liée au phosphate."
+      },
+      {
+        "content": "PS est exclusivement localisée dans le feuillet externe de toutes les cellules vivantes.",
+        "correct": false,
+        "explanation": "Elle est généralement enrichie côté cytosolique."
+      },
+      {
+        "content": "PS possède une tête choline.",
+        "correct": false,
+        "explanation": "Cela décrit PC."
       }
     ],
-    "explanation": "Le glycérol peut être la tête polaire des PG."
+    "explanation": "La phosphatidylsérine est le glycérophospholipide à tête sérine."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle série est obtenue lorsque l'alcool de tête est le glycérol ?",
+    "format": "QRM",
+    "question": "Concernant la phosphatidyléthanolamine PE, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "phosphatidylglycérols (PG)",
+        "content": "PE ne peut jamais contenir de liaison éther.",
+        "correct": false,
+        "explanation": "Les plasmalogènes d'éthanolamine en sont des exemples."
+      },
+      {
+        "content": "Elle peut constituer la tête polaire de nombreux plasmalogènes.",
         "correct": true,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
+        "explanation": "Les plasmalogènes à éthanolamine sont fréquents."
       },
       {
-        "content": "phosphatidylinositols (PI)",
+        "content": "L'éthanolamine est un acide gras.",
         "correct": false,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
+        "explanation": "C'est un aminoalcool."
       },
       {
-        "content": "phosphatidylsérines (PS)",
-        "correct": false,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
+        "content": "Sa tête polaire est l'éthanolamine.",
+        "correct": true,
+        "explanation": "La classe est définie par cette tête."
       },
       {
-        "content": "triacylglycérols",
-        "correct": false,
-        "explanation": "Le glycérol peut être la tête polaire des PG."
+        "content": "PE est fréquente dans les membranes biologiques.",
+        "correct": true,
+        "explanation": "Elle est souvent enrichie dans le feuillet cytosolique."
       }
     ],
-    "explanation": "Le glycérol peut être la tête polaire des PG."
+    "explanation": "La phosphatidyléthanolamine est un glycérophospholipide à tête éthanolamine."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des phosphatidylinositols :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la phosphatidylcholine PC, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "L'inositol est un cycle à six carbones.",
+        "content": "Sa tête polaire est la choline.",
         "correct": true,
-        "explanation": "L'inositol est un cyclitol à six carbones et six OH."
+        "explanation": "La choline est un ammonium quaternaire."
       },
       {
-        "content": "Il possède six fonctions alcool.",
-        "correct": true,
-        "explanation": "L'inositol est un cyclitol à six carbones et six OH."
-      },
-      {
-        "content": "Sa fonction alcool en position 1 forme la liaison phosphodiester avec le phosphate.",
-        "correct": true,
-        "explanation": "L'inositol est un cyclitol à six carbones et six OH."
-      },
-      {
-        "content": "L'inositol ne possède aucune fonction alcool.",
+        "content": "Lécithine désigne uniquement un triacylglycérol.",
         "correct": false,
-        "explanation": "L'inositol est un cyclitol à six carbones et six OH."
+        "explanation": "Le terme est historiquement associé à la phosphatidylcholine."
+      },
+      {
+        "content": "PC est dépourvue de phosphate.",
+        "correct": false,
+        "explanation": "Elle est un glycérophospholipide."
+      },
+      {
+        "content": "La choline est un dérivé triméthylé de l'éthanolamine.",
+        "correct": true,
+        "explanation": "La méthylation transforme l'amine en ammonium quaternaire."
+      },
+      {
+        "content": "La choline est un acide gras saturé.",
+        "correct": false,
+        "explanation": "C'est un aminoalcool quaternisé."
       }
     ],
-    "explanation": "L'inositol est un cyclitol à six carbones et six OH."
+    "explanation": "La phosphatidylcholine est un glycérophospholipide majeur à tête choline, historiquement appelé lécithine.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel autre nom donne-t-on aux phosphatidylcholines ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "lécithines",
-        "lecithines"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le phosphatidylglycérol PG ?",
+    "choices": [
+      {
+        "content": "Il sert notamment de précurseur à la cardiolipine.",
+        "correct": true,
+        "explanation": "Cette voie est importante dans les membranes mitochondriales."
+      },
+      {
+        "content": "La tête glycérol le distingue de PC, PE, PS et PI.",
+        "correct": true,
+        "explanation": "La nature de la tête définit la classe."
+      },
+      {
+        "content": "PG appartient aux glycérophospholipides.",
+        "correct": true,
+        "explanation": "Il conserve le squelette diacylglycérol-phosphate."
+      },
+      {
+        "content": "Sa tête polaire contient un glycérol supplémentaire.",
+        "correct": true,
+        "explanation": "Ce glycérol est lié au phosphate."
+      },
+      {
+        "content": "PG possède une tête choline.",
+        "correct": false,
+        "explanation": "Cela décrit PC."
       }
-    },
-    "explanation": "Les phosphatidylcholines sont les lécithines."
+    ],
+    "explanation": "Le phosphatidylglycérol possède une tête glycérol et constitue notamment un précurseur de la cardiolipine."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du rôle des phosphatidylinositols :",
-    "choices": [
-      {
-        "content": "Ce sont des composants mineurs des membranes.",
-        "correct": true,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
-      },
-      {
-        "content": "Ils jouent un rôle majeur dans la signalisation intracellulaire.",
-        "correct": true,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
-      },
-      {
-        "content": "Le PIP2 est un dérivé phosphorylé du phosphatidylinositol.",
-        "correct": true,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
-      },
-      {
-        "content": "Ils constituent la principale réserve énergétique du tissu adipeux.",
-        "correct": false,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
+    "format": "QROC",
+    "question": "Quelle tête polaire définit la phosphatidylcholine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "choline",
+        "la choline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
+    },
+    "explanation": "La phosphatidylcholine possède une tête choline ; elle est aussi historiquement appelée lécithine."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel rôle majeur est attribué aux PI ?",
+    "question": "Parmi les affirmations suivantes concernant les lysophospholipides, laquelle est correcte ?",
     "choices": [
       {
-        "content": "signalisation intracellulaire",
+        "content": "Il est dépourvu de phosphate par définition.",
+        "correct": false,
+        "explanation": "Il conserve la tête phospholipidique."
+      },
+      {
+        "content": "Un lysophospholipide possède obligatoirement trois chaînes acyles.",
+        "correct": false,
+        "explanation": "Il n'en possède qu'une."
+      },
+      {
+        "content": "La phospholipase A2 peut générer un lysophospholipide en retirant l'acyle sn-2.",
         "correct": true,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
+        "explanation": "Le produit conserve l'acyle sn-1."
       },
       {
-        "content": "réserve énergétique exclusive",
+        "content": "Un lysophospholipide est identique à un TAG.",
         "correct": false,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
+        "explanation": "Leurs structures sont très différentes."
       },
       {
-        "content": "transport de l'oxygène",
+        "content": "PLA2 ajoute un acide gras en sn-2 pour le former.",
         "correct": false,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
-      },
-      {
-        "content": "synthèse du collagène",
-        "correct": false,
-        "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
+        "explanation": "PLA2 hydrolyse l'acyle sn-2."
       }
     ],
-    "explanation": "Les PI sont peu abondants mais essentiels à la signalisation."
+    "explanation": "Un lysophospholipide est un glycérophospholipide monoacylé ; PLA2 peut le former en hydrolysant l'acyle sn-2."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des lysophospholipides :",
+    "question": "Quelles propositions sont exactes concernant l'acide phosphatidique ?",
     "choices": [
       {
-        "content": "Ils manquent d'un acide gras par rapport au phospholipide parent.",
-        "correct": true,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
-      },
-      {
-        "content": "Après action d’une phospholipase A₂, l’acyle en C2 est absent.",
-        "correct": true,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
-      },
-      {
-        "content": "Ils peuvent être produits par une phospholipase A2.",
-        "correct": true,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
-      },
-      {
-        "content": "Ils possèdent toujours trois acides gras.",
+        "content": "Il est uniquement un produit terminal sans rôle de précurseur.",
         "correct": false,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "explanation": "C'est un intermédiaire majeur."
+      },
+      {
+        "content": "Il possède un squelette glycérol.",
+        "correct": true,
+        "explanation": "Le glycérol organise les positions sn-1, sn-2 et sn-3."
+      },
+      {
+        "content": "Il possède trois acides gras et aucun phosphate.",
+        "correct": false,
+        "explanation": "Cela décrit un TAG."
+      },
+      {
+        "content": "Deux acides gras sont estérifiés en sn-1 et sn-2.",
+        "correct": true,
+        "explanation": "Ils constituent les deux chaînes hydrophobes."
+      },
+      {
+        "content": "Il est dépourvu de glycérol.",
+        "correct": false,
+        "explanation": "Le glycérol constitue son squelette."
       }
     ],
-    "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+    "explanation": "L'acide phosphatidique est un diacylglycérol-3-phosphate et constitue une charnière biosynthétique."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel acyle manque dans le lysophospholipide produit par une phospholipase A₂ ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "celui de C2",
+        "content": "La nature du groupement polaire permet de définir plusieurs classes.",
         "correct": true,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "explanation": "Choline, éthanolamine, sérine, glycérol ou inositol sont des exemples."
       },
       {
-        "content": "celui de C3",
-        "correct": false,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "content": "Elle comprend le phosphate et le groupement polaire qui lui est lié.",
+        "correct": true,
+        "explanation": "Le glycérol participe aussi à l'interface hydrophile."
       },
       {
-        "content": "aucun",
+        "content": "Lécithine désigne uniquement un triacylglycérol.",
         "correct": false,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "explanation": "Le terme est historiquement associé à la phosphatidylcholine."
       },
       {
-        "content": "les trois",
+        "content": "PC est dépourvue de phosphate.",
         "correct": false,
-        "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+        "explanation": "Elle est un glycérophospholipide."
+      },
+      {
+        "content": "Les deux chaînes acyles constituent la région hydrophobe.",
+        "correct": true,
+        "explanation": "Elles sont portées en sn-1 et sn-2."
+      },
+      {
+        "content": "La choline est un acide gras saturé.",
+        "correct": false,
+        "explanation": "C'est un aminoalcool quaternisé."
+      },
+      {
+        "content": "La tête polaire est constituée uniquement des deux acides gras.",
+        "correct": false,
+        "explanation": "Ce sont les queues hydrophobes."
+      },
+      {
+        "content": "PC est un composant majeur de nombreuses membranes.",
+        "correct": true,
+        "explanation": "Elle est souvent abondante dans le feuillet externe."
+      },
+      {
+        "content": "Les glycérophospholipides sont entièrement apolaires.",
+        "correct": false,
+        "explanation": "Ils sont amphiphiles."
+      },
+      {
+        "content": "La choline est un dérivé triméthylé de l'éthanolamine.",
+        "correct": true,
+        "explanation": "La méthylation transforme l'amine en ammonium quaternaire."
       }
     ],
-    "explanation": "La perte de l'acyle C2 donne le lysophospholipide dans le schéma utilisé."
+    "explanation": "Les glycérophospholipides sont amphiphiles : tête phosphatée polaire et deux chaînes acyles hydrophobes. La phosphatidylcholine est un glycérophospholipide majeur à tête choline, historiquement appelé lécithine."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux acides gras estérifiant le glycérol de l'acide phosphatidique.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant la phosphatidylsérine PS, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Acide gras en C1",
+        "content": "PS est enrichie dans le feuillet cytosolique de nombreuses membranes plasmatiques.",
         "correct": true,
-        "explanation": "Présent."
+        "explanation": "Son externalisation est un signal cellulaire important."
       },
       {
-        "content": "Acide gras en C2",
+        "content": "PS est un triacylglycérol neutre.",
+        "correct": false,
+        "explanation": "Elle porte un phosphate et une tête sérine."
+      },
+      {
+        "content": "Sa tête polaire contient de la sérine.",
         "correct": true,
-        "explanation": "Présent."
+        "explanation": "La sérine est liée au phosphate."
       },
       {
-        "content": "Acide gras en C3",
-        "correct": false,
-        "explanation": "C3 porte le phosphate."
+        "content": "Elle appartient aux glycérophospholipides.",
+        "correct": true,
+        "explanation": "Elle possède classiquement deux chaînes acyles."
       },
       {
-        "content": "Aucun acide gras",
+        "content": "La sérine n'est jamais liée à un phosphate dans PS.",
         "correct": false,
-        "explanation": "Il en porte deux."
+        "explanation": "Elle constitue précisément la tête polaire."
       }
     ],
-    "explanation": "L'acide phosphatidique porte deux chaînes acyles en C1 et C2."
+    "explanation": "La phosphatidylsérine est le glycérophospholipide à tête sérine."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos des principales classes de glycérophospholipides, sélectionnez exactement les cinq associations correctes.",
-    "choices": [
-      {
-        "content": "Sérine → PS",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "Éthanolamine → PE",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "Choline → PC",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "Glycérol → PG",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "Inositol → PI",
-        "correct": true,
-        "explanation": "Association."
-      },
-      {
-        "content": "Choline → céramide",
-        "correct": false,
-        "explanation": "Non."
-      },
-      {
-        "content": "Sérine → sphingomyéline",
-        "correct": false,
-        "explanation": "Non."
-      },
-      {
-        "content": "PI = principale réserve adipocytaire",
-        "correct": false,
-        "explanation": "Non."
-      },
-      {
-        "content": "L'acide phosphatidique porte 3 acides gras",
-        "correct": false,
-        "explanation": "2."
-      },
-      {
-        "content": "Un lysophospholipide possède toujours l'acyle C2",
-        "correct": false,
-        "explanation": "Il manque C2 dans la définition."
+    "format": "QROC",
+    "question": "Quelle tête polaire définit la phosphatidyléthanolamine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "éthanolamine",
+        "ethanolamine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La tête polaire détermine la série."
+    },
+    "explanation": "La phosphatidyléthanolamine est un glycérophospholipide à tête éthanolamine."
   }
 ];

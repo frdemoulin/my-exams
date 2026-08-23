@@ -1,670 +1,731 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Glycérides et glycérophospholipides — Synthèse
- */
-
+/** UE14 Biochimie — Glycérides et glycérophospholipides — Synthèse — Glycérides et glycérophospholipides */
 export const UE14_BIOCH_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des glycérides et phospholipides :",
+    "question": "Concernant le glycérol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les glycérides sont des esters du glycérol et d'acides gras.",
+        "content": "Les carbones terminaux peuvent être distingués par la nomenclature stéréospécifique sn.",
         "correct": true,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+        "explanation": "Le glycérol libre est prochiral et les positions sn-1 et sn-3 sont distinguées en biochimie."
       },
       {
-        "content": "Les glycérophospholipides comportent aussi un phosphate.",
-        "correct": true,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
-      },
-      {
-        "content": "Les deux familles reposent sur un squelette glycérol.",
-        "correct": true,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
-      },
-      {
-        "content": "Les deux familles dérivent exclusivement de la sphingosine.",
+        "content": "Le glycérol libre est un acide gras.",
         "correct": false,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+        "explanation": "C'est un triol."
+      },
+      {
+        "content": "C2 porte une fonction acide carboxylique.",
+        "correct": false,
+        "explanation": "C2 porte un alcool secondaire."
+      },
+      {
+        "content": "C2 porte une fonction alcool secondaire.",
+        "correct": true,
+        "explanation": "C2 est le carbone central."
+      },
+      {
+        "content": "Il ne porte qu'une fonction alcool.",
+        "correct": false,
+        "explanation": "Il en porte trois."
       }
     ],
-    "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+    "explanation": "Le glycérol est un triol à trois carbones ; la nomenclature sn permet de distinguer ses positions en biochimie."
   },
   {
     "order": 102,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel squelette commun est au cœur des deux familles ?",
-    "choices": [
-      {
-        "content": "glycérol",
-        "correct": true,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
-      },
-      {
-        "content": "sphingosine",
-        "correct": false,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
-      },
-      {
-        "content": "cholestérol",
-        "correct": false,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
-      },
-      {
-        "content": "ribose",
-        "correct": false,
-        "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel préfixe de nomenclature est utilisé pour numéroter stéréospécifiquement le glycérol en biochimie ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sn",
+        "sn-",
+        "nomenclature sn"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le glycérol est le squelette commun des glycérides et glycérophospholipides."
+    },
+    "explanation": "La nomenclature sn distingue les positions du squelette glycérol et évite d'assimiler les deux extrémités dans un lipide substitué."
   },
   {
     "order": 103,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des triglycérides et de la réserve énergétique :",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant l'estérification du glycérol par des acides gras ?",
     "choices": [
       {
-        "content": "Ils sont stockés dans les adipocytes.",
-        "correct": true,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
-      },
-      {
-        "content": "Ils libèrent des acides gras mobilisables.",
-        "correct": true,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
-      },
-      {
-        "content": "Ils assurent aussi des fonctions de protection thermique et mécanique.",
-        "correct": true,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
-      },
-      {
-        "content": "Leur rôle principal est de former l'IP3.",
+        "content": "Un diacylglycérol ne contient jamais de liaison ester.",
         "correct": false,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "explanation": "Il en contient deux."
+      },
+      {
+        "content": "L'estérification forme une liaison peptidique.",
+        "correct": false,
+        "explanation": "Elle forme une liaison ester."
+      },
+      {
+        "content": "Un monoacylglycérol porte trois acides gras.",
+        "correct": false,
+        "explanation": "Il n'en porte qu'un."
+      },
+      {
+        "content": "Un triacylglycérol possède nécessairement un phosphate.",
+        "correct": false,
+        "explanation": "Le phosphate caractérise les glycérophospholipides, pas les TAG."
+      },
+      {
+        "content": "Une fonction alcool du glycérol peut réagir avec la fonction carboxylique d'un acide gras.",
+        "correct": true,
+        "explanation": "Une liaison ester est alors formée."
       }
     ],
-    "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
+    "explanation": "Les acylglycérols résultent de l'estérification d'une à trois fonctions alcool du glycérol par des acides gras."
   },
   {
     "order": 104,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel tissu est associé à leur stockage majeur ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les monoacylglycérols, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "tissu adipeux",
+        "content": "Un 2-monoacylglycérol porte l'acyle sur le carbone central.",
         "correct": true,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "explanation": "La position sn-2 est le carbone central."
       },
       {
-        "content": "tissu osseux",
+        "content": "Un 2-monoacylglycérol porte deux acides gras.",
         "correct": false,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "explanation": "Il n'en porte qu'un."
       },
       {
-        "content": "cornée seulement",
-        "correct": false,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "content": "1-MAG et 2-MAG sont des isomères de position.",
+        "correct": true,
+        "explanation": "La position de l'acyle diffère."
       },
       {
-        "content": "épiderme sans adipocytes",
+        "content": "1-MAG et 2-MAG ont nécessairement des formules brutes différentes pour un même acide gras.",
         "correct": false,
-        "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
+        "explanation": "Ils diffèrent par la position de l'acyle."
+      },
+      {
+        "content": "Ils possèdent une seule chaîne acyle.",
+        "correct": true,
+        "explanation": "Deux fonctions alcool restent libres."
       }
     ],
-    "explanation": "Les triglycérides sont la grande réserve lipidique de l'organisme."
+    "explanation": "Les monoacylglycérols diffèrent notamment par la position sn-1 ou sn-2 de leur unique chaîne acyle."
   },
   {
     "order": 105,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de l’acide phosphatidique et des phospholipides :",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les diacylglycérols, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "L'acide phosphatidique porte deux acides gras en C1/C2.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
-      },
-      {
-        "content": "Le phosphate est en C3.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
-      },
-      {
-        "content": "Un alcool de tête détermine la série de phospholipide.",
-        "correct": true,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
-      },
-      {
-        "content": "Il porte trois acides gras et aucun phosphate.",
+        "content": "Le DAG ne contient aucune fonction alcool libre.",
         "correct": false,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "explanation": "Une fonction alcool reste libre."
+      },
+      {
+        "content": "Tout DAG contient obligatoirement une tête choline.",
+        "correct": false,
+        "explanation": "La choline caractérise notamment la phosphatidylcholine."
+      },
+      {
+        "content": "Un diacylglycérol contient deux liaisons ester acyle-glycérol.",
+        "correct": true,
+        "explanation": "Chaque acide gras est relié par une liaison ester."
+      },
+      {
+        "content": "Un 1,2-diacylglycérol porte des chaînes acyles sur deux carbones adjacents.",
+        "correct": true,
+        "explanation": "Les positions sont sn-1 et sn-2."
+      },
+      {
+        "content": "1,2-DAG et 1,3-DAG sont synonymes.",
+        "correct": false,
+        "explanation": "Ils diffèrent par les positions estérifiées."
       }
     ],
-    "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+    "explanation": "Un DAG comporte deux chaînes acyles ; les principaux isomères de position sont 1,2-DAG et 1,3-DAG.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel carbone porte le phosphate dans l'acide phosphatidique ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les triacylglycérols ?",
     "choices": [
       {
-        "content": "C3",
+        "content": "Ils comportent trois chaînes acyles estérifiées au glycérol.",
         "correct": true,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "explanation": "Les trois fonctions alcool sont estérifiées."
       },
       {
-        "content": "C1",
-        "correct": false,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "content": "Ils constituent une forme majeure de stockage des acides gras dans le tissu adipeux.",
+        "correct": true,
+        "explanation": "Ils sont des réserves énergétiques neutres."
       },
       {
-        "content": "C2",
-        "correct": false,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "content": "Un triacylglycérol homogène possède trois résidus acyles identiques.",
+        "correct": true,
+        "explanation": "R1=R2=R3 dans cette définition."
       },
       {
-        "content": "C17",
+        "content": "Ils contiennent obligatoirement un groupement phosphate.",
         "correct": false,
-        "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+        "explanation": "Ce n'est pas nécessaire."
+      },
+      {
+        "content": "Un triacylglycérol mixte contient au moins deux résidus acyles différents.",
+        "correct": true,
+        "explanation": "C'est le cas fréquent dans les lipides naturels."
       }
     ],
-    "explanation": "L'acide phosphatidique est le précurseur structural central des glycérophospholipides."
+    "explanation": "Un triacylglycérol est le triester du glycérol ; il peut être homogène ou mixte."
   },
   {
     "order": 107,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des phospholipases et des médiateurs :",
-    "choices": [
-      {
-        "content": "PLA2 peut libérer l'acide arachidonique.",
-        "correct": true,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
-      },
-      {
-        "content": "PLC sur PIP2 libère DAG et IP3.",
-        "correct": true,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
-      },
-      {
-        "content": "Ces clivages peuvent générer des médiateurs biologiquement actifs.",
-        "correct": true,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
-      },
-      {
-        "content": "PLA2 libère directement le cortisol à partir du PIP2.",
-        "correct": false,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel résidu acyle occupe la position 2 dans le 1,3-distéaroyl-2-oléoyl-glycérol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "oléoyl",
+        "oleoyl",
+        "résidu oléoyl",
+        "residu oleoyl"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les phospholipases relient structure membranaire et signalisation."
+    },
+    "explanation": "Le 1,3-distéaroyl-2-oléoyl-glycérol est un TAG mixte illustrant la nomenclature par positions."
   },
   {
     "order": 108,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quels produits de PLC sur PIP2 sont des seconds messagers ?",
+    "question": "Parmi les affirmations suivantes concernant la glycérol kinase, laquelle est correcte ?",
     "choices": [
       {
-        "content": "DAG et IP3",
+        "content": "Elle supprime tout groupement hydroxyle du glycérol.",
+        "correct": false,
+        "explanation": "Elle en phosphoryle un."
+      },
+      {
+        "content": "Elle forme directement de la phosphatidylcholine en une étape.",
+        "correct": false,
+        "explanation": "Plusieurs étapes de biosynthèse sont nécessaires."
+      },
+      {
+        "content": "Elle phosphoryle le glycérol pour former du glycérol-3-phosphate.",
         "correct": true,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
+        "explanation": "Cette réaction engage le glycérol dans plusieurs voies métaboliques."
       },
       {
-        "content": "cholestérol et HDL",
+        "content": "Elle transforme le glycérol directement en acide arachidonique.",
         "correct": false,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
+        "explanation": "Ce n'est pas sa fonction."
       },
       {
-        "content": "glucose et galactose",
+        "content": "Elle hydrolyse les trois liaisons ester d'un TAG.",
         "correct": false,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
-      },
-      {
-        "content": "sphingosine et céramide",
-        "correct": false,
-        "explanation": "Les phospholipases relient structure membranaire et signalisation."
+        "explanation": "Cela relève de lipases."
       }
     ],
-    "explanation": "Les phospholipases relient structure membranaire et signalisation."
+    "explanation": "La glycérol kinase forme le glycérol-3-phosphate, intermédiaire central du métabolisme des glycérolipides."
   },
   {
     "order": 109,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de la voie PI3K–AKT et de la cancérologie :",
+    "question": "Quelles propositions sont exactes concernant le stockage des triacylglycérols ?",
     "choices": [
       {
-        "content": "PI3K transforme PIP2 en PIP3.",
-        "correct": true,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
-      },
-      {
-        "content": "PIP3 recrute AKT à la membrane.",
-        "correct": true,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
-      },
-      {
-        "content": "La dérégulation de la voie PI3K–AKT est impliquée dans de nombreux cancers.",
-        "correct": true,
-        "explanation": "Des altérations de PI3K, AKT ou PTEN peuvent favoriser une signalisation proliférative anormale."
-      },
-      {
-        "content": "PTEN réalise exactement la même réaction que PI3K dans le même sens.",
+        "content": "Ils sont fortement solubles dans le cytosol aqueux.",
         "correct": false,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "explanation": "Ils sont hydrophobes."
+      },
+      {
+        "content": "Ils constituent une réserve de glucose polymérisé.",
+        "correct": false,
+        "explanation": "Cela décrit le glycogène."
+      },
+      {
+        "content": "Ils stockent des acides gras sous une forme globalement neutre et très hydrophobe.",
+        "correct": true,
+        "explanation": "Ils s'accumulent dans des gouttelettes lipidiques."
+      },
+      {
+        "content": "Les triacylglycérols sont stockés en grande quantité dans les adipocytes.",
+        "correct": true,
+        "explanation": "Le tissu adipeux constitue le principal réservoir."
+      },
+      {
+        "content": "Le tissu adipeux ne contient pratiquement aucun TAG.",
+        "correct": false,
+        "explanation": "Il en est le principal site de stockage."
       }
     ],
-    "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+    "explanation": "Les TAG constituent la grande réserve lipidique des adipocytes sous forme de gouttelettes hydrophobes."
   },
   {
     "order": 110,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle enzyme catalyse la conversion inverse PIP₃ → PIP₂ ?",
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "PTEN",
+        "content": "La digestion doit hydrolyser les liaisons ester avant absorption des principaux produits.",
         "correct": true,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "explanation": "Des lipases assurent cette hydrolyse."
       },
       {
-        "content": "PLA2",
-        "correct": false,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "content": "Ils peuvent être mobilisés entre les repas ou lors d'un besoin énergétique accru.",
+        "correct": true,
+        "explanation": "La régulation hormonale adapte la lipolyse."
       },
       {
-        "content": "PLC",
-        "correct": false,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "content": "Ils constituent une part majeure des lipides alimentaires.",
+        "correct": true,
+        "explanation": "Les huiles et graisses sont riches en TAG."
       },
       {
-        "content": "glycérol kinase",
+        "content": "Leur composition en acides gras dépend de la source alimentaire.",
+        "correct": true,
+        "explanation": "Une huile végétale et une graisse animale peuvent avoir des profils différents."
+      },
+      {
+        "content": "Les TAG ne peuvent fournir aucune énergie.",
         "correct": false,
-        "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+        "explanation": "Leurs acides gras sont des substrats énergétiques majeurs."
+      },
+      {
+        "content": "Leur hydrolyse produit uniquement du glucose.",
+        "correct": false,
+        "explanation": "Elle libère glycérol et acides gras."
+      },
+      {
+        "content": "Ils sont les principaux constituants amphiphiles de la bicouche plasmique.",
+        "correct": false,
+        "explanation": "Ce rôle revient surtout aux phospholipides."
+      },
+      {
+        "content": "La fonction de stockage est distincte du rôle structural des phospholipides membranaires.",
+        "correct": true,
+        "explanation": "TAG et phospholipides ont des fonctions dominantes différentes."
+      },
+      {
+        "content": "Les lipides alimentaires ne contiennent jamais de TAG.",
+        "correct": false,
+        "explanation": "Ils en contiennent souvent beaucoup."
+      },
+      {
+        "content": "Un TAG est directement soluble en grande quantité dans l'eau intestinale sans émulsification ni digestion.",
+        "correct": false,
+        "explanation": "Son hydrophobicité nécessite une prise en charge digestive adaptée."
       }
     ],
-    "explanation": "Le couple PI3K/PTEN contrôle l'état de phosphorylation du phosphoinositide."
+    "explanation": "Les TAG stockent des acides gras mobilisables ; leur hydrolyse libère glycérol et acides gras. Les TAG sont des constituants majeurs des huiles et graisses alimentaires ; leur composition en acides gras détermine une partie de leurs propriétés."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos des plasmalogènes et du PAF :",
+    "question": "Concernant le glycérol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les plasmalogènes portent une chaîne alk-1′-ényl par liaison vinyl-éther en sn-1.",
+        "content": "Les carbones terminaux peuvent être distingués par la nomenclature stéréospécifique sn.",
         "correct": true,
-        "explanation": "Le vinyl-éther en sn-1 est la signature structurale des plasmalogènes."
+        "explanation": "Le glycérol libre est prochiral et les positions sn-1 et sn-3 sont distinguées en biochimie."
       },
       {
-        "content": "Ils sont présents notamment dans cerveau, muscle et rétine.",
-        "correct": true,
-        "explanation": "Les plasmalogènes sont particulièrement abondants dans plusieurs tissus nerveux et musculaires."
-      },
-      {
-        "content": "Le PAF est un médiateur phospholipidique à liaison alkyl-éther en sn-1.",
-        "correct": true,
-        "explanation": "Le PAF appartient aux phospholipides alkyl-éther, distincts des plasmalogènes à vinyl-éther."
-      },
-      {
-        "content": "Les plasmalogènes sont des triglycérides à trois acides gras identiques.",
+        "content": "Il ne porte qu'une fonction alcool.",
         "correct": false,
-        "explanation": "Les plasmalogènes sont des glycérophospholipides, pas des triglycérides."
+        "explanation": "Il en porte trois."
+      },
+      {
+        "content": "Il possède trois atomes de carbone.",
+        "correct": true,
+        "explanation": "Le glycérol est un triol C3."
+      },
+      {
+        "content": "Le glycérol libre est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un triol."
+      },
+      {
+        "content": "C2 porte une fonction acide carboxylique.",
+        "correct": false,
+        "explanation": "C2 porte un alcool secondaire."
       }
     ],
-    "explanation": "Plasmalogènes et PAF appartiennent aux lipides éther, mais leurs liaisons en sn-1 et leurs fonctions diffèrent."
+    "explanation": "Le glycérol est un triol à trois carbones ; la nomenclature sn permet de distinguer ses positions en biochimie."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel type de liaison caractérise la position sn-1 des plasmalogènes ?",
-    "choices": [
-      {
-        "content": "vinyl-éther",
-        "correct": true,
-        "explanation": "Les plasmalogènes portent une liaison vinyl-éther en sn-1."
-      },
-      {
-        "content": "amide",
-        "correct": false,
-        "explanation": "Une liaison amide caractérise notamment les céramides, pas les plasmalogènes."
-      },
-      {
-        "content": "peptidique",
-        "correct": false,
-        "explanation": "Une liaison peptidique unit des acides aminés."
-      },
-      {
-        "content": "glycosidique",
-        "correct": false,
-        "explanation": "Une liaison glycosidique unit notamment un ose à un autre groupement."
+    "format": "QROC",
+    "question": "Quel préfixe de nomenclature est utilisé pour numéroter stéréospécifiquement le glycérol en biochimie ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sn",
+        "sn-",
+        "nomenclature sn"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La liaison vinyl-éther en sn-1 distingue les plasmalogènes des glycérophospholipides diacylés."
+    },
+    "explanation": "La nomenclature sn distingue les positions du squelette glycérol et évite d'assimiler les deux extrémités dans un lipide substitué."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des têtes polaires :",
+    "format": "QRP",
+    "question": "Concernant l'estérification du glycérol par des acides gras, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Sérine → PS.",
+        "content": "Une fonction alcool du glycérol peut réagir avec la fonction carboxylique d'un acide gras.",
         "correct": true,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "Une liaison ester est alors formée."
       },
       {
-        "content": "Éthanolamine → PE.",
-        "correct": true,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
-      },
-      {
-        "content": "Choline → PC/lécithines.",
-        "correct": true,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
-      },
-      {
-        "content": "La choline donne les céramides.",
+        "content": "Un triacylglycérol possède nécessairement un phosphate.",
         "correct": false,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "Le phosphate caractérise les glycérophospholipides, pas les TAG."
+      },
+      {
+        "content": "Un monoacylglycérol porte trois acides gras.",
+        "correct": false,
+        "explanation": "Il n'en porte qu'un."
+      },
+      {
+        "content": "Un diacylglycérol ne contient jamais de liaison ester.",
+        "correct": false,
+        "explanation": "Il en contient deux."
+      },
+      {
+        "content": "Un diacylglycérol possède deux acides gras estérifiés.",
+        "correct": true,
+        "explanation": "Une fonction alcool du glycérol reste libre."
       }
     ],
-    "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+    "explanation": "Les acylglycérols résultent de l'estérification d'une à trois fonctions alcool du glycérol par des acides gras.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle tête donne les phosphatidylcholines ?",
+    "format": "QRM",
+    "question": "Concernant les monoacylglycérols, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "choline",
+        "content": "1-MAG et 2-MAG sont des isomères de position.",
         "correct": true,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "La position de l'acyle diffère."
       },
       {
-        "content": "sérine",
+        "content": "Un 2-monoacylglycérol porte deux acides gras.",
         "correct": false,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "Il n'en porte qu'un."
       },
       {
-        "content": "glycérol",
-        "correct": false,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+        "content": "Ils possèdent une seule chaîne acyle.",
+        "correct": true,
+        "explanation": "Deux fonctions alcool restent libres."
       },
       {
-        "content": "sphingosine",
+        "content": "Un 2-monoacylglycérol porte l'acyle sur le carbone central.",
+        "correct": true,
+        "explanation": "La position sn-2 est le carbone central."
+      },
+      {
+        "content": "Un monoacylglycérol ne contient aucune liaison ester.",
         "correct": false,
-        "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+        "explanation": "Il en contient une."
       }
     ],
-    "explanation": "La nature de l'alcool de tête détermine la série de phospholipide."
+    "explanation": "Les monoacylglycérols diffèrent notamment par la position sn-1 ou sn-2 de leur unique chaîne acyle."
   },
   {
     "order": 115,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quelle enzyme phosphoryle le PIP₂ en PIP₃ ?",
+    "question": "Quelle phosphatase lipidique s'oppose à PI3K en convertissant PIP3 vers PIP2 ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "PI3K",
-        "phosphatidylinositol 3 kinase",
-        "phosphatidylinositol-3-kinase"
+        "PTEN",
+        "la PTEN"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La PI3K ajoute un phosphate en C3 du PIP2."
+    "explanation": "PTEN enlève le phosphate en position 3 de PIP3 et freine la voie PI3K-AKT."
   },
   {
     "order": 116,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel usage médical peut être fait des liposomes ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les triacylglycérols ?",
     "choices": [
       {
-        "content": "transport de médicaments/substances actives",
+        "content": "Un triacylglycérol homogène possède trois résidus acyles identiques.",
         "correct": true,
-        "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+        "explanation": "R1=R2=R3 dans cette définition."
       },
       {
-        "content": "stockage de glycogène",
+        "content": "Ils possèdent toujours une tête fortement chargée.",
         "correct": false,
-        "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+        "explanation": "Les TAG sont globalement neutres et hydrophobes."
       },
       {
-        "content": "transport d'oxygène",
-        "correct": false,
-        "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+        "content": "Un triacylglycérol mixte contient au moins deux résidus acyles différents.",
+        "correct": true,
+        "explanation": "C'est le cas fréquent dans les lipides naturels."
       },
       {
-        "content": "synthèse du collagène",
-        "correct": false,
-        "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+        "content": "Ils comportent trois chaînes acyles estérifiées au glycérol.",
+        "correct": true,
+        "explanation": "Les trois fonctions alcool sont estérifiées."
+      },
+      {
+        "content": "Ils constituent une forme majeure de stockage des acides gras dans le tissu adipeux.",
+        "correct": true,
+        "explanation": "Ils sont des réserves énergétiques neutres."
       }
     ],
-    "explanation": "Les vésicules phospholipidiques peuvent encapsuler et véhiculer des substances."
+    "explanation": "Un triacylglycérol est le triester du glycérol ; il peut être homogène ou mixte."
   },
   {
     "order": 117,
     "difficulty": "HARD",
-    "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois séries de glycérophospholipides correctement associées à leur alcool de tête.",
-    "choices": [
-      {
-        "content": "PS — sérine",
-        "correct": true,
-        "explanation": "Correct."
-      },
-      {
-        "content": "PE — éthanolamine",
-        "correct": true,
-        "explanation": "Correct."
-      },
-      {
-        "content": "PC — choline",
-        "correct": true,
-        "explanation": "Correct."
-      },
-      {
-        "content": "PC — sphingosine",
-        "correct": false,
-        "explanation": "Incorrect."
+    "format": "QROC",
+    "question": "Quel résidu acyle occupe la position 2 dans le 1,3-distéaroyl-2-oléoyl-glycérol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "oléoyl",
+        "oleoyl",
+        "résidu oléoyl",
+        "residu oleoyl"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "PS, PE et PC dépendent respectivement de sérine, éthanolamine et choline."
+    },
+    "explanation": "Le 1,3-distéaroyl-2-oléoyl-glycérol est un TAG mixte illustrant la nomenclature par positions."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel changement favorise la fluidité ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "désaturation des acides gras",
+        "content": "Des doubles liaisons cis abaissent généralement le point de fusion.",
         "correct": true,
-        "explanation": "Les doubles liaisons cis perturbent l'empilement des chaînes et favorisent la fluidité."
+        "explanation": "Elles introduisent des coudes dans les chaînes."
       },
       {
-        "content": "saturation complète",
+        "content": "Elle transforme le glycérol directement en acide arachidonique.",
         "correct": false,
-        "explanation": "La saturation permet un empilement plus compact et tend à réduire la fluidité."
+        "explanation": "Ce n'est pas sa fonction."
       },
       {
-        "content": "suppression du glycérol",
+        "content": "Tous les TAG naturels ont un point de fusion unique identique.",
         "correct": false,
-        "explanation": "La suppression du glycérol ne décrit pas une variation de fluidité d'un triglycéride."
+        "explanation": "Leur composition varie."
       },
       {
-        "content": "ajout de ribose",
+        "content": "Le point de fusion est indépendant des chaînes acyles.",
         "correct": false,
-        "explanation": "Le ribose n'est pas un constituant des triglycérides."
+        "explanation": "Leur structure est déterminante."
+      },
+      {
+        "content": "La réaction illustre la reconnaissance enzymatique d'une orientation du glycérol.",
+        "correct": true,
+        "explanation": "Le produit est nommé sn-glycérol-3-phosphate."
+      },
+      {
+        "content": "Elle phosphoryle le glycérol pour former du glycérol-3-phosphate.",
+        "correct": true,
+        "explanation": "Cette réaction engage le glycérol dans plusieurs voies métaboliques."
+      },
+      {
+        "content": "Des chaînes plus saturées favorisent généralement un point de fusion plus élevé.",
+        "correct": true,
+        "explanation": "Elles s'empilent plus efficacement."
+      },
+      {
+        "content": "Elle supprime tout groupement hydroxyle du glycérol.",
+        "correct": false,
+        "explanation": "Elle en phosphoryle un."
+      },
+      {
+        "content": "Il dépend de la nature des acides gras estérifiés.",
+        "correct": true,
+        "explanation": "Longueur et insaturation influencent l'empilement."
+      },
+      {
+        "content": "Elle forme directement de la phosphatidylcholine en une étape.",
+        "correct": false,
+        "explanation": "Plusieurs étapes de biosynthèse sont nécessaires."
       }
     ],
-    "explanation": "Les doubles liaisons cis abaissent généralement le point de fusion et favorisent la fluidité."
+    "explanation": "La glycérol kinase forme le glycérol-3-phosphate, intermédiaire central du métabolisme des glycérolipides. Le point de fusion des TAG dépend de leur composition ; l'insaturation cis tend à l'abaisser."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos des lysophospholipides :",
+    "question": "Quelles propositions sont exactes concernant le stockage des triacylglycérols ?",
     "choices": [
       {
-        "content": "La perte de l’acyle en C2 produit un lysophospholipide.",
-        "correct": true,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
-      },
-      {
-        "content": "PLA2 peut générer ce produit.",
-        "correct": true,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
-      },
-      {
-        "content": "Le lysophospholipide reste un dérivé du phospholipide parent.",
-        "correct": true,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
-      },
-      {
-        "content": "Un lysophospholipide possède toujours trois chaînes acyles.",
+        "content": "Ils sont fortement solubles dans le cytosol aqueux.",
         "correct": false,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
+        "explanation": "Ils sont hydrophobes."
+      },
+      {
+        "content": "Ils stockent des acides gras sous une forme globalement neutre et très hydrophobe.",
+        "correct": true,
+        "explanation": "Ils s'accumulent dans des gouttelettes lipidiques."
+      },
+      {
+        "content": "Ils sont stockés principalement dans le noyau sous forme de chromosomes.",
+        "correct": false,
+        "explanation": "Ils s'accumulent dans des gouttelettes lipidiques."
+      },
+      {
+        "content": "Le stockage sous forme de TAG évite d'accumuler de fortes concentrations d'acides gras libres.",
+        "correct": true,
+        "explanation": "Les acides gras libres peuvent perturber les membranes et le métabolisme."
+      },
+      {
+        "content": "Ils constituent une réserve de glucose polymérisé.",
+        "correct": false,
+        "explanation": "Cela décrit le glycogène."
       }
     ],
-    "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
+    "explanation": "Les TAG constituent la grande réserve lipidique des adipocytes sous forme de gouttelettes hydrophobes."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle enzyme peut le produire en retirant C2 ?",
-    "choices": [
-      {
-        "content": "PLA2",
-        "correct": true,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
-      },
-      {
-        "content": "PLA1 uniquement",
-        "correct": false,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
-      },
-      {
-        "content": "PTEN",
-        "correct": false,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
-      },
-      {
-        "content": "sphingomyélinase",
-        "correct": false,
-        "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
+    "format": "QROC",
+    "question": "Quels deux types de produits principaux résultent de l'hydrolyse complète d'un triacylglycérol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "glycérol et acides gras",
+        "acides gras et glycérol",
+        "glycerol et acides gras"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La PLA2 forme simultanément acide gras libre et lysophospholipide."
+    },
+    "explanation": "Les TAG stockent des acides gras mobilisables ; leur hydrolyse libère glycérol et acides gras."
   },
   {
     "order": 121,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de la signalisation par le PIP2 :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant le point de fusion des triacylglycérols, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "PIP2 est sur le feuillet interne.",
-        "correct": true,
-        "explanation": "Deux destins de PIP2 illustrent sa place centrale dans la signalisation."
-      },
-      {
-        "content": "PLC peut le cliver en DAG et IP3.",
-        "correct": true,
-        "explanation": "Deux destins de PIP2 illustrent sa place centrale dans la signalisation."
-      },
-      {
-        "content": "PI3K peut le phosphoryler en PIP3.",
-        "correct": true,
-        "explanation": "Deux destins de PIP2 illustrent sa place centrale dans la signalisation."
-      },
-      {
-        "content": "PIP2 est un triglycéride de réserve adipocytaire.",
+        "content": "Le point de fusion est indépendant des chaînes acyles.",
         "correct": false,
-        "explanation": "Deux destins de PIP2 illustrent sa place centrale dans la signalisation."
+        "explanation": "Leur structure est déterminante."
+      },
+      {
+        "content": "Tous les TAG contenant un acide gras saturé sont nécessairement solides à 37 °C.",
+        "correct": false,
+        "explanation": "La propriété dépend de l'ensemble de la composition."
+      },
+      {
+        "content": "Il dépend de la nature des acides gras estérifiés.",
+        "correct": true,
+        "explanation": "Longueur et insaturation influencent l'empilement."
+      },
+      {
+        "content": "Un mélange naturel de TAG peut avoir un comportement de fusion étalé.",
+        "correct": true,
+        "explanation": "Il ne s'agit pas nécessairement d'un composé pur."
+      },
+      {
+        "content": "Tous les TAG naturels ont un point de fusion unique identique.",
+        "correct": false,
+        "explanation": "Leur composition varie."
       }
     ],
-    "explanation": "Deux destins de PIP2 illustrent sa place centrale dans la signalisation."
+    "explanation": "Le point de fusion des TAG dépend de leur composition ; l'insaturation cis tend à l'abaisser.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour cette synthèse sur les glycérides et glycérophospholipides, sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les propriétés physiques des réserves lipidiques ?",
     "choices": [
       {
-        "content": "Le glycérol possède 3 carbones.",
+        "content": "La faible polarité des TAG favorise leur stockage sans eau associée en grande quantité.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Cela contribue à la densité énergétique du stockage."
       },
       {
-        "content": "Les triglycérides sont une réserve énergétique.",
+        "content": "Les TAG sont d'excellents conducteurs électriques et thermiques.",
+        "correct": false,
+        "explanation": "Ils sont de mauvais conducteurs thermiques."
+      },
+      {
+        "content": "Ces propriétés complètent leur fonction de réserve énergétique.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Un même tissu peut avoir plusieurs fonctions."
       },
       {
-        "content": "L'acide phosphatidique porte un phosphate en C3.",
+        "content": "Les TAG sont stockés avec une très grande quantité d'eau grâce à leur forte hydrophilie.",
+        "correct": false,
+        "explanation": "Ils sont hydrophobes."
+      },
+      {
+        "content": "Les TAG conduisent mal la chaleur comparativement à l'eau et aux tissus riches en eau.",
         "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "PLA2 peut libérer l'acide arachidonique.",
-        "correct": true,
-        "explanation": "Signalisation."
-      },
-      {
-        "content": "PIP3 recrute AKT à la membrane.",
-        "correct": true,
-        "explanation": "Voie PI3K-AKT."
-      },
-      {
-        "content": "Les triglycérides dérivent de la sphingosine.",
-        "correct": false,
-        "explanation": "Glycérol."
-      },
-      {
-        "content": "PLC sur PIP2 produit du cortisol.",
-        "correct": false,
-        "explanation": "DAG/IP3."
-      },
-      {
-        "content": "Un plasmalogène porte obligatoirement un ester en C1.",
-        "correct": false,
-        "explanation": "Éther."
-      },
-      {
-        "content": "PTEN produit PIP3 à partir de PIP2.",
-        "correct": false,
-        "explanation": "Inverse."
-      },
-      {
-        "content": "Le PAF est une protéine kinase.",
-        "correct": false,
-        "explanation": "Médiateur lipidique."
+        "explanation": "Le tissu adipeux participe à l'isolation thermique."
       }
     ],
-    "explanation": "Cette synthèse mobilise la structure, le stockage énergétique et la signalisation des glycérides et glycérophospholipides."
+    "explanation": "Le stockage de TAG contribue à la réserve énergétique mais aussi à l'isolation thermique et à la protection mécanique."
   }
 ];
