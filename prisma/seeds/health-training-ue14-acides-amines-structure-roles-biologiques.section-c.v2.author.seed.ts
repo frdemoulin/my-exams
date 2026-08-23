@@ -1,665 +1,689 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Acides aminés : structure et rôles biologiques — Section C — Aromatiques, proline, polarité et chiralité */
 export const UE14_BIOCH_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la phénylalanine :",
+    "question": "Concernant les acides aminés aromatiques, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle porte un noyau benzénique dans sa chaîne latérale.",
-        "correct": true,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
-      },
-      {
-        "content": "Elle est classée parmi les acides aminés aromatiques.",
-        "correct": true,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
-      },
-      {
-        "content": "Elle porte un groupement guanidinium.",
+        "content": "La tyrosine ne possède aucun groupement hydroxyle.",
         "correct": false,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
+        "explanation": "Elle porte un phénol."
       },
       {
-        "content": "Elle est l’amide de l’aspartate.",
+        "content": "La tyrosine porte un groupement phénol.",
+        "correct": true,
+        "explanation": "Elle est plus polaire que la phénylalanine."
+      },
+      {
+        "content": "Les trois aromatiques contribuent exactement de façon égale à l'absorbance à 280 nm.",
         "correct": false,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
+        "explanation": "Trp et Tyr dominent, Phe est faible."
+      },
+      {
+        "content": "La phénylalanine porte un noyau phényle.",
+        "correct": true,
+        "explanation": "Sa chaîne latérale est hydrophobe."
+      },
+      {
+        "content": "La phénylalanine est un acide aminé soufré.",
+        "correct": false,
+        "explanation": "Elle ne contient pas de soufre."
       }
     ],
-    "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
+    "explanation": "Les trois aromatiques classiques sont Phe, Tyr et Trp ; Trp et Tyr dominent l'absorbance à 280 nm."
   },
   {
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel motif aromatique caractérise la phénylalanine ?",
+    "question": "Parmi les affirmations suivantes concernant la proline, laquelle est correcte ?",
     "choices": [
       {
-        "content": "un noyau benzénique",
+        "content": "La proline donne systématiquement le même violet intense que les amines primaires avec la ninhydrine.",
+        "correct": false,
+        "explanation": "Elle donne classiquement une coloration jaune."
+      },
+      {
+        "content": "La proline possède une chaîne latérale totalement indépendante de l'azote alpha.",
+        "correct": false,
+        "explanation": "Elle se referme sur cet azote."
+      },
+      {
+        "content": "Le cycle de la proline est un pyrrole aromatique.",
+        "correct": false,
+        "explanation": "Il s'agit d'une pyrrolidine saturée."
+      },
+      {
+        "content": "Un résidu de proline rigidifie localement la chaîne polypeptidique.",
         "correct": true,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
+        "explanation": "Il peut provoquer un coude et perturber certaines hélices alpha."
       },
       {
-        "content": "un noyau imidazole",
+        "content": "La proline est un acide aminé aromatique.",
         "correct": false,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
-      },
-      {
-        "content": "un groupement thiol",
-        "correct": false,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
-      },
-      {
-        "content": "un alcool primaire",
-        "correct": false,
-        "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
+        "explanation": "Son cycle n'est pas aromatique."
       }
     ],
-    "explanation": "La phénylalanine est l’exemple de chaîne latérale benzénique."
+    "explanation": "La proline contient un cycle pyrrolidine saturé et une amine secondaire ; elle ne doit pas être décrite comme un pyrrole aromatique."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la tyrosine :",
-    "choices": [
-      {
-        "content": "Elle porte un groupement phénol.",
-        "correct": true,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
-      },
-      {
-        "content": "Elle est classée parmi les acides aminés aromatiques.",
-        "correct": true,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
-      },
-      {
-        "content": "Elle ne contient aucun oxygène dans sa chaîne latérale.",
-        "correct": false,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
-      },
-      {
-        "content": "Elle appartient aux acides aminés basiques chargés positivement.",
-        "correct": false,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
+    "format": "QROC",
+    "question": "De quel acide aminé dérive la 4-hydroxyproline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "proline",
+        "la proline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La tyrosine combine aromaticité et fonction phénol."
+    },
+    "explanation": "La 4-hydroxyproline est un dérivé post-traductionnel de la proline, particulièrement important dans le collagène."
   },
   {
     "order": 48,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel groupement caractérise la tyrosine ?",
+    "format": "QRM",
+    "question": "Concernant la polarité des chaînes latérales, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "un phénol",
+        "content": "Val, Leu et Ile sont classées parmi les chaînes latérales hydrophobes.",
         "correct": true,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
+        "explanation": "Leur chaîne aliphatique est apolaire."
       },
       {
-        "content": "un thioéther",
-        "correct": false,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
+        "content": "Ser, Thr, Asn et Gln sont polaires non chargées aux pH physiologiques usuels.",
+        "correct": true,
+        "explanation": "Elles forment des liaisons hydrogène."
       },
       {
-        "content": "un guanidinium",
-        "correct": false,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
+        "content": "Asp et Glu sont négativement chargées aux pH physiologiques usuels.",
+        "correct": true,
+        "explanation": "Leur carboxylate latéral est déprotoné."
       },
       {
-        "content": "un amide",
+        "content": "Asp et Glu sont hydrophobes non polaires.",
         "correct": false,
-        "explanation": "La tyrosine combine aromaticité et fonction phénol."
+        "explanation": "Ils sont acides et chargés négativement."
+      },
+      {
+        "content": "Histidine est toujours totalement positive à pH physiologique.",
+        "correct": false,
+        "explanation": "Son ionisation dépend sensiblement de l'environnement et du pH."
       }
     ],
-    "explanation": "La tyrosine combine aromaticité et fonction phénol."
+    "explanation": "La polarité et la charge des chaînes latérales conditionnent solubilité, interactions et localisation dans les protéines."
   },
   {
     "order": 49,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant le tryptophane :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la chiralité des acides aminés, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Il porte un groupement indole.",
-        "correct": true,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
-      },
-      {
-        "content": "L’indole associe un noyau benzénique et un cycle pyrrole accolés.",
-        "correct": true,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
-      },
-      {
-        "content": "Il est dépourvu de cycle.",
+        "content": "La glycine existe comme paire d'énantiomères D et L.",
         "correct": false,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
+        "explanation": "Elle est achirale."
       },
       {
-        "content": "Il porte un carboxyle latéral supplémentaire.",
+        "content": "D/L indique le signe du pouvoir rotatoire.",
         "correct": false,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
+        "explanation": "D/L est une relation de configuration, pas le signe +/−."
+      },
+      {
+        "content": "Tous les L-acides aminés sont de configuration S sans exception.",
+        "correct": false,
+        "explanation": "L-cystéine est R."
+      },
+      {
+        "content": "D/L et R/S sont deux systèmes de nomenclature distincts.",
+        "correct": true,
+        "explanation": "On ne peut pas écrire universellement L=S et D=R sans exception."
+      },
+      {
+        "content": "Les protéines humaines utilisent normalement un mélange aléatoire de D et L pour chaque résidu.",
+        "correct": false,
+        "explanation": "Les résidus protéinogènes sont de série L."
       }
     ],
-    "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
+    "explanation": "La plupart des L-acides aminés sont S, mais L-cystéine est R ; glycine est achirale."
   },
   {
     "order": 50,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel groupement aromatique caractérise le tryptophane ?",
+    "format": "QRP",
+    "question": "Concernant la solubilité des acides aminés, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "indole",
+        "content": "Une chaîne hydrophobe rend toujours la molécule totalement insoluble.",
+        "correct": false,
+        "explanation": "Les fonctions alpha ionisées restent hydrophiles."
+      },
+      {
+        "content": "Tous les acides aminés ont exactement la même solubilité dans l'eau.",
+        "correct": false,
+        "explanation": "La chaîne latérale modifie fortement ce paramètre."
+      },
+      {
+        "content": "Une charge ionique empêche toute interaction avec l'eau.",
+        "correct": false,
+        "explanation": "Elle favorise généralement l'hydratation."
+      },
+      {
+        "content": "Les chaînes hydrophobes tendent à réduire la solubilité aqueuse.",
         "correct": true,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
+        "explanation": "Cette tendance est modulée par les fonctions alpha ionisées."
       },
       {
-        "content": "imidazole",
-        "correct": false,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
-      },
-      {
-        "content": "guanidinium",
-        "correct": false,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
-      },
-      {
-        "content": "thiol",
-        "correct": false,
-        "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
+        "content": "La solubilité dépend de la chaîne latérale et de l'état d'ionisation.",
+        "correct": true,
+        "explanation": "Le pH influence donc la solubilité."
       }
     ],
-    "explanation": "Le tryptophane est l’acide aminé aromatique à noyau indole."
+    "explanation": "La solubilité des acides aminés dépend de la polarité de R et de l'état d'ionisation imposé par le pH.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la proline :",
-    "choices": [
-      {
-        "content": "Sa fonction amine secondaire participe à une structure cyclique.",
-        "correct": true,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
-      },
-      {
-        "content": "Un résidu de proline peut provoquer une angulation de la chaîne polypeptidique.",
-        "correct": true,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
-      },
-      {
-        "content": "Sa chaîne latérale est décrite comme totalement linéaire et flexible.",
-        "correct": false,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
-      },
-      {
-        "content": "Elle est un acide aminé soufré.",
-        "correct": false,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
+    "format": "QROC",
+    "question": "Quel type de cycle saturé caractérise la proline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "pyrrolidine",
+        "cycle pyrrolidine",
+        "noyau pyrrolidine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
+    },
+    "explanation": "La proline contient un cycle pyrrolidine saturé ; le terme pyrrole désignerait un hétérocycle aromatique différent."
   },
   {
     "order": 52,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel effet structural un résidu de proline peut-il provoquer dans une chaîne ?",
-    "choices": [
-      {
-        "content": "une angulation",
-        "correct": true,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
-      },
-      {
-        "content": "une glycosylation",
-        "correct": false,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
-      },
-      {
-        "content": "une coupure de l’ARN",
-        "correct": false,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
-      },
-      {
-        "content": "une estérification",
-        "correct": false,
-        "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
+    "format": "QROC",
+    "question": "Quel type de cycle caractérise la proline : pyrrole ou pyrrolidine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "pyrrolidine",
+        "cycle pyrrolidine",
+        "noyau pyrrolidine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La conformation particulière de la proline peut interrompre ou infléchir une organisation régulière."
+    },
+    "explanation": "La proline contient un cycle pyrrolidine saturé et une amine secondaire ; elle ne doit pas être décrite comme un pyrrole aromatique."
   },
   {
     "order": 53,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la 4-hydroxyproline :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la 4-hydroxyproline ?",
     "choices": [
       {
-        "content": "Elle résulte de l’hydroxylation du carbone 4 de la proline.",
+        "content": "Sa formation dépend de la vitamine C comme cofacteur de prolyl-hydroxylases.",
         "correct": true,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+        "explanation": "Une carence sévère en vitamine C perturbe le collagène."
       },
       {
-        "content": "Elle conserve l’origine structurale liée à la proline.",
-        "correct": true,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
-      },
-      {
-        "content": "Elle résulte de la méthylation de la glycine.",
+        "content": "Elle est absente du collagène.",
         "correct": false,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+        "explanation": "Elle y est caractéristique."
       },
       {
-        "content": "Elle est un acide aminé branché de type valine.",
+        "content": "Elle est codée directement par un codon spécifique parmi les vingt standards.",
         "correct": false,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+        "explanation": "Elle est formée post-traductionnellement."
+      },
+      {
+        "content": "Sa synthèse est indépendante de toute hydroxylase.",
+        "correct": false,
+        "explanation": "Une prolyl-hydroxylase est nécessaire."
+      },
+      {
+        "content": "Elle est un dérivé du tryptophane.",
+        "correct": false,
+        "explanation": "Elle dérive de la proline."
       }
     ],
-    "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+    "explanation": "La 4-hydroxyproline est un dérivé post-traductionnel de la proline, particulièrement important dans le collagène."
   },
   {
     "order": 54,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle modification forme la 4-hydroxyproline ?",
+    "format": "QRM",
+    "question": "Dans une application de ce principe, concernant la polarité des chaînes latérales, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "une hydroxylation de la proline",
+        "content": "Ser et Thr sont chargées positivement à pH physiologique.",
+        "correct": false,
+        "explanation": "Leurs OH sont neutres."
+      },
+      {
+        "content": "Ser, Thr, Asn et Gln sont polaires non chargées aux pH physiologiques usuels.",
         "correct": true,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+        "explanation": "Elles forment des liaisons hydrogène."
       },
       {
-        "content": "une décarboxylation de la lysine",
+        "content": "Histidine est toujours totalement positive à pH physiologique.",
         "correct": false,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+        "explanation": "Son ionisation dépend sensiblement de l'environnement et du pH."
       },
       {
-        "content": "une réduction de la méthionine",
+        "content": "Val, Leu et Ile sont fortement hydrophiles.",
         "correct": false,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+        "explanation": "Ils sont hydrophobes."
       },
       {
-        "content": "une phosphorylation de l’alanine",
-        "correct": false,
-        "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+        "content": "Val, Leu et Ile sont classées parmi les chaînes latérales hydrophobes.",
+        "correct": true,
+        "explanation": "Leur chaîne aliphatique est apolaire."
       }
     ],
-    "explanation": "Le nom même de 4-hydroxyproline correspond à l’hydroxylation en C4 de la proline."
+    "explanation": "La polarité et la charge des chaînes latérales conditionnent solubilité, interactions et localisation dans les protéines."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux acides aminés dont la chaîne latérale est acide et chargée négativement au pH physiologique.",
+    "format": "QRM",
+    "question": "Concernant les acides aminés aromatiques, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Acide aspartique",
-        "correct": true,
-        "explanation": "Aspartate et glutamate constituent la classe acide chargée négativement."
-      },
-      {
-        "content": "Acide glutamique",
-        "correct": true,
-        "explanation": "Aspartate et glutamate constituent la classe acide chargée négativement."
-      },
-      {
-        "content": "Lysine",
+        "content": "Le tryptophane porte un noyau imidazole.",
         "correct": false,
-        "explanation": "Aspartate et glutamate constituent la classe acide chargée négativement."
+        "explanation": "L'histidine porte l'imidazole."
       },
       {
-        "content": "Arginine",
+        "content": "La tyrosine ne possède aucun groupement hydroxyle.",
         "correct": false,
-        "explanation": "Aspartate et glutamate constituent la classe acide chargée négativement."
+        "explanation": "Elle porte un phénol."
+      },
+      {
+        "content": "Le tryptophane porte un noyau indole.",
+        "correct": true,
+        "explanation": "C'est le plus volumineux des trois aromatiques classiques."
+      },
+      {
+        "content": "Les trois aromatiques contribuent exactement de façon égale à l'absorbance à 280 nm.",
+        "correct": false,
+        "explanation": "Trp et Tyr dominent, Phe est faible."
+      },
+      {
+        "content": "La tyrosine porte un groupement phénol.",
+        "correct": true,
+        "explanation": "Elle est plus polaire que la phénylalanine."
       }
     ],
-    "explanation": "Aspartate et glutamate constituent la classe acide chargée négativement."
+    "explanation": "Les trois aromatiques classiques sont Phe, Tyr et Trp ; Trp et Tyr dominent l'absorbance à 280 nm."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Lequel possède une chaîne latérale apolaire et hydrophobe ?",
-    "choices": [
-      {
-        "content": "valine",
-        "correct": true,
-        "explanation": "La classification par polarité place notamment les acides aminés aliphatiques et plusieurs aromatiques dans le groupe hydrophobe."
-      },
-      {
-        "content": "aspartate",
-        "correct": false,
-        "explanation": "La classification par polarité place notamment les acides aminés aliphatiques et plusieurs aromatiques dans le groupe hydrophobe."
-      },
-      {
-        "content": "lysine",
-        "correct": false,
-        "explanation": "La classification par polarité place notamment les acides aminés aliphatiques et plusieurs aromatiques dans le groupe hydrophobe."
-      },
-      {
-        "content": "glutamine",
-        "correct": false,
-        "explanation": "La classification par polarité place notamment les acides aminés aliphatiques et plusieurs aromatiques dans le groupe hydrophobe."
+    "format": "QROC",
+    "question": "Quel type de cycle caractérise la proline : pyrrole ou pyrrolidine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "pyrrolidine",
+        "cycle pyrrolidine",
+        "noyau pyrrolidine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La classification par polarité place notamment les acides aminés aliphatiques et plusieurs aromatiques dans le groupe hydrophobe."
+    },
+    "explanation": "La proline contient un cycle pyrrolidine saturé et une amine secondaire ; elle ne doit pas être décrite comme un pyrrole aromatique."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides aminés polaires neutres :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la 4-hydroxyproline ?",
     "choices": [
       {
-        "content": "Cys, Tyr, Ser, Thr, Asn et Gln sont listés.",
-        "correct": true,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
-      },
-      {
-        "content": "Ils sont distingués des acides aminés acides et basiques chargés.",
-        "correct": true,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
-      },
-      {
-        "content": "Lysine et arginine possèdent des chaînes latérales basiques, et non polaires neutres.",
+        "content": "Sa synthèse est indépendante de toute hydroxylase.",
         "correct": false,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+        "explanation": "Une prolyl-hydroxylase est nécessaire."
       },
       {
-        "content": "Asp et Glu y sont classés comme neutres.",
+        "content": "Elle est abondante dans le collagène.",
+        "correct": true,
+        "explanation": "Elle contribue à la stabilité de la triple hélice."
+      },
+      {
+        "content": "Elle est un dérivé du tryptophane.",
         "correct": false,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+        "explanation": "Elle dérive de la proline."
+      },
+      {
+        "content": "Elle est absente du collagène.",
+        "correct": false,
+        "explanation": "Elle y est caractéristique."
+      },
+      {
+        "content": "Elle est codée directement par un codon spécifique parmi les vingt standards.",
+        "correct": false,
+        "explanation": "Elle est formée post-traductionnellement."
       }
     ],
-    "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+    "explanation": "La 4-hydroxyproline est un dérivé post-traductionnel de la proline, particulièrement important dans le collagène."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Lequel est classé polaire neutre ?",
+    "format": "QRM",
+    "question": "Concernant la polarité des chaînes latérales, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "sérine",
+        "content": "Val, Leu et Ile sont classées parmi les chaînes latérales hydrophobes.",
         "correct": true,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+        "explanation": "Leur chaîne aliphatique est apolaire."
       },
       {
-        "content": "valine",
+        "content": "Asp et Glu sont hydrophobes non polaires.",
         "correct": false,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+        "explanation": "Ils sont acides et chargés négativement."
       },
       {
-        "content": "lysine",
+        "content": "Val, Leu et Ile sont fortement hydrophiles.",
         "correct": false,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+        "explanation": "Ils sont hydrophobes."
       },
       {
-        "content": "glutamate",
-        "correct": false,
-        "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+        "content": "Asp et Glu sont négativement chargées aux pH physiologiques usuels.",
+        "correct": true,
+        "explanation": "Leur carboxylate latéral est déprotoné."
+      },
+      {
+        "content": "Ser, Thr, Asn et Gln sont polaires non chargées aux pH physiologiques usuels.",
+        "correct": true,
+        "explanation": "Elles forment des liaisons hydrogène."
       }
     ],
-    "explanation": "Sérine, thréonine, cystéine, tyrosine, asparagine et glutamine possèdent des chaînes latérales polaires non chargées dans les conditions physiologiques usuelles."
+    "explanation": "La polarité et la charge des chaînes latérales conditionnent solubilité, interactions et localisation dans les protéines."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides aminés polaires acides :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la chiralité des acides aminés, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Aspartate et glutamate sont classés chargés négativement.",
+        "content": "Les acides aminés des protéines humaines sont de série L.",
         "correct": true,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "explanation": "La série D/L est une nomenclature relative."
       },
       {
-        "content": "Leur chaîne latérale contient un carboxyle supplémentaire.",
+        "content": "D/L et R/S sont deux systèmes de nomenclature distincts.",
         "correct": true,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "explanation": "On ne peut pas écrire universellement L=S et D=R sans exception."
       },
       {
-        "content": "Aspartate et glutamate portent une charge latérale négative au pH physiologique.",
+        "content": "Tous les L-acides aminés sont de configuration S sans exception.",
         "correct": false,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "explanation": "L-cystéine est R."
       },
       {
-        "content": "Histidine et arginine appartiennent à cette classe acide.",
+        "content": "La glycine existe comme paire d'énantiomères D et L.",
         "correct": false,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "explanation": "Elle est achirale."
+      },
+      {
+        "content": "D/L indique le signe du pouvoir rotatoire.",
+        "correct": false,
+        "explanation": "D/L est une relation de configuration, pas le signe +/−."
       }
     ],
-    "explanation": "La nature carboxylique de leur radical motive ce classement local."
+    "explanation": "La plupart des L-acides aminés sont S, mais L-cystéine est R ; glycine est achirale.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel couple constitue la classe polaire acide et chargée négativement ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la solubilité des acides aminés ?",
     "choices": [
       {
-        "content": "aspartate et glutamate",
+        "content": "La solubilité dépend de la chaîne latérale et de l'état d'ionisation.",
         "correct": true,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "explanation": "Le pH influence donc la solubilité."
       },
       {
-        "content": "lysine et arginine",
-        "correct": false,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "content": "La solubilité peut être minimale près du point isoélectrique pour certains acides aminés ou protéines.",
+        "correct": true,
+        "explanation": "La charge nette y est minimale."
       },
       {
-        "content": "sérine et thréonine",
-        "correct": false,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "content": "Les formes ioniques interagissent fortement avec l'eau.",
+        "correct": true,
+        "explanation": "Les fonctions chargées favorisent l'hydratation."
       },
       {
-        "content": "leucine et isoleucine",
+        "content": "Une charge ionique empêche toute interaction avec l'eau.",
         "correct": false,
-        "explanation": "La nature carboxylique de leur radical motive ce classement local."
+        "explanation": "Elle favorise généralement l'hydratation."
+      },
+      {
+        "content": "Les chaînes hydrophobes tendent à réduire la solubilité aqueuse.",
+        "correct": true,
+        "explanation": "Cette tendance est modulée par les fonctions alpha ionisées."
       }
     ],
-    "explanation": "La nature carboxylique de leur radical motive ce classement local."
+    "explanation": "La solubilité des acides aminés dépend de la polarité de R et de l'état d'ionisation imposé par le pH."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides aminés à chaîne latérale basique :",
-    "choices": [
-      {
-        "content": "Lysine, arginine et histidine possèdent une chaîne latérale basique.",
-        "correct": true,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
-      },
-      {
-        "content": "Leur groupe est distingué des acides aminés polaires acides.",
-        "correct": true,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
-      },
-      {
-        "content": "Glycine et alanine constituent ce groupe.",
-        "correct": false,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
-      },
-      {
-        "content": "Aspartate et glutamate y sont chargés positivement.",
-        "correct": false,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
+    "format": "QROC",
+    "question": "Quel acide aminé aromatique porte un noyau indole ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "tryptophane",
+        "Trp",
+        "le tryptophane"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
+    },
+    "explanation": "Les trois aromatiques classiques sont Phe, Tyr et Trp ; Trp et Tyr dominent l'absorbance à 280 nm."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel trio possède des chaînes latérales basiques ?",
+    "question": "Parmi les affirmations suivantes concernant la proline, laquelle est correcte ?",
     "choices": [
       {
-        "content": "lysine, arginine et histidine",
+        "content": "La proline donne systématiquement le même violet intense que les amines primaires avec la ninhydrine.",
+        "correct": false,
+        "explanation": "Elle donne classiquement une coloration jaune."
+      },
+      {
+        "content": "Le cycle de la proline est un pyrrole aromatique.",
+        "correct": false,
+        "explanation": "Il s'agit d'une pyrrolidine saturée."
+      },
+      {
+        "content": "La proline possède une chaîne latérale totalement indépendante de l'azote alpha.",
+        "correct": false,
+        "explanation": "Elle se referme sur cet azote."
+      },
+      {
+        "content": "La proline est un acide aminé aromatique.",
+        "correct": false,
+        "explanation": "Son cycle n'est pas aromatique."
+      },
+      {
+        "content": "La proline possède une amine secondaire dans sa forme libre.",
         "correct": true,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
-      },
-      {
-        "content": "glycine, alanine et valine",
-        "correct": false,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
-      },
-      {
-        "content": "aspartate, glutamate et glutamine",
-        "correct": false,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
-      },
-      {
-        "content": "sérine, thréonine et tyrosine",
-        "correct": false,
-        "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
+        "explanation": "L'azote est lié au Cα et à la chaîne latérale."
       }
     ],
-    "explanation": "Lysine, arginine et histidine possèdent des chaînes latérales basiques ; l’histidine est majoritairement neutre au pH physiologique mais peut se protoner près de ce pH."
+    "explanation": "La proline contient un cycle pyrrolidine saturé et une amine secondaire ; elle ne doit pas être décrite comme un pyrrole aromatique."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la solubilité des acides aminés :",
+    "question": "Quelles propositions sont exactes concernant la 4-hydroxyproline ?",
     "choices": [
       {
-        "content": "Elle dépend du caractère hydrophile ou hydrophobe de la chaîne latérale.",
-        "correct": true,
-        "explanation": "Les propriétés de la chaîne latérale expliquent les différences de solubilité."
-      },
-      {
-        "content": "Elle influence leur comportement dans l’eau et les autres milieux polaires.",
-        "correct": true,
-        "explanation": "Les propriétés de la chaîne latérale expliquent les différences de solubilité."
-      },
-      {
-        "content": "Elle est totalement indépendante du radical R.",
+        "content": "Elle est absente du collagène.",
         "correct": false,
-        "explanation": "Les propriétés de la chaîne latérale expliquent les différences de solubilité."
+        "explanation": "Elle y est caractéristique."
       },
       {
-        "content": "Tous les acides aminés ont exactement la même solubilité.",
+        "content": "Sa synthèse est indépendante de toute hydroxylase.",
         "correct": false,
-        "explanation": "Les propriétés de la chaîne latérale expliquent les différences de solubilité."
+        "explanation": "Une prolyl-hydroxylase est nécessaire."
+      },
+      {
+        "content": "Elle est un dérivé du tryptophane.",
+        "correct": false,
+        "explanation": "Elle dérive de la proline."
+      },
+      {
+        "content": "Elle dérive de la proline par hydroxylation post-traductionnelle.",
+        "correct": true,
+        "explanation": "Cette modification survient sur certains résidus de protéines."
+      },
+      {
+        "content": "Sa formation dépend de la vitamine C comme cofacteur de prolyl-hydroxylases.",
+        "correct": true,
+        "explanation": "Une carence sévère en vitamine C perturbe le collagène."
       }
     ],
-    "explanation": "Les propriétés de la chaîne latérale expliquent les différences de solubilité."
+    "explanation": "La 4-hydroxyproline est un dérivé post-traductionnel de la proline, particulièrement important dans le collagène."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel acide aminé constitue l’exception à la chiralité du carbone α ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "glycine",
-        "Gly"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "La tyrosine porte un groupement phénol.",
+        "correct": true,
+        "explanation": "Elle est plus polaire que la phénylalanine."
+      },
+      {
+        "content": "Val, Leu et Ile sont fortement hydrophiles.",
+        "correct": false,
+        "explanation": "Ils sont hydrophobes."
+      },
+      {
+        "content": "Asp et Glu sont hydrophobes non polaires.",
+        "correct": false,
+        "explanation": "Ils sont acides et chargés négativement."
+      },
+      {
+        "content": "Tyr et Trp contribuent fortement à l'absorbance des protéines autour de 280 nm.",
+        "correct": true,
+        "explanation": "Phe contribue beaucoup plus faiblement."
+      },
+      {
+        "content": "Lys et Arg sont positivement chargées aux pH physiologiques usuels.",
+        "correct": true,
+        "explanation": "His a un comportement plus intermédiaire du fait de son pKa."
+      },
+      {
+        "content": "Le tryptophane porte un noyau indole.",
+        "correct": true,
+        "explanation": "C'est le plus volumineux des trois aromatiques classiques."
+      },
+      {
+        "content": "Les trois aromatiques contribuent exactement de façon égale à l'absorbance à 280 nm.",
+        "correct": false,
+        "explanation": "Trp et Tyr dominent, Phe est faible."
+      },
+      {
+        "content": "La phénylalanine est un acide aminé soufré.",
+        "correct": false,
+        "explanation": "Elle ne contient pas de soufre."
+      },
+      {
+        "content": "Val, Leu et Ile sont classées parmi les chaînes latérales hydrophobes.",
+        "correct": true,
+        "explanation": "Leur chaîne aliphatique est apolaire."
+      },
+      {
+        "content": "La tyrosine ne possède aucun groupement hydroxyle.",
+        "correct": false,
+        "explanation": "Elle porte un phénol."
       }
-    },
-    "explanation": "La glycine porte deux hydrogènes autour du Cα et n’est pas chirale."
+    ],
+    "explanation": "La polarité et la charge des chaînes latérales conditionnent solubilité, interactions et localisation dans les protéines. Les trois aromatiques classiques sont Phe, Tyr et Trp ; Trp et Tyr dominent l'absorbance à 280 nm."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une projection de Fischer conventionnelle des acides aminés, avec COOH en haut et le radical R en bas :",
-    "choices": [
-      {
-        "content": "Avec COOH placé en haut, un NH2 à gauche correspond à la série L.",
-        "correct": true,
-        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
-      },
-      {
-        "content": "Avec COOH placé en haut, un NH2 à droite correspond à la série D.",
-        "correct": true,
-        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
-      },
-      {
-        "content": "Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale.",
-        "correct": true,
-        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
-      },
-      {
-        "content": "Un NH2 à gauche définit la série D.",
-        "correct": false,
-        "explanation": "En projection de Fischer conventionnelle, NH2 à gauche définit la série L. Les acides aminés protéinogènes sont de série L ; ils sont généralement S, sauf la cystéine qui est R, tandis que la glycine est achirale."
+    "format": "QROC",
+    "question": "Quel acide aminé standard de série L possède une configuration R au carbone alpha ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cystéine",
+        "L-cystéine",
+        "cysteine",
+        "L-cysteine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La série D/L dépend de la position de NH2 en projection de Fischer et ne se confond pas avec la configuration R/S."
+    },
+    "explanation": "L-cystéine est R en nomenclature CIP en raison de la priorité élevée du soufre ; la plupart des autres L-acides aminés sont S."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour conclure la section polarité et chiralité, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "La phénylalanine porte un noyau benzénique.",
-        "correct": true,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "La tyrosine porte un phénol.",
-        "correct": true,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "Le tryptophane porte un indole.",
-        "correct": true,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "La proline peut anguler une chaîne polypeptidique.",
-        "correct": true,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "La glycine est l’exception à la chiralité du Cα.",
-        "correct": true,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "L’histidine porte un indole.",
-        "correct": false,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "La proline est un acide aminé soufré.",
-        "correct": false,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "Asp et Glu sont classés basiques positifs.",
-        "correct": false,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "Lys et Arg sont classés non polaires.",
-        "correct": false,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
-      },
-      {
-        "content": "La solubilité est indépendante de la chaîne latérale.",
-        "correct": false,
-        "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
+    "format": "QROC",
+    "question": "Quel paramètre acido-basique modifie fortement l'état d'ionisation et donc la solubilité d'un acide aminé ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "pH",
+        "le pH"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces cinq repères synthétisent structure aromatique, proline, polarité et chiralité."
+    },
+    "explanation": "La solubilité des acides aminés dépend de la polarité de R et de l'état d'ionisation imposé par le pH."
   }
 ];

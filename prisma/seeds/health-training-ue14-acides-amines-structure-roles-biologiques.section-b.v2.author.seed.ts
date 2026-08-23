@@ -1,665 +1,706 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Acides aminés : structure et rôles biologiques — Section B — Classification selon la chaîne latérale */
 export const UE14_BIOCH_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les acides aminés aliphatiques :",
+    "question": "Concernant les acides aminés aliphatiques hydrophobes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Leur chaîne latérale est carbonée, ouverte, linéaire ou ramifiée.",
-        "correct": true,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
-      },
-      {
-        "content": "Leur hydrophobicité varie avec la taille et la ramification de leur chaîne latérale.",
-        "correct": true,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
-      },
-      {
-        "content": "Ils possèdent nécessairement un cycle aromatique.",
+        "content": "Tous les acides aminés aliphatiques possèdent un noyau benzénique.",
         "correct": false,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
+        "explanation": "Ce serait un caractère aromatique."
       },
       {
-        "content": "Ils portent obligatoirement un hétéroatome N, O ou S dans la chaîne latérale.",
+        "content": "Valine, leucine et isoleucine sont des acides aminés à chaîne ramifiée.",
+        "correct": true,
+        "explanation": "Ils sont souvent abrégés BCAA."
+      },
+      {
+        "content": "La chaîne latérale de l'alanine est un phénol.",
         "correct": false,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
+        "explanation": "C'est un méthyle."
+      },
+      {
+        "content": "Le caractère aliphatique implique une forte charge positive à pH physiologique.",
+        "correct": false,
+        "explanation": "Ce n'est pas une conséquence du caractère aliphatique."
+      },
+      {
+        "content": "La glycine possède une chaîne latérale réduite à H.",
+        "correct": true,
+        "explanation": "Elle est souvent classée à part malgré sa simplicité aliphatique."
       }
     ],
-    "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
+    "explanation": "Valine, leucine et isoleucine sont les trois acides aminés standards à chaîne ramifiée."
   },
   {
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Lequel est un acide aminé à chaîne latérale aliphatique ?",
+    "question": "Parmi les affirmations suivantes concernant la valine, la leucine et l'isoleucine, laquelle est correcte ?",
     "choices": [
       {
-        "content": "alanine",
+        "content": "Leucine et isoleucine portent toutes deux exactement un groupement isobutyle.",
+        "correct": false,
+        "explanation": "L'isoleucine porte un sec-butyle."
+      },
+      {
+        "content": "La valine porte un groupement phényle.",
+        "correct": false,
+        "explanation": "La phénylalanine porte un phényle."
+      },
+      {
+        "content": "La leucine porte un groupement isobutyle.",
         "correct": true,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
+        "explanation": "La ramification est différente de celle de l'isoleucine."
       },
       {
-        "content": "tryptophane",
+        "content": "Leucine et isoleucine sont des énantiomères l'une de l'autre.",
         "correct": false,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
+        "explanation": "Ce sont des isomères de constitution."
       },
       {
-        "content": "histidine",
+        "content": "L'isoleucine est un acide aminé soufré.",
         "correct": false,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
-      },
-      {
-        "content": "tyrosine",
-        "correct": false,
-        "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
+        "explanation": "Elle ne contient pas de soufre."
       }
     ],
-    "explanation": "La glycine et l’alanine possèdent des chaînes latérales aliphatiques simples."
+    "explanation": "Isoleucine et leucine sont des isomères de constitution ; leurs chaînes latérales sont respectivement sec-butyle et isobutyle."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la glycine et l’alanine :",
-    "choices": [
-      {
-        "content": "La glycine possède R = H.",
-        "correct": true,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
-      },
-      {
-        "content": "L’alanine possède un groupement méthyle comme radical.",
-        "correct": true,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
-      },
-      {
-        "content": "L’alanine porte un noyau indole.",
-        "correct": false,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
-      },
-      {
-        "content": "La glycine porte un groupement guanidinium.",
-        "correct": false,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
+    "format": "QROC",
+    "question": "Quel acide aminé hydroxylé possède un alcool primaire dans sa chaîne latérale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sérine",
+        "serine",
+        "la sérine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
+    },
+    "explanation": "Sérine et thréonine sont des acides aminés hydroxylés, respectivement alcool primaire et secondaire."
   },
   {
     "order": 26,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel radical caractérise l’alanine ?",
+    "format": "QRM",
+    "question": "Concernant les acides aminés soufrés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "un groupement méthyle",
+        "content": "La cystéine est toujours totalement apolaire.",
+        "correct": false,
+        "explanation": "Son thiol lui confère une certaine polarité et une réactivité particulière."
+      },
+      {
+        "content": "La méthionine est un acide aminé indispensable chez l'adulte.",
         "correct": true,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
+        "explanation": "Elle peut servir de précurseur soufré pour la cystéine."
       },
       {
-        "content": "un groupement thiol",
+        "content": "Une liaison disulfure se forme directement entre deux méthionines.",
         "correct": false,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
+        "explanation": "Elle se forme entre deux cystéines."
       },
       {
-        "content": "un groupement phénol",
-        "correct": false,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
+        "content": "La cystéine possède un groupement thiol.",
+        "correct": true,
+        "explanation": "Deux cystéines peuvent former une liaison disulfure après oxydation."
       },
       {
-        "content": "un noyau imidazole",
-        "correct": false,
-        "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
+        "content": "La cystéine est plus polaire que la méthionine.",
+        "correct": true,
+        "explanation": "Le thiol est plus polarisable et chimiquement réactif."
       }
     ],
-    "explanation": "Glycine et alanine illustrent les radicaux aliphatiques les plus simples."
+    "explanation": "Cystéine et méthionine sont les deux acides aminés standards soufrés : thiol pour Cys, thioéther pour Met."
   },
   {
     "order": 27,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les acides aminés branchés :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les acides aminés acides et leurs amides, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Valine, leucine et isoleucine sont les trois acides aminés à chaîne latérale ramifiée.",
-        "correct": true,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
-      },
-      {
-        "content": "La valine possède un radical isopropyle.",
-        "correct": true,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
-      },
-      {
-        "content": "La méthionine est un acide aminé à chaîne latérale ramifiée.",
+        "content": "Asparagine et glutamine portent une charge négative obligatoire à pH physiologique.",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+        "explanation": "Leurs amides sont neutres."
       },
       {
-        "content": "La leucine porte un radical phénol.",
+        "content": "Aspartate et glutamate sont des acides aminés basiques.",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+        "explanation": "Ils sont acides."
+      },
+      {
+        "content": "La glutamine est l'amide correspondant au glutamate.",
+        "correct": true,
+        "explanation": "Elle est polaire mais non chargée aux pH physiologiques usuels."
+      },
+      {
+        "content": "L'asparagine correspond à l'amide du glutamate.",
+        "correct": false,
+        "explanation": "Elle correspond à l'aspartate."
+      },
+      {
+        "content": "Aspartate et glutamate sont dépourvus d'oxygène dans la chaîne latérale.",
+        "correct": false,
+        "explanation": "Ils portent un carboxylate."
       }
     ],
-    "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+    "explanation": "Asp/Glu sont acides ; Asn/Gln sont leurs amides neutres correspondants."
   },
   {
     "order": 28,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel acide aminé branché porte un groupement isopropyle ?",
+    "format": "QRP",
+    "question": "Concernant la lysine, l'arginine et l'histidine, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "valine",
+        "content": "La lysine porte un groupement carboxylate supplémentaire.",
+        "correct": false,
+        "explanation": "Cela décrit Asp/Glu."
+      },
+      {
+        "content": "La lysine porte une fonction amine epsilon généralement protonée à pH physiologique.",
         "correct": true,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+        "explanation": "Sa chaîne latérale est donc basique et positive."
       },
       {
-        "content": "leucine",
-        "correct": false,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+        "content": "L'arginine porte un groupement guanidinium fortement basique.",
+        "correct": true,
+        "explanation": "Il est positivement chargé aux pH physiologiques usuels."
       },
       {
-        "content": "isoleucine",
+        "content": "L'arginine porte un groupement phénol.",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+        "explanation": "Cela décrit la tyrosine."
       },
       {
-        "content": "cystéine",
+        "content": "L'arginine est un acide aminé acide.",
         "correct": false,
-        "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+        "explanation": "Elle est basique."
       }
     ],
-    "explanation": "Valine, leucine et isoleucine constituent les trois acides aminés à chaîne latérale ramifiée."
+    "explanation": "Lys et Arg sont fortement basiques ; His possède un imidazole dont l'état de protonation varie près du pH physiologique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 29,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la leucine et l’isoleucine :",
-    "choices": [
-      {
-        "content": "La leucine porte un groupement isobutyle, tandis que l’isoleucine porte un groupement sec-butyle.",
-        "correct": true,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
-      },
-      {
-        "content": "Elles ont la même formule brute mais un enchaînement différent des atomes dans leur chaîne latérale.",
-        "correct": true,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
-      },
-      {
-        "content": "Elles sont toutes deux des acides aminés hydroxylés.",
-        "correct": false,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
-      },
-      {
-        "content": "La leucine contient un atome de soufre dans sa chaîne latérale.",
-        "correct": false,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
+    "format": "QROC",
+    "question": "Quel groupement alkyle constitue la chaîne latérale de l'isoleucine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sec-butyle",
+        "sec butyle",
+        "butan-2-yle",
+        "butan-2-yl"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La leucine et l’isoleucine sont des isomères de constitution : leurs chaînes latérales ont la même formule brute mais une ramification différente."
+    },
+    "explanation": "La leucine porte un isobutyle, tandis que l'isoleucine porte un sec-butyle : elles sont isomères de constitution."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle relation structurale existe entre la leucine et l’isoleucine ?",
-    "choices": [
-      {
-        "content": "ce sont des isomères",
-        "correct": true,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
-      },
-      {
-        "content": "ce sont des énantiomères D/L obligatoires",
-        "correct": false,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
-      },
-      {
-        "content": "ce sont des amides",
-        "correct": false,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
-      },
-      {
-        "content": "elles ont le même code à une lettre",
-        "correct": false,
-        "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
+    "format": "QROC",
+    "question": "Quel type de groupement alkyle constitue la chaîne latérale de l'isoleucine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sec-butyle",
+        "sec butyle",
+        "butan-2-yle",
+        "butan-2-yl"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La leucine et l’isoleucine ont la même formule brute mais des chaînes latérales différemment ramifiées : ce sont des isomères de constitution."
+    },
+    "explanation": "Isoleucine et leucine sont des isomères de constitution ; leurs chaînes latérales sont respectivement sec-butyle et isobutyle."
   },
   {
     "order": 31,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les acides aminés hydroxylés :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les acides aminés hydroxylés ?",
     "choices": [
       {
-        "content": "La sérine et la thréonine possèdent une chaîne latérale hydroxylée.",
-        "correct": true,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
-      },
-      {
-        "content": "Leur fonction alcool contribue à leur caractère polaire et hydrophile.",
-        "correct": true,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
-      },
-      {
-        "content": "Elles sont décrites comme dépourvues d’oxygène.",
+        "content": "La thréonine est un acide aminé aromatique.",
         "correct": false,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+        "explanation": "Elle est aliphatique hydroxylée."
       },
       {
-        "content": "Elles ne peuvent jamais établir de liaison hydrogène avec l’eau.",
+        "content": "Sérine et thréonine sont toujours hydrophobes.",
         "correct": false,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+        "explanation": "Leur OH leur confère une polarité."
+      },
+      {
+        "content": "Leurs groupements hydroxyle peuvent être phosphorylés dans les protéines.",
+        "correct": true,
+        "explanation": "Cette modification est centrale en signalisation."
+      },
+      {
+        "content": "Le OH de la sérine est fortement déprotoné à pH physiologique.",
+        "correct": false,
+        "explanation": "Il reste majoritairement neutre."
+      },
+      {
+        "content": "La sérine porte un groupement thiol.",
+        "correct": false,
+        "explanation": "Cela décrit la cystéine."
       }
     ],
-    "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+    "explanation": "Sérine et thréonine sont des acides aminés hydroxylés, respectivement alcool primaire et secondaire."
   },
   {
     "order": 32,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel acide aminé possède un alcool primaire dans sa chaîne latérale ?",
+    "format": "QRM",
+    "question": "Dans une application de ce principe, concernant les acides aminés soufrés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "sérine",
+        "content": "La cystéine est toujours totalement apolaire.",
+        "correct": false,
+        "explanation": "Son thiol lui confère une certaine polarité et une réactivité particulière."
+      },
+      {
+        "content": "La méthionine possède un thioéther.",
         "correct": true,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+        "explanation": "Son soufre n'est pas un thiol libre."
       },
       {
-        "content": "thréonine",
+        "content": "La méthionine ne contient aucun soufre.",
         "correct": false,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+        "explanation": "Elle contient un thioéther."
       },
       {
-        "content": "méthionine",
-        "correct": false,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+        "content": "La méthionine est un acide aminé indispensable chez l'adulte.",
+        "correct": true,
+        "explanation": "Elle peut servir de précurseur soufré pour la cystéine."
       },
       {
-        "content": "phénylalanine",
+        "content": "Une liaison disulfure se forme directement entre deux méthionines.",
         "correct": false,
-        "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+        "explanation": "Elle se forme entre deux cystéines."
       }
     ],
-    "explanation": "La sérine porte un alcool primaire et la thréonine un alcool secondaire."
+    "explanation": "Cystéine et méthionine sont les deux acides aminés standards soufrés : thiol pour Cys, thioéther pour Met."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les acides aminés soufrés :",
+    "question": "Concernant les acides aminés aliphatiques hydrophobes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La cystéine porte une fonction thiol.",
-        "correct": true,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
-      },
-      {
-        "content": "La méthionine porte une fonction thioéther.",
-        "correct": true,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
-      },
-      {
-        "content": "La sérine est classée comme acide aminé soufré.",
+        "content": "Valine, leucine et isoleucine sont des acides aminés soufrés.",
         "correct": false,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
+        "explanation": "Ils ne contiennent pas de soufre."
       },
       {
-        "content": "La cystéine porte un noyau benzénique.",
+        "content": "Valine, leucine et isoleucine sont des acides aminés à chaîne ramifiée.",
+        "correct": true,
+        "explanation": "Ils sont souvent abrégés BCAA."
+      },
+      {
+        "content": "Le caractère aliphatique implique une forte charge positive à pH physiologique.",
         "correct": false,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
+        "explanation": "Ce n'est pas une conséquence du caractère aliphatique."
+      },
+      {
+        "content": "Tous les acides aminés aliphatiques possèdent un noyau benzénique.",
+        "correct": false,
+        "explanation": "Ce serait un caractère aromatique."
+      },
+      {
+        "content": "Alanine, valine, leucine et isoleucine possèdent des chaînes latérales aliphatiques hydrophobes.",
+        "correct": true,
+        "explanation": "Leur caractère hydrophobe augmente globalement avec la taille de la chaîne."
       }
     ],
-    "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
+    "explanation": "Valine, leucine et isoleucine sont les trois acides aminés standards à chaîne ramifiée."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel acide aminé soufré porte une fonction thiol ?",
-    "choices": [
-      {
-        "content": "cystéine",
-        "correct": true,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
-      },
-      {
-        "content": "méthionine",
-        "correct": false,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
-      },
-      {
-        "content": "thréonine",
-        "correct": false,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
-      },
-      {
-        "content": "asparagine",
-        "correct": false,
-        "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
+    "format": "QROC",
+    "question": "Quel type de groupement alkyle constitue la chaîne latérale de l'isoleucine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sec-butyle",
+        "sec butyle",
+        "butan-2-yle",
+        "butan-2-yl"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La nature du soufre distingue le thiol de la cystéine et le thioéther de la méthionine."
+    },
+    "explanation": "Isoleucine et leucine sont des isomères de constitution ; leurs chaînes latérales sont respectivement sec-butyle et isobutyle."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les acides aminés acides :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les acides aminés hydroxylés ?",
     "choices": [
       {
-        "content": "Aspartate et glutamate possèdent un second groupement carboxyle dans leur chaîne latérale.",
-        "correct": true,
-        "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
-      },
-      {
-        "content": "La chaîne latérale de l’acide aspartique est –CH2–COOH sous sa forme protonée.",
-        "correct": true,
-        "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
-      },
-      {
-        "content": "Ils sont classés parmi les acides aminés basiques chargés positivement.",
+        "content": "La thréonine est un acide aminé aromatique.",
         "correct": false,
-        "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
+        "explanation": "Elle est aliphatique hydroxylée."
       },
       {
-        "content": "Le glutamate ne possède aucun oxygène latéral.",
+        "content": "Sérine et thréonine sont toujours hydrophobes.",
         "correct": false,
-        "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
+        "explanation": "Leur OH leur confère une polarité."
+      },
+      {
+        "content": "Le OH de la sérine est fortement déprotoné à pH physiologique.",
+        "correct": false,
+        "explanation": "Il reste majoritairement neutre."
+      },
+      {
+        "content": "La sérine possède un groupement hydroxyméthyle.",
+        "correct": true,
+        "explanation": "Son OH est porté par un carbone primaire de la chaîne latérale."
+      },
+      {
+        "content": "La sérine porte un groupement thiol.",
+        "correct": false,
+        "explanation": "Cela décrit la cystéine."
       }
     ],
-    "explanation": "Asp et Glu sont caractérisés par un second carboxyle latéral."
+    "explanation": "Sérine et thréonine sont des acides aminés hydroxylés, respectivement alcool primaire et secondaire."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse courte : nommez l’acide aminé soufré caractérisé par une fonction thiol dans sa chaîne latérale.",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "cystéine",
-        "cysteine",
-        "Cys"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Concernant les acides aminés soufrés, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La cystéine possède un groupement thiol.",
+        "correct": true,
+        "explanation": "Deux cystéines peuvent former une liaison disulfure après oxydation."
+      },
+      {
+        "content": "La cystéine possède un thioéther et la méthionine un thiol.",
+        "correct": false,
+        "explanation": "C'est l'inverse."
+      },
+      {
+        "content": "La méthionine est un acide aminé indispensable chez l'adulte.",
+        "correct": true,
+        "explanation": "Elle peut servir de précurseur soufré pour la cystéine."
+      },
+      {
+        "content": "La méthionine ne contient aucun soufre.",
+        "correct": false,
+        "explanation": "Elle contient un thioéther."
+      },
+      {
+        "content": "La cystéine est plus polaire que la méthionine.",
+        "correct": true,
+        "explanation": "Le thiol est plus polarisable et chimiquement réactif."
       }
-    },
-    "explanation": "La cystéine est l’acide aminé soufré à fonction thiol."
+    ],
+    "explanation": "Cystéine et méthionine sont les deux acides aminés standards soufrés : thiol pour Cys, thioéther pour Met."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant l’asparagine et la glutamine :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les acides aminés acides et leurs amides, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Ce sont les amides dérivés respectivement de l’aspartate et du glutamate.",
+        "content": "La glutamine est l'amide correspondant au glutamate.",
         "correct": true,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+        "explanation": "Elle est polaire mais non chargée aux pH physiologiques usuels."
       },
       {
-        "content": "Leur formation correspond dans la présentation à la transformation d’un carboxyle en amide.",
+        "content": "Asparagine et glutamine portent une charge négative obligatoire à pH physiologique.",
+        "correct": false,
+        "explanation": "Leurs amides sont neutres."
+      },
+      {
+        "content": "Aspartate et glutamate sont dépourvus d'oxygène dans la chaîne latérale.",
+        "correct": false,
+        "explanation": "Ils portent un carboxylate."
+      },
+      {
+        "content": "Aspartate et glutamate sont des acides aminés basiques.",
+        "correct": false,
+        "explanation": "Ils sont acides."
+      },
+      {
+        "content": "L'aspartate et le glutamate portent un carboxylate supplémentaire dans leur chaîne latérale à pH physiologique.",
         "correct": true,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
-      },
-      {
-        "content": "L’asparagine est l’amide de la lysine.",
-        "correct": false,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
-      },
-      {
-        "content": "La glutamine est un acide aminé soufré.",
-        "correct": false,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+        "explanation": "Ils sont donc chargés négativement dans ces conditions."
       }
     ],
-    "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+    "explanation": "Asp/Glu sont acides ; Asn/Gln sont leurs amides neutres correspondants.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel amide correspond à l’acide glutamique ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la lysine, l'arginine et l'histidine ?",
     "choices": [
       {
-        "content": "glutamine",
+        "content": "L'arginine porte un groupement guanidinium fortement basique.",
         "correct": true,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+        "explanation": "Il est positivement chargé aux pH physiologiques usuels."
       },
       {
-        "content": "asparagine",
-        "correct": false,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+        "content": "À pH physiologique, la chaîne latérale de l'histidine est souvent majoritairement neutre mais facilement protonable.",
+        "correct": true,
+        "explanation": "Elle ne doit pas être décrite comme uniformément positive dans toutes les protéines."
       },
       {
-        "content": "histidine",
-        "correct": false,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+        "content": "L'histidine porte un noyau imidazole.",
+        "correct": true,
+        "explanation": "Son pKa proche de la neutralité en fait un résidu fréquent dans les catalyses acide-base."
       },
       {
-        "content": "tyrosine",
+        "content": "La lysine porte une fonction amine epsilon généralement protonée à pH physiologique.",
+        "correct": true,
+        "explanation": "Sa chaîne latérale est donc basique et positive."
+      },
+      {
+        "content": "L'arginine porte un groupement phénol.",
         "correct": false,
-        "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+        "explanation": "Cela décrit la tyrosine."
       }
     ],
-    "explanation": "L’asparagine et la glutamine sont respectivement les amides de l’aspartate et du glutamate."
+    "explanation": "Lys et Arg sont fortement basiques ; His possède un imidazole dont l'état de protonation varie près du pH physiologique."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant la lysine :",
-    "choices": [
-      {
-        "content": "Sa chaîne latérale comporte quatre carbones et une fonction amine.",
-        "correct": true,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
-      },
-      {
-        "content": "Elle est classée parmi les acides aminés basiques.",
-        "correct": true,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
-      },
-      {
-        "content": "Elle porte un noyau indole.",
-        "correct": false,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
-      },
-      {
-        "content": "Elle appartient au groupe des acides aminés soufrés.",
-        "correct": false,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
+    "format": "QROC",
+    "question": "Quels sont les trois acides aminés standards à chaîne latérale ramifiée ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "valine, leucine et isoleucine",
+        "Val Leu Ile",
+        "VLI",
+        "leucine, isoleucine et valine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
+    },
+    "explanation": "Valine, leucine et isoleucine sont les trois acides aminés standards à chaîne ramifiée."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle fonction termine la chaîne latérale de la lysine ?",
+    "question": "Parmi les affirmations suivantes concernant la valine, la leucine et l'isoleucine, laquelle est correcte ?",
     "choices": [
       {
-        "content": "une fonction amine",
+        "content": "Leucine et isoleucine portent toutes deux exactement un groupement isobutyle.",
+        "correct": false,
+        "explanation": "L'isoleucine porte un sec-butyle."
+      },
+      {
+        "content": "La valine porte un groupement phényle.",
+        "correct": false,
+        "explanation": "La phénylalanine porte un phényle."
+      },
+      {
+        "content": "L'isoleucine est un acide aminé soufré.",
+        "correct": false,
+        "explanation": "Elle ne contient pas de soufre."
+      },
+      {
+        "content": "Leucine et isoleucine sont des énantiomères l'une de l'autre.",
+        "correct": false,
+        "explanation": "Ce sont des isomères de constitution."
+      },
+      {
+        "content": "La leucine porte un groupement isobutyle.",
         "correct": true,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
-      },
-      {
-        "content": "une fonction thiol",
-        "correct": false,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
-      },
-      {
-        "content": "un phénol",
-        "correct": false,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
-      },
-      {
-        "content": "un carboxyle supplémentaire",
-        "correct": false,
-        "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
+        "explanation": "La ramification est différente de celle de l'isoleucine."
       }
     ],
-    "explanation": "La chaîne latérale de la lysine explique son classement parmi les acides aminés basiques."
+    "explanation": "Isoleucine et leucine sont des isomères de constitution ; leurs chaînes latérales sont respectivement sec-butyle et isobutyle."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant l’arginine :",
+    "question": "Quelles propositions sont exactes concernant les acides aminés hydroxylés ?",
     "choices": [
       {
-        "content": "Elle porte un groupement guanidyl ou guanidinium dans sa chaîne latérale.",
+        "content": "Leurs groupements hydroxyle peuvent être phosphorylés dans les protéines.",
         "correct": true,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "explanation": "Cette modification est centrale en signalisation."
       },
       {
-        "content": "Elle appartient aux acides aminés basiques.",
+        "content": "Sérine et thréonine sont toujours hydrophobes.",
+        "correct": false,
+        "explanation": "Leur OH leur confère une polarité."
+      },
+      {
+        "content": "La thréonine possède un alcool secondaire dans sa chaîne latérale.",
         "correct": true,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "explanation": "Elle possède aussi un second centre stéréogène."
       },
       {
-        "content": "Elle porte un noyau imidazole.",
+        "content": "La thréonine est un acide aminé aromatique.",
         "correct": false,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "explanation": "Elle est aliphatique hydroxylée."
       },
       {
-        "content": "Son radical est un simple hydrogène.",
+        "content": "Le OH de la sérine est fortement déprotoné à pH physiologique.",
         "correct": false,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "explanation": "Il reste majoritairement neutre."
       }
     ],
-    "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+    "explanation": "Sérine et thréonine sont des acides aminés hydroxylés, respectivement alcool primaire et secondaire."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel groupement caractérise l’arginine ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "guanidyl ou guanidinium",
+        "content": "Tous les acides aminés aliphatiques possèdent un noyau benzénique.",
+        "correct": false,
+        "explanation": "Ce serait un caractère aromatique."
+      },
+      {
+        "content": "La chaîne latérale de l'alanine est un phénol.",
+        "correct": false,
+        "explanation": "C'est un méthyle."
+      },
+      {
+        "content": "La cystéine possède un groupement thiol.",
         "correct": true,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "explanation": "Deux cystéines peuvent former une liaison disulfure après oxydation."
       },
       {
-        "content": "indole",
+        "content": "La cystéine possède un thioéther et la méthionine un thiol.",
         "correct": false,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "explanation": "C'est l'inverse."
       },
       {
-        "content": "thiol",
-        "correct": false,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "content": "La cystéine est plus polaire que la méthionine.",
+        "correct": true,
+        "explanation": "Le thiol est plus polarisable et chimiquement réactif."
       },
       {
-        "content": "phénol",
+        "content": "La cystéine est toujours totalement apolaire.",
         "correct": false,
-        "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+        "explanation": "Son thiol lui confère une certaine polarité et une réactivité particulière."
+      },
+      {
+        "content": "La proline possède une chaîne latérale aliphatique cyclisée sur l'azote alpha.",
+        "correct": true,
+        "explanation": "Sa géométrie est particulière."
+      },
+      {
+        "content": "La glycine possède une chaîne latérale réduite à H.",
+        "correct": true,
+        "explanation": "Elle est souvent classée à part malgré sa simplicité aliphatique."
+      },
+      {
+        "content": "Le caractère aliphatique implique une forte charge positive à pH physiologique.",
+        "correct": false,
+        "explanation": "Ce n'est pas une conséquence du caractère aliphatique."
+      },
+      {
+        "content": "La méthionine possède un thioéther.",
+        "correct": true,
+        "explanation": "Son soufre n'est pas un thiol libre."
       }
     ],
-    "explanation": "L’arginine est caractérisée par son groupement guanidinium."
+    "explanation": "Cystéine et méthionine sont les deux acides aminés standards soufrés : thiol pour Cys, thioéther pour Met. Valine, leucine et isoleucine sont les trois acides aminés standards à chaîne ramifiée."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant l’histidine :",
+    "question": "Parmi les affirmations suivantes concernant les acides aminés acides et leurs amides, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Elle porte un noyau imidazole.",
-        "correct": true,
-        "explanation": "L’imidazole est le motif distinctif de la chaîne latérale de l’histidine."
-      },
-      {
-        "content": "Sa chaîne latérale imidazole est basique et peut se protoner près du pH physiologique.",
-        "correct": true,
-        "explanation": "L’imidazole est le motif distinctif de la chaîne latérale de l’histidine."
-      },
-      {
-        "content": "Elle porte un noyau benzénique simple sans azote.",
+        "content": "L'asparagine correspond à l'amide du glutamate.",
         "correct": false,
-        "explanation": "L’imidazole est le motif distinctif de la chaîne latérale de l’histidine."
+        "explanation": "Elle correspond à l'aspartate."
       },
       {
-        "content": "Elle appartient aux acides aminés aliphatiques sans hétéroatome.",
+        "content": "Asparagine et glutamine portent une charge négative obligatoire à pH physiologique.",
         "correct": false,
-        "explanation": "L’imidazole est le motif distinctif de la chaîne latérale de l’histidine."
+        "explanation": "Leurs amides sont neutres."
+      },
+      {
+        "content": "L'asparagine est l'amide correspondant à l'aspartate.",
+        "correct": true,
+        "explanation": "La chaîne latérale carboxamide remplace le carboxylate."
+      },
+      {
+        "content": "L'aspartate et le glutamate portent un carboxylate supplémentaire dans leur chaîne latérale à pH physiologique.",
+        "correct": true,
+        "explanation": "Ils sont donc chargés négativement dans ces conditions."
+      },
+      {
+        "content": "La glutamine est l'amide correspondant au glutamate.",
+        "correct": true,
+        "explanation": "Elle est polaire mais non chargée aux pH physiologiques usuels."
       }
     ],
-    "explanation": "L’imidazole est le motif distinctif de la chaîne latérale de l’histidine."
+    "explanation": "Asp/Glu sont acides ; Asn/Gln sont leurs amides neutres correspondants."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos de la classification des chaînes latérales, sélectionnez exactement les cinq associations correctes.",
-    "choices": [
-      {
-        "content": "Sérine — alcool primaire",
-        "correct": true,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Thréonine — alcool secondaire",
-        "correct": true,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Cystéine — thiol",
-        "correct": true,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Méthionine — thioéther",
-        "correct": true,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Histidine — imidazole",
-        "correct": true,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Tyrosine — guanidinium",
-        "correct": false,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Arginine — indole",
-        "correct": false,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Lysine — phénol",
-        "correct": false,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Asparagine — thiol",
-        "correct": false,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
-      },
-      {
-        "content": "Valine — carboxyle latéral",
-        "correct": false,
-        "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
+    "format": "QROC",
+    "question": "Quel noyau hétérocyclique caractérise la chaîne latérale de l'histidine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "imidazole",
+        "noyau imidazole"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Chaque acide aminé se reconnaît par le groupement fonctionnel de sa chaîne latérale."
+    },
+    "explanation": "Lys et Arg sont fortement basiques ; His possède un imidazole dont l'état de protonation varie près du pH physiologique."
   }
 ];
