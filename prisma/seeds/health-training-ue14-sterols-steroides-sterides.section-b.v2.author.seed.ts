@@ -1,661 +1,639 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Stérols, stéroïdes et stérides — Section B
- */
-
+/** UE14 Biochimie — Stérols, stéroïdes et stérides — Section B — Cholestérol et dérivés */
 export const UE14_BIOCH_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la structure du cholestérol :",
+    "question": "Concernant la structure du cholestérol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il comporte 27 carbones.",
-        "correct": true,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
-      },
-      {
-        "content": "Il possède une chaîne latérale de huit carbones fixée en C17.",
-        "correct": true,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
-      },
-      {
-        "content": "Il porte deux groupements méthyle sur C10 et C13.",
-        "correct": true,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
-      },
-      {
-        "content": "Il possède 18 carbones et aucune chaîne latérale.",
+        "content": "Il porte un phosphate obligatoire en C3.",
         "correct": false,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
+        "explanation": "Il porte un hydroxyle."
+      },
+      {
+        "content": "Il possède trois acides gras estérifiés.",
+        "correct": false,
+        "explanation": "Cela décrit un TAG."
+      },
+      {
+        "content": "Une chaîne latérale est portée par C17.",
+        "correct": true,
+        "explanation": "Elle contribue au caractère hydrophobe."
+      },
+      {
+        "content": "Il porte un groupement OH en C3.",
+        "correct": true,
+        "explanation": "Cet OH est le petit pôle hydrophile de la forme libre."
+      },
+      {
+        "content": "Le cholestérol comporte 18 carbones.",
+        "correct": false,
+        "explanation": "Le noyau estrane est C18 ; le cholestérol est C27."
       }
     ],
-    "explanation": "Le cholestérol est un stérol à 27 carbones."
+    "explanation": "Le cholestérol est un stérol C27 avec OH C3, double liaison C5-C6 et chaîne latérale C17."
   },
   {
     "order": 24,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien de carbones possède le cholestérol ?",
+    "question": "Parmi les affirmations suivantes concernant le cholestérol dans les membranes, laquelle est correcte ?",
     "choices": [
       {
-        "content": "27",
+        "content": "Il constitue une protéine transmembranaire.",
+        "correct": false,
+        "explanation": "C'est un lipide."
+      },
+      {
+        "content": "Le cholestérol estérifié est la forme principale insérée dans la bicouche.",
+        "correct": false,
+        "explanation": "La forme libre avec OH est la forme membranaire adaptée."
+      },
+      {
+        "content": "Le cholestérol est absent des membranes animales.",
+        "correct": false,
+        "explanation": "Il en est un constituant majeur."
+      },
+      {
+        "content": "Il rend la membrane toujours plus fluide quelle que soit la température.",
+        "correct": false,
+        "explanation": "Son effet est tampon et dépend du contexte."
+      },
+      {
+        "content": "Il module la fluidité membranaire.",
         "correct": true,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
-      },
-      {
-        "content": "18",
-        "correct": false,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
-      },
-      {
-        "content": "21",
-        "correct": false,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
-      },
-      {
-        "content": "24",
-        "correct": false,
-        "explanation": "Le cholestérol est un stérol à 27 carbones."
+        "explanation": "Son effet dépend notamment de la température et de la composition lipidique."
       }
     ],
-    "explanation": "Le cholestérol est un stérol à 27 carbones."
+    "explanation": "Le cholestérol libre est amphiphile et membranaire ; l'ester de cholestérol est fortement hydrophobe et se stocke dans des phases lipidiques."
   },
   {
     "order": 25,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des carbones asymétriques du cholestérol :",
-    "choices": [
-      {
-        "content": "Le cholestérol possède huit centres stéréogènes.",
-        "correct": true,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      },
-      {
-        "content": "Les huit centres stéréogènes du cholestérol se situent en C3, C8, C9, C10, C13, C14, C17 et C20.",
-        "correct": true,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      },
-      {
-        "content": "Le carbone 3, porteur du groupement hydroxyle, est l’un de ces centres.",
-        "correct": true,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      },
-      {
-        "content": "Le cholestérol ne possède que les six carbones asymétriques du stérane sans positions supplémentaires.",
-        "correct": false,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      }
-    ],
-    "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-  },
-  {
-    "order": 26,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Combien de centres stéréogènes possède le cholestérol ?",
-    "choices": [
-      {
-        "content": "8",
-        "correct": true,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      },
-      {
-        "content": "4",
-        "correct": false,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      },
-      {
-        "content": "6",
-        "correct": false,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      },
-      {
-        "content": "10",
-        "correct": false,
-        "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-      }
-    ],
-    "explanation": "Le cholestérol possède huit centres stéréogènes, situés en C3, C8, C9, C10, C13, C14, C17 et C20."
-  },
-  {
-    "order": 27,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du groupement OH du cholestérol :",
-    "choices": [
-      {
-        "content": "Il est situé en C3.",
-        "correct": true,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      },
-      {
-        "content": "Il constitue le pôle hydrophile du cholestérol libre.",
-        "correct": true,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      },
-      {
-        "content": "Il correspond à une fonction alcool.",
-        "correct": true,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      },
-      {
-        "content": "Il est situé en C17 et constitue une fonction amide.",
-        "correct": false,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      }
-    ],
-    "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-  },
-  {
-    "order": 28,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Sur quel carbone se trouve le OH ?",
-    "choices": [
-      {
-        "content": "C3",
-        "correct": true,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      },
-      {
-        "content": "C5",
-        "correct": false,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      },
-      {
-        "content": "C17",
-        "correct": false,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      },
-      {
-        "content": "C27",
-        "correct": false,
-        "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-      }
-    ],
-    "explanation": "Le groupement hydroxyle C3 est le pôle hydrophile du cholestérol."
-  },
-  {
-    "order": 29,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la double liaison du cholestérol :",
-    "choices": [
-      {
-        "content": "Elle est située entre C5 et C6.",
-        "correct": true,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      },
-      {
-        "content": "Elle constitue un repère structural du cholestérol.",
-        "correct": true,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      },
-      {
-        "content": "Elle se trouve dans le noyau stéroïdien.",
-        "correct": true,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      },
-      {
-        "content": "Elle est située entre C20 et C21.",
-        "correct": false,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      }
-    ],
-    "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-  },
-  {
-    "order": 30,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Entre quels carbones se trouve la double liaison ?",
-    "choices": [
-      {
-        "content": "C5-C6",
-        "correct": true,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      },
-      {
-        "content": "C1-C2",
-        "correct": false,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      },
-      {
-        "content": "C17-C18",
-        "correct": false,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      },
-      {
-        "content": "C26-C27",
-        "correct": false,
-        "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-      }
-    ],
-    "explanation": "Le cholestérol est un cholest-5-én-3β-ol : sa double liaison se situe entre C5 et C6."
-  },
-  {
-    "order": 31,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du cholestérol libre :",
-    "choices": [
-      {
-        "content": "Il est amphiphile ou amphipathique.",
-        "correct": true,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      },
-      {
-        "content": "Le OH constitue le pôle hydrophile.",
-        "correct": true,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      },
-      {
-        "content": "Le reste de la molécule constitue un corps hydrophobe.",
-        "correct": true,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      },
-      {
-        "content": "Il est totalement hydrophile et soluble comme un ose simple.",
-        "correct": false,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      }
-    ],
-    "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-  },
-  {
-    "order": 32,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle propriété décrit le cholestérol libre ?",
-    "choices": [
-      {
-        "content": "amphiphile",
-        "correct": true,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      },
-      {
-        "content": "entièrement hydrophile",
-        "correct": false,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      },
-      {
-        "content": "protéique",
-        "correct": false,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      },
-      {
-        "content": "polysaccharidique",
-        "correct": false,
-        "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-      }
-    ],
-    "explanation": "Le cholestérol libre associe une petite tête polaire et un grand corps apolaire."
-  },
-  {
-    "order": 33,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du cholestérol estérifié :",
-    "choices": [
-      {
-        "content": "Un acide gras est fixé sur le OH du cholestérol.",
-        "correct": true,
-        "explanation": "L'estérification masque le OH polaire."
-      },
-      {
-        "content": "La forme obtenue est hydrophobe.",
-        "correct": true,
-        "explanation": "L'estérification masque le OH polaire."
-      },
-      {
-        "content": "L’estérification du cholestérol produit une forme très hydrophobe adaptée au stockage.",
-        "correct": true,
-        "explanation": "L'estérification masque le OH polaire."
-      },
-      {
-        "content": "Son estérification crée un nouveau groupement OH hydrophile supplémentaire.",
-        "correct": false,
-        "explanation": "L'estérification masque le OH polaire."
-      }
-    ],
-    "explanation": "L'estérification masque le OH polaire."
-  },
-  {
-    "order": 34,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle propriété domine après estérification ?",
-    "choices": [
-      {
-        "content": "hydrophobie",
-        "correct": true,
-        "explanation": "L'estérification masque le OH polaire."
-      },
-      {
-        "content": "amphiphilie accrue",
-        "correct": false,
-        "explanation": "L'estérification masque le OH polaire."
-      },
-      {
-        "content": "charge positive",
-        "correct": false,
-        "explanation": "L'estérification masque le OH polaire."
-      },
-      {
-        "content": "solubilité aqueuse complète",
-        "correct": false,
-        "explanation": "L'estérification masque le OH polaire."
-      }
-    ],
-    "explanation": "L'estérification masque le OH polaire."
-  },
-  {
-    "order": 35,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du rôle membranaire du cholestérol :",
-    "choices": [
-      {
-        "content": "Il est un constituant des membranes.",
-        "correct": true,
-        "explanation": "Le cholestérol est un modulateur structural des membranes."
-      },
-      {
-        "content": "Il participe au contrôle de la fluidité.",
-        "correct": true,
-        "explanation": "Le cholestérol est un modulateur structural des membranes."
-      },
-      {
-        "content": "Il module l’activité de certaines protéines membranaires.",
-        "correct": true,
-        "explanation": "Le cholestérol est un modulateur structural des membranes."
-      },
-      {
-        "content": "Il est absent des membranes cellulaires.",
-        "correct": false,
-        "explanation": "Le cholestérol est un modulateur structural des membranes."
-      }
-    ],
-    "explanation": "Le cholestérol est un modulateur structural des membranes."
-  },
-  {
-    "order": 36,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien de carbones comporte une molécule de cholestérol ?",
+    "question": "Combien de carbones comporte le cholestérol ?",
     "answer": {
       "type": "number",
       "value": 27,
       "tolerance": 0
     },
-    "explanation": "Le cholestérol comporte 27 carbones."
+    "explanation": "Le cholestérol est un stérol C27."
+  },
+  {
+    "order": 26,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les acides biliaires, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Ils comportent tous 27 carbones comme le cholestérol.",
+        "correct": false,
+        "explanation": "Les acides biliaires humains classiques sont C24."
+      },
+      {
+        "content": "Leur caractère amphiphile favorise l'émulsification et la digestion des lipides.",
+        "correct": true,
+        "explanation": "Ils contribuent à la formation de micelles mixtes intestinales."
+      },
+      {
+        "content": "Ils sont sécrétés dans la bile puis majoritairement réabsorbés dans la circulation entérohépatique.",
+        "correct": true,
+        "explanation": "Le recyclage limite la synthèse de novo nécessaire."
+      },
+      {
+        "content": "Ils empêchent toute absorption lipidique.",
+        "correct": false,
+        "explanation": "Ils la facilitent."
+      },
+      {
+        "content": "Ils possèdent un squelette C24 après raccourcissement de la chaîne latérale.",
+        "correct": true,
+        "explanation": "Le noyau cholane sert de repère structural."
+      }
+    ],
+    "explanation": "Les acides biliaires sont des dérivés C24 du cholestérol synthétisés par le foie et essentiels à la digestion/absorption des lipides."
+  },
+  {
+    "order": 27,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la vitamine D comme dérivé stéroïdien, laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "La vitamine D favorise spécifiquement l'absorption du potassium à la place du phosphate.",
+        "correct": false,
+        "explanation": "Le couple majeur est calcium-phosphate."
+      },
+      {
+        "content": "Elle n'a aucun lien avec le cholestérol.",
+        "correct": false,
+        "explanation": "Son précurseur cutané est un dérivé du cholestérol."
+      },
+      {
+        "content": "Après hydroxylations hépatique puis rénale, sa forme active participe à l'homéostasie phosphocalcique.",
+        "correct": true,
+        "explanation": "Le calcitriol augmente notamment l'absorption intestinale du calcium et du phosphate."
+      },
+      {
+        "content": "Elle est synthétisée à partir du glycogène cutané.",
+        "correct": false,
+        "explanation": "Le précurseur est le 7-déhydrocholestérol."
+      },
+      {
+        "content": "Elle est un triacylglycérol.",
+        "correct": false,
+        "explanation": "C'est un sécostéroïde."
+      }
+    ],
+    "explanation": "La vitamine D3 dérive du 7-déhydrocholestérol ; sa forme active régule surtout calcium et phosphate."
+  },
+  {
+    "order": 28,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant l'estérification du cholestérol, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "L'estérification porte sur une amine C2.",
+        "correct": false,
+        "explanation": "Le cholestérol n'en possède pas."
+      },
+      {
+        "content": "LCAT hydrolyse le glycogène.",
+        "correct": false,
+        "explanation": "Elle intervient dans le métabolisme lipoprotéique."
+      },
+      {
+        "content": "ACAT transforme le cholestérol en acide biliaire en une étape.",
+        "correct": false,
+        "explanation": "Ce n'est pas sa fonction."
+      },
+      {
+        "content": "Dans les cellules, ACAT/SOAT peut estérifier le cholestérol.",
+        "correct": true,
+        "explanation": "Cette réaction favorise son stockage intracellulaire."
+      },
+      {
+        "content": "L'estérification porte sur le groupement OH de C3.",
+        "correct": true,
+        "explanation": "Un acide gras forme alors une liaison ester."
+      }
+    ],
+    "explanation": "L'estérification du OH C3 transforme le cholestérol libre amphiphile en ester de cholestérol fortement hydrophobe.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 29,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans une situation d'application n°2, concernant la structure du cholestérol, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le cholestérol comporte 27 carbones.",
+        "correct": true,
+        "explanation": "Son squelette inclut le noyau stéroïdien, deux méthyles et une chaîne latérale."
+      },
+      {
+        "content": "Une chaîne latérale est portée par C17.",
+        "correct": true,
+        "explanation": "Elle contribue au caractère hydrophobe."
+      },
+      {
+        "content": "Il ne possède aucune chaîne latérale.",
+        "correct": false,
+        "explanation": "Une chaîne est portée en C17."
+      },
+      {
+        "content": "Il possède une double liaison C5-C6.",
+        "correct": true,
+        "explanation": "C'est un repère structural classique."
+      },
+      {
+        "content": "Il porte un groupement OH en C3.",
+        "correct": true,
+        "explanation": "Cet OH est le petit pôle hydrophile de la forme libre."
+      }
+    ],
+    "explanation": "Le cholestérol est un stérol C27 avec OH C3, double liaison C5-C6 et chaîne latérale C17."
+  },
+  {
+    "order": 30,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle forme du cholestérol est adaptée à l'insertion dans une bicouche : libre ou estérifiée ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cholestérol libre",
+        "libre",
+        "forme libre"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le cholestérol libre est amphiphile et membranaire ; l'ester de cholestérol est fortement hydrophobe et se stocke dans des phases lipidiques."
+  },
+  {
+    "order": 31,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le transport du cholestérol par les lipoprotéines ?",
+    "choices": [
+      {
+        "content": "HDL signifie que le cholestérol est devenu hydrosoluble par lui-même.",
+        "correct": false,
+        "explanation": "Le transport repose sur une particule amphiphile."
+      },
+      {
+        "content": "Les esters de cholestérol sont exposés à l'eau à la surface de la particule.",
+        "correct": false,
+        "explanation": "Ils se placent dans le cœur hydrophobe."
+      },
+      {
+        "content": "LDL est une molécule de cholestérol modifiée chimiquement.",
+        "correct": false,
+        "explanation": "LDL est une particule lipoprotéique."
+      },
+      {
+        "content": "Le cholestérol ne circule jamais dans le sang.",
+        "correct": false,
+        "explanation": "Il y circule associé aux lipoprotéines."
+      },
+      {
+        "content": "Le cholestérol libre se localise davantage en surface des lipoprotéines.",
+        "correct": true,
+        "explanation": "Son OH peut interagir avec le milieu aqueux."
+      }
+    ],
+    "explanation": "Les lipoprotéines transportent cholestérol libre en surface et esters de cholestérol dans leur cœur hydrophobe."
+  },
+  {
+    "order": 32,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans une situation d'application n°2, concernant les acides biliaires, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Ils comportent tous 27 carbones comme le cholestérol.",
+        "correct": false,
+        "explanation": "Les acides biliaires humains classiques sont C24."
+      },
+      {
+        "content": "Ils sont sécrétés dans la bile puis majoritairement réabsorbés dans la circulation entérohépatique.",
+        "correct": true,
+        "explanation": "Le recyclage limite la synthèse de novo nécessaire."
+      },
+      {
+        "content": "Ils sont des protéines digestives.",
+        "correct": false,
+        "explanation": "Ce sont des dérivés stéroïdiens."
+      },
+      {
+        "content": "Ils sont synthétisés uniquement par le pancréas.",
+        "correct": false,
+        "explanation": "La synthèse principale est hépatique."
+      },
+      {
+        "content": "Leur caractère amphiphile favorise l'émulsification et la digestion des lipides.",
+        "correct": true,
+        "explanation": "Ils contribuent à la formation de micelles mixtes intestinales."
+      }
+    ],
+    "explanation": "Les acides biliaires sont des dérivés C24 du cholestérol synthétisés par le foie et essentiels à la digestion/absorption des lipides."
+  },
+  {
+    "order": 33,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la structure du cholestérol, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Il possède trois acides gras estérifiés.",
+        "correct": false,
+        "explanation": "Cela décrit un TAG."
+      },
+      {
+        "content": "Il ne possède aucune chaîne latérale.",
+        "correct": false,
+        "explanation": "Une chaîne est portée en C17."
+      },
+      {
+        "content": "Il porte un groupement OH en C3.",
+        "correct": true,
+        "explanation": "Cet OH est le petit pôle hydrophile de la forme libre."
+      },
+      {
+        "content": "Le cholestérol comporte 27 carbones.",
+        "correct": true,
+        "explanation": "Son squelette inclut le noyau stéroïdien, deux méthyles et une chaîne latérale."
+      },
+      {
+        "content": "Le cholestérol comporte 18 carbones.",
+        "correct": false,
+        "explanation": "Le noyau estrane est C18 ; le cholestérol est C27."
+      }
+    ],
+    "explanation": "Le cholestérol est un stérol C27 avec OH C3, double liaison C5-C6 et chaîne latérale C17."
+  },
+  {
+    "order": 34,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle forme du cholestérol est adaptée à l'insertion dans une bicouche : libre ou estérifiée ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cholestérol libre",
+        "libre",
+        "forme libre"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le cholestérol libre est amphiphile et membranaire ; l'ester de cholestérol est fortement hydrophobe et se stocke dans des phases lipidiques."
+  },
+  {
+    "order": 35,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le transport du cholestérol par les lipoprotéines ?",
+    "choices": [
+      {
+        "content": "HDL signifie que le cholestérol est devenu hydrosoluble par lui-même.",
+        "correct": false,
+        "explanation": "Le transport repose sur une particule amphiphile."
+      },
+      {
+        "content": "Les esters de cholestérol sont exposés à l'eau à la surface de la particule.",
+        "correct": false,
+        "explanation": "Ils se placent dans le cœur hydrophobe."
+      },
+      {
+        "content": "Le cholestérol circule dans le plasma au sein de lipoprotéines.",
+        "correct": true,
+        "explanation": "Sa faible solubilité impose un transport organisé."
+      },
+      {
+        "content": "LDL est une molécule de cholestérol modifiée chimiquement.",
+        "correct": false,
+        "explanation": "LDL est une particule lipoprotéique."
+      },
+      {
+        "content": "Le cholestérol ne circule jamais dans le sang.",
+        "correct": false,
+        "explanation": "Il y circule associé aux lipoprotéines."
+      }
+    ],
+    "explanation": "Les lipoprotéines transportent cholestérol libre en surface et esters de cholestérol dans leur cœur hydrophobe."
+  },
+  {
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les acides biliaires, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Ils possèdent un squelette C24 après raccourcissement de la chaîne latérale.",
+        "correct": true,
+        "explanation": "Le noyau cholane sert de repère structural."
+      },
+      {
+        "content": "Leur caractère amphiphile favorise l'émulsification et la digestion des lipides.",
+        "correct": true,
+        "explanation": "Ils contribuent à la formation de micelles mixtes intestinales."
+      },
+      {
+        "content": "Ils sont synthétisés à partir du cholestérol dans le foie.",
+        "correct": true,
+        "explanation": "Le cholestérol est leur précurseur."
+      },
+      {
+        "content": "Ils sont synthétisés uniquement par le pancréas.",
+        "correct": false,
+        "explanation": "La synthèse principale est hépatique."
+      },
+      {
+        "content": "Ils comportent tous 27 carbones comme le cholestérol.",
+        "correct": false,
+        "explanation": "Les acides biliaires humains classiques sont C24."
+      }
+    ],
+    "explanation": "Les acides biliaires sont des dérivés C24 du cholestérol synthétisés par le foie et essentiels à la digestion/absorption des lipides."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des précurseurs dérivés du cholestérol :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la vitamine D comme dérivé stéroïdien, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Le cholestérol est précurseur des hormones stéroïdiennes.",
-        "correct": true,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
-      },
-      {
-        "content": "Il est précurseur des acides biliaires.",
-        "correct": true,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
-      },
-      {
-        "content": "Ces dérivés conservent un squelette stéroïdien apparenté.",
-        "correct": true,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
-      },
-      {
-        "content": "Le cholestérol est un précurseur direct de la cellulose.",
+        "content": "Elle est synthétisée à partir du glycogène cutané.",
         "correct": false,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
+        "explanation": "Le précurseur est le 7-déhydrocholestérol."
+      },
+      {
+        "content": "Elle n'a aucun lien avec le cholestérol.",
+        "correct": false,
+        "explanation": "Son précurseur cutané est un dérivé du cholestérol."
+      },
+      {
+        "content": "La vitamine D favorise spécifiquement l'absorption du potassium à la place du phosphate.",
+        "correct": false,
+        "explanation": "Le couple majeur est calcium-phosphate."
+      },
+      {
+        "content": "Elle contribue à la minéralisation osseuse en assurant une disponibilité adéquate en calcium et phosphate.",
+        "correct": true,
+        "explanation": "Son effet dépend de l'état physiologique."
+      },
+      {
+        "content": "La vitamine D est un sécostéroïde.",
+        "correct": true,
+        "explanation": "Un cycle du squelette stéroïdien est ouvert."
       }
     ],
-    "explanation": "Les acides biliaires dérivent du cholestérol."
+    "explanation": "La vitamine D3 dérive du 7-déhydrocholestérol ; sa forme active régule surtout calcium et phosphate.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel dérivé digestif est formé à partir du cholestérol ?",
-    "choices": [
-      {
-        "content": "acides biliaires",
-        "correct": true,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
-      },
-      {
-        "content": "glycogène",
-        "correct": false,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
-      },
-      {
-        "content": "lactose",
-        "correct": false,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
-      },
-      {
-        "content": "collagène",
-        "correct": false,
-        "explanation": "Les acides biliaires dérivent du cholestérol."
+    "format": "QROC",
+    "question": "Quel dérivé du cholestérol participe directement à l'émulsification et à l'absorption intestinale des lipides ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acides biliaires",
+        "sels biliaires",
+        "acide biliaire",
+        "sel biliaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les acides biliaires dérivent du cholestérol."
+    },
+    "explanation": "Les acides et sels biliaires, synthétisés à partir du cholestérol, sont amphiphiles et facilitent la digestion/absorption des lipides."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du transport sanguin du cholestérol :",
-    "choices": [
-      {
-        "content": "Le cholestérol est transporté par des lipoprotéines.",
-        "correct": true,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
-      },
-      {
-        "content": "Les LDL transportent du cholestérol du foie vers les tissus périphériques.",
-        "correct": true,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
-      },
-      {
-        "content": "Les HDL participent au transport inverse du cholestérol vers le foie.",
-        "correct": true,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
-      },
-      {
-        "content": "Le cholestérol circule uniquement librement dissous dans l'eau du plasma.",
-        "correct": false,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
-      }
-    ],
-    "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
+    "format": "QROC",
+    "question": "Combien de carbones comporte le cholestérol ?",
+    "answer": {
+      "type": "number",
+      "value": 27,
+      "tolerance": 0
+    },
+    "explanation": "Le cholestérol est un stérol C27 avec OH C3, double liaison C5-C6 et chaîne latérale C17."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel type de particules assure le transport plasmatique du cholestérol ?",
+    "question": "Parmi les affirmations suivantes concernant le cholestérol dans les membranes, laquelle est correcte ?",
     "choices": [
       {
-        "content": "lipoprotéines",
+        "content": "Il module la fluidité membranaire.",
         "correct": true,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
+        "explanation": "Son effet dépend notamment de la température et de la composition lipidique."
       },
       {
-        "content": "ribosomes",
+        "content": "Le cholestérol est absent des membranes animales.",
         "correct": false,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
+        "explanation": "Il en est un constituant majeur."
       },
       {
-        "content": "lysosomes",
+        "content": "Il constitue une protéine transmembranaire.",
         "correct": false,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
+        "explanation": "C'est un lipide."
       },
       {
-        "content": "protéasomes",
+        "content": "Le cholestérol estérifié est la forme principale insérée dans la bicouche.",
         "correct": false,
-        "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
+        "explanation": "La forme libre avec OH est la forme membranaire adaptée."
+      },
+      {
+        "content": "Il rend la membrane toujours plus fluide quelle que soit la température.",
+        "correct": false,
+        "explanation": "Son effet est tampon et dépend du contexte."
       }
     ],
-    "explanation": "Dans le plasma, LDL et HDL sont deux classes de lipoprotéines qui transportent notamment du cholestérol."
+    "explanation": "Le cholestérol libre est amphiphile et membranaire ; l'ester de cholestérol est fortement hydrophobe et se stocke dans des phases lipidiques."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des acides biliaires :",
+    "question": "Quelles propositions sont exactes concernant le transport du cholestérol par les lipoprotéines ?",
     "choices": [
       {
-        "content": "Ils comportent un noyau cholane à 24 carbones.",
-        "correct": true,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
-      },
-      {
-        "content": "Ils sont produits par le foie.",
-        "correct": true,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
-      },
-      {
-        "content": "Ils sont excrétés dans la bile et participent à la digestion intestinale des lipides.",
-        "correct": true,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
-      },
-      {
-        "content": "Ils possèdent un noyau estrane à 18 carbones.",
+        "content": "HDL signifie que le cholestérol est devenu hydrosoluble par lui-même.",
         "correct": false,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
+        "explanation": "Le transport repose sur une particule amphiphile."
+      },
+      {
+        "content": "Les esters de cholestérol sont exposés à l'eau à la surface de la particule.",
+        "correct": false,
+        "explanation": "Ils se placent dans le cœur hydrophobe."
+      },
+      {
+        "content": "Le cholestérol ne circule jamais dans le sang.",
+        "correct": false,
+        "explanation": "Il y circule associé aux lipoprotéines."
+      },
+      {
+        "content": "Les esters de cholestérol se trouvent surtout dans le cœur hydrophobe des lipoprotéines.",
+        "correct": true,
+        "explanation": "Ils n'ont plus d'OH libre."
+      },
+      {
+        "content": "LDL et HDL désignent des classes de particules, pas deux formes chimiques de cholestérol.",
+        "correct": true,
+        "explanation": "Une même molécule de cholestérol peut être transportée par différentes lipoprotéines."
       }
     ],
-    "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
+    "explanation": "Les lipoprotéines transportent cholestérol libre en surface et esters de cholestérol dans leur cœur hydrophobe."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Combien de carbones comporte le squelette cholane des acides biliaires ?",
-    "choices": [
-      {
-        "content": "24",
-        "correct": true,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
-      },
-      {
-        "content": "18",
-        "correct": false,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
-      },
-      {
-        "content": "21",
-        "correct": false,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
-      },
-      {
-        "content": "27",
-        "correct": false,
-        "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
+    "format": "QROC",
+    "question": "Quel couple minéral est principalement concerné par l'action endocrine de la vitamine D active ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "calcium et phosphate",
+        "calcium et phosphore",
+        "Ca et phosphate",
+        "Ca2+ et phosphate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les acides biliaires sont des dérivés C24 impliqués dans la digestion lipidique."
+    },
+    "explanation": "Le calcitriol participe surtout à l'homéostasie du calcium et du phosphate ; la mention « potassium » dans une correction étudiante est un piège à ne pas reprendre."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux classes de lipoprotéines participant au transport sanguin du cholestérol.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant la vitamine D comme dérivé stéroïdien, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "LDL",
+        "content": "Après hydroxylations hépatique puis rénale, sa forme active participe à l'homéostasie phosphocalcique.",
         "correct": true,
-        "explanation": "Les LDL transportent du cholestérol du foie vers les tissus périphériques."
+        "explanation": "Le calcitriol augmente notamment l'absorption intestinale du calcium et du phosphate."
       },
       {
-        "content": "HDL",
+        "content": "La vitamine D est un sécostéroïde.",
         "correct": true,
-        "explanation": "Les HDL participent au transport inverse du cholestérol vers le foie."
+        "explanation": "Un cycle du squelette stéroïdien est ouvert."
       },
       {
-        "content": "ribosome",
+        "content": "Elle n'a aucun lien avec le cholestérol.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "Son précurseur cutané est un dérivé du cholestérol."
       },
       {
-        "content": "lysosome",
+        "content": "Elle contribue à la minéralisation osseuse en assurant une disponibilité adéquate en calcium et phosphate.",
+        "correct": true,
+        "explanation": "Son effet dépend de l'état physiologique."
+      },
+      {
+        "content": "Elle est un triacylglycérol.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "C'est un sécostéroïde."
       }
     ],
-    "explanation": "LDL et HDL sont deux classes de lipoprotéines plasmatiques."
+    "explanation": "La vitamine D3 dérive du 7-déhydrocholestérol ; sa forme active régule surtout calcium et phosphate."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos du cholestérol et de ses dérivés, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "Le cholestérol a 27 C.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Il porte un OH en C3.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Sa double liaison est C5-C6.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Le cholestérol libre est amphiphile.",
-        "correct": true,
-        "explanation": "Propriété."
-      },
-      {
-        "content": "Il est précurseur des acides biliaires.",
-        "correct": true,
-        "explanation": "Rôle."
-      },
-      {
-        "content": "La chaîne C17 ne comporte aucun carbone.",
-        "correct": false,
-        "explanation": "8 C."
-      },
-      {
-        "content": "Le cholestérol estérifié est plus hydrophile.",
-        "correct": false,
-        "explanation": "Hydrophobe."
-      },
-      {
-        "content": "Les acides biliaires ont 18 C.",
-        "correct": false,
-        "explanation": "24 C."
-      },
-      {
-        "content": "La vitamine D est sans lien avec l'os.",
-        "correct": false,
-        "explanation": "Minéralisation."
-      },
-      {
-        "content": "LDL et HDL sont des enzymes.",
-        "correct": false,
-        "explanation": "Lipoprotéines."
-      }
-    ],
-    "explanation": "Repères sur cholestérol et dérivés."
+    "format": "QROC",
+    "question": "Quel carbone du cholestérol porte le groupement OH estérifié ?",
+    "answer": {
+      "type": "number",
+      "value": 3,
+      "tolerance": 0
+    },
+    "explanation": "L'estérification du OH C3 transforme le cholestérol libre amphiphile en ester de cholestérol fortement hydrophobe."
   }
 ];

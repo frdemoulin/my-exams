@@ -1,669 +1,635 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Stérols, stéroïdes et stérides — Section C
- */
-
+/** UE14 Biochimie — Stérols, stéroïdes et stérides — Section C — Hormones stéroïdiennes : noyaux et origines */
 export const UE14_BIOCH_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des hormones stéroïdiennes :",
+    "question": "Concernant le cholestérol comme précurseur des hormones stéroïdiennes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elles dérivent du cholestérol.",
-        "correct": true,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
-      },
-      {
-        "content": "Elles sont lipophiles.",
-        "correct": true,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
-      },
-      {
-        "content": "Les hormones stéroïdiennes sont synthétisées notamment dans les corticosurrénales et les gonades.",
-        "correct": true,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
-      },
-      {
-        "content": "Elles sont des hormones peptidiques hydrosolubles dérivées du glycogène.",
+        "content": "Elles sont des peptides hydrosolubles.",
         "correct": false,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "Ce sont des lipides."
+      },
+      {
+        "content": "La prégnénolone n'a aucun lien avec la stéroïdogenèse.",
+        "correct": false,
+        "explanation": "Elle est un intermédiaire central."
+      },
+      {
+        "content": "Les hormones stéroïdiennes sont lipophiles.",
+        "correct": true,
+        "explanation": "Elles traversent les membranes et agissent souvent via des récepteurs intracellulaires."
+      },
+      {
+        "content": "La première étape mitochondriale implique le transfert du cholestérol vers la membrane interne.",
+        "correct": true,
+        "explanation": "La protéine StAR participe à cette étape dans les tissus stéroïdogènes."
+      },
+      {
+        "content": "Les hormones stéroïdiennes sont synthétisées à partir du glycogène sans cholestérol.",
+        "correct": false,
+        "explanation": "Le cholestérol est leur précurseur."
       }
     ],
-    "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
+    "explanation": "Le cholestérol est converti en prégnénolone puis en diverses hormones stéroïdiennes dans les tissus stéroïdogènes."
   },
   {
     "order": 46,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel est le précurseur commun des hormones stéroïdiennes ?",
+    "question": "Parmi les affirmations suivantes concernant le noyau estrane, laquelle est correcte ?",
     "choices": [
       {
-        "content": "cholestérol",
+        "content": "Le squelette estrane comporte 18 carbones.",
         "correct": true,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "Il correspond au squelette carboné des œstrogènes."
       },
       {
-        "content": "glycogène",
+        "content": "L'œstradiol est un minéralocorticoïde.",
         "correct": false,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "C'est un œstrogène."
       },
       {
-        "content": "sphingosine",
+        "content": "Le noyau estrane comporte 21 carbones.",
         "correct": false,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "Le noyau pregnane est C21."
       },
       {
-        "content": "ribose",
+        "content": "L'aromatase transforme les œstrogènes en glycogène.",
         "correct": false,
-        "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
+        "explanation": "Elle convertit des androgènes en œstrogènes."
+      },
+      {
+        "content": "La testostérone est un stéroïde C18 de type estrane.",
+        "correct": false,
+        "explanation": "La testostérone est C19."
       }
     ],
-    "explanation": "Le cholestérol est le précurseur des hormones stéroïdiennes."
+    "explanation": "Le noyau estrane C18 caractérise les œstrogènes."
   },
   {
     "order": 47,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du noyau estrane :",
-    "choices": [
-      {
-        "content": "Il comporte 18 carbones.",
-        "correct": true,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
-      },
-      {
-        "content": "Il constitue le squelette carboné des œstrogènes.",
-        "correct": true,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
-      },
-      {
-        "content": "Le squelette estrane conserve le méthyle angulaire C18 fixé en C13β.",
-        "correct": true,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
-      },
-      {
-        "content": "Il comporte 21 carbones et caractérise le cortisol.",
-        "correct": false,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
-      }
-    ],
-    "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de carbones comporte le squelette estrane ?",
+    "answer": {
+      "type": "number",
+      "value": 18,
+      "tolerance": 0
+    },
+    "explanation": "Le squelette estrane C18 caractérise les œstrogènes."
   },
   {
     "order": 48,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Combien de carbones comporte le noyau estrane ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le noyau pregnane, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "18",
+        "content": "La testostérone est un stéroïde C21.",
+        "correct": false,
+        "explanation": "Elle est C19."
+      },
+      {
+        "content": "L'œstradiol est un stéroïde pregnane C21.",
+        "correct": false,
+        "explanation": "Il est C18."
+      },
+      {
+        "content": "La progestérone est un stéroïde C21.",
         "correct": true,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+        "explanation": "Elle appartient à la famille des progestagènes."
       },
       {
-        "content": "19",
-        "correct": false,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+        "content": "Le squelette pregnane comporte 21 carbones.",
+        "correct": true,
+        "explanation": "Il caractérise plusieurs corticostéroïdes et progestatifs."
       },
       {
-        "content": "21",
-        "correct": false,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
-      },
-      {
-        "content": "27",
-        "correct": false,
-        "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+        "content": "L'aldostérone est un minéralocorticoïde C21.",
+        "correct": true,
+        "explanation": "Elle dérive également du squelette pregnane."
       }
     ],
-    "explanation": "Les œstrogènes sont classés parmi les stéroïdes à noyau estrane C18."
+    "explanation": "Le squelette pregnane C21 est celui de la progestérone, du cortisol et de l'aldostérone."
   },
   {
     "order": 49,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du noyau androstane :",
-    "choices": [
-      {
-        "content": "Il comporte 19 carbones.",
-        "correct": true,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
-      },
-      {
-        "content": "Il caractérise les androgènes.",
-        "correct": true,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
-      },
-      {
-        "content": "La testostérone est l'exemple majeur.",
-        "correct": true,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
-      },
-      {
-        "content": "Il comporte 18 carbones et caractérise les œstrogènes.",
-        "correct": false,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
-      }
-    ],
-    "explanation": "Le noyau androstane C19 est associé aux androgènes."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de carbones comporte le squelette androstane ?",
+    "answer": {
+      "type": "number",
+      "value": 19,
+      "tolerance": 0
+    },
+    "explanation": "Le squelette androstane C19 caractérise les androgènes."
   },
   {
     "order": 50,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Combien de carbones comporte le noyau androstane ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant le caractère lipophile des hormones stéroïdiennes, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "19",
+        "content": "Leur synthèse est étroitement régulée et elles ne sont généralement pas stockées comme des peptides dans des granules.",
         "correct": true,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
+        "explanation": "Elles diffusent après synthèse."
       },
       {
-        "content": "18",
+        "content": "Leurs récepteurs classiques sont uniquement des canaux ioniques membranaires.",
         "correct": false,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
+        "explanation": "Ils sont souvent nucléaires/cytosoliques."
       },
       {
-        "content": "21",
+        "content": "Elles sont très hydrosolubles et circulent toujours libres.",
         "correct": false,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
+        "explanation": "Elles sont lipophiles et souvent liées à des protéines."
       },
       {
-        "content": "24",
+        "content": "Elles sont stockées en quantités massives dans des vésicules de sécrétion.",
         "correct": false,
-        "explanation": "Le noyau androstane C19 est associé aux androgènes."
+        "explanation": "Elles sont surtout synthétisées à la demande."
+      },
+      {
+        "content": "Leurs récepteurs classiques sont intracellulaires.",
+        "correct": true,
+        "explanation": "Le complexe hormone-récepteur peut réguler la transcription."
       }
     ],
-    "explanation": "Le noyau androstane C19 est associé aux androgènes."
+    "explanation": "Les hormones stéroïdiennes sont lipophiles, circulent souvent liées à des protéines et agissent classiquement via des récepteurs intracellulaires.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos du noyau prégnane :",
+    "question": "Dans une situation d'application n°2, concernant le cholestérol comme précurseur des hormones stéroïdiennes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il comporte 21 carbones.",
-        "correct": true,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
-      },
-      {
-        "content": "Il est associé à la progestérone.",
-        "correct": true,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
-      },
-      {
-        "content": "Cortisol et aldostérone appartiennent aussi à cette classe.",
-        "correct": true,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
-      },
-      {
-        "content": "Il comporte 19 carbones et est réservé à la testostérone.",
+        "content": "Les hormones stéroïdiennes sont synthétisées à partir du glycogène sans cholestérol.",
         "correct": false,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
+        "explanation": "Le cholestérol est leur précurseur."
+      },
+      {
+        "content": "Les hormones stéroïdiennes sont lipophiles.",
+        "correct": true,
+        "explanation": "Elles traversent les membranes et agissent souvent via des récepteurs intracellulaires."
+      },
+      {
+        "content": "La première étape mitochondriale implique le transfert du cholestérol vers la membrane interne.",
+        "correct": true,
+        "explanation": "La protéine StAR participe à cette étape dans les tissus stéroïdogènes."
+      },
+      {
+        "content": "La prégnénolone est un précurseur commun à plusieurs branches hormonales.",
+        "correct": true,
+        "explanation": "Elle mène notamment aux glucocorticoïdes, minéralocorticoïdes et hormones sexuelles."
+      },
+      {
+        "content": "Toutes les hormones stéroïdiennes humaines dérivent du cholestérol.",
+        "correct": true,
+        "explanation": "La stéroïdogenèse commence par la conversion du cholestérol en prégnénolone."
       }
     ],
-    "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
+    "explanation": "Le cholestérol est converti en prégnénolone puis en diverses hormones stéroïdiennes dans les tissus stéroïdogènes."
   },
   {
     "order": 52,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Combien de carbones comporte le noyau prégnane ?",
-    "choices": [
-      {
-        "content": "21",
-        "correct": true,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
-      },
-      {
-        "content": "18",
-        "correct": false,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
-      },
-      {
-        "content": "19",
-        "correct": false,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
-      },
-      {
-        "content": "27",
-        "correct": false,
-        "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
-      }
-    ],
-    "explanation": "Progestérone, cortisol et aldostérone sont des stéroïdes C21."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Dans une situation d'application n°2, combien de carbones comporte le squelette estrane ?",
+    "answer": {
+      "type": "number",
+      "value": 18,
+      "tolerance": 0
+    },
+    "explanation": "Le noyau estrane C18 caractérise les œstrogènes."
   },
   {
     "order": 53,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des minéralocorticoïdes :",
-    "choices": [
-      {
-        "content": "Ils sont synthétisés dans la zone glomérulée de la corticosurrénale.",
-        "correct": true,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
-      },
-      {
-        "content": "L’aldostérone est le principal minéralocorticoïde humain.",
-        "correct": true,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
-      },
-      {
-        "content": "Ils appartiennent aux hormones stéroïdiennes.",
-        "correct": true,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
-      },
-      {
-        "content": "La testostérone est le principal minéralocorticoïde.",
-        "correct": false,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
-      }
-    ],
-    "explanation": "L'aldostérone est le minéralocorticoïde de référence."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de carbones comporte le squelette pregnane ?",
+    "answer": {
+      "type": "number",
+      "value": 21,
+      "tolerance": 0
+    },
+    "explanation": "Le squelette pregnane C21 est celui de la progestérone et des corticostéroïdes."
   },
   {
     "order": 54,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle hormone est le principal minéralocorticoïde humain ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans une situation d'application n°2, concernant le noyau pregnane, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "aldostérone",
+        "content": "Le cortisol est un glucocorticoïde C21.",
         "correct": true,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
+        "explanation": "Il dérive d'un squelette pregnane."
       },
       {
-        "content": "cortisol",
+        "content": "Le noyau pregnane comporte 19 carbones.",
         "correct": false,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
+        "explanation": "L'androstane est C19."
       },
       {
-        "content": "testostérone",
-        "correct": false,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
+        "content": "L'aldostérone est un minéralocorticoïde C21.",
+        "correct": true,
+        "explanation": "Elle dérive également du squelette pregnane."
       },
       {
-        "content": "œstradiol",
+        "content": "La testostérone est un stéroïde C21.",
         "correct": false,
-        "explanation": "L'aldostérone est le minéralocorticoïde de référence."
+        "explanation": "Elle est C19."
+      },
+      {
+        "content": "L'œstradiol est un stéroïde pregnane C21.",
+        "correct": false,
+        "explanation": "Il est C18."
       }
     ],
-    "explanation": "L'aldostérone est le minéralocorticoïde de référence."
+    "explanation": "Le squelette pregnane C21 est celui de la progestérone, du cortisol et de l'aldostérone."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des glucocorticoïdes :",
+    "question": "Concernant le cholestérol comme précurseur des hormones stéroïdiennes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils sont d'origine surrénalienne.",
-        "correct": true,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
-      },
-      {
-        "content": "Le cortisol est le principal glucocorticoïde humain.",
-        "correct": true,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
-      },
-      {
-        "content": "Le cortisol possède un noyau prégnane.",
-        "correct": true,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
-      },
-      {
-        "content": "L'œstradiol est le principal glucocorticoïde.",
+        "content": "Elles sont toutes stockées en grande quantité dans des vésicules avant sécrétion.",
         "correct": false,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
+        "explanation": "Elles sont en général synthétisées à la demande."
+      },
+      {
+        "content": "La première étape mitochondriale implique le transfert du cholestérol vers la membrane interne.",
+        "correct": true,
+        "explanation": "La protéine StAR participe à cette étape dans les tissus stéroïdogènes."
+      },
+      {
+        "content": "Les hormones stéroïdiennes sont lipophiles.",
+        "correct": true,
+        "explanation": "Elles traversent les membranes et agissent souvent via des récepteurs intracellulaires."
+      },
+      {
+        "content": "La prégnénolone n'a aucun lien avec la stéroïdogenèse.",
+        "correct": false,
+        "explanation": "Elle est un intermédiaire central."
+      },
+      {
+        "content": "Elles sont des peptides hydrosolubles.",
+        "correct": false,
+        "explanation": "Ce sont des lipides."
       }
     ],
-    "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
+    "explanation": "Le cholestérol est converti en prégnénolone puis en diverses hormones stéroïdiennes dans les tissus stéroïdogènes."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle hormone est le principal glucocorticoïde humain ?",
-    "choices": [
-      {
-        "content": "cortisol",
-        "correct": true,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
-      },
-      {
-        "content": "aldostérone",
-        "correct": false,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
-      },
-      {
-        "content": "testostérone",
-        "correct": false,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
-      },
-      {
-        "content": "progestérone",
-        "correct": false,
-        "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
-      }
-    ],
-    "explanation": "Le cortisol/hydrocortisone est le glucocorticoïde de référence."
+    "format": "QROC",
+    "question": "Combien de carbones comporte le squelette estrane ?",
+    "answer": {
+      "type": "number",
+      "value": 18,
+      "tolerance": 0
+    },
+    "explanation": "Le noyau estrane C18 caractérise les œstrogènes."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des stéroïdes sexuels :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le noyau androstane ?",
     "choices": [
       {
-        "content": "Ils sont synthétisés dans les gonades.",
-        "correct": true,
-        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
-      },
-      {
-        "content": "Le placenta synthétise également plusieurs hormones stéroïdiennes pendant la grossesse.",
-        "correct": true,
-        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
-      },
-      {
-        "content": "Testostérone et progestérone figurent parmi les exemples.",
-        "correct": true,
-        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
-      },
-      {
-        "content": "Ils sont exclusivement produits dans le foie.",
+        "content": "La testostérone est un glucocorticoïde.",
         "correct": false,
-        "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
+        "explanation": "C'est un androgène."
+      },
+      {
+        "content": "La progestérone est un androgène C19.",
+        "correct": false,
+        "explanation": "C'est un progestatif C21."
+      },
+      {
+        "content": "Le noyau androstane comporte 18 carbones.",
+        "correct": false,
+        "explanation": "C'est l'estrane."
+      },
+      {
+        "content": "La testostérone est un androgène C19.",
+        "correct": true,
+        "explanation": "Elle possède notamment un OH en C17β."
+      },
+      {
+        "content": "La DHEA est une hormone peptidique.",
+        "correct": false,
+        "explanation": "C'est un stéroïde."
       }
     ],
-    "explanation": "Les gonades et le placenta synthétisent plusieurs hormones stéroïdiennes sexuelles."
+    "explanation": "Le noyau androstane C19 caractérise les androgènes tels que testostérone, DHEA et androstènedione."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel noyau stéroïdien à 19 carbones caractérise les androgènes ?",
+    "question": "Quel organe endocrine possède une zone glomérulée productrice d'aldostérone et une zone fasciculée productrice de cortisol ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "androstane",
-        "noyau androstane"
+        "cortex surrénalien",
+        "corticosurrénale",
+        "glande surrénale",
+        "surrénale"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Le noyau androstane comporte 19 carbones."
+    "explanation": "Le cortex surrénalien est organisé en zones spécialisées dans différentes branches de stéroïdogenèse."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des androgènes :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les sites de stéroïdogenèse, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La testostérone est le principal androgène circulant.",
-        "correct": true,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
-      },
-      {
-        "content": "La DHEA est un androgène surrénalien et un précurseur stéroïdien.",
-        "correct": true,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
-      },
-      {
-        "content": "L’androstènedione est un androgène et un précurseur d’autres stéroïdes sexuels.",
-        "correct": true,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
-      },
-      {
-        "content": "Le cortisol est un androgène.",
+        "content": "Toutes les hormones stéroïdiennes proviennent exclusivement d'un seul organe.",
         "correct": false,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
+        "explanation": "Plusieurs tissus sont stéroïdogènes."
+      },
+      {
+        "content": "Le cortex surrénalien synthétise des corticostéroïdes.",
+        "correct": true,
+        "explanation": "Il produit notamment cortisol et aldostérone selon les zones."
+      },
+      {
+        "content": "La testostérone est produite uniquement par le foie.",
+        "correct": false,
+        "explanation": "Les gonades et la surrénale contribuent à la production d'androgènes."
+      },
+      {
+        "content": "Le cortex surrénalien ne synthétise aucun stéroïde.",
+        "correct": false,
+        "explanation": "Il est un site majeur."
+      },
+      {
+        "content": "Les cellules de Leydig du testicule synthétisent de la testostérone.",
+        "correct": true,
+        "explanation": "La LH stimule cette fonction."
       }
     ],
-    "explanation": "La testostérone est le principal androgène produit par le testicule."
+    "explanation": "Les principaux sites stéroïdogènes sont cortex surrénalien, gonades et placenta.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel androgène majeur est produit par le testicule ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le caractère lipophile des hormones stéroïdiennes ?",
     "choices": [
       {
-        "content": "testostérone",
+        "content": "Leur synthèse est étroitement régulée et elles ne sont généralement pas stockées comme des peptides dans des granules.",
         "correct": true,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
+        "explanation": "Elles diffusent après synthèse."
       },
       {
-        "content": "cortisol",
-        "correct": false,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
+        "content": "Leurs récepteurs classiques sont intracellulaires.",
+        "correct": true,
+        "explanation": "Le complexe hormone-récepteur peut réguler la transcription."
       },
       {
-        "content": "aldostérone",
-        "correct": false,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
+        "content": "Elles traversent facilement la bicouche lipidique.",
+        "correct": true,
+        "explanation": "Leur squelette est hydrophobe."
       },
       {
-        "content": "œstradiol",
+        "content": "Elles circulent souvent liées à des protéines plasmatiques.",
+        "correct": true,
+        "explanation": "Cette liaison augmente leur solubilité apparente et leur demi-vie."
+      },
+      {
+        "content": "Elles sont très hydrosolubles et circulent toujours libres.",
         "correct": false,
-        "explanation": "La testostérone est le principal androgène produit par le testicule."
+        "explanation": "Elles sont lipophiles et souvent liées à des protéines."
       }
     ],
-    "explanation": "La testostérone est le principal androgène produit par le testicule."
+    "explanation": "Les hormones stéroïdiennes sont lipophiles, circulent souvent liées à des protéines et agissent classiquement via des récepteurs intracellulaires."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la testostérone et de l’androstènedione :",
-    "choices": [
-      {
-        "content": "La testostérone porte un hydroxyle en C17β.",
-        "correct": true,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
-      },
-      {
-        "content": "L'androstènedione est décrite comme la forme avec un groupe oxo C=O en C17.",
-        "correct": true,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
-      },
-      {
-        "content": "Les deux appartiennent aux androgènes.",
-        "correct": true,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
-      },
-      {
-        "content": "L'androstènedione est un disaccharide.",
-        "correct": false,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
+    "format": "QROC",
+    "question": "Quel stérol constitue le précurseur des hormones stéroïdiennes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cholestérol",
+        "cholesterol",
+        "le cholestérol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
+    },
+    "explanation": "Le cholestérol est converti en prégnénolone puis en diverses hormones stéroïdiennes dans les tissus stéroïdogènes."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle fonction remplace le hydroxyle C17 de la testostérone dans l’androstènedione ?",
+    "question": "Parmi les affirmations suivantes concernant le noyau estrane, laquelle est correcte ?",
     "choices": [
       {
-        "content": "groupe oxo C=O",
+        "content": "L'œstradiol est un minéralocorticoïde.",
+        "correct": false,
+        "explanation": "C'est un œstrogène."
+      },
+      {
+        "content": "La testostérone est un stéroïde C18 de type estrane.",
+        "correct": false,
+        "explanation": "La testostérone est C19."
+      },
+      {
+        "content": "Le noyau estrane comporte 21 carbones.",
+        "correct": false,
+        "explanation": "Le noyau pregnane est C21."
+      },
+      {
+        "content": "L'œstradiol est un œstrogène C18.",
         "correct": true,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
+        "explanation": "C'est l'œstrogène majeur en âge reproductif."
       },
       {
-        "content": "phosphate",
+        "content": "L'aromatase transforme les œstrogènes en glycogène.",
         "correct": false,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
-      },
-      {
-        "content": "amine primaire",
-        "correct": false,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
-      },
-      {
-        "content": "ose",
-        "correct": false,
-        "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
+        "explanation": "Elle convertit des androgènes en œstrogènes."
       }
     ],
-    "explanation": "La testostérone porte un hydroxyle C17β, remplacé par une fonction oxo dans l’androstènedione."
+    "explanation": "Le noyau estrane C18 caractérise les œstrogènes."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des œstrogènes :",
+    "question": "Quelles propositions sont exactes concernant le noyau androstane ?",
     "choices": [
       {
-        "content": "L’œstradiol et l’œstrone appartiennent aux œstrogènes.",
+        "content": "L'androstènedione est un précurseur/androgène portant une cétone en C17.",
         "correct": true,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+        "explanation": "Elle peut être convertie en testostérone ou en œstrogènes."
       },
       {
-        "content": "Le follicule ovarien produit des œstrogènes, notamment par les cellules de la granulosa.",
-        "correct": true,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
-      },
-      {
-        "content": "Le placenta peut aussi en synthétiser pendant la grossesse.",
-        "correct": true,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
-      },
-      {
-        "content": "Les œstrogènes sont décrits comme des hormones exclusivement testiculaires.",
+        "content": "La testostérone est un glucocorticoïde.",
         "correct": false,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+        "explanation": "C'est un androgène."
+      },
+      {
+        "content": "La progestérone est un androgène C19.",
+        "correct": false,
+        "explanation": "C'est un progestatif C21."
+      },
+      {
+        "content": "La DHEA est une hormone peptidique.",
+        "correct": false,
+        "explanation": "C'est un stéroïde."
+      },
+      {
+        "content": "Le squelette androstane comporte 19 carbones.",
+        "correct": true,
+        "explanation": "Il caractérise les androgènes."
       }
     ],
-    "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+    "explanation": "Le noyau androstane C19 caractérise les androgènes tels que testostérone, DHEA et androstènedione."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle structure ovarienne synthétise des œstrogènes pendant la phase folliculaire ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "follicule ovarien",
+        "content": "Elles sont des peptides hydrosolubles.",
+        "correct": false,
+        "explanation": "Ce sont des lipides."
+      },
+      {
+        "content": "Elles sont toutes stockées en grande quantité dans des vésicules avant sécrétion.",
+        "correct": false,
+        "explanation": "Elles sont en général synthétisées à la demande."
+      },
+      {
+        "content": "La testostérone est un stéroïde C21.",
+        "correct": false,
+        "explanation": "Elle est C19."
+      },
+      {
+        "content": "Le squelette pregnane comporte 21 carbones.",
         "correct": true,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+        "explanation": "Il caractérise plusieurs corticostéroïdes et progestatifs."
       },
       {
-        "content": "corps vitré",
-        "correct": false,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+        "content": "La première étape mitochondriale implique le transfert du cholestérol vers la membrane interne.",
+        "correct": true,
+        "explanation": "La protéine StAR participe à cette étape dans les tissus stéroïdogènes."
       },
       {
-        "content": "tubule rénal",
-        "correct": false,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+        "content": "Toutes les hormones stéroïdiennes humaines dérivent du cholestérol.",
+        "correct": true,
+        "explanation": "La stéroïdogenèse commence par la conversion du cholestérol en prégnénolone."
       },
       {
-        "content": "foie uniquement",
+        "content": "L'œstradiol est un stéroïde pregnane C21.",
         "correct": false,
-        "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+        "explanation": "Il est C18."
+      },
+      {
+        "content": "Les hormones stéroïdiennes sont lipophiles.",
+        "correct": true,
+        "explanation": "Elles traversent les membranes et agissent souvent via des récepteurs intracellulaires."
+      },
+      {
+        "content": "Le cortisol est un glucocorticoïde C21.",
+        "correct": true,
+        "explanation": "Il dérive d'un squelette pregnane."
+      },
+      {
+        "content": "Le noyau pregnane comporte 19 carbones.",
+        "correct": false,
+        "explanation": "L'androstane est C19."
       }
     ],
-    "explanation": "Dans le follicule ovarien, les cellules de la granulosa produisent des œstrogènes par aromatisation de précurseurs androgéniques."
+    "explanation": "Le squelette pregnane C21 est celui de la progestérone, du cortisol et de l'aldostérone. Le cholestérol est converti en prégnénolone puis en diverses hormones stéroïdiennes dans les tissus stéroïdogènes."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois hormones possédant un squelette à 21 carbones de type prégnane.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant les sites de stéroïdogenèse, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Progestérone",
+        "content": "Le placenta synthétise des hormones stéroïdiennes pendant la grossesse.",
         "correct": true,
-        "explanation": "C21."
+        "explanation": "Il produit notamment progestérone et œstrogènes."
       },
       {
-        "content": "Cortisol",
-        "correct": true,
-        "explanation": "C21."
-      },
-      {
-        "content": "Aldostérone",
-        "correct": true,
-        "explanation": "C21."
-      },
-      {
-        "content": "Œstradiol",
+        "content": "Toutes les hormones stéroïdiennes proviennent exclusivement d'un seul organe.",
         "correct": false,
-        "explanation": "Estrane C18."
+        "explanation": "Plusieurs tissus sont stéroïdogènes."
+      },
+      {
+        "content": "La testostérone est produite uniquement par le foie.",
+        "correct": false,
+        "explanation": "Les gonades et la surrénale contribuent à la production d'androgènes."
+      },
+      {
+        "content": "Les cellules de Leydig du testicule synthétisent de la testostérone.",
+        "correct": true,
+        "explanation": "La LH stimule cette fonction."
+      },
+      {
+        "content": "Le cortex surrénalien synthétise des corticostéroïdes.",
+        "correct": true,
+        "explanation": "Il produit notamment cortisol et aldostérone selon les zones."
       }
     ],
-    "explanation": "Progestérone, cortisol et aldostérone appartiennent à la classe C21 prégnane."
+    "explanation": "Les principaux sites stéroïdogènes sont cortex surrénalien, gonades et placenta."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos des classes d'hormones stéroïdiennes, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "Estrane = 18 C.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Androstane = 19 C.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Prégnane = 21 C.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Le cortisol est un glucocorticoïde.",
-        "correct": true,
-        "explanation": "Classe."
-      },
-      {
-        "content": "L'aldostérone est un minéralocorticoïde.",
-        "correct": true,
-        "explanation": "Classe."
-      },
-      {
-        "content": "La testostérone est un œstrogène.",
-        "correct": false,
-        "explanation": "Androgène."
-      },
-      {
-        "content": "L'œstradiol est un androgène.",
-        "correct": false,
-        "explanation": "Œstrogène."
-      },
-      {
-        "content": "Le cortisol est C18.",
-        "correct": false,
-        "explanation": "C21."
-      },
-      {
-        "content": "Les hormones stéroïdiennes ne dérivent pas du cholestérol.",
-        "correct": false,
-        "explanation": "Elles en dérivent."
-      },
-      {
-        "content": "Les gonades ne synthétisent aucune hormone stéroïdienne.",
-        "correct": false,
-        "explanation": "Elles en synthétisent."
+    "format": "QROC",
+    "question": "Quel type de récepteur est classiquement activé par une hormone stéroïdienne : intracellulaire ou uniquement membranaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "intracellulaire",
+        "récepteur intracellulaire",
+        "recepteur intracellulaire",
+        "nucléaire",
+        "récepteur nucléaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Synthèse des classes hormonales."
+    },
+    "explanation": "Les hormones stéroïdiennes sont lipophiles, circulent souvent liées à des protéines et agissent classiquement via des récepteurs intracellulaires."
   }
 ];
