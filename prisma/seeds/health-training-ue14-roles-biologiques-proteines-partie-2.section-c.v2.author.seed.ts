@@ -1,657 +1,710 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Rôles biologiques des protéines, partie 2 — Section C — Collagènes I et IV */
 export const UE14_BIOCH_CH13_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la triple hélice droite :",
+    "question": "Au sujet de la triple hélice du collagène, sélectionnez toutes les affirmations exactes.",
     "choices": [
       {
-        "content": "Trois chaînes α s’enroulent pour former une superhélice droite.",
-        "correct": true,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
-      },
-      {
-        "content": "La triple hélice est décrite comme une superhélice gauche composée de deux chaînes.",
+        "content": "La superhélice collagénique finale est gauche.",
         "correct": false,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "Elle est droite."
       },
       {
-        "content": "La structure est stabilisée par des liaisons hydrogène.",
+        "content": "Les liaisons hydrogène interchaînes impliquent principalement le NH de glycine et le carbonyle d'une chaîne voisine.",
         "correct": true,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "Ces liaisons du squelette contribuent directement à la cohésion."
       },
       {
-        "content": "Elle est stabilisée uniquement par des liaisons phosphodiester.",
+        "content": "La triple hélice est stabilisée uniquement par des liaisons H directes des OH d'hydroxyproline.",
         "correct": false,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "Les liaisons interchaînes du squelette et d'autres effets sont essentiels."
+      },
+      {
+        "content": "Chaque chaîne adopte une hélice gauche de type polyproline II-like.",
+        "correct": true,
+        "explanation": "Cette conformation n'est pas une hélice alpha classique."
+      },
+      {
+        "content": "Les trois chaînes s'enroulent ensemble en une superhélice droite.",
+        "correct": true,
+        "explanation": "La triple hélice a une chiralité opposée à celle des chaînes individuelles."
       }
     ],
-    "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+    "explanation": "Chaque chaîne collagénique est une hélice gauche polyproline-II-like ; trois chaînes forment une superhélice droite stabilisée par des liaisons H du squelette et par la 4-hydroxyproline."
   },
   {
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement le tropocollagène selon la fiche ?",
+    "question": "Parmi les affirmations suivantes sur le tropocollagène de type I, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Les molécules s’agencent avec un décalage régulier.",
+        "content": "Le tropocollagène est un lipide neutre.",
+        "correct": false,
+        "explanation": "C'est un protomère protéique triple hélicoïdal."
+      },
+      {
+        "content": "Le collagène I normal est toujours un homotrimère α2(I)3.",
+        "correct": false,
+        "explanation": "La forme la plus courante est [α1(I)]2α2(I)."
+      },
+      {
+        "content": "Une seule chaîne alpha constitue un tropocollagène complet.",
+        "correct": false,
+        "explanation": "Il en faut trois."
+      },
+      {
+        "content": "Le tropocollagène est plus court qu'un seul acide aminé.",
+        "correct": false,
+        "explanation": "Il mesure environ 300 nm."
+      },
+      {
+        "content": "Le collagène I est généralement un hétérotrimère [α1(I)]2α2(I).",
         "correct": true,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Il n’entre pas dans les fibrilles de collagène I.",
-        "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Il est uniquement présent dans les canaux ioniques.",
-        "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Le tropocollagène est une sous-unité de l’hémoglobine.",
-        "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
+        "explanation": "Deux chaînes alpha1(I) et une alpha2(I) forment le protomère habituel."
       }
     ],
-    "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
+    "explanation": "Le protomère du collagène I est habituellement [α1(I)]2α2(I), une triple hélice d'environ 300 nm qui s'assemble en fibrilles."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur le décalage de 67 nm du collagène I :",
-    "choices": [
-      {
-        "content": "Il explique un aspect strié caractéristique en microscopie électronique.",
-        "correct": true,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
-      },
-      {
-        "content": "La fiche l’attribue à l’albumine.",
-        "correct": false,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
-      },
-      {
-        "content": "La fiche indique un décalage d’environ un quart de longueur.",
-        "correct": true,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
-      },
-      {
-        "content": "Le décalage cité est de 67 µm.",
-        "correct": false,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
-      }
-    ],
-    "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
+    "format": "QROC",
+    "question": "En nanomètres, quelle est approximativement la périodicité D d'une fibrille de collagène I ?",
+    "answer": {
+      "type": "number",
+      "value": 67,
+      "tolerance": 1
+    },
+    "explanation": "Le décalage axial des molécules de collagène I crée la striation caractéristique de période D proche de 67 nm."
   },
   {
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les liaisons croisées du collagène I, lesquelles sont exactes ?",
+    "question": "Quelles propositions décrivent correctement les liaisons croisées du collagène I ?",
     "choices": [
       {
-        "content": "Les fibrilles sont stabilisées par des liaisons covalentes croisées.",
-        "correct": true,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
-      },
-      {
-        "content": "Les liaisons croisées sont uniquement des liaisons glycosidiques entre glucose.",
+        "content": "La lysyl-oxydase hydrolyse directement l'ATP pour lier deux glycines.",
         "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+        "explanation": "Elle oxyde des lysines/hydroxylysines."
       },
       {
-        "content": "Ces liaisons sont formées à partir de résidus de lysine transformés.",
+        "content": "Les liaisons croisées renforcent mécaniquement les fibrilles de collagène.",
         "correct": true,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+        "explanation": "Elles augmentent la stabilité du réseau fibrillaire."
       },
       {
-        "content": "La lysyl-oxydase détruit toutes les fibrilles.",
-        "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+        "content": "La lysyl-oxydase initie la formation de liaisons croisées covalentes.",
+        "correct": true,
+        "explanation": "Elle oxyde certains résidus lysine ou hydroxylysine en aldéhydes réactifs."
+      },
+      {
+        "content": "La lysyl-oxydase agit dans le compartiment extracellulaire.",
+        "correct": true,
+        "explanation": "Les liaisons croisées maturent après sécrétion du collagène."
+      },
+      {
+        "content": "La lysyl-oxydase est une enzyme dépendante du cuivre.",
+        "correct": true,
+        "explanation": "Le cuivre est un cofacteur essentiel de son activité."
       }
     ],
-    "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+    "explanation": "La lysyl-oxydase, enzyme extracellulaire dépendante du cuivre, transforme certaines lysines/hydroxylysines et initie des liaisons croisées qui renforcent les fibrilles."
   },
   {
     "order": 49,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant l’organisation fibrilles-fibres-faisceaux :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur l'organisation fibrilles–fibres–faisceaux du collagène I, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Les fibres peuvent ensuite s’associer en faisceaux.",
+        "content": "Les fibrilles se forment par polymérisation de phospholipides.",
+        "correct": false,
+        "explanation": "Elles résultent de l'assemblage de collagènes."
+      },
+      {
+        "content": "Les protomères de collagène I s'assemblent en fibrilles.",
         "correct": true,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "explanation": "La fibrille est le premier grand niveau supramoléculaire fibrillaire."
       },
       {
-        "content": "Les fibrilles ne s’associent jamais.",
-        "correct": false,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "content": "Des fibres peuvent à leur tour être organisées en faisceaux dans certains tissus.",
+        "correct": true,
+        "explanation": "Cette organisation est particulièrement visible dans les tissus riches en collagène I."
       },
       {
-        "content": "Le diamètre diminue systématiquement à chaque niveau d’assemblage.",
+        "content": "Les fibres de collagène I ne contiennent aucune fibrille.",
         "correct": false,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "explanation": "Elles sont formées d'assemblages de fibrilles."
       },
       {
-        "content": "Les faisceaux sont plus petits que les fibrilles dans le modèle de la fiche.",
+        "content": "Les faisceaux sont plus petits que les protomères individuels.",
         "correct": false,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "explanation": "Ils correspondent à un niveau supérieur d'organisation."
       }
     ],
-    "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+    "explanation": "Le collagène I s'organise hiérarchiquement : protomères → fibrilles → fibres, puis parfois faisceaux.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement le collagène I selon la fiche ?",
+    "question": "Parmi les affirmations suivantes sur le collagène de type I, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Son assemblage donne un aspect strié caractéristique.",
+        "content": "Ses fibrilles présentent une périodicité D proche de 67 nm.",
         "correct": true,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Le décalage axial ordonné produit cette striation."
       },
       {
-        "content": "Il est dépourvu de triple hélice.",
+        "content": "Il ne forme jamais de fibrilles.",
         "correct": false,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Il est le prototype des collagènes fibrillaires."
       },
       {
-        "content": "Le collagène I est un exemple de collagène fibrillaire.",
+        "content": "Le collagène I est un collagène fibrillaire.",
         "correct": true,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Il forme de longues fibrilles striées."
       },
       {
-        "content": "Le collagène I forme uniquement un réseau de membrane basale sans fibrille.",
+        "content": "Le collagène I est le collagène principal des réseaux de membrane basale.",
         "correct": false,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Cette fonction caractérise surtout le collagène IV."
+      },
+      {
+        "content": "Il est absent des tendons.",
+        "correct": false,
+        "explanation": "Les tendons en sont très riches."
       }
     ],
-    "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+    "explanation": "Le collagène I est le collagène fibrillaire majeur de nombreux tissus conjonctifs comme os, peau et tendons."
   },
   {
     "order": 51,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur le collagène IV :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes sur le collagène de type IV, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Le collagène IV forme des réseaux.",
-        "correct": true,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      },
-      {
-        "content": "Le collagène IV est présenté comme le principal collagène fibrillaire strié.",
+        "content": "Son domaine collagénique est parfaitement continu sans interruption.",
         "correct": false,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
+        "explanation": "Il comporte de nombreuses interruptions."
       },
       {
-        "content": "Il est typique des membranes basales.",
+        "content": "Les domaines NC1 et 7S participent à l'assemblage du réseau.",
         "correct": true,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
+        "explanation": "Ils assurent des interactions terminales entre protomères."
       },
       {
-        "content": "Il est absent des membranes basales.",
+        "content": "Les domaines NC1 et 7S empêchent toute interaction entre protomères.",
         "correct": false,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
+        "explanation": "Ils contribuent au contraire au réseau."
+      },
+      {
+        "content": "Il n'existe qu'une seule chaîne alpha IV.",
+        "correct": false,
+        "explanation": "Il en existe six."
+      },
+      {
+        "content": "Le collagène IV est le principal collagène fibrillaire des tendons.",
+        "correct": false,
+        "explanation": "Il est surtout un collagène en réseau des membranes basales."
       }
     ],
-    "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
+    "explanation": "Le collagène IV forme des réseaux de membranes basales ; six chaînes alpha existent et les domaines NC1/7S contribuent à l'assemblage."
   },
   {
     "order": 52,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur les domaines 7S et NC1 du collagène IV, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "Le collagène IV associe trois chaînes α parmi plusieurs possibles.",
-        "correct": true,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "Le collagène IV ne comporte aucune chaîne α.",
-        "correct": false,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "La fiche ne décrit aucun domaine terminal dans le collagène IV.",
-        "correct": false,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "Les domaines 7S et NC1 appartiennent à l’albumine.",
-        "correct": false,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
+    "format": "QROC",
+    "question": "Quel domaine se situe vers l'extrémité N-terminale du collagène IV ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "7S",
+        "domaine 7S"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
+    },
+    "explanation": "Le collagène IV assemble son réseau notamment par ses domaines terminaux 7S (N-terminal) et NC1 (C-terminal)."
   },
   {
     "order": 53,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la comparaison collagènes I et IV :",
+    "format": "QRPL",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Les deux appartiennent à la matrice extracellulaire.",
-        "correct": true,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
-      },
-      {
-        "content": "Le collagène I est exclusivement nucléaire.",
+        "content": "Le collagène IV est absent des membranes basales.",
         "correct": false,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "Il en est un constituant essentiel."
       },
       {
-        "content": "Le collagène I illustre un assemblage fibrillaire.",
+        "content": "Le collagène IV est caractéristique des membranes basales.",
         "correct": true,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "Il forme un réseau en association avec d'autres constituants matriciels."
       },
       {
-        "content": "Les collagènes I et IV sont tous deux des canaux ioniques.",
+        "content": "Le collagène I possède un long domaine collagénique très régulier.",
+        "correct": true,
+        "explanation": "Le type IV contient davantage d'interruptions du motif Gly-X-Y."
+      },
+      {
+        "content": "Le collagène I est exclusivement localisé aux membranes basales.",
         "correct": false,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "Cette localisation caractérise surtout le type IV."
+      },
+      {
+        "content": "Le collagène I est abondant dans les tendons ; le collagène IV dans les membranes basales.",
+        "correct": true,
+        "explanation": "La localisation reflète leur organisation."
+      },
+      {
+        "content": "Le collagène I est dépourvu de triple hélice.",
+        "correct": false,
+        "explanation": "La triple hélice est une caractéristique majeure."
+      },
+      {
+        "content": "Le collagène IV est exclusivement intracellulaire.",
+        "correct": false,
+        "explanation": "C'est une protéine de matrice extracellulaire."
+      },
+      {
+        "content": "Le collagène IV est notamment important dans les membranes basales rénales et pulmonaires.",
+        "correct": true,
+        "explanation": "Ces tissus contiennent des réseaux spécialisés de collagène IV."
+      },
+      {
+        "content": "Le collagène I est fibrillaire tandis que le collagène IV forme un réseau.",
+        "correct": true,
+        "explanation": "Leurs architectures supramoléculaires répondent à des fonctions distinctes."
+      },
+      {
+        "content": "Le collagène IV est le principal collagène fibrillaire des tendons.",
+        "correct": false,
+        "explanation": "Cette fonction revient au type I."
       }
     ],
-    "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+    "requiredSelectionCount": 5,
+    "explanation": "Collagène I et IV partagent la triple hélice mais divergent fortement : fibrilles striées pour I, réseau des membranes basales pour IV. Le collagène I domine dans les tissus conjonctifs fibrillaires ; le collagène IV forme le réseau des membranes basales."
   },
   {
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la localisation des collagènes selon la fiche ?",
+    "question": "Parmi les affirmations suivantes sur la localisation des collagènes I et IV, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Les collagènes sont des protéines de la matrice extracellulaire.",
+        "content": "Le collagène I est également majeur dans l'os et la peau.",
         "correct": true,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Il forme des fibrilles résistantes."
       },
       {
-        "content": "Les collagènes sont des protéines exclusivement cytosoliques.",
+        "content": "Le collagène I est absent de l'os.",
         "correct": false,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Il y est très abondant."
       },
       {
-        "content": "Le type IV est associé aux membranes basales.",
+        "content": "Le collagène I est particulièrement abondant dans les tendons.",
         "correct": true,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Il contribue à leur résistance à la traction."
       },
       {
-        "content": "Le type IV est uniquement présent dans les noyaux.",
+        "content": "Le collagène IV est le collagène principal des fibres tendineuses.",
         "correct": false,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Le tendon est surtout riche en collagène I."
+      },
+      {
+        "content": "Le collagène IV est caractéristique des membranes basales.",
+        "correct": true,
+        "explanation": "Il forme un réseau en association avec d'autres constituants matriciels."
       }
     ],
-    "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+    "explanation": "Le collagène I domine dans les tissus conjonctifs fibrillaires ; le collagène IV forme le réseau des membranes basales."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives au décalage de 67 nm du collagène I sont correctes ?",
+    "question": "Quelles propositions décrivent correctement la périodicité des fibrilles de collagène I ?",
     "choices": [
       {
-        "content": "Ce décalage vaut environ 67 nm.",
+        "content": "La valeur de 67 nm correspond à une période répétitive de la fibrille, pas à la longueur totale du protomère.",
         "correct": true,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
+        "explanation": "Le protomère mesure environ 300 nm."
       },
       {
-        "content": "Il supprime toute striation.",
-        "correct": false,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
-      },
-      {
-        "content": "Il explique un aspect strié caractéristique en microscopie électronique.",
+        "content": "La périodicité D est d'environ 67 nm.",
         "correct": true,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
+        "explanation": "Elle est visible comme une striation périodique en microscopie électronique."
       },
       {
-        "content": "La fiche l’attribue à l’albumine.",
+        "content": "L'organisation ordonnée des protomères contribue aux propriétés mécaniques des fibrilles.",
+        "correct": true,
+        "explanation": "L'architecture supramoléculaire est essentielle à la résistance."
+      },
+      {
+        "content": "La périodicité D est de 67 micromètres.",
         "correct": false,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
+        "explanation": "Elle est d'environ 67 nanomètres."
+      },
+      {
+        "content": "Les molécules de collagène I sont décalées axialement dans les fibrilles.",
+        "correct": true,
+        "explanation": "Cet arrangement produit des zones de recouvrement et de lacune."
       }
     ],
-    "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
+    "explanation": "Le décalage axial des molécules de collagène I crée la striation caractéristique de période D proche de 67 nm."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur les liaisons croisées du collagène I faut-il retenir ?",
-    "choices": [
-      {
-        "content": "La lysyl-oxydase intervient dans cette transformation.",
-        "correct": true,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
-      },
-      {
-        "content": "La lysine n’est jamais impliquée dans la stabilisation.",
-        "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
-      },
-      {
-        "content": "Les liaisons croisées sont uniquement des liaisons glycosidiques entre glucose.",
-        "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
-      },
-      {
-        "content": "La lysyl-oxydase détruit toutes les fibrilles.",
-        "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+    "format": "QROC",
+    "question": "Quel métal est un cofacteur de la lysyl-oxydase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cuivre",
+        "Cu2+",
+        "Cu²+"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+    },
+    "explanation": "La lysyl-oxydase, enzyme extracellulaire dépendante du cuivre, transforme certaines lysines/hydroxylysines et initie des liaisons croisées qui renforcent les fibrilles."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur l’organisation fibrilles-fibres-faisceaux sont exactes ?",
+    "format": "QRU",
+    "question": "À propos de l'organisation fibrilles–fibres–faisceaux du collagène I, quelle proposition doit être retenue ?",
     "choices": [
       {
-        "content": "Les fibrilles s’associent en fibres.",
-        "correct": true,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
-      },
-      {
-        "content": "Les faisceaux sont plus petits que les fibrilles dans le modèle de la fiche.",
+        "content": "Les faisceaux sont plus petits que les protomères individuels.",
         "correct": false,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "explanation": "Ils correspondent à un niveau supérieur d'organisation."
       },
       {
-        "content": "Les fibres peuvent ensuite s’associer en faisceaux.",
-        "correct": true,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
-      },
-      {
-        "content": "Les fibrilles ne s’associent jamais.",
+        "content": "Les fibres de collagène I ne contiennent aucune fibrille.",
         "correct": false,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "explanation": "Elles sont formées d'assemblages de fibrilles."
+      },
+      {
+        "content": "Les fibrilles se forment par polymérisation de phospholipides.",
+        "correct": false,
+        "explanation": "Elles résultent de l'assemblage de collagènes."
+      },
+      {
+        "content": "La hiérarchie supramoléculaire n'influence jamais les propriétés mécaniques.",
+        "correct": false,
+        "explanation": "Elle est déterminante."
+      },
+      {
+        "content": "La hiérarchie d'assemblage contribue à la résistance mécanique du tissu.",
+        "correct": true,
+        "explanation": "La propriété finale dépend de l'organisation à plusieurs échelles."
       }
     ],
-    "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+    "explanation": "Le collagène I s'organise hiérarchiquement : protomères → fibrilles → fibres, puis parfois faisceaux."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives au collagène I sont correctes ?",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement le collagène de type I ?",
     "choices": [
       {
-        "content": "Il forme des fibrilles puis des fibres.",
+        "content": "Le collagène I est le collagène principal des réseaux de membrane basale.",
+        "correct": false,
+        "explanation": "Cette fonction caractérise surtout le collagène IV."
+      },
+      {
+        "content": "Le collagène I est un collagène fibrillaire.",
         "correct": true,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Il forme de longues fibrilles striées."
       },
       {
-        "content": "Le collagène I est une apolipoprotéine.",
+        "content": "Il est constitué exclusivement de six chaînes alpha différentes.",
         "correct": false,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Un protomère contient trois chaînes."
       },
       {
-        "content": "Il est dépourvu de triple hélice.",
-        "correct": false,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "content": "Ses fibrilles présentent une périodicité D proche de 67 nm.",
+        "correct": true,
+        "explanation": "Le décalage axial ordonné produit cette striation."
       },
       {
-        "content": "Le collagène I forme uniquement un réseau de membrane basale sans fibrille.",
+        "content": "Il est absent des tendons.",
         "correct": false,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Les tendons en sont très riches."
       }
     ],
-    "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+    "explanation": "Le collagène I est le collagène fibrillaire majeur de nombreux tissus conjonctifs comme os, peau et tendons."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une membrane basale rénale est étudiée pour ses protéines matricielles. Dans ce cadre, quelles propositions sur le collagène IV sont conformes à la fiche ?",
-    "choices": [
-      {
-        "content": "La fiche le cite dans les reins et les poumons.",
-        "correct": true,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      },
-      {
-        "content": "Il constitue l’hème de l’hémoglobine.",
-        "correct": false,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      },
-      {
-        "content": "Le collagène IV forme des réseaux.",
-        "correct": true,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      },
-      {
-        "content": "Le collagène IV est présenté comme le principal collagène fibrillaire strié.",
-        "correct": false,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      }
-    ],
-    "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
+    "format": "QROC",
+    "question": "Combien de chaînes alpha de collagène IV différentes sont connues chez l'humain ?",
+    "answer": {
+      "type": "number",
+      "value": 6,
+      "tolerance": 0
+    },
+    "explanation": "Le collagène IV forme des réseaux de membranes basales ; six chaînes alpha existent et les domaines NC1/7S contribuent à l'assemblage."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique en nm : quelle périodicité liée au décalage des molécules de tropocollagène est citée ?",
-    "answer": {
-      "type": "number",
-      "value": 67,
-      "tolerance": 0
-    },
-    "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
+    "format": "QRP",
+    "question": "Concernant la périodicité des fibrilles de collagène I, choisissez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "La périodicité D est de 67 micromètres.",
+        "correct": false,
+        "explanation": "Elle est d'environ 67 nanomètres."
+      },
+      {
+        "content": "Le protomère entier de collagène I mesure seulement 67 nm.",
+        "correct": false,
+        "explanation": "La période D est ~67 nm, tandis que le protomère est ~300 nm."
+      },
+      {
+        "content": "Les molécules de collagène I sont décalées axialement dans les fibrilles.",
+        "correct": true,
+        "explanation": "Cet arrangement produit des zones de recouvrement et de lacune."
+      },
+      {
+        "content": "L'organisation ordonnée des protomères contribue aux propriétés mécaniques des fibrilles.",
+        "correct": true,
+        "explanation": "L'architecture supramoléculaire est essentielle à la résistance."
+      },
+      {
+        "content": "La striation des fibrilles est due à des noyaux cellulaires enchâssés.",
+        "correct": false,
+        "explanation": "Elle provient de l'organisation périodique des molécules de collagène."
+      }
+    ],
+    "explanation": "Le décalage axial des molécules de collagène I crée la striation caractéristique de période D proche de 67 nm.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à la comparaison collagènes I et IV sont correctes ?",
+    "question": "Parmi les affirmations suivantes sur la comparaison des collagènes I et IV, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Le collagène IV illustre un assemblage en réseau.",
+        "content": "Le collagène I est fibrillaire tandis que le collagène IV forme un réseau.",
         "correct": true,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "Leurs architectures supramoléculaires répondent à des fonctions distinctes."
       },
       {
-        "content": "Le collagène IV est la forme adulte de l’hémoglobine.",
-        "correct": false,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
-      },
-      {
-        "content": "Les deux appartiennent à la matrice extracellulaire.",
+        "content": "Les deux types partagent le principe d'une triple hélice collagénique.",
         "correct": true,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "Ils appartiennent à la même superfamille malgré leurs différences."
       },
       {
-        "content": "Le collagène I est exclusivement nucléaire.",
+        "content": "Le collagène IV est le principal collagène fibrillaire des tendons.",
         "correct": false,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "Cette fonction revient au type I."
+      },
+      {
+        "content": "Le collagène I est abondant dans les tendons ; le collagène IV dans les membranes basales.",
+        "correct": true,
+        "explanation": "La localisation reflète leur organisation."
+      },
+      {
+        "content": "Le collagène I est dépourvu de triple hélice.",
+        "correct": false,
+        "explanation": "La triple hélice est une caractéristique majeure."
       }
     ],
-    "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+    "explanation": "Collagène I et IV partagent la triple hélice mais divergent fortement : fibrilles striées pour I, réseau des membranes basales pour IV."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur la localisation des collagènes faut-il retenir ?",
+    "question": "Quelle affirmation décrit correctement la localisation des collagènes I et IV ?",
     "choices": [
       {
-        "content": "Leur organisation contribue à la structure des tissus.",
+        "content": "Le collagène IV est exclusivement intracellulaire.",
+        "correct": false,
+        "explanation": "C'est une protéine de matrice extracellulaire."
+      },
+      {
+        "content": "Le collagène I est également majeur dans l'os et la peau.",
         "correct": true,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Il forme des fibrilles résistantes."
       },
       {
-        "content": "La fiche ne leur attribue aucun rôle structural.",
+        "content": "Le collagène I est absent de l'os.",
         "correct": false,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Il y est très abondant."
       },
       {
-        "content": "Les collagènes sont des protéines exclusivement cytosoliques.",
+        "content": "Le collagène I est exclusivement localisé aux membranes basales.",
         "correct": false,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Cette localisation caractérise surtout le type IV."
       },
       {
-        "content": "Le type IV est uniquement présent dans les noyaux.",
+        "content": "Le collagène IV est le collagène principal des fibres tendineuses.",
         "correct": false,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Le tendon est surtout riche en collagène I."
       }
     ],
-    "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+    "explanation": "Le collagène I domine dans les tissus conjonctifs fibrillaires ; le collagène IV forme le réseau des membranes basales."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur la triple hélice droite sont exactes ?",
+    "question": "Concernant la triple hélice du collagène, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Trois chaînes α s’enroulent pour former une superhélice droite.",
+        "content": "La 4-hydroxyproline stabilise fortement la triple hélice, notamment par des effets conformationnels et d'hydratation.",
         "correct": true,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "Il est trop simpliste d'attribuer cette stabilité uniquement à des liaisons H directes de son OH."
       },
       {
-        "content": "La triple hélice est décrite comme une superhélice gauche composée de deux chaînes.",
-        "correct": false,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
-      },
-      {
-        "content": "La structure est stabilisée par des liaisons hydrogène.",
+        "content": "Les trois chaînes s'enroulent ensemble en une superhélice droite.",
         "correct": true,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "La triple hélice a une chiralité opposée à celle des chaînes individuelles."
       },
       {
-        "content": "Elle est stabilisée uniquement par des liaisons phosphodiester.",
+        "content": "Chaque chaîne adopte une hélice gauche de type polyproline II-like.",
+        "correct": true,
+        "explanation": "Cette conformation n'est pas une hélice alpha classique."
+      },
+      {
+        "content": "La superhélice collagénique finale est gauche.",
         "correct": false,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "Elle est droite."
+      },
+      {
+        "content": "Les liaisons hydrogène interchaînes impliquent principalement le NH de glycine et le carbonyle d'une chaîne voisine.",
+        "correct": true,
+        "explanation": "Ces liaisons du squelette contribuent directement à la cohésion."
       }
     ],
-    "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+    "explanation": "Chaque chaîne collagénique est une hélice gauche polyproline-II-like ; trois chaînes forment une superhélice droite stabilisée par des liaisons H du squelette et par la 4-hydroxyproline."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives au tropocollagène sont correctes ?",
-    "choices": [
-      {
-        "content": "Les molécules s’agencent avec un décalage régulier.",
-        "correct": true,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Il n’entre pas dans les fibrilles de collagène I.",
-        "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Il est uniquement présent dans les canaux ioniques.",
-        "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Le tropocollagène est une sous-unité de l’hémoglobine.",
-        "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
+    "format": "QROC",
+    "question": "Quel nom donne-t-on au protomère triple hélicoïdal qui s'assemble en fibrilles ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "tropocollagène",
+        "tropocollagene"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
+    },
+    "explanation": "Le protomère du collagène I est habituellement [α1(I)]2α2(I), une triple hélice d'environ 300 nm qui s'assemble en fibrilles."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour de la triple hélice droite : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRPL",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Trois chaînes α s’enroulent pour former une superhélice droite.",
-        "correct": true,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
-      },
-      {
-        "content": "Les molécules s’agencent avec un décalage régulier.",
-        "correct": true,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Il explique un aspect strié caractéristique en microscopie électronique.",
-        "correct": true,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
-      },
-      {
-        "content": "Les liaisons croisées sont uniquement des liaisons glycosidiques entre glucose.",
+        "content": "Il est constitué exclusivement de six chaînes alpha différentes.",
         "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+        "explanation": "Un protomère contient trois chaînes."
       },
       {
-        "content": "Les fibrilles ne s’associent jamais.",
-        "correct": false,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "content": "L'organisation ordonnée des protomères contribue aux propriétés mécaniques des fibrilles.",
+        "correct": true,
+        "explanation": "L'architecture supramoléculaire est essentielle à la résistance."
       },
       {
-        "content": "Il est dépourvu de triple hélice.",
+        "content": "Ses fibrilles présentent une périodicité D proche de 67 nm.",
+        "correct": true,
+        "explanation": "Le décalage axial ordonné produit cette striation."
+      },
+      {
+        "content": "Le collagène I est un collagène fibrillaire.",
+        "correct": true,
+        "explanation": "Il forme de longues fibrilles striées."
+      },
+      {
+        "content": "Le protomère entier de collagène I mesure seulement 67 nm.",
         "correct": false,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "La période D est ~67 nm, tandis que le protomère est ~300 nm."
+      },
+      {
+        "content": "Il est abondant dans l'os, la peau et les tendons.",
+        "correct": true,
+        "explanation": "Ces tissus nécessitent une forte résistance à la traction."
+      },
+      {
+        "content": "Le collagène I est le collagène principal des réseaux de membrane basale.",
+        "correct": false,
+        "explanation": "Cette fonction caractérise surtout le collagène IV."
+      },
+      {
+        "content": "La valeur de 67 nm correspond à une période répétitive de la fibrille, pas à la longueur totale du protomère.",
+        "correct": true,
+        "explanation": "Le protomère mesure environ 300 nm."
+      },
+      {
+        "content": "Il ne forme jamais de fibrilles.",
+        "correct": false,
+        "explanation": "Il est le prototype des collagènes fibrillaires."
+      },
+      {
+        "content": "Les molécules sont toutes superposées sans aucun décalage axial.",
+        "correct": false,
+        "explanation": "Le décalage est à l'origine de la striation."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "requiredSelectionCount": 5,
+    "explanation": "Le décalage axial des molécules de collagène I crée la striation caractéristique de période D proche de 67 nm. Le collagène I est le collagène fibrillaire majeur de nombreux tissus conjonctifs comme os, peau et tendons."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation de la triple hélice droite : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Le tropocollagène est le monomère de collagène impliqué dans la formation des fibrilles de type I.",
-        "correct": true,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Ce décalage vaut environ 67 nm.",
-        "correct": true,
-        "explanation": "Le décalage de 67 nm est un repère structural du collagène I."
-      },
-      {
-        "content": "La lysyl-oxydase intervient dans cette transformation.",
-        "correct": true,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
-      },
-      {
-        "content": "Les fibrilles s’associent en fibres.",
-        "correct": true,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
-      },
-      {
-        "content": "Il forme des fibrilles puis des fibres.",
-        "correct": true,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
-      },
-      {
-        "content": "Il constitue l’hème de l’hémoglobine.",
-        "correct": false,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      },
-      {
-        "content": "Les domaines 7S et NC1 appartiennent à l’albumine.",
-        "correct": false,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "Le collagène IV est la forme adulte de l’hémoglobine.",
-        "correct": false,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+    "format": "QROC",
+    "question": "Citez un tissu particulièrement riche en collagène I.",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "os",
+        "peau",
+        "tendon",
+        "tendons"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Le collagène I est le collagène fibrillaire majeur de nombreux tissus conjonctifs comme os, peau et tendons."
   }
 ];
