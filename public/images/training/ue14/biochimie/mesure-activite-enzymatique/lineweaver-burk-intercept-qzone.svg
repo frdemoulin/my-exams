@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+<rect width="1100" height="650" fill="white"/>
+<g stroke="#222" stroke-width="4" fill="none">
+<line x1="110" y1="520" x2="1010" y2="520"/>
+<line x1="500" y1="590" x2="500" y2="90"/>
+<line x1="230" y1="520" x2="870" y2="150" stroke-width="7"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" fill="#222">
+<text x="1015" y="558" font-size="26" text-anchor="end">1/[S]</text>
+<text x="455" y="105" font-size="26" transform="rotate(-90 455 105)">1/v₀</text>
+<text x="230" y="565" font-size="24" text-anchor="middle">−1/Km</text>
+<text x="535" y="350" font-size="24">1/Vmax</text>
+</g>
+<circle cx="230" cy="520" r="17" fill="#222"/>
+</svg>

@@ -1,649 +1,667 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH15_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — 4.2 Mesure d'une activité enzymatique — Section A — Mesure d'activité et paramètres catalytiques */
+export const UE14_BIOCH_CH15_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la définition de la cinétique enzymatique :",
+    "question": "Parmi les affirmations suivantes sur la cinétique enzymatique, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La cinétique enzymatique étudie la vitesse de la réaction.",
-        "correct": true,
-        "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
-      },
-      {
-        "content": "La cinétique enzymatique mesure uniquement la masse moléculaire des enzymes.",
+        "content": "Seule la disparition du produit peut être utilisée pour mesurer la vitesse.",
         "correct": false,
-        "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
+        "explanation": "On suit typiquement produit formé ou substrat consommé."
       },
       {
-        "content": "Elle étudie aussi les paramètres susceptibles de modifier cette vitesse.",
+        "content": "Elle étudie la vitesse des réactions enzymatiques et les paramètres qui la modifient.",
         "correct": true,
-        "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
+        "explanation": "La cinétique relie conditions expérimentales et vitesse observée."
       },
       {
-        "content": "Elle exclut toute notion de vitesse.",
+        "content": "La vitesse dépend des conditions expérimentales, notamment pH et température.",
+        "correct": true,
+        "explanation": "Une activité mesurée n'a de sens qu'avec des conditions définies."
+      },
+      {
+        "content": "Une activité mesurée est universelle quel que soit le pH ou la température.",
         "correct": false,
-        "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
+        "explanation": "Elle dépend des conditions."
+      },
+      {
+        "content": "Elle décrit uniquement la structure tridimensionnelle des enzymes.",
+        "correct": false,
+        "explanation": "Elle étudie surtout les vitesses de réaction."
       }
     ],
-    "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
+    "explanation": "La cinétique enzymatique étudie les vitesses et privilégie souvent la vitesse initiale dans des conditions expérimentales définies."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement la relation entre substrat et produit selon la fiche ?",
+    "question": "Concernant l'état quasi-stationnaire en cinétique enzymatique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La vitesse peut être suivie par la formation du produit.",
+        "content": "La concentration totale en enzyme disparaît rapidement pendant la réaction.",
+        "correct": false,
+        "explanation": "La quantité totale d'enzyme est conservée hors inactivation/dégradation."
+      },
+      {
+        "content": "À l'état stationnaire, le produit est déjà à sa concentration d'équilibre finale.",
+        "correct": false,
+        "explanation": "On travaille au contraire au début de la réaction."
+      },
+      {
+        "content": "État stationnaire signifie nécessairement équilibre chimique complet.",
+        "correct": false,
+        "explanation": "Il peut exister un flux net de produit."
+      },
+      {
+        "content": "Un état stationnaire n'est pas nécessairement un équilibre thermodynamique.",
         "correct": true,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
+        "explanation": "Un flux net de produit peut persister."
       },
       {
-        "content": "Seule la température peut servir à suivre une réaction.",
+        "content": "La condition d[ES]/dt≈0 impose [ES]=0.",
         "correct": false,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
-      },
-      {
-        "content": "La concentration du produit n’a aucun lien avec la réaction.",
-        "correct": false,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
-      },
-      {
-        "content": "Le produit apparaît sans diminution du substrat dans le modèle.",
-        "correct": false,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
+        "explanation": "[ES] peut être non nulle et presque constante."
       }
     ],
-    "explanation": "Deux approches de mesure de vitesse sont présentées."
+    "explanation": "Le quasi-état stationnaire signifie [ES] approximativement constante, pas équilibre thermodynamique."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur la condition [S] très supérieure à [E] :",
-    "choices": [
-      {
-        "content": "Cette condition contribue à l’installation rapide d’un état stationnaire.",
-        "correct": true,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
-      },
-      {
-        "content": "La concentration de substrat est nulle pendant la mesure.",
-        "correct": false,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
-      },
-      {
-        "content": "La fiche indique que [S] est très supérieure à [E].",
-        "correct": true,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
-      },
-      {
-        "content": "La fiche impose [E] au moins 1000 fois supérieure à [S].",
-        "correct": false,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
+    "format": "QROC",
+    "question": "Quelle concentration reste normalement constante : enzyme libre ou enzyme totale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "enzyme totale",
+        "[E]t",
+        "concentration totale en enzyme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support retient [S] nettement supérieure à [E]."
+    },
+    "explanation": "Dans le modèle simple, [E]t=[E]+[ES] ; l'enzyme libre varie, la quantité totale est conservée."
   },
   {
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur la phase stationnaire, lesquelles sont exactes ?",
+    "question": "Parmi les affirmations suivantes sur la mesure spectrophotométrique par Beer-Lambert, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Pendant la phase stationnaire, [ES] reste approximativement constante.",
-        "correct": true,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
-      },
-      {
-        "content": "Pendant la phase stationnaire, [ES] augmente sans cesse.",
+        "content": "La longueur de cuve n'intervient pas dans Beer-Lambert.",
         "correct": false,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+        "explanation": "A est proportionnelle à l."
       },
       {
-        "content": "La mesure de l’activité enzymatique se fait dans cette phase.",
+        "content": "Le signe de la pente dépend de l'espèce absorbante suivie.",
         "correct": true,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+        "explanation": "Un substrat consommé peut donner une pente négative."
       },
       {
-        "content": "Aucune mesure n’est réalisée dans cette phase.",
+        "content": "Une pente ΔA/Δt peut être convertie en vitesse de variation de concentration si ε et l sont connus.",
+        "correct": true,
+        "explanation": "v=(ΔA/Δt)/(εl) en valeur absolue selon l'espèce suivie."
+      },
+      {
+        "content": "Une mesure cinétique utilise plusieurs points dans la zone initiale linéaire.",
+        "correct": true,
+        "explanation": "La pente est plus robuste qu'une mesure unique."
+      },
+      {
+        "content": "La loi de Beer-Lambert ne peut jamais être utilisée en cinétique enzymatique.",
         "correct": false,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+        "explanation": "Elle est très courante."
       }
     ],
-    "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+    "explanation": "Beer-Lambert permet de convertir une pente d'absorbance en vitesse de concentration lorsque ε et l sont connus."
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant la concentration totale en enzyme :",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant l'unité enzymatique U.",
     "choices": [
       {
-        "content": "[E]t combine enzyme libre et enzyme engagée dans le complexe ES.",
+        "content": "1 U correspond à environ 16,67 nkat.",
         "correct": true,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+        "explanation": "La conversion découle de 1 µmol/min en mol/s."
       },
       {
-        "content": "Le complexe ES ne contient aucune enzyme.",
+        "content": "1 U est une unité de masse enzymatique.",
         "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+        "explanation": "C'est une unité d'activité."
       },
       {
-        "content": "L’enzyme libre est exclue de la concentration totale.",
+        "content": "Une activité en U est indépendante des conditions expérimentales.",
         "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+        "explanation": "Elle doit être définie pour un système donné."
       },
       {
-        "content": "La relation donnée est [E]t = [S] − [P].",
+        "content": "Une unité enzymatique U correspond à 1 µmol de substrat transformé par minute dans des conditions définies.",
+        "correct": true,
+        "explanation": "L'ancienne unité hors SI reste couramment utilisée."
+      },
+      {
+        "content": "1 U vaut 1 mol/s.",
         "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+        "explanation": "Cela définit 1 kat."
       }
     ],
-    "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+    "explanation": "1 U = 1 µmol·min⁻¹ ≈ 16,67 nkat dans des conditions de mesure définies.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 6,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la vitesse initiale selon la fiche ?",
+    "question": "Concernant le katal, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle correspond à l’activité de l’enzyme dans le cadre décrit.",
+        "content": "1 U vaut environ 16,67 nkat.",
         "correct": true,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "explanation": "La conversion est exacte à l'arrondi près."
       },
       {
-        "content": "La fiche l’assimile à la masse molaire de l’enzyme.",
+        "content": "Le katal mesure une absorbance.",
         "correct": false,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "explanation": "Il mesure une activité catalytique."
       },
       {
-        "content": "En enzymologie classique, la fiche s’intéresse à la vitesse initiale.",
+        "content": "1 nkat correspond à 10⁻9 mol·s⁻1.",
         "correct": true,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "explanation": "Les sous-multiples sont donc courants."
       },
       {
-        "content": "La vitesse initiale est mesurée uniquement après épuisement total du substrat.",
-        "correct": false,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "content": "1 kat correspond à 1 mol de transformation par seconde.",
+        "correct": true,
+        "explanation": "Il s'agit d'une unité très grande pour beaucoup d'analyses biologiques."
+      },
+      {
+        "content": "Le katal est l'unité SI cohérente d'activité catalytique.",
+        "correct": true,
+        "explanation": "Son symbole est kat."
       }
     ],
-    "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+    "explanation": "Le katal est l'unité SI d'activité catalytique : 1 kat=1 mol·s⁻¹."
   },
   {
     "order": 7,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur la pente ΔA/Δt :",
+    "format": "QRU",
+    "question": "Concernant la concentration d'activité catalytique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La pente d’absorbance ΔA/Δt permet de suivre la réaction.",
-        "correct": true,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "Une seule mesure après plusieurs jours est nécessaire.",
+        "content": "Elle ne dépend jamais du protocole.",
         "correct": false,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
+        "explanation": "Les conditions de dosage sont essentielles."
       },
       {
-        "content": "La fiche recommande plusieurs mesures par minute.",
-        "correct": true,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "ΔA/Δt représente la concentration totale en enzyme.",
+        "content": "U/L et µmol·L⁻¹·min⁻¹ sont incompatibles.",
         "correct": false,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
+        "explanation": "Ils expriment la même dimension d'activité par volume."
+      },
+      {
+        "content": "Elle correspond exactement à kcat en toutes circonstances.",
+        "correct": false,
+        "explanation": "kcat est normalisé par quantité d'enzyme active et saturation en substrat."
+      },
+      {
+        "content": "Elle s'exprime nécessairement en mg/L d'enzyme.",
+        "correct": false,
+        "explanation": "C'est alors une concentration massique."
+      },
+      {
+        "content": "Elle rapporte une activité catalytique à un volume de solution.",
+        "correct": true,
+        "explanation": "Elle peut s'exprimer en U/L ou kat/L."
       }
     ],
-    "explanation": "La pente d’absorbance est convertie en vitesse initiale."
+    "explanation": "La concentration d'activité rapporte une vitesse catalytique à un volume ; elle n'est pas une concentration molaire d'enzyme."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur la loi de Beer-Lambert appliquée à la cinétique, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "ε est un coefficient d’absorption.",
-        "correct": true,
-        "explanation": "Beer-Lambert relie absorbance et concentration du produit."
-      },
-      {
-        "content": "ε représente le temps.",
-        "correct": false,
-        "explanation": "Beer-Lambert relie absorbance et concentration du produit."
-      },
-      {
-        "content": "l désigne la concentration de l’enzyme.",
-        "correct": false,
-        "explanation": "Beer-Lambert relie absorbance et concentration du produit."
-      },
-      {
-        "content": "La relation utilisée est A = [P]/(ε+l).",
-        "correct": false,
-        "explanation": "Beer-Lambert relie absorbance et concentration du produit."
+    "format": "QROC",
+    "question": "Quelle est l'unité usuelle de kcat ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "s-1",
+        "s⁻¹",
+        "par seconde"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Beer-Lambert relie absorbance et concentration du produit."
+    },
+    "explanation": "kcat est le turnover à saturation et vérifie Vmax=kcat[E]t pour un modèle simple."
   },
   {
     "order": 9,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la formule de la vitesse initiale par absorbance :",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement l'activité spécifique ?",
     "choices": [
       {
-        "content": "Cette relation permet d’obtenir une vitesse de formation du produit.",
+        "content": "Elle ne correspond pas nécessairement à kcat.",
         "correct": true,
-        "explanation": "La relation dérive directement de Beer-Lambert."
+        "explanation": "La masse totale de protéines peut inclure de nombreuses espèces non enzymatiques."
       },
       {
-        "content": "La relation ne comporte aucun terme optique.",
+        "content": "Elle ne peut jamais être utilisée pour suivre une purification.",
         "correct": false,
-        "explanation": "La relation dérive directement de Beer-Lambert."
+        "explanation": "C'est un usage classique."
       },
       {
-        "content": "La fiche donne V0 = (ΔA/Δt)/(ε·l).",
-        "correct": true,
-        "explanation": "La relation dérive directement de Beer-Lambert."
-      },
-      {
-        "content": "La fiche donne V0 = ε·l/(ΔA/Δt).",
+        "content": "Elle est obligatoirement identique avant et après purification.",
         "correct": false,
-        "explanation": "La relation dérive directement de Beer-Lambert."
+        "explanation": "Elle augmente généralement avec l'enrichissement de l'enzyme active."
+      },
+      {
+        "content": "U/mg et s⁻¹ sont la même grandeur sans information supplémentaire.",
+        "correct": false,
+        "explanation": "kcat normalise par quantité molaire de sites actifs."
+      },
+      {
+        "content": "Elle s'exprime toujours en mol/L.",
+        "correct": false,
+        "explanation": "Elle est une activité par masse."
       }
     ],
-    "explanation": "La relation dérive directement de Beer-Lambert."
+    "explanation": "L'activité spécifique est une activité par masse de protéines, utile notamment pour suivre une purification."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement l’état préstationnaire et poststationnaire selon la fiche ?",
+    "question": "Concernant la cinétique enzymatique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche distingue des phases préstationnaire, stationnaire et poststationnaire.",
+        "content": "Les mesures initiales limitent les effets de l'épuisement du substrat et de l'accumulation de produit.",
         "correct": true,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
+        "explanation": "C'est pourquoi v0 est privilégiée."
       },
       {
-        "content": "La fiche ne distingue qu’une phase unique.",
+        "content": "Seule la disparition du produit peut être utilisée pour mesurer la vitesse.",
         "correct": false,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
+        "explanation": "On suit typiquement produit formé ou substrat consommé."
       },
       {
-        "content": "La phase stationnaire est privilégiée pour la mesure.",
+        "content": "Elle décrit uniquement la structure tridimensionnelle des enzymes.",
+        "correct": false,
+        "explanation": "Elle étudie surtout les vitesses de réaction."
+      },
+      {
+        "content": "Une activité mesurée est universelle quel que soit le pH ou la température.",
+        "correct": false,
+        "explanation": "Elle dépend des conditions."
+      },
+      {
+        "content": "Elle étudie la vitesse des réactions enzymatiques et les paramètres qui la modifient.",
         "correct": true,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
-      },
-      {
-        "content": "La vitesse initiale est mesurée exclusivement dans la phase poststationnaire.",
-        "correct": false,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
+        "explanation": "La cinétique relie conditions expérimentales et vitesse observée."
       }
     ],
-    "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
+    "explanation": "La cinétique enzymatique étudie les vitesses et privilégie souvent la vitesse initiale dans des conditions expérimentales définies."
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à la condition [S] très supérieure à [E] sont correctes ?",
+    "question": "Parmi les affirmations suivantes sur la cinétique enzymatique, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Elle donne un facteur d’au moins 10 comme repère.",
+        "content": "Les mesures initiales limitent les effets de l'épuisement du substrat et de l'accumulation de produit.",
         "correct": true,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
+        "explanation": "C'est pourquoi v0 est privilégiée."
       },
       {
-        "content": "Substrat et enzyme doivent être exactement à la même concentration.",
+        "content": "Une activité mesurée est universelle quel que soit le pH ou la température.",
         "correct": false,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
+        "explanation": "Elle dépend des conditions."
       },
       {
-        "content": "Cette condition contribue à l’installation rapide d’un état stationnaire.",
+        "content": "La vitesse dépend des conditions expérimentales, notamment pH et température.",
         "correct": true,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
+        "explanation": "Une activité mesurée n'a de sens qu'avec des conditions définies."
       },
       {
-        "content": "La concentration de substrat est nulle pendant la mesure.",
+        "content": "La vitesse enzymatique est indépendante de la concentration en substrat.",
         "correct": false,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
+        "explanation": "Elle en dépend généralement."
+      },
+      {
+        "content": "Elle étudie la vitesse des réactions enzymatiques et les paramètres qui la modifient.",
+        "correct": true,
+        "explanation": "La cinétique relie conditions expérimentales et vitesse observée."
       }
     ],
-    "explanation": "Le support retient [S] nettement supérieure à [E]."
+    "explanation": "La cinétique enzymatique étudie les vitesses et privilégie souvent la vitesse initiale dans des conditions expérimentales définies."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur la phase stationnaire faut-il retenir ?",
-    "choices": [
-      {
-        "content": "La courbe de produit est alors considérée dans sa partie linéaire pour la vitesse initiale.",
-        "correct": true,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
-      },
-      {
-        "content": "La phase stationnaire est définie par l’absence totale de substrat.",
-        "correct": false,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
-      },
-      {
-        "content": "Pendant la phase stationnaire, [ES] augmente sans cesse.",
-        "correct": false,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
-      },
-      {
-        "content": "Aucune mesure n’est réalisée dans cette phase.",
-        "correct": false,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+    "format": "QROC",
+    "question": "Quelle dérivée temporelle est approximativement nulle sous l'hypothèse de quasi-état stationnaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "d[ES]/dt",
+        "variation de [ES]",
+        "dES/dt"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+    },
+    "explanation": "Le quasi-état stationnaire signifie [ES] approximativement constante, pas équilibre thermodynamique."
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur la concentration totale en enzyme sont exactes ?",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement le bilan de concentration enzymatique ?",
     "choices": [
       {
-        "content": "La fiche donne [E]t = [E] + [ES].",
-        "correct": true,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
-      },
-      {
-        "content": "La relation donnée est [E]t = [S] − [P].",
+        "content": "L'enzyme totale est consommée à mesure que le produit se forme.",
         "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+        "explanation": "Elle est régénérée."
       },
       {
-        "content": "[E]t combine enzyme libre et enzyme engagée dans le complexe ES.",
-        "correct": true,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
-      },
-      {
-        "content": "Le complexe ES ne contient aucune enzyme.",
+        "content": "À saturation, aucune enzyme ne lie le substrat.",
         "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+        "explanation": "Une grande fraction est engagée dans ES."
+      },
+      {
+        "content": "La relation correcte est [E]t=[E]-[ES].",
+        "correct": false,
+        "explanation": "Les deux populations s'additionnent."
+      },
+      {
+        "content": "Une diminution de [E] libre prouve une destruction de l'enzyme.",
+        "correct": false,
+        "explanation": "Elle peut simplement refléter la formation de ES."
+      },
+      {
+        "content": "À forte saturation en substrat, une grande fraction de l'enzyme peut être sous forme ES.",
+        "correct": true,
+        "explanation": "Cela mène au plateau de vitesse."
       }
     ],
-    "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+    "explanation": "Dans le modèle simple, [E]t=[E]+[ES] ; l'enzyme libre varie, la quantité totale est conservée."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Au laboratoire, plusieurs mesures sont réalisées pendant la partie linéaire de la formation du produit. Quelle proposition sur la vitesse initiale est correcte ?",
+    "format": "QRM",
+    "question": "Concernant la mesure spectrophotométrique par Beer-Lambert, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle est mesurée dans la phase stationnaire linéaire.",
+        "content": "La loi de Beer-Lambert s'écrit A=ε·l·c dans son domaine de validité.",
         "correct": true,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "explanation": "A est sans dimension et ε dépend de la longueur d'onde."
       },
       {
-        "content": "Elle correspond à une phase où le produit reste strictement nul indéfiniment.",
-        "correct": false,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "content": "Le signe de la pente dépend de l'espèce absorbante suivie.",
+        "correct": true,
+        "explanation": "Un substrat consommé peut donner une pente négative."
       },
       {
-        "content": "La fiche l’assimile à la masse molaire de l’enzyme.",
+        "content": "La longueur de cuve n'intervient pas dans Beer-Lambert.",
         "correct": false,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "explanation": "A est proportionnelle à l."
       },
       {
-        "content": "La vitesse initiale est mesurée uniquement après épuisement total du substrat.",
-        "correct": false,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "content": "Une pente ΔA/Δt peut être convertie en vitesse de variation de concentration si ε et l sont connus.",
+        "correct": true,
+        "explanation": "v=(ΔA/Δt)/(εl) en valeur absolue selon l'espèce suivie."
+      },
+      {
+        "content": "Une mesure cinétique utilise plusieurs points dans la zone initiale linéaire.",
+        "correct": true,
+        "explanation": "La pente est plus robuste qu'une mesure unique."
       }
     ],
-    "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+    "explanation": "Beer-Lambert permet de convertir une pente d'absorbance en vitesse de concentration lorsque ε et l sont connus."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur la pente ΔA/Δt faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Les temps d’analyse sont généralement courts, de quelques dizaines de secondes à quelques minutes.",
-        "correct": true,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "L’absorbance ne peut pas être utilisée en cinétique.",
-        "correct": false,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "La pente d’absorbance ΔA/Δt permet de suivre la réaction.",
-        "correct": true,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "Une seule mesure après plusieurs jours est nécessaire.",
-        "correct": false,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      }
-    ],
-    "explanation": "La pente d’absorbance est convertie en vitesse initiale."
+    "format": "QROC",
+    "question": "À combien de micromoles par minute correspond 1 U ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "1 U = 1 µmol·min⁻¹ ≈ 16,67 nkat dans des conditions de mesure définies."
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique : par quel facteur minimal la fiche indique-t-elle que [S] dépasse [E] ?",
-    "answer": {
-      "type": "number",
-      "value": 10,
-      "tolerance": 0
-    },
-    "explanation": "Le support retient [S] nettement supérieure à [E]."
+    "format": "QRP",
+    "question": "Concernant le katal, choisissez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "Le katal mesure une absorbance.",
+        "correct": false,
+        "explanation": "Il mesure une activité catalytique."
+      },
+      {
+        "content": "1 nkat vaut 1 mol/s.",
+        "correct": false,
+        "explanation": "Il vaut 10⁻9 mol/s."
+      },
+      {
+        "content": "1 kat correspond à 1 mol de transformation par seconde.",
+        "correct": true,
+        "explanation": "Il s'agit d'une unité très grande pour beaucoup d'analyses biologiques."
+      },
+      {
+        "content": "Le symbole du katal est K.",
+        "correct": false,
+        "explanation": "Le symbole est kat."
+      },
+      {
+        "content": "Le katal est l'unité SI cohérente d'activité catalytique.",
+        "correct": true,
+        "explanation": "Son symbole est kat."
+      }
+    ],
+    "explanation": "Le katal est l'unité SI d'activité catalytique : 1 kat=1 mol·s⁻¹.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à la formule de la vitesse initiale par absorbance sont correctes ?",
+    "question": "Concernant la concentration d'activité catalytique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La pente d’absorbance est divisée par ε·l.",
-        "correct": true,
-        "explanation": "La relation dérive directement de Beer-Lambert."
-      },
-      {
-        "content": "La vitesse initiale ne dépend jamais de la pente mesurée.",
+        "content": "U/L et µmol·L⁻¹·min⁻¹ sont incompatibles.",
         "correct": false,
-        "explanation": "La relation dérive directement de Beer-Lambert."
+        "explanation": "Ils expriment la même dimension d'activité par volume."
       },
       {
-        "content": "Cette relation permet d’obtenir une vitesse de formation du produit.",
-        "correct": true,
-        "explanation": "La relation dérive directement de Beer-Lambert."
-      },
-      {
-        "content": "La relation ne comporte aucun terme optique.",
+        "content": "Elle correspond exactement à kcat en toutes circonstances.",
         "correct": false,
-        "explanation": "La relation dérive directement de Beer-Lambert."
+        "explanation": "kcat est normalisé par quantité d'enzyme active et saturation en substrat."
+      },
+      {
+        "content": "Elle rapporte une activité catalytique à un volume de solution.",
+        "correct": true,
+        "explanation": "Elle peut s'exprimer en U/L ou kat/L."
+      },
+      {
+        "content": "Elle ne dépend jamais du protocole.",
+        "correct": false,
+        "explanation": "Les conditions de dosage sont essentielles."
+      },
+      {
+        "content": "Elle ne doit pas être confondue avec la concentration molaire de l'enzyme.",
+        "correct": true,
+        "explanation": "L'une mesure un effet catalytique, l'autre une quantité de matière d'enzyme."
       }
     ],
-    "explanation": "La relation dérive directement de Beer-Lambert."
+    "explanation": "La concentration d'activité rapporte une vitesse catalytique à un volume ; elle n'est pas une concentration molaire d'enzyme."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur l’état préstationnaire et poststationnaire faut-il retenir ?",
+    "question": "Concernant la constante catalytique kcat, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "À des temps tardifs, le ralentissement de la réaction limite l’usage de la pente initiale.",
+        "content": "kcat se définit à substrat très faible uniquement.",
+        "correct": false,
+        "explanation": "Il est associé au régime saturant."
+      },
+      {
+        "content": "kcat s'exprime en mol/L.",
+        "correct": false,
+        "explanation": "Son unité est s⁻¹."
+      },
+      {
+        "content": "Vmax est indépendante de la quantité d'enzyme.",
+        "correct": false,
+        "explanation": "Elle est proportionnelle à [E]t."
+      },
+      {
+        "content": "kcat est nécessairement égal à Km.",
+        "correct": false,
+        "explanation": "Ce sont des paramètres distincts."
+      },
+      {
+        "content": "Son unité est s⁻¹.",
         "correct": true,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
-      },
-      {
-        "content": "La phase stationnaire est définie par une courbe parfaitement horizontale de produit dès le départ.",
-        "correct": false,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
-      },
-      {
-        "content": "La fiche ne distingue qu’une phase unique.",
-        "correct": false,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
-      },
-      {
-        "content": "La vitesse initiale est mesurée exclusivement dans la phase poststationnaire.",
-        "correct": false,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
+        "explanation": "Il s'agit d'une fréquence de turnover."
       }
     ],
-    "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
+    "explanation": "kcat est le turnover à saturation et vérifie Vmax=kcat[E]t pour un modèle simple."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Complétez par le symbole attendu : [E]t = [E] + […] ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "ES",
-        "[ES]",
-        "es"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement l'activité spécifique ?",
+    "choices": [
+      {
+        "content": "Elle rapporte l'activité catalytique à une masse de protéines.",
+        "correct": true,
+        "explanation": "Elle s'exprime souvent en U/mg."
+      },
+      {
+        "content": "Son interprétation dépend du protocole de dosage de l'activité.",
+        "correct": true,
+        "explanation": "Les conditions doivent être comparables."
+      },
+      {
+        "content": "Elle ne peut jamais être utilisée pour suivre une purification.",
+        "correct": false,
+        "explanation": "C'est un usage classique."
+      },
+      {
+        "content": "Elle est obligatoirement identique avant et après purification.",
+        "correct": false,
+        "explanation": "Elle augmente généralement avec l'enrichissement de l'enzyme active."
+      },
+      {
+        "content": "Elle ne correspond pas nécessairement à kcat.",
+        "correct": true,
+        "explanation": "La masse totale de protéines peut inclure de nombreuses espèces non enzymatiques."
       }
-    },
-    "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+    ],
+    "explanation": "L'activité spécifique est une activité par masse de protéines, utile notamment pour suivre une purification."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à la relation entre substrat et produit sont correctes ?",
-    "choices": [
-      {
-        "content": "La vitesse peut être suivie par la formation du produit.",
-        "correct": true,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
-      },
-      {
-        "content": "Seule la température peut servir à suivre une réaction.",
-        "correct": false,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
-      },
-      {
-        "content": "La concentration du produit n’a aucun lien avec la réaction.",
-        "correct": false,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
-      },
-      {
-        "content": "Le produit apparaît sans diminution du substrat dans le modèle.",
-        "correct": false,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
+    "format": "QROC",
+    "question": "Quelles deux grandeurs chimiques peut-on suivre pour mesurer une vitesse enzymatique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "disparition du substrat et apparition du produit",
+        "substrat consommé et produit formé"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Deux approches de mesure de vitesse sont présentées."
+    },
+    "explanation": "La cinétique enzymatique étudie les vitesses et privilégie souvent la vitesse initiale dans des conditions expérimentales définies."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour de la définition de la cinétique enzymatique : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRU",
+    "question": "Concernant l'état quasi-stationnaire en cinétique enzymatique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La cinétique enzymatique étudie la vitesse de la réaction.",
-        "correct": true,
-        "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
-      },
-      {
-        "content": "La vitesse peut être suivie par la formation du produit.",
-        "correct": true,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
-      },
-      {
-        "content": "Cette condition contribue à l’installation rapide d’un état stationnaire.",
-        "correct": true,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
-      },
-      {
-        "content": "Pendant la phase stationnaire, [ES] augmente sans cesse.",
+        "content": "État stationnaire signifie nécessairement équilibre chimique complet.",
         "correct": false,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+        "explanation": "Il peut exister un flux net de produit."
       },
       {
-        "content": "Le complexe ES ne contient aucune enzyme.",
+        "content": "À l'état stationnaire, le produit est déjà à sa concentration d'équilibre finale.",
         "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+        "explanation": "On travaille au contraire au début de la réaction."
       },
       {
-        "content": "La fiche l’assimile à la masse molaire de l’enzyme.",
+        "content": "La condition d[ES]/dt≈0 impose [ES]=0.",
         "correct": false,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
+        "explanation": "[ES] peut être non nulle et presque constante."
+      },
+      {
+        "content": "Les mesures de vitesse initiale sont réalisées avant accumulation importante de produit.",
+        "correct": true,
+        "explanation": "Cela limite la réaction inverse et d'autres complications."
+      },
+      {
+        "content": "La concentration totale en enzyme disparaît rapidement pendant la réaction.",
+        "correct": false,
+        "explanation": "La quantité totale d'enzyme est conservée hors inactivation/dégradation."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Le quasi-état stationnaire signifie [ES] approximativement constante, pas équilibre thermodynamique."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation de la définition de la cinétique enzymatique : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "L’apparition du produit reflète la disparition du substrat.",
-        "correct": true,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
-      },
-      {
-        "content": "Elle donne un facteur d’au moins 10 comme repère.",
-        "correct": true,
-        "explanation": "Le support retient [S] nettement supérieure à [E]."
-      },
-      {
-        "content": "La courbe de produit est alors considérée dans sa partie linéaire pour la vitesse initiale.",
-        "correct": true,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
-      },
-      {
-        "content": "La fiche donne [E]t = [E] + [ES].",
-        "correct": true,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
-      },
-      {
-        "content": "Elle est mesurée dans la phase stationnaire linéaire.",
-        "correct": true,
-        "explanation": "La vitesse initiale est la pente mesurée au début de la phase stationnaire."
-      },
-      {
-        "content": "L’absorbance ne peut pas être utilisée en cinétique.",
-        "correct": false,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "La relation utilisée est A = [P]/(ε+l).",
-        "correct": false,
-        "explanation": "Beer-Lambert relie absorbance et concentration du produit."
-      },
-      {
-        "content": "La vitesse initiale ne dépend jamais de la pente mesurée.",
-        "correct": false,
-        "explanation": "La relation dérive directement de Beer-Lambert."
+    "format": "QROC",
+    "question": "Quelle relation relie enzyme totale, enzyme libre et complexe ES dans le modèle simple ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "[E]t = [E] + [ES]",
+        "Et = E + ES",
+        "E totale = E libre + ES"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Dans le modèle simple, [E]t=[E]+[ES] ; l'enzyme libre varie, la quantité totale est conservée."
   }
 ];

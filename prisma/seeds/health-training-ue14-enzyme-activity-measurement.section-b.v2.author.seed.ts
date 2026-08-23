@@ -1,640 +1,675 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH15_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — 4.2 Mesure d'une activité enzymatique — Section B — Michaelis-Menten et paramètres cinétiques */
+export const UE14_BIOCH_CH15_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’unité internationale UI :",
+    "question": "Quelles propositions décrivent correctement l'équation de Michaelis-Menten ?",
     "choices": [
       {
-        "content": "Une UI correspond à 1 µmol de substrat transformé par minute dans des conditions définies.",
+        "content": "Lorsque [S]=Km, v0=Vmax/2.",
         "correct": true,
-        "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
+        "explanation": "C'est une propriété algébrique de l'équation."
       },
       {
-        "content": "Une UI correspond à 1 mol par seconde.",
-        "correct": false,
-        "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
-      },
-      {
-        "content": "L’UI reste utilisée selon la fiche.",
+        "content": "Lorsque [S]≪Km, v0 est approximativement proportionnelle à [S].",
         "correct": true,
-        "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
+        "explanation": "Le régime est quasi du premier ordre en substrat."
       },
       {
-        "content": "L’UI mesure une masse d’enzyme en milligrammes.",
+        "content": "Pour un modèle simple, v0=Vmax[S]/(Km+[S]).",
+        "correct": true,
+        "explanation": "C'est la forme classique de l'équation."
+      },
+      {
+        "content": "Lorsque [S]≫Km, v0 tend vers Vmax.",
+        "correct": true,
+        "explanation": "L'enzyme devient saturée et la vitesse devient quasi indépendante de [S]."
+      },
+      {
+        "content": "Vmax est obtenue quand [S]=0.",
         "correct": false,
-        "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
+        "explanation": "La vitesse est alors nulle."
       }
     ],
-    "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
+    "explanation": "Michaelis-Menten décrit une hyperbole : v0=Vmax[S]/(Km+[S]), avec demi-vitesse à [S]=Km."
   },
   {
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement le katal selon la fiche ?",
+    "question": "Concernant la constante de Michaelis Km, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Le symbole de l’unité est kat.",
+        "content": "Km est une vitesse exprimée en mol/s.",
+        "correct": false,
+        "explanation": "Km a l'unité d'une concentration."
+      },
+      {
+        "content": "Km est la concentration de substrat donnant v0=Vmax/2 dans le modèle de Michaelis-Menten.",
         "correct": true,
-        "explanation": "Le katal exprime des moles par seconde."
+        "explanation": "C'est sa définition cinétique la plus sûre."
       },
       {
-        "content": "Le katal est une unité de masse moléculaire.",
+        "content": "Km est toujours exactement la constante de dissociation Kd.",
         "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
+        "explanation": "Ce n'est pas vrai en général."
       },
       {
-        "content": "Le symbole du katal est Km.",
+        "content": "Km dépend uniquement de la quantité totale d'enzyme utilisée.",
         "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
+        "explanation": "Dans le modèle idéal, il ne dépend pas de [E]t."
       },
       {
-        "content": "Un katal correspond à 1 µmol par minute.",
+        "content": "Km correspond à [S] lorsque v0=Vmax.",
         "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
+        "explanation": "À [S]=Km, v0=Vmax/2."
       }
     ],
-    "explanation": "Le katal exprime des moles par seconde."
+    "explanation": "Km est avant tout un paramètre cinétique ; son interprétation directe comme « affinité » est conditionnelle."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur la conversion UI-nkat :",
-    "choices": [
-      {
-        "content": "Ces relations convertissent activité par minute et par seconde.",
-        "correct": true,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
-      },
-      {
-        "content": "UI et nkat ne peuvent pas être convertis.",
-        "correct": false,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
-      },
-      {
-        "content": "La fiche donne 1 UI = 16,67 nkat.",
-        "correct": true,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
-      },
-      {
-        "content": "La fiche donne 1 UI = 60 kat.",
-        "correct": false,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+    "format": "QROC",
+    "question": "Quelle relation permet de calculer Vmax à partir de kcat et [E]t ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Vmax = kcat[E]t",
+        "Vmax=kcat×[E]t"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+    },
+    "explanation": "Vmax est une capacité de réaction dépendant de la quantité d'enzyme ; kcat en est la normalisation molaire."
   },
   {
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur la concentration d’activité catalytique Ccat, lesquelles sont exactes ?",
+    "question": "Quelles propositions décrivent correctement la fraction d'occupation des sites dans le modèle simple ?",
     "choices": [
       {
-        "content": "La Ccat rapporte l’activité au volume de solution enzymatique.",
+        "content": "À [S]≫Km, la fraction ES/[E]t tend vers 1.",
         "correct": true,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+        "explanation": "La saturation est approchée asymptotiquement."
       },
       {
-        "content": "La Ccat est une masse molaire en g·mol−1.",
+        "content": "La fraction occupée peut dépasser 1.",
         "correct": false,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+        "explanation": "Elle est comprise entre 0 et 1."
       },
       {
-        "content": "Elle peut s’exprimer en UI·L−1.",
+        "content": "À [S]=Km, la fraction ES/[E]t vaut 1/2.",
         "correct": true,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+        "explanation": "La moitié de l'enzyme est alors sous forme ES dans ce modèle."
       },
       {
-        "content": "Elle ne dépend jamais d’un volume.",
+        "content": "À [S]=0, la fraction occupée vaut 1.",
         "correct": false,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+        "explanation": "Elle vaut 0."
+      },
+      {
+        "content": "La fraction occupée est indépendante de [S].",
+        "correct": false,
+        "explanation": "Elle augmente avec [S]."
       }
     ],
-    "explanation": "La Ccat est une activité catalytique par unité de volume."
+    "explanation": "Dans le modèle simple, v0/Vmax et [ES]/[E]t suivent [S]/(Km+[S])."
   },
   {
     "order": 27,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant la constante catalytique Kcat :",
+    "format": "QRP",
+    "question": "Concernant les régimes d'ordre apparent en Michaelis-Menten, choisissez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Kcat s’exprime en s−1.",
+        "content": "Ordre zéro signifie vitesse nulle.",
+        "correct": false,
+        "explanation": "Cela signifie ici indépendance approximative vis-à-vis de [S]."
+      },
+      {
+        "content": "À faible [S], la vitesse est indépendante de [S].",
+        "correct": false,
+        "explanation": "Elle est approximativement proportionnelle à [S]."
+      },
+      {
+        "content": "À forte [S] devant Km, la vitesse devient approximativement d'ordre zéro en [S].",
         "correct": true,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+        "explanation": "v0≈Vmax."
       },
       {
-        "content": "Kcat s’exprime uniquement en UI·L−1.",
+        "content": "À forte [S], la vitesse est proportionnelle à [S] sans limite.",
         "correct": false,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+        "explanation": "Elle tend vers Vmax."
       },
       {
-        "content": "Kcat diminue obligatoirement quand l’enzyme est plus performante.",
-        "correct": false,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
-      },
-      {
-        "content": "Kcat est la concentration de substrat à Vmax/2.",
-        "correct": false,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+        "content": "À faible [S] devant Km, la vitesse est approximativement du premier ordre en [S].",
+        "correct": true,
+        "explanation": "v0≈(Vmax/Km)[S]."
       }
     ],
-    "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+    "explanation": "Le modèle passe d'un régime approximativement d'ordre 1 à faible [S] à un régime d'ordre 0 à forte [S].",
+    "requiredSelectionCount": 2
   },
   {
     "order": 28,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement les exemples de Kcat selon la fiche ?",
+    "question": "Concernant les conditions de vitesse initiale, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle cite environ 100 s−1 pour la chymotrypsine.",
-        "correct": true,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
-      },
-      {
-        "content": "La fiche ne donne aucun exemple de Kcat.",
+        "content": "Une forte courbure de P(t) est préférable pour estimer une pente initiale simple.",
         "correct": false,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "explanation": "On privilégie la zone initiale linéaire."
       },
       {
-        "content": "La fiche cite environ 1 000 000 s−1 pour l’anhydrase carbonique.",
+        "content": "La concentration de produit doit rester faible pendant la fenêtre de mesure.",
         "correct": true,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "explanation": "La réaction inverse est alors limitée."
       },
       {
-        "content": "La chymotrypsine est donnée à 1 000 000 s−1.",
+        "content": "L'inactivation de l'enzyme n'a aucun effet sur la pente.",
         "correct": false,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "explanation": "Elle diminue la vitesse au cours du temps."
+      },
+      {
+        "content": "La stabilité de l'enzyme doit être suffisante pendant l'essai.",
+        "correct": true,
+        "explanation": "Une inactivation fausserait la pente."
+      },
+      {
+        "content": "La portion utilisée pour calculer v0 doit être approximativement linéaire.",
+        "correct": true,
+        "explanation": "Une courbure signale que les conditions évoluent."
       }
     ],
-    "explanation": "Les valeurs illustrent de fortes différences de turnover."
+    "explanation": "La vitesse initiale est estimée dans une courte fenêtre où substrat et enzyme restent pratiquement stables et produit faible."
   },
   {
     "order": 29,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur l’activité spécifique :",
+    "format": "QRU",
+    "question": "Concernant les calculs simples de Michaelis-Menten, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "L’activité spécifique rapporte la quantité transformée au temps et à la masse d’enzyme.",
-        "correct": true,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      },
-      {
-        "content": "L’activité spécifique est obligatoirement exprimée en mol·L−1.",
+        "content": "Vmax est atteinte exactement dès [S]=2Km.",
         "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+        "explanation": "On est alors à 2/3 Vmax."
       },
       {
-        "content": "Une unité citée est UI·mg−1 d’enzyme.",
+        "content": "Si [S]=Km/3, alors v0=0,25 Vmax.",
         "correct": true,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+        "explanation": "(1/3)/(1+1/3)=1/4."
       },
       {
-        "content": "Elle rapporte l’activité à la masse de substrat et jamais à celle de l’enzyme.",
+        "content": "Si [S]=9Km, v0=0,50Vmax.",
         "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+        "explanation": "Elle vaut 0,90Vmax."
+      },
+      {
+        "content": "Si [S]=3Km, v0=3Vmax.",
+        "correct": false,
+        "explanation": "La vitesse est 0,75Vmax."
+      },
+      {
+        "content": "Si [S]=Km/3, v0=0,75Vmax.",
+        "correct": false,
+        "explanation": "Elle vaut 0,25Vmax."
       }
     ],
-    "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+    "explanation": "Les rapports [S]/Km permettent de calculer rapidement la fraction de Vmax atteinte."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur l’activité molaire spécifique, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "Elle peut s’exprimer en UI·mol−1 d’enzyme.",
-        "correct": true,
-        "explanation": "L’AMS est une activité par mole d’enzyme."
-      },
-      {
-        "content": "Elle est toujours égale au Km.",
-        "correct": false,
-        "explanation": "L’AMS est une activité par mole d’enzyme."
-      },
-      {
-        "content": "Elle ne peut jamais être comparée à Kcat.",
-        "correct": false,
-        "explanation": "L’AMS est une activité par mole d’enzyme."
-      },
-      {
-        "content": "Elle rapporte l’activité uniquement au volume de cuve.",
-        "correct": false,
-        "explanation": "L’AMS est une activité par mole d’enzyme."
-      }
-    ],
-    "explanation": "L’AMS est une activité par mole d’enzyme."
+    "format": "QROC",
+    "question": "Avec kcat=100 s⁻¹ et [E]t=2 nM, quelle est Vmax en nM·s⁻¹ ?",
+    "answer": {
+      "type": "number",
+      "value": 200,
+      "tolerance": 0
+    },
+    "explanation": "La relation Vmax=kcat[E]t permet de passer d'une capacité volumique au turnover par site actif."
   },
   {
     "order": 31,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la distinction Ccat, activité spécifique et AMS :",
+    "format": "QRU",
+    "question": "Concernant l'équation de Michaelis-Menten, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "L’AMS rapporte à la quantité de matière d’enzyme.",
-        "correct": true,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
-      },
-      {
-        "content": "L’AMS rapporte exclusivement au pH.",
+        "content": "Vmax est obtenue quand [S]=0.",
         "correct": false,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
+        "explanation": "La vitesse est alors nulle."
       },
       {
-        "content": "Ccat rapporte au volume.",
-        "correct": true,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
-      },
-      {
-        "content": "Les trois grandeurs rapportent exactement l’activité au même dénominateur.",
+        "content": "L'équation prédit une relation strictement linéaire v0-[S] à toutes concentrations.",
         "correct": false,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
+        "explanation": "La courbe est hyperbolique."
+      },
+      {
+        "content": "Lorsque [S]=Km, v0=Vmax/2.",
+        "correct": true,
+        "explanation": "C'est une propriété algébrique de l'équation."
+      },
+      {
+        "content": "À très forte [S], v0 diminue forcément vers zéro dans le modèle de base.",
+        "correct": false,
+        "explanation": "Elle tend vers Vmax."
+      },
+      {
+        "content": "Lorsque [S]=Km, v0=Vmax.",
+        "correct": false,
+        "explanation": "La vitesse vaut la moitié de Vmax."
       }
     ],
-    "explanation": "Le dénominateur distingue ces trois paramètres."
+    "explanation": "Michaelis-Menten décrit une hyperbole : v0=Vmax[S]/(Km+[S]), avec demi-vitesse à [S]=Km."
   },
   {
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la saturation enzymatique et Kcat selon la fiche ?",
+    "question": "Parmi les affirmations suivantes sur la constante de Michaelis Km, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La définition de Kcat suppose l’enzyme saturée en substrat.",
-        "correct": true,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
-      },
-      {
-        "content": "Kcat est défini uniquement lorsque [S]=0.",
+        "content": "Km est une vitesse exprimée en mol/s.",
         "correct": false,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+        "explanation": "Km a l'unité d'une concentration."
       },
       {
-        "content": "À saturation, la vitesse atteint un plateau correspondant à Vmax dans le modèle de Michaelis-Menten.",
+        "content": "Km n'est pas généralement égal à la constante de dissociation Kd de ES.",
         "correct": true,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+        "explanation": "L'égalité n'apparaît que dans certaines limites, notamment rapid-equilibrium."
       },
       {
-        "content": "La saturation impose une vitesse nulle.",
-        "correct": false,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+        "content": "Km est la concentration de substrat donnant v0=Vmax/2 dans le modèle de Michaelis-Menten.",
+        "correct": true,
+        "explanation": "C'est sa définition cinétique la plus sûre."
+      },
+      {
+        "content": "Un Km plus faible n'implique pas universellement une plus forte affinité sans information mécanistique.",
+        "correct": true,
+        "explanation": "Cette interprétation pédagogique est une approximation."
+      },
+      {
+        "content": "Km dépend du mécanisme et des constantes microscopiques.",
+        "correct": true,
+        "explanation": "Dans le schéma simple Briggs-Haldane, Km=(k-1+kcat)/k1."
       }
     ],
-    "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+    "explanation": "Km est avant tout un paramètre cinétique ; son interprétation directe comme « affinité » est conditionnelle."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à la conversion UI-nkat sont correctes ?",
+    "question": "Quelles propositions décrivent correctement l'équation de Michaelis-Menten ?",
     "choices": [
       {
-        "content": "Elle donne 1 nkat = 60·10−3 UI.",
+        "content": "Lorsque [S]=Km, v0=Vmax/2.",
         "correct": true,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+        "explanation": "C'est une propriété algébrique de l'équation."
       },
       {
-        "content": "1 nkat vaut exactement 1000 UI.",
+        "content": "Lorsque [S]=Km, v0=Vmax.",
         "correct": false,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+        "explanation": "La vitesse vaut la moitié de Vmax."
       },
       {
-        "content": "Ces relations convertissent activité par minute et par seconde.",
+        "content": "Lorsque [S]≫Km, v0 tend vers Vmax.",
         "correct": true,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+        "explanation": "L'enzyme devient saturée et la vitesse devient quasi indépendante de [S]."
       },
       {
-        "content": "UI et nkat ne peuvent pas être convertis.",
+        "content": "L'équation prédit une relation strictement linéaire v0-[S] à toutes concentrations.",
         "correct": false,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+        "explanation": "La courbe est hyperbolique."
+      },
+      {
+        "content": "À très forte [S], v0 diminue forcément vers zéro dans le modèle de base.",
+        "correct": false,
+        "explanation": "Elle tend vers Vmax."
       }
     ],
-    "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+    "explanation": "Michaelis-Menten décrit une hyperbole : v0=Vmax[S]/(Km+[S]), avec demi-vitesse à [S]=Km."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur la concentration d’activité catalytique Ccat faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Elle peut aussi s’exprimer en kat·L−1.",
-        "correct": true,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
-      },
-      {
-        "content": "La fiche l’exprime uniquement en secondes.",
-        "correct": false,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
-      },
-      {
-        "content": "La Ccat est une masse molaire en g·mol−1.",
-        "correct": false,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
-      },
-      {
-        "content": "Elle ne dépend jamais d’un volume.",
-        "correct": false,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+    "format": "QROC",
+    "question": "Km est-il toujours égal à une constante de dissociation Kd ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non",
+        "non, seulement dans certaines conditions",
+        "non, pas en général"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La Ccat est une activité catalytique par unité de volume."
+    },
+    "explanation": "Km est avant tout un paramètre cinétique ; son interprétation directe comme « affinité » est conditionnelle."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur la constante catalytique Kcat sont exactes ?",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement la vitesse maximale Vmax ?",
     "choices": [
       {
-        "content": "Kcat traduit le nombre de moles de substrat transformées par mole d’enzyme et par seconde lorsque l’enzyme est saturée.",
+        "content": "Vmax est l'asymptote de la courbe v0 en fonction de [S] dans le modèle de Michaelis-Menten.",
         "correct": true,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+        "explanation": "Elle correspond au régime saturant."
       },
       {
-        "content": "Kcat est la concentration de substrat à Vmax/2.",
+        "content": "Vmax s'exprime forcément en s⁻¹.",
         "correct": false,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+        "explanation": "C'est kcat qui s'exprime en s⁻¹."
       },
       {
-        "content": "Kcat s’exprime en s−1.",
-        "correct": true,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
-      },
-      {
-        "content": "Kcat s’exprime uniquement en UI·L−1.",
+        "content": "Vmax reste identique si on double la quantité d'enzyme active.",
         "correct": false,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+        "explanation": "Elle double dans le modèle simple."
+      },
+      {
+        "content": "Vmax est obtenue à [S]=Km exactement.",
+        "correct": false,
+        "explanation": "On obtient alors Vmax/2."
+      },
+      {
+        "content": "Vmax ne dépend jamais de la température ou du pH.",
+        "correct": false,
+        "explanation": "Comme l'activité, elle dépend des conditions."
       }
     ],
-    "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+    "explanation": "Vmax est une capacité de réaction dépendant de la quantité d'enzyme ; kcat en est la normalisation molaire."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives aux exemples de Kcat sont correctes ?",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur la fraction d'occupation des sites dans le modèle simple, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Elle cite environ 1 000 s−1 pour la lactate déshydrogénase.",
+        "content": "À [S]=Km, la fraction ES/[E]t vaut 1/2.",
         "correct": true,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "explanation": "La moitié de l'enzyme est alors sous forme ES dans ce modèle."
       },
       {
-        "content": "L’anhydrase carbonique est donnée à 1 s−1.",
+        "content": "À [S]=Km, tous les sites sont occupés.",
         "correct": false,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "explanation": "La fraction vaut 1/2 dans le modèle simple."
       },
       {
-        "content": "La fiche ne donne aucun exemple de Kcat.",
-        "correct": false,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "content": "Dans le modèle simple, [ES]/[E]t=[S]/(Km+[S]) au quasi-état stationnaire.",
+        "correct": true,
+        "explanation": "Cette fraction a la même forme que v0/Vmax."
       },
       {
-        "content": "La chymotrypsine est donnée à 1 000 000 s−1.",
+        "content": "À [S]≫Km, la fraction ES/[E]t tend vers 1.",
+        "correct": true,
+        "explanation": "La saturation est approchée asymptotiquement."
+      },
+      {
+        "content": "À [S]=0, la fraction occupée vaut 1.",
         "correct": false,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "explanation": "Elle vaut 0."
       }
     ],
-    "explanation": "Les valeurs illustrent de fortes différences de turnover."
+    "explanation": "Dans le modèle simple, v0/Vmax et [ES]/[E]t suivent [S]/(Km+[S])."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur l’activité spécifique faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Elle se distingue d’une activité rapportée au volume.",
-        "correct": true,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      },
-      {
-        "content": "Elle est identique au Km.",
-        "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      },
-      {
-        "content": "L’activité spécifique rapporte la quantité transformée au temps et à la masse d’enzyme.",
-        "correct": true,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      },
-      {
-        "content": "L’activité spécifique est obligatoirement exprimée en mol·L−1.",
-        "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      }
-    ],
-    "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+    "format": "QROC",
+    "question": "Quel ordre apparent en substrat observe-t-on lorsque [S]≫Km ?",
+    "answer": {
+      "type": "number",
+      "value": 0,
+      "tolerance": 0
+    },
+    "explanation": "Le modèle passe d'un régime approximativement d'ordre 1 à faible [S] à un régime d'ordre 0 à forte [S]."
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique : combien de µmol·min−1 vaut 1 UI ?",
-    "answer": {
-      "type": "number",
-      "value": 1,
-      "tolerance": 0
-    },
-    "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur les conditions de vitesse initiale, retenez exactement les deux correctes.",
+    "choices": [
+      {
+        "content": "L'inactivation de l'enzyme n'a aucun effet sur la pente.",
+        "correct": false,
+        "explanation": "Elle diminue la vitesse au cours du temps."
+      },
+      {
+        "content": "La stabilité de l'enzyme doit être suffisante pendant l'essai.",
+        "correct": true,
+        "explanation": "Une inactivation fausserait la pente."
+      },
+      {
+        "content": "La concentration de produit doit rester faible pendant la fenêtre de mesure.",
+        "correct": true,
+        "explanation": "La réaction inverse est alors limitée."
+      },
+      {
+        "content": "Une forte courbure de P(t) est préférable pour estimer une pente initiale simple.",
+        "correct": false,
+        "explanation": "On privilégie la zone initiale linéaire."
+      },
+      {
+        "content": "La concentration de produit doit être maximale au départ.",
+        "correct": false,
+        "explanation": "Elle doit être faible."
+      }
+    ],
+    "explanation": "La vitesse initiale est estimée dans une courte fenêtre où substrat et enzyme restent pratiquement stables et produit faible.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à la distinction Ccat, activité spécifique et AMS sont correctes ?",
+    "question": "Parmi les affirmations suivantes sur les calculs simples de Michaelis-Menten, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "L’activité spécifique rapporte à la masse d’enzyme.",
-        "correct": true,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
-      },
-      {
-        "content": "Ccat rapporte à la masse d’enzyme.",
+        "content": "Si [S]=9Km, v0=0,50Vmax.",
         "correct": false,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
+        "explanation": "Elle vaut 0,90Vmax."
       },
       {
-        "content": "L’AMS rapporte à la quantité de matière d’enzyme.",
+        "content": "Si [S]=9Km, alors v0=0,90 Vmax.",
         "correct": true,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
+        "explanation": "9/(1+9)=9/10."
       },
       {
-        "content": "L’AMS rapporte exclusivement au pH.",
-        "correct": false,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
+        "content": "Si [S]=Km/3, alors v0=0,25 Vmax.",
+        "correct": true,
+        "explanation": "(1/3)/(1+1/3)=1/4."
+      },
+      {
+        "content": "Atteindre exactement Vmax nécessiterait [S] infiniment grande dans le modèle idéal.",
+        "correct": true,
+        "explanation": "Vmax est une asymptote."
+      },
+      {
+        "content": "Si [S]=3Km, alors v0=0,75 Vmax.",
+        "correct": true,
+        "explanation": "3/(1+3)=3/4."
       }
     ],
-    "explanation": "Le dénominateur distingue ces trois paramètres."
+    "explanation": "Les rapports [S]/Km permettent de calculer rapidement la fraction de Vmax atteinte."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur la saturation enzymatique et Kcat faut-il retenir ?",
+    "question": "Quelle affirmation décrit correctement les calculs reliant kcat, enzyme et Vmax ?",
     "choices": [
       {
-        "content": "Kcat mesure alors le turnover par enzyme.",
+        "content": "kcat s'exprime en nM/s.",
+        "correct": false,
+        "explanation": "Il s'exprime en s⁻¹."
+      },
+      {
+        "content": "kcat=Vmax×[E]t.",
+        "correct": false,
+        "explanation": "La relation correcte est Vmax/[E]t."
+      },
+      {
+        "content": "À Vmax fixé, kcat=Vmax/[E]t.",
         "correct": true,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+        "explanation": "Il faut connaître la concentration de sites actifs."
       },
       {
-        "content": "Le plateau de vitesse correspond à Km.",
+        "content": "Vmax est indépendante de [E]t.",
         "correct": false,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+        "explanation": "Elle est proportionnelle à [E]t."
       },
       {
-        "content": "Kcat est défini uniquement lorsque [S]=0.",
+        "content": "Un dosage d'activité seul permet toujours de connaître kcat sans mesurer l'enzyme active.",
         "correct": false,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
-      },
-      {
-        "content": "La saturation impose une vitesse nulle.",
-        "correct": false,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+        "explanation": "Il faut connaître [E]t."
       }
     ],
-    "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+    "explanation": "La relation Vmax=kcat[E]t permet de passer d'une capacité volumique au turnover par site actif."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique : combien de nkat correspondent à 1 UI selon la fiche ?",
-    "answer": {
-      "type": "number",
-      "value": 16.67,
-      "tolerance": 0.01
-    },
-    "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+    "format": "QRM",
+    "question": "Concernant l'équation de Michaelis-Menten, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Pour un modèle simple, v0=Vmax[S]/(Km+[S]).",
+        "correct": true,
+        "explanation": "C'est la forme classique de l'équation."
+      },
+      {
+        "content": "L'équation prédit une relation strictement linéaire v0-[S] à toutes concentrations.",
+        "correct": false,
+        "explanation": "La courbe est hyperbolique."
+      },
+      {
+        "content": "Vmax est obtenue quand [S]=0.",
+        "correct": false,
+        "explanation": "La vitesse est alors nulle."
+      },
+      {
+        "content": "Lorsque [S]≫Km, v0 tend vers Vmax.",
+        "correct": true,
+        "explanation": "L'enzyme devient saturée et la vitesse devient quasi indépendante de [S]."
+      },
+      {
+        "content": "Lorsque [S]=Km, v0=Vmax.",
+        "correct": false,
+        "explanation": "La vitesse vaut la moitié de Vmax."
+      }
+    ],
+    "explanation": "Michaelis-Menten décrit une hyperbole : v0=Vmax[S]/(Km+[S]), avec demi-vitesse à [S]=Km."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives au katal sont correctes ?",
-    "choices": [
-      {
-        "content": "Le symbole de l’unité est kat.",
-        "correct": true,
-        "explanation": "Le katal exprime des moles par seconde."
-      },
-      {
-        "content": "Le katal est une unité de masse moléculaire.",
-        "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
-      },
-      {
-        "content": "Le symbole du katal est Km.",
-        "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
-      },
-      {
-        "content": "Un katal correspond à 1 µmol par minute.",
-        "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
+    "format": "QROC",
+    "question": "À quelle vitesse relative se trouve l'enzyme lorsque [S]=Km ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Vmax/2",
+        "la moitié de Vmax",
+        "50 % de Vmax"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le katal exprime des moles par seconde."
+    },
+    "explanation": "Km est avant tout un paramètre cinétique ; son interprétation directe comme « affinité » est conditionnelle."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour de l’unité internationale UI : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Une UI correspond à 1 µmol de substrat transformé par minute dans des conditions définies.",
-        "correct": true,
-        "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
-      },
-      {
-        "content": "Le symbole de l’unité est kat.",
-        "correct": true,
-        "explanation": "Le katal exprime des moles par seconde."
-      },
-      {
-        "content": "Ces relations convertissent activité par minute et par seconde.",
-        "correct": true,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
-      },
-      {
-        "content": "La Ccat est une masse molaire en g·mol−1.",
+        "content": "Vmax ne dépend jamais de la température ou du pH.",
         "correct": false,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+        "explanation": "Comme l'activité, elle dépend des conditions."
       },
       {
-        "content": "Kcat s’exprime uniquement en UI·L−1.",
+        "content": "On attend idéalement que tout le substrat soit consommé avant de mesurer v0.",
         "correct": false,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+        "explanation": "Cela ne mesure plus une vitesse initiale."
       },
       {
-        "content": "La fiche ne donne aucun exemple de Kcat.",
+        "content": "Vmax s'exprime forcément en s⁻¹.",
         "correct": false,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
+        "explanation": "C'est kcat qui s'exprime en s⁻¹."
+      },
+      {
+        "content": "La stabilité de l'enzyme doit être suffisante pendant l'essai.",
+        "correct": true,
+        "explanation": "Une inactivation fausserait la pente."
+      },
+      {
+        "content": "Vmax n'est pas une constante intrinsèque indépendante de la quantité d'enzyme.",
+        "correct": true,
+        "explanation": "Contrairement à kcat, elle dépend de [E]t."
+      },
+      {
+        "content": "La concentration de produit doit être maximale au départ.",
+        "correct": false,
+        "explanation": "Elle doit être faible."
+      },
+      {
+        "content": "Vmax reste identique si on double la quantité d'enzyme active.",
+        "correct": false,
+        "explanation": "Elle double dans le modèle simple."
+      },
+      {
+        "content": "La portion utilisée pour calculer v0 doit être approximativement linéaire.",
+        "correct": true,
+        "explanation": "Une courbure signale que les conditions évoluent."
+      },
+      {
+        "content": "Vmax est l'asymptote de la courbe v0 en fonction de [S] dans le modèle de Michaelis-Menten.",
+        "correct": true,
+        "explanation": "Elle correspond au régime saturant."
+      },
+      {
+        "content": "La concentration de produit doit rester faible pendant la fenêtre de mesure.",
+        "correct": true,
+        "explanation": "La réaction inverse est alors limitée."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Vmax est une capacité de réaction dépendant de la quantité d'enzyme ; kcat en est la normalisation molaire. La vitesse initiale est estimée dans une courte fenêtre où substrat et enzyme restent pratiquement stables et produit faible."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation de l’unité internationale UI : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Un katal correspond à 1 mol de substrat transformé par seconde.",
-        "correct": true,
-        "explanation": "Le katal exprime des moles par seconde."
-      },
-      {
-        "content": "Elle donne 1 nkat = 60·10−3 UI.",
-        "correct": true,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
-      },
-      {
-        "content": "Elle peut aussi s’exprimer en kat·L−1.",
-        "correct": true,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
-      },
-      {
-        "content": "Kcat traduit le nombre de moles de substrat transformées par mole d’enzyme et par seconde lorsque l’enzyme est saturée.",
-        "correct": true,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
-      },
-      {
-        "content": "Elle cite environ 1 000 s−1 pour la lactate déshydrogénase.",
-        "correct": true,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
-      },
-      {
-        "content": "Elle est identique au Km.",
-        "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      },
-      {
-        "content": "Elle rapporte l’activité uniquement au volume de cuve.",
-        "correct": false,
-        "explanation": "L’AMS est une activité par mole d’enzyme."
-      },
-      {
-        "content": "Ccat rapporte à la masse d’enzyme.",
-        "correct": false,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
-      }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    "format": "QROC",
+    "question": "Quelle fraction de l'enzyme est sous forme ES lorsque [S]=Km dans le modèle simple ?",
+    "answer": {
+      "type": "number",
+      "value": 0.5,
+      "tolerance": 0
+    },
+    "explanation": "Dans le modèle simple, v0/Vmax et [ES]/[E]t suivent [S]/(Km+[S])."
   }
 ];
