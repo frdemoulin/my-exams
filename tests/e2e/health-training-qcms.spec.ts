@@ -143,15 +143,21 @@ test.describe.serial("Santé - QCM publics", () => {
     await expect(page.getByRole("link", { name: /^Voir$/i }).first()).toBeVisible();
   });
 
-  test("l'onglet Évaluations expose les colles, les blocs d'aide et l'état vide des examens blancs", async ({ page }) => {
+  test("l'onglet Évaluations expose les colles, le popover d'aide compact et l'état vide des examens blancs", async ({ page }) => {
     const fixture = await getFixture();
 
     await page.goto(`${appBaseUrl}/sante/ue/${fixture.courseUnitId}?ec=evaluations`);
 
     await expect(page.getByRole("tab", { name: /Évaluations/i })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Découvrir le mode évaluation" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Comprendre les évaluations" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Colles" })).toBeVisible();
+
+    const helpButton = page.getByRole("button", { name: "Aide aux évaluations" });
+    await expect(helpButton).toBeVisible();
+    await helpButton.click();
+
+    await expect(page.getByRole("link", { name: /Découvrir/i }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Formats et notation/i })).toBeVisible();
+
     await expect(page.getByRole("heading", { name: "Examens blancs" })).toBeVisible();
     await expect(
       page.getByText("Les examens blancs seront disponibles prochainement."),

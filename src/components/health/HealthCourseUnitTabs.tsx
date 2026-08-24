@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { TabItem, Tabs } from 'flowbite-react';
-import { ArrowRight, BarChart3, Clock3, FileCheck2 } from 'lucide-react';
+import { ArrowRight, BarChart3, Clock3, FileCheck2, Info } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { HealthMockExamActionButton } from '@/components/health/HealthMockExamActionButton';
 import { HealthColleCard } from '@/components/health/HealthColleCard';
 import { HealthColleStartDialog } from '@/components/health/HealthColleStartDialog';
@@ -209,67 +210,70 @@ export function HealthCourseUnitTabs({
           }
         >
           <div className="space-y-4">
-            {/* Top help cards */}
-            <div className="grid gap-3.5 sm:grid-cols-2">
-              <div className="flex flex-col justify-between gap-3 rounded-2xl border border-default bg-card p-4 transition-colors hover:bg-neutral-secondary-soft">
-                <div className="space-y-1">
-                  <h3 className="font-medium text-heading text-base">
-                    Découvrir le mode évaluation
-                  </h3>
-                  <p className="text-xs text-muted-foreground">
-                    Prenez en main le chronomètre, la navigation, les questions à revoir et la remise d’une épreuve.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-muted-foreground">
-                    <Badge variant="outline" className="text-[11px]">5 min</Badge>
-                    <Badge variant="outline" className="text-[11px]">Rejouable librement</Badge>
-                  </div>
-                </div>
-                <div className="pt-2">
-                  <Button asChild size="sm" variant="outline" className="w-full sm:w-auto gap-2">
-                    <Link href="/sante/interface-examen">
-                      Découvrir
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-between gap-3 rounded-2xl border border-default bg-card p-4 transition-colors hover:bg-neutral-secondary-soft">
-                <div className="space-y-1">
-                  <h3 className="font-medium text-heading text-base">
-                    Comprendre les évaluations
-                  </h3>
-                  <p className="text-xs text-muted-foreground">
-                    Découvrez les 6 formats de questions et le fonctionnement de la notation par discordances UNESS.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-muted-foreground">
-                    <Badge variant="outline" className="text-[11px]">Formats UNESS</Badge>
-                    <Badge variant="outline" className="text-[11px]">Notation & Discordances</Badge>
-                  </div>
-                </div>
-                <div className="pt-2">
-                  <Button asChild size="sm" variant="outline" className="w-full sm:w-auto gap-2">
-                    <Link href="/sante/evaluations/comprendre">
-                      Formats et notation
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
             {/* Section 1: Colles */}
             <section aria-labelledby="health-colles-heading">
               <Card className="rounded-3xl border-border bg-card hover:bg-card">
                 <CardHeader>
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <CardTitle id="health-colles-heading" className="text-lg text-heading">
-                      Colles
-                    </CardTitle>
-                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <CardTitle id="health-colles-heading" className="text-lg text-heading">
+                        Colles
+                      </CardTitle>
                       <Badge variant="outline">{HEALTH_COLLES_UE14_V1.length} colles</Badge>
                       <Badge variant="outline">Notation UNESS</Badge>
                     </div>
+
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button variant="outline" size="sm" className="gap-1.5 text-xs font-medium">
+                          <Info className="h-4 w-4 text-fg-brand" aria-hidden="true" />
+                          <span>Aide aux évaluations</span>
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent align="end" className="w-80 p-3.5 space-y-3 shadow-lg">
+                        <div className="space-y-1">
+                          <h4 className="font-semibold text-heading text-xs tracking-wide uppercase">
+                            Aide aux évaluations
+                          </h4>
+                          <p className="text-xs text-muted-foreground">
+                            Guide d’interface et règles de notation UNESS pour vos épreuves.
+                          </p>
+                        </div>
+                        <div className="space-y-2 pt-1 border-t border-default">
+                          <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
+                            <div className="flex items-center justify-between">
+                              <span className="font-semibold text-xs text-heading">Découvrir le mode évaluation</span>
+                              <Badge variant="outline" className="text-[10px]">5 min</Badge>
+                            </div>
+                            <p className="text-[11px] text-muted-foreground">
+                              Prenez en main le chronomètre, la navigation et la remise d’une épreuve.
+                            </p>
+                            <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
+                              <Link href="/sante/interface-examen">
+                                Découvrir
+                                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                              </Link>
+                            </Button>
+                          </div>
+
+                          <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
+                            <div className="flex items-center justify-between">
+                              <span className="font-semibold text-xs text-heading">Formats & notation</span>
+                              <Badge variant="outline" className="text-[10px]">UNESS</Badge>
+                            </div>
+                            <p className="text-[11px] text-muted-foreground">
+                              Découvrez les formats QRU, QRM, QRP, QROC, QZONE et les discordances UNESS.
+                            </p>
+                            <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
+                              <Link href="/sante/evaluations/comprendre">
+                                Formats et notation
+                                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                              </Link>
+                            </Button>
+                          </div>
+                        </div>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </CardHeader>
                 <CardContent>
