@@ -468,12 +468,12 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Deux énantiomères sont images miroir non superposables.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Deux énantiomères sont deux stéréoisomères images l'un de l'autre dans un miroir et non superposables."
       },
       {
         "content": "Des diastéréoisomères ne sont pas images miroir l'un de l'autre.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Des diastéréoisomères sont des stéréoisomères qui ne sont pas images miroir l'un de l'autre, contrairement à une paire d'énantiomères."
       },
       {
         "content": "Deux énantiomères purs ont des rotations optiques opposées de même module.",
@@ -502,7 +502,7 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Deux images miroir non superposables : énantiomérie.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Une paire d'énantiomères est constituée de deux stéréoisomères images miroir non superposables."
       },
       {
         "content": "Hexan-1-ol et hexan-2-ol sont énantiomères.",
@@ -525,7 +525,8 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Interconversion avec déplacement de proton et de double liaison."
       }
     ],
-    "explanation": "Il faut d’abord identifier la relation d’isomérie avant d’utiliser, si nécessaire, un descripteur stéréochimique."},
+    "explanation": "Il faut d’abord identifier la relation d’isomérie avant d’utiliser, si nécessaire, un descripteur stéréochimique."
+  },
   {
     "order": 120,
     "difficulty": "HARD",
@@ -597,7 +598,6 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 132,
     "difficulty": "HARD",
     "format": "QRPL",
-    "requiredSelectionCount": 5,
     "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
@@ -608,7 +608,7 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Z signifie que les groupes prioritaires sont du même côté de C=C.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Après application des règles CIP, le descripteur Z indique que les substituants de plus haute priorité portés par les deux carbones de la double liaison sont du même côté."
       },
       {
         "content": "Un centre sp3 portant quatre substituants différents peut être asymétrique.",
@@ -651,5 +651,7 @@ export const UE14_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone α porte deux H."
       }
     ],
-    "explanation": "Ces affirmations croisent les critères essentiels : chiralité, E/Z, règles CIP, racémate, tautomérie et relation entre R/S et pouvoir rotatoire."}
+    "requiredSelectionCount": 5,
+    "explanation": "Ces affirmations croisent les critères essentiels : chiralité, E/Z, règles CIP, racémate, tautomérie et relation entre R/S et pouvoir rotatoire."
+  }
 ];

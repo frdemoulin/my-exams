@@ -187,9 +187,9 @@ export const UE14_CH5_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le motif $\\ce{C(=O)-N}$ est commun aux deux familles, mais le carbamate possède en plus un oxygène de type $\\ce{-OR}$ directement lié au carbone carbonylé : il constitue donc une fonction distincte."
       },
       {
-        "content": "Il contient nécessairement une triple liaison $\\ce{C#N}$.",
-        "correct": false,
-        "explanation": "La triple liaison $\\ce{C#N}$ caractérise un nitrile, pas un carbamate."
+        "content": "Le motif comporte simultanément une liaison $\\ce{C(=O)-O}$ et une liaison $\\ce{C(=O)-N}$.",
+        "correct": true,
+        "explanation": "Dans un carbamate, le même carbone carbonylé est lié par des liaisons simples à un oxygène et à un azote ; ces deux connexions caractérisent le motif $\\ce{RO-C(=O)-NR'R''}$."
       }
     ],
     "explanation": "Le carbamate se reconnaît par le motif $\\ce{RO-C(=O)-NR'R''}$. Il associe autour du même carbone carbonylé une partie oxygénée et une partie azotée ; il ne doit être confondu ni avec une amide simple ni avec un nitrile."
