@@ -1,674 +1,703 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch2 — Communication cellulaire */
 export const UE14_CELL_CH2_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Au sujet de « la nécessité de la communication cellulaire », quelles propositions sont correctes ?",
+    "question": "À propos de « Principes de signalisation cellulaire », sélectionnez les affirmations fausses.",
+    "explanation": "Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler.",
     "choices": [
       {
-        "content": "La fiche évoque environ 250 types cellulaires spécialisés chez l’Homme.",
+        "content": "Une cellule dépourvue du récepteur approprié répond obligatoirement au ligand de la même façon.",
         "correct": true,
-        "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       },
       {
-        "content": "La fiche affirme qu’un organisme humain n’a qu’un seul type cellulaire.",
+        "content": "La liaison d’un ligand à un récepteur peut déclencher une cascade de transduction intracellulaire.",
         "correct": false,
-        "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
+        "explanation": "Exact. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       },
       {
-        "content": "Les cellules d’un organisme pluricellulaire communiquent pour coordonner leurs fonctions.",
+        "content": "Une même molécule signal peut provoquer des réponses différentes selon le type cellulaire.",
+        "correct": false,
+        "explanation": "Exact. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
+      },
+      {
+        "content": "Tout ligand déclenche la même réponse dans toutes les cellules de l’organisme.",
         "correct": true,
-        "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       },
       {
-        "content": "Les cellules différenciées fonctionnent sans aucune communication.",
+        "content": "Un ligand agit sur une cellule cible seulement si celle-ci possède un système de détection approprié.",
         "correct": false,
-        "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
+        "explanation": "Exact. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       }
-    ],
-    "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
+    ]
   },
   {
     "order": 46,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « la communication autocrine » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles affirmations décrivent correctement « Signalisation dépendante du contact et adhérence » ?",
+    "explanation": "La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique.",
     "choices": [
       {
-        "content": "La fiche parle d’autostimulation.",
+        "content": "La signalisation juxtacrine exige que le ligand circule dans le sang sur plusieurs centimètres.",
+        "correct": false,
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "Les intégrines reconnaissent indifféremment toute macromolécule de la matrice sans spécificité.",
+        "correct": false,
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "Une signalisation juxtacrine nécessite un contact direct ou une très grande proximité entre partenaires.",
         "correct": true,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "La cellule émettrice ne peut jamais porter le récepteur.",
-        "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+        "content": "Des molécules membranaires d’une cellule peuvent reconnaître des molécules portées par une cellule voisine.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "Une hormone circulante est le seul signal autocrine possible.",
-        "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
-      },
-      {
-        "content": "La communication autocrine exige une cible située à plusieurs mètres.",
-        "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+        "content": "Les intégrines relient la cellule à des ligands spécifiques de la matrice extracellulaire.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       }
-    ],
-    "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+    ]
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Pour caractériser « la communication paracrine », quelles affirmations sont exactes ?",
-    "choices": [
-      {
-        "content": "La fiche cite inflammation et cicatrisation comme contextes.",
-        "correct": true,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Le signal agit uniquement sur la cellule qui l’a sécrété.",
-        "correct": false,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Elle concerne des cellules proches.",
-        "correct": true,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Elle passe nécessairement par la circulation générale.",
-        "correct": false,
-        "explanation": "Paracrine : signal local entre cellules voisines."
+    "format": "QROC",
+    "question": "Comment appelle-t-on un signal qui agit sur la cellule qui l’a elle-même sécrété ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "autocrine",
+        "signalisation autocrine",
+        "communication autocrine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Paracrine : signal local entre cellules voisines."
+    },
+    "explanation": "Une boucle autocrine associe production et réponse dans la même cellule."
   },
   {
     "order": 48,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « la communication endocrine » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Sur le thème « Matrice extracellulaire », sélectionnez exactement 3 propositions exactes.",
+    "explanation": "La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule.",
     "choices": [
       {
-        "content": "Le messager est une hormone libérée dans le sang.",
+        "content": "Le collagène I est un collagène fibrillaire abondant dans de nombreux tissus conjonctifs.",
         "correct": true,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Exact. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
       },
       {
-        "content": "Une communication endocrine reste confinée à quelques micromètres sans circulation sanguine.",
-        "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "content": "Les laminines sont des glycoprotéines majeures des lames basales.",
+        "correct": true,
+        "explanation": "Exact. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
       },
       {
-        "content": "L’insuline est présentée comme un neurotransmetteur de la plaque motrice.",
+        "content": "Les laminines sont des phospholipides membranaires.",
         "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Incorrect. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
       },
       {
-        "content": "Une hormone endocrine ne peut jamais atteindre plusieurs types cellulaires.",
+        "content": "Le collagène IV forme principalement de longues fibrilles identiques au collagène I.",
         "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Incorrect. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
+      },
+      {
+        "content": "Le collagène IV forme des réseaux caractéristiques des lames basales.",
+        "correct": true,
+        "explanation": "Exact. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
       }
     ],
-    "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+    "requiredSelectionCount": 3
   },
   {
     "order": 49,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de « la communication synaptique chimique », quelles affirmations sont conformes à la fiche ?",
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Concernant « Récepteurs couplés aux protéines G », quelle est l’unique proposition exacte ?",
+    "explanation": "Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés.",
     "choices": [
       {
-        "content": "La cellule cible porte un récepteur spécifique près du lieu de libération.",
-        "correct": true,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
-      },
-      {
-        "content": "L’acétylcholine est présentée comme un antigène ABO.",
+        "content": "La sous-unité alpha reste toujours liée au GDP lors de l’activation.",
         "correct": false,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       },
       {
-        "content": "La fiche cite l’acétylcholine à la jonction neuromusculaire.",
+        "content": "Les récepteurs couplés aux protéines G possèdent classiquement sept hélices transmembranaires.",
         "correct": true,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+        "explanation": "Exact. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       },
       {
-        "content": "La cellule postsynaptique est dépourvue de récepteur.",
+        "content": "Tous les RCPG activent obligatoirement l’adénylate cyclase.",
         "correct": false,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
+      },
+      {
+        "content": "La protéine G hétérotrimérique est constituée d’une seule sous-unité.",
+        "correct": false,
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
+      },
+      {
+        "content": "Un RCPG est une pompe ATPase qui transporte directement les ligands.",
+        "correct": false,
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       }
-    ],
-    "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+    ]
   },
   {
     "order": 50,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « les récepteurs membranaires aux signaux hydrosolubles », laquelle est correcte ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Récepteurs à activité tyrosine kinase », lesquelles sont exactes ?",
+    "explanation": "Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé.",
     "choices": [
       {
-        "content": "Une partie intracellulaire participe à la transduction du signal.",
+        "content": "Un RTK transporte directement le ligand à travers la membrane comme une perméase.",
+        "correct": false,
+        "explanation": "Incorrect. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
+      },
+      {
+        "content": "Le domaine de liaison au ligand d’un RTK est nécessairement situé dans le cytosol.",
+        "correct": false,
+        "explanation": "Incorrect. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
+      },
+      {
+        "content": "De nombreux RTK sont activés par une dimérisation ou un réarrangement favorisé par le ligand.",
         "correct": true,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       },
       {
-        "content": "La transduction se déroule uniquement dans le milieu extracellulaire.",
-        "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+        "content": "La phosphorylation de tyrosines du récepteur peut créer des sites de recrutement pour des protéines de signalisation.",
+        "correct": true,
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       },
       {
-        "content": "Le site de reconnaissance du ligand hydrosoluble est obligatoirement dans le noyau.",
-        "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "Un récepteur membranaire n’a jamais de domaine transmembranaire.",
-        "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+        "content": "Un récepteur tyrosine kinase possède un domaine catalytique cytosolique.",
+        "correct": true,
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       }
-    ],
-    "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+    ]
   },
   {
     "order": 51,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Pour « les récepteurs couplés aux protéines G », quelles affirmations sont correctes selon le support ?",
-    "choices": [
-      {
-        "content": "La fixation d’un ligand peut activer une protéine G hétérotrimérique.",
-        "correct": true,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
-      },
-      {
-        "content": "La protéine G est décrite comme un dimère d’ADN.",
-        "correct": false,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
-      },
-      {
-        "content": "La protéine G peut ensuite recruter un effecteur comme l’adénylate cyclase.",
-        "correct": true,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
-      },
-      {
-        "content": "L’adénylate cyclase est le ligand extracellulaire du récepteur.",
-        "correct": false,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Comment appelle-t-on une communication locale par molécule diffusible vers des cellules voisines ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "paracrine",
+        "signalisation paracrine",
+        "communication paracrine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+    },
+    "explanation": "Une signalisation paracrine agit principalement à courte distance."
   },
   {
     "order": 52,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « les récepteurs enzymes » est juste ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi ces affirmations concernant « Communications autocrine, paracrine et endocrine », retenez exactement les 3 justes.",
+    "explanation": "Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse.",
     "choices": [
       {
-        "content": "Ils comportent un domaine transmembranaire et un domaine enzymatique intracellulaire.",
+        "content": "Une communication endocrine implique typiquement une hormone transportée par la circulation vers des cibles éloignées.",
         "correct": true,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "Ils ne peuvent jamais se dimériser lors de l’activation.",
-        "correct": false,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+        "content": "Une communication paracrine agit principalement sur des cellules voisines ou proches.",
+        "correct": true,
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "Ils n’ont aucun lien avec les facteurs de croissance.",
+        "content": "La communication paracrine agit uniquement sur la cellule qui a produit le signal.",
         "correct": false,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "Le domaine enzymatique est exclusivement extracellulaire.",
+        "content": "Dans une communication autocrine, la cellule productrice peut aussi être une cellule cible du signal.",
+        "correct": true,
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "Une communication autocrine exige toujours un passage du signal par la circulation générale.",
         "correct": false,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       }
     ],
-    "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+    "requiredSelectionCount": 3
   },
   {
     "order": 53,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles affirmations décrivent correctement « les récepteurs tyrosine kinase cités » ?",
-    "choices": [
-      {
-        "content": "Ces récepteurs participent à des cascades de signalisation.",
-        "correct": true,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
-      },
-      {
-        "content": "Aucun facteur de croissance n’est relié à un récepteur membranaire.",
-        "correct": false,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
-      },
-      {
-        "content": "La fiche cite des récepteurs aux facteurs de croissance PDGF, NGF et EGF.",
-        "correct": true,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
-      },
-      {
-        "content": "La fiche classe le récepteur à l’EGF parmi les glycolipides sans domaine protéique.",
-        "correct": false,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Comment appelle-t-on une communication hormonale à distance via la circulation ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "endocrine",
+        "signalisation endocrine",
+        "communication endocrine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+    },
+    "explanation": "La signalisation endocrine utilise typiquement le sang pour atteindre des cibles éloignées."
   },
   {
     "order": 54,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « les conséquences biologiques d’un dysfonctionnement de communication » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pour le thème « Communication synaptique chimique », quelles propositions doivent être retenues ?",
+    "explanation": "À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée.",
     "choices": [
       {
-        "content": "La fiche cite les cancers comme exemple de dysfonctionnement de la communication.",
+        "content": "Le neurotransmetteur diffuse dans la fente synaptique sur une courte distance.",
         "correct": true,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+        "explanation": "Exact. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       },
       {
-        "content": "La signalisation n’a aucun lien avec la prolifération cellulaire.",
-        "correct": false,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+        "content": "À la jonction neuromusculaire, l’acétylcholine se fixe sur des récepteurs nicotiniques de la fibre musculaire.",
+        "correct": true,
+        "explanation": "Exact. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       },
       {
-        "content": "Les cancers sont présentés comme indépendants de toute communication.",
+        "content": "À la jonction neuromusculaire, l’acétylcholine entière est simplement recaptée et stockée sans hydrolyse.",
         "correct": false,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+        "explanation": "Incorrect. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       },
       {
-        "content": "La fiche exclut toute application thérapeutique de la signalisation.",
+        "content": "La libération synaptique de neurotransmetteur est indépendante de toute variation de Ca2+ présynaptique.",
         "correct": false,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+        "explanation": "Incorrect. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
+      },
+      {
+        "content": "L’arrivée d’un potentiel d’action présynaptique peut déclencher une entrée de Ca2+ et l’exocytose de neurotransmetteur.",
+        "correct": true,
+        "explanation": "Exact. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       }
-    ],
-    "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+    ]
   },
   {
     "order": 55,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Au foyer d’une inflammation, des médiateurs libérés localement modifient le comportement de cellules voisines. Quelles propositions sont exactes ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant « Principes de signalisation cellulaire », choisissez exactement 2 affirmations correctes.",
+    "explanation": "Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler.",
     "choices": [
       {
-        "content": "Le signal diffuse localement dans l’environnement immédiat.",
-        "correct": true,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Elle est réservée aux neurones et à une fente synaptique.",
+        "content": "Les voies de signalisation sont totalement indépendantes les unes des autres.",
         "correct": false,
-        "explanation": "Paracrine : signal local entre cellules voisines."
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       },
       {
-        "content": "La fiche cite inflammation et cicatrisation comme contextes.",
-        "correct": true,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Le signal agit uniquement sur la cellule qui l’a sécrété.",
+        "content": "La transduction du signal se limite toujours à une seule réaction enzymatique.",
         "correct": false,
-        "explanation": "Paracrine : signal local entre cellules voisines."
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
+      },
+      {
+        "content": "Un récepteur membranaire transporte nécessairement le ligand à travers la bicouche.",
+        "correct": false,
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
+      },
+      {
+        "content": "La liaison d’un ligand à un récepteur peut déclencher une cascade de transduction intracellulaire.",
+        "correct": true,
+        "explanation": "Exact. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
+      },
+      {
+        "content": "Une même molécule signal peut provoquer des réponses différentes selon le type cellulaire.",
+        "correct": true,
+        "explanation": "Exact. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       }
     ],
-    "explanation": "Paracrine : signal local entre cellules voisines."
+    "requiredSelectionCount": 2
   },
   {
     "order": 56,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "À propos de « la communication endocrine », quelle proposition est juste ?",
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "question": "Concernant « Signalisation dépendante du contact et adhérence », sélectionnez exactement les cinq propositions exactes parmi les dix proposées.",
+    "explanation": "La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique.",
     "choices": [
       {
-        "content": "La fiche cite l’insuline sécrétée après une hausse de la glycémie.",
+        "content": "Les molécules d’adhérence peuvent participer à une signalisation bidirectionnelle.",
         "correct": true,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "Une hormone endocrine ne peut jamais atteindre plusieurs types cellulaires.",
+        "content": "La signalisation dépendante du contact est synonyme de communication endocrine.",
         "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "Une communication endocrine reste confinée à quelques micromètres sans circulation sanguine.",
+        "content": "Une molécule d’adhérence ne peut transmettre aucune information intracellulaire.",
         "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "L’insuline est présentée comme un neurotransmetteur de la plaque motrice.",
+        "content": "L’adhérence cellule-matrice peut influencer la survie, la migration et la différenciation.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "La diapédèse leucocytaire implique des interactions séquentielles entre molécules d’adhérence.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "Les interactions cellule-matrice ne jouent aucun rôle dans la migration.",
         "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "La diapédèse leucocytaire est indépendante de toute molécule d’adhérence.",
+        "correct": false,
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "Des molécules membranaires d’une cellule peuvent reconnaître des molécules portées par une cellule voisine.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "Toutes les jonctions cellulaires sont des récepteurs enzymatiques à activité tyrosine kinase.",
+        "correct": false,
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
+      },
+      {
+        "content": "Les intégrines relient la cellule à des ligands spécifiques de la matrice extracellulaire.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       }
     ],
-    "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+    "requiredSelectionCount": 5
   },
   {
     "order": 57,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRM",
-    "question": "À la plaque motrice, un potentiel d’action présynaptique provoque la libération d’acétylcholine. Pour interpréter cette situation, quelles propositions faut-il retenir ?",
+    "question": "À propos de « Matrice extracellulaire », sélectionnez les propositions exactes.",
+    "explanation": "La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule.",
     "choices": [
       {
-        "content": "Le signal est un neurotransmetteur.",
-        "correct": true,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
-      },
-      {
-        "content": "Le signal synaptique doit parcourir plusieurs centimètres dans le sang avant toute action.",
+        "content": "L’élastine est le constituant principal de toutes les lames basales.",
         "correct": false,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+        "explanation": "Incorrect. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
       },
       {
-        "content": "La cellule cible porte un récepteur spécifique près du lieu de libération.",
+        "content": "Les laminines sont des glycoprotéines majeures des lames basales.",
         "correct": true,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+        "explanation": "Exact. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
       },
       {
-        "content": "L’acétylcholine est présentée comme un antigène ABO.",
+        "content": "Le collagène IV forme des réseaux caractéristiques des lames basales.",
+        "correct": true,
+        "explanation": "Exact. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
+      },
+      {
+        "content": "Les protéoglycanes ne contiennent aucun glucide.",
         "correct": false,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+        "explanation": "Incorrect. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
+      },
+      {
+        "content": "La matrice extracellulaire est composée exclusivement de collagène.",
+        "correct": false,
+        "explanation": "Incorrect. La MEC associe collagènes, glycoprotéines d’adhérence (fibronectine, laminines), protéoglycanes et élastine selon les tissus. Collagène IV et laminines sont majeurs dans les lames basales ; les intégrines assurent des liens spécifiques avec la cellule."
       }
-    ],
-    "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
+    ]
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « les récepteurs membranaires aux signaux hydrosolubles » ?",
+    "question": "Dans le cadre de « Récepteurs couplés aux protéines G », identifiez l’affirmation correcte.",
+    "explanation": "Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés.",
     "choices": [
       {
-        "content": "Un domaine traverse la membrane.",
+        "content": "Les RCPG n’ont aucun segment transmembranaire.",
+        "correct": false,
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
+      },
+      {
+        "content": "La sous-unité alpha reste toujours liée au GDP lors de l’activation.",
+        "correct": false,
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
+      },
+      {
+        "content": "L’hydrolyse du GTP empêche toute extinction du signal.",
+        "correct": false,
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
+      },
+      {
+        "content": "Un RCPG est une pompe ATPase qui transporte directement les ligands.",
+        "correct": false,
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
+      },
+      {
+        "content": "Une protéine G hétérotrimérique comporte des sous-unités alpha, bêta et gamma.",
         "correct": true,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "Un récepteur membranaire n’a jamais de domaine transmembranaire.",
-        "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "La transduction se déroule uniquement dans le milieu extracellulaire.",
-        "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "Le site de reconnaissance du ligand hydrosoluble est obligatoirement dans le noyau.",
-        "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+        "explanation": "Exact. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       }
-    ],
-    "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+    ]
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quels repères sur « les récepteurs couplés aux protéines G » sont utiles dans une situation d’application ?",
+    "question": "Quelles affirmations décrivent correctement « Récepteurs à activité tyrosine kinase » ?",
+    "explanation": "Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé.",
     "choices": [
       {
-        "content": "L’effecteur peut produire un second messager.",
+        "content": "De nombreux RTK sont activés par une dimérisation ou un réarrangement favorisé par le ligand.",
         "correct": true,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       },
       {
-        "content": "Les RCPG ne transmettent aucun signal intracellulaire.",
+        "content": "Le récepteur de l’insuline est un RCPG à sept hélices.",
         "correct": false,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "explanation": "Incorrect. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       },
       {
-        "content": "La fixation d’un ligand peut activer une protéine G hétérotrimérique.",
+        "content": "La phosphorylation de tyrosines du récepteur peut créer des sites de recrutement pour des protéines de signalisation.",
         "correct": true,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       },
       {
-        "content": "La protéine G est décrite comme un dimère d’ADN.",
+        "content": "La tyrosine kinase utilise le GTP comme unique donneur de phosphate.",
         "correct": false,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "explanation": "Incorrect. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
+      },
+      {
+        "content": "Tous les RTK sont des monomères qui ne se rapprochent jamais lors de l’activation.",
+        "correct": false,
+        "explanation": "Incorrect. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       }
-    ],
-    "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+    ]
   },
   {
     "order": 60,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « les récepteurs enzymes » ?",
-    "choices": [
-      {
-        "content": "Ils possèdent un domaine externe de reconnaissance.",
-        "correct": true,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
-      },
-      {
-        "content": "Le domaine enzymatique est exclusivement extracellulaire.",
-        "correct": false,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
-      },
-      {
-        "content": "Ils ne peuvent jamais se dimériser lors de l’activation.",
-        "correct": false,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
-      },
-      {
-        "content": "Ils n’ont aucun lien avec les facteurs de croissance.",
-        "correct": false,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel type de récepteur possède classiquement sept hélices transmembranaires et active une protéine G hétérotrimérique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "RCPG",
+        "GPCR",
+        "récepteur couplé aux protéines G",
+        "recepteur couple aux proteines G"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+    },
+    "explanation": "Les RCPG constituent une grande famille de récepteurs à sept passages transmembranaires."
   },
   {
     "order": 61,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Application raisonnée de « les récepteurs tyrosine kinase cités » : quelles propositions sont correctes ?",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Pour « Communications autocrine, paracrine et endocrine », quelle proposition doit être retenue ?",
+    "explanation": "Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse.",
     "choices": [
       {
-        "content": "Le récepteur à l’insuline est également cité.",
-        "correct": true,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
-      },
-      {
-        "content": "Le récepteur à l’insuline est présenté comme un canal à eau.",
+        "content": "Une cytokine ne peut jamais avoir d’action locale.",
         "correct": false,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "Ces récepteurs participent à des cascades de signalisation.",
-        "correct": true,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
-      },
-      {
-        "content": "Aucun facteur de croissance n’est relié à un récepteur membranaire.",
+        "content": "La communication endocrine est synonyme de contact cellule-cellule direct.",
         "correct": false,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "Une communication paracrine agit principalement sur des cellules voisines ou proches.",
+        "correct": true,
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "Une hormone endocrine doit agir seulement sur les cellules immédiatement adjacentes à sa source.",
+        "correct": false,
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "Toutes les cellules exposées à une hormone répondent même si elles n’expriment aucun récepteur.",
+        "correct": false,
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       }
-    ],
-    "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+    ]
   },
   {
     "order": 62,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « les conséquences biologiques d’un dysfonctionnement de communication », laquelle est correcte ?",
-    "choices": [
-      {
-        "content": "Elle relie signalisation et décisions de survie, division, différenciation ou apoptose.",
-        "correct": true,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
-      },
-      {
-        "content": "La fiche exclut toute application thérapeutique de la signalisation.",
-        "correct": false,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
-      },
-      {
-        "content": "La signalisation n’a aucun lien avec la prolifération cellulaire.",
-        "correct": false,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
-      },
-      {
-        "content": "Les cancers sont présentés comme indépendants de toute communication.",
-        "correct": false,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel nucléotide remplace le GDP sur la sous-unité alpha d’une protéine G lors de son activation ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GTP"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+    },
+    "explanation": "L’échange GDP-GTP active la sous-unité Gα."
   },
   {
     "order": 63,
-    "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « la nécessité de la communication cellulaire » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Communication synaptique chimique », lesquelles sont exactes ?",
+    "explanation": "À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée.",
     "choices": [
       {
-        "content": "La fiche cite des récepteurs aux facteurs de croissance PDGF, NGF et EGF.",
+        "content": "À la jonction neuromusculaire, l’acétylcholine se fixe sur des récepteurs nicotiniques de la fibre musculaire.",
         "correct": true,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+        "explanation": "Exact. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       },
       {
-        "content": "Elle mentionne aussi l’allergie et l’action d’antihistaminiques.",
+        "content": "La choline issue de l’hydrolyse de l’acétylcholine peut être recaptée par la terminaison nerveuse.",
         "correct": true,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+        "explanation": "Exact. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       },
       {
-        "content": "La signalisation participe à l’homéostasie tissulaire.",
+        "content": "Le neurotransmetteur diffuse dans la fente synaptique sur une courte distance.",
         "correct": true,
-        "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
+        "explanation": "Exact. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       },
       {
-        "content": "La communication autocrine exige une cible située à plusieurs mètres.",
-        "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+        "content": "L’acétylcholinestérase hydrolyse rapidement l’acétylcholine dans la fente synaptique.",
+        "correct": true,
+        "explanation": "Exact. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       },
       {
-        "content": "Elle est réservée aux neurones et à une fente synaptique.",
+        "content": "Le neurotransmetteur doit parcourir plusieurs centimètres dans le sang avant d’atteindre la cellule postsynaptique.",
         "correct": false,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Une hormone endocrine ne peut jamais atteindre plusieurs types cellulaires.",
-        "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Incorrect. À une synapse chimique, le potentiel d’action déclenche une exocytose Ca2+-dépendante de neurotransmetteur. À la jonction neuromusculaire, l’acétylcholine active des récepteurs nicotiniques puis est hydrolysée par l’acétylcholinestérase ; la choline est recaptée."
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    ]
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « la communication autocrine » est juste ?",
-    "choices": [
-      {
-        "content": "La fiche parle d’autostimulation.",
-        "correct": true,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
-      },
-      {
-        "content": "La cellule émettrice ne peut jamais porter le récepteur.",
-        "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
-      },
-      {
-        "content": "Une hormone circulante est le seul signal autocrine possible.",
-        "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
-      },
-      {
-        "content": "La communication autocrine exige une cible située à plusieurs mètres.",
-        "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+    "format": "QROC",
+    "question": "Quel type de récepteur est le récepteur de l’EGF ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "récepteur tyrosine kinase",
+        "recepteur tyrosine kinase",
+        "RTK"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+    },
+    "explanation": "EGFR est un récepteur à activité tyrosine kinase."
   },
   {
     "order": 65,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Au foyer d’une inflammation, des médiateurs libérés localement modifient le comportement de cellules voisines. Quelles données sont cohérentes avec le modèle présenté dans la fiche ?",
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement « Principes de signalisation cellulaire » ?",
+    "explanation": "Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler.",
     "choices": [
       {
-        "content": "La fiche cite inflammation et cicatrisation comme contextes.",
-        "correct": true,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Le signal agit uniquement sur la cellule qui l’a sécrété.",
+        "content": "Dans ce contexte, un récepteur membranaire transporte nécessairement le ligand à travers la bicouche.",
         "correct": false,
-        "explanation": "Paracrine : signal local entre cellules voisines."
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       },
       {
-        "content": "Elle concerne des cellules proches.",
-        "correct": true,
-        "explanation": "Paracrine : signal local entre cellules voisines."
-      },
-      {
-        "content": "Elle passe nécessairement par la circulation générale.",
+        "content": "La signalisation cellulaire ne participe pas à l’homéostasie tissulaire.",
         "correct": false,
-        "explanation": "Paracrine : signal local entre cellules voisines."
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
+      },
+      {
+        "content": "Tout ligand déclenche la même réponse dans toutes les cellules de l’organisme.",
+        "correct": false,
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
+      },
+      {
+        "content": "Dans ce contexte, une même molécule signal peut provoquer des réponses différentes selon le type cellulaire.",
+        "correct": true,
+        "explanation": "Exact. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
+      },
+      {
+        "content": "Une réponse cellulaire ne peut jamais modifier l’expression génique.",
+        "correct": false,
+        "explanation": "Incorrect. Une cellule détecte des signaux via des récepteurs ou d’autres capteurs, transduit l’information et produit une réponse. La spécificité dépend du couple ligand-récepteur et du contexte cellulaire ; plusieurs voies peuvent converger ou se moduler."
       }
-    ],
-    "explanation": "Paracrine : signal local entre cellules voisines."
+    ]
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « la nécessité de la communication cellulaire » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "format": "QRM",
+    "question": "Pour le thème « Signalisation dépendante du contact et adhérence », quelles propositions doivent être retenues ?",
+    "explanation": "La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique.",
     "choices": [
       {
-        "content": "La cellule émettrice peut être également la cellule cible.",
+        "content": "Dans ce contexte, les intégrines relient la cellule à des ligands spécifiques de la matrice extracellulaire.",
         "correct": true,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "Le signal diffuse localement dans l’environnement immédiat.",
+        "content": "Dans ce contexte, la diapédèse leucocytaire implique des interactions séquentielles entre molécules d’adhérence.",
         "correct": true,
-        "explanation": "Paracrine : signal local entre cellules voisines."
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "La fiche cite l’insuline sécrétée après une hausse de la glycémie.",
-        "correct": true,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
-      },
-      {
-        "content": "Le signal est un neurotransmetteur.",
-        "correct": true,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
-      },
-      {
-        "content": "Un domaine traverse la membrane.",
-        "correct": true,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "Les RCPG ne transmettent aucun signal intracellulaire.",
+        "content": "Dans ce contexte, les interactions cellule-matrice ne jouent aucun rôle dans la migration.",
         "correct": false,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "explanation": "Incorrect. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "Le domaine enzymatique est exclusivement extracellulaire.",
-        "correct": false,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+        "content": "Dans ce contexte, l’adhérence cellule-matrice peut influencer la survie, la migration et la différenciation.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       },
       {
-        "content": "Le récepteur à l’insuline est présenté comme un canal à eau.",
-        "correct": false,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+        "content": "Dans ce contexte, les molécules d’adhérence peuvent participer à une signalisation bidirectionnelle.",
+        "correct": true,
+        "explanation": "Exact. La signalisation juxtacrine nécessite un contact rapproché entre cellules ou des interactions cellule-matrice. Les molécules d’adhérence et intégrines peuvent transmettre des informations en plus de leur rôle mécanique."
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    ]
   }
 ];

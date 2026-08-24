@@ -1,640 +1,701 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch2 — Structure et composition de la membrane */
 export const UE14_CELL_CH2_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de « les fonctions générales de la membrane plasmique », quelles affirmations sont conformes à la fiche ?",
+    "question": "À propos de « Organisation générale de la membrane plasmique », sélectionnez les affirmations fausses.",
+    "explanation": "La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires.",
     "choices": [
       {
-        "content": "La membrane plasmique entoure totalement la cellule.",
+        "content": "La membrane plasmique empêche absolument tout échange entre la cellule et son environnement.",
         "correct": true,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       },
       {
-        "content": "La membrane plasmique ne se trouve qu’autour du noyau.",
-        "correct": false,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
-      },
-      {
-        "content": "Elle sépare le cytosol du milieu extracellulaire.",
+        "content": "Toutes les membranes plasmatiques ont exactement la même composition lipidique et protéique.",
         "correct": true,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       },
       {
-        "content": "Elle met directement en continuité le cytosol et le milieu extracellulaire sans barrière.",
+        "content": "La membrane plasmique sépare le cytosol du milieu extracellulaire.",
         "correct": false,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
+        "explanation": "Exact. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
+      },
+      {
+        "content": "Deux membranes cellulaires ne peuvent jamais fusionner dans aucune situation biologique.",
+        "correct": true,
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
+      },
+      {
+        "content": "La membrane plasmique mesure plusieurs micromètres d’épaisseur.",
+        "correct": true,
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       }
-    ],
-    "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
+    ]
   },
   {
     "order": 2,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « l’épaisseur de la membrane plasmique selon la fiche », laquelle est correcte ?",
-    "choices": [
-      {
-        "content": "Cette finesse explique qu’elle soit observée en microscopie électronique.",
-        "correct": true,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "La membrane est facilement visible à l’œil nu.",
-        "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "Elle est décrite comme deux feuillets denses aux photons.",
-        "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "La fiche indique une épaisseur de 7,5 µm.",
-        "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+    "format": "QROC",
+    "question": "Comment nomme-t-on la structure lipidique fondamentale formée par deux feuillets opposés ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "bicouche lipidique",
+        "bicouche phospholipidique",
+        "bicouche de phospholipides"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+    },
+    "explanation": "La membrane plasmique repose sur une bicouche de lipides amphiphiles."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QROC",
-    "question": "Réponse numérique : quel pourcentage de lipides est donné pour la membrane plasmique dans la fiche ?",
-    "answer": {
-      "type": "number",
-      "value": 70,
-      "tolerance": 0
-    },
-    "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+    "format": "QRM",
+    "question": "Concernant « Phospholipides, cholestérol et amphiphilie », quelles affirmations sont correctes ?",
+    "explanation": "Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane.",
+    "choices": [
+      {
+        "content": "Les chaînes d’acides gras des phospholipides sont exposées au milieu aqueux tandis que les têtes polaires sont enfouies au centre.",
+        "correct": false,
+        "explanation": "Incorrect. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Les phospholipides membranaires possèdent une région hydrophile et une région hydrophobe.",
+        "correct": true,
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Les têtes polaires des phospholipides sont exposées aux milieux aqueux de part et d’autre de la bicouche.",
+        "correct": true,
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Dans une bicouche, les chaînes hydrophobes sont majoritairement orientées vers le cœur de la membrane.",
+        "correct": true,
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Le cholestérol s’intercale entre les phospholipides des membranes animales.",
+        "correct": true,
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      }
+    ]
   },
   {
     "order": 4,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « les phospholipides amphiphiles » est juste ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles affirmations décrivent correctement « Protéines membranaires et topologie » ?",
+    "explanation": "Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle.",
     "choices": [
       {
-        "content": "Les phospholipides possèdent une tête hydrophile.",
+        "content": "Toute protéine transmembranaire possède obligatoirement son N-terminal extracellulaire et son C-terminal cytosolique.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Une protéine transmembranaire peut traverser la bicouche une ou plusieurs fois.",
         "correct": true,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La tête des phospholipides est décrite comme hydrophobe et la queue comme hydrophile.",
-        "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "content": "Les segments transmembranaires alpha-hélicoïdaux sont souvent enrichis en résidus hydrophobes.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "Les phospholipides sont entièrement solubles dans l’eau sans organisation.",
+        "content": "Les segments transmembranaires alpha-hélicoïdaux sont formés exclusivement d’acides aminés chargés.",
         "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La bicouche oriente toutes les têtes vers son cœur hydrophobe.",
+        "content": "Une protéine membranaire doit forcément traverser la bicouche.",
         "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       }
-    ],
-    "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+    ]
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles affirmations décrivent correctement « le rôle du cholestérol dans la fiche » ?",
-    "choices": [
-      {
-        "content": "Il stabilise la bicouche phospholipidique.",
-        "correct": true,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
-      },
-      {
-        "content": "Il est absent de la membrane plasmique dans la fiche.",
-        "correct": false,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
-      },
-      {
-        "content": "La quantité de cholestérol participe aux propriétés de fluidité.",
-        "correct": true,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
-      },
-      {
-        "content": "Il rend la bicouche nécessairement perméable à tous les ions.",
-        "correct": false,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+    "format": "QROC",
+    "question": "Quel terme décrit une molécule possédant à la fois une région hydrophile et une région hydrophobe ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "amphiphile",
+        "amphipathique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+    },
+    "explanation": "Les phospholipides membranaires sont des molécules amphiphiles."
   },
   {
     "order": 6,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « les protéines transmembranaires » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Ancrages lipidiques des protéines ».",
+    "explanation": "Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire.",
     "choices": [
       {
-        "content": "Elles participent notamment à la perméabilité sélective et aux contacts avec les milieux intra- et extracellulaires.",
+        "content": "L’ancre GPI fixe une protéine directement au cytosquelette sur la face cytosolique.",
+        "correct": false,
+        "explanation": "Incorrect. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
+      },
+      {
+        "content": "La myristoylation ou la palmitoylation peut contribuer à l’association d’une protéine avec la face cytosolique.",
         "correct": true,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Elles ne participent à aucune fonction membranaire.",
-        "correct": false,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "content": "Un ancrage lipidique permet à certaines protéines de rester membranaires sans segment transmembranaire complet.",
+        "correct": true,
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Elles sont constituées uniquement de séquences hydrophiles flottant dans le cytosol.",
+        "content": "Toute protéine acylée est obligatoirement une protéine transmembranaire multipasse.",
         "correct": false,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "explanation": "Incorrect. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Une protéine transmembranaire ne traverse jamais la bicouche.",
-        "correct": false,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "content": "Une protéine à ancre GPI est reliée au feuillet exoplasmique de la membrane plasmique.",
+        "correct": true,
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       }
-    ],
-    "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+    ]
   },
   {
     "order": 7,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Selon la fiche, quelles propositions concernant « l’orientation générale des protéines transmembranaires selon la fiche » sont correctes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi ces affirmations concernant « Membrane de l’hématie et cytosquelette sous-membranaire », retenez exactement les 3 justes.",
+    "explanation": "Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface.",
     "choices": [
       {
-        "content": "La fiche indique généralement un domaine COOH vers l’intérieur.",
-        "correct": true,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
-      },
-      {
-        "content": "La fiche affirme que le COOH est toujours extracellulaire pour toutes les protéines.",
+        "content": "La spectrine est une glycoprotéine exposée majoritairement à la surface extracellulaire.",
         "correct": false,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
+        "explanation": "Incorrect. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
       },
       {
-        "content": "Elle indique généralement un domaine NH2 vers l’extérieur.",
-        "correct": true,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
-      },
-      {
-        "content": "La rhodopsine est présentée comme une protéine sans traversée membranaire.",
+        "content": "La bande 3 est uniquement un canal à eau de type aquaporine.",
         "correct": false,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
+        "explanation": "Incorrect. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
+      },
+      {
+        "content": "L’échange Cl−/HCO3− de la bande 3 participe indirectement au transport du CO2 dans le sang.",
+        "correct": true,
+        "explanation": "Exact. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
+      },
+      {
+        "content": "L’ankyrine relie notamment la bande 3 au réseau de spectrine sur la face cytosolique.",
+        "correct": true,
+        "explanation": "Exact. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
+      },
+      {
+        "content": "La bande 3, ou AE1, est une protéine transmembranaire échangeant principalement chlorure et bicarbonate.",
+        "correct": true,
+        "explanation": "Exact. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
       }
     ],
-    "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
+    "requiredSelectionCount": 3
   },
   {
     "order": 8,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "À propos de « les modes d’ancrage des protéines membranaires », quelle proposition est juste ?",
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "question": "Pour le thème « Glycocalyx et système ABO », retenez les cinq affirmations correctes parmi les dix proposées.",
+    "explanation": "Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B.",
     "choices": [
       {
-        "content": "Un ancrage GPI est associé à la face extracellulaire.",
+        "content": "Le glycocalyx participe à la protection et à la reconnaissance de la surface cellulaire.",
         "correct": true,
-        "explanation": "La fiche compare ancrage lipidique intracellulaire, GPI extracellulaire et boucle hydrophobe."
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       },
       {
-        "content": "Les acides gras fixent toujours la protéine sur la face extracellulaire selon la fiche.",
+        "content": "Les antigènes ABO sont des segments d’ADN exposés à la surface de l’hématie.",
         "correct": false,
-        "explanation": "La fiche compare ancrage lipidique intracellulaire, GPI extracellulaire et boucle hydrophobe."
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       },
       {
-        "content": "La cavéoline est un exemple d’ADN membranaire.",
-        "correct": false,
-        "explanation": "La fiche compare ancrage lipidique intracellulaire, GPI extracellulaire et boucle hydrophobe."
+        "content": "Une hématie de groupe O possède néanmoins des structures glucidiques membranaires, dont l’antigène H.",
+        "correct": true,
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       },
       {
-        "content": "Le GPI est présenté comme un ancrage exclusivement nucléaire.",
+        "content": "Les antigènes A et B du système ABO diffèrent par leurs motifs glucidiques terminaux.",
+        "correct": true,
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Les glucides membranaires du glycocalyx sont majoritairement exposés dans le cytosol.",
         "correct": false,
-        "explanation": "La fiche compare ancrage lipidique intracellulaire, GPI extracellulaire et boucle hydrophobe."
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Les chaînes glucidiques des glycoprotéines et glycolipides de la membrane plasmique sont exposées du côté extracellulaire.",
+        "correct": true,
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Le groupe O ne porte ni déterminant A ni déterminant B sur l’antigène H.",
+        "correct": true,
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Le glycocalyx est exclusivement constitué de cholestérol.",
+        "correct": false,
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Le groupe O exprime simultanément les déterminants A et B.",
+        "correct": false,
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Une hématie de groupe O est totalement dépourvue de glucides membranaires.",
+        "correct": false,
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       }
     ],
-    "explanation": "La fiche compare ancrage lipidique intracellulaire, GPI extracellulaire et boucle hydrophobe."
+    "requiredSelectionCount": 5
   },
   {
     "order": 9,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Au sujet de « la membrane de l’hématie », quelles propositions sont correctes ?",
-    "choices": [
-      {
-        "content": "La spectrine constitue un élément majeur du cytosquelette de l’hématie.",
-        "correct": true,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
-      },
-      {
-        "content": "La bande 3 est une protéine nucléaire.",
-        "correct": false,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
-      },
-      {
-        "content": "La bande 3 est une protéine transmembranaire citée.",
-        "correct": true,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
-      },
-      {
-        "content": "L’ankyrine est une protéine transmembranaire selon la fiche.",
-        "correct": false,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel stérol module fortement la fluidité et la perméabilité des membranes animales ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cholestérol",
+        "cholesterol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+    },
+    "explanation": "Le cholestérol s’intercale entre les phospholipides et tamponne les propriétés physiques de la bicouche."
   },
   {
     "order": 10,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « les groupes sanguins ABO dans la fiche » ?",
+    "question": "Quelle affirmation décrit correctement « Organisation générale de la membrane plasmique » ?",
+    "explanation": "La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires.",
     "choices": [
       {
-        "content": "La présence ou l’absence de certains motifs glucidiques membranaires distingue les groupes A, B et O.",
+        "content": "Dans ce contexte, la membrane plasmique mesure plusieurs micromètres d’épaisseur.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
+      },
+      {
+        "content": "La membrane plasmique est absente des cellules procaryotes.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
+      },
+      {
+        "content": "La membrane plasmique est une barrière sélective plutôt qu’une paroi totalement imperméable.",
         "correct": true,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Exact. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       },
       {
-        "content": "Les groupes ABO sont déterminés uniquement par la quantité de spectrine.",
+        "content": "Dans ce contexte, toutes les membranes plasmatiques ont exactement la même composition lipidique et protéique.",
         "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       },
       {
-        "content": "La fiche décrit l’antigène ABO comme un segment d’ADN nucléaire.",
+        "content": "La membrane plasmique est constituée uniquement de protéines.",
         "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
-      },
-      {
-        "content": "La présence de cholestérol détermine à elle seule le groupe ABO.",
-        "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       }
-    ],
-    "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+    ]
   },
   {
     "order": 11,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application concernant « la composition globale de la membrane selon la fiche », quelles propositions sont exactes ?",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les propositions ci-dessous relatives à « Phospholipides, cholestérol et amphiphilie », laquelle est correcte ?",
+    "explanation": "Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane.",
     "choices": [
       {
-        "content": "Elle donne environ 30 % de protéines.",
+        "content": "Dans une bicouche, les chaînes hydrophobes sont majoritairement orientées vers le cœur de la membrane.",
         "correct": true,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
       },
       {
-        "content": "Elle présente les protéines comme totalement absentes.",
+        "content": "Les phospholipides membranaires sont entièrement hydrophiles.",
         "correct": false,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+        "explanation": "Incorrect. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
       },
       {
-        "content": "Elle mentionne en plus une petite quantité de glucides.",
-        "correct": true,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
-      },
-      {
-        "content": "La membrane est décrite comme composée exclusivement d’eau.",
+        "content": "L’amphiphilie signifie qu’une molécule est exclusivement soluble dans les hydrocarbures.",
         "correct": false,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+        "explanation": "Incorrect. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Une bicouche lipidique pure laisse librement diffuser tous les ions.",
+        "correct": false,
+        "explanation": "Incorrect. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Le cholestérol est absent des membranes des cellules animales.",
+        "correct": false,
+        "explanation": "Incorrect. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
       }
-    ],
-    "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+    ]
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « les phospholipides amphiphiles » ?",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Protéines membranaires et topologie ».",
+    "explanation": "Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle.",
     "choices": [
       {
-        "content": "Dans l’eau, leur organisation contribue à former une bicouche.",
+        "content": "Les segments transmembranaires alpha-hélicoïdaux sont formés exclusivement d’acides aminés chargés.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Une protéine périphérique traverse nécessairement plusieurs fois la bicouche.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "L’orientation des extrémités N- et C-terminales dépend de la topologie propre à chaque protéine.",
         "correct": true,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La bicouche oriente toutes les têtes vers son cœur hydrophobe.",
+        "content": "Une protéine à ancre GPI est exposée sur la face cytosolique de la membrane plasmique.",
         "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La tête des phospholipides est décrite comme hydrophobe et la queue comme hydrophile.",
-        "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
-      },
-      {
-        "content": "Les phospholipides sont entièrement solubles dans l’eau sans organisation.",
-        "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "content": "Les segments transmembranaires alpha-hélicoïdaux sont souvent enrichis en résidus hydrophobes.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       }
-    ],
-    "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+    ]
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour appliquer les notions sur « le rôle du cholestérol dans la fiche », quelles propositions faut-il retenir ?",
+    "question": "Quelles propositions sont exactes concernant « Ancrages lipidiques des protéines » ?",
+    "explanation": "Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire.",
     "choices": [
       {
-        "content": "Le cholestérol fait partie des lipides membranaires cités.",
+        "content": "Un ancrage lipidique permet à certaines protéines de rester membranaires sans segment transmembranaire complet.",
         "correct": true,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Le cholestérol est décrit comme une protéine transmembranaire.",
+        "content": "Une ancre lipidique ne peut jamais être régulée ni participer au ciblage membranaire.",
         "correct": false,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+        "explanation": "Incorrect. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Il stabilise la bicouche phospholipidique.",
+        "content": "Une protéine à ancre GPI est reliée au feuillet exoplasmique de la membrane plasmique.",
         "correct": true,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Il est absent de la membrane plasmique dans la fiche.",
+        "content": "La palmitoylation expose nécessairement la protéine dans le milieu extracellulaire.",
         "correct": false,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+        "explanation": "Incorrect. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
+      },
+      {
+        "content": "Des protéines de signalisation peuvent être ciblées vers la membrane grâce à des modifications lipidiques.",
+        "correct": true,
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       }
-    ],
-    "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+    ]
   },
   {
     "order": 14,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Parmi ces propositions sur « les protéines transmembranaires », laquelle est correcte ?",
+    "question": "À propos de « Membrane de l’hématie et cytosquelette sous-membranaire », repérez la seule affirmation correcte.",
+    "explanation": "Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface.",
     "choices": [
       {
-        "content": "Ces segments peuvent être organisés en hélices α.",
+        "content": "L’échange Cl−/HCO3− de la bande 3 participe indirectement au transport du CO2 dans le sang.",
         "correct": true,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "explanation": "Exact. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
       },
       {
-        "content": "Une protéine transmembranaire ne traverse jamais la bicouche.",
+        "content": "La glycophorine est dépourvue de glucides.",
         "correct": false,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "explanation": "Incorrect. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
       },
       {
-        "content": "Elles ne participent à aucune fonction membranaire.",
+        "content": "La bande 3 est un récepteur nucléaire soluble.",
         "correct": false,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "explanation": "Incorrect. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
       },
       {
-        "content": "Elles sont constituées uniquement de séquences hydrophiles flottant dans le cytosol.",
+        "content": "L’ankyrine est une protéine multipasse qui assure le transport du glucose.",
         "correct": false,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "explanation": "Incorrect. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
+      },
+      {
+        "content": "Le cytosquelette sous-membranaire rend l’hématie totalement indéformable.",
+        "correct": false,
+        "explanation": "Incorrect. Dans l’hématie, AE1/bande 3 est un échangeur Cl−/HCO3− ; ankyrine, spectrine, actine et protéine 4.1 organisent le réseau sous-membranaire. La glycophorine est fortement glycosylée et contribue à la charge négative de surface."
       }
-    ],
-    "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+    ]
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quels repères sur « l’orientation générale des protéines transmembranaires selon la fiche » sont utiles dans une situation d’application ?",
-    "choices": [
-      {
-        "content": "La rhodopsine illustre une protéine possédant plusieurs hélices transmembranaires.",
-        "correct": true,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
-      },
-      {
-        "content": "NH2 et COOH sont décrits comme deux lipides membranaires.",
-        "correct": false,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
-      },
-      {
-        "content": "La fiche indique généralement un domaine COOH vers l’intérieur.",
-        "correct": true,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
-      },
-      {
-        "content": "La fiche affirme que le COOH est toujours extracellulaire pour toutes les protéines.",
-        "correct": false,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
+    "format": "QROC",
+    "question": "Quel type d’ancre lipidique expose une protéine sur la face extracellulaire de la membrane plasmique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GPI",
+        "ancre GPI",
+        "glycosylphosphatidylinositol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
+    },
+    "explanation": "Une ancre GPI est insérée dans le feuillet exoplasmique."
   },
   {
     "order": 16,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QROC",
-    "question": "Application — Réponse numérique en nm : quelle épaisseur approximative de membrane plasmique est indiquée dans la fiche ?",
+    "question": "Quel nom porte la protéine érythrocytaire AE1 assurant l’échange chlorure/bicarbonate ?",
     "answer": {
-      "type": "number",
-      "value": 7.5,
-      "tolerance": 0.1
+      "type": "text",
+      "acceptedAnswers": [
+        "bande 3",
+        "band 3",
+        "AE1",
+        "SLC4A1"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+    "explanation": "La bande 3/AE1 est l’échangeur anionique majeur de l’hématie."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une anomalie du cytosquelette membranaire d’une hématie peut modifier sa capacité à conserver sa forme biconcave. Quelles propositions décrivent correctement le mécanisme en jeu ?",
+    "format": "QRP",
+    "question": "Sur le thème « Glycocalyx et système ABO », sélectionnez exactement 2 propositions exactes.",
+    "explanation": "Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B.",
     "choices": [
       {
-        "content": "L’ankyrine est une protéine périphérique de la face interne.",
-        "correct": true,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
-      },
-      {
-        "content": "La spectrine est un antigène glucidique du système ABO.",
+        "content": "Les antigènes ABO sont des segments d’ADN exposés à la surface de l’hématie.",
         "correct": false,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       },
       {
-        "content": "La spectrine constitue un élément majeur du cytosquelette de l’hématie.",
-        "correct": true,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
-      },
-      {
-        "content": "La bande 3 est une protéine nucléaire.",
+        "content": "Le groupe O exprime simultanément les déterminants A et B.",
         "correct": false,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Les antigènes A et B du système ABO diffèrent par leurs motifs glucidiques terminaux.",
+        "correct": true,
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Le glycocalyx participe à la protection et à la reconnaissance de la surface cellulaire.",
+        "correct": true,
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Le glycocalyx est exclusivement constitué de cholestérol.",
+        "correct": false,
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       }
     ],
-    "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+    "requiredSelectionCount": 2
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « les groupes sanguins ABO dans la fiche » ?",
+    "question": "Pour « Organisation générale de la membrane plasmique », quelle proposition doit être retenue ?",
+    "explanation": "La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires.",
     "choices": [
       {
-        "content": "Des anticorps correspondants sont présents dans le sérum selon le groupe.",
+        "content": "La membrane plasmique est constituée uniquement de protéines.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
+      },
+      {
+        "content": "La membrane plasmique est absente des cellules procaryotes.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
+      },
+      {
+        "content": "La bicouche lipidique est une structure rigide et dépourvue de mouvements moléculaires.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
+      },
+      {
+        "content": "Son épaisseur est de l’ordre de quelques nanomètres, typiquement autour de 7 à 10 nm.",
         "correct": true,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Exact. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       },
       {
-        "content": "La présence de cholestérol détermine à elle seule le groupe ABO.",
+        "content": "La membrane plasmique empêche absolument tout échange entre la cellule et son environnement.",
         "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
-      },
-      {
-        "content": "Les groupes ABO sont déterminés uniquement par la quantité de spectrine.",
-        "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
-      },
-      {
-        "content": "La fiche décrit l’antigène ABO comme un segment d’ADN nucléaire.",
-        "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Incorrect. La membrane plasmique est une bicouche lipidique d’environ quelques nanomètres qui sépare cytosol et milieu extracellulaire. Elle est sélectivement perméable, dynamique et capable de fusion/remodelage lors de processus cellulaires."
       }
-    ],
-    "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+    ]
   },
   {
     "order": 19,
-    "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « les fonctions générales de la membrane plasmique » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant « Phospholipides, cholestérol et amphiphilie » ?",
+    "explanation": "Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane.",
     "choices": [
       {
-        "content": "La bande 3 est une protéine transmembranaire citée.",
+        "content": "Le cholestérol s’intercale entre les phospholipides des membranes animales.",
         "correct": true,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
       },
       {
-        "content": "La fiche relie les antigènes ABO à des structures glucidiques des globules rouges.",
+        "content": "Dans ce contexte, l’amphiphilie signifie qu’une molécule est exclusivement soluble dans les hydrocarbures.",
+        "correct": false,
+        "explanation": "Incorrect. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Dans ce contexte, le cholestérol est absent des membranes des cellules animales.",
+        "correct": false,
+        "explanation": "Incorrect. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
+      },
+      {
+        "content": "Les têtes polaires des phospholipides sont exposées aux milieux aqueux de part et d’autre de la bicouche.",
         "correct": true,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
       },
       {
-        "content": "Elle se comporte comme un filtre sélectif.",
+        "content": "Le cholestérol réduit la perméabilité de la bicouche à de nombreuses petites molécules hydrophiles.",
         "correct": true,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
-      },
-      {
-        "content": "La fiche indique une épaisseur de 7,5 µm.",
-        "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "Elle présente les protéines comme totalement absentes.",
-        "correct": false,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
-      },
-      {
-        "content": "La bicouche oriente toutes les têtes vers son cœur hydrophobe.",
-        "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
+        "explanation": "Exact. Les phospholipides sont amphiphiles : têtes hydrophiles vers les milieux aqueux, chaînes hydrophobes au cœur de la bicouche. Le cholestérol module fluidité et perméabilité plutôt que de simplement rigidifier la membrane."
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    ]
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "À propos de « l’épaisseur de la membrane plasmique selon la fiche », quelle proposition est juste ?",
-    "choices": [
-      {
-        "content": "Cette finesse explique qu’elle soit observée en microscopie électronique.",
-        "correct": true,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "La membrane est facilement visible à l’œil nu.",
-        "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "Elle est décrite comme deux feuillets denses aux photons.",
-        "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "La fiche indique une épaisseur de 7,5 µm.",
-        "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+    "format": "QROC",
+    "question": "Comment nomme-t-on la couche glucidique présente à la surface externe de nombreuses cellules ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "glycocalyx",
+        "glycocalix"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+    },
+    "explanation": "Le glycocalyx est formé par les chaînes glucidiques des glycoprotéines et glycolipides exposés à l’extérieur."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Mise en application de « la composition globale de la membrane selon la fiche » : quelles affirmations sont justes ?",
+    "format": "QRU",
+    "question": "Sur le thème « Protéines membranaires et topologie », quelle proposition est exacte ?",
+    "explanation": "Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle.",
     "choices": [
       {
-        "content": "Elle mentionne en plus une petite quantité de glucides.",
-        "correct": true,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
-      },
-      {
-        "content": "La membrane est décrite comme composée exclusivement d’eau.",
+        "content": "Toute protéine transmembranaire possède obligatoirement son N-terminal extracellulaire et son C-terminal cytosolique.",
         "correct": false,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La fiche donne environ 70 % de lipides.",
-        "correct": true,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
-      },
-      {
-        "content": "La fiche donne environ 70 % d’ADN.",
+        "content": "Les protéines membranaires n’ont aucun rôle dans le transport de solutés.",
         "correct": false,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Dans ce contexte, une protéine périphérique traverse nécessairement plusieurs fois la bicouche.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Dans ce contexte, l’orientation des extrémités N- et C-terminales dépend de la topologie propre à chaque protéine.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "La topologie des protéines membranaires change au hasard à chaque diffusion latérale.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       }
-    ],
-    "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+    ]
   },
   {
     "order": 22,
-    "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « les fonctions générales de la membrane plasmique » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant « Ancrages lipidiques des protéines », quelles affirmations sont correctes ?",
+    "explanation": "Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire.",
     "choices": [
       {
-        "content": "La fiche indique une épaisseur d’environ 7,5 nm.",
+        "content": "La face extracellulaire d’une protéine GPI correspond topologiquement à la lumière du RE lors de sa maturation.",
         "correct": true,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Elle donne environ 30 % de protéines.",
+        "content": "Dans ce contexte, des protéines de signalisation peuvent être ciblées vers la membrane grâce à des modifications lipidiques.",
         "correct": true,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Dans l’eau, leur organisation contribue à former une bicouche.",
-        "correct": true,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
-      },
-      {
-        "content": "Le cholestérol fait partie des lipides membranaires cités.",
-        "correct": true,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
-      },
-      {
-        "content": "Ces segments peuvent être organisés en hélices α.",
-        "correct": true,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
-      },
-      {
-        "content": "NH2 et COOH sont décrits comme deux lipides membranaires.",
+        "content": "Les protéines à ancre GPI traversent la bicouche par une longue hélice alpha.",
         "correct": false,
-        "explanation": "Le support donne une orientation générale, tout en présentant ensuite des exemples particuliers."
+        "explanation": "Incorrect. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "Le GPI est présenté comme un ancrage exclusivement nucléaire.",
-        "correct": false,
-        "explanation": "La fiche compare ancrage lipidique intracellulaire, GPI extracellulaire et boucle hydrophobe."
+        "content": "L’orientation d’un ancrage lipidique dépend de la voie de biosynthèse de la protéine.",
+        "correct": true,
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       },
       {
-        "content": "La spectrine est un antigène glucidique du système ABO.",
-        "correct": false,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+        "content": "Dans ce contexte, un ancrage lipidique permet à certaines protéines de rester membranaires sans segment transmembranaire complet.",
+        "correct": true,
+        "explanation": "Exact. Des modifications lipidiques peuvent fixer des protéines à une face membranaire : acylation/prénylation du côté cytosolique et ancre GPI du côté exoplasmique. Ces ancrages n’impliquent pas nécessairement un domaine transmembranaire."
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    ]
   }
 ];

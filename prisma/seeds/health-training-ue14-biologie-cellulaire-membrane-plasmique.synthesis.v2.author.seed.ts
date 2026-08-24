@@ -1,689 +1,728 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch2 — Synthèse du chapitre */
 export const UE14_CELL_CH2_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRM",
-    "question": "Synthèse — croisez « les fonctions générales de la membrane plasmique » et « les groupes sanguins ABO dans la fiche ». Quelles propositions sont exactes ?",
+    "question": "À propos de « Protéines membranaires et topologie », sélectionnez les affirmations fausses.",
+    "explanation": "Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle.",
     "choices": [
       {
-        "content": "La membrane plasmique entoure totalement la cellule.",
+        "content": "Une protéine membranaire doit forcément traverser la bicouche.",
         "correct": true,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La fiche relie les antigènes ABO à des structures glucidiques des globules rouges.",
+        "content": "Certaines protéines membranaires sont attachées à la membrane par un groupement lipidique.",
+        "correct": false,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "La topologie des protéines membranaires change au hasard à chaque diffusion latérale.",
         "correct": true,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La membrane plasmique ne se trouve qu’autour du noyau.",
-        "correct": false,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
+        "content": "Toute protéine transmembranaire possède obligatoirement son N-terminal extracellulaire et son C-terminal cytosolique.",
+        "correct": true,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "La fiche décrit l’antigène ABO comme un segment d’ADN nucléaire.",
+        "content": "Une protéine périphérique peut interagir avec la face cytosolique sans traverser toute la bicouche.",
         "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       }
-    ],
-    "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur. La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+    ]
   },
   {
     "order": 102,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — croisez « les protéines transmembranaires » et « la vitesse de diffusion latérale donnée par la fiche ». Quelles propositions sont exactes ?",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Pour « Glycocalyx et système ABO », quelle proposition doit être retenue ?",
+    "explanation": "Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B.",
     "choices": [
       {
-        "content": "Ces segments peuvent être organisés en hélices α.",
-        "correct": true,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
-      },
-      {
-        "content": "Elle est beaucoup plus fréquente que le mouvement de bascule.",
-        "correct": true,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
-      },
-      {
-        "content": "Une protéine transmembranaire ne traverse jamais la bicouche.",
+        "content": "Les glucides membranaires du glycocalyx sont majoritairement exposés dans le cytosol.",
         "correct": false,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       },
       {
-        "content": "Le support décrit la bascule comme se produisant plusieurs milliers de fois par seconde.",
+        "content": "La glycosylation membranaire est parfaitement symétrique entre les deux feuillets.",
         "correct": false,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Le glycocalyx est exclusivement constitué de cholestérol.",
+        "correct": false,
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Les glycolipides de surface n’ont aucune chaîne glucidique.",
+        "correct": false,
+        "explanation": "Incorrect. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
+      },
+      {
+        "content": "Les antigènes A et B du système ABO diffèrent par leurs motifs glucidiques terminaux.",
+        "correct": true,
+        "explanation": "Exact. Les glucides membranaires sont exposés sur la face extracellulaire sous forme de glycoprotéines et glycolipides et participent au glycocalyx. Les antigènes ABO correspondent à des motifs glucidiques ; le groupe O conserve l’antigène H mais n’ajoute ni sucre A ni sucre B."
       }
-    ],
-    "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles. Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+    ]
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — croisez « le glycocalyx » et « la nécessité de la communication cellulaire ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Ils forment une couche protectrice appelée glycocalyx.",
-        "correct": true,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
-      },
-      {
-        "content": "La fiche évoque environ 250 types cellulaires spécialisés chez l’Homme.",
-        "correct": true,
-        "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
-      },
-      {
-        "content": "La fiche décrit le glycocalyx comme un réseau d’ADN.",
-        "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
-      },
-      {
-        "content": "La fiche affirme qu’un organisme humain n’a qu’un seul type cellulaire.",
-        "correct": false,
-        "explanation": "La spécialisation cellulaire impose une coordination par des signaux."
+    "format": "QROC",
+    "question": "Quel transporteur du glucose est principalement recruté à la membrane du muscle en réponse à l’insuline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GLUT4",
+        "GLUT-4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides. La spécialisation cellulaire impose une coordination par des signaux."
+    },
+    "explanation": "L’insuline stimule la translocation de GLUT4 vers la membrane dans le muscle et le tissu adipeux."
   },
   {
     "order": 104,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — croisez « l’asymétrie des phospholipides » et « les récepteurs membranaires aux signaux hydrosolubles ». Quelles propositions sont exactes ?",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Sur le thème « Asymétrie des phospholipides », quelle proposition est exacte ?",
+    "explanation": "Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes.",
     "choices": [
       {
-        "content": "La phosphatidylsérine est plutôt associée au feuillet interne dans la fiche.",
-        "correct": true,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
-      },
-      {
-        "content": "Un domaine traverse la membrane.",
-        "correct": true,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "La phosphatidylsérine est présentée comme exclusivement externe.",
+        "content": "L’exposition externe de phosphatidylsérine est sans lien avec l’apoptose.",
         "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "Un récepteur membranaire n’a jamais de domaine transmembranaire.",
+        "content": "La phosphatidylcholine est souvent enrichie dans le feuillet exoplasmique.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
+      },
+      {
+        "content": "Les deux feuillets ont obligatoirement une composition parfaitement identique.",
         "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
+      },
+      {
+        "content": "Les chaînes glucidiques des glycoprotéines sont orientées vers le cytosol.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
+      },
+      {
+        "content": "La phosphatidylsérine est normalement exclusivement exposée à la surface externe d’une cellule viable.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       }
-    ],
-    "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets. La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+    ]
   },
   {
     "order": 105,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse — croisez « la communication autocrine » et « les deux grandes modalités de transport membranaire ». Quelles propositions sont exactes ?",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Dans le cadre de « Flippases, floppases et scramblases », identifiez l’affirmation correcte.",
+    "explanation": "Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie.",
     "choices": [
       {
-        "content": "La fiche parle d’autostimulation.",
-        "correct": true,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
-      },
-      {
-        "content": "La nature chimique du soluté influence sa traversée.",
-        "correct": true,
-        "explanation": "Le transport membranaire comprend mouvements de membrane et échanges de molécules."
-      },
-      {
-        "content": "La cellule émettrice ne peut jamais porter le récepteur.",
+        "content": "Les flippases et scramblases sont des protéases qui coupent les phospholipides.",
         "correct": false,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       },
       {
-        "content": "La composition du soluté n’influence jamais son transport.",
+        "content": "Les flippases fonctionnent uniquement par diffusion passive sans apport énergétique.",
         "correct": false,
-        "explanation": "Le transport membranaire comprend mouvements de membrane et échanges de molécules."
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "Les protéines de translocation lipidique n’influencent pas la composition des feuillets.",
+        "correct": false,
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "Une scramblase maintient nécessairement une asymétrie stricte et stable.",
+        "correct": false,
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "L’activation d’une scramblase peut contribuer à perdre l’asymétrie membranaire.",
+        "correct": true,
+        "explanation": "Exact. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       }
-    ],
-    "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis. Le transport membranaire comprend mouvements de membrane et échanges de molécules."
+    ]
   },
   {
     "order": 106,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Synthèse — croisez « les récepteurs couplés aux protéines G » et « les transporteurs ABC et la chimiorésistance ». Quelles propositions sont exactes ?",
+    "question": "Quelles affirmations décrivent correctement « Polarité de l’entérocyte et jonctions serrées » ?",
+    "explanation": "L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants.",
     "choices": [
       {
-        "content": "L’effecteur peut produire un second messager.",
-        "correct": true,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
-      },
-      {
-        "content": "La fiche relie certains transporteurs ABC/MDR à l’efflux de médicaments.",
-        "correct": true,
-        "explanation": "La fiche propose un contexte médical de résistance par efflux actif."
-      },
-      {
-        "content": "Les RCPG ne transmettent aucun signal intracellulaire.",
+        "content": "Le domaine basolatéral est séparé du milieu intérieur par la lumière intestinale.",
         "correct": false,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "explanation": "Incorrect. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "Les ABC augmentent nécessairement l’accumulation intracellulaire de tout médicament.",
-        "correct": false,
-        "explanation": "La fiche propose un contexte médical de résistance par efflux actif."
+        "content": "Le domaine apical de l’entérocyte est orienté vers la lumière intestinale.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
+      },
+      {
+        "content": "L’occludine est une protéine associée aux jonctions serrées mais n’en constitue pas à elle seule toute l’architecture.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
+      },
+      {
+        "content": "La polarité membranaire permet une vectorisation des transports épithéliaux.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
+      },
+      {
+        "content": "Le domaine basolatéral communique avec le milieu interstitiel et les capillaires sous-jacents.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       }
-    ],
-    "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager. La fiche propose un contexte médical de résistance par efflux actif."
+    ]
   },
   {
     "order": 107,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRM",
-    "question": "Synthèse — croisez « la diffusion simple à travers la bicouche » et « l’effet de l’insuline sur le transport du glucose musculaire selon la fiche ». Quelles propositions sont exactes ?",
+    "question": "Quelles affirmations décrivent correctement « Récepteurs couplés aux protéines G » ?",
+    "explanation": "Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés.",
     "choices": [
       {
-        "content": "O2 et CO2 sont cités comme molécules pouvant traverser librement la bicouche.",
+        "content": "L’activation du récepteur favorise le remplacement du GDP par du GTP sur la sous-unité alpha.",
         "correct": true,
-        "explanation": "La perméabilité dépend de la nature chimique : les gaz diffusent plus facilement que les ions."
+        "explanation": "Exact. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       },
       {
-        "content": "La fixation de l’insuline favorise la fusion de ces vésicules avec la membrane plasmique.",
+        "content": "Les RCPG n’ont aucun segment transmembranaire.",
+        "correct": false,
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
+      },
+      {
+        "content": "Selon le type de protéine G, l’adénylate cyclase peut être activée ou inhibée.",
         "correct": true,
-        "explanation": "Le support local relie l’insuline à la mise à disposition membranaire de perméases GLUT 1 et 4."
+        "explanation": "Exact. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       },
       {
-        "content": "Na+ traverse librement la bicouche pure sans canal.",
+        "content": "L’hydrolyse du GTP empêche toute extinction du signal.",
         "correct": false,
-        "explanation": "La perméabilité dépend de la nature chimique : les gaz diffusent plus facilement que les ions."
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       },
       {
-        "content": "La cellule musculaire est décrite comme incapable de répondre à l’insuline.",
+        "content": "Un second messager reste nécessairement confiné à l’extérieur de la cellule.",
         "correct": false,
-        "explanation": "Le support local relie l’insuline à la mise à disposition membranaire de perméases GLUT 1 et 4."
+        "explanation": "Incorrect. Les RCPG ont sept segments transmembranaires et activent des protéines G hétérotrimériques. L’échange GDP→GTP sur Gα modifie les interactions avec effecteurs ; selon le type de G, adénylate cyclase, phospholipase C ou canaux peuvent être modulés."
       }
-    ],
-    "explanation": "La perméabilité dépend de la nature chimique : les gaz diffusent plus facilement que les ions. Le support local relie l’insuline à la mise à disposition membranaire de perméases GLUT 1 et 4."
+    ]
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse — croisez « le transport actif secondaire » et « le rôle du cholestérol dans la fiche ». Quelles propositions sont exactes ?",
+    "question": "Pour le thème « Récepteurs à activité tyrosine kinase », quelles propositions doivent être retenues ?",
+    "explanation": "Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé.",
     "choices": [
       {
-        "content": "Un symport déplace les deux solutés dans la même direction.",
-        "correct": true,
-        "explanation": "Le transport actif secondaire utilise l’énergie d’un gradient pour déplacer un autre soluté de façon défavorable."
-      },
-      {
-        "content": "La quantité de cholestérol participe aux propriétés de fluidité.",
-        "correct": true,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
-      },
-      {
-        "content": "Le transport secondaire ne peut exploiter aucun gradient favorable.",
+        "content": "Le récepteur de l’insuline est un RCPG à sept hélices.",
         "correct": false,
-        "explanation": "Le transport actif secondaire utilise l’énergie d’un gradient pour déplacer un autre soluté de façon défavorable."
+        "explanation": "Incorrect. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       },
       {
-        "content": "Il rend la bicouche nécessairement perméable à tous les ions.",
-        "correct": false,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+        "content": "De nombreux RTK sont activés par une dimérisation ou un réarrangement favorisé par le ligand.",
+        "correct": true,
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
+      },
+      {
+        "content": "Le récepteur de l’insuline possède une activité tyrosine kinase et existe sous forme de complexe dimérique préassemblé.",
+        "correct": true,
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
+      },
+      {
+        "content": "Le récepteur de l’EGF est un exemple de récepteur tyrosine kinase.",
+        "correct": true,
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
+      },
+      {
+        "content": "L’activité kinase utilise l’ATP comme donneur de phosphate.",
+        "correct": true,
+        "explanation": "Exact. Les RTK possèdent un domaine extracellulaire de liaison, un segment transmembranaire et un domaine tyrosine kinase cytosolique. Beaucoup s’activent par dimérisation/réarrangement et trans-autophosphorylation ; le récepteur de l’insuline est un dimère préformé."
       }
-    ],
-    "explanation": "Le transport actif secondaire utilise l’énergie d’un gradient pour déplacer un autre soluté de façon défavorable. Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+    ]
   },
   {
     "order": 109,
-    "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Synthèse — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "question": "Concernant « Communications autocrine, paracrine et endocrine », sélectionnez exactement les cinq propositions exactes parmi les dix proposées.",
+    "explanation": "Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse.",
     "choices": [
       {
-        "content": "Un domaine extracellulaire reconnaît le ligand.",
+        "content": "La portée d’un signal dépend notamment de sa diffusion, de sa dégradation et de son transport.",
         "correct": true,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "La protéine G peut ensuite recruter un effecteur comme l’adénylate cyclase.",
+        "content": "Une communication endocrine implique typiquement une hormone transportée par la circulation vers des cibles éloignées.",
         "correct": true,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "Leur activation peut conduire à une phosphorylation et à une cascade de signalisation.",
+        "content": "La communication paracrine agit uniquement sur la cellule qui a produit le signal.",
+        "correct": false,
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "Une cytokine ne peut jamais avoir d’action locale.",
+        "correct": false,
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "Une communication autocrine exige toujours un passage du signal par la circulation générale.",
+        "correct": false,
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "La communication endocrine permet de coordonner des fonctions à l’échelle de l’organisme.",
         "correct": true,
-        "explanation": "La fiche décrit notamment les récepteurs à activité tyrosine kinase."
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "La fiche classe le récepteur à l’EGF parmi les glycolipides sans domaine protéique.",
+        "content": "La communication endocrine est synonyme de contact cellule-cellule direct.",
         "correct": false,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "Les cancers sont présentés comme indépendants de toute communication.",
-        "correct": false,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
+        "content": "Un même signal peut avoir plusieurs cellules cibles si elles expriment le récepteur approprié.",
+        "correct": true,
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       },
       {
-        "content": "La composition du soluté n’influence jamais son transport.",
+        "content": "La dégradation d’un signal n’influence jamais sa portée.",
         "correct": false,
-        "explanation": "Le transport membranaire comprend mouvements de membrane et échanges de molécules."
+        "explanation": "Incorrect. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
+      },
+      {
+        "content": "Une cytokine peut agir de manière autocrine ou paracrine selon le contexte.",
+        "correct": true,
+        "explanation": "Exact. Autocrine : la cellule productrice répond à son propre signal ; paracrine : action locale ; endocrine : hormone transportée à distance, souvent par le sang. La distance n’est pas le seul déterminant de vitesse, qui dépend aussi des mécanismes de libération et de réponse."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    "requiredSelectionCount": 5
   },
   {
     "order": 110,
-    "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Synthèse — sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La fiche cite des récepteurs aux facteurs de croissance PDGF, NGF et EGF.",
-        "correct": true,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
-      },
-      {
-        "content": "Elle mentionne aussi l’allergie et l’action d’antihistaminiques.",
-        "correct": true,
-        "explanation": "Le support relie la signalisation à l’homéostasie et à plusieurs situations pathologiques."
-      },
-      {
-        "content": "La nature chimique du soluté influence sa traversée.",
-        "correct": true,
-        "explanation": "Le transport membranaire comprend mouvements de membrane et échanges de molécules."
-      },
-      {
-        "content": "O2 et CO2 sont cités comme molécules pouvant traverser librement la bicouche.",
-        "correct": true,
-        "explanation": "La perméabilité dépend de la nature chimique : les gaz diffusent plus facilement que les ions."
-      },
-      {
-        "content": "Le transport par canal est passif dans le cadre de la fiche.",
-        "correct": true,
-        "explanation": "Les canaux facilitent le passage selon le gradient."
-      },
-      {
-        "content": "Une perméase ne peut se lier à aucune molécule.",
-        "correct": false,
-        "explanation": "Le support oppose protéines tunnels et protéines porteuses."
-      },
-      {
-        "content": "Le transport actif primaire est toujours spontané sans énergie.",
-        "correct": false,
-        "explanation": "Le transport actif couple une source d’énergie au déplacement défavorable."
-      },
-      {
-        "content": "Ils sont présentés comme des jonctions serrées.",
-        "correct": false,
-        "explanation": "La fiche propose un contexte médical de résistance par efflux actif."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel type de récepteur est le récepteur de l’insuline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "récepteur tyrosine kinase",
+        "recepteur tyrosine kinase",
+        "RTK"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    },
+    "explanation": "Le récepteur de l’insuline est un RTK préassemblé."
   },
   {
     "order": 111,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « l’épaisseur de la membrane plasmique selon la fiche », « les protéines transmembranaires » et « l’influence des acides gras sur la fluidité selon la fiche ».",
+    "format": "QRP",
+    "question": "Sur le thème « Perméabilité de la bicouche et diffusion simple », sélectionnez exactement 2 propositions exactes.",
+    "explanation": "Les petites molécules hydrophobes et certains gaz diffusent facilement à travers la bicouche. Les ions et la plupart des molécules polaires nécessitent des protéines. La diffusion passive se fait selon le gradient électrochimique sans consommation directe d’ATP.",
     "choices": [
       {
-        "content": "La fiche indique une épaisseur d’environ 7,5 nm.",
-        "correct": true,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "Ces segments peuvent être organisés en hélices α.",
-        "correct": true,
-        "explanation": "Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles."
-      },
-      {
-        "content": "Des chaînes plus longues rendent toujours la membrane plus fluide selon la fiche.",
+        "content": "Na+ traverse librement et rapidement une bicouche lipidique pure par diffusion simple.",
         "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+        "explanation": "Incorrect. Les petites molécules hydrophobes et certains gaz diffusent facilement à travers la bicouche. Les ions et la plupart des molécules polaires nécessitent des protéines. La diffusion passive se fait selon le gradient électrochimique sans consommation directe d’ATP."
       },
       {
-        "content": "Elle est décrite comme deux feuillets denses aux photons.",
+        "content": "La bicouche pure est également perméable à toutes les molécules.",
         "correct": false,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+        "explanation": "Incorrect. Les petites molécules hydrophobes et certains gaz diffusent facilement à travers la bicouche. Les ions et la plupart des molécules polaires nécessitent des protéines. La diffusion passive se fait selon le gradient électrochimique sans consommation directe d’ATP."
+      },
+      {
+        "content": "La perméabilité d’une molécule dépend notamment de sa taille, de sa charge et de sa liposolubilité.",
+        "correct": true,
+        "explanation": "Exact. Les petites molécules hydrophobes et certains gaz diffusent facilement à travers la bicouche. Les ions et la plupart des molécules polaires nécessitent des protéines. La diffusion passive se fait selon le gradient électrochimique sans consommation directe d’ATP."
+      },
+      {
+        "content": "La diffusion simple ne nécessite pas de liaison à une protéine de transport.",
+        "correct": true,
+        "explanation": "Exact. Les petites molécules hydrophobes et certains gaz diffusent facilement à travers la bicouche. Les ions et la plupart des molécules polaires nécessitent des protéines. La diffusion passive se fait selon le gradient électrochimique sans consommation directe d’ATP."
+      },
+      {
+        "content": "La diffusion simple exige toujours une ATPase membranaire.",
+        "correct": false,
+        "explanation": "Incorrect. Les petites molécules hydrophobes et certains gaz diffusent facilement à travers la bicouche. Les ions et la plupart des molécules polaires nécessitent des protéines. La diffusion passive se fait selon le gradient électrochimique sans consommation directe d’ATP."
       }
     ],
-    "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique. Les protéines transmembranaires associent segments hydrophobes membranaires et domaines hydrophiles. Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+    "requiredSelectionCount": 2
   },
   {
     "order": 112,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « la membrane de l’hématie », « les flippases » et « les récepteurs couplés aux protéines G ».",
+    "question": "Concernant « Transport actif primaire », quelles affirmations sont correctes ?",
+    "explanation": "Le transport actif primaire couple directement une source d’énergie, souvent l’hydrolyse de l’ATP, au transport contre un gradient. Na+/K+-ATPase et de nombreux transporteurs ABC illustrent ce principe.",
     "choices": [
       {
-        "content": "L’ankyrine est une protéine périphérique de la face interne.",
+        "content": "Un transport actif primaire peut déplacer un soluté contre son gradient électrochimique.",
         "correct": true,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+        "explanation": "Exact. Le transport actif primaire couple directement une source d’énergie, souvent l’hydrolyse de l’ATP, au transport contre un gradient. Na+/K+-ATPase et de nombreux transporteurs ABC illustrent ce principe."
       },
       {
-        "content": "Leur action concerne le passage entre les deux feuillets.",
+        "content": "La Na+/K+-ATPase est une ATP synthase qui fabrique l’ATP grâce au gradient de sodium.",
+        "correct": false,
+        "explanation": "Incorrect. Le transport actif primaire couple directement une source d’énergie, souvent l’hydrolyse de l’ATP, au transport contre un gradient. Na+/K+-ATPase et de nombreux transporteurs ABC illustrent ce principe."
+      },
+      {
+        "content": "Les transporteurs ABC possèdent des domaines liant et hydrolysant l’ATP.",
         "correct": true,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+        "explanation": "Exact. Le transport actif primaire couple directement une source d’énergie, souvent l’hydrolyse de l’ATP, au transport contre un gradient. Na+/K+-ATPase et de nombreux transporteurs ABC illustrent ce principe."
       },
       {
-        "content": "L’adénylate cyclase est le ligand extracellulaire du récepteur.",
-        "correct": false,
-        "explanation": "Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+        "content": "De nombreux transporteurs ABC humains fonctionnent comme exporteurs de lipides ou de xénobiotiques.",
+        "correct": true,
+        "explanation": "Exact. Le transport actif primaire couple directement une source d’énergie, souvent l’hydrolyse de l’ATP, au transport contre un gradient. Na+/K+-ATPase et de nombreux transporteurs ABC illustrent ce principe."
       },
       {
-        "content": "L’ankyrine est une protéine transmembranaire selon la fiche.",
+        "content": "La Na+/K+-ATPase est située uniquement dans le noyau.",
         "correct": false,
-        "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette."
+        "explanation": "Incorrect. Le transport actif primaire couple directement une source d’énergie, souvent l’hydrolyse de l’ATP, au transport contre un gradient. Na+/K+-ATPase et de nombreux transporteurs ABC illustrent ce principe."
       }
-    ],
-    "explanation": "La membrane de l’hématie sert d’exemple d’organisation associant protéines transmembranaires et cytosquelette. Les flippases sont présentées comme des protéines de translocation unidirectionnelle. Le support décrit une succession récepteur → protéine G → effecteur → second messager."
+    ]
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « l’asymétrie des phospholipides », « les récepteurs tyrosine kinase cités » et « le gradient de sodium dans le modèle intestinal de la fiche ».",
+    "format": "QRP",
+    "question": "Concernant « Transport actif secondaire, symport et antiport », choisissez exactement 2 affirmations correctes.",
+    "explanation": "Le transport actif secondaire exploite l’énergie stockée dans le gradient électrochimique d’un soluté pour déplacer un autre soluté contre son gradient. Symport : même sens ; antiport : sens opposés.",
     "choices": [
       {
-        "content": "La phosphatidylcholine est plutôt externe.",
+        "content": "Dans un antiport, les solutés couplés se déplacent en sens opposés.",
         "correct": true,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Exact. Le transport actif secondaire exploite l’énergie stockée dans le gradient électrochimique d’un soluté pour déplacer un autre soluté contre son gradient. Symport : même sens ; antiport : sens opposés."
       },
       {
-        "content": "La fiche cite des récepteurs aux facteurs de croissance PDGF, NGF et EGF.",
+        "content": "Un antiport impose que les deux solutés se déplacent dans le même sens.",
+        "correct": false,
+        "explanation": "Incorrect. Le transport actif secondaire exploite l’énergie stockée dans le gradient électrochimique d’un soluté pour déplacer un autre soluté contre son gradient. Symport : même sens ; antiport : sens opposés."
+      },
+      {
+        "content": "Un symport impose que les deux solutés se déplacent en sens opposés.",
+        "correct": false,
+        "explanation": "Incorrect. Le transport actif secondaire exploite l’énergie stockée dans le gradient électrochimique d’un soluté pour déplacer un autre soluté contre son gradient. Symport : même sens ; antiport : sens opposés."
+      },
+      {
+        "content": "Le gradient utilisé par un transport secondaire est souvent maintenu par un transport actif primaire.",
         "correct": true,
-        "explanation": "Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique."
+        "explanation": "Exact. Le transport actif secondaire exploite l’énergie stockée dans le gradient électrochimique d’un soluté pour déplacer un autre soluté contre son gradient. Symport : même sens ; antiport : sens opposés."
       },
       {
-        "content": "Le gradient de sodium est sans rôle dans le symport.",
+        "content": "Symport et antiport sont des termes réservés aux récepteurs hormonaux.",
         "correct": false,
-        "explanation": "Le point à retenir est le couplage énergétique entre gradient sodique et transport du glucose ; le libellé exact de la pompe dans la fiche est conservé dans la note de migration."
-      },
-      {
-        "content": "Les deux feuillets ont exactement la même composition lipidique.",
-        "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Incorrect. Le transport actif secondaire exploite l’énergie stockée dans le gradient électrochimique d’un soluté pour déplacer un autre soluté contre son gradient. Symport : même sens ; antiport : sens opposés."
       }
     ],
-    "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets. Les récepteurs TK sont reliés à multiplication, activité cellulaire et signal insulinique. Le point à retenir est le couplage énergétique entre gradient sodique et transport du glucose ; le libellé exact de la pompe dans la fiche est conservé dans la note de migration."
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « la communication endocrine », « le gradient de sodium dans le modèle intestinal de la fiche » et « la fluidité membranaire ».",
+    "question": "Pour le thème « Absorption intestinale du glucose : SGLT1 », quelles propositions doivent être retenues ?",
+    "explanation": "À la membrane apicale de l’entérocyte, SGLT1 cotransporte 1 glucose avec 2 Na+ chez l’humain. Le Na+ suit son gradient électrochimique et fournit l’énergie permettant l’accumulation de glucose.",
     "choices": [
       {
-        "content": "Le messager est une hormone libérée dans le sang.",
+        "content": "Le gradient de Na+ nécessaire à SGLT1 dépend indirectement de la Na+/K+-ATPase basolatérale.",
         "correct": true,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Exact. À la membrane apicale de l’entérocyte, SGLT1 cotransporte 1 glucose avec 2 Na+ chez l’humain. Le Na+ suit son gradient électrochimique et fournit l’énergie permettant l’accumulation de glucose."
       },
       {
-        "content": "Ce gradient rend favorable l’entrée du sodium.",
+        "content": "SGLT1 peut permettre l’entrée de glucose contre son gradient de concentration.",
         "correct": true,
-        "explanation": "Le point à retenir est le couplage énergétique entre gradient sodique et transport du glucose ; le libellé exact de la pompe dans la fiche est conservé dans la note de migration."
+        "explanation": "Exact. À la membrane apicale de l’entérocyte, SGLT1 cotransporte 1 glucose avec 2 Na+ chez l’humain. Le Na+ suit son gradient électrochimique et fournit l’énergie permettant l’accumulation de glucose."
       },
       {
-        "content": "Les constituants membranaires sont tous définitivement immobiles.",
-        "correct": false,
-        "explanation": "La membrane est présentée comme une structure fluide et dynamique."
+        "content": "L’énergie du cotransport provient du gradient électrochimique de Na+.",
+        "correct": true,
+        "explanation": "Exact. À la membrane apicale de l’entérocyte, SGLT1 cotransporte 1 glucose avec 2 Na+ chez l’humain. Le Na+ suit son gradient électrochimique et fournit l’énergie permettant l’accumulation de glucose."
       },
       {
-        "content": "Une hormone endocrine ne peut jamais atteindre plusieurs types cellulaires.",
+        "content": "SGLT1 est un transporteur GLUT assurant uniquement une diffusion facilitée.",
         "correct": false,
-        "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes."
+        "explanation": "Incorrect. À la membrane apicale de l’entérocyte, SGLT1 cotransporte 1 glucose avec 2 Na+ chez l’humain. Le Na+ suit son gradient électrochimique et fournit l’énergie permettant l’accumulation de glucose."
+      },
+      {
+        "content": "Le transport apical intestinal du glucose se fait exclusivement par GLUT1.",
+        "correct": false,
+        "explanation": "Incorrect. À la membrane apicale de l’entérocyte, SGLT1 cotransporte 1 glucose avec 2 Na+ chez l’humain. Le Na+ suit son gradient électrochimique et fournit l’énergie permettant l’accumulation de glucose."
       }
-    ],
-    "explanation": "Endocrine : un signal hormonal circule dans le sang vers des cibles distantes. Le point à retenir est le couplage énergétique entre gradient sodique et transport du glucose ; le libellé exact de la pompe dans la fiche est conservé dans la note de migration. La membrane est présentée comme une structure fluide et dynamique."
+    ]
   },
   {
     "order": 115,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « les deux grandes modalités de transport membranaire », « les groupes sanguins ABO dans la fiche » et « les récepteurs membranaires aux signaux hydrosolubles ».",
+    "question": "Dans ce contexte, pour le thème « Sortie basolatérale du glucose intestinal », quelles propositions doivent être retenues ?",
+    "explanation": "Après son entrée apicale, le glucose quitte classiquement l’entérocyte par diffusion facilitée via GLUT2 sur la membrane basolatérale. La Na+/K+-ATPase basolatérale entretient le gradient de Na+ indispensable à l’absorption couplée.",
     "choices": [
       {
-        "content": "Elle distingue aussi le passage de solutés à travers la membrane.",
+        "content": "La Na+/K+-ATPase est localisée sur la membrane basolatérale de l’entérocyte.",
         "correct": true,
-        "explanation": "Le transport membranaire comprend mouvements de membrane et échanges de molécules."
+        "explanation": "Exact. Après son entrée apicale, le glucose quitte classiquement l’entérocyte par diffusion facilitée via GLUT2 sur la membrane basolatérale. La Na+/K+-ATPase basolatérale entretient le gradient de Na+ indispensable à l’absorption couplée."
       },
       {
-        "content": "Des anticorps correspondants sont présents dans le sérum selon le groupe.",
+        "content": "GLUT1 est le transporteur basolatéral intestinal canonique responsable de l’essentiel de la sortie postprandiale du glucose.",
+        "correct": false,
+        "explanation": "Incorrect. Après son entrée apicale, le glucose quitte classiquement l’entérocyte par diffusion facilitée via GLUT2 sur la membrane basolatérale. La Na+/K+-ATPase basolatérale entretient le gradient de Na+ indispensable à l’absorption couplée."
+      },
+      {
+        "content": "La Na+/K+-ATPase n’a aucun lien avec le gradient utilisé pour l’absorption de glucose.",
+        "correct": false,
+        "explanation": "Incorrect. Après son entrée apicale, le glucose quitte classiquement l’entérocyte par diffusion facilitée via GLUT2 sur la membrane basolatérale. La Na+/K+-ATPase basolatérale entretient le gradient de Na+ indispensable à l’absorption couplée."
+      },
+      {
+        "content": "GLUT2 ne couple pas directement son transport au Na+.",
         "correct": true,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+        "explanation": "Exact. Après son entrée apicale, le glucose quitte classiquement l’entérocyte par diffusion facilitée via GLUT2 sur la membrane basolatérale. La Na+/K+-ATPase basolatérale entretient le gradient de Na+ indispensable à l’absorption couplée."
       },
       {
-        "content": "Un récepteur membranaire n’a jamais de domaine transmembranaire.",
+        "content": "SGLT1 et GLUT2 sont normalement répartis au hasard de façon identique sur toute la membrane de l’entérocyte.",
         "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "La fiche ne reconnaît que l’exocytose.",
-        "correct": false,
-        "explanation": "Le transport membranaire comprend mouvements de membrane et échanges de molécules."
+        "explanation": "Incorrect. Après son entrée apicale, le glucose quitte classiquement l’entérocyte par diffusion facilitée via GLUT2 sur la membrane basolatérale. La Na+/K+-ATPase basolatérale entretient le gradient de Na+ indispensable à l’absorption couplée."
       }
-    ],
-    "explanation": "Le transport membranaire comprend mouvements de membrane et échanges de molécules. La fiche utilise le système ABO comme exemple de rôle des glucides membranaires. La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+    ]
   },
   {
     "order": 116,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « le transport apical du glucose dans l’entérocyte selon la fiche », « la communication autocrine » et « le transport basolatéral du glucose dans l’entérocyte selon la fiche ».",
+    "format": "QRU",
+    "question": "Pour « Insuline et GLUT4 dans le muscle », quelle proposition doit être retenue ?",
+    "explanation": "Dans le muscle squelettique et le tissu adipeux, l’insuline augmente l’exposition membranaire de GLUT4 par translocation de vésicules de stockage. GLUT1 contribue davantage au transport basal et ne remplace pas GLUT4 comme principal transporteur insulinoréactif.",
     "choices": [
       {
-        "content": "L’énergie est tirée de l’entrée du sodium selon son gradient.",
-        "correct": true,
-        "explanation": "La banque conserve le modèle local de la fiche : un glucose et deux Na+ au pôle apical."
-      },
-      {
-        "content": "La cellule émettrice peut être également la cellule cible.",
-        "correct": true,
-        "explanation": "Autocrine : le signal agit sur la cellule qui l’a émis."
-      },
-      {
-        "content": "Le glucose retourne vers la lumière intestinale au pôle basolatéral.",
+        "content": "Le transport du glucose via GLUT4 consomme directement un ATP pour chaque molécule de glucose.",
         "correct": false,
-        "explanation": "Le support local attribue à GLUT 1 le transfert basolatéral passif vers le sang."
+        "explanation": "Incorrect. Dans le muscle squelettique et le tissu adipeux, l’insuline augmente l’exposition membranaire de GLUT4 par translocation de vésicules de stockage. GLUT1 contribue davantage au transport basal et ne remplace pas GLUT4 comme principal transporteur insulinoréactif."
       },
       {
-        "content": "Le glucose sort de l’entérocyte au pôle apical par diffusion simple.",
+        "content": "Le récepteur de l’insuline est un canal à eau.",
         "correct": false,
-        "explanation": "La banque conserve le modèle local de la fiche : un glucose et deux Na+ au pôle apical."
+        "explanation": "Incorrect. Dans le muscle squelettique et le tissu adipeux, l’insuline augmente l’exposition membranaire de GLUT4 par translocation de vésicules de stockage. GLUT1 contribue davantage au transport basal et ne remplace pas GLUT4 comme principal transporteur insulinoréactif."
+      },
+      {
+        "content": "L’insuline favorise la translocation de vésicules contenant GLUT4 vers la membrane plasmique.",
+        "correct": true,
+        "explanation": "Exact. Dans le muscle squelettique et le tissu adipeux, l’insuline augmente l’exposition membranaire de GLUT4 par translocation de vésicules de stockage. GLUT1 contribue davantage au transport basal et ne remplace pas GLUT4 comme principal transporteur insulinoréactif."
+      },
+      {
+        "content": "GLUT4 couple directement le glucose à deux ions sodium.",
+        "correct": false,
+        "explanation": "Incorrect. Dans le muscle squelettique et le tissu adipeux, l’insuline augmente l’exposition membranaire de GLUT4 par translocation de vésicules de stockage. GLUT1 contribue davantage au transport basal et ne remplace pas GLUT4 comme principal transporteur insulinoréactif."
+      },
+      {
+        "content": "L’insuline transforme GLUT4 en pompe ATPase qui transporte le glucose contre son gradient.",
+        "correct": false,
+        "explanation": "Incorrect. Dans le muscle squelettique et le tissu adipeux, l’insuline augmente l’exposition membranaire de GLUT4 par translocation de vésicules de stockage. GLUT1 contribue davantage au transport basal et ne remplace pas GLUT4 comme principal transporteur insulinoréactif."
       }
-    ],
-    "explanation": "La banque conserve le modèle local de la fiche : un glucose et deux Na+ au pôle apical. Autocrine : le signal agit sur la cellule qui l’a émis. Le support local attribue à GLUT 1 le transfert basolatéral passif vers le sang."
+    ]
   },
   {
     "order": 117,
-    "difficulty": "HARD",
-    "format": "QROC",
-    "question": "Maîtrise de synthèse — Réponse numérique en nm : quelle épaisseur approximative de membrane plasmique est indiquée dans la fiche ?",
-    "answer": {
-      "type": "number",
-      "value": 7.5,
-      "tolerance": 0.1
-    },
-    "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant « Intégration des transports membranaires » ?",
+    "explanation": "La direction d’un flux dépend du gradient et du mécanisme. Canaux et GLUT réalisent des transports passifs ; pompes ATPases réalisent des transports actifs primaires ; SGLT1 est secondaire. Une cellule combine ces systèmes pour créer des flux vectoriels.",
+    "choices": [
+      {
+        "content": "Les gradients ioniques sont inutiles à la physiologie cellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. La direction d’un flux dépend du gradient et du mécanisme. Canaux et GLUT réalisent des transports passifs ; pompes ATPases réalisent des transports actifs primaires ; SGLT1 est secondaire. Une cellule combine ces systèmes pour créer des flux vectoriels."
+      },
+      {
+        "content": "La diffusion facilitée et le transport actif peuvent coexister dans une même cellule.",
+        "correct": true,
+        "explanation": "Exact. La direction d’un flux dépend du gradient et du mécanisme. Canaux et GLUT réalisent des transports passifs ; pompes ATPases réalisent des transports actifs primaires ; SGLT1 est secondaire. Une cellule combine ces systèmes pour créer des flux vectoriels."
+      },
+      {
+        "content": "La direction d’un transport passif peut s’inverser si le gradient électrochimique s’inverse.",
+        "correct": true,
+        "explanation": "Exact. La direction d’un flux dépend du gradient et du mécanisme. Canaux et GLUT réalisent des transports passifs ; pompes ATPases réalisent des transports actifs primaires ; SGLT1 est secondaire. Une cellule combine ces systèmes pour créer des flux vectoriels."
+      },
+      {
+        "content": "Une pompe peut créer un gradient ensuite exploité par un cotransporteur secondaire.",
+        "correct": true,
+        "explanation": "Exact. La direction d’un flux dépend du gradient et du mécanisme. Canaux et GLUT réalisent des transports passifs ; pompes ATPases réalisent des transports actifs primaires ; SGLT1 est secondaire. Une cellule combine ces systèmes pour créer des flux vectoriels."
+      },
+      {
+        "content": "La bicouche lipidique laisse passer tous les solutés avec la même vitesse.",
+        "correct": false,
+        "explanation": "Incorrect. La direction d’un flux dépend du gradient et du mécanisme. Canaux et GLUT réalisent des transports passifs ; pompes ATPases réalisent des transports actifs primaires ; SGLT1 est secondaire. Une cellule combine ces systèmes pour créer des flux vectoriels."
+      }
+    ]
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « le glycocalyx », « la composition globale de la membrane selon la fiche » et « la communication synaptique chimique ».",
-    "choices": [
-      {
-        "content": "Ils sont localisés sur le feuillet externe dans la fiche.",
-        "correct": true,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
-      },
-      {
-        "content": "Elle mentionne en plus une petite quantité de glucides.",
-        "correct": true,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
-      },
-      {
-        "content": "L’acétylcholine est présentée comme un antigène ABO.",
-        "correct": false,
-        "explanation": "La synapse chimique est une communication rapide et spatialement ciblée."
-      },
-      {
-        "content": "Le glycocalyx est exclusivement situé sur le feuillet cytosolique.",
-        "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+    "format": "QROC",
+    "question": "Quel transporteur ABC est aussi appelé P-glycoprotéine et peut contribuer à une résistance multidrogue ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ABCB1",
+        "P-glycoprotéine",
+        "P-glycoproteine",
+        "MDR1"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides. La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche. La synapse chimique est une communication rapide et spatialement ciblée."
+    },
+    "explanation": "ABCB1/P-glycoprotéine peut expulser certains xénobiotiques et médicaments."
   },
   {
     "order": 119,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « les scramblases », « les mouvements des phospholipides » et « le transport apical du glucose dans l’entérocyte selon la fiche ».",
-    "choices": [
-      {
-        "content": "Leur action s’oppose fonctionnellement au maintien strict d’une asymétrie.",
-        "correct": true,
-        "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
-      },
-      {
-        "content": "La diffusion latérale correspond à un déplacement dans le plan de la membrane.",
-        "correct": true,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
-      },
-      {
-        "content": "Le transport apical est présenté comme indépendant de tout gradient ionique.",
-        "correct": false,
-        "explanation": "La banque conserve le modèle local de la fiche : un glucose et deux Na+ au pôle apical."
-      },
-      {
-        "content": "Elles sont décrites comme des protéines motrices des microtubules.",
-        "correct": false,
-        "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
+    "format": "QROC",
+    "question": "Quel terme décrit un transport contre gradient alimenté indirectement par le gradient d’un autre soluté ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "transport actif secondaire",
+        "transport secondaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie. Plusieurs mouvements participent au caractère dynamique de la bicouche. La banque conserve le modèle local de la fiche : un glucose et deux Na+ au pôle apical."
+    },
+    "explanation": "Le transport actif secondaire exploite l’énergie d’un gradient préexistant."
   },
   {
     "order": 120,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez « les récepteurs membranaires aux signaux hydrosolubles », « les récepteurs membranaires aux signaux hydrosolubles » et « les groupes sanguins ABO dans la fiche ».",
-    "choices": [
-      {
-        "content": "Un domaine extracellulaire reconnaît le ligand.",
-        "correct": true,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "Un domaine traverse la membrane.",
-        "correct": true,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
-      },
-      {
-        "content": "Les groupes ABO sont déterminés uniquement par la quantité de spectrine.",
-        "correct": false,
-        "explanation": "La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
-      },
-      {
-        "content": "La transduction se déroule uniquement dans le milieu extracellulaire.",
-        "correct": false,
-        "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel terme décrit le déplacement passif spontané d’une petite molécule directement à travers la bicouche ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "diffusion simple",
+        "diffusion libre"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire. La fiche présente une architecture générale reliant reconnaissance externe et réponse intracellulaire. La fiche utilise le système ABO comme exemple de rôle des glucides membranaires."
+    },
+    "explanation": "La diffusion simple ne requiert ni canal ni transporteur."
   },
   {
     "order": 121,
-    "difficulty": "HARD",
-    "format": "QRP",
-    "question": "Maîtrise de synthèse — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "question": "Pour le thème « Protéines membranaires et topologie », retenez les cinq affirmations correctes parmi les dix proposées.",
+    "explanation": "Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle.",
     "choices": [
       {
-        "content": "O2 et CO2 sont cités comme molécules pouvant traverser librement la bicouche.",
-        "correct": true,
-        "explanation": "La perméabilité dépend de la nature chimique : les gaz diffusent plus facilement que les ions."
-      },
-      {
-        "content": "Le transport par canal est passif dans le cadre de la fiche.",
-        "correct": true,
-        "explanation": "Les canaux facilitent le passage selon le gradient."
-      },
-      {
-        "content": "Une pompe est associée au transport actif.",
-        "correct": true,
-        "explanation": "Le support oppose protéines tunnels et protéines porteuses."
-      },
-      {
-        "content": "Le transport actif primaire est toujours spontané sans énergie.",
+        "content": "Une protéine à ancre GPI est exposée sur la face cytosolique de la membrane plasmique.",
         "correct": false,
-        "explanation": "Le transport actif couple une source d’énergie au déplacement défavorable."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "Ils sont présentés comme des jonctions serrées.",
-        "correct": false,
-        "explanation": "La fiche propose un contexte médical de résistance par efflux actif."
+        "content": "Une protéine transmembranaire peut traverser la bicouche une ou plusieurs fois.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       },
       {
-        "content": "Un antiport transporte toujours un seul soluté.",
+        "content": "Une protéine périphérique traverse nécessairement plusieurs fois la bicouche.",
         "correct": false,
-        "explanation": "Le transport actif secondaire utilise l’énergie d’un gradient pour déplacer un autre soluté de façon défavorable."
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Les protéines membranaires n’ont aucun rôle dans le transport de solutés.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "La topologie d’une protéine membranaire est établie lors de sa biogenèse et conditionne l’accessibilité de ses domaines.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Les segments transmembranaires alpha-hélicoïdaux sont formés exclusivement d’acides aminés chargés.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Une ancre GPI place la protéine sur la face non cytosolique de la membrane plasmique.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Certaines protéines membranaires sont attachées à la membrane par un groupement lipidique.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Les segments transmembranaires alpha-hélicoïdaux sont souvent enrichis en résidus hydrophobes.",
+        "correct": true,
+        "explanation": "Exact. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
+      },
+      {
+        "content": "Une protéine membranaire doit forcément traverser la bicouche.",
+        "correct": false,
+        "explanation": "Incorrect. Les protéines membranaires peuvent être transmembranaires, périphériques ou liées à un lipide. Les protéines alpha-hélicoïdales transmembranaires ont des segments hydrophobes, mais l’orientation N/C n’obéit pas à une règle universelle."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    "requiredSelectionCount": 5
   },
   {
     "order": 122,
-    "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Maîtrise de synthèse — sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La fiche décrit une perméase passive au pôle basolatéral.",
-        "correct": true,
-        "explanation": "Le support local attribue à GLUT 1 le transfert basolatéral passif vers le sang."
-      },
-      {
-        "content": "Ce gradient rend favorable l’entrée du sodium.",
-        "correct": true,
-        "explanation": "Le point à retenir est le couplage énergétique entre gradient sodique et transport du glucose ; le libellé exact de la pompe dans la fiche est conservé dans la note de migration."
-      },
-      {
-        "content": "La fiche cite alors davantage de GLUT 1 et GLUT 4 à la membrane.",
-        "correct": true,
-        "explanation": "Le support local relie l’insuline à la mise à disposition membranaire de perméases GLUT 1 et 4."
-      },
-      {
-        "content": "La membrane plasmique entoure totalement la cellule.",
-        "correct": true,
-        "explanation": "La membrane délimite la cellule et contrôle des échanges avec le milieu extérieur."
-      },
-      {
-        "content": "Cette finesse explique qu’elle soit observée en microscopie électronique.",
-        "correct": true,
-        "explanation": "Le repère local est environ 7,5 nm et une visualisation en microscopie électronique."
-      },
-      {
-        "content": "La membrane est décrite comme composée exclusivement d’eau.",
-        "correct": false,
-        "explanation": "La proportion 70 % lipides / 30 % protéines est un repère propre à cette fiche."
-      },
-      {
-        "content": "La tête des phospholipides est décrite comme hydrophobe et la queue comme hydrophile.",
-        "correct": false,
-        "explanation": "L’amphiphilie des phospholipides explique leur organisation en bicouche entre deux milieux aqueux."
-      },
-      {
-        "content": "Il est absent de la membrane plasmique dans la fiche.",
-        "correct": false,
-        "explanation": "Le support associe le cholestérol à la stabilisation de la bicouche et à la fluidité."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle face de l’entérocyte porte la Na+/K+-ATPase indispensable au gradient de sodium : apicale ou basolatérale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "basolatérale",
+        "basolaterale",
+        "face basolatérale",
+        "domaine basolatéral"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    },
+    "explanation": "La Na+/K+-ATPase basolatérale entretient le gradient utilisé par SGLT1."
   }
 ];

@@ -1,3 +1,4 @@
+/** UE14 – Biologie cellulaire – Chapitre 2 : Membrane plasmique — V2 active refonte finale */
 import type { PrismaClient } from '@prisma/client';
 import type { SeedQuestion, SeedQuiz, SeedSection } from './health-training-ue14.shared';
 import { SECTION_A_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-a.seed';
@@ -5,65 +6,20 @@ import { SECTION_B_QUESTIONS } from './health-training-ue14-biologie-cellulaire-
 import { SECTION_C_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-c.seed';
 import { SECTION_D_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.section-d.seed';
 import { SYNTHESIS_QUESTIONS } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.synthesis.seed';
-import {
-  UE14_CELL_CH2_V2_QUIZ_MAP,
-  UE14_CELL_CH2_V2_THEME_LABELS_BY_ORDER,
-} from './health-training-ue14-biologie-cellulaire-membrane-plasmique.quiz-map-v2.author';
+import { UE14_CELL_CH2_V2_QUIZ_MAP, UE14_CELL_CH2_V2_THEME_LABELS_BY_ORDER } from './health-training-ue14-biologie-cellulaire-membrane-plasmique.quiz-map-v2.author';
 import { seedHealthTrainingChapter } from './health-training-ue14.shared';
-
 const SUBJECT_LONG_DESCRIPTION = 'Sciences de la Vie et de la Terre';
 const CHAPTER_SLUG = 'membrane-plasmique-communication-transports-membranaires';
-
 const sections: SeedSection[] = [
-  {
-    order: 1,
-    title: 'Structure et composition de la membrane',
-    description:
-      'Bicouche lipidique, phospholipides, cholestérol, protéines membranaires, hématie et groupes sanguins ABO.',
-    kind: 'THEME',
-  },
-  {
-    order: 2,
-    title: 'Fluidité, asymétrie et polarité membranaires',
-    description:
-      'Glycocalyx, fluidité, mouvements lipidiques, asymétrie membranaire, flippases, scramblases et polarité cellulaire.',
-    kind: 'THEME',
-  },
-  {
-    order: 3,
-    title: 'Communication cellulaire',
-    description:
-      'Modes de communication autocrine, paracrine, endocrine et synaptique, récepteurs membranaires, RCPG et cascades de signalisation.',
-    kind: 'THEME',
-  },
-  {
-    order: 4,
-    title: 'Transport membranaire et transport du glucose',
-    description:
-      'Diffusion simple, perméases, canaux ioniques, pompes ATPasiques, transporteurs ABC et modèle entérocytaire du transport du glucose.',
-    kind: 'THEME',
-  },
-  {
-    order: 5,
-    title: 'Synthèse du chapitre',
-    description: 'Révision transversale de l’ensemble du chapitre.',
-    kind: 'SYNTHESIS',
-  },
+  { order: 1, title: 'Structure et composition de la membrane', description: 'Bicouche, lipides, protéines, glucides, hématie et système ABO.', kind: 'THEME' },
+  { order: 2, title: 'Fluidité, asymétrie et polarité membranaires', description: 'Fluidité, mouvements lipidiques, asymétrie, translocation et polarité épithéliale.', kind: 'THEME' },
+  { order: 3, title: 'Communication cellulaire', description: 'Adhérence, matrice extracellulaire, RCPG, RTK et modes de communication.', kind: 'THEME' },
+  { order: 4, title: 'Transport membranaire et transport du glucose', description: 'Diffusion, canaux, transporteurs, pompes, cotransports et glucose.', kind: 'THEME' },
+  { order: 5, title: 'Synthèse du chapitre', description: 'Révision transversale de la membrane plasmique.', kind: 'SYNTHESIS' },
 ];
-
-const questions: SeedQuestion[] = [
-  ...SECTION_A_QUESTIONS,
-  ...SECTION_B_QUESTIONS,
-  ...SECTION_C_QUESTIONS,
-  ...SECTION_D_QUESTIONS,
-  ...SYNTHESIS_QUESTIONS,
-];
-
+const questions: SeedQuestion[] = [...SECTION_A_QUESTIONS, ...SECTION_B_QUESTIONS, ...SECTION_C_QUESTIONS, ...SECTION_D_QUESTIONS, ...SYNTHESIS_QUESTIONS];
 const quizSeeds: SeedQuiz[] = UE14_CELL_CH2_V2_QUIZ_MAP as unknown as SeedQuiz[];
-
-export async function seedHealthTrainingUe14BiologieCellulaireMembranePlasmique(
-  prisma: PrismaClient
-) {
+export async function seedHealthTrainingUe14BiologieCellulaireMembranePlasmique(prisma: PrismaClient) {
   await seedHealthTrainingChapter({
     prisma,
     subjectLongDescription: SUBJECT_LONG_DESCRIPTION,
