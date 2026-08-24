@@ -1,1047 +1,1087 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch3 — Actomyosine, migration et filaments intermédiaires */
 export const UE14_CELL_CH3_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Selon la fiche, quelles propositions concernant « les contextes physiologiques de migration cellulaire » sont correctes ?",
+    "question": "À propos de « Myosines et motilité actine-dépendante », sélectionnez les affirmations fausses.",
+    "explanation": "Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local.",
     "choices": [
       {
-        "content": "La fiche cite l’embryogenèse.",
+        "content": "La myosine II polymérise directement l’actine G en microtubules.",
         "correct": true,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est incorrecte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       },
       {
-        "content": "La migration est présentée comme propre aux hématies uniquement.",
-        "correct": false,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
-      },
-      {
-        "content": "Elle cite l’inflammation avec macrophages et lymphocytes.",
+        "content": "Les myosines se déplacent principalement sur les microtubules.",
         "correct": true,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est incorrecte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       },
       {
-        "content": "La cicatrisation ne fait intervenir aucune migration cellulaire.",
+        "content": "L’activité mécanique des myosines dépend de l’hydrolyse de l’ATP.",
         "correct": false,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
+      },
+      {
+        "content": "Les myosines sont des moteurs moléculaires utilisant les filaments d’actine comme rails.",
+        "correct": false,
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
+      },
+      {
+        "content": "La myosine II peut former des filaments bipolaires.",
+        "correct": false,
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       }
-    ],
-    "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+    ]
   },
   {
     "order": 68,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "À propos de « les plaques d’adhérence pendant la migration », quelle proposition est juste ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pour le thème « Migration cellulaire et polarisation de l’actine », quelles propositions doivent être retenues ?",
+    "explanation": "Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière.",
     "choices": [
       {
-        "content": "De nouvelles plaques se forment à l’avant.",
+        "content": "La migration cellulaire se produit sans aucune réorganisation du cytosquelette.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "Les lamellipodes sont des axonèmes 9+2 contenant uniquement des microtubules.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "La polymérisation de l’actine au front peut pousser la membrane d’une cellule migrante.",
         "correct": true,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+        "explanation": "Cette affirmation est correcte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
       },
       {
-        "content": "Les nouvelles plaques apparaissent uniquement derrière la cellule.",
-        "correct": false,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+        "content": "Les lamellipodes contiennent des réseaux d’actine fortement ramifiés.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
       },
       {
-        "content": "Aucune rétraction n’a lieu à l’arrière.",
+        "content": "Les filopodes sont constitués uniquement de neurofilaments.",
         "correct": false,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
-      },
-      {
-        "content": "La migration exige la disparition de toute adhérence à la matrice.",
-        "correct": false,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
       }
-    ],
-    "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+    ]
   },
   {
     "order": 69,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Au sujet de « les lamellipodes et filopodes », quelles propositions sont correctes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Pour « Régulateurs de l’actine dans la migration », quelle proposition doit être retenue ?",
+    "explanation": "Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine.",
     "choices": [
       {
-        "content": "La polymérisation d’actine à l’avant pousse la membrane plasmique.",
+        "content": "La cofiline peut favoriser le renouvellement des filaments d’actine anciens.",
         "correct": true,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "explanation": "Cette affirmation est correcte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       },
       {
-        "content": "La dépolymérisation d’actine à l’avant est le seul moteur d’extension décrit.",
+        "content": "La thymosine-bêta4 polymérise directement les microtubules du fuseau.",
         "correct": false,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       },
       {
-        "content": "Ils sont émis dans le sens du déplacement.",
-        "correct": true,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
-      },
-      {
-        "content": "Ils se développent uniquement à l’arrière à l’opposé du déplacement.",
+        "content": "Arp2/3 est un moteur ATPase qui marche sur les microtubules.",
         "correct": false,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
+      },
+      {
+        "content": "La gelsoline ne peut jamais modifier la longueur d’un filament d’actine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
+      },
+      {
+        "content": "La cofiline est une tubuline qui nucléé les centrioles.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       }
-    ],
-    "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+    ]
   },
   {
     "order": 70,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « la zone intermédiaire de la cellule migrante » ?",
-    "choices": [
-      {
-        "content": "La fiche décrit des filaments d’actine en réseaux.",
-        "correct": true,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "La zone intermédiaire est dépourvue d’actine.",
-        "correct": false,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "La filamine est une tubuline.",
-        "correct": false,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "Les filaments y sont exclusivement organisés en axonème.",
-        "correct": false,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel moteur moléculaire utilise les filaments d’actine comme rail ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "myosine",
+        "myosines",
+        "une myosine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La filamine est associée au réseau d’actine intermédiaire."
+    },
+    "explanation": "Les myosines sont les moteurs associés à l’actine."
   },
   {
     "order": 71,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Pour caractériser « la zone de rétraction », quelles affirmations sont exactes ?",
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "À propos de « Structure et propriétés des filaments intermédiaires », repérez la seule affirmation correcte.",
+    "explanation": "Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable.",
     "choices": [
       {
-        "content": "La thymosine limite la repolymérisation locale.",
-        "correct": true,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "La thymosine stabilise irréversiblement tous les filaments arrière.",
+        "content": "Les filaments intermédiaires sont des cylindres creux de 13 protofilaments de tubuline.",
         "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       },
       {
-        "content": "La fiche relie le retour d’actine G vers l’avant à la formation de nouveaux filaments.",
-        "correct": true,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "L’actine G ne peut jamais être recyclée vers l’avant.",
+        "content": "Les filaments intermédiaires possèdent une extrémité plus et une extrémité moins très différentes.",
         "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
+      },
+      {
+        "content": "Tous les filaments intermédiaires sont totalement immuables et ne peuvent jamais être remodelés.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
+      },
+      {
+        "content": "Les filaments intermédiaires sont constitués d’actine globulaire liée à l’ATP.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
+      },
+      {
+        "content": "Les filaments intermédiaires ont un diamètre d’environ 10 nm.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       }
-    ],
-    "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+    ]
   },
   {
     "order": 72,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « l’α-actinine dans la migration » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de « Familles de protéines des filaments intermédiaires », sélectionnez les propositions exactes.",
+    "explanation": "Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire.",
     "choices": [
       {
-        "content": "Ces fibres participent à la rétraction.",
+        "content": "La vimentine est une myosine musculaire.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "Les kératines sont les principaux microtubules des neurones.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "La desmine est la sous-unité bêta de la tubuline.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "La vimentine est fréquente dans de nombreuses cellules d’origine mésenchymateuse.",
         "correct": true,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       },
       {
-        "content": "Elle est localisée uniquement dans le noyau.",
-        "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
-      },
-      {
-        "content": "L’α-actinine est décrite comme un canal ionique.",
-        "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
-      },
-      {
-        "content": "Elle n’interagit jamais avec l’actine.",
-        "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "content": "Les kératines sont des filaments intermédiaires caractéristiques des cellules épithéliales.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       }
-    ],
-    "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+    ]
   },
   {
     "order": 73,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de « la myosine I au front migratoire selon la fiche », quelles affirmations sont conformes à la fiche ?",
-    "choices": [
-      {
-        "content": "La fiche cite la myosine I dans la zone avant.",
-        "correct": true,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
-      },
-      {
-        "content": "La myosine I est décrite comme une tubuline du centrosome.",
-        "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
-      },
-      {
-        "content": "Elle lui attribue un rôle d’ancrage des filaments d’actine.",
-        "correct": true,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
-      },
-      {
-        "content": "La fiche la place exclusivement dans la lamina nucléaire.",
-        "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel type de myosine forme des assemblages bipolaires responsables de nombreuses contractions ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "myosine II",
+        "myosine 2",
+        "myosine de type II"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+    },
+    "explanation": "La myosine II participe à la contraction musculaire, aux fibres de tension et à l’anneau contractile."
   },
   {
     "order": 74,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Parmi ces propositions sur « la localisation des filaments intermédiaires », laquelle est correcte ?",
+    "question": "Quelle affirmation décrit correctement « Filaments intermédiaires et jonctions d’ancrage » ?",
+    "explanation": "Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine.",
     "choices": [
       {
-        "content": "Ils s’ancrent dans les desmosomes et hémidesmosomes des cellules épithéliales.",
+        "content": "Les desmosomes relient le réseau de kératines entre cellules épithéliales voisines.",
         "correct": true,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+        "explanation": "Cette affirmation est correcte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "Ils ne sont jamais associés aux desmosomes.",
+        "content": "Les adhérences focales sont indépendantes des intégrines.",
         "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "La fiche exclut toute localisation nucléaire.",
+        "content": "Les desmosomes s’attachent principalement aux microtubules via la dynéine.",
         "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "Les filaments intermédiaires sont uniquement extracellulaires.",
+        "content": "Les jonctions adhérentes s’ancrent exclusivement aux filaments intermédiaires.",
         "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
+      },
+      {
+        "content": "Les hémidesmosomes sont des jonctions cellule-cellule constituées uniquement d’actine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       }
-    ],
-    "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+    ]
   },
   {
     "order": 75,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour « les propriétés structurales des filaments intermédiaires », quelles affirmations sont correctes selon le support ?",
+    "question": "Pour le thème « Fonctions mécaniques des filaments intermédiaires », quelles propositions doivent être retenues ?",
+    "explanation": "Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire.",
     "choices": [
       {
-        "content": "La fiche les relie davantage aux phénomènes structuraux qu’aux dynamiques rapides.",
+        "content": "Les filaments intermédiaires augmentent la résistance des cellules aux contraintes mécaniques.",
         "correct": true,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       },
       {
-        "content": "Ils sont décrits comme les principaux moteurs ATP-dépendants.",
-        "correct": false,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
-      },
-      {
-        "content": "Ils sont non polarisés.",
+        "content": "La desmine participe à l’organisation mécanique des cellules musculaires.",
         "correct": true,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       },
       {
-        "content": "Ils possèdent des extrémités + et − très dynamiques comme les microtubules.",
+        "content": "Les neurofilaments contribuent au maintien du calibre des axones.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les kératines contribuent à la résistance de l’épiderme aux forces d’étirement.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les filaments intermédiaires assurent principalement la synthèse d’ATP mitochondriale.",
         "correct": false,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       }
-    ],
-    "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+    ]
   },
   {
     "order": 76,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « les grandes protéines de filaments intermédiaires citées » est juste ?",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Comparaison intégrée des trois réseaux du cytosquelette ».",
+    "explanation": "Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire.",
     "choices": [
       {
-        "content": "Les cytokératines sont associées aux cellules épithéliales.",
+        "content": "Les microtubules utilisent la tubuline, l’actine utilise l’actine, et les filaments intermédiaires regroupent plusieurs familles de protéines fibreuses.",
         "correct": true,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       },
       {
-        "content": "Les cytokératines sont présentées comme spécifiques des hématies.",
+        "content": "Les myosines sont les moteurs principaux des microtubules.",
         "correct": false,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
+        "explanation": "Cette affirmation est incorrecte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       },
       {
-        "content": "La vimentine est la principale tubuline des cils.",
+        "content": "Les filaments intermédiaires sont fortement polarisés et consomment du GTP à leur extrémité plus.",
         "correct": false,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
+        "explanation": "Cette affirmation est incorrecte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       },
       {
-        "content": "Les lamines sont des phospholipides membranaires.",
+        "content": "Microtubules et actine sont polarisés, contrairement aux filaments intermédiaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
+      },
+      {
+        "content": "Les trois réseaux sont composés de tubuline et utilisent des kinésines.",
         "correct": false,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
+        "explanation": "Cette affirmation est incorrecte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       }
-    ],
-    "explanation": "La composition des FI varie selon les cellules et compartiments."
+    ]
   },
   {
     "order": 77,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application concernant « les lamellipodes et filopodes », quelles propositions sont exactes ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Sur le thème « Myosines et motilité actine-dépendante », sélectionnez exactement 2 propositions exactes.",
+    "explanation": "Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local.",
     "choices": [
       {
-        "content": "La zone avant contient des microfilaments d’actine disposés en faisceaux dans le modèle de la fiche.",
-        "correct": true,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
-      },
-      {
-        "content": "Ils sont constitués exclusivement de filaments intermédiaires.",
+        "content": "Les myosines produisent un mouvement sans ATP.",
         "correct": false,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "explanation": "Cette affirmation est incorrecte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       },
       {
-        "content": "La polymérisation d’actine à l’avant pousse la membrane plasmique.",
-        "correct": true,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
-      },
-      {
-        "content": "La dépolymérisation d’actine à l’avant est le seul moteur d’extension décrit.",
+        "content": "La contraction musculaire exige que chaque filament d’actine raccourcisse par hydrolyse.",
         "correct": false,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "explanation": "Cette affirmation est incorrecte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
+      },
+      {
+        "content": "L’activité mécanique des myosines dépend de l’hydrolyse de l’ATP.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
+      },
+      {
+        "content": "Toutes les myosines ont exactement la même structure et la même fonction.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
+      },
+      {
+        "content": "La myosine II peut former des filaments bipolaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       }
     ],
-    "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+    "requiredSelectionCount": 2
   },
   {
     "order": 78,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « la zone intermédiaire de la cellule migrante » ?",
+    "question": "Sur le thème « Migration cellulaire et polarisation de l’actine », quelle proposition est exacte ?",
+    "explanation": "Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière.",
     "choices": [
       {
-        "content": "Cette zone suit le front riche en prolongements.",
+        "content": "Les adhérences focales sont indépendantes des intégrines et de l’actine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "Les filopodes sont constitués uniquement de neurofilaments.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "La rétraction arrière ne fait intervenir aucune force actomyosine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "Les lamellipodes contiennent des réseaux d’actine fortement ramifiés.",
         "correct": true,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
+        "explanation": "Cette affirmation est correcte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
       },
       {
-        "content": "Les filaments y sont exclusivement organisés en axonème.",
+        "content": "La polymérisation de l’actine se produit uniquement à l’arrière de toute cellule migrante.",
         "correct": false,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "La zone intermédiaire est dépourvue d’actine.",
-        "correct": false,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "La filamine est une tubuline.",
-        "correct": false,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
       }
-    ],
-    "explanation": "La filamine est associée au réseau d’actine intermédiaire."
+    ]
   },
   {
     "order": 79,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour appliquer les notions sur « la zone de rétraction », quelles propositions faut-il retenir ?",
-    "choices": [
-      {
-        "content": "La gelsoline clive les filaments d’actine.",
-        "correct": true,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "La gelsoline polymérise exclusivement les microtubules.",
-        "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "La thymosine limite la repolymérisation locale.",
-        "correct": true,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "La thymosine stabilise irréversiblement tous les filaments arrière.",
-        "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quelle structure actinique large et aplatie se forme au front de nombreuses cellules migrantes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "lamellipode",
+        "lamellipodes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+    },
+    "explanation": "Le lamellipode est une protrusion riche en réseau d’actine ramifié."
   },
   {
     "order": 80,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de « l’α-actinine dans la migration », quelle proposition est juste ?",
+    "question": "Quelle affirmation décrit correctement « Régulateurs de l’actine dans la migration » ?",
+    "explanation": "Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine.",
     "choices": [
       {
-        "content": "Elle contribue à former des fibres contractiles dans la zone arrière.",
+        "content": "Arp2/3 est un moteur ATPase qui marche sur les microtubules.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
+      },
+      {
+        "content": "La gelsoline peut sectionner des filaments d’actine.",
         "correct": true,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est correcte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       },
       {
-        "content": "Elle n’interagit jamais avec l’actine.",
+        "content": "La thymosine-bêta4 polymérise directement les microtubules du fuseau.",
         "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       },
       {
-        "content": "Elle est localisée uniquement dans le noyau.",
+        "content": "Le recyclage de l’actine monomérique est inutile à une cellule migrante.",
         "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       },
       {
-        "content": "L’α-actinine est décrite comme un canal ionique.",
+        "content": "Les formines sont des protéines exclusivement nucléaires sans lien avec l’actine.",
         "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       }
-    ],
-    "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+    ]
   },
   {
     "order": 81,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRM",
-    "question": "Quels repères sur « la myosine I au front migratoire selon la fiche » sont utiles dans une situation d’application ?",
+    "question": "Pour le thème « Structure et propriétés des filaments intermédiaires », quelles propositions doivent être retenues ?",
+    "explanation": "Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable.",
     "choices": [
       {
-        "content": "Elle est associée aux filopodes dans le tableau local.",
+        "content": "Les filaments intermédiaires sont non polarisés.",
         "correct": true,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       },
       {
-        "content": "Elle désassemble tous les filaments intermédiaires.",
-        "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
-      },
-      {
-        "content": "La fiche cite la myosine I dans la zone avant.",
+        "content": "Leur architecture en fibres torsadées leur confère une grande résistance à la traction.",
         "correct": true,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       },
       {
-        "content": "La myosine I est décrite comme une tubuline du centrosome.",
+        "content": "Les filaments intermédiaires sont généralement plus stables mécaniquement que les microtubules.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
+      },
+      {
+        "content": "Tous les filaments intermédiaires sont totalement immuables et ne peuvent jamais être remodelés.",
         "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
+      },
+      {
+        "content": "L’assemblage des filaments intermédiaires ne dépend pas d’une polarité plus/moins comme pour l’actine ou les microtubules.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       }
-    ],
-    "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+    ]
   },
   {
     "order": 82,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « la localisation des filaments intermédiaires » ?",
-    "choices": [
-      {
-        "content": "Dans le cytoplasme, ils forment notamment une corbeille périnucléaire.",
-        "correct": true,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
-      },
-      {
-        "content": "Les filaments intermédiaires sont uniquement extracellulaires.",
-        "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
-      },
-      {
-        "content": "Ils ne sont jamais associés aux desmosomes.",
-        "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
-      },
-      {
-        "content": "La fiche exclut toute localisation nucléaire.",
-        "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle protrusion fine d’une cellule migrante contient surtout des faisceaux parallèles d’actine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "filopode",
+        "filopodes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+    },
+    "explanation": "Les filopodes sont soutenus par des faisceaux d’actine."
   },
   {
     "order": 83,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Application raisonnée de « les propriétés structurales des filaments intermédiaires » : quelles propositions sont correctes ?",
-    "choices": [
-      {
-        "content": "Ils sont décrits comme des polymères stabilisés.",
-        "correct": true,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
-      },
-      {
-        "content": "Ils se polymérisent et dépolymérisent sans arrêt selon la fiche.",
-        "correct": false,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
-      },
-      {
-        "content": "La fiche les relie davantage aux phénomènes structuraux qu’aux dynamiques rapides.",
-        "correct": true,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
-      },
-      {
-        "content": "Ils sont décrits comme les principaux moteurs ATP-dépendants.",
-        "correct": false,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+    "format": "QROC",
+    "question": "Quel est le diamètre approximatif d’un filament intermédiaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "10 nm",
+        "environ 10 nm",
+        "8 à 10 nm",
+        "8-10 nm"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+    },
+    "explanation": "Les filaments intermédiaires ont un diamètre proche de 10 nm."
   },
   {
     "order": 84,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « les grandes protéines de filaments intermédiaires citées » ?",
-    "choices": [
-      {
-        "content": "Les neurofilaments sont cités dans les neurones et les lamines dans le noyau.",
-        "correct": true,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
-      },
-      {
-        "content": "Les lamines sont des phospholipides membranaires.",
-        "correct": false,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
-      },
-      {
-        "content": "Les cytokératines sont présentées comme spécifiques des hématies.",
-        "correct": false,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
-      },
-      {
-        "content": "La vimentine est la principale tubuline des cils.",
-        "correct": false,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Les filaments intermédiaires sont-ils polarisés ou non polarisés ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non polarisés",
+        "non polarisé",
+        "apolaires",
+        "non polaires"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La composition des FI varie selon les cellules et compartiments."
+    },
+    "explanation": "Les FI n’ont pas d’extrémités + et − fonctionnellement distinctes."
   },
   {
     "order": 85,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « les contextes physiologiques de migration cellulaire » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "format": "QRPL",
+    "question": "Pour le thème « Familles de protéines des filaments intermédiaires », retenez les cinq affirmations correctes parmi les dix proposées.",
+    "explanation": "Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire.",
     "choices": [
       {
-        "content": "Ils sont non polarisés.",
-        "correct": true,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
-      },
-      {
-        "content": "La vimentine est associée notamment aux fibroblastes.",
-        "correct": true,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
-      },
-      {
-        "content": "La desmine transmet des forces dans les cellules musculaires squelettiques.",
-        "correct": true,
-        "explanation": "Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité."
-      },
-      {
-        "content": "Tous les types cellulaires expriment exactement les mêmes FI selon la fiche.",
+        "content": "La desmine est la sous-unité bêta de la tubuline.",
         "correct": false,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       },
       {
-        "content": "La cicatrisation ne fait intervenir aucune migration cellulaire.",
+        "content": "Les neurofilaments sont des glycoprotéines sécrétées dans la matrice extracellulaire.",
         "correct": false,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       },
       {
-        "content": "Aucune rétraction n’a lieu à l’arrière.",
+        "content": "Les neurofilaments sont abondants dans les axones des neurones.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "Le profil d’expression des filaments intermédiaires peut aider en anatomopathologie à caractériser l’origine d’une tumeur.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "La vimentine est fréquente dans de nombreuses cellules d’origine mésenchymateuse.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "Les lamines sont des protéines de filaments intermédiaires de type nucléaire.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "Toutes les cellules expriment exactement la même combinaison de filaments intermédiaires.",
         "correct": false,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "La desmine est un filament intermédiaire important des cellules musculaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "Les filaments intermédiaires n’ont aucun intérêt comme marqueurs en pathologie.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "Les lamines sont des phospholipides de l’enveloppe nucléaire.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    "requiredSelectionCount": 5
   },
   {
     "order": 86,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « les filaments intermédiaires en pathologie », laquelle est correcte ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Sur le thème « Filaments intermédiaires et jonctions d’ancrage », sélectionnez exactement 3 propositions exactes.",
+    "explanation": "Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine.",
     "choices": [
       {
-        "content": "Le profil de filaments intermédiaires peut donc servir en pathologie humaine.",
+        "content": "Les jonctions adhérentes s’ancrent exclusivement aux filaments intermédiaires.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
+      },
+      {
+        "content": "Les jonctions d’ancrage permettent de distribuer des contraintes mécaniques dans un tissu.",
         "correct": true,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "explanation": "Cette affirmation est correcte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "Les FI n’ont aucune utilité en pathologie.",
-        "correct": false,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "content": "Les jonctions adhérentes sont principalement associées au cytosquelette d’actine plutôt qu’aux kératines.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "Le profil de cytokératines ne peut jamais informer sur l’origine d’une cellule.",
+        "content": "Les adhérences focales sont indépendantes des intégrines.",
         "correct": false,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "Tous les types cellulaires expriment exactement les mêmes FI selon la fiche.",
-        "correct": false,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "content": "Les hémidesmosomes relient les filaments intermédiaires de kératine à la lame basale via des protéines d’adhérence.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       }
     ],
-    "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+    "requiredSelectionCount": 3
   },
   {
     "order": 87,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Au cours de la cicatrisation d’une plaie, fibroblastes et cellules épithéliales se déplacent vers la zone lésée. Quelles données sont cohérentes avec le modèle présenté dans la fiche ?",
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement « Fonctions mécaniques des filaments intermédiaires » ?",
+    "explanation": "Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire.",
     "choices": [
       {
-        "content": "Elle cite la cicatrisation avec fibroblastes et cellules épithéliales.",
-        "correct": true,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
-      },
-      {
-        "content": "L’inflammation exclut tout déplacement de cellules immunitaires.",
+        "content": "Les filaments intermédiaires ne transmettent aucune force mécanique.",
         "correct": false,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       },
       {
-        "content": "La fiche cite l’embryogenèse.",
+        "content": "Les kératines contribuent à la résistance de l’épiderme aux forces d’étirement.",
         "correct": true,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       },
       {
-        "content": "La migration est présentée comme propre aux hématies uniquement.",
+        "content": "Les neurofilaments constituent le principal moteur moléculaire des vésicules axonales.",
         "correct": false,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "La desmine forme l’axonème 9+2 des cils.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les lamines sont des composants du glycocalyx extracellulaire.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       }
-    ],
-    "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+    ]
   },
   {
     "order": 88,
-    "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « les contextes physiologiques de migration cellulaire » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La fiche indique que leur hétérogénéité aide à définir la nature de cellules tumorales.",
-        "correct": true,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
-      },
-      {
-        "content": "Elle cite l’inflammation avec macrophages et lymphocytes.",
-        "correct": true,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
-      },
-      {
-        "content": "Les plaques arrière se rétractent au cours du déplacement.",
-        "correct": true,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
-      },
-      {
-        "content": "Ils sont émis dans le sens du déplacement.",
-        "correct": true,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
-      },
-      {
-        "content": "La filamine participe à cette organisation en réseau.",
-        "correct": true,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "L’actine G ne peut jamais être recyclée vers l’avant.",
-        "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "L’α-actinine est décrite comme un canal ionique.",
-        "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
-      },
-      {
-        "content": "La fiche la place exclusivement dans la lamina nucléaire.",
-        "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle famille de filaments intermédiaires caractérise surtout les cellules épithéliales ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "kératines",
+        "keratines",
+        "cytokératines",
+        "cytokeratines"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    },
+    "explanation": "Les kératines sont les FI caractéristiques des épithéliums."
   },
   {
     "order": 89,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QZONE",
-    "question": "Sur ce schéma original d’une cellule en migration, cliquez sur le front cellulaire portant les lamellipodes et filopodes.",
+    "question": "Sur ce schéma simplifié d’une cellule en migration, cliquez sur le lamellipode, large protrusion du front cellulaire riche en réseau d’actine ramifié.",
     "image": {
-      "src": "/images/training/ue14/biologie-cellulaire/cytosquelette/migration-front-lamellipodes-qzone.svg",
-      "alt": "Schéma simplifié d’une cellule migrante montrant le front avec lamellipodes, une zone intermédiaire et une zone arrière de rétraction",
-      "width": 960,
-      "height": 560
+      "src": "/images/training/ue14/biologie-cellulaire/cytosquelette/migration-lamellipode-qzone.svg",
+      "alt": "Schéma simplifié d’une cellule migrante montrant front de migration, lamellipode, filopodes, noyau, adhérences focales et arrière cellulaire",
+      "width": 1200,
+      "height": 700
     },
     "expectedZones": [
       {
-        "id": "leading-edge",
-        "label": "front migratoire",
-        "x": 0.79,
-        "y": 0.49,
-        "tolerance": 0.12
+        "id": "lamellipode",
+        "label": "Lamellipode",
+        "x": 0.8,
+        "y": 0.47,
+        "tolerance": 0.13
       }
     ],
-    "explanation": "La fiche place les lamellipodes et filopodes à l’avant de la cellule, dans le sens du déplacement, où la polymérisation d’actine pousse la membrane."
+    "defaultTolerance": 0.13,
+    "explanation": "Le lamellipode est une protrusion large et aplatie du front migratoire. Sa poussée dépend d’un réseau d’actine ramifié, notamment nucléé par Arp2/3 ; des filopodes plus fins peuvent émerger à proximité."
   },
   {
     "order": 90,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « les plaques d’adhérence pendant la migration » et « la zone de rétraction ». Quelles propositions sont exactes ?",
+    "question": "Quelles propositions sont exactes concernant « Comparaison intégrée des trois réseaux du cytosquelette » ?",
+    "explanation": "Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire.",
     "choices": [
       {
-        "content": "De nouvelles plaques se forment à l’avant.",
-        "correct": true,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
-      },
-      {
-        "content": "La fiche relie le retour d’actine G vers l’avant à la formation de nouveaux filaments.",
-        "correct": true,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "Aucune rétraction n’a lieu à l’arrière.",
+        "content": "Les myosines sont les moteurs principaux des microtubules.",
         "correct": false,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+        "explanation": "Cette affirmation est incorrecte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       },
       {
-        "content": "La thymosine stabilise irréversiblement tous les filaments arrière.",
-        "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+        "content": "Les filaments intermédiaires jouent un rôle majeur de résistance mécanique.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
+      },
+      {
+        "content": "Microtubules et actine sont polarisés, contrairement aux filaments intermédiaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
+      },
+      {
+        "content": "Les filaments d’actine sont les rails des myosines.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
+      },
+      {
+        "content": "Les microtubules sont les rails principaux des kinésines et dynéines cytoplasmiques.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       }
-    ],
-    "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière. La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+    ]
   },
   {
     "order": 91,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « les lamellipodes et filopodes » et « l’α-actinine dans la migration ». Quelles propositions sont exactes ?",
+    "question": "À propos de « Myosines et motilité actine-dépendante », sélectionnez les propositions exactes.",
+    "explanation": "Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local.",
     "choices": [
       {
-        "content": "La polymérisation d’actine à l’avant pousse la membrane plasmique.",
+        "content": "Des myosines I peuvent relier des membranes ou cargos à des filaments d’actine.",
         "correct": true,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       },
       {
-        "content": "La fiche l’associe aux plaques d’adhérence.",
+        "content": "La myosine II peut former des filaments bipolaires.",
         "correct": true,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       },
       {
-        "content": "Ils se développent uniquement à l’arrière à l’opposé du déplacement.",
-        "correct": false,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "content": "La myosine II participe à la contraction musculaire et à l’anneau contractile.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       },
       {
-        "content": "Elle est localisée uniquement dans le noyau.",
+        "content": "Toutes les myosines ont exactement la même structure et la même fonction.",
         "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est incorrecte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
+      },
+      {
+        "content": "La myosine I est la principale protéine de l’axonème 9+2.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les myosines sont des moteurs ATP-dépendants se déplaçant sur l’actine. La myosine II forme des assemblages bipolaires responsables de contraction ; des myosines I participent notamment à des interactions membrane-actine et au trafic local."
       }
-    ],
-    "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine. L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+    ]
   },
   {
     "order": 92,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « la zone intermédiaire de la cellule migrante » et « la myosine I au front migratoire selon la fiche ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "La fiche décrit des filaments d’actine en réseaux.",
-        "correct": true,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "Elle lui attribue un rôle d’ancrage des filaments d’actine.",
-        "correct": true,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
-      },
-      {
-        "content": "La filamine est une tubuline.",
-        "correct": false,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "La myosine I est décrite comme une tubuline du centrosome.",
-        "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel filament intermédiaire est fréquent dans les cellules d’origine mésenchymateuse ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "vimentine",
+        "la vimentine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La filamine est associée au réseau d’actine intermédiaire. La banque conserve l’affectation locale de la myosine I au front migratoire."
+    },
+    "explanation": "La vimentine est fréquente dans les cellules mésenchymateuses."
   },
   {
     "order": 93,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « la zone de rétraction » et « la localisation des filaments intermédiaires ». Quelles propositions sont exactes ?",
+    "question": "Quelles affirmations décrivent correctement « Migration cellulaire et polarisation de l’actine » ?",
+    "explanation": "Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière.",
     "choices": [
       {
-        "content": "La thymosine limite la repolymérisation locale.",
-        "correct": true,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
-      },
-      {
-        "content": "Dans le noyau, des filaments intermédiaires participent à un maillage interne.",
-        "correct": true,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
-      },
-      {
-        "content": "L’actine G ne peut jamais être recyclée vers l’avant.",
+        "content": "Une cellule migrante doit conserver toutes ses adhérences anciennes sans les renouveler.",
         "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
       },
       {
-        "content": "Ils ne sont jamais associés aux desmosomes.",
+        "content": "Les adhérences focales relient des intégrines à des structures d’actine intracellulaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "La polymérisation de l’actine se produit uniquement à l’arrière de toute cellule migrante.",
         "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "Les filopodes contiennent des faisceaux d’actine parallèles ou quasi parallèles.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
+      },
+      {
+        "content": "La rétraction arrière ne fait intervenir aucune force actomyosine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Une cellule migrante polarise son cytosquelette : polymérisation de l’actine au front, lamellipodes et filopodes, adhérences transitoires à la matrice, traction actomyosine et rétraction arrière."
       }
-    ],
-    "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine. Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
+    ]
   },
   {
     "order": 94,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « l’α-actinine dans la migration » et « les propriétés structurales des filaments intermédiaires ». Quelles propositions sont exactes ?",
+    "question": "Pour le thème « Régulateurs de l’actine dans la migration », quelles propositions doivent être retenues ?",
+    "explanation": "Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine.",
     "choices": [
       {
-        "content": "Ces fibres participent à la rétraction.",
-        "correct": true,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
-      },
-      {
-        "content": "Ils sont non polarisés.",
-        "correct": true,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
-      },
-      {
-        "content": "L’α-actinine est décrite comme un canal ionique.",
+        "content": "Les formines sont des protéines exclusivement nucléaires sans lien avec l’actine.",
         "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "explanation": "Cette affirmation est incorrecte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       },
       {
-        "content": "Ils sont décrits comme les principaux moteurs ATP-dépendants.",
-        "correct": false,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+        "content": "Les formines peuvent participer à l’élongation de filaments d’actine linéaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
+      },
+      {
+        "content": "Arp2/3 contribue à la formation du réseau ramifié des lamellipodes.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
+      },
+      {
+        "content": "Le recyclage de l’actine G permet d’alimenter de nouvelles zones de polymérisation.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
+      },
+      {
+        "content": "La thymosine-bêta4 peut séquestrer de l’actine monomérique.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Arp2/3 favorise les réseaux ramifiés, les formines les filaments linéaires, la cofiline et la gelsoline peuvent favoriser le sectionnement/désassemblage, et la thymosine-β4 séquestre des monomères d’actine."
       }
-    ],
-    "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence. Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+    ]
   },
   {
     "order": 95,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « la myosine I au front migratoire selon la fiche » et « les grandes protéines de filaments intermédiaires citées ». Quelles propositions sont exactes ?",
+    "question": "Sélectionnez les affirmations compatibles avec « Structure et propriétés des filaments intermédiaires ».",
+    "explanation": "Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable.",
     "choices": [
       {
-        "content": "La fiche cite la myosine I dans la zone avant.",
+        "content": "Les filaments intermédiaires sont généralement plus stables mécaniquement que les microtubules.",
         "correct": true,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       },
       {
-        "content": "La vimentine est associée notamment aux fibroblastes.",
+        "content": "L’assemblage des filaments intermédiaires ne dépend pas d’une polarité plus/moins comme pour l’actine ou les microtubules.",
         "correct": true,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       },
       {
-        "content": "La fiche la place exclusivement dans la lamina nucléaire.",
+        "content": "Les filaments intermédiaires sont les moteurs ATPases du transport vésiculaire.",
         "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       },
       {
-        "content": "Les cytokératines sont présentées comme spécifiques des hématies.",
+        "content": "Les filaments intermédiaires sont limités au milieu extracellulaire.",
         "correct": false,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
+      },
+      {
+        "content": "Leur architecture en fibres torsadées leur confère une grande résistance à la traction.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires sont des polymères fibreux d’environ 10 nm, non polarisés et très résistants mécaniquement. Leur assemblage n’utilise pas l’ATP/GTP comme l’actine ou les microtubules, mais leur réseau reste régulable et remodelable."
       }
-    ],
-    "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire. La composition des FI varie selon les cellules et compartiments."
+    ]
   },
   {
     "order": 96,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « la localisation des filaments intermédiaires » et « les fonctions mécaniques des filaments intermédiaires ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Ils s’ancrent dans les desmosomes et hémidesmosomes des cellules épithéliales.",
-        "correct": true,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
-      },
-      {
-        "content": "La desmine transmet des forces dans les cellules musculaires squelettiques.",
-        "correct": true,
-        "explanation": "Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité."
-      },
-      {
-        "content": "La fiche exclut toute localisation nucléaire.",
-        "correct": false,
-        "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires."
-      },
-      {
-        "content": "Les neurofilaments déterminent le groupe sanguin ABO.",
-        "correct": false,
-        "explanation": "Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel filament intermédiaire est particulièrement important dans les cellules musculaires ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "desmine",
+        "la desmine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les FI sont présents dans des réseaux cytoplasmiques et nucléaires. Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité."
+    },
+    "explanation": "La desmine organise mécaniquement les cellules musculaires."
   },
   {
     "order": 97,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « les propriétés structurales des filaments intermédiaires » et « les filaments intermédiaires en pathologie ». Quelles propositions sont exactes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Sur le thème « Familles de protéines des filaments intermédiaires », sélectionnez exactement 3 propositions exactes.",
+    "explanation": "Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire.",
     "choices": [
       {
-        "content": "La fiche les relie davantage aux phénomènes structuraux qu’aux dynamiques rapides.",
+        "content": "Les neurofilaments sont abondants dans les axones des neurones.",
         "correct": true,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       },
       {
-        "content": "La fiche indique que leur hétérogénéité aide à définir la nature de cellules tumorales.",
+        "content": "Les lamines sont des protéines de filaments intermédiaires de type nucléaire.",
         "correct": true,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       },
       {
-        "content": "Ils possèdent des extrémités + et − très dynamiques comme les microtubules.",
+        "content": "Les lamines sont des phospholipides de l’enveloppe nucléaire.",
         "correct": false,
-        "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité."
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       },
       {
-        "content": "Le profil de cytokératines ne peut jamais informer sur l’origine d’une cellule.",
+        "content": "La desmine est un filament intermédiaire important des cellules musculaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
+      },
+      {
+        "content": "Toutes les cellules expriment exactement la même combinaison de filaments intermédiaires.",
         "correct": false,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "explanation": "Cette affirmation est incorrecte. Les kératines caractérisent surtout les cellules épithéliales, la vimentine de nombreuses cellules mésenchymateuses, la desmine le muscle, les neurofilaments les neurones et les lamines la lamina nucléaire."
       }
     ],
-    "explanation": "Les FI se distinguent des MT et MFA par leur stabilité et leur absence de polarité. L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+    "requiredSelectionCount": 3
   },
   {
     "order": 98,
-    "difficulty": "HARD",
-    "format": "QRP",
-    "question": "Maîtrise — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de « Filaments intermédiaires et jonctions d’ancrage », sélectionnez les propositions exactes.",
+    "explanation": "Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine.",
     "choices": [
       {
-        "content": "Les cytokératines sont associées aux cellules épithéliales.",
-        "correct": true,
-        "explanation": "La composition des FI varie selon les cellules et compartiments."
-      },
-      {
-        "content": "Les neurofilaments participent au calibre des axones.",
-        "correct": true,
-        "explanation": "Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité."
-      },
-      {
-        "content": "Cette utilisation repose sur l’expression différente de protéines selon le type cellulaire.",
-        "correct": true,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
-      },
-      {
-        "content": "La migration est présentée comme propre aux hématies uniquement.",
+        "content": "Les kératines n’ont aucun lien avec la résistance mécanique des épithéliums.",
         "correct": false,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "Les nouvelles plaques apparaissent uniquement derrière la cellule.",
+        "content": "Les desmosomes sont des canaux transportant du glucose.",
         "correct": false,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       },
       {
-        "content": "La dépolymérisation d’actine à l’avant est le seul moteur d’extension décrit.",
+        "content": "Les jonctions d’ancrage permettent de distribuer des contraintes mécaniques dans un tissu.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
+      },
+      {
+        "content": "Les jonctions adhérentes sont principalement associées au cytosquelette d’actine plutôt qu’aux kératines.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
+      },
+      {
+        "content": "Les filaments intermédiaires n’interagissent avec aucune structure membranaire.",
         "correct": false,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
+        "explanation": "Cette affirmation est incorrecte. Dans les épithéliums, les kératines s’ancrent aux desmosomes entre cellules et aux hémidesmosomes vers la lame basale. À l’inverse, les jonctions adhérentes et adhérences focales se connectent principalement à l’actine."
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    ]
   },
   {
     "order": 99,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « les fonctions mécaniques des filaments intermédiaires » et « les plaques d’adhérence pendant la migration ». Quelles propositions sont exactes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "question": "Pour le thème « Fonctions mécaniques des filaments intermédiaires », retenez les cinq affirmations correctes parmi les dix proposées.",
+    "explanation": "Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire.",
     "choices": [
       {
-        "content": "Les neurofilaments participent au calibre des axones.",
-        "correct": true,
-        "explanation": "Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité."
-      },
-      {
-        "content": "Les plaques arrière se rétractent au cours du déplacement.",
-        "correct": true,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
-      },
-      {
-        "content": "La desmine est une protéine de transport du glucose.",
+        "content": "Les filaments intermédiaires ne transmettent aucune force mécanique.",
         "correct": false,
-        "explanation": "Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       },
       {
-        "content": "Les nouvelles plaques apparaissent uniquement derrière la cellule.",
+        "content": "Les lamines sont des composants du glycocalyx extracellulaire.",
         "correct": false,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les filaments intermédiaires assurent principalement la synthèse d’ATP mitochondriale.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les lamines contribuent à l’architecture de la lamina nucléaire.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "La desmine participe à l’organisation mécanique des cellules musculaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les kératines rendent l’épiderme plus fragile en diminuant sa résistance mécanique.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Aucune maladie humaine n’est liée à des protéines de filaments intermédiaires.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les filaments intermédiaires coopèrent avec des jonctions d’ancrage pour transmettre les forces dans les tissus.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Les neurofilaments contribuent au maintien du calibre des axones.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
+      },
+      {
+        "content": "Des mutations de protéines de filaments intermédiaires peuvent provoquer des maladies de fragilité tissulaire.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments intermédiaires résistent aux déformations et répartissent les contraintes. Les neurofilaments influencent le calibre axonal, la desmine aligne l’appareil contractile musculaire et les lamines soutiennent l’enveloppe nucléaire."
       }
     ],
-    "explanation": "Les FI assurent surtout des fonctions de résistance mécanique et d’intégrité. La migration combine adhésion à l’avant et désengagement à l’arrière."
+    "requiredSelectionCount": 5
   },
   {
     "order": 100,
-    "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Maîtrise — sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles affirmations décrivent correctement « Comparaison intégrée des trois réseaux du cytosquelette » ?",
+    "explanation": "Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire.",
     "choices": [
       {
-        "content": "La fiche indique que leur hétérogénéité aide à définir la nature de cellules tumorales.",
+        "content": "Dans ce contexte, les microtubules sont les rails principaux des kinésines et dynéines cytoplasmiques.",
         "correct": true,
-        "explanation": "L’hétérogénéité des FI constitue un repère de caractérisation des tumeurs."
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       },
       {
-        "content": "Elle cite l’inflammation avec macrophages et lymphocytes.",
-        "correct": true,
-        "explanation": "La migration intervient dans développement, inflammation et réparation tissulaire."
-      },
-      {
-        "content": "Les plaques arrière se rétractent au cours du déplacement.",
-        "correct": true,
-        "explanation": "La migration combine adhésion à l’avant et désengagement à l’arrière."
-      },
-      {
-        "content": "Ils sont émis dans le sens du déplacement.",
-        "correct": true,
-        "explanation": "Le front migratoire repose sur le remodelage et la polymérisation de l’actine."
-      },
-      {
-        "content": "La filamine participe à cette organisation en réseau.",
-        "correct": true,
-        "explanation": "La filamine est associée au réseau d’actine intermédiaire."
-      },
-      {
-        "content": "L’actine G ne peut jamais être recyclée vers l’avant.",
+        "content": "Les microtubules ne participent jamais à la mitose.",
         "correct": false,
-        "explanation": "La rétraction arrière s’accompagne d’un recyclage des constituants d’actine."
+        "explanation": "Cette affirmation est incorrecte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       },
       {
-        "content": "L’α-actinine est décrite comme un canal ionique.",
-        "correct": false,
-        "explanation": "L’α-actinine organise des structures contractiles d’actine dans la zone d’adhérence."
+        "content": "Dans ce contexte, les filaments intermédiaires jouent un rôle majeur de résistance mécanique.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       },
       {
-        "content": "La fiche la place exclusivement dans la lamina nucléaire.",
-        "correct": false,
-        "explanation": "La banque conserve l’affectation locale de la myosine I au front migratoire."
+        "content": "Les trois réseaux peuvent coopérer dans l’architecture et la polarité cellulaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
+      },
+      {
+        "content": "Dans ce contexte, les filaments d’actine sont les rails des myosines.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Microtubules : tubuline, ~25 nm, polarité, GTP, transport/mitose/cils. Actine : ~7 nm, polarité, ATP, cortex/migration/contraction. FI : ~10 nm, non polarisés, résistance mécanique et identité cellulaire."
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    ]
   }
 ];

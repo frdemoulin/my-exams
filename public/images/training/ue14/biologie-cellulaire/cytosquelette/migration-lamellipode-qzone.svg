@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="1200" height="700" fill="white"/>
+<text x="600" y="55" text-anchor="middle" font-family="Arial" font-size="32">Cellule en migration — organisation simplifiée de l’actine</text>
+<path d="M190 350 C220 180, 430 125, 685 165 C820 185, 950 250, 1035 350 C950 455, 820 520, 675 535 C430 565, 230 510, 190 350 Z" fill="#f5f5f5" stroke="#333" stroke-width="6"/>
+<ellipse cx="535" cy="350" rx="125" ry="95" fill="#ddd" stroke="#555" stroke-width="5"/><text x="535" y="360" text-anchor="middle" font-family="Arial" font-size="28">Noyau</text>
+<!-- lamellipodium -->
+<path d="M760 225 C900 245, 995 285, 1060 350 C995 425, 900 465, 760 475 C820 410, 825 295, 760 225 Z" fill="#e4e4e4" stroke="#777" stroke-width="4"/>
+<g stroke="#777" stroke-width="4" opacity="0.9">
+<line x1="785" y1="265" x2="1000" y2="335"/><line x1="790" y1="300" x2="1015" y2="360"/><line x1="785" y1="340" x2="1000" y2="405"/><line x1="790" y1="390" x2="965" y2="440"/>
+<line x1="830" y1="250" x2="900" y2="445"/><line x1="880" y1="260" x2="950" y2="430"/>
+</g>
+<text x="900" y="500" text-anchor="middle" font-family="Arial" font-size="25">front migratoire</text>
+<!-- filopodia -->
+<g stroke="#333" stroke-width="5"><line x1="1005" y1="295" x2="1120" y2="245"/><line x1="1030" y1="340" x2="1150" y2="335"/><line x1="1010" y1="405" x2="1125" y2="455"/></g>
+<text x="1080" y="210" text-anchor="middle" font-family="Arial" font-size="22">filopodes</text>
+<!-- focal adhesions -->
+<g fill="#555"><rect x="720" y="500" width="75" height="14" rx="7"/><rect x="835" y="480" width="75" height="14" rx="7"/><rect x="940" y="445" width="65" height="14" rx="7"/></g>
+<text x="800" y="575" font-family="Arial" font-size="22">adhérences focales</text>
+<!-- trailing actomyosin -->
+<g stroke="#555" stroke-width="6"><line x1="245" y1="305" x2="400" y2="330"/><line x1="250" y1="390" x2="405" y2="365"/></g>
+<text x="310" y="450" text-anchor="middle" font-family="Arial" font-size="22">arrière contractile</text>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#111"/></marker></defs>
+<path d="M1030 100 L1140 100" stroke="#111" stroke-width="6" marker-end="url(#arrow)"/><text x="1080" y="85" text-anchor="middle" font-family="Arial" font-size="22">sens de migration</text>
+</svg>

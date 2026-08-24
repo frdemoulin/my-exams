@@ -1,657 +1,702 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch3 — Filaments d’actine : structure et dynamique */
 export const UE14_CELL_CH3_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Au sujet de « la localisation des microfilaments d’actine », quelles propositions sont correctes ?",
-    "choices": [
-      {
-        "content": "Ils sont strictement cytoplasmiques dans la description de cette section.",
-        "correct": true,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
-      },
-      {
-        "content": "Ils sont exclusivement nucléaires.",
-        "correct": false,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
-      },
-      {
-        "content": "Ils sont particulièrement présents en sous-membranaire.",
-        "correct": true,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
-      },
-      {
-        "content": "Ils sont absents des microvillosités.",
-        "correct": false,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
+    "format": "QROC",
+    "question": "Comment nomme-t-on la forme monomérique globulaire de l’actine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "actine G",
+        "G-actine",
+        "actine globulaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
+    },
+    "explanation": "L’actine G est la forme monomérique globulaire."
   },
   {
     "order": 46,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « l’abondance de l’actine » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi ces affirmations concernant « Structure et polarité des filaments d’actine », retenez exactement les 3 justes.",
+    "explanation": "L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite.",
     "choices": [
       {
-        "content": "Elle indique environ 15 à 20 % dans une cellule musculaire.",
+        "content": "Les filaments d’actine sont dépourvus de polarité.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "L’actine G est une protéine fibreuse de 25 nm de diamètre.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "L’actine G est un monomère globulaire capable de lier l’ATP.",
         "correct": true,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       },
       {
-        "content": "L’actine est décrite comme absente des cellules musculaires.",
-        "correct": false,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+        "content": "L’actine F correspond à la forme polymérisée en filament.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       },
       {
-        "content": "Son abondance est strictement identique dans tous les types cellulaires.",
-        "correct": false,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
-      },
-      {
-        "content": "La fiche indique 50 % dans une cellule non musculaire et 1 % dans le muscle.",
-        "correct": false,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+        "content": "Un filament d’actine possède une extrémité barbée dite plus et une extrémité pointue dite moins.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       }
     ],
-    "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+    "requiredSelectionCount": 3
   },
   {
     "order": 47,
-    "difficulty": "EASY",
+    "difficulty": "HARD",
     "format": "QRM",
-    "question": "Pour caractériser « l’actine G », quelles affirmations sont exactes ?",
+    "question": "À propos de « Nucléation et polymérisation de l’actine », sélectionnez les affirmations fausses.",
+    "explanation": "La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments.",
     "choices": [
       {
-        "content": "Les classes β ou γ sont citées dans les autres types cellulaires.",
+        "content": "La nucléation est sans importance et n’est jamais nécessaire à la formation de nouveaux filaments d’actine.",
         "correct": true,
-        "explanation": "L’actine G est la forme monomérique globulaire."
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       },
       {
-        "content": "β et γ sont décrites comme des tubulines.",
+        "content": "La nucléation constitue une étape cinétiquement défavorable de la polymérisation de novo de l’actine.",
         "correct": false,
-        "explanation": "L’actine G est la forme monomérique globulaire."
+        "explanation": "Cette affirmation est correcte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       },
       {
-        "content": "L’actine G est un monomère globulaire.",
+        "content": "Arp2/3 polymérise des filaments intermédiaires de kératine.",
         "correct": true,
-        "explanation": "L’actine G est la forme monomérique globulaire."
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       },
       {
-        "content": "L’actine G est un filament polymérisé complet.",
+        "content": "Un petit noyau stable d’actine peut servir de point de départ à l’élongation.",
         "correct": false,
-        "explanation": "L’actine G est la forme monomérique globulaire."
+        "explanation": "Cette affirmation est correcte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
+      },
+      {
+        "content": "Le complexe Arp2/3 nucléé des réseaux d’actine ramifiés.",
+        "correct": false,
+        "explanation": "Cette affirmation est correcte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       }
-    ],
-    "explanation": "L’actine G est la forme monomérique globulaire."
+    ]
   },
   {
     "order": 48,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « l’activité ATPase de l’actine G » ?",
-    "choices": [
-      {
-        "content": "L’actine G peut fixer l’ATP.",
-        "correct": true,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
-      },
-      {
-        "content": "L’actine G fixe exclusivement le GTP.",
-        "correct": false,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
-      },
-      {
-        "content": "Elle ne peut hydrolyser aucun nucléotide.",
-        "correct": false,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
-      },
-      {
-        "content": "L’ATP est réservé aux filaments intermédiaires.",
-        "correct": false,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Comment nomme-t-on la forme polymérisée de l’actine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "actine F",
+        "F-actine",
+        "filament d'actine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche décrit l’actine G comme une ATPase."
+    },
+    "explanation": "L’actine F correspond à l’actine polymérisée."
   },
   {
     "order": 49,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de « les extrémités de l’actine », quelles affirmations sont conformes à la fiche ?",
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "question": "Parmi les dix affirmations suivantes sur « Treadmilling et dynamique de l’actine », cinq sont exactes : sélectionnez-les.",
+    "explanation": "Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling.",
     "choices": [
       {
-        "content": "Elle distingue une extrémité barbue.",
-        "correct": true,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
-      },
-      {
-        "content": "La fiche parle d’extrémités α et β comme pour la tubuline.",
+        "content": "Le treadmilling signifie que tout le filament se déplace comme un bloc rigide sans échange de sous-unités.",
         "correct": false,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "Cette asymétrie est reliée à la polarité du filament.",
+        "content": "Le treadmilling peut associer un ajout net à l’extrémité plus et une perte nette à l’extrémité moins.",
         "correct": true,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "L’actine est non polarisée.",
+        "content": "Une longueur moyenne constante implique que les sous-unités du filament sont toutes immobiles.",
         "correct": false,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "L’état nucléotidique des sous-unités influence la dynamique du filament d’actine.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "L’actine F ne peut jamais se dépolymériser.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "Le treadmilling nécessite que les deux extrémités ajoutent exactement le même nombre de sous-unités.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "L’actine-ATP est préférentiellement incorporée dans les zones de croissance rapide.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "Après incorporation, l’ATP de l’actine peut être hydrolysé en ADP.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "L’hydrolyse de l’ATP n’a aucun lien avec le vieillissement des sous-unités d’actine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "Un filament peut conserver une longueur moyenne stable tout en renouvelant ses sous-unités.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       }
     ],
-    "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+    "requiredSelectionCount": 5
   },
   {
     "order": 50,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Parmi ces propositions sur « la structure des microfilaments d’actine », laquelle est correcte ?",
+    "question": "À propos de « Organisation des filaments d’actine en faisceaux et réseaux », repérez la seule affirmation correcte.",
+    "explanation": "Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux.",
     "choices": [
       {
-        "content": "Ils possèdent une polarité structurale et fonctionnelle.",
+        "content": "Les lamellipodes sont dépourvus de filaments d’actine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
+      },
+      {
+        "content": "La fimbrine peut organiser des faisceaux serrés de filaments d’actine.",
         "correct": true,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "Ils sont dépourvus de polarité.",
+        "content": "La filamine organise uniquement des centrioles à neuf triplets.",
         "correct": false,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+        "explanation": "Cette affirmation est incorrecte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "Ils sont de grands cylindres creux à 13 protofilaments.",
+        "content": "La fimbrine est une tubuline qui forme des microtubules de 13 protofilaments.",
         "correct": false,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+        "explanation": "Cette affirmation est incorrecte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "Ils sont constitués de monomères fibreux de cytokératine.",
+        "content": "Les microvillosités sont soutenues principalement par un axonème 9+2 de microtubules.",
         "correct": false,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+        "explanation": "Cette affirmation est incorrecte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       }
-    ],
-    "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+    ]
   },
   {
     "order": 51,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour « la nucléation de l’actine selon la fiche », quelles affirmations sont correctes selon le support ?",
+    "question": "À propos de « Fonctions cellulaires de l’actine », sélectionnez les propositions exactes.",
+    "explanation": "L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse.",
     "choices": [
       {
-        "content": "La fiche indique qu’elle n’est pas indispensable.",
+        "content": "Un anneau actomyosine participe à la cytodiérèse des cellules animales.",
         "correct": true,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       },
       {
-        "content": "La nucléation est obligatoire sans exception selon la fiche.",
+        "content": "La cytodiérèse animale est assurée exclusivement par les filaments intermédiaires.",
         "correct": false,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+        "explanation": "Cette affirmation est incorrecte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       },
       {
-        "content": "Elle améliore l’efficacité de la polymérisation.",
+        "content": "Les microvillosités sont constituées principalement de microtubules 9+2.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
+      },
+      {
+        "content": "L’actine corticale contribue à la forme de la surface cellulaire.",
         "correct": true,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       },
       {
-        "content": "Le noyau initial comporte 13 tubulines.",
-        "correct": false,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+        "content": "Les microvillosités sont soutenues par des faisceaux de filaments d’actine.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       }
-    ],
-    "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+    ]
   },
   {
     "order": 52,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « les microvillosités et l’actine » est juste ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Concernant « Structure et polarité des filaments d’actine », choisissez exactement 3 affirmations correctes.",
+    "explanation": "L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite.",
     "choices": [
       {
-        "content": "Elles illustrent une spécialisation du cortex cellulaire.",
+        "content": "Les deux extrémités d’un filament d’actine ont des cinétiques d’assemblage différentes.",
         "correct": true,
-        "explanation": "Les microvillosités font partie des localisations spécialisées de l’actine."
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       },
       {
-        "content": "Elles sont localisées dans le noyau.",
-        "correct": false,
-        "explanation": "Les microvillosités font partie des localisations spécialisées de l’actine."
+        "content": "Dans ce contexte, un filament d’actine possède une extrémité barbée dite plus et une extrémité pointue dite moins.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       },
       {
-        "content": "L’actine en est totalement absente.",
+        "content": "Les deux extrémités d’un filament d’actine ont toujours des vitesses d’assemblage identiques.",
         "correct": false,
-        "explanation": "Les microvillosités font partie des localisations spécialisées de l’actine."
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       },
       {
-        "content": "Les microvillosités sont soutenues exclusivement par 9 doublets de microtubules dans cette fiche.",
+        "content": "Dans ce contexte, l’actine F correspond à la forme polymérisée en filament.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "L’actine F est une bicouche de phospholipides.",
         "correct": false,
-        "explanation": "Les microvillosités font partie des localisations spécialisées de l’actine."
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       }
     ],
-    "explanation": "Les microvillosités font partie des localisations spécialisées de l’actine."
+    "requiredSelectionCount": 3
   },
   {
     "order": 53,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles affirmations décrivent correctement « l’anneau contractile de cytodiérèse » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Sur le thème « Nucléation et polymérisation de l’actine », sélectionnez exactement 2 propositions exactes.",
+    "explanation": "La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments.",
     "choices": [
       {
-        "content": "Il illustre une fonction contractile du réseau d’actine.",
+        "content": "Dans ce contexte, le complexe Arp2/3 nucléé des réseaux d’actine ramifiés.",
         "correct": true,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+        "explanation": "Cette affirmation est correcte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       },
       {
-        "content": "L’anneau apparaît seulement après séparation complète des cellules.",
+        "content": "La polymérisation de l’actine est limitée au noyau cellulaire.",
         "correct": false,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       },
       {
-        "content": "La fiche cite un anneau de contraction avant la séparation des deux cellules filles.",
+        "content": "Dans ce contexte, un petit noyau stable d’actine peut servir de point de départ à l’élongation.",
         "correct": true,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+        "explanation": "Cette affirmation est correcte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       },
       {
-        "content": "La cytodiérèse se fait sans aucun cytosquelette.",
+        "content": "Les formines construisent exclusivement des réseaux d’actine fortement ramifiés à 70 degrés.",
         "correct": false,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
+      },
+      {
+        "content": "Aucune protéine cellulaire ne régule la nucléation de l’actine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       }
     ],
-    "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+    "requiredSelectionCount": 2
   },
   {
     "order": 54,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « l’actine et la contraction musculaire » ?",
-    "choices": [
-      {
-        "content": "Le sarcomère associe filaments d’actine et filaments bipolaires de myosine II.",
-        "correct": true,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
-      },
-      {
-        "content": "Le sarcomère est constitué uniquement de microtubules.",
-        "correct": false,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
-      },
-      {
-        "content": "La contraction allonge tous les sarcomères selon la fiche.",
-        "correct": false,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
-      },
-      {
-        "content": "La myosine II est exclue du muscle.",
-        "correct": false,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel nucléotide est lié par l’actine G avant son incorporation préférentielle dans un filament en croissance ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ATP",
+        "atp"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
+    },
+    "explanation": "L’actine G peut lier l’ATP, qui sera hydrolysé après incorporation."
   },
   {
     "order": 55,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application concernant « l’actine G », quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "La fiche distingue une classe α dans les cellules musculaires.",
-        "correct": true,
-        "explanation": "L’actine G est la forme monomérique globulaire."
-      },
-      {
-        "content": "La classe α est absente du muscle.",
-        "correct": false,
-        "explanation": "L’actine G est la forme monomérique globulaire."
-      },
-      {
-        "content": "Les classes β ou γ sont citées dans les autres types cellulaires.",
-        "correct": true,
-        "explanation": "L’actine G est la forme monomérique globulaire."
-      },
-      {
-        "content": "β et γ sont décrites comme des tubulines.",
-        "correct": false,
-        "explanation": "L’actine G est la forme monomérique globulaire."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel complexe favorise la nucléation de réseaux d’actine ramifiés dans les lamellipodes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Arp2/3",
+        "complexe Arp2/3",
+        "ARP2/3"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’actine G est la forme monomérique globulaire."
+    },
+    "explanation": "Arp2/3 est un nucléateur majeur des réseaux d’actine ramifiés."
   },
   {
     "order": 56,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "À propos de « l’activité ATPase de l’actine G », quelle proposition est juste ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Treadmilling et dynamique de l’actine », lesquelles sont exactes ?",
+    "explanation": "Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling.",
     "choices": [
       {
-        "content": "Cette propriété accompagne la dynamique de polymérisation.",
+        "content": "L’état nucléotidique des sous-unités influence la dynamique du filament d’actine.",
         "correct": true,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "L’ATP est réservé aux filaments intermédiaires.",
+        "content": "L’actine F ne peut jamais se dépolymériser.",
         "correct": false,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "L’actine G fixe exclusivement le GTP.",
-        "correct": false,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
+        "content": "L’actine-ATP est préférentiellement incorporée dans les zones de croissance rapide.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "Elle ne peut hydrolyser aucun nucléotide.",
+        "content": "L’hydrolyse de l’ATP n’a aucun lien avec le vieillissement des sous-unités d’actine.",
         "correct": false,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "Un filament peut conserver une longueur moyenne stable tout en renouvelant ses sous-unités.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       }
-    ],
-    "explanation": "La fiche décrit l’actine G comme une ATPase."
+    ]
   },
   {
     "order": 57,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRM",
-    "question": "Pour appliquer les notions sur « les extrémités de l’actine », quelles propositions faut-il retenir ?",
+    "question": "À propos de « Organisation des filaments d’actine en faisceaux et réseaux », sélectionnez les propositions exactes.",
+    "explanation": "Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux.",
     "choices": [
       {
-        "content": "La fiche distingue une extrémité pointue.",
-        "correct": true,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
-      },
-      {
-        "content": "Les deux extrémités sont strictement identiques.",
+        "content": "Les lamellipodes sont dépourvus de filaments d’actine.",
         "correct": false,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+        "explanation": "Cette affirmation est incorrecte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "Elle distingue une extrémité barbue.",
+        "content": "La filamine favorise des réseaux d’actine tridimensionnels ou orthogonaux.",
         "correct": true,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "La fiche parle d’extrémités α et β comme pour la tubuline.",
+        "content": "L’alpha-actinine peut réticuler des filaments d’actine dans des faisceaux contractiles.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
+      },
+      {
+        "content": "Les microvillosités sont soutenues principalement par un axonème 9+2 de microtubules.",
         "correct": false,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+        "explanation": "Cette affirmation est incorrecte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
+      },
+      {
+        "content": "L’organisation des filaments dépend des protéines de réticulation qui les associent.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       }
-    ],
-    "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
+    ]
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « la structure des microfilaments d’actine » ?",
+    "question": "Dans le cadre de « Fonctions cellulaires de l’actine », identifiez l’affirmation correcte.",
+    "explanation": "L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse.",
     "choices": [
       {
-        "content": "Ils comprennent deux chapelets de monomères sphériques.",
+        "content": "L’actine est absente des cellules non musculaires.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
+      },
+      {
+        "content": "L’actine n’intervient jamais dans les phénomènes membranaires.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
+      },
+      {
+        "content": "Les filaments d’actine ne participent à aucun changement de forme cellulaire.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
+      },
+      {
+        "content": "Les jonctions adhérentes sont reliées uniquement aux microtubules par la dynéine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
+      },
+      {
+        "content": "L’actine corticale contribue à la forme de la surface cellulaire.",
         "correct": true,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
-      },
-      {
-        "content": "Ils sont constitués de monomères fibreux de cytokératine.",
-        "correct": false,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
-      },
-      {
-        "content": "Ils sont dépourvus de polarité.",
-        "correct": false,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
-      },
-      {
-        "content": "Ils sont de grands cylindres creux à 13 protofilaments.",
-        "correct": false,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       }
-    ],
-    "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+    ]
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quels repères sur « la nucléation de l’actine selon la fiche » sont utiles dans une situation d’application ?",
-    "choices": [
-      {
-        "content": "Le noyau de polymérisation cité comporte trois molécules d’actine.",
-        "correct": true,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
-      },
-      {
-        "content": "La nucléation empêche toute polymérisation.",
-        "correct": false,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
-      },
-      {
-        "content": "La fiche indique qu’elle n’est pas indispensable.",
-        "correct": true,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
-      },
-      {
-        "content": "La nucléation est obligatoire sans exception selon la fiche.",
-        "correct": false,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+    "format": "QROC",
+    "question": "Quelle famille de protéines favorise la nucléation et l’élongation de filaments d’actine non ramifiés ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "formines",
+        "formine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+    },
+    "explanation": "Les formines favorisent les filaments d’actine linéaires."
   },
   {
     "order": 60,
-    "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Application — Réponse numérique : combien de molécules d’actine constituent le noyau de polymérisation cité ?",
-    "answer": {
-      "type": "number",
-      "value": 3,
-      "tolerance": 0
-    },
-    "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Pour « Structure et polarité des filaments d’actine », quelle proposition doit être retenue ?",
+    "explanation": "L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite.",
+    "choices": [
+      {
+        "content": "L’actine ne lie aucun nucléotide.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "La polymérisation d’actine forme des microtubules de 13 protofilaments.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "Un filament d’actine possède une extrémité barbée dite plus et une extrémité pointue dite moins.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "L’extrémité pointue est par définition l’extrémité plus.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "Les filaments d’actine sont dépourvus de polarité.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      }
+    ]
   },
   {
     "order": 61,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Application raisonnée de « l’anneau contractile de cytodiérèse » : quelles propositions sont correctes ?",
+    "question": "Quelles propositions sont exactes concernant « Nucléation et polymérisation de l’actine » ?",
+    "explanation": "La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments.",
     "choices": [
       {
-        "content": "Il fait intervenir les filaments d’actine.",
-        "correct": true,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
-      },
-      {
-        "content": "L’anneau contractile est constitué uniquement de microtubules.",
+        "content": "L’actine ne peut polymériser qu’après hydrolyse complète de tout l’ATP cytosolique.",
         "correct": false,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       },
       {
-        "content": "Il illustre une fonction contractile du réseau d’actine.",
-        "correct": true,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
-      },
-      {
-        "content": "L’anneau apparaît seulement après séparation complète des cellules.",
+        "content": "La nucléation de l’actine est assurée par la gamma-tubuline du centrosome.",
         "correct": false,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
+      },
+      {
+        "content": "Le complexe Arp2/3 nucléé des réseaux d’actine ramifiés.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
+      },
+      {
+        "content": "Les formines favorisent la nucléation et l’élongation de filaments d’actine non ramifiés.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
+      },
+      {
+        "content": "La polymérisation de l’actine est limitée au noyau cellulaire.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. La nucléation est l’étape initiale limitante de l’assemblage de nouveaux filaments d’actine. Des facteurs de nucléation comme Arp2/3 et les formines permettent une production rapide et organisée de filaments."
       }
-    ],
-    "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
+    ]
   },
   {
     "order": 62,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « l’actine et la contraction musculaire », laquelle est correcte ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans ce contexte, parmi les affirmations suivantes sur « Treadmilling et dynamique de l’actine », lesquelles sont exactes ?",
+    "explanation": "Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling.",
     "choices": [
       {
-        "content": "La myosine II est reliée à la contraction musculaire.",
+        "content": "Le filament d’actine ne peut échanger des sous-unités qu’au centre du polymère.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
+      },
+      {
+        "content": "Dans ce contexte, l’état nucléotidique des sous-unités influence la dynamique du filament d’actine.",
         "correct": true,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "La myosine II est exclue du muscle.",
-        "correct": false,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
+        "content": "Dans ce contexte, l’actine-ATP est préférentiellement incorporée dans les zones de croissance rapide.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "Le sarcomère est constitué uniquement de microtubules.",
+        "content": "Le treadmilling nécessite que les deux extrémités ajoutent exactement le même nombre de sous-unités.",
         "correct": false,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       },
       {
-        "content": "La contraction allonge tous les sarcomères selon la fiche.",
+        "content": "La dynamique de l’actine est indépendante de toute protéine régulatrice.",
         "correct": false,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
+        "explanation": "Cette affirmation est incorrecte. Selon les concentrations critiques aux deux extrémités, un filament peut gagner des sous-unités à l’extrémité + et en perdre à l’extrémité − tout en gardant une longueur moyenne stable : c’est le treadmilling."
       }
-    ],
-    "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
+    ]
   },
   {
     "order": 63,
-    "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « la localisation des microfilaments d’actine » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
-    "choices": [
-      {
-        "content": "La fiche cite un anneau de contraction avant la séparation des deux cellules filles.",
-        "correct": true,
-        "explanation": "L’actine participe à la séparation cytoplasmique lors de la division."
-      },
-      {
-        "content": "Le glissement relatif de ces filaments raccourcit le sarcomère.",
-        "correct": true,
-        "explanation": "Le modèle de glissement actine-myosine explique le raccourcissement du sarcomère."
-      },
-      {
-        "content": "Elle participe à la migration et à la contraction.",
-        "correct": true,
-        "explanation": "Le réseau d’actine joue des rôles structuraux, contractiles et de remodelage."
-      },
-      {
-        "content": "Ils sont exclusivement nucléaires.",
-        "correct": false,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
-      },
-      {
-        "content": "L’actine est décrite comme absente des cellules musculaires.",
-        "correct": false,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
-      },
-      {
-        "content": "β et γ sont décrites comme des tubulines.",
-        "correct": false,
-        "explanation": "L’actine G est la forme monomérique globulaire."
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Comment nomme-t-on le renouvellement d’un filament d’actine avec ajout à une extrémité et perte à l’autre tout en conservant une longueur moyenne stable ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "treadmilling",
+        "tapis roulant",
+        "phénomène de tapis roulant"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    },
+    "explanation": "Le treadmilling permet un flux de sous-unités à travers un filament de longueur moyenne stable."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « la localisation des microfilaments d’actine » est juste ?",
+    "format": "QRM",
+    "question": "Concernant « Organisation des filaments d’actine en faisceaux et réseaux », quelles affirmations sont correctes ?",
+    "explanation": "Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux.",
     "choices": [
       {
-        "content": "Ils sont particulièrement présents en sous-membranaire.",
+        "content": "Les lamellipodes sont enrichis en réseaux d’actine ramifiés.",
         "correct": true,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "Ils sont absents des microvillosités.",
-        "correct": false,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
+        "content": "Les microvillosités contiennent des faisceaux parallèles de filaments d’actine.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "Ils ne sont jamais associés à la membrane plasmique.",
+        "content": "Les filopodes sont constitués uniquement de filaments intermédiaires.",
         "correct": false,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
+        "explanation": "Cette affirmation est incorrecte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       },
       {
-        "content": "Ils sont exclusivement nucléaires.",
-        "correct": false,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
+        "content": "Dans ce contexte, l’organisation des filaments dépend des protéines de réticulation qui les associent.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
+      },
+      {
+        "content": "Dans ce contexte, la filamine favorise des réseaux d’actine tridimensionnels ou orthogonaux.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les filaments d’actine sont réticulés par des protéines distinctes. La fimbrine favorise des faisceaux serrés parallèles, l’alpha-actinine des faisceaux plus espacés pouvant être contractiles, et la filamine des réseaux orthogonaux."
       }
-    ],
-    "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
+    ]
   },
   {
     "order": 65,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRM",
-    "question": "Mise en application de « l’abondance de l’actine » : quelles affirmations sont justes ?",
+    "question": "Quelles affirmations décrivent correctement « Fonctions cellulaires de l’actine » ?",
+    "explanation": "L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse.",
     "choices": [
       {
-        "content": "L’actine est donc particulièrement abondante dans le muscle.",
+        "content": "Les filaments d’actine participent à la migration cellulaire.",
         "correct": true,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       },
       {
-        "content": "Son abondance est strictement identique dans tous les types cellulaires.",
-        "correct": false,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
-      },
-      {
-        "content": "La fiche indique environ 5 % des protéines dans une cellule non musculaire.",
+        "content": "Les jonctions adhérentes sont reliées au cytosquelette d’actine.",
         "correct": true,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       },
       {
-        "content": "La fiche indique 50 % dans une cellule non musculaire et 1 % dans le muscle.",
+        "content": "Un anneau actomyosine participe à la cytodiérèse des cellules animales.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
+      },
+      {
+        "content": "Dans ce contexte, les filaments d’actine ne participent à aucun changement de forme cellulaire.",
         "correct": false,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+        "explanation": "Cette affirmation est incorrecte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
+      },
+      {
+        "content": "L’actine intervient dans plusieurs étapes de l’endocytose et de l’exocytose.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine corticale soutient la membrane et les microvillosités, participe à l’endocytose/exocytose, à la migration, aux adhérences, à la contraction et à l’anneau contractile de cytodiérèse."
       }
-    ],
-    "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
+    ]
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « la localisation des microfilaments d’actine » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "format": "QRU",
+    "question": "Dans ce contexte, pour « Structure et polarité des filaments d’actine », quelle proposition doit être retenue ?",
+    "explanation": "L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite.",
     "choices": [
       {
-        "content": "Ils sont strictement cytoplasmiques dans la description de cette section.",
-        "correct": true,
-        "explanation": "Le réseau d’actine est particulièrement important au cortex cellulaire."
-      },
-      {
-        "content": "Elle indique environ 15 à 20 % dans une cellule musculaire.",
-        "correct": true,
-        "explanation": "Les repères 5 % et 15–20 % soulignent la forte abondance musculaire."
-      },
-      {
-        "content": "Les classes β ou γ sont citées dans les autres types cellulaires.",
-        "correct": true,
-        "explanation": "L’actine G est la forme monomérique globulaire."
-      },
-      {
-        "content": "L’actine G peut fixer l’ATP.",
-        "correct": true,
-        "explanation": "La fiche décrit l’actine G comme une ATPase."
-      },
-      {
-        "content": "Elle distingue une extrémité barbue.",
-        "correct": true,
-        "explanation": "Les extrémités pointue et barbue rendent le filament d’actine polarisé."
-      },
-      {
-        "content": "Ils sont dépourvus de polarité.",
+        "content": "L’actine G est une protéine fibreuse de 25 nm de diamètre.",
         "correct": false,
-        "explanation": "Les MFA sont des polymères torsadés d’actine, distincts des microtubules."
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       },
       {
-        "content": "La nucléation est obligatoire sans exception selon la fiche.",
+        "content": "Dans ce contexte, les filaments d’actine sont dépourvus de polarité.",
         "correct": false,
-        "explanation": "Le support présente la nucléation comme facilitatrice et utilise un noyau de trois actines."
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       },
       {
-        "content": "Elles sont localisées dans le noyau.",
+        "content": "L’actine F est une bicouche de phospholipides.",
         "correct": false,
-        "explanation": "Les microvillosités font partie des localisations spécialisées de l’actine."
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "Les deux extrémités d’un filament d’actine ont des cinétiques d’assemblage différentes.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
+      },
+      {
+        "content": "Dans ce contexte, la polymérisation d’actine forme des microtubules de 13 protofilaments.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. L’actine G globulaire polymérise en actine F, filament hélicoïdal polarisé. L’extrémité barbée (+) et l’extrémité pointue (−) ont des cinétiques différentes ; l’extrémité + s’allonge généralement plus vite."
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    ]
   }
 ];
