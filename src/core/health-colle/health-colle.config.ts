@@ -73,14 +73,14 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     title: 'Biologie cellulaire — Trafic et compartiments',
     scopeLine: 'Biologie cellulaire · Ch. 4 à 6 + rappels Ch. 1 à 3',
     contentLine:
-      'Système endomembranaire (flux vésiculaires, RE, Golgi, lysosomes) · Peroxysomes · Mitochondries',
+      'Système endomembranaire (endocytose, exocytose, RE, Golgi, lysosomes) · Peroxysomes · Rappels membrane et cytosquelette',
     questionCount: 20,
     durationMinutes: 30,
     durationLabel: '30 min',
     badgeType: 'CUMULATIVE',
     badgeLabel: 'Cumulative',
     ecCode: 'Biologie cellulaire',
-    description: 'Trafic vésiculaire, peroxysomes et mitochondries avec rappels des fondamentaux.',
+    description: 'Trafic endomembranaire et peroxysomes avec remobilisation des fondamentaux cellulaires.',
   },
   {
     id: 'c07',

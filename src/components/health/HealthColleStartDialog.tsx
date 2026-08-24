@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Clock3, FileCheck2, ShieldCheck, ArrowRight, RotateCcw } from 'lucide-react';
+import { Clock3, FileCheck2, ShieldCheck } from 'lucide-react';
 import type { HealthColleV1 } from '@/core/health-colle';
 
 type HealthColleStartDialogProps = {
@@ -108,9 +108,8 @@ export function HealthColleStartDialog({
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Annuler
           </Button>
-          <Button className="gap-2" onClick={() => onOpenChange(false)}>
-            Démarrer la colle
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          <Button disabled aria-disabled="true" title="Le moteur de colle sera activé dans le prochain lot">
+            Bientôt disponible
           </Button>
         </DialogFooter>
       </DialogContent>
