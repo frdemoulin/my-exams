@@ -249,20 +249,20 @@ export function HealthCourseUnitTabs({
                                     <span className="font-medium text-heading">
                                       {colle.title}
                                     </span>
-                                    <Badge variant="outline">{colle.badgeLabel}</Badge>
+                                    {colle.badgeLabel ? (
+                                      <Badge variant="outline">{colle.badgeLabel}</Badge>
+                                    ) : null}
                                     {colle.ecCode ? (
                                       <Badge variant="secondary" className="text-xs">
                                         {colle.ecCode}
                                       </Badge>
                                     ) : null}
                                   </div>
-                                  <p className="text-xs text-muted-foreground">
-                                    <span className="font-medium text-heading">Périmètre :</span>{' '}
-                                    {colle.dominantPerimeter}
+                                  <p className="text-xs italic text-body">
+                                    {colle.scopeLine}
                                   </p>
                                   <p className="text-xs text-muted-foreground">
-                                    <span className="font-medium text-heading">Chapitres inclus :</span>{' '}
-                                    {colle.chaptersSummary}
+                                    {colle.contentLine}
                                   </p>
                                 </div>
                             </td>

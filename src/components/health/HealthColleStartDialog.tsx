@@ -42,11 +42,11 @@ export function HealthColleStartDialog({
           </DialogTitle>
           <DialogDescription asChild>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p>
-                <span className="font-medium text-heading">Périmètre :</span> {colle.dominantPerimeter}
+              <p className="italic font-medium text-body">
+                {colle.scopeLine}
               </p>
               <p>
-                <span className="font-medium text-heading">Chapitres inclus :</span> {colle.chaptersSummary}
+                {colle.contentLine}
               </p>
             </div>
           </DialogDescription>
