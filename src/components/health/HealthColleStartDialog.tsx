@@ -91,6 +91,16 @@ export function HealthColleStartDialog({
                 <strong className="text-heading">Correction :</strong> Accessible intégralement une fois l’épreuve remise.
               </li>
             </ul>
+            <div className="pt-2 border-t border-default text-right">
+              <a
+                href="/sante/evaluations/comprendre"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-fg-brand hover:underline font-medium"
+              >
+                Première colle ? Comprendre les formats et la notation →
+              </a>
+            </div>
           </div>
         </div>
 

@@ -209,6 +209,55 @@ export function HealthCourseUnitTabs({
           }
         >
           <div className="space-y-4">
+            {/* Top help cards */}
+            <div className="grid gap-3.5 sm:grid-cols-2">
+              <div className="flex flex-col justify-between gap-3 rounded-2xl border border-default bg-card p-4 transition-colors hover:bg-neutral-secondary-soft">
+                <div className="space-y-1">
+                  <h3 className="font-medium text-heading text-base">
+                    Découvrir le mode évaluation
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    Prenez en main le chronomètre, la navigation, les questions à revoir et la remise d’une épreuve.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-muted-foreground">
+                    <Badge variant="outline" className="text-[11px]">5 min</Badge>
+                    <Badge variant="outline" className="text-[11px]">Rejouable librement</Badge>
+                  </div>
+                </div>
+                <div className="pt-2">
+                  <Button asChild size="sm" variant="outline" className="w-full sm:w-auto gap-2">
+                    <Link href="/sante/interface-examen">
+                      Découvrir
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-between gap-3 rounded-2xl border border-default bg-card p-4 transition-colors hover:bg-neutral-secondary-soft">
+                <div className="space-y-1">
+                  <h3 className="font-medium text-heading text-base">
+                    Comprendre les évaluations
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    Découvrez les 6 formats de questions et le fonctionnement de la notation par discordances UNESS.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-muted-foreground">
+                    <Badge variant="outline" className="text-[11px]">Formats UNESS</Badge>
+                    <Badge variant="outline" className="text-[11px]">Notation & Discordances</Badge>
+                  </div>
+                </div>
+                <div className="pt-2">
+                  <Button asChild size="sm" variant="outline" className="w-full sm:w-auto gap-2">
+                    <Link href="/sante/evaluations/comprendre">
+                      Formats et notation
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
             {/* Section 1: Colles */}
             <section aria-labelledby="health-colles-heading">
               <Card className="rounded-3xl border-border bg-card hover:bg-card">
@@ -306,38 +355,9 @@ export function HealthCourseUnitTabs({
                     </div>
                   </div>
                 </CardHeader>
-              <CardContent className="space-y-4">
-                {/* Mode examen discovery card */}
-                <div className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-neutral-secondary-soft">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="space-y-1">
-                      <h3 className="font-medium text-heading text-base">
-                        S&apos;entraîner à l&apos;interface d&apos;examen
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Mini-parcours de 3 à 5 minutes pour pratiquer les gestes du mode examen et reconnaître les formats UNESS (QRU, QRM, QRP, QROC).
-                      </p>
-                      <div className="flex flex-wrap gap-2 pt-1 text-xs text-muted-foreground">
-                        <span>5 min</span>
-                        <span>·</span>
-                        <span>5 étapes</span>
-                        <span>·</span>
-                        <span>Rejouable librement</span>
-                      </div>
-                    </div>
-                    <div className="shrink-0 pt-2 sm:pt-0">
-                      <Button asChild size="sm" className="w-full sm:w-auto gap-2">
-                        <Link href="/sante/interface-examen">
-                          Découvrir le mode examen
-                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-
-                {courseUnit.mockExams.length > 0 ? (
-                  <div className="space-y-3">
+                <CardContent className="space-y-4">
+                  {courseUnit.mockExams.length > 0 ? (
+                    <div className="space-y-3">
                     {courseUnit.mockExams.map((exam) => (
                       <div key={exam.id} className="rounded-xl border border-default bg-card p-4 space-y-4">
                         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
