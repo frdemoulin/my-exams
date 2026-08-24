@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch8 — Lamina, matrice nucléaire et nucléosome — V2 active */
-export const SECTION_C_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch8 — Lamina, matrice nucléaire et nucléosome */
+export const UE14_BIOCELL_CH8_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "HARD",
@@ -698,50 +698,5 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
       }
     ],
     "explanation": "La « matrice nucléaire » désigne historiquement un résidu protéique obtenu après extractions ; certaines structures comme la lamina sont bien établies, tandis que l’existence d’un réseau interne unique et stable reste un concept expérimental à manier avec prudence."
-  }
-];
-
-export const SECTION_C_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 5,
-    "slug": "noyau-matrice-1",
-    "title": "Lamina et organisation nucléaire",
-    "description": "Identifier les structures de soutien et d’ancrage.",
-    "stage": "DISCOVER",
-    "sectionOrder": 3,
-    "questionOrders": [
-      45,
-      46,
-      47,
-      48,
-      49,
-      50,
-      51,
-      52,
-      53,
-      54
-    ]
-  },
-  {
-    "order": 6,
-    "slug": "noyau-chromatine-1",
-    "title": "Nucléosome et compaction",
-    "description": "Relier histones, nucléosomes et organisation chromatinienne.",
-    "stage": "PRACTICE",
-    "sectionOrder": 3,
-    "questionOrders": [
-      55,
-      56,
-      57,
-      58,
-      59,
-      60,
-      61,
-      62,
-      63,
-      64,
-      65,
-      66
-    ]
   }
 ];

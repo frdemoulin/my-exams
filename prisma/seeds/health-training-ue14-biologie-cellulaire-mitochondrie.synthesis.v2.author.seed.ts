@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch7 — Mitochondrie — Synthèse transversale — V2 active */
-export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch7 — Synthèse transversale de la mitochondrie */
+export const UE14_BIOCELL_CH7_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
@@ -688,50 +688,5 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "L’ATP synthase catalyse la phosphorylation de l’ADP par le phosphate inorganique."
-  }
-];
-
-export const SYNTHESIS_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 10,
-    "slug": "mitochondrie-10",
-    "title": "Synthèse de la mitochondrie",
-    "description": "Synthèse : synthèse de la mitochondrie.",
-    "stage": "PRACTICE",
-    "sectionOrder": 5,
-    "questionOrders": [
-      101,
-      102,
-      103,
-      104,
-      105,
-      106,
-      107,
-      108,
-      109,
-      110
-    ]
-  },
-  {
-    "order": 11,
-    "slug": "mitochondrie-11",
-    "title": "Maîtriser la mitochondrie",
-    "description": "Maîtriser : maîtriser la mitochondrie.",
-    "stage": "MASTER",
-    "sectionOrder": 5,
-    "questionOrders": [
-      111,
-      112,
-      113,
-      114,
-      115,
-      116,
-      117,
-      118,
-      119,
-      120,
-      121,
-      122
-    ]
   }
 ];

@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch6 — Peroxysomes — Identité, morphologie, biogenèse et adressage — V2 active */
-export const SECTION_A_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch6 — Identité, morphologie, biogenèse et adressage */
+export const UE14_BIOCELL_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
@@ -698,50 +698,5 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "La pexophagie élimine sélectivement des peroxysomes devenus inutiles ou endommagés."
-  }
-];
-
-export const SECTION_A_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 1,
-    "slug": "peroxysomes-1",
-    "title": "Peroxysomes : repères essentiels",
-    "description": "Découvrir : peroxysomes : repères essentiels.",
-    "stage": "DISCOVER",
-    "sectionOrder": 1,
-    "questionOrders": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ]
-  },
-  {
-    "order": 2,
-    "slug": "peroxysomes-2",
-    "title": "Biogenèse et adressage peroxysomal",
-    "description": "Approfondir : biogenèse et adressage peroxysomal.",
-    "stage": "PRACTICE",
-    "sectionOrder": 1,
-    "questionOrders": [
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22
-    ]
   }
 ];

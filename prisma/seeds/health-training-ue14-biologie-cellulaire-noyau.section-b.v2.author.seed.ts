@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch8 — Échanges nucléocytoplasmiques, NLS et pores — V2 active */
-export const SECTION_B_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch8 — Échanges nucléocytoplasmiques, NLS et pores */
+export const UE14_BIOCELL_CH8_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "HARD",
@@ -698,50 +698,5 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
       }
     ],
     "explanation": "Les petites molécules peuvent diffuser passivement à travers le pore, alors que de nombreuses macromolécules utilisent des récepteurs de transport et le système Ran pour un transport sélectif."
-  }
-];
-
-export const SECTION_B_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 3,
-    "slug": "noyau-echanges-1",
-    "title": "Adressage nucléaire et nucléoplasmine",
-    "description": "Comprendre les expériences fondatrices et le NLS.",
-    "stage": "DISCOVER",
-    "sectionOrder": 2,
-    "questionOrders": [
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32
-    ]
-  },
-  {
-    "order": 4,
-    "slug": "noyau-echanges-2",
-    "title": "Pores et transports nucléocytoplasmiques",
-    "description": "Raisonner sur les transports passifs et actifs.",
-    "stage": "PRACTICE",
-    "sectionOrder": 2,
-    "questionOrders": [
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41,
-      42,
-      43,
-      44
-    ]
   }
 ];

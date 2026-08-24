@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+<title id="title">Adressage intracellulaire simplifié d’une protéine PTS1</title>
+<desc id="desc">Schéma original montrant quatre organites dans le cytosol : réticulum endoplasmique, mitochondrie, lysosome et peroxysome. Une protéine PTS1 associée à PEX5 est représentée dans le cytosol près du peroxysome.</desc>
+<rect width="1200" height="700" fill="#ffffff"/>
+<text x="55" y="65" font-family="Arial, sans-serif" font-size="30" font-weight="700">Adressage d’une protéine matricielle porteuse d’un signal PTS1</text>
+<text x="55" y="105" font-family="Arial, sans-serif" font-size="21">Repérez l’organite cible dans le cytosol.</text>
+<!-- Réticulum endoplasmique -->
+<path d="M85 220 C170 170, 280 190, 340 235 C275 275, 190 300, 100 270 C150 245, 245 235, 330 255" fill="none" stroke="#5f6b7a" stroke-width="10" stroke-linecap="round"/>
+<text x="120" y="345" font-family="Arial, sans-serif" font-size="24">Réticulum endoplasmique</text>
+<!-- Mitochondrie -->
+<ellipse cx="430" cy="500" rx="145" ry="82" fill="#f2f3f5" stroke="#5f6b7a" stroke-width="8"/>
+<path d="M335 500 C365 450, 395 550, 425 500 C455 450, 485 550, 515 500" fill="none" stroke="#5f6b7a" stroke-width="7"/>
+<text x="355" y="615" font-family="Arial, sans-serif" font-size="24">Mitochondrie</text>
+<!-- Lysosome -->
+<circle cx="675" cy="225" r="78" fill="#f7f7f7" stroke="#5f6b7a" stroke-width="8"/>
+<circle cx="650" cy="215" r="9" fill="#5f6b7a"/><circle cx="700" cy="245" r="10" fill="#5f6b7a"/><circle cx="690" cy="190" r="7" fill="#5f6b7a"/>
+<text x="625" y="345" font-family="Arial, sans-serif" font-size="24">Lysosome</text>
+<!-- Peroxysome target -->
+<circle cx="900" cy="335" r="135" fill="#f7f7f7" stroke="#222222" stroke-width="10"/>
+<circle cx="900" cy="335" r="52" fill="none" stroke="#777777" stroke-width="6" stroke-dasharray="10 9"/>
+<text x="830" y="510" font-family="Arial, sans-serif" font-size="28" font-weight="700">Peroxysome</text>
+<!-- PTS1 cargo and PEX5 -->
+<rect x="970" y="125" width="160" height="58" rx="18" fill="#ffffff" stroke="#5f6b7a" stroke-width="5"/>
+<text x="995" y="162" font-family="Arial, sans-serif" font-size="22">Cargo–PTS1</text>
+<ellipse cx="1025" cy="220" rx="67" ry="34" fill="#ffffff" stroke="#5f6b7a" stroke-width="5"/>
+<text x="990" y="228" font-family="Arial, sans-serif" font-size="22">PEX5</text>
+<path d="M1000 248 C980 270, 965 285, 947 300" fill="none" stroke="#5f6b7a" stroke-width="6" marker-end="url(#arrow)"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5f6b7a"/></marker></defs>
+<text x="55" y="665" font-family="Arial, sans-serif" font-size="18">Schéma pédagogique original — proportions non anatomiques.</text>
+</svg>

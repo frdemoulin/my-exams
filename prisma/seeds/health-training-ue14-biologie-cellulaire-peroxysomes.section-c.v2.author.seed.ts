@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch6 — Peroxysomes — Métabolismes lipidiques et autres fonctions — V2 active */
-export const SECTION_C_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch6 — Métabolismes lipidiques et autres fonctions */
+export const UE14_BIOCELL_CH6_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
@@ -697,50 +697,5 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "Chez l’humain, l’acide urique est le produit final majeur du catabolisme des purines."
-  }
-];
-
-export const SECTION_C_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 5,
-    "slug": "peroxysomes-5",
-    "title": "β-oxydation peroxysomale",
-    "description": "Découvrir : β-oxydation peroxysomale.",
-    "stage": "DISCOVER",
-    "sectionOrder": 3,
-    "questionOrders": [
-      45,
-      46,
-      47,
-      48,
-      49,
-      50,
-      51,
-      52,
-      53,
-      54
-    ]
-  },
-  {
-    "order": 6,
-    "slug": "peroxysomes-6",
-    "title": "Métabolismes et coopération cellulaire",
-    "description": "Approfondir : métabolismes et coopération cellulaire.",
-    "stage": "PRACTICE",
-    "sectionOrder": 3,
-    "questionOrders": [
-      55,
-      56,
-      57,
-      58,
-      59,
-      60,
-      61,
-      62,
-      63,
-      64,
-      65,
-      66
-    ]
   }
 ];

@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch8 — Synthèse transversale — V2 active */
-export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch8 — Synthèse transversale */
+export const UE14_BIOCELL_CH8_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
@@ -717,50 +717,5 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
       }
     ],
     "explanation": "La lamina est un réseau de filaments intermédiaires de type V, constitué de lamines A/C et B, sous la membrane nucléaire interne ; elle participe à la forme nucléaire, à l’organisation des pores et à l’ancrage de domaines chromatinien."
-  }
-];
-
-export const SYNTHESIS_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 10,
-    "slug": "noyau-synthese-1",
-    "title": "Synthèse du noyau",
-    "description": "Réviser transversalement le chapitre.",
-    "stage": "PRACTICE",
-    "sectionOrder": 5,
-    "questionOrders": [
-      101,
-      102,
-      103,
-      104,
-      105,
-      106,
-      107,
-      108,
-      109,
-      110
-    ]
-  },
-  {
-    "order": 11,
-    "slug": "noyau-synthese-2",
-    "title": "Maîtriser le noyau",
-    "description": "Résoudre des questions intégratives de fin de chapitre.",
-    "stage": "MASTER",
-    "sectionOrder": 5,
-    "questionOrders": [
-      111,
-      112,
-      113,
-      114,
-      115,
-      116,
-      117,
-      118,
-      119,
-      120,
-      121,
-      122
-    ]
   }
 ];

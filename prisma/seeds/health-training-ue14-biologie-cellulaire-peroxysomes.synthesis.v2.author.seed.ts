@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch6 — Peroxysomes — Synthèse transversale — V2 active */
-export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch6 — Synthèse transversale */
+export const UE14_BIOCELL_CH6_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
@@ -680,50 +680,5 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "Les premières réactions de la synthèse des plasmalogènes ont lieu dans le peroxysome avant relais par le RE."
-  }
-];
-
-export const SYNTHESIS_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 10,
-    "slug": "peroxysomes-10",
-    "title": "Synthèse des peroxysomes",
-    "description": "Synthèse : synthèse des peroxysomes.",
-    "stage": "PRACTICE",
-    "sectionOrder": 5,
-    "questionOrders": [
-      101,
-      102,
-      103,
-      104,
-      105,
-      106,
-      107,
-      108,
-      109,
-      110
-    ]
-  },
-  {
-    "order": 11,
-    "slug": "peroxysomes-11",
-    "title": "Maîtriser les peroxysomes",
-    "description": "Maîtriser : maîtriser les peroxysomes.",
-    "stage": "MASTER",
-    "sectionOrder": 5,
-    "questionOrders": [
-      111,
-      112,
-      113,
-      114,
-      115,
-      116,
-      117,
-      118,
-      119,
-      120,
-      121,
-      122
-    ]
   }
 ];

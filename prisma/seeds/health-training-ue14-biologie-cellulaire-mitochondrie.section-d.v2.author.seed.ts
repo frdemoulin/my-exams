@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch7 — Mitochondrie — Autres fonctions et pathologies — V2 active */
-export const SECTION_D_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch7 — Inhibiteurs, rendement, stéroïdes, apoptose, thermogenèse, ROS et pathologies */
+export const UE14_BIOCELL_CH7_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
     "difficulty": "EASY",
@@ -1123,72 +1123,5 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
       }
     ],
     "explanation": "Les maladies mitochondriales peuvent résulter de variants de l’ADN mitochondrial ou de gènes nucléaires et touchent volontiers les tissus à forte demande énergétique."
-  }
-];
-
-export const SECTION_D_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 7,
-    "slug": "mitochondrie-7",
-    "title": "Fonctions mitochondriales",
-    "description": "Découvrir : fonctions mitochondriales.",
-    "stage": "DISCOVER",
-    "sectionOrder": 4,
-    "questionOrders": [
-      67,
-      68,
-      69,
-      70,
-      71,
-      72,
-      73,
-      74,
-      75,
-      76
-    ]
-  },
-  {
-    "order": 8,
-    "slug": "mitochondrie-8",
-    "title": "Apoptose, thermogenèse et ROS",
-    "description": "Approfondir : apoptose, thermogenèse et ros.",
-    "stage": "PRACTICE",
-    "sectionOrder": 4,
-    "questionOrders": [
-      77,
-      78,
-      79,
-      80,
-      81,
-      82,
-      83,
-      84,
-      85,
-      86,
-      87,
-      88
-    ]
-  },
-  {
-    "order": 9,
-    "slug": "mitochondrie-9",
-    "title": "Pathologies et intégration mitochondriale",
-    "description": "Maîtriser : pathologies et intégration mitochondriale.",
-    "stage": "MASTER",
-    "sectionOrder": 4,
-    "questionOrders": [
-      89,
-      90,
-      91,
-      92,
-      93,
-      94,
-      95,
-      96,
-      97,
-      98,
-      99,
-      100
-    ]
   }
 ];

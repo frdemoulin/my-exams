@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch6 — Peroxysomes — Pathologies, comparaisons et intégration — V2 active */
-export const SECTION_D_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch6 — Pathologies, comparaisons et intégration */
+export const UE14_BIOCELL_CH6_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
     "difficulty": "EASY",
@@ -1119,72 +1119,5 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
       }
     ],
     "explanation": "Les maladies peroxysomales comprennent des défauts de biogenèse, comme le spectre de Zellweger, et des défauts de protéines spécifiques, comme l’adrénoleucodystrophie liée à l’X due à ABCD1."
-  }
-];
-
-export const SECTION_D_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 7,
-    "slug": "peroxysomes-7",
-    "title": "Pathologies peroxysomales",
-    "description": "Découvrir : pathologies peroxysomales.",
-    "stage": "DISCOVER",
-    "sectionOrder": 4,
-    "questionOrders": [
-      67,
-      68,
-      69,
-      70,
-      71,
-      72,
-      73,
-      74,
-      75,
-      76
-    ]
-  },
-  {
-    "order": 8,
-    "slug": "peroxysomes-8",
-    "title": "X-ALD et spectre de Zellweger",
-    "description": "Approfondir : x-ald et spectre de zellweger.",
-    "stage": "PRACTICE",
-    "sectionOrder": 4,
-    "questionOrders": [
-      77,
-      78,
-      79,
-      80,
-      81,
-      82,
-      83,
-      84,
-      85,
-      86,
-      87,
-      88
-    ]
-  },
-  {
-    "order": 9,
-    "slug": "peroxysomes-9",
-    "title": "Intégration des fonctions peroxysomales",
-    "description": "Maîtriser : intégration des fonctions peroxysomales.",
-    "stage": "MASTER",
-    "sectionOrder": 4,
-    "questionOrders": [
-      89,
-      90,
-      91,
-      92,
-      93,
-      94,
-      95,
-      96,
-      97,
-      98,
-      99,
-      100
-    ]
   }
 ];

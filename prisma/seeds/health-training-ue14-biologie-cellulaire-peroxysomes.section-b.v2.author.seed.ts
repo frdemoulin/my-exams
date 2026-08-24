@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch6 — Peroxysomes — Oxydases, catalase et H₂O₂ — V2 active */
-export const SECTION_B_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch6 — Oxydases, catalase et homéostasie du H2O2 */
+export const UE14_BIOCELL_CH6_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
@@ -698,50 +698,5 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "Le peroxysome ne possède pas de chaîne respiratoire couplée à une ATP synthase."
-  }
-];
-
-export const SECTION_B_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 3,
-    "slug": "peroxysomes-3",
-    "title": "Oxydases et catalase",
-    "description": "Découvrir : oxydases et catalase.",
-    "stage": "DISCOVER",
-    "sectionOrder": 2,
-    "questionOrders": [
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32
-    ]
-  },
-  {
-    "order": 4,
-    "slug": "peroxysomes-4",
-    "title": "H₂O₂ et fonctions oxydatives",
-    "description": "Approfondir : h₂o₂ et fonctions oxydatives.",
-    "stage": "PRACTICE",
-    "sectionOrder": 2,
-    "questionOrders": [
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41,
-      42,
-      43,
-      44
-    ]
   }
 ];

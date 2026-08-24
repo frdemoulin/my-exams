@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch8 — Chromatine, territoires et nucléole — V2 active */
-export const SECTION_D_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch8 — Chromatine, territoires et nucléole */
+export const UE14_BIOCELL_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
     "difficulty": "HARD",
@@ -1055,72 +1055,5 @@ export const SECTION_D_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "Les pré-sous-unités ribosomales sont des cargos macromoléculaires exportés sélectivement à travers les complexes du pore nucléaire."
-  }
-];
-
-export const SECTION_D_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 7,
-    "slug": "noyau-chromatine-2",
-    "title": "États et territoires de la chromatine",
-    "description": "Distinguer compaction, activité et organisation spatiale.",
-    "stage": "DISCOVER",
-    "sectionOrder": 4,
-    "questionOrders": [
-      67,
-      68,
-      69,
-      70,
-      71,
-      72,
-      73,
-      74,
-      75,
-      76
-    ]
-  },
-  {
-    "order": 8,
-    "slug": "noyau-nucleole-1",
-    "title": "Nucléole et ARNr",
-    "description": "Comprendre la biogenèse ribosomale nucléaire.",
-    "stage": "PRACTICE",
-    "sectionOrder": 4,
-    "questionOrders": [
-      77,
-      78,
-      79,
-      80,
-      81,
-      82,
-      83,
-      84,
-      85,
-      86,
-      87,
-      88
-    ]
-  },
-  {
-    "order": 9,
-    "slug": "noyau-integration",
-    "title": "Chromatine, nucléole et intégration",
-    "description": "Mobiliser plusieurs niveaux d’organisation du noyau.",
-    "stage": "MASTER",
-    "sectionOrder": 4,
-    "questionOrders": [
-      89,
-      90,
-      91,
-      92,
-      93,
-      94,
-      95,
-      96,
-      97,
-      98,
-      99,
-      100
-    ]
   }
 ];

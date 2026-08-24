@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch7 — Mitochondrie — Métabolismes et chaîne respiratoire — V2 active */
-export const SECTION_B_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch7 — Matrice, métabolismes, transporteurs et autonomie mitochondriale */
+export const UE14_BIOCELL_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
@@ -704,50 +704,5 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "Le génome mitochondrial humain code 13 protéines de la phosphorylation oxydative."
-  }
-];
-
-export const SECTION_B_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 3,
-    "slug": "mitochondrie-3",
-    "title": "Métabolismes mitochondriaux",
-    "description": "Découvrir : métabolismes mitochondriaux.",
-    "stage": "DISCOVER",
-    "sectionOrder": 2,
-    "questionOrders": [
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32
-    ]
-  },
-  {
-    "order": 4,
-    "slug": "mitochondrie-4",
-    "title": "Chaîne respiratoire",
-    "description": "Approfondir : chaîne respiratoire.",
-    "stage": "PRACTICE",
-    "sectionOrder": 2,
-    "questionOrders": [
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41,
-      42,
-      43,
-      44
-    ]
   }
 ];

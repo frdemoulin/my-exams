@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch7 — Mitochondrie — ATP synthase, inhibiteurs et rendement énergétique — V2 active */
-export const SECTION_C_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch7 — Chaîne respiratoire, gradient protonique et ATP synthase */
+export const UE14_BIOCELL_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
@@ -705,50 +705,5 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "La navette glycérol-3-phosphate réduit l’ubiquinone via une déshydrogénase FAD-dépendante."
-  }
-];
-
-export const SECTION_C_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 5,
-    "slug": "mitochondrie-5",
-    "title": "ATP synthase et gradient protonique",
-    "description": "Découvrir : atp synthase et gradient protonique.",
-    "stage": "DISCOVER",
-    "sectionOrder": 3,
-    "questionOrders": [
-      45,
-      46,
-      47,
-      48,
-      49,
-      50,
-      51,
-      52,
-      53,
-      54
-    ]
-  },
-  {
-    "order": 6,
-    "slug": "mitochondrie-6",
-    "title": "Rendement et inhibiteurs",
-    "description": "Approfondir : rendement et inhibiteurs.",
-    "stage": "PRACTICE",
-    "sectionOrder": 3,
-    "questionOrders": [
-      55,
-      56,
-      57,
-      58,
-      59,
-      60,
-      61,
-      62,
-      63,
-      64,
-      65,
-      66
-    ]
   }
 ];
