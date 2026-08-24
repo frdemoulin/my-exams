@@ -214,29 +214,71 @@ export function HealthCourseUnitTabs({
               <Card className="rounded-3xl border-border bg-card hover:bg-card">
                 <CardHeader>
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="space-y-1">
-                      <CardTitle id="health-colles-heading" className="text-lg text-heading">
-                        Colles
-                      </CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        Évaluez progressivement vos acquis sous contrainte de temps et avec la notation UNESS.
-                      </p>
-                    </div>
+                    <CardTitle id="health-colles-heading" className="text-lg text-heading">
+                      Colles
+                    </CardTitle>
                     <div className="flex flex-wrap items-center gap-2 sm:justify-end">
                       <Badge variant="outline">{HEALTH_COLLES_UE14_V1.length} colles</Badge>
                       <Badge variant="outline">Notation UNESS</Badge>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  {HEALTH_COLLES_UE14_V1.map((colle, index) => (
-                    <HealthColleCard
-                      key={colle.id}
-                      colle={colle}
-                      index={index}
-                      onStartClick={setSelectedColleForStart}
-                    />
-                  ))}
+                <CardContent>
+                  <div className="relative overflow-x-auto rounded-lg border border-default">
+                    <table className="w-full text-left text-sm text-body rtl:text-right">
+                      <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
+                        <tr>
+                          <th className="w-20 px-5 py-4 font-medium">#</th>
+                          <th className="px-5 py-4 font-medium">COLLE</th>
+                          <th className="px-5 py-4 font-medium">CONTENU</th>
+                          <th className="px-5 py-4 text-center font-medium">ACTION</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {HEALTH_COLLES_UE14_V1.map((colle, index) => (
+                          <tr
+                            key={colle.id}
+                            className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
+                          >
+                            <td className="px-5 py-4 align-middle font-medium text-heading">
+                              {index + 1}
+                            </td>
+                            <td className="px-5 py-4 align-middle">
+                              <div className="space-y-0.5">
+                                <div className="flex flex-wrap items-center gap-2">
+                                  <span className="font-medium text-heading">
+                                    {colle.title}
+                                  </span>
+                                  <Badge variant="outline">{colle.badgeLabel}</Badge>
+                                  {colle.ecCode ? (
+                                    <Badge variant="secondary" className="text-xs">
+                                      {colle.ecCode}
+                                    </Badge>
+                                  ) : null}
+                                </div>
+                                <p className="text-xs text-muted-foreground">
+                                  Périmètre : {colle.dominantPerimeter}
+                                </p>
+                              </div>
+                            </td>
+                            <td className="px-5 py-4 align-middle text-muted-foreground whitespace-nowrap">
+                              {colle.questionCount} questions · {colle.durationLabel}
+                            </td>
+                            <td className="px-5 py-4 text-center align-middle">
+                              <Button
+                                size="sm"
+                                className="gap-2"
+                                onClick={() => setSelectedColleForStart(colle)}
+                              >
+                                Commencer
+                                <ArrowRight className="h-4 w-4" />
+                              </Button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </CardContent>
               </Card>
             </section>
