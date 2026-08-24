@@ -30,7 +30,10 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     await expect(page.getByRole("heading", { name: "Examens blancs" })).toBeVisible();
     await expect(page.getByRole("heading", { name: fixture.examTitle })).toBeVisible();
 
-    await page.getByRole("button", { name: /Commencer|Reprendre|Recommencer/ }).click();
+    await page
+      .locator('section[aria-labelledby="health-mock-exams-heading"]')
+      .getByRole("button", { name: /Commencer|Reprendre|Recommencer/ })
+      .click();
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
 
     await expect(page.getByText("QRU — Question à réponse unique", { exact: true })).toBeVisible();
