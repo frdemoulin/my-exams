@@ -581,6 +581,11 @@ enum HealthMockExamAttemptStatus {
   ABANDONED
 }
 
+enum HealthMockExamType {
+  MOCK_EXAM
+  COLLE
+}
+
 enum ChapterSectionKind {
   THEME
   SYNTHESIS
@@ -998,8 +1003,9 @@ model TrainingQuizQuestion {
 // Les examens blancs sont rattachés directement à une UE. Ils utilisent leurs
 // propres questions afin de ne jamais recycler les QCM d'entraînement.
 model HealthMockExam {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  courseUnitId    String   @db.ObjectId
+  id              String             @id @default(auto()) @map("_id") @db.ObjectId
+  type            HealthMockExamType @default(MOCK_EXAM)
+  courseUnitId    String             @db.ObjectId
   title           String
   slug            String
   description     String?

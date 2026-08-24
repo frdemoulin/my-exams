@@ -54,6 +54,29 @@ function requireObjectId(value: string, label: string) {
   }
 }
 
+async function resolveCourseUnitId(courseUnitIdOrSlug: string): Promise<string> {
+  if (objectIdPattern.test(courseUnitIdOrSlug)) {
+    return courseUnitIdOrSlug;
+  }
+
+  const courseUnit = await prisma.healthCourseUnit.findFirst({
+    where: {
+      OR: [
+        { slug: courseUnitIdOrSlug },
+        { slug: { startsWith: courseUnitIdOrSlug } },
+      ],
+      isActive: true,
+    },
+    select: { id: true },
+  });
+
+  if (!courseUnit) {
+    throw new HealthMockExamError("UE introuvable.", 404);
+  }
+
+  return courseUnit.id;
+}
+
 function calculateElapsedSeconds({
   startedAt,
   deadlineAt,
@@ -176,6 +199,10 @@ function toValidationInput(exam: NonNullable<LoadedMockExam>): HealthMockExamVal
 }
 
 async function assertPublishedMockExamIsValid(exam: NonNullable<LoadedMockExam>) {
+  if (exam.type === "COLLE") {
+    return;
+  }
+
   assertHealthMockExamCanBePublished(toValidationInput(exam), {
     mediaExists: publicMediaExists,
   });
@@ -327,8 +354,8 @@ export async function startOrResumeHealthMockExamAttempt(input: {
   examSlug: string;
   userId: string;
 }) {
-  requireObjectId(input.courseUnitId, "UE");
-  const exam = await loadMockExamForStart(input.courseUnitId, input.examSlug);
+  const courseUnitId = await resolveCourseUnitId(input.courseUnitId);
+  const exam = await loadMockExamForStart(courseUnitId, input.examSlug);
 
   if (!exam) {
     throw new HealthMockExamError("Examen blanc introuvable.", 404);
@@ -529,14 +556,14 @@ export async function fetchHealthMockExamTakingState(input: {
   | { kind: "completed"; attemptId: string }
   | { kind: "in-progress"; passage: HealthMockExamPassage }
 > {
-  requireObjectId(input.courseUnitId, "UE");
+  const courseUnitId = await resolveCourseUnitId(input.courseUnitId);
 
   const attempt = await prisma.userHealthMockExamAttempt.findFirst({
     where: {
       userId: input.userId,
       status: "IN_PROGRESS",
       mockExam: {
-        courseUnitId: input.courseUnitId,
+        courseUnitId,
         slug: input.examSlug,
         isPublished: true,
       },

@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Dialog,
   DialogContent,
@@ -10,21 +12,49 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Clock3, FileCheck2, ShieldCheck } from 'lucide-react';
+import { Clock3, FileCheck2, ShieldCheck, ArrowRight, Loader2 } from 'lucide-react';
 import type { HealthColleV1 } from '@/core/health-colle';
 
 type HealthColleStartDialogProps = {
   colle: HealthColleV1 | null;
+  courseUnitSlug?: string;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 };
 
 export function HealthColleStartDialog({
   colle,
+  courseUnitSlug = 'ue14-biochimie-biologie-cellulaire-chimie',
   open,
   onOpenChange,
 }: HealthColleStartDialogProps) {
+  const router = useRouter();
+  const [isStarting, setIsStarting] = useState(false);
+
   if (!colle) return null;
+
+  const isExecutable = colle.id === 'c01';
+
+  async function handleStart() {
+    if (!colle || !isExecutable || isStarting) return;
+    setIsStarting(true);
+    try {
+      const res = await fetch(`/api/health/mock-exams/${courseUnitSlug}/${colle.id}/attempt`, {
+        method: 'POST',
+      });
+      if (res.ok) {
+        onOpenChange(false);
+        router.push(`/sante/ue/${courseUnitSlug}/colles/${colle.id}`);
+      } else {
+        const data = await res.json();
+        alert(data.message || 'Erreur lors du démarrage de la colle.');
+      }
+    } catch {
+      alert('Erreur réseau lors du démarrage de la colle.');
+    } finally {
+      setIsStarting(false);
+    }
+  }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -105,12 +135,28 @@ export function HealthColleStartDialog({
         </div>
 
         <DialogFooter className="gap-2 sm:gap-0">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
+          <Button variant="outline" onClick={() => onOpenChange(false)} disabled={isStarting}>
             Annuler
           </Button>
-          <Button disabled aria-disabled="true" title="Le moteur de colle sera activé dans le prochain lot">
-            Bientôt disponible
-          </Button>
+          {isExecutable ? (
+            <Button className="gap-2" onClick={handleStart} disabled={isStarting}>
+              {isStarting ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                  Démarrage...
+                </>
+              ) : (
+                <>
+                  Démarrer la colle
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </>
+              )}
+            </Button>
+          ) : (
+            <Button disabled aria-disabled="true" title="Le contenu de cette colle sera disponible prochainement">
+              Bientôt disponible
+            </Button>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>

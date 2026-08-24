@@ -1311,12 +1311,12 @@ export async function fetchHealthStudentCourseUnitDetail(
     courseUnitId: string,
     options: { userId?: string | null } = {},
 ): Promise<HealthStudentCourseUnitDetail | null> {
-    if (!/^[a-f0-9]{24}$/i.test(courseUnitId)) {
-        return null;
-    }
+    const isObjectId = /^[a-f0-9]{24}$/i.test(courseUnitId);
 
-    const courseUnit = await prisma.healthCourseUnit.findUnique({
-        where: { id: courseUnitId },
+    const courseUnit = await prisma.healthCourseUnit.findFirst({
+        where: isObjectId
+            ? { id: courseUnitId }
+            : { OR: [{ slug: courseUnitId }, { slug: { startsWith: courseUnitId } }] },
         include: {
             block: {
                 select: {

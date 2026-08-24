@@ -52,6 +52,7 @@ type HealthMockExamSessionProps = {
   examSlug: string;
   passage: HealthMockExamPassage;
   mode?: "exam" | "tutorial";
+  resultsHref?: string;
   onLocalSubmit?: (
     answersByAttemptQuestionId: Record<string, HealthMockExamSessionAnswer>,
     elapsedSeconds: number,
@@ -126,6 +127,7 @@ export function HealthMockExamSession({
   examSlug,
   passage,
   mode = "exam",
+  resultsHref: customResultsHref,
   onLocalSubmit,
 }: HealthMockExamSessionProps) {
   const router = useRouter();
@@ -154,7 +156,9 @@ export function HealthMockExamSession({
   const pendingSaves = useRef(new Map<string, Promise<void>>());
   const hasTriggeredAutoSubmit = useRef(false);
   const submitAttemptRef = useRef<() => void>(() => undefined);
-  const resultsHref = `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${passage.attemptId}`;
+  const resultsHref =
+    customResultsHref ??
+    `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${passage.attemptId}`;
   const submitButtonLabel = isTutorial ? "Terminer le tutoriel" : "Soumettre l'examen";
   const submitDialogTitle = isTutorial
     ? "Terminer le tutoriel ?"

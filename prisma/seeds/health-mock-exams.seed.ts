@@ -209,6 +209,7 @@ export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockE
     ? await prisma.healthMockExam.update({
         where: { id: existingExam.id },
         data: {
+          type: "MOCK_EXAM",
           title: seed.title,
           description: seed.description ?? null,
           instructions: seed.instructions ?? null,
@@ -222,6 +223,7 @@ export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockE
     : await prisma.healthMockExam.create({
         data: {
           courseUnitId: courseUnit.id,
+          type: "MOCK_EXAM",
           title: seed.title,
           slug: seed.slug,
           description: seed.description ?? null,

@@ -337,14 +337,25 @@ export function HealthCourseUnitTabs({
                               {colle.questionCount} questions · {colle.durationLabel}
                             </td>
                             <td className="px-5 py-4 text-center align-middle">
-                              <Button
-                                size="sm"
-                                className="gap-2"
-                                onClick={() => setSelectedColleForStart(colle)}
-                              >
-                                Commencer
-                                <ArrowRight className="h-4 w-4" />
-                              </Button>
+                              {colle.id === 'c01' ? (
+                                <Button
+                                  size="sm"
+                                  className="gap-2"
+                                  onClick={() => setSelectedColleForStart(colle)}
+                                >
+                                  Commencer
+                                  <ArrowRight className="h-4 w-4" />
+                                </Button>
+                              ) : (
+                                <Button
+                                  size="sm"
+                                  variant="secondary"
+                                  disabled
+                                  aria-disabled="true"
+                                >
+                                  Bientôt disponible
+                                </Button>
+                              )}
                             </td>
                           </tr>
                         ))}
@@ -462,6 +473,7 @@ export function HealthCourseUnitTabs({
 
       <HealthColleStartDialog
         colle={selectedColleForStart}
+        courseUnitSlug={courseUnit.id}
         open={Boolean(selectedColleForStart)}
         onOpenChange={(open) => {
           if (!open) setSelectedColleForStart(null);

@@ -62,7 +62,7 @@ export function scoreHealthMockExamAttempt(
     for (const [questionIndex, question] of section.questions.entries()) {
       questionCount += 1;
       const evaluation = question.question
-        ? evaluateQuestion(question.question, question.answer)
+        ? evaluateQuestion(question.question, question.answer, "discordance")
         : evaluateMcqIndexAnswer({
             questionId: `${section.examSectionId}-${questionIndex + 1}`,
             selectedChoiceIndexes: question.selectedChoiceIndexes ?? [],
