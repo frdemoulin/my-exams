@@ -210,48 +210,55 @@ export function HealthCourseUnitTabs({
         >
           <div className="space-y-4">
             {/* Section 1: Colles */}
-            <Card className="rounded-3xl border-border bg-card hover:bg-card">
-              <CardHeader>
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="space-y-1">
-                    <CardTitle className="text-lg text-heading">Colles</CardTitle>
-                    <p className="text-sm text-muted-foreground">
-                      Évaluez progressivement vos acquis sous contrainte de temps et avec la notation UNESS.
-                    </p>
+            <section aria-labelledby="health-colles-heading">
+              <Card className="rounded-3xl border-border bg-card hover:bg-card">
+                <CardHeader>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="space-y-1">
+                      <CardTitle id="health-colles-heading" className="text-lg text-heading">
+                        Colles
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        Évaluez progressivement vos acquis sous contrainte de temps et avec la notation UNESS.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                      <Badge variant="outline">{HEALTH_COLLES_UE14_V1.length} colles</Badge>
+                      <Badge variant="outline">Notation UNESS</Badge>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-                    <Badge variant="outline">{HEALTH_COLLES_UE14_V1.length} colles</Badge>
-                    <Badge variant="outline">Notation UNESS</Badge>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {HEALTH_COLLES_UE14_V1.map((colle, index) => (
-                  <HealthColleCard
-                    key={colle.id}
-                    colle={colle}
-                    index={index}
-                    onStartClick={setSelectedColleForStart}
-                  />
-                ))}
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {HEALTH_COLLES_UE14_V1.map((colle, index) => (
+                    <HealthColleCard
+                      key={colle.id}
+                      colle={colle}
+                      index={index}
+                      onStartClick={setSelectedColleForStart}
+                    />
+                  ))}
+                </CardContent>
+              </Card>
+            </section>
 
             {/* Section 2: Examens blancs */}
-            <Card className="rounded-3xl border-border bg-card hover:bg-card">
-              <CardHeader>
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="space-y-1">
-                    <CardTitle className="text-lg text-heading">Examens blancs</CardTitle>
-                    <p className="text-sm text-muted-foreground">
-                      Simulez l&apos;épreuve complète dans les conditions du semestre.
-                    </p>
+            <section aria-labelledby="health-mock-exams-heading">
+              <Card className="rounded-3xl border-border bg-card hover:bg-card">
+                <CardHeader>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="space-y-1">
+                      <CardTitle id="health-mock-exams-heading" className="text-lg text-heading">
+                        Examens blancs
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        Simulez l&apos;épreuve complète dans les conditions du semestre.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                      <Badge variant="outline">Conditions réelles</Badge>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-                    <Badge variant="outline">Conditions réelles</Badge>
-                  </div>
-                </div>
-              </CardHeader>
+                </CardHeader>
               <CardContent className="space-y-4">
                 {/* Mode examen discovery card */}
                 <div className="rounded-xl border border-default bg-card p-4 transition-colors hover:bg-neutral-secondary-soft">
@@ -362,7 +369,8 @@ export function HealthCourseUnitTabs({
                 )}
               </CardContent>
             </Card>
-          </div>
+          </section>
+        </div>
         </TabItem>
       </Tabs>
 
