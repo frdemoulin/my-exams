@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch9 — Renouvellement, interphase et quantité d’ADN — V2 active */
-export const SECTION_A_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch9 — Renouvellement, interphase et quantité d’ADN */
+export const UE14_BIOCELL_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
@@ -697,50 +697,5 @@ export const SECTION_A_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "Le point de restriction est un jalon majeur de G1 contrôlant l’engagement vers la phase S."
-  }
-];
-
-export const SECTION_A_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 1,
-    "slug": "cycle-cellulaire-phases-1",
-    "title": "Phases du cycle et homéostasie",
-    "description": "Repères essentiels sur G0, G1, S et G2.",
-    "stage": "DISCOVER",
-    "sectionOrder": 1,
-    "questionOrders": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ]
-  },
-  {
-    "order": 2,
-    "slug": "cycle-cellulaire-phases-2",
-    "title": "ADN, chromosomes et engagement en cycle",
-    "description": "Appliquer les relations 2n/2C et 2n/4C et raisonner sur G1/S.",
-    "stage": "PRACTICE",
-    "sectionOrder": 1,
-    "questionOrders": [
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22
-    ]
   }
 ];

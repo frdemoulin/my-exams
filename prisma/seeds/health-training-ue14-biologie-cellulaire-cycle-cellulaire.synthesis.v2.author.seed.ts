@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch9 — Synthèse du cycle cellulaire — V2 active */
-export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch9 — Synthèse du cycle cellulaire */
+export const UE14_BIOCELL_CH9_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
@@ -724,50 +724,5 @@ export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
       }
     ],
     "explanation": "En réponse à des dommages de l’ADN, p53 peut être stabilisée et induire l’expression de p21. p21 inhibe des complexes cycline-CDK et contribue à bloquer l’entrée en phase S, laissant du temps à la réparation ou favorisant d’autres réponses si les dommages persistent."
-  }
-];
-
-export const SYNTHESIS_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 10,
-    "slug": "cycle-cellulaire-synthese-1",
-    "title": "Synthèse du cycle cellulaire",
-    "description": "Consolider les mécanismes majeurs du chapitre.",
-    "stage": "PRACTICE",
-    "sectionOrder": 5,
-    "questionOrders": [
-      101,
-      102,
-      103,
-      104,
-      105,
-      106,
-      107,
-      108,
-      109,
-      110
-    ]
-  },
-  {
-    "order": 11,
-    "slug": "cycle-cellulaire-synthese-2",
-    "title": "Maîtriser le cycle cellulaire",
-    "description": "Mobiliser les notions dans des situations transversales.",
-    "stage": "MASTER",
-    "sectionOrder": 5,
-    "questionOrders": [
-      111,
-      112,
-      113,
-      114,
-      115,
-      116,
-      117,
-      118,
-      119,
-      120,
-      121,
-      122
-    ]
   }
 ];

@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch9 — Points de contrôle et dommages de l’ADN — V2 active */
-export const SECTION_C_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch9 — Points de contrôle et dommages de l’ADN */
+export const UE14_BIOCELL_CH9_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "MEDIUM",
@@ -698,50 +698,5 @@ export const SECTION_C_QUESTIONS: SeedQuestion[] = [
       }
     },
     "explanation": "Le SAC retarde l’activation d’APC/C-Cdc20 tant que subsistent des attachements incorrects."
-  }
-];
-
-export const SECTION_C_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 5,
-    "slug": "cycle-cellulaire-checkpoints-1",
-    "title": "Point de restriction et dommages de l’ADN",
-    "description": "Contrôles G1/S et réponses p53-p21/p16.",
-    "stage": "DISCOVER",
-    "sectionOrder": 3,
-    "questionOrders": [
-      45,
-      46,
-      47,
-      48,
-      49,
-      50,
-      51,
-      52,
-      53,
-      54
-    ]
-  },
-  {
-    "order": 6,
-    "slug": "cycle-cellulaire-checkpoints-2",
-    "title": "Contrôle G2/M et régulation de CDK1",
-    "description": "Raisonner sur Cdc25, Wee1, CAK et l’intégrité du génome.",
-    "stage": "PRACTICE",
-    "sectionOrder": 3,
-    "questionOrders": [
-      55,
-      56,
-      57,
-      58,
-      59,
-      60,
-      61,
-      62,
-      63,
-      64,
-      65,
-      66
-    ]
   }
 ];

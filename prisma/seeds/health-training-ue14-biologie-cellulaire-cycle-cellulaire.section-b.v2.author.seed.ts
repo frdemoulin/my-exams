@@ -1,7 +1,7 @@
-import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
+import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/** UE14 Biologie cellulaire — Ch9 — Cyclines, CDK et transitions — V2 active */
-export const SECTION_B_QUESTIONS: SeedQuestion[] = [
+/** UE14 Biologie cellulaire — Ch9 — Cyclines, CDK et transitions */
+export const UE14_BIOCELL_CH9_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "MEDIUM",
@@ -698,50 +698,5 @@ export const SECTION_B_QUESTIONS: SeedQuestion[] = [
       }
     ],
     "explanation": "La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
-  }
-];
-
-export const SECTION_B_QUIZZES: SeedQuiz[] = [
-  {
-    "order": 3,
-    "slug": "cycle-cellulaire-cyclines-1",
-    "title": "Cyclines D/E et progression G1/S",
-    "description": "Comprendre les premières transitions contrôlées par les cyclines et CDK.",
-    "stage": "DISCOVER",
-    "sectionOrder": 2,
-    "questionOrders": [
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32
-    ]
-  },
-  {
-    "order": 4,
-    "slug": "cycle-cellulaire-cyclines-2",
-    "title": "Cyclines A/B et entrée en mitose",
-    "description": "Relier réplication, CDK1 et protéolyse régulée.",
-    "stage": "PRACTICE",
-    "sectionOrder": 2,
-    "questionOrders": [
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41,
-      42,
-      43,
-      44
-    ]
   }
 ];
