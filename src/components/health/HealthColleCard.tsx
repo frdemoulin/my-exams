@@ -28,8 +28,11 @@ export function HealthColleCard({ colle, onStartClick }: HealthColleCardProps) {
               </Badge>
             ) : null}
           </div>
-          <p className="text-sm text-muted-foreground line-clamp-1">
+          <p className="text-xs text-muted-foreground line-clamp-1">
             Périmètre : <span className="text-body font-medium">{colle.dominantPerimeter}</span>
+          </p>
+          <p className="text-xs text-muted-foreground line-clamp-1">
+            Chapitres : <span className="text-body">{colle.chaptersSummary}</span>
           </p>
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground pt-0.5">
             <span>{colle.questionCount} questions</span>

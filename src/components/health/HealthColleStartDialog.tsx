@@ -40,8 +40,15 @@ export function HealthColleStartDialog({
           <DialogTitle className="text-xl font-bold text-heading">
             {colle.title}
           </DialogTitle>
-          <DialogDescription className="text-sm text-muted-foreground">
-            Périmètre : <span className="font-medium text-heading">{colle.dominantPerimeter}</span>
+          <DialogDescription asChild>
+            <div className="space-y-1 text-sm text-muted-foreground">
+              <p>
+                <span className="font-medium text-heading">Périmètre :</span> {colle.dominantPerimeter}
+              </p>
+              <p>
+                <span className="font-medium text-heading">Chapitres inclus :</span> {colle.chaptersSummary}
+              </p>
+            </div>
           </DialogDescription>
         </DialogHeader>
 

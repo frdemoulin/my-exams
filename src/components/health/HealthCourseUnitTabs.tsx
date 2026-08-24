@@ -244,22 +244,27 @@ export function HealthCourseUnitTabs({
                               {index + 1}
                             </td>
                             <td className="px-5 py-4 align-middle">
-                              <div className="space-y-0.5">
-                                <div className="flex flex-wrap items-center gap-2">
-                                  <span className="font-medium text-heading">
-                                    {colle.title}
-                                  </span>
-                                  <Badge variant="outline">{colle.badgeLabel}</Badge>
-                                  {colle.ecCode ? (
-                                    <Badge variant="secondary" className="text-xs">
-                                      {colle.ecCode}
-                                    </Badge>
-                                  ) : null}
+                                <div className="space-y-1">
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <span className="font-medium text-heading">
+                                      {colle.title}
+                                    </span>
+                                    <Badge variant="outline">{colle.badgeLabel}</Badge>
+                                    {colle.ecCode ? (
+                                      <Badge variant="secondary" className="text-xs">
+                                        {colle.ecCode}
+                                      </Badge>
+                                    ) : null}
+                                  </div>
+                                  <p className="text-xs text-muted-foreground">
+                                    <span className="font-medium text-heading">Périmètre :</span>{' '}
+                                    {colle.dominantPerimeter}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground">
+                                    <span className="font-medium text-heading">Chapitres inclus :</span>{' '}
+                                    {colle.chaptersSummary}
+                                  </p>
                                 </div>
-                                <p className="text-xs text-muted-foreground">
-                                  Périmètre : {colle.dominantPerimeter}
-                                </p>
-                              </div>
                             </td>
                             <td className="px-5 py-4 align-middle text-muted-foreground whitespace-nowrap">
                               {colle.questionCount} questions · {colle.durationLabel}

@@ -5,6 +5,7 @@ export type HealthColleV1 = {
   code: string; // e.g. 'C01'
   title: string;
   dominantPerimeter: string; // e.g. 'Chimie générale Ch1→4'
+  chaptersSummary: string; // e.g. 'Éléments chimiques & classification, liaisons & électronégativité...'
   questionCount: number;
   durationMinutes: number;
   durationLabel: string; // e.g. '30 min' or '37 min 30'

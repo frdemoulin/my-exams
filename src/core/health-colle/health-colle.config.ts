@@ -6,6 +6,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C01',
     title: 'Chimie — Fondamentaux',
     dominantPerimeter: 'Chimie générale Ch1→4',
+    chaptersSummary:
+      'Éléments chimiques & classification, liaisons & électronégativité, orbitales moléculaires, forces intermoléculaires.',
     questionCount: 20,
     durationMinutes: 30,
     durationLabel: '30 min',
@@ -19,6 +21,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C02',
     title: 'Biochimie — Glucides',
     dominantPerimeter: 'Biochimie Ch1→3',
+    chaptersSummary:
+      'Généralités et structure des glucides, oses simples et dérivés, osides.',
     questionCount: 20,
     durationMinutes: 30,
     durationLabel: '30 min',
@@ -32,6 +36,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C03',
     title: 'Biologie cellulaire — Architecture cellulaire',
     dominantPerimeter: 'Biocell Ch1→3',
+    chaptersSummary:
+      'Organisation et méthodes d’étude de la cellule, membrane plasmique & transports, cytosquelette.',
     questionCount: 20,
     durationMinutes: 30,
     durationLabel: '30 min',
@@ -45,6 +51,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C04',
     title: 'Chimie — Des atomes aux molécules organiques',
     dominantPerimeter: 'Chimie générale + Orga 2.1→2.3',
+    chaptersSummary:
+      'Chimie générale (Ch1→4), nomenclature & fonctions, isomérie & énantiomérie, hydrocarbures.',
     questionCount: 25,
     durationMinutes: 37.5,
     durationLabel: '37 min 30',
@@ -58,6 +66,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C05',
     title: 'Biochimie — Lipides',
     dominantPerimeter: 'Biochimie Ch4→8 + rappels Ch1→3',
+    chaptersSummary:
+      'Introduction aux lipides & acides gras, eicosanoïdes, glycérides, sphingolipides, stérols/stéroïdes + rappels glucides.',
     questionCount: 25,
     durationMinutes: 37.5,
     durationLabel: '37 min 30',
@@ -71,6 +81,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C06',
     title: 'Biologie cellulaire — Trafic et compartiments',
     dominantPerimeter: 'Biocell Ch4→6 + rappels Ch1→3',
+    chaptersSummary:
+      'Système endomembranaire (flux vésiculaires, RE, Golgi, lysosomes), peroxysomes + rappels Ch1→3.',
     questionCount: 20,
     durationMinutes: 30,
     durationLabel: '30 min',
@@ -84,6 +96,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C07',
     title: 'Chimie — Fonctions et réactivité',
     dominantPerimeter: 'Chimie générale + Orga 2.1→2.5',
+    chaptersSummary:
+      'Dérivés monofonctionnels (alcools, amines, halogénés), esters & amides, aldéhydes & cétones + synthèse chimie générale.',
     questionCount: 25,
     durationMinutes: 37.5,
     durationLabel: '37 min 30',
@@ -97,6 +111,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C08',
     title: 'Biochimie — Acides aminés et protéines',
     dominantPerimeter: 'Biochimie Ch9→12 + acquis antérieurs',
+    chaptersSummary:
+      'Structure et rôles des acides aminés, peptides et protéines (parties 1 et 2) + rappels glucides et lipides.',
     questionCount: 25,
     durationMinutes: 37.5,
     durationLabel: '37 min 30',
@@ -110,6 +126,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C09',
     title: 'Biologie cellulaire — Cellule intégrée',
     dominantPerimeter: 'Biocell Ch7→9 + rappels Ch1→6',
+    chaptersSummary:
+      'La mitochondrie, le noyau et le cycle cellulaire + rappels compartiments et architecture cellulaire.',
     questionCount: 25,
     durationMinutes: 37.5,
     durationLabel: '37 min 30',
@@ -123,6 +141,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C10',
     title: 'Chimie — Colle cumulative EC',
     dominantPerimeter: 'Toute la chimie générale + toute l’organique',
+    chaptersSummary:
+      'Ensemble de la chimie générale (Ch1→4) et de la chimie organique (Ch1→8).',
     questionCount: 30,
     durationMinutes: 45,
     durationLabel: '45 min',
@@ -136,6 +156,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C11',
     title: 'Biochimie — Colle cumulative EC',
     dominantPerimeter: 'Biochimie Ch13→15 + Ch1→12',
+    chaptersSummary:
+      'Ensemble de la biochimie : Glucides, Lipides, Protéines et Enzymologie (15 chapitres).',
     questionCount: 30,
     durationMinutes: 45,
     durationLabel: '45 min',
@@ -149,6 +171,8 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     code: 'C12',
     title: 'Grande colle UE14',
     dominantPerimeter: 'Chimie + Biochimie + Biologie cellulaire',
+    chaptersSummary:
+      'Épreuve transversale globale couvrant l’ensemble des 3 EC (Chimie, Biochimie, Biologie cellulaire).',
     questionCount: 50,
     durationMinutes: 75,
     durationLabel: '75 min (1 h 15)',
