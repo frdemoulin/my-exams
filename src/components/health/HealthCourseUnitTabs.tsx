@@ -273,12 +273,7 @@ export function HealthCourseUnitTabs({
 
         <TabItem
           active={activeTabIndex === evaluationsTabIndex}
-          title={
-            <span className="inline-flex items-center gap-2">
-              <span>Évaluations</span>
-              <Badge variant="outline">{HEALTH_COLLES_UE14_V1.length} colles</Badge>
-            </span>
-          }
+          title="Évaluations"
         >
           <div className="space-y-4">
             {/* Section 1: Colles */}
