@@ -1,650 +1,702 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch1 — Généralités sur la cellule */
 export const UE14_CELL_CH1_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de « la définition de la cellule », quelles affirmations sont conformes à la fiche ?",
+    "format": "QRU",
+    "question": "À propos de « Définition et diversité des cellules », repérez la seule affirmation correcte.",
     "choices": [
       {
-        "content": "La cellule est présentée comme la plus petite unité vivante.",
-        "correct": true,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
-      },
-      {
-        "content": "La cellule est décrite comme une structure sans frontière avec le milieu extérieur.",
+        "content": "La membrane plasmique est absente des cellules procaryotes.",
         "correct": false,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
-      },
-      {
-        "content": "La cellule est limitée par une membrane séparant l’intérieur de l’extérieur.",
-        "correct": true,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
       },
       {
         "content": "Seuls les organismes pluricellulaires sont constitués de cellules.",
         "correct": false,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "La cellule constitue l’unité structurale et fonctionnelle fondamentale des organismes vivants.",
+        "correct": true,
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Toutes les cellules vivantes possèdent exactement la même structure interne.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Toute cellule eucaryote mature possède obligatoirement un noyau.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
       }
     ],
-    "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+    "explanation": "La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
   },
   {
     "order": 2,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « les principaux éléments chimiques cellulaires », laquelle est correcte ?",
-    "choices": [
-      {
-        "content": "L’assemblage de ces atomes contribue à former des macromolécules.",
-        "correct": true,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "Le sodium, le potassium, le calcium et le chlore sont les quatre seuls éléments cités.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "Les macromolécules ne contiennent aucun des quatre éléments principaux.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "L’hélium remplace l’hydrogène parmi les quatre éléments principaux de la fiche.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+    "format": "QROC",
+    "question": "Comment nomme-t-on l’unité structurale et fonctionnelle fondamentale du vivant ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cellule",
+        "la cellule"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+    },
+    "explanation": "La cellule constitue l’unité fondamentale du vivant."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QROC",
-    "question": "Réponse numérique : quel pourcentage de la cellule est attribué à l’eau dans la fiche ?",
-    "answer": {
-      "type": "number",
-      "value": 70,
-      "tolerance": 0
-    },
-    "explanation": "Le repère local est environ 70 % d’eau."
+    "format": "QRU",
+    "question": "Dans le cadre de « Composition chimique cellulaire », identifiez l’affirmation correcte.",
+    "choices": [
+      {
+        "content": "L’eau représente généralement la fraction majoritaire de la masse d’une cellule.",
+        "correct": true,
+        "explanation": "Exact. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
+      },
+      {
+        "content": "Les lipides ne participent pas à la structure cellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
+      },
+      {
+        "content": "Les cellules sont constituées uniquement de carbone, hydrogène, oxygène et azote.",
+        "correct": false,
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
+      },
+      {
+        "content": "Toute cellule contient exactement 70,0 % d’eau quelles que soient ses conditions.",
+        "correct": false,
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
+      },
+      {
+        "content": "Les ions minéraux sont absents du milieu intracellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
+      }
+    ],
+    "explanation": "L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
   },
   {
     "order": 4,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « les proportions de macromolécules indiquées dans la fiche » est juste ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Compartiments et structures cellulaires », lesquelles sont incorrectes ?",
     "choices": [
       {
-        "content": "La fiche cite environ 15 % de protéines.",
+        "content": "Le cytosquelette est une structure rigide et définitivement immobile.",
         "correct": true,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "La fiche cite 50 % d’ADN.",
-        "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "content": "Les ribosomes fonctionnels responsables de la traduction sont enfermés dans le nucléoplasme.",
+        "correct": true,
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "Les protéines sont données à 1 % et l’ADN à 15 %.",
-        "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "content": "L’appareil de Golgi est une structure extracellulaire.",
+        "correct": true,
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "La fiche donne 20 % de lipides et 20 % de sucres.",
+        "content": "Le cytosol correspond à la phase aqueuse du cytoplasme dans laquelle baignent de nombreuses structures cellulaires.",
         "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "explanation": "Exact. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
+      },
+      {
+        "content": "Les mitochondries sont dépourvues de membrane.",
+        "correct": true,
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       }
     ],
-    "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+    "explanation": "Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire. Ici, il fallait sélectionner les affirmations incorrectes."
   },
   {
     "order": 5,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles affirmations décrivent correctement « les grandes structures cellulaires » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Concernant « Spécialisation cellulaire : hématie et entérocyte », choisissez exactement 3 affirmations correctes.",
     "choices": [
       {
-        "content": "Elle cite centrosomes, appareil de Golgi, REL, RER, lysosomes et mitochondries.",
-        "correct": true,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
-      },
-      {
-        "content": "Les mitochondries sont présentées comme des structures extracellulaires.",
+        "content": "L’hématie humaine mature possède de nombreuses microvillosités apicales.",
         "correct": false,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Incorrect. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       },
       {
-        "content": "Elle cite le noyau parmi les grandes structures cellulaires.",
+        "content": "L’hématie humaine mature ne possède ni noyau ni mitochondries.",
         "correct": true,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       },
       {
-        "content": "Le noyau est décrit comme absent de toute cellule eucaryote.",
+        "content": "L’hématie humaine mature présente une forme de disque biconcave favorisant les échanges gazeux et la déformabilité.",
+        "correct": true,
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
+      },
+      {
+        "content": "L’entérocyte est une cellule épithéliale polarisée de l’intestin.",
+        "correct": true,
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
+      },
+      {
+        "content": "L’hématie humaine mature est une cellule nucléée riche en réticulum endoplasmique.",
         "correct": false,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Incorrect. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       }
     ],
-    "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+    "explanation": "La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
   },
   {
     "order": 6,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « les fonctions générales de la cellule » ?",
+    "question": "Pour « Fonctions et étapes de la vie cellulaire », quelle proposition doit être retenue ?",
     "choices": [
       {
-        "content": "Réponse aux stimuli, communication et transport intracellulaire sont également cités.",
+        "content": "Une cellule réalise en permanence des réactions de synthèse et de dégradation moléculaires.",
         "correct": true,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Exact. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       },
       {
-        "content": "La cellule ne transporte aucune molécule en son sein.",
+        "content": "La différenciation impose toujours une prolifération infinie.",
         "correct": false,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Incorrect. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       },
       {
-        "content": "La fiche limite les fonctions cellulaires à la seule production d’ADN.",
+        "content": "Une cellule ne transporte jamais de molécules entre ses compartiments.",
         "correct": false,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Incorrect. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       },
       {
-        "content": "La communication cellulaire est explicitement exclue.",
+        "content": "La migration est impossible pour les cellules animales.",
         "correct": false,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Incorrect. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
+      },
+      {
+        "content": "La communication cellulaire est inutile chez les organismes pluricellulaires.",
+        "correct": false,
+        "explanation": "Incorrect. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       }
     ],
-    "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+    "explanation": "Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
   },
   {
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Selon la fiche, quelles propositions concernant « les étapes de la vie cellulaire citées » sont correctes ?",
+    "question": "Quelles propositions sont exactes concernant « Microscopies et observation de la cellule » ?",
     "choices": [
       {
-        "content": "La croissance et la division sont citées.",
-        "correct": true,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
-      },
-      {
-        "content": "La fiche ne cite que la division et exclut la différenciation.",
+        "content": "La MET est la technique standard pour suivre pendant plusieurs heures une cellule vivante non préparée.",
         "correct": false,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
+        "explanation": "Incorrect. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
       },
       {
-        "content": "La différenciation et la migration sont citées.",
+        "content": "La microscopie électronique à balayage renseigne surtout sur la topographie de surface.",
         "correct": true,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
+        "explanation": "Exact. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
       },
       {
-        "content": "La migration est décrite comme impossible pour toute cellule.",
-        "correct": false,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
+        "content": "La microscopie à fluorescence détecte des fluorophores excités par une lumière adaptée.",
+        "correct": true,
+        "explanation": "Exact. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
+      },
+      {
+        "content": "La microscopie électronique en transmission permet d’étudier l’ultrastructure interne de coupes fines.",
+        "correct": true,
+        "explanation": "Exact. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
+      },
+      {
+        "content": "Un microscope optique inversé place les objectifs sous le récipient de culture et facilite l’observation de cellules adhérentes.",
+        "correct": true,
+        "explanation": "Exact. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
       }
     ],
-    "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
+    "explanation": "La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "À propos de « l’hématie et l’entérocyte comme exemples de spécialisation », quelle proposition est juste ?",
-    "choices": [
-      {
-        "content": "L’entérocyte possède un pôle apical bordé de microvillosités.",
-        "correct": true,
-        "explanation": "La morphologie cellulaire est reliée à la fonction ; l’entérocyte est l’exemple d’une cellule absorbante."
-      },
-      {
-        "content": "L’entérocyte est présenté comme une cellule circulante du sang.",
-        "correct": false,
-        "explanation": "La morphologie cellulaire est reliée à la fonction ; l’entérocyte est l’exemple d’une cellule absorbante."
-      },
-      {
-        "content": "Les microvillosités diminuent l’absorption des nutriments.",
-        "correct": false,
-        "explanation": "La morphologie cellulaire est reliée à la fonction ; l’entérocyte est l’exemple d’une cellule absorbante."
-      },
-      {
-        "content": "La fiche attribue les microvillosités intestinales à l’hématie.",
-        "correct": false,
-        "explanation": "La morphologie cellulaire est reliée à la fonction ; l’entérocyte est l’exemple d’une cellule absorbante."
+    "format": "QROC",
+    "question": "Quel terme décrit la forme caractéristique de l’hématie humaine mature ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "biconcave",
+        "disque biconcave",
+        "forme biconcave"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La morphologie cellulaire est reliée à la fonction ; l’entérocyte est l’exemple d’une cellule absorbante."
+    },
+    "explanation": "L’hématie mature est un disque biconcave très déformable."
   },
   {
     "order": 9,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Au sujet de « la définition de la cellule », quelles propositions sont correctes ?",
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix affirmations suivantes sur « Définition et diversité des cellules », cinq sont exactes : sélectionnez-les.",
     "choices": [
       {
-        "content": "Les êtres pluricellulaires comportent plusieurs types cellulaires organisés en tissus.",
+        "content": "Toute cellule est délimitée par une membrane plasmique qui sépare le milieu intracellulaire du milieu extracellulaire.",
         "correct": true,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
       },
       {
-        "content": "Un tissu est constitué d’un unique type de macromolécule.",
-        "correct": false,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
-      },
-      {
-        "content": "La cellule est présentée comme la plus petite unité vivante.",
+        "content": "Une cellule peut rester une cellule malgré l’absence de noyau, comme l’hématie humaine mature.",
         "correct": true,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
       },
       {
-        "content": "La cellule est décrite comme une structure sans frontière avec le milieu extérieur.",
+        "content": "Dans ce cadre, la membrane plasmique est absente des cellules procaryotes.",
         "correct": false,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Une cellule est définie par la présence obligatoire de mitochondries.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "La forme d’une cellule peut être étroitement liée à sa fonction biologique.",
+        "correct": true,
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Un organisme pluricellulaire comporte des types cellulaires spécialisés dont la structure est adaptée à la fonction.",
+        "correct": true,
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "La spécialisation cellulaire n’entraîne aucune différence morphologique entre types cellulaires.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Les cellules procaryotes et eucaryotes partagent certains principes d’organisation mais n’ont pas la même architecture interne.",
+        "correct": true,
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Les cellules d’un même tissu ont nécessairement une forme et une fonction parfaitement identiques.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Dans ce cadre, toute cellule eucaryote mature possède obligatoirement un noyau.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
       }
     ],
-    "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+    "explanation": "La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
   },
   {
     "order": 10,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « les principaux éléments chimiques cellulaires » ?",
+    "format": "QRM",
+    "question": "Quelles affirmations décrivent correctement « Composition chimique cellulaire » ?",
     "choices": [
       {
-        "content": "Les quatre éléments principaux cités sont le carbone, l’hydrogène, l’oxygène et l’azote.",
+        "content": "Dans ce cadre, les ions minéraux sont absents du milieu intracellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
+      },
+      {
+        "content": "Le carbone, l’hydrogène, l’oxygène et l’azote sont des éléments majeurs de la matière cellulaire.",
         "correct": true,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+        "explanation": "Exact. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       },
       {
-        "content": "L’hélium remplace l’hydrogène parmi les quatre éléments principaux de la fiche.",
+        "content": "L’ADN représente nécessairement la majorité de la masse sèche de toute cellule.",
         "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       },
       {
-        "content": "Le sodium, le potassium, le calcium et le chlore sont les quatre seuls éléments cités.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+        "content": "Le phosphore et le soufre participent également à la composition de nombreuses biomolécules.",
+        "correct": true,
+        "explanation": "Exact. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       },
       {
-        "content": "Les macromolécules ne contiennent aucun des quatre éléments principaux.",
+        "content": "Dans ce cadre, les lipides ne participent pas à la structure cellulaire.",
         "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       }
     ],
-    "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+    "explanation": "L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
   },
   {
     "order": 11,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application concernant « la proportion d’eau dans la cellule selon la fiche », quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "La fraction non aqueuse est présentée autour de 30 %.",
-        "correct": true,
-        "explanation": "Le repère local est environ 70 % d’eau."
-      },
-      {
-        "content": "L’eau représente moins de 5 % de la cellule.",
-        "correct": false,
-        "explanation": "Le repère local est environ 70 % d’eau."
-      },
-      {
-        "content": "L’eau représente la fraction majoritaire dans le schéma de composition.",
-        "correct": true,
-        "explanation": "Le repère local est environ 70 % d’eau."
-      },
-      {
-        "content": "La fiche affirme que la cellule ne contient pas d’eau.",
-        "correct": false,
-        "explanation": "Le repère local est environ 70 % d’eau."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Comment nomme-t-on les expansions apicales qui augmentent la surface d’absorption de l’entérocyte ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "microvillosités",
+        "microvillosites"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le repère local est environ 70 % d’eau."
+    },
+    "explanation": "Les microvillosités apicales augmentent la surface d’échange de l’entérocyte."
   },
   {
     "order": 12,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « les proportions de macromolécules indiquées dans la fiche » ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Compartiments et structures cellulaires ».",
     "choices": [
       {
-        "content": "Elle cite environ 1 % d’ADN.",
+        "content": "Les mitochondries participent notamment à la production d’ATP par phosphorylation oxydative.",
         "correct": true,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "explanation": "Exact. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "La fiche donne 20 % de lipides et 20 % de sucres.",
+        "content": "Les mitochondries sont dépourvues de membrane.",
         "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "La fiche cite 50 % d’ADN.",
-        "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "content": "Le réticulum endoplasmique et l’appareil de Golgi participent à la synthèse et au trafic de nombreuses protéines et lipides.",
+        "correct": true,
+        "explanation": "Exact. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "Les protéines sont données à 1 % et l’ADN à 15 %.",
+        "content": "Le cytosquelette est une structure rigide et définitivement immobile.",
         "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
+      },
+      {
+        "content": "Le cytosquelette contribue à la forme, à l’organisation interne et aux mouvements cellulaires.",
+        "correct": true,
+        "explanation": "Exact. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       }
     ],
-    "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+    "explanation": "Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
   },
   {
     "order": 13,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Pour appliquer les notions sur « les grandes structures cellulaires », quelles propositions faut-il retenir ?",
+    "question": "Quelles propositions sont exactes concernant « Spécialisation cellulaire : hématie et entérocyte » ?",
     "choices": [
       {
-        "content": "La fiche cite membrane, cytoplasme et cytosquelette.",
+        "content": "L’entérocyte est une cellule épithéliale polarisée de l’intestin.",
         "correct": true,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       },
       {
-        "content": "La fiche exclut le cytosquelette de la cellule.",
+        "content": "Le pôle apical de l’entérocyte est orienté vers le tissu conjonctif sous-jacent.",
         "correct": false,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Incorrect. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       },
       {
-        "content": "Elle cite centrosomes, appareil de Golgi, REL, RER, lysosomes et mitochondries.",
+        "content": "L’hématie humaine mature ne possède ni noyau ni mitochondries.",
         "correct": true,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       },
       {
-        "content": "Les mitochondries sont présentées comme des structures extracellulaires.",
+        "content": "Les microvillosités réduisent la surface d’échange de l’entérocyte.",
         "correct": false,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Incorrect. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
+      },
+      {
+        "content": "L’entérocyte est une cellule circulante du sang.",
+        "correct": false,
+        "explanation": "Incorrect. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       }
     ],
-    "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+    "explanation": "La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « les fonctions générales de la cellule », laquelle est correcte ?",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Fonctions et étapes de la vie cellulaire », lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "La production d’énergie et les échanges avec l’extérieur sont cités.",
+        "content": "La production et l’utilisation d’énergie sont indispensables au fonctionnement cellulaire.",
         "correct": true,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Exact. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       },
       {
-        "content": "La communication cellulaire est explicitement exclue.",
-        "correct": false,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "content": "La signalisation cellulaire permet à une cellule de répondre à des stimuli.",
+        "correct": true,
+        "explanation": "Exact. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       },
       {
-        "content": "La cellule ne transporte aucune molécule en son sein.",
+        "content": "La migration est impossible pour les cellules animales.",
         "correct": false,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Incorrect. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       },
       {
-        "content": "La fiche limite les fonctions cellulaires à la seule production d’ADN.",
+        "content": "Les cellules échangent de la matière et de l’information avec leur environnement.",
+        "correct": true,
+        "explanation": "Exact. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
+      },
+      {
+        "content": "La différenciation impose toujours une prolifération infinie.",
         "correct": false,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Incorrect. Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
       }
     ],
-    "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+    "explanation": "Les cellules synthétisent et dégradent des molécules, produisent et utilisent de l’énergie, échangent, communiquent et répondent aux signaux. Ces fonctions sous-tendent croissance, prolifération, différenciation, migration et mort cellulaire."
   },
   {
     "order": 15,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quels repères sur « les étapes de la vie cellulaire citées » sont utiles dans une situation d’application ?",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Sur le thème « Microscopies et observation de la cellule », quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La mort cellulaire figure parmi les étapes listées.",
-        "correct": true,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
-      },
-      {
-        "content": "La mort cellulaire est exclue de la vie des tissus.",
+        "content": "Les électrons d’un MET traversent directement une cellule vivante dans son milieu de culture habituel.",
         "correct": false,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
+        "explanation": "Incorrect. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
       },
       {
-        "content": "La croissance et la division sont citées.",
-        "correct": true,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
-      },
-      {
-        "content": "La fiche ne cite que la division et exclut la différenciation.",
+        "content": "La fluorescence ne nécessite jamais de molécule ou protéine fluorescente.",
         "correct": false,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
+        "explanation": "Incorrect. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
+      },
+      {
+        "content": "La microscopie optique offre toujours une meilleure résolution que la microscopie électronique.",
+        "correct": false,
+        "explanation": "Incorrect. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
+      },
+      {
+        "content": "La microscopie à fluorescence détecte des fluorophores excités par une lumière adaptée.",
+        "correct": true,
+        "explanation": "Exact. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
+      },
+      {
+        "content": "Un microscope inversé ne peut pas être utilisé pour des cellules en culture.",
+        "correct": false,
+        "explanation": "Incorrect. La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
       }
     ],
-    "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
+    "explanation": "La microscopie optique permet notamment l’observation de cellules vivantes et de signaux fluorescents. Le microscope inversé est pratique pour les cultures adhérentes. La MET explore l’ultrastructure interne et la MEB la topographie de surface ; la microscopie électronique standard n’observe pas des cellules vivantes."
   },
   {
     "order": 16,
-    "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Application — Quels sont, sous forme de symboles séparés par des virgules, les quatre éléments principaux cités dans la fiche ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "C,H,O,N",
-        "C, H, O, N",
-        "CHON",
-        "C H O N"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sur le thème « Définition et diversité des cellules », sélectionnez exactement 2 propositions exactes.",
+    "choices": [
+      {
+        "content": "Un organisme pluricellulaire comporte des types cellulaires spécialisés dont la structure est adaptée à la fonction.",
+        "correct": true,
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Les cellules procaryotes et eucaryotes partagent certains principes d’organisation mais n’ont pas la même architecture interne.",
+        "correct": true,
+        "explanation": "Exact. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Les cellules d’un même tissu ont nécessairement une forme et une fonction parfaitement identiques.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "La spécialisation cellulaire n’entraîne aucune différence morphologique entre types cellulaires.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
+      },
+      {
+        "content": "Une cellule est définie par la présence obligatoire de mitochondries.",
+        "correct": false,
+        "explanation": "Incorrect. La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
       }
-    },
-    "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+    ],
+    "explanation": "La cellule est l’unité structurale et fonctionnelle fondamentale du vivant. Toutes les cellules sont limitées par une membrane plasmique, mais leur organisation interne varie fortement, notamment entre procaryotes et eucaryotes et selon la spécialisation cellulaire."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application raisonnée de « la définition de la cellule » : quelles propositions sont correctes ?",
+    "question": "Pour le thème « Composition chimique cellulaire », quelles propositions doivent être retenues ?",
     "choices": [
       {
-        "content": "La cellule est limitée par une membrane séparant l’intérieur de l’extérieur.",
+        "content": "Les ions et petites molécules participent au fonctionnement cellulaire même s’ils ne sont pas des macromolécules.",
         "correct": true,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Exact. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       },
       {
-        "content": "Seuls les organismes pluricellulaires sont constitués de cellules.",
+        "content": "L’ADN représente nécessairement la majorité de la masse sèche de toute cellule.",
         "correct": false,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       },
       {
-        "content": "Les êtres pluricellulaires comportent plusieurs types cellulaires organisés en tissus.",
+        "content": "Les protéines, acides nucléiques, lipides et glucides contribuent à la composition de la cellule.",
         "correct": true,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Exact. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       },
       {
-        "content": "Un tissu est constitué d’un unique type de macromolécule.",
+        "content": "Le phosphore et le soufre participent également à la composition de nombreuses biomolécules.",
+        "correct": true,
+        "explanation": "Exact. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
+      },
+      {
+        "content": "La composition d’une cellule est rigoureusement identique dans tous les tissus.",
         "correct": false,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+        "explanation": "Incorrect. L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
       }
     ],
-    "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
+    "explanation": "L’eau constitue généralement la majeure partie de la masse cellulaire. Les biomolécules reposent surtout sur C, H, O et N, auxquels s’ajoutent notamment P, S, ions et petites molécules ; les proportions exactes varient selon le type cellulaire et les conditions."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « les principaux éléments chimiques cellulaires » ?",
-    "choices": [
-      {
-        "content": "La fiche abrège implicitement ce quatuor par les éléments C, H, O et N.",
-        "correct": true,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "Les macromolécules ne contiennent aucun des quatre éléments principaux.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "L’hélium remplace l’hydrogène parmi les quatre éléments principaux de la fiche.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "Le sodium, le potassium, le calcium et le chlore sont les quatre seuls éléments cités.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+    "format": "QROC",
+    "question": "Quel type de microscopie électronique explore surtout la topographie de surface : MEB ou MET ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "MEB",
+        "microscopie électronique à balayage",
+        "microscopie electronique a balayage"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
+    },
+    "explanation": "La MEB renseigne principalement sur la surface de l’échantillon."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « la définition de la cellule » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "format": "QRU",
+    "question": "Concernant « Compartiments et structures cellulaires », quelle est l’unique proposition exacte ?",
     "choices": [
       {
-        "content": "La cellule est présentée comme la plus petite unité vivante.",
-        "correct": true,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
-      },
-      {
-        "content": "L’assemblage de ces atomes contribue à former des macromolécules.",
-        "correct": true,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "L’eau représente la fraction majoritaire dans le schéma de composition.",
-        "correct": true,
-        "explanation": "Le repère local est environ 70 % d’eau."
-      },
-      {
-        "content": "La fiche cite 50 % d’ADN.",
+        "content": "Le noyau est le site principal de traduction des protéines cytosoliques.",
         "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "Les mitochondries sont présentées comme des structures extracellulaires.",
+        "content": "Les ribosomes fonctionnels responsables de la traduction sont enfermés dans le nucléoplasme.",
         "correct": false,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       },
       {
-        "content": "La cellule ne transporte aucune molécule en son sein.",
+        "content": "Le cytosol est synonyme exact de l’ensemble du cytoplasme, organites compris.",
         "correct": false,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
+      },
+      {
+        "content": "Dans ce cadre, le réticulum endoplasmique et l’appareil de Golgi participent à la synthèse et au trafic de nombreuses protéines et lipides.",
+        "correct": true,
+        "explanation": "Exact. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
+      },
+      {
+        "content": "Le réticulum endoplasmique n’a aucun lien avec le trafic intracellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    "explanation": "Une cellule eucaryote associe membrane plasmique, cytosol, cytosquelette et divers organites. Les compartiments ont des fonctions spécialisées ; les ribosomes assurent la traduction dans le cytosol ou à la surface du RER, alors que le noyau contient l’essentiel du génome nucléaire."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "À propos de « les proportions de macromolécules indiquées dans la fiche », quelle proposition est juste ?",
-    "choices": [
-      {
-        "content": "Elle cite environ 2 % de lipides et 2 % de sucres.",
-        "correct": true,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
-      },
-      {
-        "content": "Les protéines sont données à 1 % et l’ADN à 15 %.",
-        "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
-      },
-      {
-        "content": "La fiche donne 20 % de lipides et 20 % de sucres.",
-        "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
-      },
-      {
-        "content": "La fiche cite 50 % d’ADN.",
-        "correct": false,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+    "format": "QROC",
+    "question": "Quel type de microscopie électronique utilise des électrons transmis à travers une coupe fine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "MET",
+        "microscopie électronique en transmission",
+        "microscopie electronique en transmission"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
+    },
+    "explanation": "La MET est adaptée à l’ultrastructure interne sur coupes fines."
   },
   {
     "order": 21,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Mise en application de « les grandes structures cellulaires » : quelles affirmations sont justes ?",
+    "question": "À propos de « Spécialisation cellulaire : hématie et entérocyte », sélectionnez les propositions exactes.",
     "choices": [
       {
-        "content": "Elle cite le noyau parmi les grandes structures cellulaires.",
-        "correct": true,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
-      },
-      {
-        "content": "Le noyau est décrit comme absent de toute cellule eucaryote.",
+        "content": "Dans ce cadre, le pôle apical de l’entérocyte est orienté vers le tissu conjonctif sous-jacent.",
         "correct": false,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Incorrect. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       },
       {
-        "content": "La fiche cite membrane, cytoplasme et cytosquelette.",
+        "content": "Les microvillosités augmentent la surface disponible pour l’absorption intestinale.",
         "correct": true,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       },
       {
-        "content": "La fiche exclut le cytosquelette de la cellule.",
-        "correct": false,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+        "content": "Les microvillosités sont situées au pôle apical de l’entérocyte.",
+        "correct": true,
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
+      },
+      {
+        "content": "Dans ce cadre, l’entérocyte est une cellule épithéliale polarisée de l’intestin.",
+        "correct": true,
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
+      },
+      {
+        "content": "La polarité de l’entérocyte contribue à orienter les échanges entre lumière intestinale et milieu intérieur.",
+        "correct": true,
+        "explanation": "Exact. La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
       }
     ],
-    "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
+    "explanation": "La spécialisation associe morphologie et fonction. L’hématie humaine mature est un disque biconcave très déformable, tandis que l’entérocyte possède au pôle apical des microvillosités qui augmentent fortement la surface d’échange."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « la définition de la cellule » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La fiche cite environ 15 % de protéines.",
-        "correct": true,
-        "explanation": "Les valeurs 15 % protéines, 2 % lipides, 2 % sucres et 1 % ADN sont des repères propres à la fiche."
-      },
-      {
-        "content": "Elle cite centrosomes, appareil de Golgi, REL, RER, lysosomes et mitochondries.",
-        "correct": true,
-        "explanation": "La fiche dresse un panorama introductif des grands compartiments et structures."
-      },
-      {
-        "content": "Réponse aux stimuli, communication et transport intracellulaire sont également cités.",
-        "correct": true,
-        "explanation": "Le support présente plusieurs fonctions générales nécessaires à la vie cellulaire."
-      },
-      {
-        "content": "La croissance et la division sont citées.",
-        "correct": true,
-        "explanation": "La fiche relie les fonctions cellulaires à croissance, division, différenciation, migration et mort."
-      },
-      {
-        "content": "L’entérocyte possède un pôle apical bordé de microvillosités.",
-        "correct": true,
-        "explanation": "La morphologie cellulaire est reliée à la fonction ; l’entérocyte est l’exemple d’une cellule absorbante."
-      },
-      {
-        "content": "Un tissu est constitué d’un unique type de macromolécule.",
-        "correct": false,
-        "explanation": "La fiche définit la cellule comme la plus petite unité vivante, délimitée par une membrane."
-      },
-      {
-        "content": "L’hélium remplace l’hydrogène parmi les quatre éléments principaux de la fiche.",
-        "correct": false,
-        "explanation": "Le support cite C, H, O et N comme composants chimiques principaux."
-      },
-      {
-        "content": "L’eau représente moins de 5 % de la cellule.",
-        "correct": false,
-        "explanation": "Le repère local est environ 70 % d’eau."
+    "format": "QROC",
+    "question": "Comment appelle-t-on un microscope dont les objectifs sont placés sous le récipient de culture ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "microscope inversé",
+        "microscope inverse",
+        "microscopie inversée",
+        "microscopie inversee"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    },
+    "explanation": "Le microscope inversé est particulièrement pratique pour les cultures adhérentes."
   }
 ];

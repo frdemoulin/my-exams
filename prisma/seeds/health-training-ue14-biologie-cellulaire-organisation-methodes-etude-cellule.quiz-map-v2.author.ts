@@ -1,12 +1,11 @@
-/** Cartographie éditoriale V2 — auteur */
-
+/** Cartographie éditoriale V2 — auteur — Ch1 refonte finale */
 export const UE14_CELL_CH1_V2_QUIZ_MAP = [
   {
     "sectionOrder": 1,
     "order": 1,
     "slug": "section-a-discovery-generalites-cellule",
     "title": "Repères sur l’organisation cellulaire",
-    "description": "Définition, composition chimique, grandes structures et fonctions de la cellule.",
+    "description": "Définition, composition, structures, spécialisation et méthodes d’observation.",
     "stage": "DISCOVER",
     "questionOrders": [
       1,
@@ -25,8 +24,8 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "sectionOrder": 1,
     "order": 2,
     "slug": "section-a-practice-composition-fonctions-cellule",
-    "title": "Organisation, composition et fonctions cellulaires",
-    "description": "Applications sur les repères quantitatifs et la spécialisation cellulaire.",
+    "title": "Organisation, fonctions et spécialisation cellulaires",
+    "description": "Applications sur composition, compartiments, fonctions et microscopies.",
     "stage": "PRACTICE",
     "questionOrders": [
       11,
@@ -48,7 +47,7 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "order": 1,
     "slug": "section-b-discovery-culture-cellulaire-principes",
     "title": "Principes de culture cellulaire",
-    "description": "Conditions de culture, observation, PSM, cryothèque et culture primaire.",
+    "description": "Milieux, incubation, asepsie, culture primaire et observation.",
     "stage": "DISCOVER",
     "questionOrders": [
       23,
@@ -67,8 +66,8 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "sectionOrder": 2,
     "order": 2,
     "slug": "section-b-practice-passages-lignees-cellulaires",
-    "title": "Cultures primaires, passages et lignées",
-    "description": "Confluence, passages successifs, cultures normales et lignées immortelles.",
+    "title": "Passages, sénescence, lignées et cryoconservation",
+    "description": "Confluence, passages, lignées établies et banque cellulaire.",
     "stage": "PRACTICE",
     "questionOrders": [
       33,
@@ -90,7 +89,7 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "order": 1,
     "slug": "section-c-discovery-explants-modeles",
     "title": "Explants et cellules dissociées",
-    "description": "Explant, cellules dissociées et intérêt de ces modèles.",
+    "description": "Explant, dissociation et culture en monocouche.",
     "stage": "DISCOVER",
     "questionOrders": [
       45,
@@ -110,7 +109,7 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "order": 2,
     "slug": "section-c-practice-modeles-2d-3d-air-liquide",
     "title": "Modèles 2D, 3D et interface air-liquide",
-    "description": "Comparer monocouche 2D, modèles 3D et interface air-liquide.",
+    "description": "Comparer les modèles et leurs limites expérimentales.",
     "stage": "PRACTICE",
     "questionOrders": [
       55,
@@ -131,8 +130,8 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "sectionOrder": 4,
     "order": 1,
     "slug": "section-d-discovery-marquages-moleculaires",
-    "title": "Méthodes de marquage moléculaire",
-    "description": "Repères sur les quatre stratégies de localisation moléculaire.",
+    "title": "Principes des marquages moléculaires",
+    "description": "Anticorps, fixation, fluorophores, immunogold et sondes nucléiques.",
     "stage": "DISCOVER",
     "questionOrders": [
       67,
@@ -151,8 +150,8 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "sectionOrder": 4,
     "order": 2,
     "slug": "section-d-practice-immunomarquage-gfp-hybridation",
-    "title": "Choisir et interpréter un marquage moléculaire",
-    "description": "Applications sur anticorps, sondes, GFP, transfection, électroporation et micro-injection.",
+    "title": "Immunomarquage, hybridation et protéines fluorescentes",
+    "description": "Choisir et interpréter immunofluorescence, FISH, GFP et méthodes de délivrance.",
     "stage": "PRACTICE",
     "questionOrders": [
       77,
@@ -174,7 +173,7 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
     "order": 3,
     "slug": "section-d-master-methodes-localisation",
     "title": "Maîtriser les méthodes de localisation moléculaire",
-    "description": "Choisir une stratégie de marquage adaptée à une question expérimentale.",
+    "description": "Raisonnement expérimental sur cellules vivantes ou fixées.",
     "stage": "MASTER",
     "questionOrders": [
       89,
@@ -236,126 +235,370 @@ export const UE14_CELL_CH1_V2_QUIZ_MAP = [
 ] as const;
 
 export const UE14_CELL_CH1_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
-  1: ["la définition de la cellule"],
-  2: ["les principaux éléments chimiques cellulaires"],
-  3: ["la proportion d’eau dans la cellule selon la fiche"],
-  4: ["les proportions de macromolécules indiquées dans la fiche"],
-  5: ["les grandes structures cellulaires"],
-  6: ["les fonctions générales de la cellule"],
-  7: ["les étapes de la vie cellulaire citées"],
-  8: ["l’hématie et l’entérocyte comme exemples de spécialisation"],
-  9: ["la définition de la cellule"],
-  10: ["les principaux éléments chimiques cellulaires"],
-  11: ["la proportion d’eau dans la cellule selon la fiche"],
-  12: ["les proportions de macromolécules indiquées dans la fiche"],
-  13: ["les grandes structures cellulaires"],
-  14: ["les fonctions générales de la cellule"],
-  15: ["les étapes de la vie cellulaire citées"],
-  16: ["les principaux éléments chimiques cellulaires"],
-  17: ["la définition de la cellule"],
-  18: ["les principaux éléments chimiques cellulaires"],
-  19: ["la définition de la cellule", "les principaux éléments chimiques cellulaires", "la proportion d’eau dans la cellule selon la fiche"],
-  20: ["les proportions de macromolécules indiquées dans la fiche"],
-  21: ["les grandes structures cellulaires"],
-  22: ["les proportions de macromolécules indiquées dans la fiche", "les grandes structures cellulaires", "les fonctions générales de la cellule", "les étapes de la vie cellulaire citées", "l’hématie et l’entérocyte comme exemples de spécialisation"],
-  23: ["la définition de la culture cellulaire"],
-  24: ["les conditions d’incubation de la fiche"],
-  25: ["l’observation et la manipulation des cultures"],
-  26: ["la cryoconservation"],
-  27: ["la culture primaire"],
-  28: ["la confluence et le passage cellulaire"],
-  29: ["la durée de vie des cultures normales"],
-  30: ["les lignées cellulaires tumorales ou transformées"],
-  31: ["la définition de la culture cellulaire"],
-  32: ["les conditions d’incubation de la fiche"],
-  33: ["l’observation et la manipulation des cultures"],
-  34: ["la cryoconservation"],
-  35: ["la culture primaire"],
-  36: ["la confluence et le passage cellulaire"],
-  37: ["la durée de vie des cultures normales"],
-  38: ["la confluence et le passage cellulaire"],
-  39: ["la définition de la culture cellulaire"],
-  40: ["les conditions d’incubation de la fiche"],
-  41: ["la définition de la culture cellulaire", "les conditions d’incubation de la fiche", "l’observation et la manipulation des cultures"],
-  42: ["la cryoconservation"],
-  43: ["la culture primaire"],
-  44: ["la cryoconservation", "la culture primaire", "la confluence et le passage cellulaire", "la durée de vie des cultures normales", "les lignées cellulaires tumorales ou transformées"],
-  45: ["les explants"],
-  46: ["l’intérêt clinique des explants cité dans la fiche"],
-  47: ["les cellules dissociées en 2D"],
-  48: ["les modèles cellulaires 3D"],
-  49: ["la culture en interface air-liquide"],
-  50: ["l’intérêt des modèles de culture pour étudier la vie cellulaire"],
-  51: ["la différence entre modèle in vitro et situation in vivo"],
-  52: ["les explants"],
-  53: ["l’intérêt clinique des explants cité dans la fiche"],
-  54: ["les cellules dissociées en 2D"],
-  55: ["les cellules dissociées en 2D"],
-  56: ["les modèles cellulaires 3D"],
-  57: ["la culture en interface air-liquide"],
-  58: ["l’intérêt des modèles de culture pour étudier la vie cellulaire"],
-  59: ["la différence entre modèle in vitro et situation in vivo"],
-  60: ["les explants"],
-  61: ["l’intérêt clinique des explants cité dans la fiche"],
-  62: ["les cellules dissociées en 2D"],
-  63: ["l’intérêt clinique des explants cité dans la fiche", "les cellules dissociées en 2D", "les modèles cellulaires 3D"],
-  64: ["la culture en interface air-liquide"],
-  65: ["l’intérêt des modèles de culture pour étudier la vie cellulaire"],
-  66: ["la culture en interface air-liquide", "l’intérêt des modèles de culture pour étudier la vie cellulaire", "la différence entre modèle in vitro et situation in vivo", "les explants", "l’intérêt clinique des explants cité dans la fiche"],
-  67: ["les quatre grandes méthodes de marquage moléculaire de la fiche"],
-  68: ["l’immunomarquage"],
-  69: ["le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence"],
-  70: ["l’hybridation in situ"],
-  71: ["les protéines autofluorescentes"],
-  72: ["la transfection selon la fiche"],
-  73: ["l’électroporation"],
-  74: ["la micro-injection de protéines marquées"],
-  75: ["la compatibilité des méthodes avec cellules vivantes ou fixées"],
-  76: ["le choix d’une méthode de localisation moléculaire"],
-  77: ["le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence"],
-  78: ["l’hybridation in situ"],
-  79: ["les protéines autofluorescentes"],
-  80: ["la transfection selon la fiche"],
-  81: ["l’électroporation"],
-  82: ["le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence"],
-  83: ["la compatibilité des méthodes avec cellules vivantes ou fixées"],
-  84: ["le choix d’une méthode de localisation moléculaire"],
-  85: ["la compatibilité des méthodes avec cellules vivantes ou fixées", "le choix d’une méthode de localisation moléculaire", "les quatre grandes méthodes de marquage moléculaire de la fiche"],
-  86: ["l’immunomarquage"],
-  87: ["le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence"],
-  88: ["l’immunomarquage", "le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence", "l’hybridation in situ", "les protéines autofluorescentes", "la transfection selon la fiche"],
-  89: ["l’immunomarquage"],
-  90: ["l’immunomarquage", "les protéines autofluorescentes"],
-  91: ["le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence", "la transfection selon la fiche"],
-  92: ["l’hybridation in situ", "l’électroporation"],
-  93: ["les protéines autofluorescentes", "la micro-injection de protéines marquées"],
-  94: ["la transfection selon la fiche", "la compatibilité des méthodes avec cellules vivantes ou fixées"],
-  95: ["l’électroporation", "le choix d’une méthode de localisation moléculaire"],
-  96: ["la micro-injection de protéines marquées", "les quatre grandes méthodes de marquage moléculaire de la fiche"],
-  97: ["la compatibilité des méthodes avec cellules vivantes ou fixées", "l’immunomarquage"],
-  98: ["le choix d’une méthode de localisation moléculaire", "les quatre grandes méthodes de marquage moléculaire de la fiche", "l’immunomarquage"],
-  99: ["les quatre grandes méthodes de marquage moléculaire de la fiche", "l’hybridation in situ"],
-  100: ["l’immunomarquage", "le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence", "l’hybridation in situ", "les protéines autofluorescentes", "la transfection selon la fiche"],
-  101: ["la définition de la cellule", "les conditions d’incubation de la fiche"],
-  102: ["les fonctions générales de la cellule", "la durée de vie des cultures normales"],
-  103: ["l’observation et la manipulation des cultures", "les modèles cellulaires 3D"],
-  104: ["les lignées cellulaires tumorales ou transformées", "l’immunomarquage"],
-  105: ["la culture en interface air-liquide", "l’électroporation"],
-  106: ["le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence", "les principaux éléments chimiques cellulaires"],
-  107: ["la micro-injection de protéines marquées", "les étapes de la vie cellulaire citées"],
-  108: ["la proportion d’eau dans la cellule selon la fiche", "la cryoconservation"],
-  109: ["l’immunomarquage", "le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence", "l’hybridation in situ"],
-  110: ["les protéines autofluorescentes", "la transfection selon la fiche", "l’électroporation", "la micro-injection de protéines marquées", "la compatibilité des méthodes avec cellules vivantes ou fixées"],
-  111: ["les principaux éléments chimiques cellulaires", "les fonctions générales de la cellule", "la culture primaire"],
-  112: ["la définition de la culture cellulaire", "les explants", "le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence"],
-  113: ["les lignées cellulaires tumorales ou transformées", "les protéines autofluorescentes", "les fonctions générales de la cellule"],
-  114: ["la différence entre modèle in vitro et situation in vivo", "les fonctions générales de la cellule", "les cellules dissociées en 2D"],
-  115: ["l’électroporation", "les explants", "la compatibilité des méthodes avec cellules vivantes ou fixées"],
-  116: ["les proportions de macromolécules indiquées dans la fiche", "les protéines autofluorescentes", "la cryoconservation"],
-  117: ["les conditions d’incubation de la fiche"],
-  118: ["l’intérêt clinique des explants cité dans la fiche", "les explants", "les grandes structures cellulaires"],
-  119: ["l’immunomarquage", "les protéines autofluorescentes", "l’intérêt clinique des explants cité dans la fiche"],
-  120: ["la compatibilité des méthodes avec cellules vivantes ou fixées", "les fonctions générales de la cellule", "la micro-injection de protéines marquées"],
-  121: ["les grandes structures cellulaires", "les fonctions générales de la cellule", "les étapes de la vie cellulaire citées"],
-  122: ["la cryoconservation", "la culture primaire", "la confluence et le passage cellulaire", "la durée de vie des cultures normales", "les lignées cellulaires tumorales ou transformées"],
+  "1": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "2": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "3": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "4": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "5": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "6": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "7": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "8": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "9": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "10": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "11": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "12": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "13": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "14": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "15": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "16": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "17": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "18": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "19": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "20": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "21": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "22": [
+    "Organisation cellulaire et méthodes d’observation"
+  ],
+  "23": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "24": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "25": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "26": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "27": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "28": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "29": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "30": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "31": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "32": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "33": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "34": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "35": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "36": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "37": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "38": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "39": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "40": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "41": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "42": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "43": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "44": [
+    "Culture cellulaire : conditions, passages et lignées"
+  ],
+  "45": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "46": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "47": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "48": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "49": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "50": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "51": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "52": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "53": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "54": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "55": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "56": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "57": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "58": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "59": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "60": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "61": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "62": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "63": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "64": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "65": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "66": [
+    "Modèles de culture : explants, 2D, 3D et interface air-liquide"
+  ],
+  "67": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "68": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "69": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "70": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "71": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "72": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "73": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "74": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "75": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "76": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "77": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "78": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "79": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "80": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "81": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "82": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "83": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "84": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "85": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "86": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "87": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "88": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "89": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "90": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "91": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "92": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "93": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "94": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "95": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "96": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "97": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "98": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "99": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "100": [
+    "Marquages moléculaires et imagerie"
+  ],
+  "101": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "102": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "103": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "104": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "105": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "106": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "107": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "108": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "109": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "110": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "111": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "112": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "113": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "114": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "115": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "116": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "117": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "118": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "119": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "120": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "121": [
+    "Synthèse : organisation et méthodes d’étude"
+  ],
+  "122": [
+    "Synthèse : organisation et méthodes d’étude"
+  ]
 };

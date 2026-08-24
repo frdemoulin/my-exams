@@ -1,1013 +1,1082 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch1 — Marquages moléculaires */
 export const UE14_CELL_CH1_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Selon la fiche, quelles propositions concernant « les quatre grandes méthodes de marquage moléculaire de la fiche » sont correctes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement « Anticorps, antigène et épitope » ?",
     "choices": [
       {
-        "content": "La fiche cite l’immunomarquage.",
+        "content": "Un épitope est la portion d’un antigène reconnue par un anticorps.",
         "correct": true,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       },
       {
-        "content": "La fiche cite uniquement la PCR et le séquençage.",
+        "content": "Le fragment Fc est le seul site de reconnaissance spécifique de l’épitope.",
         "correct": false,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
+        "explanation": "Incorrect. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       },
       {
-        "content": "Elle cite l’hybridation in situ.",
-        "correct": true,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
-      },
-      {
-        "content": "L’immunomarquage est explicitement exclu.",
+        "content": "L’épitope correspond obligatoirement à l’ensemble de la protéine antigénique.",
         "correct": false,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
+        "explanation": "Incorrect. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
+      },
+      {
+        "content": "Un anticorps reconnaît toutes les protéines avec la même affinité.",
+        "correct": false,
+        "explanation": "Incorrect. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
+      },
+      {
+        "content": "Un anticorps secondaire doit reconnaître directement la protéine cellulaire d’intérêt.",
+        "correct": false,
+        "explanation": "Incorrect. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       }
     ],
-    "explanation": "Quatre grandes stratégies sont comparées dans le support."
+    "explanation": "Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
   },
   {
     "order": 68,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de « l’immunomarquage », quelle proposition est juste ?",
+    "question": "Parmi les propositions ci-dessous relatives à « Immunofluorescence directe et indirecte », laquelle est correcte ?",
     "choices": [
       {
-        "content": "Un anticorps anti-X reconnaît une partie appelée épitope.",
+        "content": "Un fluorophore émet de la lumière sans avoir besoin d’être excité.",
+        "correct": false,
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
+      },
+      {
+        "content": "L’immunofluorescence ne peut jamais localiser une protéine intracellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
+      },
+      {
+        "content": "L’anticorps secondaire fluorescent se fixe obligatoirement sur l’ADN cellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
+      },
+      {
+        "content": "En immunofluorescence indirecte, le secondaire remplace l’antigène dans la cellule.",
+        "correct": false,
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
+      },
+      {
+        "content": "En immunofluorescence directe, l’anticorps primaire peut être directement couplé à un fluorophore.",
         "correct": true,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "L’épitope est une partie du fluorochrome et non de l’antigène.",
-        "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "Les anticorps en excès ne sont jamais éliminés.",
-        "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "L’immunomarquage repose sur la complémentarité de deux séquences d’ADN sans anticorps.",
-        "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+        "explanation": "Exact. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       }
     ],
-    "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+    "explanation": "L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
   },
   {
     "order": 69,
-    "difficulty": "EASY",
-    "format": "QROC",
-    "question": "Réponse numérique en nm : quelle longueur d’onde d’excitation est citée pour Alexa 488 ?",
-    "answer": {
-      "type": "number",
-      "value": 488,
-      "tolerance": 0
-    },
-    "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Pour « Fixation et perméabilisation », quelle proposition doit être retenue ?",
+    "choices": [
+      {
+        "content": "La fixation vise à préserver au mieux l’organisation d’un échantillon à un instant donné.",
+        "correct": true,
+        "explanation": "Exact. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "La fixation ne peut jamais modifier un épitope.",
+        "correct": false,
+        "explanation": "Incorrect. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "Un anticorps entier traverse librement toutes les membranes d’une cellule vivante non perméabilisée.",
+        "correct": false,
+        "explanation": "Incorrect. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "La perméabilisation est inutile pour tout antigène intracellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "La fixation maintient une cellule vivante et métaboliquement active pendant plusieurs heures d’imagerie.",
+        "correct": false,
+        "explanation": "Incorrect. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      }
+    ],
+    "explanation": "La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
   },
   {
     "order": 70,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « l’hybridation in situ » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Fluorophores et microscopie à fluorescence », lesquelles sont incorrectes ?",
     "choices": [
       {
-        "content": "Elle repose sur la complémentarité des séquences nucléotidiques.",
+        "content": "Alexa Fluor 488 émet principalement dans l’infrarouge lointain.",
         "correct": true,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Incorrect. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       },
       {
-        "content": "Elle utilise nécessairement un anticorps anti-épitope.",
+        "content": "Alexa Fluor 488 peut être excité autour de 488 nm et émet dans le vert.",
         "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Exact. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       },
       {
-        "content": "Elle ne peut jamais cibler l’ARN.",
-        "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "content": "Un fluorophore émet toujours à une longueur d’onde plus courte que celle d’excitation.",
+        "correct": true,
+        "explanation": "Incorrect. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       },
       {
-        "content": "La sonde doit être non complémentaire à la cible.",
+        "content": "Un fluorophore est excité par une bande de longueurs d’onde et émet ensuite de la lumière.",
         "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Exact. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
+      },
+      {
+        "content": "L’émission d’un fluorophore se fait généralement à une longueur d’onde plus grande que l’excitation.",
+        "correct": false,
+        "explanation": "Exact. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       }
     ],
-    "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+    "explanation": "Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques. Ici, il fallait sélectionner les affirmations incorrectes."
   },
   {
     "order": 71,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Pour caractériser « les protéines autofluorescentes », quelles affirmations sont exactes ?",
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Pour le thème « Immunomarquage à l’or colloïdal », retenez les cinq affirmations correctes parmi les dix proposées.",
     "choices": [
       {
-        "content": "Une construction chimérique associe le gène de la protéine étudiée au gène de la protéine fluorescente.",
-        "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "La protéine chimérique est obtenue sans aucun matériel génétique.",
+        "content": "L’or colloïdal est utilisé uniquement parce qu’il émet spontanément une fluorescence verte intense.",
         "correct": false,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
       },
       {
-        "content": "La fluorescence peut être observée dans des cellules vivantes.",
-        "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "La fiche exclut toute variante de protéine fluorescente.",
+        "content": "Les particules d’or sont invisibles en microscopie électronique parce qu’elles ne diffusent pas les électrons.",
         "correct": false,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "Le signal d’or apparaît comme des particules denses aux électrons.",
+        "correct": true,
+        "explanation": "Exact. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "Les particules d’or colloïdal sont électron-denses.",
+        "correct": true,
+        "explanation": "Exact. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "Un anticorps peut être associé à des particules d’or pour un immunomarquage.",
+        "correct": true,
+        "explanation": "Exact. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "L’immunogold est une méthode d’observation exclusive au microscope optique en fond clair.",
+        "correct": false,
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "Un anticorps ne peut jamais être couplé à une particule d’or.",
+        "correct": false,
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "La taille des particules d’or peut aider à distinguer plusieurs marquages dans certaines expériences.",
+        "correct": true,
+        "explanation": "Exact. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "La taille des particules d’or est toujours exactement de 1 micromètre.",
+        "correct": false,
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "L’immunogold est particulièrement adapté à la microscopie électronique en transmission.",
+        "correct": true,
+        "explanation": "Exact. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
       }
     ],
-    "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+    "explanation": "Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
   },
   {
     "order": 72,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « la transfection selon la fiche » ?",
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "À propos de « Hybridation in situ », sélectionnez les propositions exactes.",
     "choices": [
       {
-        "content": "La transfection sert ici à introduire une construction génétique dans la cellule.",
+        "content": "Une sonde nucléique doit avoir exactement la même séquence et la même orientation que sa cible pour s’y apparier.",
+        "correct": false,
+        "explanation": "Incorrect. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
+      },
+      {
+        "content": "L’hybridation in situ repose sur la reconnaissance antigène-anticorps.",
+        "correct": false,
+        "explanation": "Incorrect. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
+      },
+      {
+        "content": "La FISH ne peut jamais utiliser de fluorophore.",
+        "correct": false,
+        "explanation": "Incorrect. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
+      },
+      {
+        "content": "L’hybridation in situ peut localiser un ARN dans une cellule ou un tissu.",
         "correct": true,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "explanation": "Exact. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
       },
       {
-        "content": "La fiche parle de transfection uniquement pour des cellules déjà fixées.",
-        "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
-      },
-      {
-        "content": "La fiche définit la transfection comme l’injection d’un anticorps dans le noyau.",
-        "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
-      },
-      {
-        "content": "La transfection détruit nécessairement la membrane plasmique.",
-        "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "content": "Une sonde d’hybridation in situ est complémentaire de la séquence nucléique recherchée.",
+        "correct": true,
+        "explanation": "Exact. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
       }
     ],
-    "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+    "explanation": "L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
   },
   {
     "order": 73,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de « l’électroporation », quelles affirmations sont conformes à la fiche ?",
+    "difficulty": "HARD",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Parmi ces affirmations concernant « Protéines fluorescentes et GFP », retenez exactement les 2 justes.",
     "choices": [
       {
-        "content": "La fiche définit l’électroporation comme une perméabilisation de la membrane par un choc électrique.",
-        "correct": true,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
-      },
-      {
-        "content": "L’électroporation est une technique d’hybridation in situ.",
+        "content": "La GFP doit obligatoirement être couplée chimiquement à chaque protéine après sa synthèse dans la cellule.",
         "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+        "explanation": "Incorrect. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
       },
       {
-        "content": "Elle peut servir à introduire la construction génétique dans une cellule.",
+        "content": "La GFP est une protéine fluorescente génétiquement codée.",
         "correct": true,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+        "explanation": "Exact. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
       },
       {
-        "content": "Elle repose sur un choc thermique sans effet membranaire.",
+        "content": "Une protéine fluorescente ne peut jamais être utilisée sur une cellule vivante.",
         "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+        "explanation": "Incorrect. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
+      },
+      {
+        "content": "Le gène d’une protéine d’intérêt peut être fusionné à celui d’une protéine fluorescente.",
+        "correct": true,
+        "explanation": "Exact. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
+      },
+      {
+        "content": "La fusion d’un tag fluorescent est garantie sans effet sur la fonction de toute protéine.",
+        "correct": false,
+        "explanation": "Incorrect. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
       }
     ],
-    "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+    "explanation": "La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
   },
   {
     "order": 74,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « la micro-injection de protéines marquées », laquelle est correcte ?",
-    "choices": [
-      {
-        "content": "La protéine marquée est micro-injectée dans le cytoplasme ou le noyau d’une cellule vivante.",
-        "correct": true,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
-      },
-      {
-        "content": "L’or colloïdal est décrit comme un acide nucléique.",
-        "correct": false,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
-      },
-      {
-        "content": "La protéine marquée ne peut jamais être injectée dans le noyau.",
-        "correct": false,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
-      },
-      {
-        "content": "La micro-injection est réalisée uniquement dans une cellule déjà détruite.",
-        "correct": false,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Comment nomme-t-on la portion d’un antigène reconnue par un anticorps ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "épitope",
+        "epitope"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
+    },
+    "explanation": "L’épitope est le déterminant antigénique reconnu par l’anticorps."
   },
   {
     "order": 75,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour « la compatibilité des méthodes avec cellules vivantes ou fixées », quelles affirmations sont correctes selon le support ?",
+    "question": "Pour le thème « Transfection et délivrance d’acides nucléiques », quelles propositions doivent être retenues ?",
     "choices": [
       {
-        "content": "Les protéines autofluorescentes et les protéines marquées peuvent être observées sur cellules vivantes ou fixées.",
+        "content": "La transfection désigne l’introduction expérimentale d’acides nucléiques dans des cellules eucaryotes.",
         "correct": true,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Exact. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       },
       {
-        "content": "La GFP est incompatible avec toute cellule vivante.",
+        "content": "La lipofection exige que le plasmide soit une protéine membranaire.",
         "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Incorrect. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       },
       {
-        "content": "Dans le tableau de la fiche, l’immunomarquage est utilisé sur cellules fixées.",
+        "content": "La transfection signifie uniquement l’introduction d’une protéine purifiée sans acide nucléique.",
+        "correct": false,
+        "explanation": "Incorrect. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
+      },
+      {
+        "content": "La lipofection utilise des lipides capables de former des complexes avec l’ADN ou l’ARN.",
         "correct": true,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Exact. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       },
       {
-        "content": "L’immunomarquage est présenté comme une méthode de référence sur cellules vivantes dans ce tableau.",
+        "content": "Toute transfection provoque obligatoirement une intégration stable dans le génome.",
         "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Incorrect. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       }
     ],
-    "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+    "explanation": "La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
   },
   {
     "order": 76,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « le choix d’une méthode de localisation moléculaire » est juste ?",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Électroporation ».",
     "choices": [
       {
-        "content": "Le choix dépend notamment de la nature de la cible et du besoin d’observer une cellule vivante ou fixée.",
+        "content": "L’électroporation utilise des impulsions électriques pour perméabiliser transitoirement la membrane.",
         "correct": true,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+        "explanation": "Exact. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       },
       {
-        "content": "Toutes les méthodes sont interchangeables sans tenir compte de la cible.",
+        "content": "L’électroporation repose sur une digestion enzymatique permanente de la membrane plasmique.",
         "correct": false,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+        "explanation": "Incorrect. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       },
       {
-        "content": "Une séquence d’ARN ne peut être localisée par aucune des méthodes de la fiche.",
-        "correct": false,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+        "content": "Des paramètres électriques trop intenses peuvent provoquer une perte de viabilité.",
+        "correct": true,
+        "explanation": "Exact. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       },
       {
-        "content": "Suivre une protéine dans une cellule vivante impose obligatoirement un immunomarquage après fixation.",
-        "correct": false,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+        "content": "Des pores transitoires permettent l’entrée de molécules présentes dans le milieu.",
+        "correct": true,
+        "explanation": "Exact. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
+      },
+      {
+        "content": "L’électroporation peut être utilisée pour introduire de l’ADN plasmidique.",
+        "correct": true,
+        "explanation": "Exact. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       }
     ],
-    "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+    "explanation": "L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
   },
   {
     "order": 77,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application concernant « le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence », quelles propositions sont exactes ?",
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Pour le thème « Micro-injection de molécules marquées », retenez les cinq affirmations correctes parmi les dix proposées.",
     "choices": [
       {
-        "content": "L’excitation à 488 nm permet l’observation de la protéine d’intérêt dans l’exemple.",
-        "correct": true,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
-      },
-      {
-        "content": "L’excitation citée est 488 µm.",
+        "content": "La micro-injection traite instantanément des millions de cellules avec une seule micropipette.",
         "correct": false,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
       },
       {
-        "content": "Les anticorps non liés sont éliminés par lavage.",
-        "correct": true,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
-      },
-      {
-        "content": "Le lavage sert à éliminer les anticorps liés spécifiquement.",
+        "content": "La méthode est dépourvue de tout risque mécanique pour la cellule.",
         "correct": false,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "La micro-injection ne peut délivrer aucune protéine.",
+        "correct": false,
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "La micropipette reste obligatoirement à l’extérieur de la cellule.",
+        "correct": false,
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "La micro-injection peut également cibler le noyau selon la question expérimentale.",
+        "correct": true,
+        "explanation": "Exact. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "Une micropipette très fine est utilisée pour pénétrer la cellule.",
+        "correct": true,
+        "explanation": "Exact. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "La micro-injection peut délivrer directement une molécule dans le cytoplasme.",
+        "correct": true,
+        "explanation": "Exact. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "La méthode permet un contrôle cellule par cellule de la délivrance.",
+        "correct": true,
+        "explanation": "Exact. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "La micro-injection ne permet jamais de cibler le noyau.",
+        "correct": false,
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "Une protéine purifiée marquée peut être introduite par micro-injection.",
+        "correct": true,
+        "explanation": "Exact. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
       }
     ],
-    "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+    "explanation": "La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
   },
   {
     "order": 78,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « l’hybridation in situ » ?",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Choix entre cellules vivantes et cellules fixées », lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Elle peut permettre de localiser un ADN ou un ARN d’intérêt dans une cellule fixée.",
+        "content": "Une cellule fixée continue à migrer normalement pendant l’acquisition.",
+        "correct": false,
+        "explanation": "Incorrect. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
+      },
+      {
+        "content": "Une cellule vivante permet de suivre des changements de localisation au cours du temps.",
         "correct": true,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Exact. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
       },
       {
-        "content": "La sonde doit être non complémentaire à la cible.",
+        "content": "Une cellule vivante permet toujours l’accès libre d’anticorps entiers à toutes les protéines intracellulaires.",
         "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Incorrect. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
       },
       {
-        "content": "Elle utilise nécessairement un anticorps anti-épitope.",
-        "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "content": "Une cellule fixée fournit un instantané de l’état de l’échantillon au moment de la fixation.",
+        "correct": true,
+        "explanation": "Exact. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
       },
       {
-        "content": "Elle ne peut jamais cibler l’ARN.",
+        "content": "L’hybridation in situ classique nécessite que la cellule reste métaboliquement active.",
         "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Incorrect. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
       }
     ],
-    "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+    "explanation": "Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
   },
   {
     "order": 79,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "Un chercheur souhaite suivre au cours du temps la redistribution d’une protéine dans une cellule vivante. Pour interpréter cette situation, quelles propositions faut-il retenir ?",
+    "question": "Concernant « Anticorps, antigène et épitope », quelles affirmations sont correctes ?",
     "choices": [
       {
-        "content": "La fiche cite la GFP.",
+        "content": "Le fragment Fc ne constitue pas le site principal de reconnaissance spécifique de l’épitope.",
         "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       },
       {
-        "content": "La GFP ne peut être utilisée que sur des cellules mortes depuis plusieurs jours.",
-        "correct": false,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "Une construction chimérique associe le gène de la protéine étudiée au gène de la protéine fluorescente.",
+        "content": "Les régions variables des fragments Fab participent à la reconnaissance de l’antigène.",
         "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       },
       {
-        "content": "La protéine chimérique est obtenue sans aucun matériel génétique.",
+        "content": "Un anticorps possède classiquement deux sites de liaison à l’antigène.",
+        "correct": true,
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
+      },
+      {
+        "content": "Un anticorps secondaire peut reconnaître le fragment Fc d’un anticorps primaire.",
+        "correct": true,
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
+      },
+      {
+        "content": "L’épitope correspond obligatoirement à l’ensemble de la protéine antigénique.",
         "correct": false,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+        "explanation": "Incorrect. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       }
     ],
-    "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+    "explanation": "Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
   },
   {
     "order": 80,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "À propos de « la transfection selon la fiche », quelle proposition est juste ?",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Sur le thème « Immunofluorescence directe et indirecte », sélectionnez exactement 3 propositions exactes.",
     "choices": [
       {
-        "content": "Cette structure fusionne ensuite avec la membrane plasmique.",
+        "content": "En immunofluorescence indirecte, un anticorps secondaire fluorescent reconnaît l’anticorps primaire.",
         "correct": true,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "explanation": "Exact. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       },
       {
-        "content": "La transfection détruit nécessairement la membrane plasmique.",
-        "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "content": "Le fluorophore émet de la lumière après excitation par une longueur d’onde appropriée.",
+        "correct": true,
+        "explanation": "Exact. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       },
       {
-        "content": "La fiche parle de transfection uniquement pour des cellules déjà fixées.",
-        "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "content": "L’immunofluorescence indirecte peut amplifier le signal grâce à plusieurs anticorps secondaires par primaire.",
+        "correct": true,
+        "explanation": "Exact. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       },
       {
-        "content": "La fiche définit la transfection comme l’injection d’un anticorps dans le noyau.",
+        "content": "L’anticorps secondaire fluorescent se fixe obligatoirement sur l’ADN cellulaire.",
         "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
+      },
+      {
+        "content": "L’immunofluorescence ne peut jamais localiser une protéine intracellulaire.",
+        "correct": false,
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       }
     ],
-    "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+    "explanation": "L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
   },
   {
     "order": 81,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quels repères sur « l’électroporation » sont utiles dans une situation d’application ?",
-    "choices": [
-      {
-        "content": "Elle constitue une alternative à la transfection dans la séquence GFP.",
-        "correct": true,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
-      },
-      {
-        "content": "La fiche l’utilise uniquement pour fixer les cellules.",
-        "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
-      },
-      {
-        "content": "La fiche définit l’électroporation comme une perméabilisation de la membrane par un choc électrique.",
-        "correct": true,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
-      },
-      {
-        "content": "L’électroporation est une technique d’hybridation in situ.",
-        "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+    "format": "QROC",
+    "question": "Quel fragment d’un anticorps porte les régions variables de reconnaissance de l’antigène : Fab ou Fc ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Fab",
+        "fragment Fab"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+    },
+    "explanation": "Les fragments Fab portent les sites de liaison à l’antigène."
   },
   {
     "order": 82,
-    "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Application — Réponse numérique en nm : quelle longueur d’onde d’excitation est citée pour Alexa 488 ?",
-    "answer": {
-      "type": "number",
-      "value": 488,
-      "tolerance": 0
-    },
-    "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Fixation et perméabilisation ».",
+    "choices": [
+      {
+        "content": "Les détergents sont souvent utilisés pour perméabiliser les membranes dans des protocoles de cellules fixées.",
+        "correct": true,
+        "explanation": "Exact. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "La fixation ne peut jamais modifier un épitope.",
+        "correct": false,
+        "explanation": "Incorrect. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "Une perméabilisation facilite l’accès des anticorps aux protéines intracellulaires.",
+        "correct": true,
+        "explanation": "Exact. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "Un antigène situé uniquement à la surface peut parfois être marqué sans perméabiliser toute la cellule.",
+        "correct": true,
+        "explanation": "Exact. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      },
+      {
+        "content": "La fixation peut modifier la conformation de certains épitopes.",
+        "correct": true,
+        "explanation": "Exact. La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
+      }
+    ],
+    "explanation": "La fixation immobilise les structures et molécules mais peut modifier certains épitopes. Pour détecter une cible intracellulaire par anticorps, une perméabilisation est généralement nécessaire afin de franchir la membrane plasmique ; elle n’est pas toujours requise pour une cible de surface."
   },
   {
     "order": 83,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application raisonnée de « la compatibilité des méthodes avec cellules vivantes ou fixées » : quelles propositions sont correctes ?",
+    "question": "Quelles propositions sont exactes concernant « Fluorophores et microscopie à fluorescence » ?",
     "choices": [
       {
-        "content": "L’hybridation in situ est utilisée sur cellules fixées.",
+        "content": "Des filtres optiques permettent de séparer la lumière d’excitation du signal émis.",
         "correct": true,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Exact. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       },
       {
-        "content": "L’hybridation in situ est réservée aux cellules vivantes.",
+        "content": "Les filtres sont inutiles en microscopie à fluorescence.",
         "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Incorrect. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       },
       {
-        "content": "Les protéines autofluorescentes et les protéines marquées peuvent être observées sur cellules vivantes ou fixées.",
+        "content": "Alexa Fluor 488 peut être excité autour de 488 nm et émet dans le vert.",
         "correct": true,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Exact. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       },
       {
-        "content": "La GFP est incompatible avec toute cellule vivante.",
+        "content": "L’émission d’un fluorophore se fait généralement à une longueur d’onde plus grande que l’excitation.",
+        "correct": true,
+        "explanation": "Exact. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
+      },
+      {
+        "content": "Le photoblanchiment augmente indéfiniment la fluorescence sous illumination.",
         "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Incorrect. Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
       }
     ],
-    "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+    "explanation": "Un fluorophore absorbe des photons d’excitation puis émet à une longueur d’onde généralement plus grande. Des filtres séparent excitation et émission ; le photoblanchiment et le recouvrement spectral sont des limites pratiques."
   },
   {
     "order": 84,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « le choix d’une méthode de localisation moléculaire » ?",
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Immunomarquage à l’or colloïdal », lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Une séquence d’ARN dans une cellule fixée peut être recherchée par hybridation in situ.",
+        "content": "La taille des particules d’or est toujours exactement de 1 micromètre.",
+        "correct": false,
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "Un anticorps ne peut jamais être couplé à une particule d’or.",
+        "correct": false,
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "Les particules d’or sont invisibles en microscopie électronique parce qu’elles ne diffusent pas les électrons.",
+        "correct": false,
+        "explanation": "Incorrect. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
+      },
+      {
+        "content": "Un anticorps peut être associé à des particules d’or pour un immunomarquage.",
         "correct": true,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+        "explanation": "Exact. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
       },
       {
-        "content": "Suivre une protéine dans une cellule vivante impose obligatoirement un immunomarquage après fixation.",
-        "correct": false,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
-      },
-      {
-        "content": "Toutes les méthodes sont interchangeables sans tenir compte de la cible.",
-        "correct": false,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
-      },
-      {
-        "content": "Une séquence d’ARN ne peut être localisée par aucune des méthodes de la fiche.",
-        "correct": false,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+        "content": "L’immunogold est particulièrement adapté à la microscopie électronique en transmission.",
+        "correct": true,
+        "explanation": "Exact. Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
       }
     ],
-    "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+    "explanation": "Des particules d’or colloïdal peuvent être couplées à des anticorps et sont très électron-denses. Elles sont particulièrement utiles en microscopie électronique en transmission pour localiser une cible à l’échelle ultrastructurale."
   },
   {
     "order": 85,
-    "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « les quatre grandes méthodes de marquage moléculaire de la fiche » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Sur le thème « Hybridation in situ », quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Dans le tableau de la fiche, l’immunomarquage est utilisé sur cellules fixées.",
-        "correct": true,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
-      },
-      {
-        "content": "Une protéine dynamique dans une cellule vivante peut être suivie avec une stratégie autofluorescente.",
-        "correct": true,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
-      },
-      {
-        "content": "Elle cite les protéines autofluorescentes et la micro-injection de protéines marquées.",
-        "correct": true,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
-      },
-      {
-        "content": "L’immunomarquage repose sur la complémentarité de deux séquences d’ADN sans anticorps.",
+        "content": "La FISH ne peut jamais utiliser de fluorophore.",
         "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+        "explanation": "Incorrect. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
       },
       {
-        "content": "L’excitation citée est 488 µm.",
+        "content": "Une sonde dépourvue de toute complémentarité donne nécessairement le même signal spécifique.",
         "correct": false,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "explanation": "Incorrect. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
       },
       {
-        "content": "La sonde doit être non complémentaire à la cible.",
+        "content": "L’hybridation in situ est limitée aux protéines et ne détecte aucun acide nucléique.",
         "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Incorrect. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
+      },
+      {
+        "content": "L’hybridation in situ peut localiser un ARN dans une cellule ou un tissu.",
+        "correct": true,
+        "explanation": "Exact. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
+      },
+      {
+        "content": "La température et la composition du tampon n’influencent pas l’hybridation.",
+        "correct": false,
+        "explanation": "Incorrect. L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    "explanation": "L’hybridation in situ détecte une séquence d’ADN ou d’ARN grâce à une sonde nucléique complémentaire. La sonde peut porter ou révéler un marqueur fluorescent ou colorimétrique ; la spécificité dépend notamment de la complémentarité et des conditions d’hybridation."
   },
   {
     "order": 86,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « l’immunomarquage », laquelle est correcte ?",
-    "choices": [
-      {
-        "content": "Un anticorps anti-X reconnaît une partie appelée épitope.",
-        "correct": true,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "L’épitope est une partie du fluorochrome et non de l’antigène.",
-        "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "Les anticorps en excès ne sont jamais éliminés.",
-        "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "L’immunomarquage repose sur la complémentarité de deux séquences d’ADN sans anticorps.",
-        "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Comment nomme-t-on une molécule qui absorbe une lumière d’excitation et réémet de la fluorescence ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "fluorophore",
+        "fluorochrome"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+    },
+    "explanation": "Fluorophore et fluorochrome désignent des molécules utilisées pour produire un signal fluorescent."
   },
   {
     "order": 87,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Mise en application de « le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence » : quelles affirmations sont justes ?",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Parmi ces affirmations concernant « Protéines fluorescentes et GFP », retenez exactement les 3 justes.",
     "choices": [
       {
-        "content": "Les anticorps non liés sont éliminés par lavage.",
-        "correct": true,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
-      },
-      {
-        "content": "Le lavage sert à éliminer les anticorps liés spécifiquement.",
+        "content": "La GFP est un anticorps dirigé contre toutes les protéines cellulaires.",
         "correct": false,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "explanation": "Incorrect. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
       },
       {
-        "content": "La fiche cite Alexa 488 comme exemple de marqueur fluorescent.",
+        "content": "Le gène d’une protéine d’intérêt peut être fusionné à celui d’une protéine fluorescente.",
         "correct": true,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "explanation": "Exact. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
       },
       {
-        "content": "Alexa 488 est décrit comme une enzyme de digestion cellulaire.",
+        "content": "Une protéine de fusion GFP peut être observée dans une cellule vivante.",
+        "correct": true,
+        "explanation": "Exact. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
+      },
+      {
+        "content": "L’expression d’un tag fluorescent nécessite l’introduction ou l’expression d’une construction génétique adaptée.",
+        "correct": true,
+        "explanation": "Exact. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
+      },
+      {
+        "content": "La fusion d’un tag fluorescent est garantie sans effet sur la fonction de toute protéine.",
         "correct": false,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "explanation": "Incorrect. La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
       }
     ],
-    "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+    "explanation": "La GFP et ses dérivés sont des marqueurs fluorescents génétiquement codés. En fusion avec une protéine d’intérêt, ils permettent de suivre sa localisation et sa dynamique dans des cellules vivantes, sous réserve que le tag ne perturbe pas la fonction de la protéine."
   },
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « les quatre grandes méthodes de marquage moléculaire de la fiche » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "format": "QRM",
+    "question": "Dans ce contexte, pour le thème « Transfection et délivrance d’acides nucléiques », quelles propositions doivent être retenues ?",
     "choices": [
       {
-        "content": "L’immunomarquage repose sur l’affinité d’un anticorps pour un antigène.",
+        "content": "Une transfection peut conduire à une expression transitoire d’un plasmide.",
         "correct": true,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+        "explanation": "Exact. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       },
       {
-        "content": "L’excitation à 488 nm permet l’observation de la protéine d’intérêt dans l’exemple.",
-        "correct": true,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
-      },
-      {
-        "content": "Elle peut permettre de localiser un ADN ou un ARN d’intérêt dans une cellule fixée.",
-        "correct": true,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
-      },
-      {
-        "content": "La fiche cite la GFP.",
-        "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "Cette structure fusionne ensuite avec la membrane plasmique.",
-        "correct": true,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
-      },
-      {
-        "content": "La fiche l’utilise uniquement pour fixer les cellules.",
+        "content": "Toute transfection provoque obligatoirement une intégration stable dans le génome.",
         "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+        "explanation": "Incorrect. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       },
       {
-        "content": "La micro-injection est réalisée uniquement dans une cellule déjà détruite.",
-        "correct": false,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
+        "content": "Une expression stable nécessite généralement une intégration ou un maintien durable et une sélection adaptée.",
+        "correct": true,
+        "explanation": "Exact. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       },
       {
-        "content": "L’hybridation in situ est réservée aux cellules vivantes.",
-        "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "content": "La lipofection utilise des lipides capables de former des complexes avec l’ADN ou l’ARN.",
+        "correct": true,
+        "explanation": "Exact. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
+      },
+      {
+        "content": "L’efficacité et la toxicité d’une transfection dépendent du type cellulaire.",
+        "correct": true,
+        "explanation": "Exact. La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
       }
     ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    "explanation": "La transfection introduit des acides nucléiques dans des cellules eucaryotes par des méthodes chimiques, lipidiques ou physiques. La lipofection forme des complexes lipidiques avec l’ADN ou l’ARN ; l’expression peut être transitoire ou stable selon le protocole."
   },
   {
     "order": 89,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QZONE",
-    "question": "Sur ce schéma original d’une cellule fixée en immunofluorescence, cliquez sur l’anticorps fluorescent qui reconnaît la protéine cible.",
+    "question": "Sur ce schéma simplifié d’un immunomarquage indirect sur cellule fixée et perméabilisée, cliquez sur l’anticorps primaire directement lié à l’antigène intracellulaire.",
     "image": {
-      "src": "/images/training/ue14/biologie-cellulaire/organisation-methodes-etude-cellule/immunomarquage-anticorps-qzone.svg",
-      "alt": "Schéma simplifié d’un immunomarquage avec protéine cible, anticorps fluorescent et membrane d’une cellule fixée",
-      "width": 900,
-      "height": 540
+      "src": "/images/training/ue14/biologie-cellulaire/organisation-methodes-etude-cellule/immunofluorescence-indirecte-qzone.svg",
+      "alt": "Schéma simplifié d’une cellule fixée et perméabilisée montrant un antigène intracellulaire, un anticorps primaire et un anticorps secondaire fluorescent",
+      "width": 1200,
+      "height": 700
     },
     "expectedZones": [
       {
-        "id": "antibody",
-        "label": "anticorps fluorescent",
-        "x": 0.66,
-        "y": 0.39,
-        "tolerance": 0.095
+        "id": "anticorps-primaire",
+        "label": "Anticorps primaire",
+        "x": 0.61,
+        "y": 0.49,
+        "tolerance": 0.1
       }
     ],
-    "explanation": "Dans l’immunomarquage présenté, l’anticorps marqué reconnaît spécifiquement un épitope de la protéine cible dans une cellule fixée."
+    "defaultTolerance": 0.1,
+    "explanation": "Dans un immunomarquage indirect, l’anticorps primaire reconnaît l’épitope de la protéine cible. L’anticorps secondaire fluorescent se fixe ensuite sur le primaire et permet la détection."
   },
   {
     "order": 90,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « l’immunomarquage » et « les protéines autofluorescentes ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Un anticorps anti-X reconnaît une partie appelée épitope.",
-        "correct": true,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "La fluorescence peut être observée dans des cellules vivantes.",
-        "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "Les anticorps en excès ne sont jamais éliminés.",
-        "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "La protéine chimérique est obtenue sans aucun matériel génétique.",
-        "correct": false,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle technique utilise des anticorps fluorescents pour localiser un antigène ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "immunofluorescence",
+        "immunomarquage fluorescent"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps. La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+    },
+    "explanation": "L’immunofluorescence localise un antigène au moyen d’anticorps et de fluorophores."
   },
   {
     "order": 91,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « le fluorochrome Alexa 488 dans l’exemple d’immunofluorescence » et « la transfection selon la fiche ». Quelles propositions sont exactes ?",
+    "question": "Parmi les affirmations suivantes sur « Électroporation », lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Les anticorps non liés sont éliminés par lavage.",
+        "content": "Des paramètres électriques trop intenses peuvent provoquer une perte de viabilité.",
         "correct": true,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "explanation": "Exact. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       },
       {
-        "content": "La fiche décrit l’encapsidation de l’ADN recombinant dans une structure de type liposome.",
+        "content": "Des pores transitoires permettent l’entrée de molécules présentes dans le milieu.",
         "correct": true,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "explanation": "Exact. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       },
       {
-        "content": "Alexa 488 est décrit comme une enzyme de digestion cellulaire.",
-        "correct": false,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
+        "content": "L’électroporation peut être utilisée pour introduire de l’ADN plasmidique.",
+        "correct": true,
+        "explanation": "Exact. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       },
       {
-        "content": "La fiche parle de transfection uniquement pour des cellules déjà fixées.",
+        "content": "Plus la tension est élevée, plus la viabilité est nécessairement meilleure.",
         "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+        "explanation": "Incorrect. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
+      },
+      {
+        "content": "Une membrane électroporée reste toujours définitivement ouverte.",
+        "correct": false,
+        "explanation": "Incorrect. L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
       }
     ],
-    "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage. La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
+    "explanation": "L’électroporation applique de brèves impulsions électriques qui augmentent transitoirement la perméabilité membranaire. Elle peut permettre l’entrée d’ADN, d’ARN ou de certaines macromolécules, mais des conditions trop fortes réduisent la viabilité."
   },
   {
     "order": 92,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « l’hybridation in situ » et « l’électroporation ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Elle repose sur la complémentarité des séquences nucléotidiques.",
-        "correct": true,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
-      },
-      {
-        "content": "Elle peut servir à introduire la construction génétique dans une cellule.",
-        "correct": true,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
-      },
-      {
-        "content": "Elle ne peut jamais cibler l’ARN.",
-        "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
-      },
-      {
-        "content": "L’électroporation est une technique d’hybridation in situ.",
-        "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle étape rend la membrane accessible aux anticorps destinés à une cible intracellulaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "perméabilisation",
+        "permeabilisation"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire. L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+    },
+    "explanation": "La perméabilisation permet aux anticorps d’atteindre des cibles intracellulaires sur cellules fixées."
   },
   {
     "order": 93,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « les protéines autofluorescentes » et « la micro-injection de protéines marquées ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Une construction chimérique associe le gène de la protéine étudiée au gène de la protéine fluorescente.",
-        "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "Le type de marqueur détermine la technique d’observation.",
-        "correct": true,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
-      },
-      {
-        "content": "La fiche exclut toute variante de protéine fluorescente.",
-        "correct": false,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "L’or colloïdal est décrit comme un acide nucléique.",
-        "correct": false,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
+    "format": "QROC",
+    "question": "Quelle méthode utilise une sonde nucléique complémentaire pour localiser une séquence dans une cellule ou un tissu ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "hybridation in situ",
+        "HIS",
+        "ISH"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule. La micro-injection permet de suivre une protéine préalablement marquée."
+    },
+    "explanation": "L’hybridation in situ repose sur l’appariement d’une sonde avec une séquence nucléique cible."
   },
   {
     "order": 94,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « la transfection selon la fiche » et « la compatibilité des méthodes avec cellules vivantes ou fixées ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "La transfection sert ici à introduire une construction génétique dans la cellule.",
-        "correct": true,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
-      },
-      {
-        "content": "Dans le tableau de la fiche, l’immunomarquage est utilisé sur cellules fixées.",
-        "correct": true,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
-      },
-      {
-        "content": "La fiche définit la transfection comme l’injection d’un anticorps dans le noyau.",
-        "correct": false,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
-      },
-      {
-        "content": "La GFP est incompatible avec toute cellule vivante.",
-        "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle protéine fluorescente verte génétiquement codée est couramment utilisée comme tag ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GFP",
+        "green fluorescent protein",
+        "green fluorescence protein"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire. Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+    },
+    "explanation": "La GFP est un marqueur fluorescent génétiquement codé utilisé en fusion avec de nombreuses protéines."
   },
   {
     "order": 95,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « l’électroporation » et « le choix d’une méthode de localisation moléculaire ». Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "La fiche définit l’électroporation comme une perméabilisation de la membrane par un choc électrique.",
-        "correct": true,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
-      },
-      {
-        "content": "Une protéine dynamique dans une cellule vivante peut être suivie avec une stratégie autofluorescente.",
-        "correct": true,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
-      },
-      {
-        "content": "Elle repose sur un choc thermique sans effet membranaire.",
-        "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
-      },
-      {
-        "content": "Toutes les méthodes sont interchangeables sans tenir compte de la cible.",
-        "correct": false,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle méthode physique applique des impulsions électriques pour augmenter transitoirement la perméabilité membranaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "électroporation",
+        "electroporation"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique. La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
+    },
+    "explanation": "L’électroporation crée une perméabilisation réversible permettant l’entrée de molécules."
   },
   {
     "order": 96,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « la micro-injection de protéines marquées » et « les quatre grandes méthodes de marquage moléculaire de la fiche ». Quelles propositions sont exactes ?",
+    "question": "Sélectionnez les affirmations compatibles avec « Micro-injection de molécules marquées ».",
     "choices": [
       {
-        "content": "La protéine marquée est micro-injectée dans le cytoplasme ou le noyau d’une cellule vivante.",
+        "content": "Une protéine purifiée marquée peut être introduite par micro-injection.",
         "correct": true,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
+        "explanation": "Exact. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
       },
       {
-        "content": "Elle cite les protéines autofluorescentes et la micro-injection de protéines marquées.",
+        "content": "La micro-injection ne permet jamais de cibler le noyau.",
+        "correct": false,
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
+      },
+      {
+        "content": "La micro-injection peut également cibler le noyau selon la question expérimentale.",
         "correct": true,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
+        "explanation": "Exact. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
       },
       {
-        "content": "La protéine marquée ne peut jamais être injectée dans le noyau.",
+        "content": "La méthode est dépourvue de tout risque mécanique pour la cellule.",
         "correct": false,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
       },
       {
-        "content": "L’immunomarquage est explicitement exclu.",
+        "content": "La micropipette reste obligatoirement à l’extérieur de la cellule.",
         "correct": false,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
+        "explanation": "Incorrect. La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
       }
     ],
-    "explanation": "La micro-injection permet de suivre une protéine préalablement marquée. Quatre grandes stratégies sont comparées dans le support."
+    "explanation": "La micro-injection utilise une micropipette fine pour délivrer directement une petite quantité de matériel dans le cytoplasme ou le noyau d’une cellule. Elle offre un contrôle spatial précis mais reste peu adaptée aux très grandes populations."
   },
   {
     "order": 97,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — croisez « la compatibilité des méthodes avec cellules vivantes ou fixées » et « l’immunomarquage ». Quelles propositions sont exactes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Concernant « Choix entre cellules vivantes et cellules fixées », quelle est l’unique proposition exacte ?",
     "choices": [
       {
-        "content": "Les protéines autofluorescentes et les protéines marquées peuvent être observées sur cellules vivantes ou fixées.",
-        "correct": true,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
-      },
-      {
-        "content": "L’immunomarquage repose sur l’affinité d’un anticorps pour un antigène.",
-        "correct": true,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "L’immunomarquage est présenté comme une méthode de référence sur cellules vivantes dans ce tableau.",
+        "content": "L’hybridation in situ classique nécessite que la cellule reste métaboliquement active.",
         "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Incorrect. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
       },
       {
-        "content": "Les anticorps en excès ne sont jamais éliminés.",
+        "content": "Une cellule fixée fournit un instantané de l’état de l’échantillon au moment de la fixation.",
+        "correct": true,
+        "explanation": "Exact. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
+      },
+      {
+        "content": "Le choix d’une technique est indépendant de la dynamique que l’on souhaite mesurer.",
         "correct": false,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+        "explanation": "Incorrect. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
+      },
+      {
+        "content": "Les protéines fluorescentes ne peuvent jamais être observées en cellule vivante.",
+        "correct": false,
+        "explanation": "Incorrect. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
+      },
+      {
+        "content": "Toute fixation préserve parfaitement toutes les structures et tous les épitopes.",
+        "correct": false,
+        "explanation": "Incorrect. Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
       }
     ],
-    "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant. La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
+    "explanation": "Le choix dépend de la question. Les cellules vivantes permettent le suivi temporel, souvent avec des protéines fluorescentes ou des sondes compatibles. La fixation donne un instantané et facilite l’accès à des cibles intracellulaires pour immunomarquage ou hybridation in situ."
   },
   {
     "order": 98,
-    "difficulty": "HARD",
-    "format": "QRP",
-    "question": "Maîtrise — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
-    "choices": [
-      {
-        "content": "Le choix dépend notamment de la nature de la cible et du besoin d’observer une cellule vivante ou fixée.",
-        "correct": true,
-        "explanation": "La comparaison des méthodes aide à choisir la stratégie expérimentale adaptée."
-      },
-      {
-        "content": "Elle cite l’hybridation in situ.",
-        "correct": true,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
-      },
-      {
-        "content": "Dans l’exemple, des anticorps marqués peuvent être détectés par fluorescence.",
-        "correct": true,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "Alexa 488 est décrit comme une enzyme de digestion cellulaire.",
-        "correct": false,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
-      },
-      {
-        "content": "Elle ne peut jamais cibler l’ARN.",
-        "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
-      },
-      {
-        "content": "La fiche exclut toute variante de protéine fluorescente.",
-        "correct": false,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle technique délivre directement une petite quantité de matériel dans une cellule à l’aide d’une micropipette ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "micro-injection",
+        "microinjection",
+        "micro injection"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    },
+    "explanation": "La micro-injection permet une délivrance cellule par cellule."
   },
   {
     "order": 99,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Maîtrise transversale — croisez « les quatre grandes méthodes de marquage moléculaire de la fiche » et « l’hybridation in situ ». Quelles propositions sont exactes ?",
+    "question": "Dans ce contexte, concernant « Anticorps, antigène et épitope », quelles affirmations sont correctes ?",
     "choices": [
       {
-        "content": "Elle cite l’hybridation in situ.",
+        "content": "Le fragment Fc ne constitue pas le site principal de reconnaissance spécifique de l’épitope.",
         "correct": true,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       },
       {
-        "content": "Elle peut permettre de localiser un ADN ou un ARN d’intérêt dans une cellule fixée.",
+        "content": "La spécificité de l’anticorps est essentielle pour interpréter un immunomarquage.",
         "correct": true,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       },
       {
-        "content": "Aucune méthode ne permet de localiser une protéine.",
+        "content": "La spécificité d’un anticorps n’a aucun impact sur l’interprétation d’une image.",
         "correct": false,
-        "explanation": "Quatre grandes stratégies sont comparées dans le support."
+        "explanation": "Incorrect. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       },
       {
-        "content": "Elle ne peut jamais cibler l’ARN.",
-        "correct": false,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+        "content": "Un anticorps possède classiquement deux sites de liaison à l’antigène.",
+        "correct": true,
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
+      },
+      {
+        "content": "Un anticorps secondaire peut reconnaître le fragment Fc d’un anticorps primaire.",
+        "correct": true,
+        "explanation": "Exact. Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
       }
     ],
-    "explanation": "Quatre grandes stratégies sont comparées dans le support. La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
+    "explanation": "Un anticorps reconnaît spécifiquement un épitope porté par un antigène grâce aux régions variables de ses fragments Fab. Le fragment Fc assure d’autres fonctions et peut être reconnu par des anticorps secondaires dans un immunomarquage indirect."
   },
   {
     "order": 100,
-    "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Maîtrise — sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement « Immunofluorescence directe et indirecte » ?",
     "choices": [
       {
-        "content": "L’immunomarquage repose sur l’affinité d’un anticorps pour un antigène.",
-        "correct": true,
-        "explanation": "La fiche fonde l’immunomarquage sur la reconnaissance spécifique antigène-anticorps."
-      },
-      {
-        "content": "L’excitation à 488 nm permet l’observation de la protéine d’intérêt dans l’exemple.",
-        "correct": true,
-        "explanation": "Alexa 488 est l’exemple pédagogique de fluorochrome utilisé dans l’immunomarquage."
-      },
-      {
-        "content": "Elle peut permettre de localiser un ADN ou un ARN d’intérêt dans une cellule fixée.",
-        "correct": true,
-        "explanation": "La sonde d’hybridation détecte une séquence nucléotidique complémentaire."
-      },
-      {
-        "content": "La fiche cite la GFP.",
-        "correct": true,
-        "explanation": "La stratégie GFP permet de suivre une protéine chimérique produite par la cellule."
-      },
-      {
-        "content": "Cette structure fusionne ensuite avec la membrane plasmique.",
-        "correct": true,
-        "explanation": "La formulation locale associe transfection, encapsidation de l’ADN recombinant et fusion membranaire."
-      },
-      {
-        "content": "La fiche l’utilise uniquement pour fixer les cellules.",
+        "content": "En immunofluorescence indirecte, le secondaire remplace l’antigène dans la cellule.",
         "correct": false,
-        "explanation": "L’électroporation augmente transitoirement la perméabilité membranaire par une impulsion électrique."
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       },
       {
-        "content": "La micro-injection est réalisée uniquement dans une cellule déjà détruite.",
-        "correct": false,
-        "explanation": "La micro-injection permet de suivre une protéine préalablement marquée."
+        "content": "L’immunofluorescence indirecte peut amplifier le signal grâce à plusieurs anticorps secondaires par primaire.",
+        "correct": true,
+        "explanation": "Exact. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       },
       {
-        "content": "L’hybridation in situ est réservée aux cellules vivantes.",
+        "content": "L’autofluorescence ne contribue jamais au bruit de fond.",
         "correct": false,
-        "explanation": "Le tableau final oppose les méthodes nécessitant la fixation à celles permettant un suivi vivant."
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
+      },
+      {
+        "content": "Un immunomarquage ne nécessite aucun contrôle expérimental.",
+        "correct": false,
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
+      },
+      {
+        "content": "L’utilisation de plusieurs fluorophores interdit toute observation simultanée.",
+        "correct": false,
+        "explanation": "Incorrect. L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
       }
     ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    "explanation": "L’immunofluorescence localise un antigène avec des anticorps et un fluorophore. En direct, le primaire est fluorescent ; en indirect, un secondaire fluorescent reconnaît le primaire et peut amplifier le signal."
   }
 ];
