@@ -77,7 +77,7 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     badgeType: 'CUMULATIVE',
     badgeLabel: 'Cumulative',
     ecCode: 'Biologie cellulaire',
-    description: 'Évaluation sur le système endomembranaire, les peroxysomes et les mitochondries.',
+    description: 'Trafic vésiculaire, peroxysomes et mitochondries avec rappels des fondamentaux.',
   },
   {
     id: 'c07',
@@ -155,6 +155,6 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     badgeType: 'GRANDE_COLLE',
     badgeLabel: 'Grande colle UE14',
     ecCode: 'UE14',
-    description: 'Grande épreuve transversale simulant la durée et l’exigence de l’UE14.',
+    description: 'Épreuve transversale d’évaluation globale UE14.',
   },
 ];

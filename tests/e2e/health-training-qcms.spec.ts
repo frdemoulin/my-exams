@@ -152,7 +152,7 @@ test.describe.serial("Santé - QCM publics", () => {
     await expect(page.getByRole("heading", { name: "Colles" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Examens blancs" })).toBeVisible();
     await expect(
-      page.getByText("Aucun examen blanc n'est disponible pour le moment."),
+      page.getByText("Les examens blancs seront disponibles prochainement."),
     ).toBeVisible();
   });
 
