@@ -69,6 +69,63 @@ export function HealthCourseUnitTabs({
 
   return (
     <>
+      <div className="relative">
+      {isEvaluationsTabActive ? (
+        <div className="flex justify-end sm:absolute sm:right-0 sm:top-2.5 sm:z-10 pb-2 sm:pb-0">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" size="sm" className="gap-1.5 text-xs font-medium bg-card">
+                <Info className="h-4 w-4 text-fg-brand" aria-hidden="true" />
+                <span>Aide aux évaluations</span>
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align="end" className="w-80 p-3.5 space-y-3 shadow-lg">
+              <div className="space-y-1">
+                <h4 className="font-semibold text-heading text-xs tracking-wide uppercase">
+                  Aide aux évaluations
+                </h4>
+                <p className="text-xs text-muted-foreground">
+                  Guide d’interface et règles de notation UNESS pour vos épreuves.
+                </p>
+              </div>
+              <div className="space-y-2 pt-1 border-t border-default">
+                <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-xs text-heading">Découvrir le mode évaluation</span>
+                    <Badge variant="outline" className="text-[10px]">5 min</Badge>
+                  </div>
+                  <p className="text-[11px] text-muted-foreground">
+                    Prenez en main le chronomètre, la navigation et la remise d’une épreuve.
+                  </p>
+                  <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
+                    <Link href="/sante/interface-examen">
+                      Découvrir
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </div>
+
+                <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-xs text-heading">Formats & notation</span>
+                    <Badge variant="outline" className="text-[10px]">UNESS</Badge>
+                  </div>
+                  <p className="text-[11px] text-muted-foreground">
+                    Découvrez les formats QRU, QRM, QRP, QROC, QZONE et les discordances UNESS.
+                  </p>
+                  <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
+                    <Link href="/sante/evaluations/comprendre">
+                      Formats et notation
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
+      ) : null}
+
       <Tabs applyTheme="replace" variant="underline" theme={healthTabsTheme}>
         {courseUnit.teachingElements.map((teachingElement) => (
           <TabItem
@@ -222,58 +279,6 @@ export function HealthCourseUnitTabs({
                       <Badge variant="outline">{HEALTH_COLLES_UE14_V1.length} colles</Badge>
                       <Badge variant="outline">Notation UNESS</Badge>
                     </div>
-
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button variant="outline" size="sm" className="gap-1.5 text-xs font-medium">
-                          <Info className="h-4 w-4 text-fg-brand" aria-hidden="true" />
-                          <span>Aide aux évaluations</span>
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent align="end" className="w-80 p-3.5 space-y-3 shadow-lg">
-                        <div className="space-y-1">
-                          <h4 className="font-semibold text-heading text-xs tracking-wide uppercase">
-                            Aide aux évaluations
-                          </h4>
-                          <p className="text-xs text-muted-foreground">
-                            Guide d’interface et règles de notation UNESS pour vos épreuves.
-                          </p>
-                        </div>
-                        <div className="space-y-2 pt-1 border-t border-default">
-                          <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
-                            <div className="flex items-center justify-between">
-                              <span className="font-semibold text-xs text-heading">Découvrir le mode évaluation</span>
-                              <Badge variant="outline" className="text-[10px]">5 min</Badge>
-                            </div>
-                            <p className="text-[11px] text-muted-foreground">
-                              Prenez en main le chronomètre, la navigation et la remise d’une épreuve.
-                            </p>
-                            <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
-                              <Link href="/sante/interface-examen">
-                                Découvrir
-                                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                              </Link>
-                            </Button>
-                          </div>
-
-                          <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
-                            <div className="flex items-center justify-between">
-                              <span className="font-semibold text-xs text-heading">Formats & notation</span>
-                              <Badge variant="outline" className="text-[10px]">UNESS</Badge>
-                            </div>
-                            <p className="text-[11px] text-muted-foreground">
-                              Découvrez les formats QRU, QRM, QRP, QROC, QZONE et les discordances UNESS.
-                            </p>
-                            <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
-                              <Link href="/sante/evaluations/comprendre">
-                                Formats et notation
-                                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                              </Link>
-                            </Button>
-                          </div>
-                        </div>
-                      </PopoverContent>
-                    </Popover>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -444,6 +449,7 @@ export function HealthCourseUnitTabs({
         </div>
         </TabItem>
       </Tabs>
+    </div>
 
       <HealthColleStartDialog
         colle={selectedColleForStart}
