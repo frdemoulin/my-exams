@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="1200" height="700" fill="white"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#222">
+<text x="600" y="55" font-size="30" text-anchor="middle">Adressage simplifié des hydrolases lysosomales</text>
+<text x="160" y="180" font-size="25" text-anchor="middle">cis-Golgi</text>
+<text x="565" y="180" font-size="25" text-anchor="middle">TGN</text>
+<text x="955" y="245" font-size="25" text-anchor="middle">Endosome</text>
+<text x="955" y="540" font-size="25" text-anchor="middle">Lysosome</text>
+</g>
+<g stroke="#222" stroke-width="4" fill="none">
+<rect x="70" y="205" width="180" height="120" rx="35"/>
+<rect x="455" y="205" width="220" height="120" rx="35"/>
+<ellipse cx="955" cy="320" rx="120" ry="75"/>
+<circle cx="955" cy="520" r="100"/>
+<line x1="250" y1="265" x2="455" y2="265"/>
+<line x1="675" y1="265" x2="835" y2="305"/>
+<line x1="955" y1="395" x2="955" y2="420"/>
+<polyline points="815,285 835,305 807,311"/>
+<polyline points="940,400 955,420 970,400"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" font-size="21">
+<text x="160" y="265" text-anchor="middle">Ajout M6P</text>
+<text x="565" y="255" text-anchor="middle">Récepteur M6P</text>
+<text x="565" y="285" text-anchor="middle">+ clathrine</text>
+<text x="955" y="325" text-anchor="middle">pH ↓ : dissociation</text>
+</g>
+</svg>
