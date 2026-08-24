@@ -80,11 +80,11 @@ test.describe("Santé - tutoriel interface examen", () => {
     await expect(
       page.getByRole("heading", { name: "2. La notation UNESS & le principe de discordance" }),
     ).toBeVisible();
-    await expect(page.getByText("QRU", { exact: true })).toBeVisible();
-    await expect(page.getByText("QRM", { exact: true })).toBeVisible();
-    await expect(page.getByText("QRP", { exact: true })).toBeVisible();
-    await expect(page.getByText("QRPL", { exact: true })).toBeVisible();
-    await expect(page.getByText("QROC", { exact: true })).toBeVisible();
-    await expect(page.getByText("QZONE", { exact: true })).toBeVisible();
+    await expect(page.getByText("QRU", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QRM", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QRP", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QRPL", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QROC", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QZONE", { exact: true }).first()).toBeVisible();
   });
 });
