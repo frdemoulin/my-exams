@@ -282,12 +282,25 @@ export function HealthCourseUnitTabs({
                   "inline-flex items-center gap-1.5 rounded-xl px-2.5 py-1 -my-1 border transition-all duration-200 shadow-2xs",
                   activeTabIndex === evaluationsTabIndex
                     ? "bg-brand-soft/30 border-brand/40 text-fg-brand font-semibold ring-1 ring-brand/20"
-                    : "bg-brand-soft/10 border-brand/20 text-fg-brand hover:bg-brand-soft/20 font-medium"
+                    : "bg-neutral-secondary-soft/80 border-border text-body hover:text-fg-brand hover:border-brand/30 hover:bg-neutral-secondary-soft font-medium"
                 )}
               >
-                <FileCheck2 className="h-3.5 w-3.5 text-fg-brand" aria-hidden="true" />
+                <FileCheck2
+                  className={cn(
+                    "h-3.5 w-3.5",
+                    activeTabIndex === evaluationsTabIndex ? "text-fg-brand" : "text-muted-foreground"
+                  )}
+                  aria-hidden="true"
+                />
                 <span>Évaluations</span>
-                <span className="inline-flex items-center justify-center rounded-full bg-brand px-1.5 py-0.5 text-[10px] font-bold text-white leading-none">
+                <span
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-full px-1.5 py-0.5 text-[10px] font-bold leading-none",
+                    activeTabIndex === evaluationsTabIndex
+                      ? "bg-brand text-white"
+                      : "bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200"
+                  )}
+                >
                   {HEALTH_COLLES_UE14_V1.length}
                 </span>
               </span>
