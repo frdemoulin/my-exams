@@ -57,7 +57,7 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
     await page.getByTestId("health-mock-exam-short-answer-input").fill("20");
 
     // Naviguer librement vers la fin ou soumettre
-    await page.getByRole("button", { name: /Remettre la colle|Soumettre l'examen/ }).click();
+    await page.getByRole("button", { name: /Remettre la colle|Soumettre l'examen/ }).first().click();
     await page.getByRole("button", { name: /Confirmer la remise|Confirmer la soumission/ }).click();
 
     // 4. Vérifier la redirection vers la page de résultats

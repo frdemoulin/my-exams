@@ -549,6 +549,37 @@ export function HealthMockExamSession({
               <Flag className="h-3.5 w-3.5" aria-hidden="true" />
               {currentAnswer.markedForReview ? "À revoir" : "Marquer à revoir"}
             </Button>
+
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  type="button"
+                  variant="destructive"
+                  size="xs"
+                  disabled={isSubmitting}
+                  className="gap-1.5 text-xs h-7 px-2.5"
+                >
+                  <Send className="h-3.5 w-3.5" aria-hidden="true" />
+                  {submitButtonLabel}
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>{submitDialogTitle}</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    {answeredCount} question{answeredCount > 1 ? "s" : ""} répondue{answeredCount > 1 ? "s" : ""},{" "}
+                    {passage.questionCount - answeredCount} sans réponse et {formatRemainingTime(remainingSeconds)} restante{remainingSeconds > 1 ? "s" : ""}.{" "}
+                    {isTutorial ? "Vous pourrez refaire ce tutoriel librement." : "Cette remise est définitive."}
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Continuer l&apos;épreuve</AlertDialogCancel>
+                  <AlertDialogAction onClick={() => void submitAttempt()} disabled={isSubmitting}>
+                    {isSubmitting ? "Soumission..." : submitConfirmLabel}
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
         </div>
 

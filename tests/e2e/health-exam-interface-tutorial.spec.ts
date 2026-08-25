@@ -60,7 +60,7 @@ test.describe("Santé - tutoriel interface examen", () => {
       },
     });
 
-    await page.getByRole("button", { name: "Terminer le tutoriel" }).click();
+    await page.getByRole("button", { name: "Terminer le tutoriel" }).first().click();
     await page.getByRole("button", { name: "Voir le récapitulatif" }).click();
 
     await expect(page.getByRole("heading", { name: "Récapitulatif pédagogique" })).toBeVisible();

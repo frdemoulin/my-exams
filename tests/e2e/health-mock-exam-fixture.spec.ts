@@ -74,7 +74,7 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     }
     await expect(page.getByText(/Zone sélectionnée :/)).toBeVisible();
 
-    await page.getByRole("button", { name: "Soumettre l'examen" }).click();
+    await page.getByRole("button", { name: "Soumettre l'examen" }).first().click();
     await page.getByRole("button", { name: "Confirmer la soumission" }).click();
 
     await expect(page).toHaveURL(/\/examens-blancs\/fixture-uness-mixte\/resultats\//, { timeout: 15000 });
