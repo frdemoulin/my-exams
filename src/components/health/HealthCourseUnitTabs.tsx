@@ -14,6 +14,7 @@ import { HealthColleCard } from '@/components/health/HealthColleCard';
 import { HealthColleStartDialog } from '@/components/health/HealthColleStartDialog';
 import { HEALTH_COLLES_UE14_V1, type HealthColleV1 } from '@/core/health-colle';
 import type { HealthStudentCourseUnitDetail } from '@/core/health';
+import { cn } from '@/lib/utils';
 
 const healthTabsTheme = {
   base: 'flex flex-col gap-2',
@@ -273,7 +274,25 @@ export function HealthCourseUnitTabs({
 
         <TabItem
           active={activeTabIndex === evaluationsTabIndex}
-          title="Évaluations"
+          title={
+            <span className="inline-flex items-center gap-2">
+              <span className="hidden sm:inline-block h-3.5 w-px bg-border mr-0.5" aria-hidden="true" />
+              <span
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-xl px-2.5 py-1 -my-1 border transition-all duration-200 shadow-2xs",
+                  activeTabIndex === evaluationsTabIndex
+                    ? "bg-brand-soft/30 border-brand/40 text-fg-brand font-semibold ring-1 ring-brand/20"
+                    : "bg-brand-soft/10 border-brand/20 text-fg-brand hover:bg-brand-soft/20 font-medium"
+                )}
+              >
+                <FileCheck2 className="h-3.5 w-3.5 text-fg-brand" aria-hidden="true" />
+                <span>Évaluations</span>
+                <span className="inline-flex items-center justify-center rounded-full bg-brand px-1.5 py-0.5 text-[10px] font-bold text-white leading-none">
+                  {HEALTH_COLLES_UE14_V1.length}
+                </span>
+              </span>
+            </span>
+          }
         >
           <div className="space-y-4">
             {/* Section 1: Colles */}
