@@ -14,7 +14,7 @@ On compare les atomes neutres $\ce{^{35}_{17}Cl}$ et $\ce{^{37}_{17}Cl}$. Quelle
 - D. Ils possèdent le même nombre d’électrons lorsqu’ils sont neutres. **✓**
 - E. Ils ont nécessairement la même masse atomique individuelle. **✗**
 
-**Explication :** Ces deux atomes ont le même numéro atomique $Z=17$ : ils appartiennent au même élément chimique et possèdent le même nombre de protons. Comme ils sont neutres, ils possèdent aussi chacun 17 électrons. Leur nombre de neutrons et leur masse diffèrent.
+**Explication :** Ces deux atomes ont le même numéro atomique $\mathrm{Z}=17$ : ils appartiennent au même élément chimique et possèdent le même nombre de protons. Comme ils sont neutres, ils possèdent aussi chacun 17 électrons. Leur nombre de neutrons et leur masse diffèrent.
 
 ## Q2 — QROC — EASY
 
@@ -22,11 +22,11 @@ Combien de neutrons contient le noyau de $\ce{^{37}_{17}Cl}$ ?
 
 **Réponse attendue :** `{'type': 'number', 'value': 20, 'tolerance': 0}`
 
-**Explication :** Le nombre de neutrons vaut $N=A-Z=37-17=20$.
+**Explication :** Le nombre de neutrons vaut $\mathrm{N}=\mathrm{A}-\mathrm{Z}=37-17=20$.
 
 ## Q3 — QRU — MEDIUM
 
-Un atome neutre possède la configuration électronique de valence $3s^2 3p^5$. À quelle famille appartient-il ?
+Un atome neutre possède la configuration électronique de valence $3\mathrm{s}^2\,3\mathrm{p}^5$. À quelle famille appartient-il ?
 
 - A. Aux alcalins. **✗**
 - B. Aux alcalino-terreux. **✗**
@@ -34,7 +34,7 @@ Un atome neutre possède la configuration électronique de valence $3s^2 3p^5$. 
 - D. Aux halogènes. **✓**
 - E. Aux gaz nobles. **✗**
 
-**Explication :** Une configuration externe $ns^2np^5$ caractérise les halogènes du groupe 17. Pour $n=3$, il s’agit du chlore.
+**Explication :** Une configuration externe $n\mathrm{s}^2\,n\mathrm{p}^5$ caractérise les halogènes du groupe 17. Pour $\mathrm{n}=3$, il s’agit du chlore.
 
 ## Q4 — QRP — MEDIUM
 
@@ -62,7 +62,7 @@ Concernant les tendances périodiques générales, sélectionnez exactement les 
 
 ## Q6 — QROC — MEDIUM
 
-Le fer a pour numéro atomique $Z=26$. Combien d’électrons possède l’ion $\ce{Fe^{3+}}$ ?
+Le fer a pour numéro atomique $\mathrm{Z}=26$. Combien d’électrons possède l’ion $\ce{Fe^{3+}}$ ?
 
 **Réponse attendue :** `{'type': 'number', 'value': 23, 'tolerance': 0}`
 
@@ -106,11 +106,11 @@ Quelle description correspond à une double liaison carbone–carbone $\ce{C=C}$
 
 ## Q10 — QROC — MEDIUM
 
-Selon le modèle VSEPR, quelle notation $AX_mE_n$ décrit la molécule $\ce{NH3}$ autour de l’atome d’azote ?
+Selon le modèle VSEPR, quelle notation $\mathrm{AX}_m\mathrm{E}_n$ décrit la molécule $\ce{NH3}$ autour de l’atome d’azote ?
 
 **Réponse attendue :** `{'type': 'text', 'acceptedAnswers': ['AX3E1', 'AX3E', 'AX₃E₁'], 'normalization': {'trim': True, 'caseSensitive': False, 'collapseWhitespace': True}}`
 
-**Explication :** L’azote de $\ce{NH3}$ possède trois doublets liants et un doublet non liant : $AX_3E_1$.
+**Explication :** L’azote de $\ce{NH3}$ possède trois doublets liants et un doublet non liant : $\mathrm{AX}_3\mathrm{E}_1$.
 
 ## Q11 — QRP — MEDIUM
 
@@ -184,7 +184,7 @@ Sélectionnez exactement les deux propositions correctes concernant les interact
 
 Parmi les dix associations suivantes, sélectionnez exactement les cinq correctes.
 
-- A. Une configuration externe $[\ce{Ne}]3s^1$ correspond à un élément alcalin de la 3e période. **✓**
+- A. Une configuration externe $[\ce{Ne}]3\mathrm{s}^1$ correspond à un élément alcalin de la 3e période. **✓**
 - B. Un élément du groupe 17 possède typiquement sept électrons de valence dans le bloc p. **✓**
 - C. Une hybridation $sp$ conduit à une géométrie trigonale plane à 120°. **✗**
 - D. Un carbone $sp^2$ conserve une orbitale p non hybridée pouvant participer à une liaison $\pi$. **✓**
@@ -195,7 +195,7 @@ Parmi les dix associations suivantes, sélectionnez exactement les cinq correcte
 - I. Les forces de London nécessitent un dipôle permanent préexistant. **✗**
 - J. Le chlore est plus électronégatif que le fluor. **✗**
 
-**Explication :** Cette question croise classification périodique, hybridation, liaisons multiples, géométrie et forces intermoléculaires.
+**Explication :** Cette question croise classification périodique, hybridation, liaisons multiples, géométrie et forces intermoléculaires. La configuration externe typique est $n\mathrm{s}^2\,n\mathrm{p}^5$.
 
 ## Q18 — QRU — EASY
 

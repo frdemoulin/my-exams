@@ -10,7 +10,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "EASY",
     "format": "QRM",
     "question": "On compare les atomes neutres $\\ce{^{35}_{17}Cl}$ et $\\ce{^{37}_{17}Cl}$. Quelles propositions sont exactes ?",
-    "explanation": "Ces deux atomes ont le même numéro atomique $Z=17$ : ils appartiennent au même élément chimique et possèdent le même nombre de protons. Comme ils sont neutres, ils possèdent aussi chacun 17 électrons. Leur nombre de neutrons et leur masse diffèrent.",
+    "explanation": "Ces deux atomes ont le même numéro atomique $\\mathrm{Z}=17$ : ils appartiennent au même élément chimique et possèdent le même nombre de protons. Comme ils sont neutres, ils possèdent aussi chacun 17 électrons. Leur nombre de neutrons et leur masse diffèrent.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -23,17 +23,17 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "Ils possèdent le même nombre de protons.",
         "correct": true,
-        "explanation": "Le numéro atomique $Z$ est identique : chacun possède 17 protons."
+        "explanation": "Le numéro atomique $\\mathrm{Z}$ est identique : chacun possède 17 protons."
       },
       {
         "content": "Ils possèdent le même nombre de neutrons.",
         "correct": false,
-        "explanation": "Le nombre de neutrons vaut $N=A-Z$ : 18 pour $^{35}Cl$ et 20 pour $^{37}Cl$."
+        "explanation": "Le nombre de neutrons vaut $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}$ : 18 pour $\\ce{^{35}Cl}$ et 20 pour $\\ce{^{37}Cl}$."
       },
       {
         "content": "Ce sont deux isotopes du chlore.",
         "correct": true,
-        "explanation": "Des isotopes ont le même $Z$ mais des nombres de neutrons différents."
+        "explanation": "Des isotopes ont le même $\\mathrm{Z}$ mais des nombres de neutrons différents."
       },
       {
         "content": "Ils possèdent le même nombre d’électrons lorsqu’ils sont neutres.",
@@ -52,7 +52,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "EASY",
     "format": "QROC",
     "question": "Combien de neutrons contient le noyau de $\\ce{^{37}_{17}Cl}$ ?",
-    "explanation": "Le nombre de neutrons vaut $N=A-Z=37-17=20$.",
+    "explanation": "Le nombre de neutrons vaut $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}=37-17=20$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -71,8 +71,8 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "order": 3,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Un atome neutre possède la configuration électronique de valence $3s^2 3p^5$. À quelle famille appartient-il ?",
-    "explanation": "Une configuration externe $ns^2np^5$ caractérise les halogènes du groupe 17. Pour $n=3$, il s’agit du chlore.",
+    "question": "Un atome neutre possède la configuration électronique de valence $3\\mathrm{s}^2\\,3\\mathrm{p}^5$. À quelle famille appartient-il ?",
+    "explanation": "Une configuration externe $n\\mathrm{s}^2\\,n\\mathrm{p}^5$ caractérise les halogènes du groupe 17. Pour $\\mathrm{n}=3$, il s’agit du chlore.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -85,27 +85,27 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "Aux alcalins.",
         "correct": false,
-        "explanation": "Les alcalins ont typiquement une configuration externe $ns^1$."
+        "explanation": "Les alcalins ont typiquement une configuration externe $n\\mathrm{s}^1$."
       },
       {
         "content": "Aux alcalino-terreux.",
         "correct": false,
-        "explanation": "Les alcalino-terreux ont typiquement une configuration externe $ns^2$."
+        "explanation": "Les alcalino-terreux ont typiquement une configuration externe $n\\mathrm{s}^2$."
       },
       {
         "content": "Aux chalcogènes.",
         "correct": false,
-        "explanation": "Les chalcogènes du groupe 16 ont typiquement $ns^2np^4$."
+        "explanation": "Les chalcogènes du groupe 16 ont typiquement $n\\mathrm{s}^2\\,n\\mathrm{p}^4$."
       },
       {
         "content": "Aux halogènes.",
         "correct": true,
-        "explanation": "Les halogènes du groupe 17 présentent typiquement $ns^2np^5$."
+        "explanation": "Les halogènes du groupe 17 présentent typiquement $n\\mathrm{s}^2\\,n\\mathrm{p}^5$."
       },
       {
         "content": "Aux gaz nobles.",
         "correct": false,
-        "explanation": "Les gaz nobles ont une couche externe complète, typiquement $ns^2np^6$ hors hélium."
+        "explanation": "Les gaz nobles ont une couche externe complète, typiquement $n\\mathrm{s}^2\\,n\\mathrm{p}^6$ hors hélium."
       }
     ]
   },
@@ -199,7 +199,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "order": 6,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Le fer a pour numéro atomique $Z=26$. Combien d’électrons possède l’ion $\\ce{Fe^{3+}}$ ?",
+    "question": "Le fer a pour numéro atomique $\\mathrm{Z}=26$. Combien d’électrons possède l’ion $\\ce{Fe^{3+}}$ ?",
     "explanation": "Un atome neutre de fer possède 26 électrons. La charge $3+$ correspond à la perte de trois électrons : $26-3=23$.",
     "tags": [
       "usage:COLLE",
@@ -348,8 +348,8 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "order": 10,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Selon le modèle VSEPR, quelle notation $AX_mE_n$ décrit la molécule $\\ce{NH3}$ autour de l’atome d’azote ?",
-    "explanation": "L’azote de $\\ce{NH3}$ possède trois doublets liants et un doublet non liant : $AX_3E_1$.",
+    "question": "Selon le modèle VSEPR, quelle notation $\\mathrm{AX}_m\\mathrm{E}_n$ décrit la molécule $\\ce{NH3}$ autour de l’atome d’azote ?",
+    "explanation": "L’azote de $\\ce{NH3}$ possède trois doublets liants et un doublet non liant : $\\mathrm{AX}_3\\mathrm{E}_1$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -625,14 +625,14 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "requiredSelectionCount": 5,
     "choices": [
       {
-        "content": "Une configuration externe $[\\ce{Ne}]3s^1$ correspond à un élément alcalin de la 3e période.",
+        "content": "Une configuration externe $[\\ce{Ne}]3\\mathrm{s}^1$ correspond à un élément alcalin de la 3e période.",
         "correct": true,
         "explanation": "Il s’agit du sodium, groupe 1."
       },
       {
         "content": "Un élément du groupe 17 possède typiquement sept électrons de valence dans le bloc p.",
         "correct": true,
-        "explanation": "La configuration externe typique est $ns^2np^5$."
+        "explanation": "La configuration externe typique est $n\\mathrm{s}^2\\,n\\mathrm{p}^5$."
       },
       {
         "content": "Une hybridation $sp$ conduit à une géométrie trigonale plane à 120°.",

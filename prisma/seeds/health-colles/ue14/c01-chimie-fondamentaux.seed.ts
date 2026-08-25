@@ -36,6 +36,9 @@ export async function seedHealthColleUE14C01(prisma: PrismaClient) {
   });
 
   if (existingColle) {
+    await prisma.userHealthMockExamAttempt.deleteMany({
+      where: { mockExamId: existingColle.id },
+    });
     await prisma.healthMockExam.delete({
       where: { id: existingColle.id },
     });
