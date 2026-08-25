@@ -277,14 +277,7 @@ export function HealthCourseUnitTabs({
           title={
             <span className="inline-flex items-center gap-2">
               <span className="hidden sm:inline-block h-3.5 w-px bg-border mr-0.5" aria-hidden="true" />
-              <span
-                className={cn(
-                  "inline-flex items-center gap-1.5 rounded-xl px-2.5 py-1 -my-1 border transition-all duration-200 shadow-2xs",
-                  activeTabIndex === evaluationsTabIndex
-                    ? "bg-brand-soft/30 border-brand/40 text-fg-brand font-semibold ring-1 ring-brand/20"
-                    : "bg-neutral-secondary-soft/80 border-border text-body hover:text-fg-brand hover:border-brand/30 hover:bg-neutral-secondary-soft font-medium"
-                )}
-              >
+              <span className="inline-flex items-center gap-1.5 font-medium">
                 <FileCheck2
                   className={cn(
                     "h-3.5 w-3.5",
