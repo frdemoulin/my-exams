@@ -310,6 +310,7 @@ export function HealthMockExamResults({
             const missedChoiceIndexes = question.correctChoiceIndexes.filter(
               (idx) => !question.selectedChoiceIndexes.includes(idx),
             );
+            const discordanceCount = missedChoiceIndexes.length + extraChoiceIndexes.length;
 
             return (
               <Card
@@ -336,14 +337,14 @@ export function HealthMockExamResults({
                           variant="outline"
                           className="border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200 font-semibold"
                         >
-                          +1,0 pt · Correcte
+                          +{question.maxScore.toFixed(1).replace(".", ",")} pt · Exacte
                         </Badge>
                       ) : isPartial ? (
                         <Badge
                           variant="outline"
                           className="border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200 font-semibold"
                         >
-                          +{question.score} pt · Partielle (UNESS)
+                          +{question.score.toFixed(1).replace(".", ",")} pt · {discordanceCount} discordance{discordanceCount > 1 ? "s" : ""} (UNESS)
                         </Badge>
                       ) : isUnanswered ? (
                         <Badge variant="secondary">0,0 pt · Sans réponse</Badge>
@@ -352,7 +353,7 @@ export function HealthMockExamResults({
                           variant="outline"
                           className="border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200 font-semibold"
                         >
-                          0,0 pt · À revoir
+                          0,0 pt · {discordanceCount > 0 ? `${discordanceCount} discordances (UNESS)` : "À revoir"}
                         </Badge>
                       )}
                     </div>
@@ -386,21 +387,23 @@ export function HealthMockExamResults({
                   {/* COMPARATIF « TA RÉPONSE » vs « RÉPONSE ATTENDUE » (STYLE QUIZ) */}
                   {!isHotspot && !isShortAnswer && (
                     <div className="grid gap-3 rounded-xl border border-border bg-neutral-secondary-soft/50 p-4 text-sm md:grid-cols-2">
-                      <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3 space-y-1">
+                      <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3 space-y-1.5">
                         <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                           Ta réponse
                         </p>
                         <p className="text-base font-bold text-heading">
-                          {formatChoiceLetters(question.selectedChoiceIndexes)}
+                          {question.selectedChoiceIndexes.length > 0
+                            ? formatChoiceLetters(question.selectedChoiceIndexes)
+                            : "Aucune sélection"}
                         </p>
                         {extraChoiceIndexes.length > 0 ? (
                           <p className="text-xs text-rose-700 dark:text-rose-300 font-medium">
-                            Proposition(s) en trop cochée(s) : {formatChoiceLetters(extraChoiceIndexes)}.
+                            Proposition{extraChoiceIndexes.length > 1 ? "s" : ""} en trop ({extraChoiceIndexes.length} discordance{extraChoiceIndexes.length > 1 ? "s" : ""}) : {formatChoiceLetters(extraChoiceIndexes)}.
                           </p>
                         ) : null}
                       </div>
 
-                      <div className="rounded-lg border border-emerald-300/60 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950/40 space-y-1">
+                      <div className="rounded-lg border border-emerald-300/60 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950/40 space-y-1.5">
                         <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-200">
                           Réponse attendue
                         </p>
@@ -409,7 +412,7 @@ export function HealthMockExamResults({
                         </p>
                         {missedChoiceIndexes.length > 0 ? (
                           <p className="text-xs text-amber-700 dark:text-amber-300 font-medium">
-                            Proposition(s) omise(s) : {formatChoiceLetters(missedChoiceIndexes)}.
+                            Proposition{missedChoiceIndexes.length > 1 ? "s" : ""} omise{missedChoiceIndexes.length > 1 ? "s" : ""} ({missedChoiceIndexes.length} discordance{missedChoiceIndexes.length > 1 ? "s" : ""}) : {formatChoiceLetters(missedChoiceIndexes)}.
                           </p>
                         ) : null}
                       </div>
@@ -441,7 +444,7 @@ export function HealthMockExamResults({
                     </div>
                   )}
 
-                  {/* PROPOSITIONS DÉTAILLÉES AVEC EXPLICATIONS PAR ITEM */}
+                  {/* PROPOSITIONS DÉTAILLÉES AVEC EXPLICATIONS PAR ITEM (VOCABULAIRE ET STYLE QUIZ) */}
                   {isHotspot ? (
                     <HotspotQuestionView
                       question={question.canonicalQuestion as HotspotQuestion}
@@ -468,13 +471,18 @@ export function HealthMockExamResults({
                         const expected = question.correctChoiceIndexes.includes(choiceIndex);
                         const explanation = question.choiceExplanations[choiceIndex];
 
+                        const showAsCorrect = selected && expected;
+                        const showSelectedAsIncorrect = selected && !expected;
+                        const showAsMissedExpected = !selected && expected;
+
                         return (
                           <div
                             key={`${question.attemptQuestionId}-${choiceIndex}`}
                             className={cn(
                               "rounded-xl border p-3.5 text-sm transition-colors",
-                              expected && "border-emerald-300 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100",
-                              selected && !expected && "border-rose-300 bg-rose-50 text-rose-950 dark:border-rose-900 dark:bg-rose-950/30 dark:text-rose-100",
+                              showAsCorrect && "border-emerald-300 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100",
+                              showSelectedAsIncorrect && "border-rose-300 bg-rose-50 text-rose-950 dark:border-rose-900 dark:bg-rose-950/30 dark:text-rose-100",
+                              showAsMissedExpected && "border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100",
                               !selected && !expected && "border-border bg-background text-body",
                             )}
                           >
@@ -482,11 +490,13 @@ export function HealthMockExamResults({
                               <span
                                 className={cn(
                                   "flex h-6 w-6 shrink-0 items-center justify-center self-baseline rounded-full border text-xs font-semibold leading-none shadow-xs",
-                                  expected
+                                  showAsCorrect
                                     ? "border-emerald-600 bg-emerald-600 text-white"
-                                    : selected
+                                    : showSelectedAsIncorrect
                                       ? "border-rose-600 bg-rose-600 text-white"
-                                      : "border-border bg-neutral-secondary-soft text-muted-foreground",
+                                      : showAsMissedExpected
+                                        ? "border-amber-500 bg-amber-500 text-white"
+                                        : "border-border bg-neutral-secondary-soft text-muted-foreground",
                                 )}
                               >
                                 {String.fromCharCode(65 + choiceIndex)}
@@ -498,6 +508,12 @@ export function HealthMockExamResults({
                                     <TrainingChoiceContentView choice={choice} />
                                   </div>
                                   <div className="flex items-center gap-1.5 shrink-0">
+                                    {showAsCorrect && (
+                                      <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                                    )}
+                                    {showSelectedAsIncorrect && (
+                                      <XCircle className="h-4 w-4 shrink-0 text-rose-600 dark:text-rose-400" />
+                                    )}
                                     {selected ? (
                                       <Badge
                                         variant="outline"
@@ -514,9 +530,14 @@ export function HealthMockExamResults({
                                     {expected ? (
                                       <Badge
                                         variant="outline"
-                                        className="border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100 text-[11px]"
+                                        className={cn(
+                                          "text-[11px]",
+                                          selected
+                                            ? "border-emerald-400 bg-emerald-100 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100"
+                                            : "border-amber-400 bg-amber-100 text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100",
+                                        )}
                                       >
-                                        Vraie
+                                        Attendue
                                       </Badge>
                                     ) : null}
                                   </div>
