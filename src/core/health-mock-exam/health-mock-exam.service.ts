@@ -587,8 +587,19 @@ export async function fetchHealthMockExamTakingState(input: {
       mockExam: {
         select: {
           title: true,
+          slug: true,
+          type: true,
+          description: true,
           instructions: true,
           questionCount: true,
+          courseUnit: {
+            select: {
+              id: true,
+              code: true,
+              title: true,
+              slug: true,
+            },
+          },
           sections: {
             orderBy: { order: "asc" },
             select: {
@@ -645,8 +656,12 @@ export async function fetchHealthMockExamTakingState(input: {
       startedAt: passageAttempt.startedAt.toISOString(),
       deadlineAt: passageAttempt.deadlineAt.toISOString(),
       title: passageAttempt.mockExam.title,
+      slug: passageAttempt.mockExam.slug,
+      type: passageAttempt.mockExam.type,
+      description: passageAttempt.mockExam.description,
       instructions: passageAttempt.mockExam.instructions ?? null,
       questionCount: passageAttempt.mockExam.questionCount,
+      courseUnit: passageAttempt.mockExam.courseUnit,
       sections: passageAttempt.mockExam.sections,
       questions: passageAttempt.attemptQuestions.map((attemptQuestion) => {
         const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);

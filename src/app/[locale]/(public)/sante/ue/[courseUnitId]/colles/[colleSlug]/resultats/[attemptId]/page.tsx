@@ -30,16 +30,21 @@ export default async function HealthColleResultsPage({ params }: PageProps) {
     notFound();
   }
 
+  const courseUnitHref = `/sante/ue/${courseUnitId}`;
+  const evaluationsHref = `${courseUnitHref}?ec=evaluations`;
+  const colleCode = colleSlug.toUpperCase();
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <PublicHeader />
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 pb-16 pt-8">
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-4 pb-16 pt-10">
         <PublicBreadcrumb
           items={[
             { label: "Accueil", href: "/" },
             { label: "Santé", href: "/sante" },
-            { label: result.courseUnitTitle, href: `/sante/ue/${courseUnitId}?ec=synthese` },
-            { label: result.title },
+            { label: result.courseUnitTitle, href: courseUnitHref },
+            { label: "Évaluations", href: evaluationsHref },
+            { label: `${colleCode} — ${result.title}` },
             { label: "Résultats" },
           ]}
         />

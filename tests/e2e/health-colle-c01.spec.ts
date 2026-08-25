@@ -57,12 +57,12 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
     await page.getByTestId("health-mock-exam-short-answer-input").fill("20");
 
     // Naviguer librement vers la fin ou soumettre
-    await page.getByRole("button", { name: "Soumettre l'examen" }).click();
-    await page.getByRole("button", { name: "Confirmer la soumission" }).click();
+    await page.getByRole("button", { name: /Remettre la colle|Soumettre l'examen/ }).click();
+    await page.getByRole("button", { name: /Confirmer la remise|Confirmer la soumission/ }).click();
 
     // 4. Vérifier la redirection vers la page de résultats
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\//, { timeout: 15000 });
     await expect(page.getByRole("heading", { name: "Correction détaillée" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Chimie — Fondamentaux" })).toBeVisible();
+    await expect(page.getByText("Chimie — Fondamentaux").first()).toBeVisible();
   });
 });

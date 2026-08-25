@@ -40,8 +40,17 @@ export type HealthMockExamPassage = {
   startedAt: string;
   deadlineAt: string;
   title: string;
+  slug?: string;
+  type?: "MOCK_EXAM" | "COLLE";
+  description?: string | null;
   instructions: string | null;
   questionCount: number;
+  courseUnit?: {
+    id: string;
+    code: string | null;
+    title: string;
+    slug: string;
+  };
   sections: Array<{
     id: string;
     title: string;
