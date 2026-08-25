@@ -767,29 +767,6 @@ export function HealthMockExamSession({
             Suivante
             <ChevronRight className="h-4 w-4" aria-hidden="true" />
           </Button>
-
-          <AlertDialog>
-            <AlertDialogTrigger asChild>
-              <Button type="button" variant="destructive" disabled={isSubmitting} className="gap-1.5">
-                <Send className="h-4 w-4" aria-hidden="true" />
-                {submitButtonLabel}
-              </Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>{submitDialogTitle}</AlertDialogTitle>
-                <AlertDialogDescription>
-                  {answeredCount} question{answeredCount > 1 ? "s" : ""} répondue{answeredCount > 1 ? "s" : ""}, {passage.questionCount - answeredCount} sans réponse et {formatRemainingTime(remainingSeconds)} restante{remainingSeconds > 1 ? "s" : ""}. {isTutorial ? "Vous pourrez refaire ce tutoriel librement." : "Cette soumission est définitive."}
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Continuer l&apos;épreuve</AlertDialogCancel>
-                <AlertDialogAction onClick={() => void submitAttempt()} disabled={isSubmitting}>
-                  {isSubmitting ? "Soumission..." : submitConfirmLabel}
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
         </div>
       </div>
 
