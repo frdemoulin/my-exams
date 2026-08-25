@@ -383,7 +383,8 @@ export async function startOrResumeHealthMockExamAttempt(input: {
     await finalizeHealthMockExamAttempt(existingAttempt.id, input.userId, now);
   }
 
-  const deadlineAt = new Date(now.getTime() + exam.durationMinutes * 60 * 1000);
+  const durationSeconds = exam.durationSeconds ?? exam.durationMinutes * 60;
+  const deadlineAt = new Date(now.getTime() + durationSeconds * 1000);
   const attempt = await prisma.userHealthMockExamAttempt.create({
     data: {
       userId: input.userId,

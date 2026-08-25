@@ -1011,6 +1011,7 @@ model HealthMockExam {
   description     String?
   instructions    String?  @db.String
   durationMinutes Int      @default(150)
+  durationSeconds Int?
   questionCount   Int      @default(100)
   version         Int      @default(1)
   order           Int      @default(0)

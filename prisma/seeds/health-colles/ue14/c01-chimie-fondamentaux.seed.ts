@@ -57,6 +57,7 @@ export async function seedHealthColleUE14C01(prisma: PrismaClient) {
       description: "Chimie générale · Ch. 1 à 4",
       instructions: "Colle UE14 Reims — 20 questions — 30 min — Notation UNESS",
       durationMinutes: 30,
+      durationSeconds: 1800,
       questionCount: 20,
       version: 1,
       order: 1,

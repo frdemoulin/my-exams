@@ -67,6 +67,7 @@ export type HealthMockExamSummary = {
   title: string;
   description: string | null;
   durationMinutes: number;
+  durationSeconds?: number | null;
   questionCount: number;
   order: number;
   sections: Array<{
