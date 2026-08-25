@@ -343,7 +343,7 @@ export function HealthCourseUnitTabs({
                                   className="gap-2"
                                   onClick={() => setSelectedColleForStart(colle)}
                                 >
-                                  Commencer
+                                  Démarrer
                                   <ArrowRight className="h-4 w-4" />
                                 </Button>
                               ) : (

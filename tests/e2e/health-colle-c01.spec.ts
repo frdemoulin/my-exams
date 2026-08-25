@@ -18,17 +18,17 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
 
     await expect(page.getByRole("heading", { name: "Colles", exact: true })).toBeVisible();
 
-    // Vérifier l'éligibilité des cartes : C01 a le bouton Commencer, C02 a Bientôt disponible
+    // Vérifier l'éligibilité des cartes : C01 a le bouton Démarrer, C02 a Bientôt disponible
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await expect(c01Row).toBeVisible();
-    await expect(c01Row.getByRole("button", { name: "Commencer" })).toBeVisible();
+    await expect(c01Row.getByRole("button", { name: "Démarrer" })).toBeVisible();
 
     const c02Row = page.locator("tr").filter({ hasText: "Chimie organique" });
     await expect(c02Row).toBeVisible();
     await expect(c02Row.getByRole("button", { name: "Bientôt disponible" })).toBeDisabled();
 
     // 1. Ouvrir la fiche de préparation C01
-    await c01Row.getByRole("button", { name: "Commencer" }).click();
+    await c01Row.getByRole("button", { name: "Démarrer" }).click();
 
     const dialog = page.getByRole("dialog");
     await expect(dialog.getByRole("heading", { name: "Chimie — Fondamentaux", exact: false })).toBeVisible();

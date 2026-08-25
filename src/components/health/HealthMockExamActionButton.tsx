@@ -22,7 +22,7 @@ export function HealthMockExamActionButton({
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
   const callbackUrl = `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}`;
-  const label = hasCurrentAttempt ? "Reprendre" : hasPreviousAttempt ? "Recommencer" : "Commencer";
+  const label = hasCurrentAttempt ? "Reprendre" : hasPreviousAttempt ? "Recommencer" : "Démarrer";
 
   const startOrResume = async () => {
     setIsPending(true);

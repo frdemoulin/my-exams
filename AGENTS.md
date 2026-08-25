@@ -26,6 +26,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Pour les questions calculatoires, le bloc `Données :` est placé sur une nouvelle ligne immédiatement après l'énoncé, sans ligne blanche intermédiaire.
 - Pour les résultats des quiz Santé, privilégier les informations pédagogiquement actionnables (résultat global, maîtrise par notion, correction détaillée). Ne pas exposer à l'étudiant de statistiques agrégées par format de question (QRU, QRM, QROC, etc.) sur la page de fin de quiz ; conserver ces données pour les analytics sous-jacents si elles existent.
 - En correction des quiz Santé, privilégier une navigation actionnable vers les questions à revoir (filtres `Toutes`, `À revoir`, `Correctes`, raccourcis d'erreurs). Les contrôles supplémentaires ne doivent pas alourdir le mode de passation.
+- Dans l'interface Santé, pour lancer ou débuter une session (quiz, colle ou examen blanc), utiliser systématiquement le verbe « Démarrer » (ex : « Démarrer », « Démarrer la colle », « Démarrer l'examen ») et non « Commencer ».
 - Tout module TypeScript nécessaire à un script exécuté lors du pre-deploy doit être présent dans le stage Docker final. Lorsqu'une nouvelle dépendance runtime est introduite depuis `prisma/` ou `scripts/migrations/` vers `src/`, valider systématiquement le graphe d'imports depuis l'image Docker runner.
 
 ## Processus de validation des plans d'implémentation

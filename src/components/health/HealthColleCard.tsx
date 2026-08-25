@@ -46,7 +46,7 @@ export function HealthColleCard({ colle, onStartClick }: HealthColleCardProps) {
 
       <div className="shrink-0 pt-2 sm:pt-0">
         <Button size="sm" className="w-full sm:w-auto gap-2" onClick={() => onStartClick(colle)}>
-          Commencer
+          Démarrer
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Button>
       </div>

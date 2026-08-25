@@ -32,7 +32,7 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
 
     await page
       .locator('section[aria-labelledby="health-mock-exams-heading"]')
-      .getByRole("button", { name: /Commencer|Reprendre|Recommencer/ })
+      .getByRole("button", { name: /Démarrer|Reprendre|Recommencer/ })
       .click();
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
 
