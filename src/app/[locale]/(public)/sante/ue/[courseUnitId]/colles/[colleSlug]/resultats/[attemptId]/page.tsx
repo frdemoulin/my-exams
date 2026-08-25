@@ -1,9 +1,12 @@
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 
 import { HealthMockExamResults } from "@/components/health/HealthMockExamResults";
 import { PublicBreadcrumb } from "@/components/shared/public-breadcrumb";
 import { PublicHeader } from "@/components/shared/public-header";
 import { SiteFooter } from "@/components/shared/site-footer";
+import { Button } from "@/components/ui/button";
 import { fetchHealthMockExamResults } from "@/core/health-mock-exam/health-mock-exam.service";
 import { auth } from "@/lib/auth/auth";
 import { getSessionEffectiveUserId } from "@/lib/auth/session";
@@ -48,10 +51,22 @@ export default async function HealthColleResultsPage({ params }: PageProps) {
             { label: "Résultats" },
           ]}
         />
-        <HealthMockExamResults
-          result={result}
-          restartHref={`/sante/ue/${courseUnitId}/colles/${colleSlug}`}
-        />
+
+        <div className="space-y-4">
+          <Button asChild variant="outline" size="sm" className="w-fit gap-2">
+            <Link href={evaluationsHref}>
+              <ChevronLeft className="h-4 w-4" />
+              Retour aux évaluations
+            </Link>
+          </Button>
+
+          <HealthMockExamResults
+            result={result}
+            restartHref={`/sante/ue/${courseUnitId}/colles/${colleSlug}`}
+            headingLabel="Bilan de la colle"
+            restartLabel="Recommencer la colle"
+          />
+        </div>
       </main>
       <SiteFooter />
     </div>
