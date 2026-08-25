@@ -24,7 +24,6 @@ export async function fetchHealthMockExamSummaries(input: {
       title: true,
       description: true,
       durationMinutes: true,
-      durationSeconds: true,
       questionCount: true,
       order: true,
       sections: {
