@@ -16,6 +16,8 @@ export const TEX_UNITS = {
   U_PER_L: String.raw`\mathrm{U}\cdot\mathrm{L}^{-1}`,
   U_PER_MG: String.raw`\mathrm{U}\cdot\mathrm{mg}^{-1}`,
   INVERSE_SECOND: String.raw`\mathrm{s}^{-1}`,
+  NM: String.raw`\mathrm{nm}`,
+  ENZYME_UNIT: String.raw`\mathrm{U}`,
 } as const;
 
 export const texQuantity = (

@@ -1,4 +1,7 @@
 import type { HealthTrainingAuthorQuestion } from '@/core/questions/health-author-question.types';
+import { TEX_UNITS, texQuantity } from '../../tex-units';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 — Colle C04 — Chimie — Des atomes aux molécules organiques
@@ -9,8 +12,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 1,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C04 — concernant valence, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les formules et l’isomérie de constitution, la valence, les liaisons et l’hybridation, ainsi que les fonctions organiques, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le carbone est tétravalent dans les représentations organiques usuelles. Une formule brute renseigne sur la nature et le nombre des atomes mais pas sur leur enchaînement.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -69,7 +72,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 3,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de fonctions ?",
+    "question": "Quelle affirmation décrit correctement les fonctions organiques ?",
     "explanation": "Le motif caractéristique est C–OH hors cas particuliers comme les énols/phénols.",
     "tags": [
       "usage:COLLE",
@@ -111,8 +114,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les fonctions organiques.",
+    "explanation": "Les deux points à retenir sont les suivants : Un alcool comporte un groupe hydroxyle porté par un carbone saturé selon la classification usuelle. Un éther-oxyde présente un motif C–O–C.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -152,8 +155,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 5,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C04 — concernant fonctions, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques ainsi que la valence, les liaisons et l’hybridation, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un éther-oxyde présente un motif C–O–C. Un aldéhyde possède un groupe carbonyle terminal portant au moins un hydrogène.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -219,7 +222,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 7,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de fonctions ?",
+    "question": "Concernant les fonctions organiques, quelle proposition est exacte ?",
     "explanation": "L’oxygène relie deux groupes carbonés.",
     "tags": [
       "usage:COLLE",
@@ -261,8 +264,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Parmi ces cinq affirmations portant sur les fonctions organiques, retenez exactement les deux correctes.",
+    "explanation": "Les deux points à retenir sont les suivants : Un aldéhyde possède un groupe carbonyle terminal portant au moins un hydrogène. Une cétone possède un groupe carbonyle lié à deux groupes carbonés.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -303,8 +306,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur la valence, les liaisons et l’hybridation, les hydrocarbures, ainsi que les fonctions organiques, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : Un alcyne comporte au moins une triple liaison C≡C. Le carbone d’une double liaison C=C est classiquement sp2. Un alcène comporte au moins une double liaison C=C. Une cétone possède un groupe carbonyle lié à deux groupes carbonés. Un alcane acyclique saturé suit la formule générale CnH2n+2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -369,8 +372,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C04 — concernant reactivite alcenes, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les hydrocarbures, la stéréochimie, ainsi que la valence, les liaisons et l’hybridation, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un alcène comporte au moins une double liaison C=C. Un alcane acyclique saturé suit la formule générale CnH2n+2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -435,7 +438,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 12,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de fonctions ?",
+    "question": "Parmi ces cinq affirmations sur les fonctions organiques, laquelle est correcte ?",
     "explanation": "Le motif est R–CHO.",
     "tags": [
       "usage:COLLE",
@@ -477,8 +480,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les hydrocarbures ainsi que la valence, les liaisons et l’hybridation.",
+    "explanation": "Les deux points à retenir sont les suivants : Un alcane acyclique saturé suit la formule générale CnH2n+2. Un alcène comporte au moins une double liaison C=C.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -518,8 +521,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C04 — concernant hybridation, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la valence, les liaisons et l’hybridation, les fonctions organiques, ainsi que les hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le carbone d’une double liaison C=C est classiquement sp2. Le carbone d’une triple liaison C≡C est classiquement sp.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -559,7 +562,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 15,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel terme géométrique correct désigne la disposition à 180° associée à une hybridation sp ?",
+    "question": String.raw`Quel terme géométrique correct désigne la disposition à $${texQuantity(180, U.DEGREE)}$ associée à une hybridation $sp$ ?`,
     "explanation": "La géométrie est digonale, couramment dite linéaire ; « diagonale » est incorrect.",
     "tags": [
       "usage:COLLE",
@@ -586,7 +589,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de fonctions ?",
+    "question": "Les fonctions organiques : quelle affirmation est juste ?",
     "explanation": "Le motif est R–CO–R’.",
     "tags": [
       "usage:COLLE",
@@ -628,8 +631,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant la valence, les liaisons et l’hybridation ainsi que les hydrocarbures.",
+    "explanation": "Les deux points à retenir sont les suivants : Un alcyne comporte au moins une triple liaison C≡C. Le carbone d’une double liaison C=C est classiquement sp2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -669,8 +672,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 18,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C04 — concernant stereoisomerie, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la stéréochimie, la valence, les liaisons et l’hybridation, ainsi que les hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Deux énantiomères possèdent les mêmes propriétés dans un environnement achiral, sauf notamment le sens de rotation optique. L’addition de HX sur un alcène dissymétrique peut suivre la régiosélectivité de Markovnikov dans les conditions usuelles. Un carbone tétraédrique portant quatre substituants différents est un centre stéréogène classique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -729,7 +732,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 20,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de hydrocarbures ?",
+    "question": "Quelle affirmation décrit correctement les hydrocarbures ?",
     "explanation": "Cette formule s’applique aux alcanes acycliques non substitués.",
     "tags": [
       "usage:COLLE",
@@ -770,8 +773,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C04 — concernant stereoisomerie, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la valence, les liaisons et l’hybridation, les hydrocarbures, ainsi que les formules et l’isomérie de constitution, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Une formule brute renseigne sur la nature et le nombre des atomes mais pas sur leur enchaînement. Une hydrogénation catalytique d’un alcène consomme H2 et conduit à un alcane. La géométrie associée à l’hybridation sp est dite digonale ou linéaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -803,7 +806,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "La géométrie associée à l’hybridation sp est dite digonale ou linéaire.",
         "correct": true,
-        "explanation": "Deux directions à 180° ; « diagonale » est un faux ami lexical."
+        "explanation": String.raw`Deux directions séparées de $${texQuantity(180, U.DEGREE)}$ ; « diagonale » est un faux ami lexical.`
       }
     ]
   },
@@ -811,8 +814,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C04 — concernant hybridation, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur la valence, les liaisons et l’hybridation, les fonctions organiques, ainsi que les hydrocarbures, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : Le carbone est tétravalent dans les représentations organiques usuelles. Un éther-oxyde présente un motif C–O–C. Un alcool comporte un groupe hydroxyle porté par un carbone saturé selon la classification usuelle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -852,8 +855,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 23,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C04 — concernant fonctions, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques, les hydrocarbures, ainsi que la valence, les liaisons et l’hybridation, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un aldéhyde possède un groupe carbonyle terminal portant au moins un hydrogène. Une cétone possède un groupe carbonyle lié à deux groupes carbonés. Un alcène comporte au moins une double liaison C=C. Un alcane acyclique saturé suit la formule générale CnH2n+2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -923,8 +926,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 25,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C04 — concernant hybridation, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la valence, les liaisons et l’hybridation ainsi que les hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le carbone d’une double liaison C=C est classiquement sp2. Un alcyne comporte au moins une triple liaison C≡C. Un alcène comporte au moins une double liaison C=C. Le carbone d’une triple liaison C≡C est classiquement sp.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",

@@ -1,4 +1,7 @@
 import type { HealthTrainingAuthorQuestion } from '@/core/questions/health-author-question.types';
+import { TEX_UNITS, texQuantity } from '../../tex-units';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 — Colle C12 — Grande colle UE14
@@ -9,8 +12,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 1,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C12 — concernant esters, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité, la valence, les liaisons et l’hybridation, ainsi que les hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "À retenir : L’hydrolyse basique d’un ester est appelée saponification. Un alcool comporte un groupe hydroxyle porté par un carbone saturé selon la classification usuelle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -50,7 +53,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 2,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, combien de liaisons $\\pi$ comporte une triple liaison carbone-carbone ?",
+    "question": "Combien de liaisons $\\pi$ comporte une triple liaison carbone-carbone ?",
     "explanation": "Une triple liaison comporte une liaison σ et deux liaisons π.",
     "tags": [
       "usage:COLLE",
@@ -69,7 +72,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 3,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de esters ?",
+    "question": "Quelle affirmation décrit correctement les fonctions organiques et leur réactivité ?",
     "explanation": "Elle conduit notamment à un carboxylate et un alcool.",
     "tags": [
       "usage:COLLE",
@@ -111,8 +114,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les fonctions organiques et leur réactivité.",
+    "explanation": "Les deux points à retenir sont les suivants : Un aldéhyde s’oxyde généralement plus facilement en acide carboxylique qu’une cétone simple. Un aldéhyde possède un groupe carbonyle terminal portant au moins un hydrogène.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -152,8 +155,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 5,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C12 — concernant hybridation, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la valence, les liaisons et l’hybridation, les fonctions organiques et leur réactivité, ainsi que les formules et l’isomérie de constitution, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le carbone d’une triple liaison C≡C est classiquement sp. Le carbone d’une double liaison C=C est classiquement sp2. Un nitrile contient un groupe C≡N.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -193,7 +196,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, quel est l’état d’hybridation classique d’un carbone engagé dans une double liaison C=C ?",
+    "question": "Quel est l’état d’hybridation classique d’un carbone engagé dans une double liaison C=C ?",
     "explanation": "Un carbone alcénique est classiquement sp2.",
     "tags": [
       "usage:COLLE",
@@ -219,8 +222,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 7,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C12 — concernant reactivite alcenes, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité ainsi que les hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "À retenir : L’addition de HX sur un alcène dissymétrique peut suivre la régiosélectivité de Markovnikov dans les conditions usuelles. L’oxygène carbonylé est globalement nucléophile/basicité de Lewis grâce à ses doublets. Le carbone carbonylé d’un aldéhyde ou d’une cétone est électrophile.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -260,7 +263,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 8,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de aldehydes ?",
+    "question": "Concernant les fonctions organiques et leur réactivité, quelle proposition est exacte ?",
     "explanation": "Le carbone carbonylé aldéhydique porte un hydrogène oxydable.",
     "tags": [
       "usage:COLLE",
@@ -302,8 +305,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant la valence, les liaisons et l’hybridation ainsi que les fonctions organiques et leur réactivité.",
+    "explanation": "Les deux points à retenir sont les suivants : Un thiol comporte un groupe –SH. Le carbone d’une triple liaison C≡C est classiquement sp.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -343,8 +346,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C12 — concernant fonctions, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un éther-oxyde présente un motif C–O–C. Un aldéhyde possède un groupe carbonyle terminal portant au moins un hydrogène. Un aldéhyde s’oxyde généralement plus facilement en acide carboxylique qu’une cétone simple. Une amine n’est pas une amide : dans une amide, le doublet de l’azote est conjugué au carbonyle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -385,8 +388,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur la stéréochimie, les fonctions organiques et leur réactivité, ainsi que la valence, les liaisons et l’hybridation, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : Un carbamate contient le motif O–C(=O)–N. Un carbone tétraédrique portant quatre substituants différents est un centre stéréogène classique. Un ammonium quaternaire porte quatre substituants carbonés sur un azote chargé positivement. L’isomérie Z/E nécessite que chacun des deux carbones de la double liaison porte deux substituants différents. Deux énantiomères possèdent les mêmes propriétés dans un environnement achiral, sauf notamment le sens de rotation optique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -451,7 +454,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 12,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison C≡C ?",
+    "question": "Quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison C≡C ?",
     "explanation": "Un carbone alcynique est classiquement sp.",
     "tags": [
       "usage:COLLE",
@@ -476,7 +479,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 13,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de acides carboxyliques ?",
+    "question": "Parmi ces cinq affirmations sur les fonctions organiques et leur réactivité, laquelle est correcte ?",
     "explanation": "Le groupe combine carbonyle et hydroxyle sur le même carbone.",
     "tags": [
       "usage:COLLE",
@@ -517,8 +520,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant ammoniums, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité, la stéréochimie, ainsi que la valence, les liaisons et l’hybridation, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un ammonium quaternaire porte quatre substituants carbonés sur un azote chargé positivement. L’isomérie Z/E nécessite que chacun des deux carbones de la double liaison porte deux substituants différents. Un carbone tétraédrique portant quatre substituants différents est un centre stéréogène classique. Un thiol comporte un groupe –SH.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -558,8 +561,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant carbonyle, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur les fonctions organiques et leur réactivité, la valence, les liaisons et l’hybridation, ainsi que les hydrocarbures, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : L’oxygène carbonylé est globalement nucléophile/basicité de Lewis grâce à ses doublets. L’addition de HX sur un alcène dissymétrique peut suivre la régiosélectivité de Markovnikov dans les conditions usuelles. Le carbone carbonylé d’un aldéhyde ou d’une cétone est électrophile.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -629,8 +632,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant sterols, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les lipides ainsi que l’enzymologie, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un triacylglycérol est formé par estérification des trois hydroxyles du glycérol par des acides gras. La liaison peptidique présente un caractère partiel de double liaison.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -670,7 +673,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, quel acide aminé remplace le glutamate en position β6 dans HbS ?",
+    "question": "Quel acide aminé remplace le glutamate en position β6 dans HbS ?",
     "explanation": "La mutation classique est β6 Glu→Val.",
     "tags": [
       "usage:COLLE",
@@ -697,7 +700,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de aa structure ?",
+    "question": "Quelle affirmation décrit correctement les acides aminés et les protéines ?",
     "explanation": "Elle ne possède pas quatre substituants différents.",
     "tags": [
       "usage:COLLE",
@@ -739,8 +742,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les glucides ainsi que les lipides.",
+    "explanation": "Les deux points à retenir sont les suivants : Le D-fructose est un cétohexose. L’acide linoléique est un acide gras essentiel de la série n-6.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -780,8 +783,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant unites, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les glucides, les lipides, ainsi que les acides aminés et les protéines, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le saccharose associe un résidu de glucose et un résidu de fructose. L’acide arachidonique est un précurseur majeur d’eicosanoïdes.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -791,9 +794,9 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Un katal correspond à 1 µmol·min−1.",
+        "content": String.raw`Un katal correspond à $${texQuantity(1, U.MICROMOL_PER_MIN)}$.`,
         "correct": false,
-        "explanation": "Cette définition correspond à 1 U ; 1 kat = 1 mol·s−1."
+        "explanation": String.raw`Cette définition correspond à $${texQuantity(1, U.ENZYME_UNIT)}$ ; un katal vaut $${texQuantity(1, U.MOL_PER_S)}$.`
       },
       {
         "content": "Le saccharose associe un résidu de glucose et un résidu de fructose.",
@@ -821,8 +824,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, quelle est approximativement, en nm, la périodicité D du collagène I ?",
-    "explanation": "La périodicité D est d’environ 67 nm.",
+    "question": String.raw`Quelle est approximativement la périodicité D du collagène I ? Donnez uniquement la valeur numérique, exprimée en $${U.NM}$.`,
+    "explanation": String.raw`La périodicité D est d’environ $${texQuantity(67, U.NM)}$.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -833,15 +836,17 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "answer": {
       "type": "number",
       "value": 67,
-      "tolerance": 2
+      "tolerance": 2,
+      "unit": "nm",
+      "displayUnit": U.NM
     }
   },
   {
     "order": 23,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant eicosanoides, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les lipides, les acides aminés et les protéines, ainsi que l’enzymologie, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Les leucotriènes dérivent de voies lipoxygénases. Km a l’unité d’une concentration. L’hémoglobine adulte HbA est un tétramère α2β2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -881,7 +886,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de oses ?",
+    "question": "Quelle affirmation décrit correctement les glucides ?",
     "explanation": "Sa forme ouverte possède une fonction cétone et six carbones.",
     "tags": [
       "usage:COLLE",
@@ -923,8 +928,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Parmi ces cinq affirmations portant sur les glucides ainsi que les lipides, retenez exactement les deux correctes.",
+    "explanation": "Les deux points à retenir sont les suivants : La cyclisation du glucose crée un nouveau centre stéréogène : le carbone anomérique. Les triacylglycérols constituent une forme majeure de réserve énergétique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -964,8 +969,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 26,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C12 — concernant sterols, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les acides aminés et les protéines, les lipides, ainsi que l’enzymologie, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le collagène comporte une triple hélice riche en glycine, proline et hydroxyproline. À [S] ≫ Km, la vitesse tend vers Vmax et devient peu dépendante de [S]. Un ose possède une fonction carbonyle dans sa forme ouverte et plusieurs fonctions alcool. La sphingomyéline contient un groupement phosphocholine ou phosphoéthanolamine selon l’espèce.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1006,8 +1011,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur les glucides, les lipides, ainsi que l’enzymologie, sélectionnez exactement les cinq exactes.",
+    "explanation": String.raw`Les cinq points à retenir sont les suivants : un ose possède une fonction carbonyle dans sa forme ouverte et plusieurs fonctions alcool ; un carbone anomérique engagé dans une liaison osidique peut perdre son caractère réducteur ; dans une représentation de Lineweaver-Burk, l’ordonnée à l’origine vaut $1/V_{max}$ ; le cholestérol possède un noyau stérane ; la périodicité D des fibrilles de collagène I est d’environ $${texQuantity(67, U.NM)}$.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1052,7 +1057,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ils sont généralement synthétisés à la demande à partir de précurseurs lipidiques."
       },
       {
-        "content": "La périodicité D des fibrilles de collagène I est d’environ 67 nm.",
+        "content": String.raw`La périodicité D des fibrilles de collagène I est d’environ $${texQuantity(67, U.NM)}$.`,
         "correct": true,
         "explanation": "Elle reflète l’arrangement décalé des molécules de collagène."
       },
@@ -1072,7 +1077,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 28,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, quel nom porte le polymère filamentaire formé par l’actine globulaire ?",
+    "question": "Quel nom porte le polymère filamentaire formé par l’actine globulaire ?",
     "explanation": "L’actine F correspond au polymère d’actine G.",
     "tags": [
       "usage:COLLE",
@@ -1099,7 +1104,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 29,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de acido basique ?",
+    "question": "Concernant les acides aminés et les protéines, quelle proposition est exacte ?",
     "explanation": "Il ne signifie pas absence de charges internes.",
     "tags": [
       "usage:COLLE",
@@ -1140,8 +1145,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 30,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C12 — concernant unites, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les glucides ainsi que l’enzymologie, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le 2-désoxyribose diffère du ribose par l’absence d’un oxygène en C2. Le ribose est un pentose entrant dans la composition de l’ARN. Le D-glucose et le D-galactose sont épimères en C4. L’actine G est monomérique et l’actine F correspond à un polymère filamentaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1151,9 +1156,9 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Un katal correspond à 1 µmol·min−1.",
+        "content": String.raw`Un katal correspond à $${texQuantity(1, U.MICROMOL_PER_MIN)}$.`,
         "correct": false,
-        "explanation": "Cette définition correspond à 1 U ; 1 kat = 1 mol·s−1."
+        "explanation": String.raw`Cette définition correspond à $${texQuantity(1, U.ENZYME_UNIT)}$ ; un katal vaut $${texQuantity(1, U.MOL_PER_S)}$.`
       },
       {
         "content": "Le 2-désoxyribose diffère du ribose par l’absence d’un oxygène en C2.",
@@ -1181,7 +1186,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 31,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de triacylglycerols ?",
+    "question": "Quelle affirmation décrit correctement les lipides ?",
     "explanation": "Il comporte trois fonctions ester.",
     "tags": [
       "usage:COLLE",
@@ -1222,8 +1227,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 32,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant aa structure, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant l’enzymologie, les glucides, ainsi que les acides aminés et les protéines, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La glycine est achirale car son carbone α porte deux hydrogènes. Dans l’approximation d’état stationnaire, d[ES]/dt est proche de zéro. Le D-glucose est un aldohexose.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1334,7 +1339,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 35,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, quel complexe cycline-CDK constitue le MPF classique ?",
+    "question": "Quel complexe cycline-CDK constitue le MPF classique ?",
     "explanation": "Le MPF classique associe cycline B et CDK1.",
     "tags": [
       "usage:COLLE",
@@ -1362,7 +1367,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de adressage ?",
+    "question": "Quelle affirmation décrit correctement l’adressage des protéines et le système endomembranaire ?",
     "explanation": "Il forme un canal membranaire de translocation.",
     "tags": [
       "usage:COLLE",
@@ -1404,8 +1409,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biologie_cellulaire.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant l’adressage des protéines et le système endomembranaire, le trafic vésiculaire, ainsi que la mitochondrie et la respiration cellulaire.",
+    "explanation": "Les deux points à retenir sont les suivants : Les vésicules COPII assurent classiquement le transport antérograde du RE vers le Golgi. L’ADN mitochondrial humain est distinct de l’ADN nucléaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1445,8 +1450,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 38,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C12 — concernant SAC, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant le cycle cellulaire et ses contrôles, la membrane plasmique et le cytosquelette, ainsi que l’adressage des protéines et le système endomembranaire, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le point de contrôle du fuseau implique des protéines MAD/BUB et retarde l’activation d’APC/C-Cdc20 tant que des kinétochores ne sont pas correctement attachés. APC/C-Cdc20 favorise la dégradation de la sécurine et de la cycline B.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1486,7 +1491,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 39,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, combien de copies de chaque histone H2A, H2B, H3 et H4 contient le cœur nucléosomique canonique ?",
+    "question": "Combien de copies de chaque histone H2A, H2B, H3 et H4 contient le cœur nucléosomique canonique ?",
     "explanation": "Le cœur est un octamère avec deux copies de chacune des quatre histones.",
     "tags": [
       "usage:COLLE",
@@ -1505,8 +1510,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 40,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C12 — concernant adressage, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la membrane plasmique et le cytosquelette, l’adressage des protéines et le système endomembranaire, ainsi que la mitochondrie et la respiration cellulaire, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La SRP reconnaît un peptide signal hydrophobe de nombreuses protéines destinées au RE. Les phospholipides membranaires sont amphiphiles. Les complexes I, III et IV contribuent au pompage de protons à travers la membrane interne.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1546,7 +1551,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 41,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de coats ?",
+    "question": "Quelle affirmation décrit correctement l’adressage des protéines et le système endomembranaire ainsi que le trafic vésiculaire ?",
     "explanation": "COPII bourgeonne à partir des sites de sortie du RE.",
     "tags": [
       "usage:COLLE",
@@ -1587,7 +1592,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C12, quelle polymérase transcrit le précurseur 45S des ARNr 18S, 5,8S et 28S ?",
+    "question": "Quelle polymérase transcrit le précurseur 45S des ARNr 18S, 5,8S et 28S ?",
     "explanation": "Le précurseur 45S est transcrit par l’ARN polymérase I.",
     "tags": [
       "usage:COLLE",
@@ -1645,8 +1650,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 44,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant clathrine, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la membrane plasmique et le cytosquelette, le trafic vésiculaire, ainsi que le noyau, la chromatine et le nucléole, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La clathrine intervient dans l’endocytose médiée par récepteur et dans certains transports depuis le TGN. Un microtubule cytoplasmique comporte typiquement 13 protofilaments. Les pores nucléaires sont constitués de nucléoporines.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1687,8 +1692,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biologie_cellulaire.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant l’adressage des protéines et le système endomembranaire ainsi que le noyau, la chromatine et le nucléole.",
+    "explanation": "Les deux points à retenir sont les suivants : L’histone H1 est associée à l’ADN de liaison plutôt qu’au cœur octamérique canonique. Les lysosomes maintiennent un pH luminal acide grâce à des pompes à protons.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1729,8 +1734,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur la membrane plasmique et le cytosquelette, le trafic vésiculaire, ainsi que l’adressage des protéines et le système endomembranaire, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : Un microtubule cytoplasmique comporte typiquement 13 protofilaments. Les vésicules COPI participent notamment au transport rétrograde Golgi vers RE. L’enveloppe nucléaire comporte deux membranes séparées par un espace périnucléaire. La clathrine intervient dans l’endocytose médiée par récepteur et dans certains transports depuis le TGN. Les microtubules sont constitués d’hétérodimères α/β-tubuline.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1795,7 +1800,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 47,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de pores ?",
+    "question": "Quelle affirmation décrit correctement le noyau, la chromatine et le nucléole ?",
     "explanation": "Les complexes de pore contrôlent les échanges nucléocytoplasmiques.",
     "tags": [
       "usage:COLLE",
@@ -1836,8 +1841,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 48,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant lamine laminine, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la membrane plasmique et le cytosquelette, le noyau, la chromatine et le nucléole, ainsi que les peroxysomes, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Les endosomes précoces constituent un compartiment de tri de la voie endocytaire. Le nucléole n’est pas limité par une membrane. La culture primaire conserve souvent davantage de caractéristiques du tissu d’origine qu’une lignée transformée.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1877,8 +1882,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 49,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C12 — concernant membrane, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la membrane plasmique et le cytosquelette, quelles propositions sont exactes ?",
+    "explanation": "À retenir : L’immunofluorescence indirecte utilise un anticorps secondaire fluorescent reconnaissant l’anticorps primaire. En G1, une cellule diploïde non répliquée est classiquement décrite 2n/2C. La GFP peut être exprimée dans une cellule vivante à partir d’une construction génétique. L’exocytose régulée nécessite un signal, souvent impliquant une augmentation de Ca2+ cytosolique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1918,8 +1923,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C12 — concernant cycle, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur le cycle cellulaire et ses contrôles, la membrane plasmique et le cytosquelette, ainsi que l’adressage des protéines et le système endomembranaire, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : Le complexe cycline B–CDK1 constitue le MPF classique favorisant l’entrée en mitose. Une protéine transmembranaire n’a pas une orientation N-ter extracellulaire/C-ter cytosolique universelle. L’électroporation provoque transitoirement une perméabilisation de membrane favorisant l’entrée de macromolécules. Les peroxysomes ne font pas partie du système endomembranaire classique malgré certains échanges lipidiques avec le RE.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",

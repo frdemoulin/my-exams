@@ -1,4 +1,7 @@
 import type { HealthTrainingAuthorQuestion } from '@/core/questions/health-author-question.types';
+import { TEX_UNITS, texQuantity } from '../../tex-units';
+
+const U = TEX_UNITS;
 
 /**
  * UE14 — Colle C08 — Biochimie — Acides aminés et protéines
@@ -9,8 +12,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 1,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C08 — concernant aa structure, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la structure et les propriétés des acides aminés ainsi que la liaison peptidique et la structure des protéines, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Les acides aminés protéinogènes possèdent généralement un carbone α lié à un groupe amino, un carboxyle, un hydrogène et une chaîne latérale. La glycine est achirale car son carbone α porte deux hydrogènes.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -77,7 +80,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 3,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de aa structure ?",
+    "question": "Quelle affirmation décrit correctement la structure et les propriétés des acides aminés ?",
     "explanation": "Sa structure rigidifie localement la chaîne polypeptidique.",
     "tags": [
       "usage:COLLE",
@@ -103,9 +106,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La mutation classique est Glu→Val."
       },
       {
-        "content": "Le collagène I est une protéine globulaire monomérique de 67 nm de longueur totale.",
+        "content": String.raw`Le collagène I est une protéine globulaire monomérique de $${texQuantity(67, U.NM)}$ de longueur totale.`,
         "correct": false,
-        "explanation": "C’est une protéine fibreuse ; 67 nm correspond à la périodicité D, pas à la longueur totale du protomère."
+        "explanation": String.raw`C’est une protéine fibreuse ; $${texQuantity(67, U.NM)}$ correspond à la périodicité D, pas à la longueur totale du protomère.`
       },
       {
         "content": "Les laminines et les lamines sont deux noms du même réseau protéique nucléaire.",
@@ -119,8 +122,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant la structure et les propriétés des acides aminés.",
+    "explanation": "Les deux points à retenir sont les suivants : À pH physiologique, de nombreux acides aminés libres sont majoritairement sous forme zwitterionique. La proline possède une chaîne latérale cyclisée sur l’azote α.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -160,8 +163,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 5,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C08 — concernant hemoglobine, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant l’hémoglobine ainsi que la structure et les propriétés des acides aminés, quelles propositions sont exactes ?",
+    "explanation": "À retenir : À pH physiologique, de nombreux acides aminés libres sont majoritairement sous forme zwitterionique. Le point isoélectrique correspond au pH où la charge nette moyenne de l’espèce est nulle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -220,7 +223,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 7,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de acido basique ?",
+    "question": "Concernant la structure et les propriétés des acides aminés, quelle proposition est exacte ?",
     "explanation": "Le carboxyle est souvent déprotoné et l’amine protonée.",
     "tags": [
       "usage:COLLE",
@@ -262,8 +265,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant la structure et les propriétés des acides aminés ainsi que la liaison peptidique et la structure des protéines.",
+    "explanation": "Les deux points à retenir sont les suivants : La liaison peptidique présente un caractère partiel de double liaison. Le point isoélectrique correspond au pH où la charge nette moyenne de l’espèce est nulle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -278,9 +281,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Il est Fe2+."
       },
       {
-        "content": "Le collagène I est une protéine globulaire monomérique de 67 nm de longueur totale.",
+        "content": String.raw`Le collagène I est une protéine globulaire monomérique de $${texQuantity(67, U.NM)}$ de longueur totale.`,
         "correct": false,
-        "explanation": "C’est une protéine fibreuse ; 67 nm correspond à la périodicité D, pas à la longueur totale du protomère."
+        "explanation": String.raw`C’est une protéine fibreuse ; $${texQuantity(67, U.NM)}$ correspond à la périodicité D, pas à la longueur totale du protomère.`
       },
       {
         "content": "La liaison peptidique présente un caractère partiel de double liaison.",
@@ -304,8 +307,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur la liaison peptidique et la structure des protéines, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : La structure tertiaire décrit l’organisation tridimensionnelle globale d’une chaîne polypeptidique. Les feuillets β peuvent être parallèles ou antiparallèles. Une hélice α est stabilisée principalement par des liaisons hydrogène intrachaîne du squelette peptidique. Les résidus d’une chaîne polypeptidique sont reliés par des liaisons peptidiques. La liaison peptidique présente un caractère partiel de double liaison.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -335,9 +338,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La liaison implique le carboxyle d’un AA et l’amine du suivant."
       },
       {
-        "content": "Le collagène I est une protéine globulaire monomérique de 67 nm de longueur totale.",
+        "content": String.raw`Le collagène I est une protéine globulaire monomérique de $${texQuantity(67, U.NM)}$ de longueur totale.`,
         "correct": false,
-        "explanation": "C’est une protéine fibreuse ; 67 nm correspond à la périodicité D, pas à la longueur totale du protomère."
+        "explanation": String.raw`C’est une protéine fibreuse ; $${texQuantity(67, U.NM)}$ correspond à la périodicité D, pas à la longueur totale du protomère.`
       },
       {
         "content": "HbA adulte est composée de quatre chaînes β.",
@@ -370,8 +373,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C08 — concernant collagene, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant le collagène et les protéines structurales ainsi que la liaison peptidique et la structure des protéines, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Une hélice α est stabilisée principalement par des liaisons hydrogène intrachaîne du squelette peptidique. Les résidus d’une chaîne polypeptidique sont reliés par des liaisons peptidiques.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -381,9 +384,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Le collagène I est une protéine globulaire monomérique de 67 nm de longueur totale.",
+        "content": String.raw`Le collagène I est une protéine globulaire monomérique de $${texQuantity(67, U.NM)}$ de longueur totale.`,
         "correct": false,
-        "explanation": "C’est une protéine fibreuse ; 67 nm correspond à la périodicité D, pas à la longueur totale du protomère."
+        "explanation": String.raw`C’est une protéine fibreuse ; $${texQuantity(67, U.NM)}$ correspond à la périodicité D, pas à la longueur totale du protomère.`
       },
       {
         "content": "Les microtubules sont des polymères d’actine F.",
@@ -439,7 +442,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 12,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de acido basique ?",
+    "question": "Parmi ces cinq affirmations sur la structure et les propriétés des acides aminés, laquelle est correcte ?",
     "explanation": "Il ne signifie pas absence de charges internes.",
     "tags": [
       "usage:COLLE",
@@ -481,8 +484,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant la liaison peptidique et la structure des protéines.",
+    "explanation": "Les deux points à retenir sont les suivants : Une hélice α est stabilisée principalement par des liaisons hydrogène intrachaîne du squelette peptidique. Les résidus d’une chaîne polypeptidique sont reliés par des liaisons peptidiques.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -522,8 +525,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C08 — concernant structure tertiaire, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la structure et les propriétés des acides aminés, la liaison peptidique et la structure des protéines, ainsi que l’hémoglobine, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La structure tertiaire décrit l’organisation tridimensionnelle globale d’une chaîne polypeptidique. Les ponts disulfure proviennent de l’oxydation de deux résidus cystéine. L’hémoglobine adulte HbA est un tétramère α2β2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -590,7 +593,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 16,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de liaison peptidique ?",
+    "question": "Quelle affirmation décrit correctement la liaison peptidique et la structure des protéines ?",
     "explanation": "La résonance limite sa rotation et favorise sa planéité.",
     "tags": [
       "usage:COLLE",
@@ -632,8 +635,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Parmi ces cinq affirmations portant sur la liaison peptidique et la structure des protéines, retenez exactement les deux correctes.",
+    "explanation": "Les deux points à retenir sont les suivants : La structure tertiaire décrit l’organisation tridimensionnelle globale d’une chaîne polypeptidique. Les feuillets β peuvent être parallèles ou antiparallèles.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -673,8 +676,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 18,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C08 — concernant hemoglobine, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant l’hémoglobine, la structure et les propriétés des acides aminés, ainsi que le collagène et les protéines structurales, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La drépanocytose classique HbS implique une substitution β6 Glu→Val. Le collagène comporte une triple hélice riche en glycine, proline et hydroxyproline. Chaque groupe hème de l’hémoglobine fonctionnelle contient un fer Fe2+ capable de lier O2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -714,8 +717,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quelle est approximativement, en nm, la périodicité D du collagène I ?",
-    "explanation": "La périodicité D est d’environ 67 nm.",
+    "question": String.raw`Quelle est approximativement la périodicité D du collagène I ? Donnez uniquement la valeur numérique, exprimée en $${U.NM}$.`,
+    "explanation": String.raw`La périodicité D est d’environ $${texQuantity(67, U.NM)}$.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -726,14 +729,16 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "answer": {
       "type": "number",
       "value": 67,
-      "tolerance": 2
+      "tolerance": 2,
+      "unit": "nm",
+      "displayUnit": U.NM
     }
   },
   {
     "order": 20,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de liaison peptidique ?",
+    "question": "Concernant la liaison peptidique et la structure des protéines, quelle proposition est exacte ?",
     "explanation": "La liaison implique le carboxyle d’un AA et l’amine du suivant.",
     "tags": [
       "usage:COLLE",
@@ -754,9 +759,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "La mutation classique est Glu→Val."
       },
       {
-        "content": "Le collagène I est une protéine globulaire monomérique de 67 nm de longueur totale.",
+        "content": String.raw`Le collagène I est une protéine globulaire monomérique de $${texQuantity(67, U.NM)}$ de longueur totale.`,
         "correct": false,
-        "explanation": "C’est une protéine fibreuse ; 67 nm correspond à la périodicité D, pas à la longueur totale du protomère."
+        "explanation": String.raw`C’est une protéine fibreuse ; $${texQuantity(67, U.NM)}$ correspond à la périodicité D, pas à la longueur totale du protomère.`
       },
       {
         "content": "Les laminines et les lamines sont deux noms du même réseau protéique nucléaire.",
@@ -774,8 +779,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C08 — concernant lamines, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur le collagène et les protéines structurales ainsi que la liaison peptidique et la structure des protéines, quelles affirmations sont correctes ?",
+    "explanation": String.raw`À retenir : les lamines nucléaires sont des protéines de filaments intermédiaires de type V ; la périodicité D des fibrilles de collagène I est d’environ $${texQuantity(67, U.NM)}$ ; les laminines sont des glycoprotéines hétérotrimériques α-β-γ de la matrice extracellulaire.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -795,7 +800,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Les laminines sont extracellulaires ; les lamines sont nucléaires."
       },
       {
-        "content": "La périodicité D des fibrilles de collagène I est d’environ 67 nm.",
+        "content": String.raw`La périodicité D des fibrilles de collagène I est d’environ $${texQuantity(67, U.NM)}$.`,
         "correct": true,
         "explanation": "Elle reflète l’arrangement décalé des molécules de collagène."
       },
@@ -805,9 +810,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Elles sont importantes dans les membranes basales."
       },
       {
-        "content": "Le collagène I est une protéine globulaire monomérique de 67 nm de longueur totale.",
+        "content": String.raw`Le collagène I est une protéine globulaire monomérique de $${texQuantity(67, U.NM)}$ de longueur totale.`,
         "correct": false,
-        "explanation": "C’est une protéine fibreuse ; 67 nm correspond à la périodicité D, pas à la longueur totale du protomère."
+        "explanation": String.raw`C’est une protéine fibreuse ; $${texQuantity(67, U.NM)}$ correspond à la périodicité D, pas à la longueur totale du protomère.`
       }
     ]
   },
@@ -815,8 +820,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C08 — concernant aa structure, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la structure et les propriétés des acides aminés, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La proline possède une chaîne latérale cyclisée sur l’azote α. Les acides aminés protéinogènes possèdent généralement un carbone α lié à un groupe amino, un carboxyle, un hydrogène et une chaîne latérale. L’actine G est monomérique et l’actine F correspond à un polymère filamentaire. La glycine est achirale car son carbone α porte deux hydrogènes.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -856,8 +861,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 23,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C08 — concernant aa structure, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur la structure et les propriétés des acides aminés ainsi que la liaison peptidique et la structure des protéines, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : La proline possède une chaîne latérale cyclisée sur l’azote α. À pH physiologique, de nombreux acides aminés libres sont majoritairement sous forme zwitterionique. Le point isoélectrique correspond au pH où la charge nette moyenne de l’espèce est nulle. La liaison peptidique présente un caractère partiel de double liaison.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -927,8 +932,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 25,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C08 — concernant collagene, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la liaison peptidique et la structure des protéines ainsi que le collagène et les protéines structurales, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Les résidus d’une chaîne polypeptidique sont reliés par des liaisons peptidiques. Les feuillets β peuvent être parallèles ou antiparallèles. La liaison peptidique présente un caractère partiel de double liaison. Une hélice α est stabilisée principalement par des liaisons hydrogène intrachaîne du squelette peptidique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -938,9 +943,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Le collagène I est une protéine globulaire monomérique de 67 nm de longueur totale.",
+        "content": String.raw`Le collagène I est une protéine globulaire monomérique de $${texQuantity(67, U.NM)}$ de longueur totale.`,
         "correct": false,
-        "explanation": "C’est une protéine fibreuse ; 67 nm correspond à la périodicité D, pas à la longueur totale du protomère."
+        "explanation": String.raw`C’est une protéine fibreuse ; $${texQuantity(67, U.NM)}$ correspond à la périodicité D, pas à la longueur totale du protomère.`
       },
       {
         "content": "Les résidus d’une chaîne polypeptidique sont reliés par des liaisons peptidiques.",

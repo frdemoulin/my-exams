@@ -12,8 +12,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C11 — concernant acides gras, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les glucides, les lipides, ainsi que l’enzymologie, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le D-glucose et le D-galactose sont épimères en C4. Les acides gras sont des acides carboxyliques à chaîne hydrocarbonée.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -53,7 +53,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 2,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C11, pour une enzyme de Michaelis-Menten, si $[S]=K_m$, quelle fraction de $V_{max}$ vaut $v_0$ ? Donnez 0,5 sous forme numérique.",
+    "question": "Pour une enzyme de Michaelis-Menten, si $[S]=K_m$, quelle fraction de $V_{max}$ vaut $v_0$ ? Donnez 0,5 sous forme numérique.",
     "explanation": "$v_0=V_{max}[S]/(K_m+[S])=V_{max}/2$.",
     "tags": [
       "usage:COLLE",
@@ -72,7 +72,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 3,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de aa structure ?",
+    "question": "Quelle affirmation décrit correctement les acides aminés et les protéines ?",
     "explanation": "C’est la structure générale, avec la glycine comme cas achiral.",
     "tags": [
       "usage:COLLE",
@@ -114,8 +114,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant l’enzymologie ainsi que les acides aminés et les protéines.",
+    "explanation": "Les deux points à retenir sont les suivants : Les acides aminés protéinogènes possèdent généralement un carbone α lié à un groupe amino, un carboxyle, un hydrogène et une chaîne latérale. La vitesse initiale d’une réaction enzymatique est mesurée dans la portion initiale approximativement linéaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -135,9 +135,9 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C’est la structure générale, avec la glycine comme cas achiral."
       },
       {
-        "content": "Un katal correspond à 1 µmol·min−1.",
+        "content": String.raw`Un katal correspond à $${texQuantity(1, U.MICROMOL_PER_MIN)}$.`,
         "correct": false,
-        "explanation": "Cette définition correspond à 1 U ; 1 kat = 1 mol·s−1."
+        "explanation": String.raw`Cette définition correspond à $${texQuantity(1, U.ENZYME_UNIT)}$ ; un katal vaut $${texQuantity(1, U.MOL_PER_S)}$.`
       },
       {
         "content": "La série D ou L d’un ose est déterminée par le signe de son pouvoir rotatoire.",
@@ -155,8 +155,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 5,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C11 — concernant triacylglycerols, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les glucides, l’enzymologie, ainsi que les lipides, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le D-glucose et le D-mannose sont épimères en C2. La vitesse initiale d’une réaction enzymatique est mesurée dans la portion initiale approximativement linéaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -186,9 +186,9 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "D/L décrit une configuration relative, pas le signe +/− de rotation optique."
       },
       {
-        "content": "Un katal correspond à 1 µmol·min−1.",
+        "content": String.raw`Un katal correspond à $${texQuantity(1, U.MICROMOL_PER_MIN)}$.`,
         "correct": false,
-        "explanation": "Cette définition correspond à 1 U ; 1 kat = 1 mol·s−1."
+        "explanation": String.raw`Cette définition correspond à $${texQuantity(1, U.ENZYME_UNIT)}$ ; un katal vaut $${texQuantity(1, U.MOL_PER_S)}$.`
       }
     ]
   },
@@ -196,7 +196,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C11, dans une représentation de Lineweaver-Burk, que vaut l’ordonnée à l’origine ?",
+    "question": "Dans une représentation de Lineweaver-Burk, que vaut l’ordonnée à l’origine ?",
     "explanation": "L’ordonnée à l’origine vaut 1/Vmax.",
     "tags": [
       "usage:COLLE",
@@ -223,7 +223,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 7,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de activite ?",
+    "question": "Quelle affirmation décrit correctement l’enzymologie ?",
     "explanation": "Cette phase minimise l’influence de l’épuisement du substrat et de l’accumulation du produit.",
     "tags": [
       "usage:COLLE",
@@ -265,8 +265,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les glucides ainsi que les lipides.",
+    "explanation": "Les deux points à retenir sont les suivants : Un acide gras saturé ne possède pas de double liaison C=C dans sa chaîne. Le D-glucose et le D-mannose sont épimères en C2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -307,8 +307,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur les glucides, les lipides, ainsi que les acides aminés et les protéines, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : La glycine est achirale car son carbone α porte deux hydrogènes. Dans l’approximation d’état stationnaire, d[ES]/dt est proche de zéro. Le D-glucose est un aldohexose. Un acide gras saturé ne possède pas de double liaison C=C dans sa chaîne. Les doubles liaisons cis introduisent généralement un coude dans la chaîne d’un acide gras.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -373,8 +373,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C11 — concernant aa structure, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant l’enzymologie, les glucides, ainsi que les acides aminés et les protéines, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La glycine est achirale car son carbone α porte deux hydrogènes. Dans l’approximation d’état stationnaire, d[ES]/dt est proche de zéro.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -414,7 +414,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 11,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C11, dans une représentation de Lineweaver-Burk, que vaut l’abscisse à l’origine ?",
+    "question": "Dans une représentation de Lineweaver-Burk, que vaut l’abscisse à l’origine ?",
     "explanation": "L’abscisse à l’origine vaut −1/Km.",
     "tags": [
       "usage:COLLE",
@@ -442,7 +442,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 12,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de epimerie ?",
+    "question": "Quelle affirmation décrit correctement les glucides ?",
     "explanation": "Ils ne diffèrent que par la configuration du carbone 2.",
     "tags": [
       "usage:COLLE",
@@ -484,8 +484,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les acides aminés et les protéines ainsi que l’enzymologie.",
+    "explanation": "Les deux points à retenir sont les suivants : Dans l’approximation d’état stationnaire, d[ES]/dt est proche de zéro. La glycine est achirale car son carbone α porte deux hydrogènes.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -525,8 +525,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C11 — concernant anomerie, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les glucides, les lipides, ainsi que les acides aminés et les protéines, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Les doubles liaisons cis introduisent généralement un coude dans la chaîne d’un acide gras. La proline possède une chaîne latérale cyclisée sur l’azote α.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -566,8 +566,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C11, une activité de 60 U correspond à combien de µmol de substrat transformé par minute ?",
-    "explanation": "Par définition 1 U = 1 µmol·min−1.",
+    "question": String.raw`Une activité de $${texQuantity(60, U.ENZYME_UNIT)}$ correspond à combien de micromoles de substrat transformé par minute ? Donnez uniquement la valeur numérique.`,
+    "explanation": String.raw`Par définition, $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_MIN)}$.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -585,7 +585,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 16,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de acides gras ?",
+    "question": "Quelle affirmation décrit correctement les lipides ?",
     "explanation": "Saturé signifie absence de double liaison carbone-carbone.",
     "tags": [
       "usage:COLLE",
@@ -627,8 +627,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de biochimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Parmi ces cinq affirmations portant sur les glucides ainsi que les lipides, retenez exactement les deux correctes.",
+    "explanation": "Les deux points à retenir sont les suivants : Les doubles liaisons cis introduisent généralement un coude dans la chaîne d’un acide gras. Le D-glucose est un aldohexose.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -669,8 +669,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur les glucides, les acides aminés et les protéines, ainsi que l’enzymologie, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : Le D-fructose est un cétohexose. L’acide linoléique est un acide gras essentiel de la série n-6. À pH physiologique, de nombreux acides aminés libres sont majoritairement sous forme zwitterionique. La proline possède une chaîne latérale cyclisée sur l’azote α. L’état stationnaire n’est pas synonyme d’équilibre thermodynamique enzyme-substrat.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -735,8 +735,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C11 — concernant acides gras, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur les glucides, l’enzymologie, ainsi que les lipides, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : L’acide linoléique est un acide gras essentiel de la série n-6. Le D-fructose est un cétohexose.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -776,7 +776,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C11, quel est le nom de l’unité SI d’activité catalytique égale à 1 mol·s−1 ?",
+    "question": String.raw`Quel est le nom de l’unité SI d’activité catalytique égale à $${texQuantity(1, U.MOL_PER_S)}$ ?`,
     "explanation": "L’unité SI est le katal.",
     "tags": [
       "usage:COLLE",
@@ -802,7 +802,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de aa structure ?",
+    "question": "Concernant les acides aminés et les protéines, quelle proposition est exacte ?",
     "explanation": "Elle ne possède pas quatre substituants différents.",
     "tags": [
       "usage:COLLE",
@@ -843,8 +843,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C11 — concernant beer lambert, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant l’enzymologie, les glucides, ainsi que les lipides, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La loi de Beer-Lambert s’écrit A = ε·l·c. Deux énantiomères sont images l’un de l’autre dans un miroir et non superposables. L’acide α-linolénique est un acide gras essentiel de la série n-3.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -884,10 +884,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 23,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": String.raw`Une préparation enzymatique transforme $${texQuantity(6, U.MICROMOL)}$ de substrat en $${texQuantity(2, U.MIN)}$. Quelle est son activité ? Donnez uniquement la valeur numérique, exprimée en $${U.MICROMOL_PER_MIN}$.
-
-Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
-    "explanation": String.raw`$6/2=${texQuantity(3, U.MICROMOL_PER_MIN)}$, soit $3\,\mathrm U$.`,
+    "question": "Une préparation enzymatique transforme $6 MICROMOL$ de substrat en $2 MIN$. Quelle est son activité ? Donnez uniquement la valeur numérique, exprimée en $MICROMOL_PER_MIN$.\n\nDonnées : $1\\,\\mathrm U = 1\\,MICROMOL_PER_MIN$.",
+    "explanation": String.raw`$6/2=${texQuantity(3, U.MICROMOL_PER_MIN)}$, soit $${texQuantity(3, U.ENZYME_UNIT)}$.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -907,7 +905,7 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
     "order": 24,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de stationnaire ?",
+    "question": "Concernant l’enzymologie, quelle proposition est exacte ?",
     "explanation": "La concentration du complexe ES varie peu pendant la mesure initiale.",
     "tags": [
       "usage:COLLE",
@@ -948,8 +946,8 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
     "order": 25,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C11 — concernant michaelis, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les glucides, les acides aminés et les protéines, ainsi que l’enzymologie, quelles propositions sont exactes ?",
+    "explanation": String.raw`À retenir : une unité enzymatique $${U.ENZYME_UNIT}$ correspond à $${texQuantity(1, U.MICROMOL)}$ de substrat transformé par minute dans des conditions définies ; dans une projection de Fischer d’un D-ose, le groupe OH du carbone asymétrique le plus éloigné du carbonyle est à droite ; le point isoélectrique correspond au pH où la charge nette moyenne de l’espèce est nulle.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -964,7 +962,7 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
         "explanation": "La saturation conduit vers Vmax."
       },
       {
-        "content": "Une unité enzymatique U correspond à 1 µmol de substrat transformé par minute dans des conditions définies.",
+        "content": String.raw`Une unité enzymatique $${U.ENZYME_UNIT}$ correspond à $${texQuantity(1, U.MICROMOL)}$ de substrat transformé par minute dans des conditions définies.`,
         "correct": true,
         "explanation": "C’est la définition pratique de l’unité U."
       },
@@ -989,8 +987,8 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
     "order": 26,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C11 — concernant triacylglycerols, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant l’enzymologie ainsi que les lipides, quelles propositions sont exactes ?",
+    "explanation": String.raw`À retenir : un triacylglycérol est formé par estérification des trois hydroxyles du glycérol par des acides gras ; la liaison peptidique présente un caractère partiel de double liaison ; un katal correspond à $${texQuantity(1, U.MOL_PER_S)}$.`,
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1020,7 +1018,7 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
         "explanation": "Le glycogène est ramifié, avec liaisons α(1→4) et α(1→6)."
       },
       {
-        "content": "Un katal correspond à 1 mol·s−1.",
+        "content": String.raw`Un katal correspond à $${texQuantity(1, U.MOL_PER_S)}$.`,
         "correct": true,
         "explanation": "Le katal est l’unité SI d’activité catalytique."
       }
@@ -1030,8 +1028,8 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
     "order": 27,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C11 — concernant triacylglycerols, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur les glucides, les lipides, ainsi que l’enzymologie, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : Les triacylglycérols constituent une forme majeure de réserve énergétique. Les résidus d’une chaîne polypeptidique sont reliés par des liaisons peptidiques. 1 U vaut environ 16,67 nkat. La cyclisation du glucose crée un nouveau centre stéréogène : le carbone anomérique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1058,7 +1056,7 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
       {
         "content": "1 U vaut environ 16,67 nkat.",
         "correct": true,
-        "explanation": "1 µmol/min = 10^-6 mol/60 s ≈ 1,667×10^-8 mol/s."
+        "explanation": String.raw`$${texQuantity(1, U.MICROMOL_PER_MIN)} = \frac{10^{-6}}{60}\,${U.MOL_PER_S} \approx 1{,}667\times10^{-8}\,${U.MOL_PER_S}$.`
       },
       {
         "content": "La cyclisation du glucose crée un nouveau centre stéréogène : le carbone anomérique.",
@@ -1071,8 +1069,8 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
     "order": 28,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C11 — concernant stationnaire, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Parmi les propositions suivantes portant sur les glucides, les lipides, ainsi que l’enzymologie, lesquelles sont exactes ?",
+    "explanation": "À retenir : Une hélice α est stabilisée principalement par des liaisons hydrogène intrachaîne du squelette peptidique. 1 U vaut environ 16,67 nkat. Pour le D-glucopyranose, l’anomère α porte classiquement le OH anomérique opposé au groupe CH2OH de référence. Un glycérophospholipide comporte un squelette glycérol, deux chaînes hydrophobes et un phosphate.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1094,7 +1092,7 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
       {
         "content": "1 U vaut environ 16,67 nkat.",
         "correct": true,
-        "explanation": "1 µmol/min = 10^-6 mol/60 s ≈ 1,667×10^-8 mol/s."
+        "explanation": String.raw`$${texQuantity(1, U.MICROMOL_PER_MIN)} = \frac{10^{-6}}{60}\,${U.MOL_PER_S} \approx 1{,}667\times10^{-8}\,${U.MOL_PER_S}$.`
       },
       {
         "content": "Pour le D-glucopyranose, l’anomère α porte classiquement le OH anomérique opposé au groupe CH2OH de référence.",
@@ -1142,8 +1140,8 @@ Données : $1\,\mathrm U = 1\,${U.MICROMOL_PER_MIN}$.`,
     "order": 30,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C11 — concernant unites, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur les glucides, les lipides, ainsi que les acides aminés et les protéines, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : L’activité spécifique peut s’exprimer en U par mg de protéines. Une hélice α est stabilisée principalement par des liaisons hydrogène intrachaîne du squelette peptidique. La phospholipase A2 hydrolyse l’acide gras en position sn-2 des glycérophospholipides. La mutarotation correspond à l’évolution du pouvoir rotatoire liée à l’interconversion des anomères en solution.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",

@@ -12,8 +12,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C10 — concernant formule brute, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité ainsi que les formules et l’isomérie de constitution, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Une formule brute renseigne sur la nature et le nombre des atomes mais pas sur leur enchaînement. Un ester possède le motif R–C(=O)–O–R’.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -53,7 +53,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 2,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C10, combien de liaisons $\\pi$ comporte une triple liaison carbone-carbone ?",
+    "question": "Combien de liaisons $\\pi$ comporte une triple liaison carbone-carbone ?",
     "explanation": "Une triple liaison comporte une liaison σ et deux liaisons π.",
     "tags": [
       "usage:COLLE",
@@ -72,7 +72,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 3,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de valence ?",
+    "question": "Quelle affirmation décrit correctement la valence, les liaisons et l’hybridation ?",
     "explanation": "Il forme typiquement quatre liaisons covalentes en respectant l’octet.",
     "tags": [
       "usage:COLLE",
@@ -114,8 +114,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les fonctions organiques et leur réactivité ainsi que la valence, les liaisons et l’hybridation.",
+    "explanation": "Les deux points à retenir sont les suivants : L’hydrolyse basique d’un ester est appelée saponification. Le carbone est tétravalent dans les représentations organiques usuelles.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -155,8 +155,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 5,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C10 — concernant amides, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité, la valence, les liaisons et l’hybridation, ainsi que les hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un alcool comporte un groupe hydroxyle porté par un carbone saturé selon la classification usuelle. L’hydrolyse basique d’un ester est appelée saponification.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -196,7 +196,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C10, quel est l’état d’hybridation classique d’un carbone engagé dans une double liaison C=C ?",
+    "question": "Quel est l’état d’hybridation classique d’un carbone engagé dans une double liaison C=C ?",
     "explanation": "Un carbone alcénique est classiquement sp2.",
     "tags": [
       "usage:COLLE",
@@ -222,7 +222,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 7,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de esters ?",
+    "question": "Quelle affirmation décrit correctement les fonctions organiques et leur réactivité ?",
     "explanation": "Elle conduit notamment à un carboxylate et un alcool.",
     "tags": [
       "usage:COLLE",
@@ -264,8 +264,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les fonctions organiques et leur réactivité.",
+    "explanation": "Les deux points à retenir sont les suivants : Une amide possède un azote directement lié au carbone d’un groupe carbonyle. Un alcool comporte un groupe hydroxyle porté par un carbone saturé selon la classification usuelle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -306,8 +306,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur les fonctions organiques et leur réactivité, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : Un aldéhyde possède un groupe carbonyle terminal portant au moins un hydrogène. Une amine n’est pas une amide : dans une amide, le doublet de l’azote est conjugué au carbonyle. Un éther-oxyde présente un motif C–O–C. Une amide possède un azote directement lié au carbone d’un groupe carbonyle. Un aldéhyde s’oxyde généralement plus facilement en acide carboxylique qu’une cétone simple.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -372,8 +372,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C10 — concernant acides carboxyliques, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité ainsi que la valence, les liaisons et l’hybridation, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un éther-oxyde présente un motif C–O–C. Une amine n’est pas une amide : dans une amide, le doublet de l’azote est conjugué au carbonyle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -413,7 +413,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 11,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C10, quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison C≡C ?",
+    "question": "Quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison C≡C ?",
     "explanation": "Un carbone alcynique est classiquement sp.",
     "tags": [
       "usage:COLLE",
@@ -438,7 +438,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 12,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de fonctions ?",
+    "question": "Concernant les fonctions organiques et leur réactivité, quelle proposition est exacte ?",
     "explanation": "Le motif caractéristique est C–OH hors cas particuliers comme les énols/phénols.",
     "tags": [
       "usage:COLLE",
@@ -480,8 +480,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Parmi ces cinq affirmations portant sur les fonctions organiques et leur réactivité, retenez exactement les deux correctes.",
+    "explanation": "Les deux points à retenir sont les suivants : Un éther-oxyde présente un motif C–O–C. Une amine n’est pas une amide : dans une amide, le doublet de l’azote est conjugué au carbonyle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -521,8 +521,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C10 — concernant aldehydes, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Un aldéhyde s’oxyde généralement plus facilement en acide carboxylique qu’une cétone simple. Une cétone possède un groupe carbonyle lié à deux groupes carbonés.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -562,7 +562,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C10, quel terme géométrique correct désigne la disposition à 180° associée à une hybridation sp ?",
+    "question": String.raw`Quel terme géométrique correct désigne la disposition à $${texQuantity(180, U.DEGREE)}$ associée à une hybridation $sp$ ?`,
     "explanation": "La géométrie est digonale, couramment dite linéaire ; « diagonale » est incorrect.",
     "tags": [
       "usage:COLLE",
@@ -589,7 +589,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 16,
     "difficulty": "HARD",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de amides ?",
+    "question": "Parmi ces cinq affirmations sur les fonctions organiques et leur réactivité, laquelle est correcte ?",
     "explanation": "Le motif est R–C(=O)–NR2.",
     "tags": [
       "usage:COLLE",
@@ -631,8 +631,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux propositions correctes dans cette mise en relation de notions de chimie.",
-    "explanation": "Deux propositions seulement sont exactes ; le nombre attendu est volontairement imposé.",
+    "question": "Deux propositions concernant les fonctions organiques et leur réactivité sont exactes. Sélectionnez-les.",
+    "explanation": "Les deux points à retenir sont les suivants : Un aldéhyde s’oxyde généralement plus facilement en acide carboxylique qu’une cétone simple. Un aldéhyde possède un groupe carbonyle terminal portant au moins un hydrogène.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -673,8 +673,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question longue vérifie la capacité à maintenir une lecture précise sur plusieurs notions transversales.",
+    "question": "Parmi ces dix propositions portant sur les fonctions organiques et leur réactivité, les hydrocarbures, ainsi que la valence, les liaisons et l’hybridation, sélectionnez exactement les cinq exactes.",
+    "explanation": "Les cinq points à retenir sont les suivants : La réduction d’un aldéhyde conduit typiquement à un alcool primaire. Une cétone possède un groupe carbonyle lié à deux groupes carbonés. La réduction d’une cétone conduit typiquement à un alcool secondaire. Un alcène comporte au moins une double liaison C=C. Un alcane acyclique saturé suit la formule générale CnH2n+2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -739,8 +739,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C10 — concernant carbamates, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité, les hydrocarbures, ainsi que la stéréochimie, quelles propositions sont exactes ?",
+    "explanation": "À retenir : La réduction d’une cétone conduit typiquement à un alcool secondaire. Un alcane acyclique saturé suit la formule générale CnH2n+2.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -780,7 +780,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Dans le cadre de la synthèse C10, combien de substituants différents doit porter un carbone tétraédrique pour être un centre stéréogène classique ?",
+    "question": "Combien de substituants différents doit porter un carbone tétraédrique pour être un centre stéréogène classique ?",
     "explanation": "Quatre substituants différents sont requis.",
     "tags": [
       "usage:COLLE",
@@ -799,7 +799,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de fonctions ?",
+    "question": "Les fonctions organiques et leur réactivité : quelle affirmation est juste ?",
     "explanation": "L’oxygène relie deux groupes carbonés.",
     "tags": [
       "usage:COLLE",
@@ -840,8 +840,8 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C10 — concernant acides carboxyliques, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Sur les fonctions organiques et leur réactivité, la valence, les liaisons et l’hybridation, ainsi que les hydrocarbures, quelles affirmations sont correctes ?",
+    "explanation": "À retenir : Un acide carboxylique possède un groupe carboxyle –COOH. Un alcyne comporte au moins une triple liaison C≡C. La base conjuguée d’un acide carboxylique est un carboxylate stabilisé par résonance.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -881,9 +881,7 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 23,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": String.raw`Une molécule a pour formule $\ce{C3H8O}$. Quelle est sa masse molaire ? Donnez uniquement la valeur numérique, exprimée en $${U.G_PER_MOL}$.
-
-Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${texQuantity(1, U.G_PER_MOL)}$ et $M_{\mathrm O}=${texQuantity(16, U.G_PER_MOL)}$.`,
+    "question": "Une molécule a pour formule $\\ce{C3H8O}$. Quelle est sa masse molaire ? Donnez uniquement la valeur numérique, exprimée en $G_PER_MOL$.\n\nDonnées : $M_{\\mathrm C}=12 G_PER_MOL$, $M_{\\mathrm H}=1 G_PER_MOL$ et $M_{\\mathrm O}=16 G_PER_MOL$.",
     "explanation": String.raw`$3\times12+8\times1+16=${texQuantity(60, U.G_PER_MOL)}$.`,
     "tags": [
       "usage:COLLE",
@@ -904,7 +902,7 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "order": 24,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle proposition est exacte à propos de amides ?",
+    "question": "Quelle proposition est correcte concernant les fonctions organiques et leur réactivité ?",
     "explanation": "Cette conjugaison diminue notamment la basicité de l’azote amidique.",
     "tags": [
       "usage:COLLE",
@@ -945,8 +943,8 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "order": 25,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Colle C10 — concernant formule brute, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la valence, les liaisons et l’hybridation, les fonctions organiques et leur réactivité, ainsi que les formules et l’isomérie de constitution, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le carbone d’une triple liaison C≡C est classiquement sp. Le carbone d’une double liaison C=C est classiquement sp2. Un nitrile contient un groupe C≡N.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -986,8 +984,8 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "order": 26,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C10 — concernant ammoniums, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Parmi les propositions suivantes portant sur les fonctions organiques et leur réactivité, la valence, les liaisons et l’hybridation, ainsi que les hydrocarbures, lesquelles sont exactes ?",
+    "explanation": "À retenir : Un ammonium quaternaire porte quatre substituants carbonés sur un azote chargé positivement. L’isomérie Z/E nécessite que chacun des deux carbones de la double liaison porte deux substituants différents. Un thiol comporte un groupe –SH.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1027,8 +1025,8 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "order": 27,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Colle C10 — concernant carbonyle, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité, la stéréochimie, ainsi que la valence, les liaisons et l’hybridation, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le carbone carbonylé d’un aldéhyde ou d’une cétone est électrophile. Un carbone tétraédrique portant quatre substituants différents est un centre stéréogène classique. Un carbamate contient le motif O–C(=O)–N. Deux énantiomères possèdent les mêmes propriétés dans un environnement achiral, sauf notamment le sens de rotation optique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1068,8 +1066,8 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "order": 28,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C10 — concernant carbonyle, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant les fonctions organiques et leur réactivité ainsi que les hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Le carbone carbonylé d’un aldéhyde ou d’une cétone est électrophile. L’oxygène carbonylé est globalement nucléophile/basicité de Lewis grâce à ses doublets. L’addition de HX sur un alcène dissymétrique peut suivre la régiosélectivité de Markovnikov dans les conditions usuelles. Une hydrogénation catalytique d’un alcène consomme H2 et conduit à un alcane.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1139,8 +1137,8 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
     "order": 30,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Colle C10 — concernant stereoisomerie, quelles propositions sont exactes ?",
-    "explanation": "Les propositions doivent être appréciées séparément : les formulations absolues ou les confusions de concepts proches constituent ici des distracteurs volontaires.",
+    "question": "Concernant la valence, les liaisons et l’hybridation, les hydrocarbures, ainsi que les fonctions organiques et leur réactivité, quelles propositions sont exactes ?",
+    "explanation": "À retenir : Une formule brute renseigne sur la nature et le nombre des atomes mais pas sur leur enchaînement. Une hydrogénation catalytique d’un alcène consomme H2 et conduit à un alcane. Une substitution nucléophile sur un dérivé d’acide implique souvent un mécanisme addition–élimination au carbonyle. La géométrie associée à l’hybridation sp est dite digonale ou linéaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -1172,7 +1170,7 @@ Données : $M_{\mathrm C}=${texQuantity(12, U.G_PER_MOL)}$, $M_{\mathrm H}=${tex
       {
         "content": "La géométrie associée à l’hybridation sp est dite digonale ou linéaire.",
         "correct": true,
-        "explanation": "Deux directions à 180° ; « diagonale » est un faux ami lexical."
+        "explanation": String.raw`Deux directions séparées de $${texQuantity(180, U.DEGREE)}$ ; « diagonale » est un faux ami lexical.`
       }
     ]
   }
