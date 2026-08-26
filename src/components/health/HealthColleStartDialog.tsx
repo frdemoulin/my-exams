@@ -33,7 +33,7 @@ export function HealthColleStartDialog({
 
   if (!colle) return null;
 
-  const isExecutable = colle.id === 'c01';
+  const isExecutable = true;
 
   async function handleStart() {
     if (!colle || !isExecutable || isStarting) return;

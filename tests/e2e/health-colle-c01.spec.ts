@@ -23,9 +23,9 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
     await expect(c01Row).toBeVisible();
     await expect(c01Row.getByRole("button", { name: "Démarrer" })).toBeVisible();
 
-    const c02Row = page.locator("tr").filter({ hasText: "Chimie organique" });
+    const c02Row = page.locator("tr").filter({ hasText: "Biochimie — Glucides" });
     await expect(c02Row).toBeVisible();
-    await expect(c02Row.getByRole("button", { name: "Bientôt disponible" })).toBeDisabled();
+    await expect(c02Row.getByRole("button", { name: "Démarrer" })).toBeVisible();
 
     // 1. Ouvrir la fiche de préparation C01
     await c01Row.getByRole("button", { name: "Démarrer" }).click();
