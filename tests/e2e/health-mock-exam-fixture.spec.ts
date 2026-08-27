@@ -79,7 +79,13 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
 
     await expect(page).toHaveURL(/\/examens-blancs\/fixture-uness-mixte\/resultats\//, { timeout: 15000 });
     await expect(page.getByRole("heading", { name: "Correction détaillée" })).toBeVisible();
-    await expect(page.getByText("5/5", { exact: true })).toBeVisible();
+    await expect(page.getByText("Barème : QRM par discordance · QRP/QRPL par réponses justes")).toBeVisible();
+    await expect(page.getByText(/5 \/ 5/).first()).toBeVisible();
+    await expect(page.getByText("Plein crédit", { exact: true })).toBeVisible();
+    await expect(page.getByText("À revoir").first()).toBeVisible();
+    await expect(page.getByText("Durée").first()).toBeVisible();
+    await expect(page.getByRole("button", { name: /Toutes \(5\)/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Correctes/ })).toBeVisible();
     await expect(page.getByText("100%").first()).toBeVisible();
     await expect(page.getByTestId("health-mock-exam-short-answer-result")).toContainText("3");
     await expect(page.getByText("QROC — Question ouverte à rédaction courte", { exact: true })).toBeVisible();

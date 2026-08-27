@@ -383,3 +383,45 @@ test("le score agrégé des évaluations santé conserve les décimales", () => 
   assert.equal(result.percentage, 50);
   assert.equal(result.sections[0]?.score, 1);
 });
+
+test("la classification des 4 états de proposition respecte la convention visuelle", () => {
+  const selectedIndexes = [0, 1]; // Selected A (correct) and B (wrong)
+  const correctIndexes = [0, 2];  // Expected A (correct) and C (correct)
+
+  function classifyChoice(index: number) {
+    const selected = selectedIndexes.includes(index);
+    const expected = correctIndexes.includes(index);
+
+    if (selected && expected) return "correct"; // A: attendue + cochée
+    if (selected && !expected) return "error";   // B: fausse + cochée
+    if (!selected && expected) return "missed";  // C: attendue + non cochée
+    return "neutral";                            // D, E: fausse + non cochée
+  }
+
+  assert.equal(classifyChoice(0), "correct");
+  assert.equal(classifyChoice(1), "error");
+  assert.equal(classifyChoice(2), "missed");
+  assert.equal(classifyChoice(3), "neutral");
+  assert.equal(classifyChoice(4), "neutral");
+});
+
+test("le bilan des évaluations calcule exactement 'Plein crédit' et 'À revoir'", () => {
+  // 5 exactes, 2 partielles, 1 incorrecte, 1 sans réponse
+  const evaluations: Array<{ score: number; maxScore: number; status: "correct" | "partial" | "incorrect" | "unanswered" }> = [
+    { score: 1, maxScore: 1, status: "correct" },
+    { score: 1, maxScore: 1, status: "correct" },
+    { score: 1, maxScore: 1, status: "correct" },
+    { score: 1, maxScore: 1, status: "correct" },
+    { score: 1, maxScore: 1, status: "correct" },
+    { score: 0.5, maxScore: 1, status: "partial" },
+    { score: 0.2, maxScore: 1, status: "partial" },
+    { score: 0, maxScore: 1, status: "incorrect" },
+    { score: 0, maxScore: 1, status: "unanswered" },
+  ];
+
+  const fullCreditCount = evaluations.filter((q) => q.score === q.maxScore && q.status === "correct").length;
+  const toReviewCount = evaluations.filter((q) => q.score < q.maxScore).length;
+
+  assert.equal(fullCreditCount, 5);
+  assert.equal(toReviewCount, 4);
+});

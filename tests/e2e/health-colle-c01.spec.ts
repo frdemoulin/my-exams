@@ -63,6 +63,11 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
     // 4. Vérifier la redirection vers la page de résultats
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\//, { timeout: 15000 });
     await expect(page.getByRole("heading", { name: "Correction détaillée" })).toBeVisible();
-    await expect(page.getByText("Chimie — Fondamentaux").first()).toBeVisible();
+    await expect(page.getByText("Barème : QRM par discordance · QRP/QRPL par réponses justes")).toBeVisible();
+    await expect(page.getByText("Plein crédit", { exact: true })).toBeVisible();
+    await expect(page.getByText("À revoir").first()).toBeVisible();
+    await expect(page.getByRole("button", { name: /Toutes/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /À revoir/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Correctes/ })).toBeVisible();
   });
 });

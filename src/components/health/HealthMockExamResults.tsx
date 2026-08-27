@@ -5,17 +5,18 @@ import Link from "next/link";
 import {
   CheckCircle2,
   Clock3,
-  ListChecks,
   RotateCcw,
   Target,
   XCircle,
   AlertCircle,
-  Check,
+  Info,
+  ArrowRight,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { QuestionFormatBadge } from "@/components/training/question-format-badge";
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
@@ -26,7 +27,10 @@ import {
   getHotspotPoints,
   getShortAnswerRawValue,
 } from "@/core/health-mock-exam/health-mock-exam.question";
-import type { HealthMockExamResults } from "@/core/health-mock-exam/health-mock-exam.types";
+import type {
+  HealthMockExamResultQuestion,
+  HealthMockExamResults,
+} from "@/core/health-mock-exam/health-mock-exam.types";
 import { getQuestionFormatStudentInstruction, type HotspotQuestion } from "@/core/questions";
 import { cn } from "@/lib/utils";
 
@@ -57,6 +61,17 @@ function totalSecondsModulo(seconds: number, mod: number) {
   return seconds % mod;
 }
 
+function formatScore(score: number, forceTwoDecimalsForFractions = true): string {
+  if (Number.isInteger(score)) {
+    return score.toString();
+  }
+  if (forceTwoDecimalsForFractions) {
+    return score.toFixed(2).replace(".", ",");
+  }
+  const fixed = score.toFixed(2).replace(".", ",");
+  return fixed.endsWith("0") ? fixed.slice(0, -1) : fixed;
+}
+
 function formatChoiceLetters(choiceIndexes: readonly number[]) {
   return choiceIndexes.length > 0
     ? choiceIndexes.map((choiceIndex) => String.fromCharCode(65 + choiceIndex)).join(", ")
@@ -68,7 +83,7 @@ function getFeedbackMessage(percentage: number) {
     return {
       title: "Excellent travail !",
       message:
-        "Vous maîtrisez très bien les notions évaluées dans cette colle. Vos discordances sont minimes.",
+        "Vous maîtrisez très bien les notions évaluées dans cette épreuve. Vos résultats sont solides.",
       toneClassName:
         "border-emerald-300/70 bg-emerald-500/10 text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-100",
       progressClassName: "bg-emerald-600 dark:bg-emerald-500",
@@ -86,9 +101,9 @@ function getFeedbackMessage(percentage: number) {
   }
   if (percentage >= 40) {
     return {
-      title: "Résultat encourageant, des notions à retravailler",
+      title: "Résultat encourageant, des notions à consolider",
       message:
-        "Prenez le temps d'analyser la correction détaillée pour comprendre les discordances et propositions attendues.",
+        "Prenez le temps d'analyser la correction détaillée pour comprendre les réponses attendues et consolider les notions.",
       toneClassName:
         "border-amber-300/70 bg-amber-500/10 text-amber-950 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-100",
       progressClassName: "bg-amber-500",
@@ -97,11 +112,149 @@ function getFeedbackMessage(percentage: number) {
   return {
     title: "Notions fondamentales à revoir",
     message:
-      "Cette colle a révélé des notions à approfondir. Consultez chaque explication et réentraînez-vous sur les chapitres correspondants.",
+      "Cette évaluation a révélé des notions à approfondir. Consultez chaque explication et réentraînez-vous sur les chapitres correspondants.",
     toneClassName:
       "border-rose-300/70 bg-rose-500/10 text-rose-950 dark:border-rose-800 dark:bg-rose-950/30 dark:text-rose-100",
     progressClassName: "bg-rose-500",
   };
+}
+
+function QuestionHeaderScoreBadge({ question }: { question: HealthMockExamResultQuestion }) {
+  const format = question.scoringDetails?.format ??
+    (question.canonicalQuestion.type === "hotspot"
+      ? "QZONE"
+      : question.canonicalQuestion.type === "short-answer"
+        ? "QROC"
+        : question.canonicalQuestion.type === "mcq" && question.canonicalQuestion.selectionMode === "single"
+          ? "QRU"
+          : question.canonicalQuestion.type === "mcq" && question.canonicalQuestion.requiredSelectionCount
+            ? (question.canonicalQuestion.choices.length > 5 ? "QRPL" : "QRP")
+            : "QRM");
+
+  const scoreFormatted = formatScore(question.score, true);
+  const maxScoreFormatted = formatScore(question.maxScore, false);
+  const isUnanswered = question.evaluationStatus === "unanswered";
+  const isCorrect = question.evaluationStatus === "correct";
+  const isPartial = question.evaluationStatus === "partial";
+
+  if (isUnanswered) {
+    return (
+      <div className="flex flex-col items-end gap-1">
+        <Badge variant="secondary" className="text-xs font-semibold">
+          {scoreFormatted} / {maxScoreFormatted} pt · Sans réponse
+        </Badge>
+      </div>
+    );
+  }
+
+  if (format === "QRU") {
+    return (
+      <div className="flex flex-col items-end gap-1">
+        <Badge
+          variant="outline"
+          className={cn(
+            "text-xs font-semibold",
+            isCorrect
+              ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200"
+              : "border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200",
+          )}
+        >
+          {scoreFormatted} / {maxScoreFormatted} pt · {isCorrect ? "Exacte" : "Incorrecte"}
+        </Badge>
+      </div>
+    );
+  }
+
+  if (format === "QRM") {
+    const discordanceCount = question.scoringDetails?.discordanceCount ?? 0;
+    let badgeText = `${discordanceCount} discordance${discordanceCount > 1 ? "s" : ""}`;
+    let subText: string | null = null;
+    let badgeStyle = "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200";
+
+    if (discordanceCount === 0 || isCorrect) {
+      badgeText = "0 discordance";
+      badgeStyle = "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200";
+    } else if (discordanceCount === 1) {
+      badgeText = "1 discordance";
+      subText = "1 discordance → 50 % des points";
+      badgeStyle = "border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200";
+    } else if (discordanceCount === 2) {
+      badgeText = "2 discordances";
+      subText = "2 discordances → 20 % des points";
+      badgeStyle = "border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200";
+    } else {
+      badgeText = `${discordanceCount} discordances`;
+      subText = "3 discordances ou plus → 0 point";
+      badgeStyle = "border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200";
+    }
+
+    return (
+      <div className="flex flex-col items-end gap-1">
+        <Badge variant="outline" className={cn("text-xs font-semibold", badgeStyle)}>
+          {scoreFormatted} / {maxScoreFormatted} pt · {badgeText}
+        </Badge>
+        {subText ? (
+          <span className="text-[11px] font-medium text-muted-foreground">{subText}</span>
+        ) : null}
+      </div>
+    );
+  }
+
+  if (format === "QRP" || format === "QRPL") {
+    const selectionCountValid = question.scoringDetails?.selectionCountValid ?? true;
+    const correctCount = question.scoringDetails?.correctSelectionCount ?? 0;
+    const requiredCount =
+      question.scoringDetails?.requiredSelectionCount ??
+      (question.canonicalQuestion.type === "mcq" ? question.canonicalQuestion.requiredSelectionCount : undefined) ??
+      2;
+
+    if (!selectionCountValid) {
+      return (
+        <div className="flex flex-col items-end gap-1">
+          <Badge
+            variant="outline"
+            className="border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200 text-xs font-semibold"
+          >
+            {scoreFormatted} / {maxScoreFormatted} pt · Nombre de réponses sélectionnées incorrect
+          </Badge>
+          <span className="text-[11px] font-medium text-muted-foreground">
+            {requiredCount} réponses étaient demandées.
+          </span>
+        </div>
+      );
+    }
+
+    const badgeStyle = isCorrect
+      ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200"
+      : isPartial
+        ? "border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200"
+        : "border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200";
+
+    return (
+      <div className="flex flex-col items-end gap-1">
+        <Badge variant="outline" className={cn("text-xs font-semibold", badgeStyle)}>
+          {scoreFormatted} / {maxScoreFormatted} pt · {correctCount} réponse{correctCount > 1 ? "s" : ""} juste{correctCount > 1 ? "s" : ""} sur {requiredCount}
+        </Badge>
+      </div>
+    );
+  }
+
+  // QROC / QZONE
+  return (
+    <div className="flex flex-col items-end gap-1">
+      <Badge
+        variant="outline"
+        className={cn(
+          "text-xs font-semibold",
+          isCorrect
+            ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200"
+            : "border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200",
+        )}
+      >
+        {scoreFormatted} / {maxScoreFormatted} pt · {isCorrect ? "Exacte" : "Incorrecte"}
+      </Badge>
+    </div>
+  );
 }
 
 export function HealthMockExamResults({
@@ -112,36 +265,74 @@ export function HealthMockExamResults({
 }: HealthMockExamResultsProps) {
   const [filterMode, setFilterMode] = useState<FilterMode>("all");
 
-  const answeredQuestionCount = result.questions.filter(
-    (question) => question.evaluationStatus !== "unanswered",
+  const fullCreditCount = result.questions.filter(
+    (question) => question.score === question.maxScore && question.evaluationStatus === "correct",
   ).length;
-  const correctQuestionCount = result.questions.filter(
-    (question) => question.evaluationStatus === "correct",
-  ).length;
-  const partialQuestionCount = result.questions.filter(
-    (question) => question.evaluationStatus === "partial",
-  ).length;
-  const incorrectQuestionCount = result.questions.filter(
-    (question) => question.evaluationStatus === "incorrect" || question.evaluationStatus === "unanswered",
+
+  const toReviewCount = result.questions.filter(
+    (question) => question.score < question.maxScore,
   ).length;
 
   const feedback = getFeedbackMessage(result.percentage);
 
   const filteredQuestions = useMemo(() => {
     if (filterMode === "errors") {
-      return result.questions.filter(
-        (q) => q.evaluationStatus === "incorrect" || q.evaluationStatus === "partial" || q.evaluationStatus === "unanswered",
-      );
+      return result.questions.filter((q) => q.score < q.maxScore);
     }
     if (filterMode === "correct") {
-      return result.questions.filter((q) => q.evaluationStatus === "correct");
+      return result.questions.filter((q) => q.score === q.maxScore && q.evaluationStatus === "correct");
     }
     return result.questions;
   }, [result.questions, filterMode]);
 
   return (
-    <section className="space-y-8" data-testid="health-mock-exam-results">
-      {/* 1. CARTE BILAN & RÉCAPITULATIF (STYLE QUIZ PLAYER SANTÉ V2) */}
+    <section className="space-y-6" data-testid="health-mock-exam-results">
+      {/* BANDEAU DU BARÈME GÉNÉRAL */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 rounded-2xl border border-brand/20 bg-brand-soft/10 px-4 py-3 text-xs text-heading">
+        <div className="flex items-center gap-2 font-medium">
+          <Info className="h-4 w-4 text-brand shrink-0" aria-hidden="true" />
+          <span>Barème : QRM par discordance · QRP/QRPL par réponses justes</span>
+        </div>
+        <Popover>
+          <PopoverTrigger asChild>
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 font-semibold text-brand hover:underline self-start sm:self-auto cursor-pointer"
+            >
+              <span>ⓘ Aide aux évaluations</span>
+            </button>
+          </PopoverTrigger>
+          <PopoverContent align="end" className="w-80 p-3.5 space-y-3 shadow-lg z-50">
+            <div className="space-y-1">
+              <h4 className="font-semibold text-heading text-xs tracking-wide uppercase">
+                Aide aux évaluations
+              </h4>
+              <p className="text-xs text-muted-foreground">
+                Guide d’interface et règles de notation UNESS pour vos épreuves.
+              </p>
+            </div>
+            <div className="space-y-2 pt-1 border-t border-border">
+              <div className="p-2.5 rounded-xl border border-border bg-neutral-secondary-soft space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-xs text-heading">Formats & notation</span>
+                  <Badge variant="outline" className="text-[10px]">UNESS</Badge>
+                </div>
+                <p className="text-[11px] text-muted-foreground">
+                  Découvrez les formats QRU, QRM, QRP, QROC, QZONE et les discordances UNESS.
+                </p>
+                <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
+                  <Link href="/sante/evaluations/comprendre">
+                    Formats et notation
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+      </div>
+
+      {/* 1. CARTE BILAN & RÉCAPITULATIF */}
       <Card className="rounded-3xl border-border bg-card shadow-sm hover:bg-card">
         <CardHeader className="p-5 md:p-6 pb-2">
           <div className={cn("overflow-hidden rounded-2xl border p-5 md:p-6 space-y-5", feedback.toneClassName)}>
@@ -168,10 +359,10 @@ export function HealthMockExamResults({
             {/* BADGES RÉSUMÉ */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <Badge variant="secondary" className="font-bold text-sm">
-                Score {result.score}/{result.maxScore}
+                Score {formatScore(result.score, true)} / {formatScore(result.maxScore, false)}
               </Badge>
               <Badge variant="outline" className="text-xs">
-                {correctQuestionCount}/{result.questions.length} questions correctes
+                {fullCreditCount}/{result.questions.length} plein crédit
               </Badge>
               <Badge variant="outline" className="text-xs font-semibold">
                 {result.percentage}% de réussite
@@ -190,7 +381,7 @@ export function HealthMockExamResults({
             {/* PROGRESSION VISUELLE */}
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide opacity-80">
-                <span>Score global UNESS</span>
+                <span>Score global</span>
                 <span>{result.percentage}%</span>
               </div>
               <div className="relative h-3 rounded-full bg-background/80 overflow-hidden">
@@ -208,23 +399,23 @@ export function HealthMockExamResults({
                   Score
                 </p>
                 <p className="mt-2 text-2xl font-bold text-heading">
-                  {result.score}/{result.maxScore}
+                  {formatScore(result.score, true)} / {formatScore(result.maxScore, false)}
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-background/70 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Exactes (100%)
+                  Plein crédit
                 </p>
                 <p className="mt-2 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
-                  {correctQuestionCount}
+                  {fullCreditCount}
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-background/70 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  À retravailler
+                  À revoir
                 </p>
                 <p className="mt-2 text-2xl font-bold text-rose-700 dark:text-rose-300">
-                  {incorrectQuestionCount}
+                  {toReviewCount}
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-background/70 p-4">
@@ -236,6 +427,28 @@ export function HealthMockExamResults({
                 </p>
               </div>
             </div>
+
+            {/* RÉSULTATS PAR SECTION (MULTI-SECTION) */}
+            {result.sections.length > 1 ? (
+              <div className="pt-3 border-t border-current/15">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2.5">
+                  Résultats par section
+                </p>
+                <div className="grid gap-2.5 sm:grid-cols-3">
+                  {result.sections.map((section) => (
+                    <div
+                      key={section.id}
+                      className="rounded-xl border border-border bg-background/80 p-3 text-xs space-y-1"
+                    >
+                      <p className="font-semibold text-heading truncate">{section.title}</p>
+                      <p className="text-sm font-bold text-heading">
+                        {formatScore(section.score, false)} / {formatScore(section.maxScore, false)} pt · {section.percentage} %
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </div>
         </CardHeader>
       </Card>
@@ -248,7 +461,7 @@ export function HealthMockExamResults({
               Correction détaillée
             </h2>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Consultez les explications et discordances question par question.
+              Consultez les explications et le détail de notation question par question.
             </p>
           </div>
 
@@ -269,7 +482,7 @@ export function HealthMockExamResults({
               onClick={() => setFilterMode("errors")}
               className="text-xs h-7 px-3"
             >
-              À revoir ({partialQuestionCount + incorrectQuestionCount})
+              À revoir ({toReviewCount})
             </Button>
             <Button
               type="button"
@@ -278,7 +491,7 @@ export function HealthMockExamResults({
               onClick={() => setFilterMode("correct")}
               className="text-xs h-7 px-3"
             >
-              Correctes ({correctQuestionCount})
+              Correctes ({fullCreditCount})
             </Button>
           </div>
         </div>
@@ -293,7 +506,6 @@ export function HealthMockExamResults({
           filteredQuestions.map((question) => {
             const isCorrect = question.evaluationStatus === "correct";
             const isPartial = question.evaluationStatus === "partial";
-            const isUnanswered = question.evaluationStatus === "unanswered";
             const isHotspot = question.canonicalQuestion.type === "hotspot";
             const hotspotPoint = isHotspot ? getHotspotPoints(question.responsePayload)[0] ?? null : null;
             const shortAnswerExpectedAnswer =
@@ -304,13 +516,17 @@ export function HealthMockExamResults({
             const shortAnswerValue = getShortAnswerRawValue(question.responsePayload);
             const formatInstruction = getQuestionFormatStudentInstruction(question.canonicalQuestion);
 
+            const format = question.scoringDetails?.format ?? "QRM";
+            const isQrm = format === "QRM";
+            const isQrpOrQrpl = format === "QRP" || format === "QRPL";
+
             const extraChoiceIndexes = question.selectedChoiceIndexes.filter(
               (idx) => !question.correctChoiceIndexes.includes(idx),
             );
             const missedChoiceIndexes = question.correctChoiceIndexes.filter(
               (idx) => !question.selectedChoiceIndexes.includes(idx),
             );
-            const discordanceCount = missedChoiceIndexes.length + extraChoiceIndexes.length;
+            const discordanceCount = question.scoringDetails?.discordanceCount ?? (missedChoiceIndexes.length + extraChoiceIndexes.length);
 
             return (
               <Card
@@ -331,32 +547,7 @@ export function HealthMockExamResults({
                       <QuestionFormatBadge question={question.canonicalQuestion} />
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-2">
-                      {isCorrect ? (
-                        <Badge
-                          variant="outline"
-                          className="border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200 font-semibold"
-                        >
-                          +{question.maxScore.toFixed(1).replace(".", ",")} pt · Exacte
-                        </Badge>
-                      ) : isPartial ? (
-                        <Badge
-                          variant="outline"
-                          className="border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200 font-semibold"
-                        >
-                          +{question.score.toFixed(1).replace(".", ",")} pt · {discordanceCount} discordance{discordanceCount > 1 ? "s" : ""} (UNESS)
-                        </Badge>
-                      ) : isUnanswered ? (
-                        <Badge variant="secondary">0,0 pt · Sans réponse</Badge>
-                      ) : (
-                        <Badge
-                          variant="outline"
-                          className="border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200 font-semibold"
-                        >
-                          0,0 pt · {discordanceCount > 0 ? `${discordanceCount} discordances (UNESS)` : "À revoir"}
-                        </Badge>
-                      )}
-                    </div>
+                    <QuestionHeaderScoreBadge question={question} />
                   </div>
 
                   {formatInstruction ? (
@@ -384,7 +575,7 @@ export function HealthMockExamResults({
                     />
                   </div>
 
-                  {/* COMPARATIF « TA RÉPONSE » vs « RÉPONSE ATTENDUE » (STYLE QUIZ) */}
+                  {/* COMPARATIF « TA RÉPONSE » vs « RÉPONSE ATTENDUE » */}
                   {!isHotspot && !isShortAnswer && (
                     <div className="grid gap-3 rounded-xl border border-border bg-neutral-secondary-soft/50 p-4 text-sm md:grid-cols-2">
                       <div className="rounded-lg border border-brand/25 bg-brand-soft/10 p-3 space-y-1.5">
@@ -396,11 +587,25 @@ export function HealthMockExamResults({
                             ? formatChoiceLetters(question.selectedChoiceIndexes)
                             : "Aucune sélection"}
                         </p>
-                        {extraChoiceIndexes.length > 0 ? (
+                        {isQrm && extraChoiceIndexes.length > 0 ? (
                           <p className="text-xs text-rose-700 dark:text-rose-300 font-medium">
-                            Proposition{extraChoiceIndexes.length > 1 ? "s" : ""} en trop ({extraChoiceIndexes.length} discordance{extraChoiceIndexes.length > 1 ? "s" : ""}) : {formatChoiceLetters(extraChoiceIndexes)}.
+                            {formatChoiceLetters(extraChoiceIndexes)} sélectionnée{extraChoiceIndexes.length > 1 ? "s" : ""} à tort → {extraChoiceIndexes.length} discordance{extraChoiceIndexes.length > 1 ? "s" : ""}.
                           </p>
                         ) : null}
+                        {isQrpOrQrpl && (() => {
+                          const reqCount =
+                            question.scoringDetails?.requiredSelectionCount ??
+                            (question.canonicalQuestion.type === "mcq" ? question.canonicalQuestion.requiredSelectionCount : undefined) ??
+                            2;
+                          const corrCount = question.scoringDetails?.correctSelectionCount ?? 0;
+                          return (
+                            <p className="text-xs text-muted-foreground font-medium">
+                              {question.scoringDetails?.selectionCountValid === false
+                                ? `${question.selectedChoiceIndexes.length} sélection${question.selectedChoiceIndexes.length > 1 ? "s" : ""}, ${reqCount} demandée${reqCount > 1 ? "s" : ""}`
+                                : `${corrCount} réponse${corrCount > 1 ? "s" : ""} juste${corrCount > 1 ? "s" : ""} sur les ${reqCount} demandées`}
+                            </p>
+                          );
+                        })()}
                       </div>
 
                       <div className="rounded-lg border border-emerald-300/60 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950/40 space-y-1.5">
@@ -410,9 +615,9 @@ export function HealthMockExamResults({
                         <p className="text-base font-bold text-emerald-950 dark:text-emerald-100">
                           {formatChoiceLetters(question.correctChoiceIndexes)}
                         </p>
-                        {missedChoiceIndexes.length > 0 ? (
+                        {isQrm && missedChoiceIndexes.length > 0 ? (
                           <p className="text-xs text-amber-700 dark:text-amber-300 font-medium">
-                            Proposition{missedChoiceIndexes.length > 1 ? "s" : ""} omise{missedChoiceIndexes.length > 1 ? "s" : ""} ({missedChoiceIndexes.length} discordance{missedChoiceIndexes.length > 1 ? "s" : ""}) : {formatChoiceLetters(missedChoiceIndexes)}.
+                            {formatChoiceLetters(missedChoiceIndexes)} non sélectionnée{missedChoiceIndexes.length > 1 ? "s" : ""} → {missedChoiceIndexes.length} discordance{missedChoiceIndexes.length > 1 ? "s" : ""}.
                           </p>
                         ) : null}
                       </div>
@@ -444,7 +649,7 @@ export function HealthMockExamResults({
                     </div>
                   )}
 
-                  {/* PROPOSITIONS DÉTAILLÉES AVEC EXPLICATIONS PAR ITEM (VOCABULAIRE ET STYLE QUIZ) */}
+                  {/* PROPOSITIONS DÉTAILLÉES AVEC EXPLICATIONS PAR ITEM */}
                   {isHotspot ? (
                     <HotspotQuestionView
                       question={question.canonicalQuestion as HotspotQuestion}
@@ -474,6 +679,7 @@ export function HealthMockExamResults({
                         const showAsCorrect = selected && expected;
                         const showSelectedAsIncorrect = selected && !expected;
                         const showAsMissedExpected = !selected && expected;
+                        const isNeutral = !selected && !expected;
 
                         return (
                           <div
@@ -483,7 +689,7 @@ export function HealthMockExamResults({
                               showAsCorrect && "border-emerald-300 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100",
                               showSelectedAsIncorrect && "border-rose-300 bg-rose-50 text-rose-950 dark:border-rose-900 dark:bg-rose-950/30 dark:text-rose-100",
                               showAsMissedExpected && "border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100",
-                              !selected && !expected && "border-border bg-background text-body",
+                              isNeutral && "border-border bg-background text-body",
                             )}
                           >
                             <div className="flex items-start gap-3">
@@ -513,6 +719,9 @@ export function HealthMockExamResults({
                                     )}
                                     {showSelectedAsIncorrect && (
                                       <XCircle className="h-4 w-4 shrink-0 text-rose-600 dark:text-rose-400" />
+                                    )}
+                                    {showAsMissedExpected && (
+                                      <AlertCircle className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
                                     )}
                                     {selected ? (
                                       <Badge

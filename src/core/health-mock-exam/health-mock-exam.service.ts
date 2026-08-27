@@ -822,6 +822,56 @@ export async function fetchHealthMockExamResults(input: {
         fallbackSelectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
       });
 
+      const format = (canonicalQuestion.format ??
+        (canonicalQuestion.type === "hotspot"
+          ? "QZONE"
+          : canonicalQuestion.type === "short-answer"
+            ? "QROC"
+            : canonicalQuestion.type === "mcq" && canonicalQuestion.selectionMode === "single"
+              ? "QRU"
+              : canonicalQuestion.type === "mcq" && canonicalQuestion.requiredSelectionCount
+                ? (canonicalQuestion.choices.length > 5 ? "QRPL" : "QRP")
+                : "QRM")) as "QRU" | "QRM" | "QRP" | "QRPL" | "QROC" | "QZONE";
+
+      const isRequiredSelectionQuestion = format === "QRP" || format === "QRPL";
+      const details = evaluation.details as Record<string, any> | undefined;
+      const selectionCountValid = isRequiredSelectionQuestion
+        ? details?.reason !== "invalid-selection-count" &&
+          details?.reason !== "invalid-required-selection-configuration"
+        : true;
+
+      const discordanceCount = format === "QRM" && typeof details?.discordanceCount === "number"
+        ? details.discordanceCount
+        : undefined;
+
+      const correctSelectionCount = isRequiredSelectionQuestion && Array.isArray(details?.correctlySelectedChoiceIds)
+        ? details.correctlySelectedChoiceIds.length
+        : undefined;
+
+      const requiredSelectionCount = isRequiredSelectionQuestion
+        ? (typeof details?.expectedSelectionCount === "number"
+            ? details.expectedSelectionCount
+            : (canonicalQuestion.type === "mcq" ? canonicalQuestion.requiredSelectionCount : undefined))
+        : undefined;
+
+      const scoreRatio = typeof details?.scoreRatio === "number"
+        ? details.scoreRatio
+        : (evaluation.maxScore > 0 ? evaluation.score / evaluation.maxScore : 0);
+
+      const scoringDetails = {
+        format,
+        scoringStrategy: ((details?.scoringStrategy as string) ?? "all-or-nothing") as
+          | "all-or-nothing"
+          | "discordance"
+          | "partial"
+          | "custom",
+        discordanceCount,
+        scoreRatio,
+        correctSelectionCount,
+        requiredSelectionCount,
+        selectionCountValid: isRequiredSelectionQuestion ? selectionCountValid : undefined,
+      };
+
       return {
         attemptQuestionId: attemptQuestion.id,
         id: attemptQuestion.question.id,
@@ -853,6 +903,7 @@ export async function fetchHealthMockExamResults(input: {
         evaluationStatus: evaluation.status,
         score: evaluation.score,
         maxScore: evaluation.maxScore,
+        scoringDetails,
       };
     }),
   };

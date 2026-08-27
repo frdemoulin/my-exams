@@ -83,6 +83,16 @@ export type HealthMockExamSummary = {
   currentAttemptId: string | null;
 };
 
+export type HealthMockExamResultQuestionScoringDetails = {
+  format: "QRU" | "QRM" | "QRP" | "QRPL" | "QROC" | "QZONE";
+  scoringStrategy: "all-or-nothing" | "discordance" | "partial" | "custom";
+  discordanceCount?: number;
+  scoreRatio?: number;
+  correctSelectionCount?: number;
+  requiredSelectionCount?: number;
+  selectionCountValid?: boolean;
+};
+
 export type HealthMockExamResultQuestion = HealthMockExamPassageQuestion & {
   correctChoiceIndexes: number[];
   explanation: string;
@@ -90,6 +100,7 @@ export type HealthMockExamResultQuestion = HealthMockExamPassageQuestion & {
   evaluationStatus: EvaluationStatus;
   score: number;
   maxScore: number;
+  scoringDetails?: HealthMockExamResultQuestionScoringDetails;
 };
 
 export type HealthMockExamResults = {
