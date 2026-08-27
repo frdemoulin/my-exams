@@ -11,6 +11,10 @@ import {
   normalizeTrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
 import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
+import {
+  buildThemeLabelById,
+  getQuestionThemes,
+} from "@/core/theme/theme-label";
 import prisma from "@/lib/db/prisma";
 
 import {
@@ -109,6 +113,30 @@ function toPrismaJsonValue(value: unknown): Prisma.InputJsonValue | undefined {
   return value === undefined ? undefined : (value as Prisma.InputJsonValue);
 }
 
+async function buildQuestionThemeLabelById(
+  themeIds: readonly string[],
+) {
+  const uniqueThemeIds = [...new Set(themeIds.filter((themeId) => themeId.length > 0))];
+  if (uniqueThemeIds.length === 0) {
+    return new Map<string, string>();
+  }
+
+  const themes = await prisma.theme.findMany({
+    where: {
+      id: {
+        in: uniqueThemeIds,
+      },
+    },
+    select: {
+      id: true,
+      title: true,
+      shortTitle: true,
+    },
+  });
+
+  return buildThemeLabelById(themes);
+}
+
 async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
   return prisma.healthMockExam.findFirst({
     where: {
@@ -164,6 +192,7 @@ async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
               answerPayload: true,
               explanation: true,
               choiceExplanations: true,
+              themeIds: true,
             },
           },
         },
@@ -249,6 +278,7 @@ async function finalizeHealthMockExamAttempt(
               answerPayload: true,
               explanation: true,
               choiceExplanations: true,
+              themeIds: true,
             },
           },
         },
@@ -634,6 +664,7 @@ export async function fetchHealthMockExamTakingState(input: {
               answerPayload: true,
               explanation: true,
               choiceExplanations: true,
+              themeIds: true,
               group: {
                 select: {
                   id: true,
@@ -652,6 +683,10 @@ export async function fetchHealthMockExamTakingState(input: {
   if (!passageAttempt) {
     return { kind: "completed", attemptId: attempt.id };
   }
+
+  const themeLabelById = await buildQuestionThemeLabelById(
+    passageAttempt.attemptQuestions.flatMap((attemptQuestion) => attemptQuestion.question.themeIds)
+  );
 
   return {
     kind: "in-progress",
@@ -702,6 +737,10 @@ export async function fetchHealthMockExamTakingState(input: {
                 order: attemptQuestion.question.group.order,
               }
             : null,
+          themes: getQuestionThemes({
+            themeIds: attemptQuestion.question.themeIds,
+            themeLabelById,
+          }),
           selectedChoiceIndexes,
           responsePayload,
           markedForReview: attemptQuestion.markedForReview,
@@ -754,6 +793,7 @@ export async function fetchHealthMockExamResults(input: {
               answerPayload: true,
               explanation: true,
               choiceExplanations: true,
+              themeIds: true,
               group: {
                 select: {
                   id: true,
@@ -772,6 +812,10 @@ export async function fetchHealthMockExamResults(input: {
   if (!attempt || attempt.score === null || attempt.maxScore === null || attempt.percentage === null) {
     return null;
   }
+
+  const themeLabelById = await buildQuestionThemeLabelById(
+    attempt.attemptQuestions.flatMap((attemptQuestion) => attemptQuestion.question.themeIds)
+  );
 
   const questions: HealthMockExamResults["questions"] = attempt.attemptQuestions.map((attemptQuestion) => {
     const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);
@@ -872,6 +916,10 @@ export async function fetchHealthMockExamResults(input: {
             order: attemptQuestion.question.group.order,
           }
         : null,
+      themes: getQuestionThemes({
+        themeIds: attemptQuestion.question.themeIds,
+        themeLabelById,
+      }),
       selectedChoiceIndexes,
       responsePayload,
       markedForReview: attemptQuestion.markedForReview,

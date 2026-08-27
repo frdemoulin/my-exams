@@ -19,6 +19,10 @@ import {
     type TrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
 import { simplifyTrainingQuizDescription } from "@/core/training/training.queries";
+import {
+    buildThemeLabelById,
+    getQuestionThemeLabels,
+} from "@/core/theme/theme-label";
 import { fetchHealthMockExamSummaries } from "@/core/health-mock-exam/health-mock-exam.queries";
 import type { HealthMockExamSummary } from "@/core/health-mock-exam/health-mock-exam.types";
 import {
@@ -1702,12 +1706,7 @@ export async function fetchHealthStudentChapterDetail(input: {
               })
             : Promise.resolve([]),
     ]);
-    const questionThemeLabelById = new Map(
-        questionThemes.map((theme) => [
-            theme.id,
-            theme.shortTitle?.trim() || theme.title.trim(),
-        ] as const)
-    );
+    const questionThemeLabelById = buildThemeLabelById(questionThemes);
 
     const progressByQuizId = new Map(
         progressEntries.map((entry) => [
@@ -1836,9 +1835,10 @@ export async function fetchHealthStudentChapterDetail(input: {
                                       order: questionLink.group.order,
                                   }
                                 : null,
-                            themeLabels: questionLink.question.themeIds
-                                .map((themeId) => questionThemeLabelById.get(themeId) ?? "")
-                                .filter((label) => label.length > 0),
+                            themeLabels: getQuestionThemeLabels({
+                                themeIds: questionLink.question.themeIds,
+                                themeLabelById: questionThemeLabelById,
+                            }),
                         };
                     })
                     .sort((left, right) => left.order - right.order);

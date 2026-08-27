@@ -1,41 +1,11 @@
 import type { PrismaClient } from "@prisma/client";
-import { seedHealthColleUE14C01 } from "./ue14/c01-chimie-fondamentaux.seed";
-import { seedHealthColleUE14C02 } from "./ue14/c02-biochimie-glucides.seed";
-import { seedHealthColleUE14C03 } from "./ue14/c03-biologie-cellulaire-architecture-cellulaire.seed";
-import { seedHealthColleUE14C04 } from "./ue14/c04-chimie-des-atomes-aux-molecules-organiques.seed";
-import { seedHealthColleUE14C05 } from "./ue14/c05-biochimie-lipides.seed";
-import { seedHealthColleUE14C06 } from "./ue14/c06-biologie-cellulaire-trafic-et-compartiments.seed";
-import { seedHealthColleUE14C07 } from "./ue14/c07-chimie-fonctions-et-reactivite.seed";
-import { seedHealthColleUE14C08 } from "./ue14/c08-biochimie-acides-amines-et-proteines.seed";
-import { seedHealthColleUE14C09 } from "./ue14/c09-biologie-cellulaire-cellule-integree.seed";
-import { seedHealthColleUE14C10 } from "./ue14/c10-chimie-colle-cumulative-ec.seed";
-import { seedHealthColleUE14C11 } from "./ue14/c11-biochimie-colle-cumulative-ec.seed";
-import { seedHealthColleUE14C12 } from "./ue14/c12-grande-colle-ue14.seed";
+import { seedHealthColleUE14 } from "./ue14/seed-health-colle-ue14";
+import { UE14_HEALTH_COLLE_SEEDS } from "./ue14/health-colle-ue14.catalog";
 
 export async function seedHealthColles(prisma: PrismaClient) {
   console.log("Seeding des colles Santé (UE14)...");
-  const c01 = await seedHealthColleUE14C01(prisma);
-  console.log(`Colle C01 « ${c01.title} » seedée.`);
-  const c02 = await seedHealthColleUE14C02(prisma);
-  console.log(`Colle C02 « ${c02.title} » seedée.`);
-  const c03 = await seedHealthColleUE14C03(prisma);
-  console.log(`Colle C03 « ${c03.title} » seedée.`);
-  const c04 = await seedHealthColleUE14C04(prisma);
-  console.log(`Colle C04 « ${c04.title} » seedée.`);
-  const c05 = await seedHealthColleUE14C05(prisma);
-  console.log(`Colle C05 « ${c05.title} » seedée.`);
-  const c06 = await seedHealthColleUE14C06(prisma);
-  console.log(`Colle C06 « ${c06.title} » seedée.`);
-  const c07 = await seedHealthColleUE14C07(prisma);
-  console.log(`Colle C07 « ${c07.title} » seedée.`);
-  const c08 = await seedHealthColleUE14C08(prisma);
-  console.log(`Colle C08 « ${c08.title} » seedée.`);
-  const c09 = await seedHealthColleUE14C09(prisma);
-  console.log(`Colle C09 « ${c09.title} » seedée.`);
-  const c10 = await seedHealthColleUE14C10(prisma);
-  console.log(`Colle C10 « ${c10.title} » seedée.`);
-  const c11 = await seedHealthColleUE14C11(prisma);
-  console.log(`Colle C11 « ${c11.title} » seedée.`);
-  const c12 = await seedHealthColleUE14C12(prisma);
-  console.log(`Colle C12 « ${c12.title} » seedée.`);
+  for (const colleSeed of UE14_HEALTH_COLLE_SEEDS) {
+    const colle = await seedHealthColleUE14(prisma, colleSeed);
+    console.log(`Colle ${colleSeed.code} « ${colle.title} » seedée.`);
+  }
 }

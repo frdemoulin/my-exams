@@ -16,6 +16,7 @@ import {
 } from "@/core/training/training-choice-content";
 import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
 import { getTrainingQuizStageLabel } from "@/core/training/training-stage";
+import { buildThemeLabelById } from "@/core/theme/theme-label";
 import { Option } from "@/types/option";
 import { normalizeSearchText } from "@/lib/utils";
 import {
@@ -691,9 +692,7 @@ export async function fetchChapterQuizQuestionExportRows(
       [...themes, ...inferredThemeCandidates].map((theme) => [theme.id, theme] as const)
     ).values()
   );
-  const themeLabelById = new Map(
-    allThemes.map((theme) => [theme.id, theme.shortTitle?.trim() || theme.title.trim()] as const)
-  );
+  const themeLabelById = buildThemeLabelById(allThemes);
 
   return chapter.sections.flatMap((section) =>
     section.quizzes.flatMap((quiz) =>

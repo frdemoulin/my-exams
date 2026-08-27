@@ -8,6 +8,10 @@ import {
   normalizePersistedQuestion,
   normalizePersistedQuestionType,
 } from '@/core/questions';
+import {
+  buildThemeLabelById,
+  getQuestionThemeLabels,
+} from '@/core/theme/theme-label';
 import { slugifyText } from '@/lib/utils';
 import {
   chapterLevelValues,
@@ -108,22 +112,6 @@ export const simplifyTrainingQuizDescription = (description: string | null) => {
   return (
     cleaned.charAt(0).toLocaleUpperCase('fr-FR') +
     cleaned.slice(1)
-  );
-};
-
-const getQuestionThemeLabels = ({
-  themeIds,
-  themeLabelById,
-}: {
-  themeIds: string[];
-  themeLabelById: Map<string, string>;
-}) => {
-  return Array.from(
-    new Set(
-      themeIds
-        .map((themeId) => themeLabelById.get(themeId) ?? null)
-        .filter((label): label is string => Boolean(label))
-    )
   );
 };
 
@@ -618,9 +606,7 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
         },
       })
     : [];
-  const themeLabelById = new Map(
-    questionThemes.map((theme) => [theme.id, theme.shortTitle?.trim() || theme.title] as const)
-  );
+  const themeLabelById = buildThemeLabelById(questionThemes);
 
   const publishedQuestions = chapter.quizQuestions.map((question) =>
     toTrainingQuestion(question, undefined, themeLabelById)

@@ -9,6 +9,10 @@ import {
 } from "../../src/core/health-mock-exam/health-mock-exam.validation";
 
 import { reimsUe14MockExams } from "./data/health-mock-exams-reims-ue14";
+import {
+  resolveThemeIdsByQuestionStableId,
+  type ThemeIdsByQuestionStableId,
+} from "./health-mock-exam-theme-ids";
 
 export type HealthMockExamSeedQuestion = {
   slug: string;
@@ -59,6 +63,7 @@ export type HealthMockExamSeed = {
   order: number;
   isPublished: boolean;
   sections: HealthMockExamSeedSection[];
+  themeIdsByQuestionStableId?: ThemeIdsByQuestionStableId;
 };
 
 function publicMediaExists(publicPath: string) {
@@ -184,6 +189,14 @@ function buildValidationInput(
 
 export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockExamSeed) {
   const courseUnit = await resolveCourseUnit(prisma, seed);
+  const themeIdsByQuestionStableId = await resolveThemeIdsByQuestionStableId({
+    prisma,
+    themeIdsByQuestionStableId: seed.themeIdsByQuestionStableId,
+    stableIds: seed.sections.flatMap((section) =>
+      section.questions.map((question) => question.slug)
+    ),
+    contextLabel: `examen blanc ${seed.slug}`,
+  });
 
   if (seed.isPublished) {
     assertHealthMockExamCanBePublished(buildValidationInput(seed, courseUnit), {
@@ -307,6 +320,8 @@ export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockE
         order: question.order,
         globalOrder: question.globalOrder,
         isPublished: true,
+        themeIds:
+          themeIdsByQuestionStableId.get(question.slug.toLowerCase()) ?? [],
       })),
     });
   }

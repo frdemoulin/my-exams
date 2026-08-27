@@ -208,6 +208,7 @@ function toPassageQuestion(
           : null,
     canonicalQuestion: question,
     group: null,
+    themes: [],
     selectedChoiceIndexes: [],
     responsePayload: null,
     markedForReview: false,

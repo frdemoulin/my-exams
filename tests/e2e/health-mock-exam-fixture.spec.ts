@@ -44,15 +44,13 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
 
     await expect(page.getByText("QRM — Question à réponses multiples", { exact: true })).toBeVisible();
     await expect(page.getByText("Sélectionnez une ou plusieurs propositions.", { exact: true })).toBeVisible();
-    await page.getByTestId("health-mock-exam-choice-0").click();
-    await page.getByTestId("health-mock-exam-choice-2").click();
     await page.getByRole("button", { name: "Suivante" }).click();
 
     await expect(page.getByText("QRP — Question à nombre de réponses précisé", { exact: true })).toBeVisible();
     await expect(page.getByText("Sélectionnez exactement 2 propositions.", { exact: true })).toBeVisible();
+    await page.getByTestId("health-mock-exam-choice-0").click();
     await page.getByTestId("health-mock-exam-choice-1").click();
-    await page.getByTestId("health-mock-exam-choice-3").click();
-    await expect(page.getByTestId("health-mock-exam-choice-0")).toBeDisabled();
+    await expect(page.getByTestId("health-mock-exam-choice-3")).toBeDisabled();
     await page.getByRole("button", { name: "Suivante" }).click();
 
     await expect(page.getByText("QROC — Question ouverte à rédaction courte", { exact: true })).toBeVisible();
@@ -84,6 +82,10 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     await expect(page.getByText("Plein crédit", { exact: true })).toBeVisible();
     await expect(page.getByText("À revoir").first()).toBeVisible();
     await expect(page.getByText("Durée").first()).toBeVisible();
+    await expect(page.getByText(fixture.themeLabel, { exact: true })).toBeVisible();
+    await expect(page.getByText("3 questions · 1,5 / 3 pt", { exact: true })).toBeVisible();
+    await expect(page.getByText("50 %", { exact: true })).toBeVisible();
+    await expect(page.getByText(/theme:/i)).toHaveCount(0);
 
     // Cliquer pour voir la correction détaillée
     await page.getByRole("link", { name: "Voir la correction détaillée" }).click();

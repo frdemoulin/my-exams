@@ -17,6 +17,11 @@ export type HealthMockExamQuestionGroup = {
   order: number;
 };
 
+export type HealthMockExamQuestionTheme = {
+  id: string;
+  label: string;
+};
+
 export type HealthMockExamPassageQuestion = {
   attemptQuestionId: string;
   id: string;
@@ -30,6 +35,7 @@ export type HealthMockExamPassageQuestion = {
   answerPayload: unknown | null;
   canonicalQuestion: Question;
   group: HealthMockExamQuestionGroup | null;
+  themes: HealthMockExamQuestionTheme[];
   selectedChoiceIndexes: number[];
   responsePayload: StudentAnswer | null;
   markedForReview: boolean;

@@ -1,9 +1,9 @@
 import type { PrismaClient } from "@prisma/client";
 
 export const description =
-  "Convertir les scores existants des colles/examens blancs de BSON Int vers Double avant l'activation des notes partielles UNESS.";
+  "Convertir les scores BSON Long restants des colles/examens blancs vers Double après restauration de la migration 0001.";
 
-async function convertScoreFieldToDouble(
+async function convertLongScoreFieldToDouble(
   prisma: PrismaClient,
   collection: "UserHealthMockExamAttempt" | "UserHealthMockExamAttemptSectionResult",
 ) {
@@ -13,7 +13,7 @@ async function convertScoreFieldToDouble(
       {
         q: {
           score: {
-            $type: "int",
+            $type: "long",
           },
         },
         u: [
@@ -32,8 +32,8 @@ async function convertScoreFieldToDouble(
 }
 
 export async function up(prisma: PrismaClient) {
-  await convertScoreFieldToDouble(prisma, "UserHealthMockExamAttempt");
-  await convertScoreFieldToDouble(
+  await convertLongScoreFieldToDouble(prisma, "UserHealthMockExamAttempt");
+  await convertLongScoreFieldToDouble(
     prisma,
     "UserHealthMockExamAttemptSectionResult",
   );

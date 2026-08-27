@@ -1089,6 +1089,7 @@ model HealthMockExamQuestion {
   order                Int
   globalOrder          Int
   isPublished          Boolean            @default(true)
+  themeIds             String[]           @default([]) @db.ObjectId
 
   examSection   HealthMockExamSection         @relation(fields: [examSectionId], references: [id], onDelete: Cascade)
   group         HealthMockExamQuestionGroup?  @relation(fields: [groupId], references: [id], onDelete: SetNull)
