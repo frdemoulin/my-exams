@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { InfoTooltip } from "@/components/shared/info-tooltip";
 import { QuestionFormatBadge } from "@/components/training/question-format-badge";
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
@@ -394,25 +395,10 @@ export function HealthMockExamResults({
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                     Plein crédit
                   </p>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <button
-                        type="button"
-                        className="text-muted-foreground hover:text-foreground transition-colors p-0.5 rounded-full focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
-                        aria-label="Information sur le plein crédit"
-                      >
-                        <HelpCircle className="h-3.5 w-3.5" aria-hidden="true" />
-                      </button>
-                    </PopoverTrigger>
-                    <PopoverContent align="start" className="w-64 p-3 text-xs space-y-1 shadow-md z-50">
-                      <p className="font-semibold text-heading text-[11px] uppercase tracking-wide">
-                        Plein crédit
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Nombre de questions ayant obtenu 100 % des points (sans aucune erreur).
-                      </p>
-                    </PopoverContent>
-                  </Popover>
+                  <InfoTooltip
+                    content="Nombre de questions ayant obtenu 100 % des points (sans aucune erreur)."
+                    label="Information sur le plein crédit"
+                  />
                 </div>
                 <p className="mt-2 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
                   {fullCreditCount}
