@@ -337,13 +337,13 @@ export function HealthMockExamResults({
         <CardHeader className="p-2 sm:p-5 md:p-6">
           <div className={cn("overflow-hidden rounded-2xl border p-3.5 sm:p-5 md:p-6 space-y-5", feedback.toneClassName)}>
             <div className="space-y-4">
-              <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-3 min-h-9">
                 <div className="flex items-center gap-2 text-current/80">
                   <Target className="h-4 w-4 shrink-0" aria-hidden="true" />
                   <span className="text-xs font-bold uppercase tracking-wider">{headingLabel}</span>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2.5 sm:items-baseline">
+                <div className="flex flex-wrap items-center gap-2.5">
                   {result.status === "EXPIRED" ? (
                     <Badge variant="destructive" className="text-[10px] sm:text-xs py-0.5 px-2 font-medium">
                       Temps limite atteint
@@ -379,7 +379,7 @@ export function HealthMockExamResults({
             </div>
 
             {/* GRILLE DES 4 MÉTRIQUES CLÉS */}
-            <div className="grid gap-3 grid-cols-2 sm:grid-cols-4 pt-2">
+            <div className="grid gap-3 grid-cols-2 md:grid-cols-4 pt-2">
               <div className="rounded-xl border border-border bg-background/70 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                   Score
