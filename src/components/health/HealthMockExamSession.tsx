@@ -163,21 +163,26 @@ export function HealthMockExamSession({
   const resultsHref =
     customResultsHref ??
     `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${passage.attemptId}`;
+
+  const isColle = passage.type === "COLLE";
   const submitButtonLabel = isTutorial
     ? "Terminer le tutoriel"
-    : passage.type === "COLLE"
-    ? "Remettre la colle"
-    : "Soumettre l'examen";
+    : isColle
+    ? "Terminer la colle"
+    : "Terminer l'examen blanc";
   const submitDialogTitle = isTutorial
     ? "Terminer le tutoriel ?"
-    : passage.type === "COLLE"
-    ? "Remettre la colle ?"
-    : "Soumettre l'examen blanc ?";
+    : isColle
+    ? "Terminer la colle ?"
+    : "Terminer l'examen blanc ?";
+  const submitCancelLabel = isTutorial
+    ? "Continuer le tutoriel"
+    : isColle
+    ? "Continuer la colle"
+    : "Continuer l'examen";
   const submitConfirmLabel = isTutorial
     ? "Voir le récapitulatif"
-    : passage.type === "COLLE"
-    ? "Confirmer la remise"
-    : "Confirmer la soumission";
+    : "Terminer et voir les résultats";
 
   const currentQuestion = passage.questions[currentIndex];
   const currentAnswer = answersByAttemptQuestionId[currentQuestion.attemptQuestionId];
@@ -192,44 +197,67 @@ export function HealthMockExamSession({
   const markedCount = Object.values(answersByAttemptQuestionId).filter(
     (answer) => answer.markedForReview,
   ).length;
+  const unansweredCount = passage.questionCount - answeredCount;
+
+  const formatSubmitDialogDescription = () => {
+    if (isTutorial) {
+      return "Vous pourrez refaire ce tutoriel librement.";
+    }
+
+    const parts: string[] = [];
+    if (unansweredCount > 0) {
+      parts.push(`${unansweredCount} question${unansweredCount > 1 ? "s" : ""} sans réponse`);
+    }
+    if (markedCount > 0) {
+      parts.push(`${markedCount} question${markedCount > 1 ? "s" : ""} marquée${markedCount > 1 ? "s" : ""} à revoir`);
+    }
+
+    if (parts.length === 0) {
+      return isColle
+        ? "Terminer la colle et afficher les résultats ?"
+        : "Terminer l'examen blanc et afficher les résultats ?";
+    }
+
+    return `Il reste ${parts.join(" et ")}.`;
+  };
 
   const navScrollRef = useRef<HTMLDivElement | null>(null);
   const navItemRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const [canScrollNavLeft, setCanScrollNavLeft] = useState(false);
-  const [canScrollNavRight, setCanScrollNavRight] = useState(false);
+  const [blockSize, setBlockSize] = useState(10);
 
-  const checkNavScroll = useCallback(() => {
-    const el = navScrollRef.current;
-    if (!el) return;
-    setCanScrollNavLeft(el.scrollLeft > 2);
-    setCanScrollNavRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
+  useEffect(() => {
+    const handleResize = () => {
+      setBlockSize(window.innerWidth < 640 ? 5 : 10);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const scrollNavContainer = (direction: "left" | "right") => {
-    const el = navScrollRef.current;
-    if (!el) return;
-    const offset = direction === "left" ? -240 : 240;
-    el.scrollBy({ left: offset, behavior: "smooth" });
+  const totalBlocks = Math.ceil(passage.questions.length / blockSize);
+  const hasMultipleBlocks = totalBlocks > 1;
+  const targetBlockIndex = Math.floor(currentIndex / blockSize);
+
+  const [activeBlockIndex, setActiveBlockIndex] = useState(0);
+
+  useEffect(() => {
+    setActiveBlockIndex(targetBlockIndex);
+  }, [targetBlockIndex]);
+
+  const canGoPreviousBlock = activeBlockIndex > 0;
+  const canGoNextBlock = activeBlockIndex < totalBlocks - 1;
+
+  const goToPreviousBlock = () => {
+    if (canGoPreviousBlock) {
+      setActiveBlockIndex((prev) => Math.max(0, prev - 1));
+    }
   };
 
-  useEffect(() => {
-    const el = navScrollRef.current;
-    if (!el) return;
-    checkNavScroll();
-    el.addEventListener("scroll", checkNavScroll, { passive: true });
-    window.addEventListener("resize", checkNavScroll);
-    return () => {
-      el.removeEventListener("scroll", checkNavScroll);
-      window.removeEventListener("resize", checkNavScroll);
-    };
-  }, [checkNavScroll]);
-
-  useEffect(() => {
-    const target = navItemRefs.current[currentIndex];
-    if (target && navScrollRef.current) {
-      target.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  const goToNextBlock = () => {
+    if (canGoNextBlock) {
+      setActiveBlockIndex((prev) => Math.min(totalBlocks - 1, prev + 1));
     }
-  }, [currentIndex]);
+  };
 
   const persistAnswer = (
     attemptQuestionId: string,
@@ -422,12 +450,16 @@ export function HealthMockExamSession({
         </div>
 
         <div className="relative flex items-center overflow-hidden rounded-xl border border-border bg-background">
-          {canScrollNavLeft ? (
+          {hasMultipleBlocks ? (
             <button
               type="button"
-              onClick={() => scrollNavContainer("left")}
+              onClick={goToPreviousBlock}
+              disabled={!canGoPreviousBlock}
               aria-label="Faire défiler les questions vers la gauche"
-              className="absolute left-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-r border-border"
+              className={cn(
+                "absolute left-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm transition-opacity border-r border-border",
+                !canGoPreviousBlock ? "opacity-30 cursor-not-allowed" : "hover:bg-neutral-secondary-medium cursor-pointer",
+              )}
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -435,52 +467,60 @@ export function HealthMockExamSession({
 
           <div ref={navScrollRef} className="flex-1 overflow-x-auto no-scrollbar">
             <ol className="flex min-w-full">
-              {passage.questions.map((question, index) => {
-                const isCurrent = index === currentIndex;
-                const status = getQuestionStatus(index);
-                const formatCode = question.canonicalQuestion?.format ?? question.questionType.toUpperCase();
+              {passage.questions
+                .slice(activeBlockIndex * blockSize, (activeBlockIndex + 1) * blockSize)
+                .map((question, sliceIndex) => {
+                  const globalIndex = activeBlockIndex * blockSize + sliceIndex;
+                  const isCurrent = globalIndex === currentIndex;
+                  const status = getQuestionStatus(globalIndex);
+                  const formatCode =
+                    question.canonicalQuestion?.format ?? question.questionType.toUpperCase();
 
-                return (
-                  <li
-                    key={question.attemptQuestionId}
-                    className="min-w-12 flex-1 border-r border-border last:border-r-0"
-                  >
-                    <button
-                      ref={(el) => {
-                        navItemRefs.current[index] = el;
-                      }}
-                      type="button"
-                      onClick={() => goToQuestion(index)}
-                      aria-current={isCurrent ? "page" : undefined}
-                      aria-label={`Question ${index + 1} sur ${passage.questionCount} — ${formatCode}`}
-                      data-testid={`health-mock-exam-nav-${index + 1}`}
-                      className={cn(
-                        "flex h-14 w-full flex-col items-center justify-center py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset",
-                        getQuestionNavButtonClass(status),
-                      )}
+                  return (
+                    <li
+                      key={question.attemptQuestionId}
+                      className="min-w-12 flex-1 border-r border-border last:border-r-0"
                     >
-                      <div className="flex items-center gap-0.5">
-                        <span className="text-base font-bold leading-none">{index + 1}</span>
-                        {status === "marked" && !isCurrent ? (
-                          <Flag className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
-                        ) : null}
-                      </div>
-                      <span className="mt-1 text-xs font-semibold uppercase font-mono tracking-tight leading-none opacity-90">
-                        {formatCode}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
+                      <button
+                        ref={(el) => {
+                          navItemRefs.current[globalIndex] = el;
+                        }}
+                        type="button"
+                        onClick={() => goToQuestion(globalIndex)}
+                        aria-current={isCurrent ? "page" : undefined}
+                        aria-label={`Question ${globalIndex + 1} sur ${passage.questionCount} — ${formatCode}`}
+                        data-testid={`health-mock-exam-nav-${globalIndex + 1}`}
+                        className={cn(
+                          "flex h-14 w-full flex-col items-center justify-center py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset",
+                          getQuestionNavButtonClass(status),
+                        )}
+                      >
+                        <div className="flex items-center gap-0.5">
+                          <span className="text-base font-bold leading-none">{globalIndex + 1}</span>
+                          {status === "marked" && !isCurrent ? (
+                            <Flag className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                          ) : null}
+                        </div>
+                        <span className="mt-1 text-xs font-semibold uppercase font-mono tracking-tight leading-none opacity-90">
+                          {formatCode}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
             </ol>
           </div>
 
-          {canScrollNavRight ? (
+          {hasMultipleBlocks ? (
             <button
               type="button"
-              onClick={() => scrollNavContainer("right")}
+              onClick={goToNextBlock}
+              disabled={!canGoNextBlock}
               aria-label="Faire défiler les questions vers la droite"
-              className="absolute right-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-l border-border"
+              className={cn(
+                "absolute right-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm transition-opacity border-l border-border",
+                !canGoNextBlock ? "opacity-30 cursor-not-allowed" : "hover:bg-neutral-secondary-medium cursor-pointer",
+              )}
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -554,7 +594,7 @@ export function HealthMockExamSession({
               <AlertDialogTrigger asChild>
                 <Button
                   type="button"
-                  variant="destructive"
+                  variant="default"
                   size="xs"
                   disabled={isSubmitting}
                   className="gap-1.5 text-xs h-7 px-2.5"
@@ -567,13 +607,11 @@ export function HealthMockExamSession({
                 <AlertDialogHeader>
                   <AlertDialogTitle>{submitDialogTitle}</AlertDialogTitle>
                   <AlertDialogDescription>
-                    {answeredCount} question{answeredCount > 1 ? "s" : ""} répondue{answeredCount > 1 ? "s" : ""},{" "}
-                    {passage.questionCount - answeredCount} sans réponse et {formatRemainingTime(remainingSeconds)} restante{remainingSeconds > 1 ? "s" : ""}.{" "}
-                    {isTutorial ? "Vous pourrez refaire ce tutoriel librement." : "Cette remise est définitive."}
+                    {formatSubmitDialogDescription()}
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Continuer l&apos;épreuve</AlertDialogCancel>
+                  <AlertDialogCancel>{submitCancelLabel}</AlertDialogCancel>
                   <AlertDialogAction onClick={() => void submitAttempt()} disabled={isSubmitting}>
                     {isSubmitting ? "Soumission..." : submitConfirmLabel}
                   </AlertDialogAction>

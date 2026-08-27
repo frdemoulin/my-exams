@@ -425,3 +425,92 @@ test("le bilan des évaluations calcule exactement 'Plein crédit' et 'À revoir
   assert.equal(fullCreditCount, 5);
   assert.equal(toReviewCount, 4);
 });
+
+test("la pagination par blocs calcule correctement les tranches et chevrons sur 20, 50 et 100 questions", () => {
+  function getPaginationBlocks(totalQuestions: number, blockSize: number, currentIndex: number) {
+    const totalBlocks = Math.ceil(totalQuestions / blockSize);
+    const activeBlockIndex = Math.floor(currentIndex / blockSize);
+    const hasMultipleBlocks = totalBlocks > 1;
+    const canGoPrevious = activeBlockIndex > 0;
+    const canGoNext = activeBlockIndex < totalBlocks - 1;
+    const startQuestion = activeBlockIndex * blockSize + 1;
+    const endQuestion = Math.min(totalQuestions, (activeBlockIndex + 1) * blockSize);
+
+    return { totalBlocks, activeBlockIndex, hasMultipleBlocks, canGoPrevious, canGoNext, startQuestion, endQuestion };
+  }
+
+  // 100 questions sur desktop (10 par bloc)
+  const q100 = getPaginationBlocks(100, 10, 0); // Q1
+  assert.equal(q100.totalBlocks, 10);
+  assert.equal(q100.activeBlockIndex, 0);
+  assert.equal(q100.canGoPrevious, false);
+  assert.equal(q100.canGoNext, true);
+  assert.equal(q100.startQuestion, 1);
+  assert.equal(q100.endQuestion, 10);
+
+  const q100Mid = getPaginationBlocks(100, 10, 10); // Q11
+  assert.equal(q100Mid.activeBlockIndex, 1);
+  assert.equal(q100Mid.canGoPrevious, true);
+  assert.equal(q100Mid.canGoNext, true);
+  assert.equal(q100Mid.startQuestion, 11);
+  assert.equal(q100Mid.endQuestion, 20);
+
+  const q100End = getPaginationBlocks(100, 10, 95); // Q96
+  assert.equal(q100End.activeBlockIndex, 9);
+  assert.equal(q100End.canGoPrevious, true);
+  assert.equal(q100End.canGoNext, false);
+  assert.equal(q100End.startQuestion, 91);
+  assert.equal(q100End.endQuestion, 100);
+
+  // 20 questions sur mobile (5 par bloc)
+  const q20Mobile = getPaginationBlocks(20, 5, 6); // Q7 (index 6) -> bloc 2 (Q6-10)
+  assert.equal(q20Mobile.totalBlocks, 4);
+  assert.equal(q20Mobile.activeBlockIndex, 1);
+  assert.equal(q20Mobile.startQuestion, 6);
+  assert.equal(q20Mobile.endQuestion, 10);
+});
+
+test("la modale de terminaison formule correctement le décompte des questions restantes", () => {
+  function formatSubmitDialogDescription({ unansweredCount, markedCount, isColle }: { unansweredCount: number; markedCount: number; isColle: boolean }) {
+    const parts: string[] = [];
+    if (unansweredCount > 0) {
+      parts.push(`${unansweredCount} question${unansweredCount > 1 ? "s" : ""} sans réponse`);
+    }
+    if (markedCount > 0) {
+      parts.push(`${markedCount} question${markedCount > 1 ? "s" : ""} marquée${markedCount > 1 ? "s" : ""} à revoir`);
+    }
+
+    if (parts.length === 0) {
+      return isColle
+        ? "Terminer la colle et afficher les résultats ?"
+        : "Terminer l'examen blanc et afficher les résultats ?";
+    }
+
+    return `Il reste ${parts.join(" et ")}.`;
+  }
+
+  assert.equal(
+    formatSubmitDialogDescription({ unansweredCount: 19, markedCount: 1, isColle: true }),
+    "Il reste 19 questions sans réponse et 1 question marquée à revoir.",
+  );
+  assert.equal(
+    formatSubmitDialogDescription({ unansweredCount: 1, markedCount: 2, isColle: true }),
+    "Il reste 1 question sans réponse et 2 questions marquées à revoir.",
+  );
+  assert.equal(
+    formatSubmitDialogDescription({ unansweredCount: 3, markedCount: 0, isColle: true }),
+    "Il reste 3 questions sans réponse.",
+  );
+  assert.equal(
+    formatSubmitDialogDescription({ unansweredCount: 0, markedCount: 2, isColle: true }),
+    "Il reste 2 questions marquées à revoir.",
+  );
+  assert.equal(
+    formatSubmitDialogDescription({ unansweredCount: 0, markedCount: 0, isColle: true }),
+    "Terminer la colle et afficher les résultats ?",
+  );
+  assert.equal(
+    formatSubmitDialogDescription({ unansweredCount: 0, markedCount: 0, isColle: false }),
+    "Terminer l'examen blanc et afficher les résultats ?",
+  );
+});
