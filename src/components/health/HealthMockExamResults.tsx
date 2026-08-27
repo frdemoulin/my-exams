@@ -336,28 +336,31 @@ export function HealthMockExamResults({
       <Card className="rounded-3xl border-border bg-card shadow-sm hover:bg-card">
         <CardHeader className="p-2 sm:p-5 md:p-6">
           <div className={cn("overflow-hidden rounded-2xl border p-3.5 sm:p-5 md:p-6 space-y-5", feedback.toneClassName)}>
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-              <div className="space-y-2 min-w-0 flex-1">
+            <div className="space-y-4">
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <div className="flex items-center gap-2 text-current/80">
-                  <Target className="h-4 w-4 shrink-0" />
-                  <p className="text-xs font-semibold uppercase tracking-wider">{headingLabel}</p>
+                  <Target className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-bold uppercase tracking-wider">{headingLabel}</span>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2.5 sm:items-baseline">
                   {result.status === "EXPIRED" ? (
-                    <Badge variant="destructive" className="text-[10px] py-0 px-1.5 ml-auto sm:ml-0">
+                    <Badge variant="destructive" className="text-[10px] sm:text-xs py-0.5 px-2 font-medium">
                       Temps limite atteint
                     </Badge>
                   ) : null}
+                  <Button asChild size="sm" variant="outline" className="gap-1.5 shadow-xs">
+                    <Link href={restartHref}>
+                      <RotateCcw className="h-4 w-4" />
+                      {restartLabel}
+                    </Link>
+                  </Button>
                 </div>
-                <h1 className="text-xl sm:text-2xl font-bold text-heading break-words">{feedback.title}</h1>
-                <p className="text-sm leading-6 text-muted-foreground">{feedback.message}</p>
               </div>
 
-              <div className="flex shrink-0 flex-wrap gap-2.5 self-start">
-                <Button asChild size="sm" variant="outline" className="gap-1.5 shadow-xs">
-                  <Link href={restartHref}>
-                    <RotateCcw className="h-4 w-4" />
-                    {restartLabel}
-                  </Link>
-                </Button>
+              <div className="space-y-1.5">
+                <h1 className="text-xl sm:text-2xl font-bold text-heading break-words">{feedback.title}</h1>
+                <p className="text-sm leading-6 text-muted-foreground">{feedback.message}</p>
               </div>
             </div>
 
