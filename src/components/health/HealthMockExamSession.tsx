@@ -449,7 +449,7 @@ export function HealthMockExamSession({
           </span>
         </div>
 
-        <div className="relative flex items-center overflow-hidden rounded-xl border border-border bg-background">
+        <div className="flex items-center overflow-hidden rounded-xl border border-border bg-background">
           {hasMultipleBlocks ? (
             <button
               type="button"
@@ -457,15 +457,17 @@ export function HealthMockExamSession({
               disabled={!canGoPreviousBlock}
               aria-label="Faire défiler les questions vers la gauche"
               className={cn(
-                "absolute left-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm transition-opacity border-r border-border",
-                !canGoPreviousBlock ? "opacity-30 cursor-not-allowed" : "hover:bg-neutral-secondary-medium cursor-pointer",
+                "shrink-0 flex h-14 w-8 items-center justify-center text-foreground transition-colors border-r border-border",
+                !canGoPreviousBlock
+                  ? "opacity-30 cursor-not-allowed bg-muted/40"
+                  : "bg-background hover:bg-neutral-secondary-medium cursor-pointer",
               )}
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
           ) : null}
 
-          <div ref={navScrollRef} className="flex-1 overflow-x-auto no-scrollbar">
+          <div ref={navScrollRef} className="flex-1 min-w-0 overflow-x-auto no-scrollbar">
             <ol className="flex min-w-full">
               {passage.questions
                 .slice(activeBlockIndex * blockSize, (activeBlockIndex + 1) * blockSize)
@@ -518,8 +520,10 @@ export function HealthMockExamSession({
               disabled={!canGoNextBlock}
               aria-label="Faire défiler les questions vers la droite"
               className={cn(
-                "absolute right-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm transition-opacity border-l border-border",
-                !canGoNextBlock ? "opacity-30 cursor-not-allowed" : "hover:bg-neutral-secondary-medium cursor-pointer",
+                "shrink-0 flex h-14 w-8 items-center justify-center text-foreground transition-colors border-l border-border",
+                !canGoNextBlock
+                  ? "opacity-30 cursor-not-allowed bg-muted/40"
+                  : "bg-background hover:bg-neutral-secondary-medium cursor-pointer",
               )}
             >
               <ChevronRight className="h-4 w-4" />

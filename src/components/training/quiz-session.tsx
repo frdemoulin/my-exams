@@ -1646,19 +1646,19 @@ export function QuizSession({
             <span className="hidden lg:inline text-xs font-semibold">Précédent</span>
           </button>
 
-          <div className="relative flex-1 flex items-center min-w-0 overflow-hidden">
+          <div className="flex-1 flex items-center min-w-0 overflow-hidden">
             {canScrollNavLeft ? (
               <button
                 type="button"
                 onClick={() => scrollNavContainer('left')}
                 aria-label="Faire défiler les questions vers la gauche"
-                className="absolute left-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-r border-border"
+                className="shrink-0 flex h-14 w-8 items-center justify-center bg-background text-foreground hover:bg-neutral-secondary-medium transition-colors border-r border-border"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
             ) : null}
 
-            <div ref={navScrollRef} className="flex-1 overflow-x-auto no-scrollbar">
+            <div ref={navScrollRef} className="flex-1 min-w-0 overflow-x-auto no-scrollbar">
               <ol className="flex min-w-full">
                 {visibleQuestionIndexes.map((index) => {
                   const question = sessionQuestions[index];
@@ -1708,7 +1708,7 @@ export function QuizSession({
                 type="button"
                 onClick={() => scrollNavContainer('right')}
                 aria-label="Faire défiler les questions vers la droite"
-                className="absolute right-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-l border-border"
+                className="shrink-0 flex h-14 w-8 items-center justify-center bg-background text-foreground hover:bg-neutral-secondary-medium transition-colors border-l border-border"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
