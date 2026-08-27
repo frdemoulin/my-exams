@@ -69,16 +69,19 @@ const EC_LABELS: Record<string, string> = {
   "ec:HISTOLOGIE": "Histologie",
 };
 
-function humanizeTag(tag: string): string {
+function getExplicitLabel(tag: string): string | null {
   if (THEME_LABELS[tag]) return THEME_LABELS[tag];
   if (CHAPTER_LABELS[tag]) return CHAPTER_LABELS[tag];
   if (EC_LABELS[tag]) return EC_LABELS[tag];
+  return null;
+}
 
-  const stripped = tag.replace(/^(theme|notion|chapter|ec|discipline):/, "");
-  return stripped
-    .split(/[-_]/)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+function resolveExplicitLabel(key: string): string | null {
+  if (key.startsWith("group:")) {
+    const title = key.replace("group:", "").trim();
+    return title.length > 0 ? title : null;
+  }
+  return getExplicitLabel(key);
 }
 
 type QuestionPedagogicalInfo = {
@@ -141,10 +144,10 @@ export function buildHealthMockExamPedagogicalAssessment(
 
   const extracted = questions.map(extractQuestionPedagogicalInfo);
 
-  // Step 1: Collect counts for primary themes
+  // Step 1: Collect counts for primary themes that have an explicit label
   const primaryCounts = new Map<string, { count: number; maxScore: number }>();
   for (const item of extracted) {
-    if (item.primaryKey) {
+    if (item.primaryKey && resolveExplicitLabel(item.primaryKey) !== null) {
       const prev = primaryCounts.get(item.primaryKey) ?? { count: 0, maxScore: 0 };
       primaryCounts.set(item.primaryKey, {
         count: prev.count + 1,
@@ -153,12 +156,14 @@ export function buildHealthMockExamPedagogicalAssessment(
     }
   }
 
-  // Step 2: Collect counts for chapters for questions not covered by a >=2 primary theme
+  // Step 2: Collect counts for chapters for questions not covered by a reliable primary theme with explicit label
   const chapterCounts = new Map<string, { count: number; maxScore: number }>();
   for (const item of extracted) {
-    const primaryInfo = item.primaryKey ? primaryCounts.get(item.primaryKey) : null;
+    const isPrimaryExplicit = item.primaryKey ? resolveExplicitLabel(item.primaryKey) !== null : false;
+    const primaryInfo = isPrimaryExplicit && item.primaryKey ? primaryCounts.get(item.primaryKey) : null;
     const isPrimaryReliable = primaryInfo && (primaryInfo.count >= 2 || primaryInfo.maxScore >= 2);
-    if (!isPrimaryReliable && item.chapterKey) {
+
+    if (!isPrimaryReliable && item.chapterKey && resolveExplicitLabel(item.chapterKey) !== null) {
       const prev = chapterCounts.get(item.chapterKey) ?? { count: 0, maxScore: 0 };
       chapterCounts.set(item.chapterKey, {
         count: prev.count + 1,
@@ -167,12 +172,13 @@ export function buildHealthMockExamPedagogicalAssessment(
     }
   }
 
-  // Step 3: Accumulate into reliable groups
+  // Step 3: Accumulate into reliable groups with explicit labels only
   const groups = new Map<string, GroupAccumulator>();
 
   for (const item of extracted) {
     const q = item.question;
-    const primaryInfo = item.primaryKey ? primaryCounts.get(item.primaryKey) : null;
+    const isPrimaryExplicit = item.primaryKey ? resolveExplicitLabel(item.primaryKey) !== null : false;
+    const primaryInfo = isPrimaryExplicit && item.primaryKey ? primaryCounts.get(item.primaryKey) : null;
     const isPrimaryReliable = primaryInfo && (primaryInfo.count >= 2 || primaryInfo.maxScore >= 2);
 
     let chosenKey: string | null = null;
@@ -180,22 +186,20 @@ export function buildHealthMockExamPedagogicalAssessment(
 
     if (isPrimaryReliable && item.primaryKey) {
       chosenKey = item.primaryKey;
-      chosenLabel = item.primaryKey.startsWith("group:")
-        ? item.primaryKey.replace("group:", "")
-        : humanizeTag(item.primaryKey);
-    } else if (item.chapterKey) {
+      chosenLabel = resolveExplicitLabel(item.primaryKey);
+    } else if (item.chapterKey && resolveExplicitLabel(item.chapterKey) !== null) {
       const chapterInfo = chapterCounts.get(item.chapterKey);
       const isChapterReliable = chapterInfo && (chapterInfo.count >= 2 || chapterInfo.maxScore >= 2);
       if (isChapterReliable) {
         chosenKey = item.chapterKey;
-        chosenLabel = humanizeTag(item.chapterKey);
+        chosenLabel = resolveExplicitLabel(item.chapterKey);
       }
     }
 
-    // If still not reliable, fallback to discipline if present
-    if (!chosenKey && item.disciplineKey) {
+    // If still not reliable, fallback to discipline if present and explicit
+    if (!chosenKey && item.disciplineKey && resolveExplicitLabel(item.disciplineKey) !== null) {
       chosenKey = item.disciplineKey;
-      chosenLabel = humanizeTag(item.disciplineKey);
+      chosenLabel = resolveExplicitLabel(item.disciplineKey);
     }
 
     if (chosenKey && chosenLabel) {

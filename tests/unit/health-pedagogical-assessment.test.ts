@@ -117,4 +117,47 @@ describe("Health Pedagogical Assessment Engine", () => {
     assert.equal(assessment.toReview.length, 0);
     assert.ok(assessment.neutralMessage !== null);
   });
+
+  it("utilise le niveau theme uniquement si un libellé explicite existe, sinon roll-up chapter", () => {
+    const questionsWithExplicitTheme: HealthMockExamResultQuestion[] = [
+      createMockResultQuestion({ id: "1", order: 1, score: 1, maxScore: 1, tags: ["theme:isotopes", "chapter:1.1"] }),
+      createMockResultQuestion({ id: "2", order: 2, score: 1, maxScore: 1, tags: ["theme:isotopes", "chapter:1.1"] }),
+    ];
+
+    const assessmentExplicit = buildHealthMockExamPedagogicalAssessment(questionsWithExplicitTheme);
+    assert.equal(assessmentExplicit.strengths[0].id, "theme:isotopes");
+    assert.equal(assessmentExplicit.strengths[0].label, "Isotopes & abondance");
+
+    const questionsWithUnknownTheme: HealthMockExamResultQuestion[] = [
+      createMockResultQuestion({ id: "1", order: 1, score: 1, maxScore: 1, tags: ["theme:tag-inconnu-123", "chapter:1.1"] }),
+      createMockResultQuestion({ id: "2", order: 2, score: 1, maxScore: 1, tags: ["theme:tag-inconnu-123", "chapter:1.1"] }),
+    ];
+
+    const assessmentUnknown = buildHealthMockExamPedagogicalAssessment(questionsWithUnknownTheme);
+    assert.equal(assessmentUnknown.strengths[0].id, "chapter:1.1");
+    assert.equal(assessmentUnknown.strengths[0].label, "Ch. 1 · Éléments chimiques et classification");
+  });
+
+  it("fait un roll-up vers EC si theme et chapter n'ont pas de libellé explicite", () => {
+    const questions: HealthMockExamResultQuestion[] = [
+      createMockResultQuestion({ id: "1", order: 1, score: 1, maxScore: 1, tags: ["theme:inconnu", "chapter:inconnu", "ec:CHIMIE"] }),
+      createMockResultQuestion({ id: "2", order: 2, score: 1, maxScore: 1, tags: ["theme:inconnu", "chapter:inconnu", "ec:CHIMIE"] }),
+    ];
+
+    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
+    assert.equal(assessment.strengths[0].id, "ec:CHIMIE");
+    assert.equal(assessment.strengths[0].label, "Chimie générale");
+  });
+
+  it("ne fabrique aucune conclusion ni groupe si aucun niveau ne dispose d'un libellé explicite", () => {
+    const questions: HealthMockExamResultQuestion[] = [
+      createMockResultQuestion({ id: "1", order: 1, score: 1, maxScore: 1, tags: ["theme:inconnu", "chapter:inconnu", "ec:inconnu"] }),
+      createMockResultQuestion({ id: "2", order: 2, score: 1, maxScore: 1, tags: ["theme:inconnu", "chapter:inconnu", "ec:inconnu"] }),
+    ];
+
+    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
+    assert.equal(assessment.strengths.length, 0);
+    assert.equal(assessment.toReview.length, 0);
+    assert.ok(assessment.neutralMessage !== null);
+  });
 });

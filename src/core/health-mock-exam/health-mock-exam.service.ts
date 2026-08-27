@@ -922,10 +922,11 @@ export async function fetchHealthCourseUnitEvaluationsProgress(input: {
 }): Promise<HealthCourseUnitEvaluationsProgress> {
   const resolvedCourseUnitId = await resolveCourseUnitId(input.courseUnitId);
 
-  const mockExams = await prisma.healthMockExam.findMany({
+  const colles = await prisma.healthMockExam.findMany({
     where: {
       courseUnitId: resolvedCourseUnitId,
       isPublished: true,
+      type: "COLLE",
     },
     select: {
       id: true,
@@ -937,7 +938,7 @@ export async function fetchHealthCourseUnitEvaluationsProgress(input: {
 
   const collesRecord: HealthCourseUnitEvaluationsProgress["colles"] = {};
 
-  for (const exam of mockExams) {
+  for (const exam of colles) {
     collesRecord[exam.slug] = {
       colleId: exam.id,
       colleSlug: exam.slug,
@@ -951,7 +952,7 @@ export async function fetchHealthCourseUnitEvaluationsProgress(input: {
   if (!input.userId) {
     return {
       completedCollesCount: 0,
-      totalCollesCount: mockExams.length,
+      totalCollesCount: colles.length,
       averageScorePercentage: null,
       bestScorePercentage: null,
       colles: collesRecord,
@@ -963,6 +964,7 @@ export async function fetchHealthCourseUnitEvaluationsProgress(input: {
       userId: input.userId,
       mockExam: {
         courseUnitId: resolvedCourseUnitId,
+        type: "COLLE",
       },
       status: { in: ["SUBMITTED", "EXPIRED"] },
       score: { not: null },
@@ -1046,7 +1048,7 @@ export async function fetchHealthCourseUnitEvaluationsProgress(input: {
 
   return {
     completedCollesCount,
-    totalCollesCount: mockExams.length,
+    totalCollesCount: colles.length,
     averageScorePercentage,
     bestScorePercentage,
     colles: collesRecord,

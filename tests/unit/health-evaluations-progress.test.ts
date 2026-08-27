@@ -44,4 +44,35 @@ describe("Health Evaluations Progress Calculations", () => {
 
     assert.equal(best.id, "att-2");
   });
+
+  it("exclut les MOCK_EXAM des statistiques de colles (totalCollesCount, completedCollesCount, average, best)", () => {
+    // 2 published COLLE + 1 published MOCK_EXAM
+    const publishedExams = [
+      { id: "colle-1", type: "COLLE" },
+      { id: "colle-2", type: "COLLE" },
+      { id: "eb-1", type: "MOCK_EXAM" },
+    ];
+
+    // Attempts on all three
+    const attempts = [
+      { examId: "colle-1", type: "COLLE", percentage: 70 },
+      { examId: "colle-2", type: "COLLE", percentage: 90 },
+      { examId: "eb-1", type: "MOCK_EXAM", percentage: 100 }, // Should be ignored in colles stats!
+    ];
+
+    const collesOnly = publishedExams.filter((e) => e.type === "COLLE");
+    const colleAttemptsOnly = attempts.filter((a) => a.type === "COLLE");
+
+    const totalCollesCount = collesOnly.length;
+    const completedCollesCount = new Set(colleAttemptsOnly.map((a) => a.examId)).size;
+    const averageScorePercentage = Math.round(
+      colleAttemptsOnly.reduce((acc, a) => acc + a.percentage, 0) / completedCollesCount
+    );
+    const bestScorePercentage = Math.max(...colleAttemptsOnly.map((a) => a.percentage));
+
+    assert.equal(totalCollesCount, 2);
+    assert.equal(completedCollesCount, 2);
+    assert.equal(averageScorePercentage, 80); // (70 + 90) / 2 = 80 (and NOT (70 + 90 + 100) / 3 = 87)
+    assert.equal(bestScorePercentage, 90); // 90 (and NOT 100 from MOCK_EXAM)
+  });
 });
