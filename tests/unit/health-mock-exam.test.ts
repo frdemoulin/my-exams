@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  evaluateHealthAssessmentQuestion,
   scoreHealthMockExamAttempt,
   validateHealthMockExamForPublication,
   type HealthMockExamValidationInput,
@@ -233,4 +234,152 @@ test("la notation des examens blancs utilise le moteur global pour les QROC", ()
   assert.equal(result.correctQuestionCount, 1);
   assert.equal(result.incorrectQuestionCount, 1);
   assert.equal(result.unansweredQuestionCount, 1);
+});
+
+function makeCanonicalChoiceQuestion({
+  id,
+  format,
+  correctChoiceIndexes,
+  requiredSelectionCount,
+  choiceCount = 5,
+}: {
+  id: string;
+  format: "QRU" | "QRM" | "QRP" | "QRPL";
+  correctChoiceIndexes: number[];
+  requiredSelectionCount?: number;
+  choiceCount?: number;
+}) {
+  return {
+    id,
+    type: "mcq" as const,
+    format,
+    statement: id,
+    selectionMode: format === "QRU" ? ("single" as const) : ("multiple" as const),
+    requiredSelectionCount,
+    choices: Array.from({ length: choiceCount }, (_, index) => ({
+      id: String.fromCharCode(65 + index),
+      content: `Choix ${index + 1}`,
+      correct: correctChoiceIndexes.includes(index),
+    })),
+    scoring: {
+      strategy: "all-or-nothing" as const,
+    },
+  };
+}
+
+function mcqAnswer(questionId: string, selectedChoiceIds: string[]) {
+  return {
+    questionId,
+    type: "mcq" as const,
+    selectedChoiceIds,
+  };
+}
+
+test("la notation santé conserve les QRU en tout-ou-rien", () => {
+  const question = makeCanonicalChoiceQuestion({
+    id: "qru-uness",
+    format: "QRU",
+    correctChoiceIndexes: [1],
+  });
+
+  const evaluation = evaluateHealthAssessmentQuestion(
+    question,
+    mcqAnswer(question.id, ["A"]),
+  );
+
+  assert.equal(evaluation.status, "incorrect");
+  assert.equal(evaluation.score, 0);
+  assert.equal(evaluation.maxScore, 1);
+});
+
+test("la notation santé applique 50 puis 20 pour une et deux discordances QRM", () => {
+  const question = makeCanonicalChoiceQuestion({
+    id: "qrm-uness",
+    format: "QRM",
+    correctChoiceIndexes: [0, 2],
+  });
+
+  const oneDiscordance = evaluateHealthAssessmentQuestion(
+    question,
+    mcqAnswer(question.id, ["A"]),
+  );
+  const twoDiscordances = evaluateHealthAssessmentQuestion(
+    question,
+    mcqAnswer(question.id, ["A", "B"]),
+  );
+
+  assert.equal(oneDiscordance.status, "partial");
+  assert.equal(oneDiscordance.score, 0.5);
+  assert.equal(twoDiscordances.status, "partial");
+  assert.equal(twoDiscordances.score, 0.2);
+});
+
+test("la notation santé applique le barème réponses justes x/n aux QRP", () => {
+  const question = makeCanonicalChoiceQuestion({
+    id: "qrp-uness",
+    format: "QRP",
+    correctChoiceIndexes: [0, 2],
+    requiredSelectionCount: 2,
+  });
+
+  const partial = evaluateHealthAssessmentQuestion(
+    question,
+    mcqAnswer(question.id, ["A", "B"]),
+  );
+  const invalidCount = evaluateHealthAssessmentQuestion(
+    question,
+    mcqAnswer(question.id, ["A"]),
+  );
+
+  assert.equal(partial.status, "partial");
+  assert.equal(partial.score, 0.5);
+  assert.equal(invalidCount.status, "incorrect");
+  assert.equal(invalidCount.score, 0);
+});
+
+test("la notation santé applique le barème réponses justes x/n aux QRPL", () => {
+  const question = makeCanonicalChoiceQuestion({
+    id: "qrpl-uness",
+    format: "QRPL",
+    correctChoiceIndexes: [0, 1, 2, 3, 4],
+    requiredSelectionCount: 5,
+    choiceCount: 10,
+  });
+
+  const evaluation = evaluateHealthAssessmentQuestion(
+    question,
+    mcqAnswer(question.id, ["A", "B", "C", "D", "F"]),
+  );
+
+  assert.equal(evaluation.status, "partial");
+  assert.equal(evaluation.score, 0.8);
+});
+
+test("le score agrégé des évaluations santé conserve les décimales", () => {
+  const qrm = makeCanonicalChoiceQuestion({
+    id: "aggregate-qrm",
+    format: "QRM",
+    correctChoiceIndexes: [0, 2],
+  });
+  const qrp = makeCanonicalChoiceQuestion({
+    id: "aggregate-qrp",
+    format: "QRP",
+    correctChoiceIndexes: [0, 2],
+    requiredSelectionCount: 2,
+  });
+
+  const result = scoreHealthMockExamAttempt([
+    {
+      examSectionId: "chemistry",
+      questions: [
+        { question: qrm, answer: mcqAnswer(qrm.id, ["A"]) },
+        { question: qrp, answer: mcqAnswer(qrp.id, ["A", "B"]) },
+      ],
+    },
+  ]);
+
+  assert.equal(result.score, 1);
+  assert.equal(result.maxScore, 2);
+  assert.equal(result.percentage, 50);
+  assert.equal(result.sections[0]?.score, 1);
 });

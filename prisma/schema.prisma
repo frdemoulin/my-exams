@@ -1114,7 +1114,7 @@ model UserHealthMockExamAttempt {
   deadlineAt     DateTime
   submittedAt    DateTime?
   elapsedSeconds Int?
-  score          Int?
+  score          Float?
   maxScore       Int?
   percentage     Int?
   autoSubmitted  Boolean                      @default(false)
@@ -1161,7 +1161,7 @@ model UserHealthMockExamAttemptSectionResult {
   id            String  @id @default(auto()) @map("_id") @db.ObjectId
   attemptId     String  @db.ObjectId
   examSectionId String  @db.ObjectId
-  score         Int
+  score         Float
   maxScore      Int
   percentage    Int
 

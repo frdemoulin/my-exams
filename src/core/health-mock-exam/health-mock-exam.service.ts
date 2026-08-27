@@ -13,8 +13,6 @@ import {
 import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
 import prisma from "@/lib/db/prisma";
 
-import { evaluateQuestion } from "@/core/questions";
-
 import {
   createHealthMockExamStudentAnswer,
   getSelectedChoiceIndexesForQuestion,
@@ -24,7 +22,10 @@ import {
   normalizeHealthMockExamQuestionType,
   normalizeHealthMockExamStudentAnswer,
 } from "./health-mock-exam.question";
-import { scoreHealthMockExamAttempt } from "./health-mock-exam.scoring";
+import {
+  evaluateHealthAssessmentQuestion,
+  scoreHealthMockExamAttempt,
+} from "./health-mock-exam.scoring";
 import type {
   HealthMockExamPassage,
   HealthMockExamResults,
@@ -801,7 +802,7 @@ export async function fetchHealthMockExamResults(input: {
         selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
         responsePayload: attemptQuestion.responsePayload,
       });
-      const evaluation = evaluateQuestion(canonicalQuestion, responsePayload);
+      const evaluation = evaluateHealthAssessmentQuestion(canonicalQuestion, responsePayload);
       const choices = normalizeTrainingChoiceContents(attemptQuestion.question.choices);
       const correctChoiceIndexes =
         canonicalQuestion.type === "mcq"
