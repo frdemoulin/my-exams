@@ -227,7 +227,14 @@ export function HealthMockExamSession({
 
   useEffect(() => {
     const handleResize = () => {
-      setBlockSize(window.innerWidth < 640 ? 5 : 10);
+      const width = window.innerWidth;
+      if (width < 640) {
+        setBlockSize(5);
+      } else if (width < 1024) {
+        setBlockSize(8);
+      } else {
+        setBlockSize(10);
+      }
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -438,14 +445,14 @@ export function HealthMockExamSession({
       {/* 1. BARRE DE NAVIGATION DES QUESTIONS (STYLE PLAYER SANTÉ V2) */}
       <nav
         aria-label="Navigation des questions"
-        className="rounded-2xl border border-border bg-card p-3 shadow-xs space-y-3"
+        className="rounded-2xl border border-border bg-card p-2 sm:p-3 shadow-xs space-y-3"
       >
         <div className="flex items-center justify-between gap-2">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Questions
           </p>
           <span className="text-xs font-medium text-muted-foreground">
-            {answeredCount} sur {passage.questionCount} répondue{answeredCount > 1 ? "s" : ""}
+            Répondues : {answeredCount}/{passage.questionCount}
           </span>
         </div>
 
@@ -457,7 +464,7 @@ export function HealthMockExamSession({
               disabled={!canGoPreviousBlock}
               aria-label="Faire défiler les questions vers la gauche"
               className={cn(
-                "shrink-0 flex h-14 w-8 items-center justify-center text-foreground transition-colors border-r border-border",
+                "shrink-0 flex h-14 w-7 sm:w-8 items-center justify-center text-foreground transition-colors border-r border-border",
                 !canGoPreviousBlock
                   ? "opacity-30 cursor-not-allowed bg-muted/40"
                   : "bg-background hover:bg-neutral-secondary-medium cursor-pointer",
@@ -481,7 +488,7 @@ export function HealthMockExamSession({
                   return (
                     <li
                       key={question.attemptQuestionId}
-                      className="min-w-12 flex-1 border-r border-border last:border-r-0"
+                      className="min-w-0 flex-1 border-r border-border last:border-r-0"
                     >
                       <button
                         ref={(el) => {
@@ -493,7 +500,7 @@ export function HealthMockExamSession({
                         aria-label={`Question ${globalIndex + 1} sur ${passage.questionCount} — ${formatCode}`}
                         data-testid={`health-mock-exam-nav-${globalIndex + 1}`}
                         className={cn(
-                          "flex h-14 w-full flex-col items-center justify-center py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset",
+                          "flex h-14 w-full flex-col items-center justify-center px-0.5 py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset",
                           getQuestionNavButtonClass(status),
                         )}
                       >
@@ -520,7 +527,7 @@ export function HealthMockExamSession({
               disabled={!canGoNextBlock}
               aria-label="Faire défiler les questions vers la droite"
               className={cn(
-                "shrink-0 flex h-14 w-8 items-center justify-center text-foreground transition-colors border-l border-border",
+                "shrink-0 flex h-14 w-7 sm:w-8 items-center justify-center text-foreground transition-colors border-l border-border",
                 !canGoNextBlock
                   ? "opacity-30 cursor-not-allowed bg-muted/40"
                   : "bg-background hover:bg-neutral-secondary-medium cursor-pointer",

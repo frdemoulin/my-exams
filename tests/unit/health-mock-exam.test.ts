@@ -468,6 +468,13 @@ test("la pagination par blocs calcule correctement les tranches et chevrons sur 
   assert.equal(q20Mobile.activeBlockIndex, 1);
   assert.equal(q20Mobile.startQuestion, 6);
   assert.equal(q20Mobile.endQuestion, 10);
+
+  // 20 questions sur tablette (8 par bloc)
+  const q20Tablet = getPaginationBlocks(20, 8, 0); // Q1-Q8
+  assert.equal(q20Tablet.totalBlocks, 3);
+  assert.equal(q20Tablet.activeBlockIndex, 0);
+  assert.equal(q20Tablet.startQuestion, 1);
+  assert.equal(q20Tablet.endQuestion, 8);
 });
 
 test("la modale de terminaison formule correctement le décompte des questions restantes", () => {

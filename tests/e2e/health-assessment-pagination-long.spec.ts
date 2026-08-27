@@ -110,6 +110,9 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
 
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
 
+    // Compteur supérieur format compact
+    await expect(page.getByText("Répondues : 0/20")).toBeVisible();
+
     // Bloc 1 sur mobile : Q1-Q5
     await expect(page.getByTestId("health-mock-exam-nav-1")).toBeVisible();
     await expect(page.getByTestId("health-mock-exam-nav-5")).toBeVisible();
@@ -121,5 +124,26 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     // Bloc 2 sur mobile : Q6-Q10
     await expect(page.getByTestId("health-mock-exam-nav-6")).toBeVisible();
     await expect(page.getByTestId("health-mock-exam-nav-10")).toBeVisible();
+  });
+
+  test("sur tablette (768px), la barre affiche 8 questions par bloc", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 768, height: 1024 });
+
+    await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
+
+    const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
+    await c01Row.getByRole("button", { name: "Démarrer" }).click();
+
+    const dialog = page.getByRole("dialog");
+    await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
+
+    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
+
+    // Bloc 1 sur tablette : Q1-Q8
+    await expect(page.getByTestId("health-mock-exam-nav-1")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-nav-8")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-nav-9")).not.toBeVisible();
   });
 });
