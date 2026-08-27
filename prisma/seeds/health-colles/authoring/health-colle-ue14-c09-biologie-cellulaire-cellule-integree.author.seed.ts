@@ -170,12 +170,12 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 6,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Quel complexe de translocation constitue la principale porte d’entrée des protéines à travers la membrane mitochondriale externe ?",
-    explanation: "Le complexe TOM, pour Translocase of the Outer Membrane, constitue la voie d’entrée majeure de nombreuses protéines mitochondriales synthétisées dans le cytosol.",
-    tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:import-mitochondrial'],
+    question: "Dans quel compartiment mitochondrial se déroule principalement le cycle de Krebs chez une cellule eucaryote ?",
+    explanation: "Chez les eucaryotes, l’essentiel des enzymes du cycle de Krebs se trouve dans la matrice mitochondriale. Une exception notable est la succinate déshydrogénase, qui est intégrée à la membrane interne en tant que complexe II de la chaîne respiratoire.",
+    tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:matrice-mitochondriale'],
     answer: {
       type: 'text',
-      acceptedAnswers: ['TOM', 'complexe TOM', 'translocase TOM', 'Translocase of the Outer Membrane'],
+      acceptedAnswers: ['matrice mitochondriale', 'matrice', 'la matrice mitochondriale'],
       normalization: {
         trim: true,
         collapseWhitespace: true,
@@ -281,9 +281,9 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "TOM est localisé dans la membrane externe mitochondriale.",
       },
       {
-        content: "L’ARN polymérase I transcrit le précurseur des ARNr 18S, 5,8S et 28S.",
+        content: "Dans le tissu adipeux brun, UCP1 peut convertir une partie de la force proton-motrice en chaleur plutôt qu’en ATP.",
         correct: true,
-        explanation: "Ces ARNr dérivent du précurseur 45S transcrit dans le nucléole par l’ARN polymérase I.",
+        explanation: "UCP1 permet une rentrée de protons dans la matrice sans couplage direct à l’ATP synthase ; l’énergie de la force proton-motrice est alors dissipée sous forme de chaleur.",
       },
       {
         content: "L’histone H1 appartient à l’octamère central formé de H2A, H2B, H3 et H4.",
@@ -606,12 +606,12 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 19,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Quelle quantité d’ADN, exprimée en C, possède classiquement une cellule diploïde en G2 ?",
-    explanation: "Après la phase S, la quantité d’ADN a doublé : la cellule est 2n/4C tant que les chromatides sœurs n’ont pas été séparées entre deux cellules filles.",
-    tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:ploidie-adn'],
+    question: "Combien de chromatides comporte un chromosome métaphasique avant la séparation des chromatides sœurs en anaphase ? Donnez uniquement la valeur numérique.",
+    explanation: "Après la réplication de l’ADN, chaque chromosome est constitué de deux chromatides sœurs reliées notamment au niveau du centromère jusqu’à leur séparation en anaphase.",
+    tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:chromatides-metaphase'],
     answer: {
       type: 'text',
-      acceptedAnswers: ['4C', '4 C', '4c', '4 c'],
+      acceptedAnswers: ['2'],
       normalization: {
         trim: true,
         collapseWhitespace: true,

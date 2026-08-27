@@ -346,21 +346,19 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Quelle phospholipase hydrolyse spécifiquement la liaison ester portée par le carbone sn-2 d’un glycérophospholipide ?",
-    "explanation": "La phospholipase A2 hydrolyse l’ester en sn-2. Cette réaction peut notamment libérer un acide gras polyinsaturé tel que l’acide arachidonique.",
+    "question": "L’acide palmitique est noté 16:0. Combien d’atomes de carbone comporte sa chaîne ? Donnez uniquement la valeur numérique.",
+    "explanation": "Dans la notation abrégée des acides gras n:m, n indique le nombre total d’atomes de carbone et m le nombre de doubles liaisons C=C. L’acide palmitique 16:0 possède donc 16 carbones et aucune double liaison.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
       "colle:C05",
       "ec:BIOCHIMIE",
-      "theme:phospholipase-a2"
+      "theme:acide-palmitique"
     ],
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "phospholipase A2",
-        "PLA2",
-        "PLA₂"
+        "16"
       ],
       "normalization": {
         "trim": true,

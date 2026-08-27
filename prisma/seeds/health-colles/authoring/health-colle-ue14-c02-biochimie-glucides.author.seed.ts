@@ -170,12 +170,12 @@ export const UE14_COLLE_C02_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 6,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Quel ose est associé au glucose dans le lactose ? Répondez par un seul nom.",
-    explanation: "Le lactose est constitué de galactose et de glucose.",
-    tags: ['usage:COLLE', 'ue:UE14', 'colle:C02', 'ec:BIOCHIMIE', 'theme:lactose'],
+    question: "Dans la forme ouverte du D-glucose, combien d’atomes de carbone asymétriques possède la molécule ? Donnez uniquement la valeur numérique.",
+    explanation: "Dans la forme ouverte du D-glucose, les carbones C2, C3, C4 et C5 sont asymétriques. Le carbone C1 est le carbone du groupement aldéhyde et C6 est un carbone terminal de type CH₂OH : ils ne sont pas chiraux.",
+    tags: ['usage:COLLE', 'ue:UE14', 'colle:C02', 'ec:BIOCHIMIE', 'theme:d-glucose'],
     answer: {
       type: 'text',
-      acceptedAnswers: ['galactose', 'D-galactose'],
+      acceptedAnswers: ['4'],
       normalization: {
         trim: true,
         collapseWhitespace: true,

@@ -54,19 +54,27 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 2,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: String.raw`Combien d’électrons possède l’ion $\ce{^{31}_{15}P^{3-}}$ ? Donnez uniquement la valeur numérique.`,
-    explanation: "Le phosphore neutre possède 15 électrons. La charge 3− correspond au gain de trois électrons : l’ion en possède 18.",
+    question: "Dans sa configuration électronique fondamentale 1s² 2s² 2p², combien d’électrons non appariés possède l’atome de carbone selon la règle de Hund ? Donnez uniquement la valeur numérique.",
+    explanation: "Les deux électrons 2p occupent d’abord deux orbitales p différentes avec des spins parallèles. L’atome de carbone fondamental possède donc deux électrons non appariés.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
       "colle:C12",
       "ec:CHIMIE",
-      "theme:ions-electrons"
+      "theme:regle-hund-carbone"
     ],
     answer: {
-      type: "number",
-      value: 18,
-      tolerance: 0
+      type: "text",
+      acceptedAnswers: [
+        "2"
+      ],
+      normalization: {
+        trim: true,
+        collapseWhitespace: true,
+        caseSensitive: false,
+        ignoreAccents: true,
+        normalizeUnicode: true
+      }
     }
   },
   {
@@ -673,19 +681,27 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 18,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: "Quel carbone du D-glucose devient le carbone anomérique après cyclisation en glucopyranose ? Donnez uniquement son numéro.",
-    explanation: "Le carbone aldéhydique C1 devient le carbone anomérique lors de l’hémiacétalisation intramoléculaire.",
+    question: "Un oligosaccharide linéaire comporte cinq oses reliés bout à bout. Combien de liaisons osidiques faut-il hydrolyser pour obtenir cinq monosaccharides séparés ? Donnez uniquement la valeur numérique.",
+    explanation: "Dans une chaîne linéaire de cinq unités, quatre liaisons relient les cinq oses successifs. Leur hydrolyse complète libère cinq monosaccharides.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
       "colle:C12",
       "ec:BIOCHIMIE",
-      "theme:anomérie-glucose"
+      "theme:hydrolyse-oligosaccharide"
     ],
     answer: {
-      type: "number",
-      value: 1,
-      tolerance: 0
+      type: "text",
+      acceptedAnswers: [
+        "4"
+      ],
+      normalization: {
+        trim: true,
+        collapseWhitespace: true,
+        caseSensitive: false,
+        ignoreAccents: true,
+        normalizeUnicode: true
+      }
     }
   },
   {
@@ -816,21 +832,22 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 22,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: "Dans l’HbS, quel acide aminé remplace le glutamate en position 6 de la chaîne β ?",
-    explanation: "La mutation classique β6 Glu→Val remplace le glutamate par une valine.",
+    question: "Quel acide aminé protéinogène possède un noyau indole dans sa chaîne latérale ?",
+    explanation: "Le tryptophane est un acide aminé aromatique dont la chaîne latérale contient un noyau indole.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
       "colle:C12",
       "ec:BIOCHIMIE",
-      "theme:hemoglobine-hbs"
+      "theme:tryptophane-indole"
     ],
     answer: {
       type: "text",
       acceptedAnswers: [
-        "valine",
-        "Val",
-        "V"
+        "Tryptophane",
+        "tryptophane",
+        "Trp",
+        "W"
       ],
       normalization: {
         trim: true,
@@ -861,9 +878,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "L’organisation H2L2 forme les deux Fab et la région Fc."
       },
       {
-        content: "Les fragments Fab portent les régions variables impliquées dans la reconnaissance de l’antigène.",
+        content: "La myoglobine est une protéine monomérique contenant un groupement hème capable de fixer l’oxygène.",
         correct: true,
-        explanation: "Les sites de liaison sont situés aux extrémités des bras Fab."
+        explanation: "La myoglobine est une protéine monomérique riche dans le muscle ; son hème contient un fer capable de lier réversiblement le dioxygène."
       },
       {
         content: "L’HbA adulte principale est un tétramère α2β2.",
@@ -1041,9 +1058,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Elle accélère l’approche de l’équilibre sans le déplacer."
       },
       {
-        content: "À [S] = Km, v0 = Vmax/2.",
+        content: "La mésomérie de la liaison peptidique limite la rotation autour de la liaison C–N.",
         correct: true,
-        explanation: "C’est une conséquence directe de l’équation de Michaelis-Menten."
+        explanation: "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison peptidique C–N un caractère partiel de double liaison et en limite la rotation."
       },
       {
         content: "Le saccharose possède deux carbones anomériques libres.",
@@ -1077,23 +1094,30 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 28,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: String.raw`Une préparation enzymatique transforme $${texQuantity(12, U.MICROMOL)}$ de substrat en $4\,${U.MIN}$. Quelle est son activité ? Donnez uniquement la valeur numérique, exprimée en $${U.ENZYME_UNIT}$.
-
-Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_MIN)}$.`,
-    explanation: String.raw`L’activité vaut $12/4=${texQuantity(3, U.MICROMOL_PER_MIN)}$, soit $${texQuantity(3, U.ENZYME_UNIT)}$.`,
+    question: "Une préparation enzymatique présente une activité totale de 12 U pour 3 mg de protéines. Quelle est son activité spécifique ? Donnez uniquement la valeur numérique, en U/mg.",
+    explanation: "L’activité spécifique est l’activité enzymatique totale divisée par la masse totale de protéines : 12 U / 3 mg = 4 U·mg⁻¹.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
       "colle:C12",
       "ec:BIOCHIMIE",
-      "theme:calcul-activite-enzymatique"
+      "theme:activite-specifique"
     ],
     answer: {
-      type: "number",
-      value: 3,
-      tolerance: 0,
-      unit: "U",
-      displayUnit: U.ENZYME_UNIT
+      type: "text",
+      acceptedAnswers: [
+        "4",
+        "4 U/mg",
+        "4 U·mg⁻¹",
+        "4 U.mg-1"
+      ],
+      normalization: {
+        trim: true,
+        collapseWhitespace: true,
+        caseSensitive: false,
+        ignoreAccents: true,
+        normalizeUnicode: true
+      }
     }
   },
   {
@@ -1223,40 +1247,40 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     order: 32,
     difficulty: "EASY",
     format: "QRM",
-    question: "À propos de la mesure d’activité enzymatique, quelles propositions sont exactes ?",
-    explanation: "La vitesse initiale est mesurée dans la portion initiale approximativement linéaire ; les unités U et katal décrivent l’activité catalytique à des échelles différentes.",
+    question: "À propos des interactions qui stabilisent la structure des protéines, quelles propositions sont exactes ?",
+    explanation: "Le repliement des protéines dépend d’interactions non covalentes (effet hydrophobe, liaisons hydrogène, liaisons ioniques) et de liaisons covalentes comme les ponts disulfure.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
       "colle:C12",
       "ec:BIOCHIMIE",
-      "theme:mesure-activite"
+      "theme:stabilite-proteines"
     ],
     choices: [
       {
-        content: String.raw`$${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_MIN)}$.`,
+        content: "L’effet hydrophobe favorise l’enfouissement de nombreux résidus apolaires au cœur des protéines globulaires.",
         correct: true,
-        explanation: "C’est la définition usuelle de l’unité enzymatique."
+        explanation: "En milieu aqueux, l’enfouissement des surfaces apolaires contribue fortement au repliement des protéines globulaires."
       },
       {
-        content: String.raw`Un katal correspond à $${texQuantity(1, U.MOL_PER_S)}$.`,
+        content: "Un pont disulfure peut résulter de l’oxydation de deux résidus cystéine.",
         correct: true,
-        explanation: "Le katal est l’unité SI d’activité catalytique."
+        explanation: "L’oxydation des fonctions thiol de deux cystéines peut former une liaison covalente S–S."
       },
       {
-        content: "Une pente initiale d’absorbance peut être convertie en vitesse de concentration via la loi de Beer-Lambert si ε et l sont connus.",
+        content: "Des liaisons hydrogène du squelette peptidique contribuent à stabiliser les hélices α et les feuillets β.",
         correct: true,
-        explanation: "Avec A = ε·l·c, on convertit dA/dt en dc/dt."
+        explanation: "Les structures secondaires reposent notamment sur des liaisons hydrogène entre groupements C=O et N–H du squelette."
       },
       {
-        content: "L’absorbance s’exprime en mol·L⁻¹.",
+        content: "La dénaturation d’une protéine hydrolyse nécessairement toutes ses liaisons peptidiques.",
         correct: false,
-        explanation: "L’absorbance est sans dimension."
+        explanation: "La dénaturation perturbe surtout les niveaux supérieurs de structure sans impliquer nécessairement l’hydrolyse de la structure primaire."
       },
       {
-        content: "La vitesse initiale se mesure uniquement après épuisement du substrat.",
+        content: "Les interactions ioniques intraprotéiques sont impossibles en milieu aqueux.",
         correct: false,
-        explanation: "Elle se mesure au début de la réaction."
+        explanation: "Des interactions électrostatiques entre chaînes latérales chargées peuvent contribuer à la stabilité protéique, même en milieu aqueux."
       }
     ]
   },
@@ -1411,9 +1435,9 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
         explanation: "Le complexe rejoint le récepteur de SRP puis le translocon Sec61."
       },
       {
-        content: "Une protéine portant un PTS1 C-terminal peut être reconnue par PEX5.",
+        content: "L’import de nombreuses protéines matricielles peroxysomales peut avoir lieu après leur synthèse complète dans le cytosol.",
         correct: true,
-        explanation: "PEX5 est un récepteur majeur des protéines matricielles portant PTS1."
+        explanation: "Contrairement à l’import cotraductionnel classique vers le réticulum endoplasmique, de nombreuses protéines destinées à la matrice peroxysomale sont synthétisées dans le cytosol puis importées de façon post-traductionnelle."
       },
       {
         content: "Toutes les protéines mitochondriales sont synthétisées dans la matrice.",
@@ -1522,9 +1546,9 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
         explanation: "TOM constitue une porte d’entrée majeure pour les protéines synthétisées dans le cytosol."
       },
       {
-        content: "La membrane interne mitochondriale porte les principaux complexes de la chaîne respiratoire.",
+        content: "L’ADN mitochondrial constitue un génome distinct du génome nucléaire.",
         correct: true,
-        explanation: "Les complexes I à IV et l’ATP synthase sont associés à cette membrane."
+        explanation: "Les mitochondries possèdent leur propre ADN, distinct de l’ADN nucléaire, même si la grande majorité des protéines mitochondriales sont codées par le génome nucléaire."
       },
       {
         content: "Le nucléole est un compartiment nucléaire non membranaire impliqué dans la biogenèse ribosomale.",
@@ -1588,22 +1612,22 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     order: 42,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: "Quelle quantité d’ADN, exprimée en C, possède classiquement une cellule diploïde en G2 ?",
-    explanation: "Après réplication, la cellule reste 2n mais sa quantité d’ADN est doublée : 4C.",
+    question: "À quelle grande famille du cytosquelette appartiennent les lamines nucléaires ?",
+    explanation: "Les lamines A, B et C sont des protéines de la famille des filaments intermédiaires. Elles forment la lamina nucléaire sous la membrane nucléaire interne. Elles ne doivent pas être confondues avec les laminines, protéines de la matrice extracellulaire.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
       "colle:C12",
       "ec:BIOLOGIE_CELLULAIRE",
-      "theme:cycle-2n-4c"
+      "theme:lamines-filaments-intermediaires"
     ],
     answer: {
       type: "text",
       acceptedAnswers: [
-        "4C",
-        "4 C",
-        "4c",
-        "4 c"
+        "filaments intermédiaires",
+        "filament intermédiaire",
+        "intermediate filaments",
+        "IF"
       ],
       normalization: {
         trim: true,
@@ -1798,40 +1822,40 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     order: 47,
     difficulty: "HARD",
     format: "QRU",
-    question: "Quel événement est la conséquence la plus directe de l’activation d’APC/C-Cdc20 au passage métaphase–anaphase ?",
-    explanation: "APC/C-Cdc20 favorise l’ubiquitinylation de la sécurine ; sa dégradation permet l’activation de la séparase.",
+    question: "Une protéine soluble normalement nucléaire porte un NLS fonctionnel. Une mutation d’importine β empêche son interaction avec les nucléoporines du pore nucléaire, sans altérer la protéine cargo. Quelle conséquence est la plus directe ?",
+    explanation: "L’importine β interagit avec les nucléoporines du complexe du pore nucléaire et participe à la translocation du complexe d’import. Si cette interaction est empêchée, l’import nucléaire efficace du cargo diminue et le cargo tend à rester cytosolique. Les voies lysosomale, réticulaire et mitochondriale ne compensent pas ce défaut.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
       "colle:C12",
       "ec:BIOLOGIE_CELLULAIRE",
-      "theme:apc-cdc20"
+      "theme:importine-beta-mutation"
     ],
     choices: [
       {
-        content: "La réplication immédiate de l’ADN nucléaire.",
+        content: "Le cargo est automatiquement adressé au lysosome par le mannose-6-phosphate.",
         correct: false,
-        explanation: "La réplication a lieu en phase S."
+        explanation: "Le tri M6P concerne la voie endomembranaire vers les endosomes/lysosomes, pas une protéine nucléaire cytosolique."
       },
       {
-        content: "La synthèse de nouvelles cohésines pour verrouiller les chromatides.",
+        content: "Le cargo est transloqué cotraductionnellement dans le réticulum endoplasmique via Sec61.",
         correct: false,
-        explanation: "Les cohésines doivent être clivées pour permettre l’anaphase."
+        explanation: "Le cargo ne possède pas le signal hydrophobe RE adéquat pour la voie Sec61."
       },
       {
-        content: "L’inhibition permanente de la séparase.",
+        content: "Le cargo traverse plus rapidement l’enveloppe nucléaire par diffusion passive malgré sa grande taille.",
         correct: false,
-        explanation: "La séparase est activée lorsque la sécurine disparaît."
+        explanation: "Un blocage du transport actif d’import n’accélère pas la diffusion des grosses molécules."
       },
       {
-        content: "La dégradation de la sécurine permettant l’activation de la séparase.",
+        content: "L’import nucléaire du cargo diminue et celui-ci tend à s’accumuler dans le cytosol.",
         correct: true,
-        explanation: "La séparase clive ensuite les cohésines."
+        explanation: "Sans interaction efficace avec les nucléoporines, le complexe d’import n’est plus acheminé efficacement vers le noyau."
       },
       {
-        content: "La transformation de tous les microtubules en filaments d’actine.",
+        content: "Le NLS est clivé par la peptidase de maturation mitochondriale.",
         correct: false,
-        explanation: "Ces polymères restent distincts."
+        explanation: "La peptidase de maturation mitochondriale agit dans la matrice mitochondriale."
       }
     ]
   },

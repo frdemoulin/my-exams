@@ -54,19 +54,27 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 2,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Le nucléide $^{37}_{17}\\mathrm{Cl}$ possède combien de neutrons ? Donnez uniquement la valeur numérique.",
-    "explanation": "Le nombre de neutrons vaut N = A − Z = 37 − 17 = 20.",
+    "question": "Combien d’électrons peut contenir au maximum une sous-couche p complète ? Donnez uniquement la valeur numérique.",
+    "explanation": "Une sous-couche p comporte trois orbitales. Chaque orbitale peut accueillir au maximum deux électrons de spins opposés, soit 3 × 2 = 6 électrons.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
       "colle:C04",
       "ec:CHIMIE",
-      "theme:nucleides-isotopes"
+      "theme:sous-couche-p"
     ],
     "answer": {
-      "type": "number",
-      "value": 20,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "6"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      }
     }
   },
   {

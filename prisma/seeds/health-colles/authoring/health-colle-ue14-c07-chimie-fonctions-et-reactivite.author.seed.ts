@@ -203,22 +203,19 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel type de fonction carbonylée obtient-on par oxydation d’un alcool secondaire ?",
-    "explanation": "L’oxydation d’un alcool secondaire transforme le carbone porteur de OH en carbone carbonylé lié à deux groupes carbonés : on obtient une cétone.",
+    "question": "Combien de substituants carbonés sont directement liés au carbone portant le groupe hydroxyle dans un alcool tertiaire ? Donnez uniquement la valeur numérique.",
+    "explanation": "Dans un alcool tertiaire, le carbone porteur de –OH est lié à trois groupes carbonés et ne porte donc aucun hydrogène.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
       "colle:C07",
       "ec:CHIMIE",
-      "theme:alcool-secondaire-oxydation"
+      "theme:alcool-tertiaire"
     ],
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "cétone",
-        "cetone",
-        "une cétone",
-        "une cetone"
+        "3"
       ],
       "normalization": {
         "trim": true,
@@ -424,19 +421,19 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 11,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Quel nom porte l’hydrolyse d’un ester réalisée en milieu basique ?",
-    "explanation": "L’hydrolyse alcaline d’un ester est appelée saponification. Elle conduit à un ion carboxylate et à un alcool dans les conditions usuelles.",
+    "question": "Combien d’atomes d’oxygène comporte le groupe fonctionnel d’un ester simple de type R–C(=O)–O–R′ ? Donnez uniquement la valeur numérique.",
+    "explanation": "La fonction ester comporte deux oxygènes : l’oxygène du carbonyle C=O et l’oxygène engagé dans la liaison C–O–R′.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
       "colle:C07",
       "ec:CHIMIE",
-      "theme:saponification"
+      "theme:structure-ester"
     ],
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "saponification"
+        "2"
       ],
       "normalization": {
         "trim": true,

@@ -353,12 +353,12 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 11,
     difficulty: 'EASY',
     format: 'QROC',
-    question: "Quel acide aminé protéinogène standard est achiral ?",
-    explanation: "La glycine possède deux hydrogènes sur son carbone α ; elle ne présente donc pas de centre stéréogène à ce niveau.",
-    tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:glycine'],
+    question: "Quel acide aminé protéinogène possède une chaîne latérale portant un groupement guanidinium ?",
+    explanation: "La chaîne latérale de l’arginine se termine par un groupement guanidinium, basique et majoritairement protoné aux pH physiologiques.",
+    tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:arginine'],
     answer: {
       type: 'text',
-      acceptedAnswers: ['glycine', 'Gly'],
+      acceptedAnswers: ['Arginine', 'arginine', 'Arg', 'R'],
       normalization: {
         trim: true,
         collapseWhitespace: true,
