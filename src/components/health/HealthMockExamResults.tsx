@@ -334,15 +334,20 @@ export function HealthMockExamResults({
 
       {/* 1. CARTE BILAN & RÉCAPITULATIF */}
       <Card className="rounded-3xl border-border bg-card shadow-sm hover:bg-card">
-        <CardHeader className="p-5 md:p-6 pb-2">
-          <div className={cn("overflow-hidden rounded-2xl border p-5 md:p-6 space-y-5", feedback.toneClassName)}>
+        <CardHeader className="p-2 sm:p-5 md:p-6">
+          <div className={cn("overflow-hidden rounded-2xl border p-3.5 sm:p-5 md:p-6 space-y-5", feedback.toneClassName)}>
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-              <div className="space-y-2">
+              <div className="space-y-2 min-w-0 flex-1">
                 <div className="flex items-center gap-2 text-current/80">
-                  <Target className="h-4 w-4" />
+                  <Target className="h-4 w-4 shrink-0" />
                   <p className="text-xs font-semibold uppercase tracking-wider">{headingLabel}</p>
+                  {result.status === "EXPIRED" ? (
+                    <Badge variant="destructive" className="text-[10px] py-0 px-1.5 ml-auto sm:ml-0">
+                      Temps limite atteint
+                    </Badge>
+                  ) : null}
                 </div>
-                <h1 className="text-2xl font-bold text-heading">{feedback.title}</h1>
+                <h1 className="text-xl sm:text-2xl font-bold text-heading break-words">{feedback.title}</h1>
                 <p className="text-sm leading-6 text-muted-foreground">{feedback.message}</p>
               </div>
 
@@ -354,28 +359,6 @@ export function HealthMockExamResults({
                   </Link>
                 </Button>
               </div>
-            </div>
-
-            {/* BADGES RÉSUMÉ */}
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              <Badge variant="secondary" className="font-bold text-sm">
-                Score {formatScore(result.score, true)} / {formatScore(result.maxScore, false)}
-              </Badge>
-              <Badge variant="outline" className="text-xs">
-                {fullCreditCount}/{result.questions.length} plein crédit
-              </Badge>
-              <Badge variant="outline" className="text-xs font-semibold">
-                {result.percentage}% de réussite
-              </Badge>
-              <Badge variant="outline" className="text-xs gap-1 tabular-nums">
-                <Clock3 className="h-3 w-3" />
-                Durée {formatElapsedTime(result.elapsedSeconds)}
-              </Badge>
-              {result.status === "EXPIRED" ? (
-                <Badge variant="destructive" className="text-xs">
-                  Temps limite atteint
-                </Badge>
-              ) : null}
             </div>
 
             {/* PROGRESSION VISUELLE */}
