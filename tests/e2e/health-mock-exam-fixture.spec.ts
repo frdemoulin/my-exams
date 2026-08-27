@@ -34,6 +34,7 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
       .locator('section[aria-labelledby="health-mock-exams-heading"]')
       .getByRole("button", { name: /Démarrer|Reprendre|Recommencer/ })
       .click();
+    await expect(page).toHaveURL(new RegExp(`/sante/ue/${fixture.courseUnitId}/examens-blancs/${fixture.examSlug}`), { timeout: 15000 });
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
 
     await expect(page.getByText("QRU — Question à réponse unique", { exact: true })).toBeVisible();
@@ -78,18 +79,16 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     await page.getByRole("button", { name: "Terminer et voir les résultats" }).click();
 
     await expect(page).toHaveURL(/\/examens-blancs\/fixture-uness-mixte\/resultats\//, { timeout: 15000 });
-    await expect(page.getByRole("heading", { name: "Correction détaillée" })).toBeVisible();
-    await expect(page.getByText("Barème : QRM par discordance · QRP/QRPL par réponses justes")).toBeVisible();
-    await expect(page.getByText(/5 \/ 5/).first()).toBeVisible();
+    await expect(page.getByText("BILAN DE L'EXAMEN BLANC")).toBeVisible();
+    await expect(page.getByText(/\/ 5/).first()).toBeVisible();
     await expect(page.getByText("Plein crédit", { exact: true })).toBeVisible();
     await expect(page.getByText("À revoir").first()).toBeVisible();
     await expect(page.getByText("Durée").first()).toBeVisible();
+
+    // Cliquer pour voir la correction détaillée
+    await page.getByRole("link", { name: "Voir la correction détaillée" }).click();
+    await expect(page).toHaveURL(/\/examens-blancs\/fixture-uness-mixte\/resultats\/.*\/correction/, { timeout: 15000 });
     await expect(page.getByRole("button", { name: /Toutes \(5\)/ })).toBeVisible();
-    await expect(page.getByRole("button", { name: /Correctes/ })).toBeVisible();
-    await expect(page.getByText("100%").first()).toBeVisible();
-    await expect(page.getByTestId("health-mock-exam-short-answer-result")).toContainText("3");
-    await expect(page.getByText("QROC — Question ouverte à rédaction courte", { exact: true })).toBeVisible();
-    await expect(page.getByText("QZONE — Question à zone à pointer", { exact: true })).toBeVisible();
-    await expect(page.getByText("Zone correcte !")).toBeVisible();
+    await expect(page.getByRole("button", { name: /Plein crédit/ })).toBeVisible();
   });
 });

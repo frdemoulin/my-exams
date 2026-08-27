@@ -18,17 +18,17 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
 
     await expect(page.getByRole("heading", { name: "Colles", exact: true })).toBeVisible();
 
-    // Vérifier l'éligibilité des cartes : C01 a le bouton Démarrer, C02 a Bientôt disponible
+    // Vérifier l'éligibilité des cartes : C01 et C02
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await expect(c01Row).toBeVisible();
-    await expect(c01Row.getByRole("button", { name: "Démarrer" })).toBeVisible();
+    await expect(c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first()).toBeVisible();
 
     const c02Row = page.locator("tr").filter({ hasText: "Biochimie — Glucides" });
     await expect(c02Row).toBeVisible();
-    await expect(c02Row.getByRole("button", { name: "Démarrer" })).toBeVisible();
+    await expect(c02Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first()).toBeVisible();
 
     // 1. Ouvrir la fiche de préparation C01
-    await c01Row.getByRole("button", { name: "Démarrer" }).click();
+    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
 
     const dialog = page.getByRole("dialog");
     await expect(dialog.getByRole("heading", { name: "Chimie — Fondamentaux", exact: false })).toBeVisible();
@@ -60,14 +60,18 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
     await page.getByRole("button", { name: /Terminer la colle|Terminer l'examen/ }).first().click();
     await page.getByRole("button", { name: "Terminer et voir les résultats" }).click();
 
-    // 4. Vérifier la redirection vers la page de résultats
+    // 4. Vérifier la redirection vers la page de résultats (Bilan)
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\//, { timeout: 15000 });
-    await expect(page.getByRole("heading", { name: "Correction détaillée" })).toBeVisible();
-    await expect(page.getByText("Barème : QRM par discordance · QRP/QRPL par réponses justes")).toBeVisible();
+    await expect(page.getByText("BILAN DE LA COLLE")).toBeVisible();
     await expect(page.getByText("Plein crédit", { exact: true })).toBeVisible();
     await expect(page.getByText("À revoir").first()).toBeVisible();
+    await expect(page.getByText("Bilan pédagogique")).toBeVisible();
+
+    // 5. Cliquer pour voir la correction détaillée
+    await page.getByRole("link", { name: "Voir la correction détaillée" }).click();
+    await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\/.*\/correction/, { timeout: 15000 });
     await expect(page.getByRole("button", { name: /Toutes/ })).toBeVisible();
     await expect(page.getByRole("button", { name: /À revoir/ })).toBeVisible();
-    await expect(page.getByRole("button", { name: /Correctes/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Plein crédit/ })).toBeVisible();
   });
 });

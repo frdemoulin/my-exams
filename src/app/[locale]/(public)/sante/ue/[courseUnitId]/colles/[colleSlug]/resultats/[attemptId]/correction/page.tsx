@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 
-import { HealthMockExamResults } from "@/components/health/HealthMockExamResults";
+import { HealthMockExamCorrectionView } from "@/components/health/HealthMockExamCorrectionView";
 import { PublicBreadcrumb } from "@/components/shared/public-breadcrumb";
 import { PublicHeader } from "@/components/shared/public-header";
 import { SiteFooter } from "@/components/shared/site-footer";
@@ -17,14 +17,14 @@ type PageProps = {
 
 export const dynamic = "force-dynamic";
 
-export default async function HealthColleResultsPage({ params }: PageProps) {
+export default async function HealthColleCorrectionPage({ params }: PageProps) {
   const { courseUnitId, colleSlug, attemptId } = await params;
   const session = await auth();
   const userId = getSessionEffectiveUserId(session);
-  const resultHref = `/sante/ue/${courseUnitId}/colles/${colleSlug}/resultats/${attemptId}`;
+  const correctionHref = `/sante/ue/${courseUnitId}/colles/${colleSlug}/resultats/${attemptId}/correction`;
 
   if (!userId) {
-    redirect(`/log-in?callbackUrl=${encodeURIComponent(resultHref)}`);
+    redirect(`/log-in?callbackUrl=${encodeURIComponent(correctionHref)}`);
   }
 
   const result = await fetchHealthMockExamResults({ attemptId, userId });
@@ -35,6 +35,7 @@ export default async function HealthColleResultsPage({ params }: PageProps) {
 
   const courseUnitHref = `/sante/ue/${courseUnitId}`;
   const evaluationsHref = `${courseUnitHref}?ec=evaluations`;
+  const bilanHref = `/sante/ue/${courseUnitId}/colles/${colleSlug}/resultats/${attemptId}`;
   const colleCode = colleSlug.toUpperCase();
 
   return (
@@ -47,27 +48,17 @@ export default async function HealthColleResultsPage({ params }: PageProps) {
             { label: "Santé", href: "/sante" },
             { label: result.courseUnitTitle, href: courseUnitHref },
             { label: "Évaluations", href: evaluationsHref },
-            { label: `${colleCode} — ${result.title}` },
-            { label: "Résultats" },
+            { label: `${colleCode} — ${result.title}`, href: bilanHref },
+            { label: "Correction détaillée" },
           ]}
         />
 
-        <div className="space-y-4">
-          <Button asChild variant="outline" size="sm" className="w-fit gap-2">
-            <Link href={evaluationsHref}>
-              <ChevronLeft className="h-4 w-4" />
-              Retour aux évaluations
-            </Link>
-          </Button>
-
-          <HealthMockExamResults
-            result={result}
-            restartHref={`/sante/ue/${courseUnitId}/colles/${colleSlug}`}
-            correctionHref={`/sante/ue/${courseUnitId}/colles/${colleSlug}/resultats/${attemptId}/correction`}
-            headingLabel="Bilan de la colle"
-            restartLabel="Recommencer la colle"
-          />
-        </div>
+        <HealthMockExamCorrectionView
+          result={result}
+          bilanHref={bilanHref}
+          restartHref={`/sante/ue/${courseUnitId}/colles/${colleSlug}`}
+          isColle={true}
+        />
       </main>
       <SiteFooter />
     </div>

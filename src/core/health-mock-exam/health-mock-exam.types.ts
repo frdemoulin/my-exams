@@ -103,6 +103,48 @@ export type HealthMockExamResultQuestion = HealthMockExamPassageQuestion & {
   scoringDetails?: HealthMockExamResultQuestionScoringDetails;
 };
 
+export type PedagogicalAssessmentTheme = {
+  id: string;
+  label: string;
+  masteryPercentage: number;
+  score: number;
+  maxScore: number;
+  questionCount: number;
+};
+
+export type HealthMockExamPedagogicalAssessment = {
+  strengths: PedagogicalAssessmentTheme[];
+  toReview: PedagogicalAssessmentTheme[];
+  neutralMessage: string | null;
+};
+
+export type HealthColleAttemptSummary = {
+  id: string;
+  score: number;
+  maxScore: number;
+  percentage: number;
+  elapsedSeconds: number;
+  submittedAt: string;
+  createdAt: string;
+};
+
+export type HealthColleProgressItem = {
+  colleId: string;
+  colleSlug: string;
+  attemptCount: number;
+  latestAttempt: HealthColleAttemptSummary | null;
+  bestAttempt: HealthColleAttemptSummary | null;
+  attempts: HealthColleAttemptSummary[];
+};
+
+export type HealthCourseUnitEvaluationsProgress = {
+  completedCollesCount: number;
+  totalCollesCount: number;
+  averageScorePercentage: number | null;
+  bestScorePercentage: number | null;
+  colles: Record<string, HealthColleProgressItem>;
+};
+
 export type HealthMockExamResults = {
   attemptId: string;
   status: "SUBMITTED" | "EXPIRED" | "ABANDONED";
@@ -116,6 +158,7 @@ export type HealthMockExamResults = {
   slug: string;
   courseUnitId: string;
   courseUnitTitle: string;
+  pedagogicalAssessment?: HealthMockExamPedagogicalAssessment;
   questions: HealthMockExamResultQuestion[];
   sections: Array<{
     id: string;

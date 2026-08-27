@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 
-import { HealthMockExamResults } from "@/components/health/HealthMockExamResults";
+import { HealthMockExamCorrectionView } from "@/components/health/HealthMockExamCorrectionView";
 import { PublicBreadcrumb } from "@/components/shared/public-breadcrumb";
 import { PublicHeader } from "@/components/shared/public-header";
 import { SiteFooter } from "@/components/shared/site-footer";
@@ -14,14 +14,14 @@ type PageProps = {
 
 export const dynamic = "force-dynamic";
 
-export default async function HealthMockExamResultsPage({ params }: PageProps) {
+export default async function HealthMockExamCorrectionPage({ params }: PageProps) {
   const { courseUnitId, examSlug, attemptId } = await params;
   const session = await auth();
   const userId = getSessionEffectiveUserId(session);
-  const resultHref = `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}`;
+  const correctionHref = `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}/correction`;
 
   if (!userId) {
-    redirect(`/log-in?callbackUrl=${encodeURIComponent(resultHref)}`);
+    redirect(`/log-in?callbackUrl=${encodeURIComponent(correctionHref)}`);
   }
 
   const result = await fetchHealthMockExamResults({ attemptId, userId });
@@ -29,6 +29,9 @@ export default async function HealthMockExamResultsPage({ params }: PageProps) {
   if (!result || result.courseUnitId !== courseUnitId || result.slug !== examSlug) {
     notFound();
   }
+
+  const courseUnitHref = `/sante/ue/${courseUnitId}?ec=synthese`;
+  const bilanHref = `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}`;
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -38,17 +41,16 @@ export default async function HealthMockExamResultsPage({ params }: PageProps) {
           items={[
             { label: "Accueil", href: "/" },
             { label: "Santé", href: "/sante" },
-            { label: result.courseUnitTitle, href: `/sante/ue/${courseUnitId}?ec=synthese` },
-            { label: result.title },
-            { label: "Résultats" },
+            { label: result.courseUnitTitle, href: courseUnitHref },
+            { label: result.title, href: bilanHref },
+            { label: "Correction détaillée" },
           ]}
         />
-        <HealthMockExamResults
+        <HealthMockExamCorrectionView
           result={result}
+          bilanHref={bilanHref}
           restartHref={`/sante/ue/${courseUnitId}/examens-blancs/${examSlug}`}
-          correctionHref={`/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}/correction`}
-          headingLabel="Bilan de l'examen blanc"
-          restartLabel="Recommencer l'examen blanc"
+          isColle={false}
         />
       </main>
       <SiteFooter />

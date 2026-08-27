@@ -12,8 +12,13 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { HealthMockExamActionButton } from '@/components/health/HealthMockExamActionButton';
 import { HealthColleCard } from '@/components/health/HealthColleCard';
 import { HealthColleStartDialog } from '@/components/health/HealthColleStartDialog';
+import { HealthColleHistoryModal } from '@/components/health/HealthColleHistoryModal';
 import { HEALTH_COLLES_UE14_V1, type HealthColleV1 } from '@/core/health-colle';
 import type { HealthStudentCourseUnitDetail } from '@/core/health';
+import type {
+  HealthCourseUnitEvaluationsProgress,
+  HealthColleProgressItem,
+} from '@/core/health-mock-exam/health-mock-exam.types';
 import { cn } from '@/lib/utils';
 
 const healthTabsTheme = {
@@ -49,6 +54,7 @@ const healthTabsTheme = {
 type HealthCourseUnitTabsProps = {
   courseUnit: HealthStudentCourseUnitDetail;
   activeTeachingElementId?: string | null;
+  evaluationsProgress?: HealthCourseUnitEvaluationsProgress | null;
 };
 
 const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
@@ -57,11 +63,29 @@ const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
 const getMockExamResultsHref = (courseUnitId: string, examSlug: string, attemptId: string) =>
   `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}`;
 
+function formatScore(score: number): string {
+  if (Number.isInteger(score)) {
+    return score.toString();
+  }
+  return score.toFixed(2).replace('.', ',');
+}
+
+function formatElapsedTime(elapsedSeconds: number) {
+  const minutes = Math.floor(elapsedSeconds / 60);
+  const seconds = elapsedSeconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
 export function HealthCourseUnitTabs({
   courseUnit,
   activeTeachingElementId,
+  evaluationsProgress,
 }: HealthCourseUnitTabsProps) {
   const [selectedColleForStart, setSelectedColleForStart] = useState<HealthColleV1 | null>(null);
+  const [historyModalData, setHistoryModalData] = useState<{
+    colle: HealthColleV1;
+    progress: HealthColleProgressItem;
+  } | null>(null);
 
   const evaluationsTabIndex = courseUnit.teachingElements.length;
   const initialTabIndex = (() => {
@@ -302,7 +326,44 @@ export function HealthCourseUnitTabs({
         >
           <div className="space-y-4">
             {/* Section 1: Colles */}
-            <section aria-labelledby="health-colles-heading">
+            <section aria-labelledby="health-colles-heading" className="space-y-4">
+              {/* Global Evaluations Summary Banner */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Colles réalisées
+                  </p>
+                  <p className="mt-1 text-2xl font-bold text-heading">
+                    {evaluationsProgress?.completedCollesCount ?? 0} / {evaluationsProgress?.totalCollesCount ?? HEALTH_COLLES_UE14_V1.length}
+                  </p>
+                  <p className="text-xs text-muted-foreground">au moins 1 tentative terminée</p>
+                </Card>
+
+                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Score moyen
+                  </p>
+                  <p className="mt-1 text-2xl font-bold text-heading">
+                    {evaluationsProgress?.averageScorePercentage !== null && evaluationsProgress?.averageScorePercentage !== undefined
+                      ? `${evaluationsProgress.averageScorePercentage} %`
+                      : "—"}
+                  </p>
+                  <p className="text-xs text-muted-foreground">sur vos meilleures tentatives</p>
+                </Card>
+
+                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Meilleur résultat
+                  </p>
+                  <p className="mt-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">
+                    {evaluationsProgress?.bestScorePercentage !== null && evaluationsProgress?.bestScorePercentage !== undefined
+                      ? `${evaluationsProgress.bestScorePercentage} %`
+                      : "—"}
+                  </p>
+                  <p className="text-xs text-muted-foreground">toutes colles confondues</p>
+                </Card>
+              </div>
+
               <Card className="rounded-3xl border-border bg-card hover:bg-card">
                 <CardHeader>
                   <div className="flex flex-wrap items-center justify-between gap-3">
@@ -320,23 +381,31 @@ export function HealthCourseUnitTabs({
                     <table className="w-full text-left text-sm text-body rtl:text-right">
                       <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
                         <tr>
-                          <th className="w-20 px-5 py-4 font-medium">#</th>
-                          <th className="px-5 py-4 font-medium">COLLE</th>
-                          <th className="px-5 py-4 font-medium">CONTENU</th>
-                          <th className="px-5 py-4 text-center font-medium">ACTION</th>
+                          <th className="w-16 px-4 py-4 font-medium">#</th>
+                          <th className="px-4 py-4 font-medium">COLLE</th>
+                          <th className="px-4 py-4 font-medium">CONTENU</th>
+                          <th className="px-4 py-4 text-center font-medium">ACTION</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {HEALTH_COLLES_UE14_V1.map((colle, index) => (
-                          <tr
-                            key={colle.id}
-                            className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
-                          >
-                            <td className="px-5 py-4 align-middle font-medium text-heading">
-                              {index + 1}
-                            </td>
-                            <td className="px-5 py-4 align-middle">
-                                <div className="space-y-1">
+                        {HEALTH_COLLES_UE14_V1.map((colle, index) => {
+                          const progress =
+                            evaluationsProgress?.colles[colle.id] ||
+                            evaluationsProgress?.colles[colle.code.toLowerCase()];
+                          const hasAttempts = progress && progress.attemptCount > 0;
+                          const latest = progress?.latestAttempt;
+                          const best = progress?.bestAttempt;
+
+                          return (
+                            <tr
+                              key={colle.id}
+                              className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
+                            >
+                              <td className="px-4 py-4 align-middle font-medium text-heading">
+                                {index + 1}
+                              </td>
+                              <td className="px-4 py-4 align-middle">
+                                <div className="space-y-1.5">
                                   <div className="flex flex-wrap items-center gap-2">
                                     <span className="font-medium text-heading">
                                       {colle.title}
@@ -356,23 +425,94 @@ export function HealthCourseUnitTabs({
                                   <p className="text-xs text-muted-foreground">
                                     {colle.contentLine}
                                   </p>
+
+                                  {/* Stats attempt badges if performed */}
+                                  {hasAttempts && latest ? (
+                                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                                      <Badge
+                                        variant="outline"
+                                        className={cn(
+                                          "text-xs font-semibold",
+                                          latest.percentage >= 80
+                                            ? "border-emerald-400 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200"
+                                            : latest.percentage < 60
+                                              ? "border-rose-400 bg-rose-50 text-rose-900 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200"
+                                              : "border-brand/40 bg-brand-soft/20 text-heading"
+                                        )}
+                                      >
+                                        Dernière : {formatScore(latest.score)} / {latest.maxScore} ({latest.percentage} %)
+                                      </Badge>
+
+                                      {progress.attemptCount > 1 && best ? (
+                                        <Badge
+                                          variant="outline"
+                                          className="text-xs font-medium text-muted-foreground"
+                                        >
+                                          Meilleur : {formatScore(best.score)} / {best.maxScore} ({best.percentage} %)
+                                        </Badge>
+                                      ) : null}
+
+                                      {progress.attemptCount > 1 ? (
+                                        <span className="text-[11px] text-muted-foreground">
+                                          {progress.attemptCount} tentatives
+                                        </span>
+                                      ) : null}
+                                    </div>
+                                  ) : null}
                                 </div>
-                            </td>
-                            <td className="px-5 py-4 align-middle text-muted-foreground whitespace-nowrap">
-                              {colle.questionCount} questions · {colle.durationLabel}
-                            </td>
-                            <td className="px-5 py-4 text-center align-middle">
-                              <Button
-                                size="sm"
-                                className="gap-2"
-                                onClick={() => setSelectedColleForStart(colle)}
-                              >
-                                Démarrer
-                                <ArrowRight className="h-4 w-4" />
-                              </Button>
-                            </td>
-                          </tr>
-                        ))}
+                              </td>
+                              <td className="px-4 py-4 align-middle text-muted-foreground whitespace-nowrap">
+                                {colle.questionCount} questions · {colle.durationLabel}
+                              </td>
+                              <td className="px-4 py-4 text-center align-middle">
+                                {hasAttempts && latest ? (
+                                  <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5">
+                                    <Button asChild size="sm" variant="default" className="h-8 text-xs gap-1">
+                                      <Link href={`/sante/ue/${courseUnit.id}/colles/${colle.id}/resultats/${latest.id}`}>
+                                        Bilan
+                                      </Link>
+                                    </Button>
+
+                                    <Button asChild size="sm" variant="outline" className="h-8 text-xs gap-1">
+                                      <Link href={`/sante/ue/${courseUnit.id}/colles/${colle.id}/resultats/${latest.id}/correction`}>
+                                        Correction
+                                      </Link>
+                                    </Button>
+
+                                    <Button
+                                      size="sm"
+                                      variant="ghost"
+                                      className="h-8 text-xs gap-1 text-muted-foreground hover:text-foreground"
+                                      onClick={() => setSelectedColleForStart(colle)}
+                                    >
+                                      Recommencer
+                                    </Button>
+
+                                    {progress.attemptCount > 1 ? (
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 text-xs gap-1 text-brand hover:text-brand-emphasis"
+                                        onClick={() => setHistoryModalData({ colle, progress })}
+                                      >
+                                        Historique
+                                      </Button>
+                                    ) : null}
+                                  </div>
+                                ) : (
+                                  <Button
+                                    size="sm"
+                                    className="gap-2"
+                                    onClick={() => setSelectedColleForStart(colle)}
+                                  >
+                                    Démarrer
+                                    <ArrowRight className="h-4 w-4" />
+                                  </Button>
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>
@@ -491,6 +631,19 @@ export function HealthCourseUnitTabs({
         open={Boolean(selectedColleForStart)}
         onOpenChange={(open) => {
           if (!open) setSelectedColleForStart(null);
+        }}
+      />
+
+      <HealthColleHistoryModal
+        isOpen={Boolean(historyModalData)}
+        onClose={() => setHistoryModalData(null)}
+        colleTitle={historyModalData?.colle.title ?? ''}
+        courseUnitId={courseUnit.id}
+        progressItem={historyModalData?.progress ?? null}
+        onRestart={() => {
+          if (historyModalData) {
+            setSelectedColleForStart(historyModalData.colle);
+          }
         }}
       />
     </>

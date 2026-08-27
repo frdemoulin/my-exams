@@ -7,6 +7,7 @@ import { SiteFooter } from '@/components/shared/site-footer';
 import { Badge } from '@/components/ui/badge';
 import { HealthCourseUnitTabs } from '@/components/health/HealthCourseUnitTabs';
 import { fetchHealthStudentCourseUnitDetail } from '@/core/health';
+import { fetchHealthCourseUnitEvaluationsProgress } from '@/core/health-mock-exam/health-mock-exam.service';
 import { fetchUserPedagogicalProfileSummary } from '@/core/user';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
@@ -68,9 +69,15 @@ export default async function HealthCourseUnitDetailPage({
     }
   }
 
-  const courseUnit = await fetchHealthStudentCourseUnitDetail(courseUnitId, {
-    userId: effectiveUserId,
-  });
+  const [courseUnit, evaluationsProgress] = await Promise.all([
+    fetchHealthStudentCourseUnitDetail(courseUnitId, {
+      userId: effectiveUserId,
+    }),
+    fetchHealthCourseUnitEvaluationsProgress({
+      courseUnitId,
+      userId: effectiveUserId,
+    }),
+  ]);
 
   if (!courseUnit) {
     notFound();
@@ -143,6 +150,7 @@ export default async function HealthCourseUnitDetailPage({
         <HealthCourseUnitTabs
           courseUnit={courseUnit}
           activeTeachingElementId={resolvedSearchParams?.ec ?? null}
+          evaluationsProgress={evaluationsProgress}
         />
       </main>
       <SiteFooter />

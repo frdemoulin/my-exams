@@ -22,7 +22,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await expect(c01Row).toBeVisible();
-    await c01Row.getByRole("button", { name: "Démarrer" }).click();
+    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
 
     const dialog = page.getByRole("dialog");
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
@@ -92,7 +92,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await confirmModal.getByRole("button", { name: "Terminer et voir les résultats" }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\//, { timeout: 15000 });
-    await expect(page.getByRole("heading", { name: "Correction détaillée" })).toBeVisible();
+    await expect(page.getByText("BILAN DE LA COLLE")).toBeVisible();
   });
 
   test("sur mobile (375px), la barre affiche 5 questions par bloc sans débordement horizontal", async ({
@@ -103,11 +103,12 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
-    await c01Row.getByRole("button", { name: "Démarrer" }).click();
+    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
 
     const dialog = page.getByRole("dialog");
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
 
+    await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
 
     // Compteur supérieur format compact
@@ -130,15 +131,15 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     page,
   }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
-
     await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
-    await c01Row.getByRole("button", { name: "Démarrer" }).click();
+    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
 
     const dialog = page.getByRole("dialog");
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
 
+    await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
 
     // Bloc 1 sur tablette : Q1-Q8
