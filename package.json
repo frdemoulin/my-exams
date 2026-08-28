@@ -32,6 +32,7 @@
     "db:seed:ue14:biochimie": "tsx scripts/seed-health-training-ue14-biochimie.ts",
     "db:seed:ue14:biologie-cellulaire": "tsx scripts/seed-health-training-ue14-biologie-cellulaire.ts",
     "db:seed:health-mock-exams": "tsx scripts/seed-health-mock-exams.ts",
+    "audit:health:ue14-colle-themes": "tsx scripts/health-ue14-colle-theme-mapping-audit.ts",
     "db:fixture:health-mock-exam": "tsx scripts/seed-health-mock-exam-fixture.ts",
     "db:fixture:health": "tsx scripts/generate-health-parcoursup-fixture.ts",
     "db:seed:prod": "ts-node scripts/seed-prod.ts",

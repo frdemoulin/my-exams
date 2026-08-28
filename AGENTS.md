@@ -8,6 +8,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+## Rapports d'intervention
+
+- Après chaque intervention réalisée par un agent IA, générer un rapport Markdown dans `./tmp`.
+- Nommer le rapport de façon datée et explicite, par exemple `tmp/YYYY-MM-DD-<sujet>-report.md`.
+- Le rapport doit synthétiser la demande, les fichiers modifiés, les validations exécutées et les éventuels points non traités ou bloquants.
+- Ne pas versionner ces rapports sauf demande explicite.
+
 ## My Exams — Terminologie Santé
 
 - Dans l'interface Santé, `quiz` désigne une séance d'entraînement composée de plusieurs questions.
@@ -33,5 +40,4 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 - Ne jamais activer `RequestFeedback: true` lors de la création ou mise à jour d'un artefact de plan (`implementation_plan.md`). Utiliser systématiquement `RequestFeedback: false`.
 - Toujours suspendre l'exécution après la rédaction d'un plan d'implémentation et attendre l'accord explicite et manuel de l'utilisateur dans le chat avant de démarrer l'exécution.
-
 

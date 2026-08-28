@@ -85,12 +85,12 @@ export function PublicHeader() {
 
   return (
     <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-3 py-3 sm:px-4">
+        <Link href="/" className="flex min-w-0 items-center gap-2 max-sm:shrink-0">
           <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand text-xs font-bold text-white">
             SA
           </div>
-          <div className="flex flex-col">
+          <div className="hidden flex-col sm:flex">
             <span className="font-semibold tracking-tight">{APP_NAME}</span>
             <span className="hidden text-xs text-muted-foreground md:inline">
               Annales d&apos;examens, gratuites et tri&eacute;es.
@@ -161,11 +161,11 @@ export function PublicHeader() {
             )}
             {session?.user ? <UserButton user={session.user} /> : null}
           </div>
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-1.5 sm:gap-3 md:hidden">
             {session?.user && canAccessAdmin && (
               <Link
                 href="/admin"
-                className={`${topbarIconButtonClass} h-10 w-10 p-2.5`}
+                className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5`}
               >
                 <Shield className="h-4 w-4" />
                 <span className="sr-only">Administration</span>
@@ -173,7 +173,7 @@ export function PublicHeader() {
             )}
             <Link
               href="/diplomes"
-              className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${annalesIconClass}`}
+              className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${annalesIconClass}`}
               aria-current={isAnnalesActive ? 'page' : undefined}
             >
               <BookOpen className="h-4 w-4" />
@@ -182,7 +182,7 @@ export function PublicHeader() {
             {canAccessHealth ? (
               <Link
                 href="/sante"
-                className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${healthIconClass}`}
+                className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${healthIconClass}`}
                 aria-current={isHealthActive ? 'page' : undefined}
               >
                 <Stethoscope className="h-4 w-4" />
@@ -191,13 +191,13 @@ export function PublicHeader() {
             ) : null}
             <Link
               href="/entrainement"
-              className={`${topbarIconButtonClass} h-10 w-10 p-2.5 ${trainingIconClass}`}
+              className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${trainingIconClass}`}
               aria-current={isTrainingActive ? 'page' : undefined}
             >
               <FlaskConical className="h-4 w-4" />
               <span className="sr-only">Entra&icirc;nement</span>
             </Link>
-            <ThemeToggle className={`${topbarIconButtonClass} h-10 w-10 p-2.5`} />
+            <ThemeToggle className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5`} />
             {session?.user ? (
               <UserButton user={session.user} />
             ) : (

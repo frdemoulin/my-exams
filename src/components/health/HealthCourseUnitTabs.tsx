@@ -3,16 +3,23 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { TabItem, Tabs } from 'flowbite-react';
-import { ArrowRight, BarChart3, Clock3, FileCheck2, Info } from 'lucide-react';
+import { ArrowRight, BarChart3, Clock3, FileCheck2, Info, MoreHorizontal } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { HealthMockExamActionButton } from '@/components/health/HealthMockExamActionButton';
-import { HealthColleCard } from '@/components/health/HealthColleCard';
 import { HealthColleStartDialog } from '@/components/health/HealthColleStartDialog';
 import { HealthColleHistoryModal } from '@/components/health/HealthColleHistoryModal';
+import { actionMenuContent, actionMenuItem, actionMenuTrigger } from '@/components/shared/table-action-menu';
 import { HEALTH_COLLES_UE14_V1, type HealthColleV1 } from '@/core/health-colle';
 import type { HealthStudentCourseUnitDetail } from '@/core/health';
 import type {
@@ -62,6 +69,12 @@ const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
 
 const getMockExamResultsHref = (courseUnitId: string, examSlug: string, attemptId: string) =>
   `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}`;
+
+const getColleResultsHref = (courseUnitId: string, colleId: string, attemptId: string) =>
+  `/sante/ue/${courseUnitId}/colles/${colleId}/resultats/${attemptId}`;
+
+const getColleCorrectionHref = (courseUnitId: string, colleId: string, attemptId: string) =>
+  `/sante/ue/${courseUnitId}/colles/${colleId}/resultats/${attemptId}/correction`;
 
 function formatScore(score: number): string {
   if (Number.isInteger(score)) {
@@ -377,14 +390,17 @@ export function HealthCourseUnitTabs({
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="relative overflow-x-auto rounded-lg border border-default">
+                  <div
+                    className="relative overflow-x-auto rounded-lg border border-default"
+                    data-testid="health-colles-table-scroll"
+                  >
                     <table className="w-full text-left text-sm text-body rtl:text-right">
                       <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
                         <tr>
-                          <th className="w-16 px-4 py-4 font-medium">#</th>
-                          <th className="px-4 py-4 font-medium">COLLE</th>
-                          <th className="px-4 py-4 font-medium">CONTENU</th>
-                          <th className="px-4 py-4 text-center font-medium">ACTION</th>
+                          <th className="w-16 px-4 py-4 font-medium max-sm:hidden">#</th>
+                          <th className="w-full px-3 py-4 font-medium sm:w-auto sm:px-4">COLLE</th>
+                          <th className="px-4 py-4 font-medium max-sm:hidden">CONTENU</th>
+                          <th className="w-40 px-4 py-4 text-center font-medium max-sm:hidden">ACTION</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -395,16 +411,77 @@ export function HealthCourseUnitTabs({
                           const hasAttempts = progress && progress.attemptCount > 0;
                           const latest = progress?.latestAttempt;
                           const best = progress?.bestAttempt;
+                          const attemptCountLabel = progress
+                            ? `${progress.attemptCount} tentative${progress.attemptCount > 1 ? 's' : ''}`
+                            : null;
+                          const latestResultsHref = latest
+                            ? getColleResultsHref(courseUnit.id, colle.id, latest.id)
+                            : null;
+                          const latestCorrectionHref = latest
+                            ? getColleCorrectionHref(courseUnit.id, colle.id, latest.id)
+                            : null;
+                          const renderColleActions = () =>
+                            hasAttempts && latestResultsHref && latestCorrectionHref ? (
+                              <div className="inline-flex items-center justify-center gap-1.5">
+                                <Button asChild size="sm" variant="default" className="h-8 px-3 text-xs">
+                                  <Link href={latestResultsHref}>
+                                    Bilan
+                                  </Link>
+                                </Button>
+
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <button
+                                      type="button"
+                                      className={cn(
+                                        actionMenuTrigger,
+                                        "h-8 w-8 border border-default bg-card text-muted-foreground hover:bg-neutral-secondary-soft hover:text-heading"
+                                      )}
+                                      aria-label={`Autres actions pour cette colle ${colle.code}`}
+                                    >
+                                      <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
+                                    </button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent
+                                    align="end"
+                                    collisionPadding={12}
+                                    className={cn(actionMenuContent, "min-w-44")}
+                                  >
+                                    <DropdownMenuItem className={actionMenuItem}>
+                                      <Link href={latestCorrectionHref}>Voir la correction</Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuSeparator className="-mx-2 my-1 bg-border" />
+                                    <DropdownMenuItem
+                                      className={actionMenuItem}
+                                      onSelect={() => {
+                                        window.setTimeout(() => setSelectedColleForStart(colle), 0);
+                                      }}
+                                    >
+                                      Recommencer la colle
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                            ) : (
+                              <Button
+                                size="sm"
+                                className="gap-2"
+                                onClick={() => setSelectedColleForStart(colle)}
+                              >
+                                Démarrer
+                                <ArrowRight className="h-4 w-4" />
+                              </Button>
+                            );
 
                           return (
                             <tr
                               key={colle.id}
                               className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
                             >
-                              <td className="px-4 py-4 align-middle font-medium text-heading">
+                              <td className="px-4 py-4 align-middle font-medium text-heading max-sm:hidden">
                                 {index + 1}
                               </td>
-                              <td className="px-4 py-4 align-middle">
+                              <td className="w-full px-3 py-4 align-middle sm:w-auto sm:px-4">
                                 <div className="space-y-1.5">
                                   <div className="flex flex-wrap items-center gap-2">
                                     <span className="font-medium text-heading">
@@ -424,6 +501,9 @@ export function HealthCourseUnitTabs({
                                   </p>
                                   <p className="text-xs text-muted-foreground">
                                     {colle.contentLine}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground sm:hidden">
+                                    {colle.questionCount} questions · {colle.durationLabel}
                                   </p>
 
                                   {/* Stats attempt badges if performed */}
@@ -453,62 +533,38 @@ export function HealthCourseUnitTabs({
                                       ) : null}
 
                                       {progress.attemptCount > 1 ? (
+                                        <button
+                                          type="button"
+                                          className="rounded-sm text-[11px] font-medium text-fg-brand underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2"
+                                          aria-label={`Voir les ${attemptCountLabel} de ${colle.code}`}
+                                          onClick={() => setHistoryModalData({ colle, progress })}
+                                        >
+                                          {attemptCountLabel}
+                                        </button>
+                                      ) : (
                                         <span className="text-[11px] text-muted-foreground">
-                                          {progress.attemptCount} tentatives
+                                          {attemptCountLabel}
                                         </span>
-                                      ) : null}
+                                      )}
                                     </div>
                                   ) : null}
+
+                                  <div
+                                    className="flex items-center gap-1.5 pt-2 sm:hidden"
+                                    data-testid={`health-colle-actions-${colle.code.toLowerCase()}-mobile`}
+                                  >
+                                    {renderColleActions()}
+                                  </div>
                                 </div>
                               </td>
-                              <td className="px-4 py-4 align-middle text-muted-foreground whitespace-nowrap">
+                              <td className="px-4 py-4 align-middle text-muted-foreground whitespace-nowrap max-sm:hidden">
                                 {colle.questionCount} questions · {colle.durationLabel}
                               </td>
-                              <td className="px-4 py-4 text-center align-middle">
-                                {hasAttempts && latest ? (
-                                  <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5">
-                                    <Button asChild size="sm" variant="default" className="h-8 text-xs gap-1">
-                                      <Link href={`/sante/ue/${courseUnit.id}/colles/${colle.id}/resultats/${latest.id}`}>
-                                        Bilan
-                                      </Link>
-                                    </Button>
-
-                                    <Button asChild size="sm" variant="outline" className="h-8 text-xs gap-1">
-                                      <Link href={`/sante/ue/${courseUnit.id}/colles/${colle.id}/resultats/${latest.id}/correction`}>
-                                        Correction
-                                      </Link>
-                                    </Button>
-
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="h-8 text-xs gap-1 text-muted-foreground hover:text-foreground"
-                                      onClick={() => setSelectedColleForStart(colle)}
-                                    >
-                                      Recommencer
-                                    </Button>
-
-                                    {progress.attemptCount > 1 ? (
-                                      <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        className="h-8 text-xs gap-1 text-brand hover:text-brand-emphasis"
-                                        onClick={() => setHistoryModalData({ colle, progress })}
-                                      >
-                                        Historique
-                                      </Button>
-                                    ) : null}
-                                  </div>
-                                ) : (
-                                  <Button
-                                    size="sm"
-                                    className="gap-2"
-                                    onClick={() => setSelectedColleForStart(colle)}
-                                  >
-                                    Démarrer
-                                    <ArrowRight className="h-4 w-4" />
-                                  </Button>
-                                )}
+                              <td
+                                className="px-4 py-4 text-center align-middle max-sm:hidden"
+                                data-testid={`health-colle-actions-${colle.code.toLowerCase()}-desktop`}
+                              >
+                                {renderColleActions()}
                               </td>
                             </tr>
                           );

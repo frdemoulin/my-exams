@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 import { loadProjectEnv } from "../../scripts/lib/load-env";
+import { openHealthColleStartDialog } from "./health-colle-actions";
 
 loadProjectEnv();
 
@@ -22,7 +23,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await expect(c01Row).toBeVisible();
-    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
+    await openHealthColleStartDialog(page, c01Row);
 
     const dialog = page.getByRole("dialog");
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
@@ -103,7 +104,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
-    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
+    await openHealthColleStartDialog(page, c01Row);
 
     const dialog = page.getByRole("dialog");
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
@@ -134,7 +135,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
-    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
+    await openHealthColleStartDialog(page, c01Row);
 
     const dialog = page.getByRole("dialog");
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();

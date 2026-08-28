@@ -161,13 +161,13 @@ export default function UserButton({ user }: UserButtonProps) {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button
-                    className="h-10 gap-2 rounded-full border border-default bg-neutral-primary-soft pl-1 pr-3 text-body shadow-xs hover:bg-neutral-secondary-soft hover:text-heading focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
+                    className="h-9 gap-0 rounded-full border border-default bg-neutral-primary-soft pl-0.5 pr-1.5 text-body shadow-xs hover:bg-neutral-secondary-soft hover:text-heading focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 sm:h-10 sm:gap-2 sm:pl-1 sm:pr-3"
                     variant="ghost"
                 >
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-xs font-semibold uppercase text-white">
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-brand text-xs font-semibold uppercase text-white sm:h-9 sm:w-9">
                         {initials}
                     </span>
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className="hidden h-4 w-4 sm:block" />
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent

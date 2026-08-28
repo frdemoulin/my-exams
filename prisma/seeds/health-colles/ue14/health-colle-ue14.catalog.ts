@@ -11,7 +11,14 @@ import { UE14_COLLE_C09_QUESTIONS } from "../authoring/health-colle-ue14-c09-bio
 import { UE14_COLLE_C10_QUESTIONS } from "../authoring/health-colle-ue14-c10-chimie-colle-cumulative-ec.author.seed";
 import { UE14_COLLE_C11_QUESTIONS } from "../authoring/health-colle-ue14-c11-biochimie-colle-cumulative-ec.author.seed";
 import { UE14_COLLE_C12_QUESTIONS } from "../authoring/health-colle-ue14-c12-grande-colle-ue14.author.seed";
-import type { ThemeIdsByQuestionStableId } from "../../health-mock-exam-theme-ids";
+import type {
+  ThemeIdsByQuestionStableId,
+  ThemeTitlesByQuestionStableId,
+} from "../../health-mock-exam-theme-ids";
+import {
+  getUE14ColleThemeIdsByQuestionStableId,
+  getUE14ColleThemeTitlesByQuestionStableId,
+} from "./health-colle-ue14-theme-mapping";
 
 export type UE14ColleTeachingElementKey =
   | "CHIMIE"
@@ -32,9 +39,10 @@ export type UE14HealthColleSeed = {
   order: number;
   sections: UE14HealthColleSectionSeed[];
   themeIdsByQuestionStableId?: ThemeIdsByQuestionStableId;
+  themeTitlesByQuestionStableId?: ThemeTitlesByQuestionStableId;
 };
 
-export const UE14_HEALTH_COLLE_SEEDS: UE14HealthColleSeed[] = [
+const UE14_HEALTH_COLLE_SEED_DEFINITIONS: UE14HealthColleSeed[] = [
   {
     code: "C01",
     title: "Chimie — Fondamentaux",
@@ -214,3 +222,10 @@ export const UE14_HEALTH_COLLE_SEEDS: UE14HealthColleSeed[] = [
     ],
   },
 ];
+
+export const UE14_HEALTH_COLLE_SEEDS: UE14HealthColleSeed[] =
+  UE14_HEALTH_COLLE_SEED_DEFINITIONS.map((seed) => ({
+    ...seed,
+    themeIdsByQuestionStableId: getUE14ColleThemeIdsByQuestionStableId(seed.code),
+    themeTitlesByQuestionStableId: getUE14ColleThemeTitlesByQuestionStableId(seed.code),
+  }));

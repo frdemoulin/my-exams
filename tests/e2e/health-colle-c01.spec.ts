@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 import { loadProjectEnv } from "../../scripts/lib/load-env";
+import { openHealthColleStartDialog } from "./health-colle-actions";
 
 loadProjectEnv();
 
@@ -21,14 +22,14 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
     // Vérifier l'éligibilité des cartes : C01 et C02
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await expect(c01Row).toBeVisible();
-    await expect(c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first()).toBeVisible();
+    await expect(c01Row.getByRole("button", { name: /Démarrer|Autres actions pour cette colle/ }).first()).toBeVisible();
 
     const c02Row = page.locator("tr").filter({ hasText: "Biochimie — Glucides" });
     await expect(c02Row).toBeVisible();
-    await expect(c02Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first()).toBeVisible();
+    await expect(c02Row.getByRole("button", { name: /Démarrer|Autres actions pour cette colle/ }).first()).toBeVisible();
 
     // 1. Ouvrir la fiche de préparation C01
-    await c01Row.getByRole("button", { name: /Démarrer|Recommencer/ }).first().click();
+    await openHealthColleStartDialog(page, c01Row);
 
     const dialog = page.getByRole("dialog");
     await expect(dialog.getByRole("heading", { name: "Chimie — Fondamentaux", exact: false })).toBeVisible();

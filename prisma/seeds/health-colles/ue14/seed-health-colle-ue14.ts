@@ -3,6 +3,7 @@ import type { HealthTrainingAuthorQuestion } from "@/core/questions/health-autho
 import { compileHealthTrainingAuthorQuestion } from "../../../../src/core/questions/health-author-question-compiler";
 import {
   resolveThemeIdsByQuestionStableId,
+  type ThemeTitlesByQuestionStableId,
   type ThemeIdsByQuestionStableId,
 } from "../../health-mock-exam-theme-ids";
 
@@ -20,6 +21,7 @@ type ColleInput = {
   order: number;
   sections: ColleSectionInput[];
   themeIdsByQuestionStableId?: ThemeIdsByQuestionStableId;
+  themeTitlesByQuestionStableId?: ThemeTitlesByQuestionStableId;
 };
 
 const normalize = (value: string | null | undefined) =>
@@ -91,10 +93,12 @@ export async function seedHealthColleUE14(prisma: PrismaClient, input: ColleInpu
   const themeIdsByQuestionStableId = await resolveThemeIdsByQuestionStableId({
     prisma,
     themeIdsByQuestionStableId: input.themeIdsByQuestionStableId,
+    themeTitlesByQuestionStableId: input.themeTitlesByQuestionStableId,
     stableIds: preparedSections.flatMap((section) =>
       section.questions.map((question) => question.stableId)
     ),
     contextLabel: `colle ${input.code.toLowerCase()}`,
+    coverageMode: "empty-or-complete",
   });
   const sections = preparedSections.map((section) => ({
     ...section,
