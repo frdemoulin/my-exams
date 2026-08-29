@@ -683,8 +683,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de substituants différents un carbone tétraédrique doit-il porter pour constituer un centre stéréogène classique ? Donnez uniquement la valeur numérique.",
-    "explanation": "Un carbone tétraédrique est un centre stéréogène classique lorsqu’il porte quatre substituants différents.",
+    "question": "En observant le carbone α de l’alanine, combien de substituants différents doivent être liés à un carbone tétraédrique pour qu’il constitue un centre stéréogène classique ? Donnez uniquement la valeur numérique.",
+    "explanation": "Un carbone tétraédrique constitue classiquement un centre stéréogène lorsqu’il est lié à quatre substituants différents. Dans l’alanine, le carbone α est lié à \\ce{NH2}, \\ce{COOH}, \\ce{CH3} et H.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -702,8 +702,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 19,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos de l’énantiomérie, de la configuration R/S et des mélanges d’énantiomères, quelles propositions sont exactes ?",
-    "explanation": "Les énantiomères sont images l’un de l’autre dans un miroir et non superposables. La configuration R/S se détermine par les priorités de Cahn–Ingold–Prelog. Un mélange racémique contient les deux énantiomères en proportions égales et son pouvoir rotatoire global s’annule.",
+    "question": "À propos des deux représentations A et B de l’alanine et de la nomenclature stéréochimique, quelles propositions sont exactes ?",
+    "explanation": "Deux molécules images miroir non superposables sont des énantiomères. L’excès énantiomérique correspond à la différence entre les proportions des deux énantiomères : un mélange 75/25 possède donc un excès de 50 %. Les règles de Cahn–Ingold–Prelog permettent d’attribuer une configuration R ou S en hiérarchisant les substituants ; cette notation ne prédit pas le signe du pouvoir rotatoire. La glycine est un contre-exemple classique de chiralité des acides aminés α car son carbone α porte deux hydrogènes identiques.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -713,29 +713,29 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Deux énantiomères sont images l’un de l’autre dans un miroir et ne sont pas superposables.",
+        "content": "Si A et B sont images l’une de l’autre dans un miroir et non superposables, elles constituent une paire d’énantiomères.",
         "correct": true,
-        "explanation": "C’est la relation stéréochimique qui définit une paire d’énantiomères."
+        "explanation": "Vrai. C’est la définition d’une paire d’énantiomères."
       },
       {
-        "content": "Un mélange racémique contient les deux énantiomères en proportions égales.",
+        "content": "Un mélange contenant 75 % d’un énantiomère et 25 % de l’autre possède un excès énantiomérique de 50 %.",
         "correct": true,
-        "explanation": "Une composition 50/50 conduit à l’annulation du pouvoir rotatoire global."
+        "explanation": "Vrai. 75% - 25% = 50%."
       },
       {
-        "content": "Un excès énantiomérique de 50 % peut correspondre à un mélange 75 % / 25 %.",
+        "content": "Dans les règles de Cahn–Ingold–Prelog, un atome directement lié de numéro atomique plus élevé reçoit en première approximation une priorité plus élevée.",
         "correct": true,
-        "explanation": "L’excès énantiomérique est la différence entre les pourcentages des deux énantiomères."
+        "explanation": "Vrai. Le numéro atomique de l’atome directement lié constitue le premier critère de priorité CIP."
       },
       {
-        "content": "Dans les règles de Cahn–Ingold–Prelog, un numéro atomique plus élevé confère en première approximation une priorité plus élevée.",
+        "content": "La notation R/S décrit une configuration absolue mais ne permet pas, à elle seule, de déduire le signe du pouvoir rotatoire.",
         "correct": true,
-        "explanation": "La comparaison commence par le numéro atomique de l’atome directement lié au centre stéréogène."
+        "explanation": "Vrai. Les notations R/S et (+)/(−) décrivent des propriétés différentes et ne se déduisent pas l’une de l’autre."
       },
       {
-        "content": "La configuration R signifie nécessairement que la molécule est dextrogyre.",
+        "content": "La glycine possède un centre stéréogène sur son carbone α parce que ce carbone est lié à un groupe amine et à un groupe carboxyle.",
         "correct": false,
-        "explanation": "La configuration R/S n’impose pas le signe du pouvoir rotatoire."
+        "explanation": "Faux. Le carbone α de la glycine porte deux hydrogènes identiques et n’est donc pas un centre stéréogène classique."
       }
     ]
   },
@@ -743,8 +743,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 20,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Parmi les exemples utilisés pour introduire la chiralité, quelle molécule est achirale parce que son carbone α porte deux hydrogènes identiques ?",
-    "explanation": "La glycine porte deux hydrogènes sur son carbone α ; elle ne possède donc pas de centre stéréogène tétraédrique à cet endroit.",
+    "question": "D’après le schéma, pourquoi la glycine ne possède-t-elle pas de centre stéréogène classique sur son carbone α ?",
+    "explanation": "Pour constituer un centre stéréogène classique, un carbone tétraédrique doit porter quatre substituants différents. Le carbone α de la glycine est lié à \\ce{NH2}, \\ce{COOH} et à deux hydrogènes identiques : il n’est donc pas stéréogène.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -754,29 +754,29 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "L’alanine",
+        "content": "Parce que son groupe amine est plan.",
         "correct": false,
-        "explanation": "Son carbone α porte quatre substituants différents."
+        "explanation": "Faux. L’amine n’est pas la raison de l’absence de centre stéréogène."
       },
       {
-        "content": "La sérine",
+        "content": "Parce que son groupe carboxyle n’est pas polaire.",
         "correct": false,
-        "explanation": "Son carbone α est stéréogène dans la forme étudiée."
+        "explanation": "Faux. La polarité du carboxyle n’intervient pas."
       },
       {
-        "content": "La cystéine",
+        "content": "Parce que son carbone α est hybridé sp².",
         "correct": false,
-        "explanation": "Son carbone α est stéréogène dans la forme étudiée."
+        "explanation": "Faux. Le carbone α est sp³."
       },
       {
-        "content": "Le méthanol",
+        "content": "Parce qu’elle ne contient aucun atome de carbone.",
         "correct": false,
-        "explanation": "Ce n’est pas l’exemple d’acide aminé visé et son carbone porte trois hydrogènes."
+        "explanation": "Faux. La glycine contient deux atomes de carbone."
       },
       {
-        "content": "La glycine",
+        "content": "Parce que son carbone α porte deux hydrogènes identiques.",
         "correct": true,
-        "explanation": "Son carbone α est lié à deux hydrogènes identiques."
+        "explanation": "Vrai. La présence de deux hydrogènes identiques sur Cα supprime la chiralité."
       }
     ]
   },
@@ -785,8 +785,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QRP",
     "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux formules générales correctes pour des hydrocarbures acycliques ne comportant qu’une insaturation du type indiqué.",
-    "explanation": "Un alcane acyclique saturé suit CₙH₂ₙ₊₂. L’introduction d’une triple liaison enlève quatre hydrogènes par rapport à l’alcane correspondant : CₙH₂ₙ₋₂.",
+    "question": "Sélectionnez exactement les deux associations molécule–formule brute correctes.",
+    "explanation": "Un alcane acyclique saturé possède la formule générale \\ce{C_nH_{2n+2}} : pour six carbones, A est donc \\ce{C6H14}. Un monoalcyne acyclique possède la formule \\ce{C_nH_{2n-2}} : D est donc \\ce{C6H10}. Le cyclohexane B et l’hex-2-ène C ont chacun pour formule brute \\ce{C6H12}.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -796,29 +796,29 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Alcane acyclique saturé — $\\mathrm{C_nH_{2n+2}}$",
+        "content": "Molécule A — \\ce{C6H14}.",
         "correct": true,
-        "explanation": "C’est la formule générale des alcanes acycliques."
+        "explanation": "Vrai. A est le n-hexane, alcane acyclique C6H14."
       },
       {
-        "content": "Monoalcyne acyclique — $\\mathrm{C_nH_{2n-2}}$",
+        "content": "Molécule D — \\ce{C6H10}.",
         "correct": true,
-        "explanation": "Une triple liaison correspond à deux degrés d’insaturation."
+        "explanation": "Vrai. D est l’hex-2-yne, monoalcyne C6H10."
       },
       {
-        "content": "Monoalcène acyclique — $\\mathrm{C_nH_{2n+2}}$",
+        "content": "Molécule C — \\ce{C6H14}.",
         "correct": false,
-        "explanation": "Un monoalcène acyclique suit CₙH₂ₙ."
+        "explanation": "Faux. C est un monoalcène de formule C6H12."
       },
       {
-        "content": "Cyclane saturé monocyclique — $\\mathrm{C_nH_{2n+2}}$",
+        "content": "Molécule B — \\ce{C6H14}.",
         "correct": false,
-        "explanation": "Un cycle saturé monocyclique suit CₙH₂ₙ."
+        "explanation": "Faux. B est le cyclohexane de formule C6H12."
       },
       {
-        "content": "Monoalcyne acyclique — $\\mathrm{C_nH_{2n}}$",
+        "content": "Molécule D — \\ce{C6H12}.",
         "correct": false,
-        "explanation": "La formule CₙH₂ₙ correspond notamment à un monoalcène acyclique ou à un cyclane monocyclique saturé."
+        "explanation": "Faux. D possède une triple liaison, soit C6H10."
       }
     ]
   },
@@ -826,8 +826,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 22,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les alcènes et leur réactivité, quelles propositions sont exactes ?",
-    "explanation": "La double liaison C=C comprend une composante π qui empêche la libre rotation. Les alcènes peuvent subir des additions, notamment une hydrogénation catalytique, et les additions électrophiles sur des alcènes dissymétriques peuvent être régiosélectives.",
+    "question": "La molécule C comporte une double liaison carbone–carbone. Quelles propositions concernant sa structure et sa réactivité sont exactes ?",
+    "explanation": "Une double liaison C=C associe une liaison σ et une liaison π. La composante π empêche la libre rotation sans rupture du recouvrement latéral. Les alcènes peuvent subir des réactions d’addition, notamment l’hydrogénation catalytique et des additions électrophiles. Un monoalcène acyclique a pour formule générale \\ce{C_nH_{2n}}.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -837,29 +837,29 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "La liaison π d’un alcène limite fortement la rotation autour de la liaison C=C.",
+        "content": "La liaison π limite fortement la rotation autour de la liaison C=C.",
         "correct": true,
-        "explanation": "Une rotation libre romprait le recouvrement latéral des orbitales p."
+        "explanation": "Vrai. La rotation autour de C=C romprait le recouvrement des orbitales p à l’origine de la liaison π."
       },
       {
-        "content": "Une hydrogénation catalytique d’un alcène consomme H₂ et peut conduire à l’alcane correspondant.",
+        "content": "Une hydrogénation catalytique complète consomme \\ce{H2} et peut conduire à l’alcane correspondant.",
         "correct": true,
-        "explanation": "L’hydrogène s’ajoute sur les deux carbones de la double liaison."
+        "explanation": "Vrai. L’hydrogénation ajoute les deux hydrogènes de H2 sur la double liaison."
       },
       {
         "content": "Une addition électrophile de HX sur un alcène dissymétrique peut présenter une régiosélectivité décrite par la règle de Markovnikov.",
         "correct": true,
-        "explanation": "La position finale des groupes ajoutés dépend de l’environnement des carbones de la double liaison."
+        "explanation": "Vrai. La règle de Markovnikov décrit une régiosélectivité classique de certaines additions de HX sur des alcènes dissymétriques."
       },
       {
-        "content": "Une déshydratation forme nécessairement un alcyne à partir d’un alcane.",
+        "content": "La présence d’une double liaison impose la formule générale \\ce{C_nH_{2n-2}} à tout monoalcène acyclique.",
         "correct": false,
-        "explanation": "La déshydratation d’un alcool peut conduire à un alcène ; elle ne transforme pas directement un alcane en alcyne."
+        "explanation": "Faux. La formule générale d’un monoalcène acyclique est CnH2n."
       },
       {
-        "content": "Un alcène acyclique à une seule double liaison possède la formule générale $\\mathrm{C_nH_{2n-2}}$.",
+        "content": "Une double liaison C=C est constituée de deux liaisons σ indépendantes.",
         "correct": false,
-        "explanation": "La formule générale correspondante est CₙH₂ₙ."
+        "explanation": "Faux. Une double liaison comporte une liaison σ et une liaison π."
       }
     ]
   },
@@ -867,8 +867,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 23,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel est le nom de l’hydrocarbure cyclique saturé comportant six atomes de carbone ?",
-    "explanation": "Un cycle saturé à six carbones porte le préfixe cyclo-, la racine hex- et le suffixe -ane : cyclohexane.",
+    "question": "Quel est le nom de la molécule B ? Donnez uniquement son nom.",
+    "explanation": "La molécule B est un cycle saturé comportant six atomes de carbone : il s’agit du cyclohexane.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -895,8 +895,8 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 24,
     "difficulty": "HARD",
     "format": "QZONE",
-    "question": "Sélectionnez la zone correspondant à la double liaison carbone–carbone.",
-    "explanation": "La cible est la liaison C=C de l’alcène représenté. Elle associe une liaison σ et une liaison π.",
+    "question": "Sur la molécule C, sélectionnez la double liaison carbone–carbone.",
+    "explanation": "La molécule C contient une double liaison carbone–carbone. Une liaison C=C associe une liaison σ et une liaison π ; c’est cette insaturation qui caractérise ici l’alcène représenté.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -905,21 +905,21 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "theme:qzone-double-liaison"
     ],
     "image": {
-      "src": "/images/training/ue14/colles/c04/alkene-double-bond-qzone.svg",
-      "alt": "Formule topologique avec double liaison",
-      "width": 960,
-      "height": 560
+      "src": "/images/training/ue14/colles/c04/hydrocarbons-c6-linked-q21-q24.svg",
+      "alt": "Quatre représentations topologiques d’hydrocarbures à six atomes de carbone, notées A à D.",
+      "width": 1200,
+      "height": 700
     },
     "expectedZones": [
       {
-        "id": "target",
+        "id": "target-double-bond",
         "label": "Double liaison C=C",
-        "x": 0.5,
-        "y": 0.5,
-        "tolerance": 0.08
+        "x": 0.2333,
+        "y": 0.7286,
+        "tolerance": 0.05
       }
     ],
-    "defaultTolerance": 0.08
+    "defaultTolerance": 0.05
   },
   {
     "order": 25,

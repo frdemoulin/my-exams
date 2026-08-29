@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .card { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 14px; }
+      .card-title { font-family: system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; fill: #0f172a; text-anchor: middle; }
+      .sub-title { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; fill: #3b82f6; text-anchor: middle; }
+      .mirror-line { stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 6,6; }
+      .chem-text { font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+      .chem-sub { font-size: 15px; baseline-shift: sub; }
+      .chem-bond { stroke: #1e293b; stroke-width: 3; stroke-linecap: round; }
+      .chem-dash { stroke: #1e293b; stroke-width: 3; stroke-dasharray: 4,4; stroke-linecap: round; }
+      .chem-wedge { fill: #1e293b; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1200" height="700" rx="16" />
+
+  <!-- ==================== PARTIE GAUCHE : GLYCINE ==================== -->
+  <g transform="translate(40, 30)">
+    <rect class="card" width="520" height="640" />
+    <text x="260" y="50" class="card-title">Glycine</text>
+
+    <!-- Structure semi-développée tridimensionnelle de la glycine -->
+    <!-- Carbone alpha central au centre (260, 320) -->
+    <g transform="translate(260, 320)">
+      <!-- Central Carbon alpha -->
+      <circle cx="0" cy="0" r="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="2.5" />
+      <text x="0" y="7" class="chem-text" font-size="18">C<tspan class="chem-sub">α</tspan></text>
+
+      <!-- Liaison vers H2N (gauche) -->
+      <line x1="-20" y1="0" x2="-110" y2="0" class="chem-bond" />
+      <text x="-145" y="7" class="chem-text">H<tspan class="chem-sub">2</tspan>N</text>
+
+      <!-- Liaison vers COOH (haut) -->
+      <line x1="0" y1="-20" x2="0" y2="-110" class="chem-bond" />
+      <text x="0" y="-130" class="chem-text">COOH</text>
+
+      <!-- Premier H (hydrogène 1 - bas gauche - wedge) -->
+      <polygon points="-12,14 -70,90 -45,105" class="chem-wedge" />
+      <text x="-75" y="130" class="chem-text">H</text>
+
+      <!-- Deuxième H (hydrogène 2 - bas droite - dash) -->
+      <line x1="12" y1="14" x2="65" y2="95" class="chem-dash" />
+      <text x="75" y="120" class="chem-text">H</text>
+    </g>
+  </g>
+
+  <!-- ==================== PARTIE DROITE : ALANINE A ET B ==================== -->
+  <g transform="translate(600, 30)">
+    <rect class="card" width="560" height="640" />
+    <text x="280" y="50" class="card-title">Alanine</text>
+
+    <!-- Ligne de miroir -->
+    <line x1="280" y1="80" x2="280" y2="600" class="mirror-line" />
+    <text x="280" y="620" class="sub-title">miroir</text>
+
+    <!-- Alanine A (Gauche du miroir) -->
+    <g transform="translate(140, 320)">
+      <text x="0" y="-200" class="sub-title">Alanine A</text>
+
+      <!-- Carbone alpha central (0, 0) -->
+      <circle cx="0" cy="0" r="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="2.5" />
+      <text x="0" y="7" class="chem-text" font-size="18">C<tspan class="chem-sub">α</tspan></text>
+
+      <!-- COOH (haut) -->
+      <line x1="0" y1="-20" x2="0" y2="-100" class="chem-bond" />
+      <text x="0" y="-120" class="chem-text">COOH</text>
+
+      <!-- H2N (gauche) -->
+      <line x1="-20" y1="0" x2="-80" y2="0" class="chem-bond" />
+      <text x="-115" y="7" class="chem-text">H<tspan class="chem-sub">2</tspan>N</text>
+
+      <!-- CH3 (wedge avant bas-droite) -->
+      <polygon points="12,14 60,85 75,70" class="chem-wedge" />
+      <text x="90" y="110" class="chem-text">CH<tspan class="chem-sub">3</tspan></text>
+
+      <!-- H (dash arrière bas-gauche) -->
+      <line x1="-12" y1="14" x2="-55" y2="85" class="chem-dash" />
+      <text x="-65" y="110" class="chem-text">H</text>
+    </g>
+
+    <!-- Alanine B (Droite du miroir - Image miroir) -->
+    <g transform="translate(420, 320)">
+      <text x="0" y="-200" class="sub-title">Alanine B</text>
+
+      <!-- Carbone alpha central (0, 0) -->
+      <circle cx="0" cy="0" r="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="2.5" />
+      <text x="0" y="7" class="chem-text" font-size="18">C<tspan class="chem-sub">α</tspan></text>
+
+      <!-- COOH (haut) -->
+      <line x1="0" y1="-20" x2="0" y2="-100" class="chem-bond" />
+      <text x="0" y="-120" class="chem-text">COOH</text>
+
+      <!-- H2N (droite - symétrique) -->
+      <line x1="20" y1="0" x2="80" y2="0" class="chem-bond" />
+      <text x="115" y="7" class="chem-text">NH<tspan class="chem-sub">2</tspan></text>
+
+      <!-- CH3 (wedge avant bas-gauche - symétrique) -->
+      <polygon points="-12,14 -60,85 -75,70" class="chem-wedge" />
+      <text x="-90" y="110" class="chem-text">H<tspan class="chem-sub">3</tspan>C</text>
+
+      <!-- H (dash arrière bas-droite - symétrique) -->
+      <line x1="12" y1="14" x2="55" y2="85" class="chem-dash" />
+      <text x="65" y="110" class="chem-text">H</text>
+    </g>
+  </g>
+</svg>
+
