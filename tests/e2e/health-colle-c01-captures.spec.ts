@@ -26,7 +26,7 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
   test("recette visuelle complète C01, QRPL badge & non-duplication Q19", async ({ page }) => {
     // 1. Démarrer la colle C01
     await page.goto(`${appBaseUrl}/sante/ue/ue14-biochimie-biologie-cellulaire-chimie?ec=evaluations`);
-    const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
+    const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" }).first();
     await expect(c01Row).toBeVisible();
     await openHealthColleStartDialog(page, c01Row);
 
