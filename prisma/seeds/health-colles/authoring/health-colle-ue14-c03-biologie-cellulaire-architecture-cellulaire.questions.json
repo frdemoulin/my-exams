@@ -1,0 +1,946 @@
+[
+  {
+    "order": 1,
+    "difficulty": "HARD",
+    "question": "Pour localiser la protéine X et suivre sa dynamique cellulaire, quelles propositions sont exactes ?",
+    "statement": "Pour localiser la protéine X et suivre sa dynamique cellulaire, quelles propositions sont exactes ?",
+    "explanation": "Les méthodes de marquage ne répondent pas toutes au même objectif. L’immunomarquage d’une cible intracellulaire est classiquement réalisé sur des cellules fixées et perméabilisées afin de permettre l’accès des anticorps. L’hybridation in situ repose sur l’appariement d’une sonde nucléotidique avec une séquence complémentaire d’ADN ou d’ARN. Une protéine chimérique fusionnée à une protéine fluorescente telle que la GFP peut, elle, être suivie dans une cellule vivante.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:methodes-etude-cellulaire"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Un immunomarquage sur une protéine intracellulaire nécessite des cellules fixées puis rendues perméables aux anticorps.",
+      "Une hybridation in situ permet de localiser une séquence d’ADN ou d’ARN grâce à une sonde nucléotidique complémentaire.",
+      "Une protéine fusionnée à la GFP peut être observée au cours du temps dans une cellule vivante.",
+      "L’électroporation consiste à fixer irréversiblement la membrane plasmique afin d’empêcher tout échange avec le milieu.",
+      "L’hybridation in situ repose sur la reconnaissance antigène–anticorps."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Vrai. La fixation immobilise les structures cellulaires et la perméabilisation permet aux anticorps d’atteindre une cible intracellulaire.",
+      "Vrai. L’hybridation in situ exploite la complémentarité des séquences nucléotidiques.",
+      "Vrai. Une fusion à la GFP permet de visualiser la localisation et éventuellement la dynamique d’une protéine dans une cellule vivante.",
+      "Faux. L’électroporation provoque transitoirement une perméabilisation de la membrane par une impulsion électrique ; elle ne sert pas à fixer la cellule.",
+      "Faux. La reconnaissance antigène–anticorps relève de l’immunomarquage, pas de l’hybridation in situ."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:methodes-etude-cellulaire"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "MEDIUM",
+    "question": "Après confluence, ces cellules sont décollées puis repiquées une première fois. Comment appelle-t-on la culture obtenue après ce premier passage ?",
+    "statement": "Après confluence, ces cellules sont décollées puis repiquées une première fois. Comment appelle-t-on la culture obtenue après ce premier passage ?",
+    "explanation": "La culture obtenue directement après l’isolement des cellules constitue la culture primaire. Lorsqu’elles atteignent la confluence, les cellules peuvent être décollées puis repiquées : après ce premier passage, on obtient une culture secondaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:culture-cellulaire"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "culture secondaire"
+        },
+        {
+          "value": "secondaire"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:culture-cellulaire"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "MEDIUM",
+    "question": "Après différenciation, les cellules présentent des domaines membranaires apical et basolatéral distincts. Quel dispositif contribue directement à empêcher la diffusion latérale des protéines d’un domaine à l’autre ?",
+    "statement": "Après différenciation, les cellules présentent des domaines membranaires apical et basolatéral distincts. Quel dispositif contribue directement à empêcher la diffusion latérale des protéines d’un domaine à l’autre ?",
+    "explanation": "Les jonctions serrées forment une barrière au niveau de la région apico-latérale de nombreuses cellules épithéliales. Elles participent au maintien de la polarité en limitant notamment la diffusion latérale de constituants membranaires entre les domaines apical et basolatéral.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:polarite-membranaire"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Les jonctions serrées.",
+      "Les ribosomes libres.",
+      "Les lysosomes.",
+      "Les nucléoles.",
+      "Les corpuscules basaux."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "Vrai. Les jonctions serrées séparent les domaines apical et basolatéral.",
+      "Faux. Les ribosomes participent à la synthèse protéique.",
+      "Faux. Les lysosomes sont des compartiments de dégradation.",
+      "Faux. Le nucléole est une structure nucléaire.",
+      "Faux. Les corpuscules basaux organisent les microtubules des cils."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:polarite-membranaire"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux exemples de transport passif à travers la membrane plasmique.",
+    "statement": "Sélectionnez exactement les deux exemples de transport passif à travers la membrane plasmique.",
+    "explanation": "Un transport passif suit le gradient électrochimique et ne nécessite pas d’apport énergétique pour déplacer le soluté contre ce gradient.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:transport-passif"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’export d’un médicament par un transporteur ABC utilisant directement l’ATP.",
+      "Le passage de l’oxygène directement à travers la bicouche lipidique.",
+      "Le déplacement d’un soluté contre son gradient grâce à l’hydrolyse d’ATP.",
+      "L’entrée d’un soluté contre son gradient couplée au passage d’un ion suivant son propre gradient.",
+      "Le passage de l’eau par une aquaporine selon son gradient."
+    ],
+    "correctChoiceIndexes": [
+      1,
+      4
+    ],
+    "choiceExplanations": [
+      "L’utilisation directe de l’énergie de l’ATP caractérise ici un transport actif primaire.",
+      "Une petite molécule liposoluble comme l’oxygène peut diffuser directement à travers la bicouche selon son gradient.",
+      "Un déplacement contre le gradient avec consommation directe d’ATP relève d’un transport actif.",
+      "Ce couplage correspond à un transport actif secondaire.",
+      "Une aquaporine est un canal permettant un transport passif rapide de l’eau."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:transport-passif"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "MEDIUM",
+    "question": "À propos de l’organisation et de la dynamique de la membrane plasmique, quelles propositions sont exactes ?",
+    "statement": "À propos de l’organisation et de la dynamique de la membrane plasmique, quelles propositions sont exactes ?",
+    "explanation": "La membrane est une bicouche lipidique fluide et asymétrique. Sa fluidité dépend notamment de la composition en acides gras et du cholestérol, tandis que les glucides membranaires sont exposés du côté extracellulaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:structure-membrane"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les phospholipides sont amphiphiles et s’organisent spontanément de façon à soustraire leurs chaînes hydrophobes au milieu aqueux.",
+      "Des chaînes d’acides gras plus longues et plus saturées tendent à diminuer la fluidité de la bicouche.",
+      "Les glycolipides et les chaînes glucidiques des glycoprotéines sont confinés au feuillet cytosolique de la membrane plasmique.",
+      "Les deux feuillets de la membrane plasmique ont nécessairement une composition lipidique identique.",
+      "Les protéines et les lipides membranaires sont totalement immobiles dans le plan de la bicouche."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le caractère amphiphile des phospholipides favorise leur organisation en bicouche dans un environnement aqueux.",
+      "Elles renforcent les interactions hydrophobes et les forces de Van der Waals entre chaînes.",
+      "Les glucides membranaires sont exposés du côté extracellulaire et participent notamment au glycocalyx.",
+      "La membrane est asymétrique : certains phospholipides sont enrichis préférentiellement dans l’un ou l’autre feuillet.",
+      "La membrane est fluide ; de nombreux constituants diffusent latéralement dans son plan."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:structure-membrane"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "MEDIUM",
+    "question": "Combien de protofilaments comporte typiquement un microtubule cytoplasmique ? Donnez uniquement la valeur numérique.",
+    "statement": "Combien de protofilaments comporte typiquement un microtubule cytoplasmique ? Donnez uniquement la valeur numérique.",
+    "explanation": "Un microtubule cytoplasmique canonique est un cylindre creux constitué de 13 protofilaments.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:microtubules"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:microtubules"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "MEDIUM",
+    "question": "Une cellule libère un médiateur qui diffuse sur quelques micromètres et agit sur des cellules voisines. Quel mode de communication est décrit ?",
+    "statement": "Une cellule libère un médiateur qui diffuse sur quelques micromètres et agit sur des cellules voisines. Quel mode de communication est décrit ?",
+    "explanation": "La communication paracrine correspond à l’action locale d’un signal diffusible sur des cellules proches de la cellule émettrice.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:communication-cellulaire"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Communication endocrine.",
+      "Communication juxtacrine.",
+      "Communication paracrine.",
+      "Communication autocrine.",
+      "Communication synaptique chimique."
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "La communication endocrine utilise la circulation sanguine pour atteindre des cibles souvent éloignées.",
+      "La communication juxtacrine nécessite un contact physique entre cellules ou entre une cellule et la matrice extracellulaire.",
+      "Le signal agit localement sur des cellules voisines.",
+      "Dans une communication autocrine, la cellule émettrice répond elle-même au signal qu’elle produit.",
+      "La communication synaptique implique la libération ciblée d’un neurotransmetteur dans une fente synaptique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:communication-cellulaire"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux associations correctes concernant les polymères du cytosquelette.",
+    "statement": "Sélectionnez exactement les deux associations correctes concernant les polymères du cytosquelette.",
+    "explanation": "Les microtubules sont construits à partir de tubuline α/β et les microfilaments à partir d’actine. Les filaments intermédiaires forment une famille distincte de polymères fibreux.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:cytosquelette-composition"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Microtubule — hétérodimères de tubuline α/β.",
+      "Filament intermédiaire — polymère de tubuline β exclusivement.",
+      "Microtubule — polymère de myosine II.",
+      "Microfilament — actine.",
+      "Microfilament — dimères de spectrine."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      3
+    ],
+    "choiceExplanations": [
+      "Les hétérodimères α/β-tubuline s’assemblent en protofilaments puis en microtubules.",
+      "Les filaments intermédiaires sont constitués de protéines fibreuses variées telles que kératines, vimentine, neurofilaments ou lamines.",
+      "La myosine II est une protéine motrice associée à l’actine, pas le monomère constitutif des microtubules.",
+      "Les microfilaments correspondent à de l’actine F formée par polymérisation de l’actine G.",
+      "La spectrine participe notamment au cytosquelette membranaire de l’hématie ; les microfilaments sont constitués d’actine."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:cytosquelette-composition"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "MEDIUM",
+    "question": "Parmi ces dix propositions couvrant méthodes d’étude, membrane plasmique et cytosquelette, sélectionnez exactement les cinq correctes.",
+    "statement": "Parmi ces dix propositions couvrant méthodes d’étude, membrane plasmique et cytosquelette, sélectionnez exactement les cinq correctes.",
+    "explanation": "Cette synthèse mobilise les trois premiers chapitres : choix des méthodes selon l’état vivant ou fixé de la cellule, asymétrie membranaire et transport, ainsi que structure et dynamique des principaux polymères du cytosquelette.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:synthese-ch1-ch3"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une culture primaire peut être obtenue à partir de cellules dissociées d’un tissu.",
+      "L’hybridation in situ est une méthode destinée uniquement à identifier des protéines.",
+      "Les glucides de la membrane plasmique sont exposés du côté extracellulaire.",
+      "Une scramblase tend à rééquilibrer des phospholipides entre les deux feuillets.",
+      "Une diffusion facilitée déplace nécessairement un soluté contre son gradient.",
+      "La β-tubuline peut fixer et hydrolyser le GTP.",
+      "Les filaments intermédiaires possèdent une polarité structurale +/− aussi marquée que celle des microtubules.",
+      "La myosine II peut participer à une contraction en association avec l’actine.",
+      "Les microtubules cytoplasmiques sont constitués d’actine G.",
+      "Un axonème de cil mobile est constitué de neuf triplets périphériques autour d’un triplet central."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      2,
+      3,
+      5,
+      7
+    ],
+    "choiceExplanations": [
+      "Des cellules isolées d’un tissu peuvent être mises en culture pour constituer une culture primaire.",
+      "Elle met en évidence des séquences d’ADN ou d’ARN par complémentarité nucléotidique.",
+      "Ils participent au glycocalyx du feuillet exoplasmique.",
+      "Son action favorise une redistribution bidirectionnelle et tend à réduire l’asymétrie pour les phospholipides concernés.",
+      "La diffusion facilitée est un transport passif qui suit le gradient électrochimique.",
+      "Le GTP porté par la β-tubuline est hydrolysable et participe à la dynamique des microtubules.",
+      "Les filaments intermédiaires sont considérés comme non polarisés, avec deux extrémités équivalentes.",
+      "L’interaction actine–myosine II permet notamment la contraction des structures actomyosiniques.",
+      "Ils sont constitués de tubuline α/β ; l’actine G polymérise en microfilaments.",
+      "Le schéma classique d’un cil ou flagelle mobile est formé de neuf doublets périphériques autour d’une paire centrale de microtubules."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:synthese-ch1-ch3"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "question": "À propos de la culture cellulaire, quelles propositions sont exactes ?",
+    "statement": "À propos de la culture cellulaire, quelles propositions sont exactes ?",
+    "explanation": "La culture cellulaire permet de maintenir et multiplier des cellules hors de leur environnement naturel. Les cellules normales ont généralement une capacité de prolifération limitée, tandis que des lignées tumorales ou transformées peuvent devenir immortelles.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:culture-cellulaire"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une culture primaire peut provenir de cellules normales ou tumorales fraîchement isolées.",
+      "Le passage cellulaire consiste notamment à décoller puis repiquer des cellules devenues confluentes.",
+      "Des cellules normales ont généralement une durée de vie en culture illimitée sans transformation.",
+      "Une lignée tumorale ou une cellule transformée peut acquérir un potentiel de division durable.",
+      "Des cellules dissociées peuvent être cultivées en modèles 3D ou en interface air–liquide selon l’objectif expérimental."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "La notion de culture primaire décrit la mise en culture initiale de cellules isolées, quelle que soit l’origine normale ou tumorale du tissu.",
+      "Le repiquage permet de poursuivre la culture après confluence.",
+      "Les cellules normales finissent généralement par cesser de proliférer après un nombre limité de passages.",
+      "L’immortalisation permet une prolifération prolongée dans des conditions de culture adaptées.",
+      "La culture cellulaire ne se limite pas aux monocouches 2D : des modèles 3D et des interfaces air–liquide sont également utilisés."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:culture-cellulaire"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "HARD",
+    "question": "Quel centre organisateur, situé près du noyau, organise et ancre une grande partie des microtubules cytoplasmiques ?",
+    "statement": "Quel centre organisateur, situé près du noyau, organise et ancre une grande partie des microtubules cytoplasmiques ?",
+    "explanation": "Le centrosome est le principal centre organisateur des microtubules dans de nombreuses cellules animales ; les extrémités − des microtubules y sont généralement ancrées.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:centrosome"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "centrosome"
+        },
+        {
+          "value": "le centrosome"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:centrosome"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "question": "Un transporteur fait entrer un soluté contre son gradient en utilisant l’énergie libérée par l’entrée simultanée d’un ion suivant son propre gradient. Comment qualifier ce mécanisme ?",
+    "statement": "Un transporteur fait entrer un soluté contre son gradient en utilisant l’énergie libérée par l’entrée simultanée d’un ion suivant son propre gradient. Comment qualifier ce mécanisme ?",
+    "explanation": "L’énergie ne provient pas ici d’une hydrolyse directe d’ATP par le transporteur du soluté : elle provient du gradient d’un autre ion. Il s’agit donc d’un transport actif secondaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:transport-actif-secondaire"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Diffusion simple.",
+      "Transport actif secondaire.",
+      "Transport actif primaire.",
+      "Osmose pure.",
+      "Diffusion facilitée indépendante de tout gradient."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "La diffusion simple ne fait intervenir ni transporteur ni couplage énergétique.",
+      "Le gradient d’un premier soluté fournit l’énergie permettant le déplacement défavorable du second.",
+      "Le transport actif primaire utilise directement une source d’énergie, par exemple l’hydrolyse d’ATP.",
+      "L’osmose décrit un mouvement d’eau en réponse à une différence de potentiel osmotique.",
+      "Une diffusion facilitée reste passive et suit le gradient électrochimique du soluté transporté."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:transport-actif-secondaire"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "HARD",
+    "question": "Sélectionnez exactement les deux organisations microtubulaires correctement associées à leur structure.",
+    "statement": "Sélectionnez exactement les deux organisations microtubulaires correctement associées à leur structure.",
+    "explanation": "Les centrioles et corpuscules basaux comportent neuf triplets de microtubules, tandis qu’un cil ou flagelle mobile possède classiquement un axonème à neuf doublets périphériques et une paire centrale.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:microtubules-stabilises"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Cil primaire — neuf triplets périphériques autour d’une paire centrale.",
+      "Centriole — neuf triplets de microtubules.",
+      "Corpuscule basal — treize protofilaments libres non organisés en triplets.",
+      "Microtubule cytoplasmique — neuf doublets accolés.",
+      "Cil mobile — neuf doublets périphériques autour d’une paire centrale."
+    ],
+    "correctChoiceIndexes": [
+      1,
+      4
+    ],
+    "choiceExplanations": [
+      "Le cil primaire comporte classiquement neuf doublets périphériques sans paire centrale.",
+      "Un centriole est construit à partir de neuf triplets disposés en cylindre.",
+      "Le corpuscule basal possède une organisation en neuf triplets, proche de celle du centriole.",
+      "Un microtubule cytoplasmique individuel est un cylindre généralement constitué de 13 protofilaments.",
+      "C’est l’organisation axonémale classique dite 9 + 2."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:microtubules-stabilises"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "question": "Une cellule en migration forme des lamellipodes et des filopodes à son front. Quelles propositions sont exactes ?",
+    "statement": "Une cellule en migration forme des lamellipodes et des filopodes à son front. Quelles propositions sont exactes ?",
+    "explanation": "La migration cellulaire mobilise fortement l’actine : polymérisation au front, organisation en faisceaux ou réseaux, puis contraction et recyclage dans les régions plus postérieures.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:actine-migration"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La polymérisation de l’actine à l’avant de la cellule contribue à pousser la membrane plasmique.",
+      "Les lamellipodes comportent notamment des réseaux d’actine associés à la filamine.",
+      "La myosine II peut participer aux structures contractiles responsables de la rétraction.",
+      "Les filaments d’actine sont dépourvus de polarité structurale.",
+      "La migration cellulaire repose exclusivement sur des filaments intermédiaires immobiles."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "L’allongement des filaments d’actine participe à la protrusion du bord d’attaque.",
+      "La filamine organise des réseaux d’actine participant à l’architecture des lamellipodes.",
+      "Les interactions actine–myosine II génèrent des forces contractiles.",
+      "Les microfilaments possèdent des extrémités + et − distinctes.",
+      "Elle dépend fortement de la dynamique de l’actine, en coordination avec les adhérences et d’autres éléments du cytosquelette."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:actine-migration"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "EASY",
+    "question": "Quel moteur moléculaire se déplace classiquement vers l’extrémité − des microtubules cytoplasmiques ?",
+    "statement": "Quel moteur moléculaire se déplace classiquement vers l’extrémité − des microtubules cytoplasmiques ?",
+    "explanation": "La dynéine cytoplasmique assure classiquement un transport rétrograde vers l’extrémité − des microtubules.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:moteurs-microtubules"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "dynéine"
+        },
+        {
+          "value": "dyneine"
+        },
+        {
+          "value": "dynéine cytoplasmique"
+        },
+        {
+          "value": "dyneine cytoplasmique"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:moteurs-microtubules"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "EASY",
+    "question": "Quelle protéine appartient aux filaments intermédiaires nucléaires ?",
+    "statement": "Quelle protéine appartient aux filaments intermédiaires nucléaires ?",
+    "explanation": "Les lamines forment le réseau de filaments intermédiaires associé à la face interne de l’enveloppe nucléaire. Elles ne doivent pas être confondues avec la laminine, glycoprotéine de la matrice extracellulaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:filaments-intermediaires"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "La laminine.",
+      "La tubuline β.",
+      "La myosine I.",
+      "La lamine.",
+      "La fibronectine."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "La laminine est une glycoprotéine de la matrice extracellulaire, notamment des lames basales.",
+      "La tubuline β entre dans la constitution des microtubules.",
+      "La myosine I est une protéine motrice associée à l’actine.",
+      "Les lamines sont les protéines de filaments intermédiaires formant la lamina nucléaire.",
+      "La fibronectine est une glycoprotéine de la matrice extracellulaire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:filaments-intermediaires"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "HARD",
+    "question": "En vous appuyant sur l’organisation de cet entérocyte polarisé, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur l’organisation de cet entérocyte polarisé, quelles propositions sont exactes ?",
+    "explanation": "L’entérocyte illustre la polarité d’une cellule épithéliale. Les microvillosités apicales sont soutenues par des faisceaux d’actine, tandis que les jonctions serrées participent au maintien de domaines membranaires distincts. Les intégrines sont surtout des récepteurs d’adhérence cellule–matrice ; le glycocalyx est exposé du côté extracellulaire. Enfin, les lamines sont des filaments intermédiaires nucléaires, à distinguer de la laminine de la matrice extracellulaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:architecture-epitheliale"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les microvillosités apicales sont soutenues par des faisceaux de filaments d’actine.",
+      "Les jonctions serrées contribuent à maintenir la distinction entre domaines apical et basolatéral.",
+      "Les intégrines assurent exclusivement des liaisons homophiles entre deux cellules épithéliales voisines.",
+      "Le glycocalyx est porté exclusivement par la face cytosolique de la membrane plasmique.",
+      "La laminine est un filament intermédiaire nucléaire qui remplace les lamines dans les cellules épithéliales."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Vrai. Le cœur cytosquelettique des microvillosités est constitué de faisceaux parallèles de filaments d’actine.",
+      "Vrai. Les jonctions serrées participent à la séparation fonctionnelle des domaines apical et basolatéral.",
+      "Faux. Les intégrines assurent principalement des interactions cellule–matrice et ne sont pas définies comme des molécules d’adhérence homophile entre deux cellules voisines.",
+      "Faux. Les glucides membranaires et le glycocalyx sont exposés du côté extracellulaire.",
+      "Faux. Les lamines constituent la lamina nucléaire ; la laminine est une protéine de matrice extracellulaire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:architecture-epitheliale"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "HARD",
+    "question": "Cet entérocyte absorbe du glucose depuis la lumière intestinale puis le libère vers le sang. Quelles propositions décrivent correctement les principes de transport impliqués ?",
+    "statement": "Cet entérocyte absorbe du glucose depuis la lumière intestinale puis le libère vers le sang. Quelles propositions décrivent correctement les principes de transport impliqués ?",
+    "explanation": "L’absorption intestinale du glucose repose sur la polarité de l’entérocyte. À l’apex, le cotransport sodium–glucose est un transport actif secondaire : il exploite le gradient électrochimique du sodium sans hydrolyser lui-même l’ATP. Ce gradient est entretenu notamment par la Na⁺/K⁺-ATPase basolatérale. Le glucose peut ensuite quitter la cellule au pôle basolatéral par diffusion facilitée. La répartition asymétrique des transporteurs rend l’ensemble du transport vectoriel.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:transport-glucose"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’entrée apicale du glucose couplée à celle du sodium peut utiliser l’énergie stockée dans le gradient de sodium.",
+      "La Na⁺/K⁺-ATPase contribue indirectement à l’absorption apicale du glucose en maintenant le gradient de sodium.",
+      "La sortie basolatérale du glucose peut relever d’un transport facilité suivant son gradient.",
+      "Le symport sodium–glucose hydrolyse obligatoirement lui-même une molécule d’ATP pour chaque glucose transporté.",
+      "Le caractère vectoriel de l’absorption dépend notamment d’une distribution différente des transporteurs entre domaines apical et basolatéral."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "choiceExplanations": [
+      "Vrai. Le gradient de sodium fournit l’énergie au cotransport apical.",
+      "Vrai. La Na⁺/K⁺-ATPase entretient le gradient de sodium indispensable au transport actif secondaire.",
+      "Vrai. La sortie basolatérale du glucose peut s’effectuer par diffusion facilitée.",
+      "Faux. Le cotransporteur sodium–glucose utilise indirectement l’énergie de l’ATP via le gradient de sodium ; il n’est pas lui-même une ATPase.",
+      "Vrai. La polarisation des transporteurs entre les deux domaines membranaires permet un flux orienté de la lumière intestinale vers le milieu intérieur."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:transport-glucose"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "question": "Sur l’agrandissement d’une microvillosité apicale, sélectionnez le faisceau de filaments d’actine qui en constitue l’axe cytosquelettique.",
+    "statement": "Sur l’agrandissement d’une microvillosité apicale, sélectionnez le faisceau de filaments d’actine qui en constitue l’axe cytosquelettique.",
+    "explanation": "Les microvillosités des cellules épithéliales digestives sont soutenues par des faisceaux parallèles de microfilaments d’actine. Ces faisceaux maintiennent l’architecture des microvillosités et se prolongent vers le réseau d’actine sous-apical.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:qzone-actine-microvillosited"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c03/enterocyte-linked-q17-q19.svg",
+        "alt": "Schéma d’un entérocyte polarisé avec microvillosités apicales, membranes apicale et basolatérale, jonction apico-latérale et agrandissement d’une microvillosité.",
+        "width": 1200,
+        "height": 700
+      },
+      "expectedZones": [
+        {
+          "id": "target-actin-bundle",
+          "label": "Faisceau de filaments d’actine",
+          "x": 0.7708,
+          "y": 0.5143,
+          "tolerance": 0.05
+        }
+      ],
+      "defaultTolerance": 0.05,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:qzone-actine-microvillosited"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "question": "Comparez microtubules, microfilaments d’actine et filaments intermédiaires. Quelles propositions sont exactes ?",
+    "statement": "Comparez microtubules, microfilaments d’actine et filaments intermédiaires. Quelles propositions sont exactes ?",
+    "explanation": "Les trois réseaux diffèrent par leur composition, leur polarité et leurs fonctions. Microtubules et actine sont très dynamiques et polarisés, tandis que les filaments intermédiaires sont plus stables et assurent surtout une résistance mécanique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C03",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:comparaison-cytosquelette"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les microtubules participent au transport intracellulaire en servant de rails à des moteurs comme les kinésines et les dynéines.",
+      "Les microfilaments d’actine peuvent participer à la contraction avec la myosine II.",
+      "Les filaments intermédiaires contribuent à la résistance mécanique des cellules et des tissus.",
+      "Les filaments intermédiaires sont des polymères très polarisés dont l’extrémité + sert de piste à la dynéine.",
+      "Kinésines et dynéines utilisent les filaments intermédiaires comme rails principaux de transport intracellulaire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Des vésicules et organites peuvent être transportés le long des microtubules par des protéines motrices.",
+      "L’interaction actine–myosine II est à la base de nombreuses structures contractiles.",
+      "Ils résistent particulièrement bien aux forces d’étirement et de déformation.",
+      "Les filaments intermédiaires sont non polarisés et la dynéine est un moteur associé aux microtubules.",
+      "Ces moteurs se déplacent principalement le long des microtubules ; les filaments intermédiaires assurent surtout des fonctions de résistance et d’architecture."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C03",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:comparaison-cytosquelette"
+      ]
+    }
+  }
+]
