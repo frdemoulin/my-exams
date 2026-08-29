@@ -213,17 +213,9 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "theme:alcool-tertiaire"
     ],
     "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "3"
-      ],
-      "normalization": {
-        "trim": true,
-        "collapseWhitespace": true,
-        "caseSensitive": false,
-        "ignoreAccents": true,
-        "normalizeUnicode": true
-      }
+      "type": "number",
+      "value": 3,
+      "tolerance": 0
     }
   },
   {
@@ -431,25 +423,17 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "theme:structure-ester"
     ],
     "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "2"
-      ],
-      "normalization": {
-        "trim": true,
-        "collapseWhitespace": true,
-        "caseSensitive": false,
-        "ignoreAccents": true,
-        "normalizeUnicode": true
-      }
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
     }
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Un composé R–CHO est traité par NaBH4 puis hydrolysé. Quel produit fonctionnel est attendu ?",
-    "explanation": "NaBH4 apporte un hydrure nucléophile au carbone carbonylé. Pour un aldéhyde R–CHO, la réduction conduit à R–CH2OH, donc à un alcool primaire.",
+    "question": "Quelle fonction caractérise le produit X obtenu après réduction de l’aldéhyde A par NaBH4 puis hydrolyse ?",
+    "explanation": "NaBH4 apporte un hydrure nucléophile sur le carbone carbonylé de l’aldéhyde. Après protonation, la fonction aldéhyde est transformée en alcool primaire. Le propanal A conduit ainsi au propan-1-ol.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -489,8 +473,8 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 13,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Sélectionnez exactement les deux transformations correctement associées à un organomagnésien RMgX.",
-    "explanation": "Le carbone lié au magnésium se comporte comme un nucléophile. Après addition sur un carbonyle puis hydrolyse, une cétone donne un alcool tertiaire ; la réaction avec CO2 forme, après hydrolyse, un acide carboxylique comportant un carbone de plus que le groupe R initial.",
+    "question": "À partir des transformations B et C, sélectionnez exactement les deux affirmations correctes.",
+    "explanation": "Dans B, le carbone porté par l’organomagnésien attaque le carbone électrophile de la cétone ; après hydrolyse, le carbone portant le groupe hydroxyle est lié à trois substituants carbonés et l’on obtient un alcool tertiaire. Dans C, le carbone du CO2 est incorporé au squelette et devient celui du groupe carboxyle : le produit acide possède donc un carbone de plus que le fragment carboné initial de l’organomagnésien.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -501,29 +485,29 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "choices": [
       {
-        "content": "RMgX + cétone, puis hydrolyse → alcool tertiaire.",
+        "content": "Après hydrolyse, la transformation B conduit à un alcool tertiaire.",
         "correct": true,
         "explanation": "Le carbone nucléophile R s’ajoute au carbone carbonylé déjà lié à deux groupes carbonés."
       },
       {
-        "content": "RMgX + CO2, puis hydrolyse → acide carboxylique comportant un carbone de plus.",
+        "content": "Le carbone du CO2 utilisé dans la transformation C devient le carbone de la fonction carboxylique du produit Z.",
         "correct": true,
         "explanation": "Le carbone du CO2 devient le carbone carboxylique du produit."
       },
       {
-        "content": "RMgX + aldéhyde → amide sans étape d’hydrolyse.",
+        "content": "La transformation B convertit directement la cétone en amide.",
         "correct": false,
-        "explanation": "L’addition sur un aldéhyde conduit après hydrolyse à un alcool, pas à une amide."
+        "explanation": "L’addition sur une cétone conduit après hydrolyse à un alcool tertiaire, pas à une amide."
       },
       {
-        "content": "RMgX est exclusivement un électrophile au niveau du carbone R.",
+        "content": "Dans les transformations B et C, le carbone lié au magnésium se comporte exclusivement comme un centre électrophile.",
         "correct": false,
         "explanation": "Le carbone lié au magnésium possède au contraire un fort caractère nucléophile."
       },
       {
-        "content": "RMgX + ester ne peut jamais former de liaison C–C.",
+        "content": "La transformation C raccourcit d’un carbone le groupe carboné porté initialement par l’organomagnésien.",
         "correct": false,
-        "explanation": "L’addition d’un organomagnésien sur un ester crée des liaisons C–C et conduit classiquement à un alcool tertiaire après double addition."
+        "explanation": "Elle ajoute au contraire le carbone du CO2 au squelette du groupe R."
       }
     ]
   },
@@ -531,8 +515,8 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "À propos des aldéhydes et des cétones, quelles propositions sont exactes ?",
-    "explanation": "Le carbone carbonylé est électrophile. Les aldéhydes s’oxydent facilement en acides carboxyliques, tandis que les cétones simples sont beaucoup plus résistantes à l’oxydation ; les nucléophiles tels que les organomagnésiens s’additionnent sur C=O.",
+    "question": "En vous appuyant sur les substrats carbonylés A et B et sur leur réactivité, quelles propositions sont exactes ?",
+    "explanation": "La polarisation de la liaison C=O rend le carbone carbonylé électrophile. Les nucléophiles, notamment le fragment carboné d’un organomagnésien, peuvent donc l’attaquer. Les aldéhydes s’oxydent classiquement en acides carboxyliques, alors que les cétones simples sont plus résistantes à l’oxydation. La réduction d’une cétone conduit classiquement à un alcool secondaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -557,7 +541,7 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Le carbone du RMgX apporte un équivalent carbanionique au centre électrophile du carbonyle."
       },
       {
-        "content": "Une cétone simple est plus facilement oxydée en acide carboxylique qu’un aldéhyde.",
+        "content": "Une cétone simple est plus facilement oxydée en acide carboxylique qu’un aldéhyde dans les conditions usuelles étudiées.",
         "correct": false,
         "explanation": "L’ordre est inverse dans les conditions usuelles : l’aldéhyde s’oxyde facilement, la cétone résiste davantage."
       },
@@ -908,8 +892,8 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 24,
     "difficulty": "HARD",
     "format": "QZONE",
-    "question": "Sélectionnez le carbone carbonylé de la fonction ester.",
-    "explanation": "Dans un ester R–C(=O)–O–R', la cible est le carbone du groupe C=O, centre électrophile attaqué lors de nombreuses substitutions nucléophiles acyles.",
+    "question": "Sur la molécule A, sélectionnez le carbone carbonylé de la fonction ester.",
+    "explanation": "Dans un ester, la liaison C=O est polarisée : l’oxygène attire davantage la densité électronique et le carbone carbonylé devient un centre électrophile. C’est ce carbone qui peut être attaqué par un nucléophile lors d’une substitution nucléophile acyle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -918,28 +902,28 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "theme:qzone-ester-carbonyle"
     ],
     "image": {
-      "src": "/images/training/ue14/colles/c07/ester-carbonyl-carbon-qzone.svg",
-      "alt": "Fonction ester schématique",
-      "width": 960,
-      "height": 560
+      "src": "/images/training/ue14/colles/c07/acyl-derivatives-linked-q24-q25.svg",
+      "alt": "Quatre structures organiques A à D montrant respectivement un ester, une amide, un chlorure d’acyle et un ion carboxylate sans nommer les fonctions.",
+      "width": 1200,
+      "height": 700
     },
     "expectedZones": [
       {
-        "id": "target",
-        "label": "Carbone carbonylé",
-        "x": 0.44,
-        "y": 0.52,
-        "tolerance": 0.07
+        "id": "target-ester-carbonyl-carbon",
+        "label": "Carbone carbonylé de la fonction ester",
+        "x": 0.225,
+        "y": 0.2857,
+        "tolerance": 0.04
       }
     ],
-    "defaultTolerance": 0.07
+    "defaultTolerance": 0.04
   },
   {
     "order": 25,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une molécule possède successivement une fonction ester, une fonction amide et un acide carboxylique dans différents dérivés. Quelles propositions permettent de prévoir correctement leur réactivité ?",
-    "explanation": "La réactivité dépend de la stabilisation électronique et de la qualité du groupe partant. L’amide est fortement stabilisée par résonance ; l’ester reste hydrolysable ; le carboxylate est stabilisé par délocalisation de charge ; un dérivé activé comme un chlorure d’acyle est plus électrophile.",
+    "question": "En vous appuyant sur les structures A à D, quelles propositions permettent de prévoir correctement leur réactivité ?",
+    "explanation": "Les quatre structures illustrent des comportements différents du motif acyle. Dans une amide, le doublet de l’azote est délocalisé vers le carbonyle, ce qui stabilise la fonction et réduit la disponibilité du doublet. Dans un ester, le carbone carbonylé reste un centre électrophile susceptible d’une substitution nucléophile acyle. Le carboxylate est stabilisé par délocalisation de la charge sur les deux oxygènes. Le chlorure d’acyle est un dérivé activé particulièrement réactif vis-à-vis des nucléophiles.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -949,27 +933,27 @@ export const UE14_COLLE_C07_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Le doublet de l’azote d’une amide est délocalisé vers le carbonyle.",
+        "content": "Dans la molécule B, le doublet non liant de l’azote est délocalisé vers le carbonyle, ce qui diminue sa disponibilité par rapport à celui d’une amine simple.",
         "correct": true,
         "explanation": "Cette conjugaison explique le caractère partiel de double liaison C–N et la moindre basicité de l’azote."
       },
       {
-        "content": "Un ester peut subir une substitution nucléophile acyle au niveau de son carbone carbonylé.",
+        "content": "La molécule A peut subir une substitution nucléophile acyle au niveau de son carbone carbonylé.",
         "correct": true,
         "explanation": "Le nucléophile attaque le centre électrophile C=O et le groupe alkoxy peut être remplacé selon les conditions."
       },
       {
-        "content": "Le carboxylate est stabilisé par résonance entre ses deux oxygènes.",
+        "content": "Dans la molécule D, la charge négative est stabilisée par délocalisation entre les deux oxygènes.",
         "correct": true,
         "explanation": "La charge négative est répartie entre deux formes mésomères équivalentes ou proches."
       },
       {
-        "content": "Un chlorure d’acyle est un dérivé d’acide activé particulièrement électrophile.",
+        "content": "La molécule C est un dérivé d’acide activé : son carbone carbonylé est fortement électrophile et l’ion chlorure peut jouer le rôle de groupe partant.",
         "correct": true,
         "explanation": "Le groupe chlorure est bon partant et renforce la réactivité du carbone acyle."
       },
       {
-        "content": "Une amide et une amine ont la même réactivité parce que leur azote porte toujours un doublet également disponible.",
+        "content": "Les molécules B et une amine simple présentent nécessairement la même nucléophilie puisque le doublet de l’azote y est toujours également disponible.",
         "correct": false,
         "explanation": "Dans l’amide, le doublet est conjugué au carbonyle et donc beaucoup moins disponible."
       }
