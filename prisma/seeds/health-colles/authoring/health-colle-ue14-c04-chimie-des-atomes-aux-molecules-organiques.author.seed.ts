@@ -640,7 +640,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   },
   {
     "order": 17,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRM",
     "question": "À propos des formules, des valences usuelles et des fonctions organiques, quelles propositions sont exactes ?",
     "explanation": "La formule brute ne fixe pas l’enchaînement des atomes. Dans les représentations usuelles, le carbone est tétravalent et l’oxygène divalent. Un ammonium quaternaire se distingue d’une amine neutre par un azote tétrasubstitué chargé positivement.",
@@ -824,7 +824,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   },
   {
     "order": 22,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
     "question": "La molécule C comporte une double liaison carbone–carbone. Quelles propositions concernant sa structure et sa réactivité sont exactes ?",
     "explanation": "Une double liaison C=C associe une liaison σ et une liaison π. La composante π empêche la libre rotation sans rupture du recouvrement latéral. Les alcènes peuvent subir des réactions d’addition, notamment l’hydrogénation catalytique et des additions électrophiles. Un monoalcène acyclique a pour formule générale \\ce{C_nH_{2n}}.",

@@ -781,7 +781,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   },
   {
     "order": 22,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
     "question": "Le cholestérol occupe plusieurs fonctions dans l’organisme. Quelles propositions sont exactes ?",
     "explanation": "Le cholestérol est à la fois un constituant membranaire et un précurseur de molécules dérivées, notamment hormones stéroïdiennes et acides biliaires. Son esterification sert notamment au stockage et au transport sous une forme plus hydrophobe.",
@@ -893,7 +893,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   },
   {
     "order": 25,
-    "difficulty": "MEDIUM",
+    "difficulty": "HARD",
     "format": "QRPL",
     "question": "Pour cette synthèse sur les lipides, sélectionnez exactement les cinq propositions correctes.",
     "explanation": "Cette question croise nomenclature des acides gras, eicosanoïdes, phospholipides, sphingolipides et stérols. Les cinq propositions exactes reposent sur des critères structuraux ou enzymatiques distincts.",
