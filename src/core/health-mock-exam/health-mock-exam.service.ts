@@ -170,6 +170,7 @@ async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
             select: {
               id: true,
               sharedStatement: true,
+              sharedMedia: true,
               order: true,
             },
           },
@@ -670,6 +671,7 @@ export async function fetchHealthMockExamTakingState(input: {
                   id: true,
                   title: true,
                   sharedStatement: true,
+                  sharedMedia: true,
                   order: true,
                 },
               },
@@ -734,6 +736,7 @@ export async function fetchHealthMockExamTakingState(input: {
                 id: attemptQuestion.question.group.id,
                 title: attemptQuestion.question.group.title ?? null,
                 sharedStatement: attemptQuestion.question.group.sharedStatement,
+                sharedMedia: (attemptQuestion.question.group.sharedMedia as any) ?? null,
                 order: attemptQuestion.question.group.order,
               }
             : null,
@@ -799,6 +802,7 @@ export async function fetchHealthMockExamResults(input: {
                   id: true,
                   title: true,
                   sharedStatement: true,
+                  sharedMedia: true,
                   order: true,
                 },
               },

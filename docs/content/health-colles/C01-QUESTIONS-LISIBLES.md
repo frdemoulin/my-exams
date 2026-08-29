@@ -213,7 +213,7 @@ Quelle proposition distingue correctement l’électronégativité de l’affini
 
 Sur cette classification périodique simplifiée, sélectionnez la case du fluor, élément le plus électronégatif.
 
-**Image :** `/images/training/ue14/colles/c01/periodic-table-fluor-qzone.svg` — cible : Fluor (F)
+**Image :** `/images/training/ue14/colles/c01/periodic-table-linked-q17-q19.svg` — cible : Fluor (F)
 
 **Explication :** Le fluor se situe en période 2, groupe 17, juste à gauche du néon.
 

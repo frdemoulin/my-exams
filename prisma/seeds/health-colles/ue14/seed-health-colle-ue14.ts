@@ -48,8 +48,13 @@ export async function seedHealthColleUE14(prisma: PrismaClient, input: ColleInpu
 
   const existing = await prisma.healthMockExam.findFirst({ where: { courseUnitId: courseUnit.id, slug: input.code.toLowerCase() } });
   if (existing) {
-    await prisma.userHealthMockExamAttempt.deleteMany({ where: { mockExamId: existing.id } });
-    await prisma.healthMockExam.delete({ where: { id: existing.id } });
+    const attemptCount = await prisma.userHealthMockExamAttempt.count({ where: { mockExamId: existing.id } });
+    if (attemptCount === 0) {
+      await prisma.healthMockExam.delete({ where: { id: existing.id } });
+    } else {
+      console.warn(`[SEED ${input.code}] ${attemptCount} tentative(s) conservée(s).`);
+      await prisma.healthMockExamSection.deleteMany({ where: { mockExamId: existing.id } });
+    }
   }
 
   let globalOrder = 0;

@@ -10,10 +10,19 @@ import type {
   TrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
 
+export type HealthMockExamQuestionGroupMedia = {
+  type: string;
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+};
+
 export type HealthMockExamQuestionGroup = {
   id: string;
   title: string | null;
   sharedStatement: string;
+  sharedMedia?: HealthMockExamQuestionGroupMedia | null;
   order: number;
 };
 

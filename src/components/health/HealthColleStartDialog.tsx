@@ -38,13 +38,14 @@ export function HealthColleStartDialog({
   async function handleStart() {
     if (!colle || !isExecutable || isStarting) return;
     setIsStarting(true);
+    const colleSlug = (colle.id || colle.code).toLowerCase();
     try {
-      const res = await fetch(`/api/health/mock-exams/${courseUnitSlug}/${colle.id}/attempt`, {
+      const res = await fetch(`/api/health/mock-exams/${courseUnitSlug}/${colleSlug}/attempt`, {
         method: 'POST',
       });
       if (res.ok) {
         onOpenChange(false);
-        router.push(`/sante/ue/${courseUnitSlug}/colles/${colle.id}`);
+        router.push(`/sante/ue/${courseUnitSlug}/colles/${colleSlug}`);
       } else {
         const data = await res.json();
         alert(data.message || 'Erreur lors du démarrage de la colle.');

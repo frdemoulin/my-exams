@@ -39,12 +39,12 @@ export const UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID = {
   "c01-q15": ["6a8a0d9ad6a47c332b5a3bb4"],
   // C01 Q16 — Interactions intermoléculaires
   "c01-q16": ["6a8a106631d779778c65337e"],
-  // C01 Q17 — Synthèse des orbitales moléculaires + Organisation électronique et classification périodique
-  "c01-q17": ["6a8a0d9bd6a47c332b5a3bb8", "6a7b8ca63d6fc9b257c55aa3"],
+  // C01 Q17 — Organisation électronique et classification périodique + Évolution périodique de l'électronégativité
+  "c01-q17": ["6a7b8ca63d6fc9b257c55aa3", "6a7b93dd1dff71cd982c43be"],
   // C01 Q18 — Définition de l'électronégativité
   "c01-q18": ["6a7b93dd1dff71cd982c43bd"],
-  // C01 Q19 — Électronégativité du fluor
-  "c01-q19": ["6a7b93dd1dff71cd982c43c0"],
+  // C01 Q19 — Évolution périodique de l'électronégativité
+  "c01-q19": ["6a7b93dd1dff71cd982c43be"],
   // C01 Q20 — Polarité et moment dipolaire + Interactions intermoléculaires
   "c01-q20": ["6a8a106631d779778c65337d", "6a8a106631d779778c65337e"],
   // C02 Q01 — Cyclisation et anomères : repères + Isomérie, énantiomérie et épimérie : repères

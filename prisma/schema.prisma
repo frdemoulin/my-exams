@@ -1058,6 +1058,7 @@ model HealthMockExamQuestionGroup {
   examSectionId   String  @db.ObjectId
   title           String?
   sharedStatement String  @db.String
+  sharedMedia     Json?
   order           Int
 
   examSection HealthMockExamSection   @relation(fields: [examSectionId], references: [id], onDelete: Cascade)

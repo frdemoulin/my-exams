@@ -71,11 +71,17 @@ test.describe("smoke", () => {
   test("Page publique / se rend", async ({ page }) => {
     const response = await page.goto("/");
     expect(response?.ok()).toBeTruthy();
-    await expect(page.getByPlaceholder(/Ex :/)).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: /Des entraînements ciblés/i })).toBeVisible();
 
     // Scan a11y rapide
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
+  });
+
+  test("Page publique /annales se rend avec le moteur de recherche", async ({ page }) => {
+    const response = await page.goto("/annales");
+    expect(response?.ok()).toBeTruthy();
+    await expect(page.getByPlaceholder(/Ex :/)).toBeVisible();
   });
 
   test("Page publique /sante se rend", async ({ page }) => {

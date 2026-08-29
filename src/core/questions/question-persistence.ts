@@ -101,6 +101,8 @@ export function normalizePersistedQuestionFormat(value: unknown): QuestionFormat
       questionType: value.questionType,
       answerFormat: value.answerFormat,
       requiredSelectionCount: value.requiredSelectionCount,
+      choices: value.choices,
+      choicesCount: value.choicesCount,
       answerPayload: value.answerPayload,
     });
   }

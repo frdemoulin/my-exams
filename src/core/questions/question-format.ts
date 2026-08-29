@@ -305,15 +305,26 @@ export function isUnessQuestionFormat(format: QuestionFormatCode) {
 export function inferChoiceQuestionFormat(input: {
   answerFormat?: unknown;
   requiredSelectionCount?: unknown;
+  choices?: unknown;
+  choicesCount?: unknown;
   answerPayload?: unknown;
-}): Extract<QuestionFormatCode, "QRU" | "QRM" | "QRP"> {
+}): Extract<QuestionFormatCode, "QRU" | "QRM" | "QRP" | "QRPL"> {
   const answerPayload = isRecord(input.answerPayload) ? input.answerPayload : {};
   const requiredSelectionCount =
     getOptionalNumber(input.requiredSelectionCount) ??
     getOptionalNumber(answerPayload.requiredSelectionCount);
 
+  const choicesCount =
+    typeof input.choicesCount === "number"
+      ? input.choicesCount
+      : Array.isArray(input.choices)
+        ? input.choices.length
+        : Array.isArray(answerPayload.choices)
+          ? answerPayload.choices.length
+          : undefined;
+
   if (requiredSelectionCount !== undefined && requiredSelectionCount > 0) {
-    return "QRP";
+    return choicesCount !== undefined && choicesCount > 5 ? "QRPL" : "QRP";
   }
 
   return typeof input.answerFormat === "string" &&
@@ -328,6 +339,8 @@ export function resolvePersistedQuestionFormat(input: {
   questionType?: unknown;
   answerFormat?: unknown;
   requiredSelectionCount?: unknown;
+  choices?: unknown;
+  choicesCount?: unknown;
   answerPayload?: unknown;
 }): QuestionFormatCode {
   const explicitFormat =

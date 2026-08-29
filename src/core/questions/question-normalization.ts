@@ -152,6 +152,7 @@ export function normalizeLegacyMcqQuestion(
     format: input.format ?? inferChoiceQuestionFormat({
       answerFormat: input.answerFormat,
       requiredSelectionCount,
+      choicesCount: choices.length,
     }),
     statement: input.statement ?? input.question ?? "",
     explanation: input.explanation ?? undefined,

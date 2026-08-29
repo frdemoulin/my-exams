@@ -313,6 +313,33 @@ export function HealthMockExamCorrectionView({
           </div>
 
           <CardContent className="space-y-6 p-4 sm:p-6">
+            {/* Shared group context if present */}
+            {activeQuestion.group ? (
+              <div className="rounded-xl border border-brand/15 bg-brand-soft/10 p-4 text-sm text-heading space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {activeQuestion.group.title ?? "Énoncé commun"}
+                </p>
+                <div className="leading-6">
+                  <MathContent value={activeQuestion.group.sharedStatement} blockMathVariant="compact" />
+                </div>
+                {activeQuestion.group.sharedMedia &&
+                !(
+                  activeQuestion.questionType === "hotspot" &&
+                  activeQuestion.group.sharedMedia.src ===
+                    (activeQuestion.canonicalQuestion as HotspotQuestion).image?.src
+                ) ? (
+                  <div className="overflow-hidden rounded-lg border border-border bg-background/50 p-2 flex justify-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={activeQuestion.group.sharedMedia.src}
+                      alt={activeQuestion.group.sharedMedia.alt ?? "Donnée commune"}
+                      className="max-h-[300px] w-auto object-contain rounded-md"
+                    />
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+
             {/* Statement */}
             <div className="text-sm sm:text-base font-medium leading-relaxed text-heading">
               <TrainingQuestionContentView

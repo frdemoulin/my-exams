@@ -3,8 +3,8 @@
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "On compare les atomes neutres $\\ce{^{35}_{17}Cl}$ et $\\ce{^{37}_{17}Cl}$. Quelles propositions sont exactes ?",
-    "explanation": "Ces deux atomes ont le même numéro atomique $Z=17$ : ils appartiennent au même élément chimique et possèdent le même nombre de protons. Comme ils sont neutres, ils possèdent aussi chacun 17 électrons. Leur nombre de neutrons et leur masse diffèrent.",
+    "question": "À propos de ces deux atomes, quelles propositions sont exactes ?",
+    "explanation": "Les deux atomes ont le même numéro atomique $Z=17$ : ils appartiennent donc au même élément chimique et possèdent chacun 17 protons. Comme ils sont neutres, ils possèdent également chacun 17 électrons. Leur nombre de neutrons diffère puisque leur nombre de masse $A$ est différent : ce sont deux isotopes du chlore.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -603,8 +603,8 @@
     "order": 17,
     "difficulty": "HARD",
     "format": "QRPL",
-    "question": "Parmi les dix associations suivantes, sélectionnez exactement les cinq correctes.",
-    "explanation": "Cette question croise classification périodique, hybridation, liaisons multiples, géométrie et forces intermoléculaires.",
+    "question": "En vous appuyant sur la classification périodique proposée et sur les propriétés périodiques étudiées, sélectionnez exactement les cinq propositions correctes.",
+    "explanation": "La position dans le tableau permet de relier famille chimique, configuration électronique externe et propriétés périodiques. Na et K sont des alcalins de configuration externe $ns^1$ et forment couramment des cations $+1$. C et Si appartiennent au groupe 14, tandis que Cl et Br sont des halogènes de configuration externe $ns^2np^5$. Dans une même famille, l'électronégativité augmente globalement vers le haut : O est donc plus électronégatif que S, et Cl plus électronégatif que Br.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -612,61 +612,59 @@
       "ec:CHIMIE",
       "chapter:1.1",
       "chapter:1.2",
-      "chapter:1.3",
-      "chapter:1.4",
-      "theme:integration"
+      "theme:periodic-trends"
     ],
     "requiredSelectionCount": 5,
     "choices": [
       {
-        "content": "Une configuration externe $[\\ce{Ne}]3s^1$ correspond à un élément alcalin de la 3e période.",
+        "content": "$\\ce{Na}$ et $\\ce{K}$ appartiennent à la même famille chimique et leur configuration électronique externe est de type $ns^1$.",
         "correct": true,
-        "explanation": "Il s’agit du sodium, groupe 1."
+        "explanation": "Vrai. Na et K sont dans le groupe 1 ; leur couche externe est de type $ns^1$."
       },
       {
-        "content": "Un élément du groupe 17 possède typiquement sept électrons de valence dans le bloc p.",
+        "content": "$\\ce{C}$ et $\\ce{Si}$ appartiennent à la même famille chimique et possèdent chacun quatre électrons de valence dans leur état fondamental.",
         "correct": true,
-        "explanation": "La configuration externe typique est $ns^2np^5$."
+        "explanation": "Vrai. C et Si appartiennent au groupe 14 et possèdent quatre électrons de valence."
       },
       {
-        "content": "Une hybridation $sp$ conduit à une géométrie trigonale plane à 120°.",
-        "correct": false,
-        "explanation": "$sp$ correspond à une disposition linéaire à 180° ; 120° correspond à $sp^2$."
-      },
-      {
-        "content": "Un carbone $sp^2$ conserve une orbitale p non hybridée pouvant participer à une liaison $\\pi$.",
+        "content": "$\\ce{Cl}$ et $\\ce{Br}$ appartiennent à la famille des halogènes et leur configuration électronique externe est de type $ns^2np^5$.",
         "correct": true,
-        "explanation": "Les trois orbitales $sp^2$ sont coplanaires et l’orbitale p restante est perpendiculaire au plan."
+        "explanation": "Vrai. Les halogènes appartiennent au groupe 17 et présentent une configuration externe générale $ns^2np^5$."
       },
       {
-        "content": "Une triple liaison C≡C comprend une liaison $\\sigma$ et deux liaisons $\\pi$.",
+        "content": "L'oxygène est plus électronégatif que le soufre.",
         "correct": true,
-        "explanation": "C’est la composition d’une triple liaison."
+        "explanation": "Vrai. O et S appartiennent à la même famille ; l'électronégativité augmente globalement lorsqu'on remonte dans une colonne."
       },
       {
-        "content": "$\\ce{BCl3}$ est polaire puisque chacune de ses liaisons B–Cl est polarisée.",
-        "correct": false,
-        "explanation": "La symétrie trigonale plane annule les trois moments de liaison."
-      },
-      {
-        "content": "$\\ce{CO2}$ est linéaire et globalement apolaire malgré deux liaisons C=O polarisées.",
+        "content": "Le sodium et le potassium tendent à former des cations monoatomiques de charge $+1$.",
         "correct": true,
-        "explanation": "Les deux moments C=O sont opposés et s’annulent."
+        "explanation": "Vrai. Les alcalins perdent facilement leur électron externe et donnent couramment des cations $+1$."
       },
       {
-        "content": "L’acétone est un donneur classique de liaison hydrogène grâce à son oxygène carbonylé.",
+        "content": "Le calcium appartient au bloc $p$.",
         "correct": false,
-        "explanation": "L’oxygène est accepteur ; l’acétone ne porte pas d’hydrogène donneur sur O/N/F."
+        "explanation": "Faux. Ca appartient au groupe 2 et au bloc $s$."
       },
       {
-        "content": "Les forces de London nécessitent un dipôle permanent préexistant.",
+        "content": "Le fer et le cobalt appartiennent à la même famille chimique puisqu'ils sont situés sur la même période.",
         "correct": false,
-        "explanation": "Elles résultent de dipôles instantanés et induits."
+        "explanation": "Faux. Être sur la même période signifie être sur la même ligne ; une famille correspond à une même colonne."
       },
       {
-        "content": "Le chlore est plus électronégatif que le fluor.",
+        "content": "Le brome est plus électronégatif que le chlore.",
         "correct": false,
-        "explanation": "Le fluor est l’élément le plus électronégatif sur l’échelle de Pauling."
+        "explanation": "Faux. Dans le groupe 17, l'électronégativité augmente vers le haut : Cl est plus électronégatif que Br."
+      },
+      {
+        "content": "Le silicium possède six électrons de valence puisqu'il se trouve dans le bloc $p$.",
+        "correct": false,
+        "explanation": "Faux. Si appartient au groupe 14 et possède quatre électrons de valence."
+      },
+      {
+        "content": "Le néon et l'argon appartiennent à la famille des halogènes et possèdent sept électrons de valence.",
+        "correct": false,
+        "explanation": "Faux. Ne et Ar sont des gaz nobles du groupe 18 ; ce ne sont pas des halogènes."
       }
     ]
   },
@@ -674,41 +672,41 @@
     "order": 18,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition distingue correctement l’électronégativité de l’affinité électronique ?",
-    "explanation": "L’électronégativité est une grandeur relative utilisée pour décrire l’attraction de la densité électronique dans une liaison. L’affinité électronique décrit l’énergétique de l’ajout d’un électron à une espèce isolée, généralement en phase gazeuse.",
+    "question": "On compare notamment $\\ce{Cl}$ et $\\ce{Br}$ dans la classification proposée. Quelle grandeur décrit la capacité d'un atome engagé dans une liaison chimique à attirer vers lui le doublet liant ?",
+    "explanation": "L'électronégativité traduit la tendance d'un atome engagé dans une liaison à attirer vers lui la densité électronique de cette liaison. Elle doit être distinguée notamment de l'affinité électronique, qui décrit l'aspect énergétique associé à l'ajout d'un électron à une espèce isolée.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
       "colle:C01",
       "ec:CHIMIE",
       "chapter:1.2",
-      "theme:electronegativity-affinity"
+      "theme:electronegativity-definition"
     ],
     "choices": [
       {
-        "content": "L’électronégativité et l’affinité électronique sont strictement la même grandeur exprimée dans deux unités différentes.",
-        "correct": false,
-        "explanation": "Elles décrivent des concepts distincts."
-      },
-      {
-        "content": "L’électronégativité décrit l’attraction des électrons de liaison, alors que l’affinité électronique concerne l’ajout d’un électron à une espèce isolée.",
+        "content": "L'électronégativité.",
         "correct": true,
-        "explanation": "C’est la distinction conceptuelle essentielle."
+        "explanation": "C'est la définition même de l'électronégativité."
       },
       {
-        "content": "L’affinité électronique ne concerne que les métaux alcalins.",
+        "content": "L'affinité électronique.",
         "correct": false,
-        "explanation": "Elle peut être considérée pour de nombreux éléments."
+        "explanation": "L'affinité électronique concerne l'ajout d'un électron à une espèce isolée."
       },
       {
-        "content": "L’électronégativité est une énergie mesurée exclusivement en joules par mole.",
+        "content": "L'énergie d'ionisation.",
         "correct": false,
-        "explanation": "Les échelles usuelles d’électronégativité, comme Pauling, sont relatives et sans unité."
+        "explanation": "L'énergie d'ionisation est l'énergie nécessaire pour arracher un électron à un atome isolé."
       },
       {
-        "content": "Le fluor est le plus électronégatif uniquement parce qu’il possède le plus grand numéro atomique.",
+        "content": "Le rayon atomique.",
         "correct": false,
-        "explanation": "L’électronégativité résulte de la structure électronique et de l’attraction nucléaire effective, pas du seul numéro atomique."
+        "explanation": "Le rayon atomique mesure la taille de l'atome."
+      },
+      {
+        "content": "Le nombre de masse.",
+        "correct": false,
+        "explanation": "Le nombre de masse $A$ est le nombre total de nucléons."
       }
     ]
   },
@@ -716,8 +714,8 @@
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QZONE",
-    "question": "Sur cette classification périodique simplifiée, sélectionnez la case du fluor, élément le plus électronégatif.",
-    "explanation": "Le fluor se situe en période 2, groupe 17, juste à gauche du néon.",
+    "question": "Dans la famille contenant $\\ce{Cl}$ et $\\ce{Br}$, l'électronégativité augmente globalement vers le haut. Sélectionnez la case vide correspondant à l'élément de cette famille situé en deuxième période.",
+    "explanation": "$\\ce{Cl}$ et $\\ce{Br}$ sont alignés dans le groupe 17, celui des halogènes. L'élément de cette famille situé au-dessus du chlore, en deuxième période, est le fluor $\\ce{F}$. L'électronégativité augmente globalement lorsqu'on remonte dans une famille ; le fluor est ainsi l'élément le plus électronégatif.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -728,8 +726,8 @@
       "theme:periodic-table"
     ],
     "image": {
-      "src": "/images/training/ue14/colles/c01/periodic-table-fluor-qzone.svg",
-      "alt": "Classification périodique simplifiée des quatre premières périodes",
+      "src": "/images/training/ue14/colles/c01/periodic-table-linked-q17-q19.svg",
+      "alt": "Classification périodique simplifiée des quatre premières périodes avec plusieurs éléments repères et certaines cases laissées vides.",
       "width": 960,
       "height": 390
     },

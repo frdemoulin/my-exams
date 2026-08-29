@@ -1,86 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="390" viewBox="0 0 960 390" role="img" aria-labelledby="title desc">
 <title id="title">Classification périodique simplifiée</title>
-<desc id="desc">Les quatre premières périodes de la classification périodique, avec les symboles des éléments.</desc>
+<desc id="desc">Classification périodique simplifiée des quatre premières périodes avec plusieurs éléments repères et certaines cases laissées vides.</desc>
 <style>
-  .cell{fill:#f8fafc;stroke:#64748b;stroke-width:1.5}.sym{font:600 16px ui-sans-serif,system-ui,sans-serif;fill:#0f172a;text-anchor:middle;dominant-baseline:middle}.period{font:500 12px ui-sans-serif,system-ui,sans-serif;fill:#64748b}.caption{font:600 18px ui-sans-serif,system-ui,sans-serif;fill:#0f172a}.sub{font:400 13px ui-sans-serif,system-ui,sans-serif;fill:#64748b}
+  .cell { fill: #f8fafc; stroke: #64748b; stroke-width: 1.5; }
+  .sym { font: 600 16px ui-sans-serif, system-ui, sans-serif; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; }
+  .period { font: 500 12px ui-sans-serif, system-ui, sans-serif; fill: #64748b; }
+  .caption { font: 600 18px ui-sans-serif, system-ui, sans-serif; fill: #0f172a; }
+  .sub { font: 400 13px ui-sans-serif, system-ui, sans-serif; fill: #64748b; }
 </style>
 <rect width="960" height="390" fill="white"/>
 <text x="30" y="34" class="caption">Classification périodique simplifiée</text>
-<text x="30" y="55" class="sub">Repérez l’élément demandé à partir de sa position dans la classification.</text>
+<text x="30" y="55" class="sub">Les quatre premières périodes avec symboles repères et cases laissées vides.</text>
+
+<!-- Période 1 -->
 <text x="8" y="109" class="period">P1</text>
 <rect class="cell" x="30" y="82" width="44" height="44" rx="5"/>
-<text class="sym" x="52.0" y="105.0">H</text>
+<text class="sym" x="52" y="105">H</text>
 <rect class="cell" x="880" y="82" width="44" height="44" rx="5"/>
-<text class="sym" x="902.0" y="105.0">He</text>
+<text class="sym" x="902" y="105">He</text>
+
+<!-- Période 2 -->
 <text x="8" y="173" class="period">P2</text>
 <rect class="cell" x="30" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="52.0" y="169.0">Li</text>
+<text class="sym" x="52" y="169">Li</text>
 <rect class="cell" x="80" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="102.0" y="169.0">Be</text>
+<text class="sym" x="102" y="169">Be</text>
 <rect class="cell" x="630" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="652.0" y="169.0">B</text>
 <rect class="cell" x="680" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="702.0" y="169.0">C</text>
+<text class="sym" x="702" y="169">C</text>
 <rect class="cell" x="730" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="752.0" y="169.0">N</text>
 <rect class="cell" x="780" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="802.0" y="169.0">O</text>
+<text class="sym" x="802" y="169">O</text>
+<!-- Groupe 17 Période 2 : CASE TOTALEMENT VIDE (Fluor) -->
 <rect class="cell" x="830" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="852.0" y="169.0">F</text>
 <rect class="cell" x="880" y="146" width="44" height="44" rx="5"/>
-<text class="sym" x="902.0" y="169.0">Ne</text>
+<text class="sym" x="902" y="169">Ne</text>
+
+<!-- Période 3 -->
 <text x="8" y="237" class="period">P3</text>
 <rect class="cell" x="30" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="52.0" y="233.0">Na</text>
+<text class="sym" x="52" y="233">Na</text>
 <rect class="cell" x="80" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="102.0" y="233.0">Mg</text>
+<text class="sym" x="102" y="233">Mg</text>
 <rect class="cell" x="630" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="652.0" y="233.0">Al</text>
 <rect class="cell" x="680" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="702.0" y="233.0">Si</text>
+<text class="sym" x="702" y="233">Si</text>
 <rect class="cell" x="730" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="752.0" y="233.0">P</text>
 <rect class="cell" x="780" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="802.0" y="233.0">S</text>
+<text class="sym" x="802" y="233">S</text>
 <rect class="cell" x="830" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="852.0" y="233.0">Cl</text>
+<text class="sym" x="852" y="233">Cl</text>
 <rect class="cell" x="880" y="210" width="44" height="44" rx="5"/>
-<text class="sym" x="902.0" y="233.0">Ar</text>
+<text class="sym" x="902" y="233">Ar</text>
+
+<!-- Période 4 -->
 <text x="8" y="301" class="period">P4</text>
 <rect class="cell" x="30" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="52.0" y="297.0">K</text>
+<text class="sym" x="52" y="297">K</text>
 <rect class="cell" x="80" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="102.0" y="297.0">Ca</text>
+<text class="sym" x="102" y="297">Ca</text>
 <rect class="cell" x="130" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="152.0" y="297.0">Sc</text>
 <rect class="cell" x="180" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="202.0" y="297.0">Ti</text>
 <rect class="cell" x="230" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="252.0" y="297.0">V</text>
 <rect class="cell" x="280" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="302.0" y="297.0">Cr</text>
 <rect class="cell" x="330" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="352.0" y="297.0">Mn</text>
 <rect class="cell" x="380" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="402.0" y="297.0">Fe</text>
+<text class="sym" x="402" y="297">Fe</text>
 <rect class="cell" x="430" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="452.0" y="297.0">Co</text>
+<text class="sym" x="452" y="297">Co</text>
 <rect class="cell" x="480" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="502.0" y="297.0">Ni</text>
 <rect class="cell" x="530" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="552.0" y="297.0">Cu</text>
 <rect class="cell" x="580" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="602.0" y="297.0">Zn</text>
 <rect class="cell" x="630" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="652.0" y="297.0">Ga</text>
 <rect class="cell" x="680" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="702.0" y="297.0">Ge</text>
 <rect class="cell" x="730" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="752.0" y="297.0">As</text>
 <rect class="cell" x="780" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="802.0" y="297.0">Se</text>
 <rect class="cell" x="830" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="852.0" y="297.0">Br</text>
+<text class="sym" x="852" y="297">Br</text>
 <rect class="cell" x="880" y="274" width="44" height="44" rx="5"/>
-<text class="sym" x="902.0" y="297.0">Kr</text>
+<text class="sym" x="902" y="297">Kr</text>
 </svg>
+
