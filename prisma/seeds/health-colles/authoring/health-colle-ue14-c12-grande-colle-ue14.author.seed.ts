@@ -64,17 +64,9 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "theme:regle-hund-carbone"
     ],
     answer: {
-      type: "text",
-      acceptedAnswers: [
-        "2"
-      ],
-      normalization: {
-        trim: true,
-        collapseWhitespace: true,
-        caseSensitive: false,
-        ignoreAccents: true,
-        normalizeUnicode: true
-      }
+      type: "number",
+      value: 2,
+      tolerance: 0
     }
   },
   {
@@ -487,8 +479,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 13,
     difficulty: "MEDIUM",
     format: "QRU",
-    question: "Une molécule comporte simultanément un acide carboxylique, une cétone et une amine. Quelle fonction détermine le suffixe principal dans la hiérarchie de nomenclature retenue ?",
-    explanation: "Dans la hiérarchie utilisée pour le chapitre transversal, l’acide carboxylique est prioritaire sur la cétone et l’amine.",
+    question: "Dans la molécule M, quelle fonction détermine le suffixe principal dans la hiérarchie de nomenclature retenue ?",
+    explanation: "Dans la hiérarchie fonctionnelle utilisée pour la nomenclature de cette EC, l’acide carboxylique est prioritaire sur la cétone et l’amine. Il détermine donc le suffixe principal du nom ; les autres fonctions sont exprimées comme fonctions secondaires selon les règles de nomenclature correspondantes.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -528,8 +520,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 14,
     difficulty: "MEDIUM",
     format: "QRM",
-    question: "À propos des acides carboxyliques et de leurs bases conjuguées, quelles propositions sont exactes ?",
-    explanation: "La stabilité du carboxylate repose sur la délocalisation électronique ; la réactivité des dérivés d’acides dépend notamment de la qualité du groupe partant.",
+    question: "À propos de la fonction acide carboxylique portée par M et de sa base conjuguée, quelles propositions sont exactes ?",
+    explanation: "La perte du proton acide conduit au carboxylate. Ses deux formes mésomères limites délocalisent la charge négative sur les deux oxygènes, de sorte que les deux liaisons C–O sont équivalentes dans la description moyenne. Le carbone du motif carboxyle reste associé à un système π délocalisé et la fonction acide comporte bien un carbonyle.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -539,29 +531,29 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     ],
     choices: [
       {
-        content: "La déprotonation d’un acide carboxylique donne un ion carboxylate.",
+        content: "Sa déprotonation conduit à un ion carboxylate.",
         correct: true,
         explanation: "La perte de H+ concerne le groupe –COOH."
       },
       {
-        content: "Dans un carboxylate, les deux liaisons C–O deviennent équivalentes dans la description mésomère moyenne.",
+        content: "Dans le carboxylate, les deux liaisons C–O deviennent équivalentes dans la description mésomère moyenne.",
         correct: true,
         explanation: "La charge et le caractère de liaison sont délocalisés sur les deux oxygènes."
       },
       {
-        content: "Un chlorure d’acyle peut subir une substitution nucléophile d’acyle.",
+        content: "La fonction acide carboxylique de M contient elle-même un groupe carbonyle.",
         correct: true,
-        explanation: "Le carbone carbonylé est électrophile et le chlorure peut partir."
+        explanation: "Le motif carboxyle associe un groupe C=O et un groupe OH."
       },
       {
-        content: "L’hydrolyse d’un nitrile peut conduire à un acide carboxylique selon les conditions.",
+        content: "La charge négative du carboxylate est stabilisée par délocalisation sur les deux oxygènes.",
         correct: true,
-        explanation: "L’amide peut constituer un intermédiaire sur le chemin d’hydrolyse."
+        explanation: "Les formes mésomères limites contribuent à cette stabilisation."
       },
       {
-        content: "Un acide carboxylique est dépourvu de groupe carbonyle.",
+        content: "La déprotonation transforme le carbone carboxylique en carbone tétraédrique sp³ dépourvu de toute délocalisation.",
         correct: false,
-        explanation: "Le carboxyle contient un carbonyle."
+        explanation: "Le carbone carboxylique reste hybride sp² avec délocalisation π."
       }
     ]
   },
@@ -569,8 +561,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 15,
     difficulty: "MEDIUM",
     format: "QRM",
-    question: "Un étudiant suit plusieurs transformations d’une même chaîne carbonée. Quelles propositions sont exactes ?",
-    explanation: "Le sens oxydation/réduction et le type de réactif permettent de suivre les interconversions entre alcool, aldéhyde/cétone et acide.",
+    question: "En analysant les quatre transformations du panneau B, quelles propositions sont exactes ?",
+    explanation: "Le passage d’un alcool primaire à un aldéhyde est une oxydation. NaBH4 réduit un aldéhyde en alcool primaire et une cétone en alcool secondaire. L’oxydation d’un aldéhyde peut conduire à l’acide carboxylique correspondant. La transformation 4 est donc une réduction, et non une oxydation.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -580,29 +572,29 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     ],
     choices: [
       {
-        content: "Propan-1-ol → propanal correspond à une oxydation.",
+        content: "La transformation 1 correspond à l’oxydation d’un alcool primaire en aldéhyde.",
         correct: true,
         explanation: "Le carbone portant l’alcool augmente son degré d’oxydation."
       },
       {
-        content: "Propanal → propan-1-ol sous l’action de NaBH4 correspond à une réduction.",
+        content: "La transformation 2 correspond à une réduction de l’aldéhyde en alcool primaire.",
         correct: true,
-        explanation: "Le carbonyle aldéhydique est réduit en alcool primaire."
+        explanation: "Le carbonyle aldéhydique est réduit en alcool primaire par NaBH4."
       },
       {
-        content: "Propanal → acide propanoïque correspond à une oxydation.",
+        content: "La transformation 3 correspond à une oxydation de l’aldéhyde en acide carboxylique.",
         correct: true,
         explanation: "L’aldéhyde est oxydé en acide de même squelette."
       },
       {
-        content: "Propanone → propan-2-ol correspond à une oxydation.",
+        content: "La transformation 4 correspond à une oxydation de la propanone en propan-2-ol.",
         correct: false,
         explanation: "Le passage d’une cétone à un alcool secondaire est une réduction."
       },
       {
-        content: "La saponification d’un ester est une hydrogénation catalytique.",
+        content: "La transformation 1 est une substitution nucléophile d’acyle au cours de laquelle le nombre d’oxydation du carbone fonctionnel reste nécessairement inchangé.",
         correct: false,
-        explanation: "C’est une hydrolyse basique."
+        explanation: "C’est une oxydation d’alcool en aldéhyde."
       }
     ]
   },
@@ -610,8 +602,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 16,
     difficulty: "MEDIUM",
     format: "QZONE",
-    question: "Sélectionnez l’oxygène du groupe carbonyle.",
-    explanation: "L’oxygène carbonylé est l’atome d’oxygène engagé dans la double liaison C=O.",
+    question: "Sur la molécule M du panneau A, sélectionnez l’oxygène du carbonyle de la fonction cétone, et non l’un des oxygènes de la fonction acide carboxylique.",
+    explanation: "M possède deux motifs contenant un carbonyle : la fonction acide carboxylique et la fonction cétone. La cible demandée est l’oxygène doublement lié au carbone de la cétone interne. Il faut donc le distinguer des deux oxygènes appartenant au groupe carboxyle.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -620,21 +612,21 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       "theme:qzone-carbonyle"
     ],
     image: {
-      src: "/images/training/ue14/colles/c12/carbonyl-oxygen-qzone.svg",
-      alt: "Groupe carbonyle",
-      width: 960,
-      height: 560
+      src: "/images/training/ue14/colles/c12/polyfunctional-reactivity-linked-q13-q16.svg",
+      alt: "Molécule polyfonctionnelle M portant un acide carboxylique, une cétone et une amine, accompagnée de plusieurs transformations simples entre alcool, aldéhyde, acide carboxylique et cétone.",
+      width: 1200,
+      height: 760
     },
     expectedZones: [
       {
-        id: "target",
-        label: "Oxygène carbonylé",
-        x: 0.59,
-        y: 0.24,
-        tolerance: 0.07
+        id: "target-ketone-carbonyl-oxygen",
+        label: "Oxygène carbonylé de la fonction cétone de M",
+        x: 0.2667,
+        y: 0.3289,
+        tolerance: 0.04
       }
     ],
-    defaultTolerance: 0.07
+    defaultTolerance: 0.04
   },
   {
     order: 17,
@@ -691,17 +683,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       "theme:hydrolyse-oligosaccharide"
     ],
     answer: {
-      type: "text",
-      acceptedAnswers: [
-        "4"
-      ],
-      normalization: {
-        trim: true,
-        collapseWhitespace: true,
-        caseSensitive: false,
-        ignoreAccents: true,
-        normalizeUnicode: true
-      }
+      type: "number",
+      value: 4,
+      tolerance: 0
     }
   },
   {
@@ -1104,20 +1088,11 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       "theme:activite-specifique"
     ],
     answer: {
-      type: "text",
-      acceptedAnswers: [
-        "4",
-        "4 U/mg",
-        "4 U·mg⁻¹",
-        "4 U.mg-1"
-      ],
-      normalization: {
-        trim: true,
-        collapseWhitespace: true,
-        caseSensitive: false,
-        ignoreAccents: true,
-        normalizeUnicode: true
-      }
+      type: "number",
+      value: 4,
+      tolerance: 0,
+      unit: "U/mg",
+      displayUnit: "\\mathrm{U}\\cdot\\mathrm{mg}^{-1}"
     }
   },
   {
@@ -1530,8 +1505,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 40,
     difficulty: "HARD",
     format: "QRM",
-    question: "À propos de la mitochondrie et du noyau, quelles propositions sont exactes ?",
-    explanation: "Ces organites utilisent des systèmes d’adressage distincts et concentrent des fonctions centrales de respiration, expression génétique et signalisation.",
+    question: "En vous appuyant sur le schéma et sur l’organisation du noyau et de la mitochondrie, quelles propositions sont exactes ?",
+    explanation: "Le complexe TOM appartient à la membrane externe mitochondriale et participe à l’import de nombreuses protéines. La mitochondrie possède un génome propre, distinct du génome nucléaire, même si son autonomie protéique est limitée. Dans le noyau, le nucléole n’est pas entouré d’une membrane et participe à la biogenèse ribosomale ; les complexes de pores nucléaires sont formés de nucléoporines. Enfin, le complexe II de la chaîne respiratoire transfère des électrons sans pomper directement de protons.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -1571,8 +1546,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 41,
     difficulty: "EASY",
     format: "QRU",
-    question: "Quelle proposition décrit correctement un nucléosome canonique ?",
-    explanation: "Le cœur du nucléosome contient deux copies de H2A, H2B, H3 et H4 autour desquelles s’enroulent environ 147 paires de bases d’ADN.",
+    question: "Dans l’agrandissement de la chromatine, quelle proposition décrit correctement l’unité nucléosomique canonique représentée ?",
+    explanation: "Le nucléosome canonique correspond à environ 147 paires de bases d’ADN enroulées autour d’un octamère formé de deux copies de chacune des histones H2A, H2B, H3 et H4. L’histone H1 est une histone de liaison et ne constitue pas le cœur octamérique.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -1612,8 +1587,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 42,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: "À quelle grande famille du cytosquelette appartiennent les lamines nucléaires ?",
-    explanation: "Les lamines A, B et C sont des protéines de la famille des filaments intermédiaires. Elles forment la lamina nucléaire sous la membrane nucléaire interne. Elles ne doivent pas être confondues avec les laminines, protéines de la matrice extracellulaire.",
+    question: "À quelle grande famille du cytosquelette appartiennent les lamines représentées sous l’enveloppe nucléaire ?",
+    explanation: "Les lamines nucléaires sont des protéines de la famille des filaments intermédiaires. Elles forment la lamina nucléaire, un réseau associé à la face interne de l’enveloppe nucléaire et impliqué notamment dans son organisation mécanique.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -1642,8 +1617,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 43,
     difficulty: "HARD",
     format: "QZONE",
-    question: "Sélectionnez la membrane interne mitochondriale.",
-    explanation: "La chaîne respiratoire et l’ATP synthase sont localisées dans la membrane interne mitochondriale.",
+    question: "Sur l’agrandissement de la mitochondrie, sélectionnez un segment de la membrane interne mitochondriale.",
+    explanation: "La membrane interne mitochondriale se situe à l’intérieur de la membrane externe et forme des replis appelés crêtes. Elle porte notamment les principaux complexes de la chaîne respiratoire et l’ATP synthase. La membrane externe, la matrice et l’ADN mitochondrial ne correspondent pas à la zone demandée.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -1652,21 +1627,21 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       "theme:qzone-mitochondrie"
     ],
     image: {
-      src: "/images/training/ue14/colles/c12/mitochondria-inner-membrane-qzone.svg",
-      alt: "Mitochondrie schématique",
-      width: 960,
-      height: 560
+      src: "/images/training/ue14/colles/c12/nucleus-mitochondrion-linked-q40-q43.svg",
+      alt: "Schéma d’une cellule eucaryote montrant un noyau avec nucléole, pores, chromatine et lamines, ainsi qu’une mitochondrie à double membrane avec complexe TOM et ADN mitochondrial.",
+      width: 1200,
+      height: 760
     },
     expectedZones: [
       {
-        id: "target",
+        id: "target-mitochondrial-inner-membrane",
         label: "Membrane interne mitochondriale",
-        x: 0.5,
-        y: 0.5,
-        tolerance: 0.11
+        x: 0.7333,
+        y: 0.8158,
+        tolerance: 0.05
       }
     ],
-    defaultTolerance: 0.11
+    defaultTolerance: 0.05
   },
   {
     order: 44,

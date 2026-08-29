@@ -1,15 +1,200 @@
 import type { PrismaClient } from "@prisma/client";
 import { UE14_COLLE_C12_QUESTIONS } from "../authoring/health-colle-ue14-c12-grande-colle-ue14.author.seed";
-import { seedHealthColleUE14 } from "./seed-health-colle-ue14";
+import { compileHealthTrainingAuthorQuestion } from "../../../../src/core/questions/health-author-question-compiler";
+import { UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID } from "./health-colle-ue14-theme-mapping.final";
+
+const normalize = (value: string | null | undefined) =>
+  (value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 export async function seedHealthColleUE14C12(prisma: PrismaClient) {
-  return seedHealthColleUE14(prisma, {
-    code: "C12", title: "Grande colle UE14", description: "3 EC · Chimie + Biochimie + Biologie cellulaire",
-    durationSeconds: 4500, order: 12,
-    sections: [
-    { title: "Chimie", teachingElementKey: "CHIMIE", questions: UE14_COLLE_C12_QUESTIONS.slice(0, 16) },
-    { title: "Biochimie", teachingElementKey: "BIOCHIMIE", questions: UE14_COLLE_C12_QUESTIONS.slice(16, 33) },
-    { title: "Biologie cellulaire", teachingElementKey: "BIOLOGIE_CELLULAIRE", questions: UE14_COLLE_C12_QUESTIONS.slice(33, 50) }
-    ],
+  const courseUnit = await prisma.healthCourseUnit.findFirst({
+    where: { OR: [{ slug: "ue14" }, { slug: { startsWith: "ue14" } }], isActive: true },
+    include: { teachingElements: true },
   });
+  if (!courseUnit) throw new Error("Impossible de trouver l'UE14 pour C12.");
+
+  const chimieElement = courseUnit.teachingElements.find((te) => {
+    const hay = [te.slug, te.code, te.title].map(normalize).join(" ");
+    return hay.includes("chimie") && !hay.includes("biochimie");
+  });
+  const biochimieElement = courseUnit.teachingElements.find((te) => {
+    const hay = [te.slug, te.code, te.title].map(normalize).join(" ");
+    return hay.includes("biochimie");
+  });
+  const biocellElement = courseUnit.teachingElements.find((te) => {
+    const hay = [te.slug, te.code, te.title].map(normalize).join(" ");
+    return hay.includes("biologie cellulaire") || hay.includes("biologie-cellulaire");
+  });
+
+  if (!chimieElement || !biochimieElement || !biocellElement) {
+    throw new Error("Éléments pédagogiques introuvables pour C12.");
+  }
+
+  const existingColle = await prisma.healthMockExam.findFirst({
+    where: { courseUnitId: courseUnit.id, slug: "c12" },
+  });
+
+  if (existingColle) {
+    const attemptCount = await prisma.userHealthMockExamAttempt.count({
+      where: { mockExamId: existingColle.id },
+    });
+    if (attemptCount === 0) {
+      await prisma.healthMockExam.delete({ where: { id: existingColle.id } });
+    } else {
+      console.warn(`[SEED C12] ${attemptCount} tentative(s) conservée(s). Mise à jour du contenu.`);
+      await prisma.healthMockExamSection.deleteMany({
+        where: { mockExamId: existingColle.id },
+      });
+    }
+  }
+
+  const compiledQuestions = UE14_COLLE_C12_QUESTIONS.map((q) =>
+    compileHealthTrainingAuthorQuestion(q)
+  );
+
+  const mockExam =
+    existingColle &&
+    (await prisma.userHealthMockExamAttempt.count({ where: { mockExamId: existingColle.id } })) > 0
+      ? existingColle
+      : await prisma.healthMockExam.create({
+          data: {
+            courseUnitId: courseUnit.id,
+            type: "COLLE",
+            title: "Grande colle UE14",
+            slug: "c12",
+            description: "3 EC · Chimie + Biochimie + Biologie cellulaire",
+            instructions: "Colle UE14 Reims — 50 questions — 75 min — Notation UNESS",
+            durationMinutes: 75,
+            durationSeconds: 4500,
+            questionCount: 50,
+            version: 1,
+            order: 12,
+            isPublished: true,
+          },
+        });
+
+  // Section 1: Chimie (Q1 à Q16)
+  const sectionChimie = await prisma.healthMockExamSection.create({
+    data: {
+      mockExamId: mockExam.id,
+      teachingElementId: chimieElement.id,
+      title: "Chimie",
+      order: 1,
+      questionCount: 16,
+      firstQuestion: 1,
+      lastQuestion: 16,
+    },
+  });
+
+  // Section 2: Biochimie (Q17 à Q33)
+  const sectionBiochimie = await prisma.healthMockExamSection.create({
+    data: {
+      mockExamId: mockExam.id,
+      teachingElementId: biochimieElement.id,
+      title: "Biochimie",
+      order: 2,
+      questionCount: 17,
+      firstQuestion: 17,
+      lastQuestion: 33,
+    },
+  });
+
+  // Section 3: Biologie cellulaire (Q34 à Q50)
+  const sectionBiocell = await prisma.healthMockExamSection.create({
+    data: {
+      mockExamId: mockExam.id,
+      teachingElementId: biocellElement.id,
+      title: "Biologie cellulaire",
+      order: 3,
+      questionCount: 17,
+      firstQuestion: 34,
+      lastQuestion: 50,
+    },
+  });
+
+  // Groupe 1 (Chimie - Q13 à Q16)
+  const group1 = await prisma.healthMockExamQuestionGroup.create({
+    data: {
+      examSectionId: sectionChimie.id,
+      title: "Données communes — Molécule polyfonctionnelle et transformations",
+      sharedStatement:
+        "Le panneau A présente une molécule M portant simultanément une fonction acide carboxylique, une cétone et une amine. Le panneau B rassemble plusieurs transformations simples de fonctions oxygénées. Les deux panneaux servent aux quatre questions suivantes.",
+      sharedMedia: {
+        type: "image",
+        src: "/images/training/ue14/colles/c12/polyfunctional-reactivity-linked-q13-q16.svg",
+        alt: "Molécule polyfonctionnelle M portant un acide carboxylique, une cétone et une amine, accompagnée de plusieurs transformations simples entre alcool, aldéhyde, acide carboxylique et cétone.",
+      } as any,
+      order: 1,
+    },
+  });
+
+  // Groupe 2 (Biologie cellulaire - Q40 à Q43)
+  const group2 = await prisma.healthMockExamQuestionGroup.create({
+    data: {
+      examSectionId: sectionBiocell.id,
+      title: "Données communes — Noyau et mitochondrie",
+      sharedStatement:
+        "Le schéma représente une cellule eucaryote avec un noyau et une mitochondrie. Deux agrandissements montrent l’organisation de la chromatine au voisinage de l’enveloppe nucléaire et les membranes mitochondriales. Le même support sert aux quatre questions suivantes.",
+      sharedMedia: {
+        type: "image",
+        src: "/images/training/ue14/colles/c12/nucleus-mitochondrion-linked-q40-q43.svg",
+        alt: "Schéma d’une cellule eucaryote montrant un noyau avec nucléole, pores, chromatine et lamines, ainsi qu’une mitochondrie à double membrane avec complexe TOM et ADN mitochondrial.",
+      } as any,
+      order: 1,
+    },
+  });
+
+  const groupIdsByQuestionOrder = new Map<number, string>();
+  [13, 14, 15, 16].forEach((o) => groupIdsByQuestionOrder.set(o, group1.id));
+  [40, 41, 42, 43].forEach((o) => groupIdsByQuestionOrder.set(o, group2.id));
+
+  const sectionByQuestionOrder = (o: number) => {
+    if (o <= 16) return sectionChimie;
+    if (o <= 33) return sectionBiochimie;
+    return sectionBiocell;
+  };
+
+  const sectionQuestionOrder = (o: number) => {
+    if (o <= 16) return o;
+    if (o <= 33) return o - 16;
+    return o - 33;
+  };
+
+  for (let index = 0; index < compiledQuestions.length; index++) {
+    const q = compiledQuestions[index];
+    const globalOrder = index + 1;
+    const stableId = `c12-q${String(globalOrder).padStart(2, "0")}`;
+    const targetSection = sectionByQuestionOrder(globalOrder);
+    const order = sectionQuestionOrder(globalOrder);
+    const groupId = groupIdsByQuestionOrder.get(globalOrder) ?? null;
+
+    const themeIds = [
+      ...((UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID as Record<string, readonly string[]>)[stableId] ?? []),
+    ];
+
+    await prisma.healthMockExamQuestion.create({
+      data: {
+        examSectionId: targetSection.id,
+        groupId,
+        slug: stableId,
+        difficulty: (q.difficulty as "EASY" | "MEDIUM" | "HARD") ?? "MEDIUM",
+        questionType: q.questionType ?? "mcq",
+        question: q.question,
+        questionDiagram: (q.questionDiagram as any) ?? undefined,
+        choices: (q.choices as any) ?? [],
+        answerFormat: q.answerFormat ?? "SINGLE",
+        correctChoiceIndexes: q.correctChoiceIndexes ?? [],
+        correctChoiceIndex: q.correctChoiceIndexes?.[0] ?? 0,
+        answerPayload: (q.answerPayload as any) ?? undefined,
+        explanation: q.explanation ?? "",
+        choiceExplanations: (q.choiceExplanations as any) ?? [],
+        order,
+        globalOrder,
+        isPublished: true,
+        themeIds,
+      },
+    });
+  }
+
+  return mockExam;
 }
