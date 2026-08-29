@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="pmGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="endoEarlyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="endoLateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7e22ce" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="tgnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="autophagoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="peroxyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#c2410c" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="terminalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#be185d" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <!-- Arrow Markers -->
+    <marker id="arr1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrRecycl" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0369a1"/>
+    </marker>
+    <marker id="arrLate" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#7e22ce"/>
+    </marker>
+    <marker id="arrTGN" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#b45309"/>
+    </marker>
+    <marker id="arrAuto" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#047857"/>
+    </marker>
+    <marker id="arrTerminal" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#be185d"/>
+    </marker>
+
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#f8fafc" rx="16"/>
+
+  <!-- Title banner -->
+  <rect x="30" y="20" width="1140" height="46" rx="8" fill="#e2e8f0" opacity="0.6"/>
+  <text x="600" y="49" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    Voie endolysosomale et convergence des flux de dégradation
+  </text>
+
+  <!-- 1. MEMBRANE PLASMIQUE & ENDOCYTOSE (Top Left) -->
+  <!-- Plasma Membrane Bar -->
+  <rect x="40" y="90" width="400" height="24" rx="12" fill="url(#pmGrad2)" filter="url(#sh)"/>
+  <text x="240" y="106" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff">
+    Membrane plasmique
+  </text>
+
+  <!-- Invagination / Endocytosis Vesicle -->
+  <path d="M 120 114 C 120 140, 150 150, 150 170 C 150 190, 120 190, 120 114" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+  <circle cx="150" cy="180" r="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="150" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0369a1">
+    Vésicule d'endocytose
+  </text>
+
+  <!-- Arrow Endocytosis -> Endosome précoce -->
+  <path d="M 164 180 Q 210 220, 245 280" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="5,4" marker-end="url(#arr1)"/>
+
+  <!-- 2. ENDOSOME PRÉCOCE -->
+  <g filter="url(#sh)">
+    <circle cx="280" cy="320" r="42" fill="url(#endoEarlyGrad)" stroke="#0284c7" stroke-width="2.5"/>
+    <text x="280" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#0369a1">
+      Endosome précoce
+    </text>
+  </g>
+
+  <!-- Recyclage membranaire (Endosome précoce -> Membrane plasmique) -->
+  <path d="M 290 278 C 300 210, 330 170, 340 120" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-dasharray="4,4" marker-end="url(#arrRecycl)"/>
+  <rect x="315" y="185" width="120" height="22" rx="4" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1"/>
+  <text x="375" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0284c7">
+    Recyclage membranaire
+  </text>
+
+  <!-- Arrow Endosome précoce -> Endosome tardif -->
+  <path d="M 322 335 C 380 370, 430 410, 475 435" fill="none" stroke="#7e22ce" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrLate)"/>
+  <text x="395" y="410" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#6b21a8">
+    Maturation endosomale
+  </text>
+
+  <!-- 3. ENDOSOME TARDIF -->
+  <g filter="url(#sh)">
+    <circle cx="520" cy="450" r="48" fill="url(#endoLateGrad)" stroke="#7e22ce" stroke-width="3"/>
+    <!-- Internal vesicles inside late endosome (MVB) -->
+    <circle cx="505" cy="435" r="8" fill="#c084fc" opacity="0.6"/>
+    <circle cx="535" cy="440" r="7" fill="#c084fc" opacity="0.6"/>
+    <circle cx="515" cy="465" r="9" fill="#c084fc" opacity="0.6"/>
+    <text x="520" y="454" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#581c87">
+      Endosome tardif
+    </text>
+  </g>
+
+  <!-- 4. TGN (Réseau trans-golgien - Middle Top) -->
+  <g filter="url(#sh)">
+    <!-- TGN cisternae -->
+    <path d="M 450 170 C 490 190, 550 190, 590 170 C 580 230, 460 230, 450 170 Z" fill="url(#tgnGrad)" stroke="#b45309" stroke-width="2.5"/>
+    <text x="520" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#78350f">
+      TGN
+    </text>
+  </g>
+
+  <!-- Arrow TGN -> Endosome tardif (Apport d'hydrolases) -->
+  <path d="M 520 225 L 520 395" fill="none" stroke="#b45309" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrTGN)"/>
+  <rect x="530" y="295" width="130" height="34" rx="6" fill="#fffbeb" stroke="#fde68a" stroke-width="1"/>
+  <text x="595" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#92400e">
+    Apport d'hydrolases
+  </text>
+  <text x="595" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#b45309">
+    (depuis le TGN)
+  </text>
+
+  <!-- 5. AUTOPHAGOSOME (Middle Right) -->
+  <g filter="url(#sh)">
+    <!-- Outer membrane -->
+    <circle cx="840" cy="220" r="45" fill="url(#autophagoGrad)" stroke="#047857" stroke-width="3"/>
+    <!-- Inner membrane (Double membrane feature) -->
+    <circle cx="840" cy="220" r="36" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4,2"/>
+    <!-- Material inside autophagosome -->
+    <rect x="828" y="210" width="12" height="12" rx="2" fill="#047857"/>
+    <circle cx="850" cy="225" r="5" fill="#065f46"/>
+    <text x="840" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#065f46">
+      Autophagosome
+    </text>
+    <text x="840" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#047857">
+      (Double membrane)
+    </text>
+  </g>
+
+  <!-- 6. PEROXYSOME (Top Right - Distracteur visuel isolé) -->
+  <g filter="url(#sh)">
+    <!-- Single membrane peroxysome -->
+    <circle cx="1060" cy="220" r="32" fill="url(#peroxyGrad)" stroke="#c2410c" stroke-width="2.5"/>
+    <!-- Crystalline core inside peroxysome -->
+    <polygon points="1060,206 1072,220 1060,234 1048,220" fill="#9a3412"/>
+    <text x="1060" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#9a3412">
+      Peroxysome
+    </text>
+    <text x="1060" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#c2410c">
+      (Membrane unique, distale)
+    </text>
+  </g>
+
+  <!-- 7. COMPARTIMENT TERMINAL DÉGRADATIF (Bottom Center-Right) -->
+  <!-- Target zone for Q19: Center X=840, Y=450, Radius=60 (Normalized x=0.7000, y=0.6429, tol=0.06) -->
+  <g filter="url(#sh)">
+    <circle cx="840" cy="450" r="62" fill="url(#terminalGrad)" stroke="#be185d" stroke-width="4"/>
+    
+    <!-- Acidic hydrolases & degraded material inside -->
+    <circle cx="815" cy="430" r="8" fill="#9d174d"/>
+    <circle cx="860" cy="435" r="6" fill="#831843"/>
+    <polygon points="840,460 847,472 833,472" fill="#be185d"/>
+    <circle cx="825" cy="470" r="7" fill="#9d174d"/>
+    <circle cx="855" cy="475" r="9" fill="#831843"/>
+
+    <!-- Label: Terminal Acidic Degradative Compartment (NO LYSOSOME WORD!) -->
+    <text x="840" y="445" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#831843">
+      Compartiment terminal
+    </text>
+    <text x="840" y="463" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#9d174d">
+      acide &amp; dégradatif
+    </text>
+    <text x="840" y="479" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#be185d">
+      (pH ≈ 4.5–5.0)
+    </text>
+  </g>
+
+  <!-- Arrow Endosome tardif -> Compartiment terminal -->
+  <path d="M 570 450 L 772 450" fill="none" stroke="#be185d" stroke-width="3.5" stroke-dasharray="6,4" marker-end="url(#arrTerminal)"/>
+  <rect x="620" y="420" width="110" height="22" rx="4" fill="#fdf2f8" stroke="#fbcfe8" stroke-width="1"/>
+  <text x="675" y="435" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#be185d">
+    Fusion &amp; Apport
+  </text>
+
+  <!-- Arrow Autophagosome -> Compartiment terminal -->
+  <path d="M 840 268 L 840 382" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrAuto)"/>
+  <rect x="850" y="315" width="130" height="34" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+  <text x="915" y="332" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#047857">
+    Macroautophagie
+  </text>
+  <text x="915" y="344" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#065f46">
+    (Convergence)
+  </text>
+
+  <!-- LEGENDE ET CARTOUCHE COMPARTIMENTS -->
+  <g filter="url(#sh)">
+    <rect x="40" y="585" width="1120" height="90" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="60" y="612" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">
+      Légende des flux et compartiments représentés :
+    </text>
+    
+    <circle cx="70" cy="640" r="10" fill="#0284c7"/>
+    <text x="88" y="644" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#334155">
+      Voie endocytaire (Membrane → Endosome précoce → Endosome tardif)
+    </text>
+
+    <circle cx="470" cy="640" r="10" fill="#b45309"/>
+    <text x="488" y="644" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#334155">
+      Tri des hydrolases (TGN → Endosomes)
+    </text>
+
+    <circle cx="760" cy="640" r="10" fill="#047857"/>
+    <text x="778" y="644" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#334155">
+      Macroautophagie (Autophagosome)
+    </text>
+
+    <circle cx="1020" cy="640" r="10" fill="#c2410c"/>
+    <text x="1038" y="644" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#334155">
+      Peroxysome (Isolé)
+    </text>
+  </g>
+</svg>
+
